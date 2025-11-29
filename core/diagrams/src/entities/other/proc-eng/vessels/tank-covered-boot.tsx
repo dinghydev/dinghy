@@ -11,11 +11,5 @@ export const TANK_COVERED_BOOT = {
 }
 
 export function TankCoveredBoot(props: NodeProps) {
-  return (
-    <Shape
-      {...TANK_COVERED_BOOT}
-      {...props}
-      _style={extendStyle(TANK_COVERED_BOOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_COVERED_BOOT)} />
 }

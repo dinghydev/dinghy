@@ -11,11 +11,5 @@ export const ODNOKLASSNIKI = {
 }
 
 export function Odnoklassniki(props: NodeProps) {
-  return (
-    <Shape
-      {...ODNOKLASSNIKI}
-      {...props}
-      _style={extendStyle(ODNOKLASSNIKI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ODNOKLASSNIKI)} />
 }

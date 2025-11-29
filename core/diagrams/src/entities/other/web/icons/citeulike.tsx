@@ -11,7 +11,5 @@ export const CITEULIKE = {
 }
 
 export function Citeulike(props: NodeProps) {
-  return (
-    <Shape {...CITEULIKE} {...props} _style={extendStyle(CITEULIKE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITEULIKE)} />
 }

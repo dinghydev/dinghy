@@ -10,7 +10,5 @@ export const TAPE_DATA = {
 }
 
 export function TapeData(props: NodeProps) {
-  return (
-    <Shape {...TAPE_DATA} {...props} _style={extendStyle(TAPE_DATA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_DATA)} />
 }

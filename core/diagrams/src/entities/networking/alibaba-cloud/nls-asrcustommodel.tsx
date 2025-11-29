@@ -11,11 +11,5 @@ export const NLS_ASRCUSTOMMODEL = {
 }
 
 export function NlsAsrcustommodel(props: NodeProps) {
-  return (
-    <Shape
-      {...NLS_ASRCUSTOMMODEL}
-      {...props}
-      _style={extendStyle(NLS_ASRCUSTOMMODEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLS_ASRCUSTOMMODEL)} />
 }

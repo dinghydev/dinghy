@@ -11,7 +11,5 @@ export const COMPLIANCE = {
 }
 
 export function Compliance(props: NodeProps) {
-  return (
-    <Shape {...COMPLIANCE} {...props} _style={extendStyle(COMPLIANCE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPLIANCE)} />
 }

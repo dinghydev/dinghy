@@ -12,10 +12,6 @@ export const CONTACT_CENTER_AI_PLATFORM = {
 
 export function ContactCenterAiPlatform(props: NodeProps) {
   return (
-    <Shape
-      {...CONTACT_CENTER_AI_PLATFORM}
-      {...props}
-      _style={extendStyle(CONTACT_CENTER_AI_PLATFORM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTACT_CENTER_AI_PLATFORM)} />
   )
 }

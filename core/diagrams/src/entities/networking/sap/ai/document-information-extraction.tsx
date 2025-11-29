@@ -13,9 +13,8 @@ export const DOCUMENT_INFORMATION_EXTRACTION = {
 export function DocumentInformationExtraction(props: NodeProps) {
   return (
     <Shape
-      {...DOCUMENT_INFORMATION_EXTRACTION}
       {...props}
-      _style={extendStyle(DOCUMENT_INFORMATION_EXTRACTION, props)}
+      _style={extendStyle(props, DOCUMENT_INFORMATION_EXTRACTION)}
     />
   )
 }

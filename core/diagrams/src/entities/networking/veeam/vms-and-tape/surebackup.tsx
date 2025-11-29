@@ -11,7 +11,5 @@ export const SUREBACKUP = {
 }
 
 export function Surebackup(props: NodeProps) {
-  return (
-    <Shape {...SUREBACKUP} {...props} _style={extendStyle(SUREBACKUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUREBACKUP)} />
 }

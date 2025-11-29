@@ -11,11 +11,5 @@ export const WINDOW_GARDEN = {
 }
 
 export function WindowGarden(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOW_GARDEN}
-      {...props}
-      _style={extendStyle(WINDOW_GARDEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOW_GARDEN)} />
 }

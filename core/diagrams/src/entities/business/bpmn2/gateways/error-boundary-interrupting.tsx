@@ -13,9 +13,8 @@ export const ERROR_BOUNDARY_INTERRUPTING = {
 export function ErrorBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...ERROR_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(ERROR_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, ERROR_BOUNDARY_INTERRUPTING)}
     />
   )
 }

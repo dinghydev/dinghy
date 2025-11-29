@@ -1,0 +1,1124 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# IAM (Identity & Access Management)
+
+## AwsIamAccessKey
+
+Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_access_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamAccessKey.tsx)
+
+```js
+import { AwsIamAccessKey } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamAccessKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamAccessKeys
+
+Get information on IAM access keys associated with the specified IAM user.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_access_keys)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamAccessKeys.tsx)
+
+```js
+import { DataAwsIamAccessKeys } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamAccessKeys/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamAccountAlias
+
+Manages the account alias for the AWS Account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_account_alias)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamAccountAlias.tsx)
+
+```js
+import { AwsIamAccountAlias } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamAccountAlias/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_account_alias)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamAccountAlias.tsx)
+
+```js
+import { DataAwsIamAccountAlias } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamAccountAlias/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamAccountPasswordPolicy
+
+Manages Password Policy for the AWS Account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_account_password_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamAccountPasswordPolicy.tsx)
+
+```js
+import { AwsIamAccountPasswordPolicy } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamAccountPasswordPolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamGroup
+
+Provides an IAM group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamGroup.tsx)
+
+```js
+import { AwsIamGroup } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamGroup.tsx)
+
+```js
+import { DataAwsIamGroup } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamGroupMembership
+
+Provides a top level resource to manage IAM Group membership for IAM Users.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_membership)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamGroupMembership.tsx)
+
+```js
+import { AwsIamGroupMembership } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamGroupMembership/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamGroupPoliciesExclusive
+
+Terraform resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policies_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamGroupPoliciesExclusive.tsx)
+
+```js
+import { AwsIamGroupPoliciesExclusive } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamGroupPoliciesExclusive/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamGroupPolicy
+
+Provides an IAM policy attached to a group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamGroupPolicy.tsx)
+
+```js
+import { AwsIamGroupPolicy } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamGroupPolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamGroupPolicyAttachment
+
+Attaches a Managed IAM Policy to an IAM group
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policy_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamGroupPolicyAttachment.tsx)
+
+```js
+import { AwsIamGroupPolicyAttachment } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamGroupPolicyAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamGroupPolicyAttachmentsExclusive
+
+Terraform resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policy_attachments_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamGroupPolicyAttachmentsExclusive.tsx)
+
+```js
+import { AwsIamGroupPolicyAttachmentsExclusive } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamGroupPolicyAttachmentsExclusive/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamInstanceProfile
+
+Provides an IAM instance profile.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_instance_profile)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamInstanceProfile.tsx)
+
+```js
+import { AwsIamInstanceProfile } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamInstanceProfile/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_instance_profile)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamInstanceProfile.tsx)
+
+```js
+import { DataAwsIamInstanceProfile } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamInstanceProfile/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamInstanceProfiles
+
+Get information on a Amazon IAM Instance Profiles from IAM role
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_instance_profiles)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamInstanceProfiles.tsx)
+
+```js
+import { DataAwsIamInstanceProfiles } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamInstanceProfiles/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamOpenidConnectProvider
+
+Provides an IAM OpenID Connect provider.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_openid_connect_provider)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamOpenidConnectProvider.tsx)
+
+```js
+import { AwsIamOpenidConnectProvider } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamOpenidConnectProvider/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_openid_connect_provider)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamOpenidConnectProvider.tsx)
+
+```js
+import { DataAwsIamOpenidConnectProvider } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamOpenidConnectProvider/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_openid_connect_provider#import)
+
+```js
+<AwsIamOpenidConnectProvider
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamOrganizationsFeatures
+
+Manages centralized root access features.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_organizations_features)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamOrganizationsFeatures.tsx)
+
+```js
+import { AwsIamOrganizationsFeatures } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamOrganizationsFeatures/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamPolicy
+
+Provides an IAM policy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamPolicy.tsx)
+
+```js
+import { AwsIamPolicy } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamPolicy.tsx)
+
+```js
+import { DataAwsIamPolicy } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_policy#import)
+
+```js
+<AwsIamPolicy
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamPolicyAttachment
+
+Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_policy_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamPolicyAttachment.tsx)
+
+```js
+import { AwsIamPolicyAttachment } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamPolicyAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamPolicyDocument
+
+Generates an IAM policy document in JSON format
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_policy_document)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamPolicyDocument.tsx)
+
+```js
+import { DataAwsIamPolicyDocument } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamPolicyDocument/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamPrincipalPolicySimulation
+
+Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_principal_policy_simulation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamPrincipalPolicySimulation.tsx)
+
+```js
+import { DataAwsIamPrincipalPolicySimulation } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamPrincipalPolicySimulation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamRole
+
+Provides an IAM role.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamRole.tsx)
+
+```js
+import { AwsIamRole } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamRole/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_role)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamRole.tsx)
+
+```js
+import { DataAwsIamRole } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamRole/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role#import)
+
+```js
+<AwsIamRole
+   name = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamRolePoliciesExclusive
+
+Terraform resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) role.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policies_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamRolePoliciesExclusive.tsx)
+
+```js
+import { AwsIamRolePoliciesExclusive } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamRolePoliciesExclusive/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamRolePolicy
+
+Provides an IAM role policy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamRolePolicy.tsx)
+
+```js
+import { AwsIamRolePolicy } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamRolePolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy#import)
+
+```js
+<AwsIamRolePolicy
+   name = {}
+   role = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamRolePolicyAttachment
+
+Attaches a Managed IAM Policy to an IAM role
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamRolePolicyAttachment.tsx)
+
+```js
+import { AwsIamRolePolicyAttachment } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamRolePolicyAttachment/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy_attachment#import)
+
+```js
+<AwsIamRolePolicyAttachment
+   policy_arn = {}
+   role = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamRolePolicyAttachmentsExclusive
+
+Terraform resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) role.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy_attachments_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamRolePolicyAttachmentsExclusive.tsx)
+
+```js
+import { AwsIamRolePolicyAttachmentsExclusive } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamRolePolicyAttachmentsExclusive/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamRoles
+
+Get information about a set of IAM Roles.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_roles)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamRoles.tsx)
+
+```js
+import { DataAwsIamRoles } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamRoles/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamSamlProvider
+
+Provides an IAM SAML provider.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_saml_provider)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamSamlProvider.tsx)
+
+```js
+import { AwsIamSamlProvider } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamSamlProvider/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_saml_provider)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamSamlProvider.tsx)
+
+```js
+import { DataAwsIamSamlProvider } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamSamlProvider/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_saml_provider#import)
+
+```js
+<AwsIamSamlProvider
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamSecurityTokenServicePreferences
+
+Provides an IAM Security Token Service Preferences resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_security_token_service_preferences)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamSecurityTokenServicePreferences.tsx)
+
+```js
+import { AwsIamSecurityTokenServicePreferences } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamSecurityTokenServicePreferences/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamServerCertificate
+
+Provides an IAM Server Certificate
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_server_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamServerCertificate.tsx)
+
+```js
+import { AwsIamServerCertificate } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamServerCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_server_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamServerCertificate.tsx)
+
+```js
+import { DataAwsIamServerCertificate } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamServerCertificate/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamServiceLinkedRole
+
+Provides an IAM service-linked role.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_service_linked_role)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamServiceLinkedRole.tsx)
+
+```js
+import { AwsIamServiceLinkedRole } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamServiceLinkedRole/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_service_linked_role#import)
+
+```js
+<AwsIamServiceLinkedRole
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamServiceSpecificCredential
+
+Provides an IAM Service Specific Credential.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_service_specific_credential)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamServiceSpecificCredential.tsx)
+
+```js
+import { AwsIamServiceSpecificCredential } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamServiceSpecificCredential/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamSessionContext
+
+Get information on the IAM source role of an STS assumed role
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_session_context)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamSessionContext.tsx)
+
+```js
+import { DataAwsIamSessionContext } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamSessionContext/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamSigningCertificate
+
+Provides an IAM Signing Certificate
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_signing_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamSigningCertificate.tsx)
+
+```js
+import { AwsIamSigningCertificate } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamSigningCertificate/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUser
+
+Provides an IAM user.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUser.tsx)
+
+```js
+import { AwsIamUser } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUser/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_user)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamUser.tsx)
+
+```js
+import { DataAwsIamUser } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamUser/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserGroupMembership
+
+Provides a resource for adding an IAM User to IAM Groups without conflicting
+with itself.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_group_membership)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserGroupMembership.tsx)
+
+```js
+import { AwsIamUserGroupMembership } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserGroupMembership/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserLoginProfile
+
+Manages an IAM User Login Profile
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_login_profile)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserLoginProfile.tsx)
+
+```js
+import { AwsIamUserLoginProfile } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserLoginProfile/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserPoliciesExclusive
+
+Terraform resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) user.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_policies_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserPoliciesExclusive.tsx)
+
+```js
+import { AwsIamUserPoliciesExclusive } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserPoliciesExclusive/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserPolicy
+
+Provides an IAM policy attached to a user.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserPolicy.tsx)
+
+```js
+import { AwsIamUserPolicy } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserPolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserPolicyAttachment
+
+Attaches a Managed IAM Policy to an IAM user
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_policy_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserPolicyAttachment.tsx)
+
+```js
+import { AwsIamUserPolicyAttachment } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserPolicyAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserPolicyAttachmentsExclusive
+
+Terraform resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) user.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_policy_attachments_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserPolicyAttachmentsExclusive.tsx)
+
+```js
+import { AwsIamUserPolicyAttachmentsExclusive } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserPolicyAttachmentsExclusive/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUsers
+
+Get information about a set of IAM Users.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_users)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamUsers.tsx)
+
+```js
+import { DataAwsIamUsers } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamUsers/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamUserSshKey
+
+Uploads an SSH public key and associates it with the specified IAM user.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_ssh_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamUserSshKey.tsx)
+
+```js
+import { AwsIamUserSshKey } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamUserSshKey/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_user_ssh_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/DataAwsIamUserSshKey.tsx)
+
+```js
+import { DataAwsIamUserSshKey } from "@dinghy/tf-aws/serviceIam"
+
+<DataAwsIamUserSshKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIamVirtualMfaDevice
+
+Provides an IAM Virtual MFA Device
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_virtual_mfa_device)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/iam/AwsIamVirtualMfaDevice.tsx)
+
+```js
+import { AwsIamVirtualMfaDevice } from "@dinghy/tf-aws/serviceIam"
+
+<AwsIamVirtualMfaDevice/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

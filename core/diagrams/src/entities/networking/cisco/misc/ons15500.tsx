@@ -11,7 +11,5 @@ export const ONS15500 = {
 }
 
 export function Ons15500(props: NodeProps) {
-  return (
-    <Shape {...ONS15500} {...props} _style={extendStyle(ONS15500, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONS15500)} />
 }

@@ -13,9 +13,8 @@ export const COMPONENT_3_POSITION_SWITCH = {
 export function Component3PositionSwitch(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3_POSITION_SWITCH}
       {...props}
-      _style={extendStyle(COMPONENT_3_POSITION_SWITCH, props)}
+      _style={extendStyle(props, COMPONENT_3_POSITION_SWITCH)}
     />
   )
 }

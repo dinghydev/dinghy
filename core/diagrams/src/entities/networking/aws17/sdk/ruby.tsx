@@ -11,5 +11,5 @@ export const RUBY = {
 }
 
 export function Ruby(props: NodeProps) {
-  return <Shape {...RUBY} {...props} _style={extendStyle(RUBY, props)} />
+  return <Shape {...props} _style={extendStyle(props, RUBY)} />
 }

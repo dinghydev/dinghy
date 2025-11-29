@@ -11,11 +11,5 @@ export const FOLDED_BANNERS = {
 }
 
 export function FoldedBanners(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDED_BANNERS}
-      {...props}
-      _style={extendStyle(FOLDED_BANNERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDED_BANNERS)} />
 }

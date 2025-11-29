@@ -9,5 +9,5 @@ export const MANUAL = {
 }
 
 export function Manual(props: NodeProps) {
-  return <Shape {...MANUAL} {...props} _style={extendStyle(MANUAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, MANUAL)} />
 }

@@ -11,11 +11,5 @@ export const MOBILE_HIGHLIGHT = {
 }
 
 export function MobileHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(MOBILE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_HIGHLIGHT)} />
 }

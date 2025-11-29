@@ -11,7 +11,5 @@ export const PHOTOCELL = {
 }
 
 export function Photocell(props: NodeProps) {
-  return (
-    <Shape {...PHOTOCELL} {...props} _style={extendStyle(PHOTOCELL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHOTOCELL)} />
 }

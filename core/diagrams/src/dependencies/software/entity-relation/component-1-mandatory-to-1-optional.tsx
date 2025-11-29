@@ -11,9 +11,8 @@ export const COMPONENT_1_MANDATORY_TO_1_OPTIONAL = {
 export function Component1MandatoryTo1Optional(props: NodeProps) {
   return (
     <Dependency
-      {...COMPONENT_1_MANDATORY_TO_1_OPTIONAL}
       {...props}
-      _style={extendStyle(COMPONENT_1_MANDATORY_TO_1_OPTIONAL, props)}
+      _style={extendStyle(props, COMPONENT_1_MANDATORY_TO_1_OPTIONAL)}
     />
   )
 }

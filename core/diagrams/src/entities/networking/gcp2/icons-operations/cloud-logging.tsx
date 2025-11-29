@@ -11,11 +11,5 @@ export const CLOUD_LOGGING = {
 }
 
 export function CloudLogging(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_LOGGING}
-      {...props}
-      _style={extendStyle(CLOUD_LOGGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_LOGGING)} />
 }

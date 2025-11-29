@@ -11,11 +11,5 @@ export const FOLDER_OPEN = {
 }
 
 export function FolderOpen(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_OPEN}
-      {...props}
-      _style={extendStyle(FOLDER_OPEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_OPEN)} />
 }

@@ -11,5 +11,5 @@ export const TETRODE = {
 }
 
 export function Tetrode(props: NodeProps) {
-  return <Shape {...TETRODE} {...props} _style={extendStyle(TETRODE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TETRODE)} />
 }

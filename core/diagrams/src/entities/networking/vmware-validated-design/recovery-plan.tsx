@@ -11,11 +11,5 @@ export const RECOVERY_PLAN = {
 }
 
 export function RecoveryPlan(props: NodeProps) {
-  return (
-    <Shape
-      {...RECOVERY_PLAN}
-      {...props}
-      _style={extendStyle(RECOVERY_PLAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECOVERY_PLAN)} />
 }

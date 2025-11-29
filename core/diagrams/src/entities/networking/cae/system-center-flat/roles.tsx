@@ -11,5 +11,5 @@ export const ROLES = {
 }
 
 export function Roles(props: NodeProps) {
-  return <Shape {...ROLES} {...props} _style={extendStyle(ROLES, props)} />
+  return <Shape {...props} _style={extendStyle(props, ROLES)} />
 }

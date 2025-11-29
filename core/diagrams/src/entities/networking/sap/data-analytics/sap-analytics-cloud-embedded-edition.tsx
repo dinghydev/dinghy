@@ -13,9 +13,8 @@ export const SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION = {
 export function SapAnalyticsCloudEmbeddedEdition(props: NodeProps) {
   return (
     <Shape
-      {...SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION}
       {...props}
-      _style={extendStyle(SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION, props)}
+      _style={extendStyle(props, SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION)}
     />
   )
 }

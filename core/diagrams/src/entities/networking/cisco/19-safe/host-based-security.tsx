@@ -11,11 +11,5 @@ export const HOST_BASED_SECURITY = {
 }
 
 export function HostBasedSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...HOST_BASED_SECURITY}
-      {...props}
-      _style={extendStyle(HOST_BASED_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOST_BASED_SECURITY)} />
 }

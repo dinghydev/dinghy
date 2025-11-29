@@ -13,9 +13,8 @@ export const HDR_HYBRID_DISASTER_RECOVERY = {
 export function HdrHybridDisasterRecovery(props: NodeProps) {
   return (
     <Shape
-      {...HDR_HYBRID_DISASTER_RECOVERY}
       {...props}
-      _style={extendStyle(HDR_HYBRID_DISASTER_RECOVERY, props)}
+      _style={extendStyle(props, HDR_HYBRID_DISASTER_RECOVERY)}
     />
   )
 }

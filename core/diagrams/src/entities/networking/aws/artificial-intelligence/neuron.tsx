@@ -11,5 +11,5 @@ export const NEURON = {
 }
 
 export function Neuron(props: NodeProps) {
-  return <Shape {...NEURON} {...props} _style={extendStyle(NEURON, props)} />
+  return <Shape {...props} _style={extendStyle(props, NEURON)} />
 }

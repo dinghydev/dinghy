@@ -11,11 +11,5 @@ export const COLLISION_HIGHLIGHT = {
 }
 
 export function CollisionHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...COLLISION_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(COLLISION_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLLISION_HIGHLIGHT)} />
 }

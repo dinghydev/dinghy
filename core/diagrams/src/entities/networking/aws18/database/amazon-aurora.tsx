@@ -11,11 +11,5 @@ export const AMAZON_AURORA = {
 }
 
 export function AmazonAurora(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_AURORA}
-      {...props}
-      _style={extendStyle(AMAZON_AURORA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_AURORA)} />
 }

@@ -16,11 +16,10 @@ export function J9992a20Port101001000baseTPoeAnd1Port40gbeQsfpWithMacsecV3Zl2Mod
 ) {
   return (
     <Shape
-      {...J9992A_20_PORT_10_100_1000BASE_T_POE_AND_1_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE}
       {...props}
       _style={extendStyle(
-        J9992A_20_PORT_10_100_1000BASE_T_POE_AND_1_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE,
         props,
+        J9992A_20_PORT_10_100_1000BASE_T_POE_AND_1_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE,
       )}
     />
   )

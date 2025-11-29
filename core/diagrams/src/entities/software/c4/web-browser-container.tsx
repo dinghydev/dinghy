@@ -11,11 +11,5 @@ export const WEB_BROWSER_CONTAINER = {
 }
 
 export function WebBrowserContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_BROWSER_CONTAINER}
-      {...props}
-      _style={extendStyle(WEB_BROWSER_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_BROWSER_CONTAINER)} />
 }

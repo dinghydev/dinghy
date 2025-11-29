@@ -11,11 +11,5 @@ export const PERSONALIZERS = {
 }
 
 export function Personalizers(props: NodeProps) {
-  return (
-    <Shape
-      {...PERSONALIZERS}
-      {...props}
-      _style={extendStyle(PERSONALIZERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERSONALIZERS)} />
 }

@@ -11,7 +11,5 @@ export const STEP_BAR_2 = {
 }
 
 export function StepBar2(props: NodeProps) {
-  return (
-    <Shape {...STEP_BAR_2} {...props} _style={extendStyle(STEP_BAR_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEP_BAR_2)} />
 }

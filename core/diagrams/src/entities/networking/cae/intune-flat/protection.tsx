@@ -11,7 +11,5 @@ export const PROTECTION = {
 }
 
 export function Protection(props: NodeProps) {
-  return (
-    <Shape {...PROTECTION} {...props} _style={extendStyle(PROTECTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTECTION)} />
 }

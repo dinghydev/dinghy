@@ -11,11 +11,5 @@ export const KUBERNETES_ENGINE = {
 }
 
 export function KubernetesEngine(props: NodeProps) {
-  return (
-    <Shape
-      {...KUBERNETES_ENGINE}
-      {...props}
-      _style={extendStyle(KUBERNETES_ENGINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KUBERNETES_ENGINE)} />
 }

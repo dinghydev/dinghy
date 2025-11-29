@@ -12,10 +12,6 @@ export const NETWORK_INTERFACE_CARD = {
 
 export function NetworkInterfaceCard(props: NodeProps) {
   return (
-    <Shape
-      {...NETWORK_INTERFACE_CARD}
-      {...props}
-      _style={extendStyle(NETWORK_INTERFACE_CARD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NETWORK_INTERFACE_CARD)} />
   )
 }

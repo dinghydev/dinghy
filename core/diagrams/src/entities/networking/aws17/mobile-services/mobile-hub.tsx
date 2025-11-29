@@ -11,7 +11,5 @@ export const MOBILE_HUB = {
 }
 
 export function MobileHub(props: NodeProps) {
-  return (
-    <Shape {...MOBILE_HUB} {...props} _style={extendStyle(MOBILE_HUB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_HUB)} />
 }

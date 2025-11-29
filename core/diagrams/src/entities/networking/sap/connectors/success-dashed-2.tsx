@@ -11,11 +11,5 @@ export const SUCCESS_DASHED_2 = {
 }
 
 export function SuccessDashed2(props: NodeProps) {
-  return (
-    <Shape
-      {...SUCCESS_DASHED_2}
-      {...props}
-      _style={extendStyle(SUCCESS_DASHED_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCCESS_DASHED_2)} />
 }

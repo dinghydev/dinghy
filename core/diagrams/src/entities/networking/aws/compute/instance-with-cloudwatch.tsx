@@ -12,10 +12,6 @@ export const INSTANCE_WITH_CLOUDWATCH = {
 
 export function InstanceWithCloudwatch(props: NodeProps) {
   return (
-    <Shape
-      {...INSTANCE_WITH_CLOUDWATCH}
-      {...props}
-      _style={extendStyle(INSTANCE_WITH_CLOUDWATCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INSTANCE_WITH_CLOUDWATCH)} />
   )
 }

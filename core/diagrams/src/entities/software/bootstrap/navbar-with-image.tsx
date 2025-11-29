@@ -11,11 +11,5 @@ export const NAVBAR_WITH_IMAGE = {
 }
 
 export function NavbarWithImage(props: NodeProps) {
-  return (
-    <Shape
-      {...NAVBAR_WITH_IMAGE}
-      {...props}
-      _style={extendStyle(NAVBAR_WITH_IMAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVBAR_WITH_IMAGE)} />
 }

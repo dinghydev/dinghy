@@ -11,11 +11,5 @@ export const VISTA_CLIENT = {
 }
 
 export function VistaClient(props: NodeProps) {
-  return (
-    <Shape
-      {...VISTA_CLIENT}
-      {...props}
-      _style={extendStyle(VISTA_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISTA_CLIENT)} />
 }

@@ -1,0 +1,72 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_listener
+
+export const InputSchema = z.object({
+  accelerator_arn: resolvableValue(z.string()),
+  protocol: resolvableValue(z.string()),
+  client_affinity: resolvableValue(z.string().optional()),
+  port_range: resolvableValue(
+    z.object({
+      from_port: z.number().optional(),
+      to_port: z.number().optional(),
+    }).array(),
+  ),
+  timeouts: resolvableValue(
+    z.object({
+      create: z.string().optional(),
+      delete: z.string().optional(),
+      update: z.string().optional(),
+    }).optional(),
+  ),
+})
+
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  id: z.string().optional(),
+})
+
+export const ImportSchema = z.object({
+  arn: resolvableValue(z.string()),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsGlobalacceleratorListener(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_globalaccelerator_listener'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsGlobalacceleratorListener = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(AwsGlobalacceleratorListener, node, id)
+
+export const useAwsGlobalacceleratorListeners = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(AwsGlobalacceleratorListener, node, id)

@@ -11,11 +11,5 @@ export const IMAGE_TEMPLATES = {
 }
 
 export function ImageTemplates(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_TEMPLATES}
-      {...props}
-      _style={extendStyle(IMAGE_TEMPLATES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_TEMPLATES)} />
 }

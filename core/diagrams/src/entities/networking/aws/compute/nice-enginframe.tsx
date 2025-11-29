@@ -11,11 +11,5 @@ export const NICE_ENGINFRAME = {
 }
 
 export function NiceEnginframe(props: NodeProps) {
-  return (
-    <Shape
-      {...NICE_ENGINFRAME}
-      {...props}
-      _style={extendStyle(NICE_ENGINFRAME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NICE_ENGINFRAME)} />
 }

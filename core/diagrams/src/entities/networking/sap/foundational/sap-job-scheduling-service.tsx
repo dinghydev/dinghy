@@ -12,10 +12,6 @@ export const SAP_JOB_SCHEDULING_SERVICE = {
 
 export function SapJobSchedulingService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_JOB_SCHEDULING_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_JOB_SCHEDULING_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_JOB_SCHEDULING_SERVICE)} />
   )
 }

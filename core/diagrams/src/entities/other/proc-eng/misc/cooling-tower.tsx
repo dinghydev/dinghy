@@ -11,11 +11,5 @@ export const COOLING_TOWER = {
 }
 
 export function CoolingTower(props: NodeProps) {
-  return (
-    <Shape
-      {...COOLING_TOWER}
-      {...props}
-      _style={extendStyle(COOLING_TOWER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COOLING_TOWER)} />
 }

@@ -11,7 +11,5 @@ export const AND_GATE = {
 }
 
 export function AndGate(props: NodeProps) {
-  return (
-    <Shape {...AND_GATE} {...props} _style={extendStyle(AND_GATE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AND_GATE)} />
 }

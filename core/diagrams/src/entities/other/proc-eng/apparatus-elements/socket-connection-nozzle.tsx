@@ -12,10 +12,6 @@ export const SOCKET_CONNECTION_NOZZLE = {
 
 export function SocketConnectionNozzle(props: NodeProps) {
   return (
-    <Shape
-      {...SOCKET_CONNECTION_NOZZLE}
-      {...props}
-      _style={extendStyle(SOCKET_CONNECTION_NOZZLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SOCKET_CONNECTION_NOZZLE)} />
   )
 }

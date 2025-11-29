@@ -11,5 +11,5 @@ export const RUNNING = {
 }
 
 export function Running(props: NodeProps) {
-  return <Shape {...RUNNING} {...props} _style={extendStyle(RUNNING, props)} />
+  return <Shape {...props} _style={extendStyle(props, RUNNING)} />
 }

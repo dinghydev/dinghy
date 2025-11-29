@@ -11,7 +11,5 @@ export const MENU_BAR_2 = {
 }
 
 export function MenuBar2(props: NodeProps) {
-  return (
-    <Shape {...MENU_BAR_2} {...props} _style={extendStyle(MENU_BAR_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MENU_BAR_2)} />
 }

@@ -11,11 +11,5 @@ export const AZURE_AD_B2C = {
 }
 
 export function AzureAdB2c(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_AD_B2C}
-      {...props}
-      _style={extendStyle(AZURE_AD_B2C, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_AD_B2C)} />
 }

@@ -13,9 +13,8 @@ export const ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING = {
 export function ElasticFileSystemIntelligentTiering(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING}
       {...props}
-      _style={extendStyle(ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING, props)}
+      _style={extendStyle(props, ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING)}
     />
   )
 }

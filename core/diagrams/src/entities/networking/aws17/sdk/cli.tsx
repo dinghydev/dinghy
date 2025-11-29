@@ -11,5 +11,5 @@ export const CLI = {
 }
 
 export function Cli(props: NodeProps) {
-  return <Shape {...CLI} {...props} _style={extendStyle(CLI, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLI)} />
 }

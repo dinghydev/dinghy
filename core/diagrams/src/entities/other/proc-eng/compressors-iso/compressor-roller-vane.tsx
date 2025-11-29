@@ -12,10 +12,6 @@ export const COMPRESSOR_ROLLER_VANE = {
 
 export function CompressorRollerVane(props: NodeProps) {
   return (
-    <Shape
-      {...COMPRESSOR_ROLLER_VANE}
-      {...props}
-      _style={extendStyle(COMPRESSOR_ROLLER_VANE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPRESSOR_ROLLER_VANE)} />
   )
 }

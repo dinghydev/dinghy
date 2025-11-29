@@ -11,5 +11,5 @@ export const PATH_2 = {
 }
 
 export function Path2(props: NodeProps) {
-  return <Shape {...PATH_2} {...props} _style={extendStyle(PATH_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, PATH_2)} />
 }

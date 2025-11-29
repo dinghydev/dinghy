@@ -11,11 +11,5 @@ export const TERMINAL_3_PHASE = {
 }
 
 export function Terminal3Phase(props: NodeProps) {
-  return (
-    <Shape
-      {...TERMINAL_3_PHASE}
-      {...props}
-      _style={extendStyle(TERMINAL_3_PHASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMINAL_3_PHASE)} />
 }

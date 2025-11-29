@@ -11,11 +11,5 @@ export const NETWORK_PROXY = {
 }
 
 export function NetworkProxy(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_PROXY}
-      {...props}
-      _style={extendStyle(NETWORK_PROXY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_PROXY)} />
 }

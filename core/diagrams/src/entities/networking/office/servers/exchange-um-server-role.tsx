@@ -12,10 +12,6 @@ export const EXCHANGE_UM_SERVER_ROLE = {
 
 export function ExchangeUmServerRole(props: NodeProps) {
   return (
-    <Shape
-      {...EXCHANGE_UM_SERVER_ROLE}
-      {...props}
-      _style={extendStyle(EXCHANGE_UM_SERVER_ROLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXCHANGE_UM_SERVER_ROLE)} />
   )
 }

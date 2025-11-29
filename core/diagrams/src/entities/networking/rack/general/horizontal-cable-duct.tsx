@@ -11,11 +11,5 @@ export const HORIZONTAL_CABLE_DUCT = {
 }
 
 export function HorizontalCableDuct(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_CABLE_DUCT}
-      {...props}
-      _style={extendStyle(HORIZONTAL_CABLE_DUCT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_CABLE_DUCT)} />
 }

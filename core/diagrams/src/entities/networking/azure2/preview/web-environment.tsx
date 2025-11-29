@@ -11,11 +11,5 @@ export const WEB_ENVIRONMENT = {
 }
 
 export function WebEnvironment(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_ENVIRONMENT}
-      {...props}
-      _style={extendStyle(WEB_ENVIRONMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_ENVIRONMENT)} />
 }

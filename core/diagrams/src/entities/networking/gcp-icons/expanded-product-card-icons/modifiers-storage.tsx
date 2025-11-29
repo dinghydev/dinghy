@@ -11,11 +11,5 @@ export const MODIFIERS_STORAGE = {
 }
 
 export function ModifiersStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...MODIFIERS_STORAGE}
-      {...props}
-      _style={extendStyle(MODIFIERS_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MODIFIERS_STORAGE)} />
 }

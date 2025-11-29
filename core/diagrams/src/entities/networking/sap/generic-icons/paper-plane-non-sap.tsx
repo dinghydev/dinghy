@@ -11,11 +11,5 @@ export const PAPER_PLANE_NON_SAP = {
 }
 
 export function PaperPlaneNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...PAPER_PLANE_NON_SAP}
-      {...props}
-      _style={extendStyle(PAPER_PLANE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAPER_PLANE_NON_SAP)} />
 }

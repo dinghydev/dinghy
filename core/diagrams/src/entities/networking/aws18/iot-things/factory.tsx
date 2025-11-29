@@ -11,5 +11,5 @@ export const FACTORY = {
 }
 
 export function Factory(props: NodeProps) {
-  return <Shape {...FACTORY} {...props} _style={extendStyle(FACTORY, props)} />
+  return <Shape {...props} _style={extendStyle(props, FACTORY)} />
 }

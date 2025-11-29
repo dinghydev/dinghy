@@ -11,5 +11,5 @@ export const RAM = {
 }
 
 export function Ram(props: NodeProps) {
-  return <Shape {...RAM} {...props} _style={extendStyle(RAM, props)} />
+  return <Shape {...props} _style={extendStyle(props, RAM)} />
 }

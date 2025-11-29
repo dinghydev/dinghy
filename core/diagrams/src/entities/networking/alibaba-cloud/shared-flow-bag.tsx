@@ -11,11 +11,5 @@ export const SHARED_FLOW_BAG = {
 }
 
 export function SharedFlowBag(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARED_FLOW_BAG}
-      {...props}
-      _style={extendStyle(SHARED_FLOW_BAG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARED_FLOW_BAG)} />
 }

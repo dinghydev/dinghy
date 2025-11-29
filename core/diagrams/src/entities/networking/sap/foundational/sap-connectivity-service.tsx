@@ -12,10 +12,6 @@ export const SAP_CONNECTIVITY_SERVICE = {
 
 export function SapConnectivityService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_CONNECTIVITY_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_CONNECTIVITY_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_CONNECTIVITY_SERVICE)} />
   )
 }

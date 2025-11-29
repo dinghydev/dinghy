@@ -11,5 +11,5 @@ export const REPOST = {
 }
 
 export function Repost(props: NodeProps) {
-  return <Shape {...REPOST} {...props} _style={extendStyle(REPOST, props)} />
+  return <Shape {...props} _style={extendStyle(props, REPOST)} />
 }

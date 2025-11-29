@@ -11,11 +11,5 @@ export const FOLDER_GREEN = {
 }
 
 export function FolderGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_GREEN}
-      {...props}
-      _style={extendStyle(FOLDER_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_GREEN)} />
 }

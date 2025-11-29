@@ -12,10 +12,6 @@ export const TRUSTED_APPLICATION_POOL = {
 
 export function TrustedApplicationPool(props: NodeProps) {
   return (
-    <Shape
-      {...TRUSTED_APPLICATION_POOL}
-      {...props}
-      _style={extendStyle(TRUSTED_APPLICATION_POOL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TRUSTED_APPLICATION_POOL)} />
   )
 }

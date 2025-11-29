@@ -11,11 +11,5 @@ export const BACKUP_GATEWAY = {
 }
 
 export function BackupGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_GATEWAY}
-      {...props}
-      _style={extendStyle(BACKUP_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_GATEWAY)} />
 }

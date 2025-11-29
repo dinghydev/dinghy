@@ -11,11 +11,5 @@ export const BOTTOM_SHEET = {
 }
 
 export function BottomSheet(props: NodeProps) {
-  return (
-    <Shape
-      {...BOTTOM_SHEET}
-      {...props}
-      _style={extendStyle(BOTTOM_SHEET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOTTOM_SHEET)} />
 }

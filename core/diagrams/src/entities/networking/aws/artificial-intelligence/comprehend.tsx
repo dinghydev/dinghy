@@ -11,7 +11,5 @@ export const COMPREHEND = {
 }
 
 export function Comprehend(props: NodeProps) {
-  return (
-    <Shape {...COMPREHEND} {...props} _style={extendStyle(COMPREHEND, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPREHEND)} />
 }

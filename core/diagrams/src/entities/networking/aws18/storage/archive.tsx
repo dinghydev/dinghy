@@ -11,5 +11,5 @@ export const ARCHIVE = {
 }
 
 export function Archive(props: NodeProps) {
-  return <Shape {...ARCHIVE} {...props} _style={extendStyle(ARCHIVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, ARCHIVE)} />
 }

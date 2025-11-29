@@ -11,11 +11,5 @@ export const VERIFIED_PERMISSIONS = {
 }
 
 export function VerifiedPermissions(props: NodeProps) {
-  return (
-    <Shape
-      {...VERIFIED_PERMISSIONS}
-      {...props}
-      _style={extendStyle(VERIFIED_PERMISSIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERIFIED_PERMISSIONS)} />
 }

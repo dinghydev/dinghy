@@ -11,5 +11,5 @@ export const BUTTON = {
 }
 
 export function Button(props: NodeProps) {
-  return <Shape {...BUTTON} {...props} _style={extendStyle(BUTTON, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUTTON)} />
 }

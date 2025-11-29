@@ -11,7 +11,5 @@ export const PANORAMA = {
 }
 
 export function Panorama(props: NodeProps) {
-  return (
-    <Shape {...PANORAMA} {...props} _style={extendStyle(PANORAMA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PANORAMA)} />
 }

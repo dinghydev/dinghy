@@ -11,5 +11,5 @@ export const CM = {
 }
 
 export function Cm(props: NodeProps) {
-  return <Shape {...CM} {...props} _style={extendStyle(CM, props)} />
+  return <Shape {...props} _style={extendStyle(props, CM)} />
 }

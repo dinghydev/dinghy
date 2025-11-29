@@ -11,11 +11,5 @@ export const CLOUD_SPANNER = {
 }
 
 export function CloudSpanner(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SPANNER}
-      {...props}
-      _style={extendStyle(CLOUD_SPANNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SPANNER)} />
 }

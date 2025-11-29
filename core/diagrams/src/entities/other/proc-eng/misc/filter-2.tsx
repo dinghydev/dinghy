@@ -11,7 +11,5 @@ export const FILTER_2 = {
 }
 
 export function Filter2(props: NodeProps) {
-  return (
-    <Shape {...FILTER_2} {...props} _style={extendStyle(FILTER_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILTER_2)} />
 }

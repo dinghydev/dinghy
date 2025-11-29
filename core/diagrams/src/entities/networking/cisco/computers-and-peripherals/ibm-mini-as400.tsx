@@ -11,11 +11,5 @@ export const IBM_MINI_AS400 = {
 }
 
 export function IbmMiniAs400(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_MINI_AS400}
-      {...props}
-      _style={extendStyle(IBM_MINI_AS400, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_MINI_AS400)} />
 }

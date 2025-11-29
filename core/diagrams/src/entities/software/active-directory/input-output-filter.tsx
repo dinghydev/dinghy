@@ -11,11 +11,5 @@ export const INPUT_OUTPUT_FILTER = {
 }
 
 export function InputOutputFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...INPUT_OUTPUT_FILTER}
-      {...props}
-      _style={extendStyle(INPUT_OUTPUT_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INPUT_OUTPUT_FILTER)} />
 }

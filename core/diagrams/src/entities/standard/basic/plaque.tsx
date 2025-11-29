@@ -11,5 +11,5 @@ export const PLAQUE = {
 }
 
 export function Plaque(props: NodeProps) {
-  return <Shape {...PLAQUE} {...props} _style={extendStyle(PLAQUE, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLAQUE)} />
 }

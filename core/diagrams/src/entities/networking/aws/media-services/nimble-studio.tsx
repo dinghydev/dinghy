@@ -11,11 +11,5 @@ export const NIMBLE_STUDIO = {
 }
 
 export function NimbleStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...NIMBLE_STUDIO}
-      {...props}
-      _style={extendStyle(NIMBLE_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NIMBLE_STUDIO)} />
 }

@@ -13,9 +13,8 @@ export const VEEAM_REVERSED_INCREMENTAL_BACKUP = {
 export function VeeamReversedIncrementalBackup(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_REVERSED_INCREMENTAL_BACKUP}
       {...props}
-      _style={extendStyle(VEEAM_REVERSED_INCREMENTAL_BACKUP, props)}
+      _style={extendStyle(props, VEEAM_REVERSED_INCREMENTAL_BACKUP)}
     />
   )
 }

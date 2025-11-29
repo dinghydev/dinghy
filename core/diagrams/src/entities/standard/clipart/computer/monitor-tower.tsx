@@ -11,11 +11,5 @@ export const MONITOR_TOWER = {
 }
 
 export function MonitorTower(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITOR_TOWER}
-      {...props}
-      _style={extendStyle(MONITOR_TOWER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITOR_TOWER)} />
 }

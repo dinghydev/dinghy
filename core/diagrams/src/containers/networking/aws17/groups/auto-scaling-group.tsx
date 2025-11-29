@@ -9,11 +9,5 @@ export const AUTO_SCALING_GROUP = {
 }
 
 export function AutoScalingGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTO_SCALING_GROUP}
-      {...props}
-      _style={extendStyle(AUTO_SCALING_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTO_SCALING_GROUP)} />
 }

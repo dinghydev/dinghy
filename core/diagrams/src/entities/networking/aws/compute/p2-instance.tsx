@@ -11,11 +11,5 @@ export const P2_INSTANCE = {
 }
 
 export function P2Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...P2_INSTANCE}
-      {...props}
-      _style={extendStyle(P2_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, P2_INSTANCE)} />
 }

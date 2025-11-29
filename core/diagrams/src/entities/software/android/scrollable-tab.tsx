@@ -11,11 +11,5 @@ export const SCROLLABLE_TAB = {
 }
 
 export function ScrollableTab(props: NodeProps) {
-  return (
-    <Shape
-      {...SCROLLABLE_TAB}
-      {...props}
-      _style={extendStyle(SCROLLABLE_TAB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCROLLABLE_TAB)} />
 }

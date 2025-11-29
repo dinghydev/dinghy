@@ -13,9 +13,8 @@ export const EXISTING_ENTERPRISE_SYSTEMS = {
 export function ExistingEnterpriseSystems(props: NodeProps) {
   return (
     <Shape
-      {...EXISTING_ENTERPRISE_SYSTEMS}
       {...props}
-      _style={extendStyle(EXISTING_ENTERPRISE_SYSTEMS, props)}
+      _style={extendStyle(props, EXISTING_ENTERPRISE_SYSTEMS)}
     />
   )
 }

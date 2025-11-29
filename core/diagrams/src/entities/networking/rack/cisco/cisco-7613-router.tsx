@@ -11,11 +11,5 @@ export const CISCO_7613_ROUTER = {
 }
 
 export function Cisco7613Router(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_7613_ROUTER}
-      {...props}
-      _style={extendStyle(CISCO_7613_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_7613_ROUTER)} />
 }

@@ -11,5 +11,5 @@ export const MRI = {
 }
 
 export function Mri(props: NodeProps) {
-  return <Shape {...MRI} {...props} _style={extendStyle(MRI, props)} />
+  return <Shape {...props} _style={extendStyle(props, MRI)} />
 }

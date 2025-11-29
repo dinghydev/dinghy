@@ -11,11 +11,5 @@ export const CIRCUIT_TERMINAL = {
 }
 
 export function CircuitTerminal(props: NodeProps) {
-  return (
-    <Shape
-      {...CIRCUIT_TERMINAL}
-      {...props}
-      _style={extendStyle(CIRCUIT_TERMINAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CIRCUIT_TERMINAL)} />
 }

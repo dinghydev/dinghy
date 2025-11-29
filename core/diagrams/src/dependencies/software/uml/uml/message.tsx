@@ -9,7 +9,5 @@ export const MESSAGE = {
 }
 
 export function Message(props: NodeProps) {
-  return (
-    <Dependency {...MESSAGE} {...props} _style={extendStyle(MESSAGE, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, MESSAGE)} />
 }

@@ -11,11 +11,5 @@ export const ACTION_WITH_OUTPUT = {
 }
 
 export function ActionWithOutput(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTION_WITH_OUTPUT}
-      {...props}
-      _style={extendStyle(ACTION_WITH_OUTPUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_WITH_OUTPUT)} />
 }

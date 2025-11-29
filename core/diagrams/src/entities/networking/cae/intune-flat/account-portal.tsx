@@ -11,11 +11,5 @@ export const ACCOUNT_PORTAL = {
 }
 
 export function AccountPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCOUNT_PORTAL}
-      {...props}
-      _style={extendStyle(ACCOUNT_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCOUNT_PORTAL)} />
 }

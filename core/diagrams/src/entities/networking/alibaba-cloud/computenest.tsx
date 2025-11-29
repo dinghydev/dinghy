@@ -11,11 +11,5 @@ export const COMPUTENEST = {
 }
 
 export function Computenest(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTENEST}
-      {...props}
-      _style={extendStyle(COMPUTENEST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTENEST)} />
 }

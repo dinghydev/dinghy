@@ -13,11 +13,10 @@ export function ConditionalEventSubProcessInterruptingCollapsed(
 ) {
   return (
     <Shape
-      {...CONDITIONAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        CONDITIONAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
         props,
+        CONDITIONAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
       )}
     />
   )

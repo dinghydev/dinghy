@@ -11,11 +11,5 @@ export const HEAT_RESOURCEGROUP = {
 }
 
 export function HeatResourcegroup(props: NodeProps) {
-  return (
-    <Shape
-      {...HEAT_RESOURCEGROUP}
-      {...props}
-      _style={extendStyle(HEAT_RESOURCEGROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEAT_RESOURCEGROUP)} />
 }

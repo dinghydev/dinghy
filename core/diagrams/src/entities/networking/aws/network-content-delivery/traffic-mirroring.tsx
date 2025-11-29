@@ -11,11 +11,5 @@ export const TRAFFIC_MIRRORING = {
 }
 
 export function TrafficMirroring(props: NodeProps) {
-  return (
-    <Shape
-      {...TRAFFIC_MIRRORING}
-      {...props}
-      _style={extendStyle(TRAFFIC_MIRRORING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRAFFIC_MIRRORING)} />
 }

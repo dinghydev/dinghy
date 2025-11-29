@@ -11,11 +11,5 @@ export const CLOUD_CHECKMARK = {
 }
 
 export function CloudCheckmark(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CHECKMARK}
-      {...props}
-      _style={extendStyle(CLOUD_CHECKMARK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CHECKMARK)} />
 }

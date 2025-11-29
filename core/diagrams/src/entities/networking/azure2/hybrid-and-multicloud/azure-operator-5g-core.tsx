@@ -12,10 +12,6 @@ export const AZURE_OPERATOR_5G_CORE = {
 
 export function AzureOperator5gCore(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_OPERATOR_5G_CORE}
-      {...props}
-      _style={extendStyle(AZURE_OPERATOR_5G_CORE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_OPERATOR_5G_CORE)} />
   )
 }

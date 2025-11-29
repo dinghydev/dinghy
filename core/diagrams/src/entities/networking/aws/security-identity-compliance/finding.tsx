@@ -11,5 +11,5 @@ export const FINDING = {
 }
 
 export function Finding(props: NodeProps) {
-  return <Shape {...FINDING} {...props} _style={extendStyle(FINDING, props)} />
+  return <Shape {...props} _style={extendStyle(props, FINDING)} />
 }

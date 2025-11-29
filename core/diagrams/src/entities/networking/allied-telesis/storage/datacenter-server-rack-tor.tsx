@@ -12,10 +12,6 @@ export const DATACENTER_SERVER_RACK_TOR = {
 
 export function DatacenterServerRackTor(props: NodeProps) {
   return (
-    <Shape
-      {...DATACENTER_SERVER_RACK_TOR}
-      {...props}
-      _style={extendStyle(DATACENTER_SERVER_RACK_TOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATACENTER_SERVER_RACK_TOR)} />
   )
 }

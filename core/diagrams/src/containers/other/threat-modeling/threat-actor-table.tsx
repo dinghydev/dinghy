@@ -14,11 +14,5 @@ export const THREAT_ACTOR_TABLE = {
 }
 
 export function ThreatActorTable(props: NodeProps) {
-  return (
-    <Shape
-      {...THREAT_ACTOR_TABLE}
-      {...props}
-      _style={extendStyle(THREAT_ACTOR_TABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THREAT_ACTOR_TABLE)} />
 }

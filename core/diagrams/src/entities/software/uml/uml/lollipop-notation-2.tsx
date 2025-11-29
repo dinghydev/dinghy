@@ -11,11 +11,5 @@ export const LOLLIPOP_NOTATION_2 = {
 }
 
 export function LollipopNotation2(props: NodeProps) {
-  return (
-    <Shape
-      {...LOLLIPOP_NOTATION_2}
-      {...props}
-      _style={extendStyle(LOLLIPOP_NOTATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOLLIPOP_NOTATION_2)} />
 }

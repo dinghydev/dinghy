@@ -11,11 +11,5 @@ export const B2B_DATA_INTERCHANGE = {
 }
 
 export function B2bDataInterchange(props: NodeProps) {
-  return (
-    <Shape
-      {...B2B_DATA_INTERCHANGE}
-      {...props}
-      _style={extendStyle(B2B_DATA_INTERCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, B2B_DATA_INTERCHANGE)} />
 }

@@ -10,10 +10,6 @@ export const REQUIRED_INTERFACE = {
 
 export function RequiredInterface(props: NodeProps) {
   return (
-    <Dependency
-      {...REQUIRED_INTERFACE}
-      {...props}
-      _style={extendStyle(REQUIRED_INTERFACE, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, REQUIRED_INTERFACE)} />
   )
 }

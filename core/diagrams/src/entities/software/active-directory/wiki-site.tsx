@@ -11,7 +11,5 @@ export const WIKI_SITE = {
 }
 
 export function WikiSite(props: NodeProps) {
-  return (
-    <Shape {...WIKI_SITE} {...props} _style={extendStyle(WIKI_SITE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIKI_SITE)} />
 }

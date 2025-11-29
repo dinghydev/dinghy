@@ -11,7 +11,5 @@ export const STORSIMPLE = {
 }
 
 export function Storsimple(props: NodeProps) {
-  return (
-    <Shape {...STORSIMPLE} {...props} _style={extendStyle(STORSIMPLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORSIMPLE)} />
 }

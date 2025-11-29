@@ -11,7 +11,5 @@ export const EKS_CLOUD = {
 }
 
 export function EksCloud(props: NodeProps) {
-  return (
-    <Shape {...EKS_CLOUD} {...props} _style={extendStyle(EKS_CLOUD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EKS_CLOUD)} />
 }

@@ -11,11 +11,5 @@ export const TEMPERATURE_SWITCH_ON = {
 }
 
 export function TemperatureSwitchOn(props: NodeProps) {
-  return (
-    <Shape
-      {...TEMPERATURE_SWITCH_ON}
-      {...props}
-      _style={extendStyle(TEMPERATURE_SWITCH_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEMPERATURE_SWITCH_ON)} />
 }

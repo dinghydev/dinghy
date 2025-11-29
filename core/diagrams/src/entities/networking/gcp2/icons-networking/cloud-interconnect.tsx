@@ -11,11 +11,5 @@ export const CLOUD_INTERCONNECT = {
 }
 
 export function CloudInterconnect(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_INTERCONNECT}
-      {...props}
-      _style={extendStyle(CLOUD_INTERCONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_INTERCONNECT)} />
 }

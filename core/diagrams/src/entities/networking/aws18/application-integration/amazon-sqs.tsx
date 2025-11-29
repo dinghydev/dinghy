@@ -11,7 +11,5 @@ export const AMAZON_SQS = {
 }
 
 export function AmazonSqs(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_SQS} {...props} _style={extendStyle(AMAZON_SQS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_SQS)} />
 }

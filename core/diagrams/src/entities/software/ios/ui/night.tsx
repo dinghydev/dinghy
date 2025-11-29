@@ -11,5 +11,5 @@ export const NIGHT = {
 }
 
 export function Night(props: NodeProps) {
-  return <Shape {...NIGHT} {...props} _style={extendStyle(NIGHT, props)} />
+  return <Shape {...props} _style={extendStyle(props, NIGHT)} />
 }

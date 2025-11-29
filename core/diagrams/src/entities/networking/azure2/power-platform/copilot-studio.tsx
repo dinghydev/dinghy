@@ -11,11 +11,5 @@ export const COPILOT_STUDIO = {
 }
 
 export function CopilotStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...COPILOT_STUDIO}
-      {...props}
-      _style={extendStyle(COPILOT_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COPILOT_STUDIO)} />
 }

@@ -11,11 +11,5 @@ export const KEYBOARD_SYMBOLS = {
 }
 
 export function KeyboardSymbols(props: NodeProps) {
-  return (
-    <Shape
-      {...KEYBOARD_SYMBOLS}
-      {...props}
-      _style={extendStyle(KEYBOARD_SYMBOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEYBOARD_SYMBOLS)} />
 }

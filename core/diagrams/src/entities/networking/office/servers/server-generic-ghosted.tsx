@@ -12,10 +12,6 @@ export const SERVER_GENERIC_GHOSTED = {
 
 export function ServerGenericGhosted(props: NodeProps) {
   return (
-    <Shape
-      {...SERVER_GENERIC_GHOSTED}
-      {...props}
-      _style={extendStyle(SERVER_GENERIC_GHOSTED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SERVER_GENERIC_GHOSTED)} />
   )
 }

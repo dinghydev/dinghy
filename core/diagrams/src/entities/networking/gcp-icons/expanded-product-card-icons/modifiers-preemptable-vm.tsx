@@ -12,10 +12,6 @@ export const MODIFIERS_PREEMPTABLE_VM = {
 
 export function ModifiersPreemptableVm(props: NodeProps) {
   return (
-    <Shape
-      {...MODIFIERS_PREEMPTABLE_VM}
-      {...props}
-      _style={extendStyle(MODIFIERS_PREEMPTABLE_VM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MODIFIERS_PREEMPTABLE_VM)} />
   )
 }

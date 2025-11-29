@@ -11,11 +11,5 @@ export const RETENTION_POLICY_TAG = {
 }
 
 export function RetentionPolicyTag(props: NodeProps) {
-  return (
-    <Shape
-      {...RETENTION_POLICY_TAG}
-      {...props}
-      _style={extendStyle(RETENTION_POLICY_TAG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETENTION_POLICY_TAG)} />
 }

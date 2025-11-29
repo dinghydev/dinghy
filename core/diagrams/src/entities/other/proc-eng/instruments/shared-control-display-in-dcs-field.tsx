@@ -13,9 +13,8 @@ export const SHARED_CONTROL_DISPLAY_IN_DCS_FIELD = {
 export function SharedControlDisplayInDcsField(props: NodeProps) {
   return (
     <Shape
-      {...SHARED_CONTROL_DISPLAY_IN_DCS_FIELD}
       {...props}
-      _style={extendStyle(SHARED_CONTROL_DISPLAY_IN_DCS_FIELD, props)}
+      _style={extendStyle(props, SHARED_CONTROL_DISPLAY_IN_DCS_FIELD)}
     />
   )
 }

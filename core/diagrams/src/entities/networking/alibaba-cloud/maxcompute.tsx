@@ -11,7 +11,5 @@ export const MAXCOMPUTE = {
 }
 
 export function Maxcompute(props: NodeProps) {
-  return (
-    <Shape {...MAXCOMPUTE} {...props} _style={extendStyle(MAXCOMPUTE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAXCOMPUTE)} />
 }

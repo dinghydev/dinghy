@@ -11,11 +11,5 @@ export const VMWARE_HOST = {
 }
 
 export function VmwareHost(props: NodeProps) {
-  return (
-    <Shape
-      {...VMWARE_HOST}
-      {...props}
-      _style={extendStyle(VMWARE_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VMWARE_HOST)} />
 }

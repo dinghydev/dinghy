@@ -12,10 +12,6 @@ export const MULTIFACTOR_AUTHENTICATION = {
 
 export function MultifactorAuthentication(props: NodeProps) {
   return (
-    <Shape
-      {...MULTIFACTOR_AUTHENTICATION}
-      {...props}
-      _style={extendStyle(MULTIFACTOR_AUTHENTICATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTIFACTOR_AUTHENTICATION)} />
   )
 }

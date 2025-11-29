@@ -11,11 +11,5 @@ export const STORAGE_BLOB = {
 }
 
 export function StorageBlob(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_BLOB}
-      {...props}
-      _style={extendStyle(STORAGE_BLOB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_BLOB)} />
 }

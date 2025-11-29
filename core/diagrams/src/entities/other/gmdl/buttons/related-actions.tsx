@@ -11,11 +11,5 @@ export const RELATED_ACTIONS = {
 }
 
 export function RelatedActions(props: NodeProps) {
-  return (
-    <Shape
-      {...RELATED_ACTIONS}
-      {...props}
-      _style={extendStyle(RELATED_ACTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RELATED_ACTIONS)} />
 }

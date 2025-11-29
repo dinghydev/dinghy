@@ -13,9 +13,8 @@ export const NAS_NETWORK_ATTACHED_STORAGE = {
 export function NasNetworkAttachedStorage(props: NodeProps) {
   return (
     <Shape
-      {...NAS_NETWORK_ATTACHED_STORAGE}
       {...props}
-      _style={extendStyle(NAS_NETWORK_ATTACHED_STORAGE, props)}
+      _style={extendStyle(props, NAS_NETWORK_ATTACHED_STORAGE)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const CITRIX_SESSION_RECORDING_SERVER = {
 export function CitrixSessionRecordingServer(props: NodeProps) {
   return (
     <Shape
-      {...CITRIX_SESSION_RECORDING_SERVER}
       {...props}
-      _style={extendStyle(CITRIX_SESSION_RECORDING_SERVER, props)}
+      _style={extendStyle(props, CITRIX_SESSION_RECORDING_SERVER)}
     />
   )
 }

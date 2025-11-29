@@ -11,5 +11,5 @@ export const MAU = {
 }
 
 export function Mau(props: NodeProps) {
-  return <Shape {...MAU} {...props} _style={extendStyle(MAU, props)} />
+  return <Shape {...props} _style={extendStyle(props, MAU)} />
 }

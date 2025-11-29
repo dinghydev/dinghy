@@ -11,5 +11,5 @@ export const JUPITER = {
 }
 
 export function Jupiter(props: NodeProps) {
-  return <Shape {...JUPITER} {...props} _style={extendStyle(JUPITER, props)} />
+  return <Shape {...props} _style={extendStyle(props, JUPITER)} />
 }

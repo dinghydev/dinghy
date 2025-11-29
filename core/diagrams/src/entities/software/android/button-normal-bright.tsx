@@ -11,11 +11,5 @@ export const BUTTON_NORMAL_BRIGHT = {
 }
 
 export function ButtonNormalBright(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_NORMAL_BRIGHT}
-      {...props}
-      _style={extendStyle(BUTTON_NORMAL_BRIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_NORMAL_BRIGHT)} />
 }

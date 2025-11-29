@@ -11,11 +11,5 @@ export const SAP_AZURE_MONITOR = {
 }
 
 export function SapAzureMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_AZURE_MONITOR}
-      {...props}
-      _style={extendStyle(SAP_AZURE_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_AZURE_MONITOR)} />
 }

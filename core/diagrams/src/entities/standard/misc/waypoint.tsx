@@ -11,7 +11,5 @@ export const WAYPOINT = {
 }
 
 export function Waypoint(props: NodeProps) {
-  return (
-    <Shape {...WAYPOINT} {...props} _style={extendStyle(WAYPOINT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAYPOINT)} />
 }

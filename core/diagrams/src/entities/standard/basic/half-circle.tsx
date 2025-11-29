@@ -11,11 +11,5 @@ export const HALF_CIRCLE = {
 }
 
 export function HalfCircle(props: NodeProps) {
-  return (
-    <Shape
-      {...HALF_CIRCLE}
-      {...props}
-      _style={extendStyle(HALF_CIRCLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HALF_CIRCLE)} />
 }

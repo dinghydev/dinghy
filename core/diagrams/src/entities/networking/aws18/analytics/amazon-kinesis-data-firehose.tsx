@@ -13,9 +13,8 @@ export const AMAZON_KINESIS_DATA_FIREHOSE = {
 export function AmazonKinesisDataFirehose(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_KINESIS_DATA_FIREHOSE}
       {...props}
-      _style={extendStyle(AMAZON_KINESIS_DATA_FIREHOSE, props)}
+      _style={extendStyle(props, AMAZON_KINESIS_DATA_FIREHOSE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const SAP_HANA_ON_AZURE = {
 }
 
 export function SapHanaOnAzure(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_HANA_ON_AZURE}
-      {...props}
-      _style={extendStyle(SAP_HANA_ON_AZURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_HANA_ON_AZURE)} />
 }

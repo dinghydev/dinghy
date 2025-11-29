@@ -13,9 +13,8 @@ export const MANAGED_SERVICE_FOR_APACHE_FLINK = {
 export function ManagedServiceForApacheFlink(props: NodeProps) {
   return (
     <Shape
-      {...MANAGED_SERVICE_FOR_APACHE_FLINK}
       {...props}
-      _style={extendStyle(MANAGED_SERVICE_FOR_APACHE_FLINK, props)}
+      _style={extendStyle(props, MANAGED_SERVICE_FOR_APACHE_FLINK)}
     />
   )
 }

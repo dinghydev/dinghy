@@ -11,11 +11,5 @@ export const DATA_SECURITY = {
 }
 
 export function DataSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_SECURITY}
-      {...props}
-      _style={extendStyle(DATA_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_SECURITY)} />
 }

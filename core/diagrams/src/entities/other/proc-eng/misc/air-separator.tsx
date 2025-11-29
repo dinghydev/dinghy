@@ -11,11 +11,5 @@ export const AIR_SEPARATOR = {
 }
 
 export function AirSeparator(props: NodeProps) {
-  return (
-    <Shape
-      {...AIR_SEPARATOR}
-      {...props}
-      _style={extendStyle(AIR_SEPARATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AIR_SEPARATOR)} />
 }

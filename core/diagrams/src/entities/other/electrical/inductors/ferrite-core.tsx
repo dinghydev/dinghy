@@ -11,11 +11,5 @@ export const FERRITE_CORE = {
 }
 
 export function FerriteCore(props: NodeProps) {
-  return (
-    <Shape
-      {...FERRITE_CORE}
-      {...props}
-      _style={extendStyle(FERRITE_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FERRITE_CORE)} />
 }

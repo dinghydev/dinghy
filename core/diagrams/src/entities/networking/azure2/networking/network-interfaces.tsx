@@ -11,11 +11,5 @@ export const NETWORK_INTERFACES = {
 }
 
 export function NetworkInterfaces(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_INTERFACES}
-      {...props}
-      _style={extendStyle(NETWORK_INTERFACES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_INTERFACES)} />
 }

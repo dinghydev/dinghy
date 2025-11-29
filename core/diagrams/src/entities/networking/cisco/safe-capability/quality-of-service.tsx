@@ -11,11 +11,5 @@ export const QUALITY_OF_SERVICE = {
 }
 
 export function QualityOfService(props: NodeProps) {
-  return (
-    <Shape
-      {...QUALITY_OF_SERVICE}
-      {...props}
-      _style={extendStyle(QUALITY_OF_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUALITY_OF_SERVICE)} />
 }

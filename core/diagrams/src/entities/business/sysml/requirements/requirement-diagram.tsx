@@ -11,11 +11,5 @@ export const REQUIREMENT_DIAGRAM = {
 }
 
 export function RequirementDiagram(props: NodeProps) {
-  return (
-    <Shape
-      {...REQUIREMENT_DIAGRAM}
-      {...props}
-      _style={extendStyle(REQUIREMENT_DIAGRAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REQUIREMENT_DIAGRAM)} />
 }

@@ -11,7 +11,5 @@ export const ALERT_SAP = {
 }
 
 export function AlertSap(props: NodeProps) {
-  return (
-    <Shape {...ALERT_SAP} {...props} _style={extendStyle(ALERT_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALERT_SAP)} />
 }

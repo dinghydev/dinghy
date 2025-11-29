@@ -13,9 +13,8 @@ export const TANK_DISHED_ROOF_CONICAL_BOTTOM = {
 export function TankDishedRoofConicalBottom(props: NodeProps) {
   return (
     <Shape
-      {...TANK_DISHED_ROOF_CONICAL_BOTTOM}
       {...props}
-      _style={extendStyle(TANK_DISHED_ROOF_CONICAL_BOTTOM, props)}
+      _style={extendStyle(props, TANK_DISHED_ROOF_CONICAL_BOTTOM)}
     />
   )
 }

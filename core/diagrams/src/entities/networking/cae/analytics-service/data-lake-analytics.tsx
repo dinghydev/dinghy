@@ -11,11 +11,5 @@ export const DATA_LAKE_ANALYTICS = {
 }
 
 export function DataLakeAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_LAKE_ANALYTICS}
-      {...props}
-      _style={extendStyle(DATA_LAKE_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_LAKE_ANALYTICS)} />
 }

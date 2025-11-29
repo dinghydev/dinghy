@@ -11,11 +11,5 @@ export const HORIZONTAL_SLIDER = {
 }
 
 export function HorizontalSlider(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_SLIDER}
-      {...props}
-      _style={extendStyle(HORIZONTAL_SLIDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_SLIDER)} />
 }

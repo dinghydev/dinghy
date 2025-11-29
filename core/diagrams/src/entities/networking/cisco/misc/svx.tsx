@@ -11,5 +11,5 @@ export const SVX = {
 }
 
 export function Svx(props: NodeProps) {
-  return <Shape {...SVX} {...props} _style={extendStyle(SVX, props)} />
+  return <Shape {...props} _style={extendStyle(props, SVX)} />
 }

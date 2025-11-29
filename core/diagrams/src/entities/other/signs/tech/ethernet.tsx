@@ -11,7 +11,5 @@ export const ETHERNET = {
 }
 
 export function Ethernet(props: NodeProps) {
-  return (
-    <Shape {...ETHERNET} {...props} _style={extendStyle(ETHERNET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ETHERNET)} />
 }

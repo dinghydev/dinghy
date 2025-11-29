@@ -11,11 +11,5 @@ export const QUANTUM_TECHNOLOGIES = {
 }
 
 export function QuantumTechnologies(props: NodeProps) {
-  return (
-    <Shape
-      {...QUANTUM_TECHNOLOGIES}
-      {...props}
-      _style={extendStyle(QUANTUM_TECHNOLOGIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUANTUM_TECHNOLOGIES)} />
 }

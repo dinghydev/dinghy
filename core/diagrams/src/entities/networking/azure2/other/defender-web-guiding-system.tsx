@@ -13,9 +13,8 @@ export const DEFENDER_WEB_GUIDING_SYSTEM = {
 export function DefenderWebGuidingSystem(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_WEB_GUIDING_SYSTEM}
       {...props}
-      _style={extendStyle(DEFENDER_WEB_GUIDING_SYSTEM, props)}
+      _style={extendStyle(props, DEFENDER_WEB_GUIDING_SYSTEM)}
     />
   )
 }

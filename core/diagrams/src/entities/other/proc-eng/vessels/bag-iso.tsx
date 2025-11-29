@@ -11,5 +11,5 @@ export const BAG_ISO = {
 }
 
 export function BagIso(props: NodeProps) {
-  return <Shape {...BAG_ISO} {...props} _style={extendStyle(BAG_ISO, props)} />
+  return <Shape {...props} _style={extendStyle(props, BAG_ISO)} />
 }

@@ -10,11 +10,5 @@ export const VERTICAL_SWIMLANE = {
 }
 
 export function VerticalSwimlane(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_SWIMLANE}
-      {...props}
-      _style={extendStyle(VERTICAL_SWIMLANE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_SWIMLANE)} />
 }

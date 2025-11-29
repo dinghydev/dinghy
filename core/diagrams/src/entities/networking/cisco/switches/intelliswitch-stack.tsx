@@ -11,11 +11,5 @@ export const INTELLISWITCH_STACK = {
 }
 
 export function IntelliswitchStack(props: NodeProps) {
-  return (
-    <Shape
-      {...INTELLISWITCH_STACK}
-      {...props}
-      _style={extendStyle(INTELLISWITCH_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTELLISWITCH_STACK)} />
 }

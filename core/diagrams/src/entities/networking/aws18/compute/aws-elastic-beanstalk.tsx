@@ -11,11 +11,5 @@ export const AWS_ELASTIC_BEANSTALK = {
 }
 
 export function AwsElasticBeanstalk(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_ELASTIC_BEANSTALK}
-      {...props}
-      _style={extendStyle(AWS_ELASTIC_BEANSTALK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_ELASTIC_BEANSTALK)} />
 }

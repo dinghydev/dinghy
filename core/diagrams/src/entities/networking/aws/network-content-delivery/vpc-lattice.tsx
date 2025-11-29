@@ -11,11 +11,5 @@ export const VPC_LATTICE = {
 }
 
 export function VpcLattice(props: NodeProps) {
-  return (
-    <Shape
-      {...VPC_LATTICE}
-      {...props}
-      _style={extendStyle(VPC_LATTICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_LATTICE)} />
 }

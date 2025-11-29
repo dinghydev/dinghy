@@ -11,11 +11,5 @@ export const LIVEJOURNAL = {
 }
 
 export function Livejournal(props: NodeProps) {
-  return (
-    <Shape
-      {...LIVEJOURNAL}
-      {...props}
-      _style={extendStyle(LIVEJOURNAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIVEJOURNAL)} />
 }

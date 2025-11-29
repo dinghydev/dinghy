@@ -9,11 +9,5 @@ export const CONNECTOR = {
 }
 
 export function Connector(props: NodeProps) {
-  return (
-    <Dependency
-      {...CONNECTOR}
-      {...props}
-      _style={extendStyle(CONNECTOR, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, CONNECTOR)} />
 }

@@ -11,11 +11,5 @@ export const COMMUNICATIONS_2 = {
 }
 
 export function Communications2(props: NodeProps) {
-  return (
-    <Shape
-      {...COMMUNICATIONS_2}
-      {...props}
-      _style={extendStyle(COMMUNICATIONS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMUNICATIONS_2)} />
 }

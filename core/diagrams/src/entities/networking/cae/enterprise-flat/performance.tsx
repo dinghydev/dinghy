@@ -11,11 +11,5 @@ export const PERFORMANCE = {
 }
 
 export function Performance(props: NodeProps) {
-  return (
-    <Shape
-      {...PERFORMANCE}
-      {...props}
-      _style={extendStyle(PERFORMANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERFORMANCE)} />
 }

@@ -12,10 +12,6 @@ export const SCVMM_MANAGEMENT_SERVERS = {
 
 export function ScvmmManagementServers(props: NodeProps) {
   return (
-    <Shape
-      {...SCVMM_MANAGEMENT_SERVERS}
-      {...props}
-      _style={extendStyle(SCVMM_MANAGEMENT_SERVERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SCVMM_MANAGEMENT_SERVERS)} />
   )
 }

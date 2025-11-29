@@ -11,7 +11,5 @@ export const IP_GROUPS = {
 }
 
 export function IpGroups(props: NodeProps) {
-  return (
-    <Shape {...IP_GROUPS} {...props} _style={extendStyle(IP_GROUPS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IP_GROUPS)} />
 }

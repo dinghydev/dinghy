@@ -11,5 +11,5 @@ export const AQUILA = {
 }
 
 export function Aquila(props: NodeProps) {
-  return <Shape {...AQUILA} {...props} _style={extendStyle(AQUILA, props)} />
+  return <Shape {...props} _style={extendStyle(props, AQUILA)} />
 }

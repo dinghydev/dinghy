@@ -11,5 +11,5 @@ export const MANHOLE = {
 }
 
 export function Manhole(props: NodeProps) {
-  return <Shape {...MANHOLE} {...props} _style={extendStyle(MANHOLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MANHOLE)} />
 }

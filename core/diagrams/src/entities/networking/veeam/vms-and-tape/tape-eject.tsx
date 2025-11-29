@@ -11,7 +11,5 @@ export const TAPE_EJECT = {
 }
 
 export function TapeEject(props: NodeProps) {
-  return (
-    <Shape {...TAPE_EJECT} {...props} _style={extendStyle(TAPE_EJECT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_EJECT)} />
 }

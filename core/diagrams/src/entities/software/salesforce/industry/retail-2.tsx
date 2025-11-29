@@ -11,7 +11,5 @@ export const RETAIL_2 = {
 }
 
 export function Retail2(props: NodeProps) {
-  return (
-    <Shape {...RETAIL_2} {...props} _style={extendStyle(RETAIL_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETAIL_2)} />
 }

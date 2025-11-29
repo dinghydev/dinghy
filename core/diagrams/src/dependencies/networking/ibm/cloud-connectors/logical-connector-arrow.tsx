@@ -11,9 +11,8 @@ export const LOGICAL_CONNECTOR_ARROW = {
 export function LogicalConnectorArrow(props: NodeProps) {
   return (
     <Dependency
-      {...LOGICAL_CONNECTOR_ARROW}
       {...props}
-      _style={extendStyle(LOGICAL_CONNECTOR_ARROW, props)}
+      _style={extendStyle(props, LOGICAL_CONNECTOR_ARROW)}
     />
   )
 }

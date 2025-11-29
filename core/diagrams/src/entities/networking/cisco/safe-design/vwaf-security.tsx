@@ -11,11 +11,5 @@ export const VWAF_SECURITY = {
 }
 
 export function VwafSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...VWAF_SECURITY}
-      {...props}
-      _style={extendStyle(VWAF_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VWAF_SECURITY)} />
 }

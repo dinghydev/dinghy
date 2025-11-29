@@ -11,11 +11,5 @@ export const DEVICE_ENROLLMENT = {
 }
 
 export function DeviceEnrollment(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_ENROLLMENT}
-      {...props}
-      _style={extendStyle(DEVICE_ENROLLMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_ENROLLMENT)} />
 }

@@ -11,7 +11,5 @@ export const PAIR_SITES = {
 }
 
 export function PairSites(props: NodeProps) {
-  return (
-    <Shape {...PAIR_SITES} {...props} _style={extendStyle(PAIR_SITES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAIR_SITES)} />
 }

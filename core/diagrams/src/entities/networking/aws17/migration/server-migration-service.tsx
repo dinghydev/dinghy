@@ -12,10 +12,6 @@ export const SERVER_MIGRATION_SERVICE = {
 
 export function ServerMigrationService(props: NodeProps) {
   return (
-    <Shape
-      {...SERVER_MIGRATION_SERVICE}
-      {...props}
-      _style={extendStyle(SERVER_MIGRATION_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SERVER_MIGRATION_SERVICE)} />
   )
 }

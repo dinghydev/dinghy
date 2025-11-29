@@ -11,11 +11,5 @@ export const SERVICE_VNIC = {
 }
 
 export function ServiceVnic(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_VNIC}
-      {...props}
-      _style={extendStyle(SERVICE_VNIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_VNIC)} />
 }

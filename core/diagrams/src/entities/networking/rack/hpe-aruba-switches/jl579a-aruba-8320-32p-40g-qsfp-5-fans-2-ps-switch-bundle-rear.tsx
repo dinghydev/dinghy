@@ -15,11 +15,10 @@ export function Jl579aAruba832032p40gQsfp5Fans2PsSwitchBundleRear(
 ) {
   return (
     <Shape
-      {...JL579A_ARUBA_8320_32P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR}
       {...props}
       _style={extendStyle(
-        JL579A_ARUBA_8320_32P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR,
         props,
+        JL579A_ARUBA_8320_32P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR,
       )}
     />
   )

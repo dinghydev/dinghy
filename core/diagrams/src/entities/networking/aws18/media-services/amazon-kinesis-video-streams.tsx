@@ -13,9 +13,8 @@ export const AMAZON_KINESIS_VIDEO_STREAMS = {
 export function AmazonKinesisVideoStreams(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_KINESIS_VIDEO_STREAMS}
       {...props}
-      _style={extendStyle(AMAZON_KINESIS_VIDEO_STREAMS, props)}
+      _style={extendStyle(props, AMAZON_KINESIS_VIDEO_STREAMS)}
     />
   )
 }

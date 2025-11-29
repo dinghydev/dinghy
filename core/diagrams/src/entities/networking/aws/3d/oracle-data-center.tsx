@@ -11,11 +11,5 @@ export const ORACLE_DATA_CENTER = {
 }
 
 export function OracleDataCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...ORACLE_DATA_CENTER}
-      {...props}
-      _style={extendStyle(ORACLE_DATA_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORACLE_DATA_CENTER)} />
 }

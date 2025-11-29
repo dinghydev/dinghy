@@ -12,10 +12,6 @@ export const NAVIGATION_BAR_VERTICAL = {
 
 export function NavigationBarVertical(props: NodeProps) {
   return (
-    <Shape
-      {...NAVIGATION_BAR_VERTICAL}
-      {...props}
-      _style={extendStyle(NAVIGATION_BAR_VERTICAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NAVIGATION_BAR_VERTICAL)} />
   )
 }

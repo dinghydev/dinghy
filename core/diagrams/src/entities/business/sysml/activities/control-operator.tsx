@@ -10,11 +10,5 @@ export const CONTROL_OPERATOR = {
 }
 
 export function ControlOperator(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_OPERATOR}
-      {...props}
-      _style={extendStyle(CONTROL_OPERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_OPERATOR)} />
 }

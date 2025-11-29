@@ -13,9 +13,8 @@ export const CONDITIONAL_START_NON_INTERRUPTING = {
 export function ConditionalStartNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_START_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(CONDITIONAL_START_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, CONDITIONAL_START_NON_INTERRUPTING)}
     />
   )
 }

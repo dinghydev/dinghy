@@ -1,6 +1,6 @@
 import * as base from '@dinghy/base-components'
-import { awsProps } from '../index.ts'
 import z from 'zod'
+import { awsProps } from '../utils/awsProps.ts'
 
 const InputSchema = z.object({
   instance_arn: base.ResolvableStringSchema,

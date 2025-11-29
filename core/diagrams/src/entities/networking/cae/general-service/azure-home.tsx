@@ -11,7 +11,5 @@ export const AZURE_HOME = {
 }
 
 export function AzureHome(props: NodeProps) {
-  return (
-    <Shape {...AZURE_HOME} {...props} _style={extendStyle(AZURE_HOME, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_HOME)} />
 }

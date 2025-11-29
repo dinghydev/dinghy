@@ -11,11 +11,5 @@ export const X2IEZN_INSTANCE = {
 }
 
 export function X2ieznInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...X2IEZN_INSTANCE}
-      {...props}
-      _style={extendStyle(X2IEZN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X2IEZN_INSTANCE)} />
 }

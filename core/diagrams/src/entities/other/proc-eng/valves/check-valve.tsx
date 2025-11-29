@@ -11,11 +11,5 @@ export const CHECK_VALVE = {
 }
 
 export function CheckValve(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECK_VALVE}
-      {...props}
-      _style={extendStyle(CHECK_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECK_VALVE)} />
 }

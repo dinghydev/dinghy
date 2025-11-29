@@ -11,7 +11,5 @@ export const APP_PART = {
 }
 
 export function AppPart(props: NodeProps) {
-  return (
-    <Shape {...APP_PART} {...props} _style={extendStyle(APP_PART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_PART)} />
 }

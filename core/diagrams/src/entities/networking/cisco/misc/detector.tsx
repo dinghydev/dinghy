@@ -11,7 +11,5 @@ export const DETECTOR = {
 }
 
 export function Detector(props: NodeProps) {
-  return (
-    <Shape {...DETECTOR} {...props} _style={extendStyle(DETECTOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETECTOR)} />
 }

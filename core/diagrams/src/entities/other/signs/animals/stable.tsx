@@ -11,5 +11,5 @@ export const STABLE = {
 }
 
 export function Stable(props: NodeProps) {
-  return <Shape {...STABLE} {...props} _style={extendStyle(STABLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, STABLE)} />
 }

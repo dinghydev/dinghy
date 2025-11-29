@@ -11,11 +11,5 @@ export const MPS_PRODUCE = {
 }
 
 export function MpsProduce(props: NodeProps) {
-  return (
-    <Shape
-      {...MPS_PRODUCE}
-      {...props}
-      _style={extendStyle(MPS_PRODUCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MPS_PRODUCE)} />
 }

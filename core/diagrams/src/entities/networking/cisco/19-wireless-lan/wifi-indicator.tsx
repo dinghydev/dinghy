@@ -11,11 +11,5 @@ export const WIFI_INDICATOR = {
 }
 
 export function WifiIndicator(props: NodeProps) {
-  return (
-    <Shape
-      {...WIFI_INDICATOR}
-      {...props}
-      _style={extendStyle(WIFI_INDICATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIFI_INDICATOR)} />
 }

@@ -11,11 +11,5 @@ export const SCHOTTKY_DIODE = {
 }
 
 export function SchottkyDiode(props: NodeProps) {
-  return (
-    <Shape
-      {...SCHOTTKY_DIODE}
-      {...props}
-      _style={extendStyle(SCHOTTKY_DIODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCHOTTKY_DIODE)} />
 }

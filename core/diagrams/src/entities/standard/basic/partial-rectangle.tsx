@@ -11,11 +11,5 @@ export const PARTIAL_RECTANGLE = {
 }
 
 export function PartialRectangle(props: NodeProps) {
-  return (
-    <Shape
-      {...PARTIAL_RECTANGLE}
-      {...props}
-      _style={extendStyle(PARTIAL_RECTANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTIAL_RECTANGLE)} />
 }

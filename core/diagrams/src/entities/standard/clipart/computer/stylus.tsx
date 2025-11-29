@@ -11,5 +11,5 @@ export const STYLUS = {
 }
 
 export function Stylus(props: NodeProps) {
-  return <Shape {...STYLUS} {...props} _style={extendStyle(STYLUS, props)} />
+  return <Shape {...props} _style={extendStyle(props, STYLUS)} />
 }

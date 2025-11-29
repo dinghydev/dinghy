@@ -11,11 +11,5 @@ export const GEOLOCATION_DATABASE = {
 }
 
 export function GeolocationDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...GEOLOCATION_DATABASE}
-      {...props}
-      _style={extendStyle(GEOLOCATION_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GEOLOCATION_DATABASE)} />
 }

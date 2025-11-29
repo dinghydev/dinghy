@@ -11,11 +11,5 @@ export const IDENTITY_CENTER = {
 }
 
 export function IdentityCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...IDENTITY_CENTER}
-      {...props}
-      _style={extendStyle(IDENTITY_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDENTITY_CENTER)} />
 }

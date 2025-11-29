@@ -11,11 +11,5 @@ export const OPEN_BULK_STORAGE = {
 }
 
 export function OpenBulkStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...OPEN_BULK_STORAGE}
-      {...props}
-      _style={extendStyle(OPEN_BULK_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPEN_BULK_STORAGE)} />
 }

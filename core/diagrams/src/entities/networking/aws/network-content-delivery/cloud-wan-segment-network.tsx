@@ -12,10 +12,6 @@ export const CLOUD_WAN_SEGMENT_NETWORK = {
 
 export function CloudWanSegmentNetwork(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_WAN_SEGMENT_NETWORK}
-      {...props}
-      _style={extendStyle(CLOUD_WAN_SEGMENT_NETWORK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_WAN_SEGMENT_NETWORK)} />
   )
 }

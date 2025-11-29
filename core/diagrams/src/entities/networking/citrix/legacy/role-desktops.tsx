@@ -11,11 +11,5 @@ export const ROLE_DESKTOPS = {
 }
 
 export function RoleDesktops(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_DESKTOPS}
-      {...props}
-      _style={extendStyle(ROLE_DESKTOPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_DESKTOPS)} />
 }

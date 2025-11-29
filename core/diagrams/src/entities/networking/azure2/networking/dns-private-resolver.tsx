@@ -11,11 +11,5 @@ export const DNS_PRIVATE_RESOLVER = {
 }
 
 export function DnsPrivateResolver(props: NodeProps) {
-  return (
-    <Shape
-      {...DNS_PRIVATE_RESOLVER}
-      {...props}
-      _style={extendStyle(DNS_PRIVATE_RESOLVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DNS_PRIVATE_RESOLVER)} />
 }

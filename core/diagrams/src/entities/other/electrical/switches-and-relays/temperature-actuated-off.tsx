@@ -12,10 +12,6 @@ export const TEMPERATURE_ACTUATED_OFF = {
 
 export function TemperatureActuatedOff(props: NodeProps) {
   return (
-    <Shape
-      {...TEMPERATURE_ACTUATED_OFF}
-      {...props}
-      _style={extendStyle(TEMPERATURE_ACTUATED_OFF, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TEMPERATURE_ACTUATED_OFF)} />
   )
 }

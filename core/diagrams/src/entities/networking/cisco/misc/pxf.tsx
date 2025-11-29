@@ -11,5 +11,5 @@ export const PXF = {
 }
 
 export function Pxf(props: NodeProps) {
-  return <Shape {...PXF} {...props} _style={extendStyle(PXF, props)} />
+  return <Shape {...props} _style={extendStyle(props, PXF)} />
 }

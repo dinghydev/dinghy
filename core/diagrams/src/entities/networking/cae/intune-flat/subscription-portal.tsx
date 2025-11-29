@@ -11,11 +11,5 @@ export const SUBSCRIPTION_PORTAL = {
 }
 
 export function SubscriptionPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBSCRIPTION_PORTAL}
-      {...props}
-      _style={extendStyle(SUBSCRIPTION_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBSCRIPTION_PORTAL)} />
 }

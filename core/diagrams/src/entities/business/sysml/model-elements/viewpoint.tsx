@@ -11,7 +11,5 @@ export const VIEWPOINT = {
 }
 
 export function Viewpoint(props: NodeProps) {
-  return (
-    <Shape {...VIEWPOINT} {...props} _style={extendStyle(VIEWPOINT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIEWPOINT)} />
 }

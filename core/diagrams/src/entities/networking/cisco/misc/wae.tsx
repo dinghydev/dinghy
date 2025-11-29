@@ -11,5 +11,5 @@ export const WAE = {
 }
 
 export function Wae(props: NodeProps) {
-  return <Shape {...WAE} {...props} _style={extendStyle(WAE, props)} />
+  return <Shape {...props} _style={extendStyle(props, WAE)} />
 }

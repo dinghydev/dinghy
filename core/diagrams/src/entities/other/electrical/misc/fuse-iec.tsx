@@ -11,7 +11,5 @@ export const FUSE_IEC = {
 }
 
 export function FuseIec(props: NodeProps) {
-  return (
-    <Shape {...FUSE_IEC} {...props} _style={extendStyle(FUSE_IEC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUSE_IEC)} />
 }

@@ -11,11 +11,5 @@ export const CODECATALYST = {
 }
 
 export function Codecatalyst(props: NodeProps) {
-  return (
-    <Shape
-      {...CODECATALYST}
-      {...props}
-      _style={extendStyle(CODECATALYST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODECATALYST)} />
 }

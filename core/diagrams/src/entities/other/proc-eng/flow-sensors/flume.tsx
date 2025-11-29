@@ -11,5 +11,5 @@ export const FLUME = {
 }
 
 export function Flume(props: NodeProps) {
-  return <Shape {...FLUME} {...props} _style={extendStyle(FLUME, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLUME)} />
 }

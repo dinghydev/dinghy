@@ -11,7 +11,5 @@ export const WINDOW_BAY = {
 }
 
 export function WindowBay(props: NodeProps) {
-  return (
-    <Shape {...WINDOW_BAY} {...props} _style={extendStyle(WINDOW_BAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOW_BAY)} />
 }

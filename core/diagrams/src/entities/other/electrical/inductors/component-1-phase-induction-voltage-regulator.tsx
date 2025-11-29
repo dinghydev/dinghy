@@ -13,9 +13,8 @@ export const COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR = {
 export function Component1PhaseInductionVoltageRegulator(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR}
       {...props}
-      _style={extendStyle(COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR, props)}
+      _style={extendStyle(props, COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR)}
     />
   )
 }

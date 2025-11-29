@@ -11,11 +11,5 @@ export const FASHIOLISTA = {
 }
 
 export function Fashiolista(props: NodeProps) {
-  return (
-    <Shape
-      {...FASHIOLISTA}
-      {...props}
-      _style={extendStyle(FASHIOLISTA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FASHIOLISTA)} />
 }

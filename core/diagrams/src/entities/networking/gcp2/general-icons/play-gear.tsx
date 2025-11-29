@@ -11,7 +11,5 @@ export const PLAY_GEAR = {
 }
 
 export function PlayGear(props: NodeProps) {
-  return (
-    <Shape {...PLAY_GEAR} {...props} _style={extendStyle(PLAY_GEAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAY_GEAR)} />
 }

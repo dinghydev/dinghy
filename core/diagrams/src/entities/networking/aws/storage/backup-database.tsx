@@ -11,11 +11,5 @@ export const BACKUP_DATABASE = {
 }
 
 export function BackupDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_DATABASE}
-      {...props}
-      _style={extendStyle(BACKUP_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_DATABASE)} />
 }

@@ -11,7 +11,5 @@ export const COAT_CHECK = {
 }
 
 export function CoatCheck(props: NodeProps) {
-  return (
-    <Shape {...COAT_CHECK} {...props} _style={extendStyle(COAT_CHECK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COAT_CHECK)} />
 }

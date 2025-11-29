@@ -12,10 +12,6 @@ export const SERVICE_MANAGEMENT_TOOLS = {
 
 export function ServiceManagementTools(props: NodeProps) {
   return (
-    <Shape
-      {...SERVICE_MANAGEMENT_TOOLS}
-      {...props}
-      _style={extendStyle(SERVICE_MANAGEMENT_TOOLS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SERVICE_MANAGEMENT_TOOLS)} />
   )
 }

@@ -11,11 +11,5 @@ export const BASTIONHOST = {
 }
 
 export function Bastionhost(props: NodeProps) {
-  return (
-    <Shape
-      {...BASTIONHOST}
-      {...props}
-      _style={extendStyle(BASTIONHOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASTIONHOST)} />
 }

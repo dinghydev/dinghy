@@ -13,11 +13,10 @@ export const SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE = {
 export function SapSoftwareAsAServiceProvisioningService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE}
       {...props}
       _style={extendStyle(
-        SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE,
         props,
+        SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE,
       )}
     />
   )

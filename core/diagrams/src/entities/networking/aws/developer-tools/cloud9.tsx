@@ -11,5 +11,5 @@ export const CLOUD9 = {
 }
 
 export function Cloud9(props: NodeProps) {
-  return <Shape {...CLOUD9} {...props} _style={extendStyle(CLOUD9, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLOUD9)} />
 }

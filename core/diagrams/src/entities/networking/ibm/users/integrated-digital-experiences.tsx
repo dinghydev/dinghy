@@ -13,9 +13,8 @@ export const INTEGRATED_DIGITAL_EXPERIENCES = {
 export function IntegratedDigitalExperiences(props: NodeProps) {
   return (
     <Shape
-      {...INTEGRATED_DIGITAL_EXPERIENCES}
       {...props}
-      _style={extendStyle(INTEGRATED_DIGITAL_EXPERIENCES, props)}
+      _style={extendStyle(props, INTEGRATED_DIGITAL_EXPERIENCES)}
     />
   )
 }

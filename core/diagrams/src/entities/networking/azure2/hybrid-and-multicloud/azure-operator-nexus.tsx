@@ -11,11 +11,5 @@ export const AZURE_OPERATOR_NEXUS = {
 }
 
 export function AzureOperatorNexus(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_OPERATOR_NEXUS}
-      {...props}
-      _style={extendStyle(AZURE_OPERATOR_NEXUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_OPERATOR_NEXUS)} />
 }

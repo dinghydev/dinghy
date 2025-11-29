@@ -11,11 +11,5 @@ export const AD_RISKY_SIGNINS = {
 }
 
 export function AdRiskySignins(props: NodeProps) {
-  return (
-    <Shape
-      {...AD_RISKY_SIGNINS}
-      {...props}
-      _style={extendStyle(AD_RISKY_SIGNINS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_RISKY_SIGNINS)} />
 }

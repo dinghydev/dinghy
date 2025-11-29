@@ -13,9 +13,8 @@ export const ARUBA_9004_4_PORT_GBE_GATEWAY_BACK = {
 export function Aruba90044PortGbeGatewayBack(props: NodeProps) {
   return (
     <Shape
-      {...ARUBA_9004_4_PORT_GBE_GATEWAY_BACK}
       {...props}
-      _style={extendStyle(ARUBA_9004_4_PORT_GBE_GATEWAY_BACK, props)}
+      _style={extendStyle(props, ARUBA_9004_4_PORT_GBE_GATEWAY_BACK)}
     />
   )
 }

@@ -8,11 +8,5 @@ export const UNSPECIFIED = {
 }
 
 export function Unspecified(props: NodeProps) {
-  return (
-    <Dependency
-      {...UNSPECIFIED}
-      {...props}
-      _style={extendStyle(UNSPECIFIED, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, UNSPECIFIED)} />
 }

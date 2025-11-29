@@ -11,7 +11,5 @@ export const ROLE_GROUP = {
 }
 
 export function RoleGroup(props: NodeProps) {
-  return (
-    <Shape {...ROLE_GROUP} {...props} _style={extendStyle(ROLE_GROUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_GROUP)} />
 }

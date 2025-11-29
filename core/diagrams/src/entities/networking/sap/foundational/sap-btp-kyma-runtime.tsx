@@ -11,11 +11,5 @@ export const SAP_BTP_KYMA_RUNTIME = {
 }
 
 export function SapBtpKymaRuntime(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_BTP_KYMA_RUNTIME}
-      {...props}
-      _style={extendStyle(SAP_BTP_KYMA_RUNTIME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_BTP_KYMA_RUNTIME)} />
 }

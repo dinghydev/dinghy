@@ -11,11 +11,5 @@ export const NODE_GENERIC_GHOSTED = {
 }
 
 export function NodeGenericGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...NODE_GENERIC_GHOSTED}
-      {...props}
-      _style={extendStyle(NODE_GENERIC_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NODE_GENERIC_GHOSTED)} />
 }

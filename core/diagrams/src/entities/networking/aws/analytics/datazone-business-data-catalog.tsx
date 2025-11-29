@@ -13,9 +13,8 @@ export const DATAZONE_BUSINESS_DATA_CATALOG = {
 export function DatazoneBusinessDataCatalog(props: NodeProps) {
   return (
     <Shape
-      {...DATAZONE_BUSINESS_DATA_CATALOG}
       {...props}
-      _style={extendStyle(DATAZONE_BUSINESS_DATA_CATALOG, props)}
+      _style={extendStyle(props, DATAZONE_BUSINESS_DATA_CATALOG)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const WIFI_ROUTER = {
 }
 
 export function WifiRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...WIFI_ROUTER}
-      {...props}
-      _style={extendStyle(WIFI_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIFI_ROUTER)} />
 }

@@ -11,11 +11,5 @@ export const SOCIAL_STUDIO_2 = {
 }
 
 export function SocialStudio2(props: NodeProps) {
-  return (
-    <Shape
-      {...SOCIAL_STUDIO_2}
-      {...props}
-      _style={extendStyle(SOCIAL_STUDIO_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOCIAL_STUDIO_2)} />
 }

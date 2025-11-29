@@ -11,11 +11,5 @@ export const PUMP_DIAPHRAGM = {
 }
 
 export function PumpDiaphragm(props: NodeProps) {
-  return (
-    <Shape
-      {...PUMP_DIAPHRAGM}
-      {...props}
-      _style={extendStyle(PUMP_DIAPHRAGM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUMP_DIAPHRAGM)} />
 }

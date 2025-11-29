@@ -11,5 +11,5 @@ export const ACI = {
 }
 
 export function Aci(props: NodeProps) {
-  return <Shape {...ACI} {...props} _style={extendStyle(ACI, props)} />
+  return <Shape {...props} _style={extendStyle(props, ACI)} />
 }

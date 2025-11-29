@@ -11,11 +11,5 @@ export const ONE_REPORTER = {
 }
 
 export function OneReporter(props: NodeProps) {
-  return (
-    <Shape
-      {...ONE_REPORTER}
-      {...props}
-      _style={extendStyle(ONE_REPORTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONE_REPORTER)} />
 }

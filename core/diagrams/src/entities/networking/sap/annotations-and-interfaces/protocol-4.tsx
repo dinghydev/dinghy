@@ -11,7 +11,5 @@ export const PROTOCOL_4 = {
 }
 
 export function Protocol4(props: NodeProps) {
-  return (
-    <Shape {...PROTOCOL_4} {...props} _style={extendStyle(PROTOCOL_4, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTOCOL_4)} />
 }

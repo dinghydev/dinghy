@@ -12,10 +12,6 @@ export const X11970_IN_LINE_PARTICLE = {
 
 export function X11970InLineParticle(props: NodeProps) {
   return (
-    <Shape
-      {...X11970_IN_LINE_PARTICLE}
-      {...props}
-      _style={extendStyle(X11970_IN_LINE_PARTICLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11970_IN_LINE_PARTICLE)} />
   )
 }

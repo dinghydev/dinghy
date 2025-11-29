@@ -13,9 +13,8 @@ export const JL320A_ARUBA_2930M_24G_POE_1_SLOT_SWITCH_REAR = {
 export function Jl320aAruba2930m24gPoe1SlotSwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...JL320A_ARUBA_2930M_24G_POE_1_SLOT_SWITCH_REAR}
       {...props}
-      _style={extendStyle(JL320A_ARUBA_2930M_24G_POE_1_SLOT_SWITCH_REAR, props)}
+      _style={extendStyle(props, JL320A_ARUBA_2930M_24G_POE_1_SLOT_SWITCH_REAR)}
     />
   )
 }

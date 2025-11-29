@@ -11,7 +11,5 @@ export const BIOHAZARD = {
 }
 
 export function Biohazard(props: NodeProps) {
-  return (
-    <Shape {...BIOHAZARD} {...props} _style={extendStyle(BIOHAZARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIOHAZARD)} />
 }

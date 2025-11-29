@@ -11,11 +11,5 @@ export const COLUMN_VALVE_TRAYS = {
 }
 
 export function ColumnValveTrays(props: NodeProps) {
-  return (
-    <Shape
-      {...COLUMN_VALVE_TRAYS}
-      {...props}
-      _style={extendStyle(COLUMN_VALVE_TRAYS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLUMN_VALVE_TRAYS)} />
 }

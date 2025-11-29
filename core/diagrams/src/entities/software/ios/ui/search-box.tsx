@@ -10,7 +10,5 @@ export const SEARCH_BOX = {
 }
 
 export function SearchBox(props: NodeProps) {
-  return (
-    <Shape {...SEARCH_BOX} {...props} _style={extendStyle(SEARCH_BOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEARCH_BOX)} />
 }

@@ -11,7 +11,5 @@ export const INSTANCE = {
 }
 
 export function Instance(props: NodeProps) {
-  return (
-    <Shape {...INSTANCE} {...props} _style={extendStyle(INSTANCE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSTANCE)} />
 }

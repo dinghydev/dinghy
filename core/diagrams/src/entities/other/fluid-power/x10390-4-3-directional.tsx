@@ -12,10 +12,6 @@ export const X10390_4_3_DIRECTIONAL = {
 
 export function X1039043Directional(props: NodeProps) {
   return (
-    <Shape
-      {...X10390_4_3_DIRECTIONAL}
-      {...props}
-      _style={extendStyle(X10390_4_3_DIRECTIONAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10390_4_3_DIRECTIONAL)} />
   )
 }

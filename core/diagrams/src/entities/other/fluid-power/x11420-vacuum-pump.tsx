@@ -11,11 +11,5 @@ export const X11420_VACUUM_PUMP = {
 }
 
 export function X11420VacuumPump(props: NodeProps) {
-  return (
-    <Shape
-      {...X11420_VACUUM_PUMP}
-      {...props}
-      _style={extendStyle(X11420_VACUUM_PUMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11420_VACUUM_PUMP)} />
 }

@@ -11,5 +11,5 @@ export const SQL = {
 }
 
 export function Sql(props: NodeProps) {
-  return <Shape {...SQL} {...props} _style={extendStyle(SQL, props)} />
+  return <Shape {...props} _style={extendStyle(props, SQL)} />
 }

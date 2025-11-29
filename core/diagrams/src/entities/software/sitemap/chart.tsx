@@ -11,5 +11,5 @@ export const CHART = {
 }
 
 export function Chart(props: NodeProps) {
-  return <Shape {...CHART} {...props} _style={extendStyle(CHART, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHART)} />
 }

@@ -11,5 +11,5 @@ export const DOT_DOT = {
 }
 
 export function DotDot(props: NodeProps) {
-  return <Shape {...DOT_DOT} {...props} _style={extendStyle(DOT_DOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, DOT_DOT)} />
 }

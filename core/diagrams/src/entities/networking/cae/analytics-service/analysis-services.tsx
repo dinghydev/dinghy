@@ -11,11 +11,5 @@ export const ANALYSIS_SERVICES = {
 }
 
 export function AnalysisServices(props: NodeProps) {
-  return (
-    <Shape
-      {...ANALYSIS_SERVICES}
-      {...props}
-      _style={extendStyle(ANALYSIS_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANALYSIS_SERVICES)} />
 }

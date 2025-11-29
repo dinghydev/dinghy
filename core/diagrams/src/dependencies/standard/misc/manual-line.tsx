@@ -9,11 +9,5 @@ export const MANUAL_LINE = {
 }
 
 export function ManualLine(props: NodeProps) {
-  return (
-    <Dependency
-      {...MANUAL_LINE}
-      {...props}
-      _style={extendStyle(MANUAL_LINE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, MANUAL_LINE)} />
 }

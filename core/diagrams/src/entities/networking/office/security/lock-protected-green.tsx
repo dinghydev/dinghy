@@ -11,11 +11,5 @@ export const LOCK_PROTECTED_GREEN = {
 }
 
 export function LockProtectedGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCK_PROTECTED_GREEN}
-      {...props}
-      _style={extendStyle(LOCK_PROTECTED_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCK_PROTECTED_GREEN)} />
 }

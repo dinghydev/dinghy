@@ -12,10 +12,6 @@ export const DEFENDER_INDUSTRIAL_ROBOT = {
 
 export function DefenderIndustrialRobot(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_INDUSTRIAL_ROBOT}
-      {...props}
-      _style={extendStyle(DEFENDER_INDUSTRIAL_ROBOT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_INDUSTRIAL_ROBOT)} />
   )
 }

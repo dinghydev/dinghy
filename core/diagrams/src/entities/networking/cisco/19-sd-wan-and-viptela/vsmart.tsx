@@ -11,5 +11,5 @@ export const VSMART = {
 }
 
 export function Vsmart(props: NodeProps) {
-  return <Shape {...VSMART} {...props} _style={extendStyle(VSMART, props)} />
+  return <Shape {...props} _style={extendStyle(props, VSMART)} />
 }

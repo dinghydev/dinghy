@@ -11,7 +11,5 @@ export const DATACENTER = {
 }
 
 export function Datacenter(props: NodeProps) {
-  return (
-    <Shape {...DATACENTER} {...props} _style={extendStyle(DATACENTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATACENTER)} />
 }

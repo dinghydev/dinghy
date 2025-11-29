@@ -11,11 +11,5 @@ export const STREAM_ANALYTICS = {
 }
 
 export function StreamAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...STREAM_ANALYTICS}
-      {...props}
-      _style={extendStyle(STREAM_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STREAM_ANALYTICS)} />
 }

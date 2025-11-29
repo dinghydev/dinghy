@@ -11,11 +11,5 @@ export const CDN_PROFILES = {
 }
 
 export function CdnProfiles(props: NodeProps) {
-  return (
-    <Shape
-      {...CDN_PROFILES}
-      {...props}
-      _style={extendStyle(CDN_PROFILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CDN_PROFILES)} />
 }

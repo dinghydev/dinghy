@@ -11,11 +11,5 @@ export const RIBBON_LIST_7 = {
 }
 
 export function RibbonList7(props: NodeProps) {
-  return (
-    <Shape
-      {...RIBBON_LIST_7}
-      {...props}
-      _style={extendStyle(RIBBON_LIST_7, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIBBON_LIST_7)} />
 }

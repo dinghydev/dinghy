@@ -11,7 +11,5 @@ export const UNSECURE = {
 }
 
 export function Unsecure(props: NodeProps) {
-  return (
-    <Shape {...UNSECURE} {...props} _style={extendStyle(UNSECURE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNSECURE)} />
 }

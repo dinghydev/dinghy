@@ -13,9 +13,8 @@ export const TRIPLEX_INDUCTION_VOLTAGE_REGULATOR = {
 export function TriplexInductionVoltageRegulator(props: NodeProps) {
   return (
     <Shape
-      {...TRIPLEX_INDUCTION_VOLTAGE_REGULATOR}
       {...props}
-      _style={extendStyle(TRIPLEX_INDUCTION_VOLTAGE_REGULATOR, props)}
+      _style={extendStyle(props, TRIPLEX_INDUCTION_VOLTAGE_REGULATOR)}
     />
   )
 }

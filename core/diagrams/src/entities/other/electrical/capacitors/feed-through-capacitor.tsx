@@ -12,10 +12,6 @@ export const FEED_THROUGH_CAPACITOR = {
 
 export function FeedThroughCapacitor(props: NodeProps) {
   return (
-    <Shape
-      {...FEED_THROUGH_CAPACITOR}
-      {...props}
-      _style={extendStyle(FEED_THROUGH_CAPACITOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FEED_THROUGH_CAPACITOR)} />
   )
 }

@@ -11,11 +11,5 @@ export const BARREL_DRUM_ISO = {
 }
 
 export function BarrelDrumIso(props: NodeProps) {
-  return (
-    <Shape
-      {...BARREL_DRUM_ISO}
-      {...props}
-      _style={extendStyle(BARREL_DRUM_ISO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BARREL_DRUM_ISO)} />
 }

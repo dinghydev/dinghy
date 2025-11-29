@@ -11,11 +11,5 @@ export const SHARED_ASSOCIATION_2 = {
 }
 
 export function SharedAssociation2(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARED_ASSOCIATION_2}
-      {...props}
-      _style={extendStyle(SHARED_ASSOCIATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARED_ASSOCIATION_2)} />
 }

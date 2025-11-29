@@ -11,11 +11,5 @@ export const DATA_COLLECTION_RULES = {
 }
 
 export function DataCollectionRules(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_COLLECTION_RULES}
-      {...props}
-      _style={extendStyle(DATA_COLLECTION_RULES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_COLLECTION_RULES)} />
 }

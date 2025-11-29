@@ -13,9 +13,8 @@ export const INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE = {
 export function IndviIndustrialVisualIntelligence(props: NodeProps) {
   return (
     <Shape
-      {...INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE}
       {...props}
-      _style={extendStyle(INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE, props)}
+      _style={extendStyle(props, INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE)}
     />
   )
 }

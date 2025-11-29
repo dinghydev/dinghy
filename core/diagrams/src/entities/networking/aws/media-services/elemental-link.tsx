@@ -11,11 +11,5 @@ export const ELEMENTAL_LINK = {
 }
 
 export function ElementalLink(props: NodeProps) {
-  return (
-    <Shape
-      {...ELEMENTAL_LINK}
-      {...props}
-      _style={extendStyle(ELEMENTAL_LINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELEMENTAL_LINK)} />
 }

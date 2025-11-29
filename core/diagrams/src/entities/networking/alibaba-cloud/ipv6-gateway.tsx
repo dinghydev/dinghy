@@ -11,11 +11,5 @@ export const IPV6_GATEWAY = {
 }
 
 export function Ipv6Gateway(props: NodeProps) {
-  return (
-    <Shape
-      {...IPV6_GATEWAY}
-      {...props}
-      _style={extendStyle(IPV6_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPV6_GATEWAY)} />
 }

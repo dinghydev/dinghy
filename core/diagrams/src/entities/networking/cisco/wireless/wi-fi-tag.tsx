@@ -11,7 +11,5 @@ export const WI_FI_TAG = {
 }
 
 export function WiFiTag(props: NodeProps) {
-  return (
-    <Shape {...WI_FI_TAG} {...props} _style={extendStyle(WI_FI_TAG, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WI_FI_TAG)} />
 }

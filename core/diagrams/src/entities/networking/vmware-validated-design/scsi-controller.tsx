@@ -11,11 +11,5 @@ export const SCSI_CONTROLLER = {
 }
 
 export function ScsiController(props: NodeProps) {
-  return (
-    <Shape
-      {...SCSI_CONTROLLER}
-      {...props}
-      _style={extendStyle(SCSI_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCSI_CONTROLLER)} />
 }

@@ -11,11 +11,5 @@ export const DEDUPLICATING_STORAGE = {
 }
 
 export function DeduplicatingStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...DEDUPLICATING_STORAGE}
-      {...props}
-      _style={extendStyle(DEDUPLICATING_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEDUPLICATING_STORAGE)} />
 }

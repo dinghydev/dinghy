@@ -11,5 +11,5 @@ export const DINING = {
 }
 
 export function Dining(props: NodeProps) {
-  return <Shape {...DINING} {...props} _style={extendStyle(DINING, props)} />
+  return <Shape {...props} _style={extendStyle(props, DINING)} />
 }

@@ -14,11 +14,5 @@ export const PRIVATE_SUBNET = {
 }
 
 export function PrivateSubnet(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIVATE_SUBNET}
-      {...props}
-      _style={extendStyle(PRIVATE_SUBNET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIVATE_SUBNET)} />
 }

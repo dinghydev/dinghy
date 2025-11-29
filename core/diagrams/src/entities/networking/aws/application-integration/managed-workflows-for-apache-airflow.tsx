@@ -13,9 +13,8 @@ export const MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW = {
 export function ManagedWorkflowsForApacheAirflow(props: NodeProps) {
   return (
     <Shape
-      {...MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW}
       {...props}
-      _style={extendStyle(MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW, props)}
+      _style={extendStyle(props, MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW)}
     />
   )
 }

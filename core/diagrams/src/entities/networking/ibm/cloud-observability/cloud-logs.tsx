@@ -11,7 +11,5 @@ export const CLOUD_LOGS = {
 }
 
 export function CloudLogs(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_LOGS} {...props} _style={extendStyle(CLOUD_LOGS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_LOGS)} />
 }

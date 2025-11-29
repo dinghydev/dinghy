@@ -11,11 +11,5 @@ export const EC2_AUTO_SCALING = {
 }
 
 export function Ec2AutoScaling(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_AUTO_SCALING}
-      {...props}
-      _style={extendStyle(EC2_AUTO_SCALING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_AUTO_SCALING)} />
 }

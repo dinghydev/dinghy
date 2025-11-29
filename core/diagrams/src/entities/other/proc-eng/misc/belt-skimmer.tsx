@@ -11,11 +11,5 @@ export const BELT_SKIMMER = {
 }
 
 export function BeltSkimmer(props: NodeProps) {
-  return (
-    <Shape
-      {...BELT_SKIMMER}
-      {...props}
-      _style={extendStyle(BELT_SKIMMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BELT_SKIMMER)} />
 }

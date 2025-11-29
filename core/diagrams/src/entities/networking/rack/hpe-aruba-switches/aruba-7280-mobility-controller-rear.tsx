@@ -13,9 +13,8 @@ export const ARUBA_7280_MOBILITY_CONTROLLER_REAR = {
 export function Aruba7280MobilityControllerRear(props: NodeProps) {
   return (
     <Shape
-      {...ARUBA_7280_MOBILITY_CONTROLLER_REAR}
       {...props}
-      _style={extendStyle(ARUBA_7280_MOBILITY_CONTROLLER_REAR, props)}
+      _style={extendStyle(props, ARUBA_7280_MOBILITY_CONTROLLER_REAR)}
     />
   )
 }

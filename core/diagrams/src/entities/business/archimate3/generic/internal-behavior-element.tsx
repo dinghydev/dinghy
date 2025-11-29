@@ -12,10 +12,6 @@ export const INTERNAL_BEHAVIOR_ELEMENT = {
 
 export function InternalBehaviorElement(props: NodeProps) {
   return (
-    <Shape
-      {...INTERNAL_BEHAVIOR_ELEMENT}
-      {...props}
-      _style={extendStyle(INTERNAL_BEHAVIOR_ELEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTERNAL_BEHAVIOR_ELEMENT)} />
   )
 }

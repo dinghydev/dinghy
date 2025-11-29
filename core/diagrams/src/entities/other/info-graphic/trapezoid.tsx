@@ -11,7 +11,5 @@ export const TRAPEZOID = {
 }
 
 export function Trapezoid(props: NodeProps) {
-  return (
-    <Shape {...TRAPEZOID} {...props} _style={extendStyle(TRAPEZOID, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRAPEZOID)} />
 }

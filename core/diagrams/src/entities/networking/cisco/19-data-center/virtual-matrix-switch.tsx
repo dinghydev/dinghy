@@ -11,11 +11,5 @@ export const VIRTUAL_MATRIX_SWITCH = {
 }
 
 export function VirtualMatrixSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_MATRIX_SWITCH}
-      {...props}
-      _style={extendStyle(VIRTUAL_MATRIX_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_MATRIX_SWITCH)} />
 }

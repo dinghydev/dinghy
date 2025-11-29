@@ -10,11 +10,5 @@ export const STEREOTYPE_NODE = {
 }
 
 export function StereotypeNode(props: NodeProps) {
-  return (
-    <Shape
-      {...STEREOTYPE_NODE}
-      {...props}
-      _style={extendStyle(STEREOTYPE_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEREOTYPE_NODE)} />
 }

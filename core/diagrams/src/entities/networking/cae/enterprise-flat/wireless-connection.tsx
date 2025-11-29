@@ -11,11 +11,5 @@ export const WIRELESS_CONNECTION = {
 }
 
 export function WirelessConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...WIRELESS_CONNECTION}
-      {...props}
-      _style={extendStyle(WIRELESS_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRELESS_CONNECTION)} />
 }

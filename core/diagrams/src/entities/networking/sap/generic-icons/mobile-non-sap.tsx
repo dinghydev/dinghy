@@ -11,11 +11,5 @@ export const MOBILE_NON_SAP = {
 }
 
 export function MobileNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_NON_SAP}
-      {...props}
-      _style={extendStyle(MOBILE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_NON_SAP)} />
 }

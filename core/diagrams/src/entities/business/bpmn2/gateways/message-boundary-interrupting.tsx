@@ -13,9 +13,8 @@ export const MESSAGE_BOUNDARY_INTERRUPTING = {
 export function MessageBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...MESSAGE_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(MESSAGE_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, MESSAGE_BOUNDARY_INTERRUPTING)}
     />
   )
 }

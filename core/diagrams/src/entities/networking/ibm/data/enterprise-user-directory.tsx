@@ -12,10 +12,6 @@ export const ENTERPRISE_USER_DIRECTORY = {
 
 export function EnterpriseUserDirectory(props: NodeProps) {
   return (
-    <Shape
-      {...ENTERPRISE_USER_DIRECTORY}
-      {...props}
-      _style={extendStyle(ENTERPRISE_USER_DIRECTORY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ENTERPRISE_USER_DIRECTORY)} />
   )
 }

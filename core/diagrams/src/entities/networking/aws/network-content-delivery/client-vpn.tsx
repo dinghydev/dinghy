@@ -11,7 +11,5 @@ export const CLIENT_VPN = {
 }
 
 export function ClientVpn(props: NodeProps) {
-  return (
-    <Shape {...CLIENT_VPN} {...props} _style={extendStyle(CLIENT_VPN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLIENT_VPN)} />
 }

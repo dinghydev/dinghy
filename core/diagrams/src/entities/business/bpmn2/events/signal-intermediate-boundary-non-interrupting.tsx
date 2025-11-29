@@ -13,9 +13,8 @@ export const SIGNAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
 export function SignalIntermediateBoundaryNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...SIGNAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(SIGNAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, SIGNAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING)}
     />
   )
 }

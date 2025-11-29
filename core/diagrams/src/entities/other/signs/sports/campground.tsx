@@ -11,7 +11,5 @@ export const CAMPGROUND = {
 }
 
 export function Campground(props: NodeProps) {
-  return (
-    <Shape {...CAMPGROUND} {...props} _style={extendStyle(CAMPGROUND, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAMPGROUND)} />
 }

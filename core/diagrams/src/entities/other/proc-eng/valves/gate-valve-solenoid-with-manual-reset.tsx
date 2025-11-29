@@ -13,9 +13,8 @@ export const GATE_VALVE_SOLENOID_WITH_MANUAL_RESET = {
 export function GateValveSolenoidWithManualReset(props: NodeProps) {
   return (
     <Shape
-      {...GATE_VALVE_SOLENOID_WITH_MANUAL_RESET}
       {...props}
-      _style={extendStyle(GATE_VALVE_SOLENOID_WITH_MANUAL_RESET, props)}
+      _style={extendStyle(props, GATE_VALVE_SOLENOID_WITH_MANUAL_RESET)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const MENU = {
 }
 
 export function Menu(props: NodeProps) {
-  return <Shape {...MENU} {...props} _style={extendStyle(MENU, props)} />
+  return <Shape {...props} _style={extendStyle(props, MENU)} />
 }

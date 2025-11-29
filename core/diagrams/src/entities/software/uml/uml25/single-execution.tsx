@@ -11,11 +11,5 @@ export const SINGLE_EXECUTION = {
 }
 
 export function SingleExecution(props: NodeProps) {
-  return (
-    <Shape
-      {...SINGLE_EXECUTION}
-      {...props}
-      _style={extendStyle(SINGLE_EXECUTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINGLE_EXECUTION)} />
 }

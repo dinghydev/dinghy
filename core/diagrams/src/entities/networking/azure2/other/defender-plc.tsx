@@ -11,11 +11,5 @@ export const DEFENDER_PLC = {
 }
 
 export function DefenderPlc(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_PLC}
-      {...props}
-      _style={extendStyle(DEFENDER_PLC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_PLC)} />
 }

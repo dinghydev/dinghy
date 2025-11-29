@@ -11,5 +11,5 @@ export const HUB = {
 }
 
 export function Hub(props: NodeProps) {
-  return <Shape {...HUB} {...props} _style={extendStyle(HUB, props)} />
+  return <Shape {...props} _style={extendStyle(props, HUB)} />
 }

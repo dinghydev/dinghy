@@ -11,11 +11,5 @@ export const FABRIC_SWITCHING = {
 }
 
 export function FabricSwitching(props: NodeProps) {
-  return (
-    <Shape
-      {...FABRIC_SWITCHING}
-      {...props}
-      _style={extendStyle(FABRIC_SWITCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FABRIC_SWITCHING)} />
 }

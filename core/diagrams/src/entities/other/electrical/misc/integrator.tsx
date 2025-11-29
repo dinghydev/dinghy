@@ -11,7 +11,5 @@ export const INTEGRATOR = {
 }
 
 export function Integrator(props: NodeProps) {
-  return (
-    <Shape {...INTEGRATOR} {...props} _style={extendStyle(INTEGRATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTEGRATOR)} />
 }

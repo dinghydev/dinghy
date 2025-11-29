@@ -11,11 +11,5 @@ export const IOV_IOT_VEHICLE_CLOUD = {
 }
 
 export function IovIotVehicleCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...IOV_IOT_VEHICLE_CLOUD}
-      {...props}
-      _style={extendStyle(IOV_IOT_VEHICLE_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOV_IOT_VEHICLE_CLOUD)} />
 }

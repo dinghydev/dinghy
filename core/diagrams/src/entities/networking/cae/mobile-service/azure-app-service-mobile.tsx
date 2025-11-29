@@ -12,10 +12,6 @@ export const AZURE_APP_SERVICE_MOBILE = {
 
 export function AzureAppServiceMobile(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_APP_SERVICE_MOBILE}
-      {...props}
-      _style={extendStyle(AZURE_APP_SERVICE_MOBILE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_APP_SERVICE_MOBILE)} />
   )
 }

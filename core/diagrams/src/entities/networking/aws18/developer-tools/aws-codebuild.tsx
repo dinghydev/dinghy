@@ -11,11 +11,5 @@ export const AWS_CODEBUILD = {
 }
 
 export function AwsCodebuild(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CODEBUILD}
-      {...props}
-      _style={extendStyle(AWS_CODEBUILD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CODEBUILD)} />
 }

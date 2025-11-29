@@ -11,7 +11,5 @@ export const KEEP_DRY = {
 }
 
 export function KeepDry(props: NodeProps) {
-  return (
-    <Shape {...KEEP_DRY} {...props} _style={extendStyle(KEEP_DRY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEEP_DRY)} />
 }

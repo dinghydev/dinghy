@@ -11,11 +11,5 @@ export const CISCO_WAVE_8541 = {
 }
 
 export function CiscoWave8541(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_WAVE_8541}
-      {...props}
-      _style={extendStyle(CISCO_WAVE_8541, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_WAVE_8541)} />
 }

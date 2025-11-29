@@ -12,10 +12,6 @@ export const ELASTICACHE_FOR_MEMCACHED = {
 
 export function ElasticacheForMemcached(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTICACHE_FOR_MEMCACHED}
-      {...props}
-      _style={extendStyle(ELASTICACHE_FOR_MEMCACHED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTICACHE_FOR_MEMCACHED)} />
   )
 }

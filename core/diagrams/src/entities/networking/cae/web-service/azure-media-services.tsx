@@ -11,11 +11,5 @@ export const AZURE_MEDIA_SERVICES = {
 }
 
 export function AzureMediaServices(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_MEDIA_SERVICES}
-      {...props}
-      _style={extendStyle(AZURE_MEDIA_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_MEDIA_SERVICES)} />
 }

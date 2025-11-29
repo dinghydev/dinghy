@@ -11,5 +11,5 @@ export const GLOBE = {
 }
 
 export function Globe(props: NodeProps) {
-  return <Shape {...GLOBE} {...props} _style={extendStyle(GLOBE, props)} />
+  return <Shape {...props} _style={extendStyle(props, GLOBE)} />
 }

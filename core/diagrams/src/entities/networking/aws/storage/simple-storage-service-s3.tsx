@@ -12,10 +12,6 @@ export const SIMPLE_STORAGE_SERVICE_S3 = {
 
 export function SimpleStorageServiceS3(props: NodeProps) {
   return (
-    <Shape
-      {...SIMPLE_STORAGE_SERVICE_S3}
-      {...props}
-      _style={extendStyle(SIMPLE_STORAGE_SERVICE_S3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SIMPLE_STORAGE_SERVICE_S3)} />
   )
 }

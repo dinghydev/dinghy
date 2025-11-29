@@ -11,11 +11,5 @@ export const SAP_ANALYTICS_CLOUD = {
 }
 
 export function SapAnalyticsCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_ANALYTICS_CLOUD}
-      {...props}
-      _style={extendStyle(SAP_ANALYTICS_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_ANALYTICS_CLOUD)} />
 }

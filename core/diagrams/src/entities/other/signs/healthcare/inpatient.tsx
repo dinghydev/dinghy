@@ -11,7 +11,5 @@ export const INPATIENT = {
 }
 
 export function Inpatient(props: NodeProps) {
-  return (
-    <Shape {...INPATIENT} {...props} _style={extendStyle(INPATIENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INPATIENT)} />
 }

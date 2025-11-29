@@ -11,7 +11,5 @@ export const GAME_TECH = {
 }
 
 export function GameTech(props: NodeProps) {
-  return (
-    <Shape {...GAME_TECH} {...props} _style={extendStyle(GAME_TECH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAME_TECH)} />
 }

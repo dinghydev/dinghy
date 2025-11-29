@@ -11,7 +11,5 @@ export const APPFABRIC = {
 }
 
 export function Appfabric(props: NodeProps) {
-  return (
-    <Shape {...APPFABRIC} {...props} _style={extendStyle(APPFABRIC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPFABRIC)} />
 }

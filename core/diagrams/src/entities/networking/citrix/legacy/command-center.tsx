@@ -11,11 +11,5 @@ export const COMMAND_CENTER = {
 }
 
 export function CommandCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...COMMAND_CENTER}
-      {...props}
-      _style={extendStyle(COMMAND_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMAND_CENTER)} />
 }

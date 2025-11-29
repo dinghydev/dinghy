@@ -11,11 +11,5 @@ export const APPLICATION_EVENT = {
 }
 
 export function ApplicationEvent(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_EVENT}
-      {...props}
-      _style={extendStyle(APPLICATION_EVENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_EVENT)} />
 }

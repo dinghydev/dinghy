@@ -11,11 +11,5 @@ export const ACCESS_SWITCH = {
 }
 
 export function AccessSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_SWITCH}
-      {...props}
-      _style={extendStyle(ACCESS_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_SWITCH)} />
 }

@@ -11,7 +11,5 @@ export const PROVISION = {
 }
 
 export function Provision(props: NodeProps) {
-  return (
-    <Shape {...PROVISION} {...props} _style={extendStyle(PROVISION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROVISION)} />
 }

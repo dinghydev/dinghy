@@ -15,11 +15,10 @@ export function LandscapePortalForSapS4hanaCloudAbapEnvironment(
 ) {
   return (
     <Shape
-      {...LANDSCAPE_PORTAL_FOR_SAP_S_4HANA_CLOUD_ABAP_ENVIRONMENT}
       {...props}
       _style={extendStyle(
-        LANDSCAPE_PORTAL_FOR_SAP_S_4HANA_CLOUD_ABAP_ENVIRONMENT,
         props,
+        LANDSCAPE_PORTAL_FOR_SAP_S_4HANA_CLOUD_ABAP_ENVIRONMENT,
       )}
     />
   )

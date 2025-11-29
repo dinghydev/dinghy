@@ -12,10 +12,6 @@ export const SECURITY_ACCESS_PORTAL = {
 
 export function SecurityAccessPortal(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_ACCESS_PORTAL}
-      {...props}
-      _style={extendStyle(SECURITY_ACCESS_PORTAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_ACCESS_PORTAL)} />
   )
 }

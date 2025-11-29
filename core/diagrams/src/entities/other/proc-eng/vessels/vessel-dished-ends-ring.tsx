@@ -12,10 +12,6 @@ export const VESSEL_DISHED_ENDS_RING = {
 
 export function VesselDishedEndsRing(props: NodeProps) {
   return (
-    <Shape
-      {...VESSEL_DISHED_ENDS_RING}
-      {...props}
-      _style={extendStyle(VESSEL_DISHED_ENDS_RING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VESSEL_DISHED_ENDS_RING)} />
   )
 }

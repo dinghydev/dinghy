@@ -11,9 +11,8 @@ export const UNIDIRECTIONAL_ASSOCIATION = {
 export function UnidirectionalAssociation(props: NodeProps) {
   return (
     <Dependency
-      {...UNIDIRECTIONAL_ASSOCIATION}
       {...props}
-      _style={extendStyle(UNIDIRECTIONAL_ASSOCIATION, props)}
+      _style={extendStyle(props, UNIDIRECTIONAL_ASSOCIATION)}
     />
   )
 }

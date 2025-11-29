@@ -11,7 +11,5 @@ export const DEEPRACER = {
 }
 
 export function Deepracer(props: NodeProps) {
-  return (
-    <Shape {...DEEPRACER} {...props} _style={extendStyle(DEEPRACER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEEPRACER)} />
 }

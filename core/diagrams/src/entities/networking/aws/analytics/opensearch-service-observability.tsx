@@ -13,9 +13,8 @@ export const OPENSEARCH_SERVICE_OBSERVABILITY = {
 export function OpensearchServiceObservability(props: NodeProps) {
   return (
     <Shape
-      {...OPENSEARCH_SERVICE_OBSERVABILITY}
       {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE_OBSERVABILITY, props)}
+      _style={extendStyle(props, OPENSEARCH_SERVICE_OBSERVABILITY)}
     />
   )
 }

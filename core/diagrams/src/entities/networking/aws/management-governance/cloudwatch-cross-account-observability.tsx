@@ -13,9 +13,8 @@ export const CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY = {
 export function CloudwatchCrossAccountObservability(props: NodeProps) {
   return (
     <Shape
-      {...CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY}
       {...props}
-      _style={extendStyle(CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY, props)}
+      _style={extendStyle(props, CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const THREAT_ACTOR_LABEL = {
 }
 
 export function ThreatActorLabel(props: NodeProps) {
-  return (
-    <Shape
-      {...THREAT_ACTOR_LABEL}
-      {...props}
-      _style={extendStyle(THREAT_ACTOR_LABEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THREAT_ACTOR_LABEL)} />
 }

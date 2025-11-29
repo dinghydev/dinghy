@@ -11,11 +11,5 @@ export const CUSTOM_INPUT_GROUP = {
 }
 
 export function CustomInputGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOM_INPUT_GROUP}
-      {...props}
-      _style={extendStyle(CUSTOM_INPUT_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOM_INPUT_GROUP)} />
 }

@@ -13,9 +13,8 @@ export const JL083A_3810M_2930M_4_PORT_10GBE_SFP_MODULE = {
 export function Jl083a3810m2930m4Port10gbeSfpModule(props: NodeProps) {
   return (
     <Shape
-      {...JL083A_3810M_2930M_4_PORT_10GBE_SFP_MODULE}
       {...props}
-      _style={extendStyle(JL083A_3810M_2930M_4_PORT_10GBE_SFP_MODULE, props)}
+      _style={extendStyle(props, JL083A_3810M_2930M_4_PORT_10GBE_SFP_MODULE)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const AZURE_OPERATOR_SERVICE_MANAGER = {
 export function AzureOperatorServiceManager(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_OPERATOR_SERVICE_MANAGER}
       {...props}
-      _style={extendStyle(AZURE_OPERATOR_SERVICE_MANAGER, props)}
+      _style={extendStyle(props, AZURE_OPERATOR_SERVICE_MANAGER)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const PALETTE_SAP = {
 }
 
 export function PaletteSap(props: NodeProps) {
-  return (
-    <Shape
-      {...PALETTE_SAP}
-      {...props}
-      _style={extendStyle(PALETTE_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PALETTE_SAP)} />
 }

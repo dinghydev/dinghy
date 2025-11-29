@@ -11,11 +11,5 @@ export const VIDEO_GATEWAY = {
 }
 
 export function VideoGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_GATEWAY}
-      {...props}
-      _style={extendStyle(VIDEO_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_GATEWAY)} />
 }

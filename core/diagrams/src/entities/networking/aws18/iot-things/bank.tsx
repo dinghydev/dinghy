@@ -11,5 +11,5 @@ export const BANK = {
 }
 
 export function Bank(props: NodeProps) {
-  return <Shape {...BANK} {...props} _style={extendStyle(BANK, props)} />
+  return <Shape {...props} _style={extendStyle(props, BANK)} />
 }

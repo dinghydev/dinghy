@@ -11,11 +11,5 @@ export const HYBRID_CLOUD = {
 }
 
 export function HybridCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...HYBRID_CLOUD}
-      {...props}
-      _style={extendStyle(HYBRID_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYBRID_CLOUD)} />
 }

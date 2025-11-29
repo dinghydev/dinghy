@@ -11,11 +11,5 @@ export const WEB_CONSOLE = {
 }
 
 export function WebConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_CONSOLE}
-      {...props}
-      _style={extendStyle(WEB_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_CONSOLE)} />
 }

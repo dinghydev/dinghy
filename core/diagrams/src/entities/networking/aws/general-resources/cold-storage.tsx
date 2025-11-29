@@ -11,11 +11,5 @@ export const COLD_STORAGE = {
 }
 
 export function ColdStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...COLD_STORAGE}
-      {...props}
-      _style={extendStyle(COLD_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLD_STORAGE)} />
 }

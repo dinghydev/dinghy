@@ -13,9 +13,8 @@ export const INFORMATION_DATA_CARRIER_SOP = {
 export function InformationDataCarrierSop(props: NodeProps) {
   return (
     <Shape
-      {...INFORMATION_DATA_CARRIER_SOP}
       {...props}
-      _style={extendStyle(INFORMATION_DATA_CARRIER_SOP, props)}
+      _style={extendStyle(props, INFORMATION_DATA_CARRIER_SOP)}
     />
   )
 }

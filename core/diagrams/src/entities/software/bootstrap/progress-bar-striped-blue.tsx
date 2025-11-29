@@ -12,10 +12,6 @@ export const PROGRESS_BAR_STRIPED_BLUE = {
 
 export function ProgressBarStripedBlue(props: NodeProps) {
   return (
-    <Shape
-      {...PROGRESS_BAR_STRIPED_BLUE}
-      {...props}
-      _style={extendStyle(PROGRESS_BAR_STRIPED_BLUE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROGRESS_BAR_STRIPED_BLUE)} />
   )
 }

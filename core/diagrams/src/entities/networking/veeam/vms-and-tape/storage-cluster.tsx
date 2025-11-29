@@ -11,11 +11,5 @@ export const STORAGE_CLUSTER = {
 }
 
 export function StorageCluster(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_CLUSTER}
-      {...props}
-      _style={extendStyle(STORAGE_CLUSTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_CLUSTER)} />
 }

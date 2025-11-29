@@ -11,11 +11,5 @@ export const LOGIC_CONTROL_ROOM = {
 }
 
 export function LogicControlRoom(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGIC_CONTROL_ROOM}
-      {...props}
-      _style={extendStyle(LOGIC_CONTROL_ROOM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGIC_CONTROL_ROOM)} />
 }

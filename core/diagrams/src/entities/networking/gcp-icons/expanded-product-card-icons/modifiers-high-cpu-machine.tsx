@@ -12,10 +12,6 @@ export const MODIFIERS_HIGH_CPU_MACHINE = {
 
 export function ModifiersHighCpuMachine(props: NodeProps) {
   return (
-    <Shape
-      {...MODIFIERS_HIGH_CPU_MACHINE}
-      {...props}
-      _style={extendStyle(MODIFIERS_HIGH_CPU_MACHINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MODIFIERS_HIGH_CPU_MACHINE)} />
   )
 }

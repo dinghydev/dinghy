@@ -12,10 +12,6 @@ export const MULTI_SELECT_WITH_AVATARS = {
 
 export function MultiSelectWithAvatars(props: NodeProps) {
   return (
-    <Shape
-      {...MULTI_SELECT_WITH_AVATARS}
-      {...props}
-      _style={extendStyle(MULTI_SELECT_WITH_AVATARS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTI_SELECT_WITH_AVATARS)} />
   )
 }

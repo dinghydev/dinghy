@@ -11,7 +11,5 @@ export const EVENT_SAP = {
 }
 
 export function EventSap(props: NodeProps) {
-  return (
-    <Shape {...EVENT_SAP} {...props} _style={extendStyle(EVENT_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_SAP)} />
 }

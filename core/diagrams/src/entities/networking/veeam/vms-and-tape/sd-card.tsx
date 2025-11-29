@@ -11,5 +11,5 @@ export const SD_CARD = {
 }
 
 export function SdCard(props: NodeProps) {
-  return <Shape {...SD_CARD} {...props} _style={extendStyle(SD_CARD, props)} />
+  return <Shape {...props} _style={extendStyle(props, SD_CARD)} />
 }

@@ -11,11 +11,5 @@ export const GLUE_DATA_QUALITY = {
 }
 
 export function GlueDataQuality(props: NodeProps) {
-  return (
-    <Shape
-      {...GLUE_DATA_QUALITY}
-      {...props}
-      _style={extendStyle(GLUE_DATA_QUALITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLUE_DATA_QUALITY)} />
 }

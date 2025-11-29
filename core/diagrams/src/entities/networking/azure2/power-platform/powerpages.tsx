@@ -11,7 +11,5 @@ export const POWERPAGES = {
 }
 
 export function Powerpages(props: NodeProps) {
-  return (
-    <Shape {...POWERPAGES} {...props} _style={extendStyle(POWERPAGES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERPAGES)} />
 }

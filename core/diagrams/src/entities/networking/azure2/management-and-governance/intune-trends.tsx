@@ -11,11 +11,5 @@ export const INTUNE_TRENDS = {
 }
 
 export function IntuneTrends(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_TRENDS}
-      {...props}
-      _style={extendStyle(INTUNE_TRENDS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_TRENDS)} />
 }

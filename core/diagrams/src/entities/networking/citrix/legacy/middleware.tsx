@@ -11,7 +11,5 @@ export const MIDDLEWARE = {
 }
 
 export function Middleware(props: NodeProps) {
-  return (
-    <Shape {...MIDDLEWARE} {...props} _style={extendStyle(MIDDLEWARE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIDDLEWARE)} />
 }

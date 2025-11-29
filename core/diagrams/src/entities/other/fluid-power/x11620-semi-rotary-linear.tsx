@@ -12,10 +12,6 @@ export const X11620_SEMI_ROTARY_LINEAR = {
 
 export function X11620SemiRotaryLinear(props: NodeProps) {
   return (
-    <Shape
-      {...X11620_SEMI_ROTARY_LINEAR}
-      {...props}
-      _style={extendStyle(X11620_SEMI_ROTARY_LINEAR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11620_SEMI_ROTARY_LINEAR)} />
   )
 }

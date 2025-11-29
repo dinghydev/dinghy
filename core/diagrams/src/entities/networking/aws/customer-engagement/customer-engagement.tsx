@@ -11,11 +11,5 @@ export const CUSTOMER_ENGAGEMENT = {
 }
 
 export function CustomerEngagement(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOMER_ENGAGEMENT}
-      {...props}
-      _style={extendStyle(CUSTOMER_ENGAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOMER_ENGAGEMENT)} />
 }

@@ -11,7 +11,5 @@ export const DATA_SET = {
 }
 
 export function DataSet(props: NodeProps) {
-  return (
-    <Shape {...DATA_SET} {...props} _style={extendStyle(DATA_SET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_SET)} />
 }

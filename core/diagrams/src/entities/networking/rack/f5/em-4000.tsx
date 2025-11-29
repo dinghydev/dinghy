@@ -11,5 +11,5 @@ export const EM_4000 = {
 }
 
 export function Em4000(props: NodeProps) {
-  return <Shape {...EM_4000} {...props} _style={extendStyle(EM_4000, props)} />
+  return <Shape {...props} _style={extendStyle(props, EM_4000)} />
 }

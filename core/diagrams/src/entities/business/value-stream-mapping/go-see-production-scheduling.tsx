@@ -13,9 +13,8 @@ export const GO_SEE_PRODUCTION_SCHEDULING = {
 export function GoSeeProductionScheduling(props: NodeProps) {
   return (
     <Shape
-      {...GO_SEE_PRODUCTION_SCHEDULING}
       {...props}
-      _style={extendStyle(GO_SEE_PRODUCTION_SCHEDULING, props)}
+      _style={extendStyle(props, GO_SEE_PRODUCTION_SCHEDULING)}
     />
   )
 }

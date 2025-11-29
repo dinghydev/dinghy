@@ -11,11 +11,5 @@ export const IMMUNIZATIONS = {
 }
 
 export function Immunizations(props: NodeProps) {
-  return (
-    <Shape
-      {...IMMUNIZATIONS}
-      {...props}
-      _style={extendStyle(IMMUNIZATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMMUNIZATIONS)} />
 }

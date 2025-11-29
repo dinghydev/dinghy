@@ -11,11 +11,5 @@ export const KUBERNETES_LOGO = {
 }
 
 export function KubernetesLogo(props: NodeProps) {
-  return (
-    <Shape
-      {...KUBERNETES_LOGO}
-      {...props}
-      _style={extendStyle(KUBERNETES_LOGO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KUBERNETES_LOGO)} />
 }

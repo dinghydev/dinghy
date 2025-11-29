@@ -11,11 +11,5 @@ export const IS_CONTROL_2 = {
 }
 
 export function IsControl2(props: NodeProps) {
-  return (
-    <Shape
-      {...IS_CONTROL_2}
-      {...props}
-      _style={extendStyle(IS_CONTROL_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IS_CONTROL_2)} />
 }

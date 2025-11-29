@@ -13,9 +13,8 @@ export const DMS_DATA_MANAGEMENT_SERVICE = {
 export function DmsDataManagementService(props: NodeProps) {
   return (
     <Shape
-      {...DMS_DATA_MANAGEMENT_SERVICE}
       {...props}
-      _style={extendStyle(DMS_DATA_MANAGEMENT_SERVICE, props)}
+      _style={extendStyle(props, DMS_DATA_MANAGEMENT_SERVICE)}
     />
   )
 }

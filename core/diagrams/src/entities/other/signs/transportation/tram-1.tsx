@@ -11,5 +11,5 @@ export const TRAM_1 = {
 }
 
 export function Tram1(props: NodeProps) {
-  return <Shape {...TRAM_1} {...props} _style={extendStyle(TRAM_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, TRAM_1)} />
 }

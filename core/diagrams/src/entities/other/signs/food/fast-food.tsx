@@ -11,7 +11,5 @@ export const FAST_FOOD = {
 }
 
 export function FastFood(props: NodeProps) {
-  return (
-    <Shape {...FAST_FOOD} {...props} _style={extendStyle(FAST_FOOD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FAST_FOOD)} />
 }

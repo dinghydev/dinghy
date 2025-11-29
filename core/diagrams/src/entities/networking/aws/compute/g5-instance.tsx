@@ -11,11 +11,5 @@ export const G5_INSTANCE = {
 }
 
 export function G5Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...G5_INSTANCE}
-      {...props}
-      _style={extendStyle(G5_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, G5_INSTANCE)} />
 }

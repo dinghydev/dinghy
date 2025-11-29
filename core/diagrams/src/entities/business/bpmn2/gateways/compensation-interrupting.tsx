@@ -12,10 +12,6 @@ export const COMPENSATION_INTERRUPTING = {
 
 export function CompensationInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...COMPENSATION_INTERRUPTING}
-      {...props}
-      _style={extendStyle(COMPENSATION_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPENSATION_INTERRUPTING)} />
   )
 }

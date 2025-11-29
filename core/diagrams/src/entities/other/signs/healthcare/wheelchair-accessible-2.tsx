@@ -12,10 +12,6 @@ export const WHEELCHAIR_ACCESSIBLE_2 = {
 
 export function WheelchairAccessible2(props: NodeProps) {
   return (
-    <Shape
-      {...WHEELCHAIR_ACCESSIBLE_2}
-      {...props}
-      _style={extendStyle(WHEELCHAIR_ACCESSIBLE_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WHEELCHAIR_ACCESSIBLE_2)} />
   )
 }

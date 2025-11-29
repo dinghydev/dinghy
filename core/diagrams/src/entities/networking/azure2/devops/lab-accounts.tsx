@@ -11,11 +11,5 @@ export const LAB_ACCOUNTS = {
 }
 
 export function LabAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...LAB_ACCOUNTS}
-      {...props}
-      _style={extendStyle(LAB_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAB_ACCOUNTS)} />
 }

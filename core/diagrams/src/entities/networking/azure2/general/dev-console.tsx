@@ -11,11 +11,5 @@ export const DEV_CONSOLE = {
 }
 
 export function DevConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...DEV_CONSOLE}
-      {...props}
-      _style={extendStyle(DEV_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEV_CONSOLE)} />
 }

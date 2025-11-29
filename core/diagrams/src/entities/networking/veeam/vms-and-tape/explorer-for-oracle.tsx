@@ -11,11 +11,5 @@ export const EXPLORER_FOR_ORACLE = {
 }
 
 export function ExplorerForOracle(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPLORER_FOR_ORACLE}
-      {...props}
-      _style={extendStyle(EXPLORER_FOR_ORACLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPLORER_FOR_ORACLE)} />
 }

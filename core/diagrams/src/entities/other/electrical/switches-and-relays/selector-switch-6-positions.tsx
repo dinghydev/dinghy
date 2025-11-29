@@ -13,9 +13,8 @@ export const SELECTOR_SWITCH_6_POSITIONS = {
 export function SelectorSwitch6Positions(props: NodeProps) {
   return (
     <Shape
-      {...SELECTOR_SWITCH_6_POSITIONS}
       {...props}
-      _style={extendStyle(SELECTOR_SWITCH_6_POSITIONS, props)}
+      _style={extendStyle(props, SELECTOR_SWITCH_6_POSITIONS)}
     />
   )
 }

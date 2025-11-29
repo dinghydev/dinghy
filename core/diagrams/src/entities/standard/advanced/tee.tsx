@@ -10,5 +10,5 @@ export const TEE = {
 }
 
 export function Tee(props: NodeProps) {
-  return <Shape {...TEE} {...props} _style={extendStyle(TEE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TEE)} />
 }

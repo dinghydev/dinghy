@@ -13,9 +13,8 @@ export const PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM = {
 export function ParticipantInitiatingMultiInstanceBottom(props: NodeProps) {
   return (
     <Shape
-      {...PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM}
       {...props}
-      _style={extendStyle(PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM, props)}
+      _style={extendStyle(props, PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM)}
     />
   )
 }

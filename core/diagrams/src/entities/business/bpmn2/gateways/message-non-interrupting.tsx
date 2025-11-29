@@ -12,10 +12,6 @@ export const MESSAGE_NON_INTERRUPTING = {
 
 export function MessageNonInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...MESSAGE_NON_INTERRUPTING}
-      {...props}
-      _style={extendStyle(MESSAGE_NON_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MESSAGE_NON_INTERRUPTING)} />
   )
 }

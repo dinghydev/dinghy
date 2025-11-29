@@ -12,10 +12,6 @@ export const RDS_BLUE_GREEN_DEPLOYMENTS = {
 
 export function RdsBlueGreenDeployments(props: NodeProps) {
   return (
-    <Shape
-      {...RDS_BLUE_GREEN_DEPLOYMENTS}
-      {...props}
-      _style={extendStyle(RDS_BLUE_GREEN_DEPLOYMENTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RDS_BLUE_GREEN_DEPLOYMENTS)} />
   )
 }

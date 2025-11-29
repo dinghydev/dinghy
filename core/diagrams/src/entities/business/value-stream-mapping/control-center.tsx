@@ -11,11 +11,5 @@ export const CONTROL_CENTER = {
 }
 
 export function ControlCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_CENTER}
-      {...props}
-      _style={extendStyle(CONTROL_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_CENTER)} />
 }

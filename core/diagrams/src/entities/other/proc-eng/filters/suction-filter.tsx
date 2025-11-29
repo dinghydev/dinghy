@@ -11,11 +11,5 @@ export const SUCTION_FILTER = {
 }
 
 export function SuctionFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...SUCTION_FILTER}
-      {...props}
-      _style={extendStyle(SUCTION_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCTION_FILTER)} />
 }

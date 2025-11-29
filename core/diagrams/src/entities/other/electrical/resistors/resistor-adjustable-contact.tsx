@@ -13,9 +13,8 @@ export const RESISTOR_ADJUSTABLE_CONTACT = {
 export function ResistorAdjustableContact(props: NodeProps) {
   return (
     <Shape
-      {...RESISTOR_ADJUSTABLE_CONTACT}
       {...props}
-      _style={extendStyle(RESISTOR_ADJUSTABLE_CONTACT, props)}
+      _style={extendStyle(props, RESISTOR_ADJUSTABLE_CONTACT)}
     />
   )
 }

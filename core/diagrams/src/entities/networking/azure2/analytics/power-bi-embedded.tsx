@@ -11,11 +11,5 @@ export const POWER_BI_EMBEDDED = {
 }
 
 export function PowerBiEmbedded(props: NodeProps) {
-  return (
-    <Shape
-      {...POWER_BI_EMBEDDED}
-      {...props}
-      _style={extendStyle(POWER_BI_EMBEDDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWER_BI_EMBEDDED)} />
 }

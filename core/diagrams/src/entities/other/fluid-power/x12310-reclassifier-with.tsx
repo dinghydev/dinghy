@@ -12,10 +12,6 @@ export const X12310_RECLASSIFIER_WITH = {
 
 export function X12310ReclassifierWith(props: NodeProps) {
   return (
-    <Shape
-      {...X12310_RECLASSIFIER_WITH}
-      {...props}
-      _style={extendStyle(X12310_RECLASSIFIER_WITH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12310_RECLASSIFIER_WITH)} />
   )
 }

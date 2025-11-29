@@ -11,11 +11,5 @@ export const RACK_VOYAGER = {
 }
 
 export function RackVoyager(props: NodeProps) {
-  return (
-    <Shape
-      {...RACK_VOYAGER}
-      {...props}
-      _style={extendStyle(RACK_VOYAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RACK_VOYAGER)} />
 }

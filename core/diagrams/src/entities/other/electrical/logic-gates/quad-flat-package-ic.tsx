@@ -11,11 +11,5 @@ export const QUAD_FLAT_PACKAGE_IC = {
 }
 
 export function QuadFlatPackageIc(props: NodeProps) {
-  return (
-    <Shape
-      {...QUAD_FLAT_PACKAGE_IC}
-      {...props}
-      _style={extendStyle(QUAD_FLAT_PACKAGE_IC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUAD_FLAT_PACKAGE_IC)} />
 }

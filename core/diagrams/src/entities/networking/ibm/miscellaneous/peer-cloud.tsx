@@ -11,7 +11,5 @@ export const PEER_CLOUD = {
 }
 
 export function PeerCloud(props: NodeProps) {
-  return (
-    <Shape {...PEER_CLOUD} {...props} _style={extendStyle(PEER_CLOUD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PEER_CLOUD)} />
 }

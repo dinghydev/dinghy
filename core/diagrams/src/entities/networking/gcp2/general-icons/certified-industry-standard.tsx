@@ -13,9 +13,8 @@ export const CERTIFIED_INDUSTRY_STANDARD = {
 export function CertifiedIndustryStandard(props: NodeProps) {
   return (
     <Shape
-      {...CERTIFIED_INDUSTRY_STANDARD}
       {...props}
-      _style={extendStyle(CERTIFIED_INDUSTRY_STANDARD, props)}
+      _style={extendStyle(props, CERTIFIED_INDUSTRY_STANDARD)}
     />
   )
 }

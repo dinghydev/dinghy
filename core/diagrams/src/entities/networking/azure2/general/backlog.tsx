@@ -11,5 +11,5 @@ export const BACKLOG = {
 }
 
 export function Backlog(props: NodeProps) {
-  return <Shape {...BACKLOG} {...props} _style={extendStyle(BACKLOG, props)} />
+  return <Shape {...props} _style={extendStyle(props, BACKLOG)} />
 }

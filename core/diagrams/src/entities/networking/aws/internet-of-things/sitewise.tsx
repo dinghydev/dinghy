@@ -11,7 +11,5 @@ export const SITEWISE = {
 }
 
 export function Sitewise(props: NodeProps) {
-  return (
-    <Shape {...SITEWISE} {...props} _style={extendStyle(SITEWISE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITEWISE)} />
 }

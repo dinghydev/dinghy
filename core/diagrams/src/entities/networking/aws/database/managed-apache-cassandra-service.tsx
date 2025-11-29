@@ -13,9 +13,8 @@ export const MANAGED_APACHE_CASSANDRA_SERVICE = {
 export function ManagedApacheCassandraService(props: NodeProps) {
   return (
     <Shape
-      {...MANAGED_APACHE_CASSANDRA_SERVICE}
       {...props}
-      _style={extendStyle(MANAGED_APACHE_CASSANDRA_SERVICE, props)}
+      _style={extendStyle(props, MANAGED_APACHE_CASSANDRA_SERVICE)}
     />
   )
 }

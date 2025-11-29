@@ -13,9 +13,8 @@ export const JL322A_ARUBA_2930M_48G_POE_1_SLOT_SWITCH_REAR = {
 export function Jl322aAruba2930m48gPoe1SlotSwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...JL322A_ARUBA_2930M_48G_POE_1_SLOT_SWITCH_REAR}
       {...props}
-      _style={extendStyle(JL322A_ARUBA_2930M_48G_POE_1_SLOT_SWITCH_REAR, props)}
+      _style={extendStyle(props, JL322A_ARUBA_2930M_48G_POE_1_SLOT_SWITCH_REAR)}
     />
   )
 }

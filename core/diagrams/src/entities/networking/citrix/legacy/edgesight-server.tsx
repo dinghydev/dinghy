@@ -11,11 +11,5 @@ export const EDGESIGHT_SERVER = {
 }
 
 export function EdgesightServer(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGESIGHT_SERVER}
-      {...props}
-      _style={extendStyle(EDGESIGHT_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGESIGHT_SERVER)} />
 }

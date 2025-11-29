@@ -11,7 +11,5 @@ export const NEXUS_1K = {
 }
 
 export function Nexus1k(props: NodeProps) {
-  return (
-    <Shape {...NEXUS_1K} {...props} _style={extendStyle(NEXUS_1K, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_1K)} />
 }

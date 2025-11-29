@@ -11,11 +11,5 @@ export const SOFTWARE_UPDATE = {
 }
 
 export function SoftwareUpdate(props: NodeProps) {
-  return (
-    <Shape
-      {...SOFTWARE_UPDATE}
-      {...props}
-      _style={extendStyle(SOFTWARE_UPDATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTWARE_UPDATE)} />
 }

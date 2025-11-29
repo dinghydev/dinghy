@@ -11,11 +11,5 @@ export const SERVICE_ENDPOINT = {
 }
 
 export function ServiceEndpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_ENDPOINT}
-      {...props}
-      _style={extendStyle(SERVICE_ENDPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_ENDPOINT)} />
 }

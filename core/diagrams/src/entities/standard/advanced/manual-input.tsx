@@ -10,11 +10,5 @@ export const MANUAL_INPUT = {
 }
 
 export function ManualInput(props: NodeProps) {
-  return (
-    <Shape
-      {...MANUAL_INPUT}
-      {...props}
-      _style={extendStyle(MANUAL_INPUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANUAL_INPUT)} />
 }

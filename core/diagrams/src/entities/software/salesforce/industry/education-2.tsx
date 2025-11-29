@@ -11,11 +11,5 @@ export const EDUCATION_2 = {
 }
 
 export function Education2(props: NodeProps) {
-  return (
-    <Shape
-      {...EDUCATION_2}
-      {...props}
-      _style={extendStyle(EDUCATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDUCATION_2)} />
 }

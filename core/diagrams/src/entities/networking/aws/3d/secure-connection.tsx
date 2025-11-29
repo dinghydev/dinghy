@@ -11,11 +11,5 @@ export const SECURE_CONNECTION = {
 }
 
 export function SecureConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_CONNECTION}
-      {...props}
-      _style={extendStyle(SECURE_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_CONNECTION)} />
 }

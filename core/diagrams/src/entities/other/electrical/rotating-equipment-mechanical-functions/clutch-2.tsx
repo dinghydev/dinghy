@@ -11,7 +11,5 @@ export const CLUTCH_2 = {
 }
 
 export function Clutch2(props: NodeProps) {
-  return (
-    <Shape {...CLUTCH_2} {...props} _style={extendStyle(CLUTCH_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLUTCH_2)} />
 }

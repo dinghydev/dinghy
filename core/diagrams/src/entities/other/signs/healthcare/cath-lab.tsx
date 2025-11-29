@@ -11,7 +11,5 @@ export const CATH_LAB = {
 }
 
 export function CathLab(props: NodeProps) {
-  return (
-    <Shape {...CATH_LAB} {...props} _style={extendStyle(CATH_LAB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CATH_LAB)} />
 }

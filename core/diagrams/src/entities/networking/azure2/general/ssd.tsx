@@ -11,5 +11,5 @@ export const SSD = {
 }
 
 export function Ssd(props: NodeProps) {
-  return <Shape {...SSD} {...props} _style={extendStyle(SSD, props)} />
+  return <Shape {...props} _style={extendStyle(props, SSD)} />
 }

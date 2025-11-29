@@ -11,11 +11,5 @@ export const SUCCESS_CARD_2 = {
 }
 
 export function SuccessCard2(props: NodeProps) {
-  return (
-    <Shape
-      {...SUCCESS_CARD_2}
-      {...props}
-      _style={extendStyle(SUCCESS_CARD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCCESS_CARD_2)} />
 }

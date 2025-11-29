@@ -12,10 +12,6 @@ export const RE_RECOMMENDATION_ENGINE = {
 
 export function ReRecommendationEngine(props: NodeProps) {
   return (
-    <Shape
-      {...RE_RECOMMENDATION_ENGINE}
-      {...props}
-      _style={extendStyle(RE_RECOMMENDATION_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RE_RECOMMENDATION_ENGINE)} />
   )
 }

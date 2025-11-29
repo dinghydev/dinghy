@@ -11,7 +11,5 @@ export const NETWORK_2 = {
 }
 
 export function Network2(props: NodeProps) {
-  return (
-    <Shape {...NETWORK_2} {...props} _style={extendStyle(NETWORK_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_2)} />
 }

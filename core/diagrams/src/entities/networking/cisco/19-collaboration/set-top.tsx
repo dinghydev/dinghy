@@ -11,5 +11,5 @@ export const SET_TOP = {
 }
 
 export function SetTop(props: NodeProps) {
-  return <Shape {...SET_TOP} {...props} _style={extendStyle(SET_TOP, props)} />
+  return <Shape {...props} _style={extendStyle(props, SET_TOP)} />
 }

@@ -12,10 +12,6 @@ export const NLP_RA_REFLEXIVE_ANAPHORA = {
 
 export function NlpRaReflexiveAnaphora(props: NodeProps) {
   return (
-    <Shape
-      {...NLP_RA_REFLEXIVE_ANAPHORA}
-      {...props}
-      _style={extendStyle(NLP_RA_REFLEXIVE_ANAPHORA, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NLP_RA_REFLEXIVE_ANAPHORA)} />
   )
 }

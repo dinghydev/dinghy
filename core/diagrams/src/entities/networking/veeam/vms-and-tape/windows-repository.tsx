@@ -11,11 +11,5 @@ export const WINDOWS_REPOSITORY = {
 }
 
 export function WindowsRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOWS_REPOSITORY}
-      {...props}
-      _style={extendStyle(WINDOWS_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOWS_REPOSITORY)} />
 }

@@ -12,10 +12,6 @@ export const BRAKET_MANAGED_SIMULATOR = {
 
 export function BraketManagedSimulator(props: NodeProps) {
   return (
-    <Shape
-      {...BRAKET_MANAGED_SIMULATOR}
-      {...props}
-      _style={extendStyle(BRAKET_MANAGED_SIMULATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BRAKET_MANAGED_SIMULATOR)} />
   )
 }

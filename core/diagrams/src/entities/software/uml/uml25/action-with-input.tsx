@@ -11,11 +11,5 @@ export const ACTION_WITH_INPUT = {
 }
 
 export function ActionWithInput(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTION_WITH_INPUT}
-      {...props}
-      _style={extendStyle(ACTION_WITH_INPUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_WITH_INPUT)} />
 }

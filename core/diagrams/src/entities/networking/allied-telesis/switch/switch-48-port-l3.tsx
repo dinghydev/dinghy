@@ -11,11 +11,5 @@ export const SWITCH_48_PORT_L3 = {
 }
 
 export function Switch48PortL3(props: NodeProps) {
-  return (
-    <Shape
-      {...SWITCH_48_PORT_L3}
-      {...props}
-      _style={extendStyle(SWITCH_48_PORT_L3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWITCH_48_PORT_L3)} />
 }

@@ -11,5 +11,5 @@ export const CHASSIS = {
 }
 
 export function Chassis(props: NodeProps) {
-  return <Shape {...CHASSIS} {...props} _style={extendStyle(CHASSIS, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHASSIS)} />
 }

@@ -11,7 +11,5 @@ export const PAGINATION = {
 }
 
 export function Pagination(props: NodeProps) {
-  return (
-    <Shape {...PAGINATION} {...props} _style={extendStyle(PAGINATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAGINATION)} />
 }

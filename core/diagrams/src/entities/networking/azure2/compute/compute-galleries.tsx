@@ -11,11 +11,5 @@ export const COMPUTE_GALLERIES = {
 }
 
 export function ComputeGalleries(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTE_GALLERIES}
-      {...props}
-      _style={extendStyle(COMPUTE_GALLERIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTE_GALLERIES)} />
 }

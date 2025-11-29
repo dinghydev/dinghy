@@ -11,11 +11,5 @@ export const RETRIEVE_RANK = {
 }
 
 export function RetrieveRank(props: NodeProps) {
-  return (
-    <Shape
-      {...RETRIEVE_RANK}
-      {...props}
-      _style={extendStyle(RETRIEVE_RANK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETRIEVE_RANK)} />
 }

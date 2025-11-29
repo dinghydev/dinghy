@@ -11,11 +11,5 @@ export const NAVBAR_LIGHT = {
 }
 
 export function NavbarLight(props: NodeProps) {
-  return (
-    <Shape
-      {...NAVBAR_LIGHT}
-      {...props}
-      _style={extendStyle(NAVBAR_LIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVBAR_LIGHT)} />
 }

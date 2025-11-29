@@ -11,7 +11,5 @@ export const CSV_FILE = {
 }
 
 export function CsvFile(props: NodeProps) {
-  return (
-    <Shape {...CSV_FILE} {...props} _style={extendStyle(CSV_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CSV_FILE)} />
 }

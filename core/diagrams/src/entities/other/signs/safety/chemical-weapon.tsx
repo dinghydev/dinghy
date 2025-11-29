@@ -11,11 +11,5 @@ export const CHEMICAL_WEAPON = {
 }
 
 export function ChemicalWeapon(props: NodeProps) {
-  return (
-    <Shape
-      {...CHEMICAL_WEAPON}
-      {...props}
-      _style={extendStyle(CHEMICAL_WEAPON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHEMICAL_WEAPON)} />
 }

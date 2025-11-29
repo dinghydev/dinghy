@@ -13,9 +13,8 @@ export const RECTANGLE_WITH_REVERSE_DIAGONAL_FILL = {
 export function RectangleWithReverseDiagonalFill(props: NodeProps) {
   return (
     <Shape
-      {...RECTANGLE_WITH_REVERSE_DIAGONAL_FILL}
       {...props}
-      _style={extendStyle(RECTANGLE_WITH_REVERSE_DIAGONAL_FILL, props)}
+      _style={extendStyle(props, RECTANGLE_WITH_REVERSE_DIAGONAL_FILL)}
     />
   )
 }

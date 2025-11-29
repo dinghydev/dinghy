@@ -11,11 +11,5 @@ export const SETTINGS_SAP = {
 }
 
 export function SettingsSap(props: NodeProps) {
-  return (
-    <Shape
-      {...SETTINGS_SAP}
-      {...props}
-      _style={extendStyle(SETTINGS_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SETTINGS_SAP)} />
 }

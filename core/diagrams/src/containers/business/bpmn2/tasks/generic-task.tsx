@@ -9,11 +9,5 @@ export const GENERIC_TASK = {
 }
 
 export function GenericTask(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_TASK}
-      {...props}
-      _style={extendStyle(GENERIC_TASK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_TASK)} />
 }

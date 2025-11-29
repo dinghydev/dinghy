@@ -11,11 +11,5 @@ export const REDSHIFT_AUTO_COPY = {
 }
 
 export function RedshiftAutoCopy(props: NodeProps) {
-  return (
-    <Shape
-      {...REDSHIFT_AUTO_COPY}
-      {...props}
-      _style={extendStyle(REDSHIFT_AUTO_COPY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REDSHIFT_AUTO_COPY)} />
 }

@@ -11,11 +11,5 @@ export const IBM_X3950_X5 = {
 }
 
 export function IbmX3950X5(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_X3950_X5}
-      {...props}
-      _style={extendStyle(IBM_X3950_X5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_X3950_X5)} />
 }

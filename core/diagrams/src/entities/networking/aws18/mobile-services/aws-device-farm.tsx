@@ -11,11 +11,5 @@ export const AWS_DEVICE_FARM = {
 }
 
 export function AwsDeviceFarm(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_DEVICE_FARM}
-      {...props}
-      _style={extendStyle(AWS_DEVICE_FARM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_DEVICE_FARM)} />
 }

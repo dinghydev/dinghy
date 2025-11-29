@@ -11,11 +11,5 @@ export const SELF_DRAINING_VALVE = {
 }
 
 export function SelfDrainingValve(props: NodeProps) {
-  return (
-    <Shape
-      {...SELF_DRAINING_VALVE}
-      {...props}
-      _style={extendStyle(SELF_DRAINING_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SELF_DRAINING_VALVE)} />
 }

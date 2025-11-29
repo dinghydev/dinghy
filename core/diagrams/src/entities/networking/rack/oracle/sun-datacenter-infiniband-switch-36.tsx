@@ -13,9 +13,8 @@ export const SUN_DATACENTER_INFINIBAND_SWITCH_36 = {
 export function SunDatacenterInfinibandSwitch36(props: NodeProps) {
   return (
     <Shape
-      {...SUN_DATACENTER_INFINIBAND_SWITCH_36}
       {...props}
-      _style={extendStyle(SUN_DATACENTER_INFINIBAND_SWITCH_36, props)}
+      _style={extendStyle(props, SUN_DATACENTER_INFINIBAND_SWITCH_36)}
     />
   )
 }

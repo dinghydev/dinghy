@@ -11,11 +11,5 @@ export const RDS_INSTANCE = {
 }
 
 export function RdsInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...RDS_INSTANCE}
-      {...props}
-      _style={extendStyle(RDS_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_INSTANCE)} />
 }

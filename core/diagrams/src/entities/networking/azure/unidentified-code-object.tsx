@@ -12,10 +12,6 @@ export const UNIDENTIFIED_CODE_OBJECT = {
 
 export function UnidentifiedCodeObject(props: NodeProps) {
   return (
-    <Shape
-      {...UNIDENTIFIED_CODE_OBJECT}
-      {...props}
-      _style={extendStyle(UNIDENTIFIED_CODE_OBJECT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, UNIDENTIFIED_CODE_OBJECT)} />
   )
 }

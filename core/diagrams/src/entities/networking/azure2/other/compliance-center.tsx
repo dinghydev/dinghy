@@ -11,11 +11,5 @@ export const COMPLIANCE_CENTER = {
 }
 
 export function ComplianceCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPLIANCE_CENTER}
-      {...props}
-      _style={extendStyle(COMPLIANCE_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPLIANCE_CENTER)} />
 }

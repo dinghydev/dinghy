@@ -12,10 +12,6 @@ export const VPC_REACHABILITY_ANALYZER = {
 
 export function VpcReachabilityAnalyzer(props: NodeProps) {
   return (
-    <Shape
-      {...VPC_REACHABILITY_ANALYZER}
-      {...props}
-      _style={extendStyle(VPC_REACHABILITY_ANALYZER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VPC_REACHABILITY_ANALYZER)} />
   )
 }

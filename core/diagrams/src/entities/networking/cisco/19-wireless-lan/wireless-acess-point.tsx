@@ -11,11 +11,5 @@ export const WIRELESS_ACESS_POINT = {
 }
 
 export function WirelessAcessPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...WIRELESS_ACESS_POINT}
-      {...props}
-      _style={extendStyle(WIRELESS_ACESS_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRELESS_ACESS_POINT)} />
 }

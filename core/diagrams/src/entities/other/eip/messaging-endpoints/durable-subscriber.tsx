@@ -11,11 +11,5 @@ export const DURABLE_SUBSCRIBER = {
 }
 
 export function DurableSubscriber(props: NodeProps) {
-  return (
-    <Shape
-      {...DURABLE_SUBSCRIBER}
-      {...props}
-      _style={extendStyle(DURABLE_SUBSCRIBER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DURABLE_SUBSCRIBER)} />
 }

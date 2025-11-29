@@ -10,11 +10,5 @@ export const LIMITED_SPRUCE = {
 }
 
 export function LimitedSpruce(props: NodeProps) {
-  return (
-    <Shape
-      {...LIMITED_SPRUCE}
-      {...props}
-      _style={extendStyle(LIMITED_SPRUCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIMITED_SPRUCE)} />
 }

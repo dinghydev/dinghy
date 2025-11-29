@@ -9,5 +9,5 @@ export const MANY = {
 }
 
 export function Many(props: NodeProps) {
-  return <Dependency {...MANY} {...props} _style={extendStyle(MANY, props)} />
+  return <Dependency {...props} _style={extendStyle(props, MANY)} />
 }

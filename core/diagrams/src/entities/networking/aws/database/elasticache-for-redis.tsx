@@ -11,11 +11,5 @@ export const ELASTICACHE_FOR_REDIS = {
 }
 
 export function ElasticacheForRedis(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTICACHE_FOR_REDIS}
-      {...props}
-      _style={extendStyle(ELASTICACHE_FOR_REDIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTICACHE_FOR_REDIS)} />
 }

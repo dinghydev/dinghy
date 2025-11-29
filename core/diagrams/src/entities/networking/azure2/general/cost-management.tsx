@@ -11,11 +11,5 @@ export const COST_MANAGEMENT = {
 }
 
 export function CostManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_MANAGEMENT}
-      {...props}
-      _style={extendStyle(COST_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_MANAGEMENT)} />
 }

@@ -8,5 +8,5 @@ export const LINE = {
 }
 
 export function Line(props: NodeProps) {
-  return <Dependency {...LINE} {...props} _style={extendStyle(LINE, props)} />
+  return <Dependency {...props} _style={extendStyle(props, LINE)} />
 }

@@ -11,11 +11,5 @@ export const C7G_INSTANCE = {
 }
 
 export function C7gInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...C7G_INSTANCE}
-      {...props}
-      _style={extendStyle(C7G_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, C7G_INSTANCE)} />
 }

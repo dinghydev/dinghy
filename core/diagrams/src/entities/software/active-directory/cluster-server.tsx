@@ -11,11 +11,5 @@ export const CLUSTER_SERVER = {
 }
 
 export function ClusterServer(props: NodeProps) {
-  return (
-    <Shape
-      {...CLUSTER_SERVER}
-      {...props}
-      _style={extendStyle(CLUSTER_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLUSTER_SERVER)} />
 }

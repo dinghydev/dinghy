@@ -9,11 +9,5 @@ export const COMM_LINK = {
 }
 
 export function CommLink(props: NodeProps) {
-  return (
-    <Dependency
-      {...COMM_LINK}
-      {...props}
-      _style={extendStyle(COMM_LINK, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, COMM_LINK)} />
 }

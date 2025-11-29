@@ -11,11 +11,5 @@ export const APPLICATION_INTERFACE = {
 }
 
 export function ApplicationInterface(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_INTERFACE}
-      {...props}
-      _style={extendStyle(APPLICATION_INTERFACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_INTERFACE)} />
 }

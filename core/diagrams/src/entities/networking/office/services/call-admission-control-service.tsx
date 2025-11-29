@@ -13,9 +13,8 @@ export const CALL_ADMISSION_CONTROL_SERVICE = {
 export function CallAdmissionControlService(props: NodeProps) {
   return (
     <Shape
-      {...CALL_ADMISSION_CONTROL_SERVICE}
       {...props}
-      _style={extendStyle(CALL_ADMISSION_CONTROL_SERVICE, props)}
+      _style={extendStyle(props, CALL_ADMISSION_CONTROL_SERVICE)}
     />
   )
 }

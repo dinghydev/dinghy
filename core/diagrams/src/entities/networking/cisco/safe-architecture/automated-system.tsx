@@ -11,11 +11,5 @@ export const AUTOMATED_SYSTEM = {
 }
 
 export function AutomatedSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOMATED_SYSTEM}
-      {...props}
-      _style={extendStyle(AUTOMATED_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOMATED_SYSTEM)} />
 }

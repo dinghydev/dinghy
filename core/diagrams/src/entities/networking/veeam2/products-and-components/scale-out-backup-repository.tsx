@@ -13,9 +13,8 @@ export const SCALE_OUT_BACKUP_REPOSITORY = {
 export function ScaleOutBackupRepository(props: NodeProps) {
   return (
     <Shape
-      {...SCALE_OUT_BACKUP_REPOSITORY}
       {...props}
-      _style={extendStyle(SCALE_OUT_BACKUP_REPOSITORY, props)}
+      _style={extendStyle(props, SCALE_OUT_BACKUP_REPOSITORY)}
     />
   )
 }

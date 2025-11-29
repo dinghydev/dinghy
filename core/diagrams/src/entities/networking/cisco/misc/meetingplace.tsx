@@ -11,11 +11,5 @@ export const MEETINGPLACE = {
 }
 
 export function Meetingplace(props: NodeProps) {
-  return (
-    <Shape
-      {...MEETINGPLACE}
-      {...props}
-      _style={extendStyle(MEETINGPLACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEETINGPLACE)} />
 }

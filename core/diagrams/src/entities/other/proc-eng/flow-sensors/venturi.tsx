@@ -11,5 +11,5 @@ export const VENTURI = {
 }
 
 export function Venturi(props: NodeProps) {
-  return <Shape {...VENTURI} {...props} _style={extendStyle(VENTURI, props)} />
+  return <Shape {...props} _style={extendStyle(props, VENTURI)} />
 }

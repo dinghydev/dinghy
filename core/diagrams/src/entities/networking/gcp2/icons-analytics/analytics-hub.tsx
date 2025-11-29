@@ -11,11 +11,5 @@ export const ANALYTICS_HUB = {
 }
 
 export function AnalyticsHub(props: NodeProps) {
-  return (
-    <Shape
-      {...ANALYTICS_HUB}
-      {...props}
-      _style={extendStyle(ANALYTICS_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANALYTICS_HUB)} />
 }

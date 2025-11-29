@@ -11,11 +11,5 @@ export const WEBSITE_STAGING = {
 }
 
 export function WebsiteStaging(props: NodeProps) {
-  return (
-    <Shape
-      {...WEBSITE_STAGING}
-      {...props}
-      _style={extendStyle(WEBSITE_STAGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBSITE_STAGING)} />
 }

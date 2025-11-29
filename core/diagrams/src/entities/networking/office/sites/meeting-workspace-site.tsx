@@ -12,10 +12,6 @@ export const MEETING_WORKSPACE_SITE = {
 
 export function MeetingWorkspaceSite(props: NodeProps) {
   return (
-    <Shape
-      {...MEETING_WORKSPACE_SITE}
-      {...props}
-      _style={extendStyle(MEETING_WORKSPACE_SITE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MEETING_WORKSPACE_SITE)} />
   )
 }

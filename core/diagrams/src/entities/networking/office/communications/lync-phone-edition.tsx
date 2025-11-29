@@ -11,11 +11,5 @@ export const LYNC_PHONE_EDITION = {
 }
 
 export function LyncPhoneEdition(props: NodeProps) {
-  return (
-    <Shape
-      {...LYNC_PHONE_EDITION}
-      {...props}
-      _style={extendStyle(LYNC_PHONE_EDITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LYNC_PHONE_EDITION)} />
 }

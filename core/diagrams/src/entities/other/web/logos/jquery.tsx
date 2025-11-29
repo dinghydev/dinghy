@@ -11,5 +11,5 @@ export const JQUERY = {
 }
 
 export function Jquery(props: NodeProps) {
-  return <Shape {...JQUERY} {...props} _style={extendStyle(JQUERY, props)} />
+  return <Shape {...props} _style={extendStyle(props, JQUERY)} />
 }

@@ -11,11 +11,5 @@ export const FLOW_ACTUATED_OFF = {
 }
 
 export function FlowActuatedOff(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_ACTUATED_OFF}
-      {...props}
-      _style={extendStyle(FLOW_ACTUATED_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_ACTUATED_OFF)} />
 }

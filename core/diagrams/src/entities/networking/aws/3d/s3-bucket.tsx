@@ -11,7 +11,5 @@ export const S3_BUCKET = {
 }
 
 export function S3Bucket(props: NodeProps) {
-  return (
-    <Shape {...S3_BUCKET} {...props} _style={extendStyle(S3_BUCKET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_BUCKET)} />
 }

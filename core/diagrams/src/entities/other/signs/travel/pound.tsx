@@ -11,5 +11,5 @@ export const POUND = {
 }
 
 export function Pound(props: NodeProps) {
-  return <Shape {...POUND} {...props} _style={extendStyle(POUND, props)} />
+  return <Shape {...props} _style={extendStyle(props, POUND)} />
 }

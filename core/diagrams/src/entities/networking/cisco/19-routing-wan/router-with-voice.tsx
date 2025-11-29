@@ -11,11 +11,5 @@ export const ROUTER_WITH_VOICE = {
 }
 
 export function RouterWithVoice(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTER_WITH_VOICE}
-      {...props}
-      _style={extendStyle(ROUTER_WITH_VOICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTER_WITH_VOICE)} />
 }

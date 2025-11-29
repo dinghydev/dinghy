@@ -11,11 +11,5 @@ export const CORPORATE_DATA_CENTER = {
 }
 
 export function CorporateDataCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...CORPORATE_DATA_CENTER}
-      {...props}
-      _style={extendStyle(CORPORATE_DATA_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CORPORATE_DATA_CENTER)} />
 }

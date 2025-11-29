@@ -11,5 +11,5 @@ export const SHADOW = {
 }
 
 export function Shadow(props: NodeProps) {
-  return <Shape {...SHADOW} {...props} _style={extendStyle(SHADOW, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHADOW)} />
 }

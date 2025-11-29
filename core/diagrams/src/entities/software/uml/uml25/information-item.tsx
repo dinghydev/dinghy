@@ -10,11 +10,5 @@ export const INFORMATION_ITEM = {
 }
 
 export function InformationItem(props: NodeProps) {
-  return (
-    <Shape
-      {...INFORMATION_ITEM}
-      {...props}
-      _style={extendStyle(INFORMATION_ITEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFORMATION_ITEM)} />
 }

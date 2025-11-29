@@ -12,10 +12,6 @@ export const ACTIVITY_PARAMETER_NODE = {
 
 export function ActivityParameterNode(props: NodeProps) {
   return (
-    <Shape
-      {...ACTIVITY_PARAMETER_NODE}
-      {...props}
-      _style={extendStyle(ACTIVITY_PARAMETER_NODE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ACTIVITY_PARAMETER_NODE)} />
   )
 }

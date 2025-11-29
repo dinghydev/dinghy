@@ -11,11 +11,5 @@ export const ELASTICSEARCH = {
 }
 
 export function Elasticsearch(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTICSEARCH}
-      {...props}
-      _style={extendStyle(ELASTICSEARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTICSEARCH)} />
 }

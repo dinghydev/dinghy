@@ -13,9 +13,8 @@ export const MEDIA_CONVERTER_STANDALONE_POE = {
 export function MediaConverterStandalonePoe(props: NodeProps) {
   return (
     <Shape
-      {...MEDIA_CONVERTER_STANDALONE_POE}
       {...props}
-      _style={extendStyle(MEDIA_CONVERTER_STANDALONE_POE, props)}
+      _style={extendStyle(props, MEDIA_CONVERTER_STANDALONE_POE)}
     />
   )
 }

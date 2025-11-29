@@ -11,5 +11,5 @@ export const BONSAI = {
 }
 
 export function Bonsai(props: NodeProps) {
-  return <Shape {...BONSAI} {...props} _style={extendStyle(BONSAI, props)} />
+  return <Shape {...props} _style={extendStyle(props, BONSAI)} />
 }

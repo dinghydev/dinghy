@@ -11,11 +11,5 @@ export const ECS_COPILOT_CLI = {
 }
 
 export function EcsCopilotCli(props: NodeProps) {
-  return (
-    <Shape
-      {...ECS_COPILOT_CLI}
-      {...props}
-      _style={extendStyle(ECS_COPILOT_CLI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ECS_COPILOT_CLI)} />
 }

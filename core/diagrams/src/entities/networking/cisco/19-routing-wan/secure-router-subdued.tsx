@@ -11,11 +11,5 @@ export const SECURE_ROUTER_SUBDUED = {
 }
 
 export function SecureRouterSubdued(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_ROUTER_SUBDUED}
-      {...props}
-      _style={extendStyle(SECURE_ROUTER_SUBDUED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_ROUTER_SUBDUED)} />
 }

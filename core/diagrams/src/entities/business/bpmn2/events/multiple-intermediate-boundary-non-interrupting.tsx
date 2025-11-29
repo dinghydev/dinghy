@@ -13,11 +13,10 @@ export const MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
 export function MultipleIntermediateBoundaryNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING}
       {...props}
       _style={extendStyle(
-        MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
         props,
+        MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
       )}
     />
   )

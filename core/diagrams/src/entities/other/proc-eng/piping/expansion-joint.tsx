@@ -11,11 +11,5 @@ export const EXPANSION_JOINT = {
 }
 
 export function ExpansionJoint(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPANSION_JOINT}
-      {...props}
-      _style={extendStyle(EXPANSION_JOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPANSION_JOINT)} />
 }

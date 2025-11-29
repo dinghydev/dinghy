@@ -12,10 +12,6 @@ export const MIGRATE_FOR_COMPUTE_ENGINE = {
 
 export function MigrateForComputeEngine(props: NodeProps) {
   return (
-    <Shape
-      {...MIGRATE_FOR_COMPUTE_ENGINE}
-      {...props}
-      _style={extendStyle(MIGRATE_FOR_COMPUTE_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MIGRATE_FOR_COMPUTE_ENGINE)} />
   )
 }

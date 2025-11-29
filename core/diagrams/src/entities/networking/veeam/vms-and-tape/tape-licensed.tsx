@@ -11,11 +11,5 @@ export const TAPE_LICENSED = {
 }
 
 export function TapeLicensed(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_LICENSED}
-      {...props}
-      _style={extendStyle(TAPE_LICENSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_LICENSED)} />
 }

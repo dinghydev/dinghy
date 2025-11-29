@@ -11,11 +11,5 @@ export const CLOUD_ROUTER = {
 }
 
 export function CloudRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_ROUTER}
-      {...props}
-      _style={extendStyle(CLOUD_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_ROUTER)} />
 }

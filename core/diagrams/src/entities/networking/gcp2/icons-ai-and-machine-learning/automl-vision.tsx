@@ -11,11 +11,5 @@ export const AUTOML_VISION = {
 }
 
 export function AutomlVision(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOML_VISION}
-      {...props}
-      _style={extendStyle(AUTOML_VISION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOML_VISION)} />
 }

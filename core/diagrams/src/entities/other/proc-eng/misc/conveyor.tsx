@@ -11,7 +11,5 @@ export const CONVEYOR = {
 }
 
 export function Conveyor(props: NodeProps) {
-  return (
-    <Shape {...CONVEYOR} {...props} _style={extendStyle(CONVEYOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONVEYOR)} />
 }

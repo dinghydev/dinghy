@@ -11,5 +11,5 @@ export const BEEBOT = {
 }
 
 export function Beebot(props: NodeProps) {
-  return <Shape {...BEEBOT} {...props} _style={extendStyle(BEEBOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, BEEBOT)} />
 }

@@ -11,5 +11,5 @@ export const HATENA = {
 }
 
 export function Hatena(props: NodeProps) {
-  return <Shape {...HATENA} {...props} _style={extendStyle(HATENA, props)} />
+  return <Shape {...props} _style={extendStyle(props, HATENA)} />
 }

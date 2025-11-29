@@ -11,11 +11,5 @@ export const VERIFIED_ACCESS = {
 }
 
 export function VerifiedAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...VERIFIED_ACCESS}
-      {...props}
-      _style={extendStyle(VERIFIED_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERIFIED_ACCESS)} />
 }

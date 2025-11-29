@@ -11,5 +11,5 @@ export const HEXAGON = {
 }
 
 export function Hexagon(props: NodeProps) {
-  return <Shape {...HEXAGON} {...props} _style={extendStyle(HEXAGON, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEXAGON)} />
 }

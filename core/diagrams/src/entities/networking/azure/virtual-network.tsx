@@ -11,11 +11,5 @@ export const VIRTUAL_NETWORK = {
 }
 
 export function VirtualNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_NETWORK}
-      {...props}
-      _style={extendStyle(VIRTUAL_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_NETWORK)} />
 }

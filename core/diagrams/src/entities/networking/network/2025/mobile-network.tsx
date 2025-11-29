@@ -11,11 +11,5 @@ export const MOBILE_NETWORK = {
 }
 
 export function MobileNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_NETWORK}
-      {...props}
-      _style={extendStyle(MOBILE_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_NETWORK)} />
 }

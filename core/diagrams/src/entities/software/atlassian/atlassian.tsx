@@ -11,7 +11,5 @@ export const ATLASSIAN = {
 }
 
 export function Atlassian(props: NodeProps) {
-  return (
-    <Shape {...ATLASSIAN} {...props} _style={extendStyle(ATLASSIAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATLASSIAN)} />
 }

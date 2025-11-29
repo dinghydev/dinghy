@@ -11,11 +11,5 @@ export const NLS_SHORTASRBAG = {
 }
 
 export function NlsShortasrbag(props: NodeProps) {
-  return (
-    <Shape
-      {...NLS_SHORTASRBAG}
-      {...props}
-      _style={extendStyle(NLS_SHORTASRBAG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLS_SHORTASRBAG)} />
 }

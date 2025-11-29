@@ -11,7 +11,5 @@ export const ROUNDTABLE = {
 }
 
 export function Roundtable(props: NodeProps) {
-  return (
-    <Shape {...ROUNDTABLE} {...props} _style={extendStyle(ROUNDTABLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUNDTABLE)} />
 }

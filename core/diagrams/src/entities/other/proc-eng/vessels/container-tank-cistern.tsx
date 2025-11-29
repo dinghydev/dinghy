@@ -12,10 +12,6 @@ export const CONTAINER_TANK_CISTERN = {
 
 export function ContainerTankCistern(props: NodeProps) {
   return (
-    <Shape
-      {...CONTAINER_TANK_CISTERN}
-      {...props}
-      _style={extendStyle(CONTAINER_TANK_CISTERN, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTAINER_TANK_CISTERN)} />
   )
 }

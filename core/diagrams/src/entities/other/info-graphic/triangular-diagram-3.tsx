@@ -11,11 +11,5 @@ export const TRIANGULAR_DIAGRAM_3 = {
 }
 
 export function TriangularDiagram3(props: NodeProps) {
-  return (
-    <Shape
-      {...TRIANGULAR_DIAGRAM_3}
-      {...props}
-      _style={extendStyle(TRIANGULAR_DIAGRAM_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRIANGULAR_DIAGRAM_3)} />
 }

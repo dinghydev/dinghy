@@ -11,11 +11,5 @@ export const X12390_SINGLE_STAGE = {
 }
 
 export function X12390SingleStage(props: NodeProps) {
-  return (
-    <Shape
-      {...X12390_SINGLE_STAGE}
-      {...props}
-      _style={extendStyle(X12390_SINGLE_STAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12390_SINGLE_STAGE)} />
 }

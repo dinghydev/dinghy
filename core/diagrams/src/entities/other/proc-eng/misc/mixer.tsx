@@ -11,5 +11,5 @@ export const MIXER = {
 }
 
 export function Mixer(props: NodeProps) {
-  return <Shape {...MIXER} {...props} _style={extendStyle(MIXER, props)} />
+  return <Shape {...props} _style={extendStyle(props, MIXER)} />
 }

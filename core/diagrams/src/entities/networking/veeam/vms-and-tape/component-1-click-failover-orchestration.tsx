@@ -13,9 +13,8 @@ export const COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION = {
 export function Component1ClickFailoverOrchestration(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION}
       {...props}
-      _style={extendStyle(COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION, props)}
+      _style={extendStyle(props, COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION)}
     />
   )
 }

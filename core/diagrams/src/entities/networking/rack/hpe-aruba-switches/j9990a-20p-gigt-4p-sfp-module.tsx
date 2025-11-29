@@ -13,9 +13,8 @@ export const J9990A_20P_GIGT_4P_SFP_MODULE = {
 export function J9990a20pGigt4pSfpModule(props: NodeProps) {
   return (
     <Shape
-      {...J9990A_20P_GIGT_4P_SFP_MODULE}
       {...props}
-      _style={extendStyle(J9990A_20P_GIGT_4P_SFP_MODULE, props)}
+      _style={extendStyle(props, J9990A_20P_GIGT_4P_SFP_MODULE)}
     />
   )
 }

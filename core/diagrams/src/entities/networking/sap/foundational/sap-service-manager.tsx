@@ -11,11 +11,5 @@ export const SAP_SERVICE_MANAGER = {
 }
 
 export function SapServiceManager(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_SERVICE_MANAGER}
-      {...props}
-      _style={extendStyle(SAP_SERVICE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_SERVICE_MANAGER)} />
 }

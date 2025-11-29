@@ -11,11 +11,5 @@ export const KEY_HIGHLIGHT = {
 }
 
 export function KeyHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...KEY_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(KEY_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEY_HIGHLIGHT)} />
 }

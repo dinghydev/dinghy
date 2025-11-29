@@ -10,9 +10,8 @@ export const DEPENDENCY_RELATIONSHIP = {
 export function DependencyRelationship(props: NodeProps) {
   return (
     <Dependency
-      {...DEPENDENCY_RELATIONSHIP}
       {...props}
-      _style={extendStyle(DEPENDENCY_RELATIONSHIP, props)}
+      _style={extendStyle(props, DEPENDENCY_RELATIONSHIP)}
     />
   )
 }

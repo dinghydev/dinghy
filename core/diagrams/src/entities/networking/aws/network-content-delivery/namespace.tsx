@@ -11,7 +11,5 @@ export const NAMESPACE = {
 }
 
 export function Namespace(props: NodeProps) {
-  return (
-    <Shape {...NAMESPACE} {...props} _style={extendStyle(NAMESPACE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAMESPACE)} />
 }

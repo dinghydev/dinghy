@@ -11,11 +11,5 @@ export const PARALLEL_CLUSTER = {
 }
 
 export function ParallelCluster(props: NodeProps) {
-  return (
-    <Shape
-      {...PARALLEL_CLUSTER}
-      {...props}
-      _style={extendStyle(PARALLEL_CLUSTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARALLEL_CLUSTER)} />
 }

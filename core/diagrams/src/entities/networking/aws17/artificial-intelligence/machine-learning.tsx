@@ -11,11 +11,5 @@ export const MACHINE_LEARNING = {
 }
 
 export function MachineLearning(props: NodeProps) {
-  return (
-    <Shape
-      {...MACHINE_LEARNING}
-      {...props}
-      _style={extendStyle(MACHINE_LEARNING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MACHINE_LEARNING)} />
 }

@@ -11,11 +11,5 @@ export const CONTENT_TYPE = {
 }
 
 export function ContentType(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_TYPE}
-      {...props}
-      _style={extendStyle(CONTENT_TYPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_TYPE)} />
 }

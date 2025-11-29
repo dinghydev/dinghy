@@ -11,5 +11,5 @@ export const NODE_JS = {
 }
 
 export function NodeJs(props: NodeProps) {
-  return <Shape {...NODE_JS} {...props} _style={extendStyle(NODE_JS, props)} />
+  return <Shape {...props} _style={extendStyle(props, NODE_JS)} />
 }

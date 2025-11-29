@@ -11,7 +11,5 @@ export const GAS_HOLDER = {
 }
 
 export function GasHolder(props: NodeProps) {
-  return (
-    <Shape {...GAS_HOLDER} {...props} _style={extendStyle(GAS_HOLDER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_HOLDER)} />
 }

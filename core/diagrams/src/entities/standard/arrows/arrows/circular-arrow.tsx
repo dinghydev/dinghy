@@ -11,11 +11,5 @@ export const CIRCULAR_ARROW = {
 }
 
 export function CircularArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...CIRCULAR_ARROW}
-      {...props}
-      _style={extendStyle(CIRCULAR_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CIRCULAR_ARROW)} />
 }

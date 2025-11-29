@@ -12,10 +12,6 @@ export const CISCO_MEETINGPLACE_EXPRESS = {
 
 export function CiscoMeetingplaceExpress(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_MEETINGPLACE_EXPRESS}
-      {...props}
-      _style={extendStyle(CISCO_MEETINGPLACE_EXPRESS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_MEETINGPLACE_EXPRESS)} />
   )
 }

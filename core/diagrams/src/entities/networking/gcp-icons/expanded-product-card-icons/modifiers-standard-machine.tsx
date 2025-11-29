@@ -12,10 +12,6 @@ export const MODIFIERS_STANDARD_MACHINE = {
 
 export function ModifiersStandardMachine(props: NodeProps) {
   return (
-    <Shape
-      {...MODIFIERS_STANDARD_MACHINE}
-      {...props}
-      _style={extendStyle(MODIFIERS_STANDARD_MACHINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MODIFIERS_STANDARD_MACHINE)} />
   )
 }

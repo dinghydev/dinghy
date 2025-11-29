@@ -11,7 +11,5 @@ export const EXTENSIONS = {
 }
 
 export function Extensions(props: NodeProps) {
-  return (
-    <Shape {...EXTENSIONS} {...props} _style={extendStyle(EXTENSIONS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTENSIONS)} />
 }

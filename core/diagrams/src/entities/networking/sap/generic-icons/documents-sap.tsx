@@ -11,11 +11,5 @@ export const DOCUMENTS_SAP = {
 }
 
 export function DocumentsSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENTS_SAP}
-      {...props}
-      _style={extendStyle(DOCUMENTS_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENTS_SAP)} />
 }

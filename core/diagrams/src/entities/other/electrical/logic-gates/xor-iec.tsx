@@ -11,5 +11,5 @@ export const XOR_IEC = {
 }
 
 export function XorIec(props: NodeProps) {
-  return <Shape {...XOR_IEC} {...props} _style={extendStyle(XOR_IEC, props)} />
+  return <Shape {...props} _style={extendStyle(props, XOR_IEC)} />
 }

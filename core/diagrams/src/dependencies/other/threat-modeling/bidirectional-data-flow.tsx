@@ -10,9 +10,8 @@ export const BIDIRECTIONAL_DATA_FLOW = {
 export function BidirectionalDataFlow(props: NodeProps) {
   return (
     <Dependency
-      {...BIDIRECTIONAL_DATA_FLOW}
       {...props}
-      _style={extendStyle(BIDIRECTIONAL_DATA_FLOW, props)}
+      _style={extendStyle(props, BIDIRECTIONAL_DATA_FLOW)}
     />
   )
 }

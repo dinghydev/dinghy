@@ -11,11 +11,5 @@ export const TOOLTIP_WITH_HTML = {
 }
 
 export function TooltipWithHtml(props: NodeProps) {
-  return (
-    <Shape
-      {...TOOLTIP_WITH_HTML}
-      {...props}
-      _style={extendStyle(TOOLTIP_WITH_HTML, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOOLTIP_WITH_HTML)} />
 }

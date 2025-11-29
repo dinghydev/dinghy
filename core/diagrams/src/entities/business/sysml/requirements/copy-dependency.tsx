@@ -10,11 +10,5 @@ export const COPY_DEPENDENCY = {
 }
 
 export function CopyDependency(props: NodeProps) {
-  return (
-    <Shape
-      {...COPY_DEPENDENCY}
-      {...props}
-      _style={extendStyle(COPY_DEPENDENCY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COPY_DEPENDENCY)} />
 }

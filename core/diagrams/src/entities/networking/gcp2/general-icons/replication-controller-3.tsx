@@ -12,10 +12,6 @@ export const REPLICATION_CONTROLLER_3 = {
 
 export function ReplicationController3(props: NodeProps) {
   return (
-    <Shape
-      {...REPLICATION_CONTROLLER_3}
-      {...props}
-      _style={extendStyle(REPLICATION_CONTROLLER_3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, REPLICATION_CONTROLLER_3)} />
   )
 }

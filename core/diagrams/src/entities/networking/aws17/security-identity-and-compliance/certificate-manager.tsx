@@ -11,11 +11,5 @@ export const CERTIFICATE_MANAGER = {
 }
 
 export function CertificateManager(props: NodeProps) {
-  return (
-    <Shape
-      {...CERTIFICATE_MANAGER}
-      {...props}
-      _style={extendStyle(CERTIFICATE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CERTIFICATE_MANAGER)} />
 }

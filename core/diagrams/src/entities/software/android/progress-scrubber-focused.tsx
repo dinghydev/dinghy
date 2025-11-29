@@ -12,10 +12,6 @@ export const PROGRESS_SCRUBBER_FOCUSED = {
 
 export function ProgressScrubberFocused(props: NodeProps) {
   return (
-    <Shape
-      {...PROGRESS_SCRUBBER_FOCUSED}
-      {...props}
-      _style={extendStyle(PROGRESS_SCRUBBER_FOCUSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROGRESS_SCRUBBER_FOCUSED)} />
   )
 }

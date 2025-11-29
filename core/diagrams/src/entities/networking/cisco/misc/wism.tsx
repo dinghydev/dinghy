@@ -11,5 +11,5 @@ export const WISM = {
 }
 
 export function Wism(props: NodeProps) {
-  return <Shape {...WISM} {...props} _style={extendStyle(WISM, props)} />
+  return <Shape {...props} _style={extendStyle(props, WISM)} />
 }

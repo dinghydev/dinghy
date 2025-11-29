@@ -11,11 +11,5 @@ export const INTUNE_FOR_EDUCATION = {
 }
 
 export function IntuneForEducation(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_FOR_EDUCATION}
-      {...props}
-      _style={extendStyle(INTUNE_FOR_EDUCATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_FOR_EDUCATION)} />
 }

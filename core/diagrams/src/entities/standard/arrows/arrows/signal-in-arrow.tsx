@@ -11,11 +11,5 @@ export const SIGNAL_IN_ARROW = {
 }
 
 export function SignalInArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNAL_IN_ARROW}
-      {...props}
-      _style={extendStyle(SIGNAL_IN_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNAL_IN_ARROW)} />
 }

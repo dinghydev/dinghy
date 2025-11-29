@@ -13,9 +13,8 @@ export const ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING = {
 export function IsuIntelligentSemanticUnderstanding(props: NodeProps) {
   return (
     <Shape
-      {...ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING}
       {...props}
-      _style={extendStyle(ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING, props)}
+      _style={extendStyle(props, ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING)}
     />
   )
 }

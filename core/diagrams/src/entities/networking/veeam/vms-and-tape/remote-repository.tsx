@@ -11,11 +11,5 @@ export const REMOTE_REPOSITORY = {
 }
 
 export function RemoteRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_REPOSITORY}
-      {...props}
-      _style={extendStyle(REMOTE_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_REPOSITORY)} />
 }

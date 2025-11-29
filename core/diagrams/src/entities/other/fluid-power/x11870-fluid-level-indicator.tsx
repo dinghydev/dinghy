@@ -13,9 +13,8 @@ export const X11870_FLUID_LEVEL_INDICATOR = {
 export function X11870FluidLevelIndicator(props: NodeProps) {
   return (
     <Shape
-      {...X11870_FLUID_LEVEL_INDICATOR}
       {...props}
-      _style={extendStyle(X11870_FLUID_LEVEL_INDICATOR, props)}
+      _style={extendStyle(props, X11870_FLUID_LEVEL_INDICATOR)}
     />
   )
 }

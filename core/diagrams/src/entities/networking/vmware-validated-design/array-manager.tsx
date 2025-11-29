@@ -11,11 +11,5 @@ export const ARRAY_MANAGER = {
 }
 
 export function ArrayManager(props: NodeProps) {
-  return (
-    <Shape
-      {...ARRAY_MANAGER}
-      {...props}
-      _style={extendStyle(ARRAY_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARRAY_MANAGER)} />
 }

@@ -11,5 +11,5 @@ export const SINK_1 = {
 }
 
 export function Sink1(props: NodeProps) {
-  return <Shape {...SINK_1} {...props} _style={extendStyle(SINK_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, SINK_1)} />
 }

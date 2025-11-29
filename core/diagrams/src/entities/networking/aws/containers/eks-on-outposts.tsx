@@ -11,11 +11,5 @@ export const EKS_ON_OUTPOSTS = {
 }
 
 export function EksOnOutposts(props: NodeProps) {
-  return (
-    <Shape
-      {...EKS_ON_OUTPOSTS}
-      {...props}
-      _style={extendStyle(EKS_ON_OUTPOSTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EKS_ON_OUTPOSTS)} />
 }

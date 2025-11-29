@@ -13,9 +13,8 @@ export const CONFERENCE_ANNOUNCEMENT_SERVICE = {
 export function ConferenceAnnouncementService(props: NodeProps) {
   return (
     <Shape
-      {...CONFERENCE_ANNOUNCEMENT_SERVICE}
       {...props}
-      _style={extendStyle(CONFERENCE_ANNOUNCEMENT_SERVICE, props)}
+      _style={extendStyle(props, CONFERENCE_ANNOUNCEMENT_SERVICE)}
     />
   )
 }

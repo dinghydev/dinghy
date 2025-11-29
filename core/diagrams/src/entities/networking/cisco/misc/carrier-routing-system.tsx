@@ -12,10 +12,6 @@ export const CARRIER_ROUTING_SYSTEM = {
 
 export function CarrierRoutingSystem(props: NodeProps) {
   return (
-    <Shape
-      {...CARRIER_ROUTING_SYSTEM}
-      {...props}
-      _style={extendStyle(CARRIER_ROUTING_SYSTEM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CARRIER_ROUTING_SYSTEM)} />
   )
 }

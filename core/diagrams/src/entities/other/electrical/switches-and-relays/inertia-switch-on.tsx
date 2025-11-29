@@ -11,11 +11,5 @@ export const INERTIA_SWITCH_ON = {
 }
 
 export function InertiaSwitchOn(props: NodeProps) {
-  return (
-    <Shape
-      {...INERTIA_SWITCH_ON}
-      {...props}
-      _style={extendStyle(INERTIA_SWITCH_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INERTIA_SWITCH_ON)} />
 }

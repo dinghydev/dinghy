@@ -13,11 +13,10 @@ export const ELASTIC_FILE_SYSTEM_ONE_ZONE_INFREQUENT_ACCESS = {
 export function ElasticFileSystemOneZoneInfrequentAccess(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_FILE_SYSTEM_ONE_ZONE_INFREQUENT_ACCESS}
       {...props}
       _style={extendStyle(
-        ELASTIC_FILE_SYSTEM_ONE_ZONE_INFREQUENT_ACCESS,
         props,
+        ELASTIC_FILE_SYSTEM_ONE_ZONE_INFREQUENT_ACCESS,
       )}
     />
   )

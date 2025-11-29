@@ -13,11 +13,10 @@ export const CONDITIONAL_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
 export function ConditionalIntermediateBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_INTERMEDIATE_BOUNDARY_INTERRUPTING}
       {...props}
       _style={extendStyle(
-        CONDITIONAL_INTERMEDIATE_BOUNDARY_INTERRUPTING,
         props,
+        CONDITIONAL_INTERMEDIATE_BOUNDARY_INTERRUPTING,
       )}
     />
   )

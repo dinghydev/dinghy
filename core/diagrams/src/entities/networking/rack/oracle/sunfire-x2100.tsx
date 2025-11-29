@@ -11,11 +11,5 @@ export const SUNFIRE_X2100 = {
 }
 
 export function SunfireX2100(props: NodeProps) {
-  return (
-    <Shape
-      {...SUNFIRE_X2100}
-      {...props}
-      _style={extendStyle(SUNFIRE_X2100, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUNFIRE_X2100)} />
 }

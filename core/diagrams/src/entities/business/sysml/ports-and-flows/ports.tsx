@@ -10,5 +10,5 @@ export const PORTS = {
 }
 
 export function Ports(props: NodeProps) {
-  return <Shape {...PORTS} {...props} _style={extendStyle(PORTS, props)} />
+  return <Shape {...props} _style={extendStyle(props, PORTS)} />
 }

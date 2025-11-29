@@ -9,11 +9,5 @@ export const REALIZATION = {
 }
 
 export function Realization(props: NodeProps) {
-  return (
-    <Dependency
-      {...REALIZATION}
-      {...props}
-      _style={extendStyle(REALIZATION, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, REALIZATION)} />
 }

@@ -11,11 +11,5 @@ export const JSON_SCRIPT = {
 }
 
 export function JsonScript(props: NodeProps) {
-  return (
-    <Shape
-      {...JSON_SCRIPT}
-      {...props}
-      _style={extendStyle(JSON_SCRIPT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JSON_SCRIPT)} />
 }

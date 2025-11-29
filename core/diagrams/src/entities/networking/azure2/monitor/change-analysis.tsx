@@ -11,11 +11,5 @@ export const CHANGE_ANALYSIS = {
 }
 
 export function ChangeAnalysis(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANGE_ANALYSIS}
-      {...props}
-      _style={extendStyle(CHANGE_ANALYSIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGE_ANALYSIS)} />
 }

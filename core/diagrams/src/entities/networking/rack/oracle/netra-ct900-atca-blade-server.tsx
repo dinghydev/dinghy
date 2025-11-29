@@ -13,9 +13,8 @@ export const NETRA_CT900_ATCA_BLADE_SERVER = {
 export function NetraCt900AtcaBladeServer(props: NodeProps) {
   return (
     <Shape
-      {...NETRA_CT900_ATCA_BLADE_SERVER}
       {...props}
-      _style={extendStyle(NETRA_CT900_ATCA_BLADE_SERVER, props)}
+      _style={extendStyle(props, NETRA_CT900_ATCA_BLADE_SERVER)}
     />
   )
 }

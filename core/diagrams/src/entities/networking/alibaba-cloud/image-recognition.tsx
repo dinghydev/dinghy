@@ -11,11 +11,5 @@ export const IMAGE_RECOGNITION = {
 }
 
 export function ImageRecognition(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_RECOGNITION}
-      {...props}
-      _style={extendStyle(IMAGE_RECOGNITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_RECOGNITION)} />
 }

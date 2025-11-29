@@ -11,5 +11,5 @@ export const FLANGE = {
 }
 
 export function Flange(props: NodeProps) {
-  return <Shape {...FLANGE} {...props} _style={extendStyle(FLANGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLANGE)} />
 }

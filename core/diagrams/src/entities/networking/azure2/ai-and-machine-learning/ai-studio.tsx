@@ -11,7 +11,5 @@ export const AI_STUDIO = {
 }
 
 export function AiStudio(props: NodeProps) {
-  return (
-    <Shape {...AI_STUDIO} {...props} _style={extendStyle(AI_STUDIO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AI_STUDIO)} />
 }

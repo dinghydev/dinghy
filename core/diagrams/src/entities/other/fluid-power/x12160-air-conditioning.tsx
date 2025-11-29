@@ -12,10 +12,6 @@ export const X12160_AIR_CONDITIONING = {
 
 export function X12160AirConditioning(props: NodeProps) {
   return (
-    <Shape
-      {...X12160_AIR_CONDITIONING}
-      {...props}
-      _style={extendStyle(X12160_AIR_CONDITIONING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12160_AIR_CONDITIONING)} />
   )
 }

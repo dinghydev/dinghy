@@ -19,6 +19,17 @@ IoT Core
 import { CloudIotCore } from '@dinghy/diagrams/entitiesGcp2IconsInternetOfThings'
 
 <CloudIotCore/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CLOUD_IOT_CORE } from '@dinghy/diagrams/entitiesGcp2IconsInternetOfThings'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CLOUD_IOT_CORE)}
+  />
+
 ```
 
   </TabItem>

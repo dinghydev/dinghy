@@ -11,7 +11,5 @@ export const ABOUT_US = {
 }
 
 export function AboutUs(props: NodeProps) {
-  return (
-    <Shape {...ABOUT_US} {...props} _style={extendStyle(ABOUT_US, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ABOUT_US)} />
 }

@@ -13,9 +13,8 @@ export const PARTICIPANT_INITIATING_BOTTOM = {
 export function ParticipantInitiatingBottom(props: NodeProps) {
   return (
     <Shape
-      {...PARTICIPANT_INITIATING_BOTTOM}
       {...props}
-      _style={extendStyle(PARTICIPANT_INITIATING_BOTTOM, props)}
+      _style={extendStyle(props, PARTICIPANT_INITIATING_BOTTOM)}
     />
   )
 }

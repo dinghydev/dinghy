@@ -13,9 +13,8 @@ export const MULTIPLE_INTERMEDIATE_THROWING = {
 export function MultipleIntermediateThrowing(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_INTERMEDIATE_THROWING}
       {...props}
-      _style={extendStyle(MULTIPLE_INTERMEDIATE_THROWING, props)}
+      _style={extendStyle(props, MULTIPLE_INTERMEDIATE_THROWING)}
     />
   )
 }

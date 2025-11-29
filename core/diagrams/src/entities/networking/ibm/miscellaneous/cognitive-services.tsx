@@ -11,11 +11,5 @@ export const COGNITIVE_SERVICES = {
 }
 
 export function CognitiveServices(props: NodeProps) {
-  return (
-    <Shape
-      {...COGNITIVE_SERVICES}
-      {...props}
-      _style={extendStyle(COGNITIVE_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COGNITIVE_SERVICES)} />
 }

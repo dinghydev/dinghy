@@ -11,11 +11,5 @@ export const COLO_DC_ON_PREMISES = {
 }
 
 export function ColoDcOnPremises(props: NodeProps) {
-  return (
-    <Shape
-      {...COLO_DC_ON_PREMISES}
-      {...props}
-      _style={extendStyle(COLO_DC_ON_PREMISES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLO_DC_ON_PREMISES)} />
 }

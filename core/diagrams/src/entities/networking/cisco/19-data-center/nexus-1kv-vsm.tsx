@@ -11,11 +11,5 @@ export const NEXUS_1KV_VSM = {
 }
 
 export function Nexus1kvVsm(props: NodeProps) {
-  return (
-    <Shape
-      {...NEXUS_1KV_VSM}
-      {...props}
-      _style={extendStyle(NEXUS_1KV_VSM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_1KV_VSM)} />
 }

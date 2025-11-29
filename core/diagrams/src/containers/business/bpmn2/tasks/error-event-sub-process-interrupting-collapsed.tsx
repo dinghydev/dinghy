@@ -11,11 +11,10 @@ export const ERROR_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
 export function ErrorEventSubProcessInterruptingCollapsed(props: NodeProps) {
   return (
     <Shape
-      {...ERROR_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        ERROR_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
         props,
+        ERROR_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
       )}
     />
   )

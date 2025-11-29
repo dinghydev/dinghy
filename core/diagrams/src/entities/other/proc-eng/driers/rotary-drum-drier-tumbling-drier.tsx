@@ -13,9 +13,8 @@ export const ROTARY_DRUM_DRIER_TUMBLING_DRIER = {
 export function RotaryDrumDrierTumblingDrier(props: NodeProps) {
   return (
     <Shape
-      {...ROTARY_DRUM_DRIER_TUMBLING_DRIER}
       {...props}
-      _style={extendStyle(ROTARY_DRUM_DRIER_TUMBLING_DRIER, props)}
+      _style={extendStyle(props, ROTARY_DRUM_DRIER_TUMBLING_DRIER)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const VPN_CONCENTRATOR_2 = {
 }
 
 export function VpnConcentrator2(props: NodeProps) {
-  return (
-    <Shape
-      {...VPN_CONCENTRATOR_2}
-      {...props}
-      _style={extendStyle(VPN_CONCENTRATOR_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPN_CONCENTRATOR_2)} />
 }

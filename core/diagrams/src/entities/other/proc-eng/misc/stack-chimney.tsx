@@ -11,11 +11,5 @@ export const STACK_CHIMNEY = {
 }
 
 export function StackChimney(props: NodeProps) {
-  return (
-    <Shape
-      {...STACK_CHIMNEY}
-      {...props}
-      _style={extendStyle(STACK_CHIMNEY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACK_CHIMNEY)} />
 }

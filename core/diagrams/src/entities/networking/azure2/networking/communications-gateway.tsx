@@ -12,10 +12,6 @@ export const COMMUNICATIONS_GATEWAY = {
 
 export function CommunicationsGateway(props: NodeProps) {
   return (
-    <Shape
-      {...COMMUNICATIONS_GATEWAY}
-      {...props}
-      _style={extendStyle(COMMUNICATIONS_GATEWAY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMMUNICATIONS_GATEWAY)} />
   )
 }

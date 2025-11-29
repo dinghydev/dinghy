@@ -10,10 +10,6 @@ export const CONNECTOR_2_TOPAZ = {
 
 export function Connector2Topaz(props: NodeProps) {
   return (
-    <Dependency
-      {...CONNECTOR_2_TOPAZ}
-      {...props}
-      _style={extendStyle(CONNECTOR_2_TOPAZ, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, CONNECTOR_2_TOPAZ)} />
   )
 }

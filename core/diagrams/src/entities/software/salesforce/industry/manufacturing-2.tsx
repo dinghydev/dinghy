@@ -11,11 +11,5 @@ export const MANUFACTURING_2 = {
 }
 
 export function Manufacturing2(props: NodeProps) {
-  return (
-    <Shape
-      {...MANUFACTURING_2}
-      {...props}
-      _style={extendStyle(MANUFACTURING_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANUFACTURING_2)} />
 }

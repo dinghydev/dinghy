@@ -11,11 +11,5 @@ export const RACK_CUMULUS_LINUX = {
 }
 
 export function RackCumulusLinux(props: NodeProps) {
-  return (
-    <Shape
-      {...RACK_CUMULUS_LINUX}
-      {...props}
-      _style={extendStyle(RACK_CUMULUS_LINUX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RACK_CUMULUS_LINUX)} />
 }

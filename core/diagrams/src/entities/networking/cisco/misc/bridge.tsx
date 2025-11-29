@@ -11,5 +11,5 @@ export const BRIDGE = {
 }
 
 export function Bridge(props: NodeProps) {
-  return <Shape {...BRIDGE} {...props} _style={extendStyle(BRIDGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, BRIDGE)} />
 }

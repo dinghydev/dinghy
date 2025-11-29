@@ -11,11 +11,5 @@ export const ALTERNATIVE_MEDICINE = {
 }
 
 export function AlternativeMedicine(props: NodeProps) {
-  return (
-    <Shape
-      {...ALTERNATIVE_MEDICINE}
-      {...props}
-      _style={extendStyle(ALTERNATIVE_MEDICINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALTERNATIVE_MEDICINE)} />
 }

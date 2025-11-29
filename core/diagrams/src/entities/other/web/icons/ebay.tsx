@@ -11,5 +11,5 @@ export const EBAY = {
 }
 
 export function Ebay(props: NodeProps) {
-  return <Shape {...EBAY} {...props} _style={extendStyle(EBAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, EBAY)} />
 }

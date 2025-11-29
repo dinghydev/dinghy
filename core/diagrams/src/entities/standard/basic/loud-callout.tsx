@@ -10,11 +10,5 @@ export const LOUD_CALLOUT = {
 }
 
 export function LoudCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...LOUD_CALLOUT}
-      {...props}
-      _style={extendStyle(LOUD_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOUD_CALLOUT)} />
 }

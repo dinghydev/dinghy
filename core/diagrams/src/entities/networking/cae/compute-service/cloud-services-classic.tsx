@@ -12,10 +12,6 @@ export const CLOUD_SERVICES_CLASSIC = {
 
 export function CloudServicesClassic(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_SERVICES_CLASSIC}
-      {...props}
-      _style={extendStyle(CLOUD_SERVICES_CLASSIC, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_SERVICES_CLASSIC)} />
   )
 }

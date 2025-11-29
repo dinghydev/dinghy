@@ -11,11 +11,5 @@ export const CLOUD_LOAD_BALANCING = {
 }
 
 export function CloudLoadBalancing(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_LOAD_BALANCING}
-      {...props}
-      _style={extendStyle(CLOUD_LOAD_BALANCING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_LOAD_BALANCING)} />
 }

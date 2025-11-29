@@ -11,11 +11,5 @@ export const REMOVABLE_TAG = {
 }
 
 export function RemovableTag(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOVABLE_TAG}
-      {...props}
-      _style={extendStyle(REMOVABLE_TAG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOVABLE_TAG)} />
 }

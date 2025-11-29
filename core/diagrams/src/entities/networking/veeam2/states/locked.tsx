@@ -11,5 +11,5 @@ export const LOCKED = {
 }
 
 export function Locked(props: NodeProps) {
-  return <Shape {...LOCKED} {...props} _style={extendStyle(LOCKED, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOCKED)} />
 }

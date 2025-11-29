@@ -11,7 +11,5 @@ export const TEXT_INPUT = {
 }
 
 export function TextInput(props: NodeProps) {
-  return (
-    <Shape {...TEXT_INPUT} {...props} _style={extendStyle(TEXT_INPUT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXT_INPUT)} />
 }

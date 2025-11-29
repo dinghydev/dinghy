@@ -11,11 +11,5 @@ export const DEDUPLICATION = {
 }
 
 export function Deduplication(props: NodeProps) {
-  return (
-    <Shape
-      {...DEDUPLICATION}
-      {...props}
-      _style={extendStyle(DEDUPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEDUPLICATION)} />
 }

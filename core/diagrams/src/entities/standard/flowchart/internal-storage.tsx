@@ -11,11 +11,5 @@ export const INTERNAL_STORAGE = {
 }
 
 export function InternalStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNAL_STORAGE}
-      {...props}
-      _style={extendStyle(INTERNAL_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNAL_STORAGE)} />
 }

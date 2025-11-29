@@ -11,5 +11,5 @@ export const AWS_IOT = {
 }
 
 export function AwsIot(props: NodeProps) {
-  return <Shape {...AWS_IOT} {...props} _style={extendStyle(AWS_IOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, AWS_IOT)} />
 }

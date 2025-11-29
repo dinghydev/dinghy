@@ -13,9 +13,8 @@ export const STATE_INVARIANT_CONTINUATIONS = {
 export function StateInvariantContinuations(props: NodeProps) {
   return (
     <Shape
-      {...STATE_INVARIANT_CONTINUATIONS}
       {...props}
-      _style={extendStyle(STATE_INVARIANT_CONTINUATIONS, props)}
+      _style={extendStyle(props, STATE_INVARIANT_CONTINUATIONS)}
     />
   )
 }

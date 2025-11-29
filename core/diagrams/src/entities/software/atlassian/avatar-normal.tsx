@@ -11,11 +11,5 @@ export const AVATAR_NORMAL = {
 }
 
 export function AvatarNormal(props: NodeProps) {
-  return (
-    <Shape
-      {...AVATAR_NORMAL}
-      {...props}
-      _style={extendStyle(AVATAR_NORMAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVATAR_NORMAL)} />
 }

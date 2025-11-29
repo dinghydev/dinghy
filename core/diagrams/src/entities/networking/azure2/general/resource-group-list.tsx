@@ -11,11 +11,5 @@ export const RESOURCE_GROUP_LIST = {
 }
 
 export function ResourceGroupList(props: NodeProps) {
-  return (
-    <Shape
-      {...RESOURCE_GROUP_LIST}
-      {...props}
-      _style={extendStyle(RESOURCE_GROUP_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE_GROUP_LIST)} />
 }

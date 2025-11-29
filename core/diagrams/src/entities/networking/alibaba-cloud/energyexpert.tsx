@@ -11,11 +11,5 @@ export const ENERGYEXPERT = {
 }
 
 export function Energyexpert(props: NodeProps) {
-  return (
-    <Shape
-      {...ENERGYEXPERT}
-      {...props}
-      _style={extendStyle(ENERGYEXPERT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENERGYEXPERT)} />
 }

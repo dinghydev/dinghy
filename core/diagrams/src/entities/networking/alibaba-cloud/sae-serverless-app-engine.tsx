@@ -12,10 +12,6 @@ export const SAE_SERVERLESS_APP_ENGINE = {
 
 export function SaeServerlessAppEngine(props: NodeProps) {
   return (
-    <Shape
-      {...SAE_SERVERLESS_APP_ENGINE}
-      {...props}
-      _style={extendStyle(SAE_SERVERLESS_APP_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAE_SERVERLESS_APP_ENGINE)} />
   )
 }

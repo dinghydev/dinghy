@@ -10,10 +10,6 @@ export const LIFELINE_CONTINUATION_2 = {
 
 export function LifelineContinuation2(props: NodeProps) {
   return (
-    <Shape
-      {...LIFELINE_CONTINUATION_2}
-      {...props}
-      _style={extendStyle(LIFELINE_CONTINUATION_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIFELINE_CONTINUATION_2)} />
   )
 }

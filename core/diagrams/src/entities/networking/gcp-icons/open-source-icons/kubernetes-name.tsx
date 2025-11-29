@@ -11,11 +11,5 @@ export const KUBERNETES_NAME = {
 }
 
 export function KubernetesName(props: NodeProps) {
-  return (
-    <Shape
-      {...KUBERNETES_NAME}
-      {...props}
-      _style={extendStyle(KUBERNETES_NAME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KUBERNETES_NAME)} />
 }

@@ -13,11 +13,10 @@ export const STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING = {
 export function StepperWithAlternativeOptionalLabelPlacing(props: NodeProps) {
   return (
     <Shape
-      {...STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING}
       {...props}
       _style={extendStyle(
-        STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING,
         props,
+        STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING,
       )}
     />
   )

@@ -11,7 +11,5 @@ export const IBM_TOWER = {
 }
 
 export function IbmTower(props: NodeProps) {
-  return (
-    <Shape {...IBM_TOWER} {...props} _style={extendStyle(IBM_TOWER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_TOWER)} />
 }

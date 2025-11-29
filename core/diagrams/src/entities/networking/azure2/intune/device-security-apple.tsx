@@ -11,11 +11,5 @@ export const DEVICE_SECURITY_APPLE = {
 }
 
 export function DeviceSecurityApple(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_SECURITY_APPLE}
-      {...props}
-      _style={extendStyle(DEVICE_SECURITY_APPLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_SECURITY_APPLE)} />
 }

@@ -11,11 +11,5 @@ export const EXHAUST_HEAD = {
 }
 
 export function ExhaustHead(props: NodeProps) {
-  return (
-    <Shape
-      {...EXHAUST_HEAD}
-      {...props}
-      _style={extendStyle(EXHAUST_HEAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXHAUST_HEAD)} />
 }

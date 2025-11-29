@@ -13,9 +13,8 @@ export const GAS_FILTER_BAG_CANDLE_CARTRIDGE = {
 export function GasFilterBagCandleCartridge(props: NodeProps) {
   return (
     <Shape
-      {...GAS_FILTER_BAG_CANDLE_CARTRIDGE}
       {...props}
-      _style={extendStyle(GAS_FILTER_BAG_CANDLE_CARTRIDGE, props)}
+      _style={extendStyle(props, GAS_FILTER_BAG_CANDLE_CARTRIDGE)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const CLOUDAP = {
 }
 
 export function Cloudap(props: NodeProps) {
-  return <Shape {...CLOUDAP} {...props} _style={extendStyle(CLOUDAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLOUDAP)} />
 }

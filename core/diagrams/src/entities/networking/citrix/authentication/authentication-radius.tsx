@@ -11,11 +11,5 @@ export const AUTHENTICATION_RADIUS = {
 }
 
 export function AuthenticationRadius(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_RADIUS}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_RADIUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_RADIUS)} />
 }

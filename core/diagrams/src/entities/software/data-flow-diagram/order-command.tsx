@@ -10,11 +10,5 @@ export const ORDER_COMMAND = {
 }
 
 export function OrderCommand(props: NodeProps) {
-  return (
-    <Shape
-      {...ORDER_COMMAND}
-      {...props}
-      _style={extendStyle(ORDER_COMMAND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORDER_COMMAND)} />
 }

@@ -13,9 +13,8 @@ export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_PROXY = {
 export function ActiveDirectoryFederationServicesProxy(props: NodeProps) {
   return (
     <Shape
-      {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_PROXY}
       {...props}
-      _style={extendStyle(ACTIVE_DIRECTORY_FEDERATION_SERVICES_PROXY, props)}
+      _style={extendStyle(props, ACTIVE_DIRECTORY_FEDERATION_SERVICES_PROXY)}
     />
   )
 }

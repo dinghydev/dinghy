@@ -11,11 +11,5 @@ export const PEERING_SERVICE = {
 }
 
 export function PeeringService(props: NodeProps) {
-  return (
-    <Shape
-      {...PEERING_SERVICE}
-      {...props}
-      _style={extendStyle(PEERING_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PEERING_SERVICE)} />
 }

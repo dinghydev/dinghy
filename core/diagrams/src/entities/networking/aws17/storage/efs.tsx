@@ -11,5 +11,5 @@ export const EFS = {
 }
 
 export function Efs(props: NodeProps) {
-  return <Shape {...EFS} {...props} _style={extendStyle(EFS, props)} />
+  return <Shape {...props} _style={extendStyle(props, EFS)} />
 }

@@ -11,7 +11,5 @@ export const BASKETBALL = {
 }
 
 export function Basketball(props: NodeProps) {
-  return (
-    <Shape {...BASKETBALL} {...props} _style={extendStyle(BASKETBALL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASKETBALL)} />
 }

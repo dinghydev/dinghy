@@ -12,10 +12,6 @@ export const AMAZON_ELASTIC_BLOCK_STORE = {
 
 export function AmazonElasticBlockStore(props: NodeProps) {
   return (
-    <Shape
-      {...AMAZON_ELASTIC_BLOCK_STORE}
-      {...props}
-      _style={extendStyle(AMAZON_ELASTIC_BLOCK_STORE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AMAZON_ELASTIC_BLOCK_STORE)} />
   )
 }

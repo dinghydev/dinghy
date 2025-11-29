@@ -11,5 +11,5 @@ export const YAMMER = {
 }
 
 export function Yammer(props: NodeProps) {
-  return <Shape {...YAMMER} {...props} _style={extendStyle(YAMMER, props)} />
+  return <Shape {...props} _style={extendStyle(props, YAMMER)} />
 }

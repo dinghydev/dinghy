@@ -11,5 +11,5 @@ export const ECHO = {
 }
 
 export function Echo(props: NodeProps) {
-  return <Shape {...ECHO} {...props} _style={extendStyle(ECHO, props)} />
+  return <Shape {...props} _style={extendStyle(props, ECHO)} />
 }

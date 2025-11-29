@@ -13,9 +13,8 @@ export const ELASTIC_FILE_SYSTEM_ELASTIC_THROUGHPUT = {
 export function ElasticFileSystemElasticThroughput(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_FILE_SYSTEM_ELASTIC_THROUGHPUT}
       {...props}
-      _style={extendStyle(ELASTIC_FILE_SYSTEM_ELASTIC_THROUGHPUT, props)}
+      _style={extendStyle(props, ELASTIC_FILE_SYSTEM_ELASTIC_THROUGHPUT)}
     />
   )
 }

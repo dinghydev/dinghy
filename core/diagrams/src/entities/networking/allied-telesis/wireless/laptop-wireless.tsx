@@ -11,11 +11,5 @@ export const LAPTOP_WIRELESS = {
 }
 
 export function LaptopWireless(props: NodeProps) {
-  return (
-    <Shape
-      {...LAPTOP_WIRELESS}
-      {...props}
-      _style={extendStyle(LAPTOP_WIRELESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAPTOP_WIRELESS)} />
 }

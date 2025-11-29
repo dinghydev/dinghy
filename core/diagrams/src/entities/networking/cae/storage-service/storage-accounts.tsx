@@ -11,11 +11,5 @@ export const STORAGE_ACCOUNTS = {
 }
 
 export function StorageAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_ACCOUNTS}
-      {...props}
-      _style={extendStyle(STORAGE_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_ACCOUNTS)} />
 }

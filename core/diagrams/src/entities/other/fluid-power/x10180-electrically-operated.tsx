@@ -13,9 +13,8 @@ export const X10180_ELECTRICALLY_OPERATED = {
 export function X10180ElectricallyOperated(props: NodeProps) {
   return (
     <Shape
-      {...X10180_ELECTRICALLY_OPERATED}
       {...props}
-      _style={extendStyle(X10180_ELECTRICALLY_OPERATED, props)}
+      _style={extendStyle(props, X10180_ELECTRICALLY_OPERATED)}
     />
   )
 }

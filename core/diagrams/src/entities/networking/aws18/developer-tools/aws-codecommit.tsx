@@ -11,11 +11,5 @@ export const AWS_CODECOMMIT = {
 }
 
 export function AwsCodecommit(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CODECOMMIT}
-      {...props}
-      _style={extendStyle(AWS_CODECOMMIT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CODECOMMIT)} />
 }

@@ -12,10 +12,6 @@ export const CLOUD_CONNECTOR_NON_SAP = {
 
 export function CloudConnectorNonSap(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_CONNECTOR_NON_SAP}
-      {...props}
-      _style={extendStyle(CLOUD_CONNECTOR_NON_SAP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_CONNECTOR_NON_SAP)} />
   )
 }

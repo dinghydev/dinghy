@@ -12,10 +12,6 @@ export const X10750_QUICK_EXHAUST_VALVE = {
 
 export function X10750QuickExhaustValve(props: NodeProps) {
   return (
-    <Shape
-      {...X10750_QUICK_EXHAUST_VALVE}
-      {...props}
-      _style={extendStyle(X10750_QUICK_EXHAUST_VALVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10750_QUICK_EXHAUST_VALVE)} />
   )
 }

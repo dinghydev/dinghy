@@ -11,11 +11,5 @@ export const BLADE_SERVER_SUBDUED = {
 }
 
 export function BladeServerSubdued(props: NodeProps) {
-  return (
-    <Shape
-      {...BLADE_SERVER_SUBDUED}
-      {...props}
-      _style={extendStyle(BLADE_SERVER_SUBDUED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLADE_SERVER_SUBDUED)} />
 }

@@ -11,11 +11,5 @@ export const IOTID_IDENTITY = {
 }
 
 export function IotidIdentity(props: NodeProps) {
-  return (
-    <Shape
-      {...IOTID_IDENTITY}
-      {...props}
-      _style={extendStyle(IOTID_IDENTITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOTID_IDENTITY)} />
 }

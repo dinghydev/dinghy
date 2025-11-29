@@ -12,10 +12,6 @@ export const DATABASE_SERVER_ORANGE = {
 
 export function DatabaseServerOrange(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_SERVER_ORANGE}
-      {...props}
-      _style={extendStyle(DATABASE_SERVER_ORANGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_SERVER_ORANGE)} />
   )
 }

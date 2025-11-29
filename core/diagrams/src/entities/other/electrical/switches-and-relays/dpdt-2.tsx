@@ -11,5 +11,5 @@ export const DPDT_2 = {
 }
 
 export function Dpdt2(props: NodeProps) {
-  return <Shape {...DPDT_2} {...props} _style={extendStyle(DPDT_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, DPDT_2)} />
 }

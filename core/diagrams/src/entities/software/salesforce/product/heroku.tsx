@@ -11,5 +11,5 @@ export const HEROKU = {
 }
 
 export function Heroku(props: NodeProps) {
-  return <Shape {...HEROKU} {...props} _style={extendStyle(HEROKU, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEROKU)} />
 }

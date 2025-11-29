@@ -12,10 +12,6 @@ export const CLOUD_DEPLOYMENT_MANAGER = {
 
 export function CloudDeploymentManager(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_DEPLOYMENT_MANAGER}
-      {...props}
-      _style={extendStyle(CLOUD_DEPLOYMENT_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_DEPLOYMENT_MANAGER)} />
   )
 }

@@ -11,5 +11,5 @@ export const CRANE = {
 }
 
 export function Crane(props: NodeProps) {
-  return <Shape {...CRANE} {...props} _style={extendStyle(CRANE, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRANE)} />
 }

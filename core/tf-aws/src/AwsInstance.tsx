@@ -1,6 +1,6 @@
 import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { Android } from '@dinghy/diagrams/entitiesAws17Sdk'
-import { awsProps } from './index.ts'
+import { awsProps } from './utils/awsProps.ts'
 import z from 'zod'
 
 export const AwsInstanceInputSchema = z.object({

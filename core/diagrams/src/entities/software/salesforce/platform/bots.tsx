@@ -11,5 +11,5 @@ export const BOTS = {
 }
 
 export function Bots(props: NodeProps) {
-  return <Shape {...BOTS} {...props} _style={extendStyle(BOTS, props)} />
+  return <Shape {...props} _style={extendStyle(props, BOTS)} />
 }

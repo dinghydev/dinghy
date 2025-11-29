@@ -13,9 +13,8 @@ export const L2_SWITCH_WITH_DUAL_SUPERVISOR = {
 export function L2SwitchWithDualSupervisor(props: NodeProps) {
   return (
     <Shape
-      {...L2_SWITCH_WITH_DUAL_SUPERVISOR}
       {...props}
-      _style={extendStyle(L2_SWITCH_WITH_DUAL_SUPERVISOR, props)}
+      _style={extendStyle(props, L2_SWITCH_WITH_DUAL_SUPERVISOR)}
     />
   )
 }

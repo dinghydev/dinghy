@@ -11,5 +11,5 @@ export const PAINT = {
 }
 
 export function Paint(props: NodeProps) {
-  return <Shape {...PAINT} {...props} _style={extendStyle(PAINT, props)} />
+  return <Shape {...props} _style={extendStyle(props, PAINT)} />
 }

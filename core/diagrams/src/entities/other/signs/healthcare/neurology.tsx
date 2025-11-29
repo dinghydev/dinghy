@@ -11,7 +11,5 @@ export const NEUROLOGY = {
 }
 
 export function Neurology(props: NodeProps) {
-  return (
-    <Shape {...NEUROLOGY} {...props} _style={extendStyle(NEUROLOGY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEUROLOGY)} />
 }

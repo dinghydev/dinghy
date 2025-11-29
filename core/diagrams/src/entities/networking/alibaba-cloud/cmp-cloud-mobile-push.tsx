@@ -11,11 +11,5 @@ export const CMP_CLOUD_MOBILE_PUSH = {
 }
 
 export function CmpCloudMobilePush(props: NodeProps) {
-  return (
-    <Shape
-      {...CMP_CLOUD_MOBILE_PUSH}
-      {...props}
-      _style={extendStyle(CMP_CLOUD_MOBILE_PUSH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CMP_CLOUD_MOBILE_PUSH)} />
 }

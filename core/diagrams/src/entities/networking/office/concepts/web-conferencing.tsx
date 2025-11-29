@@ -11,11 +11,5 @@ export const WEB_CONFERENCING = {
 }
 
 export function WebConferencing(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_CONFERENCING}
-      {...props}
-      _style={extendStyle(WEB_CONFERENCING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_CONFERENCING)} />
 }

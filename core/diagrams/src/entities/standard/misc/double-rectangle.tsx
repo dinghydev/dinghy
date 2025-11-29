@@ -10,11 +10,5 @@ export const DOUBLE_RECTANGLE = {
 }
 
 export function DoubleRectangle(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_RECTANGLE}
-      {...props}
-      _style={extendStyle(DOUBLE_RECTANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_RECTANGLE)} />
 }

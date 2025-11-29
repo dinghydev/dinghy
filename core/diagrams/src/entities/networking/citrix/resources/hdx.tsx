@@ -11,5 +11,5 @@ export const HDX = {
 }
 
 export function Hdx(props: NodeProps) {
-  return <Shape {...HDX} {...props} _style={extendStyle(HDX, props)} />
+  return <Shape {...props} _style={extendStyle(props, HDX)} />
 }

@@ -11,7 +11,5 @@ export const CISCO_HUB = {
 }
 
 export function CiscoHub(props: NodeProps) {
-  return (
-    <Shape {...CISCO_HUB} {...props} _style={extendStyle(CISCO_HUB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_HUB)} />
 }

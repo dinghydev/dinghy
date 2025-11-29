@@ -13,9 +13,8 @@ export const AZURE_PROGRAMMABLE_CONNECTIVITY = {
 export function AzureProgrammableConnectivity(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_PROGRAMMABLE_CONNECTIVITY}
       {...props}
-      _style={extendStyle(AZURE_PROGRAMMABLE_CONNECTIVITY, props)}
+      _style={extendStyle(props, AZURE_PROGRAMMABLE_CONNECTIVITY)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const STATE_5 = {
 }
 
 export function State5(props: NodeProps) {
-  return <Shape {...STATE_5} {...props} _style={extendStyle(STATE_5, props)} />
+  return <Shape {...props} _style={extendStyle(props, STATE_5)} />
 }

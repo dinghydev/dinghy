@@ -11,11 +11,5 @@ export const BUTTON_GROUP_VERTICAL = {
 }
 
 export function ButtonGroupVertical(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_GROUP_VERTICAL}
-      {...props}
-      _style={extendStyle(BUTTON_GROUP_VERTICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_GROUP_VERTICAL)} />
 }

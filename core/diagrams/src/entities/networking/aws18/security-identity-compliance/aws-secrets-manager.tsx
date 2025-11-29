@@ -11,11 +11,5 @@ export const AWS_SECRETS_MANAGER = {
 }
 
 export function AwsSecretsManager(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_SECRETS_MANAGER}
-      {...props}
-      _style={extendStyle(AWS_SECRETS_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_SECRETS_MANAGER)} />
 }

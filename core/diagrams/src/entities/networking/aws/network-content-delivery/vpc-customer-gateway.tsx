@@ -11,11 +11,5 @@ export const VPC_CUSTOMER_GATEWAY = {
 }
 
 export function VpcCustomerGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VPC_CUSTOMER_GATEWAY}
-      {...props}
-      _style={extendStyle(VPC_CUSTOMER_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_CUSTOMER_GATEWAY)} />
 }

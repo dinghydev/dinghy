@@ -11,11 +11,5 @@ export const GENERALIZATION = {
 }
 
 export function Generalization(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERALIZATION}
-      {...props}
-      _style={extendStyle(GENERALIZATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERALIZATION)} />
 }

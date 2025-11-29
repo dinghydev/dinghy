@@ -11,7 +11,5 @@ export const SHARE_ICON = {
 }
 
 export function ShareIcon(props: NodeProps) {
-  return (
-    <Shape {...SHARE_ICON} {...props} _style={extendStyle(SHARE_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARE_ICON)} />
 }

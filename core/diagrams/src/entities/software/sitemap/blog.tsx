@@ -11,5 +11,5 @@ export const BLOG = {
 }
 
 export function Blog(props: NodeProps) {
-  return <Shape {...BLOG} {...props} _style={extendStyle(BLOG, props)} />
+  return <Shape {...props} _style={extendStyle(props, BLOG)} />
 }

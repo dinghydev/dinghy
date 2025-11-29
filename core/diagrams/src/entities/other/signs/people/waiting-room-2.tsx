@@ -11,11 +11,5 @@ export const WAITING_ROOM_2 = {
 }
 
 export function WaitingRoom2(props: NodeProps) {
-  return (
-    <Shape
-      {...WAITING_ROOM_2}
-      {...props}
-      _style={extendStyle(WAITING_ROOM_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAITING_ROOM_2)} />
 }

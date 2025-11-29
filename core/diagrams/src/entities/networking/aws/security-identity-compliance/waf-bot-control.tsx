@@ -11,11 +11,5 @@ export const WAF_BOT_CONTROL = {
 }
 
 export function WafBotControl(props: NodeProps) {
-  return (
-    <Shape
-      {...WAF_BOT_CONTROL}
-      {...props}
-      _style={extendStyle(WAF_BOT_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAF_BOT_CONTROL)} />
 }

@@ -11,5 +11,5 @@ export const PRESENT = {
 }
 
 export function Present(props: NodeProps) {
-  return <Shape {...PRESENT} {...props} _style={extendStyle(PRESENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, PRESENT)} />
 }

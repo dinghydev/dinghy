@@ -11,11 +11,5 @@ export const SQUIB_IGNITOR = {
 }
 
 export function SquibIgnitor(props: NodeProps) {
-  return (
-    <Shape
-      {...SQUIB_IGNITOR}
-      {...props}
-      _style={extendStyle(SQUIB_IGNITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQUIB_IGNITOR)} />
 }

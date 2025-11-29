@@ -10,7 +10,5 @@ export const ENTITY_2 = {
 }
 
 export function Entity2(props: NodeProps) {
-  return (
-    <Shape {...ENTITY_2} {...props} _style={extendStyle(ENTITY_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTITY_2)} />
 }

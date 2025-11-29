@@ -11,11 +11,5 @@ export const INDUCTOR_AIR_CORE = {
 }
 
 export function InductorAirCore(props: NodeProps) {
-  return (
-    <Shape
-      {...INDUCTOR_AIR_CORE}
-      {...props}
-      _style={extendStyle(INDUCTOR_AIR_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDUCTOR_AIR_CORE)} />
 }

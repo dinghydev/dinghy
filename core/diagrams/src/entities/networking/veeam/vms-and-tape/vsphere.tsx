@@ -11,5 +11,5 @@ export const VSPHERE = {
 }
 
 export function Vsphere(props: NodeProps) {
-  return <Shape {...VSPHERE} {...props} _style={extendStyle(VSPHERE, props)} />
+  return <Shape {...props} _style={extendStyle(props, VSPHERE)} />
 }

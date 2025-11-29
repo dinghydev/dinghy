@@ -11,7 +11,5 @@ export const FLOW_FINAL = {
 }
 
 export function FlowFinal(props: NodeProps) {
-  return (
-    <Shape {...FLOW_FINAL} {...props} _style={extendStyle(FLOW_FINAL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_FINAL)} />
 }

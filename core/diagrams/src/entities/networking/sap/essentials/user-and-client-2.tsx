@@ -11,11 +11,5 @@ export const USER_AND_CLIENT_2 = {
 }
 
 export function UserAndClient2(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_AND_CLIENT_2}
-      {...props}
-      _style={extendStyle(USER_AND_CLIENT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_AND_CLIENT_2)} />
 }

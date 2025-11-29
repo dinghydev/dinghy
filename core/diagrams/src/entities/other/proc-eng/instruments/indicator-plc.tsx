@@ -11,11 +11,5 @@ export const INDICATOR_PLC = {
 }
 
 export function IndicatorPlc(props: NodeProps) {
-  return (
-    <Shape
-      {...INDICATOR_PLC}
-      {...props}
-      _style={extendStyle(INDICATOR_PLC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDICATOR_PLC)} />
 }

@@ -12,10 +12,6 @@ export const SITEWISE_ASSET_HIERARCHY = {
 
 export function SitewiseAssetHierarchy(props: NodeProps) {
   return (
-    <Shape
-      {...SITEWISE_ASSET_HIERARCHY}
-      {...props}
-      _style={extendStyle(SITEWISE_ASSET_HIERARCHY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SITEWISE_ASSET_HIERARCHY)} />
   )
 }

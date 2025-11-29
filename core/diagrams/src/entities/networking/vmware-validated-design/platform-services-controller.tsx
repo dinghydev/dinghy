@@ -13,9 +13,8 @@ export const PLATFORM_SERVICES_CONTROLLER = {
 export function PlatformServicesController(props: NodeProps) {
   return (
     <Shape
-      {...PLATFORM_SERVICES_CONTROLLER}
       {...props}
-      _style={extendStyle(PLATFORM_SERVICES_CONTROLLER, props)}
+      _style={extendStyle(props, PLATFORM_SERVICES_CONTROLLER)}
     />
   )
 }

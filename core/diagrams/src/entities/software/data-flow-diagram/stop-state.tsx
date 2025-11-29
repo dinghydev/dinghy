@@ -11,7 +11,5 @@ export const STOP_STATE = {
 }
 
 export function StopState(props: NodeProps) {
-  return (
-    <Shape {...STOP_STATE} {...props} _style={extendStyle(STOP_STATE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STOP_STATE)} />
 }

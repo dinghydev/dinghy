@@ -11,11 +11,5 @@ export const DATA_SOURCES = {
 }
 
 export function DataSources(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_SOURCES}
-      {...props}
-      _style={extendStyle(DATA_SOURCES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_SOURCES)} />
 }

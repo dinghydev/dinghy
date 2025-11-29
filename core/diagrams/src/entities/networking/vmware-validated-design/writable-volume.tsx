@@ -11,11 +11,5 @@ export const WRITABLE_VOLUME = {
 }
 
 export function WritableVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...WRITABLE_VOLUME}
-      {...props}
-      _style={extendStyle(WRITABLE_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WRITABLE_VOLUME)} />
 }

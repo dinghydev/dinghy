@@ -11,11 +11,5 @@ export const TECHNOLOGY_PROCESS = {
 }
 
 export function TechnologyProcess(props: NodeProps) {
-  return (
-    <Shape
-      {...TECHNOLOGY_PROCESS}
-      {...props}
-      _style={extendStyle(TECHNOLOGY_PROCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECHNOLOGY_PROCESS)} />
 }

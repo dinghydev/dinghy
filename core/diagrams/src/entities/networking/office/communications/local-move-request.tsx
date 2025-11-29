@@ -11,11 +11,5 @@ export const LOCAL_MOVE_REQUEST = {
 }
 
 export function LocalMoveRequest(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCAL_MOVE_REQUEST}
-      {...props}
-      _style={extendStyle(LOCAL_MOVE_REQUEST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCAL_MOVE_REQUEST)} />
 }

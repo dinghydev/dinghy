@@ -11,11 +11,5 @@ export const RESTFUL_API = {
 }
 
 export function RestfulApi(props: NodeProps) {
-  return (
-    <Shape
-      {...RESTFUL_API}
-      {...props}
-      _style={extendStyle(RESTFUL_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESTFUL_API)} />
 }

@@ -11,11 +11,5 @@ export const RESTART_NON_SAP = {
 }
 
 export function RestartNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...RESTART_NON_SAP}
-      {...props}
-      _style={extendStyle(RESTART_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESTART_NON_SAP)} />
 }

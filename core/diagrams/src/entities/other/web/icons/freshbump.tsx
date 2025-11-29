@@ -11,7 +11,5 @@ export const FRESHBUMP = {
 }
 
 export function Freshbump(props: NodeProps) {
-  return (
-    <Shape {...FRESHBUMP} {...props} _style={extendStyle(FRESHBUMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRESHBUMP)} />
 }

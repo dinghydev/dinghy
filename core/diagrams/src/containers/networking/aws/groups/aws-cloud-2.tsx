@@ -13,11 +13,5 @@ export const AWS_CLOUD_2 = {
 }
 
 export function AwsCloud2(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CLOUD_2}
-      {...props}
-      _style={extendStyle(AWS_CLOUD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CLOUD_2)} />
 }

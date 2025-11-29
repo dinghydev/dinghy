@@ -12,10 +12,6 @@ export const PEOPLE_SECURITY_MANAGEMENT = {
 
 export function PeopleSecurityManagement(props: NodeProps) {
   return (
-    <Shape
-      {...PEOPLE_SECURITY_MANAGEMENT}
-      {...props}
-      _style={extendStyle(PEOPLE_SECURITY_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PEOPLE_SECURITY_MANAGEMENT)} />
   )
 }

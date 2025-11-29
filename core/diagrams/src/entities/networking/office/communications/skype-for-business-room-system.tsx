@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_ROOM_SYSTEM = {
 export function SkypeForBusinessRoomSystem(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_ROOM_SYSTEM}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_ROOM_SYSTEM, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_ROOM_SYSTEM)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const PROVIDER_CLOUD_PORTAL_SERVICE = {
 export function ProviderCloudPortalService(props: NodeProps) {
   return (
     <Shape
-      {...PROVIDER_CLOUD_PORTAL_SERVICE}
       {...props}
-      _style={extendStyle(PROVIDER_CLOUD_PORTAL_SERVICE, props)}
+      _style={extendStyle(props, PROVIDER_CLOUD_PORTAL_SERVICE)}
     />
   )
 }

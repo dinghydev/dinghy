@@ -11,11 +11,5 @@ export const STACKEXCHANGE = {
 }
 
 export function Stackexchange(props: NodeProps) {
-  return (
-    <Shape
-      {...STACKEXCHANGE}
-      {...props}
-      _style={extendStyle(STACKEXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACKEXCHANGE)} />
 }

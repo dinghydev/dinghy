@@ -11,11 +11,5 @@ export const EVENT_DRIVEN_CONSUMER = {
 }
 
 export function EventDrivenConsumer(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_DRIVEN_CONSUMER}
-      {...props}
-      _style={extendStyle(EVENT_DRIVEN_CONSUMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_DRIVEN_CONSUMER)} />
 }

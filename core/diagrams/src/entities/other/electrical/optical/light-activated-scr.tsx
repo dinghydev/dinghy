@@ -11,11 +11,5 @@ export const LIGHT_ACTIVATED_SCR = {
 }
 
 export function LightActivatedScr(props: NodeProps) {
-  return (
-    <Shape
-      {...LIGHT_ACTIVATED_SCR}
-      {...props}
-      _style={extendStyle(LIGHT_ACTIVATED_SCR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIGHT_ACTIVATED_SCR)} />
 }

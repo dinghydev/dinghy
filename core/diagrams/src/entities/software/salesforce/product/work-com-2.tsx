@@ -11,7 +11,5 @@ export const WORK_COM_2 = {
 }
 
 export function WorkCom2(props: NodeProps) {
-  return (
-    <Shape {...WORK_COM_2} {...props} _style={extendStyle(WORK_COM_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORK_COM_2)} />
 }

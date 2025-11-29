@@ -11,5 +11,5 @@ export const NETVOUZ = {
 }
 
 export function Netvouz(props: NodeProps) {
-  return <Shape {...NETVOUZ} {...props} _style={extendStyle(NETVOUZ, props)} />
+  return <Shape {...props} _style={extendStyle(props, NETVOUZ)} />
 }

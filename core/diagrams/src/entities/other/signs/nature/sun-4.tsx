@@ -11,5 +11,5 @@ export const SUN_4 = {
 }
 
 export function Sun4(props: NodeProps) {
-  return <Shape {...SUN_4} {...props} _style={extendStyle(SUN_4, props)} />
+  return <Shape {...props} _style={extendStyle(props, SUN_4)} />
 }

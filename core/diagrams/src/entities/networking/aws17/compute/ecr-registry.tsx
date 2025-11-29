@@ -11,11 +11,5 @@ export const ECR_REGISTRY = {
 }
 
 export function EcrRegistry(props: NodeProps) {
-  return (
-    <Shape
-      {...ECR_REGISTRY}
-      {...props}
-      _style={extendStyle(ECR_REGISTRY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ECR_REGISTRY)} />
 }

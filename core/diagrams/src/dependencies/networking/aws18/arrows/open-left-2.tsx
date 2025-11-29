@@ -9,11 +9,5 @@ export const OPEN_LEFT_2 = {
 }
 
 export function OpenLeft2(props: NodeProps) {
-  return (
-    <Dependency
-      {...OPEN_LEFT_2}
-      {...props}
-      _style={extendStyle(OPEN_LEFT_2, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, OPEN_LEFT_2)} />
 }

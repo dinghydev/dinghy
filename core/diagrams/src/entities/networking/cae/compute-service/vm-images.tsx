@@ -11,7 +11,5 @@ export const VM_IMAGES = {
 }
 
 export function VmImages(props: NodeProps) {
-  return (
-    <Shape {...VM_IMAGES} {...props} _style={extendStyle(VM_IMAGES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_IMAGES)} />
 }

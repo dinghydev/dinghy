@@ -11,7 +11,5 @@ export const NETWORKS = {
 }
 
 export function Networks(props: NodeProps) {
-  return (
-    <Shape {...NETWORKS} {...props} _style={extendStyle(NETWORKS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORKS)} />
 }

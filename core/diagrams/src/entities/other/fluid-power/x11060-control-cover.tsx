@@ -11,11 +11,5 @@ export const X11060_CONTROL_COVER = {
 }
 
 export function X11060ControlCover(props: NodeProps) {
-  return (
-    <Shape
-      {...X11060_CONTROL_COVER}
-      {...props}
-      _style={extendStyle(X11060_CONTROL_COVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11060_CONTROL_COVER)} />
 }

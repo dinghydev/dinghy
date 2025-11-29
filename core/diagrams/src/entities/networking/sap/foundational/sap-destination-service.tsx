@@ -12,10 +12,6 @@ export const SAP_DESTINATION_SERVICE = {
 
 export function SapDestinationService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_DESTINATION_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_DESTINATION_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_DESTINATION_SERVICE)} />
   )
 }

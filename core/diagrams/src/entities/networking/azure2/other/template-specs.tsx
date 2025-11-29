@@ -11,11 +11,5 @@ export const TEMPLATE_SPECS = {
 }
 
 export function TemplateSpecs(props: NodeProps) {
-  return (
-    <Shape
-      {...TEMPLATE_SPECS}
-      {...props}
-      _style={extendStyle(TEMPLATE_SPECS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEMPLATE_SPECS)} />
 }

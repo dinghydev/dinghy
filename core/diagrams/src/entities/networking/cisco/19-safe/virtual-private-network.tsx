@@ -12,10 +12,6 @@ export const VIRTUAL_PRIVATE_NETWORK = {
 
 export function VirtualPrivateNetwork(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_PRIVATE_NETWORK}
-      {...props}
-      _style={extendStyle(VIRTUAL_PRIVATE_NETWORK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_PRIVATE_NETWORK)} />
   )
 }

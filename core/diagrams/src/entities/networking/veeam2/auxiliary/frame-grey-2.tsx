@@ -11,11 +11,5 @@ export const FRAME_GREY_2 = {
 }
 
 export function FrameGrey2(props: NodeProps) {
-  return (
-    <Shape
-      {...FRAME_GREY_2}
-      {...props}
-      _style={extendStyle(FRAME_GREY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRAME_GREY_2)} />
 }

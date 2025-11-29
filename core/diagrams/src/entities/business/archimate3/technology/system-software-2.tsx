@@ -11,11 +11,5 @@ export const SYSTEM_SOFTWARE_2 = {
 }
 
 export function SystemSoftware2(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEM_SOFTWARE_2}
-      {...props}
-      _style={extendStyle(SYSTEM_SOFTWARE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_SOFTWARE_2)} />
 }

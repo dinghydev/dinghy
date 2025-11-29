@@ -11,5 +11,5 @@ export const CHAPEL = {
 }
 
 export function Chapel(props: NodeProps) {
-  return <Shape {...CHAPEL} {...props} _style={extendStyle(CHAPEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHAPEL)} />
 }

@@ -11,11 +11,5 @@ export const DEFENDER_RTU = {
 }
 
 export function DefenderRtu(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_RTU}
-      {...props}
-      _style={extendStyle(DEFENDER_RTU, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_RTU)} />
 }

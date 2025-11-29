@@ -13,9 +13,8 @@ export const CLOUDSEARCH_SEARCH_DOCUMENTS = {
 export function CloudsearchSearchDocuments(props: NodeProps) {
   return (
     <Shape
-      {...CLOUDSEARCH_SEARCH_DOCUMENTS}
       {...props}
-      _style={extendStyle(CLOUDSEARCH_SEARCH_DOCUMENTS, props)}
+      _style={extendStyle(props, CLOUDSEARCH_SEARCH_DOCUMENTS)}
     />
   )
 }

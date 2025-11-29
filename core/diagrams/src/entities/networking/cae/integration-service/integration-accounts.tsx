@@ -11,11 +11,5 @@ export const INTEGRATION_ACCOUNTS = {
 }
 
 export function IntegrationAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...INTEGRATION_ACCOUNTS}
-      {...props}
-      _style={extendStyle(INTEGRATION_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTEGRATION_ACCOUNTS)} />
 }

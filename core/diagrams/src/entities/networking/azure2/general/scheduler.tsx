@@ -11,7 +11,5 @@ export const SCHEDULER = {
 }
 
 export function Scheduler(props: NodeProps) {
-  return (
-    <Shape {...SCHEDULER} {...props} _style={extendStyle(SCHEDULER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCHEDULER)} />
 }

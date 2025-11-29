@@ -13,9 +13,8 @@ export const VIRTUAL_SWITCH_CONTROLLER_VSC3000 = {
 export function VirtualSwitchControllerVsc3000(props: NodeProps) {
   return (
     <Shape
-      {...VIRTUAL_SWITCH_CONTROLLER_VSC3000}
       {...props}
-      _style={extendStyle(VIRTUAL_SWITCH_CONTROLLER_VSC3000, props)}
+      _style={extendStyle(props, VIRTUAL_SWITCH_CONTROLLER_VSC3000)}
     />
   )
 }

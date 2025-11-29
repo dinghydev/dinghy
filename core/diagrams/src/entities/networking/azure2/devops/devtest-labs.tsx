@@ -11,11 +11,5 @@ export const DEVTEST_LABS = {
 }
 
 export function DevtestLabs(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVTEST_LABS}
-      {...props}
-      _style={extendStyle(DEVTEST_LABS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVTEST_LABS)} />
 }

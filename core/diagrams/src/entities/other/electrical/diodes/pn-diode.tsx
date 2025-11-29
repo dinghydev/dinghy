@@ -11,7 +11,5 @@ export const PN_DIODE = {
 }
 
 export function PnDiode(props: NodeProps) {
-  return (
-    <Shape {...PN_DIODE} {...props} _style={extendStyle(PN_DIODE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PN_DIODE)} />
 }

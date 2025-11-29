@@ -11,7 +11,5 @@ export const NETPOL_2 = {
 }
 
 export function Netpol2(props: NodeProps) {
-  return (
-    <Shape {...NETPOL_2} {...props} _style={extendStyle(NETPOL_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETPOL_2)} />
 }

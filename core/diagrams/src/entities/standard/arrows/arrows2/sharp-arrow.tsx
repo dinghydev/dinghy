@@ -11,11 +11,5 @@ export const SHARP_ARROW = {
 }
 
 export function SharpArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARP_ARROW}
-      {...props}
-      _style={extendStyle(SHARP_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARP_ARROW)} />
 }

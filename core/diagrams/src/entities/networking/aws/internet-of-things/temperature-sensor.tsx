@@ -11,11 +11,5 @@ export const TEMPERATURE_SENSOR = {
 }
 
 export function TemperatureSensor(props: NodeProps) {
-  return (
-    <Shape
-      {...TEMPERATURE_SENSOR}
-      {...props}
-      _style={extendStyle(TEMPERATURE_SENSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEMPERATURE_SENSOR)} />
 }

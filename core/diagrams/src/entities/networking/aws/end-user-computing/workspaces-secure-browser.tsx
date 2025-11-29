@@ -12,10 +12,6 @@ export const WORKSPACES_SECURE_BROWSER = {
 
 export function WorkspacesSecureBrowser(props: NodeProps) {
   return (
-    <Shape
-      {...WORKSPACES_SECURE_BROWSER}
-      {...props}
-      _style={extendStyle(WORKSPACES_SECURE_BROWSER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WORKSPACES_SECURE_BROWSER)} />
   )
 }

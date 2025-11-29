@@ -11,11 +11,5 @@ export const CLIENT_APPLICATION = {
 }
 
 export function ClientApplication(props: NodeProps) {
-  return (
-    <Shape
-      {...CLIENT_APPLICATION}
-      {...props}
-      _style={extendStyle(CLIENT_APPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLIENT_APPLICATION)} />
 }

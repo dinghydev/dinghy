@@ -11,11 +11,5 @@ export const IOT_APPLICATION = {
 }
 
 export function IotApplication(props: NodeProps) {
-  return (
-    <Shape
-      {...IOT_APPLICATION}
-      {...props}
-      _style={extendStyle(IOT_APPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOT_APPLICATION)} />
 }

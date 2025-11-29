@@ -11,11 +11,5 @@ export const I2_INSTANCE = {
 }
 
 export function I2Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...I2_INSTANCE}
-      {...props}
-      _style={extendStyle(I2_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, I2_INSTANCE)} />
 }

@@ -11,5 +11,5 @@ export const VIDDLER = {
 }
 
 export function Viddler(props: NodeProps) {
-  return <Shape {...VIDDLER} {...props} _style={extendStyle(VIDDLER, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIDDLER)} />
 }

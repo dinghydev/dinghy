@@ -11,7 +11,5 @@ export const COPY_AREA = {
 }
 
 export function CopyArea(props: NodeProps) {
-  return (
-    <Shape {...COPY_AREA} {...props} _style={extendStyle(COPY_AREA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COPY_AREA)} />
 }

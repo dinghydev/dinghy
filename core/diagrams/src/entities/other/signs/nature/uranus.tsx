@@ -11,5 +11,5 @@ export const URANUS = {
 }
 
 export function Uranus(props: NodeProps) {
-  return <Shape {...URANUS} {...props} _style={extendStyle(URANUS, props)} />
+  return <Shape {...props} _style={extendStyle(props, URANUS)} />
 }

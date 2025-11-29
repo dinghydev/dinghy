@@ -11,5 +11,5 @@ export const CORE = {
 }
 
 export function Core(props: NodeProps) {
-  return <Shape {...CORE} {...props} _style={extendStyle(CORE, props)} />
+  return <Shape {...props} _style={extendStyle(props, CORE)} />
 }

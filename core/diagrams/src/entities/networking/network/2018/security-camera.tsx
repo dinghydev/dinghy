@@ -11,11 +11,5 @@ export const SECURITY_CAMERA = {
 }
 
 export function SecurityCamera(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURITY_CAMERA}
-      {...props}
-      _style={extendStyle(SECURITY_CAMERA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURITY_CAMERA)} />
 }

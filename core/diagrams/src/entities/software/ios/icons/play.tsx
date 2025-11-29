@@ -11,5 +11,5 @@ export const PLAY = {
 }
 
 export function Play(props: NodeProps) {
-  return <Shape {...PLAY} {...props} _style={extendStyle(PLAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLAY)} />
 }

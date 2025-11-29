@@ -11,11 +11,5 @@ export const VLOAD_BALANCER = {
 }
 
 export function VloadBalancer(props: NodeProps) {
-  return (
-    <Shape
-      {...VLOAD_BALANCER}
-      {...props}
-      _style={extendStyle(VLOAD_BALANCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VLOAD_BALANCER)} />
 }

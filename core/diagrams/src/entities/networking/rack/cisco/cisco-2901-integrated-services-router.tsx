@@ -13,9 +13,8 @@ export const CISCO_2901_INTEGRATED_SERVICES_ROUTER = {
 export function Cisco2901IntegratedServicesRouter(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_2901_INTEGRATED_SERVICES_ROUTER}
       {...props}
-      _style={extendStyle(CISCO_2901_INTEGRATED_SERVICES_ROUTER, props)}
+      _style={extendStyle(props, CISCO_2901_INTEGRATED_SERVICES_ROUTER)}
     />
   )
 }

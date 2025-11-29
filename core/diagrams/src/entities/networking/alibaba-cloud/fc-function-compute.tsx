@@ -11,11 +11,5 @@ export const FC_FUNCTION_COMPUTE = {
 }
 
 export function FcFunctionCompute(props: NodeProps) {
-  return (
-    <Shape
-      {...FC_FUNCTION_COMPUTE}
-      {...props}
-      _style={extendStyle(FC_FUNCTION_COMPUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FC_FUNCTION_COMPUTE)} />
 }

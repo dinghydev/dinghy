@@ -12,10 +12,6 @@ export const AZURE_IOT_HUB_SECURITY = {
 
 export function AzureIotHubSecurity(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_IOT_HUB_SECURITY}
-      {...props}
-      _style={extendStyle(AZURE_IOT_HUB_SECURITY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_IOT_HUB_SECURITY)} />
   )
 }

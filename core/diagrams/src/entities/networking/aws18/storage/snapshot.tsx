@@ -11,7 +11,5 @@ export const SNAPSHOT = {
 }
 
 export function Snapshot(props: NodeProps) {
-  return (
-    <Shape {...SNAPSHOT} {...props} _style={extendStyle(SNAPSHOT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNAPSHOT)} />
 }

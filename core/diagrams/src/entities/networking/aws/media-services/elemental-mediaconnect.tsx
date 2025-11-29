@@ -12,10 +12,6 @@ export const ELEMENTAL_MEDIACONNECT = {
 
 export function ElementalMediaconnect(props: NodeProps) {
   return (
-    <Shape
-      {...ELEMENTAL_MEDIACONNECT}
-      {...props}
-      _style={extendStyle(ELEMENTAL_MEDIACONNECT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELEMENTAL_MEDIACONNECT)} />
   )
 }

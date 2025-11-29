@@ -11,11 +11,5 @@ export const RJ45_SFP_ALT = {
 }
 
 export function Rj45SfpAlt(props: NodeProps) {
-  return (
-    <Shape
-      {...RJ45_SFP_ALT}
-      {...props}
-      _style={extendStyle(RJ45_SFP_ALT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RJ45_SFP_ALT)} />
 }

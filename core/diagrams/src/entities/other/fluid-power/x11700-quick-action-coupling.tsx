@@ -13,9 +13,8 @@ export const X11700_QUICK_ACTION_COUPLING = {
 export function X11700QuickActionCoupling(props: NodeProps) {
   return (
     <Shape
-      {...X11700_QUICK_ACTION_COUPLING}
       {...props}
-      _style={extendStyle(X11700_QUICK_ACTION_COUPLING, props)}
+      _style={extendStyle(props, X11700_QUICK_ACTION_COUPLING)}
     />
   )
 }

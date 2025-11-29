@@ -11,11 +11,5 @@ export const WATCHER_NODE = {
 }
 
 export function WatcherNode(props: NodeProps) {
-  return (
-    <Shape
-      {...WATCHER_NODE}
-      {...props}
-      _style={extendStyle(WATCHER_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WATCHER_NODE)} />
 }

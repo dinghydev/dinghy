@@ -13,9 +13,8 @@ export const AMAZON_ELASTICACHE_FOR_MEMCACHED = {
 export function AmazonElasticacheForMemcached(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_ELASTICACHE_FOR_MEMCACHED}
       {...props}
-      _style={extendStyle(AMAZON_ELASTICACHE_FOR_MEMCACHED, props)}
+      _style={extendStyle(props, AMAZON_ELASTICACHE_FOR_MEMCACHED)}
     />
   )
 }

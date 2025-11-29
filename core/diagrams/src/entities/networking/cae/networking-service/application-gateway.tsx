@@ -11,11 +11,5 @@ export const APPLICATION_GATEWAY = {
 }
 
 export function ApplicationGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_GATEWAY}
-      {...props}
-      _style={extendStyle(APPLICATION_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_GATEWAY)} />
 }

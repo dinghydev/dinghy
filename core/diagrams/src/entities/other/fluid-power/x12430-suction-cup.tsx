@@ -11,11 +11,5 @@ export const X12430_SUCTION_CUP = {
 }
 
 export function X12430SuctionCup(props: NodeProps) {
-  return (
-    <Shape
-      {...X12430_SUCTION_CUP}
-      {...props}
-      _style={extendStyle(X12430_SUCTION_CUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12430_SUCTION_CUP)} />
 }

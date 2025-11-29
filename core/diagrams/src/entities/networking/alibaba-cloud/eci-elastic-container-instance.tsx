@@ -13,9 +13,8 @@ export const ECI_ELASTIC_CONTAINER_INSTANCE = {
 export function EciElasticContainerInstance(props: NodeProps) {
   return (
     <Shape
-      {...ECI_ELASTIC_CONTAINER_INSTANCE}
       {...props}
-      _style={extendStyle(ECI_ELASTIC_CONTAINER_INSTANCE, props)}
+      _style={extendStyle(props, ECI_ELASTIC_CONTAINER_INSTANCE)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const DATAHUB = {
 }
 
 export function Datahub(props: NodeProps) {
-  return <Shape {...DATAHUB} {...props} _style={extendStyle(DATAHUB, props)} />
+  return <Shape {...props} _style={extendStyle(props, DATAHUB)} />
 }

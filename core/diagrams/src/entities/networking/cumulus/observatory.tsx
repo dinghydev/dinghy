@@ -10,11 +10,5 @@ export const OBSERVATORY = {
 }
 
 export function Observatory(props: NodeProps) {
-  return (
-    <Shape
-      {...OBSERVATORY}
-      {...props}
-      _style={extendStyle(OBSERVATORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OBSERVATORY)} />
 }

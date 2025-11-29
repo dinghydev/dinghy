@@ -11,11 +11,5 @@ export const CENTRIFUGE_HIGH_SPEED = {
 }
 
 export function CentrifugeHighSpeed(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTRIFUGE_HIGH_SPEED}
-      {...props}
-      _style={extendStyle(CENTRIFUGE_HIGH_SPEED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTRIFUGE_HIGH_SPEED)} />
 }

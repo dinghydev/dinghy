@@ -11,11 +11,5 @@ export const TELECOMMUTER_HOUSE_PC = {
 }
 
 export function TelecommuterHousePc(props: NodeProps) {
-  return (
-    <Shape
-      {...TELECOMMUTER_HOUSE_PC}
-      {...props}
-      _style={extendStyle(TELECOMMUTER_HOUSE_PC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TELECOMMUTER_HOUSE_PC)} />
 }

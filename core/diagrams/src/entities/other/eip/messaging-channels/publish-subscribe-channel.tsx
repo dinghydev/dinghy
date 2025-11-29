@@ -11,10 +11,6 @@ export const PUBLISH_SUBSCRIBE_CHANNEL = {
 
 export function PublishSubscribeChannel(props: NodeProps) {
   return (
-    <Shape
-      {...PUBLISH_SUBSCRIBE_CHANNEL}
-      {...props}
-      _style={extendStyle(PUBLISH_SUBSCRIBE_CHANNEL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUBLISH_SUBSCRIBE_CHANNEL)} />
   )
 }

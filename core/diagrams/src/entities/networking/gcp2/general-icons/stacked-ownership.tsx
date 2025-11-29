@@ -11,11 +11,5 @@ export const STACKED_OWNERSHIP = {
 }
 
 export function StackedOwnership(props: NodeProps) {
-  return (
-    <Shape
-      {...STACKED_OWNERSHIP}
-      {...props}
-      _style={extendStyle(STACKED_OWNERSHIP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACKED_OWNERSHIP)} />
 }

@@ -11,11 +11,5 @@ export const SAP_CLOUD_LOGGING = {
 }
 
 export function SapCloudLogging(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_CLOUD_LOGGING}
-      {...props}
-      _style={extendStyle(SAP_CLOUD_LOGGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_CLOUD_LOGGING)} />
 }

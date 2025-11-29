@@ -11,11 +11,5 @@ export const PERISTALTIC = {
 }
 
 export function Peristaltic(props: NodeProps) {
-  return (
-    <Shape
-      {...PERISTALTIC}
-      {...props}
-      _style={extendStyle(PERISTALTIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERISTALTIC)} />
 }

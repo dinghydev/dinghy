@@ -11,11 +11,5 @@ export const BUTTON_ICON_AND_LABEL = {
 }
 
 export function ButtonIconAndLabel(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_ICON_AND_LABEL}
-      {...props}
-      _style={extendStyle(BUTTON_ICON_AND_LABEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_ICON_AND_LABEL)} />
 }

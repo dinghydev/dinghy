@@ -13,9 +13,8 @@ export const JL355A_ARUBA_2540_48G_4SFP_SWITCH = {
 export function Jl355aAruba254048g4sfpSwitch(props: NodeProps) {
   return (
     <Shape
-      {...JL355A_ARUBA_2540_48G_4SFP_SWITCH}
       {...props}
-      _style={extendStyle(JL355A_ARUBA_2540_48G_4SFP_SWITCH, props)}
+      _style={extendStyle(props, JL355A_ARUBA_2540_48G_4SFP_SWITCH)}
     />
   )
 }

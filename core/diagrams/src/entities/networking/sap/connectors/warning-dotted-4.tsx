@@ -11,11 +11,5 @@ export const WARNING_DOTTED_4 = {
 }
 
 export function WarningDotted4(props: NodeProps) {
-  return (
-    <Shape
-      {...WARNING_DOTTED_4}
-      {...props}
-      _style={extendStyle(WARNING_DOTTED_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WARNING_DOTTED_4)} />
 }

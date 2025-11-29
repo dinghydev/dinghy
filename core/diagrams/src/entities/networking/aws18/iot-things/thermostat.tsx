@@ -11,7 +11,5 @@ export const THERMOSTAT = {
 }
 
 export function Thermostat(props: NodeProps) {
-  return (
-    <Shape {...THERMOSTAT} {...props} _style={extendStyle(THERMOSTAT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, THERMOSTAT)} />
 }

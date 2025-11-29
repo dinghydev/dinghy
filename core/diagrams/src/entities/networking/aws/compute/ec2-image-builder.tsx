@@ -11,11 +11,5 @@ export const EC2_IMAGE_BUILDER = {
 }
 
 export function Ec2ImageBuilder(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_IMAGE_BUILDER}
-      {...props}
-      _style={extendStyle(EC2_IMAGE_BUILDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_IMAGE_BUILDER)} />
 }

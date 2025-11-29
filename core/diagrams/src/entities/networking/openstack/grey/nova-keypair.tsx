@@ -11,11 +11,5 @@ export const NOVA_KEYPAIR = {
 }
 
 export function NovaKeypair(props: NodeProps) {
-  return (
-    <Shape
-      {...NOVA_KEYPAIR}
-      {...props}
-      _style={extendStyle(NOVA_KEYPAIR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NOVA_KEYPAIR)} />
 }

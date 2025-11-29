@@ -13,9 +13,8 @@ export const VEEAM_PLUGIN_FOR_SAP_ON_ORACLE = {
 export function VeeamPluginForSapOnOracle(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_PLUGIN_FOR_SAP_ON_ORACLE}
       {...props}
-      _style={extendStyle(VEEAM_PLUGIN_FOR_SAP_ON_ORACLE, props)}
+      _style={extendStyle(props, VEEAM_PLUGIN_FOR_SAP_ON_ORACLE)}
     />
   )
 }

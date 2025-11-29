@@ -11,7 +11,5 @@ export const CLOUDSHELL = {
 }
 
 export function Cloudshell(props: NodeProps) {
-  return (
-    <Shape {...CLOUDSHELL} {...props} _style={extendStyle(CLOUDSHELL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDSHELL)} />
 }

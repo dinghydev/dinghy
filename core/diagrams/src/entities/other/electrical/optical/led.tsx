@@ -11,5 +11,5 @@ export const LED = {
 }
 
 export function Led(props: NodeProps) {
-  return <Shape {...LED} {...props} _style={extendStyle(LED, props)} />
+  return <Shape {...props} _style={extendStyle(props, LED)} />
 }

@@ -11,11 +11,5 @@ export const VBR_CONSOLE = {
 }
 
 export function VbrConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...VBR_CONSOLE}
-      {...props}
-      _style={extendStyle(VBR_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VBR_CONSOLE)} />
 }

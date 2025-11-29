@@ -11,11 +11,5 @@ export const THINKBOX_SEQUOIA = {
 }
 
 export function ThinkboxSequoia(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_SEQUOIA}
-      {...props}
-      _style={extendStyle(THINKBOX_SEQUOIA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_SEQUOIA)} />
 }

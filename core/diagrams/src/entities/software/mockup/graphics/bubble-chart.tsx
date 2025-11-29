@@ -11,11 +11,5 @@ export const BUBBLE_CHART = {
 }
 
 export function BubbleChart(props: NodeProps) {
-  return (
-    <Shape
-      {...BUBBLE_CHART}
-      {...props}
-      _style={extendStyle(BUBBLE_CHART, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUBBLE_CHART)} />
 }

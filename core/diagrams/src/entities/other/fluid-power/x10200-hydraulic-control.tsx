@@ -12,10 +12,6 @@ export const X10200_HYDRAULIC_CONTROL = {
 
 export function X10200HydraulicControl(props: NodeProps) {
   return (
-    <Shape
-      {...X10200_HYDRAULIC_CONTROL}
-      {...props}
-      _style={extendStyle(X10200_HYDRAULIC_CONTROL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10200_HYDRAULIC_CONTROL)} />
   )
 }

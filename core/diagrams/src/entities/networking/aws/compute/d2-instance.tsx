@@ -11,11 +11,5 @@ export const D2_INSTANCE = {
 }
 
 export function D2Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...D2_INSTANCE}
-      {...props}
-      _style={extendStyle(D2_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, D2_INSTANCE)} />
 }

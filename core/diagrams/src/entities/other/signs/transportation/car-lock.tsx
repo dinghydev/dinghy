@@ -11,7 +11,5 @@ export const CAR_LOCK = {
 }
 
 export function CarLock(props: NodeProps) {
-  return (
-    <Shape {...CAR_LOCK} {...props} _style={extendStyle(CAR_LOCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAR_LOCK)} />
 }

@@ -11,11 +11,5 @@ export const SITTING_WOMAN = {
 }
 
 export function SittingWoman(props: NodeProps) {
-  return (
-    <Shape
-      {...SITTING_WOMAN}
-      {...props}
-      _style={extendStyle(SITTING_WOMAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITTING_WOMAN)} />
 }

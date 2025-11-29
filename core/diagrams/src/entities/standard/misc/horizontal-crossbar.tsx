@@ -10,11 +10,5 @@ export const HORIZONTAL_CROSSBAR = {
 }
 
 export function HorizontalCrossbar(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_CROSSBAR}
-      {...props}
-      _style={extendStyle(HORIZONTAL_CROSSBAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_CROSSBAR)} />
 }

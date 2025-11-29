@@ -11,11 +11,5 @@ export const VEEAM_AGENTS = {
 }
 
 export function VeeamAgents(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_AGENTS}
-      {...props}
-      _style={extendStyle(VEEAM_AGENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_AGENTS)} />
 }

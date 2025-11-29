@@ -11,11 +11,5 @@ export const HDFS_CLUSTER_2 = {
 }
 
 export function HdfsCluster2(props: NodeProps) {
-  return (
-    <Shape
-      {...HDFS_CLUSTER_2}
-      {...props}
-      _style={extendStyle(HDFS_CLUSTER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HDFS_CLUSTER_2)} />
 }

@@ -11,7 +11,5 @@ export const MATERIAL_2 = {
 }
 
 export function Material2(props: NodeProps) {
-  return (
-    <Shape {...MATERIAL_2} {...props} _style={extendStyle(MATERIAL_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MATERIAL_2)} />
 }

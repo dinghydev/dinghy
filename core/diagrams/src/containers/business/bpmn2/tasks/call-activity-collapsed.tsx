@@ -10,10 +10,6 @@ export const CALL_ACTIVITY_COLLAPSED = {
 
 export function CallActivityCollapsed(props: NodeProps) {
   return (
-    <Shape
-      {...CALL_ACTIVITY_COLLAPSED}
-      {...props}
-      _style={extendStyle(CALL_ACTIVITY_COLLAPSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CALL_ACTIVITY_COLLAPSED)} />
   )
 }

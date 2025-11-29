@@ -11,11 +11,5 @@ export const ROLE_CLOUDBRIDGE = {
 }
 
 export function RoleCloudbridge(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_CLOUDBRIDGE}
-      {...props}
-      _style={extendStyle(ROLE_CLOUDBRIDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_CLOUDBRIDGE)} />
 }

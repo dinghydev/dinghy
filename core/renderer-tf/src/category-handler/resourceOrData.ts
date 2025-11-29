@@ -1,11 +1,6 @@
 import type { TfRenderOptions } from '../types.ts'
 import { requiredSchema } from './index.ts'
-import {
-  deepMerge,
-  deepResolve,
-  NodeTree,
-  Props,
-} from '@dinghy/base-components'
+import { deepResolve, NodeTree, Props } from '@dinghy/base-components'
 
 export const resourceOrData = (
   renderOptions: TfRenderOptions,
@@ -15,27 +10,23 @@ export const resourceOrData = (
   schemaField: string,
 ) => {
   const schema = requiredSchema(node, schemaField)
-  const tfCategory = (tfRoot[category] ??= {}) as Props
-  const tfElements = (tfCategory[node._props._type as any] ??= {}) as Props
-  let tfElement: any
-  if ((node._props as any)[category]) {
-    tfElement = schema.partial().parse(node._props) as Props
-    deepMerge(tfElement, (node._props as any)[category]) as Props
-  } else {
+  const tfCategory: any = tfRoot[category] ??= {}
+  const tfElements: any = tfCategory[node._props._type as any] ??= {}
+  let tfElement: any = node._props[`_${category}`]
+  if (!tfElement) {
     try {
-      tfElement = schema.parse(node._props) as Props
+      tfElement = schema.parse(node._props)
     } catch (e) {
       console.error('input props', node._props)
       console.error('Error parsing schema', e)
       throw new Error('Error parsing schema')
     }
   }
-  let resolvedElement = deepResolve(node, tfElement)
-  resolvedElement = schema.strict().parse(resolvedElement)
-  resolvedElement = removeDoubleUnderscorePrefix(resolvedElement)
-  tfElements[node._props._id as any] = resolvedElement
+  deepResolve(node, tfElement)
+  removeDoubleUnderscorePrefix(tfElement)
+  tfElements[node._props._id as any] = tfElement
   if (
-    node._props?._importId && renderOptions.tf?.generateImport
+    renderOptions.tf?.generateImport && node._props?._importSchema
   ) {
     const importId = deepResolve(node, node._props, '_importId')
     if (importId) {
@@ -45,6 +36,7 @@ export const resourceOrData = (
         to: `${node._props._type}.${node._props._id}`,
       })
     }
+    throw new Error('Not implemented yet')
   }
 }
 

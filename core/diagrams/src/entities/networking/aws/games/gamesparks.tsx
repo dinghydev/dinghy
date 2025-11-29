@@ -11,7 +11,5 @@ export const GAMESPARKS = {
 }
 
 export function Gamesparks(props: NodeProps) {
-  return (
-    <Shape {...GAMESPARKS} {...props} _style={extendStyle(GAMESPARKS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAMESPARKS)} />
 }

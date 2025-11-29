@@ -11,11 +11,5 @@ export const THIRD_PARTY_HIGHLIGHT = {
 }
 
 export function ThirdPartyHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...THIRD_PARTY_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(THIRD_PARTY_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THIRD_PARTY_HIGHLIGHT)} />
 }

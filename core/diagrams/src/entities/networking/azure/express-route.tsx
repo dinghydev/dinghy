@@ -11,11 +11,5 @@ export const EXPRESS_ROUTE = {
 }
 
 export function ExpressRoute(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPRESS_ROUTE}
-      {...props}
-      _style={extendStyle(EXPRESS_ROUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPRESS_ROUTE)} />
 }

@@ -11,7 +11,5 @@ export const AHV_HOST = {
 }
 
 export function AhvHost(props: NodeProps) {
-  return (
-    <Shape {...AHV_HOST} {...props} _style={extendStyle(AHV_HOST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AHV_HOST)} />
 }

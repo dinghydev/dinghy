@@ -11,11 +11,5 @@ export const INTERACTION_USE = {
 }
 
 export function InteractionUse(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERACTION_USE}
-      {...props}
-      _style={extendStyle(INTERACTION_USE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERACTION_USE)} />
 }

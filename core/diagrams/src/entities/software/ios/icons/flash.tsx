@@ -11,5 +11,5 @@ export const FLASH = {
 }
 
 export function Flash(props: NodeProps) {
-  return <Shape {...FLASH} {...props} _style={extendStyle(FLASH, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLASH)} />
 }

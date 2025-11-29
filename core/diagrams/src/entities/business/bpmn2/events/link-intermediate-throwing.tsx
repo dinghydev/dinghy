@@ -12,10 +12,6 @@ export const LINK_INTERMEDIATE_THROWING = {
 
 export function LinkIntermediateThrowing(props: NodeProps) {
   return (
-    <Shape
-      {...LINK_INTERMEDIATE_THROWING}
-      {...props}
-      _style={extendStyle(LINK_INTERMEDIATE_THROWING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LINK_INTERMEDIATE_THROWING)} />
   )
 }

@@ -11,11 +11,5 @@ export const OUTPOSTS_RACK = {
 }
 
 export function OutpostsRack(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTPOSTS_RACK}
-      {...props}
-      _style={extendStyle(OUTPOSTS_RACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTPOSTS_RACK)} />
 }

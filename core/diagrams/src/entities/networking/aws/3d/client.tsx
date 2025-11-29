@@ -11,5 +11,5 @@ export const CLIENT = {
 }
 
 export function Client(props: NodeProps) {
-  return <Shape {...CLIENT} {...props} _style={extendStyle(CLIENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLIENT)} />
 }

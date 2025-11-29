@@ -11,7 +11,5 @@ export const AUTOSCALE = {
 }
 
 export function Autoscale(props: NodeProps) {
-  return (
-    <Shape {...AUTOSCALE} {...props} _style={extendStyle(AUTOSCALE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOSCALE)} />
 }

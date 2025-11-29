@@ -13,9 +13,8 @@ export const DISCRETE_INSTRUMENT_CONTROL_ROOM = {
 export function DiscreteInstrumentControlRoom(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_INSTRUMENT_CONTROL_ROOM}
       {...props}
-      _style={extendStyle(DISCRETE_INSTRUMENT_CONTROL_ROOM, props)}
+      _style={extendStyle(props, DISCRETE_INSTRUMENT_CONTROL_ROOM)}
     />
   )
 }

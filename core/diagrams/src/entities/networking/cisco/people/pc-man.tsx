@@ -11,5 +11,5 @@ export const PC_MAN = {
 }
 
 export function PcMan(props: NodeProps) {
-  return <Shape {...PC_MAN} {...props} _style={extendStyle(PC_MAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, PC_MAN)} />
 }

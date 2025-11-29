@@ -11,7 +11,5 @@ export const TASK_LIST = {
 }
 
 export function TaskList(props: NodeProps) {
-  return (
-    <Shape {...TASK_LIST} {...props} _style={extendStyle(TASK_LIST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TASK_LIST)} />
 }

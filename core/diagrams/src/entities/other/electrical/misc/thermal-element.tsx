@@ -11,11 +11,5 @@ export const THERMAL_ELEMENT = {
 }
 
 export function ThermalElement(props: NodeProps) {
-  return (
-    <Shape
-      {...THERMAL_ELEMENT}
-      {...props}
-      _style={extendStyle(THERMAL_ELEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THERMAL_ELEMENT)} />
 }

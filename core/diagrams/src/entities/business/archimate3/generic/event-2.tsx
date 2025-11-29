@@ -11,5 +11,5 @@ export const EVENT_2 = {
 }
 
 export function Event2(props: NodeProps) {
-  return <Shape {...EVENT_2} {...props} _style={extendStyle(EVENT_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, EVENT_2)} />
 }

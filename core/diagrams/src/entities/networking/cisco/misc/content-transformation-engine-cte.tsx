@@ -13,9 +13,8 @@ export const CONTENT_TRANSFORMATION_ENGINE_CTE = {
 export function ContentTransformationEngineCte(props: NodeProps) {
   return (
     <Shape
-      {...CONTENT_TRANSFORMATION_ENGINE_CTE}
       {...props}
-      _style={extendStyle(CONTENT_TRANSFORMATION_ENGINE_CTE, props)}
+      _style={extendStyle(props, CONTENT_TRANSFORMATION_ENGINE_CTE)}
     />
   )
 }

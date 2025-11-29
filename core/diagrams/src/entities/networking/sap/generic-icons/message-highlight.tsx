@@ -11,11 +11,5 @@ export const MESSAGE_HIGHLIGHT = {
 }
 
 export function MessageHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(MESSAGE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_HIGHLIGHT)} />
 }

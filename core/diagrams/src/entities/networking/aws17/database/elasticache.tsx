@@ -11,11 +11,5 @@ export const ELASTICACHE = {
 }
 
 export function Elasticache(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTICACHE}
-      {...props}
-      _style={extendStyle(ELASTICACHE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTICACHE)} />
 }

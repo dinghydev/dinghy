@@ -12,10 +12,6 @@ export const SAP_S_4HANA_FOR_MS_TEAMS = {
 
 export function SapS4hanaForMsTeams(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_S_4HANA_FOR_MS_TEAMS}
-      {...props}
-      _style={extendStyle(SAP_S_4HANA_FOR_MS_TEAMS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_S_4HANA_FOR_MS_TEAMS)} />
   )
 }

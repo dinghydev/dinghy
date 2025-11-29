@@ -11,7 +11,5 @@ export const BASEBALL = {
 }
 
 export function Baseball(props: NodeProps) {
-  return (
-    <Shape {...BASEBALL} {...props} _style={extendStyle(BASEBALL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASEBALL)} />
 }

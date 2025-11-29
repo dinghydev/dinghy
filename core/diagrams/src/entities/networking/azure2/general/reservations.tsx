@@ -11,11 +11,5 @@ export const RESERVATIONS = {
 }
 
 export function Reservations(props: NodeProps) {
-  return (
-    <Shape
-      {...RESERVATIONS}
-      {...props}
-      _style={extendStyle(RESERVATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESERVATIONS)} />
 }

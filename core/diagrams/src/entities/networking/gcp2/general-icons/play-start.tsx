@@ -11,7 +11,5 @@ export const PLAY_START = {
 }
 
 export function PlayStart(props: NodeProps) {
-  return (
-    <Shape {...PLAY_START} {...props} _style={extendStyle(PLAY_START, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAY_START)} />
 }

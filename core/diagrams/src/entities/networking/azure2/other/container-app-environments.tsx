@@ -12,10 +12,6 @@ export const CONTAINER_APP_ENVIRONMENTS = {
 
 export function ContainerAppEnvironments(props: NodeProps) {
   return (
-    <Shape
-      {...CONTAINER_APP_ENVIRONMENTS}
-      {...props}
-      _style={extendStyle(CONTAINER_APP_ENVIRONMENTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTAINER_APP_ENVIRONMENTS)} />
   )
 }

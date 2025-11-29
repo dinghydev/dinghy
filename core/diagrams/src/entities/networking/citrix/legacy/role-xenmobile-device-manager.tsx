@@ -13,9 +13,8 @@ export const ROLE_XENMOBILE_DEVICE_MANAGER = {
 export function RoleXenmobileDeviceManager(props: NodeProps) {
   return (
     <Shape
-      {...ROLE_XENMOBILE_DEVICE_MANAGER}
       {...props}
-      _style={extendStyle(ROLE_XENMOBILE_DEVICE_MANAGER, props)}
+      _style={extendStyle(props, ROLE_XENMOBILE_DEVICE_MANAGER)}
     />
   )
 }

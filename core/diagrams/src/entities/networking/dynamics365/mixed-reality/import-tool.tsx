@@ -11,11 +11,5 @@ export const IMPORT_TOOL = {
 }
 
 export function ImportTool(props: NodeProps) {
-  return (
-    <Shape
-      {...IMPORT_TOOL}
-      {...props}
-      _style={extendStyle(IMPORT_TOOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMPORT_TOOL)} />
 }

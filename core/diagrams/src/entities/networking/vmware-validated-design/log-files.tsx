@@ -11,7 +11,5 @@ export const LOG_FILES = {
 }
 
 export function LogFiles(props: NodeProps) {
-  return (
-    <Shape {...LOG_FILES} {...props} _style={extendStyle(LOG_FILES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOG_FILES)} />
 }

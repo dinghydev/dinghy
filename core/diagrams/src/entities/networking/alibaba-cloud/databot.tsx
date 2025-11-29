@@ -11,5 +11,5 @@ export const DATABOT = {
 }
 
 export function Databot(props: NodeProps) {
-  return <Shape {...DATABOT} {...props} _style={extendStyle(DATABOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, DATABOT)} />
 }

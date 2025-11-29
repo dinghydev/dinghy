@@ -11,11 +11,5 @@ export const JIRA_SOFTWARE = {
 }
 
 export function JiraSoftware(props: NodeProps) {
-  return (
-    <Shape
-      {...JIRA_SOFTWARE}
-      {...props}
-      _style={extendStyle(JIRA_SOFTWARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JIRA_SOFTWARE)} />
 }

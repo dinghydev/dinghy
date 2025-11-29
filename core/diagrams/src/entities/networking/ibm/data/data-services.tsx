@@ -11,11 +11,5 @@ export const DATA_SERVICES = {
 }
 
 export function DataServices(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_SERVICES}
-      {...props}
-      _style={extendStyle(DATA_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_SERVICES)} />
 }

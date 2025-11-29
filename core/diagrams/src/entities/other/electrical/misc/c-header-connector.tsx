@@ -11,11 +11,5 @@ export const C_HEADER_CONNECTOR = {
 }
 
 export function CHeaderConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...C_HEADER_CONNECTOR}
-      {...props}
-      _style={extendStyle(C_HEADER_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, C_HEADER_CONNECTOR)} />
 }

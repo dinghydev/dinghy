@@ -11,5 +11,5 @@ export const TSUNAMI = {
 }
 
 export function Tsunami(props: NodeProps) {
-  return <Shape {...TSUNAMI} {...props} _style={extendStyle(TSUNAMI, props)} />
+  return <Shape {...props} _style={extendStyle(props, TSUNAMI)} />
 }

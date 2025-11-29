@@ -11,11 +11,5 @@ export const SITE_TO_SITE_VPN = {
 }
 
 export function SiteToSiteVpn(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_TO_SITE_VPN}
-      {...props}
-      _style={extendStyle(SITE_TO_SITE_VPN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_TO_SITE_VPN)} />
 }

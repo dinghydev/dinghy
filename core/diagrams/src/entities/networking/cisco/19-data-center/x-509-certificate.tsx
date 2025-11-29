@@ -11,11 +11,5 @@ export const X_509_CERTIFICATE = {
 }
 
 export function X509Certificate(props: NodeProps) {
-  return (
-    <Shape
-      {...X_509_CERTIFICATE}
-      {...props}
-      _style={extendStyle(X_509_CERTIFICATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X_509_CERTIFICATE)} />
 }

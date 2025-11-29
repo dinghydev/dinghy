@@ -11,11 +11,5 @@ export const RADWARE_APPLIANCE = {
 }
 
 export function RadwareAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...RADWARE_APPLIANCE}
-      {...props}
-      _style={extendStyle(RADWARE_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADWARE_APPLIANCE)} />
 }

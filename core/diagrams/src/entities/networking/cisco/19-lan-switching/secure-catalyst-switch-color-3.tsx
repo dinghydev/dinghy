@@ -13,9 +13,8 @@ export const SECURE_CATALYST_SWITCH_COLOR_3 = {
 export function SecureCatalystSwitchColor3(props: NodeProps) {
   return (
     <Shape
-      {...SECURE_CATALYST_SWITCH_COLOR_3}
       {...props}
-      _style={extendStyle(SECURE_CATALYST_SWITCH_COLOR_3, props)}
+      _style={extendStyle(props, SECURE_CATALYST_SWITCH_COLOR_3)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const SELF_SERVICE_RECOVERY = {
 }
 
 export function SelfServiceRecovery(props: NodeProps) {
-  return (
-    <Shape
-      {...SELF_SERVICE_RECOVERY}
-      {...props}
-      _style={extendStyle(SELF_SERVICE_RECOVERY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SELF_SERVICE_RECOVERY)} />
 }

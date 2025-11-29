@@ -11,7 +11,5 @@ export const BLUEPRINT = {
 }
 
 export function Blueprint(props: NodeProps) {
-  return (
-    <Shape {...BLUEPRINT} {...props} _style={extendStyle(BLUEPRINT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLUEPRINT)} />
 }

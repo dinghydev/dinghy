@@ -11,5 +11,5 @@ export const DOPPLR = {
 }
 
 export function Dopplr(props: NodeProps) {
-  return <Shape {...DOPPLR} {...props} _style={extendStyle(DOPPLR, props)} />
+  return <Shape {...props} _style={extendStyle(props, DOPPLR)} />
 }

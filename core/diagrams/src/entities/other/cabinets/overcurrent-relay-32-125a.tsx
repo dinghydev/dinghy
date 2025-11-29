@@ -12,10 +12,6 @@ export const OVERCURRENT_RELAY_32_125A = {
 
 export function OvercurrentRelay32125a(props: NodeProps) {
   return (
-    <Shape
-      {...OVERCURRENT_RELAY_32_125A}
-      {...props}
-      _style={extendStyle(OVERCURRENT_RELAY_32_125A, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OVERCURRENT_RELAY_32_125A)} />
   )
 }

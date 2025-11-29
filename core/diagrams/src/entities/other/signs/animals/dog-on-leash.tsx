@@ -11,11 +11,5 @@ export const DOG_ON_LEASH = {
 }
 
 export function DogOnLeash(props: NodeProps) {
-  return (
-    <Shape
-      {...DOG_ON_LEASH}
-      {...props}
-      _style={extendStyle(DOG_ON_LEASH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOG_ON_LEASH)} />
 }

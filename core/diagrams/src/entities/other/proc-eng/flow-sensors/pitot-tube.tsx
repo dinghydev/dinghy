@@ -11,7 +11,5 @@ export const PITOT_TUBE = {
 }
 
 export function PitotTube(props: NodeProps) {
-  return (
-    <Shape {...PITOT_TUBE} {...props} _style={extendStyle(PITOT_TUBE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PITOT_TUBE)} />
 }

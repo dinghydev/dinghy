@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_STORAGE_SERVICE = {
 export function SkypeForBusinessStorageService(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_STORAGE_SERVICE}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_STORAGE_SERVICE, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_STORAGE_SERVICE)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const COMPONENT_6_POINT_STAR = {
 
 export function Component6PointStar(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_6_POINT_STAR}
-      {...props}
-      _style={extendStyle(COMPONENT_6_POINT_STAR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_6_POINT_STAR)} />
   )
 }

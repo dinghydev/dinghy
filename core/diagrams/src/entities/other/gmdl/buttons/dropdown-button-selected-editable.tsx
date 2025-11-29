@@ -13,9 +13,8 @@ export const DROPDOWN_BUTTON_SELECTED_EDITABLE = {
 export function DropdownButtonSelectedEditable(props: NodeProps) {
   return (
     <Shape
-      {...DROPDOWN_BUTTON_SELECTED_EDITABLE}
       {...props}
-      _style={extendStyle(DROPDOWN_BUTTON_SELECTED_EDITABLE, props)}
+      _style={extendStyle(props, DROPDOWN_BUTTON_SELECTED_EDITABLE)}
     />
   )
 }

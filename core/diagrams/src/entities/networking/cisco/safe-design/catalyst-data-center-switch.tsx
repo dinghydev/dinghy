@@ -13,9 +13,8 @@ export const CATALYST_DATA_CENTER_SWITCH = {
 export function CatalystDataCenterSwitch(props: NodeProps) {
   return (
     <Shape
-      {...CATALYST_DATA_CENTER_SWITCH}
       {...props}
-      _style={extendStyle(CATALYST_DATA_CENTER_SWITCH, props)}
+      _style={extendStyle(props, CATALYST_DATA_CENTER_SWITCH)}
     />
   )
 }

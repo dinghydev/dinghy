@@ -12,10 +12,6 @@ export const OPTIONAL_BI_DIRECTIONAL = {
 
 export function OptionalBiDirectional(props: NodeProps) {
   return (
-    <Shape
-      {...OPTIONAL_BI_DIRECTIONAL}
-      {...props}
-      _style={extendStyle(OPTIONAL_BI_DIRECTIONAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPTIONAL_BI_DIRECTIONAL)} />
   )
 }

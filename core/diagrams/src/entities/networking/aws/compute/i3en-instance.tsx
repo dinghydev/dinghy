@@ -11,11 +11,5 @@ export const I3EN_INSTANCE = {
 }
 
 export function I3enInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...I3EN_INSTANCE}
-      {...props}
-      _style={extendStyle(I3EN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, I3EN_INSTANCE)} />
 }

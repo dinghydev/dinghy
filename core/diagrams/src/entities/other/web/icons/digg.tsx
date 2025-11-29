@@ -11,5 +11,5 @@ export const DIGG = {
 }
 
 export function Digg(props: NodeProps) {
-  return <Shape {...DIGG} {...props} _style={extendStyle(DIGG, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIGG)} />
 }

@@ -11,5 +11,5 @@ export const GAMEKIT = {
 }
 
 export function Gamekit(props: NodeProps) {
-  return <Shape {...GAMEKIT} {...props} _style={extendStyle(GAMEKIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, GAMEKIT)} />
 }

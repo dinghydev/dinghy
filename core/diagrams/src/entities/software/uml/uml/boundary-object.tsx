@@ -10,11 +10,5 @@ export const BOUNDARY_OBJECT = {
 }
 
 export function BoundaryObject(props: NodeProps) {
-  return (
-    <Shape
-      {...BOUNDARY_OBJECT}
-      {...props}
-      _style={extendStyle(BOUNDARY_OBJECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOUNDARY_OBJECT)} />
 }

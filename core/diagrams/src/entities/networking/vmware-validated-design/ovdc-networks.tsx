@@ -11,11 +11,5 @@ export const OVDC_NETWORKS = {
 }
 
 export function OvdcNetworks(props: NodeProps) {
-  return (
-    <Shape
-      {...OVDC_NETWORKS}
-      {...props}
-      _style={extendStyle(OVDC_NETWORKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OVDC_NETWORKS)} />
 }

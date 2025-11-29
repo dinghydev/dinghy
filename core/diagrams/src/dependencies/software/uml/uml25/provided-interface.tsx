@@ -10,10 +10,6 @@ export const PROVIDED_INTERFACE = {
 
 export function ProvidedInterface(props: NodeProps) {
   return (
-    <Dependency
-      {...PROVIDED_INTERFACE}
-      {...props}
-      _style={extendStyle(PROVIDED_INTERFACE, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, PROVIDED_INTERFACE)} />
   )
 }

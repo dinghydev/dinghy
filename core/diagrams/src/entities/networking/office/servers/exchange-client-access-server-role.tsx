@@ -13,9 +13,8 @@ export const EXCHANGE_CLIENT_ACCESS_SERVER_ROLE = {
 export function ExchangeClientAccessServerRole(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_CLIENT_ACCESS_SERVER_ROLE}
       {...props}
-      _style={extendStyle(EXCHANGE_CLIENT_ACCESS_SERVER_ROLE, props)}
+      _style={extendStyle(props, EXCHANGE_CLIENT_ACCESS_SERVER_ROLE)}
     />
   )
 }

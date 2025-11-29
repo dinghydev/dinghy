@@ -12,10 +12,6 @@ export const AMAZON_REKOGNITION_IMAGE = {
 
 export function AmazonRekognitionImage(props: NodeProps) {
   return (
-    <Shape
-      {...AMAZON_REKOGNITION_IMAGE}
-      {...props}
-      _style={extendStyle(AMAZON_REKOGNITION_IMAGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AMAZON_REKOGNITION_IMAGE)} />
   )
 }

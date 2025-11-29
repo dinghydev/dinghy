@@ -11,11 +11,5 @@ export const COMPONENT_1CLICK = {
 }
 
 export function Component1click(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_1CLICK}
-      {...props}
-      _style={extendStyle(COMPONENT_1CLICK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_1CLICK)} />
 }

@@ -11,11 +11,5 @@ export const AMAZON_ELASTICACHE = {
 }
 
 export function AmazonElasticache(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_ELASTICACHE}
-      {...props}
-      _style={extendStyle(AMAZON_ELASTICACHE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_ELASTICACHE)} />
 }

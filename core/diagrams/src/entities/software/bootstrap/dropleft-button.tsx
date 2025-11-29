@@ -11,11 +11,5 @@ export const DROPLEFT_BUTTON = {
 }
 
 export function DropleftButton(props: NodeProps) {
-  return (
-    <Shape
-      {...DROPLEFT_BUTTON}
-      {...props}
-      _style={extendStyle(DROPLEFT_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DROPLEFT_BUTTON)} />
 }

@@ -11,11 +11,5 @@ export const MAILBOX_ASSISTANT = {
 }
 
 export function MailboxAssistant(props: NodeProps) {
-  return (
-    <Shape
-      {...MAILBOX_ASSISTANT}
-      {...props}
-      _style={extendStyle(MAILBOX_ASSISTANT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAILBOX_ASSISTANT)} />
 }

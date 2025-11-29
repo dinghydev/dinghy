@@ -11,11 +11,5 @@ export const SIGNAL_CATCHING = {
 }
 
 export function SignalCatching(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNAL_CATCHING}
-      {...props}
-      _style={extendStyle(SIGNAL_CATCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNAL_CATCHING)} />
 }

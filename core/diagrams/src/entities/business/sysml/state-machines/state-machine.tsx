@@ -11,11 +11,5 @@ export const STATE_MACHINE = {
 }
 
 export function StateMachine(props: NodeProps) {
-  return (
-    <Shape
-      {...STATE_MACHINE}
-      {...props}
-      _style={extendStyle(STATE_MACHINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STATE_MACHINE)} />
 }

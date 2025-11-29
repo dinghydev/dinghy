@@ -11,11 +11,5 @@ export const ALL_RESOURCES = {
 }
 
 export function AllResources(props: NodeProps) {
-  return (
-    <Shape
-      {...ALL_RESOURCES}
-      {...props}
-      _style={extendStyle(ALL_RESOURCES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALL_RESOURCES)} />
 }

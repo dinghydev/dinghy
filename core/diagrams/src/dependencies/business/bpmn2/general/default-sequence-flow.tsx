@@ -10,10 +10,6 @@ export const DEFAULT_SEQUENCE_FLOW = {
 
 export function DefaultSequenceFlow(props: NodeProps) {
   return (
-    <Dependency
-      {...DEFAULT_SEQUENCE_FLOW}
-      {...props}
-      _style={extendStyle(DEFAULT_SEQUENCE_FLOW, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, DEFAULT_SEQUENCE_FLOW)} />
   )
 }

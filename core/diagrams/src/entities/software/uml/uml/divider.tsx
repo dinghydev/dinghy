@@ -11,5 +11,5 @@ export const DIVIDER = {
 }
 
 export function Divider(props: NodeProps) {
-  return <Shape {...DIVIDER} {...props} _style={extendStyle(DIVIDER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIVIDER)} />
 }

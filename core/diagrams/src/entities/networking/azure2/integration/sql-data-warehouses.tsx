@@ -11,11 +11,5 @@ export const SQL_DATA_WAREHOUSES = {
 }
 
 export function SqlDataWarehouses(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_DATA_WAREHOUSES}
-      {...props}
-      _style={extendStyle(SQL_DATA_WAREHOUSES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_DATA_WAREHOUSES)} />
 }

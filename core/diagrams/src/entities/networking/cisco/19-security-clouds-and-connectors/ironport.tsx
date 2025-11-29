@@ -11,7 +11,5 @@ export const IRONPORT = {
 }
 
 export function Ironport(props: NodeProps) {
-  return (
-    <Shape {...IRONPORT} {...props} _style={extendStyle(IRONPORT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IRONPORT)} />
 }

@@ -11,11 +11,5 @@ export const LOADING_CIRCLE = {
 }
 
 export function LoadingCircle(props: NodeProps) {
-  return (
-    <Shape
-      {...LOADING_CIRCLE}
-      {...props}
-      _style={extendStyle(LOADING_CIRCLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOADING_CIRCLE)} />
 }

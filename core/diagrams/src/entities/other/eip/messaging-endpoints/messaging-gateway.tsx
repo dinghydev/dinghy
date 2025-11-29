@@ -11,11 +11,5 @@ export const MESSAGING_GATEWAY = {
 }
 
 export function MessagingGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGING_GATEWAY}
-      {...props}
-      _style={extendStyle(MESSAGING_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGING_GATEWAY)} />
 }

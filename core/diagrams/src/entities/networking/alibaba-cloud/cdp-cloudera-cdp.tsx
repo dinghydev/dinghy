@@ -11,11 +11,5 @@ export const CDP_CLOUDERA_CDP = {
 }
 
 export function CdpClouderaCdp(props: NodeProps) {
-  return (
-    <Shape
-      {...CDP_CLOUDERA_CDP}
-      {...props}
-      _style={extendStyle(CDP_CLOUDERA_CDP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CDP_CLOUDERA_CDP)} />
 }

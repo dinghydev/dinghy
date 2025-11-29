@@ -11,5 +11,5 @@ export const ADFTY = {
 }
 
 export function Adfty(props: NodeProps) {
-  return <Shape {...ADFTY} {...props} _style={extendStyle(ADFTY, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADFTY)} />
 }

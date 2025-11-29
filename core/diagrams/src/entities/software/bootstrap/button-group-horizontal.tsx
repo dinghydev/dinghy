@@ -12,10 +12,6 @@ export const BUTTON_GROUP_HORIZONTAL = {
 
 export function ButtonGroupHorizontal(props: NodeProps) {
   return (
-    <Shape
-      {...BUTTON_GROUP_HORIZONTAL}
-      {...props}
-      _style={extendStyle(BUTTON_GROUP_HORIZONTAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BUTTON_GROUP_HORIZONTAL)} />
   )
 }

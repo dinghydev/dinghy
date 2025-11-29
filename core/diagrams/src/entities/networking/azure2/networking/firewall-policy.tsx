@@ -11,11 +11,5 @@ export const FIREWALL_POLICY = {
 }
 
 export function FirewallPolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...FIREWALL_POLICY}
-      {...props}
-      _style={extendStyle(FIREWALL_POLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREWALL_POLICY)} />
 }

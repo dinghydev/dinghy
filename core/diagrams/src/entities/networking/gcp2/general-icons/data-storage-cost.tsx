@@ -11,11 +11,5 @@ export const DATA_STORAGE_COST = {
 }
 
 export function DataStorageCost(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_STORAGE_COST}
-      {...props}
-      _style={extendStyle(DATA_STORAGE_COST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_STORAGE_COST)} />
 }

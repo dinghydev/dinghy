@@ -13,9 +13,8 @@ export const PROPORTIONAL_FEEDER_ROTARY_VALVE = {
 export function ProportionalFeederRotaryValve(props: NodeProps) {
   return (
     <Shape
-      {...PROPORTIONAL_FEEDER_ROTARY_VALVE}
       {...props}
-      _style={extendStyle(PROPORTIONAL_FEEDER_ROTARY_VALVE, props)}
+      _style={extendStyle(props, PROPORTIONAL_FEEDER_ROTARY_VALVE)}
     />
   )
 }

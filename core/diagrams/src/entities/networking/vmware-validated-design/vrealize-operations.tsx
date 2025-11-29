@@ -11,11 +11,5 @@ export const VREALIZE_OPERATIONS = {
 }
 
 export function VrealizeOperations(props: NodeProps) {
-  return (
-    <Shape
-      {...VREALIZE_OPERATIONS}
-      {...props}
-      _style={extendStyle(VREALIZE_OPERATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VREALIZE_OPERATIONS)} />
 }

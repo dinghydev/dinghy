@@ -11,11 +11,5 @@ export const REPOST_PRIVATE = {
 }
 
 export function RepostPrivate(props: NodeProps) {
-  return (
-    <Shape
-      {...REPOST_PRIVATE}
-      {...props}
-      _style={extendStyle(REPOST_PRIVATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REPOST_PRIVATE)} />
 }

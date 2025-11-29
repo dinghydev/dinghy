@@ -9,7 +9,5 @@ export const INCLUDE = {
 }
 
 export function Include(props: NodeProps) {
-  return (
-    <Dependency {...INCLUDE} {...props} _style={extendStyle(INCLUDE, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, INCLUDE)} />
 }

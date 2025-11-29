@@ -11,11 +11,5 @@ export const TEXT_ANNOTATION = {
 }
 
 export function TextAnnotation(props: NodeProps) {
-  return (
-    <Shape
-      {...TEXT_ANNOTATION}
-      {...props}
-      _style={extendStyle(TEXT_ANNOTATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXT_ANNOTATION)} />
 }

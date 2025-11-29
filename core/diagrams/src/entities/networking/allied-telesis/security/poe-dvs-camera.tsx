@@ -11,11 +11,5 @@ export const POE_DVS_CAMERA = {
 }
 
 export function PoeDvsCamera(props: NodeProps) {
-  return (
-    <Shape
-      {...POE_DVS_CAMERA}
-      {...props}
-      _style={extendStyle(POE_DVS_CAMERA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POE_DVS_CAMERA)} />
 }

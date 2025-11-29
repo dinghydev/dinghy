@@ -11,11 +11,5 @@ export const SAP_CREDENTIAL_STORE = {
 }
 
 export function SapCredentialStore(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_CREDENTIAL_STORE}
-      {...props}
-      _style={extendStyle(SAP_CREDENTIAL_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_CREDENTIAL_STORE)} />
 }

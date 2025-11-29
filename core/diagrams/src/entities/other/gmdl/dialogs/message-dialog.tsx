@@ -11,11 +11,5 @@ export const MESSAGE_DIALOG = {
 }
 
 export function MessageDialog(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_DIALOG}
-      {...props}
-      _style={extendStyle(MESSAGE_DIALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_DIALOG)} />
 }

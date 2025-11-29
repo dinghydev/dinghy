@@ -12,10 +12,6 @@ export const COMPONENT_3G_4G_INDICATOR = {
 
 export function Component3g4gIndicator(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_3G_4G_INDICATOR}
-      {...props}
-      _style={extendStyle(COMPONENT_3G_4G_INDICATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_3G_4G_INDICATOR)} />
   )
 }

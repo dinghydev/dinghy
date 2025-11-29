@@ -11,11 +11,5 @@ export const AGITATOR_IMPELLER = {
 }
 
 export function AgitatorImpeller(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_IMPELLER}
-      {...props}
-      _style={extendStyle(AGITATOR_IMPELLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_IMPELLER)} />
 }

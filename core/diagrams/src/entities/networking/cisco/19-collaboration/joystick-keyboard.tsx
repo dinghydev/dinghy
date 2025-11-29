@@ -11,11 +11,5 @@ export const JOYSTICK_KEYBOARD = {
 }
 
 export function JoystickKeyboard(props: NodeProps) {
-  return (
-    <Shape
-      {...JOYSTICK_KEYBOARD}
-      {...props}
-      _style={extendStyle(JOYSTICK_KEYBOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JOYSTICK_KEYBOARD)} />
 }

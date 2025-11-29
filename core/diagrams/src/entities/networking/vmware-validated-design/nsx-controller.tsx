@@ -11,11 +11,5 @@ export const NSX_CONTROLLER = {
 }
 
 export function NsxController(props: NodeProps) {
-  return (
-    <Shape
-      {...NSX_CONTROLLER}
-      {...props}
-      _style={extendStyle(NSX_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NSX_CONTROLLER)} />
 }

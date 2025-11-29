@@ -10,11 +10,5 @@ export const DATA_STORE_2 = {
 }
 
 export function DataStore2(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_STORE_2}
-      {...props}
-      _style={extendStyle(DATA_STORE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_STORE_2)} />
 }

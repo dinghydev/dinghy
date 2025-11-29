@@ -11,11 +11,5 @@ export const CONDITIONAL_ACCESS = {
 }
 
 export function ConditionalAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...CONDITIONAL_ACCESS}
-      {...props}
-      _style={extendStyle(CONDITIONAL_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONDITIONAL_ACCESS)} />
 }

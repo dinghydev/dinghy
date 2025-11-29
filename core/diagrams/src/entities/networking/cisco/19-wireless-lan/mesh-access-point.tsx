@@ -11,11 +11,5 @@ export const MESH_ACCESS_POINT = {
 }
 
 export function MeshAccessPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...MESH_ACCESS_POINT}
-      {...props}
-      _style={extendStyle(MESH_ACCESS_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESH_ACCESS_POINT)} />
 }

@@ -11,7 +11,5 @@ export const LINKEDIN = {
 }
 
 export function Linkedin(props: NodeProps) {
-  return (
-    <Shape {...LINKEDIN} {...props} _style={extendStyle(LINKEDIN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINKEDIN)} />
 }

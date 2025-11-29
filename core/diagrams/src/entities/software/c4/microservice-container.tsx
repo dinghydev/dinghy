@@ -12,10 +12,6 @@ export const MICROSERVICE_CONTAINER = {
 
 export function MicroserviceContainer(props: NodeProps) {
   return (
-    <Shape
-      {...MICROSERVICE_CONTAINER}
-      {...props}
-      _style={extendStyle(MICROSERVICE_CONTAINER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MICROSERVICE_CONTAINER)} />
   )
 }

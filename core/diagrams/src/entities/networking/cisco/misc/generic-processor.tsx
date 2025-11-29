@@ -11,11 +11,5 @@ export const GENERIC_PROCESSOR = {
 }
 
 export function GenericProcessor(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_PROCESSOR}
-      {...props}
-      _style={extendStyle(GENERIC_PROCESSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_PROCESSOR)} />
 }

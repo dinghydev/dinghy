@@ -11,5 +11,5 @@ export const XOR = {
 }
 
 export function Xor(props: NodeProps) {
-  return <Shape {...XOR} {...props} _style={extendStyle(XOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, XOR)} />
 }

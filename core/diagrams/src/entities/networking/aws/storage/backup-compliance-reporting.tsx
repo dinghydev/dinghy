@@ -13,9 +13,8 @@ export const BACKUP_COMPLIANCE_REPORTING = {
 export function BackupComplianceReporting(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_COMPLIANCE_REPORTING}
       {...props}
-      _style={extendStyle(BACKUP_COMPLIANCE_REPORTING, props)}
+      _style={extendStyle(props, BACKUP_COMPLIANCE_REPORTING)}
     />
   )
 }

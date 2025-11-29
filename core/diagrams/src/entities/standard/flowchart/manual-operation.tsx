@@ -11,11 +11,5 @@ export const MANUAL_OPERATION = {
 }
 
 export function ManualOperation(props: NodeProps) {
-  return (
-    <Shape
-      {...MANUAL_OPERATION}
-      {...props}
-      _style={extendStyle(MANUAL_OPERATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANUAL_OPERATION)} />
 }

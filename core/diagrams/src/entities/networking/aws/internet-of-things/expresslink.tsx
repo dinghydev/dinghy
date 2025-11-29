@@ -11,11 +11,5 @@ export const EXPRESSLINK = {
 }
 
 export function Expresslink(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPRESSLINK}
-      {...props}
-      _style={extendStyle(EXPRESSLINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPRESSLINK)} />
 }

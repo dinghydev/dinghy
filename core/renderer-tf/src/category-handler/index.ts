@@ -3,7 +3,6 @@ import { resource } from './resource.ts'
 import { data } from './data.ts'
 import { terraform } from './terraform.ts'
 import { provider } from './provider.ts'
-import { none } from './none.ts'
 import type { TfRenderOptions } from '../types.ts'
 
 export const requiredSchema = (node: NodeTree, schemaField: string) => {
@@ -19,7 +18,6 @@ const categoryHandlers: Props = {
   data,
   terraform,
   provider,
-  none,
 }
 
 const ALL_CATEGORIES = Object.keys(categoryHandlers)

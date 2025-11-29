@@ -12,10 +12,6 @@ export const MAIL_ENABLED_PUBLIC_FOLDER = {
 
 export function MailEnabledPublicFolder(props: NodeProps) {
   return (
-    <Shape
-      {...MAIL_ENABLED_PUBLIC_FOLDER}
-      {...props}
-      _style={extendStyle(MAIL_ENABLED_PUBLIC_FOLDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MAIL_ENABLED_PUBLIC_FOLDER)} />
   )
 }

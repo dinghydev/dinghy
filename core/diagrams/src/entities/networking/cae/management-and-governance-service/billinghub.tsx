@@ -11,7 +11,5 @@ export const BILLINGHUB = {
 }
 
 export function Billinghub(props: NodeProps) {
-  return (
-    <Shape {...BILLINGHUB} {...props} _style={extendStyle(BILLINGHUB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BILLINGHUB)} />
 }

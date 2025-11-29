@@ -11,11 +11,5 @@ export const HALF_INDUCTOR = {
 }
 
 export function HalfInductor(props: NodeProps) {
-  return (
-    <Shape
-      {...HALF_INDUCTOR}
-      {...props}
-      _style={extendStyle(HALF_INDUCTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HALF_INDUCTOR)} />
 }

@@ -11,11 +11,5 @@ export const TRADITIONAL_SERVER = {
 }
 
 export function TraditionalServer(props: NodeProps) {
-  return (
-    <Shape
-      {...TRADITIONAL_SERVER}
-      {...props}
-      _style={extendStyle(TRADITIONAL_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRADITIONAL_SERVER)} />
 }

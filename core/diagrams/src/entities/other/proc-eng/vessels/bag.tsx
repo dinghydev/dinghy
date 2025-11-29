@@ -11,5 +11,5 @@ export const BAG = {
 }
 
 export function Bag(props: NodeProps) {
-  return <Shape {...BAG} {...props} _style={extendStyle(BAG, props)} />
+  return <Shape {...props} _style={extendStyle(props, BAG)} />
 }

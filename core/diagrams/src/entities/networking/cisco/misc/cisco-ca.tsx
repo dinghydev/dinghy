@@ -11,7 +11,5 @@ export const CISCO_CA = {
 }
 
 export function CiscoCa(props: NodeProps) {
-  return (
-    <Shape {...CISCO_CA} {...props} _style={extendStyle(CISCO_CA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_CA)} />
 }

@@ -11,11 +11,5 @@ export const CLOUD_COMPOSER = {
 }
 
 export function CloudComposer(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_COMPOSER}
-      {...props}
-      _style={extendStyle(CLOUD_COMPOSER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_COMPOSER)} />
 }

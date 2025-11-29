@@ -12,10 +12,6 @@ export const DISTRIBUTION_NETWORK_2 = {
 
 export function DistributionNetwork2(props: NodeProps) {
   return (
-    <Shape
-      {...DISTRIBUTION_NETWORK_2}
-      {...props}
-      _style={extendStyle(DISTRIBUTION_NETWORK_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DISTRIBUTION_NETWORK_2)} />
   )
 }

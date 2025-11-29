@@ -11,11 +11,5 @@ export const AZURE_DIGITAL_TWINS = {
 }
 
 export function AzureDigitalTwins(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_DIGITAL_TWINS}
-      {...props}
-      _style={extendStyle(AZURE_DIGITAL_TWINS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_DIGITAL_TWINS)} />
 }

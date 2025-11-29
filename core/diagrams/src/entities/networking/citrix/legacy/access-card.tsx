@@ -11,11 +11,5 @@ export const ACCESS_CARD = {
 }
 
 export function AccessCard(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_CARD}
-      {...props}
-      _style={extendStyle(ACCESS_CARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_CARD)} />
 }

@@ -12,10 +12,6 @@ export const AUTHENTICATION_FAILURE = {
 
 export function AuthenticationFailure(props: NodeProps) {
   return (
-    <Shape
-      {...AUTHENTICATION_FAILURE}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_FAILURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTHENTICATION_FAILURE)} />
   )
 }

@@ -10,11 +10,5 @@ export const OBJECT_FLOW = {
 }
 
 export function ObjectFlow(props: NodeProps) {
-  return (
-    <Shape
-      {...OBJECT_FLOW}
-      {...props}
-      _style={extendStyle(OBJECT_FLOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OBJECT_FLOW)} />
 }

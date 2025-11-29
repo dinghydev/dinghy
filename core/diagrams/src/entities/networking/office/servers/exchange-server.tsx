@@ -11,11 +11,5 @@ export const EXCHANGE_SERVER = {
 }
 
 export function ExchangeServer(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCHANGE_SERVER}
-      {...props}
-      _style={extendStyle(EXCHANGE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCHANGE_SERVER)} />
 }

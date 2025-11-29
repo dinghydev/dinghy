@@ -11,11 +11,5 @@ export const COMM_LINK_ICON = {
 }
 
 export function CommLinkIcon(props: NodeProps) {
-  return (
-    <Shape
-      {...COMM_LINK_ICON}
-      {...props}
-      _style={extendStyle(COMM_LINK_ICON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMM_LINK_ICON)} />
 }

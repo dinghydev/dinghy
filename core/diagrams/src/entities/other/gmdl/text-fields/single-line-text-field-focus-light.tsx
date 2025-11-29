@@ -13,9 +13,8 @@ export const SINGLE_LINE_TEXT_FIELD_FOCUS_LIGHT = {
 export function SingleLineTextFieldFocusLight(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_LINE_TEXT_FIELD_FOCUS_LIGHT}
       {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_FOCUS_LIGHT, props)}
+      _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD_FOCUS_LIGHT)}
     />
   )
 }

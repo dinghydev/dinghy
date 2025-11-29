@@ -13,9 +13,8 @@ export const TIMER_BOUNDARY_INTERRUPTING = {
 export function TimerBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...TIMER_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(TIMER_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, TIMER_BOUNDARY_INTERRUPTING)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const LIST_BOX = {
 }
 
 export function ListBox(props: NodeProps) {
-  return (
-    <Shape {...LIST_BOX} {...props} _style={extendStyle(LIST_BOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_BOX)} />
 }

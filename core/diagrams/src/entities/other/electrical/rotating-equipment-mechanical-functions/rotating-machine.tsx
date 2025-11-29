@@ -11,11 +11,5 @@ export const ROTATING_MACHINE = {
 }
 
 export function RotatingMachine(props: NodeProps) {
-  return (
-    <Shape
-      {...ROTATING_MACHINE}
-      {...props}
-      _style={extendStyle(ROTATING_MACHINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTATING_MACHINE)} />
 }

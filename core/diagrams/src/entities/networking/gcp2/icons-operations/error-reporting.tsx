@@ -11,11 +11,5 @@ export const ERROR_REPORTING = {
 }
 
 export function ErrorReporting(props: NodeProps) {
-  return (
-    <Shape
-      {...ERROR_REPORTING}
-      {...props}
-      _style={extendStyle(ERROR_REPORTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ERROR_REPORTING)} />
 }

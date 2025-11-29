@@ -11,11 +11,5 @@ export const VEEAM_SAPPHIRE = {
 }
 
 export function VeeamSapphire(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_SAPPHIRE}
-      {...props}
-      _style={extendStyle(VEEAM_SAPPHIRE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_SAPPHIRE)} />
 }

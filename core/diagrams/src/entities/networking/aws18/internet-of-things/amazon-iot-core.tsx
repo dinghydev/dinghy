@@ -11,11 +11,5 @@ export const AMAZON_IOT_CORE = {
 }
 
 export function AmazonIotCore(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_IOT_CORE}
-      {...props}
-      _style={extendStyle(AMAZON_IOT_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_IOT_CORE)} />
 }

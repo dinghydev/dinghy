@@ -11,11 +11,5 @@ export const ADMIN_CONNECTED = {
 }
 
 export function AdminConnected(props: NodeProps) {
-  return (
-    <Shape
-      {...ADMIN_CONNECTED}
-      {...props}
-      _style={extendStyle(ADMIN_CONNECTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADMIN_CONNECTED)} />
 }

@@ -12,10 +12,6 @@ export const SAGEMAKER_GEOSPATIAL_ML = {
 
 export function SagemakerGeospatialMl(props: NodeProps) {
   return (
-    <Shape
-      {...SAGEMAKER_GEOSPATIAL_ML}
-      {...props}
-      _style={extendStyle(SAGEMAKER_GEOSPATIAL_ML, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAGEMAKER_GEOSPATIAL_ML)} />
   )
 }

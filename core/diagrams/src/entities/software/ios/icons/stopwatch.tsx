@@ -11,7 +11,5 @@ export const STOPWATCH = {
 }
 
 export function Stopwatch(props: NodeProps) {
-  return (
-    <Shape {...STOPWATCH} {...props} _style={extendStyle(STOPWATCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STOPWATCH)} />
 }

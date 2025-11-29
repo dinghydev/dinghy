@@ -11,7 +11,5 @@ export const CONDENSER = {
 }
 
 export function Condenser(props: NodeProps) {
-  return (
-    <Shape {...CONDENSER} {...props} _style={extendStyle(CONDENSER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONDENSER)} />
 }

@@ -11,5 +11,5 @@ export const TAGGING = {
 }
 
 export function Tagging(props: NodeProps) {
-  return <Shape {...TAGGING} {...props} _style={extendStyle(TAGGING, props)} />
+  return <Shape {...props} _style={extendStyle(props, TAGGING)} />
 }

@@ -11,7 +11,5 @@ export const AWS_GLUE = {
 }
 
 export function AwsGlue(props: NodeProps) {
-  return (
-    <Shape {...AWS_GLUE} {...props} _style={extendStyle(AWS_GLUE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_GLUE)} />
 }

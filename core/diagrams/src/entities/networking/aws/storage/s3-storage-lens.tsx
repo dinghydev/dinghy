@@ -11,11 +11,5 @@ export const S3_STORAGE_LENS = {
 }
 
 export function S3StorageLens(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_STORAGE_LENS}
-      {...props}
-      _style={extendStyle(S3_STORAGE_LENS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_STORAGE_LENS)} />
 }

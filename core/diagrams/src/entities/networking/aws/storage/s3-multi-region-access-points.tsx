@@ -13,9 +13,8 @@ export const S3_MULTI_REGION_ACCESS_POINTS = {
 export function S3MultiRegionAccessPoints(props: NodeProps) {
   return (
     <Shape
-      {...S3_MULTI_REGION_ACCESS_POINTS}
       {...props}
-      _style={extendStyle(S3_MULTI_REGION_ACCESS_POINTS, props)}
+      _style={extendStyle(props, S3_MULTI_REGION_ACCESS_POINTS)}
     />
   )
 }

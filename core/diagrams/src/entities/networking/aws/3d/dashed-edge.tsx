@@ -11,11 +11,5 @@ export const DASHED_EDGE = {
 }
 
 export function DashedEdge(props: NodeProps) {
-  return (
-    <Shape
-      {...DASHED_EDGE}
-      {...props}
-      _style={extendStyle(DASHED_EDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DASHED_EDGE)} />
 }

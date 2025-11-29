@@ -11,7 +11,5 @@ export const WORKLINK = {
 }
 
 export function Worklink(props: NodeProps) {
-  return (
-    <Shape {...WORKLINK} {...props} _style={extendStyle(WORKLINK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKLINK)} />
 }

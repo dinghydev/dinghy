@@ -11,11 +11,5 @@ export const MESSAGE_END = {
 }
 
 export function MessageEnd(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_END}
-      {...props}
-      _style={extendStyle(MESSAGE_END, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_END)} />
 }

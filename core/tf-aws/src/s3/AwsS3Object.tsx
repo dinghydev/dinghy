@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 
-import { awsProps } from '../index.ts'
+import { awsProps } from '../utils/awsProps.ts'
 import z from 'zod'
 import { useTypedNode } from '@dinghy/base-components'
 import { Bucket } from '@dinghy/diagrams/entitiesAwsStorage'

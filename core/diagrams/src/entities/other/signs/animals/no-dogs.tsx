@@ -11,5 +11,5 @@ export const NO_DOGS = {
 }
 
 export function NoDogs(props: NodeProps) {
-  return <Shape {...NO_DOGS} {...props} _style={extendStyle(NO_DOGS, props)} />
+  return <Shape {...props} _style={extendStyle(props, NO_DOGS)} />
 }

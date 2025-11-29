@@ -11,11 +11,5 @@ export const GOOGLE_PLUS = {
 }
 
 export function GooglePlus(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_PLUS}
-      {...props}
-      _style={extendStyle(GOOGLE_PLUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_PLUS)} />
 }

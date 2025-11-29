@@ -11,9 +11,8 @@ export const CONNECTOR_DOUBLE_ARROW = {
 export function ConnectorDoubleArrow(props: NodeProps) {
   return (
     <Dependency
-      {...CONNECTOR_DOUBLE_ARROW}
       {...props}
-      _style={extendStyle(CONNECTOR_DOUBLE_ARROW, props)}
+      _style={extendStyle(props, CONNECTOR_DOUBLE_ARROW)}
     />
   )
 }

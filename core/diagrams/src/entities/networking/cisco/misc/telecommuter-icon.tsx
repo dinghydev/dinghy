@@ -11,11 +11,5 @@ export const TELECOMMUTER_ICON = {
 }
 
 export function TelecommuterIcon(props: NodeProps) {
-  return (
-    <Shape
-      {...TELECOMMUTER_ICON}
-      {...props}
-      _style={extendStyle(TELECOMMUTER_ICON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TELECOMMUTER_ICON)} />
 }

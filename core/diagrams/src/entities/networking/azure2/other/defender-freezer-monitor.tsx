@@ -12,10 +12,6 @@ export const DEFENDER_FREEZER_MONITOR = {
 
 export function DefenderFreezerMonitor(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_FREEZER_MONITOR}
-      {...props}
-      _style={extendStyle(DEFENDER_FREEZER_MONITOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_FREEZER_MONITOR)} />
   )
 }

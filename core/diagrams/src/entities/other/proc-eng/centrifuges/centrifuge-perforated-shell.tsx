@@ -13,9 +13,8 @@ export const CENTRIFUGE_PERFORATED_SHELL = {
 export function CentrifugePerforatedShell(props: NodeProps) {
   return (
     <Shape
-      {...CENTRIFUGE_PERFORATED_SHELL}
       {...props}
-      _style={extendStyle(CENTRIFUGE_PERFORATED_SHELL, props)}
+      _style={extendStyle(props, CENTRIFUGE_PERFORATED_SHELL)}
     />
   )
 }

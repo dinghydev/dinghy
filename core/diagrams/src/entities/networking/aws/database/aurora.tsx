@@ -11,5 +11,5 @@ export const AURORA = {
 }
 
 export function Aurora(props: NodeProps) {
-  return <Shape {...AURORA} {...props} _style={extendStyle(AURORA, props)} />
+  return <Shape {...props} _style={extendStyle(props, AURORA)} />
 }

@@ -11,5 +11,5 @@ export const MAN_2 = {
 }
 
 export function Man2(props: NodeProps) {
-  return <Shape {...MAN_2} {...props} _style={extendStyle(MAN_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, MAN_2)} />
 }

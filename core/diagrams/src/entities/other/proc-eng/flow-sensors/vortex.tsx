@@ -11,5 +11,5 @@ export const VORTEX = {
 }
 
 export function Vortex(props: NodeProps) {
-  return <Shape {...VORTEX} {...props} _style={extendStyle(VORTEX, props)} />
+  return <Shape {...props} _style={extendStyle(props, VORTEX)} />
 }

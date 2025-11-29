@@ -11,7 +11,5 @@ export const TIMESTREAM = {
 }
 
 export function Timestream(props: NodeProps) {
-  return (
-    <Shape {...TIMESTREAM} {...props} _style={extendStyle(TIMESTREAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIMESTREAM)} />
 }

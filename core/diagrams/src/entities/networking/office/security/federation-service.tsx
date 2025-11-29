@@ -11,11 +11,5 @@ export const FEDERATION_SERVICE = {
 }
 
 export function FederationService(props: NodeProps) {
-  return (
-    <Shape
-      {...FEDERATION_SERVICE}
-      {...props}
-      _style={extendStyle(FEDERATION_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEDERATION_SERVICE)} />
 }

@@ -13,9 +13,8 @@ export const MULTI_FACTOR_IDENTIFICATION = {
 export function MultiFactorIdentification(props: NodeProps) {
   return (
     <Shape
-      {...MULTI_FACTOR_IDENTIFICATION}
       {...props}
-      _style={extendStyle(MULTI_FACTOR_IDENTIFICATION, props)}
+      _style={extendStyle(props, MULTI_FACTOR_IDENTIFICATION)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const UNIVERSAL_GATEWAY = {
 }
 
 export function UniversalGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...UNIVERSAL_GATEWAY}
-      {...props}
-      _style={extendStyle(UNIVERSAL_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNIVERSAL_GATEWAY)} />
 }

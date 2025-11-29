@@ -11,11 +11,5 @@ export const SERVER_CLUSTER = {
 }
 
 export function ServerCluster(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_CLUSTER}
-      {...props}
-      _style={extendStyle(SERVER_CLUSTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_CLUSTER)} />
 }

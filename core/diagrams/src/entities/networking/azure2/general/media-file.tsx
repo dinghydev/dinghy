@@ -11,7 +11,5 @@ export const MEDIA_FILE = {
 }
 
 export function MediaFile(props: NodeProps) {
-  return (
-    <Shape {...MEDIA_FILE} {...props} _style={extendStyle(MEDIA_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIA_FILE)} />
 }

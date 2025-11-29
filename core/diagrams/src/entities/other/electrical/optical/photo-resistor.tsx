@@ -11,11 +11,5 @@ export const PHOTO_RESISTOR = {
 }
 
 export function PhotoResistor(props: NodeProps) {
-  return (
-    <Shape
-      {...PHOTO_RESISTOR}
-      {...props}
-      _style={extendStyle(PHOTO_RESISTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHOTO_RESISTOR)} />
 }

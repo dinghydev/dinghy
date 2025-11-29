@@ -12,10 +12,6 @@ export const INFRASTRUCTURE_COMPOSER = {
 
 export function InfrastructureComposer(props: NodeProps) {
   return (
-    <Shape
-      {...INFRASTRUCTURE_COMPOSER}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_COMPOSER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_COMPOSER)} />
   )
 }

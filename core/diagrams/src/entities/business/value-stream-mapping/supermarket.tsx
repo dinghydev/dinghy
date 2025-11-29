@@ -10,11 +10,5 @@ export const SUPERMARKET = {
 }
 
 export function Supermarket(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPERMARKET}
-      {...props}
-      _style={extendStyle(SUPERMARKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPERMARKET)} />
 }

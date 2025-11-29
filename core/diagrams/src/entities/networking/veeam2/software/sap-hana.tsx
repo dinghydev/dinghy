@@ -11,7 +11,5 @@ export const SAP_HANA = {
 }
 
 export function SapHana(props: NodeProps) {
-  return (
-    <Shape {...SAP_HANA} {...props} _style={extendStyle(SAP_HANA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_HANA)} />
 }

@@ -11,7 +11,5 @@ export const SAML_TOKEN = {
 }
 
 export function SamlToken(props: NodeProps) {
-  return (
-    <Shape {...SAML_TOKEN} {...props} _style={extendStyle(SAML_TOKEN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAML_TOKEN)} />
 }

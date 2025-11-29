@@ -13,9 +13,8 @@ export const VIRTUAL_PRIVATE_NETWORK_CONNECTOR = {
 export function VirtualPrivateNetworkConnector(props: NodeProps) {
   return (
     <Shape
-      {...VIRTUAL_PRIVATE_NETWORK_CONNECTOR}
       {...props}
-      _style={extendStyle(VIRTUAL_PRIVATE_NETWORK_CONNECTOR, props)}
+      _style={extendStyle(props, VIRTUAL_PRIVATE_NETWORK_CONNECTOR)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const ESCALATION_END = {
 }
 
 export function EscalationEnd(props: NodeProps) {
-  return (
-    <Shape
-      {...ESCALATION_END}
-      {...props}
-      _style={extendStyle(ESCALATION_END, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ESCALATION_END)} />
 }

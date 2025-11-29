@@ -12,10 +12,6 @@ export const DCDN_DYNAMIC_ROUTE_FOR_CDN = {
 
 export function DcdnDynamicRouteForCdn(props: NodeProps) {
   return (
-    <Shape
-      {...DCDN_DYNAMIC_ROUTE_FOR_CDN}
-      {...props}
-      _style={extendStyle(DCDN_DYNAMIC_ROUTE_FOR_CDN, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DCDN_DYNAMIC_ROUTE_FOR_CDN)} />
   )
 }

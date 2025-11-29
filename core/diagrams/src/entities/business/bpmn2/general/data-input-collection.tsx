@@ -11,11 +11,5 @@ export const DATA_INPUT_COLLECTION = {
 }
 
 export function DataInputCollection(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_INPUT_COLLECTION}
-      {...props}
-      _style={extendStyle(DATA_INPUT_COLLECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_INPUT_COLLECTION)} />
 }

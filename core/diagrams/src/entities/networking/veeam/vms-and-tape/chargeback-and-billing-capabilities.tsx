@@ -13,9 +13,8 @@ export const CHARGEBACK_AND_BILLING_CAPABILITIES = {
 export function ChargebackAndBillingCapabilities(props: NodeProps) {
   return (
     <Shape
-      {...CHARGEBACK_AND_BILLING_CAPABILITIES}
       {...props}
-      _style={extendStyle(CHARGEBACK_AND_BILLING_CAPABILITIES, props)}
+      _style={extendStyle(props, CHARGEBACK_AND_BILLING_CAPABILITIES)}
     />
   )
 }

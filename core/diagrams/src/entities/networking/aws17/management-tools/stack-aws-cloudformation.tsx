@@ -12,10 +12,6 @@ export const STACK_AWS_CLOUDFORMATION = {
 
 export function StackAwsCloudformation(props: NodeProps) {
   return (
-    <Shape
-      {...STACK_AWS_CLOUDFORMATION}
-      {...props}
-      _style={extendStyle(STACK_AWS_CLOUDFORMATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STACK_AWS_CLOUDFORMATION)} />
   )
 }

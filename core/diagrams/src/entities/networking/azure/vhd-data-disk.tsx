@@ -11,11 +11,5 @@ export const VHD_DATA_DISK = {
 }
 
 export function VhdDataDisk(props: NodeProps) {
-  return (
-    <Shape
-      {...VHD_DATA_DISK}
-      {...props}
-      _style={extendStyle(VHD_DATA_DISK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VHD_DATA_DISK)} />
 }

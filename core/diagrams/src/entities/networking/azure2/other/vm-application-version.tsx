@@ -12,10 +12,6 @@ export const VM_APPLICATION_VERSION = {
 
 export function VmApplicationVersion(props: NodeProps) {
   return (
-    <Shape
-      {...VM_APPLICATION_VERSION}
-      {...props}
-      _style={extendStyle(VM_APPLICATION_VERSION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VM_APPLICATION_VERSION)} />
   )
 }

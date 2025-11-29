@@ -11,11 +11,5 @@ export const DRINKING_WATER_2 = {
 }
 
 export function DrinkingWater2(props: NodeProps) {
-  return (
-    <Shape
-      {...DRINKING_WATER_2}
-      {...props}
-      _style={extendStyle(DRINKING_WATER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DRINKING_WATER_2)} />
 }

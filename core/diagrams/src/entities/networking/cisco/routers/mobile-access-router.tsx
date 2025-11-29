@@ -11,11 +11,5 @@ export const MOBILE_ACCESS_ROUTER = {
 }
 
 export function MobileAccessRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_ACCESS_ROUTER}
-      {...props}
-      _style={extendStyle(MOBILE_ACCESS_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_ACCESS_ROUTER)} />
 }

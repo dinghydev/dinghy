@@ -13,9 +13,8 @@ export const CLOUD_EXTERNAL_IP_ADDRESSES = {
 export function CloudExternalIpAddresses(props: NodeProps) {
   return (
     <Shape
-      {...CLOUD_EXTERNAL_IP_ADDRESSES}
       {...props}
-      _style={extendStyle(CLOUD_EXTERNAL_IP_ADDRESSES, props)}
+      _style={extendStyle(props, CLOUD_EXTERNAL_IP_ADDRESSES)}
     />
   )
 }

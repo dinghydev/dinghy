@@ -11,5 +11,5 @@ export const OPENING = {
 }
 
 export function Opening(props: NodeProps) {
-  return <Shape {...OPENING} {...props} _style={extendStyle(OPENING, props)} />
+  return <Shape {...props} _style={extendStyle(props, OPENING)} />
 }

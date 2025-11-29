@@ -12,10 +12,6 @@ export const X11810_ACOUSTIC_INDICATOR = {
 
 export function X11810AcousticIndicator(props: NodeProps) {
   return (
-    <Shape
-      {...X11810_ACOUSTIC_INDICATOR}
-      {...props}
-      _style={extendStyle(X11810_ACOUSTIC_INDICATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11810_ACOUSTIC_INDICATOR)} />
   )
 }

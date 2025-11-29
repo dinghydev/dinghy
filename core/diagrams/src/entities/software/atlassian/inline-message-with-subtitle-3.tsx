@@ -13,9 +13,8 @@ export const INLINE_MESSAGE_WITH_SUBTITLE_3 = {
 export function InlineMessageWithSubtitle3(props: NodeProps) {
   return (
     <Shape
-      {...INLINE_MESSAGE_WITH_SUBTITLE_3}
       {...props}
-      _style={extendStyle(INLINE_MESSAGE_WITH_SUBTITLE_3, props)}
+      _style={extendStyle(props, INLINE_MESSAGE_WITH_SUBTITLE_3)}
     />
   )
 }

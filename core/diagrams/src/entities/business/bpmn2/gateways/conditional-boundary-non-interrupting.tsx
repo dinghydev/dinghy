@@ -13,9 +13,8 @@ export const CONDITIONAL_BOUNDARY_NON_INTERRUPTING = {
 export function ConditionalBoundaryNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_BOUNDARY_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(CONDITIONAL_BOUNDARY_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, CONDITIONAL_BOUNDARY_NON_INTERRUPTING)}
     />
   )
 }

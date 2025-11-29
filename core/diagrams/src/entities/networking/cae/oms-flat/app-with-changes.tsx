@@ -11,11 +11,5 @@ export const APP_WITH_CHANGES = {
 }
 
 export function AppWithChanges(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_WITH_CHANGES}
-      {...props}
-      _style={extendStyle(APP_WITH_CHANGES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_WITH_CHANGES)} />
 }

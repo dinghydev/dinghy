@@ -12,10 +12,6 @@ export const MEDIUM_BUSINESS_BUILDING = {
 
 export function MediumBusinessBuilding(props: NodeProps) {
   return (
-    <Shape
-      {...MEDIUM_BUSINESS_BUILDING}
-      {...props}
-      _style={extendStyle(MEDIUM_BUSINESS_BUILDING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MEDIUM_BUSINESS_BUILDING)} />
   )
 }

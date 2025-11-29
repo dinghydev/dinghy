@@ -13,9 +13,8 @@ export const INTERNAL_ACTIVE_STRUCTURE_ELEMENT = {
 export function InternalActiveStructureElement(props: NodeProps) {
   return (
     <Shape
-      {...INTERNAL_ACTIVE_STRUCTURE_ELEMENT}
       {...props}
-      _style={extendStyle(INTERNAL_ACTIVE_STRUCTURE_ELEMENT, props)}
+      _style={extendStyle(props, INTERNAL_ACTIVE_STRUCTURE_ELEMENT)}
     />
   )
 }

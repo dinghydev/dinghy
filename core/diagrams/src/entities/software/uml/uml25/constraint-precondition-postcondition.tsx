@@ -13,9 +13,8 @@ export const CONSTRAINT_PRECONDITION_POSTCONDITION = {
 export function ConstraintPreconditionPostcondition(props: NodeProps) {
   return (
     <Shape
-      {...CONSTRAINT_PRECONDITION_POSTCONDITION}
       {...props}
-      _style={extendStyle(CONSTRAINT_PRECONDITION_POSTCONDITION, props)}
+      _style={extendStyle(props, CONSTRAINT_PRECONDITION_POSTCONDITION)}
     />
   )
 }

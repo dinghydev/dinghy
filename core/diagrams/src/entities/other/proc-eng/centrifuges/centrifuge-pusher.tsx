@@ -11,11 +11,5 @@ export const CENTRIFUGE_PUSHER = {
 }
 
 export function CentrifugePusher(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTRIFUGE_PUSHER}
-      {...props}
-      _style={extendStyle(CENTRIFUGE_PUSHER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTRIFUGE_PUSHER)} />
 }

@@ -11,11 +11,5 @@ export const CLOUDFORMATION = {
 }
 
 export function Cloudformation(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDFORMATION}
-      {...props}
-      _style={extendStyle(CLOUDFORMATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDFORMATION)} />
 }

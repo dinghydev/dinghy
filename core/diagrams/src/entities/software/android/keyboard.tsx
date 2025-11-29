@@ -11,7 +11,5 @@ export const KEYBOARD = {
 }
 
 export function Keyboard(props: NodeProps) {
-  return (
-    <Shape {...KEYBOARD} {...props} _style={extendStyle(KEYBOARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEYBOARD)} />
 }

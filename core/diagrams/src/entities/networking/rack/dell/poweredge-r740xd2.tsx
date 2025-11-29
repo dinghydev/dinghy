@@ -11,11 +11,5 @@ export const POWEREDGE_R740XD2 = {
 }
 
 export function PoweredgeR740xd2(props: NodeProps) {
-  return (
-    <Shape
-      {...POWEREDGE_R740XD2}
-      {...props}
-      _style={extendStyle(POWEREDGE_R740XD2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWEREDGE_R740XD2)} />
 }

@@ -11,7 +11,5 @@ export const KUBERNETES = {
 }
 
 export function Kubernetes(props: NodeProps) {
-  return (
-    <Shape {...KUBERNETES} {...props} _style={extendStyle(KUBERNETES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, KUBERNETES)} />
 }

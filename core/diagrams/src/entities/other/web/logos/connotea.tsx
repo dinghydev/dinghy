@@ -11,7 +11,5 @@ export const CONNOTEA = {
 }
 
 export function Connotea(props: NodeProps) {
-  return (
-    <Shape {...CONNOTEA} {...props} _style={extendStyle(CONNOTEA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONNOTEA)} />
 }

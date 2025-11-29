@@ -1,10 +1,17 @@
 import z, { type ZodType } from 'zod'
 
-export const CallableSchema = z.function({
+// export const CallableSchema = z.function({
+//   input: z.tuple([]).rest(z.any()),
+//   output: z.any(),
+// })
+export const CallableSchema = z.function()
+export type CallableType = z.output<typeof CallableSchema>
+
+export const ResolvableAttributeSchema = z.function({
   input: z.tuple([]).rest(z.any()),
   output: z.any(),
 })
-export type CallableType = z.output<typeof CallableSchema>
+export type ResolvableAttributeType = z.output<typeof ResolvableAttributeSchema>
 
 export const resolvable = <T extends ZodType>(_schema: T): ZodType<T> =>
   z.function({
@@ -12,21 +19,39 @@ export const resolvable = <T extends ZodType>(_schema: T): ZodType<T> =>
     output: z.any(),
   }) as unknown as ZodType<T>
 
+// export const resolvableValue = <T extends z.ZodType>(schema: T) =>
+//   z.union([
+//     schema,
+//     CallableSchema,
+//   ])
+
 export const resolvableValue = <T extends z.ZodType>(schema: T) =>
   z.union([
     schema,
-    // resolvable(schema),
     CallableSchema,
-  ])
+  ]).transform((val) => val as z.output<T>)
+
 export const StringSchema = z.string()
 export const ResolvableStringSchema = resolvableValue(z.string()).meta({
   typeText: 'string',
 })
-export const ResolvableStringArraySchema = z.union([
-  z.string().array(),
-  ResolvableStringSchema.array(),
-  resolvable(ResolvableStringSchema.array()),
-]).meta({ typeText: '[string]' })
+
+// export const ResolvableStringSchema = z.codec(
+//   resolvableValue(z.string()),
+//   z.string(),
+//   {
+//     decode: (raw) => raw as any,
+//     encode: (raw) => raw as any,
+//   }
+// );
+
+// export const ResolvableStringArraySchema = z.union([
+//   z.string().array(),
+//   ResolvableStringSchema.array(),
+//   resolvable(ResolvableStringSchema.array()),
+// ]).meta({ typeText: '[string]' })
+export const ResolvableStringArraySchema = resolvableValue(z.string().array())
+  .meta({ typeText: '[string]' })
 export const StringOrArraySchema = z.union([z.string(), z.string().array()])
   .meta({ typeText: 'string|[string]' })
 
@@ -46,8 +71,12 @@ export const RecordSchema = z.record(z.string(), z.unknown()).meta({
   typeText: '&lt;string:any&gt;',
 })
 
+export const ResolvableArraySchema = resolvableValue(
+  z.any().array(),
+)
+
 export const ResolvableRecordSchema = resolvableValue(
-  z.record(z.string(), z.unknown()),
+  z.record(z.string(), z.any()),
 )
 
 /**
@@ -132,5 +161,5 @@ export const LifecycleSchema = z.object({
 }).meta({ hideRequired: true, hideDefault: true })
 
 export type BaseNodeType =
-  & z.output<typeof BaseAttributesSchema>
-  & z.output<typeof LifecycleSchema>
+  & z.input<typeof BaseAttributesSchema>
+  & z.input<typeof LifecycleSchema>

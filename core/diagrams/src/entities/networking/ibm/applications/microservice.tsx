@@ -11,11 +11,5 @@ export const MICROSERVICE = {
 }
 
 export function Microservice(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSERVICE}
-      {...props}
-      _style={extendStyle(MICROSERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSERVICE)} />
 }

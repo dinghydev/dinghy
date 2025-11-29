@@ -11,11 +11,5 @@ export const FLANGED_DUMMY_COVER = {
 }
 
 export function FlangedDummyCover(props: NodeProps) {
-  return (
-    <Shape
-      {...FLANGED_DUMMY_COVER}
-      {...props}
-      _style={extendStyle(FLANGED_DUMMY_COVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLANGED_DUMMY_COVER)} />
 }

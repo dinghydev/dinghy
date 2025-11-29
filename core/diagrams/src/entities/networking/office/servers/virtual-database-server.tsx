@@ -12,10 +12,6 @@ export const VIRTUAL_DATABASE_SERVER = {
 
 export function VirtualDatabaseServer(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_DATABASE_SERVER}
-      {...props}
-      _style={extendStyle(VIRTUAL_DATABASE_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_DATABASE_SERVER)} />
   )
 }

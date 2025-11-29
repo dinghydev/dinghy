@@ -12,10 +12,6 @@ export const APPLICATION_AUTO_SCALING = {
 
 export function ApplicationAutoScaling(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_AUTO_SCALING}
-      {...props}
-      _style={extendStyle(APPLICATION_AUTO_SCALING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_AUTO_SCALING)} />
   )
 }

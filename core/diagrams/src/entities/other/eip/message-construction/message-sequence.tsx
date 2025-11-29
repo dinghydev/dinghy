@@ -11,11 +11,5 @@ export const MESSAGE_SEQUENCE = {
 }
 
 export function MessageSequence(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_SEQUENCE}
-      {...props}
-      _style={extendStyle(MESSAGE_SEQUENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_SEQUENCE)} />
 }

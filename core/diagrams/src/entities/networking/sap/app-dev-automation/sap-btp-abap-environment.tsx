@@ -12,10 +12,6 @@ export const SAP_BTP_ABAP_ENVIRONMENT = {
 
 export function SapBtpAbapEnvironment(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_BTP_ABAP_ENVIRONMENT}
-      {...props}
-      _style={extendStyle(SAP_BTP_ABAP_ENVIRONMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_BTP_ABAP_ENVIRONMENT)} />
   )
 }

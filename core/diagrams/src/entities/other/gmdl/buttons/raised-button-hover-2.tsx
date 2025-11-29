@@ -11,11 +11,5 @@ export const RAISED_BUTTON_HOVER_2 = {
 }
 
 export function RaisedButtonHover2(props: NodeProps) {
-  return (
-    <Shape
-      {...RAISED_BUTTON_HOVER_2}
-      {...props}
-      _style={extendStyle(RAISED_BUTTON_HOVER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RAISED_BUTTON_HOVER_2)} />
 }

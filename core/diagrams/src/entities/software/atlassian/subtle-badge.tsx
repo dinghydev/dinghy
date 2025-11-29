@@ -11,11 +11,5 @@ export const SUBTLE_BADGE = {
 }
 
 export function SubtleBadge(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBTLE_BADGE}
-      {...props}
-      _style={extendStyle(SUBTLE_BADGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBTLE_BADGE)} />
 }

@@ -11,11 +11,5 @@ export const AC_AIR_COMPRESSOR = {
 }
 
 export function AcAirCompressor(props: NodeProps) {
-  return (
-    <Shape
-      {...AC_AIR_COMPRESSOR}
-      {...props}
-      _style={extendStyle(AC_AIR_COMPRESSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AC_AIR_COMPRESSOR)} />
 }

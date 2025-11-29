@@ -11,11 +11,5 @@ export const ASIC_PROCESSOR = {
 }
 
 export function AsicProcessor(props: NodeProps) {
-  return (
-    <Shape
-      {...ASIC_PROCESSOR}
-      {...props}
-      _style={extendStyle(ASIC_PROCESSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASIC_PROCESSOR)} />
 }

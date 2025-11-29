@@ -11,7 +11,5 @@ export const VPN_POLICY = {
 }
 
 export function VpnPolicy(props: NodeProps) {
-  return (
-    <Shape {...VPN_POLICY} {...props} _style={extendStyle(VPN_POLICY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPN_POLICY)} />
 }

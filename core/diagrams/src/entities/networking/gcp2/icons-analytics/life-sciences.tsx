@@ -11,11 +11,5 @@ export const LIFE_SCIENCES = {
 }
 
 export function LifeSciences(props: NodeProps) {
-  return (
-    <Shape
-      {...LIFE_SCIENCES}
-      {...props}
-      _style={extendStyle(LIFE_SCIENCES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIFE_SCIENCES)} />
 }

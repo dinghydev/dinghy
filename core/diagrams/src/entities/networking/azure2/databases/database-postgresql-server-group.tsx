@@ -13,9 +13,8 @@ export const DATABASE_POSTGRESQL_SERVER_GROUP = {
 export function DatabasePostgresqlServerGroup(props: NodeProps) {
   return (
     <Shape
-      {...DATABASE_POSTGRESQL_SERVER_GROUP}
       {...props}
-      _style={extendStyle(DATABASE_POSTGRESQL_SERVER_GROUP, props)}
+      _style={extendStyle(props, DATABASE_POSTGRESQL_SERVER_GROUP)}
     />
   )
 }

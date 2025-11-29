@@ -12,10 +12,6 @@ export const X11600_BELLOWS_CYLINDER = {
 
 export function X11600BellowsCylinder(props: NodeProps) {
   return (
-    <Shape
-      {...X11600_BELLOWS_CYLINDER}
-      {...props}
-      _style={extendStyle(X11600_BELLOWS_CYLINDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11600_BELLOWS_CYLINDER)} />
   )
 }

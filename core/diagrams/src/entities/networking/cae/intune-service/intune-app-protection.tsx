@@ -11,11 +11,5 @@ export const INTUNE_APP_PROTECTION = {
 }
 
 export function IntuneAppProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_APP_PROTECTION}
-      {...props}
-      _style={extendStyle(INTUNE_APP_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_APP_PROTECTION)} />
 }

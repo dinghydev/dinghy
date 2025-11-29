@@ -12,10 +12,6 @@ export const DEVELOPMENT_ENVIRONMENT = {
 
 export function DevelopmentEnvironment(props: NodeProps) {
   return (
-    <Shape
-      {...DEVELOPMENT_ENVIRONMENT}
-      {...props}
-      _style={extendStyle(DEVELOPMENT_ENVIRONMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEVELOPMENT_ENVIRONMENT)} />
   )
 }

@@ -12,10 +12,6 @@ export const J9986A_24P_GIGT_MODULE = {
 
 export function J9986a24pGigtModule(props: NodeProps) {
   return (
-    <Shape
-      {...J9986A_24P_GIGT_MODULE}
-      {...props}
-      _style={extendStyle(J9986A_24P_GIGT_MODULE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, J9986A_24P_GIGT_MODULE)} />
   )
 }

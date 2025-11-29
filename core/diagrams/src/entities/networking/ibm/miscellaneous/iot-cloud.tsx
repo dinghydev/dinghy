@@ -11,7 +11,5 @@ export const IOT_CLOUD = {
 }
 
 export function IotCloud(props: NodeProps) {
-  return (
-    <Shape {...IOT_CLOUD} {...props} _style={extendStyle(IOT_CLOUD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOT_CLOUD)} />
 }

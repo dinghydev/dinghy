@@ -12,10 +12,6 @@ export const AWS_ELEMENTAL_MEDIAPACKAGE = {
 
 export function AwsElementalMediapackage(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_ELEMENTAL_MEDIAPACKAGE}
-      {...props}
-      _style={extendStyle(AWS_ELEMENTAL_MEDIAPACKAGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_ELEMENTAL_MEDIAPACKAGE)} />
   )
 }

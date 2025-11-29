@@ -13,9 +13,8 @@ export const AZURE_INFORMATION_PROTECTION = {
 export function AzureInformationProtection(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_INFORMATION_PROTECTION}
       {...props}
-      _style={extendStyle(AZURE_INFORMATION_PROTECTION, props)}
+      _style={extendStyle(props, AZURE_INFORMATION_PROTECTION)}
     />
   )
 }

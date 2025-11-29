@@ -12,10 +12,6 @@ export const VIRTUAL_MACHINE_FEATURE = {
 
 export function VirtualMachineFeature(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_MACHINE_FEATURE}
-      {...props}
-      _style={extendStyle(VIRTUAL_MACHINE_FEATURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_MACHINE_FEATURE)} />
   )
 }

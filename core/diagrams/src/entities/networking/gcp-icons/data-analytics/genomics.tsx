@@ -11,7 +11,5 @@ export const GENOMICS = {
 }
 
 export function Genomics(props: NodeProps) {
-  return (
-    <Shape {...GENOMICS} {...props} _style={extendStyle(GENOMICS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENOMICS)} />
 }

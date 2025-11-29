@@ -12,10 +12,6 @@ export const DEEP_LEARNING_CONTAINERS = {
 
 export function DeepLearningContainers(props: NodeProps) {
   return (
-    <Shape
-      {...DEEP_LEARNING_CONTAINERS}
-      {...props}
-      _style={extendStyle(DEEP_LEARNING_CONTAINERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEEP_LEARNING_CONTAINERS)} />
   )
 }

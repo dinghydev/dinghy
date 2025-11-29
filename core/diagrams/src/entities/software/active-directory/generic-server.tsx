@@ -11,11 +11,5 @@ export const GENERIC_SERVER = {
 }
 
 export function GenericServer(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_SERVER}
-      {...props}
-      _style={extendStyle(GENERIC_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_SERVER)} />
 }

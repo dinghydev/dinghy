@@ -11,11 +11,5 @@ export const WORKSPACES_FAMILY = {
 }
 
 export function WorkspacesFamily(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKSPACES_FAMILY}
-      {...props}
-      _style={extendStyle(WORKSPACES_FAMILY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKSPACES_FAMILY)} />
 }

@@ -11,11 +11,5 @@ export const NOVA_SERVER = {
 }
 
 export function NovaServer(props: NodeProps) {
-  return (
-    <Shape
-      {...NOVA_SERVER}
-      {...props}
-      _style={extendStyle(NOVA_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NOVA_SERVER)} />
 }

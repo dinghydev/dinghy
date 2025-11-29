@@ -1,0 +1,71 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_device_pool
+
+export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
+  project_arn: resolvableValue(z.string()),
+  type: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
+  id: resolvableValue(z.string().optional()),
+  max_devices: resolvableValue(z.number().optional()),
+  region: resolvableValue(z.string().optional()),
+  rule: resolvableValue(
+    z.object({
+      attribute: z.string().optional(),
+      operator: z.string().optional(),
+      value: z.string().optional(),
+    }).array(),
+  ),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+})
+
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
+})
+
+export const ImportSchema = z.object({
+  arn: resolvableValue(z.string()),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsDevicefarmDevicePool(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_devicefarm_device_pool'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsDevicefarmDevicePool = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(AwsDevicefarmDevicePool, node, id)
+
+export const useAwsDevicefarmDevicePools = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(AwsDevicefarmDevicePool, node, id)

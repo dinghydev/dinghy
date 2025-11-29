@@ -11,5 +11,5 @@ export const SWIRL_9 = {
 }
 
 export function Swirl9(props: NodeProps) {
-  return <Shape {...SWIRL_9} {...props} _style={extendStyle(SWIRL_9, props)} />
+  return <Shape {...props} _style={extendStyle(props, SWIRL_9)} />
 }

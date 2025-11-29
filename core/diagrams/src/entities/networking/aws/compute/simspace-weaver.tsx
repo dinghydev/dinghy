@@ -11,11 +11,5 @@ export const SIMSPACE_WEAVER = {
 }
 
 export function SimspaceWeaver(props: NodeProps) {
-  return (
-    <Shape
-      {...SIMSPACE_WEAVER}
-      {...props}
-      _style={extendStyle(SIMSPACE_WEAVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMSPACE_WEAVER)} />
 }

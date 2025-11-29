@@ -13,9 +13,8 @@ export const X11440_SINGLE_ACTING_SINGLE_ROD = {
 export function X11440SingleActingSingleRod(props: NodeProps) {
   return (
     <Shape
-      {...X11440_SINGLE_ACTING_SINGLE_ROD}
       {...props}
-      _style={extendStyle(X11440_SINGLE_ACTING_SINGLE_ROD, props)}
+      _style={extendStyle(props, X11440_SINGLE_ACTING_SINGLE_ROD)}
     />
   )
 }

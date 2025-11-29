@@ -11,11 +11,5 @@ export const GDB_GRAPH_DATABASE = {
 }
 
 export function GdbGraphDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...GDB_GRAPH_DATABASE}
-      {...props}
-      _style={extendStyle(GDB_GRAPH_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GDB_GRAPH_DATABASE)} />
 }

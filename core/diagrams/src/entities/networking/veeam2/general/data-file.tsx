@@ -11,7 +11,5 @@ export const DATA_FILE = {
 }
 
 export function DataFile(props: NodeProps) {
-  return (
-    <Shape {...DATA_FILE} {...props} _style={extendStyle(DATA_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_FILE)} />
 }

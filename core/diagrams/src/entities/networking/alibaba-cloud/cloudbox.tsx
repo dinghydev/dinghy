@@ -11,7 +11,5 @@ export const CLOUDBOX = {
 }
 
 export function Cloudbox(props: NodeProps) {
-  return (
-    <Shape {...CLOUDBOX} {...props} _style={extendStyle(CLOUDBOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDBOX)} />
 }

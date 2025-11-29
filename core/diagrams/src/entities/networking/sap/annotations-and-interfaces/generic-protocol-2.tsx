@@ -11,11 +11,5 @@ export const GENERIC_PROTOCOL_2 = {
 }
 
 export function GenericProtocol2(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_PROTOCOL_2}
-      {...props}
-      _style={extendStyle(GENERIC_PROTOCOL_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_PROTOCOL_2)} />
 }

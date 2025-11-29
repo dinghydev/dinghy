@@ -11,11 +11,5 @@ export const SESSION_MANAGER = {
 }
 
 export function SessionManager(props: NodeProps) {
-  return (
-    <Shape
-      {...SESSION_MANAGER}
-      {...props}
-      _style={extendStyle(SESSION_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SESSION_MANAGER)} />
 }

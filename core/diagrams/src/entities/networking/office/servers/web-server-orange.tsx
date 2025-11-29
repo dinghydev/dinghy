@@ -11,11 +11,5 @@ export const WEB_SERVER_ORANGE = {
 }
 
 export function WebServerOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SERVER_ORANGE}
-      {...props}
-      _style={extendStyle(WEB_SERVER_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SERVER_ORANGE)} />
 }

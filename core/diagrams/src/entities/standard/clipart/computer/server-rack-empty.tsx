@@ -11,11 +11,5 @@ export const SERVER_RACK_EMPTY = {
 }
 
 export function ServerRackEmpty(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_RACK_EMPTY}
-      {...props}
-      _style={extendStyle(SERVER_RACK_EMPTY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_RACK_EMPTY)} />
 }

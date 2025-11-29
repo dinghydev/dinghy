@@ -11,11 +11,5 @@ export const SOLIDIFIER_CLOSED = {
 }
 
 export function SolidifierClosed(props: NodeProps) {
-  return (
-    <Shape
-      {...SOLIDIFIER_CLOSED}
-      {...props}
-      _style={extendStyle(SOLIDIFIER_CLOSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOLIDIFIER_CLOSED)} />
 }

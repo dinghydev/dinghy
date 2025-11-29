@@ -11,11 +11,5 @@ export const EVENT_RESOURCE = {
 }
 
 export function EventResource(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_RESOURCE}
-      {...props}
-      _style={extendStyle(EVENT_RESOURCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_RESOURCE)} />
 }

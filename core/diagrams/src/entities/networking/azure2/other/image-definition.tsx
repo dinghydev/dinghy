@@ -11,11 +11,5 @@ export const IMAGE_DEFINITION = {
 }
 
 export function ImageDefinition(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_DEFINITION}
-      {...props}
-      _style={extendStyle(IMAGE_DEFINITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_DEFINITION)} />
 }

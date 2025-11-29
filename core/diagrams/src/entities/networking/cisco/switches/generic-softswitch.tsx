@@ -11,11 +11,5 @@ export const GENERIC_SOFTSWITCH = {
 }
 
 export function GenericSoftswitch(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_SOFTSWITCH}
-      {...props}
-      _style={extendStyle(GENERIC_SOFTSWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_SOFTSWITCH)} />
 }

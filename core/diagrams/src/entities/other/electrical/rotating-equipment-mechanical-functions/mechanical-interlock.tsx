@@ -11,11 +11,5 @@ export const MECHANICAL_INTERLOCK = {
 }
 
 export function MechanicalInterlock(props: NodeProps) {
-  return (
-    <Shape
-      {...MECHANICAL_INTERLOCK}
-      {...props}
-      _style={extendStyle(MECHANICAL_INTERLOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MECHANICAL_INTERLOCK)} />
 }

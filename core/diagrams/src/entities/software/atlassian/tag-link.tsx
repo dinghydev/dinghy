@@ -11,7 +11,5 @@ export const TAG_LINK = {
 }
 
 export function TagLink(props: NodeProps) {
-  return (
-    <Shape {...TAG_LINK} {...props} _style={extendStyle(TAG_LINK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAG_LINK)} />
 }

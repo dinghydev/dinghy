@@ -11,11 +11,5 @@ export const LIVE_COLLABORATION = {
 }
 
 export function LiveCollaboration(props: NodeProps) {
-  return (
-    <Shape
-      {...LIVE_COLLABORATION}
-      {...props}
-      _style={extendStyle(LIVE_COLLABORATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIVE_COLLABORATION)} />
 }

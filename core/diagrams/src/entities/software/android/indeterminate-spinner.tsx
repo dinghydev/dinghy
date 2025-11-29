@@ -11,11 +11,5 @@ export const INDETERMINATE_SPINNER = {
 }
 
 export function IndeterminateSpinner(props: NodeProps) {
-  return (
-    <Shape
-      {...INDETERMINATE_SPINNER}
-      {...props}
-      _style={extendStyle(INDETERMINATE_SPINNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDETERMINATE_SPINNER)} />
 }

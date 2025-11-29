@@ -11,7 +11,5 @@ export const SNOWMOBILE = {
 }
 
 export function Snowmobile(props: NodeProps) {
-  return (
-    <Shape {...SNOWMOBILE} {...props} _style={extendStyle(SNOWMOBILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNOWMOBILE)} />
 }

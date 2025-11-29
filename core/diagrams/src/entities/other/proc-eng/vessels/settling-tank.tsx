@@ -11,11 +11,5 @@ export const SETTLING_TANK = {
 }
 
 export function SettlingTank(props: NodeProps) {
-  return (
-    <Shape
-      {...SETTLING_TANK}
-      {...props}
-      _style={extendStyle(SETTLING_TANK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SETTLING_TANK)} />
 }

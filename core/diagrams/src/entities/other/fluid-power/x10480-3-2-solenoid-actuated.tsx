@@ -13,9 +13,8 @@ export const X10480_3_2_SOLENOID_ACTUATED = {
 export function X1048032SolenoidActuated(props: NodeProps) {
   return (
     <Shape
-      {...X10480_3_2_SOLENOID_ACTUATED}
       {...props}
-      _style={extendStyle(X10480_3_2_SOLENOID_ACTUATED, props)}
+      _style={extendStyle(props, X10480_3_2_SOLENOID_ACTUATED)}
     />
   )
 }

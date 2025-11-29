@@ -11,11 +11,5 @@ export const ELASTIC_FILE_SYSTEM = {
 }
 
 export function ElasticFileSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_FILE_SYSTEM}
-      {...props}
-      _style={extendStyle(ELASTIC_FILE_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_FILE_SYSTEM)} />
 }

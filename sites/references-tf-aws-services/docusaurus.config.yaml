@@ -1,0 +1,39 @@
+site:
+  deploy:
+    s3Url: s3://dinghy-website-play-v1
+  volumes:
+    - ../www/static:static
+    - ../www/src/components:src/components
+    - ../www/src/css:src/css
+    - ../www/src/theme:src/theme
+baseUrl: /references/tf-aws/services/
+docs:
+  routeBasePath: /
+  editUrl: https://github.com/dinghydev/dinghy/blob/main/sites/references-tf-aws/
+themeConfig:
+  navbar:
+    logo:
+      href: https://dinghy.dev/
+      target: _self
+    items:
+      - href: https://dinghy.dev/get-started
+        html: Get Started
+        target: _self
+        position: left
+      - href: https://dinghy.dev/examples
+        html: Examples
+        target: _self
+        position: left
+      - href: https://dinghy.dev/references
+        html: References
+        target: _self
+        className: navbar__link--active
+        position: left
+      - href: https://dinghy.dev/community
+        html: Community
+        position: left
+        target: _self
+      - href: https://github.com/dinghydev/dinghy
+        position: right
+        className: header-github-link
+        aria-label: GitHub repository

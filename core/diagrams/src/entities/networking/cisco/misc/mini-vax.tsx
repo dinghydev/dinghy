@@ -11,7 +11,5 @@ export const MINI_VAX = {
 }
 
 export function MiniVax(props: NodeProps) {
-  return (
-    <Shape {...MINI_VAX} {...props} _style={extendStyle(MINI_VAX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MINI_VAX)} />
 }

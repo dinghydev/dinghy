@@ -12,10 +12,6 @@ export const JL376A_ARUBA_8400_FRONT = {
 
 export function Jl376aAruba8400Front(props: NodeProps) {
   return (
-    <Shape
-      {...JL376A_ARUBA_8400_FRONT}
-      {...props}
-      _style={extendStyle(JL376A_ARUBA_8400_FRONT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, JL376A_ARUBA_8400_FRONT)} />
   )
 }

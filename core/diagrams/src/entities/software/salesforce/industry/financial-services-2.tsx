@@ -11,11 +11,5 @@ export const FINANCIAL_SERVICES_2 = {
 }
 
 export function FinancialServices2(props: NodeProps) {
-  return (
-    <Shape
-      {...FINANCIAL_SERVICES_2}
-      {...props}
-      _style={extendStyle(FINANCIAL_SERVICES_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FINANCIAL_SERVICES_2)} />
 }

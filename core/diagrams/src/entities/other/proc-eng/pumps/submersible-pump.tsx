@@ -11,11 +11,5 @@ export const SUBMERSIBLE_PUMP = {
 }
 
 export function SubmersiblePump(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBMERSIBLE_PUMP}
-      {...props}
-      _style={extendStyle(SUBMERSIBLE_PUMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBMERSIBLE_PUMP)} />
 }

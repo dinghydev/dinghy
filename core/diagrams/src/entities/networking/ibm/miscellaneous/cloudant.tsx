@@ -11,7 +11,5 @@ export const CLOUDANT = {
 }
 
 export function Cloudant(props: NodeProps) {
-  return (
-    <Shape {...CLOUDANT} {...props} _style={extendStyle(CLOUDANT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDANT)} />
 }

@@ -13,9 +13,8 @@ export const BUSINESS_CONTINUITY_DATA_PROTECTION = {
 export function BusinessContinuityDataProtection(props: NodeProps) {
   return (
     <Shape
-      {...BUSINESS_CONTINUITY_DATA_PROTECTION}
       {...props}
-      _style={extendStyle(BUSINESS_CONTINUITY_DATA_PROTECTION, props)}
+      _style={extendStyle(props, BUSINESS_CONTINUITY_DATA_PROTECTION)}
     />
   )
 }

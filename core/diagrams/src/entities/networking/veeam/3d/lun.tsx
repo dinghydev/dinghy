@@ -11,5 +11,5 @@ export const LUN = {
 }
 
 export function Lun(props: NodeProps) {
-  return <Shape {...LUN} {...props} _style={extendStyle(LUN, props)} />
+  return <Shape {...props} _style={extendStyle(props, LUN)} />
 }

@@ -13,9 +13,8 @@ export const CREATION_DESTRUCTION_EVENT_6 = {
 export function CreationDestructionEvent6(props: NodeProps) {
   return (
     <Shape
-      {...CREATION_DESTRUCTION_EVENT_6}
       {...props}
-      _style={extendStyle(CREATION_DESTRUCTION_EVENT_6, props)}
+      _style={extendStyle(props, CREATION_DESTRUCTION_EVENT_6)}
     />
   )
 }

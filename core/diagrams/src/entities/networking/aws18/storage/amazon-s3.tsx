@@ -11,7 +11,5 @@ export const AMAZON_S3 = {
 }
 
 export function AmazonS3(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_S3} {...props} _style={extendStyle(AMAZON_S3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_S3)} />
 }

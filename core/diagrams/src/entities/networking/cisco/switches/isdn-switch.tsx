@@ -11,11 +11,5 @@ export const ISDN_SWITCH = {
 }
 
 export function IsdnSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...ISDN_SWITCH}
-      {...props}
-      _style={extendStyle(ISDN_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISDN_SWITCH)} />
 }

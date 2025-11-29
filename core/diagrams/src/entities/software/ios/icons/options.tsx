@@ -11,5 +11,5 @@ export const OPTIONS = {
 }
 
 export function Options(props: NodeProps) {
-  return <Shape {...OPTIONS} {...props} _style={extendStyle(OPTIONS, props)} />
+  return <Shape {...props} _style={extendStyle(props, OPTIONS)} />
 }

@@ -11,7 +11,5 @@ export const VBR_SERVER = {
 }
 
 export function VbrServer(props: NodeProps) {
-  return (
-    <Shape {...VBR_SERVER} {...props} _style={extendStyle(VBR_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VBR_SERVER)} />
 }

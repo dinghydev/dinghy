@@ -13,9 +13,8 @@ export const CONTENT_ENGINE_CACHE_DIRECTOR = {
 export function ContentEngineCacheDirector(props: NodeProps) {
   return (
     <Shape
-      {...CONTENT_ENGINE_CACHE_DIRECTOR}
       {...props}
-      _style={extendStyle(CONTENT_ENGINE_CACHE_DIRECTOR, props)}
+      _style={extendStyle(props, CONTENT_ENGINE_CACHE_DIRECTOR)}
     />
   )
 }

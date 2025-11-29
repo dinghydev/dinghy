@@ -10,5 +10,5 @@ export const HEATHER = {
 }
 
 export function Heather(props: NodeProps) {
-  return <Shape {...HEATHER} {...props} _style={extendStyle(HEATHER, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEATHER)} />
 }

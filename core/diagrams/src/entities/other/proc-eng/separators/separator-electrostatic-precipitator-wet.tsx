@@ -13,9 +13,8 @@ export const SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET = {
 export function SeparatorElectrostaticPrecipitatorWet(props: NodeProps) {
   return (
     <Shape
-      {...SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET}
       {...props}
-      _style={extendStyle(SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET, props)}
+      _style={extendStyle(props, SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET)}
     />
   )
 }

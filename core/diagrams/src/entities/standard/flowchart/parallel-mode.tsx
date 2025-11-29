@@ -11,11 +11,5 @@ export const PARALLEL_MODE = {
 }
 
 export function ParallelMode(props: NodeProps) {
-  return (
-    <Shape
-      {...PARALLEL_MODE}
-      {...props}
-      _style={extendStyle(PARALLEL_MODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARALLEL_MODE)} />
 }

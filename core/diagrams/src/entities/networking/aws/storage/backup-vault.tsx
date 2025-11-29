@@ -11,11 +11,5 @@ export const BACKUP_VAULT = {
 }
 
 export function BackupVault(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_VAULT}
-      {...props}
-      _style={extendStyle(BACKUP_VAULT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_VAULT)} />
 }

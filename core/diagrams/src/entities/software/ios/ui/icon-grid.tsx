@@ -11,7 +11,5 @@ export const ICON_GRID = {
 }
 
 export function IconGrid(props: NodeProps) {
-  return (
-    <Shape {...ICON_GRID} {...props} _style={extendStyle(ICON_GRID, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ICON_GRID)} />
 }

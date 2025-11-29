@@ -11,7 +11,5 @@ export const BCCLUSTER = {
 }
 
 export function Bccluster(props: NodeProps) {
-  return (
-    <Shape {...BCCLUSTER} {...props} _style={extendStyle(BCCLUSTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BCCLUSTER)} />
 }

@@ -11,11 +11,5 @@ export const SAP_GREEN_TOKEN = {
 }
 
 export function SapGreenToken(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_GREEN_TOKEN}
-      {...props}
-      _style={extendStyle(SAP_GREEN_TOKEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_GREEN_TOKEN)} />
 }

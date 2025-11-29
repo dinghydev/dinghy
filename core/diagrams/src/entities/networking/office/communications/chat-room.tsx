@@ -11,7 +11,5 @@ export const CHAT_ROOM = {
 }
 
 export function ChatRoom(props: NodeProps) {
-  return (
-    <Shape {...CHAT_ROOM} {...props} _style={extendStyle(CHAT_ROOM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHAT_ROOM)} />
 }

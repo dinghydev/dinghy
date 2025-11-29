@@ -11,7 +11,5 @@ export const ESXI_HOST = {
 }
 
 export function EsxiHost(props: NodeProps) {
-  return (
-    <Shape {...ESXI_HOST} {...props} _style={extendStyle(ESXI_HOST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ESXI_HOST)} />
 }

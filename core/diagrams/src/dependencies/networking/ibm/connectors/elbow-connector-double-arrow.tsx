@@ -11,9 +11,8 @@ export const ELBOW_CONNECTOR_DOUBLE_ARROW = {
 export function ElbowConnectorDoubleArrow(props: NodeProps) {
   return (
     <Dependency
-      {...ELBOW_CONNECTOR_DOUBLE_ARROW}
       {...props}
-      _style={extendStyle(ELBOW_CONNECTOR_DOUBLE_ARROW, props)}
+      _style={extendStyle(props, ELBOW_CONNECTOR_DOUBLE_ARROW)}
     />
   )
 }

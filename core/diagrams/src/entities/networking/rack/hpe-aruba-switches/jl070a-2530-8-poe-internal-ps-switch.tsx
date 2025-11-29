@@ -13,9 +13,8 @@ export const JL070A_2530_8_POE_INTERNAL_PS_SWITCH = {
 export function Jl070a25308PoeInternalPsSwitch(props: NodeProps) {
   return (
     <Shape
-      {...JL070A_2530_8_POE_INTERNAL_PS_SWITCH}
       {...props}
-      _style={extendStyle(JL070A_2530_8_POE_INTERNAL_PS_SWITCH, props)}
+      _style={extendStyle(props, JL070A_2530_8_POE_INTERNAL_PS_SWITCH)}
     />
   )
 }

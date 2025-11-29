@@ -12,10 +12,6 @@ export const TRANSIT_GATEWAY_ATTACHMENT = {
 
 export function TransitGatewayAttachment(props: NodeProps) {
   return (
-    <Shape
-      {...TRANSIT_GATEWAY_ATTACHMENT}
-      {...props}
-      _style={extendStyle(TRANSIT_GATEWAY_ATTACHMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TRANSIT_GATEWAY_ATTACHMENT)} />
   )
 }

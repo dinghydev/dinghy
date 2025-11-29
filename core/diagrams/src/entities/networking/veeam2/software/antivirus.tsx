@@ -11,7 +11,5 @@ export const ANTIVIRUS = {
 }
 
 export function Antivirus(props: NodeProps) {
-  return (
-    <Shape {...ANTIVIRUS} {...props} _style={extendStyle(ANTIVIRUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANTIVIRUS)} />
 }

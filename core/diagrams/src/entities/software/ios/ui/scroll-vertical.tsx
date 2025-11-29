@@ -11,11 +11,5 @@ export const SCROLL_VERTICAL = {
 }
 
 export function ScrollVertical(props: NodeProps) {
-  return (
-    <Shape
-      {...SCROLL_VERTICAL}
-      {...props}
-      _style={extendStyle(SCROLL_VERTICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCROLL_VERTICAL)} />
 }

@@ -12,10 +12,6 @@ export const DNS_DOMAIN_NAME_SYSTEM = {
 
 export function DnsDomainNameSystem(props: NodeProps) {
   return (
-    <Shape
-      {...DNS_DOMAIN_NAME_SYSTEM}
-      {...props}
-      _style={extendStyle(DNS_DOMAIN_NAME_SYSTEM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DNS_DOMAIN_NAME_SYSTEM)} />
   )
 }

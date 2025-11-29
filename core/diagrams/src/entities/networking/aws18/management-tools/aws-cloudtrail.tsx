@@ -11,11 +11,5 @@ export const AWS_CLOUDTRAIL = {
 }
 
 export function AwsCloudtrail(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CLOUDTRAIL}
-      {...props}
-      _style={extendStyle(AWS_CLOUDTRAIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CLOUDTRAIL)} />
 }

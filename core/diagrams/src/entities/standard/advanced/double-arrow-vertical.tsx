@@ -10,11 +10,5 @@ export const DOUBLE_ARROW_VERTICAL = {
 }
 
 export function DoubleArrowVertical(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_ARROW_VERTICAL}
-      {...props}
-      _style={extendStyle(DOUBLE_ARROW_VERTICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_ARROW_VERTICAL)} />
 }

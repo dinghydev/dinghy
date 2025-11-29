@@ -11,11 +11,5 @@ export const CENTRIFUGAL_PUMP_2 = {
 }
 
 export function CentrifugalPump2(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTRIFUGAL_PUMP_2}
-      {...props}
-      _style={extendStyle(CENTRIFUGAL_PUMP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTRIFUGAL_PUMP_2)} />
 }

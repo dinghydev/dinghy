@@ -11,11 +11,5 @@ export const SLIP_HAZARD = {
 }
 
 export function SlipHazard(props: NodeProps) {
-  return (
-    <Shape
-      {...SLIP_HAZARD}
-      {...props}
-      _style={extendStyle(SLIP_HAZARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLIP_HAZARD)} />
 }

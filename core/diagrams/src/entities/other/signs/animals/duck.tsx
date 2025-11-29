@@ -11,5 +11,5 @@ export const DUCK = {
 }
 
 export function Duck(props: NodeProps) {
-  return <Shape {...DUCK} {...props} _style={extendStyle(DUCK, props)} />
+  return <Shape {...props} _style={extendStyle(props, DUCK)} />
 }

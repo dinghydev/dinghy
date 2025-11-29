@@ -11,5 +11,5 @@ export const FRESQUI = {
 }
 
 export function Fresqui(props: NodeProps) {
-  return <Shape {...FRESQUI} {...props} _style={extendStyle(FRESQUI, props)} />
+  return <Shape {...props} _style={extendStyle(props, FRESQUI)} />
 }

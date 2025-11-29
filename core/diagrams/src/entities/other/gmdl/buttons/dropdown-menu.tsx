@@ -11,11 +11,5 @@ export const DROPDOWN_MENU = {
 }
 
 export function DropdownMenu(props: NodeProps) {
-  return (
-    <Shape
-      {...DROPDOWN_MENU}
-      {...props}
-      _style={extendStyle(DROPDOWN_MENU, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DROPDOWN_MENU)} />
 }

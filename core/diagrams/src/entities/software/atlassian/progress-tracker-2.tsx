@@ -11,11 +11,5 @@ export const PROGRESS_TRACKER_2 = {
 }
 
 export function ProgressTracker2(props: NodeProps) {
-  return (
-    <Shape
-      {...PROGRESS_TRACKER_2}
-      {...props}
-      _style={extendStyle(PROGRESS_TRACKER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROGRESS_TRACKER_2)} />
 }

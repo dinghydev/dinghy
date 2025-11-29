@@ -12,10 +12,6 @@ export const SECTION_HEADER_ACTIVATED = {
 
 export function SectionHeaderActivated(props: NodeProps) {
   return (
-    <Shape
-      {...SECTION_HEADER_ACTIVATED}
-      {...props}
-      _style={extendStyle(SECTION_HEADER_ACTIVATED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECTION_HEADER_ACTIVATED)} />
   )
 }

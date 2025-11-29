@@ -11,5 +11,5 @@ export const VOICE_2 = {
 }
 
 export function Voice2(props: NodeProps) {
-  return <Shape {...VOICE_2} {...props} _style={extendStyle(VOICE_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, VOICE_2)} />
 }

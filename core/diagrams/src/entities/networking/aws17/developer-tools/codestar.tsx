@@ -11,7 +11,5 @@ export const CODESTAR = {
 }
 
 export function Codestar(props: NodeProps) {
-  return (
-    <Shape {...CODESTAR} {...props} _style={extendStyle(CODESTAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODESTAR)} />
 }

@@ -11,11 +11,5 @@ export const PACKAGE_NAME = {
 }
 
 export function PackageName(props: NodeProps) {
-  return (
-    <Shape
-      {...PACKAGE_NAME}
-      {...props}
-      _style={extendStyle(PACKAGE_NAME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PACKAGE_NAME)} />
 }

@@ -11,7 +11,5 @@ export const TRANSCODER = {
 }
 
 export function Transcoder(props: NodeProps) {
-  return (
-    <Shape {...TRANSCODER} {...props} _style={extendStyle(TRANSCODER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSCODER)} />
 }

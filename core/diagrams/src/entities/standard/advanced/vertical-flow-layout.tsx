@@ -11,11 +11,5 @@ export const VERTICAL_FLOW_LAYOUT = {
 }
 
 export function VerticalFlowLayout(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_FLOW_LAYOUT}
-      {...props}
-      _style={extendStyle(VERTICAL_FLOW_LAYOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_FLOW_LAYOUT)} />
 }

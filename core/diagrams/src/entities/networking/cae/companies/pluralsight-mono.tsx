@@ -11,11 +11,5 @@ export const PLURALSIGHT_MONO = {
 }
 
 export function PluralsightMono(props: NodeProps) {
-  return (
-    <Shape
-      {...PLURALSIGHT_MONO}
-      {...props}
-      _style={extendStyle(PLURALSIGHT_MONO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLURALSIGHT_MONO)} />
 }

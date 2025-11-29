@@ -13,9 +13,8 @@ export const HEAT_EXCHANGER_FLOATING_HEAD = {
 export function HeatExchangerFloatingHead(props: NodeProps) {
   return (
     <Shape
-      {...HEAT_EXCHANGER_FLOATING_HEAD}
       {...props}
-      _style={extendStyle(HEAT_EXCHANGER_FLOATING_HEAD, props)}
+      _style={extendStyle(props, HEAT_EXCHANGER_FLOATING_HEAD)}
     />
   )
 }

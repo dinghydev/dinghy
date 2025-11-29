@@ -13,9 +13,8 @@ export const WORKSPACE_ENVIRONMENT_MANAGEMENT = {
 export function WorkspaceEnvironmentManagement(props: NodeProps) {
   return (
     <Shape
-      {...WORKSPACE_ENVIRONMENT_MANAGEMENT}
       {...props}
-      _style={extendStyle(WORKSPACE_ENVIRONMENT_MANAGEMENT, props)}
+      _style={extendStyle(props, WORKSPACE_ENVIRONMENT_MANAGEMENT)}
     />
   )
 }

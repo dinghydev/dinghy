@@ -11,7 +11,5 @@ export const TWINMAKER = {
 }
 
 export function Twinmaker(props: NodeProps) {
-  return (
-    <Shape {...TWINMAKER} {...props} _style={extendStyle(TWINMAKER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TWINMAKER)} />
 }

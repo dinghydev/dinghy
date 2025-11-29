@@ -11,7 +11,5 @@ export const SOCIALVIBE = {
 }
 
 export function Socialvibe(props: NodeProps) {
-  return (
-    <Shape {...SOCIALVIBE} {...props} _style={extendStyle(SOCIALVIBE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOCIALVIBE)} />
 }

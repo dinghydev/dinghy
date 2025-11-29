@@ -11,11 +11,5 @@ export const UCS_EXPRESS = {
 }
 
 export function UcsExpress(props: NodeProps) {
-  return (
-    <Shape
-      {...UCS_EXPRESS}
-      {...props}
-      _style={extendStyle(UCS_EXPRESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UCS_EXPRESS)} />
 }

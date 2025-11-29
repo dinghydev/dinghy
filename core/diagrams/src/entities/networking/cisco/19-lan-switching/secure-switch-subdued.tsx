@@ -11,11 +11,5 @@ export const SECURE_SWITCH_SUBDUED = {
 }
 
 export function SecureSwitchSubdued(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_SWITCH_SUBDUED}
-      {...props}
-      _style={extendStyle(SECURE_SWITCH_SUBDUED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_SWITCH_SUBDUED)} />
 }

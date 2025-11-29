@@ -11,5 +11,5 @@ export const SCOM = {
 }
 
 export function Scom(props: NodeProps) {
-  return <Shape {...SCOM} {...props} _style={extendStyle(SCOM, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCOM)} />
 }

@@ -11,11 +11,5 @@ export const VOLUME_SLIDER = {
 }
 
 export function VolumeSlider(props: NodeProps) {
-  return (
-    <Shape
-      {...VOLUME_SLIDER}
-      {...props}
-      _style={extendStyle(VOLUME_SLIDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOLUME_SLIDER)} />
 }

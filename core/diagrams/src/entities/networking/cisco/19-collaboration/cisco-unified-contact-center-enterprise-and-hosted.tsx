@@ -13,11 +13,10 @@ export const CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED = {
 export function CiscoUnifiedContactCenterEnterpriseAndHosted(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED}
       {...props}
       _style={extendStyle(
-        CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED,
         props,
+        CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED,
       )}
     />
   )

@@ -11,11 +11,5 @@ export const HDI_AKS_CLUSTER = {
 }
 
 export function HdiAksCluster(props: NodeProps) {
-  return (
-    <Shape
-      {...HDI_AKS_CLUSTER}
-      {...props}
-      _style={extendStyle(HDI_AKS_CLUSTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HDI_AKS_CLUSTER)} />
 }

@@ -11,11 +11,5 @@ export const COMPUTE_OPTIMIZER = {
 }
 
 export function ComputeOptimizer(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTE_OPTIMIZER}
-      {...props}
-      _style={extendStyle(COMPUTE_OPTIMIZER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTE_OPTIMIZER)} />
 }

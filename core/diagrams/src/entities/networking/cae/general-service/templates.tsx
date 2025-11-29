@@ -11,7 +11,5 @@ export const TEMPLATES = {
 }
 
 export function Templates(props: NodeProps) {
-  return (
-    <Shape {...TEMPLATES} {...props} _style={extendStyle(TEMPLATES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEMPLATES)} />
 }

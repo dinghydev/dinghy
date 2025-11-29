@@ -11,11 +11,5 @@ export const CUSTOM_VISION = {
 }
 
 export function CustomVision(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOM_VISION}
-      {...props}
-      _style={extendStyle(CUSTOM_VISION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOM_VISION)} />
 }

@@ -11,11 +11,5 @@ export const VWEB_SECURITY = {
 }
 
 export function VwebSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...VWEB_SECURITY}
-      {...props}
-      _style={extendStyle(VWEB_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VWEB_SECURITY)} />
 }

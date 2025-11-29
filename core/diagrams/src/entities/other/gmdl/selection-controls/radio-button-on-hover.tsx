@@ -11,11 +11,5 @@ export const RADIO_BUTTON_ON_HOVER = {
 }
 
 export function RadioButtonOnHover(props: NodeProps) {
-  return (
-    <Shape
-      {...RADIO_BUTTON_ON_HOVER}
-      {...props}
-      _style={extendStyle(RADIO_BUTTON_ON_HOVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADIO_BUTTON_ON_HOVER)} />
 }

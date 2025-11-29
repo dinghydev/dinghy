@@ -12,10 +12,6 @@ export const JACKETED_MIXING_VESSEL = {
 
 export function JacketedMixingVessel(props: NodeProps) {
   return (
-    <Shape
-      {...JACKETED_MIXING_VESSEL}
-      {...props}
-      _style={extendStyle(JACKETED_MIXING_VESSEL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, JACKETED_MIXING_VESSEL)} />
   )
 }

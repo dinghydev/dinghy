@@ -11,11 +11,5 @@ export const RUPTURE_DISC = {
 }
 
 export function RuptureDisc(props: NodeProps) {
-  return (
-    <Shape
-      {...RUPTURE_DISC}
-      {...props}
-      _style={extendStyle(RUPTURE_DISC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RUPTURE_DISC)} />
 }

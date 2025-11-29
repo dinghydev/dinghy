@@ -11,11 +11,5 @@ export const MICROSOFT_OFFICE = {
 }
 
 export function MicrosoftOffice(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_OFFICE}
-      {...props}
-      _style={extendStyle(MICROSOFT_OFFICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_OFFICE)} />
 }

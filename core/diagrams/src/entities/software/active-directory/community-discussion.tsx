@@ -11,11 +11,5 @@ export const COMMUNITY_DISCUSSION = {
 }
 
 export function CommunityDiscussion(props: NodeProps) {
-  return (
-    <Shape
-      {...COMMUNITY_DISCUSSION}
-      {...props}
-      _style={extendStyle(COMMUNITY_DISCUSSION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMUNITY_DISCUSSION)} />
 }

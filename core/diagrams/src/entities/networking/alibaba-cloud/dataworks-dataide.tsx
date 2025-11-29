@@ -11,11 +11,5 @@ export const DATAWORKS_DATAIDE = {
 }
 
 export function DataworksDataide(props: NodeProps) {
-  return (
-    <Shape
-      {...DATAWORKS_DATAIDE}
-      {...props}
-      _style={extendStyle(DATAWORKS_DATAIDE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAWORKS_DATAIDE)} />
 }

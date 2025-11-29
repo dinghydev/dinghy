@@ -11,11 +11,5 @@ export const CONTENT_MANAGEMENT = {
 }
 
 export function ContentManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_MANAGEMENT}
-      {...props}
-      _style={extendStyle(CONTENT_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_MANAGEMENT)} />
 }

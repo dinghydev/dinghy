@@ -11,11 +11,5 @@ export const WEBSITE_GENERIC = {
 }
 
 export function WebsiteGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...WEBSITE_GENERIC}
-      {...props}
-      _style={extendStyle(WEBSITE_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBSITE_GENERIC)} />
 }

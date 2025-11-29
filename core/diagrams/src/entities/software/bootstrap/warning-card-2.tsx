@@ -11,11 +11,5 @@ export const WARNING_CARD_2 = {
 }
 
 export function WarningCard2(props: NodeProps) {
-  return (
-    <Shape
-      {...WARNING_CARD_2}
-      {...props}
-      _style={extendStyle(WARNING_CARD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WARNING_CARD_2)} />
 }

@@ -13,9 +13,8 @@ export const X11330_VARIABLE_DISPLACEMENT_HYDRAULIC = {
 export function X11330VariableDisplacementHydraulic(props: NodeProps) {
   return (
     <Shape
-      {...X11330_VARIABLE_DISPLACEMENT_HYDRAULIC}
       {...props}
-      _style={extendStyle(X11330_VARIABLE_DISPLACEMENT_HYDRAULIC, props)}
+      _style={extendStyle(props, X11330_VARIABLE_DISPLACEMENT_HYDRAULIC)}
     />
   )
 }

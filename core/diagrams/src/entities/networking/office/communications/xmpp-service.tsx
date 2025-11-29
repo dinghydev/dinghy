@@ -11,11 +11,5 @@ export const XMPP_SERVICE = {
 }
 
 export function XmppService(props: NodeProps) {
-  return (
-    <Shape
-      {...XMPP_SERVICE}
-      {...props}
-      _style={extendStyle(XMPP_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, XMPP_SERVICE)} />
 }

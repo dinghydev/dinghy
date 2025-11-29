@@ -13,9 +13,8 @@ export const X11030_PRESSURE_REDUCING_VALVE = {
 export function X11030PressureReducingValve(props: NodeProps) {
   return (
     <Shape
-      {...X11030_PRESSURE_REDUCING_VALVE}
       {...props}
-      _style={extendStyle(X11030_PRESSURE_REDUCING_VALVE, props)}
+      _style={extendStyle(props, X11030_PRESSURE_REDUCING_VALVE)}
     />
   )
 }

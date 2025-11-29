@@ -11,7 +11,5 @@ export const FREERTOS = {
 }
 
 export function Freertos(props: NodeProps) {
-  return (
-    <Shape {...FREERTOS} {...props} _style={extendStyle(FREERTOS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FREERTOS)} />
 }

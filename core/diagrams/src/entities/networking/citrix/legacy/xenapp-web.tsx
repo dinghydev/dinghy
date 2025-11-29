@@ -11,7 +11,5 @@ export const XENAPP_WEB = {
 }
 
 export function XenappWeb(props: NodeProps) {
-  return (
-    <Shape {...XENAPP_WEB} {...props} _style={extendStyle(XENAPP_WEB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENAPP_WEB)} />
 }

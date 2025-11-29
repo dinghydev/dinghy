@@ -11,11 +11,5 @@ export const HEALTH_EDUCATION = {
 }
 
 export function HealthEducation(props: NodeProps) {
-  return (
-    <Shape
-      {...HEALTH_EDUCATION}
-      {...props}
-      _style={extendStyle(HEALTH_EDUCATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEALTH_EDUCATION)} />
 }

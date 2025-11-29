@@ -11,11 +11,5 @@ export const RETURN_TO_SCHOOL = {
 }
 
 export function ReturnToSchool(props: NodeProps) {
-  return (
-    <Shape
-      {...RETURN_TO_SCHOOL}
-      {...props}
-      _style={extendStyle(RETURN_TO_SCHOOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETURN_TO_SCHOOL)} />
 }

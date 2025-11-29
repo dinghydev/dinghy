@@ -11,7 +11,5 @@ export const EXCLUSIVE = {
 }
 
 export function Exclusive(props: NodeProps) {
-  return (
-    <Shape {...EXCLUSIVE} {...props} _style={extendStyle(EXCLUSIVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCLUSIVE)} />
 }

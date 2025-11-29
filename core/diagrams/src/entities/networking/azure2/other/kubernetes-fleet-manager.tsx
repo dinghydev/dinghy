@@ -12,10 +12,6 @@ export const KUBERNETES_FLEET_MANAGER = {
 
 export function KubernetesFleetManager(props: NodeProps) {
   return (
-    <Shape
-      {...KUBERNETES_FLEET_MANAGER}
-      {...props}
-      _style={extendStyle(KUBERNETES_FLEET_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, KUBERNETES_FLEET_MANAGER)} />
   )
 }

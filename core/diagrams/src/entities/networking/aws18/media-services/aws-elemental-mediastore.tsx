@@ -12,10 +12,6 @@ export const AWS_ELEMENTAL_MEDIASTORE = {
 
 export function AwsElementalMediastore(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_ELEMENTAL_MEDIASTORE}
-      {...props}
-      _style={extendStyle(AWS_ELEMENTAL_MEDIASTORE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_ELEMENTAL_MEDIASTORE)} />
   )
 }

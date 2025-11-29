@@ -13,9 +13,8 @@ export const J9853A_2530_48G_POE_2SFP_SWITCH = {
 export function J9853a253048gPoe2sfpSwitch(props: NodeProps) {
   return (
     <Shape
-      {...J9853A_2530_48G_POE_2SFP_SWITCH}
       {...props}
-      _style={extendStyle(J9853A_2530_48G_POE_2SFP_SWITCH, props)}
+      _style={extendStyle(props, J9853A_2530_48G_POE_2SFP_SWITCH)}
     />
   )
 }

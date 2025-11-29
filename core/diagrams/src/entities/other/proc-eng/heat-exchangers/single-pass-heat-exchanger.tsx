@@ -12,10 +12,6 @@ export const SINGLE_PASS_HEAT_EXCHANGER = {
 
 export function SinglePassHeatExchanger(props: NodeProps) {
   return (
-    <Shape
-      {...SINGLE_PASS_HEAT_EXCHANGER}
-      {...props}
-      _style={extendStyle(SINGLE_PASS_HEAT_EXCHANGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SINGLE_PASS_HEAT_EXCHANGER)} />
   )
 }

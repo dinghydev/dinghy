@@ -13,9 +13,8 @@ export const SAP_DATA_PRIVACY_INTEGRATION = {
 export function SapDataPrivacyIntegration(props: NodeProps) {
   return (
     <Shape
-      {...SAP_DATA_PRIVACY_INTEGRATION}
       {...props}
-      _style={extendStyle(SAP_DATA_PRIVACY_INTEGRATION, props)}
+      _style={extendStyle(props, SAP_DATA_PRIVACY_INTEGRATION)}
     />
   )
 }

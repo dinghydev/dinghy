@@ -10,11 +10,5 @@ export const PARAMETER_SET = {
 }
 
 export function ParameterSet(props: NodeProps) {
-  return (
-    <Shape
-      {...PARAMETER_SET}
-      {...props}
-      _style={extendStyle(PARAMETER_SET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARAMETER_SET)} />
 }

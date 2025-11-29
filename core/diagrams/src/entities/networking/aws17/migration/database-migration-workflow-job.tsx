@@ -13,9 +13,8 @@ export const DATABASE_MIGRATION_WORKFLOW_JOB = {
 export function DatabaseMigrationWorkflowJob(props: NodeProps) {
   return (
     <Shape
-      {...DATABASE_MIGRATION_WORKFLOW_JOB}
       {...props}
-      _style={extendStyle(DATABASE_MIGRATION_WORKFLOW_JOB, props)}
+      _style={extendStyle(props, DATABASE_MIGRATION_WORKFLOW_JOB)}
     />
   )
 }

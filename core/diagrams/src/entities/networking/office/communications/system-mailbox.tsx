@@ -11,11 +11,5 @@ export const SYSTEM_MAILBOX = {
 }
 
 export function SystemMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEM_MAILBOX}
-      {...props}
-      _style={extendStyle(SYSTEM_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_MAILBOX)} />
 }

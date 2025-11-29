@@ -13,9 +13,8 @@ export const BUILT_IN_MANAGEMENT_FOR_AGENTS = {
 export function BuiltInManagementForAgents(props: NodeProps) {
   return (
     <Shape
-      {...BUILT_IN_MANAGEMENT_FOR_AGENTS}
       {...props}
-      _style={extendStyle(BUILT_IN_MANAGEMENT_FOR_AGENTS, props)}
+      _style={extendStyle(props, BUILT_IN_MANAGEMENT_FOR_AGENTS)}
     />
   )
 }

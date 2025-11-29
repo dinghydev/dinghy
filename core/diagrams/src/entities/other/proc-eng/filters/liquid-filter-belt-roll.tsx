@@ -12,10 +12,6 @@ export const LIQUID_FILTER_BELT_ROLL = {
 
 export function LiquidFilterBeltRoll(props: NodeProps) {
   return (
-    <Shape
-      {...LIQUID_FILTER_BELT_ROLL}
-      {...props}
-      _style={extendStyle(LIQUID_FILTER_BELT_ROLL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIQUID_FILTER_BELT_ROLL)} />
   )
 }

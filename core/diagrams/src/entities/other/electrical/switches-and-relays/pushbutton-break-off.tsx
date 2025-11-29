@@ -11,11 +11,5 @@ export const PUSHBUTTON_BREAK_OFF = {
 }
 
 export function PushbuttonBreakOff(props: NodeProps) {
-  return (
-    <Shape
-      {...PUSHBUTTON_BREAK_OFF}
-      {...props}
-      _style={extendStyle(PUSHBUTTON_BREAK_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUSHBUTTON_BREAK_OFF)} />
 }

@@ -11,11 +11,5 @@ export const AUTOML_TABLES = {
 }
 
 export function AutomlTables(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOML_TABLES}
-      {...props}
-      _style={extendStyle(AUTOML_TABLES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOML_TABLES)} />
 }

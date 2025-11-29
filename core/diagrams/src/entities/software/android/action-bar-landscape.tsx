@@ -11,11 +11,5 @@ export const ACTION_BAR_LANDSCAPE = {
 }
 
 export function ActionBarLandscape(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTION_BAR_LANDSCAPE}
-      {...props}
-      _style={extendStyle(ACTION_BAR_LANDSCAPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_BAR_LANDSCAPE)} />
 }

@@ -11,11 +11,5 @@ export const APPLICATION_GROUP = {
 }
 
 export function ApplicationGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_GROUP}
-      {...props}
-      _style={extendStyle(APPLICATION_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_GROUP)} />
 }

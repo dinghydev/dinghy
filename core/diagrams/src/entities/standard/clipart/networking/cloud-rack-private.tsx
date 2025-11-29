@@ -11,11 +11,5 @@ export const CLOUD_RACK_PRIVATE = {
 }
 
 export function CloudRackPrivate(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_RACK_PRIVATE}
-      {...props}
-      _style={extendStyle(CLOUD_RACK_PRIVATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_RACK_PRIVATE)} />
 }

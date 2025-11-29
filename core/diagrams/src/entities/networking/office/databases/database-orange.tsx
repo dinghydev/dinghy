@@ -11,11 +11,5 @@ export const DATABASE_ORANGE = {
 }
 
 export function DatabaseOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_ORANGE}
-      {...props}
-      _style={extendStyle(DATABASE_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_ORANGE)} />
 }

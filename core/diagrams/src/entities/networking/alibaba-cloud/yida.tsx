@@ -11,5 +11,5 @@ export const YIDA = {
 }
 
 export function Yida(props: NodeProps) {
-  return <Shape {...YIDA} {...props} _style={extendStyle(YIDA, props)} />
+  return <Shape {...props} _style={extendStyle(props, YIDA)} />
 }

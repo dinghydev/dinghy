@@ -11,11 +11,5 @@ export const LEFT_AND_UP_ARROW = {
 }
 
 export function LeftAndUpArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...LEFT_AND_UP_ARROW}
-      {...props}
-      _style={extendStyle(LEFT_AND_UP_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LEFT_AND_UP_ARROW)} />
 }

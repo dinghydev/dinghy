@@ -12,10 +12,6 @@ export const NLP_KE_KEYWORD_EXTRACTION = {
 
 export function NlpKeKeywordExtraction(props: NodeProps) {
   return (
-    <Shape
-      {...NLP_KE_KEYWORD_EXTRACTION}
-      {...props}
-      _style={extendStyle(NLP_KE_KEYWORD_EXTRACTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NLP_KE_KEYWORD_EXTRACTION)} />
   )
 }

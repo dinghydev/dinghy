@@ -11,5 +11,5 @@ export const DB2 = {
 }
 
 export function Db2(props: NodeProps) {
-  return <Shape {...DB2} {...props} _style={extendStyle(DB2, props)} />
+  return <Shape {...props} _style={extendStyle(props, DB2)} />
 }

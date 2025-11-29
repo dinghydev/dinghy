@@ -11,11 +11,5 @@ export const AMAZON_POLLY = {
 }
 
 export function AmazonPolly(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_POLLY}
-      {...props}
-      _style={extendStyle(AMAZON_POLLY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_POLLY)} />
 }

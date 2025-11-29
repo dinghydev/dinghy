@@ -11,11 +11,5 @@ export const SAP_TASK_CENTER = {
 }
 
 export function SapTaskCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_TASK_CENTER}
-      {...props}
-      _style={extendStyle(SAP_TASK_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_TASK_CENTER)} />
 }

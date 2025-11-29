@@ -11,11 +11,5 @@ export const FACTORY_NON_SAP = {
 }
 
 export function FactoryNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...FACTORY_NON_SAP}
-      {...props}
-      _style={extendStyle(FACTORY_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACTORY_NON_SAP)} />
 }

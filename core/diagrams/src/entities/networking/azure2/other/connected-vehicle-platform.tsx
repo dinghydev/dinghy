@@ -12,10 +12,6 @@ export const CONNECTED_VEHICLE_PLATFORM = {
 
 export function ConnectedVehiclePlatform(props: NodeProps) {
   return (
-    <Shape
-      {...CONNECTED_VEHICLE_PLATFORM}
-      {...props}
-      _style={extendStyle(CONNECTED_VEHICLE_PLATFORM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONNECTED_VEHICLE_PLATFORM)} />
   )
 }

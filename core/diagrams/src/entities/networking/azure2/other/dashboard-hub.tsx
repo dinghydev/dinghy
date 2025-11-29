@@ -11,11 +11,5 @@ export const DASHBOARD_HUB = {
 }
 
 export function DashboardHub(props: NodeProps) {
-  return (
-    <Shape
-      {...DASHBOARD_HUB}
-      {...props}
-      _style={extendStyle(DASHBOARD_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DASHBOARD_HUB)} />
 }

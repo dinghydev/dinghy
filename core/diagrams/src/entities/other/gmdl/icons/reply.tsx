@@ -11,5 +11,5 @@ export const REPLY = {
 }
 
 export function Reply(props: NodeProps) {
-  return <Shape {...REPLY} {...props} _style={extendStyle(REPLY, props)} />
+  return <Shape {...props} _style={extendStyle(props, REPLY)} />
 }

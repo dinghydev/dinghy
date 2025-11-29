@@ -14,11 +14,10 @@ export function AssociationConnectorInstanceSpecificationPropertyConnectorEndNav
 ) {
   return (
     <Dependency
-      {...ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_NAVIGABILITY_NOTATION}
       {...props}
       _style={extendStyle(
-        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_NAVIGABILITY_NOTATION,
         props,
+        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_NAVIGABILITY_NOTATION,
       )}
     />
   )

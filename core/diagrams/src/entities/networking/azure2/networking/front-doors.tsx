@@ -11,11 +11,5 @@ export const FRONT_DOORS = {
 }
 
 export function FrontDoors(props: NodeProps) {
-  return (
-    <Shape
-      {...FRONT_DOORS}
-      {...props}
-      _style={extendStyle(FRONT_DOORS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRONT_DOORS)} />
 }

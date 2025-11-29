@@ -11,5 +11,5 @@ export const TOILET = {
 }
 
 export function Toilet(props: NodeProps) {
-  return <Shape {...TOILET} {...props} _style={extendStyle(TOILET, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOILET)} />
 }

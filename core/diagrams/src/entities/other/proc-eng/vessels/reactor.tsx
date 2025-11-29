@@ -11,5 +11,5 @@ export const REACTOR = {
 }
 
 export function Reactor(props: NodeProps) {
-  return <Shape {...REACTOR} {...props} _style={extendStyle(REACTOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, REACTOR)} />
 }

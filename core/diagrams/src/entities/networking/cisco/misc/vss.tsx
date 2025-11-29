@@ -11,5 +11,5 @@ export const VSS = {
 }
 
 export function Vss(props: NodeProps) {
-  return <Shape {...VSS} {...props} _style={extendStyle(VSS, props)} />
+  return <Shape {...props} _style={extendStyle(props, VSS)} />
 }

@@ -13,9 +13,8 @@ export const CANCEL_BOUNDARY_INTERRUPTING = {
 export function CancelBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...CANCEL_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(CANCEL_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, CANCEL_BOUNDARY_INTERRUPTING)}
     />
   )
 }

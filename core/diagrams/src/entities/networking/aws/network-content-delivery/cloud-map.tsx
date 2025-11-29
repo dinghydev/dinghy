@@ -11,7 +11,5 @@ export const CLOUD_MAP = {
 }
 
 export function CloudMap(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_MAP} {...props} _style={extendStyle(CLOUD_MAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_MAP)} />
 }

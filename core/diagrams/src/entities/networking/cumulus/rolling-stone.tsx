@@ -10,11 +10,5 @@ export const ROLLING_STONE = {
 }
 
 export function RollingStone(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLLING_STONE}
-      {...props}
-      _style={extendStyle(ROLLING_STONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLLING_STONE)} />
 }

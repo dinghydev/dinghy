@@ -11,7 +11,5 @@ export const BAR_CHART = {
 }
 
 export function BarChart(props: NodeProps) {
-  return (
-    <Shape {...BAR_CHART} {...props} _style={extendStyle(BAR_CHART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BAR_CHART)} />
 }

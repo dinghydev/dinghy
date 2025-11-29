@@ -11,7 +11,5 @@ export const GOVERNMENT = {
 }
 
 export function Government(props: NodeProps) {
-  return (
-    <Shape {...GOVERNMENT} {...props} _style={extendStyle(GOVERNMENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOVERNMENT)} />
 }

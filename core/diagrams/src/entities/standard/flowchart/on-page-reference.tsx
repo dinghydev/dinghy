@@ -11,11 +11,5 @@ export const ON_PAGE_REFERENCE = {
 }
 
 export function OnPageReference(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PAGE_REFERENCE}
-      {...props}
-      _style={extendStyle(ON_PAGE_REFERENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PAGE_REFERENCE)} />
 }

@@ -11,7 +11,5 @@ export const COMMERCE_2 = {
 }
 
 export function Commerce2(props: NodeProps) {
-  return (
-    <Shape {...COMMERCE_2} {...props} _style={extendStyle(COMMERCE_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMERCE_2)} />
 }

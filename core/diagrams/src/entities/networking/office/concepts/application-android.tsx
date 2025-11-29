@@ -11,11 +11,5 @@ export const APPLICATION_ANDROID = {
 }
 
 export function ApplicationAndroid(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_ANDROID}
-      {...props}
-      _style={extendStyle(APPLICATION_ANDROID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_ANDROID)} />
 }

@@ -12,10 +12,6 @@ export const WORKSTATION_VISUAL_STUDIO = {
 
 export function WorkstationVisualStudio(props: NodeProps) {
   return (
-    <Shape
-      {...WORKSTATION_VISUAL_STUDIO}
-      {...props}
-      _style={extendStyle(WORKSTATION_VISUAL_STUDIO, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WORKSTATION_VISUAL_STUDIO)} />
   )
 }

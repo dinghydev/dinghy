@@ -11,11 +11,5 @@ export const LOGIC_LOCAL_PANEL = {
 }
 
 export function LogicLocalPanel(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGIC_LOCAL_PANEL}
-      {...props}
-      _style={extendStyle(LOGIC_LOCAL_PANEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGIC_LOCAL_PANEL)} />
 }

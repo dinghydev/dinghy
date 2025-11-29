@@ -11,5 +11,5 @@ export const AS2 = {
 }
 
 export function As2(props: NodeProps) {
-  return <Shape {...AS2} {...props} _style={extendStyle(AS2, props)} />
+  return <Shape {...props} _style={extendStyle(props, AS2)} />
 }

@@ -11,7 +11,5 @@ export const EMR_ENGINE = {
 }
 
 export function EmrEngine(props: NodeProps) {
-  return (
-    <Shape {...EMR_ENGINE} {...props} _style={extendStyle(EMR_ENGINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMR_ENGINE)} />
 }

@@ -11,7 +11,5 @@ export const LOCATION = {
 }
 
 export function Location(props: NodeProps) {
-  return (
-    <Shape {...LOCATION} {...props} _style={extendStyle(LOCATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCATION)} />
 }

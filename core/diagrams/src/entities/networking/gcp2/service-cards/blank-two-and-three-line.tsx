@@ -12,10 +12,6 @@ export const BLANK_TWO_AND_THREE_LINE = {
 
 export function BlankTwoAndThreeLine(props: NodeProps) {
   return (
-    <Shape
-      {...BLANK_TWO_AND_THREE_LINE}
-      {...props}
-      _style={extendStyle(BLANK_TWO_AND_THREE_LINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BLANK_TWO_AND_THREE_LINE)} />
   )
 }

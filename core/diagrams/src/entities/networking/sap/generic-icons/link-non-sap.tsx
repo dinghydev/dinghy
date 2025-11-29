@@ -11,11 +11,5 @@ export const LINK_NON_SAP = {
 }
 
 export function LinkNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...LINK_NON_SAP}
-      {...props}
-      _style={extendStyle(LINK_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINK_NON_SAP)} />
 }

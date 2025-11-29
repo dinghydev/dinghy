@@ -11,5 +11,5 @@ export const TDM_PBX = {
 }
 
 export function TdmPbx(props: NodeProps) {
-  return <Shape {...TDM_PBX} {...props} _style={extendStyle(TDM_PBX, props)} />
+  return <Shape {...props} _style={extendStyle(props, TDM_PBX)} />
 }

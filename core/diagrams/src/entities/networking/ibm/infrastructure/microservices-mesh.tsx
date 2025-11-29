@@ -11,11 +11,5 @@ export const MICROSERVICES_MESH = {
 }
 
 export function MicroservicesMesh(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSERVICES_MESH}
-      {...props}
-      _style={extendStyle(MICROSERVICES_MESH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSERVICES_MESH)} />
 }

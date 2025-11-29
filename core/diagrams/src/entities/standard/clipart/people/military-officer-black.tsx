@@ -12,10 +12,6 @@ export const MILITARY_OFFICER_BLACK = {
 
 export function MilitaryOfficerBlack(props: NodeProps) {
   return (
-    <Shape
-      {...MILITARY_OFFICER_BLACK}
-      {...props}
-      _style={extendStyle(MILITARY_OFFICER_BLACK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MILITARY_OFFICER_BLACK)} />
   )
 }

@@ -11,11 +11,5 @@ export const STORAGE_QUEUE = {
 }
 
 export function StorageQueue(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_QUEUE}
-      {...props}
-      _style={extendStyle(STORAGE_QUEUE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_QUEUE)} />
 }

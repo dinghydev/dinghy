@@ -11,11 +11,5 @@ export const PROJECTOR_CANVAS = {
 }
 
 export function ProjectorCanvas(props: NodeProps) {
-  return (
-    <Shape
-      {...PROJECTOR_CANVAS}
-      {...props}
-      _style={extendStyle(PROJECTOR_CANVAS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROJECTOR_CANVAS)} />
 }

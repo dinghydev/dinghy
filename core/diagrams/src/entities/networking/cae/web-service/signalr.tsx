@@ -11,5 +11,5 @@ export const SIGNALR = {
 }
 
 export function Signalr(props: NodeProps) {
-  return <Shape {...SIGNALR} {...props} _style={extendStyle(SIGNALR, props)} />
+  return <Shape {...props} _style={extendStyle(props, SIGNALR)} />
 }

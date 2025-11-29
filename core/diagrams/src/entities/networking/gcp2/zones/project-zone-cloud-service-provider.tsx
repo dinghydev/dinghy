@@ -13,9 +13,8 @@ export const PROJECT_ZONE_CLOUD_SERVICE_PROVIDER = {
 export function ProjectZoneCloudServiceProvider(props: NodeProps) {
   return (
     <Shape
-      {...PROJECT_ZONE_CLOUD_SERVICE_PROVIDER}
       {...props}
-      _style={extendStyle(PROJECT_ZONE_CLOUD_SERVICE_PROVIDER, props)}
+      _style={extendStyle(props, PROJECT_ZONE_CLOUD_SERVICE_PROVIDER)}
     />
   )
 }

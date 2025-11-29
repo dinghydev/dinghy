@@ -11,11 +11,5 @@ export const CALL_MANAGER = {
 }
 
 export function CallManager(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_MANAGER}
-      {...props}
-      _style={extendStyle(CALL_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_MANAGER)} />
 }

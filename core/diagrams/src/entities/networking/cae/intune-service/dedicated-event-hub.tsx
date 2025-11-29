@@ -11,11 +11,5 @@ export const DEDICATED_EVENT_HUB = {
 }
 
 export function DedicatedEventHub(props: NodeProps) {
-  return (
-    <Shape
-      {...DEDICATED_EVENT_HUB}
-      {...props}
-      _style={extendStyle(DEDICATED_EVENT_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEDICATED_EVENT_HUB)} />
 }

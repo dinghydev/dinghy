@@ -11,7 +11,5 @@ export const REBOILER = {
 }
 
 export function Reboiler(props: NodeProps) {
-  return (
-    <Shape {...REBOILER} {...props} _style={extendStyle(REBOILER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REBOILER)} />
 }

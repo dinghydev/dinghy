@@ -11,11 +11,5 @@ export const RETURN_ADDRESS = {
 }
 
 export function ReturnAddress(props: NodeProps) {
-  return (
-    <Shape
-      {...RETURN_ADDRESS}
-      {...props}
-      _style={extendStyle(RETURN_ADDRESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETURN_ADDRESS)} />
 }

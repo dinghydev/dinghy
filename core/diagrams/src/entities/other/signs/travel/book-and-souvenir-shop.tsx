@@ -12,10 +12,6 @@ export const BOOK_AND_SOUVENIR_SHOP = {
 
 export function BookAndSouvenirShop(props: NodeProps) {
   return (
-    <Shape
-      {...BOOK_AND_SOUVENIR_SHOP}
-      {...props}
-      _style={extendStyle(BOOK_AND_SOUVENIR_SHOP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BOOK_AND_SOUVENIR_SHOP)} />
   )
 }

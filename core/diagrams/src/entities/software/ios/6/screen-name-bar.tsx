@@ -11,11 +11,5 @@ export const SCREEN_NAME_BAR = {
 }
 
 export function ScreenNameBar(props: NodeProps) {
-  return (
-    <Shape
-      {...SCREEN_NAME_BAR}
-      {...props}
-      _style={extendStyle(SCREEN_NAME_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCREEN_NAME_BAR)} />
 }

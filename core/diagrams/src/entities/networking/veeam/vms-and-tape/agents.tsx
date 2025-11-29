@@ -11,5 +11,5 @@ export const AGENTS = {
 }
 
 export function Agents(props: NodeProps) {
-  return <Shape {...AGENTS} {...props} _style={extendStyle(AGENTS, props)} />
+  return <Shape {...props} _style={extendStyle(props, AGENTS)} />
 }

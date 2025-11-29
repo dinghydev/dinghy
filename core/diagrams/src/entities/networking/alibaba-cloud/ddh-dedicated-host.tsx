@@ -11,11 +11,5 @@ export const DDH_DEDICATED_HOST = {
 }
 
 export function DdhDedicatedHost(props: NodeProps) {
-  return (
-    <Shape
-      {...DDH_DEDICATED_HOST}
-      {...props}
-      _style={extendStyle(DDH_DEDICATED_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DDH_DEDICATED_HOST)} />
 }

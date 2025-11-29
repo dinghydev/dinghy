@@ -11,11 +11,5 @@ export const PILL_BADGE_SECONDARY = {
 }
 
 export function PillBadgeSecondary(props: NodeProps) {
-  return (
-    <Shape
-      {...PILL_BADGE_SECONDARY}
-      {...props}
-      _style={extendStyle(PILL_BADGE_SECONDARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PILL_BADGE_SECONDARY)} />
 }

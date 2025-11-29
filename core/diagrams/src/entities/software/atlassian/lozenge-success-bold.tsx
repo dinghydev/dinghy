@@ -11,11 +11,5 @@ export const LOZENGE_SUCCESS_BOLD = {
 }
 
 export function LozengeSuccessBold(props: NodeProps) {
-  return (
-    <Shape
-      {...LOZENGE_SUCCESS_BOLD}
-      {...props}
-      _style={extendStyle(LOZENGE_SUCCESS_BOLD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOZENGE_SUCCESS_BOLD)} />
 }

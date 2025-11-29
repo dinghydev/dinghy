@@ -11,5 +11,5 @@ export const VENUS = {
 }
 
 export function Venus(props: NodeProps) {
-  return <Shape {...VENUS} {...props} _style={extendStyle(VENUS, props)} />
+  return <Shape {...props} _style={extendStyle(props, VENUS)} />
 }

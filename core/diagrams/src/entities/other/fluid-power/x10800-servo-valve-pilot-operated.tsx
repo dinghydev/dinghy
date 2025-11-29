@@ -13,9 +13,8 @@ export const X10800_SERVO_VALVE_PILOT_OPERATED = {
 export function X10800ServoValvePilotOperated(props: NodeProps) {
   return (
     <Shape
-      {...X10800_SERVO_VALVE_PILOT_OPERATED}
       {...props}
-      _style={extendStyle(X10800_SERVO_VALVE_PILOT_OPERATED, props)}
+      _style={extendStyle(props, X10800_SERVO_VALVE_PILOT_OPERATED)}
     />
   )
 }

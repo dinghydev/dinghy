@@ -13,9 +13,8 @@ export const TUNING_VARIABLE_CAPACITOR_US_2 = {
 export function TuningVariableCapacitorUs2(props: NodeProps) {
   return (
     <Shape
-      {...TUNING_VARIABLE_CAPACITOR_US_2}
       {...props}
-      _style={extendStyle(TUNING_VARIABLE_CAPACITOR_US_2, props)}
+      _style={extendStyle(props, TUNING_VARIABLE_CAPACITOR_US_2)}
     />
   )
 }

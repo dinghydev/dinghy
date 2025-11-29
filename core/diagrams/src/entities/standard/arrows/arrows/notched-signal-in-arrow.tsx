@@ -12,10 +12,6 @@ export const NOTCHED_SIGNAL_IN_ARROW = {
 
 export function NotchedSignalInArrow(props: NodeProps) {
   return (
-    <Shape
-      {...NOTCHED_SIGNAL_IN_ARROW}
-      {...props}
-      _style={extendStyle(NOTCHED_SIGNAL_IN_ARROW, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NOTCHED_SIGNAL_IN_ARROW)} />
   )
 }

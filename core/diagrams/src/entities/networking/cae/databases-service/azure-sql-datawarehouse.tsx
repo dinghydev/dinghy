@@ -12,10 +12,6 @@ export const AZURE_SQL_DATAWAREHOUSE = {
 
 export function AzureSqlDatawarehouse(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_SQL_DATAWAREHOUSE}
-      {...props}
-      _style={extendStyle(AZURE_SQL_DATAWAREHOUSE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_SQL_DATAWAREHOUSE)} />
   )
 }

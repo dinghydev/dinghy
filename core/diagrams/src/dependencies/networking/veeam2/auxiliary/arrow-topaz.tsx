@@ -9,11 +9,5 @@ export const ARROW_TOPAZ = {
 }
 
 export function ArrowTopaz(props: NodeProps) {
-  return (
-    <Dependency
-      {...ARROW_TOPAZ}
-      {...props}
-      _style={extendStyle(ARROW_TOPAZ, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ARROW_TOPAZ)} />
 }

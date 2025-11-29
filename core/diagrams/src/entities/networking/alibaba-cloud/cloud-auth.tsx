@@ -11,7 +11,5 @@ export const CLOUD_AUTH = {
 }
 
 export function CloudAuth(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_AUTH} {...props} _style={extendStyle(CLOUD_AUTH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_AUTH)} />
 }

@@ -11,5 +11,5 @@ export const PUBLISH = {
 }
 
 export function Publish(props: NodeProps) {
-  return <Shape {...PUBLISH} {...props} _style={extendStyle(PUBLISH, props)} />
+  return <Shape {...props} _style={extendStyle(props, PUBLISH)} />
 }

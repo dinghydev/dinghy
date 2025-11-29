@@ -12,10 +12,6 @@ export const ENDPOINT_CONCENTRATOR_2 = {
 
 export function EndpointConcentrator2(props: NodeProps) {
   return (
-    <Shape
-      {...ENDPOINT_CONCENTRATOR_2}
-      {...props}
-      _style={extendStyle(ENDPOINT_CONCENTRATOR_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ENDPOINT_CONCENTRATOR_2)} />
   )
 }

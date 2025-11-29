@@ -11,11 +11,5 @@ export const WEB_SECURITY_SERVICES = {
 }
 
 export function WebSecurityServices(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SECURITY_SERVICES}
-      {...props}
-      _style={extendStyle(WEB_SECURITY_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SECURITY_SERVICES)} />
 }

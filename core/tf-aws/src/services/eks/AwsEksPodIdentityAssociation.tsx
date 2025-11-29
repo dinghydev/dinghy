@@ -1,0 +1,61 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_pod_identity_association
+
+export const InputSchema = z.object({
+  cluster_name: resolvableValue(z.string()),
+  id: resolvableValue(z.string()),
+  namespace: resolvableValue(z.string()),
+  role_arn: resolvableValue(z.string()),
+  service_account: resolvableValue(z.string()),
+  disable_session_tags: resolvableValue(z.boolean().optional()),
+  region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  target_role_arn: resolvableValue(z.string().optional()),
+})
+
+export const OutputSchema = z.object({
+  association_arn: z.string().optional(),
+  association_id: z.string().optional(),
+  external_id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsEksPodIdentityAssociation(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_eks_pod_identity_association'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsEksPodIdentityAssociation = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(AwsEksPodIdentityAssociation, node, id)
+
+export const useAwsEksPodIdentityAssociations = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(AwsEksPodIdentityAssociation, node, id)

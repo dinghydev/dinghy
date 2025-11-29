@@ -11,7 +11,5 @@ export const RADIATION = {
 }
 
 export function Radiation(props: NodeProps) {
-  return (
-    <Shape {...RADIATION} {...props} _style={extendStyle(RADIATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADIATION)} />
 }

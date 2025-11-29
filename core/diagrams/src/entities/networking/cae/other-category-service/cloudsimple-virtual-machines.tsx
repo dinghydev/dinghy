@@ -13,9 +13,8 @@ export const CLOUDSIMPLE_VIRTUAL_MACHINES = {
 export function CloudsimpleVirtualMachines(props: NodeProps) {
   return (
     <Shape
-      {...CLOUDSIMPLE_VIRTUAL_MACHINES}
       {...props}
-      _style={extendStyle(CLOUDSIMPLE_VIRTUAL_MACHINES, props)}
+      _style={extendStyle(props, CLOUDSIMPLE_VIRTUAL_MACHINES)}
     />
   )
 }

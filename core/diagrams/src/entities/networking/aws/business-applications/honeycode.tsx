@@ -11,7 +11,5 @@ export const HONEYCODE = {
 }
 
 export function Honeycode(props: NodeProps) {
-  return (
-    <Shape {...HONEYCODE} {...props} _style={extendStyle(HONEYCODE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HONEYCODE)} />
 }

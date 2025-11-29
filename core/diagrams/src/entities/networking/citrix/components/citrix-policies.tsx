@@ -11,11 +11,5 @@ export const CITRIX_POLICIES = {
 }
 
 export function CitrixPolicies(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_POLICIES}
-      {...props}
-      _style={extendStyle(CITRIX_POLICIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_POLICIES)} />
 }

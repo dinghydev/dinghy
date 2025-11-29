@@ -12,10 +12,6 @@ export const VBR_VIRTUAL_BORDER_ROUTER = {
 
 export function VbrVirtualBorderRouter(props: NodeProps) {
   return (
-    <Shape
-      {...VBR_VIRTUAL_BORDER_ROUTER}
-      {...props}
-      _style={extendStyle(VBR_VIRTUAL_BORDER_ROUTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VBR_VIRTUAL_BORDER_ROUTER)} />
   )
 }

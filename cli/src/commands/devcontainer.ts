@@ -7,12 +7,12 @@ import type {
   CommandOptions,
 } from '../types.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
-import Debug from 'debug'
 import { appHomeMount, configGet, hostAppHome } from '../utils/loadConfig.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
 import { execa } from 'execa'
 import { getDockerEnvs, getDockerMounts } from '../utils/dockerUtils.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
+import Debug from 'debug'
 const debug = Debug('init')
 
 const options: CommandOptions = {

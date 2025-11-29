@@ -13,9 +13,8 @@ export const DEFENDER_INDUSTRIAL_SCALE_SYSTEM = {
 export function DefenderIndustrialScaleSystem(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_INDUSTRIAL_SCALE_SYSTEM}
       {...props}
-      _style={extendStyle(DEFENDER_INDUSTRIAL_SCALE_SYSTEM, props)}
+      _style={extendStyle(props, DEFENDER_INDUSTRIAL_SCALE_SYSTEM)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const CLOUDWATCH_RUM = {
 }
 
 export function CloudwatchRum(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDWATCH_RUM}
-      {...props}
-      _style={extendStyle(CLOUDWATCH_RUM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDWATCH_RUM)} />
 }

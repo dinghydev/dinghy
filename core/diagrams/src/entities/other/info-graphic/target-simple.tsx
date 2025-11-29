@@ -11,11 +11,5 @@ export const TARGET_SIMPLE = {
 }
 
 export function TargetSimple(props: NodeProps) {
-  return (
-    <Shape
-      {...TARGET_SIMPLE}
-      {...props}
-      _style={extendStyle(TARGET_SIMPLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TARGET_SIMPLE)} />
 }

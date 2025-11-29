@@ -11,11 +11,5 @@ export const LYNC_ROOM_SYSTEM = {
 }
 
 export function LyncRoomSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...LYNC_ROOM_SYSTEM}
-      {...props}
-      _style={extendStyle(LYNC_ROOM_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LYNC_ROOM_SYSTEM)} />
 }

@@ -12,10 +12,6 @@ export const LOAD_BALANCING_ROUTING = {
 
 export function LoadBalancingRouting(props: NodeProps) {
   return (
-    <Shape
-      {...LOAD_BALANCING_ROUTING}
-      {...props}
-      _style={extendStyle(LOAD_BALANCING_ROUTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOAD_BALANCING_ROUTING)} />
   )
 }

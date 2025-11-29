@@ -11,11 +11,5 @@ export const ENDPOINT_MANAGEMENT = {
 }
 
 export function EndpointManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...ENDPOINT_MANAGEMENT}
-      {...props}
-      _style={extendStyle(ENDPOINT_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENDPOINT_MANAGEMENT)} />
 }

@@ -11,5 +11,5 @@ export const COLLATE = {
 }
 
 export function Collate(props: NodeProps) {
-  return <Shape {...COLLATE} {...props} _style={extendStyle(COLLATE, props)} />
+  return <Shape {...props} _style={extendStyle(props, COLLATE)} />
 }

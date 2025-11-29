@@ -11,11 +11,5 @@ export const BLOCKING_DEVICE = {
 }
 
 export function BlockingDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...BLOCKING_DEVICE}
-      {...props}
-      _style={extendStyle(BLOCKING_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLOCKING_DEVICE)} />
 }

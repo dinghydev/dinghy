@@ -11,11 +11,5 @@ export const TEXTFIELD_ACTIVATED = {
 }
 
 export function TextfieldActivated(props: NodeProps) {
-  return (
-    <Shape
-      {...TEXTFIELD_ACTIVATED}
-      {...props}
-      _style={extendStyle(TEXTFIELD_ACTIVATED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXTFIELD_ACTIVATED)} />
 }

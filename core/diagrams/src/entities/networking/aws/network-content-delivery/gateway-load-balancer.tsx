@@ -11,11 +11,5 @@ export const GATEWAY_LOAD_BALANCER = {
 }
 
 export function GatewayLoadBalancer(props: NodeProps) {
-  return (
-    <Shape
-      {...GATEWAY_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(GATEWAY_LOAD_BALANCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GATEWAY_LOAD_BALANCER)} />
 }

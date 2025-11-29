@@ -12,10 +12,6 @@ export const REDSHIFT_QUERY_EDITOR_V2_0 = {
 
 export function RedshiftQueryEditorV20(props: NodeProps) {
   return (
-    <Shape
-      {...REDSHIFT_QUERY_EDITOR_V2_0}
-      {...props}
-      _style={extendStyle(REDSHIFT_QUERY_EDITOR_V2_0, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, REDSHIFT_QUERY_EDITOR_V2_0)} />
   )
 }

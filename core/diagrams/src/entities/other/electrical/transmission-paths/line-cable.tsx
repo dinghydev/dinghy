@@ -11,7 +11,5 @@ export const LINE_CABLE = {
 }
 
 export function LineCable(props: NodeProps) {
-  return (
-    <Shape {...LINE_CABLE} {...props} _style={extendStyle(LINE_CABLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINE_CABLE)} />
 }

@@ -11,11 +11,5 @@ export const AZUREFXTEDGEFILER = {
 }
 
 export function Azurefxtedgefiler(props: NodeProps) {
-  return (
-    <Shape
-      {...AZUREFXTEDGEFILER}
-      {...props}
-      _style={extendStyle(AZUREFXTEDGEFILER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZUREFXTEDGEFILER)} />
 }

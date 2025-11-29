@@ -11,11 +11,5 @@ export const METADATA_FILE = {
 }
 
 export function MetadataFile(props: NodeProps) {
-  return (
-    <Shape
-      {...METADATA_FILE}
-      {...props}
-      _style={extendStyle(METADATA_FILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, METADATA_FILE)} />
 }

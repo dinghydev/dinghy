@@ -13,9 +13,8 @@ export const BUTTON_FOCUSED_DISABLED_BRIGHT = {
 export function ButtonFocusedDisabledBright(props: NodeProps) {
   return (
     <Shape
-      {...BUTTON_FOCUSED_DISABLED_BRIGHT}
       {...props}
-      _style={extendStyle(BUTTON_FOCUSED_DISABLED_BRIGHT, props)}
+      _style={extendStyle(props, BUTTON_FOCUSED_DISABLED_BRIGHT)}
     />
   )
 }

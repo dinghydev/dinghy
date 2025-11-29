@@ -12,10 +12,6 @@ export const LOCATION_SERVICE_TRACK = {
 
 export function LocationServiceTrack(props: NodeProps) {
   return (
-    <Shape
-      {...LOCATION_SERVICE_TRACK}
-      {...props}
-      _style={extendStyle(LOCATION_SERVICE_TRACK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOCATION_SERVICE_TRACK)} />
   )
 }

@@ -11,5 +11,5 @@ export const CUBES = {
 }
 
 export function Cubes(props: NodeProps) {
-  return <Shape {...CUBES} {...props} _style={extendStyle(CUBES, props)} />
+  return <Shape {...props} _style={extendStyle(props, CUBES)} />
 }

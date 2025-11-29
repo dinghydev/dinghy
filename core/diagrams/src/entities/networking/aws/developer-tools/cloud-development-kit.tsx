@@ -11,11 +11,5 @@ export const CLOUD_DEVELOPMENT_KIT = {
 }
 
 export function CloudDevelopmentKit(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DEVELOPMENT_KIT}
-      {...props}
-      _style={extendStyle(CLOUD_DEVELOPMENT_KIT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DEVELOPMENT_KIT)} />
 }

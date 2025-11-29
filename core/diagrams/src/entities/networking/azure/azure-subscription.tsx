@@ -11,11 +11,5 @@ export const AZURE_SUBSCRIPTION = {
 }
 
 export function AzureSubscription(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_SUBSCRIPTION}
-      {...props}
-      _style={extendStyle(AZURE_SUBSCRIPTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_SUBSCRIPTION)} />
 }

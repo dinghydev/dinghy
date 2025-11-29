@@ -11,11 +11,5 @@ export const ROUTE_53_RESOLVER = {
 }
 
 export function Route53Resolver(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTE_53_RESOLVER}
-      {...props}
-      _style={extendStyle(ROUTE_53_RESOLVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTE_53_RESOLVER)} />
 }

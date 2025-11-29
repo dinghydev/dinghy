@@ -11,11 +11,5 @@ export const MQTT_PROTOCOL = {
 }
 
 export function MqttProtocol(props: NodeProps) {
-  return (
-    <Shape
-      {...MQTT_PROTOCOL}
-      {...props}
-      _style={extendStyle(MQTT_PROTOCOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MQTT_PROTOCOL)} />
 }

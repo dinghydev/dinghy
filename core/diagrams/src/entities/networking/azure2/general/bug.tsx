@@ -11,5 +11,5 @@ export const BUG = {
 }
 
 export function Bug(props: NodeProps) {
-  return <Shape {...BUG} {...props} _style={extendStyle(BUG, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUG)} />
 }

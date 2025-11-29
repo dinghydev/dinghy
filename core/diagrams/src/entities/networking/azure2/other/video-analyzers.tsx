@@ -11,11 +11,5 @@ export const VIDEO_ANALYZERS = {
 }
 
 export function VideoAnalyzers(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_ANALYZERS}
-      {...props}
-      _style={extendStyle(VIDEO_ANALYZERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_ANALYZERS)} />
 }

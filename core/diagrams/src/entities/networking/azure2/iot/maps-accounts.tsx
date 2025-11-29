@@ -11,11 +11,5 @@ export const MAPS_ACCOUNTS = {
 }
 
 export function MapsAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...MAPS_ACCOUNTS}
-      {...props}
-      _style={extendStyle(MAPS_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAPS_ACCOUNTS)} />
 }

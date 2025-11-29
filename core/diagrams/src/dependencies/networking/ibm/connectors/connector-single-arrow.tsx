@@ -11,9 +11,8 @@ export const CONNECTOR_SINGLE_ARROW = {
 export function ConnectorSingleArrow(props: NodeProps) {
   return (
     <Dependency
-      {...CONNECTOR_SINGLE_ARROW}
       {...props}
-      _style={extendStyle(CONNECTOR_SINGLE_ARROW, props)}
+      _style={extendStyle(props, CONNECTOR_SINGLE_ARROW)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const MAILBOX_DATABASE = {
 }
 
 export function MailboxDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...MAILBOX_DATABASE}
-      {...props}
-      _style={extendStyle(MAILBOX_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAILBOX_DATABASE)} />
 }

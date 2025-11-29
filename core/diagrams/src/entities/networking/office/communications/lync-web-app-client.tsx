@@ -11,11 +11,5 @@ export const LYNC_WEB_APP_CLIENT = {
 }
 
 export function LyncWebAppClient(props: NodeProps) {
-  return (
-    <Shape
-      {...LYNC_WEB_APP_CLIENT}
-      {...props}
-      _style={extendStyle(LYNC_WEB_APP_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LYNC_WEB_APP_CLIENT)} />
 }

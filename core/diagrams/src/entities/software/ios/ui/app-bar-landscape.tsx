@@ -11,11 +11,5 @@ export const APP_BAR_LANDSCAPE = {
 }
 
 export function AppBarLandscape(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_BAR_LANDSCAPE}
-      {...props}
-      _style={extendStyle(APP_BAR_LANDSCAPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_BAR_LANDSCAPE)} />
 }

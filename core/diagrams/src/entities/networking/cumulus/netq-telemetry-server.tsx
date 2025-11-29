@@ -11,11 +11,5 @@ export const NETQ_TELEMETRY_SERVER = {
 }
 
 export function NetqTelemetryServer(props: NodeProps) {
-  return (
-    <Shape
-      {...NETQ_TELEMETRY_SERVER}
-      {...props}
-      _style={extendStyle(NETQ_TELEMETRY_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETQ_TELEMETRY_SERVER)} />
 }

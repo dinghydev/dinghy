@@ -11,5 +11,5 @@ export const RACK = {
 }
 
 export function Rack(props: NodeProps) {
-  return <Shape {...RACK} {...props} _style={extendStyle(RACK, props)} />
+  return <Shape {...props} _style={extendStyle(props, RACK)} />
 }

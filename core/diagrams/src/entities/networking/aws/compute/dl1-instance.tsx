@@ -11,11 +11,5 @@ export const DL1_INSTANCE = {
 }
 
 export function Dl1Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...DL1_INSTANCE}
-      {...props}
-      _style={extendStyle(DL1_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DL1_INSTANCE)} />
 }

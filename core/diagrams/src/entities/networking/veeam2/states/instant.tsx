@@ -11,5 +11,5 @@ export const INSTANT = {
 }
 
 export function Instant(props: NodeProps) {
-  return <Shape {...INSTANT} {...props} _style={extendStyle(INSTANT, props)} />
+  return <Shape {...props} _style={extendStyle(props, INSTANT)} />
 }

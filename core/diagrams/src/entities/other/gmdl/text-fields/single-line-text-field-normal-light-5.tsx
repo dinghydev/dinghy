@@ -12,9 +12,8 @@ export const SINGLE_LINE_TEXT_FIELD_NORMAL_LIGHT_5 = {
 export function SingleLineTextFieldNormalLight5(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_LINE_TEXT_FIELD_NORMAL_LIGHT_5}
       {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_NORMAL_LIGHT_5, props)}
+      _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD_NORMAL_LIGHT_5)}
     />
   )
 }

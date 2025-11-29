@@ -11,5 +11,5 @@ export const DPST_ON = {
 }
 
 export function DpstOn(props: NodeProps) {
-  return <Shape {...DPST_ON} {...props} _style={extendStyle(DPST_ON, props)} />
+  return <Shape {...props} _style={extendStyle(props, DPST_ON)} />
 }

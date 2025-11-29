@@ -11,11 +11,5 @@ export const FISH_HATCHERY = {
 }
 
 export function FishHatchery(props: NodeProps) {
-  return (
-    <Shape
-      {...FISH_HATCHERY}
-      {...props}
-      _style={extendStyle(FISH_HATCHERY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FISH_HATCHERY)} />
 }

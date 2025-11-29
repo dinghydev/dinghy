@@ -11,7 +11,5 @@ export const LIQUID_JET = {
 }
 
 export function LiquidJet(props: NodeProps) {
-  return (
-    <Shape {...LIQUID_JET} {...props} _style={extendStyle(LIQUID_JET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIQUID_JET)} />
 }

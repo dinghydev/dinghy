@@ -11,11 +11,5 @@ export const CLOUD_CYCLE = {
 }
 
 export function CloudCycle(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CYCLE}
-      {...props}
-      _style={extendStyle(CLOUD_CYCLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CYCLE)} />
 }

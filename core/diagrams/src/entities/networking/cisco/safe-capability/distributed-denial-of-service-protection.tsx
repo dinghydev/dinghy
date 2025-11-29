@@ -13,9 +13,8 @@ export const DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION = {
 export function DistributedDenialOfServiceProtection(props: NodeProps) {
   return (
     <Shape
-      {...DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION}
       {...props}
-      _style={extendStyle(DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION, props)}
+      _style={extendStyle(props, DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const SURVEILLANCE_CAMERA_CEILING = {
 export function SurveillanceCameraCeiling(props: NodeProps) {
   return (
     <Shape
-      {...SURVEILLANCE_CAMERA_CEILING}
       {...props}
-      _style={extendStyle(SURVEILLANCE_CAMERA_CEILING, props)}
+      _style={extendStyle(props, SURVEILLANCE_CAMERA_CEILING)}
     />
   )
 }

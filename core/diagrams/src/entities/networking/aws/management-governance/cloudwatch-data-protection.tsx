@@ -12,10 +12,6 @@ export const CLOUDWATCH_DATA_PROTECTION = {
 
 export function CloudwatchDataProtection(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUDWATCH_DATA_PROTECTION}
-      {...props}
-      _style={extendStyle(CLOUDWATCH_DATA_PROTECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUDWATCH_DATA_PROTECTION)} />
   )
 }

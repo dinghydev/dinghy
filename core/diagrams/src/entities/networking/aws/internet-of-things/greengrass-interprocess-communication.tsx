@@ -13,9 +13,8 @@ export const GREENGRASS_INTERPROCESS_COMMUNICATION = {
 export function GreengrassInterprocessCommunication(props: NodeProps) {
   return (
     <Shape
-      {...GREENGRASS_INTERPROCESS_COMMUNICATION}
       {...props}
-      _style={extendStyle(GREENGRASS_INTERPROCESS_COMMUNICATION, props)}
+      _style={extendStyle(props, GREENGRASS_INTERPROCESS_COMMUNICATION)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const CARD_8 = {
 }
 
 export function Card8(props: NodeProps) {
-  return <Shape {...CARD_8} {...props} _style={extendStyle(CARD_8, props)} />
+  return <Shape {...props} _style={extendStyle(props, CARD_8)} />
 }

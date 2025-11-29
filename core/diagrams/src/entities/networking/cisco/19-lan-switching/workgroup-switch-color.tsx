@@ -12,10 +12,6 @@ export const WORKGROUP_SWITCH_COLOR = {
 
 export function WorkgroupSwitchColor(props: NodeProps) {
   return (
-    <Shape
-      {...WORKGROUP_SWITCH_COLOR}
-      {...props}
-      _style={extendStyle(WORKGROUP_SWITCH_COLOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WORKGROUP_SWITCH_COLOR)} />
   )
 }

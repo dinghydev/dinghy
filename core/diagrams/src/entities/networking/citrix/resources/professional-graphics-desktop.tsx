@@ -13,9 +13,8 @@ export const PROFESSIONAL_GRAPHICS_DESKTOP = {
 export function ProfessionalGraphicsDesktop(props: NodeProps) {
   return (
     <Shape
-      {...PROFESSIONAL_GRAPHICS_DESKTOP}
       {...props}
-      _style={extendStyle(PROFESSIONAL_GRAPHICS_DESKTOP, props)}
+      _style={extendStyle(props, PROFESSIONAL_GRAPHICS_DESKTOP)}
     />
   )
 }

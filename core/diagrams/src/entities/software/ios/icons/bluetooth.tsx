@@ -11,7 +11,5 @@ export const BLUETOOTH = {
 }
 
 export function Bluetooth(props: NodeProps) {
-  return (
-    <Shape {...BLUETOOTH} {...props} _style={extendStyle(BLUETOOTH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLUETOOTH)} />
 }

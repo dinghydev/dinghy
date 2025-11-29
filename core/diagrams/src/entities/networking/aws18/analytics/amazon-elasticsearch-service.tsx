@@ -13,9 +13,8 @@ export const AMAZON_ELASTICSEARCH_SERVICE = {
 export function AmazonElasticsearchService(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_ELASTICSEARCH_SERVICE}
       {...props}
-      _style={extendStyle(AMAZON_ELASTICSEARCH_SERVICE, props)}
+      _style={extendStyle(props, AMAZON_ELASTICSEARCH_SERVICE)}
     />
   )
 }

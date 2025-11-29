@@ -11,11 +11,5 @@ export const JOIN_NODE_3 = {
 }
 
 export function JoinNode3(props: NodeProps) {
-  return (
-    <Shape
-      {...JOIN_NODE_3}
-      {...props}
-      _style={extendStyle(JOIN_NODE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JOIN_NODE_3)} />
 }

@@ -11,11 +11,5 @@ export const TABLET_ANDROID = {
 }
 
 export function TabletAndroid(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLET_ANDROID}
-      {...props}
-      _style={extendStyle(TABLET_ANDROID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLET_ANDROID)} />
 }

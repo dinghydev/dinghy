@@ -11,11 +11,5 @@ export const PARAGRAPH_OF_TEXT = {
 }
 
 export function ParagraphOfText(props: NodeProps) {
-  return (
-    <Shape
-      {...PARAGRAPH_OF_TEXT}
-      {...props}
-      _style={extendStyle(PARAGRAPH_OF_TEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARAGRAPH_OF_TEXT)} />
 }

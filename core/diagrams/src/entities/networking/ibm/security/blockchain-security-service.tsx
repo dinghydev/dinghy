@@ -13,9 +13,8 @@ export const BLOCKCHAIN_SECURITY_SERVICE = {
 export function BlockchainSecurityService(props: NodeProps) {
   return (
     <Shape
-      {...BLOCKCHAIN_SECURITY_SERVICE}
       {...props}
-      _style={extendStyle(BLOCKCHAIN_SECURITY_SERVICE, props)}
+      _style={extendStyle(props, BLOCKCHAIN_SECURITY_SERVICE)}
     />
   )
 }

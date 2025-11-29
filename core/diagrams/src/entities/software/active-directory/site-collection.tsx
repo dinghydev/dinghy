@@ -11,11 +11,5 @@ export const SITE_COLLECTION = {
 }
 
 export function SiteCollection(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_COLLECTION}
-      {...props}
-      _style={extendStyle(SITE_COLLECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_COLLECTION)} />
 }

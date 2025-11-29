@@ -11,7 +11,5 @@ export const K_PROXY_2 = {
 }
 
 export function KProxy2(props: NodeProps) {
-  return (
-    <Shape {...K_PROXY_2} {...props} _style={extendStyle(K_PROXY_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, K_PROXY_2)} />
 }

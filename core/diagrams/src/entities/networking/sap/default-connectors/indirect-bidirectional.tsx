@@ -12,10 +12,6 @@ export const INDIRECT_BIDIRECTIONAL = {
 
 export function IndirectBidirectional(props: NodeProps) {
   return (
-    <Shape
-      {...INDIRECT_BIDIRECTIONAL}
-      {...props}
-      _style={extendStyle(INDIRECT_BIDIRECTIONAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INDIRECT_BIDIRECTIONAL)} />
   )
 }

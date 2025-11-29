@@ -12,10 +12,6 @@ export const EXTERNAL_SAAS_PROVIDERS = {
 
 export function ExternalSaasProviders(props: NodeProps) {
   return (
-    <Shape
-      {...EXTERNAL_SAAS_PROVIDERS}
-      {...props}
-      _style={extendStyle(EXTERNAL_SAAS_PROVIDERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXTERNAL_SAAS_PROVIDERS)} />
   )
 }

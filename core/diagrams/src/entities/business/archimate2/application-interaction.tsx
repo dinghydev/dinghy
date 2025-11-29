@@ -12,10 +12,6 @@ export const APPLICATION_INTERACTION = {
 
 export function ApplicationInteraction(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_INTERACTION}
-      {...props}
-      _style={extendStyle(APPLICATION_INTERACTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_INTERACTION)} />
   )
 }

@@ -11,11 +11,5 @@ export const IMAGE_VIDEO = {
 }
 
 export function ImageVideo(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_VIDEO}
-      {...props}
-      _style={extendStyle(IMAGE_VIDEO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_VIDEO)} />
 }

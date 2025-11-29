@@ -11,7 +11,5 @@ export const FOLDERS_2 = {
 }
 
 export function Folders2(props: NodeProps) {
-  return (
-    <Shape {...FOLDERS_2} {...props} _style={extendStyle(FOLDERS_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDERS_2)} />
 }

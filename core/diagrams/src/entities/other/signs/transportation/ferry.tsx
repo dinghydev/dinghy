@@ -11,5 +11,5 @@ export const FERRY = {
 }
 
 export function Ferry(props: NodeProps) {
-  return <Shape {...FERRY} {...props} _style={extendStyle(FERRY, props)} />
+  return <Shape {...props} _style={extendStyle(props, FERRY)} />
 }

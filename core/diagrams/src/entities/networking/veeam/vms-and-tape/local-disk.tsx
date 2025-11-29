@@ -11,7 +11,5 @@ export const LOCAL_DISK = {
 }
 
 export function LocalDisk(props: NodeProps) {
-  return (
-    <Shape {...LOCAL_DISK} {...props} _style={extendStyle(LOCAL_DISK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCAL_DISK)} />
 }

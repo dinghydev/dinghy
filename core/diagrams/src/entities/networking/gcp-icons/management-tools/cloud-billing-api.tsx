@@ -11,11 +11,5 @@ export const CLOUD_BILLING_API = {
 }
 
 export function CloudBillingApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_BILLING_API}
-      {...props}
-      _style={extendStyle(CLOUD_BILLING_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_BILLING_API)} />
 }

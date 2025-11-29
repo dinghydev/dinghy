@@ -11,11 +11,5 @@ export const CONVEYOR_BELT = {
 }
 
 export function ConveyorBelt(props: NodeProps) {
-  return (
-    <Shape
-      {...CONVEYOR_BELT}
-      {...props}
-      _style={extendStyle(CONVEYOR_BELT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONVEYOR_BELT)} />
 }

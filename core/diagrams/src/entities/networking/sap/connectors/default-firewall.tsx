@@ -11,11 +11,5 @@ export const DEFAULT_FIREWALL = {
 }
 
 export function DefaultFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFAULT_FIREWALL}
-      {...props}
-      _style={extendStyle(DEFAULT_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFAULT_FIREWALL)} />
 }

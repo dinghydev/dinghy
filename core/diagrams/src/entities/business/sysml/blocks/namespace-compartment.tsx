@@ -11,11 +11,5 @@ export const NAMESPACE_COMPARTMENT = {
 }
 
 export function NamespaceCompartment(props: NodeProps) {
-  return (
-    <Shape
-      {...NAMESPACE_COMPARTMENT}
-      {...props}
-      _style={extendStyle(NAMESPACE_COMPARTMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAMESPACE_COMPARTMENT)} />
 }

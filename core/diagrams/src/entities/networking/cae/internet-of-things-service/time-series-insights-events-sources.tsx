@@ -13,9 +13,8 @@ export const TIME_SERIES_INSIGHTS_EVENTS_SOURCES = {
 export function TimeSeriesInsightsEventsSources(props: NodeProps) {
   return (
     <Shape
-      {...TIME_SERIES_INSIGHTS_EVENTS_SOURCES}
       {...props}
-      _style={extendStyle(TIME_SERIES_INSIGHTS_EVENTS_SOURCES, props)}
+      _style={extendStyle(props, TIME_SERIES_INSIGHTS_EVENTS_SOURCES)}
     />
   )
 }

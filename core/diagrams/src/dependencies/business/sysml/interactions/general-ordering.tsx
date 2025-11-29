@@ -9,11 +9,5 @@ export const GENERAL_ORDERING = {
 }
 
 export function GeneralOrdering(props: NodeProps) {
-  return (
-    <Dependency
-      {...GENERAL_ORDERING}
-      {...props}
-      _style={extendStyle(GENERAL_ORDERING, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, GENERAL_ORDERING)} />
 }

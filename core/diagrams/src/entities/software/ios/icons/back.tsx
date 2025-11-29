@@ -11,5 +11,5 @@ export const BACK = {
 }
 
 export function Back(props: NodeProps) {
-  return <Shape {...BACK} {...props} _style={extendStyle(BACK, props)} />
+  return <Shape {...props} _style={extendStyle(props, BACK)} />
 }

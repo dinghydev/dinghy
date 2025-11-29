@@ -11,5 +11,5 @@ export const DIIGO = {
 }
 
 export function Diigo(props: NodeProps) {
-  return <Shape {...DIIGO} {...props} _style={extendStyle(DIIGO, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIIGO)} />
 }

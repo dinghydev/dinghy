@@ -11,11 +11,5 @@ export const TOOLKIT_FOR_ECLIPSE = {
 }
 
 export function ToolkitForEclipse(props: NodeProps) {
-  return (
-    <Shape
-      {...TOOLKIT_FOR_ECLIPSE}
-      {...props}
-      _style={extendStyle(TOOLKIT_FOR_ECLIPSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOOLKIT_FOR_ECLIPSE)} />
 }

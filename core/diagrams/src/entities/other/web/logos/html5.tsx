@@ -11,5 +11,5 @@ export const HTML5 = {
 }
 
 export function Html5(props: NodeProps) {
-  return <Shape {...HTML5} {...props} _style={extendStyle(HTML5, props)} />
+  return <Shape {...props} _style={extendStyle(props, HTML5)} />
 }

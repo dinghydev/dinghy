@@ -11,11 +11,5 @@ export const CLOUD_FIREWALL_RULES = {
 }
 
 export function CloudFirewallRules(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_FIREWALL_RULES}
-      {...props}
-      _style={extendStyle(CLOUD_FIREWALL_RULES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_FIREWALL_RULES)} />
 }

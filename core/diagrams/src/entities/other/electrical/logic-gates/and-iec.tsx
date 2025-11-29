@@ -11,5 +11,5 @@ export const AND_IEC = {
 }
 
 export function AndIec(props: NodeProps) {
-  return <Shape {...AND_IEC} {...props} _style={extendStyle(AND_IEC, props)} />
+  return <Shape {...props} _style={extendStyle(props, AND_IEC)} />
 }

@@ -12,10 +12,6 @@ export const WINDOWS10_CORE_SERVICES = {
 
 export function Windows10CoreServices(props: NodeProps) {
   return (
-    <Shape
-      {...WINDOWS10_CORE_SERVICES}
-      {...props}
-      _style={extendStyle(WINDOWS10_CORE_SERVICES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WINDOWS10_CORE_SERVICES)} />
   )
 }

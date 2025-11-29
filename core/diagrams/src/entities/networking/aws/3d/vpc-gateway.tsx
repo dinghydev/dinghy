@@ -11,11 +11,5 @@ export const VPC_GATEWAY = {
 }
 
 export function VpcGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VPC_GATEWAY}
-      {...props}
-      _style={extendStyle(VPC_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_GATEWAY)} />
 }

@@ -10,7 +10,5 @@ export const BANNER_2 = {
 }
 
 export function Banner2(props: NodeProps) {
-  return (
-    <Shape {...BANNER_2} {...props} _style={extendStyle(BANNER_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANNER_2)} />
 }

@@ -11,11 +11,5 @@ export const NITRO_ENCLAVES = {
 }
 
 export function NitroEnclaves(props: NodeProps) {
-  return (
-    <Shape
-      {...NITRO_ENCLAVES}
-      {...props}
-      _style={extendStyle(NITRO_ENCLAVES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NITRO_ENCLAVES)} />
 }

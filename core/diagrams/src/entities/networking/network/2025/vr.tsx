@@ -11,5 +11,5 @@ export const VR = {
 }
 
 export function Vr(props: NodeProps) {
-  return <Shape {...VR} {...props} _style={extendStyle(VR, props)} />
+  return <Shape {...props} _style={extendStyle(props, VR)} />
 }

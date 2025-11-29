@@ -11,7 +11,5 @@ export const NETSONAR = {
 }
 
 export function Netsonar(props: NodeProps) {
-  return (
-    <Shape {...NETSONAR} {...props} _style={extendStyle(NETSONAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETSONAR)} />
 }

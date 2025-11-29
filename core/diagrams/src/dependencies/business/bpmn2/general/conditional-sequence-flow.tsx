@@ -11,9 +11,8 @@ export const CONDITIONAL_SEQUENCE_FLOW = {
 export function ConditionalSequenceFlow(props: NodeProps) {
   return (
     <Dependency
-      {...CONDITIONAL_SEQUENCE_FLOW}
       {...props}
-      _style={extendStyle(CONDITIONAL_SEQUENCE_FLOW, props)}
+      _style={extendStyle(props, CONDITIONAL_SEQUENCE_FLOW)}
     />
   )
 }

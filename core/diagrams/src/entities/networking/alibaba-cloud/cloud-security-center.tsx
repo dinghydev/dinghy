@@ -11,11 +11,5 @@ export const CLOUD_SECURITY_CENTER = {
 }
 
 export function CloudSecurityCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SECURITY_CENTER}
-      {...props}
-      _style={extendStyle(CLOUD_SECURITY_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SECURITY_CENTER)} />
 }

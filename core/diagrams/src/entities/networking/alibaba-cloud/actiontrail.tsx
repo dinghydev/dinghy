@@ -11,11 +11,5 @@ export const ACTIONTRAIL = {
 }
 
 export function Actiontrail(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTIONTRAIL}
-      {...props}
-      _style={extendStyle(ACTIONTRAIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTIONTRAIL)} />
 }

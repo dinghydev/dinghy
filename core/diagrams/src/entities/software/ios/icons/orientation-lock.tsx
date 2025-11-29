@@ -11,11 +11,5 @@ export const ORIENTATION_LOCK = {
 }
 
 export function OrientationLock(props: NodeProps) {
-  return (
-    <Shape
-      {...ORIENTATION_LOCK}
-      {...props}
-      _style={extendStyle(ORIENTATION_LOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORIENTATION_LOCK)} />
 }

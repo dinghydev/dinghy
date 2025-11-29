@@ -11,11 +11,5 @@ export const CLOUD_KEY_MANAGEMENT = {
 }
 
 export function CloudKeyManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_KEY_MANAGEMENT}
-      {...props}
-      _style={extendStyle(CLOUD_KEY_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_KEY_MANAGEMENT)} />
 }

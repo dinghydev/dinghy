@@ -11,7 +11,5 @@ export const CLOUDTEST = {
 }
 
 export function Cloudtest(props: NodeProps) {
-  return (
-    <Shape {...CLOUDTEST} {...props} _style={extendStyle(CLOUDTEST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDTEST)} />
 }

@@ -10,7 +10,5 @@ export const START_END = {
 }
 
 export function StartEnd(props: NodeProps) {
-  return (
-    <Shape {...START_END} {...props} _style={extendStyle(START_END, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, START_END)} />
 }

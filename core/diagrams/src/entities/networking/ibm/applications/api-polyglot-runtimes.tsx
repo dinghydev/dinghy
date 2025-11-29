@@ -11,11 +11,5 @@ export const API_POLYGLOT_RUNTIMES = {
 }
 
 export function ApiPolyglotRuntimes(props: NodeProps) {
-  return (
-    <Shape
-      {...API_POLYGLOT_RUNTIMES}
-      {...props}
-      _style={extendStyle(API_POLYGLOT_RUNTIMES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_POLYGLOT_RUNTIMES)} />
 }

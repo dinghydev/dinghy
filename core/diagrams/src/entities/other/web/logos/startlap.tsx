@@ -11,7 +11,5 @@ export const STARTLAP = {
 }
 
 export function Startlap(props: NodeProps) {
-  return (
-    <Shape {...STARTLAP} {...props} _style={extendStyle(STARTLAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STARTLAP)} />
 }

@@ -11,11 +11,5 @@ export const AUTHENTICATION_MFA = {
 }
 
 export function AuthenticationMfa(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_MFA}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_MFA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_MFA)} />
 }

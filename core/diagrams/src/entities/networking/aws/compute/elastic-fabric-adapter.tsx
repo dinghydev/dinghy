@@ -12,10 +12,6 @@ export const ELASTIC_FABRIC_ADAPTER = {
 
 export function ElasticFabricAdapter(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_FABRIC_ADAPTER}
-      {...props}
-      _style={extendStyle(ELASTIC_FABRIC_ADAPTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_FABRIC_ADAPTER)} />
   )
 }

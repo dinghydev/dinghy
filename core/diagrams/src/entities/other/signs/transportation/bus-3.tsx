@@ -11,5 +11,5 @@ export const BUS_3 = {
 }
 
 export function Bus3(props: NodeProps) {
-  return <Shape {...BUS_3} {...props} _style={extendStyle(BUS_3, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUS_3)} />
 }

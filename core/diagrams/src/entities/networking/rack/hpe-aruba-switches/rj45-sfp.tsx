@@ -11,7 +11,5 @@ export const RJ45_SFP = {
 }
 
 export function Rj45Sfp(props: NodeProps) {
-  return (
-    <Shape {...RJ45_SFP} {...props} _style={extendStyle(RJ45_SFP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RJ45_SFP)} />
 }

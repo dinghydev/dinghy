@@ -11,11 +11,5 @@ export const APSARAVIDEO_VOD = {
 }
 
 export function ApsaravideoVod(props: NodeProps) {
-  return (
-    <Shape
-      {...APSARAVIDEO_VOD}
-      {...props}
-      _style={extendStyle(APSARAVIDEO_VOD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APSARAVIDEO_VOD)} />
 }

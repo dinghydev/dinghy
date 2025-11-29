@@ -11,11 +11,5 @@ export const AGITATOR_STIRRER = {
 }
 
 export function AgitatorStirrer(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_STIRRER}
-      {...props}
-      _style={extendStyle(AGITATOR_STIRRER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_STIRRER)} />
 }

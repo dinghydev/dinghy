@@ -13,9 +13,8 @@ export const FSX_FOR_WINDOWS_FILE_SERVER = {
 export function FsxForWindowsFileServer(props: NodeProps) {
   return (
     <Shape
-      {...FSX_FOR_WINDOWS_FILE_SERVER}
       {...props}
-      _style={extendStyle(FSX_FOR_WINDOWS_FILE_SERVER, props)}
+      _style={extendStyle(props, FSX_FOR_WINDOWS_FILE_SERVER)}
     />
   )
 }

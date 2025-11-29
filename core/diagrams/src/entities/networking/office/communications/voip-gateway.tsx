@@ -11,11 +11,5 @@ export const VOIP_GATEWAY = {
 }
 
 export function VoipGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VOIP_GATEWAY}
-      {...props}
-      _style={extendStyle(VOIP_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOIP_GATEWAY)} />
 }

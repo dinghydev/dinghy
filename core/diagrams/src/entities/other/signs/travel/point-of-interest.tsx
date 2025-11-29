@@ -11,11 +11,5 @@ export const POINT_OF_INTEREST = {
 }
 
 export function PointOfInterest(props: NodeProps) {
-  return (
-    <Shape
-      {...POINT_OF_INTEREST}
-      {...props}
-      _style={extendStyle(POINT_OF_INTEREST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POINT_OF_INTEREST)} />
 }

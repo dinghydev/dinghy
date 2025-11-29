@@ -11,11 +11,5 @@ export const CHAOS_STUDIO = {
 }
 
 export function ChaosStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...CHAOS_STUDIO}
-      {...props}
-      _style={extendStyle(CHAOS_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHAOS_STUDIO)} />
 }

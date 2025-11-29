@@ -11,11 +11,5 @@ export const FSX_FILE_GATEWAY = {
 }
 
 export function FsxFileGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...FSX_FILE_GATEWAY}
-      {...props}
-      _style={extendStyle(FSX_FILE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FSX_FILE_GATEWAY)} />
 }

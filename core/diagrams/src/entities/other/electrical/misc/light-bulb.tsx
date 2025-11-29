@@ -11,7 +11,5 @@ export const LIGHT_BULB = {
 }
 
 export function LightBulb(props: NodeProps) {
-  return (
-    <Shape {...LIGHT_BULB} {...props} _style={extendStyle(LIGHT_BULB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIGHT_BULB)} />
 }

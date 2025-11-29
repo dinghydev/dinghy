@@ -12,10 +12,6 @@ export const CISCO_ASR_1002_X_ROUTER = {
 
 export function CiscoAsr1002XRouter(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_ASR_1002_X_ROUTER}
-      {...props}
-      _style={extendStyle(CISCO_ASR_1002_X_ROUTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_ASR_1002_X_ROUTER)} />
   )
 }

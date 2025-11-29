@@ -11,11 +11,5 @@ export const ORIFICE_QUICK_CHANGE = {
 }
 
 export function OrificeQuickChange(props: NodeProps) {
-  return (
-    <Shape
-      {...ORIFICE_QUICK_CHANGE}
-      {...props}
-      _style={extendStyle(ORIFICE_QUICK_CHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORIFICE_QUICK_CHANGE)} />
 }

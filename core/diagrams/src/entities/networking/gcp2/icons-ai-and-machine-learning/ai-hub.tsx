@@ -11,5 +11,5 @@ export const AI_HUB = {
 }
 
 export function AiHub(props: NodeProps) {
-  return <Shape {...AI_HUB} {...props} _style={extendStyle(AI_HUB, props)} />
+  return <Shape {...props} _style={extendStyle(props, AI_HUB)} />
 }

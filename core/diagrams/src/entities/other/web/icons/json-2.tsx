@@ -11,5 +11,5 @@ export const JSON_2 = {
 }
 
 export function Json2(props: NodeProps) {
-  return <Shape {...JSON_2} {...props} _style={extendStyle(JSON_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, JSON_2)} />
 }

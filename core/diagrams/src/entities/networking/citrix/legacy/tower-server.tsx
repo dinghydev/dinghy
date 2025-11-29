@@ -11,11 +11,5 @@ export const TOWER_SERVER = {
 }
 
 export function TowerServer(props: NodeProps) {
-  return (
-    <Shape
-      {...TOWER_SERVER}
-      {...props}
-      _style={extendStyle(TOWER_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOWER_SERVER)} />
 }

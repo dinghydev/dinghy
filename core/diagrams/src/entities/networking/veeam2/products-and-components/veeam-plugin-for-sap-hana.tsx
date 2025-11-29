@@ -12,10 +12,6 @@ export const VEEAM_PLUGIN_FOR_SAP_HANA = {
 
 export function VeeamPluginForSapHana(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_PLUGIN_FOR_SAP_HANA}
-      {...props}
-      _style={extendStyle(VEEAM_PLUGIN_FOR_SAP_HANA, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_PLUGIN_FOR_SAP_HANA)} />
   )
 }

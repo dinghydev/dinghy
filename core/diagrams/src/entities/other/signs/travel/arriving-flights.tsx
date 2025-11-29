@@ -11,11 +11,5 @@ export const ARRIVING_FLIGHTS = {
 }
 
 export function ArrivingFlights(props: NodeProps) {
-  return (
-    <Shape
-      {...ARRIVING_FLIGHTS}
-      {...props}
-      _style={extendStyle(ARRIVING_FLIGHTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARRIVING_FLIGHTS)} />
 }

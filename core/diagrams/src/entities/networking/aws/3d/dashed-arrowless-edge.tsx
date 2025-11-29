@@ -11,11 +11,5 @@ export const DASHED_ARROWLESS_EDGE = {
 }
 
 export function DashedArrowlessEdge(props: NodeProps) {
-  return (
-    <Shape
-      {...DASHED_ARROWLESS_EDGE}
-      {...props}
-      _style={extendStyle(DASHED_ARROWLESS_EDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DASHED_ARROWLESS_EDGE)} />
 }

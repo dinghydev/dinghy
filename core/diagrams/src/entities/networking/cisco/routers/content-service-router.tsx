@@ -12,10 +12,6 @@ export const CONTENT_SERVICE_ROUTER = {
 
 export function ContentServiceRouter(props: NodeProps) {
   return (
-    <Shape
-      {...CONTENT_SERVICE_ROUTER}
-      {...props}
-      _style={extendStyle(CONTENT_SERVICE_ROUTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTENT_SERVICE_ROUTER)} />
   )
 }

@@ -13,9 +13,8 @@ export const NLP_NATURAL_LANGUAGE_PROCESSING = {
 export function NlpNaturalLanguageProcessing(props: NodeProps) {
   return (
     <Shape
-      {...NLP_NATURAL_LANGUAGE_PROCESSING}
       {...props}
-      _style={extendStyle(NLP_NATURAL_LANGUAGE_PROCESSING, props)}
+      _style={extendStyle(props, NLP_NATURAL_LANGUAGE_PROCESSING)}
     />
   )
 }

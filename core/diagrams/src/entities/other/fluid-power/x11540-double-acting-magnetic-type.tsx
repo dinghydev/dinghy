@@ -13,9 +13,8 @@ export const X11540_DOUBLE_ACTING_MAGNETIC_TYPE = {
 export function X11540DoubleActingMagneticType(props: NodeProps) {
   return (
     <Shape
-      {...X11540_DOUBLE_ACTING_MAGNETIC_TYPE}
       {...props}
-      _style={extendStyle(X11540_DOUBLE_ACTING_MAGNETIC_TYPE, props)}
+      _style={extendStyle(props, X11540_DOUBLE_ACTING_MAGNETIC_TYPE)}
     />
   )
 }

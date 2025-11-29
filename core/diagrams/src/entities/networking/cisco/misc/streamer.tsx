@@ -11,7 +11,5 @@ export const STREAMER = {
 }
 
 export function Streamer(props: NodeProps) {
-  return (
-    <Shape {...STREAMER} {...props} _style={extendStyle(STREAMER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STREAMER)} />
 }

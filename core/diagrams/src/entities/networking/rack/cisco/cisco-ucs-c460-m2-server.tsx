@@ -12,10 +12,6 @@ export const CISCO_UCS_C460_M2_SERVER = {
 
 export function CiscoUcsC460M2Server(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_UCS_C460_M2_SERVER}
-      {...props}
-      _style={extendStyle(CISCO_UCS_C460_M2_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_UCS_C460_M2_SERVER)} />
   )
 }

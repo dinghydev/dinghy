@@ -11,11 +11,5 @@ export const STORAGE_SYNC_SERVICES = {
 }
 
 export function StorageSyncServices(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_SYNC_SERVICES}
-      {...props}
-      _style={extendStyle(STORAGE_SYNC_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_SYNC_SERVICES)} />
 }

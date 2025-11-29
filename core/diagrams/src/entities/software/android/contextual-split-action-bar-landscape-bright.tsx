@@ -13,9 +13,8 @@ export const CONTEXTUAL_SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT = {
 export function ContextualSplitActionBarLandscapeBright(props: NodeProps) {
   return (
     <Shape
-      {...CONTEXTUAL_SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT}
       {...props}
-      _style={extendStyle(CONTEXTUAL_SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT, props)}
+      _style={extendStyle(props, CONTEXTUAL_SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT)}
     />
   )
 }

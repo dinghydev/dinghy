@@ -11,5 +11,5 @@ export const RESCUE = {
 }
 
 export function Rescue(props: NodeProps) {
-  return <Shape {...RESCUE} {...props} _style={extendStyle(RESCUE, props)} />
+  return <Shape {...props} _style={extendStyle(props, RESCUE)} />
 }

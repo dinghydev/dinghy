@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { NamVirtualServiceBlade } from '@dinghy/diagrams/entitiesCisco19NetworkManagement'
 
 <NamVirtualServiceBlade/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { NAM_VIRTUAL_SERVICE_BLADE } from '@dinghy/diagrams/entitiesCisco19NetworkManagement'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, NAM_VIRTUAL_SERVICE_BLADE)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { NamVirtualServiceBlade } from '@dinghy/diagrams/entitiesCisco19NetworkM
 import { NetMgmtAppliance } from '@dinghy/diagrams/entitiesCisco19NetworkManagement'
 
 <NetMgmtAppliance/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { NET_MGMT_APPLIANCE } from '@dinghy/diagrams/entitiesCisco19NetworkManagement'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, NET_MGMT_APPLIANCE)}
+  />
+
 ```
 
   </TabItem>

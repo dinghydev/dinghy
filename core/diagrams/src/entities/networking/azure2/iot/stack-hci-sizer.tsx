@@ -11,11 +11,5 @@ export const STACK_HCI_SIZER = {
 }
 
 export function StackHciSizer(props: NodeProps) {
-  return (
-    <Shape
-      {...STACK_HCI_SIZER}
-      {...props}
-      _style={extendStyle(STACK_HCI_SIZER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACK_HCI_SIZER)} />
 }

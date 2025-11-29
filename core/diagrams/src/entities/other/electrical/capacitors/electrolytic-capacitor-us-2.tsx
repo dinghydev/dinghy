@@ -13,9 +13,8 @@ export const ELECTROLYTIC_CAPACITOR_US_2 = {
 export function ElectrolyticCapacitorUs2(props: NodeProps) {
   return (
     <Shape
-      {...ELECTROLYTIC_CAPACITOR_US_2}
       {...props}
-      _style={extendStyle(ELECTROLYTIC_CAPACITOR_US_2, props)}
+      _style={extendStyle(props, ELECTROLYTIC_CAPACITOR_US_2)}
     />
   )
 }

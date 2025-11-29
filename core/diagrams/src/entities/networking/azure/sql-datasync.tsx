@@ -11,11 +11,5 @@ export const SQL_DATASYNC = {
 }
 
 export function SqlDatasync(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_DATASYNC}
-      {...props}
-      _style={extendStyle(SQL_DATASYNC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_DATASYNC)} />
 }

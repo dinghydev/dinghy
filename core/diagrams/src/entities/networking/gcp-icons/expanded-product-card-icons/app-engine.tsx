@@ -11,7 +11,5 @@ export const APP_ENGINE = {
 }
 
 export function AppEngine(props: NodeProps) {
-  return (
-    <Shape {...APP_ENGINE} {...props} _style={extendStyle(APP_ENGINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_ENGINE)} />
 }

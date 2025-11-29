@@ -13,9 +13,8 @@ export const SPINNER_DISABLED_FOCUSED_BRIGHT = {
 export function SpinnerDisabledFocusedBright(props: NodeProps) {
   return (
     <Shape
-      {...SPINNER_DISABLED_FOCUSED_BRIGHT}
       {...props}
-      _style={extendStyle(SPINNER_DISABLED_FOCUSED_BRIGHT, props)}
+      _style={extendStyle(props, SPINNER_DISABLED_FOCUSED_BRIGHT)}
     />
   )
 }

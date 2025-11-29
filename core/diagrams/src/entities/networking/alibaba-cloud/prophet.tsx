@@ -11,5 +11,5 @@ export const PROPHET = {
 }
 
 export function Prophet(props: NodeProps) {
-  return <Shape {...PROPHET} {...props} _style={extendStyle(PROPHET, props)} />
+  return <Shape {...props} _style={extendStyle(props, PROPHET)} />
 }

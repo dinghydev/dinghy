@@ -12,10 +12,6 @@ export const VIDEO_PROJECTOR_SCREEN = {
 
 export function VideoProjectorScreen(props: NodeProps) {
   return (
-    <Shape
-      {...VIDEO_PROJECTOR_SCREEN}
-      {...props}
-      _style={extendStyle(VIDEO_PROJECTOR_SCREEN, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIDEO_PROJECTOR_SCREEN)} />
   )
 }

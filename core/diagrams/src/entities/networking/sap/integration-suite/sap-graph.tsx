@@ -11,7 +11,5 @@ export const SAP_GRAPH = {
 }
 
 export function SapGraph(props: NodeProps) {
-  return (
-    <Shape {...SAP_GRAPH} {...props} _style={extendStyle(SAP_GRAPH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_GRAPH)} />
 }

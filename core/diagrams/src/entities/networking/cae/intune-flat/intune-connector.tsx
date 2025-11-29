@@ -11,11 +11,5 @@ export const INTUNE_CONNECTOR = {
 }
 
 export function IntuneConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_CONNECTOR}
-      {...props}
-      _style={extendStyle(INTUNE_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_CONNECTOR)} />
 }

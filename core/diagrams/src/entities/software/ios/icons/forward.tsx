@@ -11,5 +11,5 @@ export const FORWARD = {
 }
 
 export function Forward(props: NodeProps) {
-  return <Shape {...FORWARD} {...props} _style={extendStyle(FORWARD, props)} />
+  return <Shape {...props} _style={extendStyle(props, FORWARD)} />
 }

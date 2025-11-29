@@ -13,9 +13,8 @@ export const CLOUD_SERVICES_CONFIGURATION_FILE = {
 export function CloudServicesConfigurationFile(props: NodeProps) {
   return (
     <Shape
-      {...CLOUD_SERVICES_CONFIGURATION_FILE}
       {...props}
-      _style={extendStyle(CLOUD_SERVICES_CONFIGURATION_FILE, props)}
+      _style={extendStyle(props, CLOUD_SERVICES_CONFIGURATION_FILE)}
     />
   )
 }

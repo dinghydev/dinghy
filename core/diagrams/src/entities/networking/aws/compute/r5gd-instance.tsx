@@ -11,11 +11,5 @@ export const R5GD_INSTANCE = {
 }
 
 export function R5gdInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...R5GD_INSTANCE}
-      {...props}
-      _style={extendStyle(R5GD_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, R5GD_INSTANCE)} />
 }

@@ -11,11 +11,5 @@ export const DEAD_LETTER_CHANNEL = {
 }
 
 export function DeadLetterChannel(props: NodeProps) {
-  return (
-    <Shape
-      {...DEAD_LETTER_CHANNEL}
-      {...props}
-      _style={extendStyle(DEAD_LETTER_CHANNEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEAD_LETTER_CHANNEL)} />
 }

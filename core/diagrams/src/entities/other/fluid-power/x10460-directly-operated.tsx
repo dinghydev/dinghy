@@ -12,10 +12,6 @@ export const X10460_DIRECTLY_OPERATED = {
 
 export function X10460DirectlyOperated(props: NodeProps) {
   return (
-    <Shape
-      {...X10460_DIRECTLY_OPERATED}
-      {...props}
-      _style={extendStyle(X10460_DIRECTLY_OPERATED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10460_DIRECTLY_OPERATED)} />
   )
 }

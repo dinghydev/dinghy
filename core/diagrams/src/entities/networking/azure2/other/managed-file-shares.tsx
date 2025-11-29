@@ -11,11 +11,5 @@ export const MANAGED_FILE_SHARES = {
 }
 
 export function ManagedFileShares(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_FILE_SHARES}
-      {...props}
-      _style={extendStyle(MANAGED_FILE_SHARES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_FILE_SHARES)} />
 }

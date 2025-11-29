@@ -11,11 +11,5 @@ export const FILE_GATEWAY = {
 }
 
 export function FileGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_GATEWAY}
-      {...props}
-      _style={extendStyle(FILE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_GATEWAY)} />
 }

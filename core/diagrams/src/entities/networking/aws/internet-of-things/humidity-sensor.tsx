@@ -11,11 +11,5 @@ export const HUMIDITY_SENSOR = {
 }
 
 export function HumiditySensor(props: NodeProps) {
-  return (
-    <Shape
-      {...HUMIDITY_SENSOR}
-      {...props}
-      _style={extendStyle(HUMIDITY_SENSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HUMIDITY_SENSOR)} />
 }

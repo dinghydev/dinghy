@@ -11,11 +11,5 @@ export const X12290_HEATER = {
 }
 
 export function X12290Heater(props: NodeProps) {
-  return (
-    <Shape
-      {...X12290_HEATER}
-      {...props}
-      _style={extendStyle(X12290_HEATER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12290_HEATER)} />
 }

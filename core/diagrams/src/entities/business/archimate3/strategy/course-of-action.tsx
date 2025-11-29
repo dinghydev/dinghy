@@ -11,11 +11,5 @@ export const COURSE_OF_ACTION = {
 }
 
 export function CourseOfAction(props: NodeProps) {
-  return (
-    <Shape
-      {...COURSE_OF_ACTION}
-      {...props}
-      _style={extendStyle(COURSE_OF_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COURSE_OF_ACTION)} />
 }

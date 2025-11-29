@@ -11,5 +11,5 @@ export const ROOM = {
 }
 
 export function Room(props: NodeProps) {
-  return <Shape {...ROOM} {...props} _style={extendStyle(ROOM, props)} />
+  return <Shape {...props} _style={extendStyle(props, ROOM)} />
 }

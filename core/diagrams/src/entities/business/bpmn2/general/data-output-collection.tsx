@@ -12,10 +12,6 @@ export const DATA_OUTPUT_COLLECTION = {
 
 export function DataOutputCollection(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_OUTPUT_COLLECTION}
-      {...props}
-      _style={extendStyle(DATA_OUTPUT_COLLECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_OUTPUT_COLLECTION)} />
   )
 }

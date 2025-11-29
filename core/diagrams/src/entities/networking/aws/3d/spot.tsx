@@ -11,5 +11,5 @@ export const SPOT = {
 }
 
 export function Spot(props: NodeProps) {
-  return <Shape {...SPOT} {...props} _style={extendStyle(SPOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPOT)} />
 }

@@ -13,9 +13,8 @@ export const COOLING_TOWER_DRY_NATURAL_DRAUGHT = {
 export function CoolingTowerDryNaturalDraught(props: NodeProps) {
   return (
     <Shape
-      {...COOLING_TOWER_DRY_NATURAL_DRAUGHT}
       {...props}
-      _style={extendStyle(COOLING_TOWER_DRY_NATURAL_DRAUGHT, props)}
+      _style={extendStyle(props, COOLING_TOWER_DRY_NATURAL_DRAUGHT)}
     />
   )
 }

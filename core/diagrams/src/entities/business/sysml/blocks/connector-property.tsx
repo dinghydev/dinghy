@@ -11,11 +11,5 @@ export const CONNECTOR_PROPERTY = {
 }
 
 export function ConnectorProperty(props: NodeProps) {
-  return (
-    <Shape
-      {...CONNECTOR_PROPERTY}
-      {...props}
-      _style={extendStyle(CONNECTOR_PROPERTY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONNECTOR_PROPERTY)} />
 }

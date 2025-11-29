@@ -11,5 +11,5 @@ export const AZURE = {
 }
 
 export function Azure(props: NodeProps) {
-  return <Shape {...AZURE} {...props} _style={extendStyle(AZURE, props)} />
+  return <Shape {...props} _style={extendStyle(props, AZURE)} />
 }

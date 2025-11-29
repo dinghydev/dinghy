@@ -11,11 +11,5 @@ export const CLASS_4_5_SWITCH = {
 }
 
 export function Class45Switch(props: NodeProps) {
-  return (
-    <Shape
-      {...CLASS_4_5_SWITCH}
-      {...props}
-      _style={extendStyle(CLASS_4_5_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLASS_4_5_SWITCH)} />
 }

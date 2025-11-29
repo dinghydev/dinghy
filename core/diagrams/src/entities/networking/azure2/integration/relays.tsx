@@ -11,5 +11,5 @@ export const RELAYS = {
 }
 
 export function Relays(props: NodeProps) {
-  return <Shape {...RELAYS} {...props} _style={extendStyle(RELAYS, props)} />
+  return <Shape {...props} _style={extendStyle(props, RELAYS)} />
 }

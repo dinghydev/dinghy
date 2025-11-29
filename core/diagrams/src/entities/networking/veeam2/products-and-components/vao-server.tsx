@@ -11,7 +11,5 @@ export const VAO_SERVER = {
 }
 
 export function VaoServer(props: NodeProps) {
-  return (
-    <Shape {...VAO_SERVER} {...props} _style={extendStyle(VAO_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VAO_SERVER)} />
 }

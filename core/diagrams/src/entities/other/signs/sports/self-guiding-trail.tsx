@@ -11,11 +11,5 @@ export const SELF_GUIDING_TRAIL = {
 }
 
 export function SelfGuidingTrail(props: NodeProps) {
-  return (
-    <Shape
-      {...SELF_GUIDING_TRAIL}
-      {...props}
-      _style={extendStyle(SELF_GUIDING_TRAIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SELF_GUIDING_TRAIL)} />
 }

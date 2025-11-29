@@ -11,11 +11,5 @@ export const CURRENT_LOCATION = {
 }
 
 export function CurrentLocation(props: NodeProps) {
-  return (
-    <Shape
-      {...CURRENT_LOCATION}
-      {...props}
-      _style={extendStyle(CURRENT_LOCATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CURRENT_LOCATION)} />
 }

@@ -12,10 +12,6 @@ export const NETRA_X6270_SERVER_MODULE = {
 
 export function NetraX6270ServerModule(props: NodeProps) {
   return (
-    <Shape
-      {...NETRA_X6270_SERVER_MODULE}
-      {...props}
-      _style={extendStyle(NETRA_X6270_SERVER_MODULE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NETRA_X6270_SERVER_MODULE)} />
   )
 }

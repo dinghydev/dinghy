@@ -13,9 +13,8 @@ export const MANAGED_APPLICATIONS_CENTER = {
 export function ManagedApplicationsCenter(props: NodeProps) {
   return (
     <Shape
-      {...MANAGED_APPLICATIONS_CENTER}
       {...props}
-      _style={extendStyle(MANAGED_APPLICATIONS_CENTER, props)}
+      _style={extendStyle(props, MANAGED_APPLICATIONS_CENTER)}
     />
   )
 }

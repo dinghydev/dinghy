@@ -11,11 +11,5 @@ export const DATA_FACTORIES = {
 }
 
 export function DataFactories(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_FACTORIES}
-      {...props}
-      _style={extendStyle(DATA_FACTORIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_FACTORIES)} />
 }

@@ -11,7 +11,5 @@ export const GAS_BLOWER = {
 }
 
 export function GasBlower(props: NodeProps) {
-  return (
-    <Shape {...GAS_BLOWER} {...props} _style={extendStyle(GAS_BLOWER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_BLOWER)} />
 }

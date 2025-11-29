@@ -11,11 +11,5 @@ export const ALEXA_FOR_BUSINESS = {
 }
 
 export function AlexaForBusiness(props: NodeProps) {
-  return (
-    <Shape
-      {...ALEXA_FOR_BUSINESS}
-      {...props}
-      _style={extendStyle(ALEXA_FOR_BUSINESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALEXA_FOR_BUSINESS)} />
 }

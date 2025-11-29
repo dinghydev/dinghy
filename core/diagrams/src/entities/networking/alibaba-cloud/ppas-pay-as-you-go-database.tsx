@@ -13,9 +13,8 @@ export const PPAS_PAY_AS_YOU_GO_DATABASE = {
 export function PpasPayAsYouGoDatabase(props: NodeProps) {
   return (
     <Shape
-      {...PPAS_PAY_AS_YOU_GO_DATABASE}
       {...props}
-      _style={extendStyle(PPAS_PAY_AS_YOU_GO_DATABASE, props)}
+      _style={extendStyle(props, PPAS_PAY_AS_YOU_GO_DATABASE)}
     />
   )
 }

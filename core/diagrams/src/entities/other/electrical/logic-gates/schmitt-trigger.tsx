@@ -11,11 +11,5 @@ export const SCHMITT_TRIGGER = {
 }
 
 export function SchmittTrigger(props: NodeProps) {
-  return (
-    <Shape
-      {...SCHMITT_TRIGGER}
-      {...props}
-      _style={extendStyle(SCHMITT_TRIGGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCHMITT_TRIGGER)} />
 }

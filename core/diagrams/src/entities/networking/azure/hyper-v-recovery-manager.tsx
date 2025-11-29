@@ -12,10 +12,6 @@ export const HYPER_V_RECOVERY_MANAGER = {
 
 export function HyperVRecoveryManager(props: NodeProps) {
   return (
-    <Shape
-      {...HYPER_V_RECOVERY_MANAGER}
-      {...props}
-      _style={extendStyle(HYPER_V_RECOVERY_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HYPER_V_RECOVERY_MANAGER)} />
   )
 }

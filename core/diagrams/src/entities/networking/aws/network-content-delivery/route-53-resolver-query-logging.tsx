@@ -13,9 +13,8 @@ export const ROUTE_53_RESOLVER_QUERY_LOGGING = {
 export function Route53ResolverQueryLogging(props: NodeProps) {
   return (
     <Shape
-      {...ROUTE_53_RESOLVER_QUERY_LOGGING}
       {...props}
-      _style={extendStyle(ROUTE_53_RESOLVER_QUERY_LOGGING, props)}
+      _style={extendStyle(props, ROUTE_53_RESOLVER_QUERY_LOGGING)}
     />
   )
 }

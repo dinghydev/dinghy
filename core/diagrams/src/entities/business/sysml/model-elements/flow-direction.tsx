@@ -10,11 +10,5 @@ export const FLOW_DIRECTION = {
 }
 
 export function FlowDirection(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_DIRECTION}
-      {...props}
-      _style={extendStyle(FLOW_DIRECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_DIRECTION)} />
 }

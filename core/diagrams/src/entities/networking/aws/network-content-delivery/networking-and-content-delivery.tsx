@@ -13,9 +13,8 @@ export const NETWORKING_AND_CONTENT_DELIVERY = {
 export function NetworkingAndContentDelivery(props: NodeProps) {
   return (
     <Shape
-      {...NETWORKING_AND_CONTENT_DELIVERY}
       {...props}
-      _style={extendStyle(NETWORKING_AND_CONTENT_DELIVERY, props)}
+      _style={extendStyle(props, NETWORKING_AND_CONTENT_DELIVERY)}
     />
   )
 }

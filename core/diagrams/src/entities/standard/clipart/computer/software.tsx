@@ -11,7 +11,5 @@ export const SOFTWARE = {
 }
 
 export function Software(props: NodeProps) {
-  return (
-    <Shape {...SOFTWARE} {...props} _style={extendStyle(SOFTWARE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTWARE)} />
 }

@@ -13,9 +13,8 @@ export const DISCRETE_SLIDER_CLICK_DARK_3 = {
 export function DiscreteSliderClickDark3(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_SLIDER_CLICK_DARK_3}
       {...props}
-      _style={extendStyle(DISCRETE_SLIDER_CLICK_DARK_3, props)}
+      _style={extendStyle(props, DISCRETE_SLIDER_CLICK_DARK_3)}
     />
   )
 }

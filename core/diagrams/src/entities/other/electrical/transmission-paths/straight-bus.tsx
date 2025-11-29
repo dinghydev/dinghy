@@ -11,11 +11,5 @@ export const STRAIGHT_BUS = {
 }
 
 export function StraightBus(props: NodeProps) {
-  return (
-    <Shape
-      {...STRAIGHT_BUS}
-      {...props}
-      _style={extendStyle(STRAIGHT_BUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STRAIGHT_BUS)} />
 }

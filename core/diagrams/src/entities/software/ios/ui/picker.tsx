@@ -11,5 +11,5 @@ export const PICKER = {
 }
 
 export function Picker(props: NodeProps) {
-  return <Shape {...PICKER} {...props} _style={extendStyle(PICKER, props)} />
+  return <Shape {...props} _style={extendStyle(props, PICKER)} />
 }

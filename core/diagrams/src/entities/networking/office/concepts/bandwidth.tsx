@@ -11,7 +11,5 @@ export const BANDWIDTH = {
 }
 
 export function Bandwidth(props: NodeProps) {
-  return (
-    <Shape {...BANDWIDTH} {...props} _style={extendStyle(BANDWIDTH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANDWIDTH)} />
 }

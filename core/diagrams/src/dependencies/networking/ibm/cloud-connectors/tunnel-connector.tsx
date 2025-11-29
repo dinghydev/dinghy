@@ -9,11 +9,5 @@ export const TUNNEL_CONNECTOR = {
 }
 
 export function TunnelConnector(props: NodeProps) {
-  return (
-    <Dependency
-      {...TUNNEL_CONNECTOR}
-      {...props}
-      _style={extendStyle(TUNNEL_CONNECTOR, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, TUNNEL_CONNECTOR)} />
 }

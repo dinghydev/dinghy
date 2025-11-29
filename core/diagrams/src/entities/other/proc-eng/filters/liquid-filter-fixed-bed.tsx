@@ -12,10 +12,6 @@ export const LIQUID_FILTER_FIXED_BED = {
 
 export function LiquidFilterFixedBed(props: NodeProps) {
   return (
-    <Shape
-      {...LIQUID_FILTER_FIXED_BED}
-      {...props}
-      _style={extendStyle(LIQUID_FILTER_FIXED_BED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIQUID_FILTER_FIXED_BED)} />
   )
 }

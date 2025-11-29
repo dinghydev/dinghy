@@ -11,11 +11,5 @@ export const USER_SERVICES = {
 }
 
 export function UserServices(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_SERVICES}
-      {...props}
-      _style={extendStyle(USER_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_SERVICES)} />
 }

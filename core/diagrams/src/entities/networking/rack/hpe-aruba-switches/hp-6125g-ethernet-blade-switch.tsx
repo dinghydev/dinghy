@@ -13,9 +13,8 @@ export const HP_6125G_ETHERNET_BLADE_SWITCH = {
 export function Hp6125gEthernetBladeSwitch(props: NodeProps) {
   return (
     <Shape
-      {...HP_6125G_ETHERNET_BLADE_SWITCH}
       {...props}
-      _style={extendStyle(HP_6125G_ETHERNET_BLADE_SWITCH, props)}
+      _style={extendStyle(props, HP_6125G_ETHERNET_BLADE_SWITCH)}
     />
   )
 }

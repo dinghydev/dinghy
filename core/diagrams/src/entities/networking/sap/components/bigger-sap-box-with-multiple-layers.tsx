@@ -13,9 +13,8 @@ export const BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS = {
 export function BiggerSapBoxWithMultipleLayers(props: NodeProps) {
   return (
     <Shape
-      {...BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS}
       {...props}
-      _style={extendStyle(BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS, props)}
+      _style={extendStyle(props, BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS)}
     />
   )
 }

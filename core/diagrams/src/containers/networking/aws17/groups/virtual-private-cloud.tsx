@@ -12,11 +12,5 @@ export const VIRTUAL_PRIVATE_CLOUD = {
 }
 
 export function VirtualPrivateCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_PRIVATE_CLOUD}
-      {...props}
-      _style={extendStyle(VIRTUAL_PRIVATE_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_PRIVATE_CLOUD)} />
 }

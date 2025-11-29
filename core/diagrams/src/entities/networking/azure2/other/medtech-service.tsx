@@ -11,11 +11,5 @@ export const MEDTECH_SERVICE = {
 }
 
 export function MedtechService(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDTECH_SERVICE}
-      {...props}
-      _style={extendStyle(MEDTECH_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDTECH_SERVICE)} />
 }

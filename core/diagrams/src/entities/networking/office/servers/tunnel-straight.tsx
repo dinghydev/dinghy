@@ -11,11 +11,5 @@ export const TUNNEL_STRAIGHT = {
 }
 
 export function TunnelStraight(props: NodeProps) {
-  return (
-    <Shape
-      {...TUNNEL_STRAIGHT}
-      {...props}
-      _style={extendStyle(TUNNEL_STRAIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TUNNEL_STRAIGHT)} />
 }

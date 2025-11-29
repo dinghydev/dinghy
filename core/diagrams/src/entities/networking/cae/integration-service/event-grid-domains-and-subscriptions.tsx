@@ -13,9 +13,8 @@ export const EVENT_GRID_DOMAINS_AND_SUBSCRIPTIONS = {
 export function EventGridDomainsAndSubscriptions(props: NodeProps) {
   return (
     <Shape
-      {...EVENT_GRID_DOMAINS_AND_SUBSCRIPTIONS}
       {...props}
-      _style={extendStyle(EVENT_GRID_DOMAINS_AND_SUBSCRIPTIONS, props)}
+      _style={extendStyle(props, EVENT_GRID_DOMAINS_AND_SUBSCRIPTIONS)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const SMALL_BOAT_LAUNCH = {
 }
 
 export function SmallBoatLaunch(props: NodeProps) {
-  return (
-    <Shape
-      {...SMALL_BOAT_LAUNCH}
-      {...props}
-      _style={extendStyle(SMALL_BOAT_LAUNCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMALL_BOAT_LAUNCH)} />
 }

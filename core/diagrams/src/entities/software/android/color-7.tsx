@@ -11,5 +11,5 @@ export const COLOR_7 = {
 }
 
 export function Color7(props: NodeProps) {
-  return <Shape {...COLOR_7} {...props} _style={extendStyle(COLOR_7, props)} />
+  return <Shape {...props} _style={extendStyle(props, COLOR_7)} />
 }

@@ -1,0 +1,72 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_member
+
+export const InputSchema = z.object({
+  account_id: resolvableValue(z.string()),
+  email: resolvableValue(z.string()),
+  master_account_id: resolvableValue(z.string()),
+  invitation_disable_email_notification: resolvableValue(
+    z.boolean().optional(),
+  ),
+  invitation_message: resolvableValue(z.string().optional()),
+  invite: resolvableValue(z.boolean().optional()),
+  region: resolvableValue(z.string().optional()),
+  status: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  timeouts: resolvableValue(
+    z.object({
+      create: z.string().optional(),
+      update: z.string().optional(),
+    }).optional(),
+  ),
+})
+
+export const OutputSchema = z.object({
+  administrator_account_id: z.string().optional(),
+  arn: z.string().optional(),
+  id: z.string().optional(),
+  invited_at: z.string().optional(),
+  relationship_status: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
+  updated_at: z.string().optional(),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsMacie2Member(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_macie2_member'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsMacie2Member = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(AwsMacie2Member, node, id)
+
+export const useAwsMacie2Members = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(AwsMacie2Member, node, id)

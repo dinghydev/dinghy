@@ -11,5 +11,5 @@ export const CHAIR = {
 }
 
 export function Chair(props: NodeProps) {
-  return <Shape {...CHAIR} {...props} _style={extendStyle(CHAIR, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHAIR)} />
 }

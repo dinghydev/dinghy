@@ -11,5 +11,5 @@ export const CUP = {
 }
 
 export function Cup(props: NodeProps) {
-  return <Shape {...CUP} {...props} _style={extendStyle(CUP, props)} />
+  return <Shape {...props} _style={extendStyle(props, CUP)} />
 }

@@ -13,9 +13,8 @@ export const CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN = {
 export function CentrifugalCompressorTurbineDriven(props: NodeProps) {
   return (
     <Shape
-      {...CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN}
       {...props}
-      _style={extendStyle(CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN, props)}
+      _style={extendStyle(props, CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN)}
     />
   )
 }

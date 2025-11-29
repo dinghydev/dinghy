@@ -11,5 +11,5 @@ export const PRICING = {
 }
 
 export function Pricing(props: NodeProps) {
-  return <Shape {...PRICING} {...props} _style={extendStyle(PRICING, props)} />
+  return <Shape {...props} _style={extendStyle(props, PRICING)} />
 }

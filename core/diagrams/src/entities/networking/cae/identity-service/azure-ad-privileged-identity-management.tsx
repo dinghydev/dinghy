@@ -13,9 +13,8 @@ export const AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT = {
 export function AzureAdPrivilegedIdentityManagement(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT}
       {...props}
-      _style={extendStyle(AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT, props)}
+      _style={extendStyle(props, AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT)}
     />
   )
 }

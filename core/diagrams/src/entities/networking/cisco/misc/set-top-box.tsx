@@ -11,11 +11,5 @@ export const SET_TOP_BOX = {
 }
 
 export function SetTopBox(props: NodeProps) {
-  return (
-    <Shape
-      {...SET_TOP_BOX}
-      {...props}
-      _style={extendStyle(SET_TOP_BOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SET_TOP_BOX)} />
 }

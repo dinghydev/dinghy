@@ -11,11 +11,5 @@ export const AD_CONNECTOR = {
 }
 
 export function AdConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...AD_CONNECTOR}
-      {...props}
-      _style={extendStyle(AD_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_CONNECTOR)} />
 }

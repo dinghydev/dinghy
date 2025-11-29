@@ -11,11 +11,5 @@ export const SPRAY_COOLER = {
 }
 
 export function SprayCooler(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRAY_COOLER}
-      {...props}
-      _style={extendStyle(SPRAY_COOLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRAY_COOLER)} />
 }

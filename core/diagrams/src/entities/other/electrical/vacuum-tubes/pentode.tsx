@@ -11,5 +11,5 @@ export const PENTODE = {
 }
 
 export function Pentode(props: NodeProps) {
-  return <Shape {...PENTODE} {...props} _style={extendStyle(PENTODE, props)} />
+  return <Shape {...props} _style={extendStyle(props, PENTODE)} />
 }

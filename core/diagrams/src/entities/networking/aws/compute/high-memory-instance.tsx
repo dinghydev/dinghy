@@ -11,11 +11,5 @@ export const HIGH_MEMORY_INSTANCE = {
 }
 
 export function HighMemoryInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...HIGH_MEMORY_INSTANCE}
-      {...props}
-      _style={extendStyle(HIGH_MEMORY_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HIGH_MEMORY_INSTANCE)} />
 }

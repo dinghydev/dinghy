@@ -11,7 +11,5 @@ export const DOCUMENTDB = {
 }
 
 export function Documentdb(props: NodeProps) {
-  return (
-    <Shape {...DOCUMENTDB} {...props} _style={extendStyle(DOCUMENTDB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENTDB)} />
 }

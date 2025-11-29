@@ -11,11 +11,5 @@ export const LOCK_BUTTON = {
 }
 
 export function LockButton(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCK_BUTTON}
-      {...props}
-      _style={extendStyle(LOCK_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCK_BUTTON)} />
 }

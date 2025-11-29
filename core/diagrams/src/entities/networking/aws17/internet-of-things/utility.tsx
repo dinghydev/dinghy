@@ -11,5 +11,5 @@ export const UTILITY = {
 }
 
 export function Utility(props: NodeProps) {
-  return <Shape {...UTILITY} {...props} _style={extendStyle(UTILITY, props)} />
+  return <Shape {...props} _style={extendStyle(props, UTILITY)} />
 }

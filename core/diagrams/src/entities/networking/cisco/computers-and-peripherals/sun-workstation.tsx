@@ -11,11 +11,5 @@ export const SUN_WORKSTATION = {
 }
 
 export function SunWorkstation(props: NodeProps) {
-  return (
-    <Shape
-      {...SUN_WORKSTATION}
-      {...props}
-      _style={extendStyle(SUN_WORKSTATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUN_WORKSTATION)} />
 }

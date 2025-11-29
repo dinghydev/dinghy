@@ -12,10 +12,6 @@ export const INFRASTRUCTURE_SERVICE = {
 
 export function InfrastructureService(props: NodeProps) {
   return (
-    <Shape
-      {...INFRASTRUCTURE_SERVICE}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_SERVICE)} />
   )
 }

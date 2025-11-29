@@ -11,11 +11,5 @@ export const SQL_WORKBENCH = {
 }
 
 export function SqlWorkbench(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_WORKBENCH}
-      {...props}
-      _style={extendStyle(SQL_WORKBENCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_WORKBENCH)} />
 }

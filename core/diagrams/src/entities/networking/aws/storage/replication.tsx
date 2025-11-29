@@ -11,11 +11,5 @@ export const REPLICATION = {
 }
 
 export function Replication(props: NodeProps) {
-  return (
-    <Shape
-      {...REPLICATION}
-      {...props}
-      _style={extendStyle(REPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REPLICATION)} />
 }

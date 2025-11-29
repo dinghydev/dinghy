@@ -11,5 +11,5 @@ export const SC = {
 }
 
 export function Sc(props: NodeProps) {
-  return <Shape {...SC} {...props} _style={extendStyle(SC, props)} />
+  return <Shape {...props} _style={extendStyle(props, SC)} />
 }

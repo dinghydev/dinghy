@@ -13,9 +13,8 @@ export const COMPONENT_4_POSITION_SWITCH_2 = {
 export function Component4PositionSwitch2(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_4_POSITION_SWITCH_2}
       {...props}
-      _style={extendStyle(COMPONENT_4_POSITION_SWITCH_2, props)}
+      _style={extendStyle(props, COMPONENT_4_POSITION_SWITCH_2)}
     />
   )
 }

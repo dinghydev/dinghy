@@ -11,7 +11,5 @@ export const PILOT_MAN = {
 }
 
 export function PilotMan(props: NodeProps) {
-  return (
-    <Shape {...PILOT_MAN} {...props} _style={extendStyle(PILOT_MAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PILOT_MAN)} />
 }

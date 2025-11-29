@@ -13,9 +13,8 @@ export const PROPORTIONAL_FEEDER_METERING = {
 export function ProportionalFeederMetering(props: NodeProps) {
   return (
     <Shape
-      {...PROPORTIONAL_FEEDER_METERING}
       {...props}
-      _style={extendStyle(PROPORTIONAL_FEEDER_METERING, props)}
+      _style={extendStyle(props, PROPORTIONAL_FEEDER_METERING)}
     />
   )
 }

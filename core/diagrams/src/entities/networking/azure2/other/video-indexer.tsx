@@ -11,11 +11,5 @@ export const VIDEO_INDEXER = {
 }
 
 export function VideoIndexer(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_INDEXER}
-      {...props}
-      _style={extendStyle(VIDEO_INDEXER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_INDEXER)} />
 }

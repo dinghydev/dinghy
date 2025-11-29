@@ -11,11 +11,5 @@ export const REPORTED_STATE = {
 }
 
 export function ReportedState(props: NodeProps) {
-  return (
-    <Shape
-      {...REPORTED_STATE}
-      {...props}
-      _style={extendStyle(REPORTED_STATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REPORTED_STATE)} />
 }

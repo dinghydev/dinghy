@@ -11,5 +11,5 @@ export const ICM = {
 }
 
 export function Icm(props: NodeProps) {
-  return <Shape {...ICM} {...props} _style={extendStyle(ICM, props)} />
+  return <Shape {...props} _style={extendStyle(props, ICM)} />
 }

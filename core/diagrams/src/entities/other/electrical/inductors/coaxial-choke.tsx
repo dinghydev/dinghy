@@ -11,11 +11,5 @@ export const COAXIAL_CHOKE = {
 }
 
 export function CoaxialChoke(props: NodeProps) {
-  return (
-    <Shape
-      {...COAXIAL_CHOKE}
-      {...props}
-      _style={extendStyle(COAXIAL_CHOKE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COAXIAL_CHOKE)} />
 }

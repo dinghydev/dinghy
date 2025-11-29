@@ -11,11 +11,5 @@ export const OBJECT_UNDERSTANDING = {
 }
 
 export function ObjectUnderstanding(props: NodeProps) {
-  return (
-    <Shape
-      {...OBJECT_UNDERSTANDING}
-      {...props}
-      _style={extendStyle(OBJECT_UNDERSTANDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OBJECT_UNDERSTANDING)} />
 }

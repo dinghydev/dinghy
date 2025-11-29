@@ -11,11 +11,5 @@ export const AGITATOR_DISC = {
 }
 
 export function AgitatorDisc(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_DISC}
-      {...props}
-      _style={extendStyle(AGITATOR_DISC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_DISC)} />
 }

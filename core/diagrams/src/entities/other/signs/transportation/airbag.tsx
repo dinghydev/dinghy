@@ -11,5 +11,5 @@ export const AIRBAG = {
 }
 
 export function Airbag(props: NodeProps) {
-  return <Shape {...AIRBAG} {...props} _style={extendStyle(AIRBAG, props)} />
+  return <Shape {...props} _style={extendStyle(props, AIRBAG)} />
 }

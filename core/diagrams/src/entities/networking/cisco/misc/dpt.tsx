@@ -11,5 +11,5 @@ export const DPT = {
 }
 
 export function Dpt(props: NodeProps) {
-  return <Shape {...DPT} {...props} _style={extendStyle(DPT, props)} />
+  return <Shape {...props} _style={extendStyle(props, DPT)} />
 }

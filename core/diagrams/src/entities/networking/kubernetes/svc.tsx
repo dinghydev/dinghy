@@ -11,5 +11,5 @@ export const SVC = {
 }
 
 export function Svc(props: NodeProps) {
-  return <Shape {...SVC} {...props} _style={extendStyle(SVC, props)} />
+  return <Shape {...props} _style={extendStyle(props, SVC)} />
 }

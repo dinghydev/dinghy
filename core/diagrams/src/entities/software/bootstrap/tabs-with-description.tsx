@@ -11,11 +11,5 @@ export const TABS_WITH_DESCRIPTION = {
 }
 
 export function TabsWithDescription(props: NodeProps) {
-  return (
-    <Shape
-      {...TABS_WITH_DESCRIPTION}
-      {...props}
-      _style={extendStyle(TABS_WITH_DESCRIPTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABS_WITH_DESCRIPTION)} />
 }

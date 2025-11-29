@@ -11,11 +11,5 @@ export const DOWNHILL_SKIING_2 = {
 }
 
 export function DownhillSkiing2(props: NodeProps) {
-  return (
-    <Shape
-      {...DOWNHILL_SKIING_2}
-      {...props}
-      _style={extendStyle(DOWNHILL_SKIING_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOWNHILL_SKIING_2)} />
 }

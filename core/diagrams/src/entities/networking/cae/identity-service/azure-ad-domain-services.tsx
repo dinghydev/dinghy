@@ -12,10 +12,6 @@ export const AZURE_AD_DOMAIN_SERVICES = {
 
 export function AzureAdDomainServices(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_AD_DOMAIN_SERVICES}
-      {...props}
-      _style={extendStyle(AZURE_AD_DOMAIN_SERVICES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_AD_DOMAIN_SERVICES)} />
   )
 }

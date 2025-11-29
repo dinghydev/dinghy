@@ -11,11 +11,5 @@ export const TECHNICAL_DIAGRAM = {
 }
 
 export function TechnicalDiagram(props: NodeProps) {
-  return (
-    <Shape
-      {...TECHNICAL_DIAGRAM}
-      {...props}
-      _style={extendStyle(TECHNICAL_DIAGRAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECHNICAL_DIAGRAM)} />
 }

@@ -11,7 +11,5 @@ export const SOURCE_6 = {
 }
 
 export function Source6(props: NodeProps) {
-  return (
-    <Shape {...SOURCE_6} {...props} _style={extendStyle(SOURCE_6, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_6)} />
 }

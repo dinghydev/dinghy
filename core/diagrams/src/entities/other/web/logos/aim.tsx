@@ -11,5 +11,5 @@ export const AIM = {
 }
 
 export function Aim(props: NodeProps) {
-  return <Shape {...AIM} {...props} _style={extendStyle(AIM, props)} />
+  return <Shape {...props} _style={extendStyle(props, AIM)} />
 }

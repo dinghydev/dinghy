@@ -11,5 +11,5 @@ export const UNISEX = {
 }
 
 export function Unisex(props: NodeProps) {
-  return <Shape {...UNISEX} {...props} _style={extendStyle(UNISEX, props)} />
+  return <Shape {...props} _style={extendStyle(props, UNISEX)} />
 }

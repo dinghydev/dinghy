@@ -11,11 +11,5 @@ export const OFFLINE_ADDRESS_BOOK = {
 }
 
 export function OfflineAddressBook(props: NodeProps) {
-  return (
-    <Shape
-      {...OFFLINE_ADDRESS_BOOK}
-      {...props}
-      _style={extendStyle(OFFLINE_ADDRESS_BOOK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFFLINE_ADDRESS_BOOK)} />
 }

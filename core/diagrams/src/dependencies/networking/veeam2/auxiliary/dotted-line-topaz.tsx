@@ -10,10 +10,6 @@ export const DOTTED_LINE_TOPAZ = {
 
 export function DottedLineTopaz(props: NodeProps) {
   return (
-    <Dependency
-      {...DOTTED_LINE_TOPAZ}
-      {...props}
-      _style={extendStyle(DOTTED_LINE_TOPAZ, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, DOTTED_LINE_TOPAZ)} />
   )
 }

@@ -11,11 +11,5 @@ export const ELASTIC_JOB_AGENTS = {
 }
 
 export function ElasticJobAgents(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_JOB_AGENTS}
-      {...props}
-      _style={extendStyle(ELASTIC_JOB_AGENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_JOB_AGENTS)} />
 }

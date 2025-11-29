@@ -11,11 +11,5 @@ export const DATA_EXCHANGE = {
 }
 
 export function DataExchange(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_EXCHANGE}
-      {...props}
-      _style={extendStyle(DATA_EXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_EXCHANGE)} />
 }

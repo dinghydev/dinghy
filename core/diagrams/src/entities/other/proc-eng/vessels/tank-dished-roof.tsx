@@ -11,11 +11,5 @@ export const TANK_DISHED_ROOF = {
 }
 
 export function TankDishedRoof(props: NodeProps) {
-  return (
-    <Shape
-      {...TANK_DISHED_ROOF}
-      {...props}
-      _style={extendStyle(TANK_DISHED_ROOF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_DISHED_ROOF)} />
 }

@@ -11,11 +11,5 @@ export const DATABOX_GATEWAY = {
 }
 
 export function DataboxGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABOX_GATEWAY}
-      {...props}
-      _style={extendStyle(DATABOX_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABOX_GATEWAY)} />
 }

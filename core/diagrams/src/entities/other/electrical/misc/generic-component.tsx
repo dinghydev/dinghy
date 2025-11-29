@@ -11,11 +11,5 @@ export const GENERIC_COMPONENT = {
 }
 
 export function GenericComponent(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_COMPONENT}
-      {...props}
-      _style={extendStyle(GENERIC_COMPONENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_COMPONENT)} />
 }

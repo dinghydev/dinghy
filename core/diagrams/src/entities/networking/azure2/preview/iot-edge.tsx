@@ -11,7 +11,5 @@ export const IOT_EDGE = {
 }
 
 export function IotEdge(props: NodeProps) {
-  return (
-    <Shape {...IOT_EDGE} {...props} _style={extendStyle(IOT_EDGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOT_EDGE)} />
 }

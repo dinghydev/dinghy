@@ -13,9 +13,8 @@ export const DATA_BOX_IMPORT_EXPORT_STORAGE = {
 export function DataBoxImportExportStorage(props: NodeProps) {
   return (
     <Shape
-      {...DATA_BOX_IMPORT_EXPORT_STORAGE}
       {...props}
-      _style={extendStyle(DATA_BOX_IMPORT_EXPORT_STORAGE, props)}
+      _style={extendStyle(props, DATA_BOX_IMPORT_EXPORT_STORAGE)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const BACKWARD = {
 }
 
 export function Backward(props: NodeProps) {
-  return (
-    <Shape {...BACKWARD} {...props} _style={extendStyle(BACKWARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKWARD)} />
 }

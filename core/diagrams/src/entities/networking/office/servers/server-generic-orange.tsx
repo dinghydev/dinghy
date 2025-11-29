@@ -11,11 +11,5 @@ export const SERVER_GENERIC_ORANGE = {
 }
 
 export function ServerGenericOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_GENERIC_ORANGE}
-      {...props}
-      _style={extendStyle(SERVER_GENERIC_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_GENERIC_ORANGE)} />
 }

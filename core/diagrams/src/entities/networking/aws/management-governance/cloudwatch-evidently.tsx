@@ -11,11 +11,5 @@ export const CLOUDWATCH_EVIDENTLY = {
 }
 
 export function CloudwatchEvidently(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDWATCH_EVIDENTLY}
-      {...props}
-      _style={extendStyle(CLOUDWATCH_EVIDENTLY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDWATCH_EVIDENTLY)} />
 }

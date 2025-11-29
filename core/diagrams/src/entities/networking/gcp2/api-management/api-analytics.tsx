@@ -11,11 +11,5 @@ export const API_ANALYTICS = {
 }
 
 export function ApiAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...API_ANALYTICS}
-      {...props}
-      _style={extendStyle(API_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_ANALYTICS)} />
 }

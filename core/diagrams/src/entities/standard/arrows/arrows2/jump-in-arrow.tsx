@@ -11,11 +11,5 @@ export const JUMP_IN_ARROW = {
 }
 
 export function JumpInArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...JUMP_IN_ARROW}
-      {...props}
-      _style={extendStyle(JUMP_IN_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JUMP_IN_ARROW)} />
 }

@@ -11,11 +11,5 @@ export const PROCESS_BAR = {
 }
 
 export function ProcessBar(props: NodeProps) {
-  return (
-    <Shape
-      {...PROCESS_BAR}
-      {...props}
-      _style={extendStyle(PROCESS_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROCESS_BAR)} />
 }

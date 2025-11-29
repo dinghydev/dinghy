@@ -11,11 +11,5 @@ export const CORPORATE_DEVICE = {
 }
 
 export function CorporateDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...CORPORATE_DEVICE}
-      {...props}
-      _style={extendStyle(CORPORATE_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CORPORATE_DEVICE)} />
 }

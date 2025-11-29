@@ -11,11 +11,5 @@ export const TRANSACTION_MANAGER = {
 }
 
 export function TransactionManager(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSACTION_MANAGER}
-      {...props}
-      _style={extendStyle(TRANSACTION_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSACTION_MANAGER)} />
 }

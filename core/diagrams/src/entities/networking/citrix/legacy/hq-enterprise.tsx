@@ -11,11 +11,5 @@ export const HQ_ENTERPRISE = {
 }
 
 export function HqEnterprise(props: NodeProps) {
-  return (
-    <Shape
-      {...HQ_ENTERPRISE}
-      {...props}
-      _style={extendStyle(HQ_ENTERPRISE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HQ_ENTERPRISE)} />
 }

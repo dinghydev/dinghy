@@ -11,11 +11,5 @@ export const DISTRIBUTION_GROUP = {
 }
 
 export function DistributionGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...DISTRIBUTION_GROUP}
-      {...props}
-      _style={extendStyle(DISTRIBUTION_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISTRIBUTION_GROUP)} />
 }

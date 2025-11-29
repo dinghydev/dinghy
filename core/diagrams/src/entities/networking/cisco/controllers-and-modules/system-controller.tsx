@@ -11,11 +11,5 @@ export const SYSTEM_CONTROLLER = {
 }
 
 export function SystemController(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEM_CONTROLLER}
-      {...props}
-      _style={extendStyle(SYSTEM_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_CONTROLLER)} />
 }

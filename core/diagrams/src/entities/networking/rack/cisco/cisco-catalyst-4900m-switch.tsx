@@ -13,9 +13,8 @@ export const CISCO_CATALYST_4900M_SWITCH = {
 export function CiscoCatalyst4900mSwitch(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_CATALYST_4900M_SWITCH}
       {...props}
-      _style={extendStyle(CISCO_CATALYST_4900M_SWITCH, props)}
+      _style={extendStyle(props, CISCO_CATALYST_4900M_SWITCH)}
     />
   )
 }

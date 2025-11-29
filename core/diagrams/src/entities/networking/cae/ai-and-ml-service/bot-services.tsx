@@ -11,11 +11,5 @@ export const BOT_SERVICES = {
 }
 
 export function BotServices(props: NodeProps) {
-  return (
-    <Shape
-      {...BOT_SERVICES}
-      {...props}
-      _style={extendStyle(BOT_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOT_SERVICES)} />
 }

@@ -11,11 +11,5 @@ export const INTERNET_SECURITY = {
 }
 
 export function InternetSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_SECURITY}
-      {...props}
-      _style={extendStyle(INTERNET_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_SECURITY)} />
 }

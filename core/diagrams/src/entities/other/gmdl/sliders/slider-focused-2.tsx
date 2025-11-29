@@ -11,11 +11,5 @@ export const SLIDER_FOCUSED_2 = {
 }
 
 export function SliderFocused2(props: NodeProps) {
-  return (
-    <Shape
-      {...SLIDER_FOCUSED_2}
-      {...props}
-      _style={extendStyle(SLIDER_FOCUSED_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLIDER_FOCUSED_2)} />
 }

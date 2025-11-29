@@ -12,10 +12,6 @@ export const CONDITIONAL_INTERRUPTING = {
 
 export function ConditionalInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...CONDITIONAL_INTERRUPTING}
-      {...props}
-      _style={extendStyle(CONDITIONAL_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONDITIONAL_INTERRUPTING)} />
   )
 }

@@ -11,7 +11,5 @@ export const WWW_SERVER = {
 }
 
 export function WwwServer(props: NodeProps) {
-  return (
-    <Shape {...WWW_SERVER} {...props} _style={extendStyle(WWW_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WWW_SERVER)} />
 }

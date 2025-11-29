@@ -12,10 +12,6 @@ export const COMPONENT_100BASET_HUB = {
 
 export function Component100basetHub(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_100BASET_HUB}
-      {...props}
-      _style={extendStyle(COMPONENT_100BASET_HUB, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_100BASET_HUB)} />
   )
 }

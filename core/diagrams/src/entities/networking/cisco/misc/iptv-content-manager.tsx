@@ -11,11 +11,5 @@ export const IPTV_CONTENT_MANAGER = {
 }
 
 export function IptvContentManager(props: NodeProps) {
-  return (
-    <Shape
-      {...IPTV_CONTENT_MANAGER}
-      {...props}
-      _style={extendStyle(IPTV_CONTENT_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPTV_CONTENT_MANAGER)} />
 }

@@ -11,5 +11,5 @@ export const FURNACE = {
 }
 
 export function Furnace(props: NodeProps) {
-  return <Shape {...FURNACE} {...props} _style={extendStyle(FURNACE, props)} />
+  return <Shape {...props} _style={extendStyle(props, FURNACE)} />
 }

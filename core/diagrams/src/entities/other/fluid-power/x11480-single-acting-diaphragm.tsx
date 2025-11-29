@@ -13,9 +13,8 @@ export const X11480_SINGLE_ACTING_DIAPHRAGM = {
 export function X11480SingleActingDiaphragm(props: NodeProps) {
   return (
     <Shape
-      {...X11480_SINGLE_ACTING_DIAPHRAGM}
       {...props}
-      _style={extendStyle(X11480_SINGLE_ACTING_DIAPHRAGM, props)}
+      _style={extendStyle(props, X11480_SINGLE_ACTING_DIAPHRAGM)}
     />
   )
 }

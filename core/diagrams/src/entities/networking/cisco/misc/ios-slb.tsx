@@ -11,5 +11,5 @@ export const IOS_SLB = {
 }
 
 export function IosSlb(props: NodeProps) {
-  return <Shape {...IOS_SLB} {...props} _style={extendStyle(IOS_SLB, props)} />
+  return <Shape {...props} _style={extendStyle(props, IOS_SLB)} />
 }

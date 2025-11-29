@@ -11,11 +11,5 @@ export const IBM_MAINFRAME = {
 }
 
 export function IbmMainframe(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_MAINFRAME}
-      {...props}
-      _style={extendStyle(IBM_MAINFRAME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_MAINFRAME)} />
 }

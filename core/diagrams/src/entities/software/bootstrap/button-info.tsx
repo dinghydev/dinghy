@@ -11,11 +11,5 @@ export const BUTTON_INFO = {
 }
 
 export function ButtonInfo(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_INFO}
-      {...props}
-      _style={extendStyle(BUTTON_INFO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_INFO)} />
 }

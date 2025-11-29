@@ -12,10 +12,6 @@ export const TRUSTED_APPLICATION_SERVER = {
 
 export function TrustedApplicationServer(props: NodeProps) {
   return (
-    <Shape
-      {...TRUSTED_APPLICATION_SERVER}
-      {...props}
-      _style={extendStyle(TRUSTED_APPLICATION_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TRUSTED_APPLICATION_SERVER)} />
   )
 }

@@ -11,11 +11,5 @@ export const LOAD_LEVELING = {
 }
 
 export function LoadLeveling(props: NodeProps) {
-  return (
-    <Shape
-      {...LOAD_LEVELING}
-      {...props}
-      _style={extendStyle(LOAD_LEVELING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOAD_LEVELING)} />
 }

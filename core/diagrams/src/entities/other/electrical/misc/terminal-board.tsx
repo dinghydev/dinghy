@@ -11,11 +11,5 @@ export const TERMINAL_BOARD = {
 }
 
 export function TerminalBoard(props: NodeProps) {
-  return (
-    <Shape
-      {...TERMINAL_BOARD}
-      {...props}
-      _style={extendStyle(TERMINAL_BOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMINAL_BOARD)} />
 }

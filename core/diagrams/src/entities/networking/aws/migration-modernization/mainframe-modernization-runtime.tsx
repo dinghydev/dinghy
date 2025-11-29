@@ -13,9 +13,8 @@ export const MAINFRAME_MODERNIZATION_RUNTIME = {
 export function MainframeModernizationRuntime(props: NodeProps) {
   return (
     <Shape
-      {...MAINFRAME_MODERNIZATION_RUNTIME}
       {...props}
-      _style={extendStyle(MAINFRAME_MODERNIZATION_RUNTIME, props)}
+      _style={extendStyle(props, MAINFRAME_MODERNIZATION_RUNTIME)}
     />
   )
 }

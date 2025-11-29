@@ -11,5 +11,5 @@ export const SFTP = {
 }
 
 export function Sftp(props: NodeProps) {
-  return <Shape {...SFTP} {...props} _style={extendStyle(SFTP, props)} />
+  return <Shape {...props} _style={extendStyle(props, SFTP)} />
 }

@@ -11,5 +11,5 @@ export const DETOUR = {
 }
 
 export function Detour(props: NodeProps) {
-  return <Shape {...DETOUR} {...props} _style={extendStyle(DETOUR, props)} />
+  return <Shape {...props} _style={extendStyle(props, DETOUR)} />
 }

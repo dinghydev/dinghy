@@ -11,11 +11,5 @@ export const GITHUB_CODE = {
 }
 
 export function GithubCode(props: NodeProps) {
-  return (
-    <Shape
-      {...GITHUB_CODE}
-      {...props}
-      _style={extendStyle(GITHUB_CODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GITHUB_CODE)} />
 }

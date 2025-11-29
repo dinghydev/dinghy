@@ -11,11 +11,5 @@ export const MOBILE_BACKEND = {
 }
 
 export function MobileBackend(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_BACKEND}
-      {...props}
-      _style={extendStyle(MOBILE_BACKEND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_BACKEND)} />
 }

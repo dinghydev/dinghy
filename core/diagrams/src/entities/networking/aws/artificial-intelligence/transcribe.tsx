@@ -11,7 +11,5 @@ export const TRANSCRIBE = {
 }
 
 export function Transcribe(props: NodeProps) {
-  return (
-    <Shape {...TRANSCRIBE} {...props} _style={extendStyle(TRANSCRIBE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSCRIBE)} />
 }

@@ -11,5 +11,5 @@ export const ANTHOS = {
 }
 
 export function Anthos(props: NodeProps) {
-  return <Shape {...ANTHOS} {...props} _style={extendStyle(ANTHOS, props)} />
+  return <Shape {...props} _style={extendStyle(props, ANTHOS)} />
 }

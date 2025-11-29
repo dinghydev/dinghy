@@ -11,11 +11,5 @@ export const INTUNE_MANAGED_APP = {
 }
 
 export function IntuneManagedApp(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_MANAGED_APP}
-      {...props}
-      _style={extendStyle(INTUNE_MANAGED_APP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_MANAGED_APP)} />
 }

@@ -13,9 +13,8 @@ export const LIQUID_FILTER_ION_EXCHANGER = {
 export function LiquidFilterIonExchanger(props: NodeProps) {
   return (
     <Shape
-      {...LIQUID_FILTER_ION_EXCHANGER}
       {...props}
-      _style={extendStyle(LIQUID_FILTER_ION_EXCHANGER, props)}
+      _style={extendStyle(props, LIQUID_FILTER_ION_EXCHANGER)}
     />
   )
 }

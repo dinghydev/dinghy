@@ -12,10 +12,6 @@ export const RESERVED_CAPACITY_GROUPS = {
 
 export function ReservedCapacityGroups(props: NodeProps) {
   return (
-    <Shape
-      {...RESERVED_CAPACITY_GROUPS}
-      {...props}
-      _style={extendStyle(RESERVED_CAPACITY_GROUPS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RESERVED_CAPACITY_GROUPS)} />
   )
 }

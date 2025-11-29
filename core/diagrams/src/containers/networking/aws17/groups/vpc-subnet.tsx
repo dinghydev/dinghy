@@ -12,7 +12,5 @@ export const VPC_SUBNET = {
 }
 
 export function VpcSubnet(props: NodeProps) {
-  return (
-    <Shape {...VPC_SUBNET} {...props} _style={extendStyle(VPC_SUBNET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_SUBNET)} />
 }

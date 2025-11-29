@@ -11,11 +11,5 @@ export const OVERGROUND_ENCLOSURE = {
 }
 
 export function OvergroundEnclosure(props: NodeProps) {
-  return (
-    <Shape
-      {...OVERGROUND_ENCLOSURE}
-      {...props}
-      _style={extendStyle(OVERGROUND_ENCLOSURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OVERGROUND_ENCLOSURE)} />
 }

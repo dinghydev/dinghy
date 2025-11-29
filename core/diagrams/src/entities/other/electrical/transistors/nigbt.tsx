@@ -11,5 +11,5 @@ export const NIGBT = {
 }
 
 export function Nigbt(props: NodeProps) {
-  return <Shape {...NIGBT} {...props} _style={extendStyle(NIGBT, props)} />
+  return <Shape {...props} _style={extendStyle(props, NIGBT)} />
 }

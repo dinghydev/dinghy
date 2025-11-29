@@ -11,11 +11,5 @@ export const AMAZON_SAGEMAKER = {
 }
 
 export function AmazonSagemaker(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_SAGEMAKER}
-      {...props}
-      _style={extendStyle(AMAZON_SAGEMAKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_SAGEMAKER)} />
 }

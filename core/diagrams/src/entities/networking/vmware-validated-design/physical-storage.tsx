@@ -11,11 +11,5 @@ export const PHYSICAL_STORAGE = {
 }
 
 export function PhysicalStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_STORAGE}
-      {...props}
-      _style={extendStyle(PHYSICAL_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_STORAGE)} />
 }

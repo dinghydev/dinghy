@@ -11,11 +11,5 @@ export const FRAME_CORNER = {
 }
 
 export function FrameCorner(props: NodeProps) {
-  return (
-    <Shape
-      {...FRAME_CORNER}
-      {...props}
-      _style={extendStyle(FRAME_CORNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRAME_CORNER)} />
 }

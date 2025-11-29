@@ -11,11 +11,5 @@ export const PARTNER_REGISTRATION = {
 }
 
 export function PartnerRegistration(props: NodeProps) {
-  return (
-    <Shape
-      {...PARTNER_REGISTRATION}
-      {...props}
-      _style={extendStyle(PARTNER_REGISTRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTNER_REGISTRATION)} />
 }

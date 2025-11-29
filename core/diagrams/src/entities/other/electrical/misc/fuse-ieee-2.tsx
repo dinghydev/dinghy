@@ -11,11 +11,5 @@ export const FUSE_IEEE_2 = {
 }
 
 export function FuseIeee2(props: NodeProps) {
-  return (
-    <Shape
-      {...FUSE_IEEE_2}
-      {...props}
-      _style={extendStyle(FUSE_IEEE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUSE_IEEE_2)} />
 }

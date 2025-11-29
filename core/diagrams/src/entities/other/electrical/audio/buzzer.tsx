@@ -11,5 +11,5 @@ export const BUZZER = {
 }
 
 export function Buzzer(props: NodeProps) {
-  return <Shape {...BUZZER} {...props} _style={extendStyle(BUZZER, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUZZER)} />
 }

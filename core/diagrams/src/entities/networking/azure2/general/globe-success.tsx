@@ -11,11 +11,5 @@ export const GLOBE_SUCCESS = {
 }
 
 export function GlobeSuccess(props: NodeProps) {
-  return (
-    <Shape
-      {...GLOBE_SUCCESS}
-      {...props}
-      _style={extendStyle(GLOBE_SUCCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLOBE_SUCCESS)} />
 }

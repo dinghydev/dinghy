@@ -11,11 +11,5 @@ export const FLR_HELPER_APPLIANCE = {
 }
 
 export function FlrHelperAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...FLR_HELPER_APPLIANCE}
-      {...props}
-      _style={extendStyle(FLR_HELPER_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLR_HELPER_APPLIANCE)} />
 }

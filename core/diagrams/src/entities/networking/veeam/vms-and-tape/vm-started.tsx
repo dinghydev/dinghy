@@ -11,7 +11,5 @@ export const VM_STARTED = {
 }
 
 export function VmStarted(props: NodeProps) {
-  return (
-    <Shape {...VM_STARTED} {...props} _style={extendStyle(VM_STARTED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_STARTED)} />
 }

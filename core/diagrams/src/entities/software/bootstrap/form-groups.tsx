@@ -11,11 +11,5 @@ export const FORM_GROUPS = {
 }
 
 export function FormGroups(props: NodeProps) {
-  return (
-    <Shape
-      {...FORM_GROUPS}
-      {...props}
-      _style={extendStyle(FORM_GROUPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORM_GROUPS)} />
 }

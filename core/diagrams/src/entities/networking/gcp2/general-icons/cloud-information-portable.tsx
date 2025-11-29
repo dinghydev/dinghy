@@ -12,10 +12,6 @@ export const CLOUD_INFORMATION_PORTABLE = {
 
 export function CloudInformationPortable(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_INFORMATION_PORTABLE}
-      {...props}
-      _style={extendStyle(CLOUD_INFORMATION_PORTABLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_INFORMATION_PORTABLE)} />
   )
 }

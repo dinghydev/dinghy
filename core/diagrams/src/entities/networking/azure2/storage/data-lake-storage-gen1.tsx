@@ -12,10 +12,6 @@ export const DATA_LAKE_STORAGE_GEN1 = {
 
 export function DataLakeStorageGen1(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_LAKE_STORAGE_GEN1}
-      {...props}
-      _style={extendStyle(DATA_LAKE_STORAGE_GEN1, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_LAKE_STORAGE_GEN1)} />
   )
 }

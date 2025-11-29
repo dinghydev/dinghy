@@ -11,5 +11,5 @@ export const CUSTOMS = {
 }
 
 export function Customs(props: NodeProps) {
-  return <Shape {...CUSTOMS} {...props} _style={extendStyle(CUSTOMS, props)} />
+  return <Shape {...props} _style={extendStyle(props, CUSTOMS)} />
 }

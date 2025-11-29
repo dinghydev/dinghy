@@ -11,11 +11,5 @@ export const PROJECT_ZONE = {
 }
 
 export function ProjectZone(props: NodeProps) {
-  return (
-    <Shape
-      {...PROJECT_ZONE}
-      {...props}
-      _style={extendStyle(PROJECT_ZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROJECT_ZONE)} />
 }

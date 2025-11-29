@@ -11,7 +11,5 @@ export const IDENTI_CA = {
 }
 
 export function IdentiCa(props: NodeProps) {
-  return (
-    <Shape {...IDENTI_CA} {...props} _style={extendStyle(IDENTI_CA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDENTI_CA)} />
 }

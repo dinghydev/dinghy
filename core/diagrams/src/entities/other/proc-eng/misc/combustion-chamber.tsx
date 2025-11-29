@@ -11,11 +11,5 @@ export const COMBUSTION_CHAMBER = {
 }
 
 export function CombustionChamber(props: NodeProps) {
-  return (
-    <Shape
-      {...COMBUSTION_CHAMBER}
-      {...props}
-      _style={extendStyle(COMBUSTION_CHAMBER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMBUSTION_CHAMBER)} />
 }

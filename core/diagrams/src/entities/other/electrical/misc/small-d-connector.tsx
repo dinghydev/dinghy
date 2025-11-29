@@ -11,11 +11,5 @@ export const SMALL_D_CONNECTOR = {
 }
 
 export function SmallDConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...SMALL_D_CONNECTOR}
-      {...props}
-      _style={extendStyle(SMALL_D_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMALL_D_CONNECTOR)} />
 }

@@ -11,11 +11,5 @@ export const SHARED_BANDWIDTH = {
 }
 
 export function SharedBandwidth(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARED_BANDWIDTH}
-      {...props}
-      _style={extendStyle(SHARED_BANDWIDTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARED_BANDWIDTH)} />
 }

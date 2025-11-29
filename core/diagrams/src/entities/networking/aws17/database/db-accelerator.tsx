@@ -11,11 +11,5 @@ export const DB_ACCELERATOR = {
 }
 
 export function DbAccelerator(props: NodeProps) {
-  return (
-    <Shape
-      {...DB_ACCELERATOR}
-      {...props}
-      _style={extendStyle(DB_ACCELERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DB_ACCELERATOR)} />
 }

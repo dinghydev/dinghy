@@ -11,7 +11,5 @@ export const BJT_NPN_2 = {
 }
 
 export function BjtNpn2(props: NodeProps) {
-  return (
-    <Shape {...BJT_NPN_2} {...props} _style={extendStyle(BJT_NPN_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BJT_NPN_2)} />
 }

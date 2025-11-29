@@ -11,11 +11,5 @@ export const NAT_GATEWAY = {
 }
 
 export function NatGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...NAT_GATEWAY}
-      {...props}
-      _style={extendStyle(NAT_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAT_GATEWAY)} />
 }

@@ -13,9 +13,8 @@ export const J9858A_ADV_SVCS_V2_ZL_MODULE = {
 export function J9858aAdvSvcsV2ZlModule(props: NodeProps) {
   return (
     <Shape
-      {...J9858A_ADV_SVCS_V2_ZL_MODULE}
       {...props}
-      _style={extendStyle(J9858A_ADV_SVCS_V2_ZL_MODULE, props)}
+      _style={extendStyle(props, J9858A_ADV_SVCS_V2_ZL_MODULE)}
     />
   )
 }

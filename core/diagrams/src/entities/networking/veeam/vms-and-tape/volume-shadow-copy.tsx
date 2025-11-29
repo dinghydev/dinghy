@@ -11,11 +11,5 @@ export const VOLUME_SHADOW_COPY = {
 }
 
 export function VolumeShadowCopy(props: NodeProps) {
-  return (
-    <Shape
-      {...VOLUME_SHADOW_COPY}
-      {...props}
-      _style={extendStyle(VOLUME_SHADOW_COPY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOLUME_SHADOW_COPY)} />
 }

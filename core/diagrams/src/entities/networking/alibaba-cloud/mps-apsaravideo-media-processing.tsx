@@ -13,9 +13,8 @@ export const MPS_APSARAVIDEO_MEDIA_PROCESSING = {
 export function MpsApsaravideoMediaProcessing(props: NodeProps) {
   return (
     <Shape
-      {...MPS_APSARAVIDEO_MEDIA_PROCESSING}
       {...props}
-      _style={extendStyle(MPS_APSARAVIDEO_MEDIA_PROCESSING, props)}
+      _style={extendStyle(props, MPS_APSARAVIDEO_MEDIA_PROCESSING)}
     />
   )
 }

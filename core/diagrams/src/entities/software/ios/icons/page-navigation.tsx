@@ -11,11 +11,5 @@ export const PAGE_NAVIGATION = {
 }
 
 export function PageNavigation(props: NodeProps) {
-  return (
-    <Shape
-      {...PAGE_NAVIGATION}
-      {...props}
-      _style={extendStyle(PAGE_NAVIGATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAGE_NAVIGATION)} />
 }

@@ -11,11 +11,5 @@ export const WINDOWS_IMAGE = {
 }
 
 export function WindowsImage(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOWS_IMAGE}
-      {...props}
-      _style={extendStyle(WINDOWS_IMAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOWS_IMAGE)} />
 }

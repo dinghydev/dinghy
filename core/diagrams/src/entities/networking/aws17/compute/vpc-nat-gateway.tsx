@@ -11,11 +11,5 @@ export const VPC_NAT_GATEWAY = {
 }
 
 export function VpcNatGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VPC_NAT_GATEWAY}
-      {...props}
-      _style={extendStyle(VPC_NAT_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_NAT_GATEWAY)} />
 }

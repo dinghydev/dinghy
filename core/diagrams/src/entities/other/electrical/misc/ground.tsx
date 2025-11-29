@@ -11,5 +11,5 @@ export const GROUND = {
 }
 
 export function Ground(props: NodeProps) {
-  return <Shape {...GROUND} {...props} _style={extendStyle(GROUND, props)} />
+  return <Shape {...props} _style={extendStyle(props, GROUND)} />
 }

@@ -11,11 +11,5 @@ export const ROLE_APPCONTROLLER = {
 }
 
 export function RoleAppcontroller(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_APPCONTROLLER}
-      {...props}
-      _style={extendStyle(ROLE_APPCONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_APPCONTROLLER)} />
 }

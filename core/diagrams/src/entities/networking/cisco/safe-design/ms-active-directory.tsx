@@ -11,11 +11,5 @@ export const MS_ACTIVE_DIRECTORY = {
 }
 
 export function MsActiveDirectory(props: NodeProps) {
-  return (
-    <Shape
-      {...MS_ACTIVE_DIRECTORY}
-      {...props}
-      _style={extendStyle(MS_ACTIVE_DIRECTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_ACTIVE_DIRECTORY)} />
 }

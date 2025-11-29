@@ -11,11 +11,5 @@ export const WAVELENGTH_ROUTER = {
 }
 
 export function WavelengthRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...WAVELENGTH_ROUTER}
-      {...props}
-      _style={extendStyle(WAVELENGTH_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAVELENGTH_ROUTER)} />
 }

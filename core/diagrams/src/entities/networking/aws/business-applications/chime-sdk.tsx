@@ -11,7 +11,5 @@ export const CHIME_SDK = {
 }
 
 export function ChimeSdk(props: NodeProps) {
-  return (
-    <Shape {...CHIME_SDK} {...props} _style={extendStyle(CHIME_SDK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHIME_SDK)} />
 }

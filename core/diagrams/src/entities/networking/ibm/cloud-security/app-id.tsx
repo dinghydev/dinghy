@@ -11,5 +11,5 @@ export const APP_ID = {
 }
 
 export function AppId(props: NodeProps) {
-  return <Shape {...APP_ID} {...props} _style={extendStyle(APP_ID, props)} />
+  return <Shape {...props} _style={extendStyle(props, APP_ID)} />
 }

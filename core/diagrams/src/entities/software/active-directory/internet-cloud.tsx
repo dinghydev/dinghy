@@ -11,11 +11,5 @@ export const INTERNET_CLOUD = {
 }
 
 export function InternetCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_CLOUD}
-      {...props}
-      _style={extendStyle(INTERNET_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_CLOUD)} />
 }

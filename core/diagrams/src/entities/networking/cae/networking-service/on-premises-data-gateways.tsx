@@ -12,10 +12,6 @@ export const ON_PREMISES_DATA_GATEWAYS = {
 
 export function OnPremisesDataGateways(props: NodeProps) {
   return (
-    <Shape
-      {...ON_PREMISES_DATA_GATEWAYS}
-      {...props}
-      _style={extendStyle(ON_PREMISES_DATA_GATEWAYS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ON_PREMISES_DATA_GATEWAYS)} />
   )
 }

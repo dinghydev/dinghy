@@ -11,11 +11,5 @@ export const MANAGED_DEVOPS_POOLS = {
 }
 
 export function ManagedDevopsPools(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_DEVOPS_POOLS}
-      {...props}
-      _style={extendStyle(MANAGED_DEVOPS_POOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_DEVOPS_POOLS)} />
 }

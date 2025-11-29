@@ -13,9 +13,8 @@ export const ADAPTIVE_SECURITY_APPLIANCE_2 = {
 export function AdaptiveSecurityAppliance2(props: NodeProps) {
   return (
     <Shape
-      {...ADAPTIVE_SECURITY_APPLIANCE_2}
       {...props}
-      _style={extendStyle(ADAPTIVE_SECURITY_APPLIANCE_2, props)}
+      _style={extendStyle(props, ADAPTIVE_SECURITY_APPLIANCE_2)}
     />
   )
 }

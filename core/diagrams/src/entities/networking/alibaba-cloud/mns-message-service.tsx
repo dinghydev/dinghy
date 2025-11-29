@@ -11,11 +11,5 @@ export const MNS_MESSAGE_SERVICE = {
 }
 
 export function MnsMessageService(props: NodeProps) {
-  return (
-    <Shape
-      {...MNS_MESSAGE_SERVICE}
-      {...props}
-      _style={extendStyle(MNS_MESSAGE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MNS_MESSAGE_SERVICE)} />
 }

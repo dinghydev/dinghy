@@ -11,5 +11,5 @@ export const RADIO = {
 }
 
 export function Radio(props: NodeProps) {
-  return <Shape {...RADIO} {...props} _style={extendStyle(RADIO, props)} />
+  return <Shape {...props} _style={extendStyle(props, RADIO)} />
 }

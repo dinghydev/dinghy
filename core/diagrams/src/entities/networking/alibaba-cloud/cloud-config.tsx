@@ -11,11 +11,5 @@ export const CLOUD_CONFIG = {
 }
 
 export function CloudConfig(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CONFIG}
-      {...props}
-      _style={extendStyle(CLOUD_CONFIG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CONFIG)} />
 }

@@ -11,11 +11,5 @@ export const INPUT_OUTPUT = {
 }
 
 export function InputOutput(props: NodeProps) {
-  return (
-    <Shape
-      {...INPUT_OUTPUT}
-      {...props}
-      _style={extendStyle(INPUT_OUTPUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INPUT_OUTPUT)} />
 }

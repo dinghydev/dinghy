@@ -11,11 +11,5 @@ export const ELEMENTAL_MEDIALIVE = {
 }
 
 export function ElementalMedialive(props: NodeProps) {
-  return (
-    <Shape
-      {...ELEMENTAL_MEDIALIVE}
-      {...props}
-      _style={extendStyle(ELEMENTAL_MEDIALIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELEMENTAL_MEDIALIVE)} />
 }

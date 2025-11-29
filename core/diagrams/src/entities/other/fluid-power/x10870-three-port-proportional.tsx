@@ -13,9 +13,8 @@ export const X10870_THREE_PORT_PROPORTIONAL = {
 export function X10870ThreePortProportional(props: NodeProps) {
   return (
     <Shape
-      {...X10870_THREE_PORT_PROPORTIONAL}
       {...props}
-      _style={extendStyle(X10870_THREE_PORT_PROPORTIONAL, props)}
+      _style={extendStyle(props, X10870_THREE_PORT_PROPORTIONAL)}
     />
   )
 }

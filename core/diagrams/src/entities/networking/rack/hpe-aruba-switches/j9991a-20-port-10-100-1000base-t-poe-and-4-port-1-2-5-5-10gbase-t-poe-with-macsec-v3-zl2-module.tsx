@@ -16,11 +16,10 @@ export function J9991a20Port101001000baseTPoeAnd4Port125510gbaseTPoeWithMacsecV3
 ) {
   return (
     <Shape
-      {...J9991A_20_PORT_10_100_1000BASE_T_POE_AND_4_PORT_1_2_5_5_10GBASE_T_POE_WITH_MACSEC_V3_ZL2_MODULE}
       {...props}
       _style={extendStyle(
-        J9991A_20_PORT_10_100_1000BASE_T_POE_AND_4_PORT_1_2_5_5_10GBASE_T_POE_WITH_MACSEC_V3_ZL2_MODULE,
         props,
+        J9991A_20_PORT_10_100_1000BASE_T_POE_AND_4_PORT_1_2_5_5_10GBASE_T_POE_WITH_MACSEC_V3_ZL2_MODULE,
       )}
     />
   )

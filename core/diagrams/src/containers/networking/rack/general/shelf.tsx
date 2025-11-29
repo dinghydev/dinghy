@@ -12,5 +12,5 @@ export const SHELF = {
 }
 
 export function Shelf(props: NodeProps) {
-  return <Shape {...SHELF} {...props} _style={extendStyle(SHELF, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHELF)} />
 }

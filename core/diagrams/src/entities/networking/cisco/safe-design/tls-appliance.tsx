@@ -11,11 +11,5 @@ export const TLS_APPLIANCE = {
 }
 
 export function TlsAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...TLS_APPLIANCE}
-      {...props}
-      _style={extendStyle(TLS_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TLS_APPLIANCE)} />
 }

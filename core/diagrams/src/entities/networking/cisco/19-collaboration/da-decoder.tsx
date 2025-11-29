@@ -11,7 +11,5 @@ export const DA_DECODER = {
 }
 
 export function DaDecoder(props: NodeProps) {
-  return (
-    <Shape {...DA_DECODER} {...props} _style={extendStyle(DA_DECODER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DA_DECODER)} />
 }

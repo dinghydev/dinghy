@@ -11,11 +11,5 @@ export const COAXIAL_JACK_PLUG = {
 }
 
 export function CoaxialJackPlug(props: NodeProps) {
-  return (
-    <Shape
-      {...COAXIAL_JACK_PLUG}
-      {...props}
-      _style={extendStyle(COAXIAL_JACK_PLUG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COAXIAL_JACK_PLUG)} />
 }

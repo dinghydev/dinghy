@@ -12,5 +12,5 @@ export const WATSONX = {
 }
 
 export function Watsonx(props: NodeProps) {
-  return <Shape {...WATSONX} {...props} _style={extendStyle(WATSONX, props)} />
+  return <Shape {...props} _style={extendStyle(props, WATSONX)} />
 }

@@ -12,10 +12,6 @@ export const XDRAGON_BARE_METAL_SERVER = {
 
 export function XdragonBareMetalServer(props: NodeProps) {
   return (
-    <Shape
-      {...XDRAGON_BARE_METAL_SERVER}
-      {...props}
-      _style={extendStyle(XDRAGON_BARE_METAL_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, XDRAGON_BARE_METAL_SERVER)} />
   )
 }

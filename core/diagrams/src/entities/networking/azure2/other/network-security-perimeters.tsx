@@ -13,9 +13,8 @@ export const NETWORK_SECURITY_PERIMETERS = {
 export function NetworkSecurityPerimeters(props: NodeProps) {
   return (
     <Shape
-      {...NETWORK_SECURITY_PERIMETERS}
       {...props}
-      _style={extendStyle(NETWORK_SECURITY_PERIMETERS, props)}
+      _style={extendStyle(props, NETWORK_SECURITY_PERIMETERS)}
     />
   )
 }

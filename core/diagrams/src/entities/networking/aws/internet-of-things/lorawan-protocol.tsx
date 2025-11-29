@@ -11,11 +11,5 @@ export const LORAWAN_PROTOCOL = {
 }
 
 export function LorawanProtocol(props: NodeProps) {
-  return (
-    <Shape
-      {...LORAWAN_PROTOCOL}
-      {...props}
-      _style={extendStyle(LORAWAN_PROTOCOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LORAWAN_PROTOCOL)} />
 }

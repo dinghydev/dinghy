@@ -11,11 +11,5 @@ export const COMPONENT_1FTVM = {
 }
 
 export function Component1ftvm(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_1FTVM}
-      {...props}
-      _style={extendStyle(COMPONENT_1FTVM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_1FTVM)} />
 }

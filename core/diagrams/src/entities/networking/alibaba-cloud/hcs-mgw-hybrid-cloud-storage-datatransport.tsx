@@ -13,9 +13,8 @@ export const HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT = {
 export function HcsMgwHybridCloudStorageDatatransport(props: NodeProps) {
   return (
     <Shape
-      {...HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT}
       {...props}
-      _style={extendStyle(HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT, props)}
+      _style={extendStyle(props, HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT)}
     />
   )
 }

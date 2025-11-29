@@ -11,7 +11,5 @@ export const APP_STORE = {
 }
 
 export function AppStore(props: NodeProps) {
-  return (
-    <Shape {...APP_STORE} {...props} _style={extendStyle(APP_STORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_STORE)} />
 }

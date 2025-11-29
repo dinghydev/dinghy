@@ -11,11 +11,5 @@ export const MARKETING_2 = {
 }
 
 export function Marketing2(props: NodeProps) {
-  return (
-    <Shape
-      {...MARKETING_2}
-      {...props}
-      _style={extendStyle(MARKETING_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MARKETING_2)} />
 }

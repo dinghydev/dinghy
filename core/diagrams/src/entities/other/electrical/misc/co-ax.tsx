@@ -11,5 +11,5 @@ export const CO_AX = {
 }
 
 export function CoAx(props: NodeProps) {
-  return <Shape {...CO_AX} {...props} _style={extendStyle(CO_AX, props)} />
+  return <Shape {...props} _style={extendStyle(props, CO_AX)} />
 }

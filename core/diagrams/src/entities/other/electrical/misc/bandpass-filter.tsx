@@ -11,11 +11,5 @@ export const BANDPASS_FILTER = {
 }
 
 export function BandpassFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...BANDPASS_FILTER}
-      {...props}
-      _style={extendStyle(BANDPASS_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANDPASS_FILTER)} />
 }

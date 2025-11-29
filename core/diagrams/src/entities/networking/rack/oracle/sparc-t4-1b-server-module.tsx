@@ -12,10 +12,6 @@ export const SPARC_T4_1B_SERVER_MODULE = {
 
 export function SparcT41bServerModule(props: NodeProps) {
   return (
-    <Shape
-      {...SPARC_T4_1B_SERVER_MODULE}
-      {...props}
-      _style={extendStyle(SPARC_T4_1B_SERVER_MODULE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SPARC_T4_1B_SERVER_MODULE)} />
   )
 }

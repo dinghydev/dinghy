@@ -11,5 +11,5 @@ export const PSP_2 = {
 }
 
 export function Psp2(props: NodeProps) {
-  return <Shape {...PSP_2} {...props} _style={extendStyle(PSP_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, PSP_2)} />
 }

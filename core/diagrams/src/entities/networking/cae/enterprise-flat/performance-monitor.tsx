@@ -11,11 +11,5 @@ export const PERFORMANCE_MONITOR = {
 }
 
 export function PerformanceMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...PERFORMANCE_MONITOR}
-      {...props}
-      _style={extendStyle(PERFORMANCE_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERFORMANCE_MONITOR)} />
 }

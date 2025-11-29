@@ -13,9 +13,8 @@ export const ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE = {
 export function ArmsApplicationRealTimeMonitoringService(props: NodeProps) {
   return (
     <Shape
-      {...ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE}
       {...props}
-      _style={extendStyle(ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE, props)}
+      _style={extendStyle(props, ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE)}
     />
   )
 }

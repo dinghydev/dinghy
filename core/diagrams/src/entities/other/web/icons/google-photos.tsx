@@ -11,11 +11,5 @@ export const GOOGLE_PHOTOS = {
 }
 
 export function GooglePhotos(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_PHOTOS}
-      {...props}
-      _style={extendStyle(GOOGLE_PHOTOS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_PHOTOS)} />
 }

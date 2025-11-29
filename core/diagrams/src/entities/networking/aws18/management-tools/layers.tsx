@@ -11,5 +11,5 @@ export const LAYERS = {
 }
 
 export function Layers(props: NodeProps) {
-  return <Shape {...LAYERS} {...props} _style={extendStyle(LAYERS, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAYERS)} />
 }

@@ -11,10 +11,6 @@ export const HISTORY_DEEP_PSEUDO_STATE = {
 
 export function HistoryDeepPseudoState(props: NodeProps) {
   return (
-    <Shape
-      {...HISTORY_DEEP_PSEUDO_STATE}
-      {...props}
-      _style={extendStyle(HISTORY_DEEP_PSEUDO_STATE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HISTORY_DEEP_PSEUDO_STATE)} />
   )
 }

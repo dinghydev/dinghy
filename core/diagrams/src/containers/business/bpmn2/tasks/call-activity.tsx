@@ -9,11 +9,5 @@ export const CALL_ACTIVITY = {
 }
 
 export function CallActivity(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_ACTIVITY}
-      {...props}
-      _style={extendStyle(CALL_ACTIVITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_ACTIVITY)} />
 }

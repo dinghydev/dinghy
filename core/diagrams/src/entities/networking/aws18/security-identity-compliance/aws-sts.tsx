@@ -11,5 +11,5 @@ export const AWS_STS = {
 }
 
 export function AwsSts(props: NodeProps) {
-  return <Shape {...AWS_STS} {...props} _style={extendStyle(AWS_STS, props)} />
+  return <Shape {...props} _style={extendStyle(props, AWS_STS)} />
 }

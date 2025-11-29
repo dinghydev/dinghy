@@ -11,11 +11,5 @@ export const CONTENT_MODERATORS = {
 }
 
 export function ContentModerators(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_MODERATORS}
-      {...props}
-      _style={extendStyle(CONTENT_MODERATORS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_MODERATORS)} />
 }

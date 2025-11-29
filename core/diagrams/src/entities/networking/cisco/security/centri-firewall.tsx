@@ -11,11 +11,5 @@ export const CENTRI_FIREWALL = {
 }
 
 export function CentriFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTRI_FIREWALL}
-      {...props}
-      _style={extendStyle(CENTRI_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTRI_FIREWALL)} />
 }

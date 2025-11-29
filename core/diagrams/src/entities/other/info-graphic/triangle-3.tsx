@@ -11,7 +11,5 @@ export const TRIANGLE_3 = {
 }
 
 export function Triangle3(props: NodeProps) {
-  return (
-    <Shape {...TRIANGLE_3} {...props} _style={extendStyle(TRIANGLE_3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRIANGLE_3)} />
 }

@@ -11,11 +11,5 @@ export const ACCESS_POINT_OUTDOOR = {
 }
 
 export function AccessPointOutdoor(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_POINT_OUTDOOR}
-      {...props}
-      _style={extendStyle(ACCESS_POINT_OUTDOOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_POINT_OUTDOOR)} />
 }

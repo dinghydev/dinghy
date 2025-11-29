@@ -11,5 +11,5 @@ export const CHROME = {
 }
 
 export function Chrome(props: NodeProps) {
-  return <Shape {...CHROME} {...props} _style={extendStyle(CHROME, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHROME)} />
 }

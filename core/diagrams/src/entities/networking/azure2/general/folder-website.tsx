@@ -11,11 +11,5 @@ export const FOLDER_WEBSITE = {
 }
 
 export function FolderWebsite(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_WEBSITE}
-      {...props}
-      _style={extendStyle(FOLDER_WEBSITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_WEBSITE)} />
 }

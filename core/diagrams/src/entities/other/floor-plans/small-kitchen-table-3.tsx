@@ -10,11 +10,5 @@ export const SMALL_KITCHEN_TABLE_3 = {
 }
 
 export function SmallKitchenTable3(props: NodeProps) {
-  return (
-    <Shape
-      {...SMALL_KITCHEN_TABLE_3}
-      {...props}
-      _style={extendStyle(SMALL_KITCHEN_TABLE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMALL_KITCHEN_TABLE_3)} />
 }

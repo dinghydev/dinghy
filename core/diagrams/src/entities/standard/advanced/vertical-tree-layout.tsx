@@ -11,11 +11,5 @@ export const VERTICAL_TREE_LAYOUT = {
 }
 
 export function VerticalTreeLayout(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_TREE_LAYOUT}
-      {...props}
-      _style={extendStyle(VERTICAL_TREE_LAYOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_TREE_LAYOUT)} />
 }

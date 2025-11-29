@@ -13,9 +13,8 @@ export const IVPD_INTELLIGENT_VISUAL_PRODUCTION = {
 export function IvpdIntelligentVisualProduction(props: NodeProps) {
   return (
     <Shape
-      {...IVPD_INTELLIGENT_VISUAL_PRODUCTION}
       {...props}
-      _style={extendStyle(IVPD_INTELLIGENT_VISUAL_PRODUCTION, props)}
+      _style={extendStyle(props, IVPD_INTELLIGENT_VISUAL_PRODUCTION)}
     />
   )
 }

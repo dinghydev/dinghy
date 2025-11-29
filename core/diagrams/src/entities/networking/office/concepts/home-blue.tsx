@@ -11,7 +11,5 @@ export const HOME_BLUE = {
 }
 
 export function HomeBlue(props: NodeProps) {
-  return (
-    <Shape {...HOME_BLUE} {...props} _style={extendStyle(HOME_BLUE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_BLUE)} />
 }

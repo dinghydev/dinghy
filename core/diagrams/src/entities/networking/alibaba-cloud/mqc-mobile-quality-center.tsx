@@ -12,10 +12,6 @@ export const MQC_MOBILE_QUALITY_CENTER = {
 
 export function MqcMobileQualityCenter(props: NodeProps) {
   return (
-    <Shape
-      {...MQC_MOBILE_QUALITY_CENTER}
-      {...props}
-      _style={extendStyle(MQC_MOBILE_QUALITY_CENTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MQC_MOBILE_QUALITY_CENTER)} />
   )
 }

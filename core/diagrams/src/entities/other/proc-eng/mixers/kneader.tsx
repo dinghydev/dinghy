@@ -11,5 +11,5 @@ export const KNEADER = {
 }
 
 export function Kneader(props: NodeProps) {
-  return <Shape {...KNEADER} {...props} _style={extendStyle(KNEADER, props)} />
+  return <Shape {...props} _style={extendStyle(props, KNEADER)} />
 }

@@ -11,11 +11,5 @@ export const CENTRIFUGE_SKIMMER = {
 }
 
 export function CentrifugeSkimmer(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTRIFUGE_SKIMMER}
-      {...props}
-      _style={extendStyle(CENTRIFUGE_SKIMMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTRIFUGE_SKIMMER)} />
 }

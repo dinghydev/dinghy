@@ -12,10 +12,6 @@ export const X11880_FLUID_LEVEL_SWITCH = {
 
 export function X11880FluidLevelSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...X11880_FLUID_LEVEL_SWITCH}
-      {...props}
-      _style={extendStyle(X11880_FLUID_LEVEL_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11880_FLUID_LEVEL_SWITCH)} />
   )
 }

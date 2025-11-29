@@ -13,9 +13,8 @@ export const NOTIFICATION_HUB_NAMESPACES = {
 export function NotificationHubNamespaces(props: NodeProps) {
   return (
     <Shape
-      {...NOTIFICATION_HUB_NAMESPACES}
       {...props}
-      _style={extendStyle(NOTIFICATION_HUB_NAMESPACES, props)}
+      _style={extendStyle(props, NOTIFICATION_HUB_NAMESPACES)}
     />
   )
 }

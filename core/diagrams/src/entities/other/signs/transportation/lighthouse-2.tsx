@@ -11,11 +11,5 @@ export const LIGHTHOUSE_2 = {
 }
 
 export function Lighthouse2(props: NodeProps) {
-  return (
-    <Shape
-      {...LIGHTHOUSE_2}
-      {...props}
-      _style={extendStyle(LIGHTHOUSE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIGHTHOUSE_2)} />
 }

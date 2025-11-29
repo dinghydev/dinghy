@@ -13,9 +13,8 @@ export const INTERCHANGEABLE_DISC_BLIND_DISC = {
 export function InterchangeableDiscBlindDisc(props: NodeProps) {
   return (
     <Shape
-      {...INTERCHANGEABLE_DISC_BLIND_DISC}
       {...props}
-      _style={extendStyle(INTERCHANGEABLE_DISC_BLIND_DISC, props)}
+      _style={extendStyle(props, INTERCHANGEABLE_DISC_BLIND_DISC)}
     />
   )
 }

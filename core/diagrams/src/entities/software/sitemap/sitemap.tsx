@@ -11,5 +11,5 @@ export const SITEMAP = {
 }
 
 export function Sitemap(props: NodeProps) {
-  return <Shape {...SITEMAP} {...props} _style={extendStyle(SITEMAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, SITEMAP)} />
 }

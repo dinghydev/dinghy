@@ -11,7 +11,5 @@ export const SQL_SLAVE = {
 }
 
 export function SqlSlave(props: NodeProps) {
-  return (
-    <Shape {...SQL_SLAVE} {...props} _style={extendStyle(SQL_SLAVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_SLAVE)} />
 }

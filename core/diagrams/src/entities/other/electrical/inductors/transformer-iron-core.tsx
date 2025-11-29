@@ -11,11 +11,5 @@ export const TRANSFORMER_IRON_CORE = {
 }
 
 export function TransformerIronCore(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSFORMER_IRON_CORE}
-      {...props}
-      _style={extendStyle(TRANSFORMER_IRON_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSFORMER_IRON_CORE)} />
 }

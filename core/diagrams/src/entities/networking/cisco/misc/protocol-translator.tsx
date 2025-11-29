@@ -11,11 +11,5 @@ export const PROTOCOL_TRANSLATOR = {
 }
 
 export function ProtocolTranslator(props: NodeProps) {
-  return (
-    <Shape
-      {...PROTOCOL_TRANSLATOR}
-      {...props}
-      _style={extendStyle(PROTOCOL_TRANSLATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTOCOL_TRANSLATOR)} />
 }

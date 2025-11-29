@@ -11,11 +11,5 @@ export const U_TURN_DOWN_ARROW = {
 }
 
 export function UTurnDownArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...U_TURN_DOWN_ARROW}
-      {...props}
-      _style={extendStyle(U_TURN_DOWN_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, U_TURN_DOWN_ARROW)} />
 }

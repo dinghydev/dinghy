@@ -11,11 +11,5 @@ export const DATA_CATALOG = {
 }
 
 export function DataCatalog(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_CATALOG}
-      {...props}
-      _style={extendStyle(DATA_CATALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_CATALOG)} />
 }

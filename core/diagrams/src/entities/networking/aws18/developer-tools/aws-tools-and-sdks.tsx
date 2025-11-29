@@ -11,11 +11,5 @@ export const AWS_TOOLS_AND_SDKS = {
 }
 
 export function AwsToolsAndSdks(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_TOOLS_AND_SDKS}
-      {...props}
-      _style={extendStyle(AWS_TOOLS_AND_SDKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_TOOLS_AND_SDKS)} />
 }

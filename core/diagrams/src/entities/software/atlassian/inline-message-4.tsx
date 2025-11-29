@@ -11,11 +11,5 @@ export const INLINE_MESSAGE_4 = {
 }
 
 export function InlineMessage4(props: NodeProps) {
-  return (
-    <Shape
-      {...INLINE_MESSAGE_4}
-      {...props}
-      _style={extendStyle(INLINE_MESSAGE_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INLINE_MESSAGE_4)} />
 }

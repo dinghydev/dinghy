@@ -11,11 +11,5 @@ export const BUILDING_NON_SAP = {
 }
 
 export function BuildingNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...BUILDING_NON_SAP}
-      {...props}
-      _style={extendStyle(BUILDING_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUILDING_NON_SAP)} />
 }

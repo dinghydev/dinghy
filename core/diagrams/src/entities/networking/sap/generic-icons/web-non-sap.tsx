@@ -11,11 +11,5 @@ export const WEB_NON_SAP = {
 }
 
 export function WebNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_NON_SAP}
-      {...props}
-      _style={extendStyle(WEB_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_NON_SAP)} />
 }

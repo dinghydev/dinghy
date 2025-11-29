@@ -11,11 +11,5 @@ export const BUILDING_CLUSTER = {
 }
 
 export function BuildingCluster(props: NodeProps) {
-  return (
-    <Shape
-      {...BUILDING_CLUSTER}
-      {...props}
-      _style={extendStyle(BUILDING_CLUSTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUILDING_CLUSTER)} />
 }

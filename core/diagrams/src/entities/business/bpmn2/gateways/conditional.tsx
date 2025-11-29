@@ -11,11 +11,5 @@ export const CONDITIONAL = {
 }
 
 export function Conditional(props: NodeProps) {
-  return (
-    <Shape
-      {...CONDITIONAL}
-      {...props}
-      _style={extendStyle(CONDITIONAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONDITIONAL)} />
 }

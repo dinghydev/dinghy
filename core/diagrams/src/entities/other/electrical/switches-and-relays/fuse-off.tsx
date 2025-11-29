@@ -11,7 +11,5 @@ export const FUSE_OFF = {
 }
 
 export function FuseOff(props: NodeProps) {
-  return (
-    <Shape {...FUSE_OFF} {...props} _style={extendStyle(FUSE_OFF, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUSE_OFF)} />
 }

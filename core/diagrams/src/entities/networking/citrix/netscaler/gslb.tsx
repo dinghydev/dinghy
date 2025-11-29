@@ -11,5 +11,5 @@ export const GSLB = {
 }
 
 export function Gslb(props: NodeProps) {
-  return <Shape {...GSLB} {...props} _style={extendStyle(GSLB, props)} />
+  return <Shape {...props} _style={extendStyle(props, GSLB)} />
 }

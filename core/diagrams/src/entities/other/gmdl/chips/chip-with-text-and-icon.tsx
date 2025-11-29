@@ -12,10 +12,6 @@ export const CHIP_WITH_TEXT_AND_ICON = {
 
 export function ChipWithTextAndIcon(props: NodeProps) {
   return (
-    <Shape
-      {...CHIP_WITH_TEXT_AND_ICON}
-      {...props}
-      _style={extendStyle(CHIP_WITH_TEXT_AND_ICON, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CHIP_WITH_TEXT_AND_ICON)} />
   )
 }

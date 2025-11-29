@@ -13,9 +13,8 @@ export const MAS_MOBILE_ACCELERATION_SERVICE = {
 export function MasMobileAccelerationService(props: NodeProps) {
   return (
     <Shape
-      {...MAS_MOBILE_ACCELERATION_SERVICE}
       {...props}
-      _style={extendStyle(MAS_MOBILE_ACCELERATION_SERVICE, props)}
+      _style={extendStyle(props, MAS_MOBILE_ACCELERATION_SERVICE)}
     />
   )
 }

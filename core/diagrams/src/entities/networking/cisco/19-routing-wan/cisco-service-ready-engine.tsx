@@ -12,10 +12,6 @@ export const CISCO_SERVICE_READY_ENGINE = {
 
 export function CiscoServiceReadyEngine(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_SERVICE_READY_ENGINE}
-      {...props}
-      _style={extendStyle(CISCO_SERVICE_READY_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_SERVICE_READY_ENGINE)} />
   )
 }

@@ -11,11 +11,5 @@ export const ASPECT_RATIO = {
 }
 
 export function AspectRatio(props: NodeProps) {
-  return (
-    <Shape
-      {...ASPECT_RATIO}
-      {...props}
-      _style={extendStyle(ASPECT_RATIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASPECT_RATIO)} />
 }

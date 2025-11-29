@@ -9,11 +9,5 @@ export const BOUNDARY_LIFELINE = {
 }
 
 export function BoundaryLifeline(props: NodeProps) {
-  return (
-    <Shape
-      {...BOUNDARY_LIFELINE}
-      {...props}
-      _style={extendStyle(BOUNDARY_LIFELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOUNDARY_LIFELINE)} />
 }

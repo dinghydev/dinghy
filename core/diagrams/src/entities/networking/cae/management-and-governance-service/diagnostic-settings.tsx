@@ -11,11 +11,5 @@ export const DIAGNOSTIC_SETTINGS = {
 }
 
 export function DiagnosticSettings(props: NodeProps) {
-  return (
-    <Shape
-      {...DIAGNOSTIC_SETTINGS}
-      {...props}
-      _style={extendStyle(DIAGNOSTIC_SETTINGS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIAGNOSTIC_SETTINGS)} />
 }

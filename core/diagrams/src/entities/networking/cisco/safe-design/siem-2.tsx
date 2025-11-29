@@ -11,5 +11,5 @@ export const SIEM_2 = {
 }
 
 export function Siem2(props: NodeProps) {
-  return <Shape {...SIEM_2} {...props} _style={extendStyle(SIEM_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, SIEM_2)} />
 }

@@ -11,5 +11,5 @@ export const ACE = {
 }
 
 export function Ace(props: NodeProps) {
-  return <Shape {...ACE} {...props} _style={extendStyle(ACE, props)} />
+  return <Shape {...props} _style={extendStyle(props, ACE)} />
 }

@@ -12,10 +12,6 @@ export const PHYSICAL_UPSTREAM_ROUTER = {
 
 export function PhysicalUpstreamRouter(props: NodeProps) {
   return (
-    <Shape
-      {...PHYSICAL_UPSTREAM_ROUTER}
-      {...props}
-      _style={extendStyle(PHYSICAL_UPSTREAM_ROUTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PHYSICAL_UPSTREAM_ROUTER)} />
   )
 }

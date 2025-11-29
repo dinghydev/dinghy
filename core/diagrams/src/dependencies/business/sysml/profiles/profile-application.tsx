@@ -10,10 +10,6 @@ export const PROFILE_APPLICATION = {
 
 export function ProfileApplication(props: NodeProps) {
   return (
-    <Dependency
-      {...PROFILE_APPLICATION}
-      {...props}
-      _style={extendStyle(PROFILE_APPLICATION, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, PROFILE_APPLICATION)} />
   )
 }

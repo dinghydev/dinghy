@@ -11,11 +11,5 @@ export const MOVE_TO_FOLDER = {
 }
 
 export function MoveToFolder(props: NodeProps) {
-  return (
-    <Shape
-      {...MOVE_TO_FOLDER}
-      {...props}
-      _style={extendStyle(MOVE_TO_FOLDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOVE_TO_FOLDER)} />
 }

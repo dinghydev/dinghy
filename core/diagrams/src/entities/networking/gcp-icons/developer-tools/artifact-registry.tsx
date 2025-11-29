@@ -11,11 +11,5 @@ export const ARTIFACT_REGISTRY = {
 }
 
 export function ArtifactRegistry(props: NodeProps) {
-  return (
-    <Shape
-      {...ARTIFACT_REGISTRY}
-      {...props}
-      _style={extendStyle(ARTIFACT_REGISTRY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARTIFACT_REGISTRY)} />
 }

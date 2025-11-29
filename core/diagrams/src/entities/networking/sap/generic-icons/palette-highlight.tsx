@@ -11,11 +11,5 @@ export const PALETTE_HIGHLIGHT = {
 }
 
 export function PaletteHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...PALETTE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(PALETTE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PALETTE_HIGHLIGHT)} />
 }

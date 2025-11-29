@@ -11,7 +11,5 @@ export const L2_SWITCH = {
 }
 
 export function L2Switch(props: NodeProps) {
-  return (
-    <Shape {...L2_SWITCH} {...props} _style={extendStyle(L2_SWITCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, L2_SWITCH)} />
 }

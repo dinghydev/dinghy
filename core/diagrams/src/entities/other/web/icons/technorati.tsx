@@ -11,7 +11,5 @@ export const TECHNORATI = {
 }
 
 export function Technorati(props: NodeProps) {
-  return (
-    <Shape {...TECHNORATI} {...props} _style={extendStyle(TECHNORATI, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECHNORATI)} />
 }

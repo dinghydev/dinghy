@@ -10,10 +10,6 @@ export const MULTI_INSTANCE_SEQUENTIAL = {
 
 export function MultiInstanceSequential(props: NodeProps) {
   return (
-    <Shape
-      {...MULTI_INSTANCE_SEQUENTIAL}
-      {...props}
-      _style={extendStyle(MULTI_INSTANCE_SEQUENTIAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTI_INSTANCE_SEQUENTIAL)} />
   )
 }

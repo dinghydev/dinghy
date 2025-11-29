@@ -13,9 +13,8 @@ export const CISCO_1905_SERIAL_INTEGRATED_SERVICES_ROUTER = {
 export function Cisco1905SerialIntegratedServicesRouter(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_1905_SERIAL_INTEGRATED_SERVICES_ROUTER}
       {...props}
-      _style={extendStyle(CISCO_1905_SERIAL_INTEGRATED_SERVICES_ROUTER, props)}
+      _style={extendStyle(props, CISCO_1905_SERIAL_INTEGRATED_SERVICES_ROUTER)}
     />
   )
 }

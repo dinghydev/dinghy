@@ -12,10 +12,6 @@ export const ROUTE_SWITCH_PROCESSOR = {
 
 export function RouteSwitchProcessor(props: NodeProps) {
   return (
-    <Shape
-      {...ROUTE_SWITCH_PROCESSOR}
-      {...props}
-      _style={extendStyle(ROUTE_SWITCH_PROCESSOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROUTE_SWITCH_PROCESSOR)} />
   )
 }

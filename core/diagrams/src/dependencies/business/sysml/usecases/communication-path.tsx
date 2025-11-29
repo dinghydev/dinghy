@@ -9,10 +9,6 @@ export const COMMUNICATION_PATH = {
 
 export function CommunicationPath(props: NodeProps) {
   return (
-    <Dependency
-      {...COMMUNICATION_PATH}
-      {...props}
-      _style={extendStyle(COMMUNICATION_PATH, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, COMMUNICATION_PATH)} />
   )
 }

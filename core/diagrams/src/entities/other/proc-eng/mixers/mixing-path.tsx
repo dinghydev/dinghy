@@ -11,11 +11,5 @@ export const MIXING_PATH = {
 }
 
 export function MixingPath(props: NodeProps) {
-  return (
-    <Shape
-      {...MIXING_PATH}
-      {...props}
-      _style={extendStyle(MIXING_PATH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIXING_PATH)} />
 }

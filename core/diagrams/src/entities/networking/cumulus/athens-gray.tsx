@@ -10,11 +10,5 @@ export const ATHENS_GRAY = {
 }
 
 export function AthensGray(props: NodeProps) {
-  return (
-    <Shape
-      {...ATHENS_GRAY}
-      {...props}
-      _style={extendStyle(ATHENS_GRAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATHENS_GRAY)} />
 }

@@ -11,11 +11,5 @@ export const X10140_SOLENOID_COIL = {
 }
 
 export function X10140SolenoidCoil(props: NodeProps) {
-  return (
-    <Shape
-      {...X10140_SOLENOID_COIL}
-      {...props}
-      _style={extendStyle(X10140_SOLENOID_COIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10140_SOLENOID_COIL)} />
 }

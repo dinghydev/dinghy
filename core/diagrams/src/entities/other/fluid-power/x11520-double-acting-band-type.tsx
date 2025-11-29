@@ -13,9 +13,8 @@ export const X11520_DOUBLE_ACTING_BAND_TYPE = {
 export function X11520DoubleActingBandType(props: NodeProps) {
   return (
     <Shape
-      {...X11520_DOUBLE_ACTING_BAND_TYPE}
       {...props}
-      _style={extendStyle(X11520_DOUBLE_ACTING_BAND_TYPE, props)}
+      _style={extendStyle(props, X11520_DOUBLE_ACTING_BAND_TYPE)}
     />
   )
 }

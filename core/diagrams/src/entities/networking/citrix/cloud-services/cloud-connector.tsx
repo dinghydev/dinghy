@@ -11,11 +11,5 @@ export const CLOUD_CONNECTOR = {
 }
 
 export function CloudConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CONNECTOR}
-      {...props}
-      _style={extendStyle(CLOUD_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CONNECTOR)} />
 }

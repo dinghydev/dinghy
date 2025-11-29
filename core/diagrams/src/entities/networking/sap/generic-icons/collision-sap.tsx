@@ -11,11 +11,5 @@ export const COLLISION_SAP = {
 }
 
 export function CollisionSap(props: NodeProps) {
-  return (
-    <Shape
-      {...COLLISION_SAP}
-      {...props}
-      _style={extendStyle(COLLISION_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLLISION_SAP)} />
 }

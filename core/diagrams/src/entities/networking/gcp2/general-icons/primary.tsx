@@ -11,5 +11,5 @@ export const PRIMARY = {
 }
 
 export function Primary(props: NodeProps) {
-  return <Shape {...PRIMARY} {...props} _style={extendStyle(PRIMARY, props)} />
+  return <Shape {...props} _style={extendStyle(props, PRIMARY)} />
 }

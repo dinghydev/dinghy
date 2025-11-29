@@ -11,11 +11,5 @@ export const SQL_PRIMARY = {
 }
 
 export function SqlPrimary(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_PRIMARY}
-      {...props}
-      _style={extendStyle(SQL_PRIMARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_PRIMARY)} />
 }

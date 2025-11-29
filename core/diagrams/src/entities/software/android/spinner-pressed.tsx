@@ -11,11 +11,5 @@ export const SPINNER_PRESSED = {
 }
 
 export function SpinnerPressed(props: NodeProps) {
-  return (
-    <Shape
-      {...SPINNER_PRESSED}
-      {...props}
-      _style={extendStyle(SPINNER_PRESSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPINNER_PRESSED)} />
 }

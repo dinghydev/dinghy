@@ -11,11 +11,5 @@ export const SOURCEFORGE = {
 }
 
 export function Sourceforge(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCEFORGE}
-      {...props}
-      _style={extendStyle(SOURCEFORGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCEFORGE)} />
 }

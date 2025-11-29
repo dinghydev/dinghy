@@ -11,11 +11,5 @@ export const EQUIPOTENTIAL = {
 }
 
 export function Equipotential(props: NodeProps) {
-  return (
-    <Shape
-      {...EQUIPOTENTIAL}
-      {...props}
-      _style={extendStyle(EQUIPOTENTIAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EQUIPOTENTIAL)} />
 }

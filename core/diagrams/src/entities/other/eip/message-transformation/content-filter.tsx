@@ -11,11 +11,5 @@ export const CONTENT_FILTER = {
 }
 
 export function ContentFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_FILTER}
-      {...props}
-      _style={extendStyle(CONTENT_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_FILTER)} />
 }

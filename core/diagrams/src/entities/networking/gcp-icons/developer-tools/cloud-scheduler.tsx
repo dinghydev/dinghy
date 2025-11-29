@@ -11,11 +11,5 @@ export const CLOUD_SCHEDULER = {
 }
 
 export function CloudScheduler(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SCHEDULER}
-      {...props}
-      _style={extendStyle(CLOUD_SCHEDULER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SCHEDULER)} />
 }

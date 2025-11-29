@@ -11,7 +11,5 @@ export const SITE_TEAM = {
 }
 
 export function SiteTeam(props: NodeProps) {
-  return (
-    <Shape {...SITE_TEAM} {...props} _style={extendStyle(SITE_TEAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_TEAM)} />
 }

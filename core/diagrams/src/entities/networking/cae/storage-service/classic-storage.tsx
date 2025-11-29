@@ -11,11 +11,5 @@ export const CLASSIC_STORAGE = {
 }
 
 export function ClassicStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...CLASSIC_STORAGE}
-      {...props}
-      _style={extendStyle(CLASSIC_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLASSIC_STORAGE)} />
 }

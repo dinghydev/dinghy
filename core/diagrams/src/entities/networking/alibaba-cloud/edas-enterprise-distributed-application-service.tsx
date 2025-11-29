@@ -13,11 +13,10 @@ export const EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE = {
 export function EdasEnterpriseDistributedApplicationService(props: NodeProps) {
   return (
     <Shape
-      {...EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE}
       {...props}
       _style={extendStyle(
-        EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE,
         props,
+        EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE,
       )}
     />
   )

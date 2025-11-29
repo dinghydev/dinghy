@@ -11,9 +11,8 @@ export const POINT_TO_POINT_CHANNEL = {
 export function PointToPointChannel(props: NodeProps) {
   return (
     <Dependency
-      {...POINT_TO_POINT_CHANNEL}
       {...props}
-      _style={extendStyle(POINT_TO_POINT_CHANNEL, props)}
+      _style={extendStyle(props, POINT_TO_POINT_CHANNEL)}
     />
   )
 }

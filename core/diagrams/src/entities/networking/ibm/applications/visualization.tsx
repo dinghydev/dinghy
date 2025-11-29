@@ -11,11 +11,5 @@ export const VISUALIZATION = {
 }
 
 export function Visualization(props: NodeProps) {
-  return (
-    <Shape
-      {...VISUALIZATION}
-      {...props}
-      _style={extendStyle(VISUALIZATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISUALIZATION)} />
 }

@@ -11,11 +11,5 @@ export const PROCESS_MANAGEMENT = {
 }
 
 export function ProcessManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...PROCESS_MANAGEMENT}
-      {...props}
-      _style={extendStyle(PROCESS_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROCESS_MANAGEMENT)} />
 }

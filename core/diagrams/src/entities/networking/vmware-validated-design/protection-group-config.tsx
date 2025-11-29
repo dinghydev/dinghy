@@ -12,10 +12,6 @@ export const PROTECTION_GROUP_CONFIG = {
 
 export function ProtectionGroupConfig(props: NodeProps) {
   return (
-    <Shape
-      {...PROTECTION_GROUP_CONFIG}
-      {...props}
-      _style={extendStyle(PROTECTION_GROUP_CONFIG, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROTECTION_GROUP_CONFIG)} />
   )
 }

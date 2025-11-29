@@ -12,10 +12,6 @@ export const WINDOWS_VIRTUAL_DESKTOP = {
 
 export function WindowsVirtualDesktop(props: NodeProps) {
   return (
-    <Shape
-      {...WINDOWS_VIRTUAL_DESKTOP}
-      {...props}
-      _style={extendStyle(WINDOWS_VIRTUAL_DESKTOP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WINDOWS_VIRTUAL_DESKTOP)} />
   )
 }

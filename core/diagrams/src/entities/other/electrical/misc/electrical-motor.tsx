@@ -11,11 +11,5 @@ export const ELECTRICAL_MOTOR = {
 }
 
 export function ElectricalMotor(props: NodeProps) {
-  return (
-    <Shape
-      {...ELECTRICAL_MOTOR}
-      {...props}
-      _style={extendStyle(ELECTRICAL_MOTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELECTRICAL_MOTOR)} />
 }

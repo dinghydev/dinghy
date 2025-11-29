@@ -11,11 +11,5 @@ export const INTERACTION_2 = {
 }
 
 export function Interaction2(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERACTION_2}
-      {...props}
-      _style={extendStyle(INTERACTION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERACTION_2)} />
 }

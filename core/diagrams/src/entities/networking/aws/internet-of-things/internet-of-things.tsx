@@ -11,11 +11,5 @@ export const INTERNET_OF_THINGS = {
 }
 
 export function InternetOfThings(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_OF_THINGS}
-      {...props}
-      _style={extendStyle(INTERNET_OF_THINGS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_OF_THINGS)} />
 }

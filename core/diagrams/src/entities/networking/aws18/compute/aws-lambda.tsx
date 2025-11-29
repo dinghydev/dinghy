@@ -11,7 +11,5 @@ export const AWS_LAMBDA = {
 }
 
 export function AwsLambda(props: NodeProps) {
-  return (
-    <Shape {...AWS_LAMBDA} {...props} _style={extendStyle(AWS_LAMBDA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_LAMBDA)} />
 }

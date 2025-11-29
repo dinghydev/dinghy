@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { InLineRotaryMixer } from '@dinghy/diagrams/entitiesProcEngMixers'
 
 <InLineRotaryMixer/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { IN_LINE_ROTARY_MIXER } from '@dinghy/diagrams/entitiesProcEngMixers'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, IN_LINE_ROTARY_MIXER)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { InLineRotaryMixer } from '@dinghy/diagrams/entitiesProcEngMixers'
 import { InLineStaticMixer } from '@dinghy/diagrams/entitiesProcEngMixers'
 
 <InLineStaticMixer/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { IN_LINE_STATIC_MIXER } from '@dinghy/diagrams/entitiesProcEngMixers'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, IN_LINE_STATIC_MIXER)}
+  />
+
 ```
 
   </TabItem>
@@ -85,6 +107,17 @@ import { InLineStaticMixer } from '@dinghy/diagrams/entitiesProcEngMixers'
 import { Kneader } from '@dinghy/diagrams/entitiesProcEngMixers'
 
 <Kneader/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { KNEADER } from '@dinghy/diagrams/entitiesProcEngMixers'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, KNEADER)}
+  />
+
 ```
 
   </TabItem>
@@ -118,6 +151,17 @@ import { Kneader } from '@dinghy/diagrams/entitiesProcEngMixers'
 import { MixingPath } from '@dinghy/diagrams/entitiesProcEngMixers'
 
 <MixingPath/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { MIXING_PATH } from '@dinghy/diagrams/entitiesProcEngMixers'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, MIXING_PATH)}
+  />
+
 ```
 
   </TabItem>

@@ -12,10 +12,6 @@ export const QUANTUM_LEDGER_DATABASE = {
 
 export function QuantumLedgerDatabase(props: NodeProps) {
   return (
-    <Shape
-      {...QUANTUM_LEDGER_DATABASE}
-      {...props}
-      _style={extendStyle(QUANTUM_LEDGER_DATABASE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, QUANTUM_LEDGER_DATABASE)} />
   )
 }

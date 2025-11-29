@@ -11,11 +11,5 @@ export const FLOW_COLLECTOR_2 = {
 }
 
 export function FlowCollector2(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_COLLECTOR_2}
-      {...props}
-      _style={extendStyle(FLOW_COLLECTOR_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_COLLECTOR_2)} />
 }

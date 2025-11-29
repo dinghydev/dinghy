@@ -13,9 +13,8 @@ export const FNF_SERVERLESS_FUNCTION_FLOW = {
 export function FnfServerlessFunctionFlow(props: NodeProps) {
   return (
     <Shape
-      {...FNF_SERVERLESS_FUNCTION_FLOW}
       {...props}
-      _style={extendStyle(FNF_SERVERLESS_FUNCTION_FLOW, props)}
+      _style={extendStyle(props, FNF_SERVERLESS_FUNCTION_FLOW)}
     />
   )
 }

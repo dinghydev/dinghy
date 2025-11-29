@@ -11,11 +11,5 @@ export const WEBAPPWORDPRESS = {
 }
 
 export function Webappwordpress(props: NodeProps) {
-  return (
-    <Shape
-      {...WEBAPPWORDPRESS}
-      {...props}
-      _style={extendStyle(WEBAPPWORDPRESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBAPPWORDPRESS)} />
 }

@@ -11,7 +11,5 @@ export const DIABETES = {
 }
 
 export function Diabetes(props: NodeProps) {
-  return (
-    <Shape {...DIABETES} {...props} _style={extendStyle(DIABETES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIABETES)} />
 }

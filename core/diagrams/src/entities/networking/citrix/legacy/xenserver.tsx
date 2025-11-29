@@ -11,7 +11,5 @@ export const XENSERVER = {
 }
 
 export function Xenserver(props: NodeProps) {
-  return (
-    <Shape {...XENSERVER} {...props} _style={extendStyle(XENSERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENSERVER)} />
 }

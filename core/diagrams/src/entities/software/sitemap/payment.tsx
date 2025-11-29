@@ -11,5 +11,5 @@ export const PAYMENT = {
 }
 
 export function Payment(props: NodeProps) {
-  return <Shape {...PAYMENT} {...props} _style={extendStyle(PAYMENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, PAYMENT)} />
 }

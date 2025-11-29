@@ -11,11 +11,5 @@ export const IMAGE_VARIABLE_ASPECT = {
 }
 
 export function ImageVariableAspect(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_VARIABLE_ASPECT}
-      {...props}
-      _style={extendStyle(IMAGE_VARIABLE_ASPECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_VARIABLE_ASPECT)} />
 }

@@ -11,7 +11,5 @@ export const SELF_CALL = {
 }
 
 export function SelfCall(props: NodeProps) {
-  return (
-    <Shape {...SELF_CALL} {...props} _style={extendStyle(SELF_CALL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SELF_CALL)} />
 }

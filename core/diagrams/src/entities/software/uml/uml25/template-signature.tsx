@@ -10,11 +10,5 @@ export const TEMPLATE_SIGNATURE = {
 }
 
 export function TemplateSignature(props: NodeProps) {
-  return (
-    <Shape
-      {...TEMPLATE_SIGNATURE}
-      {...props}
-      _style={extendStyle(TEMPLATE_SIGNATURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEMPLATE_SIGNATURE)} />
 }

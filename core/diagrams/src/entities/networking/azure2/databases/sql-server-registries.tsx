@@ -11,11 +11,5 @@ export const SQL_SERVER_REGISTRIES = {
 }
 
 export function SqlServerRegistries(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_SERVER_REGISTRIES}
-      {...props}
-      _style={extendStyle(SQL_SERVER_REGISTRIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_SERVER_REGISTRIES)} />
 }

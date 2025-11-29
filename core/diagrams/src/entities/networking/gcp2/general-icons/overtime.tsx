@@ -11,7 +11,5 @@ export const OVERTIME = {
 }
 
 export function Overtime(props: NodeProps) {
-  return (
-    <Shape {...OVERTIME} {...props} _style={extendStyle(OVERTIME, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OVERTIME)} />
 }

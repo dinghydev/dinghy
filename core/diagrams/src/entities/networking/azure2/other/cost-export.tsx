@@ -11,11 +11,5 @@ export const COST_EXPORT = {
 }
 
 export function CostExport(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_EXPORT}
-      {...props}
-      _style={extendStyle(COST_EXPORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_EXPORT)} />
 }

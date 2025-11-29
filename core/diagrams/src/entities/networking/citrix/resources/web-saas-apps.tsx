@@ -11,11 +11,5 @@ export const WEB_SAAS_APPS = {
 }
 
 export function WebSaasApps(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SAAS_APPS}
-      {...props}
-      _style={extendStyle(WEB_SAAS_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SAAS_APPS)} />
 }

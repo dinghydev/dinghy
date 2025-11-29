@@ -11,11 +11,5 @@ export const MAN_MOBILE_ANALYTICS = {
 }
 
 export function ManMobileAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...MAN_MOBILE_ANALYTICS}
-      {...props}
-      _style={extendStyle(MAN_MOBILE_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAN_MOBILE_ANALYTICS)} />
 }

@@ -11,11 +11,5 @@ export const ESCALATION_THROWING = {
 }
 
 export function EscalationThrowing(props: NodeProps) {
-  return (
-    <Shape
-      {...ESCALATION_THROWING}
-      {...props}
-      _style={extendStyle(ESCALATION_THROWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ESCALATION_THROWING)} />
 }

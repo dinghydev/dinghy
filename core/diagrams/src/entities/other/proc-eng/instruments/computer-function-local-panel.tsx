@@ -13,9 +13,8 @@ export const COMPUTER_FUNCTION_LOCAL_PANEL = {
 export function ComputerFunctionLocalPanel(props: NodeProps) {
   return (
     <Shape
-      {...COMPUTER_FUNCTION_LOCAL_PANEL}
       {...props}
-      _style={extendStyle(COMPUTER_FUNCTION_LOCAL_PANEL, props)}
+      _style={extendStyle(props, COMPUTER_FUNCTION_LOCAL_PANEL)}
     />
   )
 }

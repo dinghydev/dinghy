@@ -11,7 +11,5 @@ export const API_PROXY = {
 }
 
 export function ApiProxy(props: NodeProps) {
-  return (
-    <Shape {...API_PROXY} {...props} _style={extendStyle(API_PROXY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_PROXY)} />
 }

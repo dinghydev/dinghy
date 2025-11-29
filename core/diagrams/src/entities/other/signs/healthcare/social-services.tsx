@@ -11,11 +11,5 @@ export const SOCIAL_SERVICES = {
 }
 
 export function SocialServices(props: NodeProps) {
-  return (
-    <Shape
-      {...SOCIAL_SERVICES}
-      {...props}
-      _style={extendStyle(SOCIAL_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOCIAL_SERVICES)} />
 }

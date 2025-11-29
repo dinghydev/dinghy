@@ -13,11 +13,10 @@ export const CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U = {
 export function CiscoPhysicalSecurityMultiservicePlatform1u(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U}
       {...props}
       _style={extendStyle(
-        CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U,
         props,
+        CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U,
       )}
     />
   )

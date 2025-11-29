@@ -11,11 +11,5 @@ export const FULL_TEXT_FIELD = {
 }
 
 export function FullTextField(props: NodeProps) {
-  return (
-    <Shape
-      {...FULL_TEXT_FIELD}
-      {...props}
-      _style={extendStyle(FULL_TEXT_FIELD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FULL_TEXT_FIELD)} />
 }

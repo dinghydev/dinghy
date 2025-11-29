@@ -11,5 +11,5 @@ export const ENTITY = {
 }
 
 export function Entity(props: NodeProps) {
-  return <Shape {...ENTITY} {...props} _style={extendStyle(ENTITY, props)} />
+  return <Shape {...props} _style={extendStyle(props, ENTITY)} />
 }

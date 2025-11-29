@@ -11,7 +11,5 @@ export const JIRA_CORE = {
 }
 
 export function JiraCore(props: NodeProps) {
-  return (
-    <Shape {...JIRA_CORE} {...props} _style={extendStyle(JIRA_CORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, JIRA_CORE)} />
 }

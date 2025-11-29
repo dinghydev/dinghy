@@ -12,10 +12,6 @@ export const NLP_TC_TEXT_CATEGORIZATION = {
 
 export function NlpTcTextCategorization(props: NodeProps) {
   return (
-    <Shape
-      {...NLP_TC_TEXT_CATEGORIZATION}
-      {...props}
-      _style={extendStyle(NLP_TC_TEXT_CATEGORIZATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NLP_TC_TEXT_CATEGORIZATION)} />
   )
 }

@@ -11,11 +11,5 @@ export const MOBILE_ENGAGEMENT = {
 }
 
 export function MobileEngagement(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_ENGAGEMENT}
-      {...props}
-      _style={extendStyle(MOBILE_ENGAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_ENGAGEMENT)} />
 }

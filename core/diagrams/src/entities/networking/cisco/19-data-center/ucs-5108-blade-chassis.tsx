@@ -12,10 +12,6 @@ export const UCS_5108_BLADE_CHASSIS = {
 
 export function Ucs5108BladeChassis(props: NodeProps) {
   return (
-    <Shape
-      {...UCS_5108_BLADE_CHASSIS}
-      {...props}
-      _style={extendStyle(UCS_5108_BLADE_CHASSIS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, UCS_5108_BLADE_CHASSIS)} />
   )
 }

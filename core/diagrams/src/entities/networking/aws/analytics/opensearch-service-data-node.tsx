@@ -13,9 +13,8 @@ export const OPENSEARCH_SERVICE_DATA_NODE = {
 export function OpensearchServiceDataNode(props: NodeProps) {
   return (
     <Shape
-      {...OPENSEARCH_SERVICE_DATA_NODE}
       {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE_DATA_NODE, props)}
+      _style={extendStyle(props, OPENSEARCH_SERVICE_DATA_NODE)}
     />
   )
 }

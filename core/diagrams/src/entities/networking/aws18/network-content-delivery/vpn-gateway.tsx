@@ -11,11 +11,5 @@ export const VPN_GATEWAY = {
 }
 
 export function VpnGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VPN_GATEWAY}
-      {...props}
-      _style={extendStyle(VPN_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPN_GATEWAY)} />
 }

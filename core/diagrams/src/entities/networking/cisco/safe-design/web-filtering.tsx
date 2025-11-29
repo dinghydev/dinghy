@@ -11,11 +11,5 @@ export const WEB_FILTERING = {
 }
 
 export function WebFiltering(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_FILTERING}
-      {...props}
-      _style={extendStyle(WEB_FILTERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_FILTERING)} />
 }

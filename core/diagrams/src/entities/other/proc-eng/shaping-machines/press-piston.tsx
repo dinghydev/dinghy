@@ -11,11 +11,5 @@ export const PRESS_PISTON = {
 }
 
 export function PressPiston(props: NodeProps) {
-  return (
-    <Shape
-      {...PRESS_PISTON}
-      {...props}
-      _style={extendStyle(PRESS_PISTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRESS_PISTON)} />
 }

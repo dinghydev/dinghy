@@ -13,9 +13,8 @@ export const HP_BLADESYSTEM_C3000_ENCLOSURE = {
 export function HpBladesystemC3000Enclosure(props: NodeProps) {
   return (
     <Shape
-      {...HP_BLADESYSTEM_C3000_ENCLOSURE}
       {...props}
-      _style={extendStyle(HP_BLADESYSTEM_C3000_ENCLOSURE, props)}
+      _style={extendStyle(props, HP_BLADESYSTEM_C3000_ENCLOSURE)}
     />
   )
 }

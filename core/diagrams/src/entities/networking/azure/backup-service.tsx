@@ -11,11 +11,5 @@ export const BACKUP_SERVICE = {
 }
 
 export function BackupService(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_SERVICE}
-      {...props}
-      _style={extendStyle(BACKUP_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_SERVICE)} />
 }

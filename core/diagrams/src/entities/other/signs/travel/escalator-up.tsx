@@ -11,11 +11,5 @@ export const ESCALATOR_UP = {
 }
 
 export function EscalatorUp(props: NodeProps) {
-  return (
-    <Shape
-      {...ESCALATOR_UP}
-      {...props}
-      _style={extendStyle(ESCALATOR_UP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ESCALATOR_UP)} />
 }

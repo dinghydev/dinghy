@@ -11,11 +11,5 @@ export const SERVICE_BUS_QUEUES = {
 }
 
 export function ServiceBusQueues(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_BUS_QUEUES}
-      {...props}
-      _style={extendStyle(SERVICE_BUS_QUEUES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_BUS_QUEUES)} />
 }

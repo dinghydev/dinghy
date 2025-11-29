@@ -11,5 +11,5 @@ export const VIRTUAL = {
 }
 
 export function Virtual(props: NodeProps) {
-  return <Shape {...VIRTUAL} {...props} _style={extendStyle(VIRTUAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL)} />
 }

@@ -12,10 +12,6 @@ export const WIRELESS_ROGUE_DETECTION = {
 
 export function WirelessRogueDetection(props: NodeProps) {
   return (
-    <Shape
-      {...WIRELESS_ROGUE_DETECTION}
-      {...props}
-      _style={extendStyle(WIRELESS_ROGUE_DETECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WIRELESS_ROGUE_DETECTION)} />
   )
 }

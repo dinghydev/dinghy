@@ -13,9 +13,8 @@ export const JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE = {
 export function Jl087a3810m2930m1Port40gbeQsfpModule(props: NodeProps) {
   return (
     <Shape
-      {...JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE}
       {...props}
-      _style={extendStyle(JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE, props)}
+      _style={extendStyle(props, JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE)}
     />
   )
 }

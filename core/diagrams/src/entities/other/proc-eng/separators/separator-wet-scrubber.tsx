@@ -12,10 +12,6 @@ export const SEPARATOR_WET_SCRUBBER = {
 
 export function SeparatorWetScrubber(props: NodeProps) {
   return (
-    <Shape
-      {...SEPARATOR_WET_SCRUBBER}
-      {...props}
-      _style={extendStyle(SEPARATOR_WET_SCRUBBER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SEPARATOR_WET_SCRUBBER)} />
   )
 }

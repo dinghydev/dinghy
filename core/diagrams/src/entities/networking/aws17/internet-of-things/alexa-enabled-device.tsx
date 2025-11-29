@@ -11,11 +11,5 @@ export const ALEXA_ENABLED_DEVICE = {
 }
 
 export function AlexaEnabledDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...ALEXA_ENABLED_DEVICE}
-      {...props}
-      _style={extendStyle(ALEXA_ENABLED_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALEXA_ENABLED_DEVICE)} />
 }

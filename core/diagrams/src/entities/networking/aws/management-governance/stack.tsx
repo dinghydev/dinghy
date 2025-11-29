@@ -11,5 +11,5 @@ export const STACK = {
 }
 
 export function Stack(props: NodeProps) {
-  return <Shape {...STACK} {...props} _style={extendStyle(STACK, props)} />
+  return <Shape {...props} _style={extendStyle(props, STACK)} />
 }

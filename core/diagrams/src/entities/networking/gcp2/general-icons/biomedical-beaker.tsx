@@ -11,11 +11,5 @@ export const BIOMEDICAL_BEAKER = {
 }
 
 export function BiomedicalBeaker(props: NodeProps) {
-  return (
-    <Shape
-      {...BIOMEDICAL_BEAKER}
-      {...props}
-      _style={extendStyle(BIOMEDICAL_BEAKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIOMEDICAL_BEAKER)} />
 }

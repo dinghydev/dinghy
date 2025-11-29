@@ -11,10 +11,6 @@ export const MOBILE_VERTICAL_STEPPER = {
 
 export function MobileVerticalStepper(props: NodeProps) {
   return (
-    <Shape
-      {...MOBILE_VERTICAL_STEPPER}
-      {...props}
-      _style={extendStyle(MOBILE_VERTICAL_STEPPER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MOBILE_VERTICAL_STEPPER)} />
   )
 }

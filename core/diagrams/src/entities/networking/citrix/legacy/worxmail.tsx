@@ -11,7 +11,5 @@ export const WORXMAIL = {
 }
 
 export function Worxmail(props: NodeProps) {
-  return (
-    <Shape {...WORXMAIL} {...props} _style={extendStyle(WORXMAIL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORXMAIL)} />
 }

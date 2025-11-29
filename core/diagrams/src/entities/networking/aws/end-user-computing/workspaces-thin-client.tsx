@@ -12,10 +12,6 @@ export const WORKSPACES_THIN_CLIENT = {
 
 export function WorkspacesThinClient(props: NodeProps) {
   return (
-    <Shape
-      {...WORKSPACES_THIN_CLIENT}
-      {...props}
-      _style={extendStyle(WORKSPACES_THIN_CLIENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WORKSPACES_THIN_CLIENT)} />
   )
 }

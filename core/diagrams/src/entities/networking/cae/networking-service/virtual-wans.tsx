@@ -11,11 +11,5 @@ export const VIRTUAL_WANS = {
 }
 
 export function VirtualWans(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_WANS}
-      {...props}
-      _style={extendStyle(VIRTUAL_WANS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_WANS)} />
 }

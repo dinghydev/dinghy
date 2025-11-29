@@ -11,7 +11,5 @@ export const PIE_CHART = {
 }
 
 export function PieChart(props: NodeProps) {
-  return (
-    <Shape {...PIE_CHART} {...props} _style={extendStyle(PIE_CHART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PIE_CHART)} />
 }

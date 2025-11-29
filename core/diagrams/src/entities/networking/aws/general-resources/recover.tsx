@@ -11,5 +11,5 @@ export const RECOVER = {
 }
 
 export function Recover(props: NodeProps) {
-  return <Shape {...RECOVER} {...props} _style={extendStyle(RECOVER, props)} />
+  return <Shape {...props} _style={extendStyle(props, RECOVER)} />
 }

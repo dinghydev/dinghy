@@ -11,11 +11,5 @@ export const SECURE_PRIVATE_ACCESS = {
 }
 
 export function SecurePrivateAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_PRIVATE_ACCESS}
-      {...props}
-      _style={extendStyle(SECURE_PRIVATE_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_PRIVATE_ACCESS)} />
 }

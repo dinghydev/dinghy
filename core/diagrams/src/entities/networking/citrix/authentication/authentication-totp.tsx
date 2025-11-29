@@ -11,11 +11,5 @@ export const AUTHENTICATION_TOTP = {
 }
 
 export function AuthenticationTotp(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_TOTP}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_TOTP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_TOTP)} />
 }

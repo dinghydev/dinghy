@@ -13,9 +13,8 @@ export const SAP_MONITORING_SERVICE_FOR_SAP_BTP = {
 export function SapMonitoringServiceForSapBtp(props: NodeProps) {
   return (
     <Shape
-      {...SAP_MONITORING_SERVICE_FOR_SAP_BTP}
       {...props}
-      _style={extendStyle(SAP_MONITORING_SERVICE_FOR_SAP_BTP, props)}
+      _style={extendStyle(props, SAP_MONITORING_SERVICE_FOR_SAP_BTP)}
     />
   )
 }

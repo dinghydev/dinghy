@@ -11,11 +11,5 @@ export const WINDOWS_DOMAIN = {
 }
 
 export function WindowsDomain(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOWS_DOMAIN}
-      {...props}
-      _style={extendStyle(WINDOWS_DOMAIN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOWS_DOMAIN)} />
 }

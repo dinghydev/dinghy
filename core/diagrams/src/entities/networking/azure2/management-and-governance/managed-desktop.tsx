@@ -11,11 +11,5 @@ export const MANAGED_DESKTOP = {
 }
 
 export function ManagedDesktop(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_DESKTOP}
-      {...props}
-      _style={extendStyle(MANAGED_DESKTOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_DESKTOP)} />
 }

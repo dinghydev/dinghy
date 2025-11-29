@@ -11,7 +11,5 @@ export const PROMOTION = {
 }
 
 export function Promotion(props: NodeProps) {
-  return (
-    <Shape {...PROMOTION} {...props} _style={extendStyle(PROMOTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROMOTION)} />
 }

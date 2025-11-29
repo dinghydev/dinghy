@@ -11,11 +11,5 @@ export const CLOUD_MANAGEMENT = {
 }
 
 export function CloudManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_MANAGEMENT}
-      {...props}
-      _style={extendStyle(CLOUD_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_MANAGEMENT)} />
 }

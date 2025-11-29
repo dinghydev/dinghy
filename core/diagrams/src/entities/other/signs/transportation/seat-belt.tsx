@@ -11,7 +11,5 @@ export const SEAT_BELT = {
 }
 
 export function SeatBelt(props: NodeProps) {
-  return (
-    <Shape {...SEAT_BELT} {...props} _style={extendStyle(SEAT_BELT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEAT_BELT)} />
 }

@@ -11,11 +11,5 @@ export const DEEPCOMPOSER = {
 }
 
 export function Deepcomposer(props: NodeProps) {
-  return (
-    <Shape
-      {...DEEPCOMPOSER}
-      {...props}
-      _style={extendStyle(DEEPCOMPOSER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEEPCOMPOSER)} />
 }

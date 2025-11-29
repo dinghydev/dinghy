@@ -11,5 +11,5 @@ export const DR_PLAN = {
 }
 
 export function DrPlan(props: NodeProps) {
-  return <Shape {...DR_PLAN} {...props} _style={extendStyle(DR_PLAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, DR_PLAN)} />
 }

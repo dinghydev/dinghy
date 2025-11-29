@@ -11,11 +11,5 @@ export const SERVER_WIDTH_CHANGES = {
 }
 
 export function ServerWidthChanges(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_WIDTH_CHANGES}
-      {...props}
-      _style={extendStyle(SERVER_WIDTH_CHANGES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_WIDTH_CHANGES)} />
 }

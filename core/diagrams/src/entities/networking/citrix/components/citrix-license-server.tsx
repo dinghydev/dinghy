@@ -11,11 +11,5 @@ export const CITRIX_LICENSE_SERVER = {
 }
 
 export function CitrixLicenseServer(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_LICENSE_SERVER}
-      {...props}
-      _style={extendStyle(CITRIX_LICENSE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_LICENSE_SERVER)} />
 }

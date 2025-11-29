@@ -11,11 +11,5 @@ export const X10620_DUAL_PRESSURE = {
 }
 
 export function X10620DualPressure(props: NodeProps) {
-  return (
-    <Shape
-      {...X10620_DUAL_PRESSURE}
-      {...props}
-      _style={extendStyle(X10620_DUAL_PRESSURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10620_DUAL_PRESSURE)} />
 }

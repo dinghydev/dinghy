@@ -11,11 +11,5 @@ export const HTML_TABLE_4 = {
 }
 
 export function HtmlTable4(props: NodeProps) {
-  return (
-    <Shape
-      {...HTML_TABLE_4}
-      {...props}
-      _style={extendStyle(HTML_TABLE_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HTML_TABLE_4)} />
 }

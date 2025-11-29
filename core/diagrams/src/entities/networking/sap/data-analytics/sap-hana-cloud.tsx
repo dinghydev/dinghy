@@ -11,11 +11,5 @@ export const SAP_HANA_CLOUD = {
 }
 
 export function SapHanaCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_HANA_CLOUD}
-      {...props}
-      _style={extendStyle(SAP_HANA_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_HANA_CLOUD)} />
 }

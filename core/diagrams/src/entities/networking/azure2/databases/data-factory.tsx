@@ -11,11 +11,5 @@ export const DATA_FACTORY = {
 }
 
 export function DataFactory(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_FACTORY}
-      {...props}
-      _style={extendStyle(DATA_FACTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_FACTORY)} />
 }

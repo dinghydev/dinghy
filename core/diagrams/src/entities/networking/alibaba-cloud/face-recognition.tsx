@@ -11,11 +11,5 @@ export const FACE_RECOGNITION = {
 }
 
 export function FaceRecognition(props: NodeProps) {
-  return (
-    <Shape
-      {...FACE_RECOGNITION}
-      {...props}
-      _style={extendStyle(FACE_RECOGNITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACE_RECOGNITION)} />
 }

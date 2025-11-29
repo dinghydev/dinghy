@@ -12,10 +12,6 @@ export const MS_SQL_INSTANCE_ALTERNATE = {
 
 export function MsSqlInstanceAlternate(props: NodeProps) {
   return (
-    <Shape
-      {...MS_SQL_INSTANCE_ALTERNATE}
-      {...props}
-      _style={extendStyle(MS_SQL_INSTANCE_ALTERNATE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MS_SQL_INSTANCE_ALTERNATE)} />
   )
 }

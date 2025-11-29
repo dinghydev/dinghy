@@ -11,5 +11,5 @@ export const PMOS_2 = {
 }
 
 export function Pmos2(props: NodeProps) {
-  return <Shape {...PMOS_2} {...props} _style={extendStyle(PMOS_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, PMOS_2)} />
 }

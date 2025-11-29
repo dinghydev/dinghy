@@ -11,7 +11,5 @@ export const MINIAPPDEV = {
 }
 
 export function Miniappdev(props: NodeProps) {
-  return (
-    <Shape {...MINIAPPDEV} {...props} _style={extendStyle(MINIAPPDEV, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MINIAPPDEV)} />
 }

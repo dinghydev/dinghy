@@ -15,11 +15,10 @@ export function SunBlade6000Virtualized40GbeNetworkExpressModule(
 ) {
   return (
     <Shape
-      {...SUN_BLADE_6000_VIRTUALIZED_40_GBE_NETWORK_EXPRESS_MODULE}
       {...props}
       _style={extendStyle(
-        SUN_BLADE_6000_VIRTUALIZED_40_GBE_NETWORK_EXPRESS_MODULE,
         props,
+        SUN_BLADE_6000_VIRTUALIZED_40_GBE_NETWORK_EXPRESS_MODULE,
       )}
     />
   )

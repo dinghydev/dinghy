@@ -13,9 +13,8 @@ export const TIMER_INTERMEDIATE_CATCHING = {
 export function TimerIntermediateCatching(props: NodeProps) {
   return (
     <Shape
-      {...TIMER_INTERMEDIATE_CATCHING}
       {...props}
-      _style={extendStyle(TIMER_INTERMEDIATE_CATCHING, props)}
+      _style={extendStyle(props, TIMER_INTERMEDIATE_CATCHING)}
     />
   )
 }

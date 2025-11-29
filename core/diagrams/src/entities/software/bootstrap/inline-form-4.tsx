@@ -11,11 +11,5 @@ export const INLINE_FORM_4 = {
 }
 
 export function InlineForm4(props: NodeProps) {
-  return (
-    <Shape
-      {...INLINE_FORM_4}
-      {...props}
-      _style={extendStyle(INLINE_FORM_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INLINE_FORM_4)} />
 }

@@ -11,5 +11,5 @@ export const VNIC = {
 }
 
 export function Vnic(props: NodeProps) {
-  return <Shape {...VNIC} {...props} _style={extendStyle(VNIC, props)} />
+  return <Shape {...props} _style={extendStyle(props, VNIC)} />
 }

@@ -11,11 +11,5 @@ export const GENERAL_STORAGE = {
 }
 
 export function GeneralStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERAL_STORAGE}
-      {...props}
-      _style={extendStyle(GENERAL_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERAL_STORAGE)} />
 }

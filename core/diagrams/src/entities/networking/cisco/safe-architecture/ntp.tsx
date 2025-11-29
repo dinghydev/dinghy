@@ -11,5 +11,5 @@ export const NTP = {
 }
 
 export function Ntp(props: NodeProps) {
-  return <Shape {...NTP} {...props} _style={extendStyle(NTP, props)} />
+  return <Shape {...props} _style={extendStyle(props, NTP)} />
 }

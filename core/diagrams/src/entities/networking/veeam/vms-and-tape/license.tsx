@@ -11,5 +11,5 @@ export const LICENSE = {
 }
 
 export function License(props: NodeProps) {
-  return <Shape {...LICENSE} {...props} _style={extendStyle(LICENSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, LICENSE)} />
 }

@@ -13,9 +13,8 @@ export const WINDOWS_10_IOT_CORE_SERVICES = {
 export function Windows10IotCoreServices(props: NodeProps) {
   return (
     <Shape
-      {...WINDOWS_10_IOT_CORE_SERVICES}
       {...props}
-      _style={extendStyle(WINDOWS_10_IOT_CORE_SERVICES, props)}
+      _style={extendStyle(props, WINDOWS_10_IOT_CORE_SERVICES)}
     />
   )
 }

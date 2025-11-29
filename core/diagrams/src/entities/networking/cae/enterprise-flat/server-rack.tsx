@@ -11,11 +11,5 @@ export const SERVER_RACK = {
 }
 
 export function ServerRack(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_RACK}
-      {...props}
-      _style={extendStyle(SERVER_RACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_RACK)} />
 }

@@ -11,5 +11,5 @@ export const WEB_2 = {
 }
 
 export function Web2(props: NodeProps) {
-  return <Shape {...WEB_2} {...props} _style={extendStyle(WEB_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEB_2)} />
 }

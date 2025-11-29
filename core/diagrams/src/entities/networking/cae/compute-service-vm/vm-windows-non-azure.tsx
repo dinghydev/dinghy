@@ -11,11 +11,5 @@ export const VM_WINDOWS_NON_AZURE = {
 }
 
 export function VmWindowsNonAzure(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_WINDOWS_NON_AZURE}
-      {...props}
-      _style={extendStyle(VM_WINDOWS_NON_AZURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_WINDOWS_NON_AZURE)} />
 }

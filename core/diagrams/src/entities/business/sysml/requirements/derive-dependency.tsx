@@ -10,11 +10,5 @@ export const DERIVE_DEPENDENCY = {
 }
 
 export function DeriveDependency(props: NodeProps) {
-  return (
-    <Shape
-      {...DERIVE_DEPENDENCY}
-      {...props}
-      _style={extendStyle(DERIVE_DEPENDENCY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DERIVE_DEPENDENCY)} />
 }

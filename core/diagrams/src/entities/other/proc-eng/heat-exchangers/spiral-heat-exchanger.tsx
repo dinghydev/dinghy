@@ -11,11 +11,5 @@ export const SPIRAL_HEAT_EXCHANGER = {
 }
 
 export function SpiralHeatExchanger(props: NodeProps) {
-  return (
-    <Shape
-      {...SPIRAL_HEAT_EXCHANGER}
-      {...props}
-      _style={extendStyle(SPIRAL_HEAT_EXCHANGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPIRAL_HEAT_EXCHANGER)} />
 }

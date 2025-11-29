@@ -11,11 +11,5 @@ export const PC_ROUTERCARD = {
 }
 
 export function PcRoutercard(props: NodeProps) {
-  return (
-    <Shape
-      {...PC_ROUTERCARD}
-      {...props}
-      _style={extendStyle(PC_ROUTERCARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PC_ROUTERCARD)} />
 }

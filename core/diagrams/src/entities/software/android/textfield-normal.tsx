@@ -11,11 +11,5 @@ export const TEXTFIELD_NORMAL = {
 }
 
 export function TextfieldNormal(props: NodeProps) {
-  return (
-    <Shape
-      {...TEXTFIELD_NORMAL}
-      {...props}
-      _style={extendStyle(TEXTFIELD_NORMAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXTFIELD_NORMAL)} />
 }

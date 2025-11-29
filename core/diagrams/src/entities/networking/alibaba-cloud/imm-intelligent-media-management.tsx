@@ -13,9 +13,8 @@ export const IMM_INTELLIGENT_MEDIA_MANAGEMENT = {
 export function ImmIntelligentMediaManagement(props: NodeProps) {
   return (
     <Shape
-      {...IMM_INTELLIGENT_MEDIA_MANAGEMENT}
       {...props}
-      _style={extendStyle(IMM_INTELLIGENT_MEDIA_MANAGEMENT, props)}
+      _style={extendStyle(props, IMM_INTELLIGENT_MEDIA_MANAGEMENT)}
     />
   )
 }

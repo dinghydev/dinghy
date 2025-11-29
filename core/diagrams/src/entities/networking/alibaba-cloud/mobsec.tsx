@@ -11,5 +11,5 @@ export const MOBSEC = {
 }
 
 export function Mobsec(props: NodeProps) {
-  return <Shape {...MOBSEC} {...props} _style={extendStyle(MOBSEC, props)} />
+  return <Shape {...props} _style={extendStyle(props, MOBSEC)} />
 }

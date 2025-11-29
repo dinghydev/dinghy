@@ -11,11 +11,5 @@ export const SERVICE_ROUTER = {
 }
 
 export function ServiceRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_ROUTER}
-      {...props}
-      _style={extendStyle(SERVICE_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_ROUTER)} />
 }

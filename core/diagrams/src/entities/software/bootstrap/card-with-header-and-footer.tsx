@@ -13,9 +13,8 @@ export const CARD_WITH_HEADER_AND_FOOTER = {
 export function CardWithHeaderAndFooter(props: NodeProps) {
   return (
     <Shape
-      {...CARD_WITH_HEADER_AND_FOOTER}
       {...props}
-      _style={extendStyle(CARD_WITH_HEADER_AND_FOOTER, props)}
+      _style={extendStyle(props, CARD_WITH_HEADER_AND_FOOTER)}
     />
   )
 }

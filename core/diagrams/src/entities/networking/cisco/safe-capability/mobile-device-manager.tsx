@@ -11,11 +11,5 @@ export const MOBILE_DEVICE_MANAGER = {
 }
 
 export function MobileDeviceManager(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_DEVICE_MANAGER}
-      {...props}
-      _style={extendStyle(MOBILE_DEVICE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_DEVICE_MANAGER)} />
 }

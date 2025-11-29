@@ -12,10 +12,6 @@ export const IOT_CENTRAL_APPLICATIONS = {
 
 export function IotCentralApplications(props: NodeProps) {
   return (
-    <Shape
-      {...IOT_CENTRAL_APPLICATIONS}
-      {...props}
-      _style={extendStyle(IOT_CENTRAL_APPLICATIONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IOT_CENTRAL_APPLICATIONS)} />
   )
 }

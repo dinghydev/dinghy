@@ -11,11 +11,5 @@ export const AVERGING_PITOT_TUBE = {
 }
 
 export function AvergingPitotTube(props: NodeProps) {
-  return (
-    <Shape
-      {...AVERGING_PITOT_TUBE}
-      {...props}
-      _style={extendStyle(AVERGING_PITOT_TUBE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVERGING_PITOT_TUBE)} />
 }

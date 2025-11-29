@@ -11,11 +11,5 @@ export const RELEASE_MANAGEMENT = {
 }
 
 export function ReleaseManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...RELEASE_MANAGEMENT}
-      {...props}
-      _style={extendStyle(RELEASE_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RELEASE_MANAGEMENT)} />
 }

@@ -11,7 +11,5 @@ export const HOSPITAL_1 = {
 }
 
 export function Hospital1(props: NodeProps) {
-  return (
-    <Shape {...HOSPITAL_1} {...props} _style={extendStyle(HOSPITAL_1, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOSPITAL_1)} />
 }

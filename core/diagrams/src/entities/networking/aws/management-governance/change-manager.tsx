@@ -11,11 +11,5 @@ export const CHANGE_MANAGER = {
 }
 
 export function ChangeManager(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANGE_MANAGER}
-      {...props}
-      _style={extendStyle(CHANGE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGE_MANAGER)} />
 }

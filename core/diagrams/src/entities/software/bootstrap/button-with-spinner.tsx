@@ -11,11 +11,5 @@ export const BUTTON_WITH_SPINNER = {
 }
 
 export function ButtonWithSpinner(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_WITH_SPINNER}
-      {...props}
-      _style={extendStyle(BUTTON_WITH_SPINNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_WITH_SPINNER)} />
 }

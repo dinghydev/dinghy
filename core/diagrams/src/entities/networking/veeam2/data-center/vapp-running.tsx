@@ -11,11 +11,5 @@ export const VAPP_RUNNING = {
 }
 
 export function VappRunning(props: NodeProps) {
-  return (
-    <Shape
-      {...VAPP_RUNNING}
-      {...props}
-      _style={extendStyle(VAPP_RUNNING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VAPP_RUNNING)} />
 }

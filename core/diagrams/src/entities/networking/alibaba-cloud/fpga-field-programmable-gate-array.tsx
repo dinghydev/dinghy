@@ -13,9 +13,8 @@ export const FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY = {
 export function FpgaFieldProgrammableGateArray(props: NodeProps) {
   return (
     <Shape
-      {...FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY}
       {...props}
-      _style={extendStyle(FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY, props)}
+      _style={extendStyle(props, FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY)}
     />
   )
 }

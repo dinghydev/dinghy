@@ -11,11 +11,5 @@ export const CHANNEL_PURGER = {
 }
 
 export function ChannelPurger(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANNEL_PURGER}
-      {...props}
-      _style={extendStyle(CHANNEL_PURGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANNEL_PURGER)} />
 }

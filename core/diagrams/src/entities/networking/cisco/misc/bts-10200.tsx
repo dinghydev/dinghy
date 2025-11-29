@@ -11,7 +11,5 @@ export const BTS_10200 = {
 }
 
 export function Bts10200(props: NodeProps) {
-  return (
-    <Shape {...BTS_10200} {...props} _style={extendStyle(BTS_10200, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BTS_10200)} />
 }

@@ -12,10 +12,6 @@ export const APPLICATION_OPTIMIZATION = {
 
 export function ApplicationOptimization(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_OPTIMIZATION}
-      {...props}
-      _style={extendStyle(APPLICATION_OPTIMIZATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_OPTIMIZATION)} />
   )
 }

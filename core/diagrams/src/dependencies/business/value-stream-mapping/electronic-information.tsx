@@ -10,9 +10,8 @@ export const ELECTRONIC_INFORMATION = {
 export function ElectronicInformation(props: NodeProps) {
   return (
     <Dependency
-      {...ELECTRONIC_INFORMATION}
       {...props}
-      _style={extendStyle(ELECTRONIC_INFORMATION, props)}
+      _style={extendStyle(props, ELECTRONIC_INFORMATION)}
     />
   )
 }

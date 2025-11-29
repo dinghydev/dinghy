@@ -11,11 +11,5 @@ export const ROUTE_TABLE = {
 }
 
 export function RouteTable(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTE_TABLE}
-      {...props}
-      _style={extendStyle(ROUTE_TABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTE_TABLE)} />
 }

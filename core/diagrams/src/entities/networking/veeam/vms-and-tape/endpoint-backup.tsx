@@ -11,11 +11,5 @@ export const ENDPOINT_BACKUP = {
 }
 
 export function EndpointBackup(props: NodeProps) {
-  return (
-    <Shape
-      {...ENDPOINT_BACKUP}
-      {...props}
-      _style={extendStyle(ENDPOINT_BACKUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENDPOINT_BACKUP)} />
 }

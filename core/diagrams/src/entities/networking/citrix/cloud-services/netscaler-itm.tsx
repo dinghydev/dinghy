@@ -11,11 +11,5 @@ export const NETSCALER_ITM = {
 }
 
 export function NetscalerItm(props: NodeProps) {
-  return (
-    <Shape
-      {...NETSCALER_ITM}
-      {...props}
-      _style={extendStyle(NETSCALER_ITM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETSCALER_ITM)} />
 }

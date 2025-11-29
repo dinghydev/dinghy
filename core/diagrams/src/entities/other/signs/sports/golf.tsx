@@ -11,5 +11,5 @@ export const GOLF = {
 }
 
 export function Golf(props: NodeProps) {
-  return <Shape {...GOLF} {...props} _style={extendStyle(GOLF, props)} />
+  return <Shape {...props} _style={extendStyle(props, GOLF)} />
 }

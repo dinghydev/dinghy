@@ -11,5 +11,5 @@ export const TAXI = {
 }
 
 export function Taxi(props: NodeProps) {
-  return <Shape {...TAXI} {...props} _style={extendStyle(TAXI, props)} />
+  return <Shape {...props} _style={extendStyle(props, TAXI)} />
 }

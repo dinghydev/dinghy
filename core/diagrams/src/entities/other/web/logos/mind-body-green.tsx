@@ -11,11 +11,5 @@ export const MIND_BODY_GREEN = {
 }
 
 export function MindBodyGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...MIND_BODY_GREEN}
-      {...props}
-      _style={extendStyle(MIND_BODY_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIND_BODY_GREEN)} />
 }

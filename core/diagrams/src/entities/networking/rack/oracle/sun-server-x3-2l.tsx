@@ -11,11 +11,5 @@ export const SUN_SERVER_X3_2L = {
 }
 
 export function SunServerX32l(props: NodeProps) {
-  return (
-    <Shape
-      {...SUN_SERVER_X3_2L}
-      {...props}
-      _style={extendStyle(SUN_SERVER_X3_2L, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUN_SERVER_X3_2L)} />
 }

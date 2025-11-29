@@ -11,5 +11,5 @@ export const CONNECT = {
 }
 
 export function Connect(props: NodeProps) {
-  return <Shape {...CONNECT} {...props} _style={extendStyle(CONNECT, props)} />
+  return <Shape {...props} _style={extendStyle(props, CONNECT)} />
 }

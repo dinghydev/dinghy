@@ -11,5 +11,5 @@ export const ROWBOAT = {
 }
 
 export function Rowboat(props: NodeProps) {
-  return <Shape {...ROWBOAT} {...props} _style={extendStyle(ROWBOAT, props)} />
+  return <Shape {...props} _style={extendStyle(props, ROWBOAT)} />
 }

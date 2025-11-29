@@ -11,5 +11,5 @@ export const OR_IEC = {
 }
 
 export function OrIec(props: NodeProps) {
-  return <Shape {...OR_IEC} {...props} _style={extendStyle(OR_IEC, props)} />
+  return <Shape {...props} _style={extendStyle(props, OR_IEC)} />
 }

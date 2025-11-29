@@ -11,11 +11,5 @@ export const EMPLOYEES_2 = {
 }
 
 export function Employees2(props: NodeProps) {
-  return (
-    <Shape
-      {...EMPLOYEES_2}
-      {...props}
-      _style={extendStyle(EMPLOYEES_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMPLOYEES_2)} />
 }

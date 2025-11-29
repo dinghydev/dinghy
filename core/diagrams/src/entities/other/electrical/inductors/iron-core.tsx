@@ -11,7 +11,5 @@ export const IRON_CORE = {
 }
 
 export function IronCore(props: NodeProps) {
-  return (
-    <Shape {...IRON_CORE} {...props} _style={extendStyle(IRON_CORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IRON_CORE)} />
 }

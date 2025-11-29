@@ -12,11 +12,5 @@ export const INSTANCE_GROUP = {
 }
 
 export function InstanceGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...INSTANCE_GROUP}
-      {...props}
-      _style={extendStyle(INSTANCE_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSTANCE_GROUP)} />
 }

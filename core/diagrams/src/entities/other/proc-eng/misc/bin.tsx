@@ -11,5 +11,5 @@ export const BIN = {
 }
 
 export function Bin(props: NodeProps) {
-  return <Shape {...BIN} {...props} _style={extendStyle(BIN, props)} />
+  return <Shape {...props} _style={extendStyle(props, BIN)} />
 }

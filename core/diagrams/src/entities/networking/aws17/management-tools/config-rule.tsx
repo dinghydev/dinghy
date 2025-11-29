@@ -11,11 +11,5 @@ export const CONFIG_RULE = {
 }
 
 export function ConfigRule(props: NodeProps) {
-  return (
-    <Shape
-      {...CONFIG_RULE}
-      {...props}
-      _style={extendStyle(CONFIG_RULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONFIG_RULE)} />
 }

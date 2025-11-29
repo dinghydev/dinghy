@@ -13,9 +13,8 @@ export const SAP_BTP_CLOUD_FOUNDRY_RUNTIME = {
 export function SapBtpCloudFoundryRuntime(props: NodeProps) {
   return (
     <Shape
-      {...SAP_BTP_CLOUD_FOUNDRY_RUNTIME}
       {...props}
-      _style={extendStyle(SAP_BTP_CLOUD_FOUNDRY_RUNTIME, props)}
+      _style={extendStyle(props, SAP_BTP_CLOUD_FOUNDRY_RUNTIME)}
     />
   )
 }

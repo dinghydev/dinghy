@@ -11,11 +11,5 @@ export const LOOP_ANTENNA_2 = {
 }
 
 export function LoopAntenna2(props: NodeProps) {
-  return (
-    <Shape
-      {...LOOP_ANTENNA_2}
-      {...props}
-      _style={extendStyle(LOOP_ANTENNA_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOOP_ANTENNA_2)} />
 }

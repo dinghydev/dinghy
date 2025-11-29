@@ -13,10 +13,6 @@ export const EXPANDED_VIRTUAL_SERVER = {
 
 export function ExpandedVirtualServer(props: NodeProps) {
   return (
-    <Shape
-      {...EXPANDED_VIRTUAL_SERVER}
-      {...props}
-      _style={extendStyle(EXPANDED_VIRTUAL_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXPANDED_VIRTUAL_SERVER)} />
   )
 }

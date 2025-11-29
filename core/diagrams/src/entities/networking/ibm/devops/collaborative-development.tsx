@@ -12,10 +12,6 @@ export const COLLABORATIVE_DEVELOPMENT = {
 
 export function CollaborativeDevelopment(props: NodeProps) {
   return (
-    <Shape
-      {...COLLABORATIVE_DEVELOPMENT}
-      {...props}
-      _style={extendStyle(COLLABORATIVE_DEVELOPMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COLLABORATIVE_DEVELOPMENT)} />
   )
 }

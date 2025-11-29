@@ -11,11 +11,5 @@ export const TEXT_INSERTION_POINT = {
 }
 
 export function TextInsertionPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...TEXT_INSERTION_POINT}
-      {...props}
-      _style={extendStyle(TEXT_INSERTION_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXT_INSERTION_POINT)} />
 }

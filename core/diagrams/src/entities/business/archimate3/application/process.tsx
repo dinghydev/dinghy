@@ -11,5 +11,5 @@ export const PROCESS = {
 }
 
 export function Process(props: NodeProps) {
-  return <Shape {...PROCESS} {...props} _style={extendStyle(PROCESS, props)} />
+  return <Shape {...props} _style={extendStyle(props, PROCESS)} />
 }

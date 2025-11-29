@@ -1,0 +1,54 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_user_custom_permission
+
+export const InputSchema = z.object({
+  custom_permissions_name: resolvableValue(z.string()),
+  user_name: resolvableValue(z.string()),
+  aws_account_id: resolvableValue(z.string().optional()),
+  namespace: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
+export const OutputSchema = z.object({})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsQuicksightUserCustomPermission(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_quicksight_user_custom_permission'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsQuicksightUserCustomPermission = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(AwsQuicksightUserCustomPermission, node, id)
+
+export const useAwsQuicksightUserCustomPermissions = (
+  node?: any,
+  id?: string,
+) => useTypedNodes<OutputProps>(AwsQuicksightUserCustomPermission, node, id)

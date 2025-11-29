@@ -11,11 +11,5 @@ export const TANK_FALSE_BOTTOM = {
 }
 
 export function TankFalseBottom(props: NodeProps) {
-  return (
-    <Shape
-      {...TANK_FALSE_BOTTOM}
-      {...props}
-      _style={extendStyle(TANK_FALSE_BOTTOM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_FALSE_BOTTOM)} />
 }

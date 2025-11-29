@@ -11,11 +11,5 @@ export const PARTICIPANT = {
 }
 
 export function Participant(props: NodeProps) {
-  return (
-    <Shape
-      {...PARTICIPANT}
-      {...props}
-      _style={extendStyle(PARTICIPANT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTICIPANT)} />
 }

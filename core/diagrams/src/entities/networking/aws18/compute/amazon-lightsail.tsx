@@ -11,11 +11,5 @@ export const AMAZON_LIGHTSAIL = {
 }
 
 export function AmazonLightsail(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_LIGHTSAIL}
-      {...props}
-      _style={extendStyle(AMAZON_LIGHTSAIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_LIGHTSAIL)} />
 }

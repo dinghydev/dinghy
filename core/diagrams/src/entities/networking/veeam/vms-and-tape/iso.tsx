@@ -11,5 +11,5 @@ export const ISO = {
 }
 
 export function Iso(props: NodeProps) {
-  return <Shape {...ISO} {...props} _style={extendStyle(ISO, props)} />
+  return <Shape {...props} _style={extendStyle(props, ISO)} />
 }

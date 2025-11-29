@@ -11,9 +11,8 @@ export const COMPONENT_1_MANDATORY_TO_MANY_MANDATORY = {
 export function Component1MandatoryToManyMandatory(props: NodeProps) {
   return (
     <Dependency
-      {...COMPONENT_1_MANDATORY_TO_MANY_MANDATORY}
       {...props}
-      _style={extendStyle(COMPONENT_1_MANDATORY_TO_MANY_MANDATORY, props)}
+      _style={extendStyle(props, COMPONENT_1_MANDATORY_TO_MANY_MANDATORY)}
     />
   )
 }

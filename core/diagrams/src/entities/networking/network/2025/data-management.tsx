@@ -11,11 +11,5 @@ export const DATA_MANAGEMENT = {
 }
 
 export function DataManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_MANAGEMENT}
-      {...props}
-      _style={extendStyle(DATA_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_MANAGEMENT)} />
 }

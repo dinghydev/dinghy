@@ -11,11 +11,5 @@ export const CONTENT_PROTECTION = {
 }
 
 export function ContentProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_PROTECTION}
-      {...props}
-      _style={extendStyle(CONTENT_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_PROTECTION)} />
 }

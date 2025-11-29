@@ -11,11 +11,5 @@ export const X11930_TACHOMETER = {
 }
 
 export function X11930Tachometer(props: NodeProps) {
-  return (
-    <Shape
-      {...X11930_TACHOMETER}
-      {...props}
-      _style={extendStyle(X11930_TACHOMETER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11930_TACHOMETER)} />
 }

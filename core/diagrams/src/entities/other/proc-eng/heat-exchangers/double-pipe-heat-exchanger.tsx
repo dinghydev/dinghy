@@ -12,10 +12,6 @@ export const DOUBLE_PIPE_HEAT_EXCHANGER = {
 
 export function DoublePipeHeatExchanger(props: NodeProps) {
   return (
-    <Shape
-      {...DOUBLE_PIPE_HEAT_EXCHANGER}
-      {...props}
-      _style={extendStyle(DOUBLE_PIPE_HEAT_EXCHANGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DOUBLE_PIPE_HEAT_EXCHANGER)} />
   )
 }

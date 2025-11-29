@@ -11,11 +11,5 @@ export const WORLD_NETWORK = {
 }
 
 export function WorldNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...WORLD_NETWORK}
-      {...props}
-      _style={extendStyle(WORLD_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORLD_NETWORK)} />
 }

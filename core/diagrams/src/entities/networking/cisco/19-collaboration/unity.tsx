@@ -11,5 +11,5 @@ export const UNITY = {
 }
 
 export function Unity(props: NodeProps) {
-  return <Shape {...UNITY} {...props} _style={extendStyle(UNITY, props)} />
+  return <Shape {...props} _style={extendStyle(props, UNITY)} />
 }

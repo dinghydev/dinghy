@@ -11,11 +11,5 @@ export const MODAL_DIALOG_SMALL = {
 }
 
 export function ModalDialogSmall(props: NodeProps) {
-  return (
-    <Shape
-      {...MODAL_DIALOG_SMALL}
-      {...props}
-      _style={extendStyle(MODAL_DIALOG_SMALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MODAL_DIALOG_SMALL)} />
 }

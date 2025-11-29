@@ -11,5 +11,5 @@ export const MAP = {
 }
 
 export function Map(props: NodeProps) {
-  return <Shape {...MAP} {...props} _style={extendStyle(MAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, MAP)} />
 }

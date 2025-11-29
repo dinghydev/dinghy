@@ -11,7 +11,5 @@ export const DOOR_LOCK = {
 }
 
 export function DoorLock(props: NodeProps) {
-  return (
-    <Shape {...DOOR_LOCK} {...props} _style={extendStyle(DOOR_LOCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_LOCK)} />
 }

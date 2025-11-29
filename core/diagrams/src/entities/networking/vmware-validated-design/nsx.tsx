@@ -11,5 +11,5 @@ export const NSX = {
 }
 
 export function Nsx(props: NodeProps) {
-  return <Shape {...NSX} {...props} _style={extendStyle(NSX, props)} />
+  return <Shape {...props} _style={extendStyle(props, NSX)} />
 }

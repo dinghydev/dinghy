@@ -11,5 +11,5 @@ export const DRESSER = {
 }
 
 export function Dresser(props: NodeProps) {
-  return <Shape {...DRESSER} {...props} _style={extendStyle(DRESSER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DRESSER)} />
 }

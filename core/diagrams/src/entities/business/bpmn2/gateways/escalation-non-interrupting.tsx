@@ -13,9 +13,8 @@ export const ESCALATION_NON_INTERRUPTING = {
 export function EscalationNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...ESCALATION_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(ESCALATION_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, ESCALATION_NON_INTERRUPTING)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const MULTI_CLOUD_FINOPS = {
 }
 
 export function MultiCloudFinops(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTI_CLOUD_FINOPS}
-      {...props}
-      _style={extendStyle(MULTI_CLOUD_FINOPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTI_CLOUD_FINOPS)} />
 }

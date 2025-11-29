@@ -11,5 +11,5 @@ export const COO = {
 }
 
 export function Coo(props: NodeProps) {
-  return <Shape {...COO} {...props} _style={extendStyle(COO, props)} />
+  return <Shape {...props} _style={extendStyle(props, COO)} />
 }

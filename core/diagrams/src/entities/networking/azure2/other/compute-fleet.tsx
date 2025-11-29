@@ -11,11 +11,5 @@ export const COMPUTE_FLEET = {
 }
 
 export function ComputeFleet(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTE_FLEET}
-      {...props}
-      _style={extendStyle(COMPUTE_FLEET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTE_FLEET)} />
 }

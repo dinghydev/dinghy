@@ -11,7 +11,5 @@ export const OPERATOR = {
 }
 
 export function Operator(props: NodeProps) {
-  return (
-    <Shape {...OPERATOR} {...props} _style={extendStyle(OPERATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPERATOR)} />
 }

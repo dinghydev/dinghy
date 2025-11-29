@@ -11,11 +11,5 @@ export const DANGER_CARD = {
 }
 
 export function DangerCard(props: NodeProps) {
-  return (
-    <Shape
-      {...DANGER_CARD}
-      {...props}
-      _style={extendStyle(DANGER_CARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DANGER_CARD)} />
 }

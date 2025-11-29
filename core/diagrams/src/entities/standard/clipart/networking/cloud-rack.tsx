@@ -11,7 +11,5 @@ export const CLOUD_RACK = {
 }
 
 export function CloudRack(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_RACK} {...props} _style={extendStyle(CLOUD_RACK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_RACK)} />
 }

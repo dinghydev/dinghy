@@ -11,11 +11,5 @@ export const DOMAIN_CONTROLLER = {
 }
 
 export function DomainController(props: NodeProps) {
-  return (
-    <Shape
-      {...DOMAIN_CONTROLLER}
-      {...props}
-      _style={extendStyle(DOMAIN_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOMAIN_CONTROLLER)} />
 }

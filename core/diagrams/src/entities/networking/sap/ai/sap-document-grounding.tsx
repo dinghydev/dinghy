@@ -12,10 +12,6 @@ export const SAP_DOCUMENT_GROUNDING = {
 
 export function SapDocumentGrounding(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_DOCUMENT_GROUNDING}
-      {...props}
-      _style={extendStyle(SAP_DOCUMENT_GROUNDING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_DOCUMENT_GROUNDING)} />
   )
 }

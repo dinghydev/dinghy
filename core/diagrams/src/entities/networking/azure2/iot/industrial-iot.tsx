@@ -11,11 +11,5 @@ export const INDUSTRIAL_IOT = {
 }
 
 export function IndustrialIot(props: NodeProps) {
-  return (
-    <Shape
-      {...INDUSTRIAL_IOT}
-      {...props}
-      _style={extendStyle(INDUSTRIAL_IOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDUSTRIAL_IOT)} />
 }

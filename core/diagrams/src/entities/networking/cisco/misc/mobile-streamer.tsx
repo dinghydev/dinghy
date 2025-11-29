@@ -11,11 +11,5 @@ export const MOBILE_STREAMER = {
 }
 
 export function MobileStreamer(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_STREAMER}
-      {...props}
-      _style={extendStyle(MOBILE_STREAMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_STREAMER)} />
 }

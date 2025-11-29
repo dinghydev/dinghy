@@ -9,10 +9,6 @@ export const CONVERSATION_LINK = {
 
 export function ConversationLink(props: NodeProps) {
   return (
-    <Dependency
-      {...CONVERSATION_LINK}
-      {...props}
-      _style={extendStyle(CONVERSATION_LINK, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, CONVERSATION_LINK)} />
   )
 }

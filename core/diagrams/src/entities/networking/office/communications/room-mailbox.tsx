@@ -11,11 +11,5 @@ export const ROOM_MAILBOX = {
 }
 
 export function RoomMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...ROOM_MAILBOX}
-      {...props}
-      _style={extendStyle(ROOM_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROOM_MAILBOX)} />
 }

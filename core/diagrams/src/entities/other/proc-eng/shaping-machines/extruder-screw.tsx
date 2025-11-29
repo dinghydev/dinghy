@@ -11,11 +11,5 @@ export const EXTRUDER_SCREW = {
 }
 
 export function ExtruderScrew(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTRUDER_SCREW}
-      {...props}
-      _style={extendStyle(EXTRUDER_SCREW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTRUDER_SCREW)} />
 }

@@ -11,11 +11,5 @@ export const PIEZO_SOUNDER = {
 }
 
 export function PiezoSounder(props: NodeProps) {
-  return (
-    <Shape
-      {...PIEZO_SOUNDER}
-      {...props}
-      _style={extendStyle(PIEZO_SOUNDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PIEZO_SOUNDER)} />
 }

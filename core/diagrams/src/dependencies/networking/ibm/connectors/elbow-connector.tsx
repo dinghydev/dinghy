@@ -9,11 +9,5 @@ export const ELBOW_CONNECTOR = {
 }
 
 export function ElbowConnector(props: NodeProps) {
-  return (
-    <Dependency
-      {...ELBOW_CONNECTOR}
-      {...props}
-      _style={extendStyle(ELBOW_CONNECTOR, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ELBOW_CONNECTOR)} />
 }

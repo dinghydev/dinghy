@@ -11,7 +11,5 @@ export const BLINKLIST = {
 }
 
 export function Blinklist(props: NodeProps) {
-  return (
-    <Shape {...BLINKLIST} {...props} _style={extendStyle(BLINKLIST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLINKLIST)} />
 }

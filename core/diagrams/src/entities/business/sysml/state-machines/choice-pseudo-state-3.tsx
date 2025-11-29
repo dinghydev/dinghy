@@ -11,11 +11,5 @@ export const CHOICE_PSEUDO_STATE_3 = {
 }
 
 export function ChoicePseudoState3(props: NodeProps) {
-  return (
-    <Shape
-      {...CHOICE_PSEUDO_STATE_3}
-      {...props}
-      _style={extendStyle(CHOICE_PSEUDO_STATE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHOICE_PSEUDO_STATE_3)} />
 }

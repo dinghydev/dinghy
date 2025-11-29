@@ -11,7 +11,5 @@ export const DIALOG_BOX = {
 }
 
 export function DialogBox(props: NodeProps) {
-  return (
-    <Shape {...DIALOG_BOX} {...props} _style={extendStyle(DIALOG_BOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIALOG_BOX)} />
 }

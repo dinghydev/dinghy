@@ -11,11 +11,5 @@ export const MS_DEFENDER_EASM = {
 }
 
 export function MsDefenderEasm(props: NodeProps) {
-  return (
-    <Shape
-      {...MS_DEFENDER_EASM}
-      {...props}
-      _style={extendStyle(MS_DEFENDER_EASM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_DEFENDER_EASM)} />
 }

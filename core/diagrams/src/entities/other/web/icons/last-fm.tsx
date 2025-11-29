@@ -11,5 +11,5 @@ export const LAST_FM = {
 }
 
 export function LastFm(props: NodeProps) {
-  return <Shape {...LAST_FM} {...props} _style={extendStyle(LAST_FM, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAST_FM)} />
 }

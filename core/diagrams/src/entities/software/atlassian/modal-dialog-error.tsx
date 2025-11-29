@@ -11,11 +11,5 @@ export const MODAL_DIALOG_ERROR = {
 }
 
 export function ModalDialogError(props: NodeProps) {
-  return (
-    <Shape
-      {...MODAL_DIALOG_ERROR}
-      {...props}
-      _style={extendStyle(MODAL_DIALOG_ERROR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MODAL_DIALOG_ERROR)} />
 }

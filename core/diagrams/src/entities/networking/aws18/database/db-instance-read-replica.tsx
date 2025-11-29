@@ -12,10 +12,6 @@ export const DB_INSTANCE_READ_REPLICA = {
 
 export function DbInstanceReadReplica(props: NodeProps) {
   return (
-    <Shape
-      {...DB_INSTANCE_READ_REPLICA}
-      {...props}
-      _style={extendStyle(DB_INSTANCE_READ_REPLICA, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DB_INSTANCE_READ_REPLICA)} />
   )
 }

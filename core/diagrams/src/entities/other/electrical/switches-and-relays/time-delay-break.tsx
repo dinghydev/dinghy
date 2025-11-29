@@ -11,11 +11,5 @@ export const TIME_DELAY_BREAK = {
 }
 
 export function TimeDelayBreak(props: NodeProps) {
-  return (
-    <Shape
-      {...TIME_DELAY_BREAK}
-      {...props}
-      _style={extendStyle(TIME_DELAY_BREAK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_DELAY_BREAK)} />
 }

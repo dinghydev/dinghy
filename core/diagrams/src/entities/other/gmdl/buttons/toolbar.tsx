@@ -11,5 +11,5 @@ export const TOOLBAR = {
 }
 
 export function Toolbar(props: NodeProps) {
-  return <Shape {...TOOLBAR} {...props} _style={extendStyle(TOOLBAR, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOOLBAR)} />
 }

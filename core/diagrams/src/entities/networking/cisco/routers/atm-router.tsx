@@ -11,7 +11,5 @@ export const ATM_ROUTER = {
 }
 
 export function AtmRouter(props: NodeProps) {
-  return (
-    <Shape {...ATM_ROUTER} {...props} _style={extendStyle(ATM_ROUTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATM_ROUTER)} />
 }

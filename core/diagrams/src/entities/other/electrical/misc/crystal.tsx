@@ -11,5 +11,5 @@ export const CRYSTAL = {
 }
 
 export function Crystal(props: NodeProps) {
-  return <Shape {...CRYSTAL} {...props} _style={extendStyle(CRYSTAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRYSTAL)} />
 }

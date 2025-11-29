@@ -13,9 +13,8 @@ export const JL9826A_5412R_92G_POE_4SFP_ZL2_SWITCH = {
 export function Jl9826a5412r92gPoe4sfpZl2Switch(props: NodeProps) {
   return (
     <Shape
-      {...JL9826A_5412R_92G_POE_4SFP_ZL2_SWITCH}
       {...props}
-      _style={extendStyle(JL9826A_5412R_92G_POE_4SFP_ZL2_SWITCH, props)}
+      _style={extendStyle(props, JL9826A_5412R_92G_POE_4SFP_ZL2_SWITCH)}
     />
   )
 }

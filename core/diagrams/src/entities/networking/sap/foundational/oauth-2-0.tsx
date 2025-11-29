@@ -11,7 +11,5 @@ export const OAUTH_2_0 = {
 }
 
 export function Oauth20(props: NodeProps) {
-  return (
-    <Shape {...OAUTH_2_0} {...props} _style={extendStyle(OAUTH_2_0, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OAUTH_2_0)} />
 }

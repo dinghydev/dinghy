@@ -11,11 +11,5 @@ export const DEVICE_DEFENDER = {
 }
 
 export function DeviceDefender(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_DEFENDER}
-      {...props}
-      _style={extendStyle(DEVICE_DEFENDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_DEFENDER)} />
 }

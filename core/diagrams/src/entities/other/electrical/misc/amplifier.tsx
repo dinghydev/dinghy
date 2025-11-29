@@ -11,7 +11,5 @@ export const AMPLIFIER = {
 }
 
 export function Amplifier(props: NodeProps) {
-  return (
-    <Shape {...AMPLIFIER} {...props} _style={extendStyle(AMPLIFIER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMPLIFIER)} />
 }

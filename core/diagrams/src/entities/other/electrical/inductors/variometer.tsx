@@ -11,7 +11,5 @@ export const VARIOMETER = {
 }
 
 export function Variometer(props: NodeProps) {
-  return (
-    <Shape {...VARIOMETER} {...props} _style={extendStyle(VARIOMETER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VARIOMETER)} />
 }

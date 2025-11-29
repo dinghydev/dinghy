@@ -12,10 +12,6 @@ export const CERTIFICATE_COMPLIANCE = {
 
 export function CertificateCompliance(props: NodeProps) {
   return (
-    <Shape
-      {...CERTIFICATE_COMPLIANCE}
-      {...props}
-      _style={extendStyle(CERTIFICATE_COMPLIANCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CERTIFICATE_COMPLIANCE)} />
   )
 }

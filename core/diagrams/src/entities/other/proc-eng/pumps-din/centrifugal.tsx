@@ -11,11 +11,5 @@ export const CENTRIFUGAL = {
 }
 
 export function Centrifugal(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTRIFUGAL}
-      {...props}
-      _style={extendStyle(CENTRIFUGAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTRIFUGAL)} />
 }

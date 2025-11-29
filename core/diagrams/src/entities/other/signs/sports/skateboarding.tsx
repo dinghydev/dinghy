@@ -11,11 +11,5 @@ export const SKATEBOARDING = {
 }
 
 export function Skateboarding(props: NodeProps) {
-  return (
-    <Shape
-      {...SKATEBOARDING}
-      {...props}
-      _style={extendStyle(SKATEBOARDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SKATEBOARDING)} />
 }

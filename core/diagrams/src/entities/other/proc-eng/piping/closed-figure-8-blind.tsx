@@ -11,11 +11,5 @@ export const CLOSED_FIGURE_8_BLIND = {
 }
 
 export function ClosedFigure8Blind(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOSED_FIGURE_8_BLIND}
-      {...props}
-      _style={extendStyle(CLOSED_FIGURE_8_BLIND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOSED_FIGURE_8_BLIND)} />
 }

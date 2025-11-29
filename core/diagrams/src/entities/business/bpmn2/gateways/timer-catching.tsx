@@ -11,11 +11,5 @@ export const TIMER_CATCHING = {
 }
 
 export function TimerCatching(props: NodeProps) {
-  return (
-    <Shape
-      {...TIMER_CATCHING}
-      {...props}
-      _style={extendStyle(TIMER_CATCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIMER_CATCHING)} />
 }

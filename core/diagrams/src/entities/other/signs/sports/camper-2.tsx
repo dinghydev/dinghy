@@ -11,7 +11,5 @@ export const CAMPER_2 = {
 }
 
 export function Camper2(props: NodeProps) {
-  return (
-    <Shape {...CAMPER_2} {...props} _style={extendStyle(CAMPER_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAMPER_2)} />
 }

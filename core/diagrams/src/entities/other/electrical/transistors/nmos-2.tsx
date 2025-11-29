@@ -11,5 +11,5 @@ export const NMOS_2 = {
 }
 
 export function Nmos2(props: NodeProps) {
-  return <Shape {...NMOS_2} {...props} _style={extendStyle(NMOS_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, NMOS_2)} />
 }

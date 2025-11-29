@@ -13,9 +13,8 @@ export const ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT = {
 export function EntraPrivilegedIdentityManagement(props: NodeProps) {
   return (
     <Shape
-      {...ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT}
       {...props}
-      _style={extendStyle(ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT, props)}
+      _style={extendStyle(props, ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT)}
     />
   )
 }

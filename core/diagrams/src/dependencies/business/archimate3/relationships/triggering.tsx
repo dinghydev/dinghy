@@ -9,11 +9,5 @@ export const TRIGGERING = {
 }
 
 export function Triggering(props: NodeProps) {
-  return (
-    <Dependency
-      {...TRIGGERING}
-      {...props}
-      _style={extendStyle(TRIGGERING, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, TRIGGERING)} />
 }

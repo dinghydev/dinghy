@@ -11,5 +11,5 @@ export const FIELD = {
 }
 
 export function Field(props: NodeProps) {
-  return <Shape {...FIELD} {...props} _style={extendStyle(FIELD, props)} />
+  return <Shape {...props} _style={extendStyle(props, FIELD)} />
 }

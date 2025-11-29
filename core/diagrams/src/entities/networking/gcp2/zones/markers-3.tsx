@@ -11,7 +11,5 @@ export const MARKERS_3 = {
 }
 
 export function Markers3(props: NodeProps) {
-  return (
-    <Shape {...MARKERS_3} {...props} _style={extendStyle(MARKERS_3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MARKERS_3)} />
 }

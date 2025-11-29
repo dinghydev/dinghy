@@ -11,7 +11,5 @@ export const BLOCKCHAIN = {
 }
 
 export function Blockchain(props: NodeProps) {
-  return (
-    <Shape {...BLOCKCHAIN} {...props} _style={extendStyle(BLOCKCHAIN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLOCKCHAIN)} />
 }

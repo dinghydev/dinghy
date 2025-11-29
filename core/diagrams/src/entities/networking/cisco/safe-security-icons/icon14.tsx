@@ -11,5 +11,5 @@ export const ICON14 = {
 }
 
 export function Icon14(props: NodeProps) {
-  return <Shape {...ICON14} {...props} _style={extendStyle(ICON14, props)} />
+  return <Shape {...props} _style={extendStyle(props, ICON14)} />
 }

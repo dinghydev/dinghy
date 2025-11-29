@@ -11,7 +11,5 @@ export const COMBOBOX = {
 }
 
 export function Combobox(props: NodeProps) {
-  return (
-    <Shape {...COMBOBOX} {...props} _style={extendStyle(COMBOBOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMBOBOX)} />
 }

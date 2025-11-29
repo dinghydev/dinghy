@@ -16,11 +16,10 @@ export function Jl479aAruba832048p10gSfpSfpAnd6p40gQsfp5Fan2PsSwitchBundle(
 ) {
   return (
     <Shape
-      {...JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE}
       {...props}
       _style={extendStyle(
-        JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE,
         props,
+        JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE,
       )}
     />
   )

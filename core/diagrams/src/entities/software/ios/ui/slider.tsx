@@ -11,5 +11,5 @@ export const SLIDER = {
 }
 
 export function Slider(props: NodeProps) {
-  return <Shape {...SLIDER} {...props} _style={extendStyle(SLIDER, props)} />
+  return <Shape {...props} _style={extendStyle(props, SLIDER)} />
 }

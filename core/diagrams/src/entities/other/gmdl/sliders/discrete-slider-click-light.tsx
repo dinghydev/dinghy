@@ -13,9 +13,8 @@ export const DISCRETE_SLIDER_CLICK_LIGHT = {
 export function DiscreteSliderClickLight(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_SLIDER_CLICK_LIGHT}
       {...props}
-      _style={extendStyle(DISCRETE_SLIDER_CLICK_LIGHT, props)}
+      _style={extendStyle(props, DISCRETE_SLIDER_CLICK_LIGHT)}
     />
   )
 }

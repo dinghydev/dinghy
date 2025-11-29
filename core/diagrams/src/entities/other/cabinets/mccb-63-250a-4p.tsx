@@ -11,11 +11,5 @@ export const MCCB_63_250A_4P = {
 }
 
 export function Mccb63250a4p(props: NodeProps) {
-  return (
-    <Shape
-      {...MCCB_63_250A_4P}
-      {...props}
-      _style={extendStyle(MCCB_63_250A_4P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MCCB_63_250A_4P)} />
 }

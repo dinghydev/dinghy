@@ -13,9 +13,8 @@ export const CEN_CLOUD_ENTERPRISE_NETWORK = {
 export function CenCloudEnterpriseNetwork(props: NodeProps) {
   return (
     <Shape
-      {...CEN_CLOUD_ENTERPRISE_NETWORK}
       {...props}
-      _style={extendStyle(CEN_CLOUD_ENTERPRISE_NETWORK, props)}
+      _style={extendStyle(props, CEN_CLOUD_ENTERPRISE_NETWORK)}
     />
   )
 }

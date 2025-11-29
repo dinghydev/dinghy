@@ -11,5 +11,5 @@ export const ELIXIR = {
 }
 
 export function Elixir(props: NodeProps) {
-  return <Shape {...ELIXIR} {...props} _style={extendStyle(ELIXIR, props)} />
+  return <Shape {...props} _style={extendStyle(props, ELIXIR)} />
 }

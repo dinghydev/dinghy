@@ -11,11 +11,5 @@ export const X11390_MOTOR = {
 }
 
 export function X11390Motor(props: NodeProps) {
-  return (
-    <Shape
-      {...X11390_MOTOR}
-      {...props}
-      _style={extendStyle(X11390_MOTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11390_MOTOR)} />
 }

@@ -11,11 +11,5 @@ export const ANDROGENOUS_PERSON = {
 }
 
 export function AndrogenousPerson(props: NodeProps) {
-  return (
-    <Shape
-      {...ANDROGENOUS_PERSON}
-      {...props}
-      _style={extendStyle(ANDROGENOUS_PERSON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANDROGENOUS_PERSON)} />
 }

@@ -11,5 +11,5 @@ export const RESTORE = {
 }
 
 export function Restore(props: NodeProps) {
-  return <Shape {...RESTORE} {...props} _style={extendStyle(RESTORE, props)} />
+  return <Shape {...props} _style={extendStyle(props, RESTORE)} />
 }

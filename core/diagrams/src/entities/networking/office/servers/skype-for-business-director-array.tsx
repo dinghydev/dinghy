@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_DIRECTOR_ARRAY = {
 export function SkypeForBusinessDirectorArray(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_DIRECTOR_ARRAY}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_DIRECTOR_ARRAY, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_DIRECTOR_ARRAY)}
     />
   )
 }

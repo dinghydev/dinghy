@@ -11,5 +11,5 @@ export const PDA = {
 }
 
 export function Pda(props: NodeProps) {
-  return <Shape {...PDA} {...props} _style={extendStyle(PDA, props)} />
+  return <Shape {...props} _style={extendStyle(props, PDA)} />
 }

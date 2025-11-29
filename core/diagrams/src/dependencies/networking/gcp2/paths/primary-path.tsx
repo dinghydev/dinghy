@@ -9,11 +9,5 @@ export const PRIMARY_PATH = {
 }
 
 export function PrimaryPath(props: NodeProps) {
-  return (
-    <Dependency
-      {...PRIMARY_PATH}
-      {...props}
-      _style={extendStyle(PRIMARY_PATH, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, PRIMARY_PATH)} />
 }

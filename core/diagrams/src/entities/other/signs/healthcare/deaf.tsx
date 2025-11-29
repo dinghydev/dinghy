@@ -11,5 +11,5 @@ export const DEAF = {
 }
 
 export function Deaf(props: NodeProps) {
-  return <Shape {...DEAF} {...props} _style={extendStyle(DEAF, props)} />
+  return <Shape {...props} _style={extendStyle(props, DEAF)} />
 }

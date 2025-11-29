@@ -10,5 +10,5 @@ export const DELAY = {
 }
 
 export function Delay(props: NodeProps) {
-  return <Shape {...DELAY} {...props} _style={extendStyle(DELAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, DELAY)} />
 }

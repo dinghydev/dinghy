@@ -11,7 +11,5 @@ export const CLOUDPHOTO = {
 }
 
 export function Cloudphoto(props: NodeProps) {
-  return (
-    <Shape {...CLOUDPHOTO} {...props} _style={extendStyle(CLOUDPHOTO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDPHOTO)} />
 }

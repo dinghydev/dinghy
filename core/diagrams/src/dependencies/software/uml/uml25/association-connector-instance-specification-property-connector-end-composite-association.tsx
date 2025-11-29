@@ -14,11 +14,10 @@ export function AssociationConnectorInstanceSpecificationPropertyConnectorEndCom
 ) {
   return (
     <Dependency
-      {...ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_COMPOSITE_ASSOCIATION}
       {...props}
       _style={extendStyle(
-        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_COMPOSITE_ASSOCIATION,
         props,
+        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_COMPOSITE_ASSOCIATION,
       )}
     />
   )

@@ -12,10 +12,6 @@ export const APP_COMPLIANCE_AUTOMATION = {
 
 export function AppComplianceAutomation(props: NodeProps) {
   return (
-    <Shape
-      {...APP_COMPLIANCE_AUTOMATION}
-      {...props}
-      _style={extendStyle(APP_COMPLIANCE_AUTOMATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APP_COMPLIANCE_AUTOMATION)} />
   )
 }

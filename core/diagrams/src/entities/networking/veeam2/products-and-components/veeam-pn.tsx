@@ -11,7 +11,5 @@ export const VEEAM_PN = {
 }
 
 export function VeeamPn(props: NodeProps) {
-  return (
-    <Shape {...VEEAM_PN} {...props} _style={extendStyle(VEEAM_PN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_PN)} />
 }

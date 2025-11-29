@@ -11,11 +11,5 @@ export const PUBLIC_CLOUD = {
 }
 
 export function PublicCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...PUBLIC_CLOUD}
-      {...props}
-      _style={extendStyle(PUBLIC_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUBLIC_CLOUD)} />
 }

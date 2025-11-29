@@ -11,5 +11,5 @@ export const AD_B2C = {
 }
 
 export function AdB2c(props: NodeProps) {
-  return <Shape {...AD_B2C} {...props} _style={extendStyle(AD_B2C, props)} />
+  return <Shape {...props} _style={extendStyle(props, AD_B2C)} />
 }

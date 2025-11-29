@@ -11,11 +11,5 @@ export const MAS_GATEWAY = {
 }
 
 export function MasGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...MAS_GATEWAY}
-      {...props}
-      _style={extendStyle(MAS_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAS_GATEWAY)} />
 }

@@ -11,7 +11,5 @@ export const INTERNET = {
 }
 
 export function Internet(props: NodeProps) {
-  return (
-    <Shape {...INTERNET} {...props} _style={extendStyle(INTERNET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET)} />
 }

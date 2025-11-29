@@ -11,11 +11,5 @@ export const CLOUD_ROUTES = {
 }
 
 export function CloudRoutes(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_ROUTES}
-      {...props}
-      _style={extendStyle(CLOUD_ROUTES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_ROUTES)} />
 }

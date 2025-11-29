@@ -11,7 +11,5 @@ export const HANDHELD = {
 }
 
 export function Handheld(props: NodeProps) {
-  return (
-    <Shape {...HANDHELD} {...props} _style={extendStyle(HANDHELD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HANDHELD)} />
 }

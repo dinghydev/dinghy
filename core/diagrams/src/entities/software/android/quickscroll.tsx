@@ -11,11 +11,5 @@ export const QUICKSCROLL = {
 }
 
 export function Quickscroll(props: NodeProps) {
-  return (
-    <Shape
-      {...QUICKSCROLL}
-      {...props}
-      _style={extendStyle(QUICKSCROLL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUICKSCROLL)} />
 }

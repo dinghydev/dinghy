@@ -11,11 +11,5 @@ export const SEQUENCE_DIAGRAM = {
 }
 
 export function SequenceDiagram(props: NodeProps) {
-  return (
-    <Shape
-      {...SEQUENCE_DIAGRAM}
-      {...props}
-      _style={extendStyle(SEQUENCE_DIAGRAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEQUENCE_DIAGRAM)} />
 }

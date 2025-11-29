@@ -12,10 +12,6 @@ export const CORNER_ROUNDED_RECTANGLE = {
 
 export function CornerRoundedRectangle(props: NodeProps) {
   return (
-    <Shape
-      {...CORNER_ROUNDED_RECTANGLE}
-      {...props}
-      _style={extendStyle(CORNER_ROUNDED_RECTANGLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CORNER_ROUNDED_RECTANGLE)} />
   )
 }

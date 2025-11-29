@@ -12,10 +12,6 @@ export const LIGHTSAIL_FOR_RESEARCH = {
 
 export function LightsailForResearch(props: NodeProps) {
   return (
-    <Shape
-      {...LIGHTSAIL_FOR_RESEARCH}
-      {...props}
-      _style={extendStyle(LIGHTSAIL_FOR_RESEARCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIGHTSAIL_FOR_RESEARCH)} />
   )
 }

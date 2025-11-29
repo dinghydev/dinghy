@@ -11,11 +11,5 @@ export const SUB_CONVERSATION = {
 }
 
 export function SubConversation(props: NodeProps) {
-  return (
-    <Shape
-      {...SUB_CONVERSATION}
-      {...props}
-      _style={extendStyle(SUB_CONVERSATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUB_CONVERSATION)} />
 }

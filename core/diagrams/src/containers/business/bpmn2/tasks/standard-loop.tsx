@@ -9,11 +9,5 @@ export const STANDARD_LOOP = {
 }
 
 export function StandardLoop(props: NodeProps) {
-  return (
-    <Shape
-      {...STANDARD_LOOP}
-      {...props}
-      _style={extendStyle(STANDARD_LOOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STANDARD_LOOP)} />
 }

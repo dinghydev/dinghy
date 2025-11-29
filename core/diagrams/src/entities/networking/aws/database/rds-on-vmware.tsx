@@ -11,11 +11,5 @@ export const RDS_ON_VMWARE = {
 }
 
 export function RdsOnVmware(props: NodeProps) {
-  return (
-    <Shape
-      {...RDS_ON_VMWARE}
-      {...props}
-      _style={extendStyle(RDS_ON_VMWARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_ON_VMWARE)} />
 }

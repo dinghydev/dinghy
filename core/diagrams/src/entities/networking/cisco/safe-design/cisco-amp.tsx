@@ -11,7 +11,5 @@ export const CISCO_AMP = {
 }
 
 export function CiscoAmp(props: NodeProps) {
-  return (
-    <Shape {...CISCO_AMP} {...props} _style={extendStyle(CISCO_AMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_AMP)} />
 }

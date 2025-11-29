@@ -11,11 +11,5 @@ export const THINKBOX_FROST = {
 }
 
 export function ThinkboxFrost(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_FROST}
-      {...props}
-      _style={extendStyle(THINKBOX_FROST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_FROST)} />
 }

@@ -13,9 +13,8 @@ export const CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS = {
 export function CitrixVirtualDesktopsEssentials(props: NodeProps) {
   return (
     <Shape
-      {...CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS}
       {...props}
-      _style={extendStyle(CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS, props)}
+      _style={extendStyle(props, CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS)}
     />
   )
 }

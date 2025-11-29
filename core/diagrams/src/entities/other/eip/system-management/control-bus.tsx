@@ -11,11 +11,5 @@ export const CONTROL_BUS = {
 }
 
 export function ControlBus(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_BUS}
-      {...props}
-      _style={extendStyle(CONTROL_BUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_BUS)} />
 }

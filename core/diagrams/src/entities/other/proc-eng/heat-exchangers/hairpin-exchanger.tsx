@@ -11,11 +11,5 @@ export const HAIRPIN_EXCHANGER = {
 }
 
 export function HairpinExchanger(props: NodeProps) {
-  return (
-    <Shape
-      {...HAIRPIN_EXCHANGER}
-      {...props}
-      _style={extendStyle(HAIRPIN_EXCHANGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HAIRPIN_EXCHANGER)} />
 }

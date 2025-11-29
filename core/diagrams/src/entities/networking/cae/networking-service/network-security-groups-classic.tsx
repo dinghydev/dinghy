@@ -13,9 +13,8 @@ export const NETWORK_SECURITY_GROUPS_CLASSIC = {
 export function NetworkSecurityGroupsClassic(props: NodeProps) {
   return (
     <Shape
-      {...NETWORK_SECURITY_GROUPS_CLASSIC}
       {...props}
-      _style={extendStyle(NETWORK_SECURITY_GROUPS_CLASSIC, props)}
+      _style={extendStyle(props, NETWORK_SECURITY_GROUPS_CLASSIC)}
     />
   )
 }

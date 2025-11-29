@@ -13,9 +13,8 @@ export const SAP_PKI_CERTIFICATE_SERVICE = {
 export function SapPkiCertificateService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_PKI_CERTIFICATE_SERVICE}
       {...props}
-      _style={extendStyle(SAP_PKI_CERTIFICATE_SERVICE, props)}
+      _style={extendStyle(props, SAP_PKI_CERTIFICATE_SERVICE)}
     />
   )
 }

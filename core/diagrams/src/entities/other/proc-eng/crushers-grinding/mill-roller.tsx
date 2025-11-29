@@ -11,11 +11,5 @@ export const MILL_ROLLER = {
 }
 
 export function MillRoller(props: NodeProps) {
-  return (
-    <Shape
-      {...MILL_ROLLER}
-      {...props}
-      _style={extendStyle(MILL_ROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MILL_ROLLER)} />
 }

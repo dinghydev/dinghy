@@ -12,10 +12,6 @@ export const PUBLIC_IM_CLOUD_SERVICE = {
 
 export function PublicImCloudService(props: NodeProps) {
   return (
-    <Shape
-      {...PUBLIC_IM_CLOUD_SERVICE}
-      {...props}
-      _style={extendStyle(PUBLIC_IM_CLOUD_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUBLIC_IM_CLOUD_SERVICE)} />
   )
 }

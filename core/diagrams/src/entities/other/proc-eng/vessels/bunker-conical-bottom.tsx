@@ -11,11 +11,5 @@ export const BUNKER_CONICAL_BOTTOM = {
 }
 
 export function BunkerConicalBottom(props: NodeProps) {
-  return (
-    <Shape
-      {...BUNKER_CONICAL_BOTTOM}
-      {...props}
-      _style={extendStyle(BUNKER_CONICAL_BOTTOM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUNKER_CONICAL_BOTTOM)} />
 }

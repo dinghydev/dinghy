@@ -11,5 +11,5 @@ export const ESIGN = {
 }
 
 export function Esign(props: NodeProps) {
-  return <Shape {...ESIGN} {...props} _style={extendStyle(ESIGN, props)} />
+  return <Shape {...props} _style={extendStyle(props, ESIGN)} />
 }

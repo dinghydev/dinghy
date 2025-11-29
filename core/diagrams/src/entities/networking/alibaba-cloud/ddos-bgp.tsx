@@ -11,7 +11,5 @@ export const DDOS_BGP = {
 }
 
 export function DdosBgp(props: NodeProps) {
-  return (
-    <Shape {...DDOS_BGP} {...props} _style={extendStyle(DDOS_BGP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DDOS_BGP)} />
 }

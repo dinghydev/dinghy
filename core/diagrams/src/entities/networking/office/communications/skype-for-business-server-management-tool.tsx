@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_SERVER_MANAGEMENT_TOOL = {
 export function SkypeForBusinessServerManagementTool(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_SERVER_MANAGEMENT_TOOL}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_SERVER_MANAGEMENT_TOOL, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_SERVER_MANAGEMENT_TOOL)}
     />
   )
 }

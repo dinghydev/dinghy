@@ -15,11 +15,10 @@ export function R0x41aAruba640048pSmartRateCsl6Poe4sfp56Module(
 ) {
   return (
     <Shape
-      {...R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE}
       {...props}
       _style={extendStyle(
-        R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE,
         props,
+        R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE,
       )}
     />
   )

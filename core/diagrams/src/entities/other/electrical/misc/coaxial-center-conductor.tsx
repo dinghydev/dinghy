@@ -12,10 +12,6 @@ export const COAXIAL_CENTER_CONDUCTOR = {
 
 export function CoaxialCenterConductor(props: NodeProps) {
   return (
-    <Shape
-      {...COAXIAL_CENTER_CONDUCTOR}
-      {...props}
-      _style={extendStyle(COAXIAL_CENTER_CONDUCTOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COAXIAL_CENTER_CONDUCTOR)} />
   )
 }

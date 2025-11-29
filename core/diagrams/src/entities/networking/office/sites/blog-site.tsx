@@ -11,7 +11,5 @@ export const BLOG_SITE = {
 }
 
 export function BlogSite(props: NodeProps) {
-  return (
-    <Shape {...BLOG_SITE} {...props} _style={extendStyle(BLOG_SITE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLOG_SITE)} />
 }

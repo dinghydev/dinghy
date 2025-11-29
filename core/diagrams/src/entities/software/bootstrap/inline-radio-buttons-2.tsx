@@ -12,10 +12,6 @@ export const INLINE_RADIO_BUTTONS_2 = {
 
 export function InlineRadioButtons2(props: NodeProps) {
   return (
-    <Shape
-      {...INLINE_RADIO_BUTTONS_2}
-      {...props}
-      _style={extendStyle(INLINE_RADIO_BUTTONS_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INLINE_RADIO_BUTTONS_2)} />
   )
 }

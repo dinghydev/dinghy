@@ -11,11 +11,5 @@ export const CISCO_FILE_ENGINE = {
 }
 
 export function CiscoFileEngine(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_FILE_ENGINE}
-      {...props}
-      _style={extendStyle(CISCO_FILE_ENGINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_FILE_ENGINE)} />
 }

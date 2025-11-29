@@ -12,10 +12,6 @@ export const DEFENDER_PNEUMATIC_DEVICE = {
 
 export function DefenderPneumaticDevice(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_PNEUMATIC_DEVICE}
-      {...props}
-      _style={extendStyle(DEFENDER_PNEUMATIC_DEVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_PNEUMATIC_DEVICE)} />
   )
 }

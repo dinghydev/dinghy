@@ -11,7 +11,5 @@ export const AI_BUILDER = {
 }
 
 export function AiBuilder(props: NodeProps) {
-  return (
-    <Shape {...AI_BUILDER} {...props} _style={extendStyle(AI_BUILDER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AI_BUILDER)} />
 }

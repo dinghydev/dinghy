@@ -12,10 +12,6 @@ export const IPAD_BACKGROUND_STRIPED = {
 
 export function IpadBackgroundStriped(props: NodeProps) {
   return (
-    <Shape
-      {...IPAD_BACKGROUND_STRIPED}
-      {...props}
-      _style={extendStyle(IPAD_BACKGROUND_STRIPED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IPAD_BACKGROUND_STRIPED)} />
   )
 }

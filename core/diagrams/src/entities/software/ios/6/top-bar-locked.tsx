@@ -11,11 +11,5 @@ export const TOP_BAR_LOCKED = {
 }
 
 export function TopBarLocked(props: NodeProps) {
-  return (
-    <Shape
-      {...TOP_BAR_LOCKED}
-      {...props}
-      _style={extendStyle(TOP_BAR_LOCKED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOP_BAR_LOCKED)} />
 }

@@ -11,7 +11,5 @@ export const ASA_5500 = {
 }
 
 export function Asa5500(props: NodeProps) {
-  return (
-    <Shape {...ASA_5500} {...props} _style={extendStyle(ASA_5500, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASA_5500)} />
 }

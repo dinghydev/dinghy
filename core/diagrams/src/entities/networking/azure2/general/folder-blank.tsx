@@ -11,11 +11,5 @@ export const FOLDER_BLANK = {
 }
 
 export function FolderBlank(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_BLANK}
-      {...props}
-      _style={extendStyle(FOLDER_BLANK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_BLANK)} />
 }

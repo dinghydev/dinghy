@@ -11,11 +11,5 @@ export const COMPONENT_10GE_FCOE = {
 }
 
 export function Component10geFcoe(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_10GE_FCOE}
-      {...props}
-      _style={extendStyle(COMPONENT_10GE_FCOE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_10GE_FCOE)} />
 }

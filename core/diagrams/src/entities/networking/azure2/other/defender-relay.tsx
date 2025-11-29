@@ -11,11 +11,5 @@ export const DEFENDER_RELAY = {
 }
 
 export function DefenderRelay(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_RELAY}
-      {...props}
-      _style={extendStyle(DEFENDER_RELAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_RELAY)} />
 }

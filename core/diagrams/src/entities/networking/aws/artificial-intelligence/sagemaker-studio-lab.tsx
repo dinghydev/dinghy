@@ -11,11 +11,5 @@ export const SAGEMAKER_STUDIO_LAB = {
 }
 
 export function SagemakerStudioLab(props: NodeProps) {
-  return (
-    <Shape
-      {...SAGEMAKER_STUDIO_LAB}
-      {...props}
-      _style={extendStyle(SAGEMAKER_STUDIO_LAB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAGEMAKER_STUDIO_LAB)} />
 }

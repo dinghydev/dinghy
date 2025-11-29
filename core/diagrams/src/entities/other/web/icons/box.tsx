@@ -11,5 +11,5 @@ export const BOX = {
 }
 
 export function Box(props: NodeProps) {
-  return <Shape {...BOX} {...props} _style={extendStyle(BOX, props)} />
+  return <Shape {...props} _style={extendStyle(props, BOX)} />
 }

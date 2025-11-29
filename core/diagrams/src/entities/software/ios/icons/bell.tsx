@@ -11,5 +11,5 @@ export const BELL = {
 }
 
 export function Bell(props: NodeProps) {
-  return <Shape {...BELL} {...props} _style={extendStyle(BELL, props)} />
+  return <Shape {...props} _style={extendStyle(props, BELL)} />
 }

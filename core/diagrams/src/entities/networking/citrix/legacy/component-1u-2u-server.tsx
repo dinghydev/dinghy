@@ -12,10 +12,6 @@ export const COMPONENT_1U_2U_SERVER = {
 
 export function Component1u2uServer(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_1U_2U_SERVER}
-      {...props}
-      _style={extendStyle(COMPONENT_1U_2U_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_1U_2U_SERVER)} />
   )
 }

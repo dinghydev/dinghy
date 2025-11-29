@@ -13,9 +13,8 @@ export const COST_MANAGEMENT_AND_BILLING = {
 export function CostManagementAndBilling(props: NodeProps) {
   return (
     <Shape
-      {...COST_MANAGEMENT_AND_BILLING}
       {...props}
-      _style={extendStyle(COST_MANAGEMENT_AND_BILLING, props)}
+      _style={extendStyle(props, COST_MANAGEMENT_AND_BILLING)}
     />
   )
 }

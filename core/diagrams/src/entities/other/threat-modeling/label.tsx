@@ -11,5 +11,5 @@ export const LABEL = {
 }
 
 export function Label(props: NodeProps) {
-  return <Shape {...LABEL} {...props} _style={extendStyle(LABEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, LABEL)} />
 }

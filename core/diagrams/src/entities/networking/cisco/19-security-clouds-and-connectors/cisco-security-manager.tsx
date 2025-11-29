@@ -12,10 +12,6 @@ export const CISCO_SECURITY_MANAGER = {
 
 export function CiscoSecurityManager(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_SECURITY_MANAGER}
-      {...props}
-      _style={extendStyle(CISCO_SECURITY_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_SECURITY_MANAGER)} />
   )
 }

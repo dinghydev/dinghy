@@ -11,11 +11,5 @@ export const AUTHENTICATE_2 = {
 }
 
 export function Authenticate2(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATE_2}
-      {...props}
-      _style={extendStyle(AUTHENTICATE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATE_2)} />
 }

@@ -12,10 +12,6 @@ export const X11860_THERMOMETER_WITH = {
 
 export function X11860ThermometerWith(props: NodeProps) {
   return (
-    <Shape
-      {...X11860_THERMOMETER_WITH}
-      {...props}
-      _style={extendStyle(X11860_THERMOMETER_WITH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11860_THERMOMETER_WITH)} />
   )
 }

@@ -11,11 +11,5 @@ export const WORK_PACKAGE = {
 }
 
 export function WorkPackage(props: NodeProps) {
-  return (
-    <Shape
-      {...WORK_PACKAGE}
-      {...props}
-      _style={extendStyle(WORK_PACKAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORK_PACKAGE)} />
 }

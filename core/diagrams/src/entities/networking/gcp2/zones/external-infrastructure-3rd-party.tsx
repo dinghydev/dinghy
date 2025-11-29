@@ -13,9 +13,8 @@ export const EXTERNAL_INFRASTRUCTURE_3RD_PARTY = {
 export function ExternalInfrastructure3rdParty(props: NodeProps) {
   return (
     <Shape
-      {...EXTERNAL_INFRASTRUCTURE_3RD_PARTY}
       {...props}
-      _style={extendStyle(EXTERNAL_INFRASTRUCTURE_3RD_PARTY, props)}
+      _style={extendStyle(props, EXTERNAL_INFRASTRUCTURE_3RD_PARTY)}
     />
   )
 }

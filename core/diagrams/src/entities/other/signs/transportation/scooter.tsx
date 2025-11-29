@@ -11,5 +11,5 @@ export const SCOOTER = {
 }
 
 export function Scooter(props: NodeProps) {
-  return <Shape {...SCOOTER} {...props} _style={extendStyle(SCOOTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCOOTER)} />
 }

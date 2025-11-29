@@ -13,9 +13,8 @@ export const DIALOGFLOW_ENTERPRISE_EDITION = {
 export function DialogflowEnterpriseEdition(props: NodeProps) {
   return (
     <Shape
-      {...DIALOGFLOW_ENTERPRISE_EDITION}
       {...props}
-      _style={extendStyle(DIALOGFLOW_ENTERPRISE_EDITION, props)}
+      _style={extendStyle(props, DIALOGFLOW_ENTERPRISE_EDITION)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING = {
 export function EhpcElasticHighPerformanceComputing(props: NodeProps) {
   return (
     <Shape
-      {...EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING}
       {...props}
-      _style={extendStyle(EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING, props)}
+      _style={extendStyle(props, EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING)}
     />
   )
 }

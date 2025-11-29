@@ -11,11 +11,5 @@ export const SAGEMAKER_AI = {
 }
 
 export function SagemakerAi(props: NodeProps) {
-  return (
-    <Shape
-      {...SAGEMAKER_AI}
-      {...props}
-      _style={extendStyle(SAGEMAKER_AI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAGEMAKER_AI)} />
 }

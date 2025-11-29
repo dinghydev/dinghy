@@ -11,11 +11,5 @@ export const DATA_REPOSITORIES = {
 }
 
 export function DataRepositories(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_REPOSITORIES}
-      {...props}
-      _style={extendStyle(DATA_REPOSITORIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_REPOSITORIES)} />
 }

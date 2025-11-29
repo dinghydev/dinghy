@@ -12,10 +12,6 @@ export const X11770_PRESSURE_SENSOR = {
 
 export function X11770PressureSensor(props: NodeProps) {
   return (
-    <Shape
-      {...X11770_PRESSURE_SENSOR}
-      {...props}
-      _style={extendStyle(X11770_PRESSURE_SENSOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11770_PRESSURE_SENSOR)} />
   )
 }

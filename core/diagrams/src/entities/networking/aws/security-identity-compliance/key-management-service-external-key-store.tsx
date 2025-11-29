@@ -13,9 +13,8 @@ export const KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE = {
 export function KeyManagementServiceExternalKeyStore(props: NodeProps) {
   return (
     <Shape
-      {...KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE}
       {...props}
-      _style={extendStyle(KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE, props)}
+      _style={extendStyle(props, KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE)}
     />
   )
 }

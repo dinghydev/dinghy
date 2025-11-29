@@ -11,11 +11,5 @@ export const STORAGE_SPHERE = {
 }
 
 export function StorageSphere(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_SPHERE}
-      {...props}
-      _style={extendStyle(STORAGE_SPHERE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_SPHERE)} />
 }

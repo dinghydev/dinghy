@@ -12,10 +12,6 @@ export const CLOUD_SECURITY_SCANNER = {
 
 export function CloudSecurityScanner(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_SECURITY_SCANNER}
-      {...props}
-      _style={extendStyle(CLOUD_SECURITY_SCANNER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_SECURITY_SCANNER)} />
   )
 }

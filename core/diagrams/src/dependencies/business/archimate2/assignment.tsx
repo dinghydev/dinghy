@@ -9,11 +9,5 @@ export const ASSIGNMENT = {
 }
 
 export function Assignment(props: NodeProps) {
-  return (
-    <Dependency
-      {...ASSIGNMENT}
-      {...props}
-      _style={extendStyle(ASSIGNMENT, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ASSIGNMENT)} />
 }

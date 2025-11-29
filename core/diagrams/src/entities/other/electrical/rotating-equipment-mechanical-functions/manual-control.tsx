@@ -11,11 +11,5 @@ export const MANUAL_CONTROL = {
 }
 
 export function ManualControl(props: NodeProps) {
-  return (
-    <Shape
-      {...MANUAL_CONTROL}
-      {...props}
-      _style={extendStyle(MANUAL_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANUAL_CONTROL)} />
 }

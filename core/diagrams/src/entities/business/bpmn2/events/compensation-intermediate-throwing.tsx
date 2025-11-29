@@ -13,9 +13,8 @@ export const COMPENSATION_INTERMEDIATE_THROWING = {
 export function CompensationIntermediateThrowing(props: NodeProps) {
   return (
     <Shape
-      {...COMPENSATION_INTERMEDIATE_THROWING}
       {...props}
-      _style={extendStyle(COMPENSATION_INTERMEDIATE_THROWING, props)}
+      _style={extendStyle(props, COMPENSATION_INTERMEDIATE_THROWING)}
     />
   )
 }

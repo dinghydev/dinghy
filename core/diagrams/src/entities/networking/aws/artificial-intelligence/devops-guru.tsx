@@ -11,11 +11,5 @@ export const DEVOPS_GURU = {
 }
 
 export function DevopsGuru(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVOPS_GURU}
-      {...props}
-      _style={extendStyle(DEVOPS_GURU, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVOPS_GURU)} />
 }

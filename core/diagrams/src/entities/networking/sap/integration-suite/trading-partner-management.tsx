@@ -12,10 +12,6 @@ export const TRADING_PARTNER_MANAGEMENT = {
 
 export function TradingPartnerManagement(props: NodeProps) {
   return (
-    <Shape
-      {...TRADING_PARTNER_MANAGEMENT}
-      {...props}
-      _style={extendStyle(TRADING_PARTNER_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TRADING_PARTNER_MANAGEMENT)} />
   )
 }

@@ -11,7 +11,5 @@ export const VERTEX_AI = {
 }
 
 export function VertexAi(props: NodeProps) {
-  return (
-    <Shape {...VERTEX_AI} {...props} _style={extendStyle(VERTEX_AI, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTEX_AI)} />
 }

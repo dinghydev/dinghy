@@ -13,9 +13,8 @@ export const SPARC_ENTERPRISE_M5000_SERVER = {
 export function SparcEnterpriseM5000Server(props: NodeProps) {
   return (
     <Shape
-      {...SPARC_ENTERPRISE_M5000_SERVER}
       {...props}
-      _style={extendStyle(SPARC_ENTERPRISE_M5000_SERVER, props)}
+      _style={extendStyle(props, SPARC_ENTERPRISE_M5000_SERVER)}
     />
   )
 }

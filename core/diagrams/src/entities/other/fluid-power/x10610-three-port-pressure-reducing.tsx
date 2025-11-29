@@ -13,9 +13,8 @@ export const X10610_THREE_PORT_PRESSURE_REDUCING = {
 export function X10610ThreePortPressureReducing(props: NodeProps) {
   return (
     <Shape
-      {...X10610_THREE_PORT_PRESSURE_REDUCING}
       {...props}
-      _style={extendStyle(X10610_THREE_PORT_PRESSURE_REDUCING, props)}
+      _style={extendStyle(props, X10610_THREE_PORT_PRESSURE_REDUCING)}
     />
   )
 }

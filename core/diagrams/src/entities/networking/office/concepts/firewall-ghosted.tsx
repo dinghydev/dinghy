@@ -11,11 +11,5 @@ export const FIREWALL_GHOSTED = {
 }
 
 export function FirewallGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...FIREWALL_GHOSTED}
-      {...props}
-      _style={extendStyle(FIREWALL_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREWALL_GHOSTED)} />
 }

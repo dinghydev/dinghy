@@ -11,7 +11,5 @@ export const ROBOMAKER = {
 }
 
 export function Robomaker(props: NodeProps) {
-  return (
-    <Shape {...ROBOMAKER} {...props} _style={extendStyle(ROBOMAKER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROBOMAKER)} />
 }

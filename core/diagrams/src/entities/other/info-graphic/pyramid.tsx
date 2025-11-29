@@ -11,5 +11,5 @@ export const PYRAMID = {
 }
 
 export function Pyramid(props: NodeProps) {
-  return <Shape {...PYRAMID} {...props} _style={extendStyle(PYRAMID, props)} />
+  return <Shape {...props} _style={extendStyle(props, PYRAMID)} />
 }

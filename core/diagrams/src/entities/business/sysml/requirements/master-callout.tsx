@@ -11,11 +11,5 @@ export const MASTER_CALLOUT = {
 }
 
 export function MasterCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...MASTER_CALLOUT}
-      {...props}
-      _style={extendStyle(MASTER_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MASTER_CALLOUT)} />
 }

@@ -11,11 +11,5 @@ export const END_PROTECTION = {
 }
 
 export function EndProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...END_PROTECTION}
-      {...props}
-      _style={extendStyle(END_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, END_PROTECTION)} />
 }

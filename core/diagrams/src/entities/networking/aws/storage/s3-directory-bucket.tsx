@@ -11,11 +11,5 @@ export const S3_DIRECTORY_BUCKET = {
 }
 
 export function S3DirectoryBucket(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_DIRECTORY_BUCKET}
-      {...props}
-      _style={extendStyle(S3_DIRECTORY_BUCKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_DIRECTORY_BUCKET)} />
 }

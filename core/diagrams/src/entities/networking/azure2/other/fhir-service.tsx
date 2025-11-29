@@ -11,11 +11,5 @@ export const FHIR_SERVICE = {
 }
 
 export function FhirService(props: NodeProps) {
-  return (
-    <Shape
-      {...FHIR_SERVICE}
-      {...props}
-      _style={extendStyle(FHIR_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FHIR_SERVICE)} />
 }

@@ -11,11 +11,5 @@ export const AMAZON_QUICKSIGHT = {
 }
 
 export function AmazonQuicksight(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_QUICKSIGHT}
-      {...props}
-      _style={extendStyle(AMAZON_QUICKSIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_QUICKSIGHT)} />
 }

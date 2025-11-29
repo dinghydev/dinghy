@@ -11,11 +11,5 @@ export const SUPPORT_LEG = {
 }
 
 export function SupportLeg(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPPORT_LEG}
-      {...props}
-      _style={extendStyle(SUPPORT_LEG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPPORT_LEG)} />
 }

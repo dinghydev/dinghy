@@ -12,10 +12,6 @@ export const AWS_MANAGEMENT_CONSOLE = {
 
 export function AwsManagementConsole(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_MANAGEMENT_CONSOLE}
-      {...props}
-      _style={extendStyle(AWS_MANAGEMENT_CONSOLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_MANAGEMENT_CONSOLE)} />
   )
 }

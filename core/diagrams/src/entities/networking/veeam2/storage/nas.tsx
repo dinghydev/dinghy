@@ -11,5 +11,5 @@ export const NAS = {
 }
 
 export function Nas(props: NodeProps) {
-  return <Shape {...NAS} {...props} _style={extendStyle(NAS, props)} />
+  return <Shape {...props} _style={extendStyle(props, NAS)} />
 }

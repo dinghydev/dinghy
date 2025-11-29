@@ -11,11 +11,5 @@ export const RADIUS_SERVER = {
 }
 
 export function RadiusServer(props: NodeProps) {
-  return (
-    <Shape
-      {...RADIUS_SERVER}
-      {...props}
-      _style={extendStyle(RADIUS_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADIUS_SERVER)} />
 }

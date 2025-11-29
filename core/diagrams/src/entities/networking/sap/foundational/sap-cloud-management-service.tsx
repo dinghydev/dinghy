@@ -13,9 +13,8 @@ export const SAP_CLOUD_MANAGEMENT_SERVICE = {
 export function SapCloudManagementService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_CLOUD_MANAGEMENT_SERVICE}
       {...props}
-      _style={extendStyle(SAP_CLOUD_MANAGEMENT_SERVICE, props)}
+      _style={extendStyle(props, SAP_CLOUD_MANAGEMENT_SERVICE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const KUBERNETES_SERVICES = {
 }
 
 export function KubernetesServices(props: NodeProps) {
-  return (
-    <Shape
-      {...KUBERNETES_SERVICES}
-      {...props}
-      _style={extendStyle(KUBERNETES_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KUBERNETES_SERVICES)} />
 }

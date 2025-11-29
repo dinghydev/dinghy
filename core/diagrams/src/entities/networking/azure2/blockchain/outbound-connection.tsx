@@ -11,11 +11,5 @@ export const OUTBOUND_CONNECTION = {
 }
 
 export function OutboundConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTBOUND_CONNECTION}
-      {...props}
-      _style={extendStyle(OUTBOUND_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTBOUND_CONNECTION)} />
 }

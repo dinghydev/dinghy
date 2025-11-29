@@ -12,10 +12,6 @@ export const INFORMATION_PROTECTION = {
 
 export function InformationProtection(props: NodeProps) {
   return (
-    <Shape
-      {...INFORMATION_PROTECTION}
-      {...props}
-      _style={extendStyle(INFORMATION_PROTECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFORMATION_PROTECTION)} />
   )
 }

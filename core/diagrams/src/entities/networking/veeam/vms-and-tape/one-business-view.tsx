@@ -11,11 +11,5 @@ export const ONE_BUSINESS_VIEW = {
 }
 
 export function OneBusinessView(props: NodeProps) {
-  return (
-    <Shape
-      {...ONE_BUSINESS_VIEW}
-      {...props}
-      _style={extendStyle(ONE_BUSINESS_VIEW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONE_BUSINESS_VIEW)} />
 }

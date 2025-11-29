@@ -11,11 +11,5 @@ export const RELAY_CONTACTS = {
 }
 
 export function RelayContacts(props: NodeProps) {
-  return (
-    <Shape
-      {...RELAY_CONTACTS}
-      {...props}
-      _style={extendStyle(RELAY_CONTACTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RELAY_CONTACTS)} />
 }

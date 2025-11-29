@@ -12,10 +12,6 @@ export const ARUBA_9004_DUAL_RACKMOUNT = {
 
 export function Aruba9004DualRackmount(props: NodeProps) {
   return (
-    <Shape
-      {...ARUBA_9004_DUAL_RACKMOUNT}
-      {...props}
-      _style={extendStyle(ARUBA_9004_DUAL_RACKMOUNT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ARUBA_9004_DUAL_RACKMOUNT)} />
   )
 }

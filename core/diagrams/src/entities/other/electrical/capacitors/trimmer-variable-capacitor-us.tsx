@@ -13,9 +13,8 @@ export const TRIMMER_VARIABLE_CAPACITOR_US = {
 export function TrimmerVariableCapacitorUs(props: NodeProps) {
   return (
     <Shape
-      {...TRIMMER_VARIABLE_CAPACITOR_US}
       {...props}
-      _style={extendStyle(TRIMMER_VARIABLE_CAPACITOR_US, props)}
+      _style={extendStyle(props, TRIMMER_VARIABLE_CAPACITOR_US)}
     />
   )
 }

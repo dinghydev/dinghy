@@ -11,11 +11,5 @@ export const BRAKET_CHIP = {
 }
 
 export function BraketChip(props: NodeProps) {
-  return (
-    <Shape
-      {...BRAKET_CHIP}
-      {...props}
-      _style={extendStyle(BRAKET_CHIP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRAKET_CHIP)} />
 }

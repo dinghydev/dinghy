@@ -11,11 +11,5 @@ export const ATM_MULTISTACK = {
 }
 
 export function AtmMultistack(props: NodeProps) {
-  return (
-    <Shape
-      {...ATM_MULTISTACK}
-      {...props}
-      _style={extendStyle(ATM_MULTISTACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATM_MULTISTACK)} />
 }

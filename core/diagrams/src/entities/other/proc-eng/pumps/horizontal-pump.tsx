@@ -11,11 +11,5 @@ export const HORIZONTAL_PUMP = {
 }
 
 export function HorizontalPump(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_PUMP}
-      {...props}
-      _style={extendStyle(HORIZONTAL_PUMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_PUMP)} />
 }

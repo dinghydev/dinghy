@@ -12,10 +12,6 @@ export const AD_AUTHENTICATION_METHODS = {
 
 export function AdAuthenticationMethods(props: NodeProps) {
   return (
-    <Shape
-      {...AD_AUTHENTICATION_METHODS}
-      {...props}
-      _style={extendStyle(AD_AUTHENTICATION_METHODS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AD_AUTHENTICATION_METHODS)} />
   )
 }

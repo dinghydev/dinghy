@@ -36,12 +36,13 @@
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/architecture"
-        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/composites/sequence-diagram"
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/composites/sequence-diagram"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/basic"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/community",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/basic",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
-        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/step-by-step/step-3-draw-io"
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-3-draw-io"
+        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-4-iac"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
@@ -226,6 +227,7 @@
         "--site",
         "www",
         // "references-diagrams-elements",
+        // "references-tf-aws-services",
         // "tmp",
         // "references",
       ],

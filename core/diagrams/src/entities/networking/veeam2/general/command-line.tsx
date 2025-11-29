@@ -11,11 +11,5 @@ export const COMMAND_LINE = {
 }
 
 export function CommandLine(props: NodeProps) {
-  return (
-    <Shape
-      {...COMMAND_LINE}
-      {...props}
-      _style={extendStyle(COMMAND_LINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMAND_LINE)} />
 }

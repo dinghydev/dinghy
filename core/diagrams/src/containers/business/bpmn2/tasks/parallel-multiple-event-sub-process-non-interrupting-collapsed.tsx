@@ -13,11 +13,10 @@ export function ParallelMultipleEventSubProcessNonInterruptingCollapsed(
 ) {
   return (
     <Shape
-      {...PARALLEL_MULTIPLE_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        PARALLEL_MULTIPLE_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
         props,
+        PARALLEL_MULTIPLE_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
       )}
     />
   )

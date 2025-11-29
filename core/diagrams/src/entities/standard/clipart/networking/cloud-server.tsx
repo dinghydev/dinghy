@@ -11,11 +11,5 @@ export const CLOUD_SERVER = {
 }
 
 export function CloudServer(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SERVER}
-      {...props}
-      _style={extendStyle(CLOUD_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SERVER)} />
 }

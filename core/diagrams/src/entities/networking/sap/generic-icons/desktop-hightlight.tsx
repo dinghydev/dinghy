@@ -11,11 +11,5 @@ export const DESKTOP_HIGHTLIGHT = {
 }
 
 export function DesktopHightlight(props: NodeProps) {
-  return (
-    <Shape
-      {...DESKTOP_HIGHTLIGHT}
-      {...props}
-      _style={extendStyle(DESKTOP_HIGHTLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESKTOP_HIGHTLIGHT)} />
 }

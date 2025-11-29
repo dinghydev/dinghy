@@ -15,11 +15,10 @@ export function AllocationDerivedPropertiesInternalBlockDiagram(
 ) {
   return (
     <Shape
-      {...ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM}
       {...props}
       _style={extendStyle(
-        ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM,
         props,
+        ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM,
       )}
     />
   )

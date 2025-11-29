@@ -11,7 +11,5 @@ export const FIREPLACE = {
 }
 
 export function Fireplace(props: NodeProps) {
-  return (
-    <Shape {...FIREPLACE} {...props} _style={extendStyle(FIREPLACE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREPLACE)} />
 }

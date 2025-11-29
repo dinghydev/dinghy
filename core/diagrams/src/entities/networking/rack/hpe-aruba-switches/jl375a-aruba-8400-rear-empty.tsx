@@ -13,9 +13,8 @@ export const JL375A_ARUBA_8400_REAR_EMPTY = {
 export function Jl375aAruba8400RearEmpty(props: NodeProps) {
   return (
     <Shape
-      {...JL375A_ARUBA_8400_REAR_EMPTY}
       {...props}
-      _style={extendStyle(JL375A_ARUBA_8400_REAR_EMPTY, props)}
+      _style={extendStyle(props, JL375A_ARUBA_8400_REAR_EMPTY)}
     />
   )
 }

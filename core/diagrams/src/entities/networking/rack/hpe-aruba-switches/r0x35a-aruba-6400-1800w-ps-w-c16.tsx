@@ -13,9 +13,8 @@ export const R0X35A_ARUBA_6400_1800W_PS_W_C16 = {
 export function R0x35aAruba64001800wPsWC16(props: NodeProps) {
   return (
     <Shape
-      {...R0X35A_ARUBA_6400_1800W_PS_W_C16}
       {...props}
-      _style={extendStyle(R0X35A_ARUBA_6400_1800W_PS_W_C16, props)}
+      _style={extendStyle(props, R0X35A_ARUBA_6400_1800W_PS_W_C16)}
     />
   )
 }

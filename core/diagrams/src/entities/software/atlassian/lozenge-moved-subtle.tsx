@@ -11,11 +11,5 @@ export const LOZENGE_MOVED_SUBTLE = {
 }
 
 export function LozengeMovedSubtle(props: NodeProps) {
-  return (
-    <Shape
-      {...LOZENGE_MOVED_SUBTLE}
-      {...props}
-      _style={extendStyle(LOZENGE_MOVED_SUBTLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOZENGE_MOVED_SUBTLE)} />
 }

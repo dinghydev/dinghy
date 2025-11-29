@@ -11,5 +11,5 @@ export const SCANNER = {
 }
 
 export function Scanner(props: NodeProps) {
-  return <Shape {...SCANNER} {...props} _style={extendStyle(SCANNER, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCANNER)} />
 }

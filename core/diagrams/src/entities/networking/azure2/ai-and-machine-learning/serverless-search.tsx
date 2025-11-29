@@ -11,11 +11,5 @@ export const SERVERLESS_SEARCH = {
 }
 
 export function ServerlessSearch(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVERLESS_SEARCH}
-      {...props}
-      _style={extendStyle(SERVERLESS_SEARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVERLESS_SEARCH)} />
 }

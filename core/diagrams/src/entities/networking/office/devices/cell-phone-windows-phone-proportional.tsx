@@ -13,9 +13,8 @@ export const CELL_PHONE_WINDOWS_PHONE_PROPORTIONAL = {
 export function CellPhoneWindowsPhoneProportional(props: NodeProps) {
   return (
     <Shape
-      {...CELL_PHONE_WINDOWS_PHONE_PROPORTIONAL}
       {...props}
-      _style={extendStyle(CELL_PHONE_WINDOWS_PHONE_PROPORTIONAL, props)}
+      _style={extendStyle(props, CELL_PHONE_WINDOWS_PHONE_PROPORTIONAL)}
     />
   )
 }

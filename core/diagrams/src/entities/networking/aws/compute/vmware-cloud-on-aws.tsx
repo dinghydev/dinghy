@@ -11,11 +11,5 @@ export const VMWARE_CLOUD_ON_AWS = {
 }
 
 export function VmwareCloudOnAws(props: NodeProps) {
-  return (
-    <Shape
-      {...VMWARE_CLOUD_ON_AWS}
-      {...props}
-      _style={extendStyle(VMWARE_CLOUD_ON_AWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VMWARE_CLOUD_ON_AWS)} />
 }

@@ -12,10 +12,6 @@ export const NORMALLY_CLOSED_BALL_VALVE = {
 
 export function NormallyClosedBallValve(props: NodeProps) {
   return (
-    <Shape
-      {...NORMALLY_CLOSED_BALL_VALVE}
-      {...props}
-      _style={extendStyle(NORMALLY_CLOSED_BALL_VALVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NORMALLY_CLOSED_BALL_VALVE)} />
   )
 }

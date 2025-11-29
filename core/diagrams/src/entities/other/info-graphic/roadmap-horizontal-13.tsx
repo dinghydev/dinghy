@@ -11,11 +11,5 @@ export const ROADMAP_HORIZONTAL_13 = {
 }
 
 export function RoadmapHorizontal13(props: NodeProps) {
-  return (
-    <Shape
-      {...ROADMAP_HORIZONTAL_13}
-      {...props}
-      _style={extendStyle(ROADMAP_HORIZONTAL_13, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROADMAP_HORIZONTAL_13)} />
 }

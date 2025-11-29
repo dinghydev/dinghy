@@ -11,11 +11,5 @@ export const INTEGRATION = {
 }
 
 export function Integration(props: NodeProps) {
-  return (
-    <Shape
-      {...INTEGRATION}
-      {...props}
-      _style={extendStyle(INTEGRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTEGRATION)} />
 }

@@ -11,7 +11,5 @@ export const ABS_MEMBER = {
 }
 
 export function AbsMember(props: NodeProps) {
-  return (
-    <Shape {...ABS_MEMBER} {...props} _style={extendStyle(ABS_MEMBER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ABS_MEMBER)} />
 }

@@ -10,5 +10,5 @@ export const FERN = {
 }
 
 export function Fern(props: NodeProps) {
-  return <Shape {...FERN} {...props} _style={extendStyle(FERN, props)} />
+  return <Shape {...props} _style={extendStyle(props, FERN)} />
 }

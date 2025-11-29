@@ -11,11 +11,5 @@ export const OSCILLOSCOPE = {
 }
 
 export function Oscilloscope(props: NodeProps) {
-  return (
-    <Shape
-      {...OSCILLOSCOPE}
-      {...props}
-      _style={extendStyle(OSCILLOSCOPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OSCILLOSCOPE)} />
 }

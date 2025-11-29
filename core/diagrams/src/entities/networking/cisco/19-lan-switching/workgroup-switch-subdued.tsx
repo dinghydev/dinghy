@@ -12,10 +12,6 @@ export const WORKGROUP_SWITCH_SUBDUED = {
 
 export function WorkgroupSwitchSubdued(props: NodeProps) {
   return (
-    <Shape
-      {...WORKGROUP_SWITCH_SUBDUED}
-      {...props}
-      _style={extendStyle(WORKGROUP_SWITCH_SUBDUED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WORKGROUP_SWITCH_SUBDUED)} />
   )
 }

@@ -11,11 +11,5 @@ export const CONTINUOUS_TESTING = {
 }
 
 export function ContinuousTesting(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTINUOUS_TESTING}
-      {...props}
-      _style={extendStyle(CONTINUOUS_TESTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTINUOUS_TESTING)} />
 }

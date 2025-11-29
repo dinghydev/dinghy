@@ -12,10 +12,6 @@ export const DIFFERENTIAL_CAPACITOR = {
 
 export function DifferentialCapacitor(props: NodeProps) {
   return (
-    <Shape
-      {...DIFFERENTIAL_CAPACITOR}
-      {...props}
-      _style={extendStyle(DIFFERENTIAL_CAPACITOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DIFFERENTIAL_CAPACITOR)} />
   )
 }

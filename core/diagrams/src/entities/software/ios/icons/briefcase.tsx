@@ -11,7 +11,5 @@ export const BRIEFCASE = {
 }
 
 export function Briefcase(props: NodeProps) {
-  return (
-    <Shape {...BRIEFCASE} {...props} _style={extendStyle(BRIEFCASE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRIEFCASE)} />
 }

@@ -11,7 +11,5 @@ export const CAMPFIRE = {
 }
 
 export function Campfire(props: NodeProps) {
-  return (
-    <Shape {...CAMPFIRE} {...props} _style={extendStyle(CAMPFIRE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAMPFIRE)} />
 }

@@ -11,11 +11,5 @@ export const CIRCULAR_CALLOUT_2 = {
 }
 
 export function CircularCallout2(props: NodeProps) {
-  return (
-    <Shape
-      {...CIRCULAR_CALLOUT_2}
-      {...props}
-      _style={extendStyle(CIRCULAR_CALLOUT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CIRCULAR_CALLOUT_2)} />
 }

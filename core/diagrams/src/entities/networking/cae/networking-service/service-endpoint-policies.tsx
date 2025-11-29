@@ -12,10 +12,6 @@ export const SERVICE_ENDPOINT_POLICIES = {
 
 export function ServiceEndpointPolicies(props: NodeProps) {
   return (
-    <Shape
-      {...SERVICE_ENDPOINT_POLICIES}
-      {...props}
-      _style={extendStyle(SERVICE_ENDPOINT_POLICIES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SERVICE_ENDPOINT_POLICIES)} />
   )
 }

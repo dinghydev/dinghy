@@ -11,5 +11,5 @@ export const A_CONST = {
 }
 
 export function A(props: NodeProps) {
-  return <Shape {...A_CONST} {...props} _style={extendStyle(A_CONST, props)} />
+  return <Shape {...props} _style={extendStyle(props, A_CONST)} />
 }

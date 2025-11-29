@@ -13,9 +13,8 @@ export const CISCO_IDENTITY_SERVICES_ENGINE = {
 export function CiscoIdentityServicesEngine(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_IDENTITY_SERVICES_ENGINE}
       {...props}
-      _style={extendStyle(CISCO_IDENTITY_SERVICES_ENGINE, props)}
+      _style={extendStyle(props, CISCO_IDENTITY_SERVICES_ENGINE)}
     />
   )
 }

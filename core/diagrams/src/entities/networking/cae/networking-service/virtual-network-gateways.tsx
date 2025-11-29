@@ -12,10 +12,6 @@ export const VIRTUAL_NETWORK_GATEWAYS = {
 
 export function VirtualNetworkGateways(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_NETWORK_GATEWAYS}
-      {...props}
-      _style={extendStyle(VIRTUAL_NETWORK_GATEWAYS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_NETWORK_GATEWAYS)} />
   )
 }

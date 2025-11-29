@@ -11,11 +11,5 @@ export const C5D_INSTANCE = {
 }
 
 export function C5dInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...C5D_INSTANCE}
-      {...props}
-      _style={extendStyle(C5D_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, C5D_INSTANCE)} />
 }

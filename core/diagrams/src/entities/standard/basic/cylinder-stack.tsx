@@ -11,11 +11,5 @@ export const CYLINDER_STACK = {
 }
 
 export function CylinderStack(props: NodeProps) {
-  return (
-    <Shape
-      {...CYLINDER_STACK}
-      {...props}
-      _style={extendStyle(CYLINDER_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CYLINDER_STACK)} />
 }

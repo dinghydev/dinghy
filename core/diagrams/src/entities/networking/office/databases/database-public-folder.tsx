@@ -12,10 +12,6 @@ export const DATABASE_PUBLIC_FOLDER = {
 
 export function DatabasePublicFolder(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_PUBLIC_FOLDER}
-      {...props}
-      _style={extendStyle(DATABASE_PUBLIC_FOLDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_PUBLIC_FOLDER)} />
   )
 }

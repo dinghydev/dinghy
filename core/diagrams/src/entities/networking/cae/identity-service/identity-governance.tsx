@@ -11,11 +11,5 @@ export const IDENTITY_GOVERNANCE = {
 }
 
 export function IdentityGovernance(props: NodeProps) {
-  return (
-    <Shape
-      {...IDENTITY_GOVERNANCE}
-      {...props}
-      _style={extendStyle(IDENTITY_GOVERNANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDENTITY_GOVERNANCE)} />
 }

@@ -13,9 +13,8 @@ export const IMP_INTELLIGENT_MEDIA_PRODUCTION = {
 export function ImpIntelligentMediaProduction(props: NodeProps) {
   return (
     <Shape
-      {...IMP_INTELLIGENT_MEDIA_PRODUCTION}
       {...props}
-      _style={extendStyle(IMP_INTELLIGENT_MEDIA_PRODUCTION, props)}
+      _style={extendStyle(props, IMP_INTELLIGENT_MEDIA_PRODUCTION)}
     />
   )
 }

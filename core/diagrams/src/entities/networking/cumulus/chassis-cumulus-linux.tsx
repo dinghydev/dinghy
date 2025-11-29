@@ -11,11 +11,5 @@ export const CHASSIS_CUMULUS_LINUX = {
 }
 
 export function ChassisCumulusLinux(props: NodeProps) {
-  return (
-    <Shape
-      {...CHASSIS_CUMULUS_LINUX}
-      {...props}
-      _style={extendStyle(CHASSIS_CUMULUS_LINUX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHASSIS_CUMULUS_LINUX)} />
 }

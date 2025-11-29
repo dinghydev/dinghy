@@ -11,11 +11,5 @@ export const AWS_DIRECT_CONNECT = {
 }
 
 export function AwsDirectConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_DIRECT_CONNECT}
-      {...props}
-      _style={extendStyle(AWS_DIRECT_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_DIRECT_CONNECT)} />
 }

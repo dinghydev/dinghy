@@ -11,5 +11,5 @@ export const QUOTA_2 = {
 }
 
 export function Quota2(props: NodeProps) {
-  return <Shape {...QUOTA_2} {...props} _style={extendStyle(QUOTA_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, QUOTA_2)} />
 }

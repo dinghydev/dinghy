@@ -11,11 +11,5 @@ export const ON_PREMISES_SERVER = {
 }
 
 export function OnPremisesServer(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PREMISES_SERVER}
-      {...props}
-      _style={extendStyle(ON_PREMISES_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PREMISES_SERVER)} />
 }

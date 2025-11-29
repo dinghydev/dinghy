@@ -11,11 +11,5 @@ export const WALL_HORIZONTAL = {
 }
 
 export function WallHorizontal(props: NodeProps) {
-  return (
-    <Shape
-      {...WALL_HORIZONTAL}
-      {...props}
-      _style={extendStyle(WALL_HORIZONTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WALL_HORIZONTAL)} />
 }

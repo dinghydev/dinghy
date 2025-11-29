@@ -11,11 +11,5 @@ export const SAP_AI_CORE = {
 }
 
 export function SapAiCore(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_AI_CORE}
-      {...props}
-      _style={extendStyle(SAP_AI_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_AI_CORE)} />
 }

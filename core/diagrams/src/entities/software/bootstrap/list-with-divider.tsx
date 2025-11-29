@@ -11,11 +11,5 @@ export const LIST_WITH_DIVIDER = {
 }
 
 export function ListWithDivider(props: NodeProps) {
-  return (
-    <Shape
-      {...LIST_WITH_DIVIDER}
-      {...props}
-      _style={extendStyle(LIST_WITH_DIVIDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_WITH_DIVIDER)} />
 }

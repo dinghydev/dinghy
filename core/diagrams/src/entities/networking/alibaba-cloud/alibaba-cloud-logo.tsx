@@ -11,11 +11,5 @@ export const ALIBABA_CLOUD_LOGO = {
 }
 
 export function AlibabaCloudLogo(props: NodeProps) {
-  return (
-    <Shape
-      {...ALIBABA_CLOUD_LOGO}
-      {...props}
-      _style={extendStyle(ALIBABA_CLOUD_LOGO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALIBABA_CLOUD_LOGO)} />
 }

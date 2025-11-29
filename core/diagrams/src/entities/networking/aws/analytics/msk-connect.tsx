@@ -11,11 +11,5 @@ export const MSK_CONNECT = {
 }
 
 export function MskConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...MSK_CONNECT}
-      {...props}
-      _style={extendStyle(MSK_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MSK_CONNECT)} />
 }

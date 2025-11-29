@@ -10,11 +10,5 @@ export const DOUBLE_ELLIPSE = {
 }
 
 export function DoubleEllipse(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_ELLIPSE}
-      {...props}
-      _style={extendStyle(DOUBLE_ELLIPSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_ELLIPSE)} />
 }

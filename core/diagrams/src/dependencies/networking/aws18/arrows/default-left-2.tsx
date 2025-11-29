@@ -9,11 +9,5 @@ export const DEFAULT_LEFT_2 = {
 }
 
 export function DefaultLeft2(props: NodeProps) {
-  return (
-    <Dependency
-      {...DEFAULT_LEFT_2}
-      {...props}
-      _style={extendStyle(DEFAULT_LEFT_2, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DEFAULT_LEFT_2)} />
 }

@@ -11,11 +11,5 @@ export const FALLOUT_SHELTER = {
 }
 
 export function FalloutShelter(props: NodeProps) {
-  return (
-    <Shape
-      {...FALLOUT_SHELTER}
-      {...props}
-      _style={extendStyle(FALLOUT_SHELTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FALLOUT_SHELTER)} />
 }

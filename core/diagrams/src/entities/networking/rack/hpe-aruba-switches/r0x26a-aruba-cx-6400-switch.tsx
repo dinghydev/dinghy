@@ -13,9 +13,8 @@ export const R0X26A_ARUBA_CX_6400_SWITCH = {
 export function R0x26aArubaCx6400Switch(props: NodeProps) {
   return (
     <Shape
-      {...R0X26A_ARUBA_CX_6400_SWITCH}
       {...props}
-      _style={extendStyle(R0X26A_ARUBA_CX_6400_SWITCH, props)}
+      _style={extendStyle(props, R0X26A_ARUBA_CX_6400_SWITCH)}
     />
   )
 }

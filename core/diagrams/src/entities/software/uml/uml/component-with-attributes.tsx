@@ -11,10 +11,6 @@ export const COMPONENT_WITH_ATTRIBUTES = {
 
 export function ComponentWithAttributes(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_WITH_ATTRIBUTES}
-      {...props}
-      _style={extendStyle(COMPONENT_WITH_ATTRIBUTES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_WITH_ATTRIBUTES)} />
   )
 }

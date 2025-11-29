@@ -12,10 +12,6 @@ export const DATABASE_MARIADB_SERVER = {
 
 export function DatabaseMariadbServer(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_MARIADB_SERVER}
-      {...props}
-      _style={extendStyle(DATABASE_MARIADB_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_MARIADB_SERVER)} />
   )
 }

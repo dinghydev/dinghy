@@ -11,11 +11,5 @@ export const BADGE_PRIMARY = {
 }
 
 export function BadgePrimary(props: NodeProps) {
-  return (
-    <Shape
-      {...BADGE_PRIMARY}
-      {...props}
-      _style={extendStyle(BADGE_PRIMARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BADGE_PRIMARY)} />
 }

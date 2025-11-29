@@ -11,11 +11,5 @@ export const CONTINUOUS_DELIVERY = {
 }
 
 export function ContinuousDelivery(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTINUOUS_DELIVERY}
-      {...props}
-      _style={extendStyle(CONTINUOUS_DELIVERY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTINUOUS_DELIVERY)} />
 }

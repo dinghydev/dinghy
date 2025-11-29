@@ -11,5 +11,5 @@ export const FARK = {
 }
 
 export function Fark(props: NodeProps) {
-  return <Shape {...FARK} {...props} _style={extendStyle(FARK, props)} />
+  return <Shape {...props} _style={extendStyle(props, FARK)} />
 }

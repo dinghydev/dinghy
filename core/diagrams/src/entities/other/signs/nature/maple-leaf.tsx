@@ -11,7 +11,5 @@ export const MAPLE_LEAF = {
 }
 
 export function MapleLeaf(props: NodeProps) {
-  return (
-    <Shape {...MAPLE_LEAF} {...props} _style={extendStyle(MAPLE_LEAF, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAPLE_LEAF)} />
 }

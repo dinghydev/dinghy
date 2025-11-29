@@ -11,7 +11,5 @@ export const VIDEO_FORM = {
 }
 
 export function VideoForm(props: NodeProps) {
-  return (
-    <Shape {...VIDEO_FORM} {...props} _style={extendStyle(VIDEO_FORM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_FORM)} />
 }

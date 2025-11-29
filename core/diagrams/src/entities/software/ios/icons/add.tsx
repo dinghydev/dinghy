@@ -11,5 +11,5 @@ export const ADD = {
 }
 
 export function Add(props: NodeProps) {
-  return <Shape {...ADD} {...props} _style={extendStyle(ADD, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADD)} />
 }

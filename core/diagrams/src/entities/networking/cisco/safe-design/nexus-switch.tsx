@@ -11,11 +11,5 @@ export const NEXUS_SWITCH = {
 }
 
 export function NexusSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...NEXUS_SWITCH}
-      {...props}
-      _style={extendStyle(NEXUS_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_SWITCH)} />
 }

@@ -13,9 +13,8 @@ export const SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS = {
 export function SapEventBrokerForSapCloudApplications(props: NodeProps) {
   return (
     <Shape
-      {...SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS}
       {...props}
-      _style={extendStyle(SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS, props)}
+      _style={extendStyle(props, SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS)}
     />
   )
 }

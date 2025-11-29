@@ -11,11 +11,5 @@ export const GRID_LAYOUT = {
 }
 
 export function GridLayout(props: NodeProps) {
-  return (
-    <Shape
-      {...GRID_LAYOUT}
-      {...props}
-      _style={extendStyle(GRID_LAYOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GRID_LAYOUT)} />
 }

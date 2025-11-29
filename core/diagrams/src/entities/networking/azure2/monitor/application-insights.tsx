@@ -11,11 +11,5 @@ export const APPLICATION_INSIGHTS = {
 }
 
 export function ApplicationInsights(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_INSIGHTS}
-      {...props}
-      _style={extendStyle(APPLICATION_INSIGHTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_INSIGHTS)} />
 }

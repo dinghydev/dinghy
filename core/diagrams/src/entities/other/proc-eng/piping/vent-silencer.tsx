@@ -11,11 +11,5 @@ export const VENT_SILENCER = {
 }
 
 export function VentSilencer(props: NodeProps) {
-  return (
-    <Shape
-      {...VENT_SILENCER}
-      {...props}
-      _style={extendStyle(VENT_SILENCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VENT_SILENCER)} />
 }

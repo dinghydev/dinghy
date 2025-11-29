@@ -9,11 +9,5 @@ export const OPEN_THIN_LEFT_2 = {
 }
 
 export function OpenThinLeft2(props: NodeProps) {
-  return (
-    <Dependency
-      {...OPEN_THIN_LEFT_2}
-      {...props}
-      _style={extendStyle(OPEN_THIN_LEFT_2, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, OPEN_THIN_LEFT_2)} />
 }

@@ -11,11 +11,5 @@ export const ALERT_NOTIFICATION = {
 }
 
 export function AlertNotification(props: NodeProps) {
-  return (
-    <Shape
-      {...ALERT_NOTIFICATION}
-      {...props}
-      _style={extendStyle(ALERT_NOTIFICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALERT_NOTIFICATION)} />
 }

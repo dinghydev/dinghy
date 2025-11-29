@@ -15,11 +15,10 @@ export function ActiveDirectoryFederationServicesServerGhosted(
 ) {
   return (
     <Shape
-      {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED}
       {...props}
       _style={extendStyle(
-        ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED,
         props,
+        ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED,
       )}
     />
   )

@@ -11,11 +11,5 @@ export const MANAGED_SERVICES = {
 }
 
 export function ManagedServices(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_SERVICES}
-      {...props}
-      _style={extendStyle(MANAGED_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_SERVICES)} />
 }

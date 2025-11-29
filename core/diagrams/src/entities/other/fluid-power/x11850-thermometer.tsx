@@ -11,11 +11,5 @@ export const X11850_THERMOMETER = {
 }
 
 export function X11850Thermometer(props: NodeProps) {
-  return (
-    <Shape
-      {...X11850_THERMOMETER}
-      {...props}
-      _style={extendStyle(X11850_THERMOMETER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11850_THERMOMETER)} />
 }

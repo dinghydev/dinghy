@@ -13,9 +13,8 @@ export const X10930_PRESSURE_CONTROL_AND = {
 export function X10930PressureControlAnd(props: NodeProps) {
   return (
     <Shape
-      {...X10930_PRESSURE_CONTROL_AND}
       {...props}
-      _style={extendStyle(X10930_PRESSURE_CONTROL_AND, props)}
+      _style={extendStyle(props, X10930_PRESSURE_CONTROL_AND)}
     />
   )
 }

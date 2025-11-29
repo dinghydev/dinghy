@@ -11,11 +11,5 @@ export const IDE_PLUGINS = {
 }
 
 export function IdePlugins(props: NodeProps) {
-  return (
-    <Shape
-      {...IDE_PLUGINS}
-      {...props}
-      _style={extendStyle(IDE_PLUGINS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDE_PLUGINS)} />
 }

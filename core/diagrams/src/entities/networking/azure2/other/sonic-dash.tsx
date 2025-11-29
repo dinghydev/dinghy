@@ -11,7 +11,5 @@ export const SONIC_DASH = {
 }
 
 export function SonicDash(props: NodeProps) {
-  return (
-    <Shape {...SONIC_DASH} {...props} _style={extendStyle(SONIC_DASH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SONIC_DASH)} />
 }

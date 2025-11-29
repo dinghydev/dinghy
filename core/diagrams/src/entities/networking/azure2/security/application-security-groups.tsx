@@ -13,9 +13,8 @@ export const APPLICATION_SECURITY_GROUPS = {
 export function ApplicationSecurityGroups(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_SECURITY_GROUPS}
       {...props}
-      _style={extendStyle(APPLICATION_SECURITY_GROUPS, props)}
+      _style={extendStyle(props, APPLICATION_SECURITY_GROUPS)}
     />
   )
 }

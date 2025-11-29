@@ -13,9 +13,8 @@ export const COMPONENT_3RD_PARTY_MAIL_SERVER = {
 export function Component3rdPartyMailServer(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3RD_PARTY_MAIL_SERVER}
       {...props}
-      _style={extendStyle(COMPONENT_3RD_PARTY_MAIL_SERVER, props)}
+      _style={extendStyle(props, COMPONENT_3RD_PARTY_MAIL_SERVER)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const NEUTRON_SECURITYGROUP = {
 }
 
 export function NeutronSecuritygroup(props: NodeProps) {
-  return (
-    <Shape
-      {...NEUTRON_SECURITYGROUP}
-      {...props}
-      _style={extendStyle(NEUTRON_SECURITYGROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEUTRON_SECURITYGROUP)} />
 }

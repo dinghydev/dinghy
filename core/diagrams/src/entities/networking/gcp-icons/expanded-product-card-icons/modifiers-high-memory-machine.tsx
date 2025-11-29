@@ -13,9 +13,8 @@ export const MODIFIERS_HIGH_MEMORY_MACHINE = {
 export function ModifiersHighMemoryMachine(props: NodeProps) {
   return (
     <Shape
-      {...MODIFIERS_HIGH_MEMORY_MACHINE}
       {...props}
-      _style={extendStyle(MODIFIERS_HIGH_MEMORY_MACHINE, props)}
+      _style={extendStyle(props, MODIFIERS_HIGH_MEMORY_MACHINE)}
     />
   )
 }

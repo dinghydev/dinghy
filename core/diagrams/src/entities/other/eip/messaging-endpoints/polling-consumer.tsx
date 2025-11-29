@@ -11,11 +11,5 @@ export const POLLING_CONSUMER = {
 }
 
 export function PollingConsumer(props: NodeProps) {
-  return (
-    <Shape
-      {...POLLING_CONSUMER}
-      {...props}
-      _style={extendStyle(POLLING_CONSUMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POLLING_CONSUMER)} />
 }

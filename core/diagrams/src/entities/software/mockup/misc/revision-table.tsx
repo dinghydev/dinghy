@@ -11,11 +11,5 @@ export const REVISION_TABLE = {
 }
 
 export function RevisionTable(props: NodeProps) {
-  return (
-    <Shape
-      {...REVISION_TABLE}
-      {...props}
-      _style={extendStyle(REVISION_TABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REVISION_TABLE)} />
 }

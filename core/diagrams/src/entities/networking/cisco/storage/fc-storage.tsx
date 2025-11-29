@@ -11,7 +11,5 @@ export const FC_STORAGE = {
 }
 
 export function FcStorage(props: NodeProps) {
-  return (
-    <Shape {...FC_STORAGE} {...props} _style={extendStyle(FC_STORAGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FC_STORAGE)} />
 }

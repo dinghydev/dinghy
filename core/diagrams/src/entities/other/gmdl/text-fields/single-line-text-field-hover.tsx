@@ -13,9 +13,8 @@ export const SINGLE_LINE_TEXT_FIELD_HOVER = {
 export function SingleLineTextFieldHover(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_LINE_TEXT_FIELD_HOVER}
       {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_HOVER, props)}
+      _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD_HOVER)}
     />
   )
 }

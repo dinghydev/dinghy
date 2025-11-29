@@ -11,11 +11,5 @@ export const SSL_PADLOCK = {
 }
 
 export function SslPadlock(props: NodeProps) {
-  return (
-    <Shape
-      {...SSL_PADLOCK}
-      {...props}
-      _style={extendStyle(SSL_PADLOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SSL_PADLOCK)} />
 }

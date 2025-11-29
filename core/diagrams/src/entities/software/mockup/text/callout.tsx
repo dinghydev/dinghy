@@ -11,5 +11,5 @@ export const CALLOUT = {
 }
 
 export function Callout(props: NodeProps) {
-  return <Shape {...CALLOUT} {...props} _style={extendStyle(CALLOUT, props)} />
+  return <Shape {...props} _style={extendStyle(props, CALLOUT)} />
 }

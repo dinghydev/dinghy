@@ -13,9 +13,8 @@ export const HP_PROLIANT_BL620C_SERVER_BLADE = {
 export function HpProliantBl620cServerBlade(props: NodeProps) {
   return (
     <Shape
-      {...HP_PROLIANT_BL620C_SERVER_BLADE}
       {...props}
-      _style={extendStyle(HP_PROLIANT_BL620C_SERVER_BLADE, props)}
+      _style={extendStyle(props, HP_PROLIANT_BL620C_SERVER_BLADE)}
     />
   )
 }

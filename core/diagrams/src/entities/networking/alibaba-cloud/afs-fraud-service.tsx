@@ -11,11 +11,5 @@ export const AFS_FRAUD_SERVICE = {
 }
 
 export function AfsFraudService(props: NodeProps) {
-  return (
-    <Shape
-      {...AFS_FRAUD_SERVICE}
-      {...props}
-      _style={extendStyle(AFS_FRAUD_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AFS_FRAUD_SERVICE)} />
 }

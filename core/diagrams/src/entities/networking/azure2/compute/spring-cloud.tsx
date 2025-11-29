@@ -11,11 +11,5 @@ export const SPRING_CLOUD = {
 }
 
 export function SpringCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRING_CLOUD}
-      {...props}
-      _style={extendStyle(SPRING_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRING_CLOUD)} />
 }

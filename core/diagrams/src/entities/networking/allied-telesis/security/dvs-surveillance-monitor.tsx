@@ -12,10 +12,6 @@ export const DVS_SURVEILLANCE_MONITOR = {
 
 export function DvsSurveillanceMonitor(props: NodeProps) {
   return (
-    <Shape
-      {...DVS_SURVEILLANCE_MONITOR}
-      {...props}
-      _style={extendStyle(DVS_SURVEILLANCE_MONITOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DVS_SURVEILLANCE_MONITOR)} />
   )
 }

@@ -11,11 +11,5 @@ export const TRANSIT_GATEWAY = {
 }
 
 export function TransitGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSIT_GATEWAY}
-      {...props}
-      _style={extendStyle(TRANSIT_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSIT_GATEWAY)} />
 }

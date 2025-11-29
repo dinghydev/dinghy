@@ -13,9 +13,8 @@ export const PROGRAMMABLE_LOGIC_CONTROL_LOCAL_PANEL = {
 export function ProgrammableLogicControlLocalPanel(props: NodeProps) {
   return (
     <Shape
-      {...PROGRAMMABLE_LOGIC_CONTROL_LOCAL_PANEL}
       {...props}
-      _style={extendStyle(PROGRAMMABLE_LOGIC_CONTROL_LOCAL_PANEL, props)}
+      _style={extendStyle(props, PROGRAMMABLE_LOGIC_CONTROL_LOCAL_PANEL)}
     />
   )
 }

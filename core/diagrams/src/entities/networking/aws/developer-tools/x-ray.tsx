@@ -11,5 +11,5 @@ export const X_RAY = {
 }
 
 export function XRay(props: NodeProps) {
-  return <Shape {...X_RAY} {...props} _style={extendStyle(X_RAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, X_RAY)} />
 }

@@ -11,7 +11,5 @@ export const TRUSTSEC = {
 }
 
 export function Trustsec(props: NodeProps) {
-  return (
-    <Shape {...TRUSTSEC} {...props} _style={extendStyle(TRUSTSEC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRUSTSEC)} />
 }

@@ -10,11 +10,5 @@ export const OPAQUE_ACTION = {
 }
 
 export function OpaqueAction(props: NodeProps) {
-  return (
-    <Shape
-      {...OPAQUE_ACTION}
-      {...props}
-      _style={extendStyle(OPAQUE_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPAQUE_ACTION)} />
 }

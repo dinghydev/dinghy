@@ -11,11 +11,5 @@ export const ROTARY_VALVE = {
 }
 
 export function RotaryValve(props: NodeProps) {
-  return (
-    <Shape
-      {...ROTARY_VALVE}
-      {...props}
-      _style={extendStyle(ROTARY_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTARY_VALVE)} />
 }

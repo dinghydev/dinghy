@@ -12,10 +12,6 @@ export const KAIZEN_LIGHTENING_BURST = {
 
 export function KaizenLighteningBurst(props: NodeProps) {
   return (
-    <Shape
-      {...KAIZEN_LIGHTENING_BURST}
-      {...props}
-      _style={extendStyle(KAIZEN_LIGHTENING_BURST, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, KAIZEN_LIGHTENING_BURST)} />
   )
 }

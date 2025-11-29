@@ -11,7 +11,5 @@ export const ARMATURE = {
 }
 
 export function Armature(props: NodeProps) {
-  return (
-    <Shape {...ARMATURE} {...props} _style={extendStyle(ARMATURE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARMATURE)} />
 }

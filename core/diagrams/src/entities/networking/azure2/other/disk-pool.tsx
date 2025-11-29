@@ -11,7 +11,5 @@ export const DISK_POOL = {
 }
 
 export function DiskPool(props: NodeProps) {
-  return (
-    <Shape {...DISK_POOL} {...props} _style={extendStyle(DISK_POOL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISK_POOL)} />
 }

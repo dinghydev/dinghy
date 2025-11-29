@@ -11,11 +11,5 @@ export const SEGMENTS_OVERLAP = {
 }
 
 export function SegmentsOverlap(props: NodeProps) {
-  return (
-    <Shape
-      {...SEGMENTS_OVERLAP}
-      {...props}
-      _style={extendStyle(SEGMENTS_OVERLAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEGMENTS_OVERLAP)} />
 }

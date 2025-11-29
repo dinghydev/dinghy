@@ -11,11 +11,5 @@ export const EXCHANGE_ACCESS = {
 }
 
 export function ExchangeAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCHANGE_ACCESS}
-      {...props}
-      _style={extendStyle(EXCHANGE_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCHANGE_ACCESS)} />
 }

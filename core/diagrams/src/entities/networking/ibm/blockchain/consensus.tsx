@@ -11,7 +11,5 @@ export const CONSENSUS = {
 }
 
 export function Consensus(props: NodeProps) {
-  return (
-    <Shape {...CONSENSUS} {...props} _style={extendStyle(CONSENSUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSENSUS)} />
 }

@@ -13,9 +13,8 @@ export const ADDITIONAL_PARTICIPANT_INITIATING = {
 export function AdditionalParticipantInitiating(props: NodeProps) {
   return (
     <Shape
-      {...ADDITIONAL_PARTICIPANT_INITIATING}
       {...props}
-      _style={extendStyle(ADDITIONAL_PARTICIPANT_INITIATING, props)}
+      _style={extendStyle(props, ADDITIONAL_PARTICIPANT_INITIATING)}
     />
   )
 }

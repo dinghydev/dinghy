@@ -11,9 +11,8 @@ export const DASHED_CONNECTOR_SINGLE_ARROW = {
 export function DashedConnectorSingleArrow(props: NodeProps) {
   return (
     <Dependency
-      {...DASHED_CONNECTOR_SINGLE_ARROW}
       {...props}
-      _style={extendStyle(DASHED_CONNECTOR_SINGLE_ARROW, props)}
+      _style={extendStyle(props, DASHED_CONNECTOR_SINGLE_ARROW)}
     />
   )
 }

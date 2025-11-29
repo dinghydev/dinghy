@@ -11,11 +11,5 @@ export const SPRING_RETURN_ON = {
 }
 
 export function SpringReturnOn(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRING_RETURN_ON}
-      {...props}
-      _style={extendStyle(SPRING_RETURN_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRING_RETURN_ON)} />
 }

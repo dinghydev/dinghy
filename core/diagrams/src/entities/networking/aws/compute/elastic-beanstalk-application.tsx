@@ -13,9 +13,8 @@ export const ELASTIC_BEANSTALK_APPLICATION = {
 export function ElasticBeanstalkApplication(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_BEANSTALK_APPLICATION}
       {...props}
-      _style={extendStyle(ELASTIC_BEANSTALK_APPLICATION, props)}
+      _style={extendStyle(props, ELASTIC_BEANSTALK_APPLICATION)}
     />
   )
 }

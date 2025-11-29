@@ -11,11 +11,5 @@ export const DESKTOP_NON_SAP = {
 }
 
 export function DesktopNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DESKTOP_NON_SAP}
-      {...props}
-      _style={extendStyle(DESKTOP_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESKTOP_NON_SAP)} />
 }

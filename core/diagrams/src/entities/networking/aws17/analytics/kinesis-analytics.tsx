@@ -11,11 +11,5 @@ export const KINESIS_ANALYTICS = {
 }
 
 export function KinesisAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...KINESIS_ANALYTICS}
-      {...props}
-      _style={extendStyle(KINESIS_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KINESIS_ANALYTICS)} />
 }

@@ -11,11 +11,5 @@ export const BRAKET_CHANDELIER = {
 }
 
 export function BraketChandelier(props: NodeProps) {
-  return (
-    <Shape
-      {...BRAKET_CHANDELIER}
-      {...props}
-      _style={extendStyle(BRAKET_CHANDELIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRAKET_CHANDELIER)} />
 }

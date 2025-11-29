@@ -11,5 +11,5 @@ export const CRB = {
 }
 
 export function Crb(props: NodeProps) {
-  return <Shape {...CRB} {...props} _style={extendStyle(CRB, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRB)} />
 }

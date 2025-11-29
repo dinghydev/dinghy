@@ -11,11 +11,5 @@ export const ENTRA_CONNECT = {
 }
 
 export function EntraConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_CONNECT}
-      {...props}
-      _style={extendStyle(ENTRA_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_CONNECT)} />
 }

@@ -11,5 +11,5 @@ export const CDM = {
 }
 
 export function Cdm(props: NodeProps) {
-  return <Shape {...CDM} {...props} _style={extendStyle(CDM, props)} />
+  return <Shape {...props} _style={extendStyle(props, CDM)} />
 }

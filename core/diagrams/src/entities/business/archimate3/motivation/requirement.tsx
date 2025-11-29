@@ -11,11 +11,5 @@ export const REQUIREMENT = {
 }
 
 export function Requirement(props: NodeProps) {
-  return (
-    <Shape
-      {...REQUIREMENT}
-      {...props}
-      _style={extendStyle(REQUIREMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REQUIREMENT)} />
 }

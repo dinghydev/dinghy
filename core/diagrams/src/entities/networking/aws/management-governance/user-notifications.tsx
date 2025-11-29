@@ -11,11 +11,5 @@ export const USER_NOTIFICATIONS = {
 }
 
 export function UserNotifications(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_NOTIFICATIONS}
-      {...props}
-      _style={extendStyle(USER_NOTIFICATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_NOTIFICATIONS)} />
 }

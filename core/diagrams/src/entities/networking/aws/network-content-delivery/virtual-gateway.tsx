@@ -11,11 +11,5 @@ export const VIRTUAL_GATEWAY = {
 }
 
 export function VirtualGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_GATEWAY}
-      {...props}
-      _style={extendStyle(VIRTUAL_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_GATEWAY)} />
 }

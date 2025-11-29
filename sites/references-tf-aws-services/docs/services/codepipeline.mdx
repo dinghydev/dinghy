@@ -1,0 +1,83 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# CodePipeline
+
+## AwsCodepipeline
+
+Provides a CodePipeline
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/codepipeline/AwsCodepipeline.tsx)
+
+```js
+import { AwsCodepipeline } from "@dinghy/tf-aws/serviceCodepipeline"
+
+<AwsCodepipeline/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCodepipelineCustomActionType
+
+Provides a CodePipeline CustomActionType.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline_custom_action_type)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/codepipeline/AwsCodepipelineCustomActionType.tsx)
+
+```js
+import { AwsCodepipelineCustomActionType } from "@dinghy/tf-aws/serviceCodepipeline"
+
+<AwsCodepipelineCustomActionType/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCodepipelineWebhook
+
+Provides a CodePipeline Webhook
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline_webhook)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/codepipeline/AwsCodepipelineWebhook.tsx)
+
+```js
+import { AwsCodepipelineWebhook } from "@dinghy/tf-aws/serviceCodepipeline"
+
+<AwsCodepipelineWebhook/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline_webhook#import)
+
+```js
+<AwsCodepipelineWebhook
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

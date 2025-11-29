@@ -11,7 +11,5 @@ export const DATABRICKS = {
 }
 
 export function Databricks(props: NodeProps) {
-  return (
-    <Shape {...DATABRICKS} {...props} _style={extendStyle(DATABRICKS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABRICKS)} />
 }

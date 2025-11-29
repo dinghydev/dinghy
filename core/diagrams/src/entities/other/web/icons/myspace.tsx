@@ -11,5 +11,5 @@ export const MYSPACE = {
 }
 
 export function Myspace(props: NodeProps) {
-  return <Shape {...MYSPACE} {...props} _style={extendStyle(MYSPACE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MYSPACE)} />
 }

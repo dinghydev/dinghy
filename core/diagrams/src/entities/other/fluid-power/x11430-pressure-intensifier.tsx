@@ -13,9 +13,8 @@ export const X11430_PRESSURE_INTENSIFIER = {
 export function X11430PressureIntensifier(props: NodeProps) {
   return (
     <Shape
-      {...X11430_PRESSURE_INTENSIFIER}
       {...props}
-      _style={extendStyle(X11430_PRESSURE_INTENSIFIER, props)}
+      _style={extendStyle(props, X11430_PRESSURE_INTENSIFIER)}
     />
   )
 }

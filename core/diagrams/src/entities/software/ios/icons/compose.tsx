@@ -11,5 +11,5 @@ export const COMPOSE = {
 }
 
 export function Compose(props: NodeProps) {
-  return <Shape {...COMPOSE} {...props} _style={extendStyle(COMPOSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, COMPOSE)} />
 }

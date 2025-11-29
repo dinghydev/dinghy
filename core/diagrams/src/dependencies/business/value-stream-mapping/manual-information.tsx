@@ -9,10 +9,6 @@ export const MANUAL_INFORMATION = {
 
 export function ManualInformation(props: NodeProps) {
   return (
-    <Dependency
-      {...MANUAL_INFORMATION}
-      {...props}
-      _style={extendStyle(MANUAL_INFORMATION, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, MANUAL_INFORMATION)} />
   )
 }

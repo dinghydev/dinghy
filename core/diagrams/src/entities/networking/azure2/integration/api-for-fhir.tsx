@@ -11,11 +11,5 @@ export const API_FOR_FHIR = {
 }
 
 export function ApiForFhir(props: NodeProps) {
-  return (
-    <Shape
-      {...API_FOR_FHIR}
-      {...props}
-      _style={extendStyle(API_FOR_FHIR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_FOR_FHIR)} />
 }

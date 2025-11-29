@@ -11,11 +11,5 @@ export const PUMP_LIQUID = {
 }
 
 export function PumpLiquid(props: NodeProps) {
-  return (
-    <Shape
-      {...PUMP_LIQUID}
-      {...props}
-      _style={extendStyle(PUMP_LIQUID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUMP_LIQUID)} />
 }

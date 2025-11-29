@@ -11,11 +11,5 @@ export const SSL_TLS_OFFLOADING = {
 }
 
 export function SslTlsOffloading(props: NodeProps) {
-  return (
-    <Shape
-      {...SSL_TLS_OFFLOADING}
-      {...props}
-      _style={extendStyle(SSL_TLS_OFFLOADING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SSL_TLS_OFFLOADING)} />
 }

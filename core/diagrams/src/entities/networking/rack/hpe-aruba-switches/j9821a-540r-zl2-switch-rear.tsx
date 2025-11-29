@@ -13,9 +13,8 @@ export const J9821A_540R_ZL2_SWITCH_REAR = {
 export function J9821a540rZl2SwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...J9821A_540R_ZL2_SWITCH_REAR}
       {...props}
-      _style={extendStyle(J9821A_540R_ZL2_SWITCH_REAR, props)}
+      _style={extendStyle(props, J9821A_540R_ZL2_SWITCH_REAR)}
     />
   )
 }

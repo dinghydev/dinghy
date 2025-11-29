@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_DIRECTOR = {
 export function SkypeForBusinessDirector(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_DIRECTOR}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_DIRECTOR, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_DIRECTOR)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const HOME_OFFICE = {
 }
 
 export function HomeOffice(props: NodeProps) {
-  return (
-    <Shape
-      {...HOME_OFFICE}
-      {...props}
-      _style={extendStyle(HOME_OFFICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_OFFICE)} />
 }

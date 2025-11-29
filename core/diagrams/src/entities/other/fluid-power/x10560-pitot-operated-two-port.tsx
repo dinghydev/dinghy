@@ -13,9 +13,8 @@ export const X10560_PITOT_OPERATED_TWO_PORT = {
 export function X10560PitotOperatedTwoPort(props: NodeProps) {
   return (
     <Shape
-      {...X10560_PITOT_OPERATED_TWO_PORT}
       {...props}
-      _style={extendStyle(X10560_PITOT_OPERATED_TWO_PORT, props)}
+      _style={extendStyle(props, X10560_PITOT_OPERATED_TWO_PORT)}
     />
   )
 }

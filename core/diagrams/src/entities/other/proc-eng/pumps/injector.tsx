@@ -11,7 +11,5 @@ export const INJECTOR = {
 }
 
 export function Injector(props: NodeProps) {
-  return (
-    <Shape {...INJECTOR} {...props} _style={extendStyle(INJECTOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INJECTOR)} />
 }

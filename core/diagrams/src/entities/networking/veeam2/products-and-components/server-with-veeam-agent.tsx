@@ -12,10 +12,6 @@ export const SERVER_WITH_VEEAM_AGENT = {
 
 export function ServerWithVeeamAgent(props: NodeProps) {
   return (
-    <Shape
-      {...SERVER_WITH_VEEAM_AGENT}
-      {...props}
-      _style={extendStyle(SERVER_WITH_VEEAM_AGENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SERVER_WITH_VEEAM_AGENT)} />
   )
 }

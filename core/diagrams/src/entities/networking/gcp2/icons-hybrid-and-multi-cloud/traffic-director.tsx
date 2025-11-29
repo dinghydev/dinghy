@@ -11,11 +11,5 @@ export const TRAFFIC_DIRECTOR = {
 }
 
 export function TrafficDirector(props: NodeProps) {
-  return (
-    <Shape
-      {...TRAFFIC_DIRECTOR}
-      {...props}
-      _style={extendStyle(TRAFFIC_DIRECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRAFFIC_DIRECTOR)} />
 }

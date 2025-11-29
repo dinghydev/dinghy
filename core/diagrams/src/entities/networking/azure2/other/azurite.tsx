@@ -11,5 +11,5 @@ export const AZURITE = {
 }
 
 export function Azurite(props: NodeProps) {
-  return <Shape {...AZURITE} {...props} _style={extendStyle(AZURITE, props)} />
+  return <Shape {...props} _style={extendStyle(props, AZURITE)} />
 }

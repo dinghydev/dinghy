@@ -11,11 +11,5 @@ export const NLS_SERVICE = {
 }
 
 export function NlsService(props: NodeProps) {
-  return (
-    <Shape
-      {...NLS_SERVICE}
-      {...props}
-      _style={extendStyle(NLS_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLS_SERVICE)} />
 }

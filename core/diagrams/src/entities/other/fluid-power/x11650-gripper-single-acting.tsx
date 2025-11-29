@@ -13,9 +13,8 @@ export const X11650_GRIPPER_SINGLE_ACTING = {
 export function X11650GripperSingleActing(props: NodeProps) {
   return (
     <Shape
-      {...X11650_GRIPPER_SINGLE_ACTING}
       {...props}
-      _style={extendStyle(X11650_GRIPPER_SINGLE_ACTING, props)}
+      _style={extendStyle(props, X11650_GRIPPER_SINGLE_ACTING)}
     />
   )
 }

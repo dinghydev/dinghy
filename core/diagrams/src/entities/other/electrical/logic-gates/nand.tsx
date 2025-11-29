@@ -11,5 +11,5 @@ export const NAND = {
 }
 
 export function Nand(props: NodeProps) {
-  return <Shape {...NAND} {...props} _style={extendStyle(NAND, props)} />
+  return <Shape {...props} _style={extendStyle(props, NAND)} />
 }

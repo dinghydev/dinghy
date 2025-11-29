@@ -11,5 +11,5 @@ export const QUEUE = {
 }
 
 export function Queue(props: NodeProps) {
-  return <Shape {...QUEUE} {...props} _style={extendStyle(QUEUE, props)} />
+  return <Shape {...props} _style={extendStyle(props, QUEUE)} />
 }

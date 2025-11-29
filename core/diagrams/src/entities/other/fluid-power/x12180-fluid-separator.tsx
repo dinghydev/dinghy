@@ -12,10 +12,6 @@ export const X12180_FLUID_SEPARATOR = {
 
 export function X12180FluidSeparator(props: NodeProps) {
   return (
-    <Shape
-      {...X12180_FLUID_SEPARATOR}
-      {...props}
-      _style={extendStyle(X12180_FLUID_SEPARATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12180_FLUID_SEPARATOR)} />
   )
 }

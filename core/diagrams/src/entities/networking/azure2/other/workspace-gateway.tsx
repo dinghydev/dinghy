@@ -11,11 +11,5 @@ export const WORKSPACE_GATEWAY = {
 }
 
 export function WorkspaceGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKSPACE_GATEWAY}
-      {...props}
-      _style={extendStyle(WORKSPACE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKSPACE_GATEWAY)} />
 }

@@ -11,5 +11,5 @@ export const WEBEX = {
 }
 
 export function Webex(props: NodeProps) {
-  return <Shape {...WEBEX} {...props} _style={extendStyle(WEBEX, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEBEX)} />
 }

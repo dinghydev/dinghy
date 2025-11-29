@@ -11,11 +11,5 @@ export const NESTED_PORT = {
 }
 
 export function NestedPort(props: NodeProps) {
-  return (
-    <Shape
-      {...NESTED_PORT}
-      {...props}
-      _style={extendStyle(NESTED_PORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NESTED_PORT)} />
 }

@@ -11,11 +11,5 @@ export const NAVBAR_BLUE = {
 }
 
 export function NavbarBlue(props: NodeProps) {
-  return (
-    <Shape
-      {...NAVBAR_BLUE}
-      {...props}
-      _style={extendStyle(NAVBAR_BLUE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVBAR_BLUE)} />
 }

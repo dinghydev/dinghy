@@ -11,11 +11,5 @@ export const LOGIC_FIELD = {
 }
 
 export function LogicField(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGIC_FIELD}
-      {...props}
-      _style={extendStyle(LOGIC_FIELD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGIC_FIELD)} />
 }

@@ -15,11 +15,10 @@ export function Jl687aAruba8400x32y32p11025gSfpSfpSfp28Module(
 ) {
   return (
     <Shape
-      {...JL687A_ARUBA_8400X_32Y_32P_1_10_25G_SFP_SFP_SFP28_MODULE}
       {...props}
       _style={extendStyle(
-        JL687A_ARUBA_8400X_32Y_32P_1_10_25G_SFP_SFP_SFP28_MODULE,
         props,
+        JL687A_ARUBA_8400X_32Y_32P_1_10_25G_SFP_SFP_SFP28_MODULE,
       )}
     />
   )

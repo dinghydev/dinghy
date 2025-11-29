@@ -11,11 +11,5 @@ export const NETSCALER_CPX = {
 }
 
 export function NetscalerCpx(props: NodeProps) {
-  return (
-    <Shape
-      {...NETSCALER_CPX}
-      {...props}
-      _style={extendStyle(NETSCALER_CPX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETSCALER_CPX)} />
 }

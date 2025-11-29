@@ -13,9 +13,8 @@ export const CLOUD_WAN_CORE_NETWORK_EDGE = {
 export function CloudWanCoreNetworkEdge(props: NodeProps) {
   return (
     <Shape
-      {...CLOUD_WAN_CORE_NETWORK_EDGE}
       {...props}
-      _style={extendStyle(CLOUD_WAN_CORE_NETWORK_EDGE, props)}
+      _style={extendStyle(props, CLOUD_WAN_CORE_NETWORK_EDGE)}
     />
   )
 }

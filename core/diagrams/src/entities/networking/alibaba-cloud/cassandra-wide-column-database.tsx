@@ -13,9 +13,8 @@ export const CASSANDRA_WIDE_COLUMN_DATABASE = {
 export function CassandraWideColumnDatabase(props: NodeProps) {
   return (
     <Shape
-      {...CASSANDRA_WIDE_COLUMN_DATABASE}
       {...props}
-      _style={extendStyle(CASSANDRA_WIDE_COLUMN_DATABASE, props)}
+      _style={extendStyle(props, CASSANDRA_WIDE_COLUMN_DATABASE)}
     />
   )
 }

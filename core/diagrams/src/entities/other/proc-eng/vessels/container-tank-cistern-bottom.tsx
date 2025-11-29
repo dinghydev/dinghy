@@ -13,9 +13,8 @@ export const CONTAINER_TANK_CISTERN_BOTTOM = {
 export function ContainerTankCisternBottom(props: NodeProps) {
   return (
     <Shape
-      {...CONTAINER_TANK_CISTERN_BOTTOM}
       {...props}
-      _style={extendStyle(CONTAINER_TANK_CISTERN_BOTTOM, props)}
+      _style={extendStyle(props, CONTAINER_TANK_CISTERN_BOTTOM)}
     />
   )
 }

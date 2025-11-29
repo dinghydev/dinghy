@@ -11,7 +11,5 @@ export const CELL_PHONE = {
 }
 
 export function CellPhone(props: NodeProps) {
-  return (
-    <Shape {...CELL_PHONE} {...props} _style={extendStyle(CELL_PHONE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CELL_PHONE)} />
 }

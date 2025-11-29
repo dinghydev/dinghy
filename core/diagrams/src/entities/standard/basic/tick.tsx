@@ -11,5 +11,5 @@ export const TICK = {
 }
 
 export function Tick(props: NodeProps) {
-  return <Shape {...TICK} {...props} _style={extendStyle(TICK, props)} />
+  return <Shape {...props} _style={extendStyle(props, TICK)} />
 }

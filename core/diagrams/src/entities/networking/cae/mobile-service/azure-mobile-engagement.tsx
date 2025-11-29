@@ -12,10 +12,6 @@ export const AZURE_MOBILE_ENGAGEMENT = {
 
 export function AzureMobileEngagement(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_MOBILE_ENGAGEMENT}
-      {...props}
-      _style={extendStyle(AZURE_MOBILE_ENGAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_MOBILE_ENGAGEMENT)} />
   )
 }

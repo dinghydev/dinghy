@@ -13,9 +13,8 @@ export const APPLICATION_MIGRATION_SERVICE = {
 export function ApplicationMigrationService(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_MIGRATION_SERVICE}
       {...props}
-      _style={extendStyle(APPLICATION_MIGRATION_SERVICE, props)}
+      _style={extendStyle(props, APPLICATION_MIGRATION_SERVICE)}
     />
   )
 }

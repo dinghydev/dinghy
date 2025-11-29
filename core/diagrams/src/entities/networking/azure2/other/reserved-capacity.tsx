@@ -11,11 +11,5 @@ export const RESERVED_CAPACITY = {
 }
 
 export function ReservedCapacity(props: NodeProps) {
-  return (
-    <Shape
-      {...RESERVED_CAPACITY}
-      {...props}
-      _style={extendStyle(RESERVED_CAPACITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESERVED_CAPACITY)} />
 }

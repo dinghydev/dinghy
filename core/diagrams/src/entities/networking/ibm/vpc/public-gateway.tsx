@@ -11,11 +11,5 @@ export const PUBLIC_GATEWAY = {
 }
 
 export function PublicGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...PUBLIC_GATEWAY}
-      {...props}
-      _style={extendStyle(PUBLIC_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUBLIC_GATEWAY)} />
 }

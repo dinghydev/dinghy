@@ -11,7 +11,5 @@ export const TEXT_FIELD = {
 }
 
 export function TextField(props: NodeProps) {
-  return (
-    <Shape {...TEXT_FIELD} {...props} _style={extendStyle(TEXT_FIELD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXT_FIELD)} />
 }

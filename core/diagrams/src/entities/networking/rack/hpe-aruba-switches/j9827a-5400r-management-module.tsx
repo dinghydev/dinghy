@@ -13,9 +13,8 @@ export const J9827A_5400R_MANAGEMENT_MODULE = {
 export function J9827a5400rManagementModule(props: NodeProps) {
   return (
     <Shape
-      {...J9827A_5400R_MANAGEMENT_MODULE}
       {...props}
-      _style={extendStyle(J9827A_5400R_MANAGEMENT_MODULE, props)}
+      _style={extendStyle(props, J9827A_5400R_MANAGEMENT_MODULE)}
     />
   )
 }

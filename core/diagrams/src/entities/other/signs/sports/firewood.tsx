@@ -11,7 +11,5 @@ export const FIREWOOD = {
 }
 
 export function Firewood(props: NodeProps) {
-  return (
-    <Shape {...FIREWOOD} {...props} _style={extendStyle(FIREWOOD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREWOOD)} />
 }

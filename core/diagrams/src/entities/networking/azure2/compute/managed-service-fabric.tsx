@@ -12,10 +12,6 @@ export const MANAGED_SERVICE_FABRIC = {
 
 export function ManagedServiceFabric(props: NodeProps) {
   return (
-    <Shape
-      {...MANAGED_SERVICE_FABRIC}
-      {...props}
-      _style={extendStyle(MANAGED_SERVICE_FABRIC, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MANAGED_SERVICE_FABRIC)} />
   )
 }

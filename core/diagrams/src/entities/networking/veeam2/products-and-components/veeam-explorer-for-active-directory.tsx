@@ -13,9 +13,8 @@ export const VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY = {
 export function VeeamExplorerForActiveDirectory(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY}
       {...props}
-      _style={extendStyle(VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY, props)}
+      _style={extendStyle(props, VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const ANESTHESIA = {
 }
 
 export function Anesthesia(props: NodeProps) {
-  return (
-    <Shape {...ANESTHESIA} {...props} _style={extendStyle(ANESTHESIA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANESTHESIA)} />
 }

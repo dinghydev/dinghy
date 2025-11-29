@@ -11,7 +11,5 @@ export const XENMOBILE = {
 }
 
 export function Xenmobile(props: NodeProps) {
-  return (
-    <Shape {...XENMOBILE} {...props} _style={extendStyle(XENMOBILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENMOBILE)} />
 }

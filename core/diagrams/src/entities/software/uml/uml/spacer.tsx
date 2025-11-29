@@ -11,5 +11,5 @@ export const SPACER = {
 }
 
 export function Spacer(props: NodeProps) {
-  return <Shape {...SPACER} {...props} _style={extendStyle(SPACER, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPACER)} />
 }

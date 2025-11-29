@@ -11,7 +11,5 @@ export const ONTOLOGY = {
 }
 
 export function Ontology(props: NodeProps) {
-  return (
-    <Shape {...ONTOLOGY} {...props} _style={extendStyle(ONTOLOGY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONTOLOGY)} />
 }

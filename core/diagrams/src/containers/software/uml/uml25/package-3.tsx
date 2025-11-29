@@ -9,7 +9,5 @@ export const PACKAGE_3 = {
 }
 
 export function Package3(props: NodeProps) {
-  return (
-    <Shape {...PACKAGE_3} {...props} _style={extendStyle(PACKAGE_3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PACKAGE_3)} />
 }

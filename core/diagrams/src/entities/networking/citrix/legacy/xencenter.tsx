@@ -11,7 +11,5 @@ export const XENCENTER = {
 }
 
 export function Xencenter(props: NodeProps) {
-  return (
-    <Shape {...XENCENTER} {...props} _style={extendStyle(XENCENTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENCENTER)} />
 }

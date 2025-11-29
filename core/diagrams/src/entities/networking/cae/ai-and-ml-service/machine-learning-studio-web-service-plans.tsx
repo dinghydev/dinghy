@@ -13,9 +13,8 @@ export const MACHINE_LEARNING_STUDIO_WEB_SERVICE_PLANS = {
 export function MachineLearningStudioWebServicePlans(props: NodeProps) {
   return (
     <Shape
-      {...MACHINE_LEARNING_STUDIO_WEB_SERVICE_PLANS}
       {...props}
-      _style={extendStyle(MACHINE_LEARNING_STUDIO_WEB_SERVICE_PLANS, props)}
+      _style={extendStyle(props, MACHINE_LEARNING_STUDIO_WEB_SERVICE_PLANS)}
     />
   )
 }

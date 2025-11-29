@@ -11,11 +11,5 @@ export const VEEAM_REPOSITORY = {
 }
 
 export function VeeamRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_REPOSITORY}
-      {...props}
-      _style={extendStyle(VEEAM_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_REPOSITORY)} />
 }

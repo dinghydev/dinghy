@@ -11,11 +11,5 @@ export const READONLY_INPUT = {
 }
 
 export function ReadonlyInput(props: NodeProps) {
-  return (
-    <Shape
-      {...READONLY_INPUT}
-      {...props}
-      _style={extendStyle(READONLY_INPUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, READONLY_INPUT)} />
 }

@@ -11,11 +11,5 @@ export const DEVICE_UPDATE_SERVICE = {
 }
 
 export function DeviceUpdateService(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_UPDATE_SERVICE}
-      {...props}
-      _style={extendStyle(DEVICE_UPDATE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_UPDATE_SERVICE)} />
 }

@@ -11,11 +11,5 @@ export const EXPLORER_FOR_SQL = {
 }
 
 export function ExplorerForSql(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPLORER_FOR_SQL}
-      {...props}
-      _style={extendStyle(EXPLORER_FOR_SQL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPLORER_FOR_SQL)} />
 }

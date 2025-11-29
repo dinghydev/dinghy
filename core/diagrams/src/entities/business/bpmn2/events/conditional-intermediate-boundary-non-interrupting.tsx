@@ -15,11 +15,10 @@ export function ConditionalIntermediateBoundaryNonInterrupting(
 ) {
   return (
     <Shape
-      {...CONDITIONAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING}
       {...props}
       _style={extendStyle(
-        CONDITIONAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
         props,
+        CONDITIONAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
       )}
     />
   )

@@ -11,11 +11,5 @@ export const INSPECT_SAP = {
 }
 
 export function InspectSap(props: NodeProps) {
-  return (
-    <Shape
-      {...INSPECT_SAP}
-      {...props}
-      _style={extendStyle(INSPECT_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSPECT_SAP)} />
 }

@@ -10,11 +10,5 @@ export const CHANGE_GRAPH_2 = {
 }
 
 export function ChangeGraph2(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANGE_GRAPH_2}
-      {...props}
-      _style={extendStyle(CHANGE_GRAPH_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGE_GRAPH_2)} />
 }

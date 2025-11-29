@@ -13,9 +13,8 @@ export const CONDITIONAL_ACCESS_EXCHANGE = {
 export function ConditionalAccessExchange(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_ACCESS_EXCHANGE}
       {...props}
-      _style={extendStyle(CONDITIONAL_ACCESS_EXCHANGE, props)}
+      _style={extendStyle(props, CONDITIONAL_ACCESS_EXCHANGE)}
     />
   )
 }

@@ -8,11 +8,5 @@ export const ACTIVITY = {
 }
 
 export function Activity(props: NodeProps) {
-  return (
-    <Dependency
-      {...ACTIVITY}
-      {...props}
-      _style={extendStyle(ACTIVITY, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ACTIVITY)} />
 }

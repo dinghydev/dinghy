@@ -11,11 +11,5 @@ export const REMOTE_OFFICE = {
 }
 
 export function RemoteOffice(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_OFFICE}
-      {...props}
-      _style={extendStyle(REMOTE_OFFICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_OFFICE)} />
 }

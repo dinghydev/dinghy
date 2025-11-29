@@ -11,11 +11,5 @@ export const DENSE_COMPUTE_NODE = {
 }
 
 export function DenseComputeNode(props: NodeProps) {
-  return (
-    <Shape
-      {...DENSE_COMPUTE_NODE}
-      {...props}
-      _style={extendStyle(DENSE_COMPUTE_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DENSE_COMPUTE_NODE)} />
 }

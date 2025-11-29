@@ -11,11 +11,5 @@ export const CENTER_FOR_SAP = {
 }
 
 export function CenterForSap(props: NodeProps) {
-  return (
-    <Shape
-      {...CENTER_FOR_SAP}
-      {...props}
-      _style={extendStyle(CENTER_FOR_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CENTER_FOR_SAP)} />
 }

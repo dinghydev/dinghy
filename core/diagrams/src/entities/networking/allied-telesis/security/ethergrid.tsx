@@ -11,7 +11,5 @@ export const ETHERGRID = {
 }
 
 export function Ethergrid(props: NodeProps) {
-  return (
-    <Shape {...ETHERGRID} {...props} _style={extendStyle(ETHERGRID, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ETHERGRID)} />
 }

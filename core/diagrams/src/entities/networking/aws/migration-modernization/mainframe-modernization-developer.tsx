@@ -13,9 +13,8 @@ export const MAINFRAME_MODERNIZATION_DEVELOPER = {
 export function MainframeModernizationDeveloper(props: NodeProps) {
   return (
     <Shape
-      {...MAINFRAME_MODERNIZATION_DEVELOPER}
       {...props}
-      _style={extendStyle(MAINFRAME_MODERNIZATION_DEVELOPER, props)}
+      _style={extendStyle(props, MAINFRAME_MODERNIZATION_DEVELOPER)}
     />
   )
 }

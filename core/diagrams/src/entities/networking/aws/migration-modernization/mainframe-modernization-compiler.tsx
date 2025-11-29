@@ -13,9 +13,8 @@ export const MAINFRAME_MODERNIZATION_COMPILER = {
 export function MainframeModernizationCompiler(props: NodeProps) {
   return (
     <Shape
-      {...MAINFRAME_MODERNIZATION_COMPILER}
       {...props}
-      _style={extendStyle(MAINFRAME_MODERNIZATION_COMPILER, props)}
+      _style={extendStyle(props, MAINFRAME_MODERNIZATION_COMPILER)}
     />
   )
 }

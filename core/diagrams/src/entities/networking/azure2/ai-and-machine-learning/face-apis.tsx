@@ -11,7 +11,5 @@ export const FACE_APIS = {
 }
 
 export function FaceApis(props: NodeProps) {
-  return (
-    <Shape {...FACE_APIS} {...props} _style={extendStyle(FACE_APIS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACE_APIS)} />
 }

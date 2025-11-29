@@ -11,11 +11,5 @@ export const COMPONENT_4_WHEELER = {
 }
 
 export function Component4Wheeler(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_4_WHEELER}
-      {...props}
-      _style={extendStyle(COMPONENT_4_WHEELER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_4_WHEELER)} />
 }

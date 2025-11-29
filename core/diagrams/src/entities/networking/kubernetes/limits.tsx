@@ -11,5 +11,5 @@ export const LIMITS = {
 }
 
 export function Limits(props: NodeProps) {
-  return <Shape {...LIMITS} {...props} _style={extendStyle(LIMITS, props)} />
+  return <Shape {...props} _style={extendStyle(props, LIMITS)} />
 }

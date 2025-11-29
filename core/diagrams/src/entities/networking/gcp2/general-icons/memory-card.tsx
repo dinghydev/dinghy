@@ -11,11 +11,5 @@ export const MEMORY_CARD = {
 }
 
 export function MemoryCard(props: NodeProps) {
-  return (
-    <Shape
-      {...MEMORY_CARD}
-      {...props}
-      _style={extendStyle(MEMORY_CARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEMORY_CARD)} />
 }

@@ -11,5 +11,5 @@ export const DRUPAL = {
 }
 
 export function Drupal(props: NodeProps) {
-  return <Shape {...DRUPAL} {...props} _style={extendStyle(DRUPAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, DRUPAL)} />
 }

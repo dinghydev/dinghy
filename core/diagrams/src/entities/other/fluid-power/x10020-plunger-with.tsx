@@ -11,11 +11,5 @@ export const X10020_PLUNGER_WITH = {
 }
 
 export function X10020PlungerWith(props: NodeProps) {
-  return (
-    <Shape
-      {...X10020_PLUNGER_WITH}
-      {...props}
-      _style={extendStyle(X10020_PLUNGER_WITH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10020_PLUNGER_WITH)} />
 }

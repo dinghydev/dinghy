@@ -1,0 +1,527 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Direct Connect
+
+## AwsDxBgpPeer
+
+Provides a Direct Connect BGP peer resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_bgp_peer)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxBgpPeer.tsx)
+
+```js
+import { AwsDxBgpPeer } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxBgpPeer/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxConnection
+
+Provides a Connection of Direct Connect.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxConnection.tsx)
+
+```js
+import { AwsDxConnection } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxConnection/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/DataAwsDxConnection.tsx)
+
+```js
+import { DataAwsDxConnection } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<DataAwsDxConnection/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxConnectionAssociation
+
+Associates a Direct Connect Connection with a LAG.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxConnectionAssociation.tsx)
+
+```js
+import { AwsDxConnectionAssociation } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxConnectionAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxConnectionConfirmation
+
+Provides a confirmation of the creation of the specified hosted connection on an interconnect.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection_confirmation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxConnectionConfirmation.tsx)
+
+```js
+import { AwsDxConnectionConfirmation } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxConnectionConfirmation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxGateway
+
+Provides a Direct Connect Gateway.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxGateway.tsx)
+
+```js
+import { AwsDxGateway } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxGateway/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/DataAwsDxGateway.tsx)
+
+```js
+import { DataAwsDxGateway } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<DataAwsDxGateway/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway#import)
+
+```js
+<AwsDxGateway
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxGatewayAssociation
+
+Associates a Direct Connect Gateway with a VGW or transit gateway.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxGatewayAssociation.tsx)
+
+```js
+import { AwsDxGatewayAssociation } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxGatewayAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxGatewayAssociationProposal
+
+Manages a Direct Connect Gateway Association Proposal.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway_association_proposal)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxGatewayAssociationProposal.tsx)
+
+```js
+import { AwsDxGatewayAssociationProposal } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxGatewayAssociationProposal/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedConnection
+
+Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedConnection.tsx)
+
+```js
+import { AwsDxHostedConnection } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedConnection/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedPrivateVirtualInterface
+
+Provides a Direct Connect hosted private virtual interface resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_private_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedPrivateVirtualInterface.tsx)
+
+```js
+import { AwsDxHostedPrivateVirtualInterface } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedPrivateVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedPrivateVirtualInterfaceAccepter
+
+Provides a resource to manage the accepter&#39;s side of a Direct Connect hosted private virtual interface.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_private_virtual_interface_accepter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedPrivateVirtualInterfaceAccepter.tsx)
+
+```js
+import { AwsDxHostedPrivateVirtualInterfaceAccepter } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedPrivateVirtualInterfaceAccepter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedPublicVirtualInterface
+
+Provides a Direct Connect hosted public virtual interface resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_public_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedPublicVirtualInterface.tsx)
+
+```js
+import { AwsDxHostedPublicVirtualInterface } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedPublicVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedPublicVirtualInterfaceAccepter
+
+Provides a resource to manage the accepter&#39;s side of a Direct Connect hosted public virtual interface.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_public_virtual_interface_accepter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedPublicVirtualInterfaceAccepter.tsx)
+
+```js
+import { AwsDxHostedPublicVirtualInterfaceAccepter } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedPublicVirtualInterfaceAccepter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedTransitVirtualInterface
+
+Provides a Direct Connect hosted transit virtual interface resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_transit_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedTransitVirtualInterface.tsx)
+
+```js
+import { AwsDxHostedTransitVirtualInterface } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedTransitVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxHostedTransitVirtualInterfaceAccepter
+
+Provides a resource to manage the accepter&#39;s side of a Direct Connect hosted transit virtual interface.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_transit_virtual_interface_accepter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxHostedTransitVirtualInterfaceAccepter.tsx)
+
+```js
+import { AwsDxHostedTransitVirtualInterfaceAccepter } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxHostedTransitVirtualInterfaceAccepter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxLag
+
+Provides a Direct Connect LAG.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_lag)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxLag.tsx)
+
+```js
+import { AwsDxLag } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxLag/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxLocation
+
+Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_location)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/DataAwsDxLocation.tsx)
+
+```js
+import { DataAwsDxLocation } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<DataAwsDxLocation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxLocations
+
+Retrieve information about the AWS Direct Connect locations in the current AWS Region.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_locations)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/DataAwsDxLocations.tsx)
+
+```js
+import { DataAwsDxLocations } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<DataAwsDxLocations/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxMacsecKeyAssociation
+
+Provides a MAC Security (MACSec) secret key resource for use with Direct Connect.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_macsec_key_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxMacsecKeyAssociation.tsx)
+
+```js
+import { AwsDxMacsecKeyAssociation } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxMacsecKeyAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxPrivateVirtualInterface
+
+Provides a Direct Connect private virtual interface resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_private_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxPrivateVirtualInterface.tsx)
+
+```js
+import { AwsDxPrivateVirtualInterface } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxPrivateVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxPublicVirtualInterface
+
+Provides a Direct Connect public virtual interface resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_public_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxPublicVirtualInterface.tsx)
+
+```js
+import { AwsDxPublicVirtualInterface } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxPublicVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxRouterConfiguration
+
+Terraform data source for managing an AWS Direct Connect Router Configuration.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_router_configuration)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/DataAwsDxRouterConfiguration.tsx)
+
+```js
+import { DataAwsDxRouterConfiguration } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<DataAwsDxRouterConfiguration/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDxTransitVirtualInterface
+
+Provides a Direct Connect transit virtual interface resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_transit_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/directconnect/AwsDxTransitVirtualInterface.tsx)
+
+```js
+import { AwsDxTransitVirtualInterface } from "@dinghy/tf-aws/serviceDirectconnect"
+
+<AwsDxTransitVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

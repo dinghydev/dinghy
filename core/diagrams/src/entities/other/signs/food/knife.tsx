@@ -11,5 +11,5 @@ export const KNIFE = {
 }
 
 export function Knife(props: NodeProps) {
-  return <Shape {...KNIFE} {...props} _style={extendStyle(KNIFE, props)} />
+  return <Shape {...props} _style={extendStyle(props, KNIFE)} />
 }

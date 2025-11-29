@@ -11,9 +11,8 @@ export const CALL_CHOREOGRAPHY_CALLING_GLOBAL = {
 export function CallChoreographyCallingGlobal(props: NodeProps) {
   return (
     <Shape
-      {...CALL_CHOREOGRAPHY_CALLING_GLOBAL}
       {...props}
-      _style={extendStyle(CALL_CHOREOGRAPHY_CALLING_GLOBAL, props)}
+      _style={extendStyle(props, CALL_CHOREOGRAPHY_CALLING_GLOBAL)}
     />
   )
 }

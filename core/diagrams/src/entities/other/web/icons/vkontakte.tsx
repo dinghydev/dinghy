@@ -11,7 +11,5 @@ export const VKONTAKTE = {
 }
 
 export function Vkontakte(props: NodeProps) {
-  return (
-    <Shape {...VKONTAKTE} {...props} _style={extendStyle(VKONTAKTE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VKONTAKTE)} />
 }

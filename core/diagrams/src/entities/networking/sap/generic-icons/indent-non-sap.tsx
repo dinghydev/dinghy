@@ -11,11 +11,5 @@ export const INDENT_NON_SAP = {
 }
 
 export function IndentNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...INDENT_NON_SAP}
-      {...props}
-      _style={extendStyle(INDENT_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDENT_NON_SAP)} />
 }

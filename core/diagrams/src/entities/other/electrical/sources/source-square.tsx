@@ -11,11 +11,5 @@ export const SOURCE_SQUARE = {
 }
 
 export function SourceSquare(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCE_SQUARE}
-      {...props}
-      _style={extendStyle(SOURCE_SQUARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_SQUARE)} />
 }

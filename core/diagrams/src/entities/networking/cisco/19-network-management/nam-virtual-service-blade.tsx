@@ -12,10 +12,6 @@ export const NAM_VIRTUAL_SERVICE_BLADE = {
 
 export function NamVirtualServiceBlade(props: NodeProps) {
   return (
-    <Shape
-      {...NAM_VIRTUAL_SERVICE_BLADE}
-      {...props}
-      _style={extendStyle(NAM_VIRTUAL_SERVICE_BLADE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NAM_VIRTUAL_SERVICE_BLADE)} />
   )
 }

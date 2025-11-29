@@ -13,9 +13,8 @@ export const ROM67A_ARUBA_2930M_POE_CLASS_6_SWITCH_REAR = {
 export function Rom67aAruba2930mPoeClass6SwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...ROM67A_ARUBA_2930M_POE_CLASS_6_SWITCH_REAR}
       {...props}
-      _style={extendStyle(ROM67A_ARUBA_2930M_POE_CLASS_6_SWITCH_REAR, props)}
+      _style={extendStyle(props, ROM67A_ARUBA_2930M_POE_CLASS_6_SWITCH_REAR)}
     />
   )
 }

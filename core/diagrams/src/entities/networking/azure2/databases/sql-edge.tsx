@@ -11,7 +11,5 @@ export const SQL_EDGE = {
 }
 
 export function SqlEdge(props: NodeProps) {
-  return (
-    <Shape {...SQL_EDGE} {...props} _style={extendStyle(SQL_EDGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_EDGE)} />
 }

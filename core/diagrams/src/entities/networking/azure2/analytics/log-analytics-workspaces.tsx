@@ -12,10 +12,6 @@ export const LOG_ANALYTICS_WORKSPACES = {
 
 export function LogAnalyticsWorkspaces(props: NodeProps) {
   return (
-    <Shape
-      {...LOG_ANALYTICS_WORKSPACES}
-      {...props}
-      _style={extendStyle(LOG_ANALYTICS_WORKSPACES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOG_ANALYTICS_WORKSPACES)} />
   )
 }

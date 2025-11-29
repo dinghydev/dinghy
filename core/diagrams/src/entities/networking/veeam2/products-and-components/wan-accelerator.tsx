@@ -11,11 +11,5 @@ export const WAN_ACCELERATOR = {
 }
 
 export function WanAccelerator(props: NodeProps) {
-  return (
-    <Shape
-      {...WAN_ACCELERATOR}
-      {...props}
-      _style={extendStyle(WAN_ACCELERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAN_ACCELERATOR)} />
 }

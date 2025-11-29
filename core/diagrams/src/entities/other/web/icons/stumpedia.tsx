@@ -11,7 +11,5 @@ export const STUMPEDIA = {
 }
 
 export function Stumpedia(props: NodeProps) {
-  return (
-    <Shape {...STUMPEDIA} {...props} _style={extendStyle(STUMPEDIA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STUMPEDIA)} />
 }

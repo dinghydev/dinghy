@@ -11,11 +11,5 @@ export const PASSWORD_FIELD = {
 }
 
 export function PasswordField(props: NodeProps) {
-  return (
-    <Shape
-      {...PASSWORD_FIELD}
-      {...props}
-      _style={extendStyle(PASSWORD_FIELD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PASSWORD_FIELD)} />
 }

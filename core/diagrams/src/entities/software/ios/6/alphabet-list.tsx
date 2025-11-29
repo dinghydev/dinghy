@@ -11,11 +11,5 @@ export const ALPHABET_LIST = {
 }
 
 export function AlphabetList(props: NodeProps) {
-  return (
-    <Shape
-      {...ALPHABET_LIST}
-      {...props}
-      _style={extendStyle(ALPHABET_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALPHABET_LIST)} />
 }

@@ -11,11 +11,5 @@ export const CLOUDSIMPLE_NODES = {
 }
 
 export function CloudsimpleNodes(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDSIMPLE_NODES}
-      {...props}
-      _style={extendStyle(CLOUDSIMPLE_NODES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDSIMPLE_NODES)} />
 }

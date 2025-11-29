@@ -13,9 +13,8 @@ export const SIGNAL_INTERMEDIATE_THROWING = {
 export function SignalIntermediateThrowing(props: NodeProps) {
   return (
     <Shape
-      {...SIGNAL_INTERMEDIATE_THROWING}
       {...props}
-      _style={extendStyle(SIGNAL_INTERMEDIATE_THROWING, props)}
+      _style={extendStyle(props, SIGNAL_INTERMEDIATE_THROWING)}
     />
   )
 }

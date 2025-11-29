@@ -11,11 +11,5 @@ export const OUT_PATIENT = {
 }
 
 export function OutPatient(props: NodeProps) {
-  return (
-    <Shape
-      {...OUT_PATIENT}
-      {...props}
-      _style={extendStyle(OUT_PATIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUT_PATIENT)} />
 }

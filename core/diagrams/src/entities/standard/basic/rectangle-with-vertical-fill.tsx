@@ -13,9 +13,8 @@ export const RECTANGLE_WITH_VERTICAL_FILL = {
 export function RectangleWithVerticalFill(props: NodeProps) {
   return (
     <Shape
-      {...RECTANGLE_WITH_VERTICAL_FILL}
       {...props}
-      _style={extendStyle(RECTANGLE_WITH_VERTICAL_FILL, props)}
+      _style={extendStyle(props, RECTANGLE_WITH_VERTICAL_FILL)}
     />
   )
 }

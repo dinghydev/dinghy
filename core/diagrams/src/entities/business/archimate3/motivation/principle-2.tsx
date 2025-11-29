@@ -11,11 +11,5 @@ export const PRINCIPLE_2 = {
 }
 
 export function Principle2(props: NodeProps) {
-  return (
-    <Shape
-      {...PRINCIPLE_2}
-      {...props}
-      _style={extendStyle(PRINCIPLE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRINCIPLE_2)} />
 }

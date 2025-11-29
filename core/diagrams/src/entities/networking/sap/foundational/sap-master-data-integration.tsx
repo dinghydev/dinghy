@@ -13,9 +13,8 @@ export const SAP_MASTER_DATA_INTEGRATION = {
 export function SapMasterDataIntegration(props: NodeProps) {
   return (
     <Shape
-      {...SAP_MASTER_DATA_INTEGRATION}
       {...props}
-      _style={extendStyle(SAP_MASTER_DATA_INTEGRATION, props)}
+      _style={extendStyle(props, SAP_MASTER_DATA_INTEGRATION)}
     />
   )
 }

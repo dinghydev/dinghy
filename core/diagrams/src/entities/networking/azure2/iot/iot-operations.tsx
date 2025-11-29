@@ -11,11 +11,5 @@ export const IOT_OPERATIONS = {
 }
 
 export function IotOperations(props: NodeProps) {
-  return (
-    <Shape
-      {...IOT_OPERATIONS}
-      {...props}
-      _style={extendStyle(IOT_OPERATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOT_OPERATIONS)} />
 }

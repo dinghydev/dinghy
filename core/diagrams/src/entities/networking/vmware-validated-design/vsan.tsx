@@ -11,5 +11,5 @@ export const VSAN = {
 }
 
 export function Vsan(props: NodeProps) {
-  return <Shape {...VSAN} {...props} _style={extendStyle(VSAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, VSAN)} />
 }

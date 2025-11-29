@@ -11,11 +11,5 @@ export const INFO_HIGHLIGHT = {
 }
 
 export function InfoHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...INFO_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(INFO_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFO_HIGHLIGHT)} />
 }

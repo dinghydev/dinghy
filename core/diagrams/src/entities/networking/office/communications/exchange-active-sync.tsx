@@ -11,11 +11,5 @@ export const EXCHANGE_ACTIVE_SYNC = {
 }
 
 export function ExchangeActiveSync(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCHANGE_ACTIVE_SYNC}
-      {...props}
-      _style={extendStyle(EXCHANGE_ACTIVE_SYNC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCHANGE_ACTIVE_SYNC)} />
 }

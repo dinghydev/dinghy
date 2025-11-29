@@ -11,11 +11,5 @@ export const NETQ_SERVER = {
 }
 
 export function NetqServer(props: NodeProps) {
-  return (
-    <Shape
-      {...NETQ_SERVER}
-      {...props}
-      _style={extendStyle(NETQ_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETQ_SERVER)} />
 }

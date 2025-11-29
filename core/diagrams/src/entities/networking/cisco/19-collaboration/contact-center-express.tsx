@@ -12,10 +12,6 @@ export const CONTACT_CENTER_EXPRESS = {
 
 export function ContactCenterExpress(props: NodeProps) {
   return (
-    <Shape
-      {...CONTACT_CENTER_EXPRESS}
-      {...props}
-      _style={extendStyle(CONTACT_CENTER_EXPRESS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTACT_CENTER_EXPRESS)} />
   )
 }

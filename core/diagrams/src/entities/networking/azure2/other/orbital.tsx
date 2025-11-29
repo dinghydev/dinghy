@@ -11,5 +11,5 @@ export const ORBITAL = {
 }
 
 export function Orbital(props: NodeProps) {
-  return <Shape {...ORBITAL} {...props} _style={extendStyle(ORBITAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, ORBITAL)} />
 }

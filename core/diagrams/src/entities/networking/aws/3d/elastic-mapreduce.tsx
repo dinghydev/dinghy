@@ -11,11 +11,5 @@ export const ELASTIC_MAPREDUCE = {
 }
 
 export function ElasticMapreduce(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_MAPREDUCE}
-      {...props}
-      _style={extendStyle(ELASTIC_MAPREDUCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_MAPREDUCE)} />
 }

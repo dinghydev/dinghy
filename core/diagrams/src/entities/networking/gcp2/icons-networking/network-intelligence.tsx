@@ -11,11 +11,5 @@ export const NETWORK_INTELLIGENCE = {
 }
 
 export function NetworkIntelligence(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_INTELLIGENCE}
-      {...props}
-      _style={extendStyle(NETWORK_INTELLIGENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_INTELLIGENCE)} />
 }

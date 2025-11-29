@@ -13,11 +13,10 @@ export const MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
 export function MessageIntermediateBoundaryNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING}
       {...props}
       _style={extendStyle(
-        MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
         props,
+        MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
       )}
     />
   )

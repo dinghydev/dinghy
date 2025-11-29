@@ -13,9 +13,8 @@ export const GREENGRASS_COMPONENT_MACHINE_LEARNING = {
 export function GreengrassComponentMachineLearning(props: NodeProps) {
   return (
     <Shape
-      {...GREENGRASS_COMPONENT_MACHINE_LEARNING}
       {...props}
-      _style={extendStyle(GREENGRASS_COMPONENT_MACHINE_LEARNING, props)}
+      _style={extendStyle(props, GREENGRASS_COMPONENT_MACHINE_LEARNING)}
     />
   )
 }

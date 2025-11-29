@@ -12,10 +12,6 @@ export const PARALLEL_COMPUTING_SERVICE = {
 
 export function ParallelComputingService(props: NodeProps) {
   return (
-    <Shape
-      {...PARALLEL_COMPUTING_SERVICE}
-      {...props}
-      _style={extendStyle(PARALLEL_COMPUTING_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PARALLEL_COMPUTING_SERVICE)} />
   )
 }

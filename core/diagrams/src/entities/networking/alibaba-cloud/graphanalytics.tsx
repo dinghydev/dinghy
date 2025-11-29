@@ -11,11 +11,5 @@ export const GRAPHANALYTICS = {
 }
 
 export function Graphanalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...GRAPHANALYTICS}
-      {...props}
-      _style={extendStyle(GRAPHANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GRAPHANALYTICS)} />
 }

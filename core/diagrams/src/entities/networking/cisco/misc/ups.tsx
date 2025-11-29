@@ -11,5 +11,5 @@ export const UPS = {
 }
 
 export function Ups(props: NodeProps) {
-  return <Shape {...UPS} {...props} _style={extendStyle(UPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, UPS)} />
 }

@@ -11,11 +11,5 @@ export const EVENT_TIME_BASED = {
 }
 
 export function EventTimeBased(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_TIME_BASED}
-      {...props}
-      _style={extendStyle(EVENT_TIME_BASED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_TIME_BASED)} />
 }

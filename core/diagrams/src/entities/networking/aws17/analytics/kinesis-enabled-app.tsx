@@ -11,11 +11,5 @@ export const KINESIS_ENABLED_APP = {
 }
 
 export function KinesisEnabledApp(props: NodeProps) {
-  return (
-    <Shape
-      {...KINESIS_ENABLED_APP}
-      {...props}
-      _style={extendStyle(KINESIS_ENABLED_APP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KINESIS_ENABLED_APP)} />
 }

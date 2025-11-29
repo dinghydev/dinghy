@@ -11,11 +11,5 @@ export const IBM_OBJECT_STORAGE = {
 }
 
 export function IbmObjectStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_OBJECT_STORAGE}
-      {...props}
-      _style={extendStyle(IBM_OBJECT_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_OBJECT_STORAGE)} />
 }

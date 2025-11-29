@@ -11,11 +11,5 @@ export const OTS_TABLESTORE = {
 }
 
 export function OtsTablestore(props: NodeProps) {
-  return (
-    <Shape
-      {...OTS_TABLESTORE}
-      {...props}
-      _style={extendStyle(OTS_TABLESTORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OTS_TABLESTORE)} />
 }

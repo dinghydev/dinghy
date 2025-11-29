@@ -11,11 +11,5 @@ export const PLAIN_DIRECT = {
 }
 
 export function PlainDirect(props: NodeProps) {
-  return (
-    <Shape
-      {...PLAIN_DIRECT}
-      {...props}
-      _style={extendStyle(PLAIN_DIRECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAIN_DIRECT)} />
 }

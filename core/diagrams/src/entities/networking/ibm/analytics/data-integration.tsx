@@ -11,11 +11,5 @@ export const DATA_INTEGRATION = {
 }
 
 export function DataIntegration(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_INTEGRATION}
-      {...props}
-      _style={extendStyle(DATA_INTEGRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_INTEGRATION)} />
 }

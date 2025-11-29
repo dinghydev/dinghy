@@ -11,7 +11,5 @@ export const QUARANTINE = {
 }
 
 export function Quarantine(props: NodeProps) {
-  return (
-    <Shape {...QUARANTINE} {...props} _style={extendStyle(QUARANTINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUARANTINE)} />
 }

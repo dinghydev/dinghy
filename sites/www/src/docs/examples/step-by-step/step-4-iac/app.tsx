@@ -1,18 +1,23 @@
-import { Stack } from "@dinghy/base-components";
+import { extendStyle, Stack } from "@dinghy/base-components";
 import * as awsGeneralResources from "@dinghy/diagrams/entitiesAwsGeneralResources";
-import { Waf } from "@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance";
-
 import {
-    AwsCloud,
-    AwsInstance,
-    AwsLb,
-    AwsPostgres,
-    AwsRegion,
+    PRIVATE_SUBNET,
+    PUBLIC_SUBNET,
+} from "@dinghy/diagrams/containersAwsGroups";
+import { Waf } from "@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance";
+import { POSTGRE_SQL_INSTANCE } from "@dinghy/diagrams/entitiesAwsDatabase";
+
+import { AwsCloud } from "@dinghy/tf-aws/foundation";
+import { AwsLb } from "@dinghy/tf-aws/serviceElbv2";
+import {
+    AwsSubnet,
     DataAwsVpc,
     useAwsSubnet,
     useAwsSubnets,
-    vpc,
-} from "@dinghy/tf-aws";
+    useAwsVpc,
+} from "@dinghy/tf-aws/serviceVpc";
+import { AwsInstance } from "@dinghy/tf-aws/serviceEc2";
+import { AwsDbInstance } from "@dinghy/tf-aws/serviceRds";
 
 export default function App() {
     return (
@@ -32,7 +37,13 @@ export default function App() {
     );
 }
 
-const Postgres = (props: any) => <AwsPostgres {...props} />;
+const Postgres = (props: any) => (
+    <AwsDbInstance
+        instance_class="db.t3.micro"
+        {...props}
+        _style={extendStyle(props, POSTGRE_SQL_INSTANCE)}
+    />
+);
 
 const WebApp = (props: any) => <Stack {...props} />;
 
@@ -41,28 +52,40 @@ const Client = (props: any) => (
 );
 
 const Cloud = (props: any) => (
-    <AwsCloud {...props}>
-        <AwsRegion _display="invisible" region="eu-west-1">
-            <DataAwsVpc _display="invisible" id="vpcid1">
-                {props.children}
-            </DataAwsVpc>
-        </AwsRegion>
+    <AwsCloud {...props} region="eu-west-1">
+        <DataAwsVpc _display="invisible">
+            {props.children}
+        </DataAwsVpc>
     </AwsCloud>
 );
 
 const PublicSubnet = (props: any) => (
-    <vpc.AwsPublicSubnet cidr_block="10.0.0.0/16" {...props} />
+    <AwsSubnet
+        cidr_block="10.0.0.0/16"
+        vpc_id={useAwsVpc().awsVpc.id}
+        _direction="vertical"
+        {...props}
+        _style={extendStyle(props, PUBLIC_SUBNET)}
+    />
 );
 
 const PrivateSubnet = (props: any) => (
-    <vpc.AwsPrivateSubnet cidr_block="10.10.0.0/16" {...props} />
+    <AwsSubnet
+        cidr_block="10.10.0.0/16"
+        vpc_id={useAwsVpc().awsVpc.id}
+        _direction="vertical"
+        {...props}
+        _style={extendStyle(props, PRIVATE_SUBNET)}
+    />
 );
 
 const LoadBalancer = (props: any) => {
     const { awsSubnets } = useAwsSubnets();
+    const { awsVpc } = useAwsVpc();
     return (
         <AwsLb
-            subnets={awsSubnets.map((s) => s.id)}
+            vpc_id={awsVpc.id}
+            subnets={() => awsSubnets.map((s) => s.id)}
             _dependsOn={["Firewall", "Application"]}
             {...props}
         />

@@ -11,11 +11,5 @@ export const HYPER_V_HOST = {
 }
 
 export function HyperVHost(props: NodeProps) {
-  return (
-    <Shape
-      {...HYPER_V_HOST}
-      {...props}
-      _style={extendStyle(HYPER_V_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYPER_V_HOST)} />
 }

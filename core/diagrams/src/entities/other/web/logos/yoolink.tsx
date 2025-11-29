@@ -11,5 +11,5 @@ export const YOOLINK = {
 }
 
 export function Yoolink(props: NodeProps) {
-  return <Shape {...YOOLINK} {...props} _style={extendStyle(YOOLINK, props)} />
+  return <Shape {...props} _style={extendStyle(props, YOOLINK)} />
 }

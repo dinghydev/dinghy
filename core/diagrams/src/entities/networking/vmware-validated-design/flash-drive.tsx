@@ -11,11 +11,5 @@ export const FLASH_DRIVE = {
 }
 
 export function FlashDrive(props: NodeProps) {
-  return (
-    <Shape
-      {...FLASH_DRIVE}
-      {...props}
-      _style={extendStyle(FLASH_DRIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLASH_DRIVE)} />
 }

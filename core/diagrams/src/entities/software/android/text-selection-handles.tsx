@@ -12,10 +12,6 @@ export const TEXT_SELECTION_HANDLES = {
 
 export function TextSelectionHandles(props: NodeProps) {
   return (
-    <Shape
-      {...TEXT_SELECTION_HANDLES}
-      {...props}
-      _style={extendStyle(TEXT_SELECTION_HANDLES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TEXT_SELECTION_HANDLES)} />
   )
 }

@@ -11,11 +11,5 @@ export const UPDATE_CENTER = {
 }
 
 export function UpdateCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...UPDATE_CENTER}
-      {...props}
-      _style={extendStyle(UPDATE_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UPDATE_CENTER)} />
 }

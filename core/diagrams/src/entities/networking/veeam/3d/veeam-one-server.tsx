@@ -11,11 +11,5 @@ export const VEEAM_ONE_SERVER = {
 }
 
 export function VeeamOneServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_ONE_SERVER}
-      {...props}
-      _style={extendStyle(VEEAM_ONE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_ONE_SERVER)} />
 }

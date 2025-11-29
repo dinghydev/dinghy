@@ -11,11 +11,5 @@ export const MERCURY_SWITCH_2 = {
 }
 
 export function MercurySwitch2(props: NodeProps) {
-  return (
-    <Shape
-      {...MERCURY_SWITCH_2}
-      {...props}
-      _style={extendStyle(MERCURY_SWITCH_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MERCURY_SWITCH_2)} />
 }

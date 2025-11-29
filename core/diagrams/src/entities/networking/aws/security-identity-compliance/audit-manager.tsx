@@ -11,11 +11,5 @@ export const AUDIT_MANAGER = {
 }
 
 export function AuditManager(props: NodeProps) {
-  return (
-    <Shape
-      {...AUDIT_MANAGER}
-      {...props}
-      _style={extendStyle(AUDIT_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUDIT_MANAGER)} />
 }

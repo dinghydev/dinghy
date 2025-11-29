@@ -12,11 +12,5 @@ export const NUMBERED_RACK_CABINET = {
 }
 
 export function NumberedRackCabinet(props: NodeProps) {
-  return (
-    <Shape
-      {...NUMBERED_RACK_CABINET}
-      {...props}
-      _style={extendStyle(NUMBERED_RACK_CABINET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NUMBERED_RACK_CABINET)} />
 }

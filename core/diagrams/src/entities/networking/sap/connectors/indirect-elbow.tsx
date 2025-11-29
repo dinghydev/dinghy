@@ -11,11 +11,5 @@ export const INDIRECT_ELBOW = {
 }
 
 export function IndirectElbow(props: NodeProps) {
-  return (
-    <Shape
-      {...INDIRECT_ELBOW}
-      {...props}
-      _style={extendStyle(INDIRECT_ELBOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDIRECT_ELBOW)} />
 }

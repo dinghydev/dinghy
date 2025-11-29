@@ -13,9 +13,8 @@ export const ACCUMULATOR_MONOCELL_BATTERY = {
 export function AccumulatorMonocellBattery(props: NodeProps) {
   return (
     <Shape
-      {...ACCUMULATOR_MONOCELL_BATTERY}
       {...props}
-      _style={extendStyle(ACCUMULATOR_MONOCELL_BATTERY, props)}
+      _style={extendStyle(props, ACCUMULATOR_MONOCELL_BATTERY)}
     />
   )
 }

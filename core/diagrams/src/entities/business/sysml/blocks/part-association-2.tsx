@@ -11,11 +11,5 @@ export const PART_ASSOCIATION_2 = {
 }
 
 export function PartAssociation2(props: NodeProps) {
-  return (
-    <Shape
-      {...PART_ASSOCIATION_2}
-      {...props}
-      _style={extendStyle(PART_ASSOCIATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PART_ASSOCIATION_2)} />
 }

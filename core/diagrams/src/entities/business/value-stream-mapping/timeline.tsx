@@ -11,7 +11,5 @@ export const TIMELINE = {
 }
 
 export function Timeline(props: NodeProps) {
-  return (
-    <Shape {...TIMELINE} {...props} _style={extendStyle(TIMELINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIMELINE)} />
 }

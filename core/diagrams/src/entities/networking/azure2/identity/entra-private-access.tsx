@@ -11,11 +11,5 @@ export const ENTRA_PRIVATE_ACCESS = {
 }
 
 export function EntraPrivateAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_PRIVATE_ACCESS}
-      {...props}
-      _style={extendStyle(ENTRA_PRIVATE_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_PRIVATE_ACCESS)} />
 }

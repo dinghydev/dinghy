@@ -11,7 +11,5 @@ export const STOCK_DOWN = {
 }
 
 export function StockDown(props: NodeProps) {
-  return (
-    <Shape {...STOCK_DOWN} {...props} _style={extendStyle(STOCK_DOWN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STOCK_DOWN)} />
 }

@@ -11,7 +11,5 @@ export const THUMBS_UP = {
 }
 
 export function ThumbsUp(props: NodeProps) {
-  return (
-    <Shape {...THUMBS_UP} {...props} _style={extendStyle(THUMBS_UP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, THUMBS_UP)} />
 }

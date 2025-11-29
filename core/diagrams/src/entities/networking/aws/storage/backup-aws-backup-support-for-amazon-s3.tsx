@@ -13,9 +13,8 @@ export const BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3 = {
 export function BackupAwsBackupSupportForAmazonS3(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3}
       {...props}
-      _style={extendStyle(BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3, props)}
+      _style={extendStyle(props, BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3)}
     />
   )
 }

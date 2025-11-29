@@ -11,11 +11,5 @@ export const FOLDER_PUBLIC = {
 }
 
 export function FolderPublic(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_PUBLIC}
-      {...props}
-      _style={extendStyle(FOLDER_PUBLIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_PUBLIC)} />
 }

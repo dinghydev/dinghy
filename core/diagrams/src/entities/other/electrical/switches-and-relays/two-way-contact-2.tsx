@@ -11,11 +11,5 @@ export const TWO_WAY_CONTACT_2 = {
 }
 
 export function TwoWayContact2(props: NodeProps) {
-  return (
-    <Shape
-      {...TWO_WAY_CONTACT_2}
-      {...props}
-      _style={extendStyle(TWO_WAY_CONTACT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TWO_WAY_CONTACT_2)} />
 }

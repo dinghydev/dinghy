@@ -11,5 +11,5 @@ export const ADM = {
 }
 
 export function Adm(props: NodeProps) {
-  return <Shape {...ADM} {...props} _style={extendStyle(ADM, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADM)} />
 }

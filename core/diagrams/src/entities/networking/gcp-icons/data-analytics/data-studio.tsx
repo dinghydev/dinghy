@@ -11,11 +11,5 @@ export const DATA_STUDIO = {
 }
 
 export function DataStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_STUDIO}
-      {...props}
-      _style={extendStyle(DATA_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_STUDIO)} />
 }

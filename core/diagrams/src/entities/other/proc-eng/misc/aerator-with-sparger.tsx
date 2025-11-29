@@ -11,11 +11,5 @@ export const AERATOR_WITH_SPARGER = {
 }
 
 export function AeratorWithSparger(props: NodeProps) {
-  return (
-    <Shape
-      {...AERATOR_WITH_SPARGER}
-      {...props}
-      _style={extendStyle(AERATOR_WITH_SPARGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AERATOR_WITH_SPARGER)} />
 }

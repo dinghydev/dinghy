@@ -12,10 +12,6 @@ export const X10960_DIRECTIONAL_CONTROL = {
 
 export function X10960DirectionalControl(props: NodeProps) {
   return (
-    <Shape
-      {...X10960_DIRECTIONAL_CONTROL}
-      {...props}
-      _style={extendStyle(X10960_DIRECTIONAL_CONTROL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10960_DIRECTIONAL_CONTROL)} />
   )
 }

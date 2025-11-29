@@ -11,11 +11,5 @@ export const TABLE_WITH_ACTION = {
 }
 
 export function TableWithAction(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLE_WITH_ACTION}
-      {...props}
-      _style={extendStyle(TABLE_WITH_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLE_WITH_ACTION)} />
 }

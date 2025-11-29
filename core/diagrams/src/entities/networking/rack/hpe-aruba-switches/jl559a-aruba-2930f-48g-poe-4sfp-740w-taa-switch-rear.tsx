@@ -13,11 +13,10 @@ export const JL559A_ARUBA_2930F_48G_POE_4SFP_740W_TAA_SWITCH_REAR = {
 export function Jl559aAruba2930f48gPoe4sfp740wTaaSwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...JL559A_ARUBA_2930F_48G_POE_4SFP_740W_TAA_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL559A_ARUBA_2930F_48G_POE_4SFP_740W_TAA_SWITCH_REAR,
         props,
+        JL559A_ARUBA_2930F_48G_POE_4SFP_740W_TAA_SWITCH_REAR,
       )}
     />
   )

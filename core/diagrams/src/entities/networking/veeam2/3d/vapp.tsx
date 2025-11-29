@@ -11,5 +11,5 @@ export const VAPP = {
 }
 
 export function Vapp(props: NodeProps) {
-  return <Shape {...VAPP} {...props} _style={extendStyle(VAPP, props)} />
+  return <Shape {...props} _style={extendStyle(props, VAPP)} />
 }

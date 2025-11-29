@@ -13,9 +13,8 @@ export const MYSQL_DB_INSTANCE_ALTERNATE = {
 export function MysqlDbInstanceAlternate(props: NodeProps) {
   return (
     <Shape
-      {...MYSQL_DB_INSTANCE_ALTERNATE}
       {...props}
-      _style={extendStyle(MYSQL_DB_INSTANCE_ALTERNATE, props)}
+      _style={extendStyle(props, MYSQL_DB_INSTANCE_ALTERNATE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const TAILED_ARROW = {
 }
 
 export function TailedArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...TAILED_ARROW}
-      {...props}
-      _style={extendStyle(TAILED_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAILED_ARROW)} />
 }

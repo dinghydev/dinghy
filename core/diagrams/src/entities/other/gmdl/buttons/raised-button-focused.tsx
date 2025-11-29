@@ -11,11 +11,5 @@ export const RAISED_BUTTON_FOCUSED = {
 }
 
 export function RaisedButtonFocused(props: NodeProps) {
-  return (
-    <Shape
-      {...RAISED_BUTTON_FOCUSED}
-      {...props}
-      _style={extendStyle(RAISED_BUTTON_FOCUSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RAISED_BUTTON_FOCUSED)} />
 }

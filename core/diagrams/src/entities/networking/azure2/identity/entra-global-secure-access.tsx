@@ -12,10 +12,6 @@ export const ENTRA_GLOBAL_SECURE_ACCESS = {
 
 export function EntraGlobalSecureAccess(props: NodeProps) {
   return (
-    <Shape
-      {...ENTRA_GLOBAL_SECURE_ACCESS}
-      {...props}
-      _style={extendStyle(ENTRA_GLOBAL_SECURE_ACCESS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ENTRA_GLOBAL_SECURE_ACCESS)} />
   )
 }

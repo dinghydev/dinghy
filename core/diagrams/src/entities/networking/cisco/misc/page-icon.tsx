@@ -11,7 +11,5 @@ export const PAGE_ICON = {
 }
 
 export function PageIcon(props: NodeProps) {
-  return (
-    <Shape {...PAGE_ICON} {...props} _style={extendStyle(PAGE_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAGE_ICON)} />
 }

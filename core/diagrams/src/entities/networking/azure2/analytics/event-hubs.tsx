@@ -11,7 +11,5 @@ export const EVENT_HUBS = {
 }
 
 export function EventHubs(props: NodeProps) {
-  return (
-    <Shape {...EVENT_HUBS} {...props} _style={extendStyle(EVENT_HUBS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_HUBS)} />
 }

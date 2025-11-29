@@ -11,7 +11,5 @@ export const ANTI_SPAM = {
 }
 
 export function AntiSpam(props: NodeProps) {
-  return (
-    <Shape {...ANTI_SPAM} {...props} _style={extendStyle(ANTI_SPAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANTI_SPAM)} />
 }

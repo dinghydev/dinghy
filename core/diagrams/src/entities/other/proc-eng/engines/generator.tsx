@@ -11,7 +11,5 @@ export const GENERATOR = {
 }
 
 export function Generator(props: NodeProps) {
-  return (
-    <Shape {...GENERATOR} {...props} _style={extendStyle(GENERATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERATOR)} />
 }

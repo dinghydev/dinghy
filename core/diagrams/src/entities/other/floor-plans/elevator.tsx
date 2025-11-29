@@ -11,7 +11,5 @@ export const ELEVATOR = {
 }
 
 export function Elevator(props: NodeProps) {
-  return (
-    <Shape {...ELEVATOR} {...props} _style={extendStyle(ELEVATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELEVATOR)} />
 }

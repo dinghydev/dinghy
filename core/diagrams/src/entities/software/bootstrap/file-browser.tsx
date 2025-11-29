@@ -11,11 +11,5 @@ export const FILE_BROWSER = {
 }
 
 export function FileBrowser(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_BROWSER}
-      {...props}
-      _style={extendStyle(FILE_BROWSER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_BROWSER)} />
 }

@@ -11,11 +11,5 @@ export const PLUGIN_RELAY = {
 }
 
 export function PluginRelay(props: NodeProps) {
-  return (
-    <Shape
-      {...PLUGIN_RELAY}
-      {...props}
-      _style={extendStyle(PLUGIN_RELAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLUGIN_RELAY)} />
 }

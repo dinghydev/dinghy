@@ -11,7 +11,5 @@ export const GROUPING_2 = {
 }
 
 export function Grouping2(props: NodeProps) {
-  return (
-    <Shape {...GROUPING_2} {...props} _style={extendStyle(GROUPING_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GROUPING_2)} />
 }

@@ -1,6 +1,6 @@
 import { type NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
-import { awsProps } from '../index.ts'
+import { awsProps } from '../utils/awsProps.ts'
 import z from 'zod'
 import { Shape } from '@dinghy/base-components'
 import { useTypedNode } from '@dinghy/base-components'

@@ -11,11 +11,5 @@ export const NON_AZURE_MACHINE = {
 }
 
 export function NonAzureMachine(props: NodeProps) {
-  return (
-    <Shape
-      {...NON_AZURE_MACHINE}
-      {...props}
-      _style={extendStyle(NON_AZURE_MACHINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NON_AZURE_MACHINE)} />
 }

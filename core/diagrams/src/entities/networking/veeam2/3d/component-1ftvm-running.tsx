@@ -12,10 +12,6 @@ export const COMPONENT_1FTVM_RUNNING = {
 
 export function Component1ftvmRunning(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_1FTVM_RUNNING}
-      {...props}
-      _style={extendStyle(COMPONENT_1FTVM_RUNNING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_1FTVM_RUNNING)} />
   )
 }

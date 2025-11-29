@@ -11,11 +11,5 @@ export const UNIFIED_CONTACT_STORE = {
 }
 
 export function UnifiedContactStore(props: NodeProps) {
-  return (
-    <Shape
-      {...UNIFIED_CONTACT_STORE}
-      {...props}
-      _style={extendStyle(UNIFIED_CONTACT_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNIFIED_CONTACT_STORE)} />
 }

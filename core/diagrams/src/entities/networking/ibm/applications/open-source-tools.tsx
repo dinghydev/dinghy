@@ -11,11 +11,5 @@ export const OPEN_SOURCE_TOOLS = {
 }
 
 export function OpenSourceTools(props: NodeProps) {
-  return (
-    <Shape
-      {...OPEN_SOURCE_TOOLS}
-      {...props}
-      _style={extendStyle(OPEN_SOURCE_TOOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPEN_SOURCE_TOOLS)} />
 }

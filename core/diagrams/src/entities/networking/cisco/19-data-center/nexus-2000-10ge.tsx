@@ -11,11 +11,5 @@ export const NEXUS_2000_10GE = {
 }
 
 export function Nexus200010ge(props: NodeProps) {
-  return (
-    <Shape
-      {...NEXUS_2000_10GE}
-      {...props}
-      _style={extendStyle(NEXUS_2000_10GE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_2000_10GE)} />
 }

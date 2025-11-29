@@ -11,5 +11,5 @@ export const DZONE = {
 }
 
 export function Dzone(props: NodeProps) {
-  return <Shape {...DZONE} {...props} _style={extendStyle(DZONE, props)} />
+  return <Shape {...props} _style={extendStyle(props, DZONE)} />
 }

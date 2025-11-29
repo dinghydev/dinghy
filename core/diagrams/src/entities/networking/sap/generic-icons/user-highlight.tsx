@@ -11,11 +11,5 @@ export const USER_HIGHLIGHT = {
 }
 
 export function UserHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(USER_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_HIGHLIGHT)} />
 }

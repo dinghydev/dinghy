@@ -11,11 +11,5 @@ export const CISCO_UNITY_EXPRESS = {
 }
 
 export function CiscoUnityExpress(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_UNITY_EXPRESS}
-      {...props}
-      _style={extendStyle(CISCO_UNITY_EXPRESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_UNITY_EXPRESS)} />
 }

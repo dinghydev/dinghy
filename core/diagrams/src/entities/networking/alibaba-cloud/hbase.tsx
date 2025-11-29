@@ -11,5 +11,5 @@ export const HBASE = {
 }
 
 export function Hbase(props: NodeProps) {
-  return <Shape {...HBASE} {...props} _style={extendStyle(HBASE, props)} />
+  return <Shape {...props} _style={extendStyle(props, HBASE)} />
 }

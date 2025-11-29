@@ -11,11 +11,5 @@ export const APP_VOLUMES_MANAGER = {
 }
 
 export function AppVolumesManager(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_VOLUMES_MANAGER}
-      {...props}
-      _style={extendStyle(APP_VOLUMES_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_VOLUMES_MANAGER)} />
 }

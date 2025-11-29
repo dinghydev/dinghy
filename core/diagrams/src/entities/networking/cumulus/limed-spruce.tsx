@@ -11,11 +11,5 @@ export const LIMED_SPRUCE = {
 }
 
 export function LimedSpruce(props: NodeProps) {
-  return (
-    <Shape
-      {...LIMED_SPRUCE}
-      {...props}
-      _style={extendStyle(LIMED_SPRUCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIMED_SPRUCE)} />
 }

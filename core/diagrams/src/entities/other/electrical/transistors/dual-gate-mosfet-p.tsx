@@ -11,11 +11,5 @@ export const DUAL_GATE_MOSFET_P = {
 }
 
 export function DualGateMosfetP(props: NodeProps) {
-  return (
-    <Shape
-      {...DUAL_GATE_MOSFET_P}
-      {...props}
-      _style={extendStyle(DUAL_GATE_MOSFET_P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DUAL_GATE_MOSFET_P)} />
 }

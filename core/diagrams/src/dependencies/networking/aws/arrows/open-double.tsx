@@ -9,11 +9,5 @@ export const OPEN_DOUBLE = {
 }
 
 export function OpenDouble(props: NodeProps) {
-  return (
-    <Dependency
-      {...OPEN_DOUBLE}
-      {...props}
-      _style={extendStyle(OPEN_DOUBLE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, OPEN_DOUBLE)} />
 }

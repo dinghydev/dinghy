@@ -12,10 +12,6 @@ export const OUTDOOR_METERING_DEVICE = {
 
 export function OutdoorMeteringDevice(props: NodeProps) {
   return (
-    <Shape
-      {...OUTDOOR_METERING_DEVICE}
-      {...props}
-      _style={extendStyle(OUTDOOR_METERING_DEVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OUTDOOR_METERING_DEVICE)} />
   )
 }

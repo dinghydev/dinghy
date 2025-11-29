@@ -13,9 +13,8 @@ export const VPC_NETWORK_ACCESS_ANALYZER = {
 export function VpcNetworkAccessAnalyzer(props: NodeProps) {
   return (
     <Shape
-      {...VPC_NETWORK_ACCESS_ANALYZER}
       {...props}
-      _style={extendStyle(VPC_NETWORK_ACCESS_ANALYZER, props)}
+      _style={extendStyle(props, VPC_NETWORK_ACCESS_ANALYZER)}
     />
   )
 }

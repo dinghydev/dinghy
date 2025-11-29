@@ -12,10 +12,6 @@ export const VBR_TRANSACTION_LOG_BACKUP = {
 
 export function VbrTransactionLogBackup(props: NodeProps) {
   return (
-    <Shape
-      {...VBR_TRANSACTION_LOG_BACKUP}
-      {...props}
-      _style={extendStyle(VBR_TRANSACTION_LOG_BACKUP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VBR_TRANSACTION_LOG_BACKUP)} />
   )
 }

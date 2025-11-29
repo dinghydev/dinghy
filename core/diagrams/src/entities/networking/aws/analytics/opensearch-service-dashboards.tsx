@@ -13,9 +13,8 @@ export const OPENSEARCH_SERVICE_DASHBOARDS = {
 export function OpensearchServiceDashboards(props: NodeProps) {
   return (
     <Shape
-      {...OPENSEARCH_SERVICE_DASHBOARDS}
       {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE_DASHBOARDS, props)}
+      _style={extendStyle(props, OPENSEARCH_SERVICE_DASHBOARDS)}
     />
   )
 }

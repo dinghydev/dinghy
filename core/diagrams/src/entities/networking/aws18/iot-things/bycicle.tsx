@@ -11,5 +11,5 @@ export const BYCICLE = {
 }
 
 export function Bycicle(props: NodeProps) {
-  return <Shape {...BYCICLE} {...props} _style={extendStyle(BYCICLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, BYCICLE)} />
 }

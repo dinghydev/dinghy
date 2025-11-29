@@ -11,5 +11,5 @@ export const RECIPE = {
 }
 
 export function Recipe(props: NodeProps) {
-  return <Shape {...RECIPE} {...props} _style={extendStyle(RECIPE, props)} />
+  return <Shape {...props} _style={extendStyle(props, RECIPE)} />
 }

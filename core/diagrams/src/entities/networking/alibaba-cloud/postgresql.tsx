@@ -11,7 +11,5 @@ export const POSTGRESQL = {
 }
 
 export function Postgresql(props: NodeProps) {
-  return (
-    <Shape {...POSTGRESQL} {...props} _style={extendStyle(POSTGRESQL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POSTGRESQL)} />
 }

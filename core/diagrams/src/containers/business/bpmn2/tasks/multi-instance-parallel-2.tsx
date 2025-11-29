@@ -10,10 +10,6 @@ export const MULTI_INSTANCE_PARALLEL_2 = {
 
 export function MultiInstanceParallel2(props: NodeProps) {
   return (
-    <Shape
-      {...MULTI_INSTANCE_PARALLEL_2}
-      {...props}
-      _style={extendStyle(MULTI_INSTANCE_PARALLEL_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTI_INSTANCE_PARALLEL_2)} />
   )
 }

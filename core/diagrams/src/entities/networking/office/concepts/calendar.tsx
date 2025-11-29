@@ -11,7 +11,5 @@ export const CALENDAR = {
 }
 
 export function Calendar(props: NodeProps) {
-  return (
-    <Shape {...CALENDAR} {...props} _style={extendStyle(CALENDAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALENDAR)} />
 }

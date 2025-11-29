@@ -13,9 +13,8 @@ export const X11250_REVERSIBLE_PUMP_MOTOR = {
 export function X11250ReversiblePumpMotor(props: NodeProps) {
   return (
     <Shape
-      {...X11250_REVERSIBLE_PUMP_MOTOR}
       {...props}
-      _style={extendStyle(X11250_REVERSIBLE_PUMP_MOTOR, props)}
+      _style={extendStyle(props, X11250_REVERSIBLE_PUMP_MOTOR)}
     />
   )
 }

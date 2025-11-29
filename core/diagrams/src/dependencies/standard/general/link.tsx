@@ -8,5 +8,5 @@ export const LINK = {
 }
 
 export function Link(props: NodeProps) {
-  return <Dependency {...LINK} {...props} _style={extendStyle(LINK, props)} />
+  return <Dependency {...props} _style={extendStyle(props, LINK)} />
 }

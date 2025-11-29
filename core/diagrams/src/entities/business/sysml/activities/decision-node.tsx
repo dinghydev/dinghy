@@ -11,11 +11,5 @@ export const DECISION_NODE = {
 }
 
 export function DecisionNode(props: NodeProps) {
-  return (
-    <Shape
-      {...DECISION_NODE}
-      {...props}
-      _style={extendStyle(DECISION_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DECISION_NODE)} />
 }

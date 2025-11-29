@@ -11,11 +11,5 @@ export const THINKBOX_XMESH = {
 }
 
 export function ThinkboxXmesh(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_XMESH}
-      {...props}
-      _style={extendStyle(THINKBOX_XMESH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_XMESH)} />
 }

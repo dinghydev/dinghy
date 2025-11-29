@@ -9,11 +9,5 @@ export const COMPONENT_0_TO_1 = {
 }
 
 export function Component0To1(props: NodeProps) {
-  return (
-    <Dependency
-      {...COMPONENT_0_TO_1}
-      {...props}
-      _style={extendStyle(COMPONENT_0_TO_1, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, COMPONENT_0_TO_1)} />
 }

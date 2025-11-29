@@ -11,11 +11,5 @@ export const ADAPTER_HIGHLIGHT = {
 }
 
 export function AdapterHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...ADAPTER_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(ADAPTER_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADAPTER_HIGHLIGHT)} />
 }

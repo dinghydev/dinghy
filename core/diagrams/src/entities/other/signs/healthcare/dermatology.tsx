@@ -11,11 +11,5 @@ export const DERMATOLOGY = {
 }
 
 export function Dermatology(props: NodeProps) {
-  return (
-    <Shape
-      {...DERMATOLOGY}
-      {...props}
-      _style={extendStyle(DERMATOLOGY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DERMATOLOGY)} />
 }

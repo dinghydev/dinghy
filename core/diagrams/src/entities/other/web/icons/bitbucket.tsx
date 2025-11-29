@@ -11,7 +11,5 @@ export const BITBUCKET = {
 }
 
 export function Bitbucket(props: NodeProps) {
-  return (
-    <Shape {...BITBUCKET} {...props} _style={extendStyle(BITBUCKET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BITBUCKET)} />
 }

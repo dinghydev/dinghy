@@ -11,11 +11,5 @@ export const CLEAN_ROOMS = {
 }
 
 export function CleanRooms(props: NodeProps) {
-  return (
-    <Shape
-      {...CLEAN_ROOMS}
-      {...props}
-      _style={extendStyle(CLEAN_ROOMS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLEAN_ROOMS)} />
 }

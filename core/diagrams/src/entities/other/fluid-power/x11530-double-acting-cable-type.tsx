@@ -13,9 +13,8 @@ export const X11530_DOUBLE_ACTING_CABLE_TYPE = {
 export function X11530DoubleActingCableType(props: NodeProps) {
   return (
     <Shape
-      {...X11530_DOUBLE_ACTING_CABLE_TYPE}
       {...props}
-      _style={extendStyle(X11530_DOUBLE_ACTING_CABLE_TYPE, props)}
+      _style={extendStyle(props, X11530_DOUBLE_ACTING_CABLE_TYPE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const JOIN_FORK_NODE = {
 }
 
 export function JoinForkNode(props: NodeProps) {
-  return (
-    <Shape
-      {...JOIN_FORK_NODE}
-      {...props}
-      _style={extendStyle(JOIN_FORK_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JOIN_FORK_NODE)} />
 }

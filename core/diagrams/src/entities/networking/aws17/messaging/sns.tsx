@@ -11,5 +11,5 @@ export const SNS = {
 }
 
 export function Sns(props: NodeProps) {
-  return <Shape {...SNS} {...props} _style={extendStyle(SNS, props)} />
+  return <Shape {...props} _style={extendStyle(props, SNS)} />
 }

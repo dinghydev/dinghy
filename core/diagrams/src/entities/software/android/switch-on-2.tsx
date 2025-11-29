@@ -11,11 +11,5 @@ export const SWITCH_ON_2 = {
 }
 
 export function SwitchOn2(props: NodeProps) {
-  return (
-    <Shape
-      {...SWITCH_ON_2}
-      {...props}
-      _style={extendStyle(SWITCH_ON_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWITCH_ON_2)} />
 }

@@ -11,11 +11,5 @@ export const BRANCH_OFFICE = {
 }
 
 export function BranchOffice(props: NodeProps) {
-  return (
-    <Shape
-      {...BRANCH_OFFICE}
-      {...props}
-      _style={extendStyle(BRANCH_OFFICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRANCH_OFFICE)} />
 }

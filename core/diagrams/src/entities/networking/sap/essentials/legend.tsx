@@ -11,5 +11,5 @@ export const LEGEND = {
 }
 
 export function Legend(props: NodeProps) {
-  return <Shape {...LEGEND} {...props} _style={extendStyle(LEGEND, props)} />
+  return <Shape {...props} _style={extendStyle(props, LEGEND)} />
 }

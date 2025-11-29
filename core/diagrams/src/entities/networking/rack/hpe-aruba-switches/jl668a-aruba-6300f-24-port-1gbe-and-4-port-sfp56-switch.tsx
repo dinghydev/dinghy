@@ -15,11 +15,10 @@ export function Jl668aAruba6300f24Port1gbeAnd4PortSfp56Switch(
 ) {
   return (
     <Shape
-      {...JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_SWITCH}
       {...props}
       _style={extendStyle(
-        JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_SWITCH,
         props,
+        JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_SWITCH,
       )}
     />
   )

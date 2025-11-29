@@ -13,9 +13,8 @@ export const LOCK_WITH_KEY_SECURITY_BLUE = {
 export function LockWithKeySecurityBlue(props: NodeProps) {
   return (
     <Shape
-      {...LOCK_WITH_KEY_SECURITY_BLUE}
       {...props}
-      _style={extendStyle(LOCK_WITH_KEY_SECURITY_BLUE, props)}
+      _style={extendStyle(props, LOCK_WITH_KEY_SECURITY_BLUE)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const X11790_OPTICAL_INDICATOR = {
 
 export function X11790OpticalIndicator(props: NodeProps) {
   return (
-    <Shape
-      {...X11790_OPTICAL_INDICATOR}
-      {...props}
-      _style={extendStyle(X11790_OPTICAL_INDICATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11790_OPTICAL_INDICATOR)} />
   )
 }

@@ -11,11 +11,5 @@ export const VOLUME_GATEWAY = {
 }
 
 export function VolumeGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...VOLUME_GATEWAY}
-      {...props}
-      _style={extendStyle(VOLUME_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOLUME_GATEWAY)} />
 }

@@ -11,7 +11,5 @@ export const VM_WINDOWS = {
 }
 
 export function VmWindows(props: NodeProps) {
-  return (
-    <Shape {...VM_WINDOWS} {...props} _style={extendStyle(VM_WINDOWS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_WINDOWS)} />
 }

@@ -12,10 +12,6 @@ export const MSE_MICROSERVICES_ENGINE = {
 
 export function MseMicroservicesEngine(props: NodeProps) {
   return (
-    <Shape
-      {...MSE_MICROSERVICES_ENGINE}
-      {...props}
-      _style={extendStyle(MSE_MICROSERVICES_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MSE_MICROSERVICES_ENGINE)} />
   )
 }

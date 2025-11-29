@@ -11,5 +11,5 @@ export const OR_GATE = {
 }
 
 export function OrGate(props: NodeProps) {
-  return <Shape {...OR_GATE} {...props} _style={extendStyle(OR_GATE, props)} />
+  return <Shape {...props} _style={extendStyle(props, OR_GATE)} />
 }

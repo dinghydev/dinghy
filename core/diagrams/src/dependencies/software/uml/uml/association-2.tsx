@@ -8,11 +8,5 @@ export const ASSOCIATION_2 = {
 }
 
 export function Association2(props: NodeProps) {
-  return (
-    <Dependency
-      {...ASSOCIATION_2}
-      {...props}
-      _style={extendStyle(ASSOCIATION_2, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ASSOCIATION_2)} />
 }

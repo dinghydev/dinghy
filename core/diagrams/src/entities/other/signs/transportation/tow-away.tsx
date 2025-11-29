@@ -11,7 +11,5 @@ export const TOW_AWAY = {
 }
 
 export function TowAway(props: NodeProps) {
-  return (
-    <Shape {...TOW_AWAY} {...props} _style={extendStyle(TOW_AWAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOW_AWAY)} />
 }

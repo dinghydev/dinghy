@@ -13,9 +13,8 @@ export const PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL = {
 export function PhotoconductiveTransducerSymmetrical(props: NodeProps) {
   return (
     <Shape
-      {...PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL}
       {...props}
-      _style={extendStyle(PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL, props)}
+      _style={extendStyle(props, PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL)}
     />
   )
 }

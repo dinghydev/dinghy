@@ -11,5 +11,5 @@ export const RECENT = {
 }
 
 export function Recent(props: NodeProps) {
-  return <Shape {...RECENT} {...props} _style={extendStyle(RECENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, RECENT)} />
 }

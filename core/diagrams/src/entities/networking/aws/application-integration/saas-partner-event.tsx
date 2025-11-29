@@ -11,11 +11,5 @@ export const SAAS_PARTNER_EVENT = {
 }
 
 export function SaasPartnerEvent(props: NodeProps) {
-  return (
-    <Shape
-      {...SAAS_PARTNER_EVENT}
-      {...props}
-      _style={extendStyle(SAAS_PARTNER_EVENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAAS_PARTNER_EVENT)} />
 }

@@ -11,11 +11,5 @@ export const DATABASE_CUBE_ORANGE = {
 }
 
 export function DatabaseCubeOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_CUBE_ORANGE}
-      {...props}
-      _style={extendStyle(DATABASE_CUBE_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_CUBE_ORANGE)} />
 }

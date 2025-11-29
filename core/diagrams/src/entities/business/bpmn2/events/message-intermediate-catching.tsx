@@ -13,9 +13,8 @@ export const MESSAGE_INTERMEDIATE_CATCHING = {
 export function MessageIntermediateCatching(props: NodeProps) {
   return (
     <Shape
-      {...MESSAGE_INTERMEDIATE_CATCHING}
       {...props}
-      _style={extendStyle(MESSAGE_INTERMEDIATE_CATCHING, props)}
+      _style={extendStyle(props, MESSAGE_INTERMEDIATE_CATCHING)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const FAULT_INJECTION_SIMULATOR = {
 
 export function FaultInjectionSimulator(props: NodeProps) {
   return (
-    <Shape
-      {...FAULT_INJECTION_SIMULATOR}
-      {...props}
-      _style={extendStyle(FAULT_INJECTION_SIMULATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FAULT_INJECTION_SIMULATOR)} />
   )
 }

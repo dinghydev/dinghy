@@ -11,11 +11,5 @@ export const DETAIL_VIEW_SAP = {
 }
 
 export function DetailViewSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DETAIL_VIEW_SAP}
-      {...props}
-      _style={extendStyle(DETAIL_VIEW_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETAIL_VIEW_SAP)} />
 }

@@ -11,5 +11,5 @@ export const ROUTING = {
 }
 
 export function Routing(props: NodeProps) {
-  return <Shape {...ROUTING} {...props} _style={extendStyle(ROUTING, props)} />
+  return <Shape {...props} _style={extendStyle(props, ROUTING)} />
 }

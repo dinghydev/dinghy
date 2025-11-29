@@ -11,5 +11,5 @@ export const SHIP_1 = {
 }
 
 export function Ship1(props: NodeProps) {
-  return <Shape {...SHIP_1} {...props} _style={extendStyle(SHIP_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHIP_1)} />
 }

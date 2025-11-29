@@ -11,7 +11,5 @@ export const MEMRISTOR = {
 }
 
 export function Memristor(props: NodeProps) {
-  return (
-    <Shape {...MEMRISTOR} {...props} _style={extendStyle(MEMRISTOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEMRISTOR)} />
 }

@@ -11,11 +11,5 @@ export const N_CHANNEL_JFET = {
 }
 
 export function NChannelJfet(props: NodeProps) {
-  return (
-    <Shape
-      {...N_CHANNEL_JFET}
-      {...props}
-      _style={extendStyle(N_CHANNEL_JFET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, N_CHANNEL_JFET)} />
 }

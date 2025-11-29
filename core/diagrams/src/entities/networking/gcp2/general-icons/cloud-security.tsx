@@ -11,11 +11,5 @@ export const CLOUD_SECURITY = {
 }
 
 export function CloudSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SECURITY}
-      {...props}
-      _style={extendStyle(CLOUD_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SECURITY)} />
 }

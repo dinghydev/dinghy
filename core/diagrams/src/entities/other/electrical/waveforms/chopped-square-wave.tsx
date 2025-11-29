@@ -11,11 +11,5 @@ export const CHOPPED_SQUARE_WAVE = {
 }
 
 export function ChoppedSquareWave(props: NodeProps) {
-  return (
-    <Shape
-      {...CHOPPED_SQUARE_WAVE}
-      {...props}
-      _style={extendStyle(CHOPPED_SQUARE_WAVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHOPPED_SQUARE_WAVE)} />
 }

@@ -13,9 +13,8 @@ export const VEEAM_PLUGIN_FOR_ORACLE_RMAN = {
 export function VeeamPluginForOracleRman(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_PLUGIN_FOR_ORACLE_RMAN}
       {...props}
-      _style={extendStyle(VEEAM_PLUGIN_FOR_ORACLE_RMAN, props)}
+      _style={extendStyle(props, VEEAM_PLUGIN_FOR_ORACLE_RMAN)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const JL319A_ARUBA_2930M_24G_1_SLOT_SWITCH_REAR = {
 export function Jl319aAruba2930m24g1SlotSwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...JL319A_ARUBA_2930M_24G_1_SLOT_SWITCH_REAR}
       {...props}
-      _style={extendStyle(JL319A_ARUBA_2930M_24G_1_SLOT_SWITCH_REAR, props)}
+      _style={extendStyle(props, JL319A_ARUBA_2930M_24G_1_SLOT_SWITCH_REAR)}
     />
   )
 }

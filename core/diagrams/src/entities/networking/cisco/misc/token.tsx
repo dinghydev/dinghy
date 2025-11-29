@@ -11,5 +11,5 @@ export const TOKEN = {
 }
 
 export function Token(props: NodeProps) {
-  return <Shape {...TOKEN} {...props} _style={extendStyle(TOKEN, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOKEN)} />
 }

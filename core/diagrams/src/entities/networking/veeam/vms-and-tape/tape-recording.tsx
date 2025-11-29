@@ -11,11 +11,5 @@ export const TAPE_RECORDING = {
 }
 
 export function TapeRecording(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_RECORDING}
-      {...props}
-      _style={extendStyle(TAPE_RECORDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_RECORDING)} />
 }

@@ -9,11 +9,5 @@ export const FILLED_EDGE = {
 }
 
 export function FilledEdge(props: NodeProps) {
-  return (
-    <Dependency
-      {...FILLED_EDGE}
-      {...props}
-      _style={extendStyle(FILLED_EDGE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, FILLED_EDGE)} />
 }

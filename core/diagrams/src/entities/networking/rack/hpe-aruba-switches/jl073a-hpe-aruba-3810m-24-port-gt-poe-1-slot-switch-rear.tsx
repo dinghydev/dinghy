@@ -15,11 +15,10 @@ export function Jl073aHpeAruba3810m24PortGtPoe1SlotSwitchRear(
 ) {
   return (
     <Shape
-      {...JL073A_HPE_ARUBA_3810M_24_PORT_GT_POE_1_SLOT_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL073A_HPE_ARUBA_3810M_24_PORT_GT_POE_1_SLOT_SWITCH_REAR,
         props,
+        JL073A_HPE_ARUBA_3810M_24_PORT_GT_POE_1_SLOT_SWITCH_REAR,
       )}
     />
   )

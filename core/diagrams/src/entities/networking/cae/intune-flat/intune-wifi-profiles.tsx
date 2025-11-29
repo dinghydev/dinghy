@@ -11,11 +11,5 @@ export const INTUNE_WIFI_PROFILES = {
 }
 
 export function IntuneWifiProfiles(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_WIFI_PROFILES}
-      {...props}
-      _style={extendStyle(INTUNE_WIFI_PROFILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_WIFI_PROFILES)} />
 }

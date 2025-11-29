@@ -11,11 +11,5 @@ export const TEMPORARY_STRAINER = {
 }
 
 export function TemporaryStrainer(props: NodeProps) {
-  return (
-    <Shape
-      {...TEMPORARY_STRAINER}
-      {...props}
-      _style={extendStyle(TEMPORARY_STRAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEMPORARY_STRAINER)} />
 }

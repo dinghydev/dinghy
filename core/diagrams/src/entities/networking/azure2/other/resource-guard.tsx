@@ -11,11 +11,5 @@ export const RESOURCE_GUARD = {
 }
 
 export function ResourceGuard(props: NodeProps) {
-  return (
-    <Shape
-      {...RESOURCE_GUARD}
-      {...props}
-      _style={extendStyle(RESOURCE_GUARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE_GUARD)} />
 }

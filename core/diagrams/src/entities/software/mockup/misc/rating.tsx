@@ -11,5 +11,5 @@ export const RATING = {
 }
 
 export function Rating(props: NodeProps) {
-  return <Shape {...RATING} {...props} _style={extendStyle(RATING, props)} />
+  return <Shape {...props} _style={extendStyle(props, RATING)} />
 }

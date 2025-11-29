@@ -11,7 +11,5 @@ export const STOCK_UP = {
 }
 
 export function StockUp(props: NodeProps) {
-  return (
-    <Shape {...STOCK_UP} {...props} _style={extendStyle(STOCK_UP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STOCK_UP)} />
 }

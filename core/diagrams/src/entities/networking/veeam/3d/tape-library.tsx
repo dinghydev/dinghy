@@ -11,11 +11,5 @@ export const TAPE_LIBRARY = {
 }
 
 export function TapeLibrary(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_LIBRARY}
-      {...props}
-      _style={extendStyle(TAPE_LIBRARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_LIBRARY)} />
 }

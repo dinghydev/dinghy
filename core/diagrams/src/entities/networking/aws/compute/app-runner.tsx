@@ -11,7 +11,5 @@ export const APP_RUNNER = {
 }
 
 export function AppRunner(props: NodeProps) {
-  return (
-    <Shape {...APP_RUNNER} {...props} _style={extendStyle(APP_RUNNER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_RUNNER)} />
 }

@@ -11,7 +11,5 @@ export const ATTACHMENT = {
 }
 
 export function Attachment(props: NodeProps) {
-  return (
-    <Shape {...ATTACHMENT} {...props} _style={extendStyle(ATTACHMENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATTACHMENT)} />
 }

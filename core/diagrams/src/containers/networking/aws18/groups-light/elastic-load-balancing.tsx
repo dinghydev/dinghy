@@ -14,10 +14,6 @@ export const ELASTIC_LOAD_BALANCING = {
 
 export function ElasticLoadBalancing(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_LOAD_BALANCING}
-      {...props}
-      _style={extendStyle(ELASTIC_LOAD_BALANCING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_LOAD_BALANCING)} />
   )
 }

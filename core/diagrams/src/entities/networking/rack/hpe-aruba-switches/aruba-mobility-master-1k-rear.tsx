@@ -13,9 +13,8 @@ export const ARUBA_MOBILITY_MASTER_1K_REAR = {
 export function ArubaMobilityMaster1kRear(props: NodeProps) {
   return (
     <Shape
-      {...ARUBA_MOBILITY_MASTER_1K_REAR}
       {...props}
-      _style={extendStyle(ARUBA_MOBILITY_MASTER_1K_REAR, props)}
+      _style={extendStyle(props, ARUBA_MOBILITY_MASTER_1K_REAR)}
     />
   )
 }

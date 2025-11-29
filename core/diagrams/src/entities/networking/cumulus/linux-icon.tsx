@@ -11,7 +11,5 @@ export const LINUX_ICON = {
 }
 
 export function LinuxIcon(props: NodeProps) {
-  return (
-    <Shape {...LINUX_ICON} {...props} _style={extendStyle(LINUX_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINUX_ICON)} />
 }

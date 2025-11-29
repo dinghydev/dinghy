@@ -11,11 +11,5 @@ export const AGITATOR_HELICAL = {
 }
 
 export function AgitatorHelical(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_HELICAL}
-      {...props}
-      _style={extendStyle(AGITATOR_HELICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_HELICAL)} />
 }

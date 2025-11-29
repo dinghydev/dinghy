@@ -11,11 +11,5 @@ export const DNS_PRIVATEZONE = {
 }
 
 export function DnsPrivatezone(props: NodeProps) {
-  return (
-    <Shape
-      {...DNS_PRIVATEZONE}
-      {...props}
-      _style={extendStyle(DNS_PRIVATEZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DNS_PRIVATEZONE)} />
 }

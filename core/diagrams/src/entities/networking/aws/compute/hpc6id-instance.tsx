@@ -11,11 +11,5 @@ export const HPC6ID_INSTANCE = {
 }
 
 export function Hpc6idInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...HPC6ID_INSTANCE}
-      {...props}
-      _style={extendStyle(HPC6ID_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HPC6ID_INSTANCE)} />
 }

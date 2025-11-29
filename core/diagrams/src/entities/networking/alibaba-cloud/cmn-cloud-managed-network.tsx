@@ -12,10 +12,6 @@ export const CMN_CLOUD_MANAGED_NETWORK = {
 
 export function CmnCloudManagedNetwork(props: NodeProps) {
   return (
-    <Shape
-      {...CMN_CLOUD_MANAGED_NETWORK}
-      {...props}
-      _style={extendStyle(CMN_CLOUD_MANAGED_NETWORK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CMN_CLOUD_MANAGED_NETWORK)} />
   )
 }

@@ -11,7 +11,5 @@ export const END_OFFICE = {
 }
 
 export function EndOffice(props: NodeProps) {
-  return (
-    <Shape {...END_OFFICE} {...props} _style={extendStyle(END_OFFICE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, END_OFFICE)} />
 }

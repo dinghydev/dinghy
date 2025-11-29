@@ -12,10 +12,6 @@ export const BOILER_DOME_HOT_LIQUID = {
 
 export function BoilerDomeHotLiquid(props: NodeProps) {
   return (
-    <Shape
-      {...BOILER_DOME_HOT_LIQUID}
-      {...props}
-      _style={extendStyle(BOILER_DOME_HOT_LIQUID, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BOILER_DOME_HOT_LIQUID)} />
   )
 }

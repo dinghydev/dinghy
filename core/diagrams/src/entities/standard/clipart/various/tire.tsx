@@ -11,5 +11,5 @@ export const TIRE = {
 }
 
 export function Tire(props: NodeProps) {
-  return <Shape {...TIRE} {...props} _style={extendStyle(TIRE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TIRE)} />
 }

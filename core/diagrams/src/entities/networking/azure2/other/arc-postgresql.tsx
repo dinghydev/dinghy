@@ -11,11 +11,5 @@ export const ARC_POSTGRESQL = {
 }
 
 export function ArcPostgresql(props: NodeProps) {
-  return (
-    <Shape
-      {...ARC_POSTGRESQL}
-      {...props}
-      _style={extendStyle(ARC_POSTGRESQL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARC_POSTGRESQL)} />
 }

@@ -12,10 +12,6 @@ export const SAP_CUSTOM_DOMAIN_SERVICE = {
 
 export function SapCustomDomainService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_CUSTOM_DOMAIN_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_CUSTOM_DOMAIN_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_CUSTOM_DOMAIN_SERVICE)} />
   )
 }

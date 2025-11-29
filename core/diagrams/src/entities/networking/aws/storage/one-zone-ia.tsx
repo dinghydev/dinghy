@@ -11,11 +11,5 @@ export const ONE_ZONE_IA = {
 }
 
 export function OneZoneIa(props: NodeProps) {
-  return (
-    <Shape
-      {...ONE_ZONE_IA}
-      {...props}
-      _style={extendStyle(ONE_ZONE_IA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONE_ZONE_IA)} />
 }

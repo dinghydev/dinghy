@@ -12,10 +12,6 @@ export const VIEWING_GLASS_LIGHTING = {
 
 export function ViewingGlassLighting(props: NodeProps) {
   return (
-    <Shape
-      {...VIEWING_GLASS_LIGHTING}
-      {...props}
-      _style={extendStyle(VIEWING_GLASS_LIGHTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIEWING_GLASS_LIGHTING)} />
   )
 }

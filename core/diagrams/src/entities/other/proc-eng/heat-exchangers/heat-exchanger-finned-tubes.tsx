@@ -13,9 +13,8 @@ export const HEAT_EXCHANGER_FINNED_TUBES = {
 export function HeatExchangerFinnedTubes(props: NodeProps) {
   return (
     <Shape
-      {...HEAT_EXCHANGER_FINNED_TUBES}
       {...props}
-      _style={extendStyle(HEAT_EXCHANGER_FINNED_TUBES, props)}
+      _style={extendStyle(props, HEAT_EXCHANGER_FINNED_TUBES)}
     />
   )
 }

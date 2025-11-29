@@ -11,5 +11,5 @@ export const VOLTAGE = {
 }
 
 export function Voltage(props: NodeProps) {
-  return <Shape {...VOLTAGE} {...props} _style={extendStyle(VOLTAGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, VOLTAGE)} />
 }

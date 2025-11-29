@@ -11,5 +11,5 @@ export const PART = {
 }
 
 export function Part(props: NodeProps) {
-  return <Shape {...PART} {...props} _style={extendStyle(PART, props)} />
+  return <Shape {...props} _style={extendStyle(props, PART)} />
 }

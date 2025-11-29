@@ -11,11 +11,5 @@ export const TRUST_BOUNDARY = {
 }
 
 export function TrustBoundary(props: NodeProps) {
-  return (
-    <Shape
-      {...TRUST_BOUNDARY}
-      {...props}
-      _style={extendStyle(TRUST_BOUNDARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRUST_BOUNDARY)} />
 }

@@ -11,11 +11,5 @@ export const SCROLLSPY_2 = {
 }
 
 export function Scrollspy2(props: NodeProps) {
-  return (
-    <Shape
-      {...SCROLLSPY_2}
-      {...props}
-      _style={extendStyle(SCROLLSPY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCROLLSPY_2)} />
 }

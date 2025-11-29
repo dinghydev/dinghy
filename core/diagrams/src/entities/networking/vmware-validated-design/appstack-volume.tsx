@@ -11,11 +11,5 @@ export const APPSTACK_VOLUME = {
 }
 
 export function AppstackVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...APPSTACK_VOLUME}
-      {...props}
-      _style={extendStyle(APPSTACK_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPSTACK_VOLUME)} />
 }

@@ -11,11 +11,5 @@ export const CLOUD_CONSOLE = {
 }
 
 export function CloudConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CONSOLE}
-      {...props}
-      _style={extendStyle(CLOUD_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CONSOLE)} />
 }

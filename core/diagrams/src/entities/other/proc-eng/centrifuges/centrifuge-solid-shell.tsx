@@ -12,10 +12,6 @@ export const CENTRIFUGE_SOLID_SHELL = {
 
 export function CentrifugeSolidShell(props: NodeProps) {
   return (
-    <Shape
-      {...CENTRIFUGE_SOLID_SHELL}
-      {...props}
-      _style={extendStyle(CENTRIFUGE_SOLID_SHELL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CENTRIFUGE_SOLID_SHELL)} />
   )
 }

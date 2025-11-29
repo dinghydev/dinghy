@@ -12,10 +12,6 @@ export const X12210_ADSORBER_FILTER = {
 
 export function X12210AdsorberFilter(props: NodeProps) {
   return (
-    <Shape
-      {...X12210_ADSORBER_FILTER}
-      {...props}
-      _style={extendStyle(X12210_ADSORBER_FILTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12210_ADSORBER_FILTER)} />
   )
 }

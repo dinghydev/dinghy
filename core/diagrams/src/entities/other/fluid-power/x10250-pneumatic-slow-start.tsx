@@ -13,9 +13,8 @@ export const X10250_PNEUMATIC_SLOW_START = {
 export function X10250PneumaticSlowStart(props: NodeProps) {
   return (
     <Shape
-      {...X10250_PNEUMATIC_SLOW_START}
       {...props}
-      _style={extendStyle(X10250_PNEUMATIC_SLOW_START, props)}
+      _style={extendStyle(props, X10250_PNEUMATIC_SLOW_START)}
     />
   )
 }

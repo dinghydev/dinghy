@@ -12,10 +12,6 @@ export const RAISED_BUTTON_NORMAL_4 = {
 
 export function RaisedButtonNormal4(props: NodeProps) {
   return (
-    <Shape
-      {...RAISED_BUTTON_NORMAL_4}
-      {...props}
-      _style={extendStyle(RAISED_BUTTON_NORMAL_4, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RAISED_BUTTON_NORMAL_4)} />
   )
 }

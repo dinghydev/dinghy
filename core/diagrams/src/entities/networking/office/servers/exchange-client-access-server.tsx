@@ -13,9 +13,8 @@ export const EXCHANGE_CLIENT_ACCESS_SERVER = {
 export function ExchangeClientAccessServer(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_CLIENT_ACCESS_SERVER}
       {...props}
-      _style={extendStyle(EXCHANGE_CLIENT_ACCESS_SERVER, props)}
+      _style={extendStyle(props, EXCHANGE_CLIENT_ACCESS_SERVER)}
     />
   )
 }

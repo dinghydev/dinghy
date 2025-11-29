@@ -11,11 +11,5 @@ export const CLAIM_CHECK = {
 }
 
 export function ClaimCheck(props: NodeProps) {
-  return (
-    <Shape
-      {...CLAIM_CHECK}
-      {...props}
-      _style={extendStyle(CLAIM_CHECK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLAIM_CHECK)} />
 }

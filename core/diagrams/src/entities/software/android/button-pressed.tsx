@@ -11,11 +11,5 @@ export const BUTTON_PRESSED = {
 }
 
 export function ButtonPressed(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_PRESSED}
-      {...props}
-      _style={extendStyle(BUTTON_PRESSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_PRESSED)} />
 }

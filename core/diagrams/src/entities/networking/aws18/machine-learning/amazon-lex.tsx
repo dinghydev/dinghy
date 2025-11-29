@@ -11,7 +11,5 @@ export const AMAZON_LEX = {
 }
 
 export function AmazonLex(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_LEX} {...props} _style={extendStyle(AMAZON_LEX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_LEX)} />
 }

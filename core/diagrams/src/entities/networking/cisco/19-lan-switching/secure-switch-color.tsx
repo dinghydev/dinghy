@@ -11,11 +11,5 @@ export const SECURE_SWITCH_COLOR = {
 }
 
 export function SecureSwitchColor(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_SWITCH_COLOR}
-      {...props}
-      _style={extendStyle(SECURE_SWITCH_COLOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_SWITCH_COLOR)} />
 }

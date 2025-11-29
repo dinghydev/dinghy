@@ -11,11 +11,5 @@ export const EXTERNAL_DATA_CENTER = {
 }
 
 export function ExternalDataCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTERNAL_DATA_CENTER}
-      {...props}
-      _style={extendStyle(EXTERNAL_DATA_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTERNAL_DATA_CENTER)} />
 }

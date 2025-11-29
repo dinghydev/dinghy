@@ -12,10 +12,6 @@ export const TEXTRACT_ANALYZE_LENDING = {
 
 export function TextractAnalyzeLending(props: NodeProps) {
   return (
-    <Shape
-      {...TEXTRACT_ANALYZE_LENDING}
-      {...props}
-      _style={extendStyle(TEXTRACT_ANALYZE_LENDING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TEXTRACT_ANALYZE_LENDING)} />
   )
 }

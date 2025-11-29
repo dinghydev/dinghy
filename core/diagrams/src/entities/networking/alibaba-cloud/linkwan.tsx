@@ -11,5 +11,5 @@ export const LINKWAN = {
 }
 
 export function Linkwan(props: NodeProps) {
-  return <Shape {...LINKWAN} {...props} _style={extendStyle(LINKWAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, LINKWAN)} />
 }

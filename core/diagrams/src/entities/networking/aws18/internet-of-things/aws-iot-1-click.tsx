@@ -11,11 +11,5 @@ export const AWS_IOT_1_CLICK = {
 }
 
 export function AwsIot1Click(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_IOT_1_CLICK}
-      {...props}
-      _style={extendStyle(AWS_IOT_1_CLICK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_IOT_1_CLICK)} />
 }

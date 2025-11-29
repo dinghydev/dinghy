@@ -11,11 +11,5 @@ export const BIG_IP_1600 = {
 }
 
 export function BigIp1600(props: NodeProps) {
-  return (
-    <Shape
-      {...BIG_IP_1600}
-      {...props}
-      _style={extendStyle(BIG_IP_1600, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIG_IP_1600)} />
 }

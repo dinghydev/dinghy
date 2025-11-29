@@ -11,11 +11,5 @@ export const ARROW_LIST_5 = {
 }
 
 export function ArrowList5(props: NodeProps) {
-  return (
-    <Shape
-      {...ARROW_LIST_5}
-      {...props}
-      _style={extendStyle(ARROW_LIST_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROW_LIST_5)} />
 }

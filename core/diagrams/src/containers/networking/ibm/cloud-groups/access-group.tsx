@@ -12,11 +12,5 @@ export const ACCESS_GROUP = {
 }
 
 export function AccessGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_GROUP}
-      {...props}
-      _style={extendStyle(ACCESS_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_GROUP)} />
 }

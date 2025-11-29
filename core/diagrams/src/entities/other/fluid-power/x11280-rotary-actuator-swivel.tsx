@@ -13,9 +13,8 @@ export const X11280_ROTARY_ACTUATOR_SWIVEL = {
 export function X11280RotaryActuatorSwivel(props: NodeProps) {
   return (
     <Shape
-      {...X11280_ROTARY_ACTUATOR_SWIVEL}
       {...props}
-      _style={extendStyle(X11280_ROTARY_ACTUATOR_SWIVEL, props)}
+      _style={extendStyle(props, X11280_ROTARY_ACTUATOR_SWIVEL)}
     />
   )
 }

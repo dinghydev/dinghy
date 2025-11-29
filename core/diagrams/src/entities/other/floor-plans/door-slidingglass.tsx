@@ -11,11 +11,5 @@ export const DOOR_SLIDINGGLASS = {
 }
 
 export function DoorSlidingglass(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_SLIDINGGLASS}
-      {...props}
-      _style={extendStyle(DOOR_SLIDINGGLASS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_SLIDINGGLASS)} />
 }

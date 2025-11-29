@@ -11,11 +11,5 @@ export const CONFERENCE_BRIDGE = {
 }
 
 export function ConferenceBridge(props: NodeProps) {
-  return (
-    <Shape
-      {...CONFERENCE_BRIDGE}
-      {...props}
-      _style={extendStyle(CONFERENCE_BRIDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONFERENCE_BRIDGE)} />
 }

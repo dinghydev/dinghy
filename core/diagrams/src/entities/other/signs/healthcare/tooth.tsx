@@ -11,5 +11,5 @@ export const TOOTH = {
 }
 
 export function Tooth(props: NodeProps) {
-  return <Shape {...TOOTH} {...props} _style={extendStyle(TOOTH, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOOTH)} />
 }

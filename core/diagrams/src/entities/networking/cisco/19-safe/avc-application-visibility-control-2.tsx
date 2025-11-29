@@ -13,9 +13,8 @@ export const AVC_APPLICATION_VISIBILITY_CONTROL_2 = {
 export function AvcApplicationVisibilityControl2(props: NodeProps) {
   return (
     <Shape
-      {...AVC_APPLICATION_VISIBILITY_CONTROL_2}
       {...props}
-      _style={extendStyle(AVC_APPLICATION_VISIBILITY_CONTROL_2, props)}
+      _style={extendStyle(props, AVC_APPLICATION_VISIBILITY_CONTROL_2)}
     />
   )
 }

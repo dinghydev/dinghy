@@ -11,11 +11,5 @@ export const ARROWLESS_NE = {
 }
 
 export function ArrowlessNe(props: NodeProps) {
-  return (
-    <Shape
-      {...ARROWLESS_NE}
-      {...props}
-      _style={extendStyle(ARROWLESS_NE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROWLESS_NE)} />
 }

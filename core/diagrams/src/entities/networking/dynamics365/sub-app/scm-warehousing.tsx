@@ -11,11 +11,5 @@ export const SCM_WAREHOUSING = {
 }
 
 export function ScmWarehousing(props: NodeProps) {
-  return (
-    <Shape
-      {...SCM_WAREHOUSING}
-      {...props}
-      _style={extendStyle(SCM_WAREHOUSING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCM_WAREHOUSING)} />
 }

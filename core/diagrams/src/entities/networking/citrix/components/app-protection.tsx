@@ -11,11 +11,5 @@ export const APP_PROTECTION = {
 }
 
 export function AppProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_PROTECTION}
-      {...props}
-      _style={extendStyle(APP_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_PROTECTION)} />
 }

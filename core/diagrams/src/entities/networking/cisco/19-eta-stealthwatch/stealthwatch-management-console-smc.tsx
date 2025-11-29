@@ -13,9 +13,8 @@ export const STEALTHWATCH_MANAGEMENT_CONSOLE_SMC = {
 export function StealthwatchManagementConsoleSmc(props: NodeProps) {
   return (
     <Shape
-      {...STEALTHWATCH_MANAGEMENT_CONSOLE_SMC}
       {...props}
-      _style={extendStyle(STEALTHWATCH_MANAGEMENT_CONSOLE_SMC, props)}
+      _style={extendStyle(props, STEALTHWATCH_MANAGEMENT_CONSOLE_SMC)}
     />
   )
 }

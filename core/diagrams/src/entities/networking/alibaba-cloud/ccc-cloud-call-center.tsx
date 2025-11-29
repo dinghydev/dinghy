@@ -11,11 +11,5 @@ export const CCC_CLOUD_CALL_CENTER = {
 }
 
 export function CccCloudCallCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...CCC_CLOUD_CALL_CENTER}
-      {...props}
-      _style={extendStyle(CCC_CLOUD_CALL_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CCC_CLOUD_CALL_CENTER)} />
 }

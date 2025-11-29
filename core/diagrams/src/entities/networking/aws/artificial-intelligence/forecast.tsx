@@ -11,7 +11,5 @@ export const FORECAST = {
 }
 
 export function Forecast(props: NodeProps) {
-  return (
-    <Shape {...FORECAST} {...props} _style={extendStyle(FORECAST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORECAST)} />
 }

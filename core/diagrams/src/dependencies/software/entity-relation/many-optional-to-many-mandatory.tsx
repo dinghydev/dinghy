@@ -11,9 +11,8 @@ export const MANY_OPTIONAL_TO_MANY_MANDATORY = {
 export function ManyOptionalToManyMandatory(props: NodeProps) {
   return (
     <Dependency
-      {...MANY_OPTIONAL_TO_MANY_MANDATORY}
       {...props}
-      _style={extendStyle(MANY_OPTIONAL_TO_MANY_MANDATORY, props)}
+      _style={extendStyle(props, MANY_OPTIONAL_TO_MANY_MANDATORY)}
     />
   )
 }

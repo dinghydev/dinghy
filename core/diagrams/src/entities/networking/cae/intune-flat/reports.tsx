@@ -11,5 +11,5 @@ export const REPORTS = {
 }
 
 export function Reports(props: NodeProps) {
-  return <Shape {...REPORTS} {...props} _style={extendStyle(REPORTS, props)} />
+  return <Shape {...props} _style={extendStyle(props, REPORTS)} />
 }

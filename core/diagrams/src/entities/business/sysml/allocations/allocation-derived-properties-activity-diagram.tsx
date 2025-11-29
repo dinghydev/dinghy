@@ -13,11 +13,10 @@ export const ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM = {
 export function AllocationDerivedPropertiesActivityDiagram(props: NodeProps) {
   return (
     <Shape
-      {...ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM}
       {...props}
       _style={extendStyle(
-        ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM,
         props,
+        ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM,
       )}
     />
   )

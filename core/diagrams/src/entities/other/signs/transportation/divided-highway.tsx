@@ -11,11 +11,5 @@ export const DIVIDED_HIGHWAY = {
 }
 
 export function DividedHighway(props: NodeProps) {
-  return (
-    <Shape
-      {...DIVIDED_HIGHWAY}
-      {...props}
-      _style={extendStyle(DIVIDED_HIGHWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIVIDED_HIGHWAY)} />
 }

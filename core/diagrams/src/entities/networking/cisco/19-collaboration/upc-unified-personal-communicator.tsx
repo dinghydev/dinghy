@@ -13,9 +13,8 @@ export const UPC_UNIFIED_PERSONAL_COMMUNICATOR = {
 export function UpcUnifiedPersonalCommunicator(props: NodeProps) {
   return (
     <Shape
-      {...UPC_UNIFIED_PERSONAL_COMMUNICATOR}
       {...props}
-      _style={extendStyle(UPC_UNIFIED_PERSONAL_COMMUNICATOR, props)}
+      _style={extendStyle(props, UPC_UNIFIED_PERSONAL_COMMUNICATOR)}
     />
   )
 }

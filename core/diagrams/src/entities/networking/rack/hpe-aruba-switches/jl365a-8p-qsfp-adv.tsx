@@ -11,11 +11,5 @@ export const JL365A_8P_QSFP_ADV = {
 }
 
 export function Jl365a8pQsfpAdv(props: NodeProps) {
-  return (
-    <Shape
-      {...JL365A_8P_QSFP_ADV}
-      {...props}
-      _style={extendStyle(JL365A_8P_QSFP_ADV, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JL365A_8P_QSFP_ADV)} />
 }

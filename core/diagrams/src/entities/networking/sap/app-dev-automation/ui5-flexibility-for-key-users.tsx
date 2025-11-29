@@ -13,9 +13,8 @@ export const UI5_FLEXIBILITY_FOR_KEY_USERS = {
 export function Ui5FlexibilityForKeyUsers(props: NodeProps) {
   return (
     <Shape
-      {...UI5_FLEXIBILITY_FOR_KEY_USERS}
       {...props}
-      _style={extendStyle(UI5_FLEXIBILITY_FOR_KEY_USERS, props)}
+      _style={extendStyle(props, UI5_FLEXIBILITY_FOR_KEY_USERS)}
     />
   )
 }

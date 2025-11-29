@@ -11,7 +11,5 @@ export const CHANNELS_2 = {
 }
 
 export function Channels2(props: NodeProps) {
-  return (
-    <Shape {...CHANNELS_2} {...props} _style={extendStyle(CHANNELS_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANNELS_2)} />
 }

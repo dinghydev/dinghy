@@ -13,9 +13,8 @@ export const FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS = {
 export function FileCacheOnPremisesNfsLinkedDatasets(props: NodeProps) {
   return (
     <Shape
-      {...FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS}
       {...props}
-      _style={extendStyle(FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS, props)}
+      _style={extendStyle(props, FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS)}
     />
   )
 }

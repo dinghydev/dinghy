@@ -13,9 +13,8 @@ export const LOCAL_PRE_AND_POSTCONDITIONS_2 = {
 export function LocalPreAndPostconditions2(props: NodeProps) {
   return (
     <Shape
-      {...LOCAL_PRE_AND_POSTCONDITIONS_2}
       {...props}
-      _style={extendStyle(LOCAL_PRE_AND_POSTCONDITIONS_2, props)}
+      _style={extendStyle(props, LOCAL_PRE_AND_POSTCONDITIONS_2)}
     />
   )
 }

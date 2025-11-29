@@ -12,10 +12,6 @@ export const CONFERENCING_ATTENDANT = {
 
 export function ConferencingAttendant(props: NodeProps) {
   return (
-    <Shape
-      {...CONFERENCING_ATTENDANT}
-      {...props}
-      _style={extendStyle(CONFERENCING_ATTENDANT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONFERENCING_ATTENDANT)} />
   )
 }

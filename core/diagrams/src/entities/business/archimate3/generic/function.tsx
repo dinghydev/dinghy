@@ -11,7 +11,5 @@ export const FUNCTION = {
 }
 
 export function Function(props: NodeProps) {
-  return (
-    <Shape {...FUNCTION} {...props} _style={extendStyle(FUNCTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUNCTION)} />
 }

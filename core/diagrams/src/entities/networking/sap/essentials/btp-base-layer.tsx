@@ -11,11 +11,5 @@ export const BTP_BASE_LAYER = {
 }
 
 export function BtpBaseLayer(props: NodeProps) {
-  return (
-    <Shape
-      {...BTP_BASE_LAYER}
-      {...props}
-      _style={extendStyle(BTP_BASE_LAYER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BTP_BASE_LAYER)} />
 }

@@ -11,7 +11,5 @@ export const NLS_ASRBAG = {
 }
 
 export function NlsAsrbag(props: NodeProps) {
-  return (
-    <Shape {...NLS_ASRBAG} {...props} _style={extendStyle(NLS_ASRBAG, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLS_ASRBAG)} />
 }

@@ -13,9 +13,8 @@ export const CONTAINER_SOLIDS_LIQUIDS_GASES = {
 export function ContainerSolidsLiquidsGases(props: NodeProps) {
   return (
     <Shape
-      {...CONTAINER_SOLIDS_LIQUIDS_GASES}
       {...props}
-      _style={extendStyle(CONTAINER_SOLIDS_LIQUIDS_GASES, props)}
+      _style={extendStyle(props, CONTAINER_SOLIDS_LIQUIDS_GASES)}
     />
   )
 }

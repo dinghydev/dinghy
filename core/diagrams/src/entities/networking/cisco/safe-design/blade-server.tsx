@@ -11,11 +11,5 @@ export const BLADE_SERVER = {
 }
 
 export function BladeServer(props: NodeProps) {
-  return (
-    <Shape
-      {...BLADE_SERVER}
-      {...props}
-      _style={extendStyle(BLADE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLADE_SERVER)} />
 }

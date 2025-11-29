@@ -11,7 +11,5 @@ export const VIDEO_PLAY = {
 }
 
 export function VideoPlay(props: NodeProps) {
-  return (
-    <Shape {...VIDEO_PLAY} {...props} _style={extendStyle(VIDEO_PLAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_PLAY)} />
 }

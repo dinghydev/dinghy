@@ -11,5 +11,5 @@ export const BUCKET = {
 }
 
 export function Bucket(props: NodeProps) {
-  return <Shape {...BUCKET} {...props} _style={extendStyle(BUCKET, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUCKET)} />
 }

@@ -11,7 +11,5 @@ export const CORIOLIS = {
 }
 
 export function Coriolis(props: NodeProps) {
-  return (
-    <Shape {...CORIOLIS} {...props} _style={extendStyle(CORIOLIS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CORIOLIS)} />
 }

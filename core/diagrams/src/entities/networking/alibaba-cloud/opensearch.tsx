@@ -11,7 +11,5 @@ export const OPENSEARCH = {
 }
 
 export function Opensearch(props: NodeProps) {
-  return (
-    <Shape {...OPENSEARCH} {...props} _style={extendStyle(OPENSEARCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPENSEARCH)} />
 }

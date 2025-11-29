@@ -11,7 +11,5 @@ export const DATASYNC = {
 }
 
 export function Datasync(props: NodeProps) {
-  return (
-    <Shape {...DATASYNC} {...props} _style={extendStyle(DATASYNC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATASYNC)} />
 }

@@ -11,11 +11,5 @@ export const TICKET_PURCHASE = {
 }
 
 export function TicketPurchase(props: NodeProps) {
-  return (
-    <Shape
-      {...TICKET_PURCHASE}
-      {...props}
-      _style={extendStyle(TICKET_PURCHASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TICKET_PURCHASE)} />
 }

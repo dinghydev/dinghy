@@ -11,7 +11,5 @@ export const VIRTUAL_PC = {
 }
 
 export function VirtualPc(props: NodeProps) {
-  return (
-    <Shape {...VIRTUAL_PC} {...props} _style={extendStyle(VIRTUAL_PC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_PC)} />
 }

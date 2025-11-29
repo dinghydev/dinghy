@@ -11,11 +11,5 @@ export const DBS_DATABASE_BACKUP = {
 }
 
 export function DbsDatabaseBackup(props: NodeProps) {
-  return (
-    <Shape
-      {...DBS_DATABASE_BACKUP}
-      {...props}
-      _style={extendStyle(DBS_DATABASE_BACKUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DBS_DATABASE_BACKUP)} />
 }

@@ -8,11 +8,5 @@ export const AGGREGATION_2 = {
 }
 
 export function Aggregation2(props: NodeProps) {
-  return (
-    <Dependency
-      {...AGGREGATION_2}
-      {...props}
-      _style={extendStyle(AGGREGATION_2, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, AGGREGATION_2)} />
 }

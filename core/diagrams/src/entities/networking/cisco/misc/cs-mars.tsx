@@ -11,5 +11,5 @@ export const CS_MARS = {
 }
 
 export function CsMars(props: NodeProps) {
-  return <Shape {...CS_MARS} {...props} _style={extendStyle(CS_MARS, props)} />
+  return <Shape {...props} _style={extendStyle(props, CS_MARS)} />
 }

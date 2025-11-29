@@ -11,11 +11,5 @@ export const HEALTH_DASHBOARD = {
 }
 
 export function HealthDashboard(props: NodeProps) {
-  return (
-    <Shape
-      {...HEALTH_DASHBOARD}
-      {...props}
-      _style={extendStyle(HEALTH_DASHBOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEALTH_DASHBOARD)} />
 }

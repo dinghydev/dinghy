@@ -11,7 +11,5 @@ export const VM_CHECKED = {
 }
 
 export function VmChecked(props: NodeProps) {
-  return (
-    <Shape {...VM_CHECKED} {...props} _style={extendStyle(VM_CHECKED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_CHECKED)} />
 }

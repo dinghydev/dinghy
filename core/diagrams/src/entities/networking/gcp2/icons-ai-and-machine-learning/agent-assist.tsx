@@ -11,11 +11,5 @@ export const AGENT_ASSIST = {
 }
 
 export function AgentAssist(props: NodeProps) {
-  return (
-    <Shape
-      {...AGENT_ASSIST}
-      {...props}
-      _style={extendStyle(AGENT_ASSIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGENT_ASSIST)} />
 }

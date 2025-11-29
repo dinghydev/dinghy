@@ -11,11 +11,5 @@ export const FUSE_OBSOLETE = {
 }
 
 export function FuseObsolete(props: NodeProps) {
-  return (
-    <Shape
-      {...FUSE_OBSOLETE}
-      {...props}
-      _style={extendStyle(FUSE_OBSOLETE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUSE_OBSOLETE)} />
 }

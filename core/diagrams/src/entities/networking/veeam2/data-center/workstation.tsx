@@ -11,11 +11,5 @@ export const WORKSTATION = {
 }
 
 export function Workstation(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKSTATION}
-      {...props}
-      _style={extendStyle(WORKSTATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKSTATION)} />
 }

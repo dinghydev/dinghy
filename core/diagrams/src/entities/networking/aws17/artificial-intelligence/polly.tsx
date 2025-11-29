@@ -11,5 +11,5 @@ export const POLLY = {
 }
 
 export function Polly(props: NodeProps) {
-  return <Shape {...POLLY} {...props} _style={extendStyle(POLLY, props)} />
+  return <Shape {...props} _style={extendStyle(props, POLLY)} />
 }

@@ -11,11 +11,5 @@ export const ACCENT_3_DASHED_3 = {
 }
 
 export function Accent3Dashed3(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCENT_3_DASHED_3}
-      {...props}
-      _style={extendStyle(ACCENT_3_DASHED_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCENT_3_DASHED_3)} />
 }

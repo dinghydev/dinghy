@@ -11,5 +11,5 @@ export const MODEM = {
 }
 
 export function Modem(props: NodeProps) {
-  return <Shape {...MODEM} {...props} _style={extendStyle(MODEM, props)} />
+  return <Shape {...props} _style={extendStyle(props, MODEM)} />
 }

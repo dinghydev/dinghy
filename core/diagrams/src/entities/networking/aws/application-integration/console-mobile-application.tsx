@@ -12,10 +12,6 @@ export const CONSOLE_MOBILE_APPLICATION = {
 
 export function ConsoleMobileApplication(props: NodeProps) {
   return (
-    <Shape
-      {...CONSOLE_MOBILE_APPLICATION}
-      {...props}
-      _style={extendStyle(CONSOLE_MOBILE_APPLICATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONSOLE_MOBILE_APPLICATION)} />
   )
 }

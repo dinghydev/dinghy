@@ -12,10 +12,6 @@ export const GOOGLE_KUBERNETES_ENGINE = {
 
 export function GoogleKubernetesEngine(props: NodeProps) {
   return (
-    <Shape
-      {...GOOGLE_KUBERNETES_ENGINE}
-      {...props}
-      _style={extendStyle(GOOGLE_KUBERNETES_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GOOGLE_KUBERNETES_ENGINE)} />
   )
 }

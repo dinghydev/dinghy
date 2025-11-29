@@ -11,5 +11,5 @@ export const HEADSET = {
 }
 
 export function Headset(props: NodeProps) {
-  return <Shape {...HEADSET} {...props} _style={extendStyle(HEADSET, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEADSET)} />
 }

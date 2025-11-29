@@ -11,7 +11,5 @@ export const IBMTABLET = {
 }
 
 export function Ibmtablet(props: NodeProps) {
-  return (
-    <Shape {...IBMTABLET} {...props} _style={extendStyle(IBMTABLET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBMTABLET)} />
 }

@@ -11,11 +11,5 @@ export const MS_EXCHANGE = {
 }
 
 export function MsExchange(props: NodeProps) {
-  return (
-    <Shape
-      {...MS_EXCHANGE}
-      {...props}
-      _style={extendStyle(MS_EXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_EXCHANGE)} />
 }

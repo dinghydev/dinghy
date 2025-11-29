@@ -12,10 +12,6 @@ export const VERIFIABLE_CREDENTIALS = {
 
 export function VerifiableCredentials(props: NodeProps) {
   return (
-    <Shape
-      {...VERIFIABLE_CREDENTIALS}
-      {...props}
-      _style={extendStyle(VERIFIABLE_CREDENTIALS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VERIFIABLE_CREDENTIALS)} />
   )
 }

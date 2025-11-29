@@ -11,11 +11,5 @@ export const CONDITION_2 = {
 }
 
 export function Condition2(props: NodeProps) {
-  return (
-    <Shape
-      {...CONDITION_2}
-      {...props}
-      _style={extendStyle(CONDITION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONDITION_2)} />
 }

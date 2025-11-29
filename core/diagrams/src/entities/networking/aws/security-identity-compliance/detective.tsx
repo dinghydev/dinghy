@@ -11,7 +11,5 @@ export const DETECTIVE = {
 }
 
 export function Detective(props: NodeProps) {
-  return (
-    <Shape {...DETECTIVE} {...props} _style={extendStyle(DETECTIVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETECTIVE)} />
 }

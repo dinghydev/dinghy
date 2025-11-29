@@ -9,11 +9,5 @@ export const MESSAGE_FLOW = {
 }
 
 export function MessageFlow(props: NodeProps) {
-  return (
-    <Dependency
-      {...MESSAGE_FLOW}
-      {...props}
-      _style={extendStyle(MESSAGE_FLOW, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, MESSAGE_FLOW)} />
 }

@@ -12,10 +12,6 @@ export const DATABASE_POSTGRESQL_SERVER = {
 
 export function DatabasePostgresqlServer(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_POSTGRESQL_SERVER}
-      {...props}
-      _style={extendStyle(DATABASE_POSTGRESQL_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_POSTGRESQL_SERVER)} />
   )
 }

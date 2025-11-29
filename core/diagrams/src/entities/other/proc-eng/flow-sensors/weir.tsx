@@ -11,5 +11,5 @@ export const WEIR = {
 }
 
 export function Weir(props: NodeProps) {
-  return <Shape {...WEIR} {...props} _style={extendStyle(WEIR, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEIR)} />
 }

@@ -11,11 +11,5 @@ export const LOG_COLLECTOR = {
 }
 
 export function LogCollector(props: NodeProps) {
-  return (
-    <Shape
-      {...LOG_COLLECTOR}
-      {...props}
-      _style={extendStyle(LOG_COLLECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOG_COLLECTOR)} />
 }

@@ -13,9 +13,8 @@ export const MEETING_SCHEDULING_AND_MANAGEMENT_SERVER = {
 export function MeetingSchedulingAndManagementServer(props: NodeProps) {
   return (
     <Shape
-      {...MEETING_SCHEDULING_AND_MANAGEMENT_SERVER}
       {...props}
-      _style={extendStyle(MEETING_SCHEDULING_AND_MANAGEMENT_SERVER, props)}
+      _style={extendStyle(props, MEETING_SCHEDULING_AND_MANAGEMENT_SERVER)}
     />
   )
 }

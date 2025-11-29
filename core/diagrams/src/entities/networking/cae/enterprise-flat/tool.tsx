@@ -11,5 +11,5 @@ export const TOOL = {
 }
 
 export function Tool(props: NodeProps) {
-  return <Shape {...TOOL} {...props} _style={extendStyle(TOOL, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOOL)} />
 }

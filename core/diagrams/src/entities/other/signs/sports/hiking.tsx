@@ -11,5 +11,5 @@ export const HIKING = {
 }
 
 export function Hiking(props: NodeProps) {
-  return <Shape {...HIKING} {...props} _style={extendStyle(HIKING, props)} />
+  return <Shape {...props} _style={extendStyle(props, HIKING)} />
 }

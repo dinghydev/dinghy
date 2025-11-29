@@ -11,7 +11,5 @@ export const DATAFLOW = {
 }
 
 export function Dataflow(props: NodeProps) {
-  return (
-    <Shape {...DATAFLOW} {...props} _style={extendStyle(DATAFLOW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAFLOW)} />
 }

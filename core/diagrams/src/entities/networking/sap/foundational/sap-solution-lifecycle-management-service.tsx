@@ -13,9 +13,8 @@ export const SAP_SOLUTION_LIFECYCLE_MANAGEMENT_SERVICE = {
 export function SapSolutionLifecycleManagementService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_SOLUTION_LIFECYCLE_MANAGEMENT_SERVICE}
       {...props}
-      _style={extendStyle(SAP_SOLUTION_LIFECYCLE_MANAGEMENT_SERVICE, props)}
+      _style={extendStyle(props, SAP_SOLUTION_LIFECYCLE_MANAGEMENT_SERVICE)}
     />
   )
 }

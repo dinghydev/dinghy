@@ -11,11 +11,5 @@ export const SERVICE_CONTROL = {
 }
 
 export function ServiceControl(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_CONTROL}
-      {...props}
-      _style={extendStyle(SERVICE_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_CONTROL)} />
 }

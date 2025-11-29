@@ -11,11 +11,5 @@ export const POWERPLATFORM = {
 }
 
 export function Powerplatform(props: NodeProps) {
-  return (
-    <Shape
-      {...POWERPLATFORM}
-      {...props}
-      _style={extendStyle(POWERPLATFORM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERPLATFORM)} />
 }

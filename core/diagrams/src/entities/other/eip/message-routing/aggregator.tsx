@@ -11,7 +11,5 @@ export const AGGREGATOR = {
 }
 
 export function Aggregator(props: NodeProps) {
-  return (
-    <Shape {...AGGREGATOR} {...props} _style={extendStyle(AGGREGATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGGREGATOR)} />
 }

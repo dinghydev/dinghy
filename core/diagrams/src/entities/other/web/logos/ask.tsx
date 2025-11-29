@@ -11,5 +11,5 @@ export const ASK = {
 }
 
 export function Ask(props: NodeProps) {
-  return <Shape {...ASK} {...props} _style={extendStyle(ASK, props)} />
+  return <Shape {...props} _style={extendStyle(props, ASK)} />
 }

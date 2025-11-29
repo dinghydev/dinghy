@@ -11,7 +11,5 @@ export const TREE_SAP = {
 }
 
 export function TreeSap(props: NodeProps) {
-  return (
-    <Shape {...TREE_SAP} {...props} _style={extendStyle(TREE_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TREE_SAP)} />
 }

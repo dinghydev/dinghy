@@ -11,5 +11,5 @@ export const IAM = {
 }
 
 export function Iam(props: NodeProps) {
-  return <Shape {...IAM} {...props} _style={extendStyle(IAM, props)} />
+  return <Shape {...props} _style={extendStyle(props, IAM)} />
 }

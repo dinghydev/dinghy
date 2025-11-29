@@ -12,10 +12,6 @@ export const REPLICATION_TIME_CONTROL = {
 
 export function ReplicationTimeControl(props: NodeProps) {
   return (
-    <Shape
-      {...REPLICATION_TIME_CONTROL}
-      {...props}
-      _style={extendStyle(REPLICATION_TIME_CONTROL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, REPLICATION_TIME_CONTROL)} />
   )
 }

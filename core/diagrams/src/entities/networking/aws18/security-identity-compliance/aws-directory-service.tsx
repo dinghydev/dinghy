@@ -11,11 +11,5 @@ export const AWS_DIRECTORY_SERVICE = {
 }
 
 export function AwsDirectoryService(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_DIRECTORY_SERVICE}
-      {...props}
-      _style={extendStyle(AWS_DIRECTORY_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_DIRECTORY_SERVICE)} />
 }

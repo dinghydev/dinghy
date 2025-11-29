@@ -11,7 +11,5 @@ export const TRANSPATH = {
 }
 
 export function Transpath(props: NodeProps) {
-  return (
-    <Shape {...TRANSPATH} {...props} _style={extendStyle(TRANSPATH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSPATH)} />
 }

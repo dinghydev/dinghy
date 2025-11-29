@@ -11,5 +11,5 @@ export const TURBINE = {
 }
 
 export function Turbine(props: NodeProps) {
-  return <Shape {...TURBINE} {...props} _style={extendStyle(TURBINE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TURBINE)} />
 }

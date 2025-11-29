@@ -11,11 +11,5 @@ export const ON_PREMISES_USER = {
 }
 
 export function OnPremisesUser(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PREMISES_USER}
-      {...props}
-      _style={extendStyle(ON_PREMISES_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PREMISES_USER)} />
 }

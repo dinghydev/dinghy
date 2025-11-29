@@ -11,11 +11,5 @@ export const TELESALES_MAN = {
 }
 
 export function TelesalesMan(props: NodeProps) {
-  return (
-    <Shape
-      {...TELESALES_MAN}
-      {...props}
-      _style={extendStyle(TELESALES_MAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TELESALES_MAN)} />
 }

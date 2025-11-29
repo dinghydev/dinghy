@@ -13,9 +13,8 @@ export const MONITORING_SQL_REPORTING_SERVICES = {
 export function MonitoringSqlReportingServices(props: NodeProps) {
   return (
     <Shape
-      {...MONITORING_SQL_REPORTING_SERVICES}
       {...props}
-      _style={extendStyle(MONITORING_SQL_REPORTING_SERVICES, props)}
+      _style={extendStyle(props, MONITORING_SQL_REPORTING_SERVICES)}
     />
   )
 }

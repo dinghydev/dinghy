@@ -11,7 +11,5 @@ export const PRINT_ICON = {
 }
 
 export function PrintIcon(props: NodeProps) {
-  return (
-    <Shape {...PRINT_ICON} {...props} _style={extendStyle(PRINT_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRINT_ICON)} />
 }

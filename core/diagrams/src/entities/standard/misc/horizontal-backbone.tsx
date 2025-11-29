@@ -11,11 +11,5 @@ export const HORIZONTAL_BACKBONE = {
 }
 
 export function HorizontalBackbone(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_BACKBONE}
-      {...props}
-      _style={extendStyle(HORIZONTAL_BACKBONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_BACKBONE)} />
 }

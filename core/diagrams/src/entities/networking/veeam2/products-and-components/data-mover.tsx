@@ -11,7 +11,5 @@ export const DATA_MOVER = {
 }
 
 export function DataMover(props: NodeProps) {
-  return (
-    <Shape {...DATA_MOVER} {...props} _style={extendStyle(DATA_MOVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_MOVER)} />
 }

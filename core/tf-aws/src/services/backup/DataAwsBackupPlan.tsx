@@ -1,0 +1,78 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+import { AwsBackupPlan } from './AwsBackupPlan.tsx'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/backup_plan
+
+export const InputSchema = z.object({
+  plan_id: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  name: z.string().optional(),
+  rule: z.object({
+    completion_window: z.number(),
+    copy_action: z.object({
+      destination_vault_arn: z.string(),
+      lifecycle: z.object({
+        cold_storage_after: z.number(),
+        delete_after: z.number(),
+        opt_in_to_archive_for_supported_resources: z.boolean(),
+      }).array(),
+    }).array(),
+    enable_continuous_backup: z.boolean(),
+    lifecycle: z.object({
+      cold_storage_after: z.number(),
+      delete_after: z.number(),
+      opt_in_to_archive_for_supported_resources: z.boolean(),
+    }).array(),
+    recovery_point_tags: z.record(z.string(), z.string()),
+    rule_name: z.string(),
+    schedule: z.string(),
+    schedule_expression_timezone: z.string(),
+    start_window: z.number(),
+    target_vault_name: z.string(),
+  }).array().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
+  version: z.string().optional(),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function DataAwsBackupPlan(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <AwsBackupPlan
+      _type='aws_backup_plan'
+      _category='data'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props as any}
+    />
+  )
+}
+
+export const useDataAwsBackupPlan = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(DataAwsBackupPlan, node, id)
+
+export const useDataAwsBackupPlans = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(DataAwsBackupPlan, node, id)

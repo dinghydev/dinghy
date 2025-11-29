@@ -12,10 +12,6 @@ export const IPHONE_KEYBOARD_LETTERS = {
 
 export function IphoneKeyboardLetters(props: NodeProps) {
   return (
-    <Shape
-      {...IPHONE_KEYBOARD_LETTERS}
-      {...props}
-      _style={extendStyle(IPHONE_KEYBOARD_LETTERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IPHONE_KEYBOARD_LETTERS)} />
   )
 }

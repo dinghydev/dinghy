@@ -11,11 +11,5 @@ export const NET_MGMT_APPLIANCE = {
 }
 
 export function NetMgmtAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...NET_MGMT_APPLIANCE}
-      {...props}
-      _style={extendStyle(NET_MGMT_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NET_MGMT_APPLIANCE)} />
 }

@@ -11,5 +11,5 @@ export const MAGNET = {
 }
 
 export function Magnet(props: NodeProps) {
-  return <Shape {...MAGNET} {...props} _style={extendStyle(MAGNET, props)} />
+  return <Shape {...props} _style={extendStyle(props, MAGNET)} />
 }

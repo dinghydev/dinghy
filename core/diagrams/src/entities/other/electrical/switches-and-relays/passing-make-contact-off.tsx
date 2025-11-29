@@ -12,10 +12,6 @@ export const PASSING_MAKE_CONTACT_OFF = {
 
 export function PassingMakeContactOff(props: NodeProps) {
   return (
-    <Shape
-      {...PASSING_MAKE_CONTACT_OFF}
-      {...props}
-      _style={extendStyle(PASSING_MAKE_CONTACT_OFF, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PASSING_MAKE_CONTACT_OFF)} />
   )
 }

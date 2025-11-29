@@ -11,5 +11,5 @@ export const BAIDU = {
 }
 
 export function Baidu(props: NodeProps) {
-  return <Shape {...BAIDU} {...props} _style={extendStyle(BAIDU, props)} />
+  return <Shape {...props} _style={extendStyle(props, BAIDU)} />
 }

@@ -11,11 +11,5 @@ export const PREV_NEXT_BUTTON = {
 }
 
 export function PrevNextButton(props: NodeProps) {
-  return (
-    <Shape
-      {...PREV_NEXT_BUTTON}
-      {...props}
-      _style={extendStyle(PREV_NEXT_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PREV_NEXT_BUTTON)} />
 }

@@ -11,11 +11,5 @@ export const UPS_ENTERPRISE = {
 }
 
 export function UpsEnterprise(props: NodeProps) {
-  return (
-    <Shape
-      {...UPS_ENTERPRISE}
-      {...props}
-      _style={extendStyle(UPS_ENTERPRISE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UPS_ENTERPRISE)} />
 }

@@ -11,11 +11,5 @@ export const DDOS_PROTECTION_2 = {
 }
 
 export function DdosProtection2(props: NodeProps) {
-  return (
-    <Shape
-      {...DDOS_PROTECTION_2}
-      {...props}
-      _style={extendStyle(DDOS_PROTECTION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DDOS_PROTECTION_2)} />
 }

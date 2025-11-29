@@ -12,10 +12,6 @@ export const AWS_ELEMENTAL_MEDIACONVERT = {
 
 export function AwsElementalMediaconvert(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_ELEMENTAL_MEDIACONVERT}
-      {...props}
-      _style={extendStyle(AWS_ELEMENTAL_MEDIACONVERT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_ELEMENTAL_MEDIACONVERT)} />
   )
 }

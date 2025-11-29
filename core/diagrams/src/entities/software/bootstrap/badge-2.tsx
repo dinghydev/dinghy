@@ -11,5 +11,5 @@ export const BADGE_2 = {
 }
 
 export function Badge2(props: NodeProps) {
-  return <Shape {...BADGE_2} {...props} _style={extendStyle(BADGE_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, BADGE_2)} />
 }

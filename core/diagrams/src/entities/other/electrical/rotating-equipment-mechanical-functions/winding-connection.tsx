@@ -11,11 +11,5 @@ export const WINDING_CONNECTION = {
 }
 
 export function WindingConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDING_CONNECTION}
-      {...props}
-      _style={extendStyle(WINDING_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDING_CONNECTION)} />
 }

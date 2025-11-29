@@ -11,11 +11,5 @@ export const DAAS_MONITOR = {
 }
 
 export function DaasMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...DAAS_MONITOR}
-      {...props}
-      _style={extendStyle(DAAS_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DAAS_MONITOR)} />
 }

@@ -11,5 +11,5 @@ export const SHUFFLE = {
 }
 
 export function Shuffle(props: NodeProps) {
-  return <Shape {...SHUFFLE} {...props} _style={extendStyle(SHUFFLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHUFFLE)} />
 }

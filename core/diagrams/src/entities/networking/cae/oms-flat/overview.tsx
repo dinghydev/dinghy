@@ -11,7 +11,5 @@ export const OVERVIEW = {
 }
 
 export function Overview(props: NodeProps) {
-  return (
-    <Shape {...OVERVIEW} {...props} _style={extendStyle(OVERVIEW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OVERVIEW)} />
 }

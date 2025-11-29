@@ -13,9 +13,8 @@ export const DSI_DATA_SECURITY_INSURANCE = {
 export function DsiDataSecurityInsurance(props: NodeProps) {
   return (
     <Shape
-      {...DSI_DATA_SECURITY_INSURANCE}
       {...props}
-      _style={extendStyle(DSI_DATA_SECURITY_INSURANCE, props)}
+      _style={extendStyle(props, DSI_DATA_SECURITY_INSURANCE)}
     />
   )
 }

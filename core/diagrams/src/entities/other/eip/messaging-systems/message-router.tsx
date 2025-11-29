@@ -11,11 +11,5 @@ export const MESSAGE_ROUTER = {
 }
 
 export function MessageRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_ROUTER}
-      {...props}
-      _style={extendStyle(MESSAGE_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_ROUTER)} />
 }

@@ -11,11 +11,5 @@ export const DATA_VOLUME_SNAPSHOT = {
 }
 
 export function DataVolumeSnapshot(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_VOLUME_SNAPSHOT}
-      {...props}
-      _style={extendStyle(DATA_VOLUME_SNAPSHOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_VOLUME_SNAPSHOT)} />
 }

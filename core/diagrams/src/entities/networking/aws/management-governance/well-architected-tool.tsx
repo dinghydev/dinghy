@@ -11,11 +11,5 @@ export const WELL_ARCHITECTED_TOOL = {
 }
 
 export function WellArchitectedTool(props: NodeProps) {
-  return (
-    <Shape
-      {...WELL_ARCHITECTED_TOOL}
-      {...props}
-      _style={extendStyle(WELL_ARCHITECTED_TOOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WELL_ARCHITECTED_TOOL)} />
 }

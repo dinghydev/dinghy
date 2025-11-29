@@ -11,11 +11,5 @@ export const NEEDLE_VALVE = {
 }
 
 export function NeedleValve(props: NodeProps) {
-  return (
-    <Shape
-      {...NEEDLE_VALVE}
-      {...props}
-      _style={extendStyle(NEEDLE_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEEDLE_VALVE)} />
 }

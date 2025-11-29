@@ -11,11 +11,5 @@ export const DEVICE_TESTER = {
 }
 
 export function DeviceTester(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_TESTER}
-      {...props}
-      _style={extendStyle(DEVICE_TESTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_TESTER)} />
 }

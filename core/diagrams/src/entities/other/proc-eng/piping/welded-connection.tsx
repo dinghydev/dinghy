@@ -11,11 +11,5 @@ export const WELDED_CONNECTION = {
 }
 
 export function WeldedConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...WELDED_CONNECTION}
-      {...props}
-      _style={extendStyle(WELDED_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WELDED_CONNECTION)} />
 }

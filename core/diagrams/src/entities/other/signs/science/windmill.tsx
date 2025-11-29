@@ -11,7 +11,5 @@ export const WINDMILL = {
 }
 
 export function Windmill(props: NodeProps) {
-  return (
-    <Shape {...WINDMILL} {...props} _style={extendStyle(WINDMILL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDMILL)} />
 }

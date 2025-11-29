@@ -11,5 +11,5 @@ export const SONICO = {
 }
 
 export function Sonico(props: NodeProps) {
-  return <Shape {...SONICO} {...props} _style={extendStyle(SONICO, props)} />
+  return <Shape {...props} _style={extendStyle(props, SONICO)} />
 }

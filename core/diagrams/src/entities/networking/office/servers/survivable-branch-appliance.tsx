@@ -13,9 +13,8 @@ export const SURVIVABLE_BRANCH_APPLIANCE = {
 export function SurvivableBranchAppliance(props: NodeProps) {
   return (
     <Shape
-      {...SURVIVABLE_BRANCH_APPLIANCE}
       {...props}
-      _style={extendStyle(SURVIVABLE_BRANCH_APPLIANCE, props)}
+      _style={extendStyle(props, SURVIVABLE_BRANCH_APPLIANCE)}
     />
   )
 }

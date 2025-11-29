@@ -12,10 +12,6 @@ export const SERVICE_FABRIC_CLUSTERS = {
 
 export function ServiceFabricClusters(props: NodeProps) {
   return (
-    <Shape
-      {...SERVICE_FABRIC_CLUSTERS}
-      {...props}
-      _style={extendStyle(SERVICE_FABRIC_CLUSTERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SERVICE_FABRIC_CLUSTERS)} />
   )
 }

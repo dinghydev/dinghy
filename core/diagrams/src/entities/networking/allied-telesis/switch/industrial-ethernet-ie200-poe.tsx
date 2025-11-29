@@ -13,9 +13,8 @@ export const INDUSTRIAL_ETHERNET_IE200_POE = {
 export function IndustrialEthernetIe200Poe(props: NodeProps) {
   return (
     <Shape
-      {...INDUSTRIAL_ETHERNET_IE200_POE}
       {...props}
-      _style={extendStyle(INDUSTRIAL_ETHERNET_IE200_POE, props)}
+      _style={extendStyle(props, INDUSTRIAL_ETHERNET_IE200_POE)}
     />
   )
 }

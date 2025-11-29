@@ -11,11 +11,5 @@ export const SERVER_NUTANIX = {
 }
 
 export function ServerNutanix(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_NUTANIX}
-      {...props}
-      _style={extendStyle(SERVER_NUTANIX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_NUTANIX)} />
 }

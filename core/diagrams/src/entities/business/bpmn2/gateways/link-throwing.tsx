@@ -11,11 +11,5 @@ export const LINK_THROWING = {
 }
 
 export function LinkThrowing(props: NodeProps) {
-  return (
-    <Shape
-      {...LINK_THROWING}
-      {...props}
-      _style={extendStyle(LINK_THROWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINK_THROWING)} />
 }

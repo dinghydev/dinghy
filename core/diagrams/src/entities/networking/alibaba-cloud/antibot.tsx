@@ -11,5 +11,5 @@ export const ANTIBOT = {
 }
 
 export function Antibot(props: NodeProps) {
-  return <Shape {...ANTIBOT} {...props} _style={extendStyle(ANTIBOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, ANTIBOT)} />
 }

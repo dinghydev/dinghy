@@ -15,11 +15,10 @@ export function Jl664aAruba6300m24Port1gbeAnd4PortSfp56SwitchRear(
 ) {
   return (
     <Shape
-      {...JL664A_ARUBA_6300M_24_PORT_1GBE_AND_4_PORT_SFP56_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL664A_ARUBA_6300M_24_PORT_1GBE_AND_4_PORT_SFP56_SWITCH_REAR,
         props,
+        JL664A_ARUBA_6300M_24_PORT_1GBE_AND_4_PORT_SFP56_SWITCH_REAR,
       )}
     />
   )

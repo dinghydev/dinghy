@@ -11,11 +11,5 @@ export const SINGLE_SWITCH_OFF = {
 }
 
 export function SingleSwitchOff(props: NodeProps) {
-  return (
-    <Shape
-      {...SINGLE_SWITCH_OFF}
-      {...props}
-      _style={extendStyle(SINGLE_SWITCH_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINGLE_SWITCH_OFF)} />
 }

@@ -11,5 +11,5 @@ export const BATCH = {
 }
 
 export function Batch(props: NodeProps) {
-  return <Shape {...BATCH} {...props} _style={extendStyle(BATCH, props)} />
+  return <Shape {...props} _style={extendStyle(props, BATCH)} />
 }

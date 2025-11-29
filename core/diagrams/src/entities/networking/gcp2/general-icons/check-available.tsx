@@ -11,11 +11,5 @@ export const CHECK_AVAILABLE = {
 }
 
 export function CheckAvailable(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECK_AVAILABLE}
-      {...props}
-      _style={extendStyle(CHECK_AVAILABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECK_AVAILABLE)} />
 }

@@ -11,11 +11,5 @@ export const AWS_CODEDEPLOY = {
 }
 
 export function AwsCodedeploy(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CODEDEPLOY}
-      {...props}
-      _style={extendStyle(AWS_CODEDEPLOY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CODEDEPLOY)} />
 }

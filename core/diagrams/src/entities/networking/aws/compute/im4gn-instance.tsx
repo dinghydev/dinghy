@@ -11,11 +11,5 @@ export const IM4GN_INSTANCE = {
 }
 
 export function Im4gnInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...IM4GN_INSTANCE}
-      {...props}
-      _style={extendStyle(IM4GN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IM4GN_INSTANCE)} />
 }

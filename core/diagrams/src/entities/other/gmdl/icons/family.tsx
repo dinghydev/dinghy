@@ -11,5 +11,5 @@ export const FAMILY = {
 }
 
 export function Family(props: NodeProps) {
-  return <Shape {...FAMILY} {...props} _style={extendStyle(FAMILY, props)} />
+  return <Shape {...props} _style={extendStyle(props, FAMILY)} />
 }

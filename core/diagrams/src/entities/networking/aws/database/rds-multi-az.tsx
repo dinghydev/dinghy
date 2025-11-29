@@ -11,11 +11,5 @@ export const RDS_MULTI_AZ = {
 }
 
 export function RdsMultiAz(props: NodeProps) {
-  return (
-    <Shape
-      {...RDS_MULTI_AZ}
-      {...props}
-      _style={extendStyle(RDS_MULTI_AZ, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_MULTI_AZ)} />
 }

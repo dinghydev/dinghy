@@ -11,11 +11,5 @@ export const SUCCESS_DOTTED = {
 }
 
 export function SuccessDotted(props: NodeProps) {
-  return (
-    <Shape
-      {...SUCCESS_DOTTED}
-      {...props}
-      _style={extendStyle(SUCCESS_DOTTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCCESS_DOTTED)} />
 }

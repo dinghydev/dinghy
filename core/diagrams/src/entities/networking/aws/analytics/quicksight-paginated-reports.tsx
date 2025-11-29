@@ -13,9 +13,8 @@ export const QUICKSIGHT_PAGINATED_REPORTS = {
 export function QuicksightPaginatedReports(props: NodeProps) {
   return (
     <Shape
-      {...QUICKSIGHT_PAGINATED_REPORTS}
       {...props}
-      _style={extendStyle(QUICKSIGHT_PAGINATED_REPORTS, props)}
+      _style={extendStyle(props, QUICKSIGHT_PAGINATED_REPORTS)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const LETTER = {
 }
 
 export function Letter(props: NodeProps) {
-  return <Shape {...LETTER} {...props} _style={extendStyle(LETTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, LETTER)} />
 }

@@ -11,11 +11,5 @@ export const I4I_INSTANCE = {
 }
 
 export function I4iInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...I4I_INSTANCE}
-      {...props}
-      _style={extendStyle(I4I_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, I4I_INSTANCE)} />
 }

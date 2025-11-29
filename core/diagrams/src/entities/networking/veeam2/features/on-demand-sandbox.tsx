@@ -11,11 +11,5 @@ export const ON_DEMAND_SANDBOX = {
 }
 
 export function OnDemandSandbox(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_DEMAND_SANDBOX}
-      {...props}
-      _style={extendStyle(ON_DEMAND_SANDBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_DEMAND_SANDBOX)} />
 }

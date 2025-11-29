@@ -13,9 +13,8 @@ export const MODIFIERS_CUSTOM_VIRTUAL_MACHINE = {
 export function ModifiersCustomVirtualMachine(props: NodeProps) {
   return (
     <Shape
-      {...MODIFIERS_CUSTOM_VIRTUAL_MACHINE}
       {...props}
-      _style={extendStyle(MODIFIERS_CUSTOM_VIRTUAL_MACHINE, props)}
+      _style={extendStyle(props, MODIFIERS_CUSTOM_VIRTUAL_MACHINE)}
     />
   )
 }

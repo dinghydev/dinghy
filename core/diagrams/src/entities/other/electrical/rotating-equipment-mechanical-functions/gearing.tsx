@@ -11,5 +11,5 @@ export const GEARING = {
 }
 
 export function Gearing(props: NodeProps) {
-  return <Shape {...GEARING} {...props} _style={extendStyle(GEARING, props)} />
+  return <Shape {...props} _style={extendStyle(props, GEARING)} />
 }

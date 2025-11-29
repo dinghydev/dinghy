@@ -11,11 +11,5 @@ export const TEST_MESSAGE = {
 }
 
 export function TestMessage(props: NodeProps) {
-  return (
-    <Shape
-      {...TEST_MESSAGE}
-      {...props}
-      _style={extendStyle(TEST_MESSAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEST_MESSAGE)} />
 }

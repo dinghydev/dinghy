@@ -11,7 +11,5 @@ export const USB_STICK = {
 }
 
 export function UsbStick(props: NodeProps) {
-  return (
-    <Shape {...USB_STICK} {...props} _style={extendStyle(USB_STICK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USB_STICK)} />
 }

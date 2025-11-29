@@ -11,11 +11,5 @@ export const EXTERNAL_STORAGE = {
 }
 
 export function ExternalStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTERNAL_STORAGE}
-      {...props}
-      _style={extendStyle(EXTERNAL_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTERNAL_STORAGE)} />
 }

@@ -11,11 +11,5 @@ export const INFRASTRUCTURE_SYSTEM = {
 }
 
 export function InfrastructureSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...INFRASTRUCTURE_SYSTEM}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_SYSTEM)} />
 }

@@ -13,9 +13,8 @@ export const SYSTEMS_MANAGER_INCIDENT_MANAGER = {
 export function SystemsManagerIncidentManager(props: NodeProps) {
   return (
     <Shape
-      {...SYSTEMS_MANAGER_INCIDENT_MANAGER}
       {...props}
-      _style={extendStyle(SYSTEMS_MANAGER_INCIDENT_MANAGER, props)}
+      _style={extendStyle(props, SYSTEMS_MANAGER_INCIDENT_MANAGER)}
     />
   )
 }

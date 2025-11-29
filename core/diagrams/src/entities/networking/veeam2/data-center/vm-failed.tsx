@@ -11,7 +11,5 @@ export const VM_FAILED = {
 }
 
 export function VmFailed(props: NodeProps) {
-  return (
-    <Shape {...VM_FAILED} {...props} _style={extendStyle(VM_FAILED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_FAILED)} />
 }

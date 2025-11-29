@@ -10,11 +10,5 @@ export const BUTTON_AVATAR_2 = {
 }
 
 export function ButtonAvatar2(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_AVATAR_2}
-      {...props}
-      _style={extendStyle(BUTTON_AVATAR_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_AVATAR_2)} />
 }

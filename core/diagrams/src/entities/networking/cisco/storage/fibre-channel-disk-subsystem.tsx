@@ -13,9 +13,8 @@ export const FIBRE_CHANNEL_DISK_SUBSYSTEM = {
 export function FibreChannelDiskSubsystem(props: NodeProps) {
   return (
     <Shape
-      {...FIBRE_CHANNEL_DISK_SUBSYSTEM}
       {...props}
-      _style={extendStyle(FIBRE_CHANNEL_DISK_SUBSYSTEM, props)}
+      _style={extendStyle(props, FIBRE_CHANNEL_DISK_SUBSYSTEM)}
     />
   )
 }

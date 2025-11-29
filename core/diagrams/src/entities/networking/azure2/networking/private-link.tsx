@@ -11,11 +11,5 @@ export const PRIVATE_LINK = {
 }
 
 export function PrivateLink(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIVATE_LINK}
-      {...props}
-      _style={extendStyle(PRIVATE_LINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIVATE_LINK)} />
 }

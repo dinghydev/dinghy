@@ -11,7 +11,5 @@ export const CITRIX_APP = {
 }
 
 export function CitrixApp(props: NodeProps) {
-  return (
-    <Shape {...CITRIX_APP} {...props} _style={extendStyle(CITRIX_APP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_APP)} />
 }

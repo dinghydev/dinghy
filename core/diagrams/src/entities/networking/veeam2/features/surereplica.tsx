@@ -11,11 +11,5 @@ export const SUREREPLICA = {
 }
 
 export function Surereplica(props: NodeProps) {
-  return (
-    <Shape
-      {...SUREREPLICA}
-      {...props}
-      _style={extendStyle(SUREREPLICA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUREREPLICA)} />
 }

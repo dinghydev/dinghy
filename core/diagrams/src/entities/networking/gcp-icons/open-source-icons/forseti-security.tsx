@@ -11,11 +11,5 @@ export const FORSETI_SECURITY = {
 }
 
 export function ForsetiSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...FORSETI_SECURITY}
-      {...props}
-      _style={extendStyle(FORSETI_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORSETI_SECURITY)} />
 }

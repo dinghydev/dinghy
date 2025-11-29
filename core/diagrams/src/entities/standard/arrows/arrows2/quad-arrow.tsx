@@ -11,7 +11,5 @@ export const QUAD_ARROW = {
 }
 
 export function QuadArrow(props: NodeProps) {
-  return (
-    <Shape {...QUAD_ARROW} {...props} _style={extendStyle(QUAD_ARROW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUAD_ARROW)} />
 }

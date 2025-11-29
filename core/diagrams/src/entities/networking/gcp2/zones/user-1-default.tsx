@@ -11,11 +11,5 @@ export const USER_1_DEFAULT = {
 }
 
 export function User1Default(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_1_DEFAULT}
-      {...props}
-      _style={extendStyle(USER_1_DEFAULT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_1_DEFAULT)} />
 }

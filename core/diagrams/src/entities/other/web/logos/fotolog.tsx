@@ -11,5 +11,5 @@ export const FOTOLOG = {
 }
 
 export function Fotolog(props: NodeProps) {
-  return <Shape {...FOTOLOG} {...props} _style={extendStyle(FOTOLOG, props)} />
+  return <Shape {...props} _style={extendStyle(props, FOTOLOG)} />
 }

@@ -11,11 +11,5 @@ export const DROPBOX_CODE_SOURCE = {
 }
 
 export function DropboxCodeSource(props: NodeProps) {
-  return (
-    <Shape
-      {...DROPBOX_CODE_SOURCE}
-      {...props}
-      _style={extendStyle(DROPBOX_CODE_SOURCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DROPBOX_CODE_SOURCE)} />
 }

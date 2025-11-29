@@ -11,5 +11,5 @@ export const APACHE = {
 }
 
 export function Apache(props: NodeProps) {
-  return <Shape {...APACHE} {...props} _style={extendStyle(APACHE, props)} />
+  return <Shape {...props} _style={extendStyle(props, APACHE)} />
 }

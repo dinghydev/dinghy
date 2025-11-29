@@ -11,11 +11,5 @@ export const PRINT_SERVER = {
 }
 
 export function PrintServer(props: NodeProps) {
-  return (
-    <Shape
-      {...PRINT_SERVER}
-      {...props}
-      _style={extendStyle(PRINT_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRINT_SERVER)} />
 }

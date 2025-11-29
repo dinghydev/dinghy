@@ -11,11 +11,5 @@ export const AZURE_SENTINEL = {
 }
 
 export function AzureSentinel(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_SENTINEL}
-      {...props}
-      _style={extendStyle(AZURE_SENTINEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_SENTINEL)} />
 }

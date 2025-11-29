@@ -11,5 +11,5 @@ export const FILES = {
 }
 
 export function Files(props: NodeProps) {
-  return <Shape {...FILES} {...props} _style={extendStyle(FILES, props)} />
+  return <Shape {...props} _style={extendStyle(props, FILES)} />
 }

@@ -11,7 +11,5 @@ export const VBO_SERVER = {
 }
 
 export function VboServer(props: NodeProps) {
-  return (
-    <Shape {...VBO_SERVER} {...props} _style={extendStyle(VBO_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VBO_SERVER)} />
 }

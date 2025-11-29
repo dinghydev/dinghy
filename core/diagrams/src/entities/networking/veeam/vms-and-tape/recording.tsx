@@ -11,7 +11,5 @@ export const RECORDING = {
 }
 
 export function Recording(props: NodeProps) {
-  return (
-    <Shape {...RECORDING} {...props} _style={extendStyle(RECORDING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECORDING)} />
 }

@@ -13,11 +13,10 @@ export const CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT = {
 export function CloudWanTransitGatewayRouteTableAttachment(props: NodeProps) {
   return (
     <Shape
-      {...CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT}
       {...props}
       _style={extendStyle(
-        CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT,
         props,
+        CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT,
       )}
     />
   )

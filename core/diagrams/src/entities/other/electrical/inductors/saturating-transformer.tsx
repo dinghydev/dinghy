@@ -12,10 +12,6 @@ export const SATURATING_TRANSFORMER = {
 
 export function SaturatingTransformer(props: NodeProps) {
   return (
-    <Shape
-      {...SATURATING_TRANSFORMER}
-      {...props}
-      _style={extendStyle(SATURATING_TRANSFORMER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SATURATING_TRANSFORMER)} />
   )
 }

@@ -11,11 +11,5 @@ export const AWS_COST_EXPLORER = {
 }
 
 export function AwsCostExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_COST_EXPLORER}
-      {...props}
-      _style={extendStyle(AWS_COST_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_COST_EXPLORER)} />
 }

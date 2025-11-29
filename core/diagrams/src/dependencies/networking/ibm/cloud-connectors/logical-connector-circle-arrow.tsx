@@ -11,9 +11,8 @@ export const LOGICAL_CONNECTOR_CIRCLE_ARROW = {
 export function LogicalConnectorCircleArrow(props: NodeProps) {
   return (
     <Dependency
-      {...LOGICAL_CONNECTOR_CIRCLE_ARROW}
       {...props}
-      _style={extendStyle(LOGICAL_CONNECTOR_CIRCLE_ARROW, props)}
+      _style={extendStyle(props, LOGICAL_CONNECTOR_CIRCLE_ARROW)}
     />
   )
 }

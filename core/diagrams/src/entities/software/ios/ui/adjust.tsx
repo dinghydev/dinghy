@@ -11,5 +11,5 @@ export const ADJUST = {
 }
 
 export function Adjust(props: NodeProps) {
-  return <Shape {...ADJUST} {...props} _style={extendStyle(ADJUST, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADJUST)} />
 }

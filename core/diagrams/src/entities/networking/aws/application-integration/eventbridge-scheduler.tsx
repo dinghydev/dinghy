@@ -11,11 +11,5 @@ export const EVENTBRIDGE_SCHEDULER = {
 }
 
 export function EventbridgeScheduler(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENTBRIDGE_SCHEDULER}
-      {...props}
-      _style={extendStyle(EVENTBRIDGE_SCHEDULER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENTBRIDGE_SCHEDULER)} />
 }

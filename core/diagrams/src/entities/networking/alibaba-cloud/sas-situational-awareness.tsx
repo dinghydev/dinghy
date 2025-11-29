@@ -12,10 +12,6 @@ export const SAS_SITUATIONAL_AWARENESS = {
 
 export function SasSituationalAwareness(props: NodeProps) {
   return (
-    <Shape
-      {...SAS_SITUATIONAL_AWARENESS}
-      {...props}
-      _style={extendStyle(SAS_SITUATIONAL_AWARENESS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAS_SITUATIONAL_AWARENESS)} />
   )
 }

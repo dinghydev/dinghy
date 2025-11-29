@@ -11,11 +11,5 @@ export const CONTROLS_HORIZONTAL = {
 }
 
 export function ControlsHorizontal(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROLS_HORIZONTAL}
-      {...props}
-      _style={extendStyle(CONTROLS_HORIZONTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROLS_HORIZONTAL)} />
 }

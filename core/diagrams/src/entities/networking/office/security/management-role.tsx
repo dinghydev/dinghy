@@ -11,11 +11,5 @@ export const MANAGEMENT_ROLE = {
 }
 
 export function ManagementRole(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_ROLE}
-      {...props}
-      _style={extendStyle(MANAGEMENT_ROLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_ROLE)} />
 }

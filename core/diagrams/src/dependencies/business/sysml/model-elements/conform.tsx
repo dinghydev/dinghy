@@ -9,7 +9,5 @@ export const CONFORM = {
 }
 
 export function Conform(props: NodeProps) {
-  return (
-    <Dependency {...CONFORM} {...props} _style={extendStyle(CONFORM, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, CONFORM)} />
 }

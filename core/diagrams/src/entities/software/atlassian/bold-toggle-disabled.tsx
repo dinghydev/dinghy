@@ -11,11 +11,5 @@ export const BOLD_TOGGLE_DISABLED = {
 }
 
 export function BoldToggleDisabled(props: NodeProps) {
-  return (
-    <Shape
-      {...BOLD_TOGGLE_DISABLED}
-      {...props}
-      _style={extendStyle(BOLD_TOGGLE_DISABLED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOLD_TOGGLE_DISABLED)} />
 }

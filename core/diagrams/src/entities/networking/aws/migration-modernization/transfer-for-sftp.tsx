@@ -11,11 +11,5 @@ export const TRANSFER_FOR_SFTP = {
 }
 
 export function TransferForSftp(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSFER_FOR_SFTP}
-      {...props}
-      _style={extendStyle(TRANSFER_FOR_SFTP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSFER_FOR_SFTP)} />
 }

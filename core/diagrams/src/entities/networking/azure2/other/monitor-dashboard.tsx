@@ -11,11 +11,5 @@ export const MONITOR_DASHBOARD = {
 }
 
 export function MonitorDashboard(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITOR_DASHBOARD}
-      {...props}
-      _style={extendStyle(MONITOR_DASHBOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITOR_DASHBOARD)} />
 }

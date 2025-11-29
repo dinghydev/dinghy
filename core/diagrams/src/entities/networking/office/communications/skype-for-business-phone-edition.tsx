@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_PHONE_EDITION = {
 export function SkypeForBusinessPhoneEdition(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_PHONE_EDITION}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_PHONE_EDITION, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_PHONE_EDITION)}
     />
   )
 }

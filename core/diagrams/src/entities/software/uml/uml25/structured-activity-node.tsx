@@ -12,10 +12,6 @@ export const STRUCTURED_ACTIVITY_NODE = {
 
 export function StructuredActivityNode(props: NodeProps) {
   return (
-    <Shape
-      {...STRUCTURED_ACTIVITY_NODE}
-      {...props}
-      _style={extendStyle(STRUCTURED_ACTIVITY_NODE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STRUCTURED_ACTIVITY_NODE)} />
   )
 }

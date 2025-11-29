@@ -11,7 +11,5 @@ export const NONE_START = {
 }
 
 export function NoneStart(props: NodeProps) {
-  return (
-    <Shape {...NONE_START} {...props} _style={extendStyle(NONE_START, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NONE_START)} />
 }

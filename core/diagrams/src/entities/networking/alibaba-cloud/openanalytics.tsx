@@ -11,11 +11,5 @@ export const OPENANALYTICS = {
 }
 
 export function Openanalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...OPENANALYTICS}
-      {...props}
-      _style={extendStyle(OPENANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPENANALYTICS)} />
 }

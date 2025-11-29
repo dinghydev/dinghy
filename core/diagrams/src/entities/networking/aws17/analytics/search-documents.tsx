@@ -11,11 +11,5 @@ export const SEARCH_DOCUMENTS = {
 }
 
 export function SearchDocuments(props: NodeProps) {
-  return (
-    <Shape
-      {...SEARCH_DOCUMENTS}
-      {...props}
-      _style={extendStyle(SEARCH_DOCUMENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEARCH_DOCUMENTS)} />
 }

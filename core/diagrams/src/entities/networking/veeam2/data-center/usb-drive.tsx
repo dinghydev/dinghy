@@ -11,7 +11,5 @@ export const USB_DRIVE = {
 }
 
 export function UsbDrive(props: NodeProps) {
-  return (
-    <Shape {...USB_DRIVE} {...props} _style={extendStyle(USB_DRIVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USB_DRIVE)} />
 }

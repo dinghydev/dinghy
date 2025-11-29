@@ -12,10 +12,6 @@ export const DATABASE_MIGRATION_SERVICE = {
 
 export function DatabaseMigrationService(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_MIGRATION_SERVICE}
-      {...props}
-      _style={extendStyle(DATABASE_MIGRATION_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_MIGRATION_SERVICE)} />
   )
 }

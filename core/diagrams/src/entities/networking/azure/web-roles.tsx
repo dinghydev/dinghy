@@ -11,7 +11,5 @@ export const WEB_ROLES = {
 }
 
 export function WebRoles(props: NodeProps) {
-  return (
-    <Shape {...WEB_ROLES} {...props} _style={extendStyle(WEB_ROLES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_ROLES)} />
 }

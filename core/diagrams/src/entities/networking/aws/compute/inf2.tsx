@@ -11,5 +11,5 @@ export const INF2 = {
 }
 
 export function Inf2(props: NodeProps) {
-  return <Shape {...INF2} {...props} _style={extendStyle(INF2, props)} />
+  return <Shape {...props} _style={extendStyle(props, INF2)} />
 }

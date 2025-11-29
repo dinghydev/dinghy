@@ -11,7 +11,5 @@ export const RING_BUS = {
 }
 
 export function RingBus(props: NodeProps) {
-  return (
-    <Shape {...RING_BUS} {...props} _style={extendStyle(RING_BUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RING_BUS)} />
 }

@@ -12,10 +12,6 @@ export const LOG_ANALYTICS_QUERY_PACK = {
 
 export function LogAnalyticsQueryPack(props: NodeProps) {
   return (
-    <Shape
-      {...LOG_ANALYTICS_QUERY_PACK}
-      {...props}
-      _style={extendStyle(LOG_ANALYTICS_QUERY_PACK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOG_ANALYTICS_QUERY_PACK)} />
   )
 }

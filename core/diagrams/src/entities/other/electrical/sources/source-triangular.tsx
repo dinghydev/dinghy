@@ -11,11 +11,5 @@ export const SOURCE_TRIANGULAR = {
 }
 
 export function SourceTriangular(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCE_TRIANGULAR}
-      {...props}
-      _style={extendStyle(SOURCE_TRIANGULAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_TRIANGULAR)} />
 }

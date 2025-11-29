@@ -11,5 +11,5 @@ export const NO = {
 }
 
 export function No(props: NodeProps) {
-  return <Shape {...NO} {...props} _style={extendStyle(NO, props)} />
+  return <Shape {...props} _style={extendStyle(props, NO)} />
 }

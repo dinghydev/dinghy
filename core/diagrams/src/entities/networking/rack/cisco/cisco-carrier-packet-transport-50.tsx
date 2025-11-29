@@ -13,9 +13,8 @@ export const CISCO_CARRIER_PACKET_TRANSPORT_50 = {
 export function CiscoCarrierPacketTransport50(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_CARRIER_PACKET_TRANSPORT_50}
       {...props}
-      _style={extendStyle(CISCO_CARRIER_PACKET_TRANSPORT_50, props)}
+      _style={extendStyle(props, CISCO_CARRIER_PACKET_TRANSPORT_50)}
     />
   )
 }

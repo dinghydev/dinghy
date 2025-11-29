@@ -11,5 +11,5 @@ export const MUX = {
 }
 
 export function Mux(props: NodeProps) {
-  return <Shape {...MUX} {...props} _style={extendStyle(MUX, props)} />
+  return <Shape {...props} _style={extendStyle(props, MUX)} />
 }

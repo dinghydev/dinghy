@@ -11,5 +11,5 @@ export const H_323 = {
 }
 
 export function H323(props: NodeProps) {
-  return <Shape {...H_323} {...props} _style={extendStyle(H_323, props)} />
+  return <Shape {...props} _style={extendStyle(props, H_323)} />
 }

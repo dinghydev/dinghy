@@ -11,11 +11,5 @@ export const INCIDENT_MANAGER = {
 }
 
 export function IncidentManager(props: NodeProps) {
-  return (
-    <Shape
-      {...INCIDENT_MANAGER}
-      {...props}
-      _style={extendStyle(INCIDENT_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INCIDENT_MANAGER)} />
 }

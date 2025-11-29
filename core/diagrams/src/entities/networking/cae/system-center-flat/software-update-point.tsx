@@ -11,11 +11,5 @@ export const SOFTWARE_UPDATE_POINT = {
 }
 
 export function SoftwareUpdatePoint(props: NodeProps) {
-  return (
-    <Shape
-      {...SOFTWARE_UPDATE_POINT}
-      {...props}
-      _style={extendStyle(SOFTWARE_UPDATE_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTWARE_UPDATE_POINT)} />
 }

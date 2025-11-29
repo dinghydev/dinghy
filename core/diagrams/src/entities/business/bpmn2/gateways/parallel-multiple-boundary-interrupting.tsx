@@ -13,9 +13,8 @@ export const PARALLEL_MULTIPLE_BOUNDARY_INTERRUPTING = {
 export function ParallelMultipleBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...PARALLEL_MULTIPLE_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(PARALLEL_MULTIPLE_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, PARALLEL_MULTIPLE_BOUNDARY_INTERRUPTING)}
     />
   )
 }

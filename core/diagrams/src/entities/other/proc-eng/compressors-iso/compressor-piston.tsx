@@ -11,11 +11,5 @@ export const COMPRESSOR_PISTON = {
 }
 
 export function CompressorPiston(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPRESSOR_PISTON}
-      {...props}
-      _style={extendStyle(COMPRESSOR_PISTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR_PISTON)} />
 }

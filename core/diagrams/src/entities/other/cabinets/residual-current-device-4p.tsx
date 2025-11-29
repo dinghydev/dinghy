@@ -12,10 +12,6 @@ export const RESIDUAL_CURRENT_DEVICE_4P = {
 
 export function ResidualCurrentDevice4p(props: NodeProps) {
   return (
-    <Shape
-      {...RESIDUAL_CURRENT_DEVICE_4P}
-      {...props}
-      _style={extendStyle(RESIDUAL_CURRENT_DEVICE_4P, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RESIDUAL_CURRENT_DEVICE_4P)} />
   )
 }

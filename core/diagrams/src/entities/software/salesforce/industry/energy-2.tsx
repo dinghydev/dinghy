@@ -11,7 +11,5 @@ export const ENERGY_2 = {
 }
 
 export function Energy2(props: NodeProps) {
-  return (
-    <Shape {...ENERGY_2} {...props} _style={extendStyle(ENERGY_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENERGY_2)} />
 }

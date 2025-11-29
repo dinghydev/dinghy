@@ -12,10 +12,6 @@ export const ENTRA_MANAGED_IDENTITIES = {
 
 export function EntraManagedIdentities(props: NodeProps) {
   return (
-    <Shape
-      {...ENTRA_MANAGED_IDENTITIES}
-      {...props}
-      _style={extendStyle(ENTRA_MANAGED_IDENTITIES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ENTRA_MANAGED_IDENTITIES)} />
   )
 }

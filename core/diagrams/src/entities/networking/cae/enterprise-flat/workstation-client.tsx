@@ -11,11 +11,5 @@ export const WORKSTATION_CLIENT = {
 }
 
 export function WorkstationClient(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKSTATION_CLIENT}
-      {...props}
-      _style={extendStyle(WORKSTATION_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKSTATION_CLIENT)} />
 }

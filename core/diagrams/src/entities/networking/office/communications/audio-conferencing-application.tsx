@@ -13,9 +13,8 @@ export const AUDIO_CONFERENCING_APPLICATION = {
 export function AudioConferencingApplication(props: NodeProps) {
   return (
     <Shape
-      {...AUDIO_CONFERENCING_APPLICATION}
       {...props}
-      _style={extendStyle(AUDIO_CONFERENCING_APPLICATION, props)}
+      _style={extendStyle(props, AUDIO_CONFERENCING_APPLICATION)}
     />
   )
 }

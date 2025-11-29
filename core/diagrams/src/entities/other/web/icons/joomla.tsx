@@ -11,5 +11,5 @@ export const JOOMLA = {
 }
 
 export function Joomla(props: NodeProps) {
-  return <Shape {...JOOMLA} {...props} _style={extendStyle(JOOMLA, props)} />
+  return <Shape {...props} _style={extendStyle(props, JOOMLA)} />
 }

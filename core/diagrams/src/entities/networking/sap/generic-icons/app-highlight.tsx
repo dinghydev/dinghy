@@ -11,11 +11,5 @@ export const APP_HIGHLIGHT = {
 }
 
 export function AppHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(APP_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_HIGHLIGHT)} />
 }

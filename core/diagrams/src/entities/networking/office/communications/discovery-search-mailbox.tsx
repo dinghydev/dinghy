@@ -12,10 +12,6 @@ export const DISCOVERY_SEARCH_MAILBOX = {
 
 export function DiscoverySearchMailbox(props: NodeProps) {
   return (
-    <Shape
-      {...DISCOVERY_SEARCH_MAILBOX}
-      {...props}
-      _style={extendStyle(DISCOVERY_SEARCH_MAILBOX, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DISCOVERY_SEARCH_MAILBOX)} />
   )
 }

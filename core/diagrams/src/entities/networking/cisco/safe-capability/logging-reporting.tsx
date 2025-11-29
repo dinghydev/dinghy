@@ -11,11 +11,5 @@ export const LOGGING_REPORTING = {
 }
 
 export function LoggingReporting(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGGING_REPORTING}
-      {...props}
-      _style={extendStyle(LOGGING_REPORTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGGING_REPORTING)} />
 }

@@ -11,11 +11,5 @@ export const TAPE_WRITING_DEVICE = {
 }
 
 export function TapeWritingDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_WRITING_DEVICE}
-      {...props}
-      _style={extendStyle(TAPE_WRITING_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_WRITING_DEVICE)} />
 }

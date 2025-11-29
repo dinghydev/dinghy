@@ -12,10 +12,6 @@ export const SUSTAINABILITY_CALCULATOR = {
 
 export function SustainabilityCalculator(props: NodeProps) {
   return (
-    <Shape
-      {...SUSTAINABILITY_CALCULATOR}
-      {...props}
-      _style={extendStyle(SUSTAINABILITY_CALCULATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SUSTAINABILITY_CALCULATOR)} />
   )
 }

@@ -13,9 +13,8 @@ export const BACKUP_RECOVERY_POINT_OBJECTIVE = {
 export function BackupRecoveryPointObjective(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_RECOVERY_POINT_OBJECTIVE}
       {...props}
-      _style={extendStyle(BACKUP_RECOVERY_POINT_OBJECTIVE, props)}
+      _style={extendStyle(props, BACKUP_RECOVERY_POINT_OBJECTIVE)}
     />
   )
 }

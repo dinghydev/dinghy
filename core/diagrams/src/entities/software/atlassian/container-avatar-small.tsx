@@ -12,10 +12,6 @@ export const CONTAINER_AVATAR_SMALL = {
 
 export function ContainerAvatarSmall(props: NodeProps) {
   return (
-    <Shape
-      {...CONTAINER_AVATAR_SMALL}
-      {...props}
-      _style={extendStyle(CONTAINER_AVATAR_SMALL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTAINER_AVATAR_SMALL)} />
   )
 }

@@ -11,11 +11,5 @@ export const CLOUD_JOBS_API = {
 }
 
 export function CloudJobsApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_JOBS_API}
-      {...props}
-      _style={extendStyle(CLOUD_JOBS_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_JOBS_API)} />
 }

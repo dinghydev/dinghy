@@ -11,5 +11,5 @@ export const YANDEX = {
 }
 
 export function Yandex(props: NodeProps) {
-  return <Shape {...YANDEX} {...props} _style={extendStyle(YANDEX, props)} />
+  return <Shape {...props} _style={extendStyle(props, YANDEX)} />
 }

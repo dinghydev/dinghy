@@ -11,11 +11,5 @@ export const PROGRESS_BAR = {
 }
 
 export function ProgressBar(props: NodeProps) {
-  return (
-    <Shape
-      {...PROGRESS_BAR}
-      {...props}
-      _style={extendStyle(PROGRESS_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROGRESS_BAR)} />
 }

@@ -11,11 +11,5 @@ export const ACTION_SHEET_2 = {
 }
 
 export function ActionSheet2(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTION_SHEET_2}
-      {...props}
-      _style={extendStyle(ACTION_SHEET_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_SHEET_2)} />
 }

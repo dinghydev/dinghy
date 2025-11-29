@@ -11,11 +11,5 @@ export const RESPONSE_GROUP = {
 }
 
 export function ResponseGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...RESPONSE_GROUP}
-      {...props}
-      _style={extendStyle(RESPONSE_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESPONSE_GROUP)} />
 }

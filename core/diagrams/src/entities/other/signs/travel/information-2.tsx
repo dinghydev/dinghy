@@ -11,11 +11,5 @@ export const INFORMATION_2 = {
 }
 
 export function Information2(props: NodeProps) {
-  return (
-    <Shape
-      {...INFORMATION_2}
-      {...props}
-      _style={extendStyle(INFORMATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFORMATION_2)} />
 }

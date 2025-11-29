@@ -11,5 +11,5 @@ export const SIGNAL = {
 }
 
 export function Signal(props: NodeProps) {
-  return <Shape {...SIGNAL} {...props} _style={extendStyle(SIGNAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, SIGNAL)} />
 }

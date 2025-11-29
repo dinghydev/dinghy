@@ -11,11 +11,5 @@ export const ACCESS_REVIEW = {
 }
 
 export function AccessReview(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_REVIEW}
-      {...props}
-      _style={extendStyle(ACCESS_REVIEW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_REVIEW)} />
 }

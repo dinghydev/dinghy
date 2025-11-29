@@ -11,11 +11,5 @@ export const BANDWIDTH_CALCULATOR = {
 }
 
 export function BandwidthCalculator(props: NodeProps) {
-  return (
-    <Shape
-      {...BANDWIDTH_CALCULATOR}
-      {...props}
-      _style={extendStyle(BANDWIDTH_CALCULATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANDWIDTH_CALCULATOR)} />
 }

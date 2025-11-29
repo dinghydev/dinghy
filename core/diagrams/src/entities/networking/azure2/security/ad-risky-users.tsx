@@ -11,11 +11,5 @@ export const AD_RISKY_USERS = {
 }
 
 export function AdRiskyUsers(props: NodeProps) {
-  return (
-    <Shape
-      {...AD_RISKY_USERS}
-      {...props}
-      _style={extendStyle(AD_RISKY_USERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_RISKY_USERS)} />
 }

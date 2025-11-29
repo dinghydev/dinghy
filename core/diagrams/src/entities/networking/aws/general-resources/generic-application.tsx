@@ -11,11 +11,5 @@ export const GENERIC_APPLICATION = {
 }
 
 export function GenericApplication(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_APPLICATION}
-      {...props}
-      _style={extendStyle(GENERIC_APPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_APPLICATION)} />
 }

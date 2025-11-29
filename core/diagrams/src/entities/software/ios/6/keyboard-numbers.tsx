@@ -11,11 +11,5 @@ export const KEYBOARD_NUMBERS = {
 }
 
 export function KeyboardNumbers(props: NodeProps) {
-  return (
-    <Shape
-      {...KEYBOARD_NUMBERS}
-      {...props}
-      _style={extendStyle(KEYBOARD_NUMBERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEYBOARD_NUMBERS)} />
 }

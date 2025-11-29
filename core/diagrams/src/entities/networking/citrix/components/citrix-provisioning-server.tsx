@@ -12,10 +12,6 @@ export const CITRIX_PROVISIONING_SERVER = {
 
 export function CitrixProvisioningServer(props: NodeProps) {
   return (
-    <Shape
-      {...CITRIX_PROVISIONING_SERVER}
-      {...props}
-      _style={extendStyle(CITRIX_PROVISIONING_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CITRIX_PROVISIONING_SERVER)} />
   )
 }

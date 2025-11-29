@@ -11,11 +11,5 @@ export const HORIZONTAL_DIMENSION = {
 }
 
 export function HorizontalDimension(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_DIMENSION}
-      {...props}
-      _style={extendStyle(HORIZONTAL_DIMENSION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_DIMENSION)} />
 }

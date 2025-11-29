@@ -11,7 +11,5 @@ export const WORXHOME = {
 }
 
 export function Worxhome(props: NodeProps) {
-  return (
-    <Shape {...WORXHOME} {...props} _style={extendStyle(WORXHOME, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORXHOME)} />
 }

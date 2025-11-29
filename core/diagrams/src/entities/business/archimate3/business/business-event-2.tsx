@@ -11,11 +11,5 @@ export const BUSINESS_EVENT_2 = {
 }
 
 export function BusinessEvent2(props: NodeProps) {
-  return (
-    <Shape
-      {...BUSINESS_EVENT_2}
-      {...props}
-      _style={extendStyle(BUSINESS_EVENT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUSINESS_EVENT_2)} />
 }

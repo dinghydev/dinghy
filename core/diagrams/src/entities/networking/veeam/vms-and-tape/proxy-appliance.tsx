@@ -11,11 +11,5 @@ export const PROXY_APPLIANCE = {
 }
 
 export function ProxyAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...PROXY_APPLIANCE}
-      {...props}
-      _style={extendStyle(PROXY_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROXY_APPLIANCE)} />
 }

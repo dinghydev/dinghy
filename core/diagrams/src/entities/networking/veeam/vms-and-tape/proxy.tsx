@@ -11,5 +11,5 @@ export const PROXY = {
 }
 
 export function Proxy(props: NodeProps) {
-  return <Shape {...PROXY} {...props} _style={extendStyle(PROXY, props)} />
+  return <Shape {...props} _style={extendStyle(props, PROXY)} />
 }

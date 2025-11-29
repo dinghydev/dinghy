@@ -11,7 +11,5 @@ export const MULTIPLIER = {
 }
 
 export function Multiplier(props: NodeProps) {
-  return (
-    <Shape {...MULTIPLIER} {...props} _style={extendStyle(MULTIPLIER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLIER)} />
 }

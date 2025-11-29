@@ -11,11 +11,5 @@ export const MESSAGE_TRANSLATOR = {
 }
 
 export function MessageTranslator(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_TRANSLATOR}
-      {...props}
-      _style={extendStyle(MESSAGE_TRANSLATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_TRANSLATOR)} />
 }

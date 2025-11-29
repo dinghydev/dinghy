@@ -9,11 +9,5 @@ export const ENTITY_LIFELINE = {
 }
 
 export function EntityLifeline(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTITY_LIFELINE}
-      {...props}
-      _style={extendStyle(ENTITY_LIFELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTITY_LIFELINE)} />
 }

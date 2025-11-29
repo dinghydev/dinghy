@@ -12,10 +12,6 @@ export const SECURITY_INCIDENT_RESPONSE = {
 
 export function SecurityIncidentResponse(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_INCIDENT_RESPONSE}
-      {...props}
-      _style={extendStyle(SECURITY_INCIDENT_RESPONSE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_INCIDENT_RESPONSE)} />
   )
 }

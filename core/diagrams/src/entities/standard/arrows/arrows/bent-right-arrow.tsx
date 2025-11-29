@@ -11,11 +11,5 @@ export const BENT_RIGHT_ARROW = {
 }
 
 export function BentRightArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...BENT_RIGHT_ARROW}
-      {...props}
-      _style={extendStyle(BENT_RIGHT_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BENT_RIGHT_ARROW)} />
 }

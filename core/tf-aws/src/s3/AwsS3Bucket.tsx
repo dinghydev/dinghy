@@ -4,10 +4,10 @@ import {
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 
-import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode } from '@dinghy/base-components'
 import { Bucket } from '@dinghy/diagrams/entitiesAwsStorage'
+import { awsProps } from '../utils/awsProps.ts'
 
 export const AwsS3BucketInputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),

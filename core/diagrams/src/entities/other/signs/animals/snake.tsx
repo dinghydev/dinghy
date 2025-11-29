@@ -11,5 +11,5 @@ export const SNAKE = {
 }
 
 export function Snake(props: NodeProps) {
-  return <Shape {...SNAKE} {...props} _style={extendStyle(SNAKE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SNAKE)} />
 }

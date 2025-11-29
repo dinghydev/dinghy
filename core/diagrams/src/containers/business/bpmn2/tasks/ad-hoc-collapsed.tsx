@@ -9,11 +9,5 @@ export const AD_HOC_COLLAPSED = {
 }
 
 export function AdHocCollapsed(props: NodeProps) {
-  return (
-    <Shape
-      {...AD_HOC_COLLAPSED}
-      {...props}
-      _style={extendStyle(AD_HOC_COLLAPSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_HOC_COLLAPSED)} />
 }

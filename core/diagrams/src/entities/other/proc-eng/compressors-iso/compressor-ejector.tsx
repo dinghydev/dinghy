@@ -11,11 +11,5 @@ export const COMPRESSOR_EJECTOR = {
 }
 
 export function CompressorEjector(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPRESSOR_EJECTOR}
-      {...props}
-      _style={extendStyle(COMPRESSOR_EJECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR_EJECTOR)} />
 }

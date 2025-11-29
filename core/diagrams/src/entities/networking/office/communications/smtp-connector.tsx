@@ -11,11 +11,5 @@ export const SMTP_CONNECTOR = {
 }
 
 export function SmtpConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...SMTP_CONNECTOR}
-      {...props}
-      _style={extendStyle(SMTP_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMTP_CONNECTOR)} />
 }

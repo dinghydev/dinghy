@@ -11,11 +11,5 @@ export const SWITCH_CUMULUS_LINUX = {
 }
 
 export function SwitchCumulusLinux(props: NodeProps) {
-  return (
-    <Shape
-      {...SWITCH_CUMULUS_LINUX}
-      {...props}
-      _style={extendStyle(SWITCH_CUMULUS_LINUX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWITCH_CUMULUS_LINUX)} />
 }

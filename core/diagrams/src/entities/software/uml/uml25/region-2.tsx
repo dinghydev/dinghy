@@ -10,7 +10,5 @@ export const REGION_2 = {
 }
 
 export function Region2(props: NodeProps) {
-  return (
-    <Shape {...REGION_2} {...props} _style={extendStyle(REGION_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REGION_2)} />
 }

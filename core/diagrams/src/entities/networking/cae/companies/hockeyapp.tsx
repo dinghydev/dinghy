@@ -11,7 +11,5 @@ export const HOCKEYAPP = {
 }
 
 export function Hockeyapp(props: NodeProps) {
-  return (
-    <Shape {...HOCKEYAPP} {...props} _style={extendStyle(HOCKEYAPP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOCKEYAPP)} />
 }

@@ -11,7 +11,5 @@ export const VIDEO_FILE = {
 }
 
 export function VideoFile(props: NodeProps) {
-  return (
-    <Shape {...VIDEO_FILE} {...props} _style={extendStyle(VIDEO_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_FILE)} />
 }

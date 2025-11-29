@@ -12,9 +12,8 @@ export const PORT_DOUBLE_FLOW_HORIZONTAL = {
 export function PortDoubleFlowHorizontal(props: NodeProps) {
   return (
     <Shape
-      {...PORT_DOUBLE_FLOW_HORIZONTAL}
       {...props}
-      _style={extendStyle(PORT_DOUBLE_FLOW_HORIZONTAL, props)}
+      _style={extendStyle(props, PORT_DOUBLE_FLOW_HORIZONTAL)}
     />
   )
 }

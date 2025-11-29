@@ -11,11 +11,5 @@ export const ROLLING_BIN = {
 }
 
 export function RollingBin(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLLING_BIN}
-      {...props}
-      _style={extendStyle(ROLLING_BIN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLLING_BIN)} />
 }

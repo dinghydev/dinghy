@@ -11,11 +11,5 @@ export const ETHERNET_PORT = {
 }
 
 export function EthernetPort(props: NodeProps) {
-  return (
-    <Shape
-      {...ETHERNET_PORT}
-      {...props}
-      _style={extendStyle(ETHERNET_PORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ETHERNET_PORT)} />
 }

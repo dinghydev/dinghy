@@ -11,11 +11,5 @@ export const HOST_GROUPS = {
 }
 
 export function HostGroups(props: NodeProps) {
-  return (
-    <Shape
-      {...HOST_GROUPS}
-      {...props}
-      _style={extendStyle(HOST_GROUPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOST_GROUPS)} />
 }

@@ -10,7 +10,5 @@ export const DOT_BADGE = {
 }
 
 export function DotBadge(props: NodeProps) {
-  return (
-    <Shape {...DOT_BADGE} {...props} _style={extendStyle(DOT_BADGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOT_BADGE)} />
 }

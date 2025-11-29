@@ -12,10 +12,6 @@ export const WIRELESS_LAN_CONTROLLER = {
 
 export function WirelessLanController(props: NodeProps) {
   return (
-    <Shape
-      {...WIRELESS_LAN_CONTROLLER}
-      {...props}
-      _style={extendStyle(WIRELESS_LAN_CONTROLLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WIRELESS_LAN_CONTROLLER)} />
   )
 }

@@ -10,11 +10,5 @@ export const TWO_LINE_GRID_LIST = {
 }
 
 export function TwoLineGridList(props: NodeProps) {
-  return (
-    <Shape
-      {...TWO_LINE_GRID_LIST}
-      {...props}
-      _style={extendStyle(TWO_LINE_GRID_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TWO_LINE_GRID_LIST)} />
 }

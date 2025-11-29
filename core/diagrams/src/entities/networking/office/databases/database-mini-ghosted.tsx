@@ -11,11 +11,5 @@ export const DATABASE_MINI_GHOSTED = {
 }
 
 export function DatabaseMiniGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_MINI_GHOSTED}
-      {...props}
-      _style={extendStyle(DATABASE_MINI_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_MINI_GHOSTED)} />
 }

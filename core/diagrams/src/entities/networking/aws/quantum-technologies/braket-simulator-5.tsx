@@ -11,11 +11,5 @@ export const BRAKET_SIMULATOR_5 = {
 }
 
 export function BraketSimulator5(props: NodeProps) {
-  return (
-    <Shape
-      {...BRAKET_SIMULATOR_5}
-      {...props}
-      _style={extendStyle(BRAKET_SIMULATOR_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRAKET_SIMULATOR_5)} />
 }

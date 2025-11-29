@@ -11,7 +11,5 @@ export const PRIVATE_5G = {
 }
 
 export function Private5g(props: NodeProps) {
-  return (
-    <Shape {...PRIVATE_5G} {...props} _style={extendStyle(PRIVATE_5G, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIVATE_5G)} />
 }

@@ -11,11 +11,5 @@ export const DATE_PICKER = {
 }
 
 export function DatePicker(props: NodeProps) {
-  return (
-    <Shape
-      {...DATE_PICKER}
-      {...props}
-      _style={extendStyle(DATE_PICKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATE_PICKER)} />
 }

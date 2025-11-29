@@ -11,5 +11,5 @@ export const DR_SITE = {
 }
 
 export function DrSite(props: NodeProps) {
-  return <Shape {...DR_SITE} {...props} _style={extendStyle(DR_SITE, props)} />
+  return <Shape {...props} _style={extendStyle(props, DR_SITE)} />
 }

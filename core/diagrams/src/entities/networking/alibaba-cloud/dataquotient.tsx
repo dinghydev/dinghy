@@ -11,11 +11,5 @@ export const DATAQUOTIENT = {
 }
 
 export function Dataquotient(props: NodeProps) {
-  return (
-    <Shape
-      {...DATAQUOTIENT}
-      {...props}
-      _style={extendStyle(DATAQUOTIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAQUOTIENT)} />
 }

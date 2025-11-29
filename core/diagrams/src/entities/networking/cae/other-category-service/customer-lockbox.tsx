@@ -11,11 +11,5 @@ export const CUSTOMER_LOCKBOX = {
 }
 
 export function CustomerLockbox(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOMER_LOCKBOX}
-      {...props}
-      _style={extendStyle(CUSTOMER_LOCKBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOMER_LOCKBOX)} />
 }

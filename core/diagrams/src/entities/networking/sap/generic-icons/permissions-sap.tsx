@@ -11,11 +11,5 @@ export const PERMISSIONS_SAP = {
 }
 
 export function PermissionsSap(props: NodeProps) {
-  return (
-    <Shape
-      {...PERMISSIONS_SAP}
-      {...props}
-      _style={extendStyle(PERMISSIONS_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERMISSIONS_SAP)} />
 }

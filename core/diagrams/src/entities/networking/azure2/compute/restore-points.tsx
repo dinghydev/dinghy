@@ -11,11 +11,5 @@ export const RESTORE_POINTS = {
 }
 
 export function RestorePoints(props: NodeProps) {
-  return (
-    <Shape
-      {...RESTORE_POINTS}
-      {...props}
-      _style={extendStyle(RESTORE_POINTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESTORE_POINTS)} />
 }

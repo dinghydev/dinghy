@@ -11,11 +11,5 @@ export const BUTTON_SHADED = {
 }
 
 export function ButtonShaded(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_SHADED}
-      {...props}
-      _style={extendStyle(BUTTON_SHADED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_SHADED)} />
 }

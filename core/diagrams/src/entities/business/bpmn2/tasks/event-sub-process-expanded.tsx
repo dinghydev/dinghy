@@ -12,10 +12,6 @@ export const EVENT_SUB_PROCESS_EXPANDED = {
 
 export function EventSubProcessExpanded(props: NodeProps) {
   return (
-    <Shape
-      {...EVENT_SUB_PROCESS_EXPANDED}
-      {...props}
-      _style={extendStyle(EVENT_SUB_PROCESS_EXPANDED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EVENT_SUB_PROCESS_EXPANDED)} />
   )
 }

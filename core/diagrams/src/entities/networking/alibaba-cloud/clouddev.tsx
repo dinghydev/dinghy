@@ -11,7 +11,5 @@ export const CLOUDDEV = {
 }
 
 export function Clouddev(props: NodeProps) {
-  return (
-    <Shape {...CLOUDDEV} {...props} _style={extendStyle(CLOUDDEV, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDDEV)} />
 }

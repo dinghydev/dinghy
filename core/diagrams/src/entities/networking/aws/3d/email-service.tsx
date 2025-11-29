@@ -11,11 +11,5 @@ export const EMAIL_SERVICE = {
 }
 
 export function EmailService(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_SERVICE}
-      {...props}
-      _style={extendStyle(EMAIL_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_SERVICE)} />
 }

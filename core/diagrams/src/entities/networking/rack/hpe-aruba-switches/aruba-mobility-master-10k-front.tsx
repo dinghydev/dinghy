@@ -13,9 +13,8 @@ export const ARUBA_MOBILITY_MASTER_10K_FRONT = {
 export function ArubaMobilityMaster10kFront(props: NodeProps) {
   return (
     <Shape
-      {...ARUBA_MOBILITY_MASTER_10K_FRONT}
       {...props}
-      _style={extendStyle(ARUBA_MOBILITY_MASTER_10K_FRONT, props)}
+      _style={extendStyle(props, ARUBA_MOBILITY_MASTER_10K_FRONT)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const CITRIX_GATEWAY_SERVICE = {
 
 export function CitrixGatewayService(props: NodeProps) {
   return (
-    <Shape
-      {...CITRIX_GATEWAY_SERVICE}
-      {...props}
-      _style={extendStyle(CITRIX_GATEWAY_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CITRIX_GATEWAY_SERVICE)} />
   )
 }

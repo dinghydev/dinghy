@@ -11,7 +11,5 @@ export const DATAVERSE = {
 }
 
 export function Dataverse(props: NodeProps) {
-  return (
-    <Shape {...DATAVERSE} {...props} _style={extendStyle(DATAVERSE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAVERSE)} />
 }

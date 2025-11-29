@@ -11,11 +11,5 @@ export const AGENTLESS_COLLECTOR = {
 }
 
 export function AgentlessCollector(props: NodeProps) {
-  return (
-    <Shape
-      {...AGENTLESS_COLLECTOR}
-      {...props}
-      _style={extendStyle(AGENTLESS_COLLECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGENTLESS_COLLECTOR)} />
 }

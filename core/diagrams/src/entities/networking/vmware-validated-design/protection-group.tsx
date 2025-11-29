@@ -11,11 +11,5 @@ export const PROTECTION_GROUP = {
 }
 
 export function ProtectionGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...PROTECTION_GROUP}
-      {...props}
-      _style={extendStyle(PROTECTION_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTECTION_GROUP)} />
 }

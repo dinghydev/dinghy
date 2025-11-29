@@ -11,5 +11,5 @@ export const TIMER = {
 }
 
 export function Timer(props: NodeProps) {
-  return <Shape {...TIMER} {...props} _style={extendStyle(TIMER, props)} />
+  return <Shape {...props} _style={extendStyle(props, TIMER)} />
 }

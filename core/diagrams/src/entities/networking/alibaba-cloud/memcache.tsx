@@ -11,7 +11,5 @@ export const MEMCACHE = {
 }
 
 export function Memcache(props: NodeProps) {
-  return (
-    <Shape {...MEMCACHE} {...props} _style={extendStyle(MEMCACHE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEMCACHE)} />
 }

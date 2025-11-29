@@ -11,7 +11,5 @@ export const HOOTPHONE = {
 }
 
 export function Hootphone(props: NodeProps) {
-  return (
-    <Shape {...HOOTPHONE} {...props} _style={extendStyle(HOOTPHONE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOOTPHONE)} />
 }

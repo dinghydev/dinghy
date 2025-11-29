@@ -11,11 +11,5 @@ export const METRICS_ADVISOR = {
 }
 
 export function MetricsAdvisor(props: NodeProps) {
-  return (
-    <Shape
-      {...METRICS_ADVISOR}
-      {...props}
-      _style={extendStyle(METRICS_ADVISOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, METRICS_ADVISOR)} />
 }

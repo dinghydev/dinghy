@@ -12,10 +12,6 @@ export const NONE_INTERMEDIATE_THROWING = {
 
 export function NoneIntermediateThrowing(props: NodeProps) {
   return (
-    <Shape
-      {...NONE_INTERMEDIATE_THROWING}
-      {...props}
-      _style={extendStyle(NONE_INTERMEDIATE_THROWING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NONE_INTERMEDIATE_THROWING)} />
   )
 }

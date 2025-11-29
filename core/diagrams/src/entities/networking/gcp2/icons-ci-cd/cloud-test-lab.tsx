@@ -11,11 +11,5 @@ export const CLOUD_TEST_LAB = {
 }
 
 export function CloudTestLab(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_TEST_LAB}
-      {...props}
-      _style={extendStyle(CLOUD_TEST_LAB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_TEST_LAB)} />
 }

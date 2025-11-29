@@ -11,11 +11,5 @@ export const DOUBLE_CONCRETE_TANK = {
 }
 
 export function DoubleConcreteTank(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_CONCRETE_TANK}
-      {...props}
-      _style={extendStyle(DOUBLE_CONCRETE_TANK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_CONCRETE_TANK)} />
 }

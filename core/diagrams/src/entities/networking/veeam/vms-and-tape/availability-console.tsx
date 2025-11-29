@@ -11,11 +11,5 @@ export const AVAILABILITY_CONSOLE = {
 }
 
 export function AvailabilityConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...AVAILABILITY_CONSOLE}
-      {...props}
-      _style={extendStyle(AVAILABILITY_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVAILABILITY_CONSOLE)} />
 }

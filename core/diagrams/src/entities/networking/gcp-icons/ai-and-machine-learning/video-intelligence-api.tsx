@@ -12,10 +12,6 @@ export const VIDEO_INTELLIGENCE_API = {
 
 export function VideoIntelligenceApi(props: NodeProps) {
   return (
-    <Shape
-      {...VIDEO_INTELLIGENCE_API}
-      {...props}
-      _style={extendStyle(VIDEO_INTELLIGENCE_API, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIDEO_INTELLIGENCE_API)} />
   )
 }

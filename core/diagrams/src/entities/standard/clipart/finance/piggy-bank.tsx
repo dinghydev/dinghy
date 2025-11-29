@@ -11,7 +11,5 @@ export const PIGGY_BANK = {
 }
 
 export function PiggyBank(props: NodeProps) {
-  return (
-    <Shape {...PIGGY_BANK} {...props} _style={extendStyle(PIGGY_BANK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PIGGY_BANK)} />
 }

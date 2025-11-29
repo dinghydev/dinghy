@@ -13,9 +13,8 @@ export const X10690_FLOW_COMBINING_VALVE = {
 export function X10690FlowCombiningValve(props: NodeProps) {
   return (
     <Shape
-      {...X10690_FLOW_COMBINING_VALVE}
       {...props}
-      _style={extendStyle(X10690_FLOW_COMBINING_VALVE, props)}
+      _style={extendStyle(props, X10690_FLOW_COMBINING_VALVE)}
     />
   )
 }

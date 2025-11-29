@@ -12,10 +12,6 @@ export const PORTS_WITH_FLOW_PROPERTIES = {
 
 export function PortsWithFlowProperties(props: NodeProps) {
   return (
-    <Shape
-      {...PORTS_WITH_FLOW_PROPERTIES}
-      {...props}
-      _style={extendStyle(PORTS_WITH_FLOW_PROPERTIES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PORTS_WITH_FLOW_PROPERTIES)} />
   )
 }

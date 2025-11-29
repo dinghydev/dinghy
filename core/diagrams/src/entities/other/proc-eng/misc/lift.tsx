@@ -11,5 +11,5 @@ export const LIFT = {
 }
 
 export function Lift(props: NodeProps) {
-  return <Shape {...LIFT} {...props} _style={extendStyle(LIFT, props)} />
+  return <Shape {...props} _style={extendStyle(props, LIFT)} />
 }

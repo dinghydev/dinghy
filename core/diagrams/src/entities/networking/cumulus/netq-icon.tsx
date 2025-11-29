@@ -11,7 +11,5 @@ export const NETQ_ICON = {
 }
 
 export function NetqIcon(props: NodeProps) {
-  return (
-    <Shape {...NETQ_ICON} {...props} _style={extendStyle(NETQ_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETQ_ICON)} />
 }

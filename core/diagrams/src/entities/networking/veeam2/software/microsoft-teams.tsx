@@ -11,11 +11,5 @@ export const MICROSOFT_TEAMS = {
 }
 
 export function MicrosoftTeams(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_TEAMS}
-      {...props}
-      _style={extendStyle(MICROSOFT_TEAMS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_TEAMS)} />
 }

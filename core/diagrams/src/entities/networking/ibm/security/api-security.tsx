@@ -11,11 +11,5 @@ export const API_SECURITY = {
 }
 
 export function ApiSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...API_SECURITY}
-      {...props}
-      _style={extendStyle(API_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_SECURITY)} />
 }

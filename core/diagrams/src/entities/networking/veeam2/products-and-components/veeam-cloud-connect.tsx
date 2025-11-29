@@ -11,11 +11,5 @@ export const VEEAM_CLOUD_CONNECT = {
 }
 
 export function VeeamCloudConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_CLOUD_CONNECT}
-      {...props}
-      _style={extendStyle(VEEAM_CLOUD_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_CLOUD_CONNECT)} />
 }

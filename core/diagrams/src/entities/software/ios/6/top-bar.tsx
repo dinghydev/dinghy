@@ -11,5 +11,5 @@ export const TOP_BAR = {
 }
 
 export function TopBar(props: NodeProps) {
-  return <Shape {...TOP_BAR} {...props} _style={extendStyle(TOP_BAR, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOP_BAR)} />
 }

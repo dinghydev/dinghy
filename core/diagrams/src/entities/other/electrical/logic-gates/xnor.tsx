@@ -11,5 +11,5 @@ export const XNOR = {
 }
 
 export function Xnor(props: NodeProps) {
-  return <Shape {...XNOR} {...props} _style={extendStyle(XNOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, XNOR)} />
 }

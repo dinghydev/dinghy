@@ -9,7 +9,5 @@ export const LIFELINES = {
 }
 
 export function Lifelines(props: NodeProps) {
-  return (
-    <Shape {...LIFELINES} {...props} _style={extendStyle(LIFELINES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIFELINES)} />
 }

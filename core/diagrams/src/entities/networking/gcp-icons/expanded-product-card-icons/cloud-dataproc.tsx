@@ -11,11 +11,5 @@ export const CLOUD_DATAPROC = {
 }
 
 export function CloudDataproc(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DATAPROC}
-      {...props}
-      _style={extendStyle(CLOUD_DATAPROC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DATAPROC)} />
 }

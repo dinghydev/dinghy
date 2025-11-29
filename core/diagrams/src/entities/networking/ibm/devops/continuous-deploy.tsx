@@ -11,11 +11,5 @@ export const CONTINUOUS_DEPLOY = {
 }
 
 export function ContinuousDeploy(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTINUOUS_DEPLOY}
-      {...props}
-      _style={extendStyle(CONTINUOUS_DEPLOY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTINUOUS_DEPLOY)} />
 }

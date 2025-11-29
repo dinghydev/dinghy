@@ -13,9 +13,8 @@ export const SAP_BUILD_PROCESS_AUTOMATION = {
 export function SapBuildProcessAutomation(props: NodeProps) {
   return (
     <Shape
-      {...SAP_BUILD_PROCESS_AUTOMATION}
       {...props}
-      _style={extendStyle(SAP_BUILD_PROCESS_AUTOMATION, props)}
+      _style={extendStyle(props, SAP_BUILD_PROCESS_AUTOMATION)}
     />
   )
 }

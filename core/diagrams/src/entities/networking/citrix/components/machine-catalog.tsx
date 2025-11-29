@@ -11,11 +11,5 @@ export const MACHINE_CATALOG = {
 }
 
 export function MachineCatalog(props: NodeProps) {
-  return (
-    <Shape
-      {...MACHINE_CATALOG}
-      {...props}
-      _style={extendStyle(MACHINE_CATALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MACHINE_CATALOG)} />
 }

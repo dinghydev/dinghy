@@ -1505,11 +1505,7 @@
           "npm:debug@4.4.0"
         ]
       },
-      "jsr:@dinghy/tf-aws": {
-        "dependencies": [
-          "npm:debug@4.4.0"
-        ]
-      }
+      "jsr:@dinghy/tf-aws": {}
     }
   }
 }

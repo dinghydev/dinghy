@@ -11,7 +11,5 @@ export const MS_INTUNE = {
 }
 
 export function MsIntune(props: NodeProps) {
-  return (
-    <Shape {...MS_INTUNE} {...props} _style={extendStyle(MS_INTUNE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_INTUNE)} />
 }

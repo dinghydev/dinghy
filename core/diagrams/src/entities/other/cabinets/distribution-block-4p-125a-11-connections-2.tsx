@@ -13,9 +13,8 @@ export const DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2 = {
 export function DistributionBlock4p125a11Connections2(props: NodeProps) {
   return (
     <Shape
-      {...DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2}
       {...props}
-      _style={extendStyle(DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2, props)}
+      _style={extendStyle(props, DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2)}
     />
   )
 }

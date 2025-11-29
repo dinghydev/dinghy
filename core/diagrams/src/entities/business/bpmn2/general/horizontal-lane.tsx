@@ -11,11 +11,5 @@ export const HORIZONTAL_LANE = {
 }
 
 export function HorizontalLane(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_LANE}
-      {...props}
-      _style={extendStyle(HORIZONTAL_LANE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_LANE)} />
 }

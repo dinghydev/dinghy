@@ -13,9 +13,8 @@ export const SYSTEM_CONTEXT_DIAGRAM_TITLE = {
 export function SystemContextDiagramTitle(props: NodeProps) {
   return (
     <Shape
-      {...SYSTEM_CONTEXT_DIAGRAM_TITLE}
       {...props}
-      _style={extendStyle(SYSTEM_CONTEXT_DIAGRAM_TITLE, props)}
+      _style={extendStyle(props, SYSTEM_CONTEXT_DIAGRAM_TITLE)}
     />
   )
 }

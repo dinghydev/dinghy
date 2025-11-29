@@ -11,11 +11,5 @@ export const PERMANENT_MAGNET = {
 }
 
 export function PermanentMagnet(props: NodeProps) {
-  return (
-    <Shape
-      {...PERMANENT_MAGNET}
-      {...props}
-      _style={extendStyle(PERMANENT_MAGNET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERMANENT_MAGNET)} />
 }

@@ -11,11 +11,5 @@ export const IP_ADDRESS_MANAGER = {
 }
 
 export function IpAddressManager(props: NodeProps) {
-  return (
-    <Shape
-      {...IP_ADDRESS_MANAGER}
-      {...props}
-      _style={extendStyle(IP_ADDRESS_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IP_ADDRESS_MANAGER)} />
 }

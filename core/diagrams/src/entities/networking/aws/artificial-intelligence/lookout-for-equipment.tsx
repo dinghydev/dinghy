@@ -11,11 +11,5 @@ export const LOOKOUT_FOR_EQUIPMENT = {
 }
 
 export function LookoutForEquipment(props: NodeProps) {
-  return (
-    <Shape
-      {...LOOKOUT_FOR_EQUIPMENT}
-      {...props}
-      _style={extendStyle(LOOKOUT_FOR_EQUIPMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOOKOUT_FOR_EQUIPMENT)} />
 }

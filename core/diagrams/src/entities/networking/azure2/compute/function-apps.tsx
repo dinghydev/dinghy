@@ -11,11 +11,5 @@ export const FUNCTION_APPS = {
 }
 
 export function FunctionApps(props: NodeProps) {
-  return (
-    <Shape
-      {...FUNCTION_APPS}
-      {...props}
-      _style={extendStyle(FUNCTION_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUNCTION_APPS)} />
 }

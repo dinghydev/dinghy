@@ -11,5 +11,5 @@ export const PIANO = {
 }
 
 export function Piano(props: NodeProps) {
-  return <Shape {...PIANO} {...props} _style={extendStyle(PIANO, props)} />
+  return <Shape {...props} _style={extendStyle(props, PIANO)} />
 }

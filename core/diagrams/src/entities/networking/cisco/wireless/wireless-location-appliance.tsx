@@ -13,9 +13,8 @@ export const WIRELESS_LOCATION_APPLIANCE = {
 export function WirelessLocationAppliance(props: NodeProps) {
   return (
     <Shape
-      {...WIRELESS_LOCATION_APPLIANCE}
       {...props}
-      _style={extendStyle(WIRELESS_LOCATION_APPLIANCE, props)}
+      _style={extendStyle(props, WIRELESS_LOCATION_APPLIANCE)}
     />
   )
 }

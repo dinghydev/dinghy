@@ -11,11 +11,5 @@ export const MULTIPLE_CAPACITOR = {
 }
 
 export function MultipleCapacitor(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_CAPACITOR}
-      {...props}
-      _style={extendStyle(MULTIPLE_CAPACITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_CAPACITOR)} />
 }

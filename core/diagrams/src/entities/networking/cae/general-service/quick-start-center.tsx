@@ -11,11 +11,5 @@ export const QUICK_START_CENTER = {
 }
 
 export function QuickStartCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...QUICK_START_CENTER}
-      {...props}
-      _style={extendStyle(QUICK_START_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUICK_START_CENTER)} />
 }

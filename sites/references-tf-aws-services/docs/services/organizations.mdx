@@ -1,0 +1,482 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Organizations
+
+## AwsOrganizationsAccount
+
+Provides a resource to create a member account in the current AWS Organization.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_account)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsAccount.tsx)
+
+```js
+import { AwsOrganizationsAccount } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsAccount/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_account#import)
+
+```js
+<AwsOrganizationsAccount
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsDelegatedAdministrator
+
+Provides a resource to manage an AWS Organizations Delegated Administrator.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_delegated_administrator)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsDelegatedAdministrator.tsx)
+
+```js
+import { AwsOrganizationsDelegatedAdministrator } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsDelegatedAdministrator/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_delegated_administrator#import)
+
+```js
+<AwsOrganizationsDelegatedAdministrator
+   delegated_account_id = {}
+   service_principal = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsDelegatedAdministrators
+
+Get a list of AWS accounts that are designated as delegated administrators in this organization 
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_administrators)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsDelegatedAdministrators.tsx)
+
+```js
+import { DataAwsOrganizationsDelegatedAdministrators } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsDelegatedAdministrators/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsDelegatedServices
+
+Get a list the AWS services for which the specified account is a delegated administrator 
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_services)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsDelegatedServices.tsx)
+
+```js
+import { DataAwsOrganizationsDelegatedServices } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsDelegatedServices/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsOrganization
+
+Provides a resource to create an organization.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organization)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsOrganization.tsx)
+
+```js
+import { AwsOrganizationsOrganization } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsOrganization/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organization)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganization.tsx)
+
+```js
+import { DataAwsOrganizationsOrganization } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsOrganization/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organization#import)
+
+```js
+<AwsOrganizationsOrganization
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsOrganizationalUnit
+
+Provides a resource to create an organizational unit.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organizational_unit)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsOrganizationalUnit.tsx)
+
+```js
+import { AwsOrganizationsOrganizationalUnit } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsOrganizationalUnit/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnit.tsx)
+
+```js
+import { DataAwsOrganizationsOrganizationalUnit } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsOrganizationalUnit/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organizational_unit#import)
+
+```js
+<AwsOrganizationsOrganizationalUnit
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsOrganizationalUnitChildAccounts
+
+Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_child_accounts)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnitChildAccounts.tsx)
+
+```js
+import { DataAwsOrganizationsOrganizationalUnitChildAccounts } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsOrganizationalUnitChildAccounts/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsOrganizationalUnitDescendantAccounts
+
+Get all child accounts under a parent organizational unit. This provides all children.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_descendant_accounts)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnitDescendantAccounts.tsx)
+
+```js
+import { DataAwsOrganizationsOrganizationalUnitDescendantAccounts } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsOrganizationalUnitDescendantAccounts/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsOrganizationalUnitDescendantOrganizationalUnits
+
+Get all direct child organizational units under a parent organizational unit. This provides all children.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_descendant_organizational_units)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUnits.tsx)
+
+```js
+import { DataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUnits } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUnits/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsOrganizationalUnits
+
+Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_units)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnits.tsx)
+
+```js
+import { DataAwsOrganizationsOrganizationalUnits } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsOrganizationalUnits/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsPolicies
+
+Terraform data source for managing an AWS Organizations Policies.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsPolicies.tsx)
+
+```js
+import { DataAwsOrganizationsPolicies } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsPolicies/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsPoliciesForTarget
+
+Terraform data source for managing an AWS Organizations Policies For Target.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies_for_target)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsPoliciesForTarget.tsx)
+
+```js
+import { DataAwsOrganizationsPoliciesForTarget } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsPoliciesForTarget/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsPolicy
+
+Provides a resource to manage an AWS Organizations policy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsPolicy.tsx)
+
+```js
+import { AwsOrganizationsPolicy } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsPolicy.tsx)
+
+```js
+import { DataAwsOrganizationsPolicy } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy#import)
+
+```js
+<AwsOrganizationsPolicy
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsPolicyAttachment
+
+Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsPolicyAttachment.tsx)
+
+```js
+import { AwsOrganizationsPolicyAttachment } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsPolicyAttachment/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy_attachment#import)
+
+```js
+<AwsOrganizationsPolicyAttachment
+   policy_id = {}
+   target_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsResourcePolicy
+
+Provides a resource to manage an AWS Organizations resource policy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_resource_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsResourcePolicy.tsx)
+
+```js
+import { AwsOrganizationsResourcePolicy } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsResourcePolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_resource_policy#import)
+
+```js
+<AwsOrganizationsResourcePolicy
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsResourceTags
+
+Get tags attached to the specified AWS Organizations resource.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_resource_tags)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsResourceTags.tsx)
+
+```js
+import { DataAwsOrganizationsResourceTags } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsResourceTags/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

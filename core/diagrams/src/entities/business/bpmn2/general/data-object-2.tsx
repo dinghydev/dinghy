@@ -11,11 +11,5 @@ export const DATA_OBJECT_2 = {
 }
 
 export function DataObject2(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_OBJECT_2}
-      {...props}
-      _style={extendStyle(DATA_OBJECT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_OBJECT_2)} />
 }

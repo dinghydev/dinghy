@@ -11,11 +11,5 @@ export const BEHAVIOR_ACTION = {
 }
 
 export function BehaviorAction(props: NodeProps) {
-  return (
-    <Shape
-      {...BEHAVIOR_ACTION}
-      {...props}
-      _style={extendStyle(BEHAVIOR_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEHAVIOR_ACTION)} />
 }

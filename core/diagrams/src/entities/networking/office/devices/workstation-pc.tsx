@@ -11,11 +11,5 @@ export const WORKSTATION_PC = {
 }
 
 export function WorkstationPc(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKSTATION_PC}
-      {...props}
-      _style={extendStyle(WORKSTATION_PC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKSTATION_PC)} />
 }

@@ -11,11 +11,5 @@ export const MULTIPLE_START = {
 }
 
 export function MultipleStart(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_START}
-      {...props}
-      _style={extendStyle(MULTIPLE_START, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_START)} />
 }

@@ -11,11 +11,5 @@ export const PERSONAL_COMPUTER = {
 }
 
 export function PersonalComputer(props: NodeProps) {
-  return (
-    <Shape
-      {...PERSONAL_COMPUTER}
-      {...props}
-      _style={extendStyle(PERSONAL_COMPUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERSONAL_COMPUTER)} />
 }

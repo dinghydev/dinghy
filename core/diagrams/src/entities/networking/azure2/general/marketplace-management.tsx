@@ -12,10 +12,6 @@ export const MARKETPLACE_MANAGEMENT = {
 
 export function MarketplaceManagement(props: NodeProps) {
   return (
-    <Shape
-      {...MARKETPLACE_MANAGEMENT}
-      {...props}
-      _style={extendStyle(MARKETPLACE_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MARKETPLACE_MANAGEMENT)} />
   )
 }

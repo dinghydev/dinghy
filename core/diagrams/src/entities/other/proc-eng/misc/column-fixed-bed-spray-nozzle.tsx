@@ -13,9 +13,8 @@ export const COLUMN_FIXED_BED_SPRAY_NOZZLE = {
 export function ColumnFixedBedSprayNozzle(props: NodeProps) {
   return (
     <Shape
-      {...COLUMN_FIXED_BED_SPRAY_NOZZLE}
       {...props}
-      _style={extendStyle(COLUMN_FIXED_BED_SPRAY_NOZZLE, props)}
+      _style={extendStyle(props, COLUMN_FIXED_BED_SPRAY_NOZZLE)}
     />
   )
 }

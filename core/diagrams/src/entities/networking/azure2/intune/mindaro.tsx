@@ -11,5 +11,5 @@ export const MINDARO = {
 }
 
 export function Mindaro(props: NodeProps) {
-  return <Shape {...MINDARO} {...props} _style={extendStyle(MINDARO, props)} />
+  return <Shape {...props} _style={extendStyle(props, MINDARO)} />
 }

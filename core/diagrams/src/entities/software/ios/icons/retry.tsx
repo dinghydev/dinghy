@@ -11,5 +11,5 @@ export const RETRY = {
 }
 
 export function Retry(props: NodeProps) {
-  return <Shape {...RETRY} {...props} _style={extendStyle(RETRY, props)} />
+  return <Shape {...props} _style={extendStyle(props, RETRY)} />
 }

@@ -11,7 +11,5 @@ export const FOOD_TRUCK = {
 }
 
 export function FoodTruck(props: NodeProps) {
-  return (
-    <Shape {...FOOD_TRUCK} {...props} _style={extendStyle(FOOD_TRUCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOOD_TRUCK)} />
 }

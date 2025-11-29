@@ -12,10 +12,6 @@ export const IPHONE_KEYBOARD_SYMBOLS = {
 
 export function IphoneKeyboardSymbols(props: NodeProps) {
   return (
-    <Shape
-      {...IPHONE_KEYBOARD_SYMBOLS}
-      {...props}
-      _style={extendStyle(IPHONE_KEYBOARD_SYMBOLS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IPHONE_KEYBOARD_SYMBOLS)} />
   )
 }

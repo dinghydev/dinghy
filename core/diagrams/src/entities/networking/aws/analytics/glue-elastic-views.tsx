@@ -11,11 +11,5 @@ export const GLUE_ELASTIC_VIEWS = {
 }
 
 export function GlueElasticViews(props: NodeProps) {
-  return (
-    <Shape
-      {...GLUE_ELASTIC_VIEWS}
-      {...props}
-      _style={extendStyle(GLUE_ELASTIC_VIEWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLUE_ELASTIC_VIEWS)} />
 }

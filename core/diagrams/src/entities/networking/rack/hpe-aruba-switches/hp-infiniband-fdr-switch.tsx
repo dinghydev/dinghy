@@ -12,10 +12,6 @@ export const HP_INFINIBAND_FDR_SWITCH = {
 
 export function HpInfinibandFdrSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...HP_INFINIBAND_FDR_SWITCH}
-      {...props}
-      _style={extendStyle(HP_INFINIBAND_FDR_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HP_INFINIBAND_FDR_SWITCH)} />
   )
 }

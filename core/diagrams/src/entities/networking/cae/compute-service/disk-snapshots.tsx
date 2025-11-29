@@ -11,11 +11,5 @@ export const DISK_SNAPSHOTS = {
 }
 
 export function DiskSnapshots(props: NodeProps) {
-  return (
-    <Shape
-      {...DISK_SNAPSHOTS}
-      {...props}
-      _style={extendStyle(DISK_SNAPSHOTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISK_SNAPSHOTS)} />
 }

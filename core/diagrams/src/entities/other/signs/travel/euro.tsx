@@ -11,5 +11,5 @@ export const EURO = {
 }
 
 export function Euro(props: NodeProps) {
-  return <Shape {...EURO} {...props} _style={extendStyle(EURO, props)} />
+  return <Shape {...props} _style={extendStyle(props, EURO)} />
 }

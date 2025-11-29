@@ -11,11 +11,5 @@ export const SCRATCH_OUT = {
 }
 
 export function ScratchOut(props: NodeProps) {
-  return (
-    <Shape
-      {...SCRATCH_OUT}
-      {...props}
-      _style={extendStyle(SCRATCH_OUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCRATCH_OUT)} />
 }

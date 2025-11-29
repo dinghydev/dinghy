@@ -11,5 +11,5 @@ export const INSTALL = {
 }
 
 export function Install(props: NodeProps) {
-  return <Shape {...INSTALL} {...props} _style={extendStyle(INSTALL, props)} />
+  return <Shape {...props} _style={extendStyle(props, INSTALL)} />
 }

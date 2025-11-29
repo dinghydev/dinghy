@@ -13,9 +13,8 @@ export const S3_OBJECT_LAMBDA_ACCESS_POINTS = {
 export function S3ObjectLambdaAccessPoints(props: NodeProps) {
   return (
     <Shape
-      {...S3_OBJECT_LAMBDA_ACCESS_POINTS}
       {...props}
-      _style={extendStyle(S3_OBJECT_LAMBDA_ACCESS_POINTS, props)}
+      _style={extendStyle(props, S3_OBJECT_LAMBDA_ACCESS_POINTS)}
     />
   )
 }

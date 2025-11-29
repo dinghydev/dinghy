@@ -11,11 +11,5 @@ export const OBTUSE_TRIANGLE = {
 }
 
 export function ObtuseTriangle(props: NodeProps) {
-  return (
-    <Shape
-      {...OBTUSE_TRIANGLE}
-      {...props}
-      _style={extendStyle(OBTUSE_TRIANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OBTUSE_TRIANGLE)} />
 }

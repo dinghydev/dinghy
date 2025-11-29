@@ -11,5 +11,5 @@ export const EJECT = {
 }
 
 export function Eject(props: NodeProps) {
-  return <Shape {...EJECT} {...props} _style={extendStyle(EJECT, props)} />
+  return <Shape {...props} _style={extendStyle(props, EJECT)} />
 }

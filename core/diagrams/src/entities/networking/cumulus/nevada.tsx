@@ -10,5 +10,5 @@ export const NEVADA = {
 }
 
 export function Nevada(props: NodeProps) {
-  return <Shape {...NEVADA} {...props} _style={extendStyle(NEVADA, props)} />
+  return <Shape {...props} _style={extendStyle(props, NEVADA)} />
 }

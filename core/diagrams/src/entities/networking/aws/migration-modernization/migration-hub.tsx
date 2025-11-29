@@ -11,11 +11,5 @@ export const MIGRATION_HUB = {
 }
 
 export function MigrationHub(props: NodeProps) {
-  return (
-    <Shape
-      {...MIGRATION_HUB}
-      {...props}
-      _style={extendStyle(MIGRATION_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATION_HUB)} />
 }

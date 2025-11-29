@@ -11,11 +11,5 @@ export const HYBRID_VOIP_GATEWAY = {
 }
 
 export function HybridVoipGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...HYBRID_VOIP_GATEWAY}
-      {...props}
-      _style={extendStyle(HYBRID_VOIP_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYBRID_VOIP_GATEWAY)} />
 }

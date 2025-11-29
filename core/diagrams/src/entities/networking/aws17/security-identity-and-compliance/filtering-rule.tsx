@@ -11,11 +11,5 @@ export const FILTERING_RULE = {
 }
 
 export function FilteringRule(props: NodeProps) {
-  return (
-    <Shape
-      {...FILTERING_RULE}
-      {...props}
-      _style={extendStyle(FILTERING_RULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILTERING_RULE)} />
 }

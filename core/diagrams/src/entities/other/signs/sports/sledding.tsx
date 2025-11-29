@@ -11,7 +11,5 @@ export const SLEDDING = {
 }
 
 export function Sledding(props: NodeProps) {
-  return (
-    <Shape {...SLEDDING} {...props} _style={extendStyle(SLEDDING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLEDDING)} />
 }

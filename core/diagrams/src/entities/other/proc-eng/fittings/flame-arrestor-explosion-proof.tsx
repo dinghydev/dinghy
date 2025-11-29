@@ -13,9 +13,8 @@ export const FLAME_ARRESTOR_EXPLOSION_PROOF = {
 export function FlameArrestorExplosionProof(props: NodeProps) {
   return (
     <Shape
-      {...FLAME_ARRESTOR_EXPLOSION_PROOF}
       {...props}
-      _style={extendStyle(FLAME_ARRESTOR_EXPLOSION_PROOF, props)}
+      _style={extendStyle(props, FLAME_ARRESTOR_EXPLOSION_PROOF)}
     />
   )
 }

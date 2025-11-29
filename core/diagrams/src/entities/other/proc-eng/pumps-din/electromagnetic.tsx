@@ -11,11 +11,5 @@ export const ELECTROMAGNETIC = {
 }
 
 export function Electromagnetic(props: NodeProps) {
-  return (
-    <Shape
-      {...ELECTROMAGNETIC}
-      {...props}
-      _style={extendStyle(ELECTROMAGNETIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELECTROMAGNETIC)} />
 }

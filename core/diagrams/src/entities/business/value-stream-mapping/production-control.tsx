@@ -11,11 +11,5 @@ export const PRODUCTION_CONTROL = {
 }
 
 export function ProductionControl(props: NodeProps) {
-  return (
-    <Shape
-      {...PRODUCTION_CONTROL}
-      {...props}
-      _style={extendStyle(PRODUCTION_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRODUCTION_CONTROL)} />
 }

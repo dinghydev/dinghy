@@ -13,9 +13,8 @@ export const RAM_RESOURCE_ACCESS_MANAGEMENT = {
 export function RamResourceAccessManagement(props: NodeProps) {
   return (
     <Shape
-      {...RAM_RESOURCE_ACCESS_MANAGEMENT}
       {...props}
-      _style={extendStyle(RAM_RESOURCE_ACCESS_MANAGEMENT, props)}
+      _style={extendStyle(props, RAM_RESOURCE_ACCESS_MANAGEMENT)}
     />
   )
 }

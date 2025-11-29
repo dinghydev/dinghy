@@ -11,11 +11,5 @@ export const FABRIC_INTERCONNECT = {
 }
 
 export function FabricInterconnect(props: NodeProps) {
-  return (
-    <Shape
-      {...FABRIC_INTERCONNECT}
-      {...props}
-      _style={extendStyle(FABRIC_INTERCONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FABRIC_INTERCONNECT)} />
 }

@@ -11,7 +11,5 @@ export const ACTUATOR = {
 }
 
 export function Actuator(props: NodeProps) {
-  return (
-    <Shape {...ACTUATOR} {...props} _style={extendStyle(ACTUATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTUATOR)} />
 }

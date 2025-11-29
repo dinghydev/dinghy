@@ -11,11 +11,5 @@ export const ELEMENTAL_MEDIATAILOR = {
 }
 
 export function ElementalMediatailor(props: NodeProps) {
-  return (
-    <Shape
-      {...ELEMENTAL_MEDIATAILOR}
-      {...props}
-      _style={extendStyle(ELEMENTAL_MEDIATAILOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELEMENTAL_MEDIATAILOR)} />
 }

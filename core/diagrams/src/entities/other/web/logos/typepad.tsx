@@ -11,5 +11,5 @@ export const TYPEPAD = {
 }
 
 export function Typepad(props: NodeProps) {
-  return <Shape {...TYPEPAD} {...props} _style={extendStyle(TYPEPAD, props)} />
+  return <Shape {...props} _style={extendStyle(props, TYPEPAD)} />
 }

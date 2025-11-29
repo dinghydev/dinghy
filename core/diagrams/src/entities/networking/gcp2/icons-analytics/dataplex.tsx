@@ -11,7 +11,5 @@ export const DATAPLEX = {
 }
 
 export function Dataplex(props: NodeProps) {
-  return (
-    <Shape {...DATAPLEX} {...props} _style={extendStyle(DATAPLEX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAPLEX)} />
 }

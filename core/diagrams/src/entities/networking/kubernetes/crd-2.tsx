@@ -11,5 +11,5 @@ export const CRD_2 = {
 }
 
 export function Crd2(props: NodeProps) {
-  return <Shape {...CRD_2} {...props} _style={extendStyle(CRD_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRD_2)} />
 }

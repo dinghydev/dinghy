@@ -11,11 +11,5 @@ export const USER_MANAGEMENT = {
 }
 
 export function UserManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_MANAGEMENT}
-      {...props}
-      _style={extendStyle(USER_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_MANAGEMENT)} />
 }

@@ -13,9 +13,8 @@ export const HORIZONTAL_FORM_LABEL_SIZING_4 = {
 export function HorizontalFormLabelSizing4(props: NodeProps) {
   return (
     <Shape
-      {...HORIZONTAL_FORM_LABEL_SIZING_4}
       {...props}
-      _style={extendStyle(HORIZONTAL_FORM_LABEL_SIZING_4, props)}
+      _style={extendStyle(props, HORIZONTAL_FORM_LABEL_SIZING_4)}
     />
   )
 }

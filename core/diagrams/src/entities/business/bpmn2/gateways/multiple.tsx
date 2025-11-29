@@ -11,7 +11,5 @@ export const MULTIPLE = {
 }
 
 export function Multiple(props: NodeProps) {
-  return (
-    <Shape {...MULTIPLE} {...props} _style={extendStyle(MULTIPLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE)} />
 }

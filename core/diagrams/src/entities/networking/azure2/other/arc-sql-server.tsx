@@ -11,11 +11,5 @@ export const ARC_SQL_SERVER = {
 }
 
 export function ArcSqlServer(props: NodeProps) {
-  return (
-    <Shape
-      {...ARC_SQL_SERVER}
-      {...props}
-      _style={extendStyle(ARC_SQL_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARC_SQL_SERVER)} />
 }

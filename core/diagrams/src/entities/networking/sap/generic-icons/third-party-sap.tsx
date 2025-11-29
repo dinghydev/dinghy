@@ -11,11 +11,5 @@ export const THIRD_PARTY_SAP = {
 }
 
 export function ThirdPartySap(props: NodeProps) {
-  return (
-    <Shape
-      {...THIRD_PARTY_SAP}
-      {...props}
-      _style={extendStyle(THIRD_PARTY_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THIRD_PARTY_SAP)} />
 }

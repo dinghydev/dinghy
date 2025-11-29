@@ -11,11 +11,5 @@ export const BREAKTHROUGH = {
 }
 
 export function Breakthrough(props: NodeProps) {
-  return (
-    <Shape
-      {...BREAKTHROUGH}
-      {...props}
-      _style={extendStyle(BREAKTHROUGH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREAKTHROUGH)} />
 }

@@ -12,10 +12,6 @@ export const DEFENDER_DCS_CONTROLLER = {
 
 export function DefenderDcsController(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_DCS_CONTROLLER}
-      {...props}
-      _style={extendStyle(DEFENDER_DCS_CONTROLLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_DCS_CONTROLLER)} />
   )
 }

@@ -11,11 +11,5 @@ export const BUTTERFLY_VALVE = {
 }
 
 export function ButterflyValve(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTERFLY_VALVE}
-      {...props}
-      _style={extendStyle(BUTTERFLY_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTERFLY_VALVE)} />
 }

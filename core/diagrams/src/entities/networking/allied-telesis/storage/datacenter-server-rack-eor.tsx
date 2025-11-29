@@ -12,10 +12,6 @@ export const DATACENTER_SERVER_RACK_EOR = {
 
 export function DatacenterServerRackEor(props: NodeProps) {
   return (
-    <Shape
-      {...DATACENTER_SERVER_RACK_EOR}
-      {...props}
-      _style={extendStyle(DATACENTER_SERVER_RACK_EOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATACENTER_SERVER_RACK_EOR)} />
   )
 }

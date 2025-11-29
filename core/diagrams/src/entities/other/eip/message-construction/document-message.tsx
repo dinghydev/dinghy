@@ -11,11 +11,5 @@ export const DOCUMENT_MESSAGE = {
 }
 
 export function DocumentMessage(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_MESSAGE}
-      {...props}
-      _style={extendStyle(DOCUMENT_MESSAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_MESSAGE)} />
 }

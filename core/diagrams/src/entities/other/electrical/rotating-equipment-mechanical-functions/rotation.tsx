@@ -11,7 +11,5 @@ export const ROTATION = {
 }
 
 export function Rotation(props: NodeProps) {
-  return (
-    <Shape {...ROTATION} {...props} _style={extendStyle(ROTATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTATION)} />
 }

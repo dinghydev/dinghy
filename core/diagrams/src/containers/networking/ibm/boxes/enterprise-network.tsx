@@ -12,11 +12,5 @@ export const ENTERPRISE_NETWORK = {
 }
 
 export function EnterpriseNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTERPRISE_NETWORK}
-      {...props}
-      _style={extendStyle(ENTERPRISE_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTERPRISE_NETWORK)} />
 }

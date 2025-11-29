@@ -10,7 +10,5 @@ export const ARROW_DOWN = {
 }
 
 export function ArrowDown(props: NodeProps) {
-  return (
-    <Shape {...ARROW_DOWN} {...props} _style={extendStyle(ARROW_DOWN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROW_DOWN)} />
 }

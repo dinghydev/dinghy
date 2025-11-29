@@ -11,11 +11,5 @@ export const SNOW_SHOEING = {
 }
 
 export function SnowShoeing(props: NodeProps) {
-  return (
-    <Shape
-      {...SNOW_SHOEING}
-      {...props}
-      _style={extendStyle(SNOW_SHOEING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNOW_SHOEING)} />
 }

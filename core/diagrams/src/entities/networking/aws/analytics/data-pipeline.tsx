@@ -11,11 +11,5 @@ export const DATA_PIPELINE = {
 }
 
 export function DataPipeline(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_PIPELINE}
-      {...props}
-      _style={extendStyle(DATA_PIPELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_PIPELINE)} />
 }

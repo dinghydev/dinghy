@@ -9,11 +9,5 @@ export const SUB_PROCESS_COLLAPSED = {
 }
 
 export function SubProcessCollapsed(props: NodeProps) {
-  return (
-    <Shape
-      {...SUB_PROCESS_COLLAPSED}
-      {...props}
-      _style={extendStyle(SUB_PROCESS_COLLAPSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUB_PROCESS_COLLAPSED)} />
 }

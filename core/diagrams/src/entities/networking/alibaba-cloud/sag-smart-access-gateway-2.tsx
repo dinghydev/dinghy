@@ -12,10 +12,6 @@ export const SAG_SMART_ACCESS_GATEWAY_2 = {
 
 export function SagSmartAccessGateway2(props: NodeProps) {
   return (
-    <Shape
-      {...SAG_SMART_ACCESS_GATEWAY_2}
-      {...props}
-      _style={extendStyle(SAG_SMART_ACCESS_GATEWAY_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAG_SMART_ACCESS_GATEWAY_2)} />
   )
 }

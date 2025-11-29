@@ -13,9 +13,8 @@ export const OCR_OPTICAL_CHARACTER_RECOGNITION = {
 export function OcrOpticalCharacterRecognition(props: NodeProps) {
   return (
     <Shape
-      {...OCR_OPTICAL_CHARACTER_RECOGNITION}
       {...props}
-      _style={extendStyle(OCR_OPTICAL_CHARACTER_RECOGNITION, props)}
+      _style={extendStyle(props, OCR_OPTICAL_CHARACTER_RECOGNITION)}
     />
   )
 }

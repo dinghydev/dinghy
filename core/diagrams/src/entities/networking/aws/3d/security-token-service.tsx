@@ -12,10 +12,6 @@ export const SECURITY_TOKEN_SERVICE = {
 
 export function SecurityTokenService(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_TOKEN_SERVICE}
-      {...props}
-      _style={extendStyle(SECURITY_TOKEN_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_TOKEN_SERVICE)} />
   )
 }

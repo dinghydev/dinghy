@@ -11,11 +11,5 @@ export const X10450_5_3_PNEUMATIC = {
 }
 
 export function X1045053Pneumatic(props: NodeProps) {
-  return (
-    <Shape
-      {...X10450_5_3_PNEUMATIC}
-      {...props}
-      _style={extendStyle(X10450_5_3_PNEUMATIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10450_5_3_PNEUMATIC)} />
 }

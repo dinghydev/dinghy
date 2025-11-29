@@ -11,11 +11,5 @@ export const SAML_OIDC_2 = {
 }
 
 export function SamlOidc2(props: NodeProps) {
-  return (
-    <Shape
-      {...SAML_OIDC_2}
-      {...props}
-      _style={extendStyle(SAML_OIDC_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAML_OIDC_2)} />
 }

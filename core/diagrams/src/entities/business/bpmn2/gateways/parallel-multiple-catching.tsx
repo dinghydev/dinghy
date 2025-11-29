@@ -12,10 +12,6 @@ export const PARALLEL_MULTIPLE_CATCHING = {
 
 export function ParallelMultipleCatching(props: NodeProps) {
   return (
-    <Shape
-      {...PARALLEL_MULTIPLE_CATCHING}
-      {...props}
-      _style={extendStyle(PARALLEL_MULTIPLE_CATCHING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PARALLEL_MULTIPLE_CATCHING)} />
   )
 }

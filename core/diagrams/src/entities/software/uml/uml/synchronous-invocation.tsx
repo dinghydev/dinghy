@@ -12,10 +12,6 @@ export const SYNCHRONOUS_INVOCATION = {
 
 export function SynchronousInvocation(props: NodeProps) {
   return (
-    <Shape
-      {...SYNCHRONOUS_INVOCATION}
-      {...props}
-      _style={extendStyle(SYNCHRONOUS_INVOCATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SYNCHRONOUS_INVOCATION)} />
   )
 }

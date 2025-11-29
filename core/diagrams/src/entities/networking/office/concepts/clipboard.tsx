@@ -11,7 +11,5 @@ export const CLIPBOARD = {
 }
 
 export function Clipboard(props: NodeProps) {
-  return (
-    <Shape {...CLIPBOARD} {...props} _style={extendStyle(CLIPBOARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLIPBOARD)} />
 }

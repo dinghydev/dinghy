@@ -13,9 +13,8 @@ export const SIGNAL_START_NON_INTERRUPTING = {
 export function SignalStartNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...SIGNAL_START_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(SIGNAL_START_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, SIGNAL_START_NON_INTERRUPTING)}
     />
   )
 }

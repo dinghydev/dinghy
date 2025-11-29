@@ -9,11 +9,5 @@ export const AD_HOC_EXPANDED = {
 }
 
 export function AdHocExpanded(props: NodeProps) {
-  return (
-    <Shape
-      {...AD_HOC_EXPANDED}
-      {...props}
-      _style={extendStyle(AD_HOC_EXPANDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_HOC_EXPANDED)} />
 }

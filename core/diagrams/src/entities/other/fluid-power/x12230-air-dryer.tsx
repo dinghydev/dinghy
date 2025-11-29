@@ -11,11 +11,5 @@ export const X12230_AIR_DRYER = {
 }
 
 export function X12230AirDryer(props: NodeProps) {
-  return (
-    <Shape
-      {...X12230_AIR_DRYER}
-      {...props}
-      _style={extendStyle(X12230_AIR_DRYER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12230_AIR_DRYER)} />
 }

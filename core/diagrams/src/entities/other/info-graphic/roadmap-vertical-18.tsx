@@ -11,11 +11,5 @@ export const ROADMAP_VERTICAL_18 = {
 }
 
 export function RoadmapVertical18(props: NodeProps) {
-  return (
-    <Shape
-      {...ROADMAP_VERTICAL_18}
-      {...props}
-      _style={extendStyle(ROADMAP_VERTICAL_18, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROADMAP_VERTICAL_18)} />
 }

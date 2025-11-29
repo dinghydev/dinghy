@@ -11,11 +11,5 @@ export const CUSTOMER_VOICE = {
 }
 
 export function CustomerVoice(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOMER_VOICE}
-      {...props}
-      _style={extendStyle(CUSTOMER_VOICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOMER_VOICE)} />
 }

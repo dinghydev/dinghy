@@ -11,11 +11,5 @@ export const GAS_FILTER_HEPA = {
 }
 
 export function GasFilterHepa(props: NodeProps) {
-  return (
-    <Shape
-      {...GAS_FILTER_HEPA}
-      {...props}
-      _style={extendStyle(GAS_FILTER_HEPA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_FILTER_HEPA)} />
 }

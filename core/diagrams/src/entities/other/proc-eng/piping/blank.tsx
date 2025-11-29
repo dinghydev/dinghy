@@ -11,5 +11,5 @@ export const BLANK = {
 }
 
 export function Blank(props: NodeProps) {
-  return <Shape {...BLANK} {...props} _style={extendStyle(BLANK, props)} />
+  return <Shape {...props} _style={extendStyle(props, BLANK)} />
 }

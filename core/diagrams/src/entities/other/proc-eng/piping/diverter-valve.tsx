@@ -11,11 +11,5 @@ export const DIVERTER_VALVE = {
 }
 
 export function DiverterValve(props: NodeProps) {
-  return (
-    <Shape
-      {...DIVERTER_VALVE}
-      {...props}
-      _style={extendStyle(DIVERTER_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIVERTER_VALVE)} />
 }

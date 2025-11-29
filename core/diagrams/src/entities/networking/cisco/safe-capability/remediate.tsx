@@ -11,7 +11,5 @@ export const REMEDIATE = {
 }
 
 export function Remediate(props: NodeProps) {
-  return (
-    <Shape {...REMEDIATE} {...props} _style={extendStyle(REMEDIATE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMEDIATE)} />
 }

@@ -11,11 +11,5 @@ export const SINGLE_SELECT_GROUPED = {
 }
 
 export function SingleSelectGrouped(props: NodeProps) {
-  return (
-    <Shape
-      {...SINGLE_SELECT_GROUPED}
-      {...props}
-      _style={extendStyle(SINGLE_SELECT_GROUPED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINGLE_SELECT_GROUPED)} />
 }

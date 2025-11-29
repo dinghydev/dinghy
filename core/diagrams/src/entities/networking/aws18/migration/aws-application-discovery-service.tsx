@@ -13,9 +13,8 @@ export const AWS_APPLICATION_DISCOVERY_SERVICE = {
 export function AwsApplicationDiscoveryService(props: NodeProps) {
   return (
     <Shape
-      {...AWS_APPLICATION_DISCOVERY_SERVICE}
       {...props}
-      _style={extendStyle(AWS_APPLICATION_DISCOVERY_SERVICE, props)}
+      _style={extendStyle(props, AWS_APPLICATION_DISCOVERY_SERVICE)}
     />
   )
 }

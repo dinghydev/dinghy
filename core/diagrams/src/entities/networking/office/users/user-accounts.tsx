@@ -11,11 +11,5 @@ export const USER_ACCOUNTS = {
 }
 
 export function UserAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_ACCOUNTS}
-      {...props}
-      _style={extendStyle(USER_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_ACCOUNTS)} />
 }

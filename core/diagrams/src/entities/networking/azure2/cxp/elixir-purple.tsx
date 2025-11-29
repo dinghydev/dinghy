@@ -11,11 +11,5 @@ export const ELIXIR_PURPLE = {
 }
 
 export function ElixirPurple(props: NodeProps) {
-  return (
-    <Shape
-      {...ELIXIR_PURPLE}
-      {...props}
-      _style={extendStyle(ELIXIR_PURPLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELIXIR_PURPLE)} />
 }

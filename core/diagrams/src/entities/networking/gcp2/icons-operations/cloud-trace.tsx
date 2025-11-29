@@ -11,11 +11,5 @@ export const CLOUD_TRACE = {
 }
 
 export function CloudTrace(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_TRACE}
-      {...props}
-      _style={extendStyle(CLOUD_TRACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_TRACE)} />
 }

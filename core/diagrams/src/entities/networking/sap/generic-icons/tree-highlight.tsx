@@ -11,11 +11,5 @@ export const TREE_HIGHLIGHT = {
 }
 
 export function TreeHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...TREE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(TREE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TREE_HIGHLIGHT)} />
 }

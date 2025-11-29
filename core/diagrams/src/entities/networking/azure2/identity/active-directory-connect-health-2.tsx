@@ -13,9 +13,8 @@ export const ACTIVE_DIRECTORY_CONNECT_HEALTH_2 = {
 export function ActiveDirectoryConnectHealth2(props: NodeProps) {
   return (
     <Shape
-      {...ACTIVE_DIRECTORY_CONNECT_HEALTH_2}
       {...props}
-      _style={extendStyle(ACTIVE_DIRECTORY_CONNECT_HEALTH_2, props)}
+      _style={extendStyle(props, ACTIVE_DIRECTORY_CONNECT_HEALTH_2)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const NUMBER_PAD = {
 }
 
 export function NumberPad(props: NodeProps) {
-  return (
-    <Shape {...NUMBER_PAD} {...props} _style={extendStyle(NUMBER_PAD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NUMBER_PAD)} />
 }

@@ -11,11 +11,5 @@ export const MONITOR_HEALTH_MODELS = {
 }
 
 export function MonitorHealthModels(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITOR_HEALTH_MODELS}
-      {...props}
-      _style={extendStyle(MONITOR_HEALTH_MODELS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITOR_HEALTH_MODELS)} />
 }

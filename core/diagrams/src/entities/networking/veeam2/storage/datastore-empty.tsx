@@ -11,11 +11,5 @@ export const DATASTORE_EMPTY = {
 }
 
 export function DatastoreEmpty(props: NodeProps) {
-  return (
-    <Shape
-      {...DATASTORE_EMPTY}
-      {...props}
-      _style={extendStyle(DATASTORE_EMPTY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATASTORE_EMPTY)} />
 }

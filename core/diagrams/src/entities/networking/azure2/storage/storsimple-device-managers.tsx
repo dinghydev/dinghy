@@ -12,10 +12,6 @@ export const STORSIMPLE_DEVICE_MANAGERS = {
 
 export function StorsimpleDeviceManagers(props: NodeProps) {
   return (
-    <Shape
-      {...STORSIMPLE_DEVICE_MANAGERS}
-      {...props}
-      _style={extendStyle(STORSIMPLE_DEVICE_MANAGERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STORSIMPLE_DEVICE_MANAGERS)} />
   )
 }

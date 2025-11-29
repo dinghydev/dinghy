@@ -13,9 +13,8 @@ export const AMAZON_KINESIS_DATA_ANALYTICS = {
 export function AmazonKinesisDataAnalytics(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_KINESIS_DATA_ANALYTICS}
       {...props}
-      _style={extendStyle(AMAZON_KINESIS_DATA_ANALYTICS, props)}
+      _style={extendStyle(props, AMAZON_KINESIS_DATA_ANALYTICS)}
     />
   )
 }

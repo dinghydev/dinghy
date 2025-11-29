@@ -11,11 +11,5 @@ export const IMPLEMENTATION_EVENT = {
 }
 
 export function ImplementationEvent(props: NodeProps) {
-  return (
-    <Shape
-      {...IMPLEMENTATION_EVENT}
-      {...props}
-      _style={extendStyle(IMPLEMENTATION_EVENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMPLEMENTATION_EVENT)} />
 }

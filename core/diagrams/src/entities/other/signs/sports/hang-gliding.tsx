@@ -11,11 +11,5 @@ export const HANG_GLIDING = {
 }
 
 export function HangGliding(props: NodeProps) {
-  return (
-    <Shape
-      {...HANG_GLIDING}
-      {...props}
-      _style={extendStyle(HANG_GLIDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HANG_GLIDING)} />
 }

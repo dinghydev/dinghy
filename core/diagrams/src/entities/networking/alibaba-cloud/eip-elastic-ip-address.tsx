@@ -12,10 +12,6 @@ export const EIP_ELASTIC_IP_ADDRESS = {
 
 export function EipElasticIpAddress(props: NodeProps) {
   return (
-    <Shape
-      {...EIP_ELASTIC_IP_ADDRESS}
-      {...props}
-      _style={extendStyle(EIP_ELASTIC_IP_ADDRESS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EIP_ELASTIC_IP_ADDRESS)} />
   )
 }

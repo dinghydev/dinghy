@@ -11,11 +11,5 @@ export const DISK_ENCRYPTION_SETS = {
 }
 
 export function DiskEncryptionSets(props: NodeProps) {
-  return (
-    <Shape
-      {...DISK_ENCRYPTION_SETS}
-      {...props}
-      _style={extendStyle(DISK_ENCRYPTION_SETS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISK_ENCRYPTION_SETS)} />
 }

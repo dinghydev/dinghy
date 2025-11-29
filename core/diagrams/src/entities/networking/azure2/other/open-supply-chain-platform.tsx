@@ -12,10 +12,6 @@ export const OPEN_SUPPLY_CHAIN_PLATFORM = {
 
 export function OpenSupplyChainPlatform(props: NodeProps) {
   return (
-    <Shape
-      {...OPEN_SUPPLY_CHAIN_PLATFORM}
-      {...props}
-      _style={extendStyle(OPEN_SUPPLY_CHAIN_PLATFORM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPEN_SUPPLY_CHAIN_PLATFORM)} />
   )
 }

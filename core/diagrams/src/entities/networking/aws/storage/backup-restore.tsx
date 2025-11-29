@@ -11,11 +11,5 @@ export const BACKUP_RESTORE = {
 }
 
 export function BackupRestore(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_RESTORE}
-      {...props}
-      _style={extendStyle(BACKUP_RESTORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_RESTORE)} />
 }

@@ -11,11 +11,5 @@ export const BUSINESS_ACTOR = {
 }
 
 export function BusinessActor(props: NodeProps) {
-  return (
-    <Shape
-      {...BUSINESS_ACTOR}
-      {...props}
-      _style={extendStyle(BUSINESS_ACTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUSINESS_ACTOR)} />
 }

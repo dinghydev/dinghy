@@ -11,5 +11,5 @@ export const BEIAN = {
 }
 
 export function Beian(props: NodeProps) {
-  return <Shape {...BEIAN} {...props} _style={extendStyle(BEIAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, BEIAN)} />
 }

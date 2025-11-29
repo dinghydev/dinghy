@@ -12,10 +12,6 @@ export const BOLD_TOGGLE_WITH_TOOLTIP_3 = {
 
 export function BoldToggleWithTooltip3(props: NodeProps) {
   return (
-    <Shape
-      {...BOLD_TOGGLE_WITH_TOOLTIP_3}
-      {...props}
-      _style={extendStyle(BOLD_TOGGLE_WITH_TOOLTIP_3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BOLD_TOGGLE_WITH_TOOLTIP_3)} />
   )
 }

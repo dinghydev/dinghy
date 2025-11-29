@@ -13,9 +13,8 @@ export const R0X26A_ARUBA_CX_6405_SWITCH_REAR = {
 export function R0x26aArubaCx6405SwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...R0X26A_ARUBA_CX_6405_SWITCH_REAR}
       {...props}
-      _style={extendStyle(R0X26A_ARUBA_CX_6405_SWITCH_REAR, props)}
+      _style={extendStyle(props, R0X26A_ARUBA_CX_6405_SWITCH_REAR)}
     />
   )
 }

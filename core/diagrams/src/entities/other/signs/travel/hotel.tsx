@@ -11,5 +11,5 @@ export const HOTEL = {
 }
 
 export function Hotel(props: NodeProps) {
-  return <Shape {...HOTEL} {...props} _style={extendStyle(HOTEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, HOTEL)} />
 }

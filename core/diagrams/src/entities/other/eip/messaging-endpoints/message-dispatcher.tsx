@@ -11,11 +11,5 @@ export const MESSAGE_DISPATCHER = {
 }
 
 export function MessageDispatcher(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_DISPATCHER}
-      {...props}
-      _style={extendStyle(MESSAGE_DISPATCHER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_DISPATCHER)} />
 }

@@ -11,11 +11,5 @@ export const CLOUD_INFERENCE_API = {
 }
 
 export function CloudInferenceApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_INFERENCE_API}
-      {...props}
-      _style={extendStyle(CLOUD_INFERENCE_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_INFERENCE_API)} />
 }

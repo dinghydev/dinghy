@@ -11,11 +11,5 @@ export const WARNING_DASHED_3 = {
 }
 
 export function WarningDashed3(props: NodeProps) {
-  return (
-    <Shape
-      {...WARNING_DASHED_3}
-      {...props}
-      _style={extendStyle(WARNING_DASHED_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WARNING_DASHED_3)} />
 }

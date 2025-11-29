@@ -12,10 +12,6 @@ export const NUMBERED_ENTRY_VERTICAL = {
 
 export function NumberedEntryVertical(props: NodeProps) {
   return (
-    <Shape
-      {...NUMBERED_ENTRY_VERTICAL}
-      {...props}
-      _style={extendStyle(NUMBERED_ENTRY_VERTICAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NUMBERED_ENTRY_VERTICAL)} />
   )
 }

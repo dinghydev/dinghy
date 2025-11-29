@@ -11,5 +11,5 @@ export const MUMMY = {
 }
 
 export function Mummy(props: NodeProps) {
-  return <Shape {...MUMMY} {...props} _style={extendStyle(MUMMY, props)} />
+  return <Shape {...props} _style={extendStyle(props, MUMMY)} />
 }

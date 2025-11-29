@@ -11,11 +11,5 @@ export const VERTICAL_NAVIGATION = {
 }
 
 export function VerticalNavigation(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_NAVIGATION}
-      {...props}
-      _style={extendStyle(VERTICAL_NAVIGATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_NAVIGATION)} />
 }

@@ -12,10 +12,6 @@ export const SEPARATOR_ELECTROMAGNETIC = {
 
 export function SeparatorElectromagnetic(props: NodeProps) {
   return (
-    <Shape
-      {...SEPARATOR_ELECTROMAGNETIC}
-      {...props}
-      _style={extendStyle(SEPARATOR_ELECTROMAGNETIC, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SEPARATOR_ELECTROMAGNETIC)} />
   )
 }

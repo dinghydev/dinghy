@@ -11,7 +11,5 @@ export const PIPELINE = {
 }
 
 export function Pipeline(props: NodeProps) {
-  return (
-    <Shape {...PIPELINE} {...props} _style={extendStyle(PIPELINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PIPELINE)} />
 }

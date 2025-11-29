@@ -11,11 +11,5 @@ export const TALENT_ATTRACT = {
 }
 
 export function TalentAttract(props: NodeProps) {
-  return (
-    <Shape
-      {...TALENT_ATTRACT}
-      {...props}
-      _style={extendStyle(TALENT_ATTRACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TALENT_ATTRACT)} />
 }

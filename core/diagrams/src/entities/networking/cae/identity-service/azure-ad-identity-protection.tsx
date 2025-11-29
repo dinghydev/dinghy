@@ -13,9 +13,8 @@ export const AZURE_AD_IDENTITY_PROTECTION = {
 export function AzureAdIdentityProtection(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_AD_IDENTITY_PROTECTION}
       {...props}
-      _style={extendStyle(AZURE_AD_IDENTITY_PROTECTION, props)}
+      _style={extendStyle(props, AZURE_AD_IDENTITY_PROTECTION)}
     />
   )
 }

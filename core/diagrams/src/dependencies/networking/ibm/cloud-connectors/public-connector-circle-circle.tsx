@@ -11,9 +11,8 @@ export const PUBLIC_CONNECTOR_CIRCLE_CIRCLE = {
 export function PublicConnectorCircleCircle(props: NodeProps) {
   return (
     <Dependency
-      {...PUBLIC_CONNECTOR_CIRCLE_CIRCLE}
       {...props}
-      _style={extendStyle(PUBLIC_CONNECTOR_CIRCLE_CIRCLE, props)}
+      _style={extendStyle(props, PUBLIC_CONNECTOR_CIRCLE_CIRCLE)}
     />
   )
 }

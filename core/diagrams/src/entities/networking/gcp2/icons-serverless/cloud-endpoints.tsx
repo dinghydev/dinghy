@@ -11,11 +11,5 @@ export const CLOUD_ENDPOINTS = {
 }
 
 export function CloudEndpoints(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_ENDPOINTS}
-      {...props}
-      _style={extendStyle(CLOUD_ENDPOINTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_ENDPOINTS)} />
 }

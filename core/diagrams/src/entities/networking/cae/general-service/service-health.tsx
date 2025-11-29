@@ -11,11 +11,5 @@ export const SERVICE_HEALTH = {
 }
 
 export function ServiceHealth(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_HEALTH}
-      {...props}
-      _style={extendStyle(SERVICE_HEALTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_HEALTH)} />
 }

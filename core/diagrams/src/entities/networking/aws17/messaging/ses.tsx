@@ -11,5 +11,5 @@ export const SES = {
 }
 
 export function Ses(props: NodeProps) {
-  return <Shape {...SES} {...props} _style={extendStyle(SES, props)} />
+  return <Shape {...props} _style={extendStyle(props, SES)} />
 }

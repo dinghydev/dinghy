@@ -12,10 +12,6 @@ export const SCHEDULER_JOB_COLLECTIONS = {
 
 export function SchedulerJobCollections(props: NodeProps) {
   return (
-    <Shape
-      {...SCHEDULER_JOB_COLLECTIONS}
-      {...props}
-      _style={extendStyle(SCHEDULER_JOB_COLLECTIONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SCHEDULER_JOB_COLLECTIONS)} />
   )
 }

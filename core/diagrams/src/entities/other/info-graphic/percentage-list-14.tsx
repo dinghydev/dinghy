@@ -11,11 +11,5 @@ export const PERCENTAGE_LIST_14 = {
 }
 
 export function PercentageList14(props: NodeProps) {
-  return (
-    <Shape
-      {...PERCENTAGE_LIST_14}
-      {...props}
-      _style={extendStyle(PERCENTAGE_LIST_14, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERCENTAGE_LIST_14)} />
 }

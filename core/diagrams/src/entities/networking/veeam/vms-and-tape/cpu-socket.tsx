@@ -11,7 +11,5 @@ export const CPU_SOCKET = {
 }
 
 export function CpuSocket(props: NodeProps) {
-  return (
-    <Shape {...CPU_SOCKET} {...props} _style={extendStyle(CPU_SOCKET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CPU_SOCKET)} />
 }

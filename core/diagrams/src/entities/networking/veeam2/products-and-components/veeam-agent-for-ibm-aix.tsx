@@ -12,10 +12,6 @@ export const VEEAM_AGENT_FOR_IBM_AIX = {
 
 export function VeeamAgentForIbmAix(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_AGENT_FOR_IBM_AIX}
-      {...props}
-      _style={extendStyle(VEEAM_AGENT_FOR_IBM_AIX, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_AGENT_FOR_IBM_AIX)} />
   )
 }

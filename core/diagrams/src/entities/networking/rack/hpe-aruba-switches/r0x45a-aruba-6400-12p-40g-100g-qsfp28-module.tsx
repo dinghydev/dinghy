@@ -13,9 +13,8 @@ export const R0X45A_ARUBA_6400_12P_40G_100G_QSFP28_MODULE = {
 export function R0x45aAruba640012p40g100gQsfp28Module(props: NodeProps) {
   return (
     <Shape
-      {...R0X45A_ARUBA_6400_12P_40G_100G_QSFP28_MODULE}
       {...props}
-      _style={extendStyle(R0X45A_ARUBA_6400_12P_40G_100G_QSFP28_MODULE, props)}
+      _style={extendStyle(props, R0X45A_ARUBA_6400_12P_40G_100G_QSFP28_MODULE)}
     />
   )
 }

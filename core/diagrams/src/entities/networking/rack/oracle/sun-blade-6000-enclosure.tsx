@@ -12,10 +12,6 @@ export const SUN_BLADE_6000_ENCLOSURE = {
 
 export function SunBlade6000Enclosure(props: NodeProps) {
   return (
-    <Shape
-      {...SUN_BLADE_6000_ENCLOSURE}
-      {...props}
-      _style={extendStyle(SUN_BLADE_6000_ENCLOSURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SUN_BLADE_6000_ENCLOSURE)} />
   )
 }

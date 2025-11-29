@@ -11,5 +11,5 @@ export const SQS = {
 }
 
 export function Sqs(props: NodeProps) {
-  return <Shape {...SQS} {...props} _style={extendStyle(SQS, props)} />
+  return <Shape {...props} _style={extendStyle(props, SQS)} />
 }

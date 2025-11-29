@@ -11,11 +11,5 @@ export const PEDESTRIAN_CROSSING = {
 }
 
 export function PedestrianCrossing(props: NodeProps) {
-  return (
-    <Shape
-      {...PEDESTRIAN_CROSSING}
-      {...props}
-      _style={extendStyle(PEDESTRIAN_CROSSING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PEDESTRIAN_CROSSING)} />
 }

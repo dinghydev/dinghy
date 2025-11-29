@@ -11,11 +11,5 @@ export const ACTIVITY_FINAL = {
 }
 
 export function ActivityFinal(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTIVITY_FINAL}
-      {...props}
-      _style={extendStyle(ACTIVITY_FINAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTIVITY_FINAL)} />
 }

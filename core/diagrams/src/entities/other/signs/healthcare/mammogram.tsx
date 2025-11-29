@@ -11,7 +11,5 @@ export const MAMMOGRAM = {
 }
 
 export function Mammogram(props: NodeProps) {
-  return (
-    <Shape {...MAMMOGRAM} {...props} _style={extendStyle(MAMMOGRAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAMMOGRAM)} />
 }

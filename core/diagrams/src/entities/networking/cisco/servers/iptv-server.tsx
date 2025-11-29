@@ -11,11 +11,5 @@ export const IPTV_SERVER = {
 }
 
 export function IptvServer(props: NodeProps) {
-  return (
-    <Shape
-      {...IPTV_SERVER}
-      {...props}
-      _style={extendStyle(IPTV_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPTV_SERVER)} />
 }

@@ -11,11 +11,5 @@ export const AZURE_WEBSITE = {
 }
 
 export function AzureWebsite(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_WEBSITE}
-      {...props}
-      _style={extendStyle(AZURE_WEBSITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_WEBSITE)} />
 }

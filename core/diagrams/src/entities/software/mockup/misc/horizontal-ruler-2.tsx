@@ -11,11 +11,5 @@ export const HORIZONTAL_RULER_2 = {
 }
 
 export function HorizontalRuler2(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_RULER_2}
-      {...props}
-      _style={extendStyle(HORIZONTAL_RULER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_RULER_2)} />
 }

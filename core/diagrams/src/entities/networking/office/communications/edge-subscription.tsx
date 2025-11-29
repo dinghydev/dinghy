@@ -11,11 +11,5 @@ export const EDGE_SUBSCRIPTION = {
 }
 
 export function EdgeSubscription(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_SUBSCRIPTION}
-      {...props}
-      _style={extendStyle(EDGE_SUBSCRIPTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_SUBSCRIPTION)} />
 }

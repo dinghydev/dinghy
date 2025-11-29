@@ -13,9 +13,8 @@ export const R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE = {
 export function R0x43aAruba640024pSfp4sfp56Module(props: NodeProps) {
   return (
     <Shape
-      {...R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE}
       {...props}
-      _style={extendStyle(R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE, props)}
+      _style={extendStyle(props, R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE)}
     />
   )
 }

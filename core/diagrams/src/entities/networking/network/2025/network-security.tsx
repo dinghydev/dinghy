@@ -11,11 +11,5 @@ export const NETWORK_SECURITY = {
 }
 
 export function NetworkSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_SECURITY}
-      {...props}
-      _style={extendStyle(NETWORK_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_SECURITY)} />
 }

@@ -11,10 +11,6 @@ export const EXECUTION_SPECIFICATION = {
 
 export function ExecutionSpecification(props: NodeProps) {
   return (
-    <Shape
-      {...EXECUTION_SPECIFICATION}
-      {...props}
-      _style={extendStyle(EXECUTION_SPECIFICATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXECUTION_SPECIFICATION)} />
   )
 }

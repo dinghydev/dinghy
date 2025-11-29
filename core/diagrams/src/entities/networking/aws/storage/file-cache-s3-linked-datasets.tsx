@@ -13,9 +13,8 @@ export const FILE_CACHE_S3_LINKED_DATASETS = {
 export function FileCacheS3LinkedDatasets(props: NodeProps) {
   return (
     <Shape
-      {...FILE_CACHE_S3_LINKED_DATASETS}
       {...props}
-      _style={extendStyle(FILE_CACHE_S3_LINKED_DATASETS, props)}
+      _style={extendStyle(props, FILE_CACHE_S3_LINKED_DATASETS)}
     />
   )
 }

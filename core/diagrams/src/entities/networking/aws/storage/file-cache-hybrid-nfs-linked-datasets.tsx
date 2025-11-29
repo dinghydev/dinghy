@@ -13,9 +13,8 @@ export const FILE_CACHE_HYBRID_NFS_LINKED_DATASETS = {
 export function FileCacheHybridNfsLinkedDatasets(props: NodeProps) {
   return (
     <Shape
-      {...FILE_CACHE_HYBRID_NFS_LINKED_DATASETS}
       {...props}
-      _style={extendStyle(FILE_CACHE_HYBRID_NFS_LINKED_DATASETS, props)}
+      _style={extendStyle(props, FILE_CACHE_HYBRID_NFS_LINKED_DATASETS)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const VEEAM_AGENT_FOR_LINUX = {
 }
 
 export function VeeamAgentForLinux(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_AGENT_FOR_LINUX}
-      {...props}
-      _style={extendStyle(VEEAM_AGENT_FOR_LINUX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_AGENT_FOR_LINUX)} />
 }

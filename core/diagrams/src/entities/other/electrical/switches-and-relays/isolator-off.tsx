@@ -11,11 +11,5 @@ export const ISOLATOR_OFF = {
 }
 
 export function IsolatorOff(props: NodeProps) {
-  return (
-    <Shape
-      {...ISOLATOR_OFF}
-      {...props}
-      _style={extendStyle(ISOLATOR_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISOLATOR_OFF)} />
 }

@@ -11,11 +11,5 @@ export const MEM_INSTANCES = {
 }
 
 export function MemInstances(props: NodeProps) {
-  return (
-    <Shape
-      {...MEM_INSTANCES}
-      {...props}
-      _style={extendStyle(MEM_INSTANCES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEM_INSTANCES)} />
 }

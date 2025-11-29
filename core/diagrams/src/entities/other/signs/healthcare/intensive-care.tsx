@@ -11,11 +11,5 @@ export const INTENSIVE_CARE = {
 }
 
 export function IntensiveCare(props: NodeProps) {
-  return (
-    <Shape
-      {...INTENSIVE_CARE}
-      {...props}
-      _style={extendStyle(INTENSIVE_CARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTENSIVE_CARE)} />
 }

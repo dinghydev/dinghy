@@ -11,11 +11,5 @@ export const CALLOUT_QUAD_ARROW = {
 }
 
 export function CalloutQuadArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...CALLOUT_QUAD_ARROW}
-      {...props}
-      _style={extendStyle(CALLOUT_QUAD_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALLOUT_QUAD_ARROW)} />
 }

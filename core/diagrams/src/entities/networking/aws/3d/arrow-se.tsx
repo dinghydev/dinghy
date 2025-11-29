@@ -11,7 +11,5 @@ export const ARROW_SE = {
 }
 
 export function ArrowSe(props: NodeProps) {
-  return (
-    <Shape {...ARROW_SE} {...props} _style={extendStyle(ARROW_SE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROW_SE)} />
 }

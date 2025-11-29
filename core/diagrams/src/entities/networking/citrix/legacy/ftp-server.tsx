@@ -11,7 +11,5 @@ export const FTP_SERVER = {
 }
 
 export function FtpServer(props: NodeProps) {
-  return (
-    <Shape {...FTP_SERVER} {...props} _style={extendStyle(FTP_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FTP_SERVER)} />
 }

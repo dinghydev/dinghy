@@ -11,11 +11,5 @@ export const GIT_REPOSITORY = {
 }
 
 export function GitRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...GIT_REPOSITORY}
-      {...props}
-      _style={extendStyle(GIT_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GIT_REPOSITORY)} />
 }

@@ -11,11 +11,5 @@ export const COST_EXPLORER = {
 }
 
 export function CostExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_EXPLORER}
-      {...props}
-      _style={extendStyle(COST_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_EXPLORER)} />
 }

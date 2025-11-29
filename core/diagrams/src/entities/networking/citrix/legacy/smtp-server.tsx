@@ -11,11 +11,5 @@ export const SMTP_SERVER = {
 }
 
 export function SmtpServer(props: NodeProps) {
-  return (
-    <Shape
-      {...SMTP_SERVER}
-      {...props}
-      _style={extendStyle(SMTP_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMTP_SERVER)} />
 }

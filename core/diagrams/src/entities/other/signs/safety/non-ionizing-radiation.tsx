@@ -12,10 +12,6 @@ export const NON_IONIZING_RADIATION = {
 
 export function NonIonizingRadiation(props: NodeProps) {
   return (
-    <Shape
-      {...NON_IONIZING_RADIATION}
-      {...props}
-      _style={extendStyle(NON_IONIZING_RADIATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NON_IONIZING_RADIATION)} />
   )
 }

@@ -11,7 +11,5 @@ export const FILESTORE = {
 }
 
 export function Filestore(props: NodeProps) {
-  return (
-    <Shape {...FILESTORE} {...props} _style={extendStyle(FILESTORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILESTORE)} />
 }

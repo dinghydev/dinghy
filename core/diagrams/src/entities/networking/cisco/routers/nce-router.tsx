@@ -11,7 +11,5 @@ export const NCE_ROUTER = {
 }
 
 export function NceRouter(props: NodeProps) {
-  return (
-    <Shape {...NCE_ROUTER} {...props} _style={extendStyle(NCE_ROUTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NCE_ROUTER)} />
 }

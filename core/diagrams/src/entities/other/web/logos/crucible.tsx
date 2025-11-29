@@ -11,7 +11,5 @@ export const CRUCIBLE = {
 }
 
 export function Crucible(props: NodeProps) {
-  return (
-    <Shape {...CRUCIBLE} {...props} _style={extendStyle(CRUCIBLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CRUCIBLE)} />
 }

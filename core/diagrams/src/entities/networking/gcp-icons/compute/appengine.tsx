@@ -11,7 +11,5 @@ export const APPENGINE = {
 }
 
 export function Appengine(props: NodeProps) {
-  return (
-    <Shape {...APPENGINE} {...props} _style={extendStyle(APPENGINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPENGINE)} />
 }

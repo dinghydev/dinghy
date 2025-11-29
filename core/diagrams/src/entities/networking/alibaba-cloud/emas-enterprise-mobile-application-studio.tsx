@@ -13,9 +13,8 @@ export const EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO = {
 export function EmasEnterpriseMobileApplicationStudio(props: NodeProps) {
   return (
     <Shape
-      {...EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO}
       {...props}
-      _style={extendStyle(EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO, props)}
+      _style={extendStyle(props, EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO)}
     />
   )
 }

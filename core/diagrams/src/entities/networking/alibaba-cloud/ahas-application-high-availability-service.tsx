@@ -13,9 +13,8 @@ export const AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE = {
 export function AhasApplicationHighAvailabilityService(props: NodeProps) {
   return (
     <Shape
-      {...AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE}
       {...props}
-      _style={extendStyle(AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE, props)}
+      _style={extendStyle(props, AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE)}
     />
   )
 }

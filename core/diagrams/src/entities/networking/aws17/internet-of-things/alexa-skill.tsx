@@ -11,11 +11,5 @@ export const ALEXA_SKILL = {
 }
 
 export function AlexaSkill(props: NodeProps) {
-  return (
-    <Shape
-      {...ALEXA_SKILL}
-      {...props}
-      _style={extendStyle(ALEXA_SKILL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALEXA_SKILL)} />
 }

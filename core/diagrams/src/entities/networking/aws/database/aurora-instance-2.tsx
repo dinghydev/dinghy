@@ -11,11 +11,5 @@ export const AURORA_INSTANCE_2 = {
 }
 
 export function AuroraInstance2(props: NodeProps) {
-  return (
-    <Shape
-      {...AURORA_INSTANCE_2}
-      {...props}
-      _style={extendStyle(AURORA_INSTANCE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AURORA_INSTANCE_2)} />
 }

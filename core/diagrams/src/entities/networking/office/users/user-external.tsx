@@ -11,11 +11,5 @@ export const USER_EXTERNAL = {
 }
 
 export function UserExternal(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_EXTERNAL}
-      {...props}
-      _style={extendStyle(USER_EXTERNAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_EXTERNAL)} />
 }

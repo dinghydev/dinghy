@@ -10,11 +10,5 @@ export const CLOUD_RECTANGLE = {
 }
 
 export function CloudRectangle(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_RECTANGLE}
-      {...props}
-      _style={extendStyle(CLOUD_RECTANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_RECTANGLE)} />
 }

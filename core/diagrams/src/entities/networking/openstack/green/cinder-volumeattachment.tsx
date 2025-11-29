@@ -12,10 +12,6 @@ export const CINDER_VOLUMEATTACHMENT = {
 
 export function CinderVolumeattachment(props: NodeProps) {
   return (
-    <Shape
-      {...CINDER_VOLUMEATTACHMENT}
-      {...props}
-      _style={extendStyle(CINDER_VOLUMEATTACHMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CINDER_VOLUMEATTACHMENT)} />
   )
 }

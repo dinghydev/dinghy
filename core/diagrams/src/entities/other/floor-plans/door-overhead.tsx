@@ -11,11 +11,5 @@ export const DOOR_OVERHEAD = {
 }
 
 export function DoorOverhead(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_OVERHEAD}
-      {...props}
-      _style={extendStyle(DOOR_OVERHEAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_OVERHEAD)} />
 }

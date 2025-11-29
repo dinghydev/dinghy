@@ -11,11 +11,5 @@ export const UCMA_APPLICATION = {
 }
 
 export function UcmaApplication(props: NodeProps) {
-  return (
-    <Shape
-      {...UCMA_APPLICATION}
-      {...props}
-      _style={extendStyle(UCMA_APPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UCMA_APPLICATION)} />
 }

@@ -11,11 +11,5 @@ export const GROUND_TERMINAL = {
 }
 
 export function GroundTerminal(props: NodeProps) {
-  return (
-    <Shape
-      {...GROUND_TERMINAL}
-      {...props}
-      _style={extendStyle(GROUND_TERMINAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GROUND_TERMINAL)} />
 }

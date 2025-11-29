@@ -12,10 +12,6 @@ export const ELEMENTAL_MEDIACONVERT = {
 
 export function ElementalMediaconvert(props: NodeProps) {
   return (
-    <Shape
-      {...ELEMENTAL_MEDIACONVERT}
-      {...props}
-      _style={extendStyle(ELEMENTAL_MEDIACONVERT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELEMENTAL_MEDIACONVERT)} />
   )
 }

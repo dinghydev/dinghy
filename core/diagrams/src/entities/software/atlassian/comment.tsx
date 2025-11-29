@@ -11,5 +11,5 @@ export const COMMENT = {
 }
 
 export function Comment(props: NodeProps) {
-  return <Shape {...COMMENT} {...props} _style={extendStyle(COMMENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, COMMENT)} />
 }

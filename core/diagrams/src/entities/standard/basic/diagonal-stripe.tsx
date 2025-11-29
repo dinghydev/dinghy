@@ -11,11 +11,5 @@ export const DIAGONAL_STRIPE = {
 }
 
 export function DiagonalStripe(props: NodeProps) {
-  return (
-    <Shape
-      {...DIAGONAL_STRIPE}
-      {...props}
-      _style={extendStyle(DIAGONAL_STRIPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIAGONAL_STRIPE)} />
 }

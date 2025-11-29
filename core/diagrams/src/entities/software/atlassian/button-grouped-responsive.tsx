@@ -12,10 +12,6 @@ export const BUTTON_GROUPED_RESPONSIVE = {
 
 export function ButtonGroupedResponsive(props: NodeProps) {
   return (
-    <Shape
-      {...BUTTON_GROUPED_RESPONSIVE}
-      {...props}
-      _style={extendStyle(BUTTON_GROUPED_RESPONSIVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BUTTON_GROUPED_RESPONSIVE)} />
   )
 }

@@ -10,11 +10,5 @@ export const TRUCK_SHIPMENT = {
 }
 
 export function TruckShipment(props: NodeProps) {
-  return (
-    <Shape
-      {...TRUCK_SHIPMENT}
-      {...props}
-      _style={extendStyle(TRUCK_SHIPMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRUCK_SHIPMENT)} />
 }

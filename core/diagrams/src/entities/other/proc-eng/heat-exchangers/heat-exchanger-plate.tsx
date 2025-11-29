@@ -11,11 +11,5 @@ export const HEAT_EXCHANGER_PLATE = {
 }
 
 export function HeatExchangerPlate(props: NodeProps) {
-  return (
-    <Shape
-      {...HEAT_EXCHANGER_PLATE}
-      {...props}
-      _style={extendStyle(HEAT_EXCHANGER_PLATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEAT_EXCHANGER_PLATE)} />
 }

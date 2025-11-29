@@ -11,11 +11,5 @@ export const LATCHING_DEVICE = {
 }
 
 export function LatchingDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...LATCHING_DEVICE}
-      {...props}
-      _style={extendStyle(LATCHING_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LATCHING_DEVICE)} />
 }

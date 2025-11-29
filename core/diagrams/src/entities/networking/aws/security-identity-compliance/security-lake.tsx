@@ -11,11 +11,5 @@ export const SECURITY_LAKE = {
 }
 
 export function SecurityLake(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURITY_LAKE}
-      {...props}
-      _style={extendStyle(SECURITY_LAKE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURITY_LAKE)} />
 }

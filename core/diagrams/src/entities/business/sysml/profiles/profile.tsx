@@ -11,5 +11,5 @@ export const PROFILE = {
 }
 
 export function Profile(props: NodeProps) {
-  return <Shape {...PROFILE} {...props} _style={extendStyle(PROFILE, props)} />
+  return <Shape {...props} _style={extendStyle(props, PROFILE)} />
 }

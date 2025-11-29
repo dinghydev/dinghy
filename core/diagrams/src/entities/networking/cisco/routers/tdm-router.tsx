@@ -11,7 +11,5 @@ export const TDM_ROUTER = {
 }
 
 export function TdmRouter(props: NodeProps) {
-  return (
-    <Shape {...TDM_ROUTER} {...props} _style={extendStyle(TDM_ROUTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TDM_ROUTER)} />
 }

@@ -12,10 +12,6 @@ export const INFORMATION_GOVERNANCE = {
 
 export function InformationGovernance(props: NodeProps) {
   return (
-    <Shape
-      {...INFORMATION_GOVERNANCE}
-      {...props}
-      _style={extendStyle(INFORMATION_GOVERNANCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFORMATION_GOVERNANCE)} />
   )
 }

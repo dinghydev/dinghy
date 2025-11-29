@@ -11,11 +11,5 @@ export const SERVER_DISASTER = {
 }
 
 export function ServerDisaster(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_DISASTER}
-      {...props}
-      _style={extendStyle(SERVER_DISASTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_DISASTER)} />
 }

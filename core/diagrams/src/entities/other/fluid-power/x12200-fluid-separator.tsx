@@ -12,10 +12,6 @@ export const X12200_FLUID_SEPARATOR = {
 
 export function X12200FluidSeparator(props: NodeProps) {
   return (
-    <Shape
-      {...X12200_FLUID_SEPARATOR}
-      {...props}
-      _style={extendStyle(X12200_FLUID_SEPARATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12200_FLUID_SEPARATOR)} />
   )
 }

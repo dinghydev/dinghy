@@ -11,7 +11,5 @@ export const CORRETTO = {
 }
 
 export function Corretto(props: NodeProps) {
-  return (
-    <Shape {...CORRETTO} {...props} _style={extendStyle(CORRETTO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CORRETTO)} />
 }

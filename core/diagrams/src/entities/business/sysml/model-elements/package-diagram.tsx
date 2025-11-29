@@ -11,11 +11,5 @@ export const PACKAGE_DIAGRAM = {
 }
 
 export function PackageDiagram(props: NodeProps) {
-  return (
-    <Shape
-      {...PACKAGE_DIAGRAM}
-      {...props}
-      _style={extendStyle(PACKAGE_DIAGRAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PACKAGE_DIAGRAM)} />
 }

@@ -12,10 +12,6 @@ export const PRIVATE_MOBILE_NETWORK = {
 
 export function PrivateMobileNetwork(props: NodeProps) {
   return (
-    <Shape
-      {...PRIVATE_MOBILE_NETWORK}
-      {...props}
-      _style={extendStyle(PRIVATE_MOBILE_NETWORK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PRIVATE_MOBILE_NETWORK)} />
   )
 }

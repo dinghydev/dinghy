@@ -11,11 +11,5 @@ export const QUEUES_STORAGE = {
 }
 
 export function QueuesStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...QUEUES_STORAGE}
-      {...props}
-      _style={extendStyle(QUEUES_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUEUES_STORAGE)} />
 }

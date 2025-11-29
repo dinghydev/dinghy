@@ -11,7 +11,5 @@ export const PHOTODIODE = {
 }
 
 export function Photodiode(props: NodeProps) {
-  return (
-    <Shape {...PHOTODIODE} {...props} _style={extendStyle(PHOTODIODE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHOTODIODE)} />
 }

@@ -11,11 +11,5 @@ export const MONITORING_LOGGING = {
 }
 
 export function MonitoringLogging(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITORING_LOGGING}
-      {...props}
-      _style={extendStyle(MONITORING_LOGGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITORING_LOGGING)} />
 }

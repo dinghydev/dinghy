@@ -11,11 +11,5 @@ export const DESK_CORNER = {
 }
 
 export function DeskCorner(props: NodeProps) {
-  return (
-    <Shape
-      {...DESK_CORNER}
-      {...props}
-      _style={extendStyle(DESK_CORNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESK_CORNER)} />
 }

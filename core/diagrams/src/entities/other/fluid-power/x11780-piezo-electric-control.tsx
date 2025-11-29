@@ -13,9 +13,8 @@ export const X11780_PIEZO_ELECTRIC_CONTROL = {
 export function X11780PiezoElectricControl(props: NodeProps) {
   return (
     <Shape
-      {...X11780_PIEZO_ELECTRIC_CONTROL}
       {...props}
-      _style={extendStyle(X11780_PIEZO_ELECTRIC_CONTROL, props)}
+      _style={extendStyle(props, X11780_PIEZO_ELECTRIC_CONTROL)}
     />
   )
 }

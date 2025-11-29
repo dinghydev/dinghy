@@ -13,9 +13,8 @@ export const NLB_NETWORK_LOAD_BALANCER_2 = {
 export function NlbNetworkLoadBalancer2(props: NodeProps) {
   return (
     <Shape
-      {...NLB_NETWORK_LOAD_BALANCER_2}
       {...props}
-      _style={extendStyle(NLB_NETWORK_LOAD_BALANCER_2, props)}
+      _style={extendStyle(props, NLB_NETWORK_LOAD_BALANCER_2)}
     />
   )
 }

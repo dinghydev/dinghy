@@ -11,5 +11,5 @@ export const VIADEO = {
 }
 
 export function Viadeo(props: NodeProps) {
-  return <Shape {...VIADEO} {...props} _style={extendStyle(VIADEO, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIADEO)} />
 }

@@ -11,11 +11,5 @@ export const LOG_MANAGEMENT = {
 }
 
 export function LogManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...LOG_MANAGEMENT}
-      {...props}
-      _style={extendStyle(LOG_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOG_MANAGEMENT)} />
 }

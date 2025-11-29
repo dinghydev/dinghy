@@ -10,11 +10,5 @@ export const GRID_TITLES = {
 }
 
 export function GridTitles(props: NodeProps) {
-  return (
-    <Shape
-      {...GRID_TITLES}
-      {...props}
-      _style={extendStyle(GRID_TITLES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GRID_TITLES)} />
 }

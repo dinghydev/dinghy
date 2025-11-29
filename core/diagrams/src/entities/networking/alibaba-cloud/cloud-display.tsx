@@ -11,11 +11,5 @@ export const CLOUD_DISPLAY = {
 }
 
 export function CloudDisplay(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DISPLAY}
-      {...props}
-      _style={extendStyle(CLOUD_DISPLAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DISPLAY)} />
 }

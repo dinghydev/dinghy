@@ -12,10 +12,6 @@ export const DEVICE_IDENTITY_SERVICE = {
 
 export function DeviceIdentityService(props: NodeProps) {
   return (
-    <Shape
-      {...DEVICE_IDENTITY_SERVICE}
-      {...props}
-      _style={extendStyle(DEVICE_IDENTITY_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEVICE_IDENTITY_SERVICE)} />
   )
 }

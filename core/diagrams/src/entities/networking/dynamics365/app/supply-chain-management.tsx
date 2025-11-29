@@ -12,10 +12,6 @@ export const SUPPLY_CHAIN_MANAGEMENT = {
 
 export function SupplyChainManagement(props: NodeProps) {
   return (
-    <Shape
-      {...SUPPLY_CHAIN_MANAGEMENT}
-      {...props}
-      _style={extendStyle(SUPPLY_CHAIN_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SUPPLY_CHAIN_MANAGEMENT)} />
   )
 }

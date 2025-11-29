@@ -11,11 +11,5 @@ export const HIGH_VOLTAGE_1 = {
 }
 
 export function HighVoltage1(props: NodeProps) {
-  return (
-    <Shape
-      {...HIGH_VOLTAGE_1}
-      {...props}
-      _style={extendStyle(HIGH_VOLTAGE_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HIGH_VOLTAGE_1)} />
 }

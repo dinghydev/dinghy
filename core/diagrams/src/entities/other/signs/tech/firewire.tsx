@@ -11,7 +11,5 @@ export const FIREWIRE = {
 }
 
 export function Firewire(props: NodeProps) {
-  return (
-    <Shape {...FIREWIRE} {...props} _style={extendStyle(FIREWIRE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREWIRE)} />
 }

@@ -11,11 +11,5 @@ export const RESOURCE_EXPLORER = {
 }
 
 export function ResourceExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...RESOURCE_EXPLORER}
-      {...props}
-      _style={extendStyle(RESOURCE_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE_EXPLORER)} />
 }

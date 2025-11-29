@@ -11,11 +11,5 @@ export const TRANSFORMER = {
 }
 
 export function Transformer(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSFORMER}
-      {...props}
-      _style={extendStyle(TRANSFORMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSFORMER)} />
 }

@@ -11,7 +11,5 @@ export const MOSFET_N = {
 }
 
 export function MosfetN(props: NodeProps) {
-  return (
-    <Shape {...MOSFET_N} {...props} _style={extendStyle(MOSFET_N, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOSFET_N)} />
 }

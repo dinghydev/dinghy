@@ -11,5 +11,5 @@ export const PIGBT = {
 }
 
 export function Pigbt(props: NodeProps) {
-  return <Shape {...PIGBT} {...props} _style={extendStyle(PIGBT, props)} />
+  return <Shape {...props} _style={extendStyle(props, PIGBT)} />
 }

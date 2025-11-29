@@ -13,9 +13,8 @@ export const ESCALATION_INTERMEDIATE_BOUNDARY_THROWING = {
 export function EscalationIntermediateBoundaryThrowing(props: NodeProps) {
   return (
     <Shape
-      {...ESCALATION_INTERMEDIATE_BOUNDARY_THROWING}
       {...props}
-      _style={extendStyle(ESCALATION_INTERMEDIATE_BOUNDARY_THROWING, props)}
+      _style={extendStyle(props, ESCALATION_INTERMEDIATE_BOUNDARY_THROWING)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const SIGN_LANGUAGE = {
 }
 
 export function SignLanguage(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGN_LANGUAGE}
-      {...props}
-      _style={extendStyle(SIGN_LANGUAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGN_LANGUAGE)} />
 }

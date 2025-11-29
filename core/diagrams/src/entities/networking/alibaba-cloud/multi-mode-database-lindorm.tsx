@@ -13,9 +13,8 @@ export const MULTI_MODE_DATABASE_LINDORM = {
 export function MultiModeDatabaseLindorm(props: NodeProps) {
   return (
     <Shape
-      {...MULTI_MODE_DATABASE_LINDORM}
       {...props}
-      _style={extendStyle(MULTI_MODE_DATABASE_LINDORM, props)}
+      _style={extendStyle(props, MULTI_MODE_DATABASE_LINDORM)}
     />
   )
 }

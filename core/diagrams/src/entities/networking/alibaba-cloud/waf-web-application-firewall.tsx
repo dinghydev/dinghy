@@ -13,9 +13,8 @@ export const WAF_WEB_APPLICATION_FIREWALL = {
 export function WafWebApplicationFirewall(props: NodeProps) {
   return (
     <Shape
-      {...WAF_WEB_APPLICATION_FIREWALL}
       {...props}
-      _style={extendStyle(WAF_WEB_APPLICATION_FIREWALL, props)}
+      _style={extendStyle(props, WAF_WEB_APPLICATION_FIREWALL)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const WIDE_AREA_APPLICATION_ENGINE = {
 export function WideAreaApplicationEngine(props: NodeProps) {
   return (
     <Shape
-      {...WIDE_AREA_APPLICATION_ENGINE}
       {...props}
-      _style={extendStyle(WIDE_AREA_APPLICATION_ENGINE, props)}
+      _style={extendStyle(props, WIDE_AREA_APPLICATION_ENGINE)}
     />
   )
 }

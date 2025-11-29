@@ -11,11 +11,5 @@ export const X11670_HOSE_ASSEMBLY = {
 }
 
 export function X11670HoseAssembly(props: NodeProps) {
-  return (
-    <Shape
-      {...X11670_HOSE_ASSEMBLY}
-      {...props}
-      _style={extendStyle(X11670_HOSE_ASSEMBLY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11670_HOSE_ASSEMBLY)} />
 }

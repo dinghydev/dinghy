@@ -11,11 +11,5 @@ export const SIMPLE_STATE_2 = {
 }
 
 export function SimpleState2(props: NodeProps) {
-  return (
-    <Shape
-      {...SIMPLE_STATE_2}
-      {...props}
-      _style={extendStyle(SIMPLE_STATE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMPLE_STATE_2)} />
 }

@@ -11,11 +11,5 @@ export const INTERNET_CONNECTION = {
 }
 
 export function InternetConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_CONNECTION}
-      {...props}
-      _style={extendStyle(INTERNET_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_CONNECTION)} />
 }

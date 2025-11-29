@@ -11,7 +11,5 @@ export const WAVEFRONT = {
 }
 
 export function Wavefront(props: NodeProps) {
-  return (
-    <Shape {...WAVEFRONT} {...props} _style={extendStyle(WAVEFRONT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAVEFRONT)} />
 }

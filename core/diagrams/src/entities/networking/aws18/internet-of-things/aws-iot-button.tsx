@@ -11,11 +11,5 @@ export const AWS_IOT_BUTTON = {
 }
 
 export function AwsIotButton(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_IOT_BUTTON}
-      {...props}
-      _style={extendStyle(AWS_IOT_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_IOT_BUTTON)} />
 }

@@ -11,5 +11,5 @@ export const PRIVACY = {
 }
 
 export function Privacy(props: NodeProps) {
-  return <Shape {...PRIVACY} {...props} _style={extendStyle(PRIVACY, props)} />
+  return <Shape {...props} _style={extendStyle(props, PRIVACY)} />
 }

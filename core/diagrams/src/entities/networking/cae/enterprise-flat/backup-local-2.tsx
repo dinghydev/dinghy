@@ -11,11 +11,5 @@ export const BACKUP_LOCAL_2 = {
 }
 
 export function BackupLocal2(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_LOCAL_2}
-      {...props}
-      _style={extendStyle(BACKUP_LOCAL_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_LOCAL_2)} />
 }

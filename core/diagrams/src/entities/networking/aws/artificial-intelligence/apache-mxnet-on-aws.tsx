@@ -11,11 +11,5 @@ export const APACHE_MXNET_ON_AWS = {
 }
 
 export function ApacheMxnetOnAws(props: NodeProps) {
-  return (
-    <Shape
-      {...APACHE_MXNET_ON_AWS}
-      {...props}
-      _style={extendStyle(APACHE_MXNET_ON_AWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APACHE_MXNET_ON_AWS)} />
 }

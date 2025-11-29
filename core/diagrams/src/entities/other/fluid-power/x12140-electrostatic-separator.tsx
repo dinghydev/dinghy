@@ -13,9 +13,8 @@ export const X12140_ELECTROSTATIC_SEPARATOR = {
 export function X12140ElectrostaticSeparator(props: NodeProps) {
   return (
     <Shape
-      {...X12140_ELECTROSTATIC_SEPARATOR}
       {...props}
-      _style={extendStyle(X12140_ELECTROSTATIC_SEPARATOR, props)}
+      _style={extendStyle(props, X12140_ELECTROSTATIC_SEPARATOR)}
     />
   )
 }

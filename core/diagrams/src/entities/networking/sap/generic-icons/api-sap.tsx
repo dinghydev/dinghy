@@ -11,5 +11,5 @@ export const API_SAP = {
 }
 
 export function ApiSap(props: NodeProps) {
-  return <Shape {...API_SAP} {...props} _style={extendStyle(API_SAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, API_SAP)} />
 }

@@ -11,11 +11,5 @@ export const FEATURE_NON_SAP = {
 }
 
 export function FeatureNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...FEATURE_NON_SAP}
-      {...props}
-      _style={extendStyle(FEATURE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEATURE_NON_SAP)} />
 }

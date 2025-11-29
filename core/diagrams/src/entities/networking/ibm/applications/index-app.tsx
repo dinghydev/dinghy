@@ -11,7 +11,5 @@ export const INDEX_APP = {
 }
 
 export function IndexApp(props: NodeProps) {
-  return (
-    <Shape {...INDEX_APP} {...props} _style={extendStyle(INDEX_APP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDEX_APP)} />
 }

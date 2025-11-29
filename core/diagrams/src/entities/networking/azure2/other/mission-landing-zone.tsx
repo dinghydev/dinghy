@@ -11,11 +11,5 @@ export const MISSION_LANDING_ZONE = {
 }
 
 export function MissionLandingZone(props: NodeProps) {
-  return (
-    <Shape
-      {...MISSION_LANDING_ZONE}
-      {...props}
-      _style={extendStyle(MISSION_LANDING_ZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MISSION_LANDING_ZONE)} />
 }

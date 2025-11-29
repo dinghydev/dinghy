@@ -11,7 +11,5 @@ export const WEB_PART = {
 }
 
 export function WebPart(props: NodeProps) {
-  return (
-    <Shape {...WEB_PART} {...props} _style={extendStyle(WEB_PART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_PART)} />
 }

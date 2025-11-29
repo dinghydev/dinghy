@@ -11,5 +11,5 @@ export const MIGRATE = {
 }
 
 export function Migrate(props: NodeProps) {
-  return <Shape {...MIGRATE} {...props} _style={extendStyle(MIGRATE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MIGRATE)} />
 }

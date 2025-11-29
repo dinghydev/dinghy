@@ -13,9 +13,8 @@ export const CIRCULAR_DIAL_LIST_VERTICAL_2 = {
 export function CircularDialListVertical2(props: NodeProps) {
   return (
     <Shape
-      {...CIRCULAR_DIAL_LIST_VERTICAL_2}
       {...props}
-      _style={extendStyle(CIRCULAR_DIAL_LIST_VERTICAL_2, props)}
+      _style={extendStyle(props, CIRCULAR_DIAL_LIST_VERTICAL_2)}
     />
   )
 }

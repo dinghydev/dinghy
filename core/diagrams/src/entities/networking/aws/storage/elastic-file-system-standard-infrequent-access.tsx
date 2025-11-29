@@ -13,11 +13,10 @@ export const ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS = {
 export function ElasticFileSystemStandardInfrequentAccess(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS}
       {...props}
       _style={extendStyle(
-        ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS,
         props,
+        ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS,
       )}
     />
   )

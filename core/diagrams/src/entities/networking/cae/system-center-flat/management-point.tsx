@@ -11,11 +11,5 @@ export const MANAGEMENT_POINT = {
 }
 
 export function ManagementPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_POINT}
-      {...props}
-      _style={extendStyle(MANAGEMENT_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_POINT)} />
 }

@@ -11,11 +11,5 @@ export const QUICK_MIGRATION = {
 }
 
 export function QuickMigration(props: NodeProps) {
-  return (
-    <Shape
-      {...QUICK_MIGRATION}
-      {...props}
-      _style={extendStyle(QUICK_MIGRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUICK_MIGRATION)} />
 }

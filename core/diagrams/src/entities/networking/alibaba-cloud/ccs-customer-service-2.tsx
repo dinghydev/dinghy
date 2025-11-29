@@ -12,10 +12,6 @@ export const CCS_CUSTOMER_SERVICE_2 = {
 
 export function CcsCustomerService2(props: NodeProps) {
   return (
-    <Shape
-      {...CCS_CUSTOMER_SERVICE_2}
-      {...props}
-      _style={extendStyle(CCS_CUSTOMER_SERVICE_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CCS_CUSTOMER_SERVICE_2)} />
   )
 }

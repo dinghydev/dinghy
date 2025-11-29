@@ -13,9 +13,8 @@ export const RED_HAT_OPENSHIFT_SERVICE_ON_AWS = {
 export function RedHatOpenshiftServiceOnAws(props: NodeProps) {
   return (
     <Shape
-      {...RED_HAT_OPENSHIFT_SERVICE_ON_AWS}
       {...props}
-      _style={extendStyle(RED_HAT_OPENSHIFT_SERVICE_ON_AWS, props)}
+      _style={extendStyle(props, RED_HAT_OPENSHIFT_SERVICE_ON_AWS)}
     />
   )
 }

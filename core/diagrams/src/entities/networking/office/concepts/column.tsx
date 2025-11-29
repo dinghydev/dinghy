@@ -11,5 +11,5 @@ export const COLUMN = {
 }
 
 export function Column(props: NodeProps) {
-  return <Shape {...COLUMN} {...props} _style={extendStyle(COLUMN, props)} />
+  return <Shape {...props} _style={extendStyle(props, COLUMN)} />
 }

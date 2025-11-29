@@ -12,10 +12,6 @@ export const PASSIVE_STRUCTURE_ELEMENT = {
 
 export function PassiveStructureElement(props: NodeProps) {
   return (
-    <Shape
-      {...PASSIVE_STRUCTURE_ELEMENT}
-      {...props}
-      _style={extendStyle(PASSIVE_STRUCTURE_ELEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PASSIVE_STRUCTURE_ELEMENT)} />
   )
 }

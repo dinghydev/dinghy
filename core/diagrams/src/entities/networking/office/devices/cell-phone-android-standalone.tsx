@@ -13,9 +13,8 @@ export const CELL_PHONE_ANDROID_STANDALONE = {
 export function CellPhoneAndroidStandalone(props: NodeProps) {
   return (
     <Shape
-      {...CELL_PHONE_ANDROID_STANDALONE}
       {...props}
-      _style={extendStyle(CELL_PHONE_ANDROID_STANDALONE, props)}
+      _style={extendStyle(props, CELL_PHONE_ANDROID_STANDALONE)}
     />
   )
 }

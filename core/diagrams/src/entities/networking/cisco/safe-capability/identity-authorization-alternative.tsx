@@ -13,9 +13,8 @@ export const IDENTITY_AUTHORIZATION_ALTERNATIVE = {
 export function IdentityAuthorizationAlternative(props: NodeProps) {
   return (
     <Shape
-      {...IDENTITY_AUTHORIZATION_ALTERNATIVE}
       {...props}
-      _style={extendStyle(IDENTITY_AUTHORIZATION_ALTERNATIVE, props)}
+      _style={extendStyle(props, IDENTITY_AUTHORIZATION_ALTERNATIVE)}
     />
   )
 }

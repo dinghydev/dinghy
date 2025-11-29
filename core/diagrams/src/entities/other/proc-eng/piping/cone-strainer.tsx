@@ -11,11 +11,5 @@ export const CONE_STRAINER = {
 }
 
 export function ConeStrainer(props: NodeProps) {
-  return (
-    <Shape
-      {...CONE_STRAINER}
-      {...props}
-      _style={extendStyle(CONE_STRAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONE_STRAINER)} />
 }

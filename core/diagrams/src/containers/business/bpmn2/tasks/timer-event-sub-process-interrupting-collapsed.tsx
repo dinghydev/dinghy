@@ -11,11 +11,10 @@ export const TIMER_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
 export function TimerEventSubProcessInterruptingCollapsed(props: NodeProps) {
   return (
     <Shape
-      {...TIMER_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        TIMER_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
         props,
+        TIMER_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
       )}
     />
   )

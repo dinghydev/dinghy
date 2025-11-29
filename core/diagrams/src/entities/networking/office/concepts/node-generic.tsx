@@ -11,11 +11,5 @@ export const NODE_GENERIC = {
 }
 
 export function NodeGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...NODE_GENERIC}
-      {...props}
-      _style={extendStyle(NODE_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NODE_GENERIC)} />
 }

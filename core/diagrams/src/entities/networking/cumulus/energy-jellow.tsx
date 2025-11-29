@@ -10,11 +10,5 @@ export const ENERGY_JELLOW = {
 }
 
 export function EnergyJellow(props: NodeProps) {
-  return (
-    <Shape
-      {...ENERGY_JELLOW}
-      {...props}
-      _style={extendStyle(ENERGY_JELLOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENERGY_JELLOW)} />
 }

@@ -13,9 +13,8 @@ export const GREENGRASS_COMPONENT_PRIVATE = {
 export function GreengrassComponentPrivate(props: NodeProps) {
   return (
     <Shape
-      {...GREENGRASS_COMPONENT_PRIVATE}
       {...props}
-      _style={extendStyle(GREENGRASS_COMPONENT_PRIVATE, props)}
+      _style={extendStyle(props, GREENGRASS_COMPONENT_PRIVATE)}
     />
   )
 }

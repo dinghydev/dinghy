@@ -11,5 +11,5 @@ export const OR = {
 }
 
 export function Or(props: NodeProps) {
-  return <Shape {...OR} {...props} _style={extendStyle(OR, props)} />
+  return <Shape {...props} _style={extendStyle(props, OR)} />
 }

@@ -12,10 +12,6 @@ export const NEUTRON_ROUTERINTERFACE = {
 
 export function NeutronRouterinterface(props: NodeProps) {
   return (
-    <Shape
-      {...NEUTRON_ROUTERINTERFACE}
-      {...props}
-      _style={extendStyle(NEUTRON_ROUTERINTERFACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NEUTRON_ROUTERINTERFACE)} />
   )
 }

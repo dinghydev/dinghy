@@ -1,0 +1,93 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Control Tower
+
+## AwsControltowerBaseline
+
+Terraform resource for managing an AWS Control Tower Baseline.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/controltower_baseline)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/controltower/AwsControltowerBaseline.tsx)
+
+```js
+import { AwsControltowerBaseline } from "@dinghy/tf-aws/serviceControltower"
+
+<AwsControltowerBaseline/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsControltowerControl
+
+Allows the application of pre-defined controls to organizational units.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/controltower_control)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/controltower/AwsControltowerControl.tsx)
+
+```js
+import { AwsControltowerControl } from "@dinghy/tf-aws/serviceControltower"
+
+<AwsControltowerControl/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsControltowerControls
+
+List of Control Tower controls applied to an OU.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/controltower_controls)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/controltower/DataAwsControltowerControls.tsx)
+
+```js
+import { DataAwsControltowerControls } from "@dinghy/tf-aws/serviceControltower"
+
+<DataAwsControltowerControls/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsControltowerLandingZone
+
+Creates a new landing zone using Control Tower.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/controltower_landing_zone)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/controltower/AwsControltowerLandingZone.tsx)
+
+```js
+import { AwsControltowerLandingZone } from "@dinghy/tf-aws/serviceControltower"
+
+<AwsControltowerLandingZone/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

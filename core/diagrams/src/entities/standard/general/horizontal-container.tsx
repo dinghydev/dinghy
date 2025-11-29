@@ -10,11 +10,5 @@ export const HORIZONTAL_CONTAINER = {
 }
 
 export function HorizontalContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_CONTAINER}
-      {...props}
-      _style={extendStyle(HORIZONTAL_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_CONTAINER)} />
 }

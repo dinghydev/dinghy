@@ -11,11 +11,5 @@ export const AI_PLATFORM_2 = {
 }
 
 export function AiPlatform2(props: NodeProps) {
-  return (
-    <Shape
-      {...AI_PLATFORM_2}
-      {...props}
-      _style={extendStyle(AI_PLATFORM_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AI_PLATFORM_2)} />
 }

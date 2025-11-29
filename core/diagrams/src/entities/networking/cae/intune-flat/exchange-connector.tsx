@@ -11,11 +11,5 @@ export const EXCHANGE_CONNECTOR = {
 }
 
 export function ExchangeConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCHANGE_CONNECTOR}
-      {...props}
-      _style={extendStyle(EXCHANGE_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCHANGE_CONNECTOR)} />
 }

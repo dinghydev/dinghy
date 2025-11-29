@@ -11,5 +11,5 @@ export const DCV = {
 }
 
 export function Dcv(props: NodeProps) {
-  return <Shape {...DCV} {...props} _style={extendStyle(DCV, props)} />
+  return <Shape {...props} _style={extendStyle(props, DCV)} />
 }

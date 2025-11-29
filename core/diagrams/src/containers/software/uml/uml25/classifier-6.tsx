@@ -9,11 +9,5 @@ export const CLASSIFIER_6 = {
 }
 
 export function Classifier6(props: NodeProps) {
-  return (
-    <Shape
-      {...CLASSIFIER_6}
-      {...props}
-      _style={extendStyle(CLASSIFIER_6, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLASSIFIER_6)} />
 }

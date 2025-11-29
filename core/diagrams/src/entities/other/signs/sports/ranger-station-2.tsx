@@ -11,11 +11,5 @@ export const RANGER_STATION_2 = {
 }
 
 export function RangerStation2(props: NodeProps) {
-  return (
-    <Shape
-      {...RANGER_STATION_2}
-      {...props}
-      _style={extendStyle(RANGER_STATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RANGER_STATION_2)} />
 }

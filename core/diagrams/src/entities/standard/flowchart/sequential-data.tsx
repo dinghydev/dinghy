@@ -11,11 +11,5 @@ export const SEQUENTIAL_DATA = {
 }
 
 export function SequentialData(props: NodeProps) {
-  return (
-    <Shape
-      {...SEQUENTIAL_DATA}
-      {...props}
-      _style={extendStyle(SEQUENTIAL_DATA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEQUENTIAL_DATA)} />
 }

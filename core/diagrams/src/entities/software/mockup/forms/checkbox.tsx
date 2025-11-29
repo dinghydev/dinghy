@@ -11,7 +11,5 @@ export const CHECKBOX = {
 }
 
 export function Checkbox(props: NodeProps) {
-  return (
-    <Shape {...CHECKBOX} {...props} _style={extendStyle(CHECKBOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKBOX)} />
 }

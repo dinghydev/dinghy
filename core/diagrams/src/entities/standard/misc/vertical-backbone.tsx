@@ -11,11 +11,5 @@ export const VERTICAL_BACKBONE = {
 }
 
 export function VerticalBackbone(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_BACKBONE}
-      {...props}
-      _style={extendStyle(VERTICAL_BACKBONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_BACKBONE)} />
 }

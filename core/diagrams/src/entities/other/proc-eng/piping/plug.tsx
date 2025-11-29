@@ -11,5 +11,5 @@ export const PLUG = {
 }
 
 export function Plug(props: NodeProps) {
-  return <Shape {...PLUG} {...props} _style={extendStyle(PLUG, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLUG)} />
 }

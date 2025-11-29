@@ -11,11 +11,5 @@ export const BANNER_SINGLE_FOLD = {
 }
 
 export function BannerSingleFold(props: NodeProps) {
-  return (
-    <Shape
-      {...BANNER_SINGLE_FOLD}
-      {...props}
-      _style={extendStyle(BANNER_SINGLE_FOLD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANNER_SINGLE_FOLD)} />
 }

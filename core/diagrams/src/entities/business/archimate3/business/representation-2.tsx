@@ -11,11 +11,5 @@ export const REPRESENTATION_2 = {
 }
 
 export function Representation2(props: NodeProps) {
-  return (
-    <Shape
-      {...REPRESENTATION_2}
-      {...props}
-      _style={extendStyle(REPRESENTATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REPRESENTATION_2)} />
 }

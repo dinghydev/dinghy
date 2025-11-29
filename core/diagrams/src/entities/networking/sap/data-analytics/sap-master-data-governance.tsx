@@ -12,10 +12,6 @@ export const SAP_MASTER_DATA_GOVERNANCE = {
 
 export function SapMasterDataGovernance(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_MASTER_DATA_GOVERNANCE}
-      {...props}
-      _style={extendStyle(SAP_MASTER_DATA_GOVERNANCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_MASTER_DATA_GOVERNANCE)} />
   )
 }

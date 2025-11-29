@@ -11,5 +11,5 @@ export const CHILLER = {
 }
 
 export function Chiller(props: NodeProps) {
-  return <Shape {...CHILLER} {...props} _style={extendStyle(CHILLER, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHILLER)} />
 }

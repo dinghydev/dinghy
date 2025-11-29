@@ -13,9 +13,8 @@ export const PROGRAMMABLE_LOGIC_CONTROL_FIELD = {
 export function ProgrammableLogicControlField(props: NodeProps) {
   return (
     <Shape
-      {...PROGRAMMABLE_LOGIC_CONTROL_FIELD}
       {...props}
-      _style={extendStyle(PROGRAMMABLE_LOGIC_CONTROL_FIELD, props)}
+      _style={extendStyle(props, PROGRAMMABLE_LOGIC_CONTROL_FIELD)}
     />
   )
 }

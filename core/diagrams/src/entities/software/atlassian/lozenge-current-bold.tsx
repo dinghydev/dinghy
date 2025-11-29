@@ -11,11 +11,5 @@ export const LOZENGE_CURRENT_BOLD = {
 }
 
 export function LozengeCurrentBold(props: NodeProps) {
-  return (
-    <Shape
-      {...LOZENGE_CURRENT_BOLD}
-      {...props}
-      _style={extendStyle(LOZENGE_CURRENT_BOLD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOZENGE_CURRENT_BOLD)} />
 }

@@ -11,11 +11,5 @@ export const RESISTOR_SHUNT = {
 }
 
 export function ResistorShunt(props: NodeProps) {
-  return (
-    <Shape
-      {...RESISTOR_SHUNT}
-      {...props}
-      _style={extendStyle(RESISTOR_SHUNT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESISTOR_SHUNT)} />
 }

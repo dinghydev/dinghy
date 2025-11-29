@@ -13,9 +13,8 @@ export const PETADATA_HYBRIDDB_FOR_MYSQL = {
 export function PetadataHybriddbForMysql(props: NodeProps) {
   return (
     <Shape
-      {...PETADATA_HYBRIDDB_FOR_MYSQL}
       {...props}
-      _style={extendStyle(PETADATA_HYBRIDDB_FOR_MYSQL, props)}
+      _style={extendStyle(props, PETADATA_HYBRIDDB_FOR_MYSQL)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const MESSAGE_NON_SAP = {
 }
 
 export function MessageNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_NON_SAP}
-      {...props}
-      _style={extendStyle(MESSAGE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_NON_SAP)} />
 }

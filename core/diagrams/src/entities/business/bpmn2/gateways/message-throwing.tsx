@@ -11,11 +11,5 @@ export const MESSAGE_THROWING = {
 }
 
 export function MessageThrowing(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_THROWING}
-      {...props}
-      _style={extendStyle(MESSAGE_THROWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_THROWING)} />
 }

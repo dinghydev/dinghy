@@ -12,10 +12,6 @@ export const SANITARY_DISPOSAL_STATION = {
 
 export function SanitaryDisposalStation(props: NodeProps) {
   return (
-    <Shape
-      {...SANITARY_DISPOSAL_STATION}
-      {...props}
-      _style={extendStyle(SANITARY_DISPOSAL_STATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SANITARY_DISPOSAL_STATION)} />
   )
 }

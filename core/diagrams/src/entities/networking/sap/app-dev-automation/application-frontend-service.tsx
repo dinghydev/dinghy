@@ -13,9 +13,8 @@ export const APPLICATION_FRONTEND_SERVICE = {
 export function ApplicationFrontendService(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_FRONTEND_SERVICE}
       {...props}
-      _style={extendStyle(APPLICATION_FRONTEND_SERVICE, props)}
+      _style={extendStyle(props, APPLICATION_FRONTEND_SERVICE)}
     />
   )
 }

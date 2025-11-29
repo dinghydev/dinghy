@@ -11,11 +11,5 @@ export const SLIDER_DISABLED_2 = {
 }
 
 export function SliderDisabled2(props: NodeProps) {
-  return (
-    <Shape
-      {...SLIDER_DISABLED_2}
-      {...props}
-      _style={extendStyle(SLIDER_DISABLED_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLIDER_DISABLED_2)} />
 }

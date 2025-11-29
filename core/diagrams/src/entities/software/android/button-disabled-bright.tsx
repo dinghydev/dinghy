@@ -12,10 +12,6 @@ export const BUTTON_DISABLED_BRIGHT = {
 
 export function ButtonDisabledBright(props: NodeProps) {
   return (
-    <Shape
-      {...BUTTON_DISABLED_BRIGHT}
-      {...props}
-      _style={extendStyle(BUTTON_DISABLED_BRIGHT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BUTTON_DISABLED_BRIGHT)} />
   )
 }

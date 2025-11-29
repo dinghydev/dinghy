@@ -11,11 +11,5 @@ export const END_TO_END_ENCRYPTION = {
 }
 
 export function EndToEndEncryption(props: NodeProps) {
-  return (
-    <Shape
-      {...END_TO_END_ENCRYPTION}
-      {...props}
-      _style={extendStyle(END_TO_END_ENCRYPTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, END_TO_END_ENCRYPTION)} />
 }

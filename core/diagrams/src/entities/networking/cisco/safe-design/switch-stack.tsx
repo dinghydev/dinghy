@@ -11,11 +11,5 @@ export const SWITCH_STACK = {
 }
 
 export function SwitchStack(props: NodeProps) {
-  return (
-    <Shape
-      {...SWITCH_STACK}
-      {...props}
-      _style={extendStyle(SWITCH_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWITCH_STACK)} />
 }

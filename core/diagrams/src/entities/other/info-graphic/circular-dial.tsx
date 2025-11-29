@@ -11,11 +11,5 @@ export const CIRCULAR_DIAL = {
 }
 
 export function CircularDial(props: NodeProps) {
-  return (
-    <Shape
-      {...CIRCULAR_DIAL}
-      {...props}
-      _style={extendStyle(CIRCULAR_DIAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CIRCULAR_DIAL)} />
 }

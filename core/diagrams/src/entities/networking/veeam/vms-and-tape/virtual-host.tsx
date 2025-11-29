@@ -11,11 +11,5 @@ export const VIRTUAL_HOST = {
 }
 
 export function VirtualHost(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_HOST}
-      {...props}
-      _style={extendStyle(VIRTUAL_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_HOST)} />
 }

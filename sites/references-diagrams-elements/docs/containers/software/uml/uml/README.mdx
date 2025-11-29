@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { ActorLifeline } from '@dinghy/diagrams/containersUml'
 
 <ActorLifeline/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { ACTOR_LIFELINE } from '@dinghy/diagrams/containersUml'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, ACTOR_LIFELINE)}
+  />
+
 ```
 
   </TabItem>
@@ -49,6 +60,17 @@ import { ActorLifeline } from '@dinghy/diagrams/containersUml'
 import { BoundaryLifeline } from '@dinghy/diagrams/containersUml'
 
 <BoundaryLifeline/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BOUNDARY_LIFELINE } from '@dinghy/diagrams/containersUml'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BOUNDARY_LIFELINE)}
+  />
+
 ```
 
   </TabItem>
@@ -80,6 +102,17 @@ import { BoundaryLifeline } from '@dinghy/diagrams/containersUml'
 import { ControlLifeline } from '@dinghy/diagrams/containersUml'
 
 <ControlLifeline/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CONTROL_LIFELINE } from '@dinghy/diagrams/containersUml'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CONTROL_LIFELINE)}
+  />
+
 ```
 
   </TabItem>
@@ -111,6 +144,17 @@ import { ControlLifeline } from '@dinghy/diagrams/containersUml'
 import { EntityLifeline } from '@dinghy/diagrams/containersUml'
 
 <EntityLifeline/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { ENTITY_LIFELINE } from '@dinghy/diagrams/containersUml'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, ENTITY_LIFELINE)}
+  />
+
 ```
 
   </TabItem>
@@ -142,6 +186,17 @@ import { EntityLifeline } from '@dinghy/diagrams/containersUml'
 import { Lifeline } from '@dinghy/diagrams/containersUml'
 
 <Lifeline/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { LIFELINE } from '@dinghy/diagrams/containersUml'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, LIFELINE)}
+  />
+
 ```
 
   </TabItem>

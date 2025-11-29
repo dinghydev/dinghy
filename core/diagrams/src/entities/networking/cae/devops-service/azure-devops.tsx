@@ -11,11 +11,5 @@ export const AZURE_DEVOPS = {
 }
 
 export function AzureDevops(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_DEVOPS}
-      {...props}
-      _style={extendStyle(AZURE_DEVOPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_DEVOPS)} />
 }

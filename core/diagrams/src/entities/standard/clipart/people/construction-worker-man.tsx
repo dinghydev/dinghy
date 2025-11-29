@@ -12,10 +12,6 @@ export const CONSTRUCTION_WORKER_MAN = {
 
 export function ConstructionWorkerMan(props: NodeProps) {
   return (
-    <Shape
-      {...CONSTRUCTION_WORKER_MAN}
-      {...props}
-      _style={extendStyle(CONSTRUCTION_WORKER_MAN, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONSTRUCTION_WORKER_MAN)} />
   )
 }

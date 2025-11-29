@@ -13,9 +13,8 @@ export const ADDITIONAL_PARTICIPANT_NON_INITIATING = {
 export function AdditionalParticipantNonInitiating(props: NodeProps) {
   return (
     <Shape
-      {...ADDITIONAL_PARTICIPANT_NON_INITIATING}
       {...props}
-      _style={extendStyle(ADDITIONAL_PARTICIPANT_NON_INITIATING, props)}
+      _style={extendStyle(props, ADDITIONAL_PARTICIPANT_NON_INITIATING)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const MANAGED_SERVICE_FOR_PROMETHEUS = {
 export function ManagedServiceForPrometheus(props: NodeProps) {
   return (
     <Shape
-      {...MANAGED_SERVICE_FOR_PROMETHEUS}
       {...props}
-      _style={extendStyle(MANAGED_SERVICE_FOR_PROMETHEUS, props)}
+      _style={extendStyle(props, MANAGED_SERVICE_FOR_PROMETHEUS)}
     />
   )
 }

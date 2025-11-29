@@ -11,7 +11,5 @@ export const SENTINEL = {
 }
 
 export function Sentinel(props: NodeProps) {
-  return (
-    <Shape {...SENTINEL} {...props} _style={extendStyle(SENTINEL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SENTINEL)} />
 }

@@ -12,10 +12,6 @@ export const DATA_SHARE_INVITATIONS = {
 
 export function DataShareInvitations(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_SHARE_INVITATIONS}
-      {...props}
-      _style={extendStyle(DATA_SHARE_INVITATIONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_SHARE_INVITATIONS)} />
   )
 }

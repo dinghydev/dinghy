@@ -11,7 +11,5 @@ export const SNOWBALL = {
 }
 
 export function Snowball(props: NodeProps) {
-  return (
-    <Shape {...SNOWBALL} {...props} _style={extendStyle(SNOWBALL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNOWBALL)} />
 }

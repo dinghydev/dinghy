@@ -11,11 +11,5 @@ export const REDIS_KVSTORE = {
 }
 
 export function RedisKvstore(props: NodeProps) {
-  return (
-    <Shape
-      {...REDIS_KVSTORE}
-      {...props}
-      _style={extendStyle(REDIS_KVSTORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REDIS_KVSTORE)} />
 }

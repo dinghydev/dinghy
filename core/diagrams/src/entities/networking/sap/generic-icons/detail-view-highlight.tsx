@@ -11,11 +11,5 @@ export const DETAIL_VIEW_HIGHLIGHT = {
 }
 
 export function DetailViewHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...DETAIL_VIEW_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(DETAIL_VIEW_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETAIL_VIEW_HIGHLIGHT)} />
 }

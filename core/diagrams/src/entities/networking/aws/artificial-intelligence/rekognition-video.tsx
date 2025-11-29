@@ -11,11 +11,5 @@ export const REKOGNITION_VIDEO = {
 }
 
 export function RekognitionVideo(props: NodeProps) {
-  return (
-    <Shape
-      {...REKOGNITION_VIDEO}
-      {...props}
-      _style={extendStyle(REKOGNITION_VIDEO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REKOGNITION_VIDEO)} />
 }

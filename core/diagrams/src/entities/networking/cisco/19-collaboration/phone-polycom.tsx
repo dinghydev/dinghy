@@ -11,11 +11,5 @@ export const PHONE_POLYCOM = {
 }
 
 export function PhonePolycom(props: NodeProps) {
-  return (
-    <Shape
-      {...PHONE_POLYCOM}
-      {...props}
-      _style={extendStyle(PHONE_POLYCOM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_POLYCOM)} />
 }

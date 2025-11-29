@@ -11,11 +11,5 @@ export const CLOUD_CONTROL_API = {
 }
 
 export function CloudControlApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CONTROL_API}
-      {...props}
-      _style={extendStyle(CLOUD_CONTROL_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CONTROL_API)} />
 }

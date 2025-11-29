@@ -11,5 +11,5 @@ export const FLAGGED = {
 }
 
 export function Flagged(props: NodeProps) {
-  return <Shape {...FLAGGED} {...props} _style={extendStyle(FLAGGED, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLAGGED)} />
 }

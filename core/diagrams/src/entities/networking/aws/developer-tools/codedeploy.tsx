@@ -11,7 +11,5 @@ export const CODEDEPLOY = {
 }
 
 export function Codedeploy(props: NodeProps) {
-  return (
-    <Shape {...CODEDEPLOY} {...props} _style={extendStyle(CODEDEPLOY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEDEPLOY)} />
 }

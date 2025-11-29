@@ -13,9 +13,8 @@ export const DATACENTER_SERVER_RACK_STORAGE_UNIT_SMALL = {
 export function DatacenterServerRackStorageUnitSmall(props: NodeProps) {
   return (
     <Shape
-      {...DATACENTER_SERVER_RACK_STORAGE_UNIT_SMALL}
       {...props}
-      _style={extendStyle(DATACENTER_SERVER_RACK_STORAGE_UNIT_SMALL, props)}
+      _style={extendStyle(props, DATACENTER_SERVER_RACK_STORAGE_UNIT_SMALL)}
     />
   )
 }

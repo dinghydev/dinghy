@@ -11,11 +11,5 @@ export const LAUNCH_PORTAL = {
 }
 
 export function LaunchPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...LAUNCH_PORTAL}
-      {...props}
-      _style={extendStyle(LAUNCH_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAUNCH_PORTAL)} />
 }

@@ -11,11 +11,5 @@ export const TANK_CAR_TANK_WAGON = {
 }
 
 export function TankCarTankWagon(props: NodeProps) {
-  return (
-    <Shape
-      {...TANK_CAR_TANK_WAGON}
-      {...props}
-      _style={extendStyle(TANK_CAR_TANK_WAGON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_CAR_TANK_WAGON)} />
 }

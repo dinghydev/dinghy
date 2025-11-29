@@ -10,11 +10,5 @@ export const OVAL_CALLOUT = {
 }
 
 export function OvalCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...OVAL_CALLOUT}
-      {...props}
-      _style={extendStyle(OVAL_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OVAL_CALLOUT)} />
 }

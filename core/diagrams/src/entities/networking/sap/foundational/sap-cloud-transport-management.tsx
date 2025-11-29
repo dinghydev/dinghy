@@ -13,9 +13,8 @@ export const SAP_CLOUD_TRANSPORT_MANAGEMENT = {
 export function SapCloudTransportManagement(props: NodeProps) {
   return (
     <Shape
-      {...SAP_CLOUD_TRANSPORT_MANAGEMENT}
       {...props}
-      _style={extendStyle(SAP_CLOUD_TRANSPORT_MANAGEMENT, props)}
+      _style={extendStyle(props, SAP_CLOUD_TRANSPORT_MANAGEMENT)}
     />
   )
 }

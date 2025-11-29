@@ -10,7 +10,5 @@ export const CADET_BLUE = {
 }
 
 export function CadetBlue(props: NodeProps) {
-  return (
-    <Shape {...CADET_BLUE} {...props} _style={extendStyle(CADET_BLUE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CADET_BLUE)} />
 }

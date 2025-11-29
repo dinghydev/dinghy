@@ -11,7 +11,5 @@ export const VM_RUNNING = {
 }
 
 export function VmRunning(props: NodeProps) {
-  return (
-    <Shape {...VM_RUNNING} {...props} _style={extendStyle(VM_RUNNING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_RUNNING)} />
 }

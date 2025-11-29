@@ -11,5 +11,5 @@ export const AMP = {
 }
 
 export function Amp(props: NodeProps) {
-  return <Shape {...AMP} {...props} _style={extendStyle(AMP, props)} />
+  return <Shape {...props} _style={extendStyle(props, AMP)} />
 }

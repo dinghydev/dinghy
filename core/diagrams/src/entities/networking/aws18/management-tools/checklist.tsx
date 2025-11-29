@@ -11,7 +11,5 @@ export const CHECKLIST = {
 }
 
 export function Checklist(props: NodeProps) {
-  return (
-    <Shape {...CHECKLIST} {...props} _style={extendStyle(CHECKLIST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKLIST)} />
 }

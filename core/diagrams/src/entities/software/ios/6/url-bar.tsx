@@ -11,5 +11,5 @@ export const URL_BAR = {
 }
 
 export function UrlBar(props: NodeProps) {
-  return <Shape {...URL_BAR} {...props} _style={extendStyle(URL_BAR, props)} />
+  return <Shape {...props} _style={extendStyle(props, URL_BAR)} />
 }

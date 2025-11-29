@@ -11,11 +11,5 @@ export const TRAINIUM_INSTANCE = {
 }
 
 export function TrainiumInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...TRAINIUM_INSTANCE}
-      {...props}
-      _style={extendStyle(TRAINIUM_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRAINIUM_INSTANCE)} />
 }

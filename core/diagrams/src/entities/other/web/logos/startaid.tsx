@@ -11,7 +11,5 @@ export const STARTAID = {
 }
 
 export function Startaid(props: NodeProps) {
-  return (
-    <Shape {...STARTAID} {...props} _style={extendStyle(STARTAID, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STARTAID)} />
 }

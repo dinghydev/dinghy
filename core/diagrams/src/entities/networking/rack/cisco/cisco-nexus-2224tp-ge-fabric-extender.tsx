@@ -13,9 +13,8 @@ export const CISCO_NEXUS_2224TP_GE_FABRIC_EXTENDER = {
 export function CiscoNexus2224tpGeFabricExtender(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_NEXUS_2224TP_GE_FABRIC_EXTENDER}
       {...props}
-      _style={extendStyle(CISCO_NEXUS_2224TP_GE_FABRIC_EXTENDER, props)}
+      _style={extendStyle(props, CISCO_NEXUS_2224TP_GE_FABRIC_EXTENDER)}
     />
   )
 }

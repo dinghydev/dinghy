@@ -11,7 +11,5 @@ export const FRIENDFEED = {
 }
 
 export function Friendfeed(props: NodeProps) {
-  return (
-    <Shape {...FRIENDFEED} {...props} _style={extendStyle(FRIENDFEED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRIENDFEED)} />
 }

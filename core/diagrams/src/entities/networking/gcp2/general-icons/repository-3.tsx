@@ -11,11 +11,5 @@ export const REPOSITORY_3 = {
 }
 
 export function Repository3(props: NodeProps) {
-  return (
-    <Shape
-      {...REPOSITORY_3}
-      {...props}
-      _style={extendStyle(REPOSITORY_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REPOSITORY_3)} />
 }

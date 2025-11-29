@@ -11,11 +11,5 @@ export const TRUSTED_ADVISOR = {
 }
 
 export function TrustedAdvisor(props: NodeProps) {
-  return (
-    <Shape
-      {...TRUSTED_ADVISOR}
-      {...props}
-      _style={extendStyle(TRUSTED_ADVISOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRUSTED_ADVISOR)} />
 }

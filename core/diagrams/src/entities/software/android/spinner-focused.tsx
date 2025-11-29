@@ -11,11 +11,5 @@ export const SPINNER_FOCUSED = {
 }
 
 export function SpinnerFocused(props: NodeProps) {
-  return (
-    <Shape
-      {...SPINNER_FOCUSED}
-      {...props}
-      _style={extendStyle(SPINNER_FOCUSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPINNER_FOCUSED)} />
 }

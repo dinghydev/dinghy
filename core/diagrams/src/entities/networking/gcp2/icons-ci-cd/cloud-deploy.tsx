@@ -11,11 +11,5 @@ export const CLOUD_DEPLOY = {
 }
 
 export function CloudDeploy(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DEPLOY}
-      {...props}
-      _style={extendStyle(CLOUD_DEPLOY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DEPLOY)} />
 }

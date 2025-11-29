@@ -11,11 +11,5 @@ export const RECEIVE_SIGNAL_ACTION = {
 }
 
 export function ReceiveSignalAction(props: NodeProps) {
-  return (
-    <Shape
-      {...RECEIVE_SIGNAL_ACTION}
-      {...props}
-      _style={extendStyle(RECEIVE_SIGNAL_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECEIVE_SIGNAL_ACTION)} />
 }

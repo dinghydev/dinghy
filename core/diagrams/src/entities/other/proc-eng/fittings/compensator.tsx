@@ -11,11 +11,5 @@ export const COMPENSATOR = {
 }
 
 export function Compensator(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPENSATOR}
-      {...props}
-      _style={extendStyle(COMPENSATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPENSATOR)} />
 }

@@ -11,5 +11,5 @@ export const ARCHERY = {
 }
 
 export function Archery(props: NodeProps) {
-  return <Shape {...ARCHERY} {...props} _style={extendStyle(ARCHERY, props)} />
+  return <Shape {...props} _style={extendStyle(props, ARCHERY)} />
 }

@@ -12,10 +12,6 @@ export const AUTHENTICATION_SELECTION = {
 
 export function AuthenticationSelection(props: NodeProps) {
   return (
-    <Shape
-      {...AUTHENTICATION_SELECTION}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_SELECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTHENTICATION_SELECTION)} />
   )
 }

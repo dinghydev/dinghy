@@ -11,11 +11,5 @@ export const VERTICAL_SPLITTER = {
 }
 
 export function VerticalSplitter(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_SPLITTER}
-      {...props}
-      _style={extendStyle(VERTICAL_SPLITTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_SPLITTER)} />
 }

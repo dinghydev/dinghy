@@ -13,9 +13,8 @@ export const DEFENDER_EXTERNAL_MANAGEMENT = {
 export function DefenderExternalManagement(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_EXTERNAL_MANAGEMENT}
       {...props}
-      _style={extendStyle(DEFENDER_EXTERNAL_MANAGEMENT, props)}
+      _style={extendStyle(props, DEFENDER_EXTERNAL_MANAGEMENT)}
     />
   )
 }

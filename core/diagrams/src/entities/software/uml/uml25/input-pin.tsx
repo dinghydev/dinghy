@@ -10,7 +10,5 @@ export const INPUT_PIN = {
 }
 
 export function InputPin(props: NodeProps) {
-  return (
-    <Shape {...INPUT_PIN} {...props} _style={extendStyle(INPUT_PIN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INPUT_PIN)} />
 }

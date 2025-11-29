@@ -11,7 +11,5 @@ export const SLASHDOT = {
 }
 
 export function Slashdot(props: NodeProps) {
-  return (
-    <Shape {...SLASHDOT} {...props} _style={extendStyle(SLASHDOT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLASHDOT)} />
 }

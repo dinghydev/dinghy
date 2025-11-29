@@ -16,11 +16,10 @@ export function Jl661aAruba6300m48Port1gbeClass4PoeAnd4PortSfp56SwitchRear(
 ) {
   return (
     <Shape
-      {...JL661A_ARUBA_6300M_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP56_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL661A_ARUBA_6300M_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP56_SWITCH_REAR,
         props,
+        JL661A_ARUBA_6300M_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP56_SWITCH_REAR,
       )}
     />
   )

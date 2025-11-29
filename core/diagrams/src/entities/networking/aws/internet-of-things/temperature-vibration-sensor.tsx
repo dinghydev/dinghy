@@ -13,9 +13,8 @@ export const TEMPERATURE_VIBRATION_SENSOR = {
 export function TemperatureVibrationSensor(props: NodeProps) {
   return (
     <Shape
-      {...TEMPERATURE_VIBRATION_SENSOR}
       {...props}
-      _style={extendStyle(TEMPERATURE_VIBRATION_SENSOR, props)}
+      _style={extendStyle(props, TEMPERATURE_VIBRATION_SENSOR)}
     />
   )
 }

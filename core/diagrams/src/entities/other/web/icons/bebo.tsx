@@ -11,5 +11,5 @@ export const BEBO = {
 }
 
 export function Bebo(props: NodeProps) {
-  return <Shape {...BEBO} {...props} _style={extendStyle(BEBO, props)} />
+  return <Shape {...props} _style={extendStyle(props, BEBO)} />
 }

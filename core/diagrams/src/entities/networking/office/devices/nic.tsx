@@ -11,5 +11,5 @@ export const NIC = {
 }
 
 export function Nic(props: NodeProps) {
-  return <Shape {...NIC} {...props} _style={extendStyle(NIC, props)} />
+  return <Shape {...props} _style={extendStyle(props, NIC)} />
 }

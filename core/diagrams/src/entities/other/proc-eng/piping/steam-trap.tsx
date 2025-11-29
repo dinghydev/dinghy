@@ -11,7 +11,5 @@ export const STEAM_TRAP = {
 }
 
 export function SteamTrap(props: NodeProps) {
-  return (
-    <Shape {...STEAM_TRAP} {...props} _style={extendStyle(STEAM_TRAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEAM_TRAP)} />
 }

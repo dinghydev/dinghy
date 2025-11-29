@@ -11,5 +11,5 @@ export const ARC = {
 }
 
 export function Arc(props: NodeProps) {
-  return <Shape {...ARC} {...props} _style={extendStyle(ARC, props)} />
+  return <Shape {...props} _style={extendStyle(props, ARC)} />
 }

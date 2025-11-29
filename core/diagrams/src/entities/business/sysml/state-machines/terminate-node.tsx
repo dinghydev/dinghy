@@ -10,11 +10,5 @@ export const TERMINATE_NODE = {
 }
 
 export function TerminateNode(props: NodeProps) {
-  return (
-    <Shape
-      {...TERMINATE_NODE}
-      {...props}
-      _style={extendStyle(TERMINATE_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMINATE_NODE)} />
 }

@@ -11,5 +11,5 @@ export const NCE = {
 }
 
 export function Nce(props: NodeProps) {
-  return <Shape {...NCE} {...props} _style={extendStyle(NCE, props)} />
+  return <Shape {...props} _style={extendStyle(props, NCE)} />
 }

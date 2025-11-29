@@ -11,7 +11,5 @@ export const FIFO_LANE = {
 }
 
 export function FifoLane(props: NodeProps) {
-  return (
-    <Shape {...FIFO_LANE} {...props} _style={extendStyle(FIFO_LANE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIFO_LANE)} />
 }

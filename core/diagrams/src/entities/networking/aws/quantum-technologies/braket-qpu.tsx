@@ -11,7 +11,5 @@ export const BRAKET_QPU = {
 }
 
 export function BraketQpu(props: NodeProps) {
-  return (
-    <Shape {...BRAKET_QPU} {...props} _style={extendStyle(BRAKET_QPU, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRAKET_QPU)} />
 }

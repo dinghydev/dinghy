@@ -11,7 +11,5 @@ export const SQL_SERVER = {
 }
 
 export function SqlServer(props: NodeProps) {
-  return (
-    <Shape {...SQL_SERVER} {...props} _style={extendStyle(SQL_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_SERVER)} />
 }

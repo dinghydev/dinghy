@@ -11,11 +11,5 @@ export const SPACE_ROUTER = {
 }
 
 export function SpaceRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...SPACE_ROUTER}
-      {...props}
-      _style={extendStyle(SPACE_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPACE_ROUTER)} />
 }

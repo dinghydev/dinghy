@@ -11,11 +11,5 @@ export const BASKET_CANCEL = {
 }
 
 export function BasketCancel(props: NodeProps) {
-  return (
-    <Shape
-      {...BASKET_CANCEL}
-      {...props}
-      _style={extendStyle(BASKET_CANCEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASKET_CANCEL)} />
 }

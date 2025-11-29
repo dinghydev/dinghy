@@ -11,11 +11,5 @@ export const AWS_STS_ALTERNATE = {
 }
 
 export function AwsStsAlternate(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_STS_ALTERNATE}
-      {...props}
-      _style={extendStyle(AWS_STS_ALTERNATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_STS_ALTERNATE)} />
 }

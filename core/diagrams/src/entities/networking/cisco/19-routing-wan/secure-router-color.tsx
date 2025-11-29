@@ -11,11 +11,5 @@ export const SECURE_ROUTER_COLOR = {
 }
 
 export function SecureRouterColor(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_ROUTER_COLOR}
-      {...props}
-      _style={extendStyle(SECURE_ROUTER_COLOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_ROUTER_COLOR)} />
 }

@@ -11,11 +11,5 @@ export const DEFENDER_SENSOR = {
 }
 
 export function DefenderSensor(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_SENSOR}
-      {...props}
-      _style={extendStyle(DEFENDER_SENSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_SENSOR)} />
 }

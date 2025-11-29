@@ -11,11 +11,5 @@ export const OUTLOOK_USER = {
 }
 
 export function OutlookUser(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTLOOK_USER}
-      {...props}
-      _style={extendStyle(OUTLOOK_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTLOOK_USER)} />
 }

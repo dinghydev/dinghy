@@ -11,7 +11,5 @@ export const BOLD_BADGE = {
 }
 
 export function BoldBadge(props: NodeProps) {
-  return (
-    <Shape {...BOLD_BADGE} {...props} _style={extendStyle(BOLD_BADGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOLD_BADGE)} />
 }

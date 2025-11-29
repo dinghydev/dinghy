@@ -12,10 +12,6 @@ export const SINGLE_LINE_TEXT_FIELD = {
 
 export function SingleLineTextField(props: NodeProps) {
   return (
-    <Shape
-      {...SINGLE_LINE_TEXT_FIELD}
-      {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD)} />
   )
 }

@@ -13,9 +13,8 @@ export const DIALOG_WITH_SCROLLABLE_LIST = {
 export function DialogWithScrollableList(props: NodeProps) {
   return (
     <Shape
-      {...DIALOG_WITH_SCROLLABLE_LIST}
       {...props}
-      _style={extendStyle(DIALOG_WITH_SCROLLABLE_LIST, props)}
+      _style={extendStyle(props, DIALOG_WITH_SCROLLABLE_LIST)}
     />
   )
 }

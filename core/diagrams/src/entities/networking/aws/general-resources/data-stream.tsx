@@ -11,11 +11,5 @@ export const DATA_STREAM = {
 }
 
 export function DataStream(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_STREAM}
-      {...props}
-      _style={extendStyle(DATA_STREAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_STREAM)} />
 }

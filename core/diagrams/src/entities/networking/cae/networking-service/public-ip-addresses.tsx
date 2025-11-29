@@ -11,11 +11,5 @@ export const PUBLIC_IP_ADDRESSES = {
 }
 
 export function PublicIpAddresses(props: NodeProps) {
-  return (
-    <Shape
-      {...PUBLIC_IP_ADDRESSES}
-      {...props}
-      _style={extendStyle(PUBLIC_IP_ADDRESSES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUBLIC_IP_ADDRESSES)} />
 }

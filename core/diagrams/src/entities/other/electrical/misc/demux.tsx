@@ -11,5 +11,5 @@ export const DEMUX = {
 }
 
 export function Demux(props: NodeProps) {
-  return <Shape {...DEMUX} {...props} _style={extendStyle(DEMUX, props)} />
+  return <Shape {...props} _style={extendStyle(props, DEMUX)} />
 }

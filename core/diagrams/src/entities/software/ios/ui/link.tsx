@@ -11,5 +11,5 @@ export const LINK = {
 }
 
 export function Link(props: NodeProps) {
-  return <Shape {...LINK} {...props} _style={extendStyle(LINK, props)} />
+  return <Shape {...props} _style={extendStyle(props, LINK)} />
 }

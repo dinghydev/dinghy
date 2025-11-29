@@ -11,11 +11,5 @@ export const SPEECH_TO_TEXT = {
 }
 
 export function SpeechToText(props: NodeProps) {
-  return (
-    <Shape
-      {...SPEECH_TO_TEXT}
-      {...props}
-      _style={extendStyle(SPEECH_TO_TEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPEECH_TO_TEXT)} />
 }

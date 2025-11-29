@@ -11,11 +11,5 @@ export const DOOR_DOUBLE_ACTION = {
 }
 
 export function DoorDoubleAction(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_DOUBLE_ACTION}
-      {...props}
-      _style={extendStyle(DOOR_DOUBLE_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_DOUBLE_ACTION)} />
 }

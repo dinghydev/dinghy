@@ -11,7 +11,5 @@ export const RS_LATCH = {
 }
 
 export function RsLatch(props: NodeProps) {
-  return (
-    <Shape {...RS_LATCH} {...props} _style={extendStyle(RS_LATCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RS_LATCH)} />
 }

@@ -11,7 +11,5 @@ export const SOURCETREE = {
 }
 
 export function Sourcetree(props: NodeProps) {
-  return (
-    <Shape {...SOURCETREE} {...props} _style={extendStyle(SOURCETREE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCETREE)} />
 }

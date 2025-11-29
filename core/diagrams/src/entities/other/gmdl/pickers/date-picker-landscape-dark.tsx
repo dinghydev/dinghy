@@ -12,10 +12,6 @@ export const DATE_PICKER_LANDSCAPE_DARK = {
 
 export function DatePickerLandscapeDark(props: NodeProps) {
   return (
-    <Shape
-      {...DATE_PICKER_LANDSCAPE_DARK}
-      {...props}
-      _style={extendStyle(DATE_PICKER_LANDSCAPE_DARK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATE_PICKER_LANDSCAPE_DARK)} />
   )
 }

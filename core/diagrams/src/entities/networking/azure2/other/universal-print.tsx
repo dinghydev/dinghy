@@ -11,11 +11,5 @@ export const UNIVERSAL_PRINT = {
 }
 
 export function UniversalPrint(props: NodeProps) {
-  return (
-    <Shape
-      {...UNIVERSAL_PRINT}
-      {...props}
-      _style={extendStyle(UNIVERSAL_PRINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNIVERSAL_PRINT)} />
 }

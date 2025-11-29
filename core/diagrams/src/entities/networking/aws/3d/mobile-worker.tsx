@@ -11,11 +11,5 @@ export const MOBILE_WORKER = {
 }
 
 export function MobileWorker(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_WORKER}
-      {...props}
-      _style={extendStyle(MOBILE_WORKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_WORKER)} />
 }

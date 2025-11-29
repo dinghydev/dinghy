@@ -11,11 +11,5 @@ export const USER_SETTINGS = {
 }
 
 export function UserSettings(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_SETTINGS}
-      {...props}
-      _style={extendStyle(USER_SETTINGS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_SETTINGS)} />
 }

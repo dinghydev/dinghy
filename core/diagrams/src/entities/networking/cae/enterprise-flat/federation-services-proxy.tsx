@@ -12,10 +12,6 @@ export const FEDERATION_SERVICES_PROXY = {
 
 export function FederationServicesProxy(props: NodeProps) {
   return (
-    <Shape
-      {...FEDERATION_SERVICES_PROXY}
-      {...props}
-      _style={extendStyle(FEDERATION_SERVICES_PROXY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FEDERATION_SERVICES_PROXY)} />
   )
 }

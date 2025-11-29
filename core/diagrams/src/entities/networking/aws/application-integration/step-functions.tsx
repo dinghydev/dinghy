@@ -11,11 +11,5 @@ export const STEP_FUNCTIONS = {
 }
 
 export function StepFunctions(props: NodeProps) {
-  return (
-    <Shape
-      {...STEP_FUNCTIONS}
-      {...props}
-      _style={extendStyle(STEP_FUNCTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEP_FUNCTIONS)} />
 }

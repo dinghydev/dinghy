@@ -11,11 +11,5 @@ export const AZURE_LOAD_BALANCER = {
 }
 
 export function AzureLoadBalancer(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(AZURE_LOAD_BALANCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_LOAD_BALANCER)} />
 }

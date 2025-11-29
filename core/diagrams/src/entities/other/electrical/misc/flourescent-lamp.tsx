@@ -11,11 +11,5 @@ export const FLOURESCENT_LAMP = {
 }
 
 export function FlourescentLamp(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOURESCENT_LAMP}
-      {...props}
-      _style={extendStyle(FLOURESCENT_LAMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOURESCENT_LAMP)} />
 }

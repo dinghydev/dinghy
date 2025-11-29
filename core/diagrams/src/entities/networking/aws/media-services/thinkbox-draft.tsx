@@ -11,11 +11,5 @@ export const THINKBOX_DRAFT = {
 }
 
 export function ThinkboxDraft(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_DRAFT}
-      {...props}
-      _style={extendStyle(THINKBOX_DRAFT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_DRAFT)} />
 }

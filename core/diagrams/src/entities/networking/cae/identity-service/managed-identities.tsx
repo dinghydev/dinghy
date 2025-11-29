@@ -11,11 +11,5 @@ export const MANAGED_IDENTITIES = {
 }
 
 export function ManagedIdentities(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_IDENTITIES}
-      {...props}
-      _style={extendStyle(MANAGED_IDENTITIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_IDENTITIES)} />
 }

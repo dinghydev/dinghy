@@ -11,11 +11,5 @@ export const DATA_TRANSFER = {
 }
 
 export function DataTransfer(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_TRANSFER}
-      {...props}
-      _style={extendStyle(DATA_TRANSFER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_TRANSFER)} />
 }

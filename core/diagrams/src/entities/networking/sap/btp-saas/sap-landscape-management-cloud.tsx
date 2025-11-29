@@ -13,9 +13,8 @@ export const SAP_LANDSCAPE_MANAGEMENT_CLOUD = {
 export function SapLandscapeManagementCloud(props: NodeProps) {
   return (
     <Shape
-      {...SAP_LANDSCAPE_MANAGEMENT_CLOUD}
       {...props}
-      _style={extendStyle(SAP_LANDSCAPE_MANAGEMENT_CLOUD, props)}
+      _style={extendStyle(props, SAP_LANDSCAPE_MANAGEMENT_CLOUD)}
     />
   )
 }

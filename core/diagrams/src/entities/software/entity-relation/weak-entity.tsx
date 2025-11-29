@@ -10,11 +10,5 @@ export const WEAK_ENTITY = {
 }
 
 export function WeakEntity(props: NodeProps) {
-  return (
-    <Shape
-      {...WEAK_ENTITY}
-      {...props}
-      _style={extendStyle(WEAK_ENTITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEAK_ENTITY)} />
 }

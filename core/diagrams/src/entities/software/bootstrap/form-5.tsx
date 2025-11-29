@@ -11,5 +11,5 @@ export const FORM_5 = {
 }
 
 export function Form5(props: NodeProps) {
-  return <Shape {...FORM_5} {...props} _style={extendStyle(FORM_5, props)} />
+  return <Shape {...props} _style={extendStyle(props, FORM_5)} />
 }

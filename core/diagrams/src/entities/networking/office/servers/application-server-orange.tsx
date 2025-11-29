@@ -12,10 +12,6 @@ export const APPLICATION_SERVER_ORANGE = {
 
 export function ApplicationServerOrange(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_SERVER_ORANGE}
-      {...props}
-      _style={extendStyle(APPLICATION_SERVER_ORANGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_SERVER_ORANGE)} />
   )
 }

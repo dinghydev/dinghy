@@ -9,11 +9,5 @@ export const DEFAULT_DOUBLE = {
 }
 
 export function DefaultDouble(props: NodeProps) {
-  return (
-    <Dependency
-      {...DEFAULT_DOUBLE}
-      {...props}
-      _style={extendStyle(DEFAULT_DOUBLE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DEFAULT_DOUBLE)} />
 }

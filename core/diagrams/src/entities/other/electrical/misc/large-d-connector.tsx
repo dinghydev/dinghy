@@ -11,11 +11,5 @@ export const LARGE_D_CONNECTOR = {
 }
 
 export function LargeDConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...LARGE_D_CONNECTOR}
-      {...props}
-      _style={extendStyle(LARGE_D_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LARGE_D_CONNECTOR)} />
 }

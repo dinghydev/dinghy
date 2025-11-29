@@ -13,9 +13,8 @@ export const APPLICATION_SHARING_WORKLOAD = {
 export function ApplicationSharingWorkload(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_SHARING_WORKLOAD}
       {...props}
-      _style={extendStyle(APPLICATION_SHARING_WORKLOAD, props)}
+      _style={extendStyle(props, APPLICATION_SHARING_WORKLOAD)}
     />
   )
 }

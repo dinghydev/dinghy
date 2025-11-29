@@ -11,11 +11,5 @@ export const VIDEO_CONTROLS = {
 }
 
 export function VideoControls(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_CONTROLS}
-      {...props}
-      _style={extendStyle(VIDEO_CONTROLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_CONTROLS)} />
 }

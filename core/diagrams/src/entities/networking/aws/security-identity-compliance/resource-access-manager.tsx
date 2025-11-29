@@ -12,10 +12,6 @@ export const RESOURCE_ACCESS_MANAGER = {
 
 export function ResourceAccessManager(props: NodeProps) {
   return (
-    <Shape
-      {...RESOURCE_ACCESS_MANAGER}
-      {...props}
-      _style={extendStyle(RESOURCE_ACCESS_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RESOURCE_ACCESS_MANAGER)} />
   )
 }

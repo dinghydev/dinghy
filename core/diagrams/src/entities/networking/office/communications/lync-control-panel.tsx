@@ -11,11 +11,5 @@ export const LYNC_CONTROL_PANEL = {
 }
 
 export function LyncControlPanel(props: NodeProps) {
-  return (
-    <Shape
-      {...LYNC_CONTROL_PANEL}
-      {...props}
-      _style={extendStyle(LYNC_CONTROL_PANEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LYNC_CONTROL_PANEL)} />
 }

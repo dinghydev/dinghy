@@ -11,5 +11,5 @@ export const OUTPUT = {
 }
 
 export function Output(props: NodeProps) {
-  return <Shape {...OUTPUT} {...props} _style={extendStyle(OUTPUT, props)} />
+  return <Shape {...props} _style={extendStyle(props, OUTPUT)} />
 }

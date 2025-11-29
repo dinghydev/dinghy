@@ -1,0 +1,59 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+import { AwsDatazoneDomain } from './AwsDatazoneDomain.tsx'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/datazone_domain
+
+export const InputSchema = z.object({
+  id: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  created_at: z.string().optional(),
+  description: z.string().optional(),
+  domain_version: z.string().optional(),
+  last_updated_at: z.string().optional(),
+  managed_account_id: z.string().optional(),
+  portal_url: z.string().optional(),
+  status: z.string().optional(),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function DataAwsDatazoneDomain(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <AwsDatazoneDomain
+      _type='aws_datazone_domain'
+      _category='data'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props as any}
+    />
+  )
+}
+
+export const useDataAwsDatazoneDomain = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(DataAwsDatazoneDomain, node, id)
+
+export const useDataAwsDatazoneDomains = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(DataAwsDatazoneDomain, node, id)

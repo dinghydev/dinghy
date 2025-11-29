@@ -13,9 +13,8 @@ export const PARALLEL_MULTIPLE_INTERMEDIATE_CATCHING = {
 export function ParallelMultipleIntermediateCatching(props: NodeProps) {
   return (
     <Shape
-      {...PARALLEL_MULTIPLE_INTERMEDIATE_CATCHING}
       {...props}
-      _style={extendStyle(PARALLEL_MULTIPLE_INTERMEDIATE_CATCHING, props)}
+      _style={extendStyle(props, PARALLEL_MULTIPLE_INTERMEDIATE_CATCHING)}
     />
   )
 }

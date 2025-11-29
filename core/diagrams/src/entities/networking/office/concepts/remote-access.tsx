@@ -11,11 +11,5 @@ export const REMOTE_ACCESS = {
 }
 
 export function RemoteAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_ACCESS}
-      {...props}
-      _style={extendStyle(REMOTE_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_ACCESS)} />
 }

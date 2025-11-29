@@ -12,10 +12,6 @@ export const AWS_CERTIFICATE_MANAGER = {
 
 export function AwsCertificateManager(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_CERTIFICATE_MANAGER}
-      {...props}
-      _style={extendStyle(AWS_CERTIFICATE_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_CERTIFICATE_MANAGER)} />
   )
 }

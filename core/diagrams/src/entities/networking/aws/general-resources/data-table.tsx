@@ -11,7 +11,5 @@ export const DATA_TABLE = {
 }
 
 export function DataTable(props: NodeProps) {
-  return (
-    <Shape {...DATA_TABLE} {...props} _style={extendStyle(DATA_TABLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_TABLE)} />
 }

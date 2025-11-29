@@ -11,11 +11,5 @@ export const TRANSLATOR_TEXT = {
 }
 
 export function TranslatorText(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSLATOR_TEXT}
-      {...props}
-      _style={extendStyle(TRANSLATOR_TEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSLATOR_TEXT)} />
 }

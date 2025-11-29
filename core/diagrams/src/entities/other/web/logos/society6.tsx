@@ -11,7 +11,5 @@ export const SOCIETY6 = {
 }
 
 export function Society6(props: NodeProps) {
-  return (
-    <Shape {...SOCIETY6} {...props} _style={extendStyle(SOCIETY6, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOCIETY6)} />
 }

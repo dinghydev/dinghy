@@ -11,11 +11,5 @@ export const FILE_GENERAL = {
 }
 
 export function FileGeneral(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_GENERAL}
-      {...props}
-      _style={extendStyle(FILE_GENERAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_GENERAL)} />
 }

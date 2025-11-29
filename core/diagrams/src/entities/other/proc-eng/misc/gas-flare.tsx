@@ -11,7 +11,5 @@ export const GAS_FLARE = {
 }
 
 export function GasFlare(props: NodeProps) {
-  return (
-    <Shape {...GAS_FLARE} {...props} _style={extendStyle(GAS_FLARE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_FLARE)} />
 }

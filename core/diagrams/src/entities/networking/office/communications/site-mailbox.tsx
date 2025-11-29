@@ -11,11 +11,5 @@ export const SITE_MAILBOX = {
 }
 
 export function SiteMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_MAILBOX}
-      {...props}
-      _style={extendStyle(SITE_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_MAILBOX)} />
 }

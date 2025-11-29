@@ -11,7 +11,5 @@ export const MOH_SERVER = {
 }
 
 export function MohServer(props: NodeProps) {
-  return (
-    <Shape {...MOH_SERVER} {...props} _style={extendStyle(MOH_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOH_SERVER)} />
 }

@@ -11,11 +11,5 @@ export const ENVELOPE_WRAPPER = {
 }
 
 export function EnvelopeWrapper(props: NodeProps) {
-  return (
-    <Shape
-      {...ENVELOPE_WRAPPER}
-      {...props}
-      _style={extendStyle(ENVELOPE_WRAPPER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENVELOPE_WRAPPER)} />
 }

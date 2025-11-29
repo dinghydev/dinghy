@@ -13,9 +13,8 @@ export const J9840A_MSM_775ZL_V2_ZL_MODULE = {
 export function J9840aMsm775zlV2ZlModule(props: NodeProps) {
   return (
     <Shape
-      {...J9840A_MSM_775ZL_V2_ZL_MODULE}
       {...props}
-      _style={extendStyle(J9840A_MSM_775ZL_V2_ZL_MODULE, props)}
+      _style={extendStyle(props, J9840A_MSM_775ZL_V2_ZL_MODULE)}
     />
   )
 }

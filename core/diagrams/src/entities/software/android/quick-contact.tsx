@@ -11,11 +11,5 @@ export const QUICK_CONTACT = {
 }
 
 export function QuickContact(props: NodeProps) {
-  return (
-    <Shape
-      {...QUICK_CONTACT}
-      {...props}
-      _style={extendStyle(QUICK_CONTACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUICK_CONTACT)} />
 }

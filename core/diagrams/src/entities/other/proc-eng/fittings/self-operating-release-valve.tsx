@@ -13,9 +13,8 @@ export const SELF_OPERATING_RELEASE_VALVE = {
 export function SelfOperatingReleaseValve(props: NodeProps) {
   return (
     <Shape
-      {...SELF_OPERATING_RELEASE_VALVE}
       {...props}
-      _style={extendStyle(SELF_OPERATING_RELEASE_VALVE, props)}
+      _style={extendStyle(props, SELF_OPERATING_RELEASE_VALVE)}
     />
   )
 }

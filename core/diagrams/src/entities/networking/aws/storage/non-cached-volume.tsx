@@ -11,11 +11,5 @@ export const NON_CACHED_VOLUME = {
 }
 
 export function NonCachedVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...NON_CACHED_VOLUME}
-      {...props}
-      _style={extendStyle(NON_CACHED_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NON_CACHED_VOLUME)} />
 }

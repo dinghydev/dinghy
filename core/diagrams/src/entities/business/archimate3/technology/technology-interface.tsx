@@ -11,11 +11,5 @@ export const TECHNOLOGY_INTERFACE = {
 }
 
 export function TechnologyInterface(props: NodeProps) {
-  return (
-    <Shape
-      {...TECHNOLOGY_INTERFACE}
-      {...props}
-      _style={extendStyle(TECHNOLOGY_INTERFACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECHNOLOGY_INTERFACE)} />
 }

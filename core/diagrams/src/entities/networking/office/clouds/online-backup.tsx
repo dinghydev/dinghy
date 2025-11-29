@@ -11,11 +11,5 @@ export const ONLINE_BACKUP = {
 }
 
 export function OnlineBackup(props: NodeProps) {
-  return (
-    <Shape
-      {...ONLINE_BACKUP}
-      {...props}
-      _style={extendStyle(ONLINE_BACKUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONLINE_BACKUP)} />
 }

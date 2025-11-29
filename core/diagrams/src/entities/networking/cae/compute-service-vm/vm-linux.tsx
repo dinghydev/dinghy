@@ -11,7 +11,5 @@ export const VM_LINUX = {
 }
 
 export function VmLinux(props: NodeProps) {
-  return (
-    <Shape {...VM_LINUX} {...props} _style={extendStyle(VM_LINUX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_LINUX)} />
 }

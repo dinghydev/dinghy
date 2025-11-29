@@ -11,11 +11,5 @@ export const VIRTUAL_TAPE_LIBRARY = {
 }
 
 export function VirtualTapeLibrary(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_TAPE_LIBRARY}
-      {...props}
-      _style={extendStyle(VIRTUAL_TAPE_LIBRARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_TAPE_LIBRARY)} />
 }

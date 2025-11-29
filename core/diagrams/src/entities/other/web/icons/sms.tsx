@@ -11,5 +11,5 @@ export const SMS = {
 }
 
 export function Sms(props: NodeProps) {
-  return <Shape {...SMS} {...props} _style={extendStyle(SMS, props)} />
+  return <Shape {...props} _style={extendStyle(props, SMS)} />
 }

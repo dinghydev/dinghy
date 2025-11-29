@@ -12,10 +12,6 @@ export const CRUSHING_GRINDING_MACHINE = {
 
 export function CrushingGrindingMachine(props: NodeProps) {
   return (
-    <Shape
-      {...CRUSHING_GRINDING_MACHINE}
-      {...props}
-      _style={extendStyle(CRUSHING_GRINDING_MACHINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CRUSHING_GRINDING_MACHINE)} />
   )
 }

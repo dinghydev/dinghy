@@ -11,11 +11,5 @@ export const API_DEVELOPER_PORTAL = {
 }
 
 export function ApiDeveloperPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...API_DEVELOPER_PORTAL}
-      {...props}
-      _style={extendStyle(API_DEVELOPER_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_DEVELOPER_PORTAL)} />
 }

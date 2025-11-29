@@ -13,9 +13,8 @@ export const SINGLE_LINE_TEXT_FIELD_PRESS_2 = {
 export function SingleLineTextFieldPress2(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_LINE_TEXT_FIELD_PRESS_2}
       {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_PRESS_2, props)}
+      _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD_PRESS_2)}
     />
   )
 }

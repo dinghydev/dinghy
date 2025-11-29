@@ -11,11 +11,5 @@ export const MULTI_TENANCY = {
 }
 
 export function MultiTenancy(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTI_TENANCY}
-      {...props}
-      _style={extendStyle(MULTI_TENANCY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTI_TENANCY)} />
 }

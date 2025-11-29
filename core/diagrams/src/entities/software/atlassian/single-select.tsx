@@ -11,11 +11,5 @@ export const SINGLE_SELECT = {
 }
 
 export function SingleSelect(props: NodeProps) {
-  return (
-    <Shape
-      {...SINGLE_SELECT}
-      {...props}
-      _style={extendStyle(SINGLE_SELECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINGLE_SELECT)} />
 }

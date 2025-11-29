@@ -13,9 +13,8 @@ export const RECTANGLE_WITH_HORIZONTAL_FILL = {
 export function RectangleWithHorizontalFill(props: NodeProps) {
   return (
     <Shape
-      {...RECTANGLE_WITH_HORIZONTAL_FILL}
       {...props}
-      _style={extendStyle(RECTANGLE_WITH_HORIZONTAL_FILL, props)}
+      _style={extendStyle(props, RECTANGLE_WITH_HORIZONTAL_FILL)}
     />
   )
 }

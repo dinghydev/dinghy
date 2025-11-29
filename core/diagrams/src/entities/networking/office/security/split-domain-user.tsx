@@ -11,11 +11,5 @@ export const SPLIT_DOMAIN_USER = {
 }
 
 export function SplitDomainUser(props: NodeProps) {
-  return (
-    <Shape
-      {...SPLIT_DOMAIN_USER}
-      {...props}
-      _style={extendStyle(SPLIT_DOMAIN_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPLIT_DOMAIN_USER)} />
 }

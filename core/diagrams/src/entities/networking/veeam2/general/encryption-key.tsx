@@ -11,11 +11,5 @@ export const ENCRYPTION_KEY = {
 }
 
 export function EncryptionKey(props: NodeProps) {
-  return (
-    <Shape
-      {...ENCRYPTION_KEY}
-      {...props}
-      _style={extendStyle(ENCRYPTION_KEY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENCRYPTION_KEY)} />
 }

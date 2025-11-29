@@ -12,10 +12,6 @@ export const X12120_TWO_PHASE_SEPARATOR = {
 
 export function X12120TwoPhaseSeparator(props: NodeProps) {
   return (
-    <Shape
-      {...X12120_TWO_PHASE_SEPARATOR}
-      {...props}
-      _style={extendStyle(X12120_TWO_PHASE_SEPARATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12120_TWO_PHASE_SEPARATOR)} />
   )
 }

@@ -11,7 +11,5 @@ export const LINUX_VM = {
 }
 
 export function LinuxVm(props: NodeProps) {
-  return (
-    <Shape {...LINUX_VM} {...props} _style={extendStyle(LINUX_VM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINUX_VM)} />
 }

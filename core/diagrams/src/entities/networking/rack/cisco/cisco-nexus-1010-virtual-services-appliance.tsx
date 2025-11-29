@@ -13,9 +13,8 @@ export const CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE = {
 export function CiscoNexus1010VirtualServicesAppliance(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE}
       {...props}
-      _style={extendStyle(CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE, props)}
+      _style={extendStyle(props, CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE)}
     />
   )
 }

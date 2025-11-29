@@ -11,11 +11,5 @@ export const SECURE_SYSTEM = {
 }
 
 export function SecureSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_SYSTEM}
-      {...props}
-      _style={extendStyle(SECURE_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_SYSTEM)} />
 }

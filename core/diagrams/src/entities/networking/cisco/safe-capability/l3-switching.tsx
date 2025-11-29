@@ -11,11 +11,5 @@ export const L3_SWITCHING = {
 }
 
 export function L3Switching(props: NodeProps) {
-  return (
-    <Shape
-      {...L3_SWITCHING}
-      {...props}
-      _style={extendStyle(L3_SWITCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, L3_SWITCHING)} />
 }

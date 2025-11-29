@@ -11,7 +11,5 @@ export const DELETE_APP = {
 }
 
 export function DeleteApp(props: NodeProps) {
-  return (
-    <Shape {...DELETE_APP} {...props} _style={extendStyle(DELETE_APP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELETE_APP)} />
 }

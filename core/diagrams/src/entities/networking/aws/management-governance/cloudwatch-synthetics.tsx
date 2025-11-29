@@ -11,11 +11,5 @@ export const CLOUDWATCH_SYNTHETICS = {
 }
 
 export function CloudwatchSynthetics(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDWATCH_SYNTHETICS}
-      {...props}
-      _style={extendStyle(CLOUDWATCH_SYNTHETICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDWATCH_SYNTHETICS)} />
 }

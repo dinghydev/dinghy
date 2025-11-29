@@ -11,11 +11,5 @@ export const THINKBOX_KRAKATOA = {
 }
 
 export function ThinkboxKrakatoa(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_KRAKATOA}
-      {...props}
-      _style={extendStyle(THINKBOX_KRAKATOA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_KRAKATOA)} />
 }

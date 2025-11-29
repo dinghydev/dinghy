@@ -11,11 +11,5 @@ export const COMPUTE_ENGINE_2 = {
 }
 
 export function ComputeEngine2(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTE_ENGINE_2}
-      {...props}
-      _style={extendStyle(COMPUTE_ENGINE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTE_ENGINE_2)} />
 }

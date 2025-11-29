@@ -13,9 +13,8 @@ export const SAP_PROJECT_AND_RESOURCE_MANAGEMENT = {
 export function SapProjectAndResourceManagement(props: NodeProps) {
   return (
     <Shape
-      {...SAP_PROJECT_AND_RESOURCE_MANAGEMENT}
       {...props}
-      _style={extendStyle(SAP_PROJECT_AND_RESOURCE_MANAGEMENT, props)}
+      _style={extendStyle(props, SAP_PROJECT_AND_RESOURCE_MANAGEMENT)}
     />
   )
 }

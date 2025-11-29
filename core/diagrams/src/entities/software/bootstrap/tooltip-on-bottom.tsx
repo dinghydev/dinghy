@@ -11,11 +11,5 @@ export const TOOLTIP_ON_BOTTOM = {
 }
 
 export function TooltipOnBottom(props: NodeProps) {
-  return (
-    <Shape
-      {...TOOLTIP_ON_BOTTOM}
-      {...props}
-      _style={extendStyle(TOOLTIP_ON_BOTTOM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOOLTIP_ON_BOTTOM)} />
 }

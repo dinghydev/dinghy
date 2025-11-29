@@ -12,10 +12,6 @@ export const INSTANCE_SPECIFICATION_3 = {
 
 export function InstanceSpecification3(props: NodeProps) {
   return (
-    <Shape
-      {...INSTANCE_SPECIFICATION_3}
-      {...props}
-      _style={extendStyle(INSTANCE_SPECIFICATION_3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INSTANCE_SPECIFICATION_3)} />
   )
 }

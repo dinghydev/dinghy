@@ -13,9 +13,8 @@ export const EXPLORER_FOR_ACTIVE_DIRECTORY = {
 export function ExplorerForActiveDirectory(props: NodeProps) {
   return (
     <Shape
-      {...EXPLORER_FOR_ACTIVE_DIRECTORY}
       {...props}
-      _style={extendStyle(EXPLORER_FOR_ACTIVE_DIRECTORY, props)}
+      _style={extendStyle(props, EXPLORER_FOR_ACTIVE_DIRECTORY)}
     />
   )
 }

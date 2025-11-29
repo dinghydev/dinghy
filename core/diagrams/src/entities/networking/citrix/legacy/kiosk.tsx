@@ -11,5 +11,5 @@ export const KIOSK = {
 }
 
 export function Kiosk(props: NodeProps) {
-  return <Shape {...KIOSK} {...props} _style={extendStyle(KIOSK, props)} />
+  return <Shape {...props} _style={extendStyle(props, KIOSK)} />
 }

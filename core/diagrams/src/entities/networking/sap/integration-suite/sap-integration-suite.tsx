@@ -11,11 +11,5 @@ export const SAP_INTEGRATION_SUITE = {
 }
 
 export function SapIntegrationSuite(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_INTEGRATION_SUITE}
-      {...props}
-      _style={extendStyle(SAP_INTEGRATION_SUITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_INTEGRATION_SUITE)} />
 }

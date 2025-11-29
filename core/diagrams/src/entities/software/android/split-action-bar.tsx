@@ -11,11 +11,5 @@ export const SPLIT_ACTION_BAR = {
 }
 
 export function SplitActionBar(props: NodeProps) {
-  return (
-    <Shape
-      {...SPLIT_ACTION_BAR}
-      {...props}
-      _style={extendStyle(SPLIT_ACTION_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPLIT_ACTION_BAR)} />
 }

@@ -11,7 +11,5 @@ export const EVENTARC = {
 }
 
 export function Eventarc(props: NodeProps) {
-  return (
-    <Shape {...EVENTARC} {...props} _style={extendStyle(EVENTARC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENTARC)} />
 }

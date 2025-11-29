@@ -11,11 +11,5 @@ export const STREAMING_COMPUTING = {
 }
 
 export function StreamingComputing(props: NodeProps) {
-  return (
-    <Shape
-      {...STREAMING_COMPUTING}
-      {...props}
-      _style={extendStyle(STREAMING_COMPUTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STREAMING_COMPUTING)} />
 }

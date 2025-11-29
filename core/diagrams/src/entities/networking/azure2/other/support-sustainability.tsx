@@ -12,10 +12,6 @@ export const SUPPORT_SUSTAINABILITY = {
 
 export function SupportSustainability(props: NodeProps) {
   return (
-    <Shape
-      {...SUPPORT_SUSTAINABILITY}
-      {...props}
-      _style={extendStyle(SUPPORT_SUSTAINABILITY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SUPPORT_SUSTAINABILITY)} />
   )
 }

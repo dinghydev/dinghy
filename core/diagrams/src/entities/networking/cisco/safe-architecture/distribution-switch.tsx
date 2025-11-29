@@ -11,11 +11,5 @@ export const DISTRIBUTION_SWITCH = {
 }
 
 export function DistributionSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...DISTRIBUTION_SWITCH}
-      {...props}
-      _style={extendStyle(DISTRIBUTION_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISTRIBUTION_SWITCH)} />
 }

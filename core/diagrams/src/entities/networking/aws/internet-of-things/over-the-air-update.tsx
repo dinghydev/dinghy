@@ -11,11 +11,5 @@ export const OVER_THE_AIR_UPDATE = {
 }
 
 export function OverTheAirUpdate(props: NodeProps) {
-  return (
-    <Shape
-      {...OVER_THE_AIR_UPDATE}
-      {...props}
-      _style={extendStyle(OVER_THE_AIR_UPDATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OVER_THE_AIR_UPDATE)} />
 }

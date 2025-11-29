@@ -11,11 +11,5 @@ export const BLANK_SERVICE = {
 }
 
 export function BlankService(props: NodeProps) {
-  return (
-    <Shape
-      {...BLANK_SERVICE}
-      {...props}
-      _style={extendStyle(BLANK_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLANK_SERVICE)} />
 }

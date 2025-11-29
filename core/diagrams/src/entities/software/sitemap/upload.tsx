@@ -11,5 +11,5 @@ export const UPLOAD = {
 }
 
 export function Upload(props: NodeProps) {
-  return <Shape {...UPLOAD} {...props} _style={extendStyle(UPLOAD, props)} />
+  return <Shape {...props} _style={extendStyle(props, UPLOAD)} />
 }

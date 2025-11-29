@@ -11,11 +11,5 @@ export const KINESIS_STREAMS = {
 }
 
 export function KinesisStreams(props: NodeProps) {
-  return (
-    <Shape
-      {...KINESIS_STREAMS}
-      {...props}
-      _style={extendStyle(KINESIS_STREAMS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KINESIS_STREAMS)} />
 }

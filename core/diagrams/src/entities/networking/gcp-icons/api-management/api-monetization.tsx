@@ -11,11 +11,5 @@ export const API_MONETIZATION = {
 }
 
 export function ApiMonetization(props: NodeProps) {
-  return (
-    <Shape
-      {...API_MONETIZATION}
-      {...props}
-      _style={extendStyle(API_MONETIZATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_MONETIZATION)} />
 }

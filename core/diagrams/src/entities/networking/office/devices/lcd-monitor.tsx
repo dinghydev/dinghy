@@ -11,11 +11,5 @@ export const LCD_MONITOR = {
 }
 
 export function LcdMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...LCD_MONITOR}
-      {...props}
-      _style={extendStyle(LCD_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LCD_MONITOR)} />
 }

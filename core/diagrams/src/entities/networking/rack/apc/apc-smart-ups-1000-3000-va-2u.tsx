@@ -13,9 +13,8 @@ export const APC_SMART_UPS_1000_3000_VA_2U = {
 export function ApcSmartUps10003000Va2u(props: NodeProps) {
   return (
     <Shape
-      {...APC_SMART_UPS_1000_3000_VA_2U}
       {...props}
-      _style={extendStyle(APC_SMART_UPS_1000_3000_VA_2U, props)}
+      _style={extendStyle(props, APC_SMART_UPS_1000_3000_VA_2U)}
     />
   )
 }

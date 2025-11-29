@@ -11,7 +11,5 @@ export const BIG_DATA = {
 }
 
 export function BigData(props: NodeProps) {
-  return (
-    <Shape {...BIG_DATA} {...props} _style={extendStyle(BIG_DATA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIG_DATA)} />
 }

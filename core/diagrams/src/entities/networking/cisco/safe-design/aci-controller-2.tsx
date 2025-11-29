@@ -11,11 +11,5 @@ export const ACI_CONTROLLER_2 = {
 }
 
 export function AciController2(props: NodeProps) {
-  return (
-    <Shape
-      {...ACI_CONTROLLER_2}
-      {...props}
-      _style={extendStyle(ACI_CONTROLLER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACI_CONTROLLER_2)} />
 }

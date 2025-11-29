@@ -11,5 +11,5 @@ export const GLACIER = {
 }
 
 export function Glacier(props: NodeProps) {
-  return <Shape {...GLACIER} {...props} _style={extendStyle(GLACIER, props)} />
+  return <Shape {...props} _style={extendStyle(props, GLACIER)} />
 }

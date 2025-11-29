@@ -11,11 +11,5 @@ export const COMPANY_PORTAL = {
 }
 
 export function CompanyPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPANY_PORTAL}
-      {...props}
-      _style={extendStyle(COMPANY_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPANY_PORTAL)} />
 }

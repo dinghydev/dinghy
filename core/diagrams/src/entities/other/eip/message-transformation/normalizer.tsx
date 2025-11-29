@@ -11,7 +11,5 @@ export const NORMALIZER = {
 }
 
 export function Normalizer(props: NodeProps) {
-  return (
-    <Shape {...NORMALIZER} {...props} _style={extendStyle(NORMALIZER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NORMALIZER)} />
 }

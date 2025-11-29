@@ -11,11 +11,5 @@ export const BEST_PRACTICES = {
 }
 
 export function BestPractices(props: NodeProps) {
-  return (
-    <Shape
-      {...BEST_PRACTICES}
-      {...props}
-      _style={extendStyle(BEST_PRACTICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEST_PRACTICES)} />
 }

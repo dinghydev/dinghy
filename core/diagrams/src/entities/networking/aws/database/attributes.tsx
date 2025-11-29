@@ -11,7 +11,5 @@ export const ATTRIBUTES = {
 }
 
 export function Attributes(props: NodeProps) {
-  return (
-    <Shape {...ATTRIBUTES} {...props} _style={extendStyle(ATTRIBUTES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATTRIBUTES)} />
 }

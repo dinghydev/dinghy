@@ -11,11 +11,5 @@ export const BUTTON_NORMAL = {
 }
 
 export function ButtonNormal(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_NORMAL}
-      {...props}
-      _style={extendStyle(BUTTON_NORMAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_NORMAL)} />
 }

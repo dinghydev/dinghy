@@ -11,7 +11,5 @@ export const LINK_SAP = {
 }
 
 export function LinkSap(props: NodeProps) {
-  return (
-    <Shape {...LINK_SAP} {...props} _style={extendStyle(LINK_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINK_SAP)} />
 }

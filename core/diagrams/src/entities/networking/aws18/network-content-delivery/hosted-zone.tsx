@@ -11,11 +11,5 @@ export const HOSTED_ZONE = {
 }
 
 export function HostedZone(props: NodeProps) {
-  return (
-    <Shape
-      {...HOSTED_ZONE}
-      {...props}
-      _style={extendStyle(HOSTED_ZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOSTED_ZONE)} />
 }

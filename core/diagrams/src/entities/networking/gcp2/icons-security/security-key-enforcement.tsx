@@ -12,10 +12,6 @@ export const SECURITY_KEY_ENFORCEMENT = {
 
 export function SecurityKeyEnforcement(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_KEY_ENFORCEMENT}
-      {...props}
-      _style={extendStyle(SECURITY_KEY_ENFORCEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_KEY_ENFORCEMENT)} />
   )
 }

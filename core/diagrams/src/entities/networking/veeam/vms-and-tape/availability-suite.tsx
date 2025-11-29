@@ -11,11 +11,5 @@ export const AVAILABILITY_SUITE = {
 }
 
 export function AvailabilitySuite(props: NodeProps) {
-  return (
-    <Shape
-      {...AVAILABILITY_SUITE}
-      {...props}
-      _style={extendStyle(AVAILABILITY_SUITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVAILABILITY_SUITE)} />
 }

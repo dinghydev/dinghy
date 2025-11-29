@@ -11,11 +11,5 @@ export const CONTROL_FLOW_3 = {
 }
 
 export function ControlFlow3(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_FLOW_3}
-      {...props}
-      _style={extendStyle(CONTROL_FLOW_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_FLOW_3)} />
 }

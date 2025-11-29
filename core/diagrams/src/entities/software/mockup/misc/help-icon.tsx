@@ -11,7 +11,5 @@ export const HELP_ICON = {
 }
 
 export function HelpIcon(props: NodeProps) {
-  return (
-    <Shape {...HELP_ICON} {...props} _style={extendStyle(HELP_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HELP_ICON)} />
 }

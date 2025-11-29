@@ -11,5 +11,5 @@ export const VAULT = {
 }
 
 export function Vault(props: NodeProps) {
-  return <Shape {...VAULT} {...props} _style={extendStyle(VAULT, props)} />
+  return <Shape {...props} _style={extendStyle(props, VAULT)} />
 }

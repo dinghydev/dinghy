@@ -10,11 +10,5 @@ export const SCANNABLE_LIST = {
 }
 
 export function ScannableList(props: NodeProps) {
-  return (
-    <Shape
-      {...SCANNABLE_LIST}
-      {...props}
-      _style={extendStyle(SCANNABLE_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCANNABLE_LIST)} />
 }

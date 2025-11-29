@@ -12,10 +12,6 @@ export const X10580_PRESSURE_RELIEF = {
 
 export function X10580PressureRelief(props: NodeProps) {
   return (
-    <Shape
-      {...X10580_PRESSURE_RELIEF}
-      {...props}
-      _style={extendStyle(X10580_PRESSURE_RELIEF, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10580_PRESSURE_RELIEF)} />
   )
 }

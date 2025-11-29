@@ -12,10 +12,6 @@ export const VEEAM_BACKUP_REPLICATION = {
 
 export function VeeamBackupReplication(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_BACKUP_REPLICATION}
-      {...props}
-      _style={extendStyle(VEEAM_BACKUP_REPLICATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_BACKUP_REPLICATION)} />
   )
 }

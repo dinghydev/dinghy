@@ -11,11 +11,5 @@ export const GENERATOR_AC = {
 }
 
 export function GeneratorAc(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERATOR_AC}
-      {...props}
-      _style={extendStyle(GENERATOR_AC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERATOR_AC)} />
 }

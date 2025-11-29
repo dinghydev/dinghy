@@ -11,11 +11,5 @@ export const ALERT_HIGHLIGHT = {
 }
 
 export function AlertHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...ALERT_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(ALERT_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALERT_HIGHLIGHT)} />
 }

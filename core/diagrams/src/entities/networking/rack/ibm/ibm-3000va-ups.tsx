@@ -11,11 +11,5 @@ export const IBM_3000VA_UPS = {
 }
 
 export function Ibm3000vaUps(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_3000VA_UPS}
-      {...props}
-      _style={extendStyle(IBM_3000VA_UPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_3000VA_UPS)} />
 }

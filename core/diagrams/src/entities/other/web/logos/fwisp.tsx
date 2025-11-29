@@ -11,5 +11,5 @@ export const FWISP = {
 }
 
 export function Fwisp(props: NodeProps) {
-  return <Shape {...FWISP} {...props} _style={extendStyle(FWISP, props)} />
+  return <Shape {...props} _style={extendStyle(props, FWISP)} />
 }

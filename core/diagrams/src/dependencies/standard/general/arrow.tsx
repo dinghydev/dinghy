@@ -8,5 +8,5 @@ export const ARROW = {
 }
 
 export function Arrow(props: NodeProps) {
-  return <Dependency {...ARROW} {...props} _style={extendStyle(ARROW, props)} />
+  return <Dependency {...props} _style={extendStyle(props, ARROW)} />
 }

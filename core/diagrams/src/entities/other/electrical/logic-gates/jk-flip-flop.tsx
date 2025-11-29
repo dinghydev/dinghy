@@ -11,11 +11,5 @@ export const JK_FLIP_FLOP = {
 }
 
 export function JkFlipFlop(props: NodeProps) {
-  return (
-    <Shape
-      {...JK_FLIP_FLOP}
-      {...props}
-      _style={extendStyle(JK_FLIP_FLOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JK_FLIP_FLOP)} />
 }

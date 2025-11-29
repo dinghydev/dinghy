@@ -11,11 +11,5 @@ export const DEVOPS_STARTER = {
 }
 
 export function DevopsStarter(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVOPS_STARTER}
-      {...props}
-      _style={extendStyle(DEVOPS_STARTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVOPS_STARTER)} />
 }

@@ -12,10 +12,6 @@ export const VDEO_CONFERENCE_TERMINAL = {
 
 export function VdeoConferenceTerminal(props: NodeProps) {
   return (
-    <Shape
-      {...VDEO_CONFERENCE_TERMINAL}
-      {...props}
-      _style={extendStyle(VDEO_CONFERENCE_TERMINAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VDEO_CONFERENCE_TERMINAL)} />
   )
 }

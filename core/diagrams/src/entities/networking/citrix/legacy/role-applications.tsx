@@ -11,11 +11,5 @@ export const ROLE_APPLICATIONS = {
 }
 
 export function RoleApplications(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_APPLICATIONS}
-      {...props}
-      _style={extendStyle(ROLE_APPLICATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_APPLICATIONS)} />
 }

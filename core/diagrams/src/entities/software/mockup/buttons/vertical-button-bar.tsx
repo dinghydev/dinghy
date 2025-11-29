@@ -11,11 +11,5 @@ export const VERTICAL_BUTTON_BAR = {
 }
 
 export function VerticalButtonBar(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_BUTTON_BAR}
-      {...props}
-      _style={extendStyle(VERTICAL_BUTTON_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_BUTTON_BAR)} />
 }

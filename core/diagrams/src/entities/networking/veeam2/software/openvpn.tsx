@@ -11,5 +11,5 @@ export const OPENVPN = {
 }
 
 export function Openvpn(props: NodeProps) {
-  return <Shape {...OPENVPN} {...props} _style={extendStyle(OPENVPN, props)} />
+  return <Shape {...props} _style={extendStyle(props, OPENVPN)} />
 }

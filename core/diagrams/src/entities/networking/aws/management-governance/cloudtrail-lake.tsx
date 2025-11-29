@@ -11,11 +11,5 @@ export const CLOUDTRAIL_LAKE = {
 }
 
 export function CloudtrailLake(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDTRAIL_LAKE}
-      {...props}
-      _style={extendStyle(CLOUDTRAIL_LAKE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDTRAIL_LAKE)} />
 }

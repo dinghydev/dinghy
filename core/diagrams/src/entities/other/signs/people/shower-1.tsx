@@ -11,7 +11,5 @@ export const SHOWER_1 = {
 }
 
 export function Shower1(props: NodeProps) {
-  return (
-    <Shape {...SHOWER_1} {...props} _style={extendStyle(SHOWER_1, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHOWER_1)} />
 }

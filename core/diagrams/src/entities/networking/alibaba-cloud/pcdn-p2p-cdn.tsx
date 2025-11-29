@@ -11,11 +11,5 @@ export const PCDN_P2P_CDN = {
 }
 
 export function PcdnP2pCdn(props: NodeProps) {
-  return (
-    <Shape
-      {...PCDN_P2P_CDN}
-      {...props}
-      _style={extendStyle(PCDN_P2P_CDN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PCDN_P2P_CDN)} />
 }

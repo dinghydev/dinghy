@@ -11,11 +11,5 @@ export const CONNECTED_STORE = {
 }
 
 export function ConnectedStore(props: NodeProps) {
-  return (
-    <Shape
-      {...CONNECTED_STORE}
-      {...props}
-      _style={extendStyle(CONNECTED_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONNECTED_STORE)} />
 }

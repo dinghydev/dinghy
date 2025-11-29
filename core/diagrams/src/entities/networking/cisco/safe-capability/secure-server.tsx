@@ -11,11 +11,5 @@ export const SECURE_SERVER = {
 }
 
 export function SecureServer(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_SERVER}
-      {...props}
-      _style={extendStyle(SECURE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_SERVER)} />
 }

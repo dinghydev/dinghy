@@ -10,11 +10,5 @@ export const YEAR_PICKER_DARK = {
 }
 
 export function YearPickerDark(props: NodeProps) {
-  return (
-    <Shape
-      {...YEAR_PICKER_DARK}
-      {...props}
-      _style={extendStyle(YEAR_PICKER_DARK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, YEAR_PICKER_DARK)} />
 }

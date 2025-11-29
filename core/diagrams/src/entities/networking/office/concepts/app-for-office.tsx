@@ -11,11 +11,5 @@ export const APP_FOR_OFFICE = {
 }
 
 export function AppForOffice(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_FOR_OFFICE}
-      {...props}
-      _style={extendStyle(APP_FOR_OFFICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_FOR_OFFICE)} />
 }

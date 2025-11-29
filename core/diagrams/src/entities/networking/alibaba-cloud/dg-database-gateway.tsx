@@ -11,11 +11,5 @@ export const DG_DATABASE_GATEWAY = {
 }
 
 export function DgDatabaseGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...DG_DATABASE_GATEWAY}
-      {...props}
-      _style={extendStyle(DG_DATABASE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DG_DATABASE_GATEWAY)} />
 }

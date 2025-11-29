@@ -13,9 +13,8 @@ export const ROUTE_53_APPLICATION_RECOVERY_CONTROLLER = {
 export function Route53ApplicationRecoveryController(props: NodeProps) {
   return (
     <Shape
-      {...ROUTE_53_APPLICATION_RECOVERY_CONTROLLER}
       {...props}
-      _style={extendStyle(ROUTE_53_APPLICATION_RECOVERY_CONTROLLER, props)}
+      _style={extendStyle(props, ROUTE_53_APPLICATION_RECOVERY_CONTROLLER)}
     />
   )
 }

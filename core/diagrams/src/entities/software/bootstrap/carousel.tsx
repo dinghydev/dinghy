@@ -11,7 +11,5 @@ export const CAROUSEL = {
 }
 
 export function Carousel(props: NodeProps) {
-  return (
-    <Shape {...CAROUSEL} {...props} _style={extendStyle(CAROUSEL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAROUSEL)} />
 }

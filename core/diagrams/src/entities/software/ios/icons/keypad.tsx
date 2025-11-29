@@ -11,5 +11,5 @@ export const KEYPAD = {
 }
 
 export function Keypad(props: NodeProps) {
-  return <Shape {...KEYPAD} {...props} _style={extendStyle(KEYPAD, props)} />
+  return <Shape {...props} _style={extendStyle(props, KEYPAD)} />
 }

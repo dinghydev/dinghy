@@ -13,9 +13,8 @@ export const DEFENDER_INDUSTRIAL_PACKAGING_SYSTEM = {
 export function DefenderIndustrialPackagingSystem(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_INDUSTRIAL_PACKAGING_SYSTEM}
       {...props}
-      _style={extendStyle(DEFENDER_INDUSTRIAL_PACKAGING_SYSTEM, props)}
+      _style={extendStyle(props, DEFENDER_INDUSTRIAL_PACKAGING_SYSTEM)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const SLENDER_TWO_WAY_ARROW = {
 }
 
 export function SlenderTwoWayArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...SLENDER_TWO_WAY_ARROW}
-      {...props}
-      _style={extendStyle(SLENDER_TWO_WAY_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLENDER_TWO_WAY_ARROW)} />
 }

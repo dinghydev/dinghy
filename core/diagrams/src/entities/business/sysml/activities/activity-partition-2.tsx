@@ -11,11 +11,5 @@ export const ACTIVITY_PARTITION_2 = {
 }
 
 export function ActivityPartition2(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTIVITY_PARTITION_2}
-      {...props}
-      _style={extendStyle(ACTIVITY_PARTITION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTIVITY_PARTITION_2)} />
 }

@@ -11,5 +11,5 @@ export const SDK = {
 }
 
 export function Sdk(props: NodeProps) {
-  return <Shape {...SDK} {...props} _style={extendStyle(SDK, props)} />
+  return <Shape {...props} _style={extendStyle(props, SDK)} />
 }

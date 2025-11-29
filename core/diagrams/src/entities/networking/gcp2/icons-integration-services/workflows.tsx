@@ -11,7 +11,5 @@ export const WORKFLOWS = {
 }
 
 export function Workflows(props: NodeProps) {
-  return (
-    <Shape {...WORKFLOWS} {...props} _style={extendStyle(WORKFLOWS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKFLOWS)} />
 }

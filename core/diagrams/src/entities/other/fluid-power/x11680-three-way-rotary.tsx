@@ -12,10 +12,6 @@ export const X11680_THREE_WAY_ROTARY = {
 
 export function X11680ThreeWayRotary(props: NodeProps) {
   return (
-    <Shape
-      {...X11680_THREE_WAY_ROTARY}
-      {...props}
-      _style={extendStyle(X11680_THREE_WAY_ROTARY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11680_THREE_WAY_ROTARY)} />
   )
 }

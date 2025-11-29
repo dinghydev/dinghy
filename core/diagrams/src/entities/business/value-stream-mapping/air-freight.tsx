@@ -11,11 +11,5 @@ export const AIR_FREIGHT = {
 }
 
 export function AirFreight(props: NodeProps) {
-  return (
-    <Shape
-      {...AIR_FREIGHT}
-      {...props}
-      _style={extendStyle(AIR_FREIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AIR_FREIGHT)} />
 }

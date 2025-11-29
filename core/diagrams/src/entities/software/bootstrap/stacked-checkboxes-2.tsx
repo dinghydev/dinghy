@@ -11,11 +11,5 @@ export const STACKED_CHECKBOXES_2 = {
 }
 
 export function StackedCheckboxes2(props: NodeProps) {
-  return (
-    <Shape
-      {...STACKED_CHECKBOXES_2}
-      {...props}
-      _style={extendStyle(STACKED_CHECKBOXES_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACKED_CHECKBOXES_2)} />
 }

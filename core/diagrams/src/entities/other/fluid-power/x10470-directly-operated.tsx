@@ -12,10 +12,6 @@ export const X10470_DIRECTLY_OPERATED = {
 
 export function X10470DirectlyOperated(props: NodeProps) {
   return (
-    <Shape
-      {...X10470_DIRECTLY_OPERATED}
-      {...props}
-      _style={extendStyle(X10470_DIRECTLY_OPERATED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10470_DIRECTLY_OPERATED)} />
   )
 }

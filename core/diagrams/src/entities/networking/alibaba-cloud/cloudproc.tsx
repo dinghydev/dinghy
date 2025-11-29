@@ -11,7 +11,5 @@ export const CLOUDPROC = {
 }
 
 export function Cloudproc(props: NodeProps) {
-  return (
-    <Shape {...CLOUDPROC} {...props} _style={extendStyle(CLOUDPROC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDPROC)} />
 }

@@ -11,7 +11,5 @@ export const HOME_PAGE = {
 }
 
 export function HomePage(props: NodeProps) {
-  return (
-    <Shape {...HOME_PAGE} {...props} _style={extendStyle(HOME_PAGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_PAGE)} />
 }

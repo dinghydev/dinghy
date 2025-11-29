@@ -11,7 +11,5 @@ export const AWS_CONFIG = {
 }
 
 export function AwsConfig(props: NodeProps) {
-  return (
-    <Shape {...AWS_CONFIG} {...props} _style={extendStyle(AWS_CONFIG, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CONFIG)} />
 }

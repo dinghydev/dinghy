@@ -11,11 +11,5 @@ export const INITIAL_PSEUDO_STATE = {
 }
 
 export function InitialPseudoState(props: NodeProps) {
-  return (
-    <Shape
-      {...INITIAL_PSEUDO_STATE}
-      {...props}
-      _style={extendStyle(INITIAL_PSEUDO_STATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INITIAL_PSEUDO_STATE)} />
 }

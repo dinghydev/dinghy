@@ -11,5 +11,5 @@ export const EC2 = {
 }
 
 export function Ec2(props: NodeProps) {
-  return <Shape {...EC2} {...props} _style={extendStyle(EC2, props)} />
+  return <Shape {...props} _style={extendStyle(props, EC2)} />
 }

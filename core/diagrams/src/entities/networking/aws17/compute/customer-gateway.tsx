@@ -11,11 +11,5 @@ export const CUSTOMER_GATEWAY = {
 }
 
 export function CustomerGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOMER_GATEWAY}
-      {...props}
-      _style={extendStyle(CUSTOMER_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOMER_GATEWAY)} />
 }

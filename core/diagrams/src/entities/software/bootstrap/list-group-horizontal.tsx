@@ -11,11 +11,5 @@ export const LIST_GROUP_HORIZONTAL = {
 }
 
 export function ListGroupHorizontal(props: NodeProps) {
-  return (
-    <Shape
-      {...LIST_GROUP_HORIZONTAL}
-      {...props}
-      _style={extendStyle(LIST_GROUP_HORIZONTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_GROUP_HORIZONTAL)} />
 }

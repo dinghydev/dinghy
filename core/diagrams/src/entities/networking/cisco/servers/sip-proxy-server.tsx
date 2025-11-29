@@ -11,11 +11,5 @@ export const SIP_PROXY_SERVER = {
 }
 
 export function SipProxyServer(props: NodeProps) {
-  return (
-    <Shape
-      {...SIP_PROXY_SERVER}
-      {...props}
-      _style={extendStyle(SIP_PROXY_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIP_PROXY_SERVER)} />
 }

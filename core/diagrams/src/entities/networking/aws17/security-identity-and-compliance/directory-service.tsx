@@ -11,11 +11,5 @@ export const DIRECTORY_SERVICE = {
 }
 
 export function DirectoryService(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECTORY_SERVICE}
-      {...props}
-      _style={extendStyle(DIRECTORY_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECTORY_SERVICE)} />
 }

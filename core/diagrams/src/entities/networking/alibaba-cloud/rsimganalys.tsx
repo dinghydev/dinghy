@@ -11,11 +11,5 @@ export const RSIMGANALYS = {
 }
 
 export function Rsimganalys(props: NodeProps) {
-  return (
-    <Shape
-      {...RSIMGANALYS}
-      {...props}
-      _style={extendStyle(RSIMGANALYS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RSIMGANALYS)} />
 }

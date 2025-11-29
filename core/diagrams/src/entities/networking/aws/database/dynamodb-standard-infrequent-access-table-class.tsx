@@ -13,11 +13,10 @@ export const DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS = {
 export function DynamodbStandardInfrequentAccessTableClass(props: NodeProps) {
   return (
     <Shape
-      {...DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS}
       {...props}
       _style={extendStyle(
-        DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS,
         props,
+        DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS,
       )}
     />
   )

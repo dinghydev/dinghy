@@ -13,9 +13,8 @@ export const SITE_RECOVERY_FUNCTIONAL_ICON = {
 export function SiteRecoveryFunctionalIcon(props: NodeProps) {
   return (
     <Shape
-      {...SITE_RECOVERY_FUNCTIONAL_ICON}
       {...props}
-      _style={extendStyle(SITE_RECOVERY_FUNCTIONAL_ICON, props)}
+      _style={extendStyle(props, SITE_RECOVERY_FUNCTIONAL_ICON)}
     />
   )
 }

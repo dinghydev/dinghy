@@ -12,11 +12,5 @@ export const SERVER_CONTENTS = {
 }
 
 export function ServerContents(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_CONTENTS}
-      {...props}
-      _style={extendStyle(SERVER_CONTENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_CONTENTS)} />
 }

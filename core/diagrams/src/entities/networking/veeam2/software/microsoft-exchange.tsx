@@ -11,11 +11,5 @@ export const MICROSOFT_EXCHANGE = {
 }
 
 export function MicrosoftExchange(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_EXCHANGE}
-      {...props}
-      _style={extendStyle(MICROSOFT_EXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_EXCHANGE)} />
 }

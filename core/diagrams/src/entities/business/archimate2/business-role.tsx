@@ -11,11 +11,5 @@ export const BUSINESS_ROLE = {
 }
 
 export function BusinessRole(props: NodeProps) {
-  return (
-    <Shape
-      {...BUSINESS_ROLE}
-      {...props}
-      _style={extendStyle(BUSINESS_ROLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUSINESS_ROLE)} />
 }

@@ -12,10 +12,6 @@ export const CLOUD_GOVERNANCE_CENTER = {
 
 export function CloudGovernanceCenter(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_GOVERNANCE_CENTER}
-      {...props}
-      _style={extendStyle(CLOUD_GOVERNANCE_CENTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_GOVERNANCE_CENTER)} />
   )
 }

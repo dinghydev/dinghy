@@ -12,10 +12,6 @@ export const BACKUP_VIRTUAL_MACHINE = {
 
 export function BackupVirtualMachine(props: NodeProps) {
   return (
-    <Shape
-      {...BACKUP_VIRTUAL_MACHINE}
-      {...props}
-      _style={extendStyle(BACKUP_VIRTUAL_MACHINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BACKUP_VIRTUAL_MACHINE)} />
   )
 }

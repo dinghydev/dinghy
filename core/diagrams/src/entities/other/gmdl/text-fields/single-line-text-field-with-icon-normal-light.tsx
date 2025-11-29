@@ -12,9 +12,8 @@ export const SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT = {
 export function SingleLineTextFieldWithIconNormalLight(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT}
       {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT, props)}
+      _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT)}
     />
   )
 }

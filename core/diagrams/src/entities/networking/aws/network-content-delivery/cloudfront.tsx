@@ -11,7 +11,5 @@ export const CLOUDFRONT = {
 }
 
 export function Cloudfront(props: NodeProps) {
-  return (
-    <Shape {...CLOUDFRONT} {...props} _style={extendStyle(CLOUDFRONT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDFRONT)} />
 }

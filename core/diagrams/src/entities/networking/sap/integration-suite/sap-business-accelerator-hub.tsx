@@ -13,9 +13,8 @@ export const SAP_BUSINESS_ACCELERATOR_HUB = {
 export function SapBusinessAcceleratorHub(props: NodeProps) {
   return (
     <Shape
-      {...SAP_BUSINESS_ACCELERATOR_HUB}
       {...props}
-      _style={extendStyle(SAP_BUSINESS_ACCELERATOR_HUB, props)}
+      _style={extendStyle(props, SAP_BUSINESS_ACCELERATOR_HUB)}
     />
   )
 }

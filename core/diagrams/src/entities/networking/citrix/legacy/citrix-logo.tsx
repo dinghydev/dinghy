@@ -11,11 +11,5 @@ export const CITRIX_LOGO = {
 }
 
 export function CitrixLogo(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_LOGO}
-      {...props}
-      _style={extendStyle(CITRIX_LOGO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_LOGO)} />
 }

@@ -10,11 +10,5 @@ export const HORIZONTAL_SWIMLANE = {
 }
 
 export function HorizontalSwimlane(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_SWIMLANE}
-      {...props}
-      _style={extendStyle(HORIZONTAL_SWIMLANE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_SWIMLANE)} />
 }

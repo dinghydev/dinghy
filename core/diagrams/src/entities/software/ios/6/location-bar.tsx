@@ -11,11 +11,5 @@ export const LOCATION_BAR = {
 }
 
 export function LocationBar(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCATION_BAR}
-      {...props}
-      _style={extendStyle(LOCATION_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCATION_BAR)} />
 }

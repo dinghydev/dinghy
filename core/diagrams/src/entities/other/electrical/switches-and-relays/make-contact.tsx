@@ -11,11 +11,5 @@ export const MAKE_CONTACT = {
 }
 
 export function MakeContact(props: NodeProps) {
-  return (
-    <Shape
-      {...MAKE_CONTACT}
-      {...props}
-      _style={extendStyle(MAKE_CONTACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAKE_CONTACT)} />
 }

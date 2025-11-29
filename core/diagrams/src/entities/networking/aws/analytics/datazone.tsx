@@ -11,7 +11,5 @@ export const DATAZONE = {
 }
 
 export function Datazone(props: NodeProps) {
-  return (
-    <Shape {...DATAZONE} {...props} _style={extendStyle(DATAZONE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAZONE)} />
 }

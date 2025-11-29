@@ -11,7 +11,5 @@ export const CLOUD_CDN = {
 }
 
 export function CloudCdn(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_CDN} {...props} _style={extendStyle(CLOUD_CDN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CDN)} />
 }

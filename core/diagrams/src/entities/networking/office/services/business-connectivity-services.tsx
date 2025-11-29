@@ -13,9 +13,8 @@ export const BUSINESS_CONNECTIVITY_SERVICES = {
 export function BusinessConnectivityServices(props: NodeProps) {
   return (
     <Shape
-      {...BUSINESS_CONNECTIVITY_SERVICES}
       {...props}
-      _style={extendStyle(BUSINESS_CONNECTIVITY_SERVICES, props)}
+      _style={extendStyle(props, BUSINESS_CONNECTIVITY_SERVICES)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const BED_SINGLE = {
 }
 
 export function BedSingle(props: NodeProps) {
-  return (
-    <Shape {...BED_SINGLE} {...props} _style={extendStyle(BED_SINGLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BED_SINGLE)} />
 }

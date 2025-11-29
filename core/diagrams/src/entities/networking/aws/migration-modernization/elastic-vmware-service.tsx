@@ -12,10 +12,6 @@ export const ELASTIC_VMWARE_SERVICE = {
 
 export function ElasticVmwareService(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_VMWARE_SERVICE}
-      {...props}
-      _style={extendStyle(ELASTIC_VMWARE_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_VMWARE_SERVICE)} />
   )
 }

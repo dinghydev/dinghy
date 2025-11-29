@@ -13,9 +13,8 @@ export const ACTION_BAR_LANDSCAPE_BRIGHT = {
 export function ActionBarLandscapeBright(props: NodeProps) {
   return (
     <Shape
-      {...ACTION_BAR_LANDSCAPE_BRIGHT}
       {...props}
-      _style={extendStyle(ACTION_BAR_LANDSCAPE_BRIGHT, props)}
+      _style={extendStyle(props, ACTION_BAR_LANDSCAPE_BRIGHT)}
     />
   )
 }

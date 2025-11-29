@@ -11,11 +11,5 @@ export const WITHDRAWAL_KANBAN = {
 }
 
 export function WithdrawalKanban(props: NodeProps) {
-  return (
-    <Shape
-      {...WITHDRAWAL_KANBAN}
-      {...props}
-      _style={extendStyle(WITHDRAWAL_KANBAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WITHDRAWAL_KANBAN)} />
 }

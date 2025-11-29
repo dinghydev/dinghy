@@ -11,11 +11,5 @@ export const RETURN_TO_WORK = {
 }
 
 export function ReturnToWork(props: NodeProps) {
-  return (
-    <Shape
-      {...RETURN_TO_WORK}
-      {...props}
-      _style={extendStyle(RETURN_TO_WORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETURN_TO_WORK)} />
 }

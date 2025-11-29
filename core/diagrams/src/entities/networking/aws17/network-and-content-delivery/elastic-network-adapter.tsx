@@ -12,10 +12,6 @@ export const ELASTIC_NETWORK_ADAPTER = {
 
 export function ElasticNetworkAdapter(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_NETWORK_ADAPTER}
-      {...props}
-      _style={extendStyle(ELASTIC_NETWORK_ADAPTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_NETWORK_ADAPTER)} />
   )
 }

@@ -13,9 +13,8 @@ export const X10910_PROPORTIONAL_FLOW_CONTROL = {
 export function X10910ProportionalFlowControl(props: NodeProps) {
   return (
     <Shape
-      {...X10910_PROPORTIONAL_FLOW_CONTROL}
       {...props}
-      _style={extendStyle(X10910_PROPORTIONAL_FLOW_CONTROL, props)}
+      _style={extendStyle(props, X10910_PROPORTIONAL_FLOW_CONTROL)}
     />
   )
 }

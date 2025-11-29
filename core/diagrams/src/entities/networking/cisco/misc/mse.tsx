@@ -11,5 +11,5 @@ export const MSE = {
 }
 
 export function Mse(props: NodeProps) {
-  return <Shape {...MSE} {...props} _style={extendStyle(MSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MSE)} />
 }

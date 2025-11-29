@@ -11,11 +11,5 @@ export const ENVELOPE_EMPTY = {
 }
 
 export function EnvelopeEmpty(props: NodeProps) {
-  return (
-    <Shape
-      {...ENVELOPE_EMPTY}
-      {...props}
-      _style={extendStyle(ENVELOPE_EMPTY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENVELOPE_EMPTY)} />
 }

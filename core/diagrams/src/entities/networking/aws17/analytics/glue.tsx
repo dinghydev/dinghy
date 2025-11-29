@@ -11,5 +11,5 @@ export const GLUE = {
 }
 
 export function Glue(props: NodeProps) {
-  return <Shape {...GLUE} {...props} _style={extendStyle(GLUE, props)} />
+  return <Shape {...props} _style={extendStyle(props, GLUE)} />
 }

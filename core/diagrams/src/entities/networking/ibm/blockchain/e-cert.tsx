@@ -11,5 +11,5 @@ export const E_CERT = {
 }
 
 export function ECert(props: NodeProps) {
-  return <Shape {...E_CERT} {...props} _style={extendStyle(E_CERT, props)} />
+  return <Shape {...props} _style={extendStyle(props, E_CERT)} />
 }

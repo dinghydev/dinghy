@@ -11,11 +11,5 @@ export const MACHINE_SAP_2 = {
 }
 
 export function MachineSap2(props: NodeProps) {
-  return (
-    <Shape
-      {...MACHINE_SAP_2}
-      {...props}
-      _style={extendStyle(MACHINE_SAP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MACHINE_SAP_2)} />
 }

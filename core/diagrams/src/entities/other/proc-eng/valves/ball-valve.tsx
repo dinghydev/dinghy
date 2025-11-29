@@ -11,7 +11,5 @@ export const BALL_VALVE = {
 }
 
 export function BallValve(props: NodeProps) {
-  return (
-    <Shape {...BALL_VALVE} {...props} _style={extendStyle(BALL_VALVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BALL_VALVE)} />
 }

@@ -11,11 +11,5 @@ export const BOTTLEROCKET = {
 }
 
 export function Bottlerocket(props: NodeProps) {
-  return (
-    <Shape
-      {...BOTTLEROCKET}
-      {...props}
-      _style={extendStyle(BOTTLEROCKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOTTLEROCKET)} />
 }

@@ -11,11 +11,5 @@ export const EVENTBRIDGE = {
 }
 
 export function Eventbridge(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENTBRIDGE}
-      {...props}
-      _style={extendStyle(EVENTBRIDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENTBRIDGE)} />
 }

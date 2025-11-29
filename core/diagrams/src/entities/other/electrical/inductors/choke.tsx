@@ -11,5 +11,5 @@ export const CHOKE = {
 }
 
 export function Choke(props: NodeProps) {
-  return <Shape {...CHOKE} {...props} _style={extendStyle(CHOKE, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHOKE)} />
 }

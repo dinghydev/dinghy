@@ -11,11 +11,5 @@ export const PLAIN_OPTIONAL = {
 }
 
 export function PlainOptional(props: NodeProps) {
-  return (
-    <Shape
-      {...PLAIN_OPTIONAL}
-      {...props}
-      _style={extendStyle(PLAIN_OPTIONAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAIN_OPTIONAL)} />
 }

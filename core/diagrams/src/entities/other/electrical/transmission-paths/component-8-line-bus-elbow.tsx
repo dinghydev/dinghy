@@ -12,10 +12,6 @@ export const COMPONENT_8_LINE_BUS_ELBOW = {
 
 export function Component8LineBusElbow(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_8_LINE_BUS_ELBOW}
-      {...props}
-      _style={extendStyle(COMPONENT_8_LINE_BUS_ELBOW, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_8_LINE_BUS_ELBOW)} />
   )
 }

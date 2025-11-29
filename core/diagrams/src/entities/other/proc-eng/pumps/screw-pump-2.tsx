@@ -11,11 +11,5 @@ export const SCREW_PUMP_2 = {
 }
 
 export function ScrewPump2(props: NodeProps) {
-  return (
-    <Shape
-      {...SCREW_PUMP_2}
-      {...props}
-      _style={extendStyle(SCREW_PUMP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCREW_PUMP_2)} />
 }

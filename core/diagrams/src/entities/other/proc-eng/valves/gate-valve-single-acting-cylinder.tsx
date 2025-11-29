@@ -13,9 +13,8 @@ export const GATE_VALVE_SINGLE_ACTING_CYLINDER = {
 export function GateValveSingleActingCylinder(props: NodeProps) {
   return (
     <Shape
-      {...GATE_VALVE_SINGLE_ACTING_CYLINDER}
       {...props}
-      _style={extendStyle(GATE_VALVE_SINGLE_ACTING_CYLINDER, props)}
+      _style={extendStyle(props, GATE_VALVE_SINGLE_ACTING_CYLINDER)}
     />
   )
 }

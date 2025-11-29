@@ -11,11 +11,5 @@ export const MARKETPLACE_2 = {
 }
 
 export function Marketplace2(props: NodeProps) {
-  return (
-    <Shape
-      {...MARKETPLACE_2}
-      {...props}
-      _style={extendStyle(MARKETPLACE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MARKETPLACE_2)} />
 }

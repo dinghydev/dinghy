@@ -13,9 +13,8 @@ export const EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE = {
 export function ExchangeEdgeTransportServerRole(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE}
       {...props}
-      _style={extendStyle(EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE, props)}
+      _style={extendStyle(props, EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE)}
     />
   )
 }

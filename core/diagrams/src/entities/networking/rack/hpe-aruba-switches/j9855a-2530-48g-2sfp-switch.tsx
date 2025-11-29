@@ -13,9 +13,8 @@ export const J9855A_2530_48G_2SFP_SWITCH = {
 export function J9855a253048g2sfpSwitch(props: NodeProps) {
   return (
     <Shape
-      {...J9855A_2530_48G_2SFP_SWITCH}
       {...props}
-      _style={extendStyle(J9855A_2530_48G_2SFP_SWITCH, props)}
+      _style={extendStyle(props, J9855A_2530_48G_2SFP_SWITCH)}
     />
   )
 }

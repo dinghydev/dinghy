@@ -11,11 +11,5 @@ export const OUTBOUNDBOT = {
 }
 
 export function Outboundbot(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTBOUNDBOT}
-      {...props}
-      _style={extendStyle(OUTBOUNDBOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTBOUNDBOT)} />
 }

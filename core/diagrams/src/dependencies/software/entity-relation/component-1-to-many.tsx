@@ -10,10 +10,6 @@ export const COMPONENT_1_TO_MANY = {
 
 export function Component1ToMany(props: NodeProps) {
   return (
-    <Dependency
-      {...COMPONENT_1_TO_MANY}
-      {...props}
-      _style={extendStyle(COMPONENT_1_TO_MANY, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, COMPONENT_1_TO_MANY)} />
   )
 }

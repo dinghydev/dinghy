@@ -11,11 +11,5 @@ export const HOME_PAGE_ORANGE = {
 }
 
 export function HomePageOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...HOME_PAGE_ORANGE}
-      {...props}
-      _style={extendStyle(HOME_PAGE_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_PAGE_ORANGE)} />
 }

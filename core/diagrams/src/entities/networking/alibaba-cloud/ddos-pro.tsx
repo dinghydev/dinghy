@@ -11,7 +11,5 @@ export const DDOS_PRO = {
 }
 
 export function DdosPro(props: NodeProps) {
-  return (
-    <Shape {...DDOS_PRO} {...props} _style={extendStyle(DDOS_PRO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DDOS_PRO)} />
 }

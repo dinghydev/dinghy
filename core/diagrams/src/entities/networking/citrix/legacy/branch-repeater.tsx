@@ -11,11 +11,5 @@ export const BRANCH_REPEATER = {
 }
 
 export function BranchRepeater(props: NodeProps) {
-  return (
-    <Shape
-      {...BRANCH_REPEATER}
-      {...props}
-      _style={extendStyle(BRANCH_REPEATER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRANCH_REPEATER)} />
 }

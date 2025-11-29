@@ -13,9 +13,8 @@ export const JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH = {
 export function Jl693aAruba12gPoe2g2sfpSwitch(props: NodeProps) {
   return (
     <Shape
-      {...JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH}
       {...props}
-      _style={extendStyle(JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH, props)}
+      _style={extendStyle(props, JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH)}
     />
   )
 }

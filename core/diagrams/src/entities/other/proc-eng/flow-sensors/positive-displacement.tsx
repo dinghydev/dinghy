@@ -11,11 +11,5 @@ export const POSITIVE_DISPLACEMENT = {
 }
 
 export function PositiveDisplacement(props: NodeProps) {
-  return (
-    <Shape
-      {...POSITIVE_DISPLACEMENT}
-      {...props}
-      _style={extendStyle(POSITIVE_DISPLACEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POSITIVE_DISPLACEMENT)} />
 }

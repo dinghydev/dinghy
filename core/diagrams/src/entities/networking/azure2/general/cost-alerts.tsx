@@ -11,11 +11,5 @@ export const COST_ALERTS = {
 }
 
 export function CostAlerts(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_ALERTS}
-      {...props}
-      _style={extendStyle(COST_ALERTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_ALERTS)} />
 }

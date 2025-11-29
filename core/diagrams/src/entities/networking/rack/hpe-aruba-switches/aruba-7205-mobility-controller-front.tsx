@@ -13,9 +13,8 @@ export const ARUBA_7205_MOBILITY_CONTROLLER_FRONT = {
 export function Aruba7205MobilityControllerFront(props: NodeProps) {
   return (
     <Shape
-      {...ARUBA_7205_MOBILITY_CONTROLLER_FRONT}
       {...props}
-      _style={extendStyle(ARUBA_7205_MOBILITY_CONTROLLER_FRONT, props)}
+      _style={extendStyle(props, ARUBA_7205_MOBILITY_CONTROLLER_FRONT)}
     />
   )
 }

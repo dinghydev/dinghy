@@ -9,11 +9,5 @@ export const VIRTUAL_4 = {
 }
 
 export function Virtual4(props: NodeProps) {
-  return (
-    <Dependency
-      {...VIRTUAL_4}
-      {...props}
-      _style={extendStyle(VIRTUAL_4, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, VIRTUAL_4)} />
 }

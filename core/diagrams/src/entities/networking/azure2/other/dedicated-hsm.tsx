@@ -11,11 +11,5 @@ export const DEDICATED_HSM = {
 }
 
 export function DedicatedHsm(props: NodeProps) {
-  return (
-    <Shape
-      {...DEDICATED_HSM}
-      {...props}
-      _style={extendStyle(DEDICATED_HSM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEDICATED_HSM)} />
 }

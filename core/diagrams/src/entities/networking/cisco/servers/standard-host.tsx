@@ -11,11 +11,5 @@ export const STANDARD_HOST = {
 }
 
 export function StandardHost(props: NodeProps) {
-  return (
-    <Shape
-      {...STANDARD_HOST}
-      {...props}
-      _style={extendStyle(STANDARD_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STANDARD_HOST)} />
 }

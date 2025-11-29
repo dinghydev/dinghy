@@ -11,11 +11,5 @@ export const MOBILE_USER = {
 }
 
 export function MobileUser(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_USER}
-      {...props}
-      _style={extendStyle(MOBILE_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_USER)} />
 }

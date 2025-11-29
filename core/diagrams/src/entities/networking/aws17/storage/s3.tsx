@@ -11,7 +11,5 @@ export const S3_CONST = {
 }
 
 export function S3(props: NodeProps) {
-  return (
-    <Shape {...S3_CONST} {...props} _style={extendStyle(S3_CONST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_CONST)} />
 }

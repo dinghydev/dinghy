@@ -11,11 +11,5 @@ export const GAS_FLOW_ACTUATED_ON = {
 }
 
 export function GasFlowActuatedOn(props: NodeProps) {
-  return (
-    <Shape
-      {...GAS_FLOW_ACTUATED_ON}
-      {...props}
-      _style={extendStyle(GAS_FLOW_ACTUATED_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_FLOW_ACTUATED_ON)} />
 }

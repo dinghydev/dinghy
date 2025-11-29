@@ -11,11 +11,5 @@ export const STREAM_ANALYTICS_JOBS = {
 }
 
 export function StreamAnalyticsJobs(props: NodeProps) {
-  return (
-    <Shape
-      {...STREAM_ANALYTICS_JOBS}
-      {...props}
-      _style={extendStyle(STREAM_ANALYTICS_JOBS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STREAM_ANALYTICS_JOBS)} />
 }

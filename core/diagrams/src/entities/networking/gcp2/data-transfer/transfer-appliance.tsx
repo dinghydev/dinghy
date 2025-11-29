@@ -11,11 +11,5 @@ export const TRANSFER_APPLIANCE = {
 }
 
 export function TransferAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSFER_APPLIANCE}
-      {...props}
-      _style={extendStyle(TRANSFER_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSFER_APPLIANCE)} />
 }

@@ -11,11 +11,5 @@ export const PARTNER_INTERCONNECT = {
 }
 
 export function PartnerInterconnect(props: NodeProps) {
-  return (
-    <Shape
-      {...PARTNER_INTERCONNECT}
-      {...props}
-      _style={extendStyle(PARTNER_INTERCONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTNER_INTERCONNECT)} />
 }

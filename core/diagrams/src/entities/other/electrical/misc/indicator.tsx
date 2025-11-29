@@ -11,7 +11,5 @@ export const INDICATOR = {
 }
 
 export function Indicator(props: NodeProps) {
-  return (
-    <Shape {...INDICATOR} {...props} _style={extendStyle(INDICATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDICATOR)} />
 }

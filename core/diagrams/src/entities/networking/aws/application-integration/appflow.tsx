@@ -11,5 +11,5 @@ export const APPFLOW = {
 }
 
 export function Appflow(props: NodeProps) {
-  return <Shape {...APPFLOW} {...props} _style={extendStyle(APPFLOW, props)} />
+  return <Shape {...props} _style={extendStyle(props, APPFLOW)} />
 }

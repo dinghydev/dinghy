@@ -11,5 +11,5 @@ export const DOCKER = {
 }
 
 export function Docker(props: NodeProps) {
-  return <Shape {...DOCKER} {...props} _style={extendStyle(DOCKER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DOCKER)} />
 }

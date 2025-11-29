@@ -11,7 +11,5 @@ export const STATUSPAGE = {
 }
 
 export function Statuspage(props: NodeProps) {
-  return (
-    <Shape {...STATUSPAGE} {...props} _style={extendStyle(STATUSPAGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STATUSPAGE)} />
 }

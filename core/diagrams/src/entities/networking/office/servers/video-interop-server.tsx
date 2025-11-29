@@ -11,11 +11,5 @@ export const VIDEO_INTEROP_SERVER = {
 }
 
 export function VideoInteropServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_INTEROP_SERVER}
-      {...props}
-      _style={extendStyle(VIDEO_INTEROP_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_INTEROP_SERVER)} />
 }

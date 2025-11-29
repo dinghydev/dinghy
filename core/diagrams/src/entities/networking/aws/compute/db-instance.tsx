@@ -11,11 +11,5 @@ export const DB_INSTANCE = {
 }
 
 export function DbInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...DB_INSTANCE}
-      {...props}
-      _style={extendStyle(DB_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DB_INSTANCE)} />
 }

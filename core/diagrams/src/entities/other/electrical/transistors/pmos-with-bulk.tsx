@@ -11,11 +11,5 @@ export const PMOS_WITH_BULK = {
 }
 
 export function PmosWithBulk(props: NodeProps) {
-  return (
-    <Shape
-      {...PMOS_WITH_BULK}
-      {...props}
-      _style={extendStyle(PMOS_WITH_BULK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PMOS_WITH_BULK)} />
 }

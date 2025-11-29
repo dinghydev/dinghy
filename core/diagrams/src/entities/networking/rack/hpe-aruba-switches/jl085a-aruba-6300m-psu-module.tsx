@@ -13,9 +13,8 @@ export const JL085A_ARUBA_6300M_PSU_MODULE = {
 export function Jl085aAruba6300mPsuModule(props: NodeProps) {
   return (
     <Shape
-      {...JL085A_ARUBA_6300M_PSU_MODULE}
       {...props}
-      _style={extendStyle(JL085A_ARUBA_6300M_PSU_MODULE, props)}
+      _style={extendStyle(props, JL085A_ARUBA_6300M_PSU_MODULE)}
     />
   )
 }

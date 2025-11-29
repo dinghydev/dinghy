@@ -11,11 +11,5 @@ export const DUPLEX_STRAINER = {
 }
 
 export function DuplexStrainer(props: NodeProps) {
-  return (
-    <Shape
-      {...DUPLEX_STRAINER}
-      {...props}
-      _style={extendStyle(DUPLEX_STRAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DUPLEX_STRAINER)} />
 }

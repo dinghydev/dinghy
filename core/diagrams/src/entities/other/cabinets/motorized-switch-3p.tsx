@@ -11,11 +11,5 @@ export const MOTORIZED_SWITCH_3P = {
 }
 
 export function MotorizedSwitch3p(props: NodeProps) {
-  return (
-    <Shape
-      {...MOTORIZED_SWITCH_3P}
-      {...props}
-      _style={extendStyle(MOTORIZED_SWITCH_3P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOTORIZED_SWITCH_3P)} />
 }

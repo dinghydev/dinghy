@@ -13,9 +13,8 @@ export const CONDITIONAL_ACCESS_SHAREPOINT = {
 export function ConditionalAccessSharepoint(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_ACCESS_SHAREPOINT}
       {...props}
-      _style={extendStyle(CONDITIONAL_ACCESS_SHAREPOINT, props)}
+      _style={extendStyle(props, CONDITIONAL_ACCESS_SHAREPOINT)}
     />
   )
 }

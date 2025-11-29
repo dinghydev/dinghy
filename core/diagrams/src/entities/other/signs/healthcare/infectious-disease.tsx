@@ -11,11 +11,5 @@ export const INFECTIOUS_DISEASE = {
 }
 
 export function InfectiousDisease(props: NodeProps) {
-  return (
-    <Shape
-      {...INFECTIOUS_DISEASE}
-      {...props}
-      _style={extendStyle(INFECTIOUS_DISEASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFECTIOUS_DISEASE)} />
 }

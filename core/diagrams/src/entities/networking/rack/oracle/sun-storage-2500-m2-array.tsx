@@ -12,10 +12,6 @@ export const SUN_STORAGE_2500_M2_ARRAY = {
 
 export function SunStorage2500M2Array(props: NodeProps) {
   return (
-    <Shape
-      {...SUN_STORAGE_2500_M2_ARRAY}
-      {...props}
-      _style={extendStyle(SUN_STORAGE_2500_M2_ARRAY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SUN_STORAGE_2500_M2_ARRAY)} />
   )
 }

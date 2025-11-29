@@ -11,11 +11,5 @@ export const D3EN_INSTANCE = {
 }
 
 export function D3enInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...D3EN_INSTANCE}
-      {...props}
-      _style={extendStyle(D3EN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, D3EN_INSTANCE)} />
 }

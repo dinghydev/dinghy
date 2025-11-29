@@ -11,11 +11,5 @@ export const G4AD_INSTANCE = {
 }
 
 export function G4adInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...G4AD_INSTANCE}
-      {...props}
-      _style={extendStyle(G4AD_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, G4AD_INSTANCE)} />
 }

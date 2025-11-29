@@ -12,10 +12,6 @@ export const EXPERIMENTATION_STUDIO = {
 
 export function ExperimentationStudio(props: NodeProps) {
   return (
-    <Shape
-      {...EXPERIMENTATION_STUDIO}
-      {...props}
-      _style={extendStyle(EXPERIMENTATION_STUDIO, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXPERIMENTATION_STUDIO)} />
   )
 }

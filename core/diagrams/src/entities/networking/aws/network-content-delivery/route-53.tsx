@@ -11,7 +11,5 @@ export const ROUTE_53 = {
 }
 
 export function Route53(props: NodeProps) {
-  return (
-    <Shape {...ROUTE_53} {...props} _style={extendStyle(ROUTE_53, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTE_53)} />
 }

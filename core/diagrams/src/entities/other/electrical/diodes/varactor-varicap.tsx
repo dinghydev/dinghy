@@ -11,11 +11,5 @@ export const VARACTOR_VARICAP = {
 }
 
 export function VaractorVaricap(props: NodeProps) {
-  return (
-    <Shape
-      {...VARACTOR_VARICAP}
-      {...props}
-      _style={extendStyle(VARACTOR_VARICAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VARACTOR_VARICAP)} />
 }

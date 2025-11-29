@@ -8,11 +8,5 @@ export const M_F_CONTACT = {
 }
 
 export function MFContact(props: NodeProps) {
-  return (
-    <Dependency
-      {...M_F_CONTACT}
-      {...props}
-      _style={extendStyle(M_F_CONTACT, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, M_F_CONTACT)} />
 }

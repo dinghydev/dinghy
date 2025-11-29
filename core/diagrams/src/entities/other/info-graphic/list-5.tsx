@@ -11,5 +11,5 @@ export const LIST_5 = {
 }
 
 export function List5(props: NodeProps) {
-  return <Shape {...LIST_5} {...props} _style={extendStyle(LIST_5, props)} />
+  return <Shape {...props} _style={extendStyle(props, LIST_5)} />
 }

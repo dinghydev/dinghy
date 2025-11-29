@@ -11,11 +11,5 @@ export const DIRECT_BI_DIRECTIONAL = {
 }
 
 export function DirectBiDirectional(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_BI_DIRECTIONAL}
-      {...props}
-      _style={extendStyle(DIRECT_BI_DIRECTIONAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_BI_DIRECTIONAL)} />
 }

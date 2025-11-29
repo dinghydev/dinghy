@@ -11,11 +11,5 @@ export const VEEAM_PROXY = {
 }
 
 export function VeeamProxy(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_PROXY}
-      {...props}
-      _style={extendStyle(VEEAM_PROXY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_PROXY)} />
 }

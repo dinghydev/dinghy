@@ -13,9 +13,8 @@ export const CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER = {
 export function CddcCloudDatabaseDedicatedCluster(props: NodeProps) {
   return (
     <Shape
-      {...CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER}
       {...props}
-      _style={extendStyle(CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER, props)}
+      _style={extendStyle(props, CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER)}
     />
   )
 }

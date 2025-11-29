@@ -12,10 +12,6 @@ export const DISCRETE_SLIDER_DISABLED = {
 
 export function DiscreteSliderDisabled(props: NodeProps) {
   return (
-    <Shape
-      {...DISCRETE_SLIDER_DISABLED}
-      {...props}
-      _style={extendStyle(DISCRETE_SLIDER_DISABLED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DISCRETE_SLIDER_DISABLED)} />
   )
 }

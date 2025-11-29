@@ -11,11 +11,5 @@ export const SCENIC_VIEWPOINT = {
 }
 
 export function ScenicViewpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...SCENIC_VIEWPOINT}
-      {...props}
-      _style={extendStyle(SCENIC_VIEWPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCENIC_VIEWPOINT)} />
 }

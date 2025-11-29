@@ -11,11 +11,5 @@ export const GOVERNMENT_BUILDING = {
 }
 
 export function GovernmentBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...GOVERNMENT_BUILDING}
-      {...props}
-      _style={extendStyle(GOVERNMENT_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOVERNMENT_BUILDING)} />
 }

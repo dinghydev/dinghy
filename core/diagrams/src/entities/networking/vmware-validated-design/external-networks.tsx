@@ -11,11 +11,5 @@ export const EXTERNAL_NETWORKS = {
 }
 
 export function ExternalNetworks(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTERNAL_NETWORKS}
-      {...props}
-      _style={extendStyle(EXTERNAL_NETWORKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTERNAL_NETWORKS)} />
 }

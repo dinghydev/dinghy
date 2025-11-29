@@ -11,7 +11,5 @@ export const DATA_LAKE = {
 }
 
 export function DataLake(props: NodeProps) {
-  return (
-    <Shape {...DATA_LAKE} {...props} _style={extendStyle(DATA_LAKE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_LAKE)} />
 }

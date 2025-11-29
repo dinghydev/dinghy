@@ -11,11 +11,5 @@ export const ASM_SERVICE_MESH = {
 }
 
 export function AsmServiceMesh(props: NodeProps) {
-  return (
-    <Shape
-      {...ASM_SERVICE_MESH}
-      {...props}
-      _style={extendStyle(ASM_SERVICE_MESH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASM_SERVICE_MESH)} />
 }

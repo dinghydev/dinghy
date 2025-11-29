@@ -11,11 +11,5 @@ export const TABLET_ALTERNATIVE = {
 }
 
 export function TabletAlternative(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLET_ALTERNATIVE}
-      {...props}
-      _style={extendStyle(TABLET_ALTERNATIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLET_ALTERNATIVE)} />
 }

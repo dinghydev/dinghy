@@ -12,10 +12,6 @@ export const UNIVERSAL_SECURITY_GROUP = {
 
 export function UniversalSecurityGroup(props: NodeProps) {
   return (
-    <Shape
-      {...UNIVERSAL_SECURITY_GROUP}
-      {...props}
-      _style={extendStyle(UNIVERSAL_SECURITY_GROUP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, UNIVERSAL_SECURITY_GROUP)} />
   )
 }

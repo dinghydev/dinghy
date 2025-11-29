@@ -11,11 +11,5 @@ export const BUTTON_DANGER = {
 }
 
 export function ButtonDanger(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_DANGER}
-      {...props}
-      _style={extendStyle(BUTTON_DANGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_DANGER)} />
 }

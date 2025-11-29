@@ -11,11 +11,5 @@ export const STRIPED_ARROW = {
 }
 
 export function StripedArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...STRIPED_ARROW}
-      {...props}
-      _style={extendStyle(STRIPED_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STRIPED_ARROW)} />
 }

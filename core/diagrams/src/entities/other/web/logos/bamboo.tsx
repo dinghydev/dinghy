@@ -11,5 +11,5 @@ export const BAMBOO = {
 }
 
 export function Bamboo(props: NodeProps) {
-  return <Shape {...BAMBOO} {...props} _style={extendStyle(BAMBOO, props)} />
+  return <Shape {...props} _style={extendStyle(props, BAMBOO)} />
 }

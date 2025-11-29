@@ -11,11 +11,5 @@ export const INERTIA_SWITCH_OFF = {
 }
 
 export function InertiaSwitchOff(props: NodeProps) {
-  return (
-    <Shape
-      {...INERTIA_SWITCH_OFF}
-      {...props}
-      _style={extendStyle(INERTIA_SWITCH_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INERTIA_SWITCH_OFF)} />
 }

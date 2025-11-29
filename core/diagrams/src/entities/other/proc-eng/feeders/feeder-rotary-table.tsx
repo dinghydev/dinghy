@@ -11,11 +11,5 @@ export const FEEDER_ROTARY_TABLE = {
 }
 
 export function FeederRotaryTable(props: NodeProps) {
-  return (
-    <Shape
-      {...FEEDER_ROTARY_TABLE}
-      {...props}
-      _style={extendStyle(FEEDER_ROTARY_TABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEEDER_ROTARY_TABLE)} />
 }

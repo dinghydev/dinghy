@@ -11,11 +11,5 @@ export const CITRIX_VDA_FOR_MACOS = {
 }
 
 export function CitrixVdaForMacos(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_VDA_FOR_MACOS}
-      {...props}
-      _style={extendStyle(CITRIX_VDA_FOR_MACOS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_VDA_FOR_MACOS)} />
 }

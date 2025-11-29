@@ -11,5 +11,5 @@ export const GAS_1 = {
 }
 
 export function Gas1(props: NodeProps) {
-  return <Shape {...GAS_1} {...props} _style={extendStyle(GAS_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, GAS_1)} />
 }

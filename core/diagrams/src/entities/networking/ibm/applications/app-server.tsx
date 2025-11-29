@@ -11,7 +11,5 @@ export const APP_SERVER = {
 }
 
 export function AppServer(props: NodeProps) {
-  return (
-    <Shape {...APP_SERVER} {...props} _style={extendStyle(APP_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_SERVER)} />
 }

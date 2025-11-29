@@ -9,11 +9,5 @@ export const ACCESS_3 = {
 }
 
 export function Access3(props: NodeProps) {
-  return (
-    <Dependency
-      {...ACCESS_3}
-      {...props}
-      _style={extendStyle(ACCESS_3, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ACCESS_3)} />
 }

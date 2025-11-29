@@ -11,11 +11,5 @@ export const ACS_SOLUTIONS_BUILDER = {
 }
 
 export function AcsSolutionsBuilder(props: NodeProps) {
-  return (
-    <Shape
-      {...ACS_SOLUTIONS_BUILDER}
-      {...props}
-      _style={extendStyle(ACS_SOLUTIONS_BUILDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACS_SOLUTIONS_BUILDER)} />
 }

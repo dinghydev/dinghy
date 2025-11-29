@@ -11,5 +11,5 @@ export const SQL_VM = {
 }
 
 export function SqlVm(props: NodeProps) {
-  return <Shape {...SQL_VM} {...props} _style={extendStyle(SQL_VM, props)} />
+  return <Shape {...props} _style={extendStyle(props, SQL_VM)} />
 }

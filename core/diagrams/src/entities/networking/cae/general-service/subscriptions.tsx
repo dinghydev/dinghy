@@ -11,11 +11,5 @@ export const SUBSCRIPTIONS = {
 }
 
 export function Subscriptions(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBSCRIPTIONS}
-      {...props}
-      _style={extendStyle(SUBSCRIPTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBSCRIPTIONS)} />
 }

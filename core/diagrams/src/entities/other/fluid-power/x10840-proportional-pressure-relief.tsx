@@ -13,9 +13,8 @@ export const X10840_PROPORTIONAL_PRESSURE_RELIEF = {
 export function X10840ProportionalPressureRelief(props: NodeProps) {
   return (
     <Shape
-      {...X10840_PROPORTIONAL_PRESSURE_RELIEF}
       {...props}
-      _style={extendStyle(X10840_PROPORTIONAL_PRESSURE_RELIEF, props)}
+      _style={extendStyle(props, X10840_PROPORTIONAL_PRESSURE_RELIEF)}
     />
   )
 }

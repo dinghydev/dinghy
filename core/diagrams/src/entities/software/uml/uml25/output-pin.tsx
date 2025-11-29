@@ -11,7 +11,5 @@ export const OUTPUT_PIN = {
 }
 
 export function OutputPin(props: NodeProps) {
-  return (
-    <Shape {...OUTPUT_PIN} {...props} _style={extendStyle(OUTPUT_PIN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTPUT_PIN)} />
 }

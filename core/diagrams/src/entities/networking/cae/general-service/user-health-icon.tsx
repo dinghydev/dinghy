@@ -11,11 +11,5 @@ export const USER_HEALTH_ICON = {
 }
 
 export function UserHealthIcon(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_HEALTH_ICON}
-      {...props}
-      _style={extendStyle(USER_HEALTH_ICON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_HEALTH_ICON)} />
 }

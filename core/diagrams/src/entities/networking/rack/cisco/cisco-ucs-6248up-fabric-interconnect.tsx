@@ -13,9 +13,8 @@ export const CISCO_UCS_6248UP_FABRIC_INTERCONNECT = {
 export function CiscoUcs6248upFabricInterconnect(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_UCS_6248UP_FABRIC_INTERCONNECT}
       {...props}
-      _style={extendStyle(CISCO_UCS_6248UP_FABRIC_INTERCONNECT, props)}
+      _style={extendStyle(props, CISCO_UCS_6248UP_FABRIC_INTERCONNECT)}
     />
   )
 }

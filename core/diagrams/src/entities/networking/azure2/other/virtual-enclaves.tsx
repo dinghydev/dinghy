@@ -11,11 +11,5 @@ export const VIRTUAL_ENCLAVES = {
 }
 
 export function VirtualEnclaves(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_ENCLAVES}
-      {...props}
-      _style={extendStyle(VIRTUAL_ENCLAVES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_ENCLAVES)} />
 }

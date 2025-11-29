@@ -11,7 +11,5 @@ export const NO_SYMBOL = {
 }
 
 export function NoSymbol(props: NodeProps) {
-  return (
-    <Shape {...NO_SYMBOL} {...props} _style={extendStyle(NO_SYMBOL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NO_SYMBOL)} />
 }

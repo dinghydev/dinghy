@@ -11,11 +11,5 @@ export const STANDARD_IA = {
 }
 
 export function StandardIa(props: NodeProps) {
-  return (
-    <Shape
-      {...STANDARD_IA}
-      {...props}
-      _style={extendStyle(STANDARD_IA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STANDARD_IA)} />
 }

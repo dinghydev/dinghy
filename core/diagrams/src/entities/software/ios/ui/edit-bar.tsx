@@ -11,7 +11,5 @@ export const EDIT_BAR = {
 }
 
 export function EditBar(props: NodeProps) {
-  return (
-    <Shape {...EDIT_BAR} {...props} _style={extendStyle(EDIT_BAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDIT_BAR)} />
 }

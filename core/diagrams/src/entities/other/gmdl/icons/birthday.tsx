@@ -11,7 +11,5 @@ export const BIRTHDAY = {
 }
 
 export function Birthday(props: NodeProps) {
-  return (
-    <Shape {...BIRTHDAY} {...props} _style={extendStyle(BIRTHDAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIRTHDAY)} />
 }

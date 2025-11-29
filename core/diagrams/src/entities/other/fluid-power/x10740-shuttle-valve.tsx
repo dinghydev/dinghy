@@ -11,11 +11,5 @@ export const X10740_SHUTTLE_VALVE = {
 }
 
 export function X10740ShuttleValve(props: NodeProps) {
-  return (
-    <Shape
-      {...X10740_SHUTTLE_VALVE}
-      {...props}
-      _style={extendStyle(X10740_SHUTTLE_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10740_SHUTTLE_VALVE)} />
 }

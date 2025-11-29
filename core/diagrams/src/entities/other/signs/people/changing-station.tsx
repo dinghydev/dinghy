@@ -11,11 +11,5 @@ export const CHANGING_STATION = {
 }
 
 export function ChangingStation(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANGING_STATION}
-      {...props}
-      _style={extendStyle(CHANGING_STATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGING_STATION)} />
 }

@@ -11,11 +11,5 @@ export const IP_TELEPHONY_ROUTER = {
 }
 
 export function IpTelephonyRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...IP_TELEPHONY_ROUTER}
-      {...props}
-      _style={extendStyle(IP_TELEPHONY_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IP_TELEPHONY_ROUTER)} />
 }

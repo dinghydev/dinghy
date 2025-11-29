@@ -11,7 +11,5 @@ export const PROXY_PORT = {
 }
 
 export function ProxyPort(props: NodeProps) {
-  return (
-    <Shape {...PROXY_PORT} {...props} _style={extendStyle(PROXY_PORT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROXY_PORT)} />
 }

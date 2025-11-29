@@ -11,11 +11,5 @@ export const ICM_TROUBLESHOOTING = {
 }
 
 export function IcmTroubleshooting(props: NodeProps) {
-  return (
-    <Shape
-      {...ICM_TROUBLESHOOTING}
-      {...props}
-      _style={extendStyle(ICM_TROUBLESHOOTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ICM_TROUBLESHOOTING)} />
 }

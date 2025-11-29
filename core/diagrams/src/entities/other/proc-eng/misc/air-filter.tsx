@@ -11,7 +11,5 @@ export const AIR_FILTER = {
 }
 
 export function AirFilter(props: NodeProps) {
-  return (
-    <Shape {...AIR_FILTER} {...props} _style={extendStyle(AIR_FILTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AIR_FILTER)} />
 }

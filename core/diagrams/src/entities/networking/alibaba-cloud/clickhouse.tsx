@@ -11,7 +11,5 @@ export const CLICKHOUSE = {
 }
 
 export function Clickhouse(props: NodeProps) {
-  return (
-    <Shape {...CLICKHOUSE} {...props} _style={extendStyle(CLICKHOUSE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLICKHOUSE)} />
 }

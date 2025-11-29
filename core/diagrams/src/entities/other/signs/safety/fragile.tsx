@@ -11,5 +11,5 @@ export const FRAGILE = {
 }
 
 export function Fragile(props: NodeProps) {
-  return <Shape {...FRAGILE} {...props} _style={extendStyle(FRAGILE, props)} />
+  return <Shape {...props} _style={extendStyle(props, FRAGILE)} />
 }

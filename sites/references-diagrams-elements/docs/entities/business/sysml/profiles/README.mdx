@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Extension } from '@dinghy/diagrams/entitiesSysmlProfiles'
 
 <Extension/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { EXTENSION } from '@dinghy/diagrams/entitiesSysmlProfiles'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, EXTENSION)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { Extension } from '@dinghy/diagrams/entitiesSysmlProfiles'
 import { Generalization } from '@dinghy/diagrams/entitiesSysmlProfiles'
 
 <Generalization/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { GENERALIZATION } from '@dinghy/diagrams/entitiesSysmlProfiles'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, GENERALIZATION)}
+  />
+
 ```
 
   </TabItem>
@@ -84,6 +106,17 @@ import { Generalization } from '@dinghy/diagrams/entitiesSysmlProfiles'
 import { Profile } from '@dinghy/diagrams/entitiesSysmlProfiles'
 
 <Profile/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { PROFILE } from '@dinghy/diagrams/entitiesSysmlProfiles'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, PROFILE)}
+  />
+
 ```
 
   </TabItem>
@@ -117,6 +150,17 @@ import { Profile } from '@dinghy/diagrams/entitiesSysmlProfiles'
 import { Stereotype } from '@dinghy/diagrams/entitiesSysmlProfiles'
 
 <Stereotype/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { STEREOTYPE } from '@dinghy/diagrams/entitiesSysmlProfiles'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, STEREOTYPE)}
+  />
+
 ```
 
   </TabItem>

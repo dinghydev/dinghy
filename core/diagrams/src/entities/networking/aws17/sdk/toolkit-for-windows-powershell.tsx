@@ -13,9 +13,8 @@ export const TOOLKIT_FOR_WINDOWS_POWERSHELL = {
 export function ToolkitForWindowsPowershell(props: NodeProps) {
   return (
     <Shape
-      {...TOOLKIT_FOR_WINDOWS_POWERSHELL}
       {...props}
-      _style={extendStyle(TOOLKIT_FOR_WINDOWS_POWERSHELL, props)}
+      _style={extendStyle(props, TOOLKIT_FOR_WINDOWS_POWERSHELL)}
     />
   )
 }

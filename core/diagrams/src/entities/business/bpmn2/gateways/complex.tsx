@@ -11,5 +11,5 @@ export const COMPLEX = {
 }
 
 export function Complex(props: NodeProps) {
-  return <Shape {...COMPLEX} {...props} _style={extendStyle(COMPLEX, props)} />
+  return <Shape {...props} _style={extendStyle(props, COMPLEX)} />
 }

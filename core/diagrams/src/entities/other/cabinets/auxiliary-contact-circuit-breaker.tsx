@@ -13,9 +13,8 @@ export const AUXILIARY_CONTACT_CIRCUIT_BREAKER = {
 export function AuxiliaryContactCircuitBreaker(props: NodeProps) {
   return (
     <Shape
-      {...AUXILIARY_CONTACT_CIRCUIT_BREAKER}
       {...props}
-      _style={extendStyle(AUXILIARY_CONTACT_CIRCUIT_BREAKER, props)}
+      _style={extendStyle(props, AUXILIARY_CONTACT_CIRCUIT_BREAKER)}
     />
   )
 }

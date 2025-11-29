@@ -11,11 +11,5 @@ export const NETWORK_SWITCH = {
 }
 
 export function NetworkSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_SWITCH}
-      {...props}
-      _style={extendStyle(NETWORK_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_SWITCH)} />
 }

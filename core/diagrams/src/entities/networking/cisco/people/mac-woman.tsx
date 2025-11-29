@@ -11,7 +11,5 @@ export const MAC_WOMAN = {
 }
 
 export function MacWoman(props: NodeProps) {
-  return (
-    <Shape {...MAC_WOMAN} {...props} _style={extendStyle(MAC_WOMAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAC_WOMAN)} />
 }

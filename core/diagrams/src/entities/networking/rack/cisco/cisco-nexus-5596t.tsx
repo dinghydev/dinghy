@@ -11,11 +11,5 @@ export const CISCO_NEXUS_5596T = {
 }
 
 export function CiscoNexus5596t(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_NEXUS_5596T}
-      {...props}
-      _style={extendStyle(CISCO_NEXUS_5596T, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_NEXUS_5596T)} />
 }

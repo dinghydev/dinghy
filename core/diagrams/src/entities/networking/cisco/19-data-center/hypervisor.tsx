@@ -11,7 +11,5 @@ export const HYPERVISOR = {
 }
 
 export function Hypervisor(props: NodeProps) {
-  return (
-    <Shape {...HYPERVISOR} {...props} _style={extendStyle(HYPERVISOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYPERVISOR)} />
 }

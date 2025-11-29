@@ -11,7 +11,5 @@ export const REFERENCES = {
 }
 
 export function References(props: NodeProps) {
-  return (
-    <Shape {...REFERENCES} {...props} _style={extendStyle(REFERENCES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REFERENCES)} />
 }

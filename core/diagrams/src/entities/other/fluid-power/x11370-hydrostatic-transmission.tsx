@@ -13,9 +13,8 @@ export const X11370_HYDROSTATIC_TRANSMISSION = {
 export function X11370HydrostaticTransmission(props: NodeProps) {
   return (
     <Shape
-      {...X11370_HYDROSTATIC_TRANSMISSION}
       {...props}
-      _style={extendStyle(X11370_HYDROSTATIC_TRANSMISSION, props)}
+      _style={extendStyle(props, X11370_HYDROSTATIC_TRANSMISSION)}
     />
   )
 }

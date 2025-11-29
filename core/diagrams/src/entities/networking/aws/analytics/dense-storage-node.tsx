@@ -11,11 +11,5 @@ export const DENSE_STORAGE_NODE = {
 }
 
 export function DenseStorageNode(props: NodeProps) {
-  return (
-    <Shape
-      {...DENSE_STORAGE_NODE}
-      {...props}
-      _style={extendStyle(DENSE_STORAGE_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DENSE_STORAGE_NODE)} />
 }

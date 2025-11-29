@@ -13,9 +13,8 @@ export const ROUNDED_RECTANGLE_THREE_CORNERS = {
 export function RoundedRectangleThreeCorners(props: NodeProps) {
   return (
     <Shape
-      {...ROUNDED_RECTANGLE_THREE_CORNERS}
       {...props}
-      _style={extendStyle(ROUNDED_RECTANGLE_THREE_CORNERS, props)}
+      _style={extendStyle(props, ROUNDED_RECTANGLE_THREE_CORNERS)}
     />
   )
 }

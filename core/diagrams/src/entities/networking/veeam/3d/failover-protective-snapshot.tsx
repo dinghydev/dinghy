@@ -13,9 +13,8 @@ export const FAILOVER_PROTECTIVE_SNAPSHOT = {
 export function FailoverProtectiveSnapshot(props: NodeProps) {
   return (
     <Shape
-      {...FAILOVER_PROTECTIVE_SNAPSHOT}
       {...props}
-      _style={extendStyle(FAILOVER_PROTECTIVE_SNAPSHOT, props)}
+      _style={extendStyle(props, FAILOVER_PROTECTIVE_SNAPSHOT)}
     />
   )
 }

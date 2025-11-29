@@ -12,10 +12,6 @@ export const DASHED_EDGE_DOUBLE_ARROW = {
 
 export function DashedEdgeDoubleArrow(props: NodeProps) {
   return (
-    <Shape
-      {...DASHED_EDGE_DOUBLE_ARROW}
-      {...props}
-      _style={extendStyle(DASHED_EDGE_DOUBLE_ARROW, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DASHED_EDGE_DOUBLE_ARROW)} />
   )
 }

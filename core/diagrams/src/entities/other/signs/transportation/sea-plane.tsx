@@ -11,7 +11,5 @@ export const SEA_PLANE = {
 }
 
 export function SeaPlane(props: NodeProps) {
-  return (
-    <Shape {...SEA_PLANE} {...props} _style={extendStyle(SEA_PLANE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEA_PLANE)} />
 }

@@ -11,11 +11,5 @@ export const XENDESKTOP_SERVER = {
 }
 
 export function XendesktopServer(props: NodeProps) {
-  return (
-    <Shape
-      {...XENDESKTOP_SERVER}
-      {...props}
-      _style={extendStyle(XENDESKTOP_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENDESKTOP_SERVER)} />
 }

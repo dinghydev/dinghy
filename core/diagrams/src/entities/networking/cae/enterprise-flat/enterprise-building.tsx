@@ -11,11 +11,5 @@ export const ENTERPRISE_BUILDING = {
 }
 
 export function EnterpriseBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTERPRISE_BUILDING}
-      {...props}
-      _style={extendStyle(ENTERPRISE_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTERPRISE_BUILDING)} />
 }

@@ -10,11 +10,5 @@ export const FULL_BLEED_DIVIDERS = {
 }
 
 export function FullBleedDividers(props: NodeProps) {
-  return (
-    <Shape
-      {...FULL_BLEED_DIVIDERS}
-      {...props}
-      _style={extendStyle(FULL_BLEED_DIVIDERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FULL_BLEED_DIVIDERS)} />
 }

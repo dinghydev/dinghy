@@ -11,11 +11,5 @@ export const IDENTITY_SECURE_SCORE = {
 }
 
 export function IdentitySecureScore(props: NodeProps) {
-  return (
-    <Shape
-      {...IDENTITY_SECURE_SCORE}
-      {...props}
-      _style={extendStyle(IDENTITY_SECURE_SCORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDENTITY_SECURE_SCORE)} />
 }

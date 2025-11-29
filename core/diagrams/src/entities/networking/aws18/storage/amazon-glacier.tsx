@@ -11,11 +11,5 @@ export const AMAZON_GLACIER = {
 }
 
 export function AmazonGlacier(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_GLACIER}
-      {...props}
-      _style={extendStyle(AMAZON_GLACIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_GLACIER)} />
 }

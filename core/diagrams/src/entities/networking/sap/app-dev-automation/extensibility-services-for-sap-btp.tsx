@@ -13,9 +13,8 @@ export const EXTENSIBILITY_SERVICES_FOR_SAP_BTP = {
 export function ExtensibilityServicesForSapBtp(props: NodeProps) {
   return (
     <Shape
-      {...EXTENSIBILITY_SERVICES_FOR_SAP_BTP}
       {...props}
-      _style={extendStyle(EXTENSIBILITY_SERVICES_FOR_SAP_BTP, props)}
+      _style={extendStyle(props, EXTENSIBILITY_SERVICES_FOR_SAP_BTP)}
     />
   )
 }

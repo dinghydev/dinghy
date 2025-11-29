@@ -11,11 +11,5 @@ export const LYNC_STORAGE_SERVICE = {
 }
 
 export function LyncStorageService(props: NodeProps) {
-  return (
-    <Shape
-      {...LYNC_STORAGE_SERVICE}
-      {...props}
-      _style={extendStyle(LYNC_STORAGE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LYNC_STORAGE_SERVICE)} />
 }

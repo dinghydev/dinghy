@@ -10,11 +10,5 @@ export const TIME_EVENT_TRIGGER = {
 }
 
 export function TimeEventTrigger(props: NodeProps) {
-  return (
-    <Shape
-      {...TIME_EVENT_TRIGGER}
-      {...props}
-      _style={extendStyle(TIME_EVENT_TRIGGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_EVENT_TRIGGER)} />
 }

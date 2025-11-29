@@ -11,11 +11,5 @@ export const SAP_BRTOOLS = {
 }
 
 export function SapBrtools(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_BRTOOLS}
-      {...props}
-      _style={extendStyle(SAP_BRTOOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_BRTOOLS)} />
 }

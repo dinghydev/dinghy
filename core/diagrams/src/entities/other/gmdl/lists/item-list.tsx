@@ -10,7 +10,5 @@ export const ITEM_LIST = {
 }
 
 export function ItemList(props: NodeProps) {
-  return (
-    <Shape {...ITEM_LIST} {...props} _style={extendStyle(ITEM_LIST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ITEM_LIST)} />
 }

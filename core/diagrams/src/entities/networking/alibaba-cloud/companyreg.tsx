@@ -11,7 +11,5 @@ export const COMPANYREG = {
 }
 
 export function Companyreg(props: NodeProps) {
-  return (
-    <Shape {...COMPANYREG} {...props} _style={extendStyle(COMPANYREG, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPANYREG)} />
 }

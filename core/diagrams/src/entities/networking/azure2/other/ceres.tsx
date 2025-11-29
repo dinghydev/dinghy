@@ -11,5 +11,5 @@ export const CERES = {
 }
 
 export function Ceres(props: NodeProps) {
-  return <Shape {...CERES} {...props} _style={extendStyle(CERES, props)} />
+  return <Shape {...props} _style={extendStyle(props, CERES)} />
 }

@@ -12,10 +12,6 @@ export const SAP_CLOUD_IDENTITY_SERVICE = {
 
 export function SapCloudIdentityService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_CLOUD_IDENTITY_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_CLOUD_IDENTITY_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_CLOUD_IDENTITY_SERVICE)} />
   )
 }

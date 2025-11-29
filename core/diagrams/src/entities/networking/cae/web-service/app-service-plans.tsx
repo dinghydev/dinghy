@@ -11,11 +11,5 @@ export const APP_SERVICE_PLANS = {
 }
 
 export function AppServicePlans(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_SERVICE_PLANS}
-      {...props}
-      _style={extendStyle(APP_SERVICE_PLANS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_SERVICE_PLANS)} />
 }

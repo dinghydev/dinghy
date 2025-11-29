@@ -11,11 +11,5 @@ export const PROGRAMMING_LANGUAGE = {
 }
 
 export function ProgrammingLanguage(props: NodeProps) {
-  return (
-    <Shape
-      {...PROGRAMMING_LANGUAGE}
-      {...props}
-      _style={extendStyle(PROGRAMMING_LANGUAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROGRAMMING_LANGUAGE)} />
 }

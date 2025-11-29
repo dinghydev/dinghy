@@ -11,11 +11,5 @@ export const AZURE_TEST_PLANS = {
 }
 
 export function AzureTestPlans(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_TEST_PLANS}
-      {...props}
-      _style={extendStyle(AZURE_TEST_PLANS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_TEST_PLANS)} />
 }

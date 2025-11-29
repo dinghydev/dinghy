@@ -11,7 +11,5 @@ export const CODECOMMIT = {
 }
 
 export function Codecommit(props: NodeProps) {
-  return (
-    <Shape {...CODECOMMIT} {...props} _style={extendStyle(CODECOMMIT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODECOMMIT)} />
 }

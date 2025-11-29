@@ -11,11 +11,5 @@ export const BUCKET_ELEVATOR = {
 }
 
 export function BucketElevator(props: NodeProps) {
-  return (
-    <Shape
-      {...BUCKET_ELEVATOR}
-      {...props}
-      _style={extendStyle(BUCKET_ELEVATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUCKET_ELEVATOR)} />
 }

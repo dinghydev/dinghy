@@ -11,11 +11,5 @@ export const VARISTOR_SYMMETRICAL = {
 }
 
 export function VaristorSymmetrical(props: NodeProps) {
-  return (
-    <Shape
-      {...VARISTOR_SYMMETRICAL}
-      {...props}
-      _style={extendStyle(VARISTOR_SYMMETRICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VARISTOR_SYMMETRICAL)} />
 }

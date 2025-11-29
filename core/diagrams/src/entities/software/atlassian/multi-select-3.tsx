@@ -11,11 +11,5 @@ export const MULTI_SELECT_3 = {
 }
 
 export function MultiSelect3(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTI_SELECT_3}
-      {...props}
-      _style={extendStyle(MULTI_SELECT_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTI_SELECT_3)} />
 }

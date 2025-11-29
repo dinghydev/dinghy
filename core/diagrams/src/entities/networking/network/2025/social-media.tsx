@@ -11,11 +11,5 @@ export const SOCIAL_MEDIA = {
 }
 
 export function SocialMedia(props: NodeProps) {
-  return (
-    <Shape
-      {...SOCIAL_MEDIA}
-      {...props}
-      _style={extendStyle(SOCIAL_MEDIA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOCIAL_MEDIA)} />
 }

@@ -9,5 +9,5 @@ export const DIAGRAM = {
 }
 
 export function Diagram(props: NodeProps) {
-  return <Shape {...DIAGRAM} {...props} _style={extendStyle(DIAGRAM, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIAGRAM)} />
 }

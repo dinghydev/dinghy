@@ -12,10 +12,6 @@ export const ALIMT_MACHINE_TRANSLATION = {
 
 export function AlimtMachineTranslation(props: NodeProps) {
   return (
-    <Shape
-      {...ALIMT_MACHINE_TRANSLATION}
-      {...props}
-      _style={extendStyle(ALIMT_MACHINE_TRANSLATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ALIMT_MACHINE_TRANSLATION)} />
   )
 }

@@ -11,11 +11,5 @@ export const MIGRATION_ASSESSMENT = {
 }
 
 export function MigrationAssessment(props: NodeProps) {
-  return (
-    <Shape
-      {...MIGRATION_ASSESSMENT}
-      {...props}
-      _style={extendStyle(MIGRATION_ASSESSMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATION_ASSESSMENT)} />
 }

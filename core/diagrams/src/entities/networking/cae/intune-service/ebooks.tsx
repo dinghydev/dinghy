@@ -11,5 +11,5 @@ export const EBOOKS = {
 }
 
 export function Ebooks(props: NodeProps) {
-  return <Shape {...EBOOKS} {...props} _style={extendStyle(EBOOKS, props)} />
+  return <Shape {...props} _style={extendStyle(props, EBOOKS)} />
 }

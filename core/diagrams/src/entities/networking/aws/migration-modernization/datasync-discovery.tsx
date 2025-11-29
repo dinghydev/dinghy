@@ -11,11 +11,5 @@ export const DATASYNC_DISCOVERY = {
 }
 
 export function DatasyncDiscovery(props: NodeProps) {
-  return (
-    <Shape
-      {...DATASYNC_DISCOVERY}
-      {...props}
-      _style={extendStyle(DATASYNC_DISCOVERY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATASYNC_DISCOVERY)} />
 }

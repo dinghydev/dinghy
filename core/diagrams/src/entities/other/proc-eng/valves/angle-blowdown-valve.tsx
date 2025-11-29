@@ -11,11 +11,5 @@ export const ANGLE_BLOWDOWN_VALVE = {
 }
 
 export function AngleBlowdownValve(props: NodeProps) {
-  return (
-    <Shape
-      {...ANGLE_BLOWDOWN_VALVE}
-      {...props}
-      _style={extendStyle(ANGLE_BLOWDOWN_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANGLE_BLOWDOWN_VALVE)} />
 }

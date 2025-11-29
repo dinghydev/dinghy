@@ -12,10 +12,6 @@ export const RESPONSE_GROUP_SERVICE = {
 
 export function ResponseGroupService(props: NodeProps) {
   return (
-    <Shape
-      {...RESPONSE_GROUP_SERVICE}
-      {...props}
-      _style={extendStyle(RESPONSE_GROUP_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RESPONSE_GROUP_SERVICE)} />
   )
 }

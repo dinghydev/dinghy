@@ -12,10 +12,6 @@ export const JL368A_ARUBA_8400_MGMT_MOD = {
 
 export function Jl368aAruba8400MgmtMod(props: NodeProps) {
   return (
-    <Shape
-      {...JL368A_ARUBA_8400_MGMT_MOD}
-      {...props}
-      _style={extendStyle(JL368A_ARUBA_8400_MGMT_MOD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, JL368A_ARUBA_8400_MGMT_MOD)} />
   )
 }

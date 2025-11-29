@@ -12,10 +12,6 @@ export const LOZENGE_CURRENT_SUBTLE = {
 
 export function LozengeCurrentSubtle(props: NodeProps) {
   return (
-    <Shape
-      {...LOZENGE_CURRENT_SUBTLE}
-      {...props}
-      _style={extendStyle(LOZENGE_CURRENT_SUBTLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOZENGE_CURRENT_SUBTLE)} />
   )
 }

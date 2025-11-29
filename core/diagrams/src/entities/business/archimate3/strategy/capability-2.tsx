@@ -11,11 +11,5 @@ export const CAPABILITY_2 = {
 }
 
 export function Capability2(props: NodeProps) {
-  return (
-    <Shape
-      {...CAPABILITY_2}
-      {...props}
-      _style={extendStyle(CAPABILITY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAPABILITY_2)} />
 }

@@ -11,11 +11,5 @@ export const ACCESS_SERVICES = {
 }
 
 export function AccessServices(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_SERVICES}
-      {...props}
-      _style={extendStyle(ACCESS_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_SERVICES)} />
 }

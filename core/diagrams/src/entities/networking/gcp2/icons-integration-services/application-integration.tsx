@@ -12,10 +12,6 @@ export const APPLICATION_INTEGRATION = {
 
 export function ApplicationIntegration(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_INTEGRATION}
-      {...props}
-      _style={extendStyle(APPLICATION_INTEGRATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_INTEGRATION)} />
   )
 }

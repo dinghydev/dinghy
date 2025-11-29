@@ -11,11 +11,5 @@ export const AWS_SNOWMOBILE = {
 }
 
 export function AwsSnowmobile(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_SNOWMOBILE}
-      {...props}
-      _style={extendStyle(AWS_SNOWMOBILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_SNOWMOBILE)} />
 }

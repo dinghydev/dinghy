@@ -11,7 +11,5 @@ export const PLOT_CHART = {
 }
 
 export function PlotChart(props: NodeProps) {
-  return (
-    <Shape {...PLOT_CHART} {...props} _style={extendStyle(PLOT_CHART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLOT_CHART)} />
 }

@@ -11,11 +11,5 @@ export const VT1_INSTANCE = {
 }
 
 export function Vt1Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...VT1_INSTANCE}
-      {...props}
-      _style={extendStyle(VT1_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VT1_INSTANCE)} />
 }

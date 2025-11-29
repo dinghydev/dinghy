@@ -12,10 +12,6 @@ export const DYNAMIC_DISTRIBUTION_GROUP = {
 
 export function DynamicDistributionGroup(props: NodeProps) {
   return (
-    <Shape
-      {...DYNAMIC_DISTRIBUTION_GROUP}
-      {...props}
-      _style={extendStyle(DYNAMIC_DISTRIBUTION_GROUP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DYNAMIC_DISTRIBUTION_GROUP)} />
   )
 }

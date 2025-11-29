@@ -11,11 +11,5 @@ export const KEYBOARD_LETTERS = {
 }
 
 export function KeyboardLetters(props: NodeProps) {
-  return (
-    <Shape
-      {...KEYBOARD_LETTERS}
-      {...props}
-      _style={extendStyle(KEYBOARD_LETTERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEYBOARD_LETTERS)} />
 }

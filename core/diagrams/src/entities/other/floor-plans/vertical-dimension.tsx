@@ -11,11 +11,5 @@ export const VERTICAL_DIMENSION = {
 }
 
 export function VerticalDimension(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_DIMENSION}
-      {...props}
-      _style={extendStyle(VERTICAL_DIMENSION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_DIMENSION)} />
 }

@@ -13,9 +13,8 @@ export const DBES_DATABASE_EXPERT_SERVICE = {
 export function DbesDatabaseExpertService(props: NodeProps) {
   return (
     <Shape
-      {...DBES_DATABASE_EXPERT_SERVICE}
       {...props}
-      _style={extendStyle(DBES_DATABASE_EXPERT_SERVICE, props)}
+      _style={extendStyle(props, DBES_DATABASE_EXPERT_SERVICE)}
     />
   )
 }

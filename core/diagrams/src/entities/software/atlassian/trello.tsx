@@ -11,5 +11,5 @@ export const TRELLO = {
 }
 
 export function Trello(props: NodeProps) {
-  return <Shape {...TRELLO} {...props} _style={extendStyle(TRELLO, props)} />
+  return <Shape {...props} _style={extendStyle(props, TRELLO)} />
 }

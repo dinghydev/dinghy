@@ -11,9 +11,8 @@ export const MESSAGE_SYNCHRONOUS_CALL = {
 export function MessageSynchronousCall(props: NodeProps) {
   return (
     <Dependency
-      {...MESSAGE_SYNCHRONOUS_CALL}
       {...props}
-      _style={extendStyle(MESSAGE_SYNCHRONOUS_CALL, props)}
+      _style={extendStyle(props, MESSAGE_SYNCHRONOUS_CALL)}
     />
   )
 }

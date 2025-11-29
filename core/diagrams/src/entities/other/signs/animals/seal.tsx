@@ -11,5 +11,5 @@ export const SEAL = {
 }
 
 export function Seal(props: NodeProps) {
-  return <Shape {...SEAL} {...props} _style={extendStyle(SEAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, SEAL)} />
 }

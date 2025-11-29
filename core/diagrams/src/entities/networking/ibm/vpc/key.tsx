@@ -11,5 +11,5 @@ export const KEY = {
 }
 
 export function Key(props: NodeProps) {
-  return <Shape {...KEY} {...props} _style={extendStyle(KEY, props)} />
+  return <Shape {...props} _style={extendStyle(props, KEY)} />
 }

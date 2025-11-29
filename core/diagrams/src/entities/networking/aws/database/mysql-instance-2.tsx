@@ -11,11 +11,5 @@ export const MYSQL_INSTANCE_2 = {
 }
 
 export function MysqlInstance2(props: NodeProps) {
-  return (
-    <Shape
-      {...MYSQL_INSTANCE_2}
-      {...props}
-      _style={extendStyle(MYSQL_INSTANCE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MYSQL_INSTANCE_2)} />
 }

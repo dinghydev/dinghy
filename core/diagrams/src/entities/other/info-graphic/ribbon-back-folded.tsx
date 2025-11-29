@@ -11,11 +11,5 @@ export const RIBBON_BACK_FOLDED = {
 }
 
 export function RibbonBackFolded(props: NodeProps) {
-  return (
-    <Shape
-      {...RIBBON_BACK_FOLDED}
-      {...props}
-      _style={extendStyle(RIBBON_BACK_FOLDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIBBON_BACK_FOLDED)} />
 }

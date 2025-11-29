@@ -11,11 +11,5 @@ export const SYNAPSE_ANALYTICS = {
 }
 
 export function SynapseAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...SYNAPSE_ANALYTICS}
-      {...props}
-      _style={extendStyle(SYNAPSE_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYNAPSE_ANALYTICS)} />
 }

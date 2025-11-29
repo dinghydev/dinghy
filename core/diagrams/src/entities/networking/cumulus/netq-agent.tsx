@@ -11,7 +11,5 @@ export const NETQ_AGENT = {
 }
 
 export function NetqAgent(props: NodeProps) {
-  return (
-    <Shape {...NETQ_AGENT} {...props} _style={extendStyle(NETQ_AGENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETQ_AGENT)} />
 }

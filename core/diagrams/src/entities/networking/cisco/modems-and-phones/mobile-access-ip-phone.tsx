@@ -12,10 +12,6 @@ export const MOBILE_ACCESS_IP_PHONE = {
 
 export function MobileAccessIpPhone(props: NodeProps) {
   return (
-    <Shape
-      {...MOBILE_ACCESS_IP_PHONE}
-      {...props}
-      _style={extendStyle(MOBILE_ACCESS_IP_PHONE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MOBILE_ACCESS_IP_PHONE)} />
   )
 }

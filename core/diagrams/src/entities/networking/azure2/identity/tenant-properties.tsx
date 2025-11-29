@@ -11,11 +11,5 @@ export const TENANT_PROPERTIES = {
 }
 
 export function TenantProperties(props: NodeProps) {
-  return (
-    <Shape
-      {...TENANT_PROPERTIES}
-      {...props}
-      _style={extendStyle(TENANT_PROPERTIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENANT_PROPERTIES)} />
 }

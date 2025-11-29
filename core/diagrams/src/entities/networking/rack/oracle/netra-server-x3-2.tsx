@@ -11,11 +11,5 @@ export const NETRA_SERVER_X3_2 = {
 }
 
 export function NetraServerX32(props: NodeProps) {
-  return (
-    <Shape
-      {...NETRA_SERVER_X3_2}
-      {...props}
-      _style={extendStyle(NETRA_SERVER_X3_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETRA_SERVER_X3_2)} />
 }

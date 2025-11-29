@@ -11,5 +11,5 @@ export const GATEWAY = {
 }
 
 export function Gateway(props: NodeProps) {
-  return <Shape {...GATEWAY} {...props} _style={extendStyle(GATEWAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, GATEWAY)} />
 }

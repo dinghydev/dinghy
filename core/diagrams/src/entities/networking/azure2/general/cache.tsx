@@ -11,5 +11,5 @@ export const CACHE = {
 }
 
 export function Cache(props: NodeProps) {
-  return <Shape {...CACHE} {...props} _style={extendStyle(CACHE, props)} />
+  return <Shape {...props} _style={extendStyle(props, CACHE)} />
 }

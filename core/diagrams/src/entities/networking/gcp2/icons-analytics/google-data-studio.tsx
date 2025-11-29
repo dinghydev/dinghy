@@ -11,11 +11,5 @@ export const GOOGLE_DATA_STUDIO = {
 }
 
 export function GoogleDataStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_DATA_STUDIO}
-      {...props}
-      _style={extendStyle(GOOGLE_DATA_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_DATA_STUDIO)} />
 }

@@ -11,5 +11,5 @@ export const FORUMS = {
 }
 
 export function Forums(props: NodeProps) {
-  return <Shape {...FORUMS} {...props} _style={extendStyle(FORUMS, props)} />
+  return <Shape {...props} _style={extendStyle(props, FORUMS)} />
 }

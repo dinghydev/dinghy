@@ -11,11 +11,5 @@ export const OFFICE_INSTALLED = {
 }
 
 export function OfficeInstalled(props: NodeProps) {
-  return (
-    <Shape
-      {...OFFICE_INSTALLED}
-      {...props}
-      _style={extendStyle(OFFICE_INSTALLED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFFICE_INSTALLED)} />
 }

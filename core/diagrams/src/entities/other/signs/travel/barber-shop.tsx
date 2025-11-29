@@ -11,11 +11,5 @@ export const BARBER_SHOP = {
 }
 
 export function BarberShop(props: NodeProps) {
-  return (
-    <Shape
-      {...BARBER_SHOP}
-      {...props}
-      _style={extendStyle(BARBER_SHOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BARBER_SHOP)} />
 }

@@ -11,11 +11,5 @@ export const UCS_C_SERIES_SERVER = {
 }
 
 export function UcsCSeriesServer(props: NodeProps) {
-  return (
-    <Shape
-      {...UCS_C_SERIES_SERVER}
-      {...props}
-      _style={extendStyle(UCS_C_SERIES_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UCS_C_SERIES_SERVER)} />
 }

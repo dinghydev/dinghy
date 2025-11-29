@@ -11,5 +11,5 @@ export const MCU = {
 }
 
 export function Mcu(props: NodeProps) {
-  return <Shape {...MCU} {...props} _style={extendStyle(MCU, props)} />
+  return <Shape {...props} _style={extendStyle(props, MCU)} />
 }

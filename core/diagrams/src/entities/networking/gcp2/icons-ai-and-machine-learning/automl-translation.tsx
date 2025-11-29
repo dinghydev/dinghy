@@ -11,11 +11,5 @@ export const AUTOML_TRANSLATION = {
 }
 
 export function AutomlTranslation(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOML_TRANSLATION}
-      {...props}
-      _style={extendStyle(AUTOML_TRANSLATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOML_TRANSLATION)} />
 }

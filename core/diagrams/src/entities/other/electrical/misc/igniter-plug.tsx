@@ -11,11 +11,5 @@ export const IGNITER_PLUG = {
 }
 
 export function IgniterPlug(props: NodeProps) {
-  return (
-    <Shape
-      {...IGNITER_PLUG}
-      {...props}
-      _style={extendStyle(IGNITER_PLUG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IGNITER_PLUG)} />
 }

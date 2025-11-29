@@ -11,11 +11,5 @@ export const VM_LINUX_NON_AZURE = {
 }
 
 export function VmLinuxNonAzure(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_LINUX_NON_AZURE}
-      {...props}
-      _style={extendStyle(VM_LINUX_NON_AZURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_LINUX_NON_AZURE)} />
 }

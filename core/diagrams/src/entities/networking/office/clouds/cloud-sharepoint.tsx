@@ -11,11 +11,5 @@ export const CLOUD_SHAREPOINT = {
 }
 
 export function CloudSharepoint(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SHAREPOINT}
-      {...props}
-      _style={extendStyle(CLOUD_SHAREPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SHAREPOINT)} />
 }

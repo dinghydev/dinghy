@@ -12,10 +12,6 @@ export const XENCLIENT_SYNCHRONIZER = {
 
 export function XenclientSynchronizer(props: NodeProps) {
   return (
-    <Shape
-      {...XENCLIENT_SYNCHRONIZER}
-      {...props}
-      _style={extendStyle(XENCLIENT_SYNCHRONIZER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, XENCLIENT_SYNCHRONIZER)} />
   )
 }

@@ -11,11 +11,5 @@ export const DOCUMENTS_2 = {
 }
 
 export function Documents2(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENTS_2}
-      {...props}
-      _style={extendStyle(DOCUMENTS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENTS_2)} />
 }

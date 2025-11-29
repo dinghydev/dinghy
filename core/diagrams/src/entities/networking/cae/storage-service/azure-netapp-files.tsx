@@ -11,11 +11,5 @@ export const AZURE_NETAPP_FILES = {
 }
 
 export function AzureNetappFiles(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_NETAPP_FILES}
-      {...props}
-      _style={extendStyle(AZURE_NETAPP_FILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_NETAPP_FILES)} />
 }

@@ -12,10 +12,6 @@ export const LOZENGE_SUCCESS_SUBTLE = {
 
 export function LozengeSuccessSubtle(props: NodeProps) {
   return (
-    <Shape
-      {...LOZENGE_SUCCESS_SUBTLE}
-      {...props}
-      _style={extendStyle(LOZENGE_SUCCESS_SUBTLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOZENGE_SUCCESS_SUBTLE)} />
   )
 }

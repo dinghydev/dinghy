@@ -11,11 +11,5 @@ export const UNIFIED_ACCESS_SWITCH = {
 }
 
 export function UnifiedAccessSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...UNIFIED_ACCESS_SWITCH}
-      {...props}
-      _style={extendStyle(UNIFIED_ACCESS_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNIFIED_ACCESS_SWITCH)} />
 }

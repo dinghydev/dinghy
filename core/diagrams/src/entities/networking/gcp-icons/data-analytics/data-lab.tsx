@@ -11,7 +11,5 @@ export const DATA_LAB = {
 }
 
 export function DataLab(props: NodeProps) {
-  return (
-    <Shape {...DATA_LAB} {...props} _style={extendStyle(DATA_LAB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_LAB)} />
 }

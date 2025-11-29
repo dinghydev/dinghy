@@ -11,5 +11,5 @@ export const PAUSE = {
 }
 
 export function Pause(props: NodeProps) {
-  return <Shape {...PAUSE} {...props} _style={extendStyle(PAUSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, PAUSE)} />
 }

@@ -11,11 +11,5 @@ export const VOICE_WORKLOAD = {
 }
 
 export function VoiceWorkload(props: NodeProps) {
-  return (
-    <Shape
-      {...VOICE_WORKLOAD}
-      {...props}
-      _style={extendStyle(VOICE_WORKLOAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOICE_WORKLOAD)} />
 }

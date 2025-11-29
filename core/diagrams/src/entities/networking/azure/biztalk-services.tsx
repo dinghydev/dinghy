@@ -11,11 +11,5 @@ export const BIZTALK_SERVICES = {
 }
 
 export function BiztalkServices(props: NodeProps) {
-  return (
-    <Shape
-      {...BIZTALK_SERVICES}
-      {...props}
-      _style={extendStyle(BIZTALK_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIZTALK_SERVICES)} />
 }

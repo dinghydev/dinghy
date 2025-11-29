@@ -11,7 +11,5 @@ export const MISC_BAR = {
 }
 
 export function MiscBar(props: NodeProps) {
-  return (
-    <Shape {...MISC_BAR} {...props} _style={extendStyle(MISC_BAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MISC_BAR)} />
 }

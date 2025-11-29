@@ -12,10 +12,6 @@ export const INTEGRATION_CONNECTORS = {
 
 export function IntegrationConnectors(props: NodeProps) {
   return (
-    <Shape
-      {...INTEGRATION_CONNECTORS}
-      {...props}
-      _style={extendStyle(INTEGRATION_CONNECTORS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTEGRATION_CONNECTORS)} />
   )
 }

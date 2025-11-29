@@ -11,7 +11,5 @@ export const NESTED_NAV = {
 }
 
 export function NestedNav(props: NodeProps) {
-  return (
-    <Shape {...NESTED_NAV} {...props} _style={extendStyle(NESTED_NAV, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NESTED_NAV)} />
 }

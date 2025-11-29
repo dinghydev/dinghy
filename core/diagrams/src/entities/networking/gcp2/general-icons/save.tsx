@@ -11,5 +11,5 @@ export const SAVE = {
 }
 
 export function Save(props: NodeProps) {
-  return <Shape {...SAVE} {...props} _style={extendStyle(SAVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SAVE)} />
 }

@@ -12,10 +12,6 @@ export const DEVICE_SECURITY_GOOGLE = {
 
 export function DeviceSecurityGoogle(props: NodeProps) {
   return (
-    <Shape
-      {...DEVICE_SECURITY_GOOGLE}
-      {...props}
-      _style={extendStyle(DEVICE_SECURITY_GOOGLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEVICE_SECURITY_GOOGLE)} />
   )
 }

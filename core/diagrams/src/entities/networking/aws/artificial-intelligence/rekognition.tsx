@@ -11,11 +11,5 @@ export const REKOGNITION = {
 }
 
 export function Rekognition(props: NodeProps) {
-  return (
-    <Shape
-      {...REKOGNITION}
-      {...props}
-      _style={extendStyle(REKOGNITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REKOGNITION)} />
 }

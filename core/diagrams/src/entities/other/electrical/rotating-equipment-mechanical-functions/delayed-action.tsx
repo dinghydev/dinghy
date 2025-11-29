@@ -11,11 +11,5 @@ export const DELAYED_ACTION = {
 }
 
 export function DelayedAction(props: NodeProps) {
-  return (
-    <Shape
-      {...DELAYED_ACTION}
-      {...props}
-      _style={extendStyle(DELAYED_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELAYED_ACTION)} />
 }

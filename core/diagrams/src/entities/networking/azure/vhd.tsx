@@ -11,5 +11,5 @@ export const VHD = {
 }
 
 export function Vhd(props: NodeProps) {
-  return <Shape {...VHD} {...props} _style={extendStyle(VHD, props)} />
+  return <Shape {...props} _style={extendStyle(props, VHD)} />
 }

@@ -11,11 +11,5 @@ export const TABLET_WINDOWS_7INCH = {
 }
 
 export function TabletWindows7inch(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLET_WINDOWS_7INCH}
-      {...props}
-      _style={extendStyle(TABLET_WINDOWS_7INCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLET_WINDOWS_7INCH)} />
 }

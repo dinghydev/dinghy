@@ -11,11 +11,5 @@ export const NOTIFICATION_TOPIC = {
 }
 
 export function NotificationTopic(props: NodeProps) {
-  return (
-    <Shape
-      {...NOTIFICATION_TOPIC}
-      {...props}
-      _style={extendStyle(NOTIFICATION_TOPIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NOTIFICATION_TOPIC)} />
 }

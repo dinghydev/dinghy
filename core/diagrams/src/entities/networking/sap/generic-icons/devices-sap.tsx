@@ -11,11 +11,5 @@ export const DEVICES_SAP = {
 }
 
 export function DevicesSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICES_SAP}
-      {...props}
-      _style={extendStyle(DEVICES_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICES_SAP)} />
 }

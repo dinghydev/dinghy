@@ -12,10 +12,6 @@ export const CONVEYOR_VIBRATING_CLOSED = {
 
 export function ConveyorVibratingClosed(props: NodeProps) {
   return (
-    <Shape
-      {...CONVEYOR_VIBRATING_CLOSED}
-      {...props}
-      _style={extendStyle(CONVEYOR_VIBRATING_CLOSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONVEYOR_VIBRATING_CLOSED)} />
   )
 }

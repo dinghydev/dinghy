@@ -11,11 +11,5 @@ export const X11020_CARTRIDGE_FOR = {
 }
 
 export function X11020CartridgeFor(props: NodeProps) {
-  return (
-    <Shape
-      {...X11020_CARTRIDGE_FOR}
-      {...props}
-      _style={extendStyle(X11020_CARTRIDGE_FOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11020_CARTRIDGE_FOR)} />
 }

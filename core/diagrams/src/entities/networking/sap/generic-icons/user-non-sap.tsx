@@ -11,11 +11,5 @@ export const USER_NON_SAP = {
 }
 
 export function UserNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_NON_SAP}
-      {...props}
-      _style={extendStyle(USER_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_NON_SAP)} />
 }

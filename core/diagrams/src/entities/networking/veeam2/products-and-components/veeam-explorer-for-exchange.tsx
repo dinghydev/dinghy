@@ -13,9 +13,8 @@ export const VEEAM_EXPLORER_FOR_EXCHANGE = {
 export function VeeamExplorerForExchange(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_EXPLORER_FOR_EXCHANGE}
       {...props}
-      _style={extendStyle(VEEAM_EXPLORER_FOR_EXCHANGE, props)}
+      _style={extendStyle(props, VEEAM_EXPLORER_FOR_EXCHANGE)}
     />
   )
 }

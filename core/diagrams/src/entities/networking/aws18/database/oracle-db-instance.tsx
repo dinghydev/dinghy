@@ -11,11 +11,5 @@ export const ORACLE_DB_INSTANCE = {
 }
 
 export function OracleDbInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...ORACLE_DB_INSTANCE}
-      {...props}
-      _style={extendStyle(ORACLE_DB_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORACLE_DB_INSTANCE)} />
 }

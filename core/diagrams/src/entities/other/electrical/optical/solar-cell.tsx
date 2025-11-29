@@ -11,7 +11,5 @@ export const SOLAR_CELL = {
 }
 
 export function SolarCell(props: NodeProps) {
-  return (
-    <Shape {...SOLAR_CELL} {...props} _style={extendStyle(SOLAR_CELL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOLAR_CELL)} />
 }

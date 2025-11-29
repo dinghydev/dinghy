@@ -11,11 +11,5 @@ export const HOLOWATCHER = {
 }
 
 export function Holowatcher(props: NodeProps) {
-  return (
-    <Shape
-      {...HOLOWATCHER}
-      {...props}
-      _style={extendStyle(HOLOWATCHER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOLOWATCHER)} />
 }

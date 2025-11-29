@@ -11,5 +11,5 @@ export const ISE = {
 }
 
 export function Ise(props: NodeProps) {
-  return <Shape {...ISE} {...props} _style={extendStyle(ISE, props)} />
+  return <Shape {...props} _style={extendStyle(props, ISE)} />
 }

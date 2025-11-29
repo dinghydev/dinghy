@@ -10,11 +10,5 @@ export const DOUBLE_ARROW = {
 }
 
 export function DoubleArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_ARROW}
-      {...props}
-      _style={extendStyle(DOUBLE_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_ARROW)} />
 }

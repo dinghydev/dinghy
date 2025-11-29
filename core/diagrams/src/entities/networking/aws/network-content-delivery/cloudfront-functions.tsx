@@ -11,11 +11,5 @@ export const CLOUDFRONT_FUNCTIONS = {
 }
 
 export function CloudfrontFunctions(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDFRONT_FUNCTIONS}
-      {...props}
-      _style={extendStyle(CLOUDFRONT_FUNCTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDFRONT_FUNCTIONS)} />
 }

@@ -12,10 +12,6 @@ export const EXTERNAL_SOFTWARE_SYSTEM = {
 
 export function ExternalSoftwareSystem(props: NodeProps) {
   return (
-    <Shape
-      {...EXTERNAL_SOFTWARE_SYSTEM}
-      {...props}
-      _style={extendStyle(EXTERNAL_SOFTWARE_SYSTEM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXTERNAL_SOFTWARE_SYSTEM)} />
   )
 }

@@ -11,11 +11,5 @@ export const SOFTWARE_BASED_SERVER = {
 }
 
 export function SoftwareBasedServer(props: NodeProps) {
-  return (
-    <Shape
-      {...SOFTWARE_BASED_SERVER}
-      {...props}
-      _style={extendStyle(SOFTWARE_BASED_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTWARE_BASED_SERVER)} />
 }

@@ -11,7 +11,5 @@ export const A7_POWER = {
 }
 
 export function A7Power(props: NodeProps) {
-  return (
-    <Shape {...A7_POWER} {...props} _style={extendStyle(A7_POWER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, A7_POWER)} />
 }

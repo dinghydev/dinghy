@@ -11,7 +11,5 @@ export const RELATION = {
 }
 
 export function Relation(props: NodeProps) {
-  return (
-    <Shape {...RELATION} {...props} _style={extendStyle(RELATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RELATION)} />
 }

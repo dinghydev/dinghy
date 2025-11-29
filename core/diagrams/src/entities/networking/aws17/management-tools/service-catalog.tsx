@@ -11,11 +11,5 @@ export const SERVICE_CATALOG = {
 }
 
 export function ServiceCatalog(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_CATALOG}
-      {...props}
-      _style={extendStyle(SERVICE_CATALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_CATALOG)} />
 }

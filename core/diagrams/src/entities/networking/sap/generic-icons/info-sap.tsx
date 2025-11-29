@@ -11,7 +11,5 @@ export const INFO_SAP = {
 }
 
 export function InfoSap(props: NodeProps) {
-  return (
-    <Shape {...INFO_SAP} {...props} _style={extendStyle(INFO_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFO_SAP)} />
 }

@@ -13,9 +13,8 @@ export const DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR = {
 export function DirectorClassFibreChannelDirector(props: NodeProps) {
   return (
     <Shape
-      {...DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR}
       {...props}
-      _style={extendStyle(DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR, props)}
+      _style={extendStyle(props, DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR)}
     />
   )
 }

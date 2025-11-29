@@ -11,11 +11,5 @@ export const AND_JUNCTION = {
 }
 
 export function AndJunction(props: NodeProps) {
-  return (
-    <Shape
-      {...AND_JUNCTION}
-      {...props}
-      _style={extendStyle(AND_JUNCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AND_JUNCTION)} />
 }

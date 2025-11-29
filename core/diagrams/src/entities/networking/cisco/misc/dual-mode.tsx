@@ -11,7 +11,5 @@ export const DUAL_MODE = {
 }
 
 export function DualMode(props: NodeProps) {
-  return (
-    <Shape {...DUAL_MODE} {...props} _style={extendStyle(DUAL_MODE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DUAL_MODE)} />
 }

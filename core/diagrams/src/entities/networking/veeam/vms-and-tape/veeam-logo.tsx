@@ -11,7 +11,5 @@ export const VEEAM_LOGO = {
 }
 
 export function VeeamLogo(props: NodeProps) {
-  return (
-    <Shape {...VEEAM_LOGO} {...props} _style={extendStyle(VEEAM_LOGO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_LOGO)} />
 }

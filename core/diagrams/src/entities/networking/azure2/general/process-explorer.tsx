@@ -11,11 +11,5 @@ export const PROCESS_EXPLORER = {
 }
 
 export function ProcessExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...PROCESS_EXPLORER}
-      {...props}
-      _style={extendStyle(PROCESS_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROCESS_EXPLORER)} />
 }

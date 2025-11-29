@@ -11,7 +11,5 @@ export const TRANSFER = {
 }
 
 export function Transfer(props: NodeProps) {
-  return (
-    <Shape {...TRANSFER} {...props} _style={extendStyle(TRANSFER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSFER)} />
 }

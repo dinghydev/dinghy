@@ -11,11 +11,5 @@ export const STARTUP_TASK = {
 }
 
 export function StartupTask(props: NodeProps) {
-  return (
-    <Shape
-      {...STARTUP_TASK}
-      {...props}
-      _style={extendStyle(STARTUP_TASK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STARTUP_TASK)} />
 }

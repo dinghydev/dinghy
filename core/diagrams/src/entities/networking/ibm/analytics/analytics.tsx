@@ -11,7 +11,5 @@ export const ANALYTICS = {
 }
 
 export function Analytics(props: NodeProps) {
-  return (
-    <Shape {...ANALYTICS} {...props} _style={extendStyle(ANALYTICS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANALYTICS)} />
 }

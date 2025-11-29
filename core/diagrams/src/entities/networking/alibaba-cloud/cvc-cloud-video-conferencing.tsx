@@ -13,9 +13,8 @@ export const CVC_CLOUD_VIDEO_CONFERENCING = {
 export function CvcCloudVideoConferencing(props: NodeProps) {
   return (
     <Shape
-      {...CVC_CLOUD_VIDEO_CONFERENCING}
       {...props}
-      _style={extendStyle(CVC_CLOUD_VIDEO_CONFERENCING, props)}
+      _style={extendStyle(props, CVC_CLOUD_VIDEO_CONFERENCING)}
     />
   )
 }

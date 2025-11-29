@@ -11,5 +11,5 @@ export const TOAST = {
 }
 
 export function Toast(props: NodeProps) {
-  return <Shape {...TOAST} {...props} _style={extendStyle(TOAST, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOAST)} />
 }

@@ -11,11 +11,5 @@ export const PORT_CONJUGATED_PORTS = {
 }
 
 export function PortConjugatedPorts(props: NodeProps) {
-  return (
-    <Shape
-      {...PORT_CONJUGATED_PORTS}
-      {...props}
-      _style={extendStyle(PORT_CONJUGATED_PORTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PORT_CONJUGATED_PORTS)} />
 }

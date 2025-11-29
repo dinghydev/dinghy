@@ -11,11 +11,5 @@ export const API_HIGHLIGHT = {
 }
 
 export function ApiHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...API_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(API_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_HIGHLIGHT)} />
 }

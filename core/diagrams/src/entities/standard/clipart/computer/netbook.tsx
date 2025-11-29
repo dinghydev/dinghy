@@ -11,5 +11,5 @@ export const NETBOOK = {
 }
 
 export function Netbook(props: NodeProps) {
-  return <Shape {...NETBOOK} {...props} _style={extendStyle(NETBOOK, props)} />
+  return <Shape {...props} _style={extendStyle(props, NETBOOK)} />
 }

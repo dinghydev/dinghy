@@ -12,10 +12,6 @@ export const ROUTE_53_READINESS_CHECKS = {
 
 export function Route53ReadinessChecks(props: NodeProps) {
   return (
-    <Shape
-      {...ROUTE_53_READINESS_CHECKS}
-      {...props}
-      _style={extendStyle(ROUTE_53_READINESS_CHECKS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROUTE_53_READINESS_CHECKS)} />
   )
 }

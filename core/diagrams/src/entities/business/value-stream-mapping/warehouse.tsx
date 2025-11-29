@@ -11,7 +11,5 @@ export const WAREHOUSE = {
 }
 
 export function Warehouse(props: NodeProps) {
-  return (
-    <Shape {...WAREHOUSE} {...props} _style={extendStyle(WAREHOUSE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAREHOUSE)} />
 }

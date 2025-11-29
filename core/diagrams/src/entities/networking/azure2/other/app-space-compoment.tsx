@@ -11,11 +11,5 @@ export const APP_SPACE_COMPOMENT = {
 }
 
 export function AppSpaceCompoment(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_SPACE_COMPOMENT}
-      {...props}
-      _style={extendStyle(APP_SPACE_COMPOMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_SPACE_COMPOMENT)} />
 }

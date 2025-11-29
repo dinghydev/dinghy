@@ -11,11 +11,5 @@ export const VMWARE_HYPER_V_HOST = {
 }
 
 export function VmwareHyperVHost(props: NodeProps) {
-  return (
-    <Shape
-      {...VMWARE_HYPER_V_HOST}
-      {...props}
-      _style={extendStyle(VMWARE_HYPER_V_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VMWARE_HYPER_V_HOST)} />
 }

@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_BACK_END_SERVER_MIRROR = {
 export function SkypeForBusinessBackEndServerMirror(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_BACK_END_SERVER_MIRROR}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_BACK_END_SERVER_MIRROR, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_BACK_END_SERVER_MIRROR)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const INTERNET_ALT2 = {
 }
 
 export function InternetAlt2(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_ALT2}
-      {...props}
-      _style={extendStyle(INTERNET_ALT2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_ALT2)} />
 }

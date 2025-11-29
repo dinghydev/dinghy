@@ -13,9 +13,8 @@ export const VEEAM_SERVICE_PROVIDER_CONSOLE = {
 export function VeeamServiceProviderConsole(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_SERVICE_PROVIDER_CONSOLE}
       {...props}
-      _style={extendStyle(VEEAM_SERVICE_PROVIDER_CONSOLE, props)}
+      _style={extendStyle(props, VEEAM_SERVICE_PROVIDER_CONSOLE)}
     />
   )
 }

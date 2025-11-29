@@ -11,5 +11,5 @@ export const NGIPS = {
 }
 
 export function Ngips(props: NodeProps) {
-  return <Shape {...NGIPS} {...props} _style={extendStyle(NGIPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, NGIPS)} />
 }

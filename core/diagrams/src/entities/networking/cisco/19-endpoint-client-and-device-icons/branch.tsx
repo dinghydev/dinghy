@@ -11,5 +11,5 @@ export const BRANCH = {
 }
 
 export function Branch(props: NodeProps) {
-  return <Shape {...BRANCH} {...props} _style={extendStyle(BRANCH, props)} />
+  return <Shape {...props} _style={extendStyle(props, BRANCH)} />
 }

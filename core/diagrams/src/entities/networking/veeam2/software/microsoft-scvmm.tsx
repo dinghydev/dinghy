@@ -11,11 +11,5 @@ export const MICROSOFT_SCVMM = {
 }
 
 export function MicrosoftScvmm(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_SCVMM}
-      {...props}
-      _style={extendStyle(MICROSOFT_SCVMM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_SCVMM)} />
 }

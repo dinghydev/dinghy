@@ -11,11 +11,5 @@ export const VESSEL_DOME = {
 }
 
 export function VesselDome(props: NodeProps) {
-  return (
-    <Shape
-      {...VESSEL_DOME}
-      {...props}
-      _style={extendStyle(VESSEL_DOME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VESSEL_DOME)} />
 }

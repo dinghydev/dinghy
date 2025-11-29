@@ -13,9 +13,8 @@ export const U_SHAPED_TUBES_HEAT_EXCHANGER = {
 export function UShapedTubesHeatExchanger(props: NodeProps) {
   return (
     <Shape
-      {...U_SHAPED_TUBES_HEAT_EXCHANGER}
       {...props}
-      _style={extendStyle(U_SHAPED_TUBES_HEAT_EXCHANGER, props)}
+      _style={extendStyle(props, U_SHAPED_TUBES_HEAT_EXCHANGER)}
     />
   )
 }

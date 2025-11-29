@@ -11,7 +11,5 @@ export const AMAZON_VPC = {
 }
 
 export function AmazonVpc(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_VPC} {...props} _style={extendStyle(AMAZON_VPC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_VPC)} />
 }

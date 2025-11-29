@@ -11,11 +11,5 @@ export const DEV_TUNNELS = {
 }
 
 export function DevTunnels(props: NodeProps) {
-  return (
-    <Shape
-      {...DEV_TUNNELS}
-      {...props}
-      _style={extendStyle(DEV_TUNNELS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEV_TUNNELS)} />
 }

@@ -11,11 +11,5 @@ export const SAP_KEYSTORE_SERVICE = {
 }
 
 export function SapKeystoreService(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_KEYSTORE_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_KEYSTORE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_KEYSTORE_SERVICE)} />
 }

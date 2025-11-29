@@ -11,11 +11,5 @@ export const CLOUD_SHIELD = {
 }
 
 export function CloudShield(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SHIELD}
-      {...props}
-      _style={extendStyle(CLOUD_SHIELD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SHIELD)} />
 }

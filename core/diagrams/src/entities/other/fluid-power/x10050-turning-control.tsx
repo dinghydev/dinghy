@@ -12,10 +12,6 @@ export const X10050_TURNING_CONTROL = {
 
 export function X10050TurningControl(props: NodeProps) {
   return (
-    <Shape
-      {...X10050_TURNING_CONTROL}
-      {...props}
-      _style={extendStyle(X10050_TURNING_CONTROL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10050_TURNING_CONTROL)} />
   )
 }

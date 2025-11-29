@@ -11,11 +11,5 @@ export const DELIVERY_CONTROLLER = {
 }
 
 export function DeliveryController(props: NodeProps) {
-  return (
-    <Shape
-      {...DELIVERY_CONTROLLER}
-      {...props}
-      _style={extendStyle(DELIVERY_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELIVERY_CONTROLLER)} />
 }

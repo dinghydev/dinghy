@@ -11,5 +11,5 @@ export const DELTA = {
 }
 
 export function Delta(props: NodeProps) {
-  return <Shape {...DELTA} {...props} _style={extendStyle(DELTA, props)} />
+  return <Shape {...props} _style={extendStyle(props, DELTA)} />
 }

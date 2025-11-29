@@ -11,5 +11,5 @@ export const TASKS = {
 }
 
 export function Tasks(props: NodeProps) {
-  return <Shape {...TASKS} {...props} _style={extendStyle(TASKS, props)} />
+  return <Shape {...props} _style={extendStyle(props, TASKS)} />
 }

@@ -11,11 +11,5 @@ export const NATIVE_TAPE_SUPPORT = {
 }
 
 export function NativeTapeSupport(props: NodeProps) {
-  return (
-    <Shape
-      {...NATIVE_TAPE_SUPPORT}
-      {...props}
-      _style={extendStyle(NATIVE_TAPE_SUPPORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NATIVE_TAPE_SUPPORT)} />
 }

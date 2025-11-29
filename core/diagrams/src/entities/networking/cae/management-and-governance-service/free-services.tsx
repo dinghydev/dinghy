@@ -11,11 +11,5 @@ export const FREE_SERVICES = {
 }
 
 export function FreeServices(props: NodeProps) {
-  return (
-    <Shape
-      {...FREE_SERVICES}
-      {...props}
-      _style={extendStyle(FREE_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FREE_SERVICES)} />
 }

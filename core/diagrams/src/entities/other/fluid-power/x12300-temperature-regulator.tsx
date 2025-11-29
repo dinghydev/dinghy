@@ -13,9 +13,8 @@ export const X12300_TEMPERATURE_REGULATOR = {
 export function X12300TemperatureRegulator(props: NodeProps) {
   return (
     <Shape
-      {...X12300_TEMPERATURE_REGULATOR}
       {...props}
-      _style={extendStyle(X12300_TEMPERATURE_REGULATOR, props)}
+      _style={extendStyle(props, X12300_TEMPERATURE_REGULATOR)}
     />
   )
 }

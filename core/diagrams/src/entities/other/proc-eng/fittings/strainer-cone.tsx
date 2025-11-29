@@ -11,11 +11,5 @@ export const STRAINER_CONE = {
 }
 
 export function StrainerCone(props: NodeProps) {
-  return (
-    <Shape
-      {...STRAINER_CONE}
-      {...props}
-      _style={extendStyle(STRAINER_CONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STRAINER_CONE)} />
 }

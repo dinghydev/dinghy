@@ -11,11 +11,5 @@ export const SEARCH_GREEN = {
 }
 
 export function SearchGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...SEARCH_GREEN}
-      {...props}
-      _style={extendStyle(SEARCH_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEARCH_GREEN)} />
 }

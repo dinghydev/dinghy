@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Keys } from '@dinghy/diagrams/entitiesAzure2Menu'
 
 <Keys/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { KEYS } from '@dinghy/diagrams/entitiesAzure2Menu'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, KEYS)}
+  />
+
 ```
 
   </TabItem>

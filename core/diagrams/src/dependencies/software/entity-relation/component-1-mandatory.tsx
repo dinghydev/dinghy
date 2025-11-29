@@ -10,10 +10,6 @@ export const COMPONENT_1_MANDATORY = {
 
 export function Component1Mandatory(props: NodeProps) {
   return (
-    <Dependency
-      {...COMPONENT_1_MANDATORY}
-      {...props}
-      _style={extendStyle(COMPONENT_1_MANDATORY, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, COMPONENT_1_MANDATORY)} />
   )
 }

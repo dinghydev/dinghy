@@ -11,11 +11,5 @@ export const POWERED_NETWORK = {
 }
 
 export function PoweredNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...POWERED_NETWORK}
-      {...props}
-      _style={extendStyle(POWERED_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERED_NETWORK)} />
 }

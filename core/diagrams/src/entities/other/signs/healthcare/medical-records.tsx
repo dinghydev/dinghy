@@ -11,11 +11,5 @@ export const MEDICAL_RECORDS = {
 }
 
 export function MedicalRecords(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDICAL_RECORDS}
-      {...props}
-      _style={extendStyle(MEDICAL_RECORDS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDICAL_RECORDS)} />
 }

@@ -11,11 +11,5 @@ export const ADDRESS_BOOK = {
 }
 
 export function AddressBook(props: NodeProps) {
-  return (
-    <Shape
-      {...ADDRESS_BOOK}
-      {...props}
-      _style={extendStyle(ADDRESS_BOOK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADDRESS_BOOK)} />
 }

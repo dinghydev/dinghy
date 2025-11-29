@@ -13,9 +13,8 @@ export const MULTIPLE_PROCESS_START_STATE_MULTI_STATE = {
 export function MultipleProcessStartStateMultiState(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_PROCESS_START_STATE_MULTI_STATE}
       {...props}
-      _style={extendStyle(MULTIPLE_PROCESS_START_STATE_MULTI_STATE, props)}
+      _style={extendStyle(props, MULTIPLE_PROCESS_START_STATE_MULTI_STATE)}
     />
   )
 }

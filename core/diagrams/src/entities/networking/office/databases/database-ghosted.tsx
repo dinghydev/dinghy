@@ -11,11 +11,5 @@ export const DATABASE_GHOSTED = {
 }
 
 export function DatabaseGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_GHOSTED}
-      {...props}
-      _style={extendStyle(DATABASE_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_GHOSTED)} />
 }

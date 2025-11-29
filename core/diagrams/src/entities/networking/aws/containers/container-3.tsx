@@ -11,11 +11,5 @@ export const CONTAINER_3 = {
 }
 
 export function Container3(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTAINER_3}
-      {...props}
-      _style={extendStyle(CONTAINER_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTAINER_3)} />
 }

@@ -11,11 +11,5 @@ export const DATABASE_MIRROR = {
 }
 
 export function DatabaseMirror(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_MIRROR}
-      {...props}
-      _style={extendStyle(DATABASE_MIRROR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_MIRROR)} />
 }

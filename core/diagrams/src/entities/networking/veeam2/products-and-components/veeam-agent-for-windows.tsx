@@ -12,10 +12,6 @@ export const VEEAM_AGENT_FOR_WINDOWS = {
 
 export function VeeamAgentForWindows(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_AGENT_FOR_WINDOWS}
-      {...props}
-      _style={extendStyle(VEEAM_AGENT_FOR_WINDOWS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_AGENT_FOR_WINDOWS)} />
   )
 }

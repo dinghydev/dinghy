@@ -11,11 +11,5 @@ export const WORKGROUP_SWITCH = {
 }
 
 export function WorkgroupSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKGROUP_SWITCH}
-      {...props}
-      _style={extendStyle(WORKGROUP_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKGROUP_SWITCH)} />
 }

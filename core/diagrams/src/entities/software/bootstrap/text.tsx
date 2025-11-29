@@ -11,5 +11,5 @@ export const TEXT = {
 }
 
 export function Text(props: NodeProps) {
-  return <Shape {...TEXT} {...props} _style={extendStyle(TEXT, props)} />
+  return <Shape {...props} _style={extendStyle(props, TEXT)} />
 }

@@ -11,5 +11,5 @@ export const NFVO = {
 }
 
 export function Nfvo(props: NodeProps) {
-  return <Shape {...NFVO} {...props} _style={extendStyle(NFVO, props)} />
+  return <Shape {...props} _style={extendStyle(props, NFVO)} />
 }

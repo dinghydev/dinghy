@@ -11,7 +11,5 @@ export const DIAPHRAGM = {
 }
 
 export function Diaphragm(props: NodeProps) {
-  return (
-    <Shape {...DIAPHRAGM} {...props} _style={extendStyle(DIAPHRAGM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIAPHRAGM)} />
 }

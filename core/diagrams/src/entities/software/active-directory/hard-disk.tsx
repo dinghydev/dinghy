@@ -11,7 +11,5 @@ export const HARD_DISK = {
 }
 
 export function HardDisk(props: NodeProps) {
-  return (
-    <Shape {...HARD_DISK} {...props} _style={extendStyle(HARD_DISK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HARD_DISK)} />
 }

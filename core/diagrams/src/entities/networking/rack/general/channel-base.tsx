@@ -11,11 +11,5 @@ export const CHANNEL_BASE = {
 }
 
 export function ChannelBase(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANNEL_BASE}
-      {...props}
-      _style={extendStyle(CHANNEL_BASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANNEL_BASE)} />
 }

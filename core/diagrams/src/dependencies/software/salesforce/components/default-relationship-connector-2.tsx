@@ -11,9 +11,8 @@ export const DEFAULT_RELATIONSHIP_CONNECTOR_2 = {
 export function DefaultRelationshipConnector2(props: NodeProps) {
   return (
     <Dependency
-      {...DEFAULT_RELATIONSHIP_CONNECTOR_2}
       {...props}
-      _style={extendStyle(DEFAULT_RELATIONSHIP_CONNECTOR_2, props)}
+      _style={extendStyle(props, DEFAULT_RELATIONSHIP_CONNECTOR_2)}
     />
   )
 }

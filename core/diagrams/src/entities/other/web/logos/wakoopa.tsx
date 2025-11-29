@@ -11,5 +11,5 @@ export const WAKOOPA = {
 }
 
 export function Wakoopa(props: NodeProps) {
-  return <Shape {...WAKOOPA} {...props} _style={extendStyle(WAKOOPA, props)} />
+  return <Shape {...props} _style={extendStyle(props, WAKOOPA)} />
 }

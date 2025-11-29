@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { BackgroundDark } from '@dinghy/diagrams/entitiesGmdlMisc'
 
 <BackgroundDark/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BACKGROUND_DARK } from '@dinghy/diagrams/entitiesGmdlMisc'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BACKGROUND_DARK)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { BackgroundDark } from '@dinghy/diagrams/entitiesGmdlMisc'
 import { BackgroundLight } from '@dinghy/diagrams/entitiesGmdlMisc'
 
 <BackgroundLight/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BACKGROUND_LIGHT } from '@dinghy/diagrams/entitiesGmdlMisc'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BACKGROUND_LIGHT)}
+  />
+
 ```
 
   </TabItem>
@@ -84,6 +106,17 @@ import { BackgroundLight } from '@dinghy/diagrams/entitiesGmdlMisc'
 import { Keyboard } from '@dinghy/diagrams/entitiesGmdlMisc'
 
 <Keyboard/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { KEYBOARD } from '@dinghy/diagrams/entitiesGmdlMisc'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, KEYBOARD)}
+  />
+
 ```
 
   </TabItem>
@@ -117,6 +150,17 @@ import { Keyboard } from '@dinghy/diagrams/entitiesGmdlMisc'
 import { Snackbar } from '@dinghy/diagrams/entitiesGmdlMisc'
 
 <Snackbar/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { SNACKBAR } from '@dinghy/diagrams/entitiesGmdlMisc'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, SNACKBAR)}
+  />
+
 ```
 
   </TabItem>

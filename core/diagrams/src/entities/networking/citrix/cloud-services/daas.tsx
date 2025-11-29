@@ -11,5 +11,5 @@ export const DAAS = {
 }
 
 export function Daas(props: NodeProps) {
-  return <Shape {...DAAS} {...props} _style={extendStyle(DAAS, props)} />
+  return <Shape {...props} _style={extendStyle(props, DAAS)} />
 }

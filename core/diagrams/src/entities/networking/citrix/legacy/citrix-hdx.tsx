@@ -11,7 +11,5 @@ export const CITRIX_HDX = {
 }
 
 export function CitrixHdx(props: NodeProps) {
-  return (
-    <Shape {...CITRIX_HDX} {...props} _style={extendStyle(CITRIX_HDX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_HDX)} />
 }

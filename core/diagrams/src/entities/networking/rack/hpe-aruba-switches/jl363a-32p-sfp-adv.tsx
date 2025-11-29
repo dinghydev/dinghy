@@ -11,11 +11,5 @@ export const JL363A_32P_SFP_ADV = {
 }
 
 export function Jl363a32pSfpAdv(props: NodeProps) {
-  return (
-    <Shape
-      {...JL363A_32P_SFP_ADV}
-      {...props}
-      _style={extendStyle(JL363A_32P_SFP_ADV, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JL363A_32P_SFP_ADV)} />
 }

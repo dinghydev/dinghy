@@ -11,5 +11,5 @@ export const WEBSITE = {
 }
 
 export function Website(props: NodeProps) {
-  return <Shape {...WEBSITE} {...props} _style={extendStyle(WEBSITE, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEBSITE)} />
 }

@@ -11,11 +11,5 @@ export const ON_OFF_BUTTON_ON = {
 }
 
 export function OnOffButtonOn(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_OFF_BUTTON_ON}
-      {...props}
-      _style={extendStyle(ON_OFF_BUTTON_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_OFF_BUTTON_ON)} />
 }

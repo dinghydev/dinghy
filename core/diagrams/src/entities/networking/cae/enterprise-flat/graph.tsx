@@ -11,5 +11,5 @@ export const GRAPH = {
 }
 
 export function Graph(props: NodeProps) {
-  return <Shape {...GRAPH} {...props} _style={extendStyle(GRAPH, props)} />
+  return <Shape {...props} _style={extendStyle(props, GRAPH)} />
 }

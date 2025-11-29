@@ -11,7 +11,5 @@ export const COMPUTER = {
 }
 
 export function Computer(props: NodeProps) {
-  return (
-    <Shape {...COMPUTER} {...props} _style={extendStyle(COMPUTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTER)} />
 }

@@ -140,7 +140,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
       return (
         <AwsS3BucketPolicy
           _name={bucketName}
-          bucket={bucket}
+          bucket={bucket as any}
           policy={dataAwsIamPolicyDocument.json}
         >
           <DataAwsIamPolicyDocument
@@ -189,9 +189,9 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
       >
         <AwsS3BucketLogging
           _name={bucketName}
-          bucket={bucket}
+          bucket={bucket as any}
           target_bucket={logBucket.bucket}
-          target_prefix={target_prefix}
+          target_prefix={target_prefix as any}
         />
         <S3BucketPolicy />
         <Files />

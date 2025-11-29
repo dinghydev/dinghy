@@ -11,11 +11,5 @@ export const MEDIA_ENCODING = {
 }
 
 export function MediaEncoding(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDIA_ENCODING}
-      {...props}
-      _style={extendStyle(MEDIA_ENCODING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIA_ENCODING)} />
 }

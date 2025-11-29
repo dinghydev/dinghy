@@ -11,11 +11,5 @@ export const APPLICATION_BLANK = {
 }
 
 export function ApplicationBlank(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_BLANK}
-      {...props}
-      _style={extendStyle(APPLICATION_BLANK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_BLANK)} />
 }

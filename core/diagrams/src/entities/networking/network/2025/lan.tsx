@@ -11,5 +11,5 @@ export const LAN = {
 }
 
 export function Lan(props: NodeProps) {
-  return <Shape {...LAN} {...props} _style={extendStyle(LAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAN)} />
 }

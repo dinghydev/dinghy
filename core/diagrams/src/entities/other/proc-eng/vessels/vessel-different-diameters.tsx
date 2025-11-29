@@ -12,10 +12,6 @@ export const VESSEL_DIFFERENT_DIAMETERS = {
 
 export function VesselDifferentDiameters(props: NodeProps) {
   return (
-    <Shape
-      {...VESSEL_DIFFERENT_DIAMETERS}
-      {...props}
-      _style={extendStyle(VESSEL_DIFFERENT_DIAMETERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VESSEL_DIFFERENT_DIAMETERS)} />
   )
 }

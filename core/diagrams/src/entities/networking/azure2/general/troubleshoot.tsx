@@ -11,11 +11,5 @@ export const TROUBLESHOOT = {
 }
 
 export function Troubleshoot(props: NodeProps) {
-  return (
-    <Shape
-      {...TROUBLESHOOT}
-      {...props}
-      _style={extendStyle(TROUBLESHOOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TROUBLESHOOT)} />
 }

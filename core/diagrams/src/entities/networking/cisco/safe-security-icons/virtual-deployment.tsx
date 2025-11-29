@@ -11,11 +11,5 @@ export const VIRTUAL_DEPLOYMENT = {
 }
 
 export function VirtualDeployment(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_DEPLOYMENT}
-      {...props}
-      _style={extendStyle(VIRTUAL_DEPLOYMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_DEPLOYMENT)} />
 }

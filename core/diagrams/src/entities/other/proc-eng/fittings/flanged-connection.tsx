@@ -11,11 +11,5 @@ export const FLANGED_CONNECTION = {
 }
 
 export function FlangedConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...FLANGED_CONNECTION}
-      {...props}
-      _style={extendStyle(FLANGED_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLANGED_CONNECTION)} />
 }

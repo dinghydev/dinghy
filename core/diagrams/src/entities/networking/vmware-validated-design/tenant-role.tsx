@@ -11,11 +11,5 @@ export const TENANT_ROLE = {
 }
 
 export function TenantRole(props: NodeProps) {
-  return (
-    <Shape
-      {...TENANT_ROLE}
-      {...props}
-      _style={extendStyle(TENANT_ROLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENANT_ROLE)} />
 }

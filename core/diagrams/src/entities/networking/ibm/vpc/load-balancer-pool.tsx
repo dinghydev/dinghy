@@ -11,11 +11,5 @@ export const LOAD_BALANCER_POOL = {
 }
 
 export function LoadBalancerPool(props: NodeProps) {
-  return (
-    <Shape
-      {...LOAD_BALANCER_POOL}
-      {...props}
-      _style={extendStyle(LOAD_BALANCER_POOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOAD_BALANCER_POOL)} />
 }

@@ -12,10 +12,6 @@ export const SPINNER_DISABLED_FOCUSED = {
 
 export function SpinnerDisabledFocused(props: NodeProps) {
   return (
-    <Shape
-      {...SPINNER_DISABLED_FOCUSED}
-      {...props}
-      _style={extendStyle(SPINNER_DISABLED_FOCUSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SPINNER_DISABLED_FOCUSED)} />
   )
 }

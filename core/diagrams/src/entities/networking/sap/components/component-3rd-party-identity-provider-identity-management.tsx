@@ -15,11 +15,10 @@ export function Component3rdPartyIdentityProviderIdentityManagement(
 ) {
   return (
     <Shape
-      {...COMPONENT_3RD_PARTY_IDENTITY_PROVIDER_IDENTITY_MANAGEMENT}
       {...props}
       _style={extendStyle(
-        COMPONENT_3RD_PARTY_IDENTITY_PROVIDER_IDENTITY_MANAGEMENT,
         props,
+        COMPONENT_3RD_PARTY_IDENTITY_PROVIDER_IDENTITY_MANAGEMENT,
       )}
     />
   )

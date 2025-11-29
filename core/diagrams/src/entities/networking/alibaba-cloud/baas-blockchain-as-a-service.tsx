@@ -13,9 +13,8 @@ export const BAAS_BLOCKCHAIN_AS_A_SERVICE = {
 export function BaasBlockchainAsAService(props: NodeProps) {
   return (
     <Shape
-      {...BAAS_BLOCKCHAIN_AS_A_SERVICE}
       {...props}
-      _style={extendStyle(BAAS_BLOCKCHAIN_AS_A_SERVICE, props)}
+      _style={extendStyle(props, BAAS_BLOCKCHAIN_AS_A_SERVICE)}
     />
   )
 }

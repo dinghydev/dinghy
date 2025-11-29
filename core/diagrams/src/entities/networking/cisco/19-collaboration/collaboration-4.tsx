@@ -11,11 +11,5 @@ export const COLLABORATION_4 = {
 }
 
 export function Collaboration4(props: NodeProps) {
-  return (
-    <Shape
-      {...COLLABORATION_4}
-      {...props}
-      _style={extendStyle(COLLABORATION_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLLABORATION_4)} />
 }

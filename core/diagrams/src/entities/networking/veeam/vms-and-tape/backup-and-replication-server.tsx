@@ -13,9 +13,8 @@ export const BACKUP_AND_REPLICATION_SERVER = {
 export function BackupAndReplicationServer(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_AND_REPLICATION_SERVER}
       {...props}
-      _style={extendStyle(BACKUP_AND_REPLICATION_SERVER, props)}
+      _style={extendStyle(props, BACKUP_AND_REPLICATION_SERVER)}
     />
   )
 }

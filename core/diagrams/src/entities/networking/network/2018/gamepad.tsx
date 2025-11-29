@@ -11,5 +11,5 @@ export const GAMEPAD = {
 }
 
 export function Gamepad(props: NodeProps) {
-  return <Shape {...GAMEPAD} {...props} _style={extendStyle(GAMEPAD, props)} />
+  return <Shape {...props} _style={extendStyle(props, GAMEPAD)} />
 }

@@ -11,11 +11,5 @@ export const WIRELESS_MODEM = {
 }
 
 export function WirelessModem(props: NodeProps) {
-  return (
-    <Shape
-      {...WIRELESS_MODEM}
-      {...props}
-      _style={extendStyle(WIRELESS_MODEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRELESS_MODEM)} />
 }

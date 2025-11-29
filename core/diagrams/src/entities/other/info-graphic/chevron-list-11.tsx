@@ -11,11 +11,5 @@ export const CHEVRON_LIST_11 = {
 }
 
 export function ChevronList11(props: NodeProps) {
-  return (
-    <Shape
-      {...CHEVRON_LIST_11}
-      {...props}
-      _style={extendStyle(CHEVRON_LIST_11, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHEVRON_LIST_11)} />
 }

@@ -11,7 +11,5 @@ export const PBX_SWITCH = {
 }
 
 export function PbxSwitch(props: NodeProps) {
-  return (
-    <Shape {...PBX_SWITCH} {...props} _style={extendStyle(PBX_SWITCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PBX_SWITCH)} />
 }

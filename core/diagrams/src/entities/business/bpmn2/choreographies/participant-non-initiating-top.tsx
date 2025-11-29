@@ -13,9 +13,8 @@ export const PARTICIPANT_NON_INITIATING_TOP = {
 export function ParticipantNonInitiatingTop(props: NodeProps) {
   return (
     <Shape
-      {...PARTICIPANT_NON_INITIATING_TOP}
       {...props}
-      _style={extendStyle(PARTICIPANT_NON_INITIATING_TOP, props)}
+      _style={extendStyle(props, PARTICIPANT_NON_INITIATING_TOP)}
     />
   )
 }

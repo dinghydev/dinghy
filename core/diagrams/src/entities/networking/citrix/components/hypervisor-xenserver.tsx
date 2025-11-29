@@ -11,11 +11,5 @@ export const HYPERVISOR_XENSERVER = {
 }
 
 export function HypervisorXenserver(props: NodeProps) {
-  return (
-    <Shape
-      {...HYPERVISOR_XENSERVER}
-      {...props}
-      _style={extendStyle(HYPERVISOR_XENSERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYPERVISOR_XENSERVER)} />
 }

@@ -11,11 +11,5 @@ export const ALLOCATED_STEREOTYPE = {
 }
 
 export function AllocatedStereotype(props: NodeProps) {
-  return (
-    <Shape
-      {...ALLOCATED_STEREOTYPE}
-      {...props}
-      _style={extendStyle(ALLOCATED_STEREOTYPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALLOCATED_STEREOTYPE)} />
 }

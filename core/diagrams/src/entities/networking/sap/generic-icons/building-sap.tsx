@@ -11,11 +11,5 @@ export const BUILDING_SAP = {
 }
 
 export function BuildingSap(props: NodeProps) {
-  return (
-    <Shape
-      {...BUILDING_SAP}
-      {...props}
-      _style={extendStyle(BUILDING_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUILDING_SAP)} />
 }

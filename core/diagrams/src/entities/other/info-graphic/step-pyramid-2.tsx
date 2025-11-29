@@ -11,11 +11,5 @@ export const STEP_PYRAMID_2 = {
 }
 
 export function StepPyramid2(props: NodeProps) {
-  return (
-    <Shape
-      {...STEP_PYRAMID_2}
-      {...props}
-      _style={extendStyle(STEP_PYRAMID_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEP_PYRAMID_2)} />
 }

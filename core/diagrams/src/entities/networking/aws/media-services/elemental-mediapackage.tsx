@@ -12,10 +12,6 @@ export const ELEMENTAL_MEDIAPACKAGE = {
 
 export function ElementalMediapackage(props: NodeProps) {
   return (
-    <Shape
-      {...ELEMENTAL_MEDIAPACKAGE}
-      {...props}
-      _style={extendStyle(ELEMENTAL_MEDIAPACKAGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELEMENTAL_MEDIAPACKAGE)} />
   )
 }

@@ -11,11 +11,5 @@ export const COLLISION_NON_SAP = {
 }
 
 export function CollisionNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...COLLISION_NON_SAP}
-      {...props}
-      _style={extendStyle(COLLISION_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLLISION_NON_SAP)} />
 }

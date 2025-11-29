@@ -12,10 +12,6 @@ export const OSS_OBJECT_STORAGE_SERVICE = {
 
 export function OssObjectStorageService(props: NodeProps) {
   return (
-    <Shape
-      {...OSS_OBJECT_STORAGE_SERVICE}
-      {...props}
-      _style={extendStyle(OSS_OBJECT_STORAGE_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OSS_OBJECT_STORAGE_SERVICE)} />
   )
 }

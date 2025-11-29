@@ -11,11 +11,5 @@ export const VREALIZE_LOG_INSIGHT = {
 }
 
 export function VrealizeLogInsight(props: NodeProps) {
-  return (
-    <Shape
-      {...VREALIZE_LOG_INSIGHT}
-      {...props}
-      _style={extendStyle(VREALIZE_LOG_INSIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VREALIZE_LOG_INSIGHT)} />
 }

@@ -11,5 +11,5 @@ export const INBOX_2 = {
 }
 
 export function Inbox2(props: NodeProps) {
-  return <Shape {...INBOX_2} {...props} _style={extendStyle(INBOX_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, INBOX_2)} />
 }

@@ -10,11 +10,5 @@ export const STEREOTYPE_LABEL = {
 }
 
 export function StereotypeLabel(props: NodeProps) {
-  return (
-    <Shape
-      {...STEREOTYPE_LABEL}
-      {...props}
-      _style={extendStyle(STEREOTYPE_LABEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEREOTYPE_LABEL)} />
 }

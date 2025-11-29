@@ -12,10 +12,6 @@ export const SAP_PRIVATE_LINK_SERVICE = {
 
 export function SapPrivateLinkService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_PRIVATE_LINK_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_PRIVATE_LINK_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_PRIVATE_LINK_SERVICE)} />
   )
 }

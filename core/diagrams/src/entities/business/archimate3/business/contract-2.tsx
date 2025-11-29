@@ -11,7 +11,5 @@ export const CONTRACT_2 = {
 }
 
 export function Contract2(props: NodeProps) {
-  return (
-    <Shape {...CONTRACT_2} {...props} _style={extendStyle(CONTRACT_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTRACT_2)} />
 }

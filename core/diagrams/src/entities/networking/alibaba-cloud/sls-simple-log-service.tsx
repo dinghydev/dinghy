@@ -12,10 +12,6 @@ export const SLS_SIMPLE_LOG_SERVICE = {
 
 export function SlsSimpleLogService(props: NodeProps) {
   return (
-    <Shape
-      {...SLS_SIMPLE_LOG_SERVICE}
-      {...props}
-      _style={extendStyle(SLS_SIMPLE_LOG_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SLS_SIMPLE_LOG_SERVICE)} />
   )
 }

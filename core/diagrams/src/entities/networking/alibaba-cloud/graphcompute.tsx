@@ -11,11 +11,5 @@ export const GRAPHCOMPUTE = {
 }
 
 export function Graphcompute(props: NodeProps) {
-  return (
-    <Shape
-      {...GRAPHCOMPUTE}
-      {...props}
-      _style={extendStyle(GRAPHCOMPUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GRAPHCOMPUTE)} />
 }

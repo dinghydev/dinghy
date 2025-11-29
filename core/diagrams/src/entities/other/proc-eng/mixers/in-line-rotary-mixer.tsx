@@ -11,11 +11,5 @@ export const IN_LINE_ROTARY_MIXER = {
 }
 
 export function InLineRotaryMixer(props: NodeProps) {
-  return (
-    <Shape
-      {...IN_LINE_ROTARY_MIXER}
-      {...props}
-      _style={extendStyle(IN_LINE_ROTARY_MIXER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IN_LINE_ROTARY_MIXER)} />
 }

@@ -11,11 +11,5 @@ export const ITEM_FLOW_2 = {
 }
 
 export function ItemFlow2(props: NodeProps) {
-  return (
-    <Shape
-      {...ITEM_FLOW_2}
-      {...props}
-      _style={extendStyle(ITEM_FLOW_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ITEM_FLOW_2)} />
 }

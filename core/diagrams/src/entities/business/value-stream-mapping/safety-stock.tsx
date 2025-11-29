@@ -11,11 +11,5 @@ export const SAFETY_STOCK = {
 }
 
 export function SafetyStock(props: NodeProps) {
-  return (
-    <Shape
-      {...SAFETY_STOCK}
-      {...props}
-      _style={extendStyle(SAFETY_STOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAFETY_STOCK)} />
 }

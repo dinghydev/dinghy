@@ -11,7 +11,5 @@ export const THREAT_A1 = {
 }
 
 export function ThreatA1(props: NodeProps) {
-  return (
-    <Shape {...THREAT_A1} {...props} _style={extendStyle(THREAT_A1, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, THREAT_A1)} />
 }

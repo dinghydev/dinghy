@@ -12,10 +12,6 @@ export const SESSION_RECORDING_SERVICE = {
 
 export function SessionRecordingService(props: NodeProps) {
   return (
-    <Shape
-      {...SESSION_RECORDING_SERVICE}
-      {...props}
-      _style={extendStyle(SESSION_RECORDING_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SESSION_RECORDING_SERVICE)} />
   )
 }

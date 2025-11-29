@@ -11,11 +11,5 @@ export const DRUM_OR_CONDENSER = {
 }
 
 export function DrumOrCondenser(props: NodeProps) {
-  return (
-    <Shape
-      {...DRUM_OR_CONDENSER}
-      {...props}
-      _style={extendStyle(DRUM_OR_CONDENSER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DRUM_OR_CONDENSER)} />
 }

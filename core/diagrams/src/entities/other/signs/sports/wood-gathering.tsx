@@ -11,11 +11,5 @@ export const WOOD_GATHERING = {
 }
 
 export function WoodGathering(props: NodeProps) {
-  return (
-    <Shape
-      {...WOOD_GATHERING}
-      {...props}
-      _style={extendStyle(WOOD_GATHERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WOOD_GATHERING)} />
 }

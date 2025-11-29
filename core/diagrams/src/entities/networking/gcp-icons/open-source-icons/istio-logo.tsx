@@ -11,7 +11,5 @@ export const ISTIO_LOGO = {
 }
 
 export function IstioLogo(props: NodeProps) {
-  return (
-    <Shape {...ISTIO_LOGO} {...props} _style={extendStyle(ISTIO_LOGO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISTIO_LOGO)} />
 }

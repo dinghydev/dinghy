@@ -12,10 +12,6 @@ export const GOVERNANCE_RISK_COMPLIANCE = {
 
 export function GovernanceRiskCompliance(props: NodeProps) {
   return (
-    <Shape
-      {...GOVERNANCE_RISK_COMPLIANCE}
-      {...props}
-      _style={extendStyle(GOVERNANCE_RISK_COMPLIANCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GOVERNANCE_RISK_COMPLIANCE)} />
   )
 }

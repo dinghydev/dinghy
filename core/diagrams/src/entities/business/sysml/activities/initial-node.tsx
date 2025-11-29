@@ -11,11 +11,5 @@ export const INITIAL_NODE = {
 }
 
 export function InitialNode(props: NodeProps) {
-  return (
-    <Shape
-      {...INITIAL_NODE}
-      {...props}
-      _style={extendStyle(INITIAL_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INITIAL_NODE)} />
 }

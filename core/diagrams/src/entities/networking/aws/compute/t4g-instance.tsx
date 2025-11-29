@@ -11,11 +11,5 @@ export const T4G_INSTANCE = {
 }
 
 export function T4gInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...T4G_INSTANCE}
-      {...props}
-      _style={extendStyle(T4G_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, T4G_INSTANCE)} />
 }

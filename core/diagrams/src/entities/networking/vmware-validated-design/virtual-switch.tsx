@@ -11,11 +11,5 @@ export const VIRTUAL_SWITCH = {
 }
 
 export function VirtualSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_SWITCH}
-      {...props}
-      _style={extendStyle(VIRTUAL_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_SWITCH)} />
 }

@@ -11,5 +11,5 @@ export const WALKING = {
 }
 
 export function Walking(props: NodeProps) {
-  return <Shape {...WALKING} {...props} _style={extendStyle(WALKING, props)} />
+  return <Shape {...props} _style={extendStyle(props, WALKING)} />
 }

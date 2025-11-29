@@ -11,11 +11,5 @@ export const NETSCALER_GATEWAY = {
 }
 
 export function NetscalerGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...NETSCALER_GATEWAY}
-      {...props}
-      _style={extendStyle(NETSCALER_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETSCALER_GATEWAY)} />
 }

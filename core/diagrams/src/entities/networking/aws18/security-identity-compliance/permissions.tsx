@@ -11,11 +11,5 @@ export const PERMISSIONS = {
 }
 
 export function Permissions(props: NodeProps) {
-  return (
-    <Shape
-      {...PERMISSIONS}
-      {...props}
-      _style={extendStyle(PERMISSIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERMISSIONS)} />
 }

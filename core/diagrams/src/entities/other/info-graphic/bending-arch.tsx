@@ -11,11 +11,5 @@ export const BENDING_ARCH = {
 }
 
 export function BendingArch(props: NodeProps) {
-  return (
-    <Shape
-      {...BENDING_ARCH}
-      {...props}
-      _style={extendStyle(BENDING_ARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BENDING_ARCH)} />
 }

@@ -11,5 +11,5 @@ export const VPC_2 = {
 }
 
 export function Vpc2(props: NodeProps) {
-  return <Shape {...VPC_2} {...props} _style={extendStyle(VPC_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, VPC_2)} />
 }

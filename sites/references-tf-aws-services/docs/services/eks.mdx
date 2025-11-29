@@ -1,0 +1,343 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# EKS (Elastic Kubernetes)
+
+## AwsEksAccessEntry
+
+Access Entry Configurations for an EKS Cluster.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_access_entry)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksAccessEntry.tsx)
+
+```js
+import { AwsEksAccessEntry } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksAccessEntry/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_access_entry)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksAccessEntry.tsx)
+
+```js
+import { DataAwsEksAccessEntry } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksAccessEntry/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksAccessPolicyAssociation
+
+Access Entry Policy Association for an EKS Cluster.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_access_policy_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksAccessPolicyAssociation.tsx)
+
+```js
+import { AwsEksAccessPolicyAssociation } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksAccessPolicyAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksAddon
+
+Manages an EKS add-on
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_addon)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksAddon.tsx)
+
+```js
+import { AwsEksAddon } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksAddon/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_addon)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksAddon.tsx)
+
+```js
+import { DataAwsEksAddon } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksAddon/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksAddonVersion
+
+Retrieve information about versions of an EKS add-on
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_addon_version)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksAddonVersion.tsx)
+
+```js
+import { DataAwsEksAddonVersion } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksAddonVersion/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksCluster
+
+Manages an EKS Cluster
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksCluster.tsx)
+
+```js
+import { AwsEksCluster } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksCluster/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksCluster.tsx)
+
+```js
+import { DataAwsEksCluster } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksCluster/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksClusterAuth
+
+Get an authentication token to communicate with an EKS Cluster
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster_auth)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksClusterAuth.tsx)
+
+```js
+import { DataAwsEksClusterAuth } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksClusterAuth/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksClusters
+
+Retrieve EKS Clusters list
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_clusters)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksClusters.tsx)
+
+```js
+import { DataAwsEksClusters } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksClusters/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksClusterVersions
+
+Terraform data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster_versions)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksClusterVersions.tsx)
+
+```js
+import { DataAwsEksClusterVersions } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksClusterVersions/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksFargateProfile
+
+Manages an EKS Fargate Profile
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_fargate_profile)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksFargateProfile.tsx)
+
+```js
+import { AwsEksFargateProfile } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksFargateProfile/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksIdentityProviderConfig
+
+Manages an EKS Identity Provider Configuration.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_identity_provider_config)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksIdentityProviderConfig.tsx)
+
+```js
+import { AwsEksIdentityProviderConfig } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksIdentityProviderConfig/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksNodeGroup
+
+Manages an EKS Node Group
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_node_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksNodeGroup.tsx)
+
+```js
+import { AwsEksNodeGroup } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksNodeGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_node_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksNodeGroup.tsx)
+
+```js
+import { DataAwsEksNodeGroup } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksNodeGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksNodeGroups
+
+Provides a set of node groups for an EKS Cluster
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_node_groups)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/DataAwsEksNodeGroups.tsx)
+
+```js
+import { DataAwsEksNodeGroups } from "@dinghy/tf-aws/serviceEks"
+
+<DataAwsEksNodeGroups/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEksPodIdentityAssociation
+
+Terraform resource for managing an AWS EKS (Elastic Kubernetes) Pod Identity Association.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_pod_identity_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/eks/AwsEksPodIdentityAssociation.tsx)
+
+```js
+import { AwsEksPodIdentityAssociation } from "@dinghy/tf-aws/serviceEks"
+
+<AwsEksPodIdentityAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

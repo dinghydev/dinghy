@@ -13,9 +13,8 @@ export const J9995A_8P_SMART_RATE_POE_MODULE = {
 export function J9995a8pSmartRatePoeModule(props: NodeProps) {
   return (
     <Shape
-      {...J9995A_8P_SMART_RATE_POE_MODULE}
       {...props}
-      _style={extendStyle(J9995A_8P_SMART_RATE_POE_MODULE, props)}
+      _style={extendStyle(props, J9995A_8P_SMART_RATE_POE_MODULE)}
     />
   )
 }

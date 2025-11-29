@@ -13,9 +13,8 @@ export const COLUMN_STAGGERED_BAFFLE_TRAYS = {
 export function ColumnStaggeredBaffleTrays(props: NodeProps) {
   return (
     <Shape
-      {...COLUMN_STAGGERED_BAFFLE_TRAYS}
       {...props}
-      _style={extendStyle(COLUMN_STAGGERED_BAFFLE_TRAYS, props)}
+      _style={extendStyle(props, COLUMN_STAGGERED_BAFFLE_TRAYS)}
     />
   )
 }

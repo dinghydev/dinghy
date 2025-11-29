@@ -11,11 +11,5 @@ export const COST_ANALYSIS = {
 }
 
 export function CostAnalysis(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_ANALYSIS}
-      {...props}
-      _style={extendStyle(COST_ANALYSIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_ANALYSIS)} />
 }

@@ -11,7 +11,5 @@ export const DATAPROC = {
 }
 
 export function Dataproc(props: NodeProps) {
-  return (
-    <Shape {...DATAPROC} {...props} _style={extendStyle(DATAPROC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAPROC)} />
 }

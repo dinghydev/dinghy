@@ -11,11 +11,5 @@ export const CLOUD_TASKS = {
 }
 
 export function CloudTasks(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_TASKS}
-      {...props}
-      _style={extendStyle(CLOUD_TASKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_TASKS)} />
 }

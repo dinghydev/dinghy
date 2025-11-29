@@ -11,11 +11,5 @@ export const AMAZON_COMPREHEND = {
 }
 
 export function AmazonComprehend(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_COMPREHEND}
-      {...props}
-      _style={extendStyle(AMAZON_COMPREHEND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_COMPREHEND)} />
 }

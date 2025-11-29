@@ -11,11 +11,5 @@ export const TAB_BAR_BRIGHT = {
 }
 
 export function TabBarBright(props: NodeProps) {
-  return (
-    <Shape
-      {...TAB_BAR_BRIGHT}
-      {...props}
-      _style={extendStyle(TAB_BAR_BRIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAB_BAR_BRIGHT)} />
 }

@@ -11,11 +11,5 @@ export const AZURE_PIPELINES = {
 }
 
 export function AzurePipelines(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_PIPELINES}
-      {...props}
-      _style={extendStyle(AZURE_PIPELINES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_PIPELINES)} />
 }

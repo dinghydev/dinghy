@@ -11,11 +11,5 @@ export const NEUTRON_NET = {
 }
 
 export function NeutronNet(props: NodeProps) {
-  return (
-    <Shape
-      {...NEUTRON_NET}
-      {...props}
-      _style={extendStyle(NEUTRON_NET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEUTRON_NET)} />
 }

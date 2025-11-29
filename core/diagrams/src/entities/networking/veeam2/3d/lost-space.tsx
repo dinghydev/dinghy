@@ -11,7 +11,5 @@ export const LOST_SPACE = {
 }
 
 export function LostSpace(props: NodeProps) {
-  return (
-    <Shape {...LOST_SPACE} {...props} _style={extendStyle(LOST_SPACE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOST_SPACE)} />
 }

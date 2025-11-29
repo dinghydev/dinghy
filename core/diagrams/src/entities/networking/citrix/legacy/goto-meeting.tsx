@@ -11,11 +11,5 @@ export const GOTO_MEETING = {
 }
 
 export function GotoMeeting(props: NodeProps) {
-  return (
-    <Shape
-      {...GOTO_MEETING}
-      {...props}
-      _style={extendStyle(GOTO_MEETING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOTO_MEETING)} />
 }

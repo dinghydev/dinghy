@@ -11,11 +11,5 @@ export const AMAZON_TRANSLATE = {
 }
 
 export function AmazonTranslate(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_TRANSLATE}
-      {...props}
-      _style={extendStyle(AMAZON_TRANSLATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_TRANSLATE)} />
 }

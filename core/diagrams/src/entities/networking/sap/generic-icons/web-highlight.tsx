@@ -11,11 +11,5 @@ export const WEB_HIGHLIGHT = {
 }
 
 export function WebHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(WEB_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_HIGHLIGHT)} />
 }

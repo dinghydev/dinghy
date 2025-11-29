@@ -13,9 +13,8 @@ export const NODE_JS_PERFORMANCE_PLATFORM = {
 export function NodeJsPerformancePlatform(props: NodeProps) {
   return (
     <Shape
-      {...NODE_JS_PERFORMANCE_PLATFORM}
       {...props}
-      _style={extendStyle(NODE_JS_PERFORMANCE_PLATFORM, props)}
+      _style={extendStyle(props, NODE_JS_PERFORMANCE_PLATFORM)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const PRINTER_COMMERCIAL = {
 }
 
 export function PrinterCommercial(props: NodeProps) {
-  return (
-    <Shape
-      {...PRINTER_COMMERCIAL}
-      {...props}
-      _style={extendStyle(PRINTER_COMMERCIAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRINTER_COMMERCIAL)} />
 }

@@ -11,7 +11,5 @@ export const HDINSIGHT = {
 }
 
 export function Hdinsight(props: NodeProps) {
-  return (
-    <Shape {...HDINSIGHT} {...props} _style={extendStyle(HDINSIGHT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HDINSIGHT)} />
 }

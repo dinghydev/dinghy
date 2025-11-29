@@ -11,11 +11,5 @@ export const DESIGNFLOAT = {
 }
 
 export function Designfloat(props: NodeProps) {
-  return (
-    <Shape
-      {...DESIGNFLOAT}
-      {...props}
-      _style={extendStyle(DESIGNFLOAT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESIGNFLOAT)} />
 }

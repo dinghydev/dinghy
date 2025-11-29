@@ -11,11 +11,5 @@ export const AZURE_ARTIFACTS = {
 }
 
 export function AzureArtifacts(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_ARTIFACTS}
-      {...props}
-      _style={extendStyle(AZURE_ARTIFACTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_ARTIFACTS)} />
 }

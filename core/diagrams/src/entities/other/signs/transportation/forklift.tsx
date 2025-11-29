@@ -11,7 +11,5 @@ export const FORKLIFT = {
 }
 
 export function Forklift(props: NodeProps) {
-  return (
-    <Shape {...FORKLIFT} {...props} _style={extendStyle(FORKLIFT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORKLIFT)} />
 }

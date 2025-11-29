@@ -13,9 +13,8 @@ export const VESSEL_DISHED_ENDS_HEATING_COOLING_JACKET = {
 export function VesselDishedEndsHeatingCoolingJacket(props: NodeProps) {
   return (
     <Shape
-      {...VESSEL_DISHED_ENDS_HEATING_COOLING_JACKET}
       {...props}
-      _style={extendStyle(VESSEL_DISHED_ENDS_HEATING_COOLING_JACKET, props)}
+      _style={extendStyle(props, VESSEL_DISHED_ENDS_HEATING_COOLING_JACKET)}
     />
   )
 }

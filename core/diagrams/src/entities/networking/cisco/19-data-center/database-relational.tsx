@@ -11,11 +11,5 @@ export const DATABASE_RELATIONAL = {
 }
 
 export function DatabaseRelational(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_RELATIONAL}
-      {...props}
-      _style={extendStyle(DATABASE_RELATIONAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_RELATIONAL)} />
 }

@@ -11,11 +11,5 @@ export const ENDPOINT_WHITE = {
 }
 
 export function EndpointWhite(props: NodeProps) {
-  return (
-    <Shape
-      {...ENDPOINT_WHITE}
-      {...props}
-      _style={extendStyle(ENDPOINT_WHITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENDPOINT_WHITE)} />
 }

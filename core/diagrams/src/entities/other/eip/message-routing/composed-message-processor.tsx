@@ -12,10 +12,6 @@ export const COMPOSED_MESSAGE_PROCESSOR = {
 
 export function ComposedMessageProcessor(props: NodeProps) {
   return (
-    <Shape
-      {...COMPOSED_MESSAGE_PROCESSOR}
-      {...props}
-      _style={extendStyle(COMPOSED_MESSAGE_PROCESSOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPOSED_MESSAGE_PROCESSOR)} />
   )
 }

@@ -12,10 +12,6 @@ export const AUTO_RECIRCULATION_VALVE = {
 
 export function AutoRecirculationValve(props: NodeProps) {
   return (
-    <Shape
-      {...AUTO_RECIRCULATION_VALVE}
-      {...props}
-      _style={extendStyle(AUTO_RECIRCULATION_VALVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTO_RECIRCULATION_VALVE)} />
   )
 }

@@ -11,11 +11,5 @@ export const ANTICREEPAGE_DEVICE = {
 }
 
 export function AnticreepageDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...ANTICREEPAGE_DEVICE}
-      {...props}
-      _style={extendStyle(ANTICREEPAGE_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANTICREEPAGE_DEVICE)} />
 }

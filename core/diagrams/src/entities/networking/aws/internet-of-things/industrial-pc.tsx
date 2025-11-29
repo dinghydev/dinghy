@@ -11,11 +11,5 @@ export const INDUSTRIAL_PC = {
 }
 
 export function IndustrialPc(props: NodeProps) {
-  return (
-    <Shape
-      {...INDUSTRIAL_PC}
-      {...props}
-      _style={extendStyle(INDUSTRIAL_PC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDUSTRIAL_PC)} />
 }

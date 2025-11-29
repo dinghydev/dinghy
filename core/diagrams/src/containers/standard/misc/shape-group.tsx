@@ -9,11 +9,5 @@ export const SHAPE_GROUP = {
 }
 
 export function ShapeGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...SHAPE_GROUP}
-      {...props}
-      _style={extendStyle(SHAPE_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHAPE_GROUP)} />
 }

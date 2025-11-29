@@ -9,11 +9,5 @@ export const ARROW_GREY_3 = {
 }
 
 export function ArrowGrey3(props: NodeProps) {
-  return (
-    <Dependency
-      {...ARROW_GREY_3}
-      {...props}
-      _style={extendStyle(ARROW_GREY_3, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ARROW_GREY_3)} />
 }

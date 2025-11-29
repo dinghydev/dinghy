@@ -11,7 +11,5 @@ export const CLOUD_WAN = {
 }
 
 export function CloudWan(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_WAN} {...props} _style={extendStyle(CLOUD_WAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_WAN)} />
 }

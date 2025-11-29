@@ -11,11 +11,5 @@ export const JET_PUMP_LIQUID = {
 }
 
 export function JetPumpLiquid(props: NodeProps) {
-  return (
-    <Shape
-      {...JET_PUMP_LIQUID}
-      {...props}
-      _style={extendStyle(JET_PUMP_LIQUID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JET_PUMP_LIQUID)} />
 }

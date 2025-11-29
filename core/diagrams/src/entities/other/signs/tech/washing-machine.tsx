@@ -11,11 +11,5 @@ export const WASHING_MACHINE = {
 }
 
 export function WashingMachine(props: NodeProps) {
-  return (
-    <Shape
-      {...WASHING_MACHINE}
-      {...props}
-      _style={extendStyle(WASHING_MACHINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WASHING_MACHINE)} />
 }

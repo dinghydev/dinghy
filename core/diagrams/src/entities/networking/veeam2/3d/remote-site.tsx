@@ -11,11 +11,5 @@ export const REMOTE_SITE = {
 }
 
 export function RemoteSite(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_SITE}
-      {...props}
-      _style={extendStyle(REMOTE_SITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_SITE)} />
 }

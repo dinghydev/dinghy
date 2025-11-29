@@ -13,7 +13,5 @@ export const HIGHLIGHT = {
 }
 
 export function Highlight(props: NodeProps) {
-  return (
-    <Shape {...HIGHLIGHT} {...props} _style={extendStyle(HIGHLIGHT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HIGHLIGHT)} />
 }

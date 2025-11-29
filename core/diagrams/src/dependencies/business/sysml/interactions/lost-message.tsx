@@ -9,11 +9,5 @@ export const LOST_MESSAGE = {
 }
 
 export function LostMessage(props: NodeProps) {
-  return (
-    <Dependency
-      {...LOST_MESSAGE}
-      {...props}
-      _style={extendStyle(LOST_MESSAGE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, LOST_MESSAGE)} />
 }

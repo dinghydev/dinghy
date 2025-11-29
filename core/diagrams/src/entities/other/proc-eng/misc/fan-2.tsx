@@ -11,5 +11,5 @@ export const FAN_2 = {
 }
 
 export function Fan2(props: NodeProps) {
-  return <Shape {...FAN_2} {...props} _style={extendStyle(FAN_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, FAN_2)} />
 }

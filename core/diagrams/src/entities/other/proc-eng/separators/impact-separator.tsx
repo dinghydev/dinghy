@@ -11,11 +11,5 @@ export const IMPACT_SEPARATOR = {
 }
 
 export function ImpactSeparator(props: NodeProps) {
-  return (
-    <Shape
-      {...IMPACT_SEPARATOR}
-      {...props}
-      _style={extendStyle(IMPACT_SEPARATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMPACT_SEPARATOR)} />
 }

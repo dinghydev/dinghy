@@ -11,7 +11,5 @@ export const CSR1000V = {
 }
 
 export function Csr1000v(props: NodeProps) {
-  return (
-    <Shape {...CSR1000V} {...props} _style={extendStyle(CSR1000V, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CSR1000V)} />
 }

@@ -11,11 +11,5 @@ export const VMWARE_VSAN = {
 }
 
 export function VmwareVsan(props: NodeProps) {
-  return (
-    <Shape
-      {...VMWARE_VSAN}
-      {...props}
-      _style={extendStyle(VMWARE_VSAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VMWARE_VSAN)} />
 }

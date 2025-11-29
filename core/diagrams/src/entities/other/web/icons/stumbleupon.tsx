@@ -11,11 +11,5 @@ export const STUMBLEUPON = {
 }
 
 export function Stumbleupon(props: NodeProps) {
-  return (
-    <Shape
-      {...STUMBLEUPON}
-      {...props}
-      _style={extendStyle(STUMBLEUPON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STUMBLEUPON)} />
 }

@@ -11,11 +11,5 @@ export const DEVICE_GROUP = {
 }
 
 export function DeviceGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_GROUP}
-      {...props}
-      _style={extendStyle(DEVICE_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_GROUP)} />
 }

@@ -11,11 +11,5 @@ export const VERTICAL_LINE = {
 }
 
 export function VerticalLine(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_LINE}
-      {...props}
-      _style={extendStyle(VERTICAL_LINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_LINE)} />
 }

@@ -11,11 +11,5 @@ export const SPARK_DATA_INSIGHTS = {
 }
 
 export function SparkDataInsights(props: NodeProps) {
-  return (
-    <Shape
-      {...SPARK_DATA_INSIGHTS}
-      {...props}
-      _style={extendStyle(SPARK_DATA_INSIGHTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPARK_DATA_INSIGHTS)} />
 }

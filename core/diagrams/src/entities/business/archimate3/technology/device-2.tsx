@@ -11,7 +11,5 @@ export const DEVICE_2 = {
 }
 
 export function Device2(props: NodeProps) {
-  return (
-    <Shape {...DEVICE_2} {...props} _style={extendStyle(DEVICE_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_2)} />
 }

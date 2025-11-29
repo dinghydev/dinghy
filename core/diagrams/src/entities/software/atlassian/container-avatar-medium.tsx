@@ -12,10 +12,6 @@ export const CONTAINER_AVATAR_MEDIUM = {
 
 export function ContainerAvatarMedium(props: NodeProps) {
   return (
-    <Shape
-      {...CONTAINER_AVATAR_MEDIUM}
-      {...props}
-      _style={extendStyle(CONTAINER_AVATAR_MEDIUM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTAINER_AVATAR_MEDIUM)} />
   )
 }

@@ -11,11 +11,5 @@ export const WEB_SECURITY_SCANNER = {
 }
 
 export function WebSecurityScanner(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SECURITY_SCANNER}
-      {...props}
-      _style={extendStyle(WEB_SECURITY_SCANNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SECURITY_SCANNER)} />
 }

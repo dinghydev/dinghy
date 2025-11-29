@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { CloudSql } from '@dinghy/diagrams/entitiesGcp2Databases'
 
 <CloudSql/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CLOUD_SQL } from '@dinghy/diagrams/entitiesGcp2Databases'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CLOUD_SQL)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { CloudSql } from '@dinghy/diagrams/entitiesGcp2Databases'
 import { CloudSql2 } from '@dinghy/diagrams/entitiesGcp2Databases'
 
 <CloudSql2/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CLOUD_SQL_2 } from '@dinghy/diagrams/entitiesGcp2Databases'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CLOUD_SQL_2)}
+  />
+
 ```
 
   </TabItem>

@@ -11,11 +11,5 @@ export const SAP_CLOUD_ALM = {
 }
 
 export function SapCloudAlm(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_CLOUD_ALM}
-      {...props}
-      _style={extendStyle(SAP_CLOUD_ALM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_CLOUD_ALM)} />
 }

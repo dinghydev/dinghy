@@ -12,10 +12,6 @@ export const LANGUAGE_UNDERSTANDING = {
 
 export function LanguageUnderstanding(props: NodeProps) {
   return (
-    <Shape
-      {...LANGUAGE_UNDERSTANDING}
-      {...props}
-      _style={extendStyle(LANGUAGE_UNDERSTANDING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LANGUAGE_UNDERSTANDING)} />
   )
 }

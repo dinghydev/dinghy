@@ -11,11 +11,5 @@ export const DEVICE_CONFIG = {
 }
 
 export function DeviceConfig(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_CONFIG}
-      {...props}
-      _style={extendStyle(DEVICE_CONFIG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_CONFIG)} />
 }

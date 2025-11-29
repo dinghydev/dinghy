@@ -11,7 +11,5 @@ export const GUNN_DIODE = {
 }
 
 export function GunnDiode(props: NodeProps) {
-  return (
-    <Shape {...GUNN_DIODE} {...props} _style={extendStyle(GUNN_DIODE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GUNN_DIODE)} />
 }

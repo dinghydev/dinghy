@@ -11,11 +11,5 @@ export const CONTENT_ROUTER = {
 }
 
 export function ContentRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_ROUTER}
-      {...props}
-      _style={extendStyle(CONTENT_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_ROUTER)} />
 }

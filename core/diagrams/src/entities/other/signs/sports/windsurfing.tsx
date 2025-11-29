@@ -11,11 +11,5 @@ export const WINDSURFING = {
 }
 
 export function Windsurfing(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDSURFING}
-      {...props}
-      _style={extendStyle(WINDSURFING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDSURFING)} />
 }

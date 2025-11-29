@@ -11,11 +11,5 @@ export const OPERATIONS_MANAGER = {
 }
 
 export function OperationsManager(props: NodeProps) {
-  return (
-    <Shape
-      {...OPERATIONS_MANAGER}
-      {...props}
-      _style={extendStyle(OPERATIONS_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPERATIONS_MANAGER)} />
 }

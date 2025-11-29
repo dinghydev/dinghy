@@ -11,7 +11,5 @@ export const CITYVISUAL = {
 }
 
 export function Cityvisual(props: NodeProps) {
-  return (
-    <Shape {...CITYVISUAL} {...props} _style={extendStyle(CITYVISUAL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITYVISUAL)} />
 }

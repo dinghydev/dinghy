@@ -13,9 +13,8 @@ export const ORGANIZATIONS_MANAGEMENT_ACCOUNT = {
 export function OrganizationsManagementAccount(props: NodeProps) {
   return (
     <Shape
-      {...ORGANIZATIONS_MANAGEMENT_ACCOUNT}
       {...props}
-      _style={extendStyle(ORGANIZATIONS_MANAGEMENT_ACCOUNT, props)}
+      _style={extendStyle(props, ORGANIZATIONS_MANAGEMENT_ACCOUNT)}
     />
   )
 }

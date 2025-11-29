@@ -11,11 +11,5 @@ export const PAGE_CONTROL = {
 }
 
 export function PageControl(props: NodeProps) {
-  return (
-    <Shape
-      {...PAGE_CONTROL}
-      {...props}
-      _style={extendStyle(PAGE_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAGE_CONTROL)} />
 }

@@ -11,11 +11,5 @@ export const FIRETV_STICK = {
 }
 
 export function FiretvStick(props: NodeProps) {
-  return (
-    <Shape
-      {...FIRETV_STICK}
-      {...props}
-      _style={extendStyle(FIRETV_STICK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIRETV_STICK)} />
 }

@@ -13,9 +13,8 @@ export const ATM_FAST_GIGABIT_ETHERSWITCH = {
 export function AtmFastGigabitEtherswitch(props: NodeProps) {
   return (
     <Shape
-      {...ATM_FAST_GIGABIT_ETHERSWITCH}
       {...props}
-      _style={extendStyle(ATM_FAST_GIGABIT_ETHERSWITCH, props)}
+      _style={extendStyle(props, ATM_FAST_GIGABIT_ETHERSWITCH)}
     />
   )
 }

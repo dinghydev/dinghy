@@ -11,5 +11,5 @@ export const USB = {
 }
 
 export function Usb(props: NodeProps) {
-  return <Shape {...USB} {...props} _style={extendStyle(USB, props)} />
+  return <Shape {...props} _style={extendStyle(props, USB)} />
 }

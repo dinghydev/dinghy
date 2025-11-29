@@ -12,10 +12,6 @@ export const CENTRIFUGE_SEPARATOR_DISC = {
 
 export function CentrifugeSeparatorDisc(props: NodeProps) {
   return (
-    <Shape
-      {...CENTRIFUGE_SEPARATOR_DISC}
-      {...props}
-      _style={extendStyle(CENTRIFUGE_SEPARATOR_DISC, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CENTRIFUGE_SEPARATOR_DISC)} />
   )
 }

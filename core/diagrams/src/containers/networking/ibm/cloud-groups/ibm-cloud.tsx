@@ -12,7 +12,5 @@ export const IBM_CLOUD = {
 }
 
 export function IbmCloud(props: NodeProps) {
-  return (
-    <Shape {...IBM_CLOUD} {...props} _style={extendStyle(IBM_CLOUD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_CLOUD)} />
 }

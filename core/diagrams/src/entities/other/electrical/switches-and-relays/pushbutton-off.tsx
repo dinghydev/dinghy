@@ -11,11 +11,5 @@ export const PUSHBUTTON_OFF = {
 }
 
 export function PushbuttonOff(props: NodeProps) {
-  return (
-    <Shape
-      {...PUSHBUTTON_OFF}
-      {...props}
-      _style={extendStyle(PUSHBUTTON_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUSHBUTTON_OFF)} />
 }

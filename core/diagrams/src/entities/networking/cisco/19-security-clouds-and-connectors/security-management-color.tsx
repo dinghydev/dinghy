@@ -12,10 +12,6 @@ export const SECURITY_MANAGEMENT_COLOR = {
 
 export function SecurityManagementColor(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_MANAGEMENT_COLOR}
-      {...props}
-      _style={extendStyle(SECURITY_MANAGEMENT_COLOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_MANAGEMENT_COLOR)} />
   )
 }

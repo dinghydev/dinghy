@@ -11,11 +11,5 @@ export const X12400_THREE_STAGE = {
 }
 
 export function X12400ThreeStage(props: NodeProps) {
-  return (
-    <Shape
-      {...X12400_THREE_STAGE}
-      {...props}
-      _style={extendStyle(X12400_THREE_STAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12400_THREE_STAGE)} />
 }

@@ -11,11 +11,5 @@ export const SUMMING_JUNCTION = {
 }
 
 export function SummingJunction(props: NodeProps) {
-  return (
-    <Shape
-      {...SUMMING_JUNCTION}
-      {...props}
-      _style={extendStyle(SUMMING_JUNCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUMMING_JUNCTION)} />
 }

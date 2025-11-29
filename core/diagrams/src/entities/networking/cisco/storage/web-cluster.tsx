@@ -11,11 +11,5 @@ export const WEB_CLUSTER = {
 }
 
 export function WebCluster(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_CLUSTER}
-      {...props}
-      _style={extendStyle(WEB_CLUSTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_CLUSTER)} />
 }

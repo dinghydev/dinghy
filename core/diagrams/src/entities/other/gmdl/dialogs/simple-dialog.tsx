@@ -11,11 +11,5 @@ export const SIMPLE_DIALOG = {
 }
 
 export function SimpleDialog(props: NodeProps) {
-  return (
-    <Shape
-      {...SIMPLE_DIALOG}
-      {...props}
-      _style={extendStyle(SIMPLE_DIALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMPLE_DIALOG)} />
 }

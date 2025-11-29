@@ -11,11 +11,5 @@ export const P4DE_INSTANCE = {
 }
 
 export function P4deInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...P4DE_INSTANCE}
-      {...props}
-      _style={extendStyle(P4DE_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, P4DE_INSTANCE)} />
 }

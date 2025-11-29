@@ -11,7 +11,5 @@ export const STAIRS_3 = {
 }
 
 export function Stairs3(props: NodeProps) {
-  return (
-    <Shape {...STAIRS_3} {...props} _style={extendStyle(STAIRS_3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STAIRS_3)} />
 }

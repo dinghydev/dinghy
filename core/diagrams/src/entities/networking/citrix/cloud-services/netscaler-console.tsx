@@ -11,11 +11,5 @@ export const NETSCALER_CONSOLE = {
 }
 
 export function NetscalerConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...NETSCALER_CONSOLE}
-      {...props}
-      _style={extendStyle(NETSCALER_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETSCALER_CONSOLE)} />
 }

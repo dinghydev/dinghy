@@ -13,9 +13,8 @@ export const AZURE_STORSIMPLE_DEVICE_MANAGERS = {
 export function AzureStorsimpleDeviceManagers(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_STORSIMPLE_DEVICE_MANAGERS}
       {...props}
-      _style={extendStyle(AZURE_STORSIMPLE_DEVICE_MANAGERS, props)}
+      _style={extendStyle(props, AZURE_STORSIMPLE_DEVICE_MANAGERS)}
     />
   )
 }

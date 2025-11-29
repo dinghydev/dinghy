@@ -12,10 +12,6 @@ export const BUSINESS_COLLABORATION = {
 
 export function BusinessCollaboration(props: NodeProps) {
   return (
-    <Shape
-      {...BUSINESS_COLLABORATION}
-      {...props}
-      _style={extendStyle(BUSINESS_COLLABORATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BUSINESS_COLLABORATION)} />
   )
 }

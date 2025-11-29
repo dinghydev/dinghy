@@ -11,7 +11,5 @@ export const COFFEE_POT = {
 }
 
 export function CoffeePot(props: NodeProps) {
-  return (
-    <Shape {...COFFEE_POT} {...props} _style={extendStyle(COFFEE_POT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COFFEE_POT)} />
 }

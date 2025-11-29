@@ -11,5 +11,5 @@ export const POST = {
 }
 
 export function Post(props: NodeProps) {
-  return <Shape {...POST} {...props} _style={extendStyle(POST, props)} />
+  return <Shape {...props} _style={extendStyle(props, POST)} />
 }

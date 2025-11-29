@@ -11,7 +11,5 @@ export const EFS_SHARE = {
 }
 
 export function EfsShare(props: NodeProps) {
-  return (
-    <Shape {...EFS_SHARE} {...props} _style={extendStyle(EFS_SHARE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EFS_SHARE)} />
 }

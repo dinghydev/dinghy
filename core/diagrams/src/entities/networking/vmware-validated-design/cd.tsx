@@ -11,5 +11,5 @@ export const CD = {
 }
 
 export function Cd(props: NodeProps) {
-  return <Shape {...CD} {...props} _style={extendStyle(CD, props)} />
+  return <Shape {...props} _style={extendStyle(props, CD)} />
 }

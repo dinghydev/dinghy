@@ -13,9 +13,8 @@ export const X11890_ELECTRICAL_FLUID_LEVEL = {
 export function X11890ElectricalFluidLevel(props: NodeProps) {
   return (
     <Shape
-      {...X11890_ELECTRICAL_FLUID_LEVEL}
       {...props}
-      _style={extendStyle(X11890_ELECTRICAL_FLUID_LEVEL, props)}
+      _style={extendStyle(props, X11890_ELECTRICAL_FLUID_LEVEL)}
     />
   )
 }

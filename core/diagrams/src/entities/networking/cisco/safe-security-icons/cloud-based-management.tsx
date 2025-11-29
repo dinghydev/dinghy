@@ -12,10 +12,6 @@ export const CLOUD_BASED_MANAGEMENT = {
 
 export function CloudBasedManagement(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_BASED_MANAGEMENT}
-      {...props}
-      _style={extendStyle(CLOUD_BASED_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_BASED_MANAGEMENT)} />
   )
 }

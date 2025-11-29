@@ -12,10 +12,6 @@ export const OPERATING_SYSTEM_IMAGE = {
 
 export function OperatingSystemImage(props: NodeProps) {
   return (
-    <Shape
-      {...OPERATING_SYSTEM_IMAGE}
-      {...props}
-      _style={extendStyle(OPERATING_SYSTEM_IMAGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPERATING_SYSTEM_IMAGE)} />
   )
 }

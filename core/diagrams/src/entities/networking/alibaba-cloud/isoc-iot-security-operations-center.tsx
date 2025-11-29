@@ -13,9 +13,8 @@ export const ISOC_IOT_SECURITY_OPERATIONS_CENTER = {
 export function IsocIotSecurityOperationsCenter(props: NodeProps) {
   return (
     <Shape
-      {...ISOC_IOT_SECURITY_OPERATIONS_CENTER}
       {...props}
-      _style={extendStyle(ISOC_IOT_SECURITY_OPERATIONS_CENTER, props)}
+      _style={extendStyle(props, ISOC_IOT_SECURITY_OPERATIONS_CENTER)}
     />
   )
 }

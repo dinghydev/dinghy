@@ -11,5 +11,5 @@ export const CD_DVD = {
 }
 
 export function CdDvd(props: NodeProps) {
-  return <Shape {...CD_DVD} {...props} _style={extendStyle(CD_DVD, props)} />
+  return <Shape {...props} _style={extendStyle(props, CD_DVD)} />
 }

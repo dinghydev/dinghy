@@ -11,5 +11,5 @@ export const SECRET = {
 }
 
 export function Secret(props: NodeProps) {
-  return <Shape {...SECRET} {...props} _style={extendStyle(SECRET, props)} />
+  return <Shape {...props} _style={extendStyle(props, SECRET)} />
 }

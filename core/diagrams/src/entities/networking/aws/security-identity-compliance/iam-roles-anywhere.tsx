@@ -11,11 +11,5 @@ export const IAM_ROLES_ANYWHERE = {
 }
 
 export function IamRolesAnywhere(props: NodeProps) {
-  return (
-    <Shape
-      {...IAM_ROLES_ANYWHERE}
-      {...props}
-      _style={extendStyle(IAM_ROLES_ANYWHERE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IAM_ROLES_ANYWHERE)} />
 }

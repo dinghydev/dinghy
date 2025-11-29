@@ -13,9 +13,8 @@ export const ACMS_APPLICATION_CONFIGURATION_MANANGEMENT = {
 export function AcmsApplicationConfigurationManangement(props: NodeProps) {
   return (
     <Shape
-      {...ACMS_APPLICATION_CONFIGURATION_MANANGEMENT}
       {...props}
-      _style={extendStyle(ACMS_APPLICATION_CONFIGURATION_MANANGEMENT, props)}
+      _style={extendStyle(props, ACMS_APPLICATION_CONFIGURATION_MANANGEMENT)}
     />
   )
 }

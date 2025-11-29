@@ -13,9 +13,8 @@ export const COMPENSATION_START_INTERRUPTING = {
 export function CompensationStartInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...COMPENSATION_START_INTERRUPTING}
       {...props}
-      _style={extendStyle(COMPENSATION_START_INTERRUPTING, props)}
+      _style={extendStyle(props, COMPENSATION_START_INTERRUPTING)}
     />
   )
 }

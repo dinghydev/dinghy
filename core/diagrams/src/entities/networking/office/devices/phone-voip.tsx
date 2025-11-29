@@ -11,7 +11,5 @@ export const PHONE_VOIP = {
 }
 
 export function PhoneVoip(props: NodeProps) {
-  return (
-    <Shape {...PHONE_VOIP} {...props} _style={extendStyle(PHONE_VOIP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_VOIP)} />
 }

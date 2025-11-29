@@ -12,10 +12,6 @@ export const X10190_MECHANICAL_FEEDBACK = {
 
 export function X10190MechanicalFeedback(props: NodeProps) {
   return (
-    <Shape
-      {...X10190_MECHANICAL_FEEDBACK}
-      {...props}
-      _style={extendStyle(X10190_MECHANICAL_FEEDBACK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10190_MECHANICAL_FEEDBACK)} />
   )
 }

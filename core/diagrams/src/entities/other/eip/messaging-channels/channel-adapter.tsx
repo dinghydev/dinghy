@@ -11,11 +11,5 @@ export const CHANNEL_ADAPTER = {
 }
 
 export function ChannelAdapter(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANNEL_ADAPTER}
-      {...props}
-      _style={extendStyle(CHANNEL_ADAPTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANNEL_ADAPTER)} />
 }

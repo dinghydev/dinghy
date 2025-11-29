@@ -11,7 +11,5 @@ export const NEAT_PATCH = {
 }
 
 export function NeatPatch(props: NodeProps) {
-  return (
-    <Shape {...NEAT_PATCH} {...props} _style={extendStyle(NEAT_PATCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEAT_PATCH)} />
 }

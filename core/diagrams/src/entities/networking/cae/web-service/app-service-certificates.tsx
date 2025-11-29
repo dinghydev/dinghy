@@ -12,10 +12,6 @@ export const APP_SERVICE_CERTIFICATES = {
 
 export function AppServiceCertificates(props: NodeProps) {
   return (
-    <Shape
-      {...APP_SERVICE_CERTIFICATES}
-      {...props}
-      _style={extendStyle(APP_SERVICE_CERTIFICATES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APP_SERVICE_CERTIFICATES)} />
   )
 }

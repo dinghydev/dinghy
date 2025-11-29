@@ -13,9 +13,8 @@ export const RADIO_BUTTON_OFF_DISABLED_LIGHT = {
 export function RadioButtonOffDisabledLight(props: NodeProps) {
   return (
     <Shape
-      {...RADIO_BUTTON_OFF_DISABLED_LIGHT}
       {...props}
-      _style={extendStyle(RADIO_BUTTON_OFF_DISABLED_LIGHT, props)}
+      _style={extendStyle(props, RADIO_BUTTON_OFF_DISABLED_LIGHT)}
     />
   )
 }

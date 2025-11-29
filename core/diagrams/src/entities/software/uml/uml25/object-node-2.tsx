@@ -11,11 +11,5 @@ export const OBJECT_NODE_2 = {
 }
 
 export function ObjectNode2(props: NodeProps) {
-  return (
-    <Shape
-      {...OBJECT_NODE_2}
-      {...props}
-      _style={extendStyle(OBJECT_NODE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OBJECT_NODE_2)} />
 }

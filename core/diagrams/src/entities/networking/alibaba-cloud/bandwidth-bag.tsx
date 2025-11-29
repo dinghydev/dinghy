@@ -11,11 +11,5 @@ export const BANDWIDTH_BAG = {
 }
 
 export function BandwidthBag(props: NodeProps) {
-  return (
-    <Shape
-      {...BANDWIDTH_BAG}
-      {...props}
-      _style={extendStyle(BANDWIDTH_BAG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANDWIDTH_BAG)} />
 }

@@ -11,7 +11,5 @@ export const CRITICAL = {
 }
 
 export function Critical(props: NodeProps) {
-  return (
-    <Shape {...CRITICAL} {...props} _style={extendStyle(CRITICAL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CRITICAL)} />
 }

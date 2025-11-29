@@ -11,11 +11,5 @@ export const EC2_SYSTEMS_MANAGER = {
 }
 
 export function Ec2SystemsManager(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_SYSTEMS_MANAGER}
-      {...props}
-      _style={extendStyle(EC2_SYSTEMS_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_SYSTEMS_MANAGER)} />
 }

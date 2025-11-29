@@ -13,9 +13,8 @@ export const AWS_PERSONAL_HEALTH_DASHBOARD = {
 export function AwsPersonalHealthDashboard(props: NodeProps) {
   return (
     <Shape
-      {...AWS_PERSONAL_HEALTH_DASHBOARD}
       {...props}
-      _style={extendStyle(AWS_PERSONAL_HEALTH_DASHBOARD, props)}
+      _style={extendStyle(props, AWS_PERSONAL_HEALTH_DASHBOARD)}
     />
   )
 }

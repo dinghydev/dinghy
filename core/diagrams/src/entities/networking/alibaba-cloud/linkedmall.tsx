@@ -11,7 +11,5 @@ export const LINKEDMALL = {
 }
 
 export function Linkedmall(props: NodeProps) {
-  return (
-    <Shape {...LINKEDMALL} {...props} _style={extendStyle(LINKEDMALL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINKEDMALL)} />
 }

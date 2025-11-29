@@ -9,5 +9,5 @@ export const SCRIPT = {
 }
 
 export function Script(props: NodeProps) {
-  return <Shape {...SCRIPT} {...props} _style={extendStyle(SCRIPT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCRIPT)} />
 }

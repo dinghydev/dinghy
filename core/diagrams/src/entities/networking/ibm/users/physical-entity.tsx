@@ -11,11 +11,5 @@ export const PHYSICAL_ENTITY = {
 }
 
 export function PhysicalEntity(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_ENTITY}
-      {...props}
-      _style={extendStyle(PHYSICAL_ENTITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_ENTITY)} />
 }

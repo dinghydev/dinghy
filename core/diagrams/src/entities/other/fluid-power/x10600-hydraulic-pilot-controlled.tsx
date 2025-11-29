@@ -13,9 +13,8 @@ export const X10600_HYDRAULIC_PILOT_CONTROLLED = {
 export function X10600HydraulicPilotControlled(props: NodeProps) {
   return (
     <Shape
-      {...X10600_HYDRAULIC_PILOT_CONTROLLED}
       {...props}
-      _style={extendStyle(X10600_HYDRAULIC_PILOT_CONTROLLED, props)}
+      _style={extendStyle(props, X10600_HYDRAULIC_PILOT_CONTROLLED)}
     />
   )
 }

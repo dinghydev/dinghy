@@ -11,11 +11,5 @@ export const CURRENCY_EXCHANGE = {
 }
 
 export function CurrencyExchange(props: NodeProps) {
-  return (
-    <Shape
-      {...CURRENCY_EXCHANGE}
-      {...props}
-      _style={extendStyle(CURRENCY_EXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CURRENCY_EXCHANGE)} />
 }

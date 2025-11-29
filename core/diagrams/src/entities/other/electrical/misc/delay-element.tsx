@@ -11,11 +11,5 @@ export const DELAY_ELEMENT = {
 }
 
 export function DelayElement(props: NodeProps) {
-  return (
-    <Shape
-      {...DELAY_ELEMENT}
-      {...props}
-      _style={extendStyle(DELAY_ELEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELAY_ELEMENT)} />
 }

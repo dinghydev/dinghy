@@ -11,5 +11,5 @@ export const MENEAME = {
 }
 
 export function Meneame(props: NodeProps) {
-  return <Shape {...MENEAME} {...props} _style={extendStyle(MENEAME, props)} />
+  return <Shape {...props} _style={extendStyle(props, MENEAME)} />
 }

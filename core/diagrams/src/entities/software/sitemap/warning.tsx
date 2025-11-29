@@ -11,5 +11,5 @@ export const WARNING = {
 }
 
 export function Warning(props: NodeProps) {
-  return <Shape {...WARNING} {...props} _style={extendStyle(WARNING, props)} />
+  return <Shape {...props} _style={extendStyle(props, WARNING)} />
 }

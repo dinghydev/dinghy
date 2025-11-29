@@ -11,11 +11,5 @@ export const DEPLOY_HIGHLIGHT = {
 }
 
 export function DeployHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...DEPLOY_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(DEPLOY_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEPLOY_HIGHLIGHT)} />
 }

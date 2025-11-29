@@ -11,11 +11,5 @@ export const TFS_VC_REPOSITORY = {
 }
 
 export function TfsVcRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...TFS_VC_REPOSITORY}
-      {...props}
-      _style={extendStyle(TFS_VC_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TFS_VC_REPOSITORY)} />
 }

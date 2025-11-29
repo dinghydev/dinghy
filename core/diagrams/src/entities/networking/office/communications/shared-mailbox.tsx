@@ -11,11 +11,5 @@ export const SHARED_MAILBOX = {
 }
 
 export function SharedMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARED_MAILBOX}
-      {...props}
-      _style={extendStyle(SHARED_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARED_MAILBOX)} />
 }

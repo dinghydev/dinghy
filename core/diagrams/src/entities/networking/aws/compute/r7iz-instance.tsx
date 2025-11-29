@@ -11,11 +11,5 @@ export const R7IZ_INSTANCE = {
 }
 
 export function R7izInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...R7IZ_INSTANCE}
-      {...props}
-      _style={extendStyle(R7IZ_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, R7IZ_INSTANCE)} />
 }

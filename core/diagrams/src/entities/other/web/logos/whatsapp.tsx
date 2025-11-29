@@ -11,7 +11,5 @@ export const WHATSAPP = {
 }
 
 export function Whatsapp(props: NodeProps) {
-  return (
-    <Shape {...WHATSAPP} {...props} _style={extendStyle(WHATSAPP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WHATSAPP)} />
 }

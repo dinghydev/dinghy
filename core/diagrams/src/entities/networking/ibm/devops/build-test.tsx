@@ -11,7 +11,5 @@ export const BUILD_TEST = {
 }
 
 export function BuildTest(props: NodeProps) {
-  return (
-    <Shape {...BUILD_TEST} {...props} _style={extendStyle(BUILD_TEST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUILD_TEST)} />
 }

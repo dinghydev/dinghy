@@ -11,7 +11,5 @@ export const ADMIN_SAP = {
 }
 
 export function AdminSap(props: NodeProps) {
-  return (
-    <Shape {...ADMIN_SAP} {...props} _style={extendStyle(ADMIN_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADMIN_SAP)} />
 }

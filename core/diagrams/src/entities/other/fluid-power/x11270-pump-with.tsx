@@ -11,11 +11,5 @@ export const X11270_PUMP_WITH = {
 }
 
 export function X11270PumpWith(props: NodeProps) {
-  return (
-    <Shape
-      {...X11270_PUMP_WITH}
-      {...props}
-      _style={extendStyle(X11270_PUMP_WITH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11270_PUMP_WITH)} />
 }

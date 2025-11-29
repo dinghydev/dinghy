@@ -11,11 +11,5 @@ export const CHEVRON_ARROW = {
 }
 
 export function ChevronArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...CHEVRON_ARROW}
-      {...props}
-      _style={extendStyle(CHEVRON_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHEVRON_ARROW)} />
 }

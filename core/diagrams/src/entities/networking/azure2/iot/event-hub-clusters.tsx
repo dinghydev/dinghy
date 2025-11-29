@@ -11,11 +11,5 @@ export const EVENT_HUB_CLUSTERS = {
 }
 
 export function EventHubClusters(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_HUB_CLUSTERS}
-      {...props}
-      _style={extendStyle(EVENT_HUB_CLUSTERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_HUB_CLUSTERS)} />
 }

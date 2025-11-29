@@ -11,7 +11,5 @@ export const XENCLIENT = {
 }
 
 export function Xenclient(props: NodeProps) {
-  return (
-    <Shape {...XENCLIENT} {...props} _style={extendStyle(XENCLIENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENCLIENT)} />
 }

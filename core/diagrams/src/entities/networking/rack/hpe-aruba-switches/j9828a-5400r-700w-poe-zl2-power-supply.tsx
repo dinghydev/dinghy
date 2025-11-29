@@ -13,9 +13,8 @@ export const J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY = {
 export function J9828a5400r700wPoeZl2PowerSupply(props: NodeProps) {
   return (
     <Shape
-      {...J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY}
       {...props}
-      _style={extendStyle(J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY, props)}
+      _style={extendStyle(props, J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY)}
     />
   )
 }

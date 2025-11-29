@@ -11,11 +11,5 @@ export const NEUTRON_PORT = {
 }
 
 export function NeutronPort(props: NodeProps) {
-  return (
-    <Shape
-      {...NEUTRON_PORT}
-      {...props}
-      _style={extendStyle(NEUTRON_PORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEUTRON_PORT)} />
 }

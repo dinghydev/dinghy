@@ -11,5 +11,5 @@ export const EJECTED = {
 }
 
 export function Ejected(props: NodeProps) {
-  return <Shape {...EJECTED} {...props} _style={extendStyle(EJECTED, props)} />
+  return <Shape {...props} _style={extendStyle(props, EJECTED)} />
 }

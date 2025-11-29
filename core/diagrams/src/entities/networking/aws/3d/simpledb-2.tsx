@@ -11,7 +11,5 @@ export const SIMPLEDB_2 = {
 }
 
 export function Simpledb2(props: NodeProps) {
-  return (
-    <Shape {...SIMPLEDB_2} {...props} _style={extendStyle(SIMPLEDB_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMPLEDB_2)} />
 }

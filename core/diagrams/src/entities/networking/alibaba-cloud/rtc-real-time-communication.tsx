@@ -13,9 +13,8 @@ export const RTC_REAL_TIME_COMMUNICATION = {
 export function RtcRealTimeCommunication(props: NodeProps) {
   return (
     <Shape
-      {...RTC_REAL_TIME_COMMUNICATION}
       {...props}
-      _style={extendStyle(RTC_REAL_TIME_COMMUNICATION, props)}
+      _style={extendStyle(props, RTC_REAL_TIME_COMMUNICATION)}
     />
   )
 }

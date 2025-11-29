@@ -12,10 +12,6 @@ export const TECHNOLOGY_COLLABORATION = {
 
 export function TechnologyCollaboration(props: NodeProps) {
   return (
-    <Shape
-      {...TECHNOLOGY_COLLABORATION}
-      {...props}
-      _style={extendStyle(TECHNOLOGY_COLLABORATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TECHNOLOGY_COLLABORATION)} />
   )
 }

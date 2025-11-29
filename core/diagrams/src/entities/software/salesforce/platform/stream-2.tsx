@@ -11,7 +11,5 @@ export const STREAM_2 = {
 }
 
 export function Stream2(props: NodeProps) {
-  return (
-    <Shape {...STREAM_2} {...props} _style={extendStyle(STREAM_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STREAM_2)} />
 }

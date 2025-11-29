@@ -11,7 +11,5 @@ export const AKS_ISTIO = {
 }
 
 export function AksIstio(props: NodeProps) {
-  return (
-    <Shape {...AKS_ISTIO} {...props} _style={extendStyle(AKS_ISTIO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AKS_ISTIO)} />
 }

@@ -11,7 +11,5 @@ export const ASSETTECH = {
 }
 
 export function Assettech(props: NodeProps) {
-  return (
-    <Shape {...ASSETTECH} {...props} _style={extendStyle(ASSETTECH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASSETTECH)} />
 }

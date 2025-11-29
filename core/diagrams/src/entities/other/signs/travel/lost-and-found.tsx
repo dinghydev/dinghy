@@ -11,11 +11,5 @@ export const LOST_AND_FOUND = {
 }
 
 export function LostAndFound(props: NodeProps) {
-  return (
-    <Shape
-      {...LOST_AND_FOUND}
-      {...props}
-      _style={extendStyle(LOST_AND_FOUND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOST_AND_FOUND)} />
 }

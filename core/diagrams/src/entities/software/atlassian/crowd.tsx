@@ -11,5 +11,5 @@ export const CROWD = {
 }
 
 export function Crowd(props: NodeProps) {
-  return <Shape {...CROWD} {...props} _style={extendStyle(CROWD, props)} />
+  return <Shape {...props} _style={extendStyle(props, CROWD)} />
 }

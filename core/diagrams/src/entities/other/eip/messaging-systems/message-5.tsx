@@ -11,7 +11,5 @@ export const MESSAGE_5 = {
 }
 
 export function Message5(props: NodeProps) {
-  return (
-    <Shape {...MESSAGE_5} {...props} _style={extendStyle(MESSAGE_5, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_5)} />
 }

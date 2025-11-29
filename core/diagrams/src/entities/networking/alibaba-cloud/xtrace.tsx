@@ -11,5 +11,5 @@ export const XTRACE = {
 }
 
 export function Xtrace(props: NodeProps) {
-  return <Shape {...XTRACE} {...props} _style={extendStyle(XTRACE, props)} />
+  return <Shape {...props} _style={extendStyle(props, XTRACE)} />
 }

@@ -11,7 +11,5 @@ export const BPSTUDIO = {
 }
 
 export function Bpstudio(props: NodeProps) {
-  return (
-    <Shape {...BPSTUDIO} {...props} _style={extendStyle(BPSTUDIO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BPSTUDIO)} />
 }

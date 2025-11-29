@@ -11,7 +11,5 @@ export const TEXT_SIZE = {
 }
 
 export function TextSize(props: NodeProps) {
-  return (
-    <Shape {...TEXT_SIZE} {...props} _style={extendStyle(TEXT_SIZE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXT_SIZE)} />
 }

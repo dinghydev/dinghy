@@ -12,11 +12,5 @@ export const POINT_OF_PRESENCE = {
 }
 
 export function PointOfPresence(props: NodeProps) {
-  return (
-    <Shape
-      {...POINT_OF_PRESENCE}
-      {...props}
-      _style={extendStyle(POINT_OF_PRESENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POINT_OF_PRESENCE)} />
 }

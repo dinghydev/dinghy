@@ -11,11 +11,5 @@ export const TAB_LANDSCAPE = {
 }
 
 export function TabLandscape(props: NodeProps) {
-  return (
-    <Shape
-      {...TAB_LANDSCAPE}
-      {...props}
-      _style={extendStyle(TAB_LANDSCAPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAB_LANDSCAPE)} />
 }

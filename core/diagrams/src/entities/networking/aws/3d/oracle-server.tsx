@@ -11,11 +11,5 @@ export const ORACLE_SERVER = {
 }
 
 export function OracleServer(props: NodeProps) {
-  return (
-    <Shape
-      {...ORACLE_SERVER}
-      {...props}
-      _style={extendStyle(ORACLE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORACLE_SERVER)} />
 }

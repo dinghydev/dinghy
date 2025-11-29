@@ -11,11 +11,5 @@ export const MULTIVALUE_ATTRIBUTE = {
 }
 
 export function MultivalueAttribute(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIVALUE_ATTRIBUTE}
-      {...props}
-      _style={extendStyle(MULTIVALUE_ATTRIBUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIVALUE_ATTRIBUTE)} />
 }

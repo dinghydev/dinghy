@@ -11,11 +11,5 @@ export const VERTICAL_PUMP = {
 }
 
 export function VerticalPump(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_PUMP}
-      {...props}
-      _style={extendStyle(VERTICAL_PUMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_PUMP)} />
 }

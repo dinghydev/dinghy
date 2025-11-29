@@ -11,7 +11,5 @@ export const READERNAUT = {
 }
 
 export function Readernaut(props: NodeProps) {
-  return (
-    <Shape {...READERNAUT} {...props} _style={extendStyle(READERNAUT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, READERNAUT)} />
 }

@@ -11,11 +11,5 @@ export const PIOPS_INSTANCE = {
 }
 
 export function PiopsInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...PIOPS_INSTANCE}
-      {...props}
-      _style={extendStyle(PIOPS_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PIOPS_INSTANCE)} />
 }

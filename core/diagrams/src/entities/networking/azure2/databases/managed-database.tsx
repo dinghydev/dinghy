@@ -11,11 +11,5 @@ export const MANAGED_DATABASE = {
 }
 
 export function ManagedDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_DATABASE}
-      {...props}
-      _style={extendStyle(MANAGED_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_DATABASE)} />
 }

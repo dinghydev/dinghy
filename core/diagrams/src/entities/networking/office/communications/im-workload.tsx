@@ -11,11 +11,5 @@ export const IM_WORKLOAD = {
 }
 
 export function ImWorkload(props: NodeProps) {
-  return (
-    <Shape
-      {...IM_WORKLOAD}
-      {...props}
-      _style={extendStyle(IM_WORKLOAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IM_WORKLOAD)} />
 }

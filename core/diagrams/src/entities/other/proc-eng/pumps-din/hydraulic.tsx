@@ -11,7 +11,5 @@ export const HYDRAULIC = {
 }
 
 export function Hydraulic(props: NodeProps) {
-  return (
-    <Shape {...HYDRAULIC} {...props} _style={extendStyle(HYDRAULIC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYDRAULIC)} />
 }

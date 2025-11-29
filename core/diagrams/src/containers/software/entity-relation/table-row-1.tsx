@@ -9,11 +9,5 @@ export const TABLE_ROW_1 = {
 }
 
 export function TableRow1(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLE_ROW_1}
-      {...props}
-      _style={extendStyle(TABLE_ROW_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLE_ROW_1)} />
 }

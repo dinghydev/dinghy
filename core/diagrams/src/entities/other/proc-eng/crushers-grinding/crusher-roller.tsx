@@ -11,11 +11,5 @@ export const CRUSHER_ROLLER = {
 }
 
 export function CrusherRoller(props: NodeProps) {
-  return (
-    <Shape
-      {...CRUSHER_ROLLER}
-      {...props}
-      _style={extendStyle(CRUSHER_ROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CRUSHER_ROLLER)} />
 }

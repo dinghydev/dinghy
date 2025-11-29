@@ -11,5 +11,5 @@ export const TAPE = {
 }
 
 export function Tape(props: NodeProps) {
-  return <Shape {...TAPE} {...props} _style={extendStyle(TAPE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TAPE)} />
 }

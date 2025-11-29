@@ -12,10 +12,6 @@ export const X12130_VACUUM_SEPARATOR = {
 
 export function X12130VacuumSeparator(props: NodeProps) {
   return (
-    <Shape
-      {...X12130_VACUUM_SEPARATOR}
-      {...props}
-      _style={extendStyle(X12130_VACUUM_SEPARATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12130_VACUUM_SEPARATOR)} />
   )
 }

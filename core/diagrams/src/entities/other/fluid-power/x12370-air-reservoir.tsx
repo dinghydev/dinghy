@@ -11,11 +11,5 @@ export const X12370_AIR_RESERVOIR = {
 }
 
 export function X12370AirReservoir(props: NodeProps) {
-  return (
-    <Shape
-      {...X12370_AIR_RESERVOIR}
-      {...props}
-      _style={extendStyle(X12370_AIR_RESERVOIR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12370_AIR_RESERVOIR)} />
 }

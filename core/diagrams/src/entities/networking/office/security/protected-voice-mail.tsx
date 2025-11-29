@@ -11,11 +11,5 @@ export const PROTECTED_VOICE_MAIL = {
 }
 
 export function ProtectedVoiceMail(props: NodeProps) {
-  return (
-    <Shape
-      {...PROTECTED_VOICE_MAIL}
-      {...props}
-      _style={extendStyle(PROTECTED_VOICE_MAIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTECTED_VOICE_MAIL)} />
 }

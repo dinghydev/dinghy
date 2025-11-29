@@ -13,9 +13,8 @@ export const HSM_HARDWARE_SECURITY_MODULE = {
 export function HsmHardwareSecurityModule(props: NodeProps) {
   return (
     <Shape
-      {...HSM_HARDWARE_SECURITY_MODULE}
       {...props}
-      _style={extendStyle(HSM_HARDWARE_SECURITY_MODULE, props)}
+      _style={extendStyle(props, HSM_HARDWARE_SECURITY_MODULE)}
     />
   )
 }

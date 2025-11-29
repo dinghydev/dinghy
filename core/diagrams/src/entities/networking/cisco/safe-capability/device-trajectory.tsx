@@ -11,11 +11,5 @@ export const DEVICE_TRAJECTORY = {
 }
 
 export function DeviceTrajectory(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_TRAJECTORY}
-      {...props}
-      _style={extendStyle(DEVICE_TRAJECTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_TRAJECTORY)} />
 }

@@ -16,11 +16,10 @@ export function Jl728aAruba6200f48Port1gbeClass4PoeAnd4PortSfp740wSwitchRear(
 ) {
   return (
     <Shape
-      {...JL728A_ARUBA_6200F_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP_740W_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL728A_ARUBA_6200F_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP_740W_SWITCH_REAR,
         props,
+        JL728A_ARUBA_6200F_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP_740W_SWITCH_REAR,
       )}
     />
   )

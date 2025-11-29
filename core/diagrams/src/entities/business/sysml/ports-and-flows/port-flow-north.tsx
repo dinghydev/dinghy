@@ -10,11 +10,5 @@ export const PORT_FLOW_NORTH = {
 }
 
 export function PortFlowNorth(props: NodeProps) {
-  return (
-    <Shape
-      {...PORT_FLOW_NORTH}
-      {...props}
-      _style={extendStyle(PORT_FLOW_NORTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PORT_FLOW_NORTH)} />
 }

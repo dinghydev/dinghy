@@ -13,9 +13,8 @@ export const CLOUDWATCH_METRICS_INSIGHTS = {
 export function CloudwatchMetricsInsights(props: NodeProps) {
   return (
     <Shape
-      {...CLOUDWATCH_METRICS_INSIGHTS}
       {...props}
-      _style={extendStyle(CLOUDWATCH_METRICS_INSIGHTS, props)}
+      _style={extendStyle(props, CLOUDWATCH_METRICS_INSIGHTS)}
     />
   )
 }

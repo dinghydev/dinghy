@@ -12,10 +12,6 @@ export const MODULAR_SWITCH_SXX908GEN2 = {
 
 export function ModularSwitchSxx908gen2(props: NodeProps) {
   return (
-    <Shape
-      {...MODULAR_SWITCH_SXX908GEN2}
-      {...props}
-      _style={extendStyle(MODULAR_SWITCH_SXX908GEN2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MODULAR_SWITCH_SXX908GEN2)} />
   )
 }

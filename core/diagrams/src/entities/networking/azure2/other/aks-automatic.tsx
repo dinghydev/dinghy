@@ -11,11 +11,5 @@ export const AKS_AUTOMATIC = {
 }
 
 export function AksAutomatic(props: NodeProps) {
-  return (
-    <Shape
-      {...AKS_AUTOMATIC}
-      {...props}
-      _style={extendStyle(AKS_AUTOMATIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AKS_AUTOMATIC)} />
 }

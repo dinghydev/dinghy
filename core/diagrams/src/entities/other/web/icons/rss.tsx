@@ -11,5 +11,5 @@ export const RSS = {
 }
 
 export function Rss(props: NodeProps) {
-  return <Shape {...RSS} {...props} _style={extendStyle(RSS, props)} />
+  return <Shape {...props} _style={extendStyle(props, RSS)} />
 }

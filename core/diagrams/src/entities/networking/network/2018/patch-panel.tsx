@@ -11,11 +11,5 @@ export const PATCH_PANEL = {
 }
 
 export function PatchPanel(props: NodeProps) {
-  return (
-    <Shape
-      {...PATCH_PANEL}
-      {...props}
-      _style={extendStyle(PATCH_PANEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PATCH_PANEL)} />
 }

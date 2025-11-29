@@ -11,11 +11,5 @@ export const WAC_INSTALLER = {
 }
 
 export function WacInstaller(props: NodeProps) {
-  return (
-    <Shape
-      {...WAC_INSTALLER}
-      {...props}
-      _style={extendStyle(WAC_INSTALLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAC_INSTALLER)} />
 }

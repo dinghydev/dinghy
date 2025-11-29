@@ -11,7 +11,5 @@ export const RESONATOR = {
 }
 
 export function Resonator(props: NodeProps) {
-  return (
-    <Shape {...RESONATOR} {...props} _style={extendStyle(RESONATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESONATOR)} />
 }

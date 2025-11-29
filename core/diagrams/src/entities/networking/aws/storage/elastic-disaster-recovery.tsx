@@ -12,10 +12,6 @@ export const ELASTIC_DISASTER_RECOVERY = {
 
 export function ElasticDisasterRecovery(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_DISASTER_RECOVERY}
-      {...props}
-      _style={extendStyle(ELASTIC_DISASTER_RECOVERY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_DISASTER_RECOVERY)} />
   )
 }

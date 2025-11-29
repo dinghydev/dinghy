@@ -11,11 +11,5 @@ export const AD_DOMAIN_SERVICES = {
 }
 
 export function AdDomainServices(props: NodeProps) {
-  return (
-    <Shape
-      {...AD_DOMAIN_SERVICES}
-      {...props}
-      _style={extendStyle(AD_DOMAIN_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_DOMAIN_SERVICES)} />
 }

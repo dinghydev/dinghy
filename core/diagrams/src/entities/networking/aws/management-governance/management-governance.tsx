@@ -11,11 +11,5 @@ export const MANAGEMENT_GOVERNANCE = {
 }
 
 export function ManagementGovernance(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_GOVERNANCE}
-      {...props}
-      _style={extendStyle(MANAGEMENT_GOVERNANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_GOVERNANCE)} />
 }

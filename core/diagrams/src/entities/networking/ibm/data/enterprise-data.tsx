@@ -11,11 +11,5 @@ export const ENTERPRISE_DATA = {
 }
 
 export function EnterpriseData(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTERPRISE_DATA}
-      {...props}
-      _style={extendStyle(ENTERPRISE_DATA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTERPRISE_DATA)} />
 }

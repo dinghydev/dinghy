@@ -11,11 +11,5 @@ export const WORKSPACE_SITE = {
 }
 
 export function WorkspaceSite(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKSPACE_SITE}
-      {...props}
-      _style={extendStyle(WORKSPACE_SITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKSPACE_SITE)} />
 }

@@ -9,7 +9,5 @@ export const RATE_4 = {
 }
 
 export function Rate4(props: NodeProps) {
-  return (
-    <Dependency {...RATE_4} {...props} _style={extendStyle(RATE_4, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, RATE_4)} />
 }

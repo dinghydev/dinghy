@@ -11,5 +11,5 @@ export const PAD_1 = {
 }
 
 export function Pad1(props: NodeProps) {
-  return <Shape {...PAD_1} {...props} _style={extendStyle(PAD_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, PAD_1)} />
 }

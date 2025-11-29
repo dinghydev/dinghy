@@ -12,10 +12,6 @@ export const PROXIMITY_LIMIT_SWITCH_ON = {
 
 export function ProximityLimitSwitchOn(props: NodeProps) {
   return (
-    <Shape
-      {...PROXIMITY_LIMIT_SWITCH_ON}
-      {...props}
-      _style={extendStyle(PROXIMITY_LIMIT_SWITCH_ON, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROXIMITY_LIMIT_SWITCH_ON)} />
   )
 }

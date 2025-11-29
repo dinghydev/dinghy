@@ -11,7 +11,5 @@ export const TEXTRACT = {
 }
 
 export function Textract(props: NodeProps) {
-  return (
-    <Shape {...TEXTRACT} {...props} _style={extendStyle(TEXTRACT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEXTRACT)} />
 }

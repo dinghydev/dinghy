@@ -11,11 +11,5 @@ export const MONITORING_CONSOLE = {
 }
 
 export function MonitoringConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITORING_CONSOLE}
-      {...props}
-      _style={extendStyle(MONITORING_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITORING_CONSOLE)} />
 }

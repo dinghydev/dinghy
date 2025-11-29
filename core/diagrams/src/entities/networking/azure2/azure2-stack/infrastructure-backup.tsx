@@ -11,11 +11,5 @@ export const INFRASTRUCTURE_BACKUP = {
 }
 
 export function InfrastructureBackup(props: NodeProps) {
-  return (
-    <Shape
-      {...INFRASTRUCTURE_BACKUP}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_BACKUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_BACKUP)} />
 }

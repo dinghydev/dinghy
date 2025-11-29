@@ -11,11 +11,5 @@ export const FLOW_SENSOR_2 = {
 }
 
 export function FlowSensor2(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_SENSOR_2}
-      {...props}
-      _style={extendStyle(FLOW_SENSOR_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_SENSOR_2)} />
 }

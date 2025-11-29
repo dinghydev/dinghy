@@ -11,5 +11,5 @@ export const JAVA = {
 }
 
 export function Java(props: NodeProps) {
-  return <Shape {...JAVA} {...props} _style={extendStyle(JAVA, props)} />
+  return <Shape {...props} _style={extendStyle(props, JAVA)} />
 }

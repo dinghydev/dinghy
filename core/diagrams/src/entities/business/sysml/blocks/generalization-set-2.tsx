@@ -10,11 +10,5 @@ export const GENERALIZATION_SET_2 = {
 }
 
 export function GeneralizationSet2(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERALIZATION_SET_2}
-      {...props}
-      _style={extendStyle(GENERALIZATION_SET_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERALIZATION_SET_2)} />
 }

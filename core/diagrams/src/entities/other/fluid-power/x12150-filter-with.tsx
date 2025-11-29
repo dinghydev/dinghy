@@ -11,11 +11,5 @@ export const X12150_FILTER_WITH = {
 }
 
 export function X12150FilterWith(props: NodeProps) {
-  return (
-    <Shape
-      {...X12150_FILTER_WITH}
-      {...props}
-      _style={extendStyle(X12150_FILTER_WITH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12150_FILTER_WITH)} />
 }

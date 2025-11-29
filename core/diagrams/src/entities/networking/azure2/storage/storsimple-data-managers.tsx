@@ -12,10 +12,6 @@ export const STORSIMPLE_DATA_MANAGERS = {
 
 export function StorsimpleDataManagers(props: NodeProps) {
   return (
-    <Shape
-      {...STORSIMPLE_DATA_MANAGERS}
-      {...props}
-      _style={extendStyle(STORSIMPLE_DATA_MANAGERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STORSIMPLE_DATA_MANAGERS)} />
   )
 }

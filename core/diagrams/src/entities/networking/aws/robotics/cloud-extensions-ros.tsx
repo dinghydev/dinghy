@@ -11,11 +11,5 @@ export const CLOUD_EXTENSIONS_ROS = {
 }
 
 export function CloudExtensionsRos(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_EXTENSIONS_ROS}
-      {...props}
-      _style={extendStyle(CLOUD_EXTENSIONS_ROS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_EXTENSIONS_ROS)} />
 }

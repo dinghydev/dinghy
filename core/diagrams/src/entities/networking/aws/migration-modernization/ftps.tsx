@@ -11,5 +11,5 @@ export const FTPS = {
 }
 
 export function Ftps(props: NodeProps) {
-  return <Shape {...FTPS} {...props} _style={extendStyle(FTPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, FTPS)} />
 }

@@ -11,5 +11,5 @@ export const RB = {
 }
 
 export function Rb(props: NodeProps) {
-  return <Shape {...RB} {...props} _style={extendStyle(RB, props)} />
+  return <Shape {...props} _style={extendStyle(props, RB)} />
 }

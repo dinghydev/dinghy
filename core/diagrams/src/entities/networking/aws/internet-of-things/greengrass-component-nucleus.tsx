@@ -13,9 +13,8 @@ export const GREENGRASS_COMPONENT_NUCLEUS = {
 export function GreengrassComponentNucleus(props: NodeProps) {
   return (
     <Shape
-      {...GREENGRASS_COMPONENT_NUCLEUS}
       {...props}
-      _style={extendStyle(GREENGRASS_COMPONENT_NUCLEUS, props)}
+      _style={extendStyle(props, GREENGRASS_COMPONENT_NUCLEUS)}
     />
   )
 }

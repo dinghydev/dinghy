@@ -11,11 +11,5 @@ export const AAD_LICENSES = {
 }
 
 export function AadLicenses(props: NodeProps) {
-  return (
-    <Shape
-      {...AAD_LICENSES}
-      {...props}
-      _style={extendStyle(AAD_LICENSES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AAD_LICENSES)} />
 }

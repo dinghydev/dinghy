@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Applens } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
 
 <Applens/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { APPLENS } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, APPLENS)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { Applens } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
 import { CollaborativeService } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
 
 <CollaborativeService/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { COLLABORATIVE_SERVICE } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, COLLABORATIVE_SERVICE)}
+  />
+
 ```
 
   </TabItem>
@@ -86,6 +108,17 @@ import { CollaborativeService } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
 import { HybridCenter } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
 
 <HybridCenter/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { HYBRID_CENTER } from '@dinghy/diagrams/entitiesAzure2Ecosystem'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, HYBRID_CENTER)}
+  />
+
 ```
 
   </TabItem>

@@ -11,11 +11,5 @@ export const EKS_ANYWHERE = {
 }
 
 export function EksAnywhere(props: NodeProps) {
-  return (
-    <Shape
-      {...EKS_ANYWHERE}
-      {...props}
-      _style={extendStyle(EKS_ANYWHERE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EKS_ANYWHERE)} />
 }

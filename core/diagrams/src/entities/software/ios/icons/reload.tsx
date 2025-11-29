@@ -11,5 +11,5 @@ export const RELOAD = {
 }
 
 export function Reload(props: NodeProps) {
-  return <Shape {...RELOAD} {...props} _style={extendStyle(RELOAD, props)} />
+  return <Shape {...props} _style={extendStyle(props, RELOAD)} />
 }

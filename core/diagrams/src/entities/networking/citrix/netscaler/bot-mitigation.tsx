@@ -11,11 +11,5 @@ export const BOT_MITIGATION = {
 }
 
 export function BotMitigation(props: NodeProps) {
-  return (
-    <Shape
-      {...BOT_MITIGATION}
-      {...props}
-      _style={extendStyle(BOT_MITIGATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOT_MITIGATION)} />
 }

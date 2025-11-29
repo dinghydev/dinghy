@@ -11,11 +11,5 @@ export const ADMIN_HIGHLIGHT = {
 }
 
 export function AdminHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...ADMIN_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(ADMIN_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADMIN_HIGHLIGHT)} />
 }

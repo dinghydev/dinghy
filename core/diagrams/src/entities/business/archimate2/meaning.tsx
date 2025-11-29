@@ -10,5 +10,5 @@ export const MEANING = {
 }
 
 export function Meaning(props: NodeProps) {
-  return <Shape {...MEANING} {...props} _style={extendStyle(MEANING, props)} />
+  return <Shape {...props} _style={extendStyle(props, MEANING)} />
 }

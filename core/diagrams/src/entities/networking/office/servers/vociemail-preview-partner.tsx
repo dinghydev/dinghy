@@ -12,10 +12,6 @@ export const VOCIEMAIL_PREVIEW_PARTNER = {
 
 export function VociemailPreviewPartner(props: NodeProps) {
   return (
-    <Shape
-      {...VOCIEMAIL_PREVIEW_PARTNER}
-      {...props}
-      _style={extendStyle(VOCIEMAIL_PREVIEW_PARTNER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VOCIEMAIL_PREVIEW_PARTNER)} />
   )
 }

@@ -11,11 +11,5 @@ export const UNORDERED_LIST = {
 }
 
 export function UnorderedList(props: NodeProps) {
-  return (
-    <Shape
-      {...UNORDERED_LIST}
-      {...props}
-      _style={extendStyle(UNORDERED_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNORDERED_LIST)} />
 }

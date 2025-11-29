@@ -11,5 +11,5 @@ export const LDAP = {
 }
 
 export function Ldap(props: NodeProps) {
-  return <Shape {...LDAP} {...props} _style={extendStyle(LDAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, LDAP)} />
 }

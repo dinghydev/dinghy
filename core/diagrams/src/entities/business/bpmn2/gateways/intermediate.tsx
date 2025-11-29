@@ -11,11 +11,5 @@ export const INTERMEDIATE = {
 }
 
 export function Intermediate(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERMEDIATE}
-      {...props}
-      _style={extendStyle(INTERMEDIATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERMEDIATE)} />
 }

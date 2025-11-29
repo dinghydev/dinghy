@@ -9,7 +9,5 @@ export const A_CONST = {
 }
 
 export function A(props: NodeProps) {
-  return (
-    <Dependency {...A_CONST} {...props} _style={extendStyle(A_CONST, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, A_CONST)} />
 }

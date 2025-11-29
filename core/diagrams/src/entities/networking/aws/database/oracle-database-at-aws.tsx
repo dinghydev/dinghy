@@ -12,10 +12,6 @@ export const ORACLE_DATABASE_AT_AWS = {
 
 export function OracleDatabaseAtAws(props: NodeProps) {
   return (
-    <Shape
-      {...ORACLE_DATABASE_AT_AWS}
-      {...props}
-      _style={extendStyle(ORACLE_DATABASE_AT_AWS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ORACLE_DATABASE_AT_AWS)} />
   )
 }

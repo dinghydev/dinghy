@@ -9,11 +9,5 @@ export const VERTICAL_ELBOW = {
 }
 
 export function VerticalElbow(props: NodeProps) {
-  return (
-    <Dependency
-      {...VERTICAL_ELBOW}
-      {...props}
-      _style={extendStyle(VERTICAL_ELBOW, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, VERTICAL_ELBOW)} />
 }

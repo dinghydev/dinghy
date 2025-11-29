@@ -11,7 +11,5 @@ export const BREATHER = {
 }
 
 export function Breather(props: NodeProps) {
-  return (
-    <Shape {...BREATHER} {...props} _style={extendStyle(BREATHER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREATHER)} />
 }

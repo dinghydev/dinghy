@@ -11,11 +11,5 @@ export const CONDITIONAL_CATCHING = {
 }
 
 export function ConditionalCatching(props: NodeProps) {
-  return (
-    <Shape
-      {...CONDITIONAL_CATCHING}
-      {...props}
-      _style={extendStyle(CONDITIONAL_CATCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONDITIONAL_CATCHING)} />
 }

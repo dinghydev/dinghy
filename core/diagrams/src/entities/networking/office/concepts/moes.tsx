@@ -11,5 +11,5 @@ export const MOES = {
 }
 
 export function Moes(props: NodeProps) {
-  return <Shape {...MOES} {...props} _style={extendStyle(MOES, props)} />
+  return <Shape {...props} _style={extendStyle(props, MOES)} />
 }

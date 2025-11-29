@@ -13,9 +13,8 @@ export const SECURITY_IDENTITY_AND_COMPLIANCE = {
 export function SecurityIdentityAndCompliance(props: NodeProps) {
   return (
     <Shape
-      {...SECURITY_IDENTITY_AND_COMPLIANCE}
       {...props}
-      _style={extendStyle(SECURITY_IDENTITY_AND_COMPLIANCE, props)}
+      _style={extendStyle(props, SECURITY_IDENTITY_AND_COMPLIANCE)}
     />
   )
 }

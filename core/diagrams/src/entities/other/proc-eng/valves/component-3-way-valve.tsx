@@ -11,11 +11,5 @@ export const COMPONENT_3_WAY_VALVE = {
 }
 
 export function Component3WayValve(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_3_WAY_VALVE}
-      {...props}
-      _style={extendStyle(COMPONENT_3_WAY_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_3_WAY_VALVE)} />
 }

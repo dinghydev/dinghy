@@ -11,11 +11,5 @@ export const IBM_CONTAINERS = {
 }
 
 export function IbmContainers(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_CONTAINERS}
-      {...props}
-      _style={extendStyle(IBM_CONTAINERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_CONTAINERS)} />
 }

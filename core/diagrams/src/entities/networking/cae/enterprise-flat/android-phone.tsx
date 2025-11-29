@@ -11,11 +11,5 @@ export const ANDROID_PHONE = {
 }
 
 export function AndroidPhone(props: NodeProps) {
-  return (
-    <Shape
-      {...ANDROID_PHONE}
-      {...props}
-      _style={extendStyle(ANDROID_PHONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANDROID_PHONE)} />
 }

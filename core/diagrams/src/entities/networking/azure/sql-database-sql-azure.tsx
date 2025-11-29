@@ -12,10 +12,6 @@ export const SQL_DATABASE_SQL_AZURE = {
 
 export function SqlDatabaseSqlAzure(props: NodeProps) {
   return (
-    <Shape
-      {...SQL_DATABASE_SQL_AZURE}
-      {...props}
-      _style={extendStyle(SQL_DATABASE_SQL_AZURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SQL_DATABASE_SQL_AZURE)} />
   )
 }

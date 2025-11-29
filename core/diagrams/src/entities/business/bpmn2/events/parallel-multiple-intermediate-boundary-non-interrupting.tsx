@@ -15,11 +15,10 @@ export function ParallelMultipleIntermediateBoundaryNonInterrupting(
 ) {
   return (
     <Shape
-      {...PARALLEL_MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING}
       {...props}
       _style={extendStyle(
-        PARALLEL_MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
         props,
+        PARALLEL_MULTIPLE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING,
       )}
     />
   )

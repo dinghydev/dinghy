@@ -11,11 +11,5 @@ export const SITE_SHARED = {
 }
 
 export function SiteShared(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_SHARED}
-      {...props}
-      _style={extendStyle(SITE_SHARED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_SHARED)} />
 }

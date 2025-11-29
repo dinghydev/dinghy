@@ -11,11 +11,5 @@ export const POLICY_CONFIGURATION = {
 }
 
 export function PolicyConfiguration(props: NodeProps) {
-  return (
-    <Shape
-      {...POLICY_CONFIGURATION}
-      {...props}
-      _style={extendStyle(POLICY_CONFIGURATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POLICY_CONFIGURATION)} />
 }

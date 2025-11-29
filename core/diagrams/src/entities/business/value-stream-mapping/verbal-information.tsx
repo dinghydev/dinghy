@@ -11,11 +11,5 @@ export const VERBAL_INFORMATION = {
 }
 
 export function VerbalInformation(props: NodeProps) {
-  return (
-    <Shape
-      {...VERBAL_INFORMATION}
-      {...props}
-      _style={extendStyle(VERBAL_INFORMATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERBAL_INFORMATION)} />
 }

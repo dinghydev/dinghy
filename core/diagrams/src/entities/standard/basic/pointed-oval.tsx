@@ -10,11 +10,5 @@ export const POINTED_OVAL = {
 }
 
 export function PointedOval(props: NodeProps) {
-  return (
-    <Shape
-      {...POINTED_OVAL}
-      {...props}
-      _style={extendStyle(POINTED_OVAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POINTED_OVAL)} />
 }

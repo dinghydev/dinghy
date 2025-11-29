@@ -11,11 +11,5 @@ export const GLOBAL_SERVER = {
 }
 
 export function GlobalServer(props: NodeProps) {
-  return (
-    <Shape
-      {...GLOBAL_SERVER}
-      {...props}
-      _style={extendStyle(GLOBAL_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLOBAL_SERVER)} />
 }

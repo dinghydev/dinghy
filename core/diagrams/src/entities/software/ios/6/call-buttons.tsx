@@ -11,11 +11,5 @@ export const CALL_BUTTONS = {
 }
 
 export function CallButtons(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_BUTTONS}
-      {...props}
-      _style={extendStyle(CALL_BUTTONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_BUTTONS)} />
 }

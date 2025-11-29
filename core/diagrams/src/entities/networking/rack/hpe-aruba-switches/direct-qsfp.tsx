@@ -11,11 +11,5 @@ export const DIRECT_QSFP = {
 }
 
 export function DirectQsfp(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_QSFP}
-      {...props}
-      _style={extendStyle(DIRECT_QSFP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_QSFP)} />
 }

@@ -11,11 +11,5 @@ export const SYSTEM_SCOPE_BOUNDARY = {
 }
 
 export function SystemScopeBoundary(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEM_SCOPE_BOUNDARY}
-      {...props}
-      _style={extendStyle(SYSTEM_SCOPE_BOUNDARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_SCOPE_BOUNDARY)} />
 }

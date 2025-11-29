@@ -11,11 +11,5 @@ export const DISCOVERY_AGENT = {
 }
 
 export function DiscoveryAgent(props: NodeProps) {
-  return (
-    <Shape
-      {...DISCOVERY_AGENT}
-      {...props}
-      _style={extendStyle(DISCOVERY_AGENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISCOVERY_AGENT)} />
 }

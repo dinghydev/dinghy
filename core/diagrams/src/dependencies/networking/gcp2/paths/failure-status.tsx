@@ -9,11 +9,5 @@ export const FAILURE_STATUS = {
 }
 
 export function FailureStatus(props: NodeProps) {
-  return (
-    <Dependency
-      {...FAILURE_STATUS}
-      {...props}
-      _style={extendStyle(FAILURE_STATUS, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, FAILURE_STATUS)} />
 }

@@ -11,5 +11,5 @@ export const APPNAV = {
 }
 
 export function Appnav(props: NodeProps) {
-  return <Shape {...APPNAV} {...props} _style={extendStyle(APPNAV, props)} />
+  return <Shape {...props} _style={extendStyle(props, APPNAV)} />
 }

@@ -11,11 +11,5 @@ export const NUMBERED_LIST_2 = {
 }
 
 export function NumberedList2(props: NodeProps) {
-  return (
-    <Shape
-      {...NUMBERED_LIST_2}
-      {...props}
-      _style={extendStyle(NUMBERED_LIST_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NUMBERED_LIST_2)} />
 }

@@ -11,11 +11,5 @@ export const RUN_COMMAND = {
 }
 
 export function RunCommand(props: NodeProps) {
-  return (
-    <Shape
-      {...RUN_COMMAND}
-      {...props}
-      _style={extendStyle(RUN_COMMAND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RUN_COMMAND)} />
 }

@@ -11,5 +11,5 @@ export const WAITER = {
 }
 
 export function Waiter(props: NodeProps) {
-  return <Shape {...WAITER} {...props} _style={extendStyle(WAITER, props)} />
+  return <Shape {...props} _style={extendStyle(props, WAITER)} />
 }

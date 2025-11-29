@@ -11,11 +11,5 @@ export const PRIVATE_ENDPOINT = {
 }
 
 export function PrivateEndpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIVATE_ENDPOINT}
-      {...props}
-      _style={extendStyle(PRIVATE_ENDPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIVATE_ENDPOINT)} />
 }

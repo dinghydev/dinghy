@@ -11,7 +11,5 @@ export const BLOB_BLOCK = {
 }
 
 export function BlobBlock(props: NodeProps) {
-  return (
-    <Shape {...BLOB_BLOCK} {...props} _style={extendStyle(BLOB_BLOCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLOB_BLOCK)} />
 }

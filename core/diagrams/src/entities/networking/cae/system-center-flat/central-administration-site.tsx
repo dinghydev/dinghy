@@ -13,9 +13,8 @@ export const CENTRAL_ADMINISTRATION_SITE = {
 export function CentralAdministrationSite(props: NodeProps) {
   return (
     <Shape
-      {...CENTRAL_ADMINISTRATION_SITE}
       {...props}
-      _style={extendStyle(CENTRAL_ADMINISTRATION_SITE, props)}
+      _style={extendStyle(props, CENTRAL_ADMINISTRATION_SITE)}
     />
   )
 }

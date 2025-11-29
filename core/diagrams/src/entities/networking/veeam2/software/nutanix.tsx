@@ -11,5 +11,5 @@ export const NUTANIX = {
 }
 
 export function Nutanix(props: NodeProps) {
-  return <Shape {...NUTANIX} {...props} _style={extendStyle(NUTANIX, props)} />
+  return <Shape {...props} _style={extendStyle(props, NUTANIX)} />
 }

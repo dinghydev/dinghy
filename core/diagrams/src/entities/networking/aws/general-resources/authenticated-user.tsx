@@ -11,11 +11,5 @@ export const AUTHENTICATED_USER = {
 }
 
 export function AuthenticatedUser(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATED_USER}
-      {...props}
-      _style={extendStyle(AUTHENTICATED_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATED_USER)} />
 }

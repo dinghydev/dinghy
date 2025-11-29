@@ -11,11 +11,5 @@ export const WALL_VERTICAL = {
 }
 
 export function WallVertical(props: NodeProps) {
-  return (
-    <Shape
-      {...WALL_VERTICAL}
-      {...props}
-      _style={extendStyle(WALL_VERTICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WALL_VERTICAL)} />
 }

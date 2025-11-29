@@ -11,11 +11,5 @@ export const LARGE_BUILDING = {
 }
 
 export function LargeBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...LARGE_BUILDING}
-      {...props}
-      _style={extendStyle(LARGE_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LARGE_BUILDING)} />
 }

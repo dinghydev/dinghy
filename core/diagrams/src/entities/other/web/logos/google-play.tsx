@@ -11,11 +11,5 @@ export const GOOGLE_PLAY = {
 }
 
 export function GooglePlay(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_PLAY}
-      {...props}
-      _style={extendStyle(GOOGLE_PLAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_PLAY)} />
 }

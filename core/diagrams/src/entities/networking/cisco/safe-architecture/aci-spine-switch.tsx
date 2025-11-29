@@ -11,11 +11,5 @@ export const ACI_SPINE_SWITCH = {
 }
 
 export function AciSpineSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...ACI_SPINE_SWITCH}
-      {...props}
-      _style={extendStyle(ACI_SPINE_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACI_SPINE_SWITCH)} />
 }

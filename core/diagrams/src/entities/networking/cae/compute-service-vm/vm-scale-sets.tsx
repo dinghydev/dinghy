@@ -11,11 +11,5 @@ export const VM_SCALE_SETS = {
 }
 
 export function VmScaleSets(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_SCALE_SETS}
-      {...props}
-      _style={extendStyle(VM_SCALE_SETS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_SCALE_SETS)} />
 }

@@ -11,11 +11,5 @@ export const REMOVABLE_SPOOL = {
 }
 
 export function RemovableSpool(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOVABLE_SPOOL}
-      {...props}
-      _style={extendStyle(REMOVABLE_SPOOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOVABLE_SPOOL)} />
 }

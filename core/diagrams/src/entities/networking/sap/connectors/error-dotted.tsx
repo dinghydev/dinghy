@@ -11,11 +11,5 @@ export const ERROR_DOTTED = {
 }
 
 export function ErrorDotted(props: NodeProps) {
-  return (
-    <Shape
-      {...ERROR_DOTTED}
-      {...props}
-      _style={extendStyle(ERROR_DOTTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ERROR_DOTTED)} />
 }

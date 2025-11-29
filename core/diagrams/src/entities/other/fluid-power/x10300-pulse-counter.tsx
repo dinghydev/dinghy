@@ -11,11 +11,5 @@ export const X10300_PULSE_COUNTER = {
 }
 
 export function X10300PulseCounter(props: NodeProps) {
-  return (
-    <Shape
-      {...X10300_PULSE_COUNTER}
-      {...props}
-      _style={extendStyle(X10300_PULSE_COUNTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10300_PULSE_COUNTER)} />
 }

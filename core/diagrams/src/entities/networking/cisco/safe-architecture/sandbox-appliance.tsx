@@ -11,11 +11,5 @@ export const SANDBOX_APPLIANCE = {
 }
 
 export function SandboxAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...SANDBOX_APPLIANCE}
-      {...props}
-      _style={extendStyle(SANDBOX_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SANDBOX_APPLIANCE)} />
 }

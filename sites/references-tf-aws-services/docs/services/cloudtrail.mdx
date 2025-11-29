@@ -1,0 +1,117 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# CloudTrail
+
+## AwsCloudtrail
+
+Provides a CloudTrail resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudtrail/AwsCloudtrail.tsx)
+
+```js
+import { AwsCloudtrail } from "@dinghy/tf-aws/serviceCloudtrail"
+
+<AwsCloudtrail/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail#import)
+
+```js
+<AwsCloudtrail
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudtrailEventDataStore
+
+Provides a CloudTrail Event Data Store resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail_event_data_store)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudtrail/AwsCloudtrailEventDataStore.tsx)
+
+```js
+import { AwsCloudtrailEventDataStore } from "@dinghy/tf-aws/serviceCloudtrail"
+
+<AwsCloudtrailEventDataStore/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail_event_data_store#import)
+
+```js
+<AwsCloudtrailEventDataStore
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudtrailOrganizationDelegatedAdminAccount
+
+Provides a resource to manage an AWS CloudTrail Delegated Administrator.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail_organization_delegated_admin_account)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudtrail/AwsCloudtrailOrganizationDelegatedAdminAccount.tsx)
+
+```js
+import { AwsCloudtrailOrganizationDelegatedAdminAccount } from "@dinghy/tf-aws/serviceCloudtrail"
+
+<AwsCloudtrailOrganizationDelegatedAdminAccount/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudtrailServiceAccount
+
+Get AWS CloudTrail Service Account ID for storing trail data in S3.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudtrail_service_account)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudtrail/DataAwsCloudtrailServiceAccount.tsx)
+
+```js
+import { DataAwsCloudtrailServiceAccount } from "@dinghy/tf-aws/serviceCloudtrail"
+
+<DataAwsCloudtrailServiceAccount/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

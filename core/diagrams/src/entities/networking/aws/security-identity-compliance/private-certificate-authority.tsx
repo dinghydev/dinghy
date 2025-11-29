@@ -13,9 +13,8 @@ export const PRIVATE_CERTIFICATE_AUTHORITY = {
 export function PrivateCertificateAuthority(props: NodeProps) {
   return (
     <Shape
-      {...PRIVATE_CERTIFICATE_AUTHORITY}
       {...props}
-      _style={extendStyle(PRIVATE_CERTIFICATE_AUTHORITY, props)}
+      _style={extendStyle(props, PRIVATE_CERTIFICATE_AUTHORITY)}
     />
   )
 }

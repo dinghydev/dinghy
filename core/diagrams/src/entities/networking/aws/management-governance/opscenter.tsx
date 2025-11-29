@@ -11,7 +11,5 @@ export const OPSCENTER = {
 }
 
 export function Opscenter(props: NodeProps) {
-  return (
-    <Shape {...OPSCENTER} {...props} _style={extendStyle(OPSCENTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPSCENTER)} />
 }

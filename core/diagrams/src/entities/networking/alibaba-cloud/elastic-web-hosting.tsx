@@ -11,11 +11,5 @@ export const ELASTIC_WEB_HOSTING = {
 }
 
 export function ElasticWebHosting(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_WEB_HOSTING}
-      {...props}
-      _style={extendStyle(ELASTIC_WEB_HOSTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_WEB_HOSTING)} />
 }

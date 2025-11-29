@@ -12,10 +12,6 @@ export const X11200_TWO_PORT_CARTRIDGE = {
 
 export function X11200TwoPortCartridge(props: NodeProps) {
   return (
-    <Shape
-      {...X11200_TWO_PORT_CARTRIDGE}
-      {...props}
-      _style={extendStyle(X11200_TWO_PORT_CARTRIDGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11200_TWO_PORT_CARTRIDGE)} />
   )
 }

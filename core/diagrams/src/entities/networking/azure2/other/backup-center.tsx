@@ -11,11 +11,5 @@ export const BACKUP_CENTER = {
 }
 
 export function BackupCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_CENTER}
-      {...props}
-      _style={extendStyle(BACKUP_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_CENTER)} />
 }

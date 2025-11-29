@@ -10,10 +10,6 @@ export const LOOP_AND_COMPENSATION_2 = {
 
 export function LoopAndCompensation2(props: NodeProps) {
   return (
-    <Shape
-      {...LOOP_AND_COMPENSATION_2}
-      {...props}
-      _style={extendStyle(LOOP_AND_COMPENSATION_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOOP_AND_COMPENSATION_2)} />
   )
 }

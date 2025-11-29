@@ -11,11 +11,5 @@ export const EDGE_GATEWAY = {
 }
 
 export function EdgeGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_GATEWAY}
-      {...props}
-      _style={extendStyle(EDGE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_GATEWAY)} />
 }

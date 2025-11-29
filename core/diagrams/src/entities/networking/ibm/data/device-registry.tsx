@@ -11,11 +11,5 @@ export const DEVICE_REGISTRY = {
 }
 
 export function DeviceRegistry(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_REGISTRY}
-      {...props}
-      _style={extendStyle(DEVICE_REGISTRY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_REGISTRY)} />
 }

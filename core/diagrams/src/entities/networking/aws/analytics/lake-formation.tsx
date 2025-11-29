@@ -11,11 +11,5 @@ export const LAKE_FORMATION = {
 }
 
 export function LakeFormation(props: NodeProps) {
-  return (
-    <Shape
-      {...LAKE_FORMATION}
-      {...props}
-      _style={extendStyle(LAKE_FORMATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAKE_FORMATION)} />
 }

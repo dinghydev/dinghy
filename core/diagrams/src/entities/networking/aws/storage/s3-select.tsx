@@ -11,7 +11,5 @@ export const S3_SELECT = {
 }
 
 export function S3Select(props: NodeProps) {
-  return (
-    <Shape {...S3_SELECT} {...props} _style={extendStyle(S3_SELECT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_SELECT)} />
 }

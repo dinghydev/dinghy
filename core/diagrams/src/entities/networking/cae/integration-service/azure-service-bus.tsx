@@ -11,11 +11,5 @@ export const AZURE_SERVICE_BUS = {
 }
 
 export function AzureServiceBus(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_SERVICE_BUS}
-      {...props}
-      _style={extendStyle(AZURE_SERVICE_BUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_SERVICE_BUS)} />
 }

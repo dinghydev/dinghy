@@ -11,11 +11,5 @@ export const DATASTORE_SNAPSHOT = {
 }
 
 export function DatastoreSnapshot(props: NodeProps) {
-  return (
-    <Shape
-      {...DATASTORE_SNAPSHOT}
-      {...props}
-      _style={extendStyle(DATASTORE_SNAPSHOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATASTORE_SNAPSHOT)} />
 }

@@ -11,11 +11,5 @@ export const SOCIAL_MEDIA_TIME = {
 }
 
 export function SocialMediaTime(props: NodeProps) {
-  return (
-    <Shape
-      {...SOCIAL_MEDIA_TIME}
-      {...props}
-      _style={extendStyle(SOCIAL_MEDIA_TIME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOCIAL_MEDIA_TIME)} />
 }

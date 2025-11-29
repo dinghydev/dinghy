@@ -11,11 +11,5 @@ export const X12270_COOLER_WITH = {
 }
 
 export function X12270CoolerWith(props: NodeProps) {
-  return (
-    <Shape
-      {...X12270_COOLER_WITH}
-      {...props}
-      _style={extendStyle(X12270_COOLER_WITH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12270_COOLER_WITH)} />
 }

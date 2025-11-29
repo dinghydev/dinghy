@@ -11,11 +11,5 @@ export const FIRING_SYSTEM_BURNER = {
 }
 
 export function FiringSystemBurner(props: NodeProps) {
-  return (
-    <Shape
-      {...FIRING_SYSTEM_BURNER}
-      {...props}
-      _style={extendStyle(FIRING_SYSTEM_BURNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIRING_SYSTEM_BURNER)} />
 }

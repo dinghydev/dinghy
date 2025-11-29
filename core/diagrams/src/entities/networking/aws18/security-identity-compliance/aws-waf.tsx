@@ -11,5 +11,5 @@ export const AWS_WAF = {
 }
 
 export function AwsWaf(props: NodeProps) {
-  return <Shape {...AWS_WAF} {...props} _style={extendStyle(AWS_WAF, props)} />
+  return <Shape {...props} _style={extendStyle(props, AWS_WAF)} />
 }

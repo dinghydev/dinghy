@@ -13,9 +13,8 @@ export const COMPONENT_1FTVM_UNAVAILABLE = {
 export function Component1ftvmUnavailable(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_1FTVM_UNAVAILABLE}
       {...props}
-      _style={extendStyle(COMPONENT_1FTVM_UNAVAILABLE, props)}
+      _style={extendStyle(props, COMPONENT_1FTVM_UNAVAILABLE)}
     />
   )
 }

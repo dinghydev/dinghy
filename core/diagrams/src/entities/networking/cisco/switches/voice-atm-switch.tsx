@@ -11,11 +11,5 @@ export const VOICE_ATM_SWITCH = {
 }
 
 export function VoiceAtmSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...VOICE_ATM_SWITCH}
-      {...props}
-      _style={extendStyle(VOICE_ATM_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOICE_ATM_SWITCH)} />
 }

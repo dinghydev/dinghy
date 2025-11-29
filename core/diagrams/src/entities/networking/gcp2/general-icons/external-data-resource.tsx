@@ -12,10 +12,6 @@ export const EXTERNAL_DATA_RESOURCE = {
 
 export function ExternalDataResource(props: NodeProps) {
   return (
-    <Shape
-      {...EXTERNAL_DATA_RESOURCE}
-      {...props}
-      _style={extendStyle(EXTERNAL_DATA_RESOURCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXTERNAL_DATA_RESOURCE)} />
   )
 }

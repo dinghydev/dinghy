@@ -11,11 +11,5 @@ export const WIRELESS_SWITCH = {
 }
 
 export function WirelessSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...WIRELESS_SWITCH}
-      {...props}
-      _style={extendStyle(WIRELESS_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRELESS_SWITCH)} />
 }

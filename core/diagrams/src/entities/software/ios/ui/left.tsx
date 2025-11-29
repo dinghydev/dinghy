@@ -11,5 +11,5 @@ export const LEFT = {
 }
 
 export function Left(props: NodeProps) {
-  return <Shape {...LEFT} {...props} _style={extendStyle(LEFT, props)} />
+  return <Shape {...props} _style={extendStyle(props, LEFT)} />
 }

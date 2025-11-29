@@ -12,10 +12,6 @@ export const DIRECT_ONE_DIRECTIONAL = {
 
 export function DirectOneDirectional(props: NodeProps) {
   return (
-    <Shape
-      {...DIRECT_ONE_DIRECTIONAL}
-      {...props}
-      _style={extendStyle(DIRECT_ONE_DIRECTIONAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DIRECT_ONE_DIRECTIONAL)} />
   )
 }

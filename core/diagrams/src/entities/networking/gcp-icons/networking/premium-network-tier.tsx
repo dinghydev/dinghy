@@ -11,11 +11,5 @@ export const PREMIUM_NETWORK_TIER = {
 }
 
 export function PremiumNetworkTier(props: NodeProps) {
-  return (
-    <Shape
-      {...PREMIUM_NETWORK_TIER}
-      {...props}
-      _style={extendStyle(PREMIUM_NETWORK_TIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PREMIUM_NETWORK_TIER)} />
 }

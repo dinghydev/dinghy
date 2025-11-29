@@ -11,11 +11,5 @@ export const SYNCHRONIZE_NON_SAP = {
 }
 
 export function SynchronizeNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...SYNCHRONIZE_NON_SAP}
-      {...props}
-      _style={extendStyle(SYNCHRONIZE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYNCHRONIZE_NON_SAP)} />
 }

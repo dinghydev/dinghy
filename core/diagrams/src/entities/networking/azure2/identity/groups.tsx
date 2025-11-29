@@ -11,5 +11,5 @@ export const GROUPS = {
 }
 
 export function Groups(props: NodeProps) {
-  return <Shape {...GROUPS} {...props} _style={extendStyle(GROUPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, GROUPS)} />
 }

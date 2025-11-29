@@ -11,11 +11,5 @@ export const MANAGEMENT_SECURITY = {
 }
 
 export function ManagementSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_SECURITY}
-      {...props}
-      _style={extendStyle(MANAGEMENT_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_SECURITY)} />
 }

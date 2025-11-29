@@ -13,9 +13,8 @@ export const JL325A_2930M_2_PORT_STACKING_MODULE = {
 export function Jl325a2930m2PortStackingModule(props: NodeProps) {
   return (
     <Shape
-      {...JL325A_2930M_2_PORT_STACKING_MODULE}
       {...props}
-      _style={extendStyle(JL325A_2930M_2_PORT_STACKING_MODULE, props)}
+      _style={extendStyle(props, JL325A_2930M_2_PORT_STACKING_MODULE)}
     />
   )
 }

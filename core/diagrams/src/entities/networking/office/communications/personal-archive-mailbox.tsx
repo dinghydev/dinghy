@@ -12,10 +12,6 @@ export const PERSONAL_ARCHIVE_MAILBOX = {
 
 export function PersonalArchiveMailbox(props: NodeProps) {
   return (
-    <Shape
-      {...PERSONAL_ARCHIVE_MAILBOX}
-      {...props}
-      _style={extendStyle(PERSONAL_ARCHIVE_MAILBOX, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PERSONAL_ARCHIVE_MAILBOX)} />
   )
 }

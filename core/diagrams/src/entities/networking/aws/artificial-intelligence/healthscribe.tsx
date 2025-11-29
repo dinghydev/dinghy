@@ -11,11 +11,5 @@ export const HEALTHSCRIBE = {
 }
 
 export function Healthscribe(props: NodeProps) {
-  return (
-    <Shape
-      {...HEALTHSCRIBE}
-      {...props}
-      _style={extendStyle(HEALTHSCRIBE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEALTHSCRIBE)} />
 }

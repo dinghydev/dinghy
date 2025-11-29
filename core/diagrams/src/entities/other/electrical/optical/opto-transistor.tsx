@@ -11,11 +11,5 @@ export const OPTO_TRANSISTOR = {
 }
 
 export function OptoTransistor(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTO_TRANSISTOR}
-      {...props}
-      _style={extendStyle(OPTO_TRANSISTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTO_TRANSISTOR)} />
 }

@@ -11,11 +11,5 @@ export const ON_PREMISE_NON_SAP = {
 }
 
 export function OnPremiseNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PREMISE_NON_SAP}
-      {...props}
-      _style={extendStyle(ON_PREMISE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PREMISE_NON_SAP)} />
 }

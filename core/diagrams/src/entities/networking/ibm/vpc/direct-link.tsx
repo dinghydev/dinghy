@@ -11,11 +11,5 @@ export const DIRECT_LINK = {
 }
 
 export function DirectLink(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_LINK}
-      {...props}
-      _style={extendStyle(DIRECT_LINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_LINK)} />
 }

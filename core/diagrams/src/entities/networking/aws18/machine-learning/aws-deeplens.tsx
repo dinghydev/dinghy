@@ -11,11 +11,5 @@ export const AWS_DEEPLENS = {
 }
 
 export function AwsDeeplens(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_DEEPLENS}
-      {...props}
-      _style={extendStyle(AWS_DEEPLENS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_DEEPLENS)} />
 }

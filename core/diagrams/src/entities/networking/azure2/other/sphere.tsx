@@ -11,5 +11,5 @@ export const SPHERE = {
 }
 
 export function Sphere(props: NodeProps) {
-  return <Shape {...SPHERE} {...props} _style={extendStyle(SPHERE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPHERE)} />
 }

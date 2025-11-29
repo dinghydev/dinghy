@@ -11,11 +11,5 @@ export const CFW_CLOUD_FIREWALL = {
 }
 
 export function CfwCloudFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...CFW_CLOUD_FIREWALL}
-      {...props}
-      _style={extendStyle(CFW_CLOUD_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CFW_CLOUD_FIREWALL)} />
 }

@@ -9,11 +9,5 @@ export const TRANSACTION_EXPANDED = {
 }
 
 export function TransactionExpanded(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSACTION_EXPANDED}
-      {...props}
-      _style={extendStyle(TRANSACTION_EXPANDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSACTION_EXPANDED)} />
 }

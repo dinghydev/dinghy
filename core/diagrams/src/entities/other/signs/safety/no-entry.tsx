@@ -11,7 +11,5 @@ export const NO_ENTRY = {
 }
 
 export function NoEntry(props: NodeProps) {
-  return (
-    <Shape {...NO_ENTRY} {...props} _style={extendStyle(NO_ENTRY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NO_ENTRY)} />
 }

@@ -11,11 +11,5 @@ export const L2_MODULAR_2 = {
 }
 
 export function L2Modular2(props: NodeProps) {
-  return (
-    <Shape
-      {...L2_MODULAR_2}
-      {...props}
-      _style={extendStyle(L2_MODULAR_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, L2_MODULAR_2)} />
 }

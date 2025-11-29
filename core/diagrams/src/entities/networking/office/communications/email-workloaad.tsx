@@ -11,11 +11,5 @@ export const EMAIL_WORKLOAAD = {
 }
 
 export function EmailWorkloaad(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_WORKLOAAD}
-      {...props}
-      _style={extendStyle(EMAIL_WORKLOAAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_WORKLOAAD)} />
 }

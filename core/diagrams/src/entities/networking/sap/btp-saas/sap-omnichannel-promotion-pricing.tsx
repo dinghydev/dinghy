@@ -13,9 +13,8 @@ export const SAP_OMNICHANNEL_PROMOTION_PRICING = {
 export function SapOmnichannelPromotionPricing(props: NodeProps) {
   return (
     <Shape
-      {...SAP_OMNICHANNEL_PROMOTION_PRICING}
       {...props}
-      _style={extendStyle(SAP_OMNICHANNEL_PROMOTION_PRICING, props)}
+      _style={extendStyle(props, SAP_OMNICHANNEL_PROMOTION_PRICING)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const JL370A_ARUBA_8400_FAN_FOR_X731_FAN_TRAY = {
 export function Jl370aAruba8400FanForX731FanTray(props: NodeProps) {
   return (
     <Shape
-      {...JL370A_ARUBA_8400_FAN_FOR_X731_FAN_TRAY}
       {...props}
-      _style={extendStyle(JL370A_ARUBA_8400_FAN_FOR_X731_FAN_TRAY, props)}
+      _style={extendStyle(props, JL370A_ARUBA_8400_FAN_FOR_X731_FAN_TRAY)}
     />
   )
 }

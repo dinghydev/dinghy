@@ -11,11 +11,5 @@ export const GAS_FILTER_BELT_ROLL = {
 }
 
 export function GasFilterBeltRoll(props: NodeProps) {
-  return (
-    <Shape
-      {...GAS_FILTER_BELT_ROLL}
-      {...props}
-      _style={extendStyle(GAS_FILTER_BELT_ROLL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_FILTER_BELT_ROLL)} />
 }

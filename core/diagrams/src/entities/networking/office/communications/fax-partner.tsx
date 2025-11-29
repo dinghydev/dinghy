@@ -11,11 +11,5 @@ export const FAX_PARTNER = {
 }
 
 export function FaxPartner(props: NodeProps) {
-  return (
-    <Shape
-      {...FAX_PARTNER}
-      {...props}
-      _style={extendStyle(FAX_PARTNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FAX_PARTNER)} />
 }

@@ -11,11 +11,5 @@ export const PRIMARY_CODEC = {
 }
 
 export function PrimaryCodec(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIMARY_CODEC}
-      {...props}
-      _style={extendStyle(PRIMARY_CODEC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIMARY_CODEC)} />
 }

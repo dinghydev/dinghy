@@ -12,10 +12,6 @@ export const RESOURCE_GRAPH_EXPLORER = {
 
 export function ResourceGraphExplorer(props: NodeProps) {
   return (
-    <Shape
-      {...RESOURCE_GRAPH_EXPLORER}
-      {...props}
-      _style={extendStyle(RESOURCE_GRAPH_EXPLORER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RESOURCE_GRAPH_EXPLORER)} />
   )
 }

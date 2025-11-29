@@ -11,5 +11,5 @@ export const GALLERY = {
 }
 
 export function Gallery(props: NodeProps) {
-  return <Shape {...GALLERY} {...props} _style={extendStyle(GALLERY, props)} />
+  return <Shape {...props} _style={extendStyle(props, GALLERY)} />
 }

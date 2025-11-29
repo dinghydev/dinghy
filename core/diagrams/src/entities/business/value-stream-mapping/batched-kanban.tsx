@@ -11,11 +11,5 @@ export const BATCHED_KANBAN = {
 }
 
 export function BatchedKanban(props: NodeProps) {
-  return (
-    <Shape
-      {...BATCHED_KANBAN}
-      {...props}
-      _style={extendStyle(BATCHED_KANBAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BATCHED_KANBAN)} />
 }

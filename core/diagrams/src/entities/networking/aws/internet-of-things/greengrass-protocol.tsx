@@ -11,11 +11,5 @@ export const GREENGRASS_PROTOCOL = {
 }
 
 export function GreengrassProtocol(props: NodeProps) {
-  return (
-    <Shape
-      {...GREENGRASS_PROTOCOL}
-      {...props}
-      _style={extendStyle(GREENGRASS_PROTOCOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GREENGRASS_PROTOCOL)} />
 }

@@ -11,11 +11,5 @@ export const CONCENTRATOR = {
 }
 
 export function Concentrator(props: NodeProps) {
-  return (
-    <Shape
-      {...CONCENTRATOR}
-      {...props}
-      _style={extendStyle(CONCENTRATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONCENTRATOR)} />
 }

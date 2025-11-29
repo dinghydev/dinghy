@@ -11,5 +11,5 @@ export const LOYALTY = {
 }
 
 export function Loyalty(props: NodeProps) {
-  return <Shape {...LOYALTY} {...props} _style={extendStyle(LOYALTY, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOYALTY)} />
 }

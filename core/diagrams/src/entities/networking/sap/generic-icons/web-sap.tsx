@@ -11,5 +11,5 @@ export const WEB_SAP = {
 }
 
 export function WebSap(props: NodeProps) {
-  return <Shape {...WEB_SAP} {...props} _style={extendStyle(WEB_SAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEB_SAP)} />
 }

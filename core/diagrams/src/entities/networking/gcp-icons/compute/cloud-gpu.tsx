@@ -11,7 +11,5 @@ export const CLOUD_GPU = {
 }
 
 export function CloudGpu(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_GPU} {...props} _style={extendStyle(CLOUD_GPU, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_GPU)} />
 }

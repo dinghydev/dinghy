@@ -13,9 +13,8 @@ export const X12090_CENTRIFUGAL_SEPARATOR = {
 export function X12090CentrifugalSeparator(props: NodeProps) {
   return (
     <Shape
-      {...X12090_CENTRIFUGAL_SEPARATOR}
       {...props}
-      _style={extendStyle(X12090_CENTRIFUGAL_SEPARATOR, props)}
+      _style={extendStyle(props, X12090_CENTRIFUGAL_SEPARATOR)}
     />
   )
 }

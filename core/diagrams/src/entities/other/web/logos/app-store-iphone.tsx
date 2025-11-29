@@ -11,11 +11,5 @@ export const APP_STORE_IPHONE = {
 }
 
 export function AppStoreIphone(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_STORE_IPHONE}
-      {...props}
-      _style={extendStyle(APP_STORE_IPHONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_STORE_IPHONE)} />
 }

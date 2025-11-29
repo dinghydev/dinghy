@@ -11,11 +11,5 @@ export const FILE_CABINET = {
 }
 
 export function FileCabinet(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_CABINET}
-      {...props}
-      _style={extendStyle(FILE_CABINET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_CABINET)} />
 }

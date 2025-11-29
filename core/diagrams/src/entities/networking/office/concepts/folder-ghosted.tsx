@@ -11,11 +11,5 @@ export const FOLDER_GHOSTED = {
 }
 
 export function FolderGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_GHOSTED}
-      {...props}
-      _style={extendStyle(FOLDER_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_GHOSTED)} />
 }

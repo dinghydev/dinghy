@@ -11,9 +11,8 @@ export const COMPONENT_0_TO_MANY_OPTIONAL = {
 export function Component0ToManyOptional(props: NodeProps) {
   return (
     <Dependency
-      {...COMPONENT_0_TO_MANY_OPTIONAL}
       {...props}
-      _style={extendStyle(COMPONENT_0_TO_MANY_OPTIONAL, props)}
+      _style={extendStyle(props, COMPONENT_0_TO_MANY_OPTIONAL)}
     />
   )
 }

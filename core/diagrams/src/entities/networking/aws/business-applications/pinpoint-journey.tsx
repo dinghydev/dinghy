@@ -11,11 +11,5 @@ export const PINPOINT_JOURNEY = {
 }
 
 export function PinpointJourney(props: NodeProps) {
-  return (
-    <Shape
-      {...PINPOINT_JOURNEY}
-      {...props}
-      _style={extendStyle(PINPOINT_JOURNEY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PINPOINT_JOURNEY)} />
 }

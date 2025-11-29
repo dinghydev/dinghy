@@ -12,10 +12,6 @@ export const CITRIX_ENTERPRISE_BROWSER = {
 
 export function CitrixEnterpriseBrowser(props: NodeProps) {
   return (
-    <Shape
-      {...CITRIX_ENTERPRISE_BROWSER}
-      {...props}
-      _style={extendStyle(CITRIX_ENTERPRISE_BROWSER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CITRIX_ENTERPRISE_BROWSER)} />
   )
 }

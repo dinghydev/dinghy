@@ -11,11 +11,5 @@ export const AGITATOR_CROSS_BEAM = {
 }
 
 export function AgitatorCrossBeam(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_CROSS_BEAM}
-      {...props}
-      _style={extendStyle(AGITATOR_CROSS_BEAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_CROSS_BEAM)} />
 }

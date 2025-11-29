@@ -11,11 +11,5 @@ export const TELEPRESENCE_EXCHANGE = {
 }
 
 export function TelepresenceExchange(props: NodeProps) {
-  return (
-    <Shape
-      {...TELEPRESENCE_EXCHANGE}
-      {...props}
-      _style={extendStyle(TELEPRESENCE_EXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TELEPRESENCE_EXCHANGE)} />
 }

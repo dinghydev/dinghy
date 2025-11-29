@@ -13,9 +13,8 @@ export const COMPONENT_3RD_PARTY_INTEGRATION = {
 export function Component3rdPartyIntegration(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3RD_PARTY_INTEGRATION}
       {...props}
-      _style={extendStyle(COMPONENT_3RD_PARTY_INTEGRATION, props)}
+      _style={extendStyle(props, COMPONENT_3RD_PARTY_INTEGRATION)}
     />
   )
 }

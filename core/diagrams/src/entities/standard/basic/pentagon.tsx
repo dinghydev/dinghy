@@ -10,7 +10,5 @@ export const PENTAGON = {
 }
 
 export function Pentagon(props: NodeProps) {
-  return (
-    <Shape {...PENTAGON} {...props} _style={extendStyle(PENTAGON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PENTAGON)} />
 }

@@ -11,11 +11,5 @@ export const ANNOTATION_2 = {
 }
 
 export function Annotation2(props: NodeProps) {
-  return (
-    <Shape
-      {...ANNOTATION_2}
-      {...props}
-      _style={extendStyle(ANNOTATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANNOTATION_2)} />
 }

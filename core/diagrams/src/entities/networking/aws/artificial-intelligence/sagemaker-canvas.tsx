@@ -11,11 +11,5 @@ export const SAGEMAKER_CANVAS = {
 }
 
 export function SagemakerCanvas(props: NodeProps) {
-  return (
-    <Shape
-      {...SAGEMAKER_CANVAS}
-      {...props}
-      _style={extendStyle(SAGEMAKER_CANVAS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAGEMAKER_CANVAS)} />
 }

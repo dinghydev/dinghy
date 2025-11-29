@@ -11,5 +11,5 @@ export const VMANAGE = {
 }
 
 export function Vmanage(props: NodeProps) {
-  return <Shape {...VMANAGE} {...props} _style={extendStyle(VMANAGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, VMANAGE)} />
 }

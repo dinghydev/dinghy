@@ -12,10 +12,6 @@ export const NSX_PUBLIC_CLOUD_GATEWAY = {
 
 export function NsxPublicCloudGateway(props: NodeProps) {
   return (
-    <Shape
-      {...NSX_PUBLIC_CLOUD_GATEWAY}
-      {...props}
-      _style={extendStyle(NSX_PUBLIC_CLOUD_GATEWAY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NSX_PUBLIC_CLOUD_GATEWAY)} />
   )
 }

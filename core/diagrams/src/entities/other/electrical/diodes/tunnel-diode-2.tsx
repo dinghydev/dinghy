@@ -11,11 +11,5 @@ export const TUNNEL_DIODE_2 = {
 }
 
 export function TunnelDiode2(props: NodeProps) {
-  return (
-    <Shape
-      {...TUNNEL_DIODE_2}
-      {...props}
-      _style={extendStyle(TUNNEL_DIODE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TUNNEL_DIODE_2)} />
 }

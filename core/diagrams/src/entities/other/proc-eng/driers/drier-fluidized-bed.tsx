@@ -11,11 +11,5 @@ export const DRIER_FLUIDIZED_BED = {
 }
 
 export function DrierFluidizedBed(props: NodeProps) {
-  return (
-    <Shape
-      {...DRIER_FLUIDIZED_BED}
-      {...props}
-      _style={extendStyle(DRIER_FLUIDIZED_BED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DRIER_FLUIDIZED_BED)} />
 }

@@ -11,5 +11,5 @@ export const AXP = {
 }
 
 export function Axp(props: NodeProps) {
-  return <Shape {...AXP} {...props} _style={extendStyle(AXP, props)} />
+  return <Shape {...props} _style={extendStyle(props, AXP)} />
 }

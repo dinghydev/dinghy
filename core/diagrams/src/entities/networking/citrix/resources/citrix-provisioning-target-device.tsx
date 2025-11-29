@@ -13,9 +13,8 @@ export const CITRIX_PROVISIONING_TARGET_DEVICE = {
 export function CitrixProvisioningTargetDevice(props: NodeProps) {
   return (
     <Shape
-      {...CITRIX_PROVISIONING_TARGET_DEVICE}
       {...props}
-      _style={extendStyle(CITRIX_PROVISIONING_TARGET_DEVICE, props)}
+      _style={extendStyle(props, CITRIX_PROVISIONING_TARGET_DEVICE)}
     />
   )
 }

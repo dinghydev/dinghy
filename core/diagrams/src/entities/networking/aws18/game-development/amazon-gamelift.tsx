@@ -11,11 +11,5 @@ export const AMAZON_GAMELIFT = {
 }
 
 export function AmazonGamelift(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_GAMELIFT}
-      {...props}
-      _style={extendStyle(AMAZON_GAMELIFT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_GAMELIFT)} />
 }

@@ -11,5 +11,5 @@ export const LEDGER = {
 }
 
 export function Ledger(props: NodeProps) {
-  return <Shape {...LEDGER} {...props} _style={extendStyle(LEDGER, props)} />
+  return <Shape {...props} _style={extendStyle(props, LEDGER)} />
 }

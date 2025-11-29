@@ -9,11 +9,5 @@ export const SPECIALIZATION = {
 }
 
 export function Specialization(props: NodeProps) {
-  return (
-    <Dependency
-      {...SPECIALIZATION}
-      {...props}
-      _style={extendStyle(SPECIALIZATION, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, SPECIALIZATION)} />
 }

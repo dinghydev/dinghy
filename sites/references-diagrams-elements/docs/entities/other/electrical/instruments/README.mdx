@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Ammeter } from '@dinghy/diagrams/entitiesElectricalInstruments'
 
 <Ammeter/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { AMMETER } from '@dinghy/diagrams/entitiesElectricalInstruments'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, AMMETER)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { Ammeter } from '@dinghy/diagrams/entitiesElectricalInstruments'
 import { Galvanometer } from '@dinghy/diagrams/entitiesElectricalInstruments'
 
 <Galvanometer/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { GALVANOMETER } from '@dinghy/diagrams/entitiesElectricalInstruments'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, GALVANOMETER)}
+  />
+
 ```
 
   </TabItem>
@@ -86,6 +108,17 @@ import { Galvanometer } from '@dinghy/diagrams/entitiesElectricalInstruments'
 import { Oscilloscope } from '@dinghy/diagrams/entitiesElectricalInstruments'
 
 <Oscilloscope/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { OSCILLOSCOPE } from '@dinghy/diagrams/entitiesElectricalInstruments'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, OSCILLOSCOPE)}
+  />
+
 ```
 
   </TabItem>
@@ -120,6 +153,17 @@ import { Oscilloscope } from '@dinghy/diagrams/entitiesElectricalInstruments'
 import { SignalGenerator } from '@dinghy/diagrams/entitiesElectricalInstruments'
 
 <SignalGenerator/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { SIGNAL_GENERATOR } from '@dinghy/diagrams/entitiesElectricalInstruments'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, SIGNAL_GENERATOR)}
+  />
+
 ```
 
   </TabItem>

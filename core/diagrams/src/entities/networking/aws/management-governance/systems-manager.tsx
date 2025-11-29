@@ -11,11 +11,5 @@ export const SYSTEMS_MANAGER = {
 }
 
 export function SystemsManager(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEMS_MANAGER}
-      {...props}
-      _style={extendStyle(SYSTEMS_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEMS_MANAGER)} />
 }

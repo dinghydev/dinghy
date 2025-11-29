@@ -11,5 +11,5 @@ export const ONION = {
 }
 
 export function Onion(props: NodeProps) {
-  return <Shape {...ONION} {...props} _style={extendStyle(ONION, props)} />
+  return <Shape {...props} _style={extendStyle(props, ONION)} />
 }

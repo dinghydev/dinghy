@@ -11,11 +11,5 @@ export const SECRET_MANAGER = {
 }
 
 export function SecretManager(props: NodeProps) {
-  return (
-    <Shape
-      {...SECRET_MANAGER}
-      {...props}
-      _style={extendStyle(SECRET_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECRET_MANAGER)} />
 }

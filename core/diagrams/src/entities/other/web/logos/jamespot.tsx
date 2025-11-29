@@ -11,7 +11,5 @@ export const JAMESPOT = {
 }
 
 export function Jamespot(props: NodeProps) {
-  return (
-    <Shape {...JAMESPOT} {...props} _style={extendStyle(JAMESPOT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, JAMESPOT)} />
 }

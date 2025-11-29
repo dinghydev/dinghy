@@ -13,9 +13,8 @@ export const INTERRUPTIBLE_ACTIVITY_REGION_2 = {
 export function InterruptibleActivityRegion2(props: NodeProps) {
   return (
     <Shape
-      {...INTERRUPTIBLE_ACTIVITY_REGION_2}
       {...props}
-      _style={extendStyle(INTERRUPTIBLE_ACTIVITY_REGION_2, props)}
+      _style={extendStyle(props, INTERRUPTIBLE_ACTIVITY_REGION_2)}
     />
   )
 }

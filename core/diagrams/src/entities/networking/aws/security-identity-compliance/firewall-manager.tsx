@@ -11,11 +11,5 @@ export const FIREWALL_MANAGER = {
 }
 
 export function FirewallManager(props: NodeProps) {
-  return (
-    <Shape
-      {...FIREWALL_MANAGER}
-      {...props}
-      _style={extendStyle(FIREWALL_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREWALL_MANAGER)} />
 }

@@ -11,11 +11,5 @@ export const INVENTORY_SOFTWARE = {
 }
 
 export function InventorySoftware(props: NodeProps) {
-  return (
-    <Shape
-      {...INVENTORY_SOFTWARE}
-      {...props}
-      _style={extendStyle(INVENTORY_SOFTWARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INVENTORY_SOFTWARE)} />
 }

@@ -13,11 +13,5 @@ export const EC2_INSTANCE_CONTENTS = {
 }
 
 export function Ec2InstanceContents(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_INSTANCE_CONTENTS}
-      {...props}
-      _style={extendStyle(EC2_INSTANCE_CONTENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_INSTANCE_CONTENTS)} />
 }

@@ -12,10 +12,6 @@ export const GTM_GLOBAL_TRAFFIC_MANAGER = {
 
 export function GtmGlobalTrafficManager(props: NodeProps) {
   return (
-    <Shape
-      {...GTM_GLOBAL_TRAFFIC_MANAGER}
-      {...props}
-      _style={extendStyle(GTM_GLOBAL_TRAFFIC_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GTM_GLOBAL_TRAFFIC_MANAGER)} />
   )
 }

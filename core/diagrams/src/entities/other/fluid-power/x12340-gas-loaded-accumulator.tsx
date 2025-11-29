@@ -13,9 +13,8 @@ export const X12340_GAS_LOADED_ACCUMULATOR = {
 export function X12340GasLoadedAccumulator(props: NodeProps) {
   return (
     <Shape
-      {...X12340_GAS_LOADED_ACCUMULATOR}
       {...props}
-      _style={extendStyle(X12340_GAS_LOADED_ACCUMULATOR, props)}
+      _style={extendStyle(props, X12340_GAS_LOADED_ACCUMULATOR)}
     />
   )
 }

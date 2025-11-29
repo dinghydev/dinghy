@@ -11,5 +11,5 @@ export const IPTC = {
 }
 
 export function Iptc(props: NodeProps) {
-  return <Shape {...IPTC} {...props} _style={extendStyle(IPTC, props)} />
+  return <Shape {...props} _style={extendStyle(props, IPTC)} />
 }

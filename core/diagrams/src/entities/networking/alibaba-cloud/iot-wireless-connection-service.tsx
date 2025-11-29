@@ -13,9 +13,8 @@ export const IOT_WIRELESS_CONNECTION_SERVICE = {
 export function IotWirelessConnectionService(props: NodeProps) {
   return (
     <Shape
-      {...IOT_WIRELESS_CONNECTION_SERVICE}
       {...props}
-      _style={extendStyle(IOT_WIRELESS_CONNECTION_SERVICE, props)}
+      _style={extendStyle(props, IOT_WIRELESS_CONNECTION_SERVICE)}
     />
   )
 }

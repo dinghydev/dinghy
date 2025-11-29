@@ -11,11 +11,5 @@ export const CONTROL_TOWER = {
 }
 
 export function ControlTower(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_TOWER}
-      {...props}
-      _style={extendStyle(CONTROL_TOWER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_TOWER)} />
 }

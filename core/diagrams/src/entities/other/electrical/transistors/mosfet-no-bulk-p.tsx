@@ -11,11 +11,5 @@ export const MOSFET_NO_BULK_P = {
 }
 
 export function MosfetNoBulkP(props: NodeProps) {
-  return (
-    <Shape
-      {...MOSFET_NO_BULK_P}
-      {...props}
-      _style={extendStyle(MOSFET_NO_BULK_P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOSFET_NO_BULK_P)} />
 }

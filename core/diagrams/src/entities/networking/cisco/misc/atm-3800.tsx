@@ -11,7 +11,5 @@ export const ATM_3800 = {
 }
 
 export function Atm3800(props: NodeProps) {
-  return (
-    <Shape {...ATM_3800} {...props} _style={extendStyle(ATM_3800, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATM_3800)} />
 }

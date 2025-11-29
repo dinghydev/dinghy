@@ -11,11 +11,5 @@ export const CABLE_MODEM = {
 }
 
 export function CableModem(props: NodeProps) {
-  return (
-    <Shape
-      {...CABLE_MODEM}
-      {...props}
-      _style={extendStyle(CABLE_MODEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CABLE_MODEM)} />
 }

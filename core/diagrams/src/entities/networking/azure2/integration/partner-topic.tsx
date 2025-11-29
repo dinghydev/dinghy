@@ -11,11 +11,5 @@ export const PARTNER_TOPIC = {
 }
 
 export function PartnerTopic(props: NodeProps) {
-  return (
-    <Shape
-      {...PARTNER_TOPIC}
-      {...props}
-      _style={extendStyle(PARTNER_TOPIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTNER_TOPIC)} />
 }

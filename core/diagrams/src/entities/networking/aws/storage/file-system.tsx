@@ -11,11 +11,5 @@ export const FILE_SYSTEM = {
 }
 
 export function FileSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_SYSTEM}
-      {...props}
-      _style={extendStyle(FILE_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_SYSTEM)} />
 }

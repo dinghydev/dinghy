@@ -11,11 +11,5 @@ export const DIRECTORY_SERVER = {
 }
 
 export function DirectoryServer(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECTORY_SERVER}
-      {...props}
-      _style={extendStyle(DIRECTORY_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECTORY_SERVER)} />
 }

@@ -11,5 +11,5 @@ export const DC_OS = {
 }
 
 export function DcOs(props: NodeProps) {
-  return <Shape {...DC_OS} {...props} _style={extendStyle(DC_OS, props)} />
+  return <Shape {...props} _style={extendStyle(props, DC_OS)} />
 }

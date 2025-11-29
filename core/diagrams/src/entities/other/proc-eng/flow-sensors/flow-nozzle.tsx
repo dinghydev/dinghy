@@ -11,11 +11,5 @@ export const FLOW_NOZZLE = {
 }
 
 export function FlowNozzle(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_NOZZLE}
-      {...props}
-      _style={extendStyle(FLOW_NOZZLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_NOZZLE)} />
 }

@@ -11,7 +11,5 @@ export const BUZZFEED = {
 }
 
 export function Buzzfeed(props: NodeProps) {
-  return (
-    <Shape {...BUZZFEED} {...props} _style={extendStyle(BUZZFEED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUZZFEED)} />
 }

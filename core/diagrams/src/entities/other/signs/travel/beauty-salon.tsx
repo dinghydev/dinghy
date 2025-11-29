@@ -11,11 +11,5 @@ export const BEAUTY_SALON = {
 }
 
 export function BeautySalon(props: NodeProps) {
-  return (
-    <Shape
-      {...BEAUTY_SALON}
-      {...props}
-      _style={extendStyle(BEAUTY_SALON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEAUTY_SALON)} />
 }

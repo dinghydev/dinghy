@@ -11,7 +11,5 @@ export const KUBELET_2 = {
 }
 
 export function Kubelet2(props: NodeProps) {
-  return (
-    <Shape {...KUBELET_2} {...props} _style={extendStyle(KUBELET_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, KUBELET_2)} />
 }

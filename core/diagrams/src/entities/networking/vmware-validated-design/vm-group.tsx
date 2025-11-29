@@ -11,7 +11,5 @@ export const VM_GROUP = {
 }
 
 export function VmGroup(props: NodeProps) {
-  return (
-    <Shape {...VM_GROUP} {...props} _style={extendStyle(VM_GROUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_GROUP)} />
 }

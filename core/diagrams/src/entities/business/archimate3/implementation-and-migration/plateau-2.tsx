@@ -11,7 +11,5 @@ export const PLATEAU_2 = {
 }
 
 export function Plateau2(props: NodeProps) {
-  return (
-    <Shape {...PLATEAU_2} {...props} _style={extendStyle(PLATEAU_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLATEAU_2)} />
 }

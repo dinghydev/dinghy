@@ -11,7 +11,5 @@ export const DEVICE_OS = {
 }
 
 export function DeviceOs(props: NodeProps) {
-  return (
-    <Shape {...DEVICE_OS} {...props} _style={extendStyle(DEVICE_OS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_OS)} />
 }

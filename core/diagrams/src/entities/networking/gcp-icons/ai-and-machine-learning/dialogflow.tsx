@@ -11,7 +11,5 @@ export const DIALOGFLOW = {
 }
 
 export function Dialogflow(props: NodeProps) {
-  return (
-    <Shape {...DIALOGFLOW} {...props} _style={extendStyle(DIALOGFLOW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIALOGFLOW)} />
 }

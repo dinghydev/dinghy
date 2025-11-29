@@ -11,5 +11,5 @@ export const NGFW = {
 }
 
 export function Ngfw(props: NodeProps) {
-  return <Shape {...NGFW} {...props} _style={extendStyle(NGFW, props)} />
+  return <Shape {...props} _style={extendStyle(props, NGFW)} />
 }

@@ -11,11 +11,5 @@ export const VISUAL_STUDIO_ONLINE = {
 }
 
 export function VisualStudioOnline(props: NodeProps) {
-  return (
-    <Shape
-      {...VISUAL_STUDIO_ONLINE}
-      {...props}
-      _style={extendStyle(VISUAL_STUDIO_ONLINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISUAL_STUDIO_ONLINE)} />
 }

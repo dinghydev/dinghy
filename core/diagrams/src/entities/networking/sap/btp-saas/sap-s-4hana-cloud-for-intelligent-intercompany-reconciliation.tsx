@@ -15,11 +15,10 @@ export function SapS4hanaCloudForIntelligentIntercompanyReconciliation(
 ) {
   return (
     <Shape
-      {...SAP_S_4HANA_CLOUD_FOR_INTELLIGENT_INTERCOMPANY_RECONCILIATION}
       {...props}
       _style={extendStyle(
-        SAP_S_4HANA_CLOUD_FOR_INTELLIGENT_INTERCOMPANY_RECONCILIATION,
         props,
+        SAP_S_4HANA_CLOUD_FOR_INTELLIGENT_INTERCOMPANY_RECONCILIATION,
       )}
     />
   )

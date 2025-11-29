@@ -11,5 +11,5 @@ export const HEART = {
 }
 
 export function Heart(props: NodeProps) {
-  return <Shape {...HEART} {...props} _style={extendStyle(HEART, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEART)} />
 }

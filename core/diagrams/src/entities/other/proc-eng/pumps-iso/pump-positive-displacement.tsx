@@ -12,10 +12,6 @@ export const PUMP_POSITIVE_DISPLACEMENT = {
 
 export function PumpPositiveDisplacement(props: NodeProps) {
   return (
-    <Shape
-      {...PUMP_POSITIVE_DISPLACEMENT}
-      {...props}
-      _style={extendStyle(PUMP_POSITIVE_DISPLACEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUMP_POSITIVE_DISPLACEMENT)} />
   )
 }

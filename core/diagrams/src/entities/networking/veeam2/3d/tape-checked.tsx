@@ -11,11 +11,5 @@ export const TAPE_CHECKED = {
 }
 
 export function TapeChecked(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_CHECKED}
-      {...props}
-      _style={extendStyle(TAPE_CHECKED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_CHECKED)} />
 }

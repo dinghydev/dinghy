@@ -13,9 +13,8 @@ export const CONDITIONAL_NON_INTERRUPTING = {
 export function ConditionalNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(CONDITIONAL_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, CONDITIONAL_NON_INTERRUPTING)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const APPLICATION_IOS = {
 }
 
 export function ApplicationIos(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_IOS}
-      {...props}
-      _style={extendStyle(APPLICATION_IOS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_IOS)} />
 }

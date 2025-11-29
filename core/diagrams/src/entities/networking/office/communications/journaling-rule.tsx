@@ -11,11 +11,5 @@ export const JOURNALING_RULE = {
 }
 
 export function JournalingRule(props: NodeProps) {
-  return (
-    <Shape
-      {...JOURNALING_RULE}
-      {...props}
-      _style={extendStyle(JOURNALING_RULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JOURNALING_RULE)} />
 }

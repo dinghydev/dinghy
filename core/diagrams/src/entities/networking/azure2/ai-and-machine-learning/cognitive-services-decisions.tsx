@@ -13,9 +13,8 @@ export const COGNITIVE_SERVICES_DECISIONS = {
 export function CognitiveServicesDecisions(props: NodeProps) {
   return (
     <Shape
-      {...COGNITIVE_SERVICES_DECISIONS}
       {...props}
-      _style={extendStyle(COGNITIVE_SERVICES_DECISIONS, props)}
+      _style={extendStyle(props, COGNITIVE_SERVICES_DECISIONS)}
     />
   )
 }

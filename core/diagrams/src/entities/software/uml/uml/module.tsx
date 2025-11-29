@@ -11,5 +11,5 @@ export const MODULE = {
 }
 
 export function Module(props: NodeProps) {
-  return <Shape {...MODULE} {...props} _style={extendStyle(MODULE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MODULE)} />
 }

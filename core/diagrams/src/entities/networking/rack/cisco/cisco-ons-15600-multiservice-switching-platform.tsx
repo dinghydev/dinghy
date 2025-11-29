@@ -13,11 +13,10 @@ export const CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM = {
 export function CiscoOns15600MultiserviceSwitchingPlatform(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM}
       {...props}
       _style={extendStyle(
-        CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM,
         props,
+        CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM,
       )}
     />
   )

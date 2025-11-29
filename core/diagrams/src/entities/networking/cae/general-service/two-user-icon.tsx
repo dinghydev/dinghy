@@ -11,11 +11,5 @@ export const TWO_USER_ICON = {
 }
 
 export function TwoUserIcon(props: NodeProps) {
-  return (
-    <Shape
-      {...TWO_USER_ICON}
-      {...props}
-      _style={extendStyle(TWO_USER_ICON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TWO_USER_ICON)} />
 }

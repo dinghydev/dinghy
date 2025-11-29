@@ -13,9 +13,8 @@ export const INTELLIGENT_ORDER_MANAGEMENT = {
 export function IntelligentOrderManagement(props: NodeProps) {
   return (
     <Shape
-      {...INTELLIGENT_ORDER_MANAGEMENT}
       {...props}
-      _style={extendStyle(INTELLIGENT_ORDER_MANAGEMENT, props)}
+      _style={extendStyle(props, INTELLIGENT_ORDER_MANAGEMENT)}
     />
   )
 }

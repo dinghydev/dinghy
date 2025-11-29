@@ -11,11 +11,5 @@ export const MESSAGE_FILTER = {
 }
 
 export function MessageFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_FILTER}
-      {...props}
-      _style={extendStyle(MESSAGE_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_FILTER)} />
 }

@@ -11,7 +11,5 @@ export const FLANGE_IN = {
 }
 
 export function FlangeIn(props: NodeProps) {
-  return (
-    <Shape {...FLANGE_IN} {...props} _style={extendStyle(FLANGE_IN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLANGE_IN)} />
 }

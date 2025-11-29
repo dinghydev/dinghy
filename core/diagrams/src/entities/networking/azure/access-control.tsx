@@ -11,11 +11,5 @@ export const ACCESS_CONTROL = {
 }
 
 export function AccessControl(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_CONTROL}
-      {...props}
-      _style={extendStyle(ACCESS_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_CONTROL)} />
 }

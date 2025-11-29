@@ -11,7 +11,5 @@ export const TITLE_BAR = {
 }
 
 export function TitleBar(props: NodeProps) {
-  return (
-    <Shape {...TITLE_BAR} {...props} _style={extendStyle(TITLE_BAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TITLE_BAR)} />
 }

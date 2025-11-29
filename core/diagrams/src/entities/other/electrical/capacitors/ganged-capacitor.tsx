@@ -11,11 +11,5 @@ export const GANGED_CAPACITOR = {
 }
 
 export function GangedCapacitor(props: NodeProps) {
-  return (
-    <Shape
-      {...GANGED_CAPACITOR}
-      {...props}
-      _style={extendStyle(GANGED_CAPACITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GANGED_CAPACITOR)} />
 }

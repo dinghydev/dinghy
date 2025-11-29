@@ -11,11 +11,5 @@ export const MYSQL_DATABASE = {
 }
 
 export function MysqlDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...MYSQL_DATABASE}
-      {...props}
-      _style={extendStyle(MYSQL_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MYSQL_DATABASE)} />
 }

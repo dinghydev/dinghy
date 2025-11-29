@@ -11,11 +11,5 @@ export const SEARCH_ENGINE = {
 }
 
 export function SearchEngine(props: NodeProps) {
-  return (
-    <Shape
-      {...SEARCH_ENGINE}
-      {...props}
-      _style={extendStyle(SEARCH_ENGINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEARCH_ENGINE)} />
 }

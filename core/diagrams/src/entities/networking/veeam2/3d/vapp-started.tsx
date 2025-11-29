@@ -11,11 +11,5 @@ export const VAPP_STARTED = {
 }
 
 export function VappStarted(props: NodeProps) {
-  return (
-    <Shape
-      {...VAPP_STARTED}
-      {...props}
-      _style={extendStyle(VAPP_STARTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VAPP_STARTED)} />
 }

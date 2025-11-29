@@ -12,10 +12,6 @@ export const ELASTIC_CONTAINER_REGISTRY = {
 
 export function ElasticContainerRegistry(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_CONTAINER_REGISTRY}
-      {...props}
-      _style={extendStyle(ELASTIC_CONTAINER_REGISTRY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_CONTAINER_REGISTRY)} />
   )
 }

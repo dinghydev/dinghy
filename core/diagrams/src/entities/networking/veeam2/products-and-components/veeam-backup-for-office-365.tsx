@@ -13,9 +13,8 @@ export const VEEAM_BACKUP_FOR_OFFICE_365 = {
 export function VeeamBackupForOffice365(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_BACKUP_FOR_OFFICE_365}
       {...props}
-      _style={extendStyle(VEEAM_BACKUP_FOR_OFFICE_365, props)}
+      _style={extendStyle(props, VEEAM_BACKUP_FOR_OFFICE_365)}
     />
   )
 }

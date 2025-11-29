@@ -11,11 +11,5 @@ export const CONTACTOR_32_TO_125A = {
 }
 
 export function Contactor32To125a(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACTOR_32_TO_125A}
-      {...props}
-      _style={extendStyle(CONTACTOR_32_TO_125A, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACTOR_32_TO_125A)} />
 }

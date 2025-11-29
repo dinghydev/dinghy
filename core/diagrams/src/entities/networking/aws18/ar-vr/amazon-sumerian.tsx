@@ -11,11 +11,5 @@ export const AMAZON_SUMERIAN = {
 }
 
 export function AmazonSumerian(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_SUMERIAN}
-      {...props}
-      _style={extendStyle(AMAZON_SUMERIAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_SUMERIAN)} />
 }

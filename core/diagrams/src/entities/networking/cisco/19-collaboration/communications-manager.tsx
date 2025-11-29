@@ -12,10 +12,6 @@ export const COMMUNICATIONS_MANAGER = {
 
 export function CommunicationsManager(props: NodeProps) {
   return (
-    <Shape
-      {...COMMUNICATIONS_MANAGER}
-      {...props}
-      _style={extendStyle(COMMUNICATIONS_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMMUNICATIONS_MANAGER)} />
   )
 }

@@ -11,7 +11,5 @@ export const RETAILIR = {
 }
 
 export function Retailir(props: NodeProps) {
-  return (
-    <Shape {...RETAILIR} {...props} _style={extendStyle(RETAILIR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETAILIR)} />
 }

@@ -11,5 +11,5 @@ export const CYCLONE = {
 }
 
 export function Cyclone(props: NodeProps) {
-  return <Shape {...CYCLONE} {...props} _style={extendStyle(CYCLONE, props)} />
+  return <Shape {...props} _style={extendStyle(props, CYCLONE)} />
 }

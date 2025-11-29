@@ -11,11 +11,5 @@ export const R6A_INSTANCE = {
 }
 
 export function R6aInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...R6A_INSTANCE}
-      {...props}
-      _style={extendStyle(R6A_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, R6A_INSTANCE)} />
 }

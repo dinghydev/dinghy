@@ -11,7 +11,5 @@ export const CISCO_DNA = {
 }
 
 export function CiscoDna(props: NodeProps) {
-  return (
-    <Shape {...CISCO_DNA} {...props} _style={extendStyle(CISCO_DNA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_DNA)} />
 }

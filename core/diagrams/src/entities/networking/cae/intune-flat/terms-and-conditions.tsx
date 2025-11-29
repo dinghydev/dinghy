@@ -11,11 +11,5 @@ export const TERMS_AND_CONDITIONS = {
 }
 
 export function TermsAndConditions(props: NodeProps) {
-  return (
-    <Shape
-      {...TERMS_AND_CONDITIONS}
-      {...props}
-      _style={extendStyle(TERMS_AND_CONDITIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMS_AND_CONDITIONS)} />
 }

@@ -11,11 +11,5 @@ export const RECTANGLE_SKETCH = {
 }
 
 export function RectangleSketch(props: NodeProps) {
-  return (
-    <Shape
-      {...RECTANGLE_SKETCH}
-      {...props}
-      _style={extendStyle(RECTANGLE_SKETCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECTANGLE_SKETCH)} />
 }

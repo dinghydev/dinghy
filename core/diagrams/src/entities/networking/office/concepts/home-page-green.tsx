@@ -11,11 +11,5 @@ export const HOME_PAGE_GREEN = {
 }
 
 export function HomePageGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...HOME_PAGE_GREEN}
-      {...props}
-      _style={extendStyle(HOME_PAGE_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_PAGE_GREEN)} />
 }

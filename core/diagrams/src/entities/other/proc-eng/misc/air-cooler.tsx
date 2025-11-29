@@ -11,7 +11,5 @@ export const AIR_COOLER = {
 }
 
 export function AirCooler(props: NodeProps) {
-  return (
-    <Shape {...AIR_COOLER} {...props} _style={extendStyle(AIR_COOLER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AIR_COOLER)} />
 }

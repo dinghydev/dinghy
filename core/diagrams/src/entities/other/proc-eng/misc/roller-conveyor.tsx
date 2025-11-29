@@ -11,11 +11,5 @@ export const ROLLER_CONVEYOR = {
 }
 
 export function RollerConveyor(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLLER_CONVEYOR}
-      {...props}
-      _style={extendStyle(ROLLER_CONVEYOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLLER_CONVEYOR)} />
 }

@@ -13,9 +13,8 @@ export const INTELLIGENT_SITUATION_AUTOMATION = {
 export function IntelligentSituationAutomation(props: NodeProps) {
   return (
     <Shape
-      {...INTELLIGENT_SITUATION_AUTOMATION}
       {...props}
-      _style={extendStyle(INTELLIGENT_SITUATION_AUTOMATION, props)}
+      _style={extendStyle(props, INTELLIGENT_SITUATION_AUTOMATION)}
     />
   )
 }

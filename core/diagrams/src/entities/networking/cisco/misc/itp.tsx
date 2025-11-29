@@ -11,5 +11,5 @@ export const ITP = {
 }
 
 export function Itp(props: NodeProps) {
-  return <Shape {...ITP} {...props} _style={extendStyle(ITP, props)} />
+  return <Shape {...props} _style={extendStyle(props, ITP)} />
 }

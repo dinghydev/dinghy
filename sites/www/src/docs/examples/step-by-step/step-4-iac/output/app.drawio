@@ -61,9 +61,9 @@
           </mxCell>
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;fontColor=#232F3E;dashed=0;" 
-          id="awscloud_cloud" 
+          id="cloud_euwest1" 
           parent="app" 
-          value="Cloud" 
+          value="eu-west-1" 
           vertex="1"
           >
           <mxGeometry
@@ -75,10 +75,10 @@
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#00A4A6;fillColor=none;fontColor=#147EBA;dashed=1;noLabel=1;opacity=0;" 
-          id="awsregion_regioneuwest1" 
-          parent="awscloud_cloud" 
-          value="Region: eu-west-1" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
+          id="awsvpc_vpc" 
+          parent="cloud_euwest1" 
+          value="Vpc" 
           vertex="1"
           >
           <mxGeometry
@@ -90,24 +90,9 @@
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc2;strokeColor=#8C4FFF;fillColor=none;fontColor=#AAB7B8;dashed=0;noLabel=1;opacity=0;" 
-          id="vpcid1" 
-          parent="awsregion_regioneuwest1" 
-          value="Vpc" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="300" 
-            height="280" 
-            x="0" 
-            y="0"
-            />
-          </mxCell>
-        <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=#7AA116;fontColor=#7AA116;fillColor=#F2F6E8;" 
+          style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#7AA116;fillColor=#F2F6E8;fontColor=#248814;dashed=0;" 
           id="awssubnet_publicsubnet" 
-          parent="vpcid1" 
+          parent="awsvpc_vpc" 
           value="Public Subnet" 
           vertex="1"
           >
@@ -150,9 +135,9 @@
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=#00A4A6;fontColor=#00A4A6;fillColor=#E6F6F7;" 
+          style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#00A4A6;fillColor=#E6F6F7;fontColor=#147EBA;dashed=0;" 
           id="awssubnet_privatesubnet" 
-          parent="vpcid1" 
+          parent="awsvpc_vpc" 
           value="Private Subnet" 
           vertex="1"
           >
@@ -165,7 +150,7 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;outlineConnect=0;dashed=0;verticalLabelPosition=bottom;html=1;shape=mxgraph.aws3.android;fillColor=#96BF3D;gradientColor=none;" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;strokeColor=#D86613;fontColor=#D86613;outlineConnect=0;dashed=0;verticalLabelPosition=bottom;html=1;shape=mxgraph.aws3.android;fillColor=#96BF3D;gradientColor=none;" 
           id="awsinstance_application" 
           parent="awssubnet_privatesubnet" 
           value="Application" 

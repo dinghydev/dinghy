@@ -12,9 +12,8 @@ export const INFORMATION_DATA_CARRIER_SOP_STOP_STATE = {
 export function InformationDataCarrierSopStopState(props: NodeProps) {
   return (
     <Shape
-      {...INFORMATION_DATA_CARRIER_SOP_STOP_STATE}
       {...props}
-      _style={extendStyle(INFORMATION_DATA_CARRIER_SOP_STOP_STATE, props)}
+      _style={extendStyle(props, INFORMATION_DATA_CARRIER_SOP_STOP_STATE)}
     />
   )
 }

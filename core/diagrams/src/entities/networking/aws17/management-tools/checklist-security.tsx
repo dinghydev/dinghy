@@ -11,11 +11,5 @@ export const CHECKLIST_SECURITY = {
 }
 
 export function ChecklistSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKLIST_SECURITY}
-      {...props}
-      _style={extendStyle(CHECKLIST_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKLIST_SECURITY)} />
 }

@@ -11,7 +11,5 @@ export const LINUX_APP = {
 }
 
 export function LinuxApp(props: NodeProps) {
-  return (
-    <Shape {...LINUX_APP} {...props} _style={extendStyle(LINUX_APP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINUX_APP)} />
 }

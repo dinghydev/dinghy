@@ -11,11 +11,5 @@ export const MAP_NAVIGATOR = {
 }
 
 export function MapNavigator(props: NodeProps) {
-  return (
-    <Shape
-      {...MAP_NAVIGATOR}
-      {...props}
-      _style={extendStyle(MAP_NAVIGATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAP_NAVIGATOR)} />
 }

@@ -10,5 +10,5 @@ export const CORNER = {
 }
 
 export function Corner(props: NodeProps) {
-  return <Shape {...CORNER} {...props} _style={extendStyle(CORNER, props)} />
+  return <Shape {...props} _style={extendStyle(props, CORNER)} />
 }

@@ -11,11 +11,5 @@ export const GOOGLE_HANGOUT = {
 }
 
 export function GoogleHangout(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_HANGOUT}
-      {...props}
-      _style={extendStyle(GOOGLE_HANGOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_HANGOUT)} />
 }

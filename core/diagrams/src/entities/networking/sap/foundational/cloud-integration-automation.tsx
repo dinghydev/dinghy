@@ -13,9 +13,8 @@ export const CLOUD_INTEGRATION_AUTOMATION = {
 export function CloudIntegrationAutomation(props: NodeProps) {
   return (
     <Shape
-      {...CLOUD_INTEGRATION_AUTOMATION}
       {...props}
-      _style={extendStyle(CLOUD_INTEGRATION_AUTOMATION, props)}
+      _style={extendStyle(props, CLOUD_INTEGRATION_AUTOMATION)}
     />
   )
 }

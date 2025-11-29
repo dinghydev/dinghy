@@ -13,11 +13,10 @@ export const CISCO_CATALYST_4948_10_GIGABIT_ETHERNET_SWITCH = {
 export function CiscoCatalyst494810GigabitEthernetSwitch(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_CATALYST_4948_10_GIGABIT_ETHERNET_SWITCH}
       {...props}
       _style={extendStyle(
-        CISCO_CATALYST_4948_10_GIGABIT_ETHERNET_SWITCH,
         props,
+        CISCO_CATALYST_4948_10_GIGABIT_ETHERNET_SWITCH,
       )}
     />
   )

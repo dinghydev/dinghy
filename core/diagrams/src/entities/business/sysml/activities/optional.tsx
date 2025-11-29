@@ -11,7 +11,5 @@ export const OPTIONAL = {
 }
 
 export function Optional(props: NodeProps) {
-  return (
-    <Shape {...OPTIONAL} {...props} _style={extendStyle(OPTIONAL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTIONAL)} />
 }

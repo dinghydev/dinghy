@@ -11,7 +11,5 @@ export const TERMINAL = {
 }
 
 export function Terminal(props: NodeProps) {
-  return (
-    <Shape {...TERMINAL} {...props} _style={extendStyle(TERMINAL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMINAL)} />
 }

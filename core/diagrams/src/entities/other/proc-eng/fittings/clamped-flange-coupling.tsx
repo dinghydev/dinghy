@@ -12,10 +12,6 @@ export const CLAMPED_FLANGE_COUPLING = {
 
 export function ClampedFlangeCoupling(props: NodeProps) {
   return (
-    <Shape
-      {...CLAMPED_FLANGE_COUPLING}
-      {...props}
-      _style={extendStyle(CLAMPED_FLANGE_COUPLING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLAMPED_FLANGE_COUPLING)} />
   )
 }

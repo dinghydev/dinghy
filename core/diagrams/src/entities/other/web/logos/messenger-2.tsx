@@ -11,11 +11,5 @@ export const MESSENGER_2 = {
 }
 
 export function Messenger2(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSENGER_2}
-      {...props}
-      _style={extendStyle(MESSENGER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSENGER_2)} />
 }

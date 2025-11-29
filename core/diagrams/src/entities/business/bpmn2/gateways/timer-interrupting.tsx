@@ -11,11 +11,5 @@ export const TIMER_INTERRUPTING = {
 }
 
 export function TimerInterrupting(props: NodeProps) {
-  return (
-    <Shape
-      {...TIMER_INTERRUPTING}
-      {...props}
-      _style={extendStyle(TIMER_INTERRUPTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIMER_INTERRUPTING)} />
 }

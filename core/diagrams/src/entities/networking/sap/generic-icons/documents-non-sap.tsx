@@ -11,11 +11,5 @@ export const DOCUMENTS_NON_SAP = {
 }
 
 export function DocumentsNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENTS_NON_SAP}
-      {...props}
-      _style={extendStyle(DOCUMENTS_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENTS_NON_SAP)} />
 }

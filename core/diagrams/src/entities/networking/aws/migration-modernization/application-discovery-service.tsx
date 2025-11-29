@@ -13,9 +13,8 @@ export const APPLICATION_DISCOVERY_SERVICE = {
 export function ApplicationDiscoveryService(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_DISCOVERY_SERVICE}
       {...props}
-      _style={extendStyle(APPLICATION_DISCOVERY_SERVICE, props)}
+      _style={extendStyle(props, APPLICATION_DISCOVERY_SERVICE)}
     />
   )
 }

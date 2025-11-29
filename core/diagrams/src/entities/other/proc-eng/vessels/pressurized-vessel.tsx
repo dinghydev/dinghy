@@ -11,11 +11,5 @@ export const PRESSURIZED_VESSEL = {
 }
 
 export function PressurizedVessel(props: NodeProps) {
-  return (
-    <Shape
-      {...PRESSURIZED_VESSEL}
-      {...props}
-      _style={extendStyle(PRESSURIZED_VESSEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRESSURIZED_VESSEL)} />
 }

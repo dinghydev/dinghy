@@ -11,7 +11,5 @@ export const FLASHLIGHT = {
 }
 
 export function Flashlight(props: NodeProps) {
-  return (
-    <Shape {...FLASHLIGHT} {...props} _style={extendStyle(FLASHLIGHT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLASHLIGHT)} />
 }

@@ -12,10 +12,6 @@ export const ELASTIC_CONTAINER_SERVICE = {
 
 export function ElasticContainerService(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_CONTAINER_SERVICE}
-      {...props}
-      _style={extendStyle(ELASTIC_CONTAINER_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_CONTAINER_SERVICE)} />
   )
 }

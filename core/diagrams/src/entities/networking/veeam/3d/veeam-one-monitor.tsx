@@ -11,11 +11,5 @@ export const VEEAM_ONE_MONITOR = {
 }
 
 export function VeeamOneMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_ONE_MONITOR}
-      {...props}
-      _style={extendStyle(VEEAM_ONE_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_ONE_MONITOR)} />
 }

@@ -10,10 +10,6 @@ export const PACKAGE_CONTAINMENT = {
 
 export function PackageContainment(props: NodeProps) {
   return (
-    <Dependency
-      {...PACKAGE_CONTAINMENT}
-      {...props}
-      _style={extendStyle(PACKAGE_CONTAINMENT, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, PACKAGE_CONTAINMENT)} />
   )
 }

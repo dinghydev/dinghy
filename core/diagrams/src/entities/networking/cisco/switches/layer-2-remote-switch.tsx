@@ -11,11 +11,5 @@ export const LAYER_2_REMOTE_SWITCH = {
 }
 
 export function Layer2RemoteSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...LAYER_2_REMOTE_SWITCH}
-      {...props}
-      _style={extendStyle(LAYER_2_REMOTE_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAYER_2_REMOTE_SWITCH)} />
 }

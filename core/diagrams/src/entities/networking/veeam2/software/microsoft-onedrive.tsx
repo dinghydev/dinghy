@@ -11,11 +11,5 @@ export const MICROSOFT_ONEDRIVE = {
 }
 
 export function MicrosoftOnedrive(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_ONEDRIVE}
-      {...props}
-      _style={extendStyle(MICROSOFT_ONEDRIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_ONEDRIVE)} />
 }

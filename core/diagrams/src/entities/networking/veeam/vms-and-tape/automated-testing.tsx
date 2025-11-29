@@ -11,11 +11,5 @@ export const AUTOMATED_TESTING = {
 }
 
 export function AutomatedTesting(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOMATED_TESTING}
-      {...props}
-      _style={extendStyle(AUTOMATED_TESTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOMATED_TESTING)} />
 }

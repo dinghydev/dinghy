@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { BlankOneLine } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
 
 <BlankOneLine/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BLANK_ONE_LINE } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BLANK_ONE_LINE)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { BlankOneLine } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
 import { BlankTwoAndThreeLine } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
 
 <BlankTwoAndThreeLine/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BLANK_TWO_AND_THREE_LINE } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BLANK_TWO_AND_THREE_LINE)}
+  />
+
 ```
 
   </TabItem>
@@ -84,6 +106,17 @@ import { BlankTwoAndThreeLine } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
 import { Gateway } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
 
 <Gateway/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { GATEWAY } from '@dinghy/diagrams/entitiesGcp2ServiceCards'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, GATEWAY)}
+  />
+
 ```
 
   </TabItem>

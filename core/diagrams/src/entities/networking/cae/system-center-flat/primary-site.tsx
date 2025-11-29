@@ -11,11 +11,5 @@ export const PRIMARY_SITE = {
 }
 
 export function PrimarySite(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIMARY_SITE}
-      {...props}
-      _style={extendStyle(PRIMARY_SITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIMARY_SITE)} />
 }

@@ -13,9 +13,8 @@ export const TELEPHONE_EXTENSION_DIAL_PLAN = {
 export function TelephoneExtensionDialPlan(props: NodeProps) {
   return (
     <Shape
-      {...TELEPHONE_EXTENSION_DIAL_PLAN}
       {...props}
-      _style={extendStyle(TELEPHONE_EXTENSION_DIAL_PLAN, props)}
+      _style={extendStyle(props, TELEPHONE_EXTENSION_DIAL_PLAN)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const OPTICAL_SERVICES_ROUTER = {
 
 export function OpticalServicesRouter(props: NodeProps) {
   return (
-    <Shape
-      {...OPTICAL_SERVICES_ROUTER}
-      {...props}
-      _style={extendStyle(OPTICAL_SERVICES_ROUTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPTICAL_SERVICES_ROUTER)} />
   )
 }

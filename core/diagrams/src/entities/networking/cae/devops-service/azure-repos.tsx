@@ -11,11 +11,5 @@ export const AZURE_REPOS = {
 }
 
 export function AzureRepos(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_REPOS}
-      {...props}
-      _style={extendStyle(AZURE_REPOS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_REPOS)} />
 }

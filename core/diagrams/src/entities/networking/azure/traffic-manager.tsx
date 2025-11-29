@@ -11,11 +11,5 @@ export const TRAFFIC_MANAGER = {
 }
 
 export function TrafficManager(props: NodeProps) {
-  return (
-    <Shape
-      {...TRAFFIC_MANAGER}
-      {...props}
-      _style={extendStyle(TRAFFIC_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRAFFIC_MANAGER)} />
 }

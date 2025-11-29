@@ -11,5 +11,5 @@ export const MOOSE = {
 }
 
 export function Moose(props: NodeProps) {
-  return <Shape {...MOOSE} {...props} _style={extendStyle(MOOSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MOOSE)} />
 }

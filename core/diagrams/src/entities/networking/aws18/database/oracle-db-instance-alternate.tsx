@@ -13,9 +13,8 @@ export const ORACLE_DB_INSTANCE_ALTERNATE = {
 export function OracleDbInstanceAlternate(props: NodeProps) {
   return (
     <Shape
-      {...ORACLE_DB_INSTANCE_ALTERNATE}
       {...props}
-      _style={extendStyle(ORACLE_DB_INSTANCE_ALTERNATE, props)}
+      _style={extendStyle(props, ORACLE_DB_INSTANCE_ALTERNATE)}
     />
   )
 }

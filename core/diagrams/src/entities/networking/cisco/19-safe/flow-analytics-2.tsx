@@ -11,11 +11,5 @@ export const FLOW_ANALYTICS_2 = {
 }
 
 export function FlowAnalytics2(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_ANALYTICS_2}
-      {...props}
-      _style={extendStyle(FLOW_ANALYTICS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_ANALYTICS_2)} />
 }

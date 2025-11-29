@@ -15,11 +15,10 @@ export function BusinessProcessModelConnectorForSapSignavioSolutions(
 ) {
   return (
     <Shape
-      {...BUSINESS_PROCESS_MODEL_CONNECTOR_FOR_SAP_SIGNAVIO_SOLUTIONS}
       {...props}
       _style={extendStyle(
-        BUSINESS_PROCESS_MODEL_CONNECTOR_FOR_SAP_SIGNAVIO_SOLUTIONS,
         props,
+        BUSINESS_PROCESS_MODEL_CONNECTOR_FOR_SAP_SIGNAVIO_SOLUTIONS,
       )}
     />
   )

@@ -11,5 +11,5 @@ export const ACCOUNT = {
 }
 
 export function Account(props: NodeProps) {
-  return <Shape {...ACCOUNT} {...props} _style={extendStyle(ACCOUNT, props)} />
+  return <Shape {...props} _style={extendStyle(props, ACCOUNT)} />
 }

@@ -9,11 +9,5 @@ export const CONSTRAINT = {
 }
 
 export function Constraint(props: NodeProps) {
-  return (
-    <Dependency
-      {...CONSTRAINT}
-      {...props}
-      _style={extendStyle(CONSTRAINT, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, CONSTRAINT)} />
 }

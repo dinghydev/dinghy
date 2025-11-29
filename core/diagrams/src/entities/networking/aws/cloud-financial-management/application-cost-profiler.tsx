@@ -12,10 +12,6 @@ export const APPLICATION_COST_PROFILER = {
 
 export function ApplicationCostProfiler(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_COST_PROFILER}
-      {...props}
-      _style={extendStyle(APPLICATION_COST_PROFILER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_COST_PROFILER)} />
   )
 }

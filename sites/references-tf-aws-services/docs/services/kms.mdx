@@ -1,0 +1,345 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# KMS (Key Management)
+
+## AwsKmsAlias
+
+Provides a display name for a customer master key.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_alias)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsAlias.tsx)
+
+```js
+import { AwsKmsAlias } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsAlias/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_alias)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsAlias.tsx)
+
+```js
+import { DataAwsKmsAlias } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsAlias/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_alias#import)
+
+```js
+<AwsKmsAlias
+   name = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsCiphertext
+
+Provides ciphertext encrypted using a KMS key
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_ciphertext)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsCiphertext.tsx)
+
+```js
+import { AwsKmsCiphertext } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsCiphertext/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_ciphertext)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsCiphertext.tsx)
+
+```js
+import { DataAwsKmsCiphertext } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsCiphertext/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsCustomKeyStore
+
+Terraform resource for managing an AWS KMS (Key Management) Custom Key Store.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_custom_key_store)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsCustomKeyStore.tsx)
+
+```js
+import { AwsKmsCustomKeyStore } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsCustomKeyStore/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_custom_key_store)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsCustomKeyStore.tsx)
+
+```js
+import { DataAwsKmsCustomKeyStore } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsCustomKeyStore/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsExternalKey
+
+Manages a single-Region or multi-Region primary KMS key that uses external key material.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_external_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsExternalKey.tsx)
+
+```js
+import { AwsKmsExternalKey } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsExternalKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsGrant
+
+Provides a resource-based access control mechanism for KMS Customer Master Keys.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_grant)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsGrant.tsx)
+
+```js
+import { AwsKmsGrant } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsGrant/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsKey
+
+Manages a single-Region or multi-Region primary KMS key.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsKey.tsx)
+
+```js
+import { AwsKmsKey } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsKey/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsKey.tsx)
+
+```js
+import { DataAwsKmsKey } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsKey/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_key#import)
+
+```js
+<AwsKmsKey
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsKeyPolicy
+
+Attaches a policy to a KMS Key.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_key_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsKeyPolicy.tsx)
+
+```js
+import { AwsKmsKeyPolicy } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsKeyPolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsPublicKey
+
+Get information on a KMS public key
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_public_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsPublicKey.tsx)
+
+```js
+import { DataAwsKmsPublicKey } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsPublicKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsReplicaExternalKey
+
+Manages a KMS multi-Region replica key that uses external key material.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_replica_external_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsReplicaExternalKey.tsx)
+
+```js
+import { AwsKmsReplicaExternalKey } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsReplicaExternalKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsReplicaKey
+
+Manages a KMS multi-Region replica key.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_replica_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/AwsKmsReplicaKey.tsx)
+
+```js
+import { AwsKmsReplicaKey } from "@dinghy/tf-aws/serviceKms"
+
+<AwsKmsReplicaKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsSecret
+
+Provides secret data encrypted with the KMS service
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_secret)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsSecret.tsx)
+
+```js
+import { DataAwsKmsSecret } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsSecret/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKmsSecrets
+
+Decrypt multiple secrets from data encrypted with the AWS KMS service
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_secrets)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kms/DataAwsKmsSecrets.tsx)
+
+```js
+import { DataAwsKmsSecrets } from "@dinghy/tf-aws/serviceKms"
+
+<DataAwsKmsSecrets/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

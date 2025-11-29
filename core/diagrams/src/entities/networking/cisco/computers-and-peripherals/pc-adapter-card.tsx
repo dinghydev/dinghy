@@ -11,11 +11,5 @@ export const PC_ADAPTER_CARD = {
 }
 
 export function PcAdapterCard(props: NodeProps) {
-  return (
-    <Shape
-      {...PC_ADAPTER_CARD}
-      {...props}
-      _style={extendStyle(PC_ADAPTER_CARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PC_ADAPTER_CARD)} />
 }

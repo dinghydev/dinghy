@@ -11,11 +11,5 @@ export const AWS_MIGRATION_HUB = {
 }
 
 export function AwsMigrationHub(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_MIGRATION_HUB}
-      {...props}
-      _style={extendStyle(AWS_MIGRATION_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_MIGRATION_HUB)} />
 }

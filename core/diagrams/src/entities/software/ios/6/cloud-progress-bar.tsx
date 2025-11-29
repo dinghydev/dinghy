@@ -11,11 +11,5 @@ export const CLOUD_PROGRESS_BAR = {
 }
 
 export function CloudProgressBar(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_PROGRESS_BAR}
-      {...props}
-      _style={extendStyle(CLOUD_PROGRESS_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_PROGRESS_BAR)} />
 }

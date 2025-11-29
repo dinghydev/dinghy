@@ -11,11 +11,5 @@ export const FOUR_LAYER_DIODE = {
 }
 
 export function FourLayerDiode(props: NodeProps) {
-  return (
-    <Shape
-      {...FOUR_LAYER_DIODE}
-      {...props}
-      _style={extendStyle(FOUR_LAYER_DIODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOUR_LAYER_DIODE)} />
 }

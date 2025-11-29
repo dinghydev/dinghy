@@ -11,11 +11,5 @@ export const HTML5_APP_REPOSITORY = {
 }
 
 export function Html5AppRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...HTML5_APP_REPOSITORY}
-      {...props}
-      _style={extendStyle(HTML5_APP_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HTML5_APP_REPOSITORY)} />
 }

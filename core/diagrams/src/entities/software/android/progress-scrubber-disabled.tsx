@@ -12,10 +12,6 @@ export const PROGRESS_SCRUBBER_DISABLED = {
 
 export function ProgressScrubberDisabled(props: NodeProps) {
   return (
-    <Shape
-      {...PROGRESS_SCRUBBER_DISABLED}
-      {...props}
-      _style={extendStyle(PROGRESS_SCRUBBER_DISABLED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROGRESS_SCRUBBER_DISABLED)} />
   )
 }

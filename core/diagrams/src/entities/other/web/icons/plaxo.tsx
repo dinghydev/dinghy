@@ -11,5 +11,5 @@ export const PLAXO = {
 }
 
 export function Plaxo(props: NodeProps) {
-  return <Shape {...PLAXO} {...props} _style={extendStyle(PLAXO, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLAXO)} />
 }

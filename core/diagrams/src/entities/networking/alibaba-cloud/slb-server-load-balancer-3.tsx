@@ -12,10 +12,6 @@ export const SLB_SERVER_LOAD_BALANCER_3 = {
 
 export function SlbServerLoadBalancer3(props: NodeProps) {
   return (
-    <Shape
-      {...SLB_SERVER_LOAD_BALANCER_3}
-      {...props}
-      _style={extendStyle(SLB_SERVER_LOAD_BALANCER_3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SLB_SERVER_LOAD_BALANCER_3)} />
   )
 }

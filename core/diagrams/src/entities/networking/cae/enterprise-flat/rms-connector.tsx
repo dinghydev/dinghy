@@ -11,11 +11,5 @@ export const RMS_CONNECTOR = {
 }
 
 export function RmsConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...RMS_CONNECTOR}
-      {...props}
-      _style={extendStyle(RMS_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RMS_CONNECTOR)} />
 }

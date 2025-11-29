@@ -11,11 +11,5 @@ export const PC_SOFTWARE = {
 }
 
 export function PcSoftware(props: NodeProps) {
-  return (
-    <Shape
-      {...PC_SOFTWARE}
-      {...props}
-      _style={extendStyle(PC_SOFTWARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PC_SOFTWARE)} />
 }

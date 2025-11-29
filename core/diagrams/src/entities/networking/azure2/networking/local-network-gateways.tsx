@@ -12,10 +12,6 @@ export const LOCAL_NETWORK_GATEWAYS = {
 
 export function LocalNetworkGateways(props: NodeProps) {
   return (
-    <Shape
-      {...LOCAL_NETWORK_GATEWAYS}
-      {...props}
-      _style={extendStyle(LOCAL_NETWORK_GATEWAYS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOCAL_NETWORK_GATEWAYS)} />
   )
 }

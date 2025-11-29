@@ -11,11 +11,5 @@ export const AGITATOR_GAT_PADDLE = {
 }
 
 export function AgitatorGatPaddle(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_GAT_PADDLE}
-      {...props}
-      _style={extendStyle(AGITATOR_GAT_PADDLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_GAT_PADDLE)} />
 }

@@ -11,7 +11,5 @@ export const NAND_IEC = {
 }
 
 export function NandIec(props: NodeProps) {
-  return (
-    <Shape {...NAND_IEC} {...props} _style={extendStyle(NAND_IEC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAND_IEC)} />
 }

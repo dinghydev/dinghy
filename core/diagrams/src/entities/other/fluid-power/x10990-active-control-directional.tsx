@@ -13,9 +13,8 @@ export const X10990_ACTIVE_CONTROL_DIRECTIONAL = {
 export function X10990ActiveControlDirectional(props: NodeProps) {
   return (
     <Shape
-      {...X10990_ACTIVE_CONTROL_DIRECTIONAL}
       {...props}
-      _style={extendStyle(X10990_ACTIVE_CONTROL_DIRECTIONAL, props)}
+      _style={extendStyle(props, X10990_ACTIVE_CONTROL_DIRECTIONAL)}
     />
   )
 }

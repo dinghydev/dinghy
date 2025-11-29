@@ -11,11 +11,5 @@ export const DOOR_UNEVEN = {
 }
 
 export function DoorUneven(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_UNEVEN}
-      {...props}
-      _style={extendStyle(DOOR_UNEVEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_UNEVEN)} />
 }

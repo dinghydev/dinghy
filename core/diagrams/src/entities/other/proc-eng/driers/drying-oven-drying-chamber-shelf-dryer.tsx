@@ -13,9 +13,8 @@ export const DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER = {
 export function DryingOvenDryingChamberShelfDryer(props: NodeProps) {
   return (
     <Shape
-      {...DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER}
       {...props}
-      _style={extendStyle(DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER, props)}
+      _style={extendStyle(props, DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER)}
     />
   )
 }

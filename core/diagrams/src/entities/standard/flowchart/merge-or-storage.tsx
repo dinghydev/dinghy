@@ -11,11 +11,5 @@ export const MERGE_OR_STORAGE = {
 }
 
 export function MergeOrStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...MERGE_OR_STORAGE}
-      {...props}
-      _style={extendStyle(MERGE_OR_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MERGE_OR_STORAGE)} />
 }

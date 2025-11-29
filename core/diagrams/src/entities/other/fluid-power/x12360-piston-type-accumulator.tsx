@@ -13,9 +13,8 @@ export const X12360_PISTON_TYPE_ACCUMULATOR = {
 export function X12360PistonTypeAccumulator(props: NodeProps) {
   return (
     <Shape
-      {...X12360_PISTON_TYPE_ACCUMULATOR}
       {...props}
-      _style={extendStyle(X12360_PISTON_TYPE_ACCUMULATOR, props)}
+      _style={extendStyle(props, X12360_PISTON_TYPE_ACCUMULATOR)}
     />
   )
 }

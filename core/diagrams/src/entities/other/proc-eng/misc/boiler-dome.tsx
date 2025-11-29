@@ -11,11 +11,5 @@ export const BOILER_DOME = {
 }
 
 export function BoilerDome(props: NodeProps) {
-  return (
-    <Shape
-      {...BOILER_DOME}
-      {...props}
-      _style={extendStyle(BOILER_DOME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOILER_DOME)} />
 }

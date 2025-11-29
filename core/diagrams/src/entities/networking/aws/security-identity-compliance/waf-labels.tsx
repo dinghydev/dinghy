@@ -11,7 +11,5 @@ export const WAF_LABELS = {
 }
 
 export function WafLabels(props: NodeProps) {
-  return (
-    <Shape {...WAF_LABELS} {...props} _style={extendStyle(WAF_LABELS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAF_LABELS)} />
 }

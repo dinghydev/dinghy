@@ -11,11 +11,5 @@ export const SOURCE_PULSE = {
 }
 
 export function SourcePulse(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCE_PULSE}
-      {...props}
-      _style={extendStyle(SOURCE_PULSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_PULSE)} />
 }

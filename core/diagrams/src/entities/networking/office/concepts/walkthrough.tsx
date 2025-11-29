@@ -11,11 +11,5 @@ export const WALKTHROUGH = {
 }
 
 export function Walkthrough(props: NodeProps) {
-  return (
-    <Shape
-      {...WALKTHROUGH}
-      {...props}
-      _style={extendStyle(WALKTHROUGH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WALKTHROUGH)} />
 }

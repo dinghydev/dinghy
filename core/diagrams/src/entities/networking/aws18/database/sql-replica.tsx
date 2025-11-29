@@ -11,11 +11,5 @@ export const SQL_REPLICA = {
 }
 
 export function SqlReplica(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_REPLICA}
-      {...props}
-      _style={extendStyle(SQL_REPLICA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_REPLICA)} />
 }

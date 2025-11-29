@@ -13,11 +13,10 @@ export const JL071A_HPE_ARUBA_3810M_24_PORT_GT_1_SLOT_SWITCH_REAR = {
 export function Jl071aHpeAruba3810m24PortGt1SlotSwitchRear(props: NodeProps) {
   return (
     <Shape
-      {...JL071A_HPE_ARUBA_3810M_24_PORT_GT_1_SLOT_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL071A_HPE_ARUBA_3810M_24_PORT_GT_1_SLOT_SWITCH_REAR,
         props,
+        JL071A_HPE_ARUBA_3810M_24_PORT_GT_1_SLOT_SWITCH_REAR,
       )}
     />
   )

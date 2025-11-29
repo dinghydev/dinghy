@@ -11,11 +11,5 @@ export const SECURITY_HUB = {
 }
 
 export function SecurityHub(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURITY_HUB}
-      {...props}
-      _style={extendStyle(SECURITY_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURITY_HUB)} />
 }

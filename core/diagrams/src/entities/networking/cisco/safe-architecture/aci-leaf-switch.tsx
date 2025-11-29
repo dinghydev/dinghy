@@ -11,11 +11,5 @@ export const ACI_LEAF_SWITCH = {
 }
 
 export function AciLeafSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...ACI_LEAF_SWITCH}
-      {...props}
-      _style={extendStyle(ACI_LEAF_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACI_LEAF_SWITCH)} />
 }

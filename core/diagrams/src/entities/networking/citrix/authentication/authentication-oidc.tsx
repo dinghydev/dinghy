@@ -11,11 +11,5 @@ export const AUTHENTICATION_OIDC = {
 }
 
 export function AuthenticationOidc(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_OIDC}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_OIDC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_OIDC)} />
 }

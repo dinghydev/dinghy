@@ -11,5 +11,5 @@ export const TV = {
 }
 
 export function Tv(props: NodeProps) {
-  return <Shape {...TV} {...props} _style={extendStyle(TV, props)} />
+  return <Shape {...props} _style={extendStyle(props, TV)} />
 }

@@ -11,11 +11,5 @@ export const AMPLIFY_STUDIO = {
 }
 
 export function AmplifyStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...AMPLIFY_STUDIO}
-      {...props}
-      _style={extendStyle(AMPLIFY_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMPLIFY_STUDIO)} />
 }

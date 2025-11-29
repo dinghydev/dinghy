@@ -11,11 +11,5 @@ export const SHIPS_WHEEL = {
 }
 
 export function ShipsWheel(props: NodeProps) {
-  return (
-    <Shape
-      {...SHIPS_WHEEL}
-      {...props}
-      _style={extendStyle(SHIPS_WHEEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHIPS_WHEEL)} />
 }

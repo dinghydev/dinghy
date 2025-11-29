@@ -11,11 +11,5 @@ export const S3_ON_OUTPOSTS_2 = {
 }
 
 export function S3OnOutposts2(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_ON_OUTPOSTS_2}
-      {...props}
-      _style={extendStyle(S3_ON_OUTPOSTS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_ON_OUTPOSTS_2)} />
 }

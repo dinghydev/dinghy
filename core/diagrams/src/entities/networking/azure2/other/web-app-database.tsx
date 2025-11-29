@@ -11,11 +11,5 @@ export const WEB_APP_DATABASE = {
 }
 
 export function WebAppDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_APP_DATABASE}
-      {...props}
-      _style={extendStyle(WEB_APP_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_APP_DATABASE)} />
 }

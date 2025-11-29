@@ -1,0 +1,61 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+import { AwsNetworkmanagerLink } from './AwsNetworkmanagerLink.tsx'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_link
+
+export const InputSchema = z.object({
+  global_network_id: resolvableValue(z.string()),
+  link_id: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
+})
+
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  bandwidth: z.object({
+    download_speed: z.number(),
+    upload_speed: z.number(),
+  }).array().optional(),
+  description: z.string().optional(),
+  provider_name: z.string().optional(),
+  site_id: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
+  type: z.string().optional(),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function DataAwsNetworkmanagerLink(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <AwsNetworkmanagerLink
+      _type='aws_networkmanager_link'
+      _category='data'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props as any}
+    />
+  )
+}
+
+export const useDataAwsNetworkmanagerLink = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(DataAwsNetworkmanagerLink, node, id)
+
+export const useDataAwsNetworkmanagerLinks = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(DataAwsNetworkmanagerLink, node, id)

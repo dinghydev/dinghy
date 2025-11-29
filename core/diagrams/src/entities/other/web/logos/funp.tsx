@@ -11,5 +11,5 @@ export const FUNP = {
 }
 
 export function Funp(props: NodeProps) {
-  return <Shape {...FUNP} {...props} _style={extendStyle(FUNP, props)} />
+  return <Shape {...props} _style={extendStyle(props, FUNP)} />
 }

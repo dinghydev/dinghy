@@ -11,11 +11,5 @@ export const DISTRIBUTED_DIRECTOR = {
 }
 
 export function DistributedDirector(props: NodeProps) {
-  return (
-    <Shape
-      {...DISTRIBUTED_DIRECTOR}
-      {...props}
-      _style={extendStyle(DISTRIBUTED_DIRECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISTRIBUTED_DIRECTOR)} />
 }

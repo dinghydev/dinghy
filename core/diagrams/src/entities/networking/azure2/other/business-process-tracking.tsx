@@ -12,10 +12,6 @@ export const BUSINESS_PROCESS_TRACKING = {
 
 export function BusinessProcessTracking(props: NodeProps) {
   return (
-    <Shape
-      {...BUSINESS_PROCESS_TRACKING}
-      {...props}
-      _style={extendStyle(BUSINESS_PROCESS_TRACKING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BUSINESS_PROCESS_TRACKING)} />
   )
 }

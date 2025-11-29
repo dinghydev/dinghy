@@ -13,9 +13,8 @@ export const ESS_ELASTIC_SCALING_SERVICE = {
 export function EssElasticScalingService(props: NodeProps) {
   return (
     <Shape
-      {...ESS_ELASTIC_SCALING_SERVICE}
       {...props}
-      _style={extendStyle(ESS_ELASTIC_SCALING_SERVICE, props)}
+      _style={extendStyle(props, ESS_ELASTIC_SCALING_SERVICE)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const LOGS = {
 }
 
 export function Logs(props: NodeProps) {
-  return <Shape {...LOGS} {...props} _style={extendStyle(LOGS, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOGS)} />
 }

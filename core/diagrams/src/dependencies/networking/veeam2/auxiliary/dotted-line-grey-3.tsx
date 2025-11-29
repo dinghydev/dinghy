@@ -10,10 +10,6 @@ export const DOTTED_LINE_GREY_3 = {
 
 export function DottedLineGrey3(props: NodeProps) {
   return (
-    <Dependency
-      {...DOTTED_LINE_GREY_3}
-      {...props}
-      _style={extendStyle(DOTTED_LINE_GREY_3, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, DOTTED_LINE_GREY_3)} />
   )
 }

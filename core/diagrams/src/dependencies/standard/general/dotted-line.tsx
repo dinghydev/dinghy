@@ -8,11 +8,5 @@ export const DOTTED_LINE = {
 }
 
 export function DottedLine(props: NodeProps) {
-  return (
-    <Dependency
-      {...DOTTED_LINE}
-      {...props}
-      _style={extendStyle(DOTTED_LINE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DOTTED_LINE)} />
 }

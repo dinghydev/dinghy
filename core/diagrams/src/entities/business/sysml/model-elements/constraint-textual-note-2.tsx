@@ -12,10 +12,6 @@ export const CONSTRAINT_TEXTUAL_NOTE_2 = {
 
 export function ConstraintTextualNote2(props: NodeProps) {
   return (
-    <Shape
-      {...CONSTRAINT_TEXTUAL_NOTE_2}
-      {...props}
-      _style={extendStyle(CONSTRAINT_TEXTUAL_NOTE_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONSTRAINT_TEXTUAL_NOTE_2)} />
   )
 }

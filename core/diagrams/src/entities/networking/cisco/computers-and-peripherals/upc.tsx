@@ -11,5 +11,5 @@ export const UPC = {
 }
 
 export function Upc(props: NodeProps) {
-  return <Shape {...UPC} {...props} _style={extendStyle(UPC, props)} />
+  return <Shape {...props} _style={extendStyle(props, UPC)} />
 }

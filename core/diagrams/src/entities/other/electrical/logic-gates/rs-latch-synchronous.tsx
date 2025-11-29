@@ -11,11 +11,5 @@ export const RS_LATCH_SYNCHRONOUS = {
 }
 
 export function RsLatchSynchronous(props: NodeProps) {
-  return (
-    <Shape
-      {...RS_LATCH_SYNCHRONOUS}
-      {...props}
-      _style={extendStyle(RS_LATCH_SYNCHRONOUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RS_LATCH_SYNCHRONOUS)} />
 }

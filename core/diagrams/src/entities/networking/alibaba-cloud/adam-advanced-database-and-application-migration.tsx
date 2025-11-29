@@ -13,11 +13,10 @@ export const ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION = {
 export function AdamAdvancedDatabaseAndApplicationMigration(props: NodeProps) {
   return (
     <Shape
-      {...ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION}
       {...props}
       _style={extendStyle(
-        ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION,
         props,
+        ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION,
       )}
     />
   )

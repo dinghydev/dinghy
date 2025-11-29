@@ -11,11 +11,5 @@ export const GALVANOMETER = {
 }
 
 export function Galvanometer(props: NodeProps) {
-  return (
-    <Shape
-      {...GALVANOMETER}
-      {...props}
-      _style={extendStyle(GALVANOMETER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GALVANOMETER)} />
 }

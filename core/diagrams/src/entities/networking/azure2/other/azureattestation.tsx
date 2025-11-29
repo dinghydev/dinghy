@@ -11,11 +11,5 @@ export const AZUREATTESTATION = {
 }
 
 export function Azureattestation(props: NodeProps) {
-  return (
-    <Shape
-      {...AZUREATTESTATION}
-      {...props}
-      _style={extendStyle(AZUREATTESTATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZUREATTESTATION)} />
 }

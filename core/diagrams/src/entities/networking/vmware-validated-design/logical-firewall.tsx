@@ -11,11 +11,5 @@ export const LOGICAL_FIREWALL = {
 }
 
 export function LogicalFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGICAL_FIREWALL}
-      {...props}
-      _style={extendStyle(LOGICAL_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGICAL_FIREWALL)} />
 }

@@ -11,7 +11,5 @@ export const SATELLITE = {
 }
 
 export function Satellite(props: NodeProps) {
-  return (
-    <Shape {...SATELLITE} {...props} _style={extendStyle(SATELLITE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SATELLITE)} />
 }

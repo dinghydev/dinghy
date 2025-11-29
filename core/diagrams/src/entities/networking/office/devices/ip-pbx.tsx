@@ -11,5 +11,5 @@ export const IP_PBX = {
 }
 
 export function IpPbx(props: NodeProps) {
-  return <Shape {...IP_PBX} {...props} _style={extendStyle(IP_PBX, props)} />
+  return <Shape {...props} _style={extendStyle(props, IP_PBX)} />
 }

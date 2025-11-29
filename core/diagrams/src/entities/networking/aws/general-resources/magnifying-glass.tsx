@@ -11,11 +11,5 @@ export const MAGNIFYING_GLASS = {
 }
 
 export function MagnifyingGlass(props: NodeProps) {
-  return (
-    <Shape
-      {...MAGNIFYING_GLASS}
-      {...props}
-      _style={extendStyle(MAGNIFYING_GLASS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAGNIFYING_GLASS)} />
 }

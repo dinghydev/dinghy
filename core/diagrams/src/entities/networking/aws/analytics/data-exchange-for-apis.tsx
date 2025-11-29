@@ -12,10 +12,6 @@ export const DATA_EXCHANGE_FOR_APIS = {
 
 export function DataExchangeForApis(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_EXCHANGE_FOR_APIS}
-      {...props}
-      _style={extendStyle(DATA_EXCHANGE_FOR_APIS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_EXCHANGE_FOR_APIS)} />
   )
 }

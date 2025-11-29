@@ -11,11 +11,5 @@ export const SATISFY_CALLOUT = {
 }
 
 export function SatisfyCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...SATISFY_CALLOUT}
-      {...props}
-      _style={extendStyle(SATISFY_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SATISFY_CALLOUT)} />
 }

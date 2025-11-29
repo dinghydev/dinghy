@@ -11,11 +11,5 @@ export const WINDOWS_SERVER = {
 }
 
 export function WindowsServer(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOWS_SERVER}
-      {...props}
-      _style={extendStyle(WINDOWS_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOWS_SERVER)} />
 }

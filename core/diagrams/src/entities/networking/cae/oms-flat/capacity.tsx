@@ -11,7 +11,5 @@ export const CAPACITY = {
 }
 
 export function Capacity(props: NodeProps) {
-  return (
-    <Shape {...CAPACITY} {...props} _style={extendStyle(CAPACITY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAPACITY)} />
 }

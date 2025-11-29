@@ -11,11 +11,5 @@ export const SEPARATOR_CYCLONE = {
 }
 
 export function SeparatorCyclone(props: NodeProps) {
-  return (
-    <Shape
-      {...SEPARATOR_CYCLONE}
-      {...props}
-      _style={extendStyle(SEPARATOR_CYCLONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEPARATOR_CYCLONE)} />
 }

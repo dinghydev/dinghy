@@ -11,11 +11,5 @@ export const DATA_MIGRATION_WIZARD = {
 }
 
 export function DataMigrationWizard(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_MIGRATION_WIZARD}
-      {...props}
-      _style={extendStyle(DATA_MIGRATION_WIZARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_MIGRATION_WIZARD)} />
 }

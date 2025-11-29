@@ -13,9 +13,8 @@ export const NLP_NER_NAMED_ENTITY_RECOGNITION = {
 export function NlpNerNamedEntityRecognition(props: NodeProps) {
   return (
     <Shape
-      {...NLP_NER_NAMED_ENTITY_RECOGNITION}
       {...props}
-      _style={extendStyle(NLP_NER_NAMED_ENTITY_RECOGNITION, props)}
+      _style={extendStyle(props, NLP_NER_NAMED_ENTITY_RECOGNITION)}
     />
   )
 }

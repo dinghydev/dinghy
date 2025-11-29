@@ -11,11 +11,5 @@ export const CREDENTIALS = {
 }
 
 export function Credentials(props: NodeProps) {
-  return (
-    <Shape
-      {...CREDENTIALS}
-      {...props}
-      _style={extendStyle(CREDENTIALS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CREDENTIALS)} />
 }

@@ -11,11 +11,5 @@ export const ECCENTRIC_WORM = {
 }
 
 export function EccentricWorm(props: NodeProps) {
-  return (
-    <Shape
-      {...ECCENTRIC_WORM}
-      {...props}
-      _style={extendStyle(ECCENTRIC_WORM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ECCENTRIC_WORM)} />
 }

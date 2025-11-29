@@ -11,11 +11,5 @@ export const LOCAL_ZONES = {
 }
 
 export function LocalZones(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCAL_ZONES}
-      {...props}
-      _style={extendStyle(LOCAL_ZONES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCAL_ZONES)} />
 }

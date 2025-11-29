@@ -12,10 +12,6 @@ export const TEXT_FIELD_WITH_TOOLTIP_3 = {
 
 export function TextFieldWithTooltip3(props: NodeProps) {
   return (
-    <Shape
-      {...TEXT_FIELD_WITH_TOOLTIP_3}
-      {...props}
-      _style={extendStyle(TEXT_FIELD_WITH_TOOLTIP_3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TEXT_FIELD_WITH_TOOLTIP_3)} />
   )
 }

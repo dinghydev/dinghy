@@ -12,10 +12,6 @@ export const PARTIALLY_SUBMERGED_WRECK = {
 
 export function PartiallySubmergedWreck(props: NodeProps) {
   return (
-    <Shape
-      {...PARTIALLY_SUBMERGED_WRECK}
-      {...props}
-      _style={extendStyle(PARTIALLY_SUBMERGED_WRECK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PARTIALLY_SUBMERGED_WRECK)} />
   )
 }

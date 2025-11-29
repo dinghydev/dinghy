@@ -11,11 +11,5 @@ export const AUTOMANAGED_VM = {
 }
 
 export function AutomanagedVm(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOMANAGED_VM}
-      {...props}
-      _style={extendStyle(AUTOMANAGED_VM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOMANAGED_VM)} />
 }

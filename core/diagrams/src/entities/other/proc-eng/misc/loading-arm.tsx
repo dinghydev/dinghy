@@ -11,11 +11,5 @@ export const LOADING_ARM = {
 }
 
 export function LoadingArm(props: NodeProps) {
-  return (
-    <Shape
-      {...LOADING_ARM}
-      {...props}
-      _style={extendStyle(LOADING_ARM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOADING_ARM)} />
 }

@@ -12,10 +12,6 @@ export const AMAZON_REKOGNITION_VIDEO = {
 
 export function AmazonRekognitionVideo(props: NodeProps) {
   return (
-    <Shape
-      {...AMAZON_REKOGNITION_VIDEO}
-      {...props}
-      _style={extendStyle(AMAZON_REKOGNITION_VIDEO, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AMAZON_REKOGNITION_VIDEO)} />
   )
 }

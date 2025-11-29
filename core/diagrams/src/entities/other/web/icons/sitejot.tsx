@@ -11,5 +11,5 @@ export const SITEJOT = {
 }
 
 export function Sitejot(props: NodeProps) {
-  return <Shape {...SITEJOT} {...props} _style={extendStyle(SITEJOT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SITEJOT)} />
 }

@@ -11,11 +11,5 @@ export const VOICE_COMMSERVER = {
 }
 
 export function VoiceCommserver(props: NodeProps) {
-  return (
-    <Shape
-      {...VOICE_COMMSERVER}
-      {...props}
-      _style={extendStyle(VOICE_COMMSERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOICE_COMMSERVER)} />
 }

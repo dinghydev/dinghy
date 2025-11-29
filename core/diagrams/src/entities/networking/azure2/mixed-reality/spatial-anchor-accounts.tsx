@@ -12,10 +12,6 @@ export const SPATIAL_ANCHOR_ACCOUNTS = {
 
 export function SpatialAnchorAccounts(props: NodeProps) {
   return (
-    <Shape
-      {...SPATIAL_ANCHOR_ACCOUNTS}
-      {...props}
-      _style={extendStyle(SPATIAL_ANCHOR_ACCOUNTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SPATIAL_ANCHOR_ACCOUNTS)} />
   )
 }

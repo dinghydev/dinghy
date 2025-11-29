@@ -12,11 +12,5 @@ export const RACK_CABINET = {
 }
 
 export function RackCabinet(props: NodeProps) {
-  return (
-    <Shape
-      {...RACK_CABINET}
-      {...props}
-      _style={extendStyle(RACK_CABINET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RACK_CABINET)} />
 }

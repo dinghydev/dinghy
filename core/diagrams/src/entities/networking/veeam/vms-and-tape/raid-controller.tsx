@@ -11,11 +11,5 @@ export const RAID_CONTROLLER = {
 }
 
 export function RaidController(props: NodeProps) {
-  return (
-    <Shape
-      {...RAID_CONTROLLER}
-      {...props}
-      _style={extendStyle(RAID_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RAID_CONTROLLER)} />
 }

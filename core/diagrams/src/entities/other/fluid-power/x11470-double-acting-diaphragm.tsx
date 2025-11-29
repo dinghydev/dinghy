@@ -13,9 +13,8 @@ export const X11470_DOUBLE_ACTING_DIAPHRAGM = {
 export function X11470DoubleActingDiaphragm(props: NodeProps) {
   return (
     <Shape
-      {...X11470_DOUBLE_ACTING_DIAPHRAGM}
       {...props}
-      _style={extendStyle(X11470_DOUBLE_ACTING_DIAPHRAGM, props)}
+      _style={extendStyle(props, X11470_DOUBLE_ACTING_DIAPHRAGM)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const VIRTUAL_MACHINES_CLASSIC = {
 
 export function VirtualMachinesClassic(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_MACHINES_CLASSIC}
-      {...props}
-      _style={extendStyle(VIRTUAL_MACHINES_CLASSIC, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_MACHINES_CLASSIC)} />
   )
 }

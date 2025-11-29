@@ -12,10 +12,6 @@ export const VESSEL_DISHED_ENDS_SKIRTS = {
 
 export function VesselDishedEndsSkirts(props: NodeProps) {
   return (
-    <Shape
-      {...VESSEL_DISHED_ENDS_SKIRTS}
-      {...props}
-      _style={extendStyle(VESSEL_DISHED_ENDS_SKIRTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VESSEL_DISHED_ENDS_SKIRTS)} />
   )
 }

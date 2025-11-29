@@ -11,11 +11,5 @@ export const GLOBE_ERROR = {
 }
 
 export function GlobeError(props: NodeProps) {
-  return (
-    <Shape
-      {...GLOBE_ERROR}
-      {...props}
-      _style={extendStyle(GLOBE_ERROR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLOBE_ERROR)} />
 }

@@ -11,11 +11,5 @@ export const ICE_SKATING = {
 }
 
 export function IceSkating(props: NodeProps) {
-  return (
-    <Shape
-      {...ICE_SKATING}
-      {...props}
-      _style={extendStyle(ICE_SKATING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ICE_SKATING)} />
 }

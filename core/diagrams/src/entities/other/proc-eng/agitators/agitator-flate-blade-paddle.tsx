@@ -13,9 +13,8 @@ export const AGITATOR_FLATE_BLADE_PADDLE = {
 export function AgitatorFlateBladePaddle(props: NodeProps) {
   return (
     <Shape
-      {...AGITATOR_FLATE_BLADE_PADDLE}
       {...props}
-      _style={extendStyle(AGITATOR_FLATE_BLADE_PADDLE, props)}
+      _style={extendStyle(props, AGITATOR_FLATE_BLADE_PADDLE)}
     />
   )
 }

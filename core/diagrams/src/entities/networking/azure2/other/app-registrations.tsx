@@ -11,11 +11,5 @@ export const APP_REGISTRATIONS = {
 }
 
 export function AppRegistrations(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_REGISTRATIONS}
-      {...props}
-      _style={extendStyle(APP_REGISTRATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_REGISTRATIONS)} />
 }

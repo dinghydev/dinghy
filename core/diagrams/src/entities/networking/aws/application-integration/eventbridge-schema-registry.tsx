@@ -13,9 +13,8 @@ export const EVENTBRIDGE_SCHEMA_REGISTRY = {
 export function EventbridgeSchemaRegistry(props: NodeProps) {
   return (
     <Shape
-      {...EVENTBRIDGE_SCHEMA_REGISTRY}
       {...props}
-      _style={extendStyle(EVENTBRIDGE_SCHEMA_REGISTRY, props)}
+      _style={extendStyle(props, EVENTBRIDGE_SCHEMA_REGISTRY)}
     />
   )
 }

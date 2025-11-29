@@ -11,7 +11,5 @@ export const TENANT_KEY = {
 }
 
 export function TenantKey(props: NodeProps) {
-  return (
-    <Shape {...TENANT_KEY} {...props} _style={extendStyle(TENANT_KEY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENANT_KEY)} />
 }

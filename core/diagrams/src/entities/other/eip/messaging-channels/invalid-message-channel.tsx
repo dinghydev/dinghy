@@ -12,10 +12,6 @@ export const INVALID_MESSAGE_CHANNEL = {
 
 export function InvalidMessageChannel(props: NodeProps) {
   return (
-    <Shape
-      {...INVALID_MESSAGE_CHANNEL}
-      {...props}
-      _style={extendStyle(INVALID_MESSAGE_CHANNEL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INVALID_MESSAGE_CHANNEL)} />
   )
 }

@@ -11,11 +11,5 @@ export const DOWNLOAD_DISTRIBUTION = {
 }
 
 export function DownloadDistribution(props: NodeProps) {
-  return (
-    <Shape
-      {...DOWNLOAD_DISTRIBUTION}
-      {...props}
-      _style={extendStyle(DOWNLOAD_DISTRIBUTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOWNLOAD_DISTRIBUTION)} />
 }

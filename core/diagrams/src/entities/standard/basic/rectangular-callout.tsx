@@ -11,11 +11,5 @@ export const RECTANGULAR_CALLOUT = {
 }
 
 export function RectangularCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...RECTANGULAR_CALLOUT}
-      {...props}
-      _style={extendStyle(RECTANGULAR_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECTANGULAR_CALLOUT)} />
 }

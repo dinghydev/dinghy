@@ -11,7 +11,5 @@ export const DATAPREP = {
 }
 
 export function Dataprep(props: NodeProps) {
-  return (
-    <Shape {...DATAPREP} {...props} _style={extendStyle(DATAPREP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAPREP)} />
 }

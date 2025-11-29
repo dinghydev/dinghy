@@ -11,7 +11,5 @@ export const SAP_BUILD = {
 }
 
 export function SapBuild(props: NodeProps) {
-  return (
-    <Shape {...SAP_BUILD} {...props} _style={extendStyle(SAP_BUILD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_BUILD)} />
 }

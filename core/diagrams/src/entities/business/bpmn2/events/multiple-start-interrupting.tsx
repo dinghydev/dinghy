@@ -13,9 +13,8 @@ export const MULTIPLE_START_INTERRUPTING = {
 export function MultipleStartInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_START_INTERRUPTING}
       {...props}
-      _style={extendStyle(MULTIPLE_START_INTERRUPTING, props)}
+      _style={extendStyle(props, MULTIPLE_START_INTERRUPTING)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const SWAS_SIMPLE_APPLICATION_SERVER = {
 export function SwasSimpleApplicationServer(props: NodeProps) {
   return (
     <Shape
-      {...SWAS_SIMPLE_APPLICATION_SERVER}
       {...props}
-      _style={extendStyle(SWAS_SIMPLE_APPLICATION_SERVER, props)}
+      _style={extendStyle(props, SWAS_SIMPLE_APPLICATION_SERVER)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const VIRTUAL_DATACENTER = {
 }
 
 export function VirtualDatacenter(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_DATACENTER}
-      {...props}
-      _style={extendStyle(VIRTUAL_DATACENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_DATACENTER)} />
 }

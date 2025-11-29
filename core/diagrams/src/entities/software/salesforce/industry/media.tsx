@@ -11,5 +11,5 @@ export const MEDIA = {
 }
 
 export function Media(props: NodeProps) {
-  return <Shape {...MEDIA} {...props} _style={extendStyle(MEDIA, props)} />
+  return <Shape {...props} _style={extendStyle(props, MEDIA)} />
 }

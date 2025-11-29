@@ -12,10 +12,6 @@ export const SNOWBALL_IMPORT_EXPORT = {
 
 export function SnowballImportExport(props: NodeProps) {
   return (
-    <Shape
-      {...SNOWBALL_IMPORT_EXPORT}
-      {...props}
-      _style={extendStyle(SNOWBALL_IMPORT_EXPORT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SNOWBALL_IMPORT_EXPORT)} />
   )
 }

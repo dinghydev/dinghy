@@ -9,11 +9,5 @@ export const MANY_TO_MANY = {
 }
 
 export function ManyToMany(props: NodeProps) {
-  return (
-    <Dependency
-      {...MANY_TO_MANY}
-      {...props}
-      _style={extendStyle(MANY_TO_MANY, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, MANY_TO_MANY)} />
 }

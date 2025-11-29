@@ -11,11 +11,5 @@ export const NETSCALER_SDX = {
 }
 
 export function NetscalerSdx(props: NodeProps) {
-  return (
-    <Shape
-      {...NETSCALER_SDX}
-      {...props}
-      _style={extendStyle(NETSCALER_SDX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETSCALER_SDX)} />
 }

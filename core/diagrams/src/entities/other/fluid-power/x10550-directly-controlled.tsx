@@ -12,10 +12,6 @@ export const X10550_DIRECTLY_CONTROLLED = {
 
 export function X10550DirectlyControlled(props: NodeProps) {
   return (
-    <Shape
-      {...X10550_DIRECTLY_CONTROLLED}
-      {...props}
-      _style={extendStyle(X10550_DIRECTLY_CONTROLLED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10550_DIRECTLY_CONTROLLED)} />
   )
 }

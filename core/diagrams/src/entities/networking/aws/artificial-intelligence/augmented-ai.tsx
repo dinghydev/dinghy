@@ -11,11 +11,5 @@ export const AUGMENTED_AI = {
 }
 
 export function AugmentedAi(props: NodeProps) {
-  return (
-    <Shape
-      {...AUGMENTED_AI}
-      {...props}
-      _style={extendStyle(AUGMENTED_AI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUGMENTED_AI)} />
 }

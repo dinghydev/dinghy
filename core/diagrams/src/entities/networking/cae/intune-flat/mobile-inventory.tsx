@@ -11,11 +11,5 @@ export const MOBILE_INVENTORY = {
 }
 
 export function MobileInventory(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_INVENTORY}
-      {...props}
-      _style={extendStyle(MOBILE_INVENTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_INVENTORY)} />
 }

@@ -13,9 +13,8 @@ export const DATACENTER_SERVER_STORAGE_UNIT_LARGE = {
 export function DatacenterServerStorageUnitLarge(props: NodeProps) {
   return (
     <Shape
-      {...DATACENTER_SERVER_STORAGE_UNIT_LARGE}
       {...props}
-      _style={extendStyle(DATACENTER_SERVER_STORAGE_UNIT_LARGE, props)}
+      _style={extendStyle(props, DATACENTER_SERVER_STORAGE_UNIT_LARGE)}
     />
   )
 }

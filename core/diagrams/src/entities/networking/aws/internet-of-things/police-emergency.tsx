@@ -11,11 +11,5 @@ export const POLICE_EMERGENCY = {
 }
 
 export function PoliceEmergency(props: NodeProps) {
-  return (
-    <Shape
-      {...POLICE_EMERGENCY}
-      {...props}
-      _style={extendStyle(POLICE_EMERGENCY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POLICE_EMERGENCY)} />
 }

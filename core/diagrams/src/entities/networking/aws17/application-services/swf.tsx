@@ -11,5 +11,5 @@ export const SWF = {
 }
 
 export function Swf(props: NodeProps) {
-  return <Shape {...SWF} {...props} _style={extendStyle(SWF, props)} />
+  return <Shape {...props} _style={extendStyle(props, SWF)} />
 }

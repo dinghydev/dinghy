@@ -11,5 +11,5 @@ export const TROPHY = {
 }
 
 export function Trophy(props: NodeProps) {
-  return <Shape {...TROPHY} {...props} _style={extendStyle(TROPHY, props)} />
+  return <Shape {...props} _style={extendStyle(props, TROPHY)} />
 }

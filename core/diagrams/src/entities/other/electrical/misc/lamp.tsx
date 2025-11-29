@@ -11,5 +11,5 @@ export const LAMP = {
 }
 
 export function Lamp(props: NodeProps) {
-  return <Shape {...LAMP} {...props} _style={extendStyle(LAMP, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAMP)} />
 }

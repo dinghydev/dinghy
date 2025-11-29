@@ -11,5 +11,5 @@ export const BEAR_2 = {
 }
 
 export function Bear2(props: NodeProps) {
-  return <Shape {...BEAR_2} {...props} _style={extendStyle(BEAR_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, BEAR_2)} />
 }

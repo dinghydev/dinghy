@@ -11,11 +11,5 @@ export const AWS_SNOWBALL = {
 }
 
 export function AwsSnowball(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_SNOWBALL}
-      {...props}
-      _style={extendStyle(AWS_SNOWBALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_SNOWBALL)} />
 }

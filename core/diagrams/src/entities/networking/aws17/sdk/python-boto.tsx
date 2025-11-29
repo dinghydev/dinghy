@@ -11,11 +11,5 @@ export const PYTHON_BOTO = {
 }
 
 export function PythonBoto(props: NodeProps) {
-  return (
-    <Shape
-      {...PYTHON_BOTO}
-      {...props}
-      _style={extendStyle(PYTHON_BOTO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PYTHON_BOTO)} />
 }

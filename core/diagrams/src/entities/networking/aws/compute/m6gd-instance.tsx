@@ -11,11 +11,5 @@ export const M6GD_INSTANCE = {
 }
 
 export function M6gdInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...M6GD_INSTANCE}
-      {...props}
-      _style={extendStyle(M6GD_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, M6GD_INSTANCE)} />
 }

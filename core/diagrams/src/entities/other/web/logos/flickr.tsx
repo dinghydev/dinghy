@@ -11,5 +11,5 @@ export const FLICKR = {
 }
 
 export function Flickr(props: NodeProps) {
-  return <Shape {...FLICKR} {...props} _style={extendStyle(FLICKR, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLICKR)} />
 }

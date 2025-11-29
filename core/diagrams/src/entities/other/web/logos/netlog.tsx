@@ -11,5 +11,5 @@ export const NETLOG = {
 }
 
 export function Netlog(props: NodeProps) {
-  return <Shape {...NETLOG} {...props} _style={extendStyle(NETLOG, props)} />
+  return <Shape {...props} _style={extendStyle(props, NETLOG)} />
 }

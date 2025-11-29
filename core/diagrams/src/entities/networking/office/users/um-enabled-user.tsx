@@ -11,11 +11,5 @@ export const UM_ENABLED_USER = {
 }
 
 export function UmEnabledUser(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_ENABLED_USER}
-      {...props}
-      _style={extendStyle(UM_ENABLED_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_ENABLED_USER)} />
 }

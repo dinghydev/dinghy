@@ -10,11 +10,5 @@ export const STEREOTYPE_NOTE_4 = {
 }
 
 export function StereotypeNote4(props: NodeProps) {
-  return (
-    <Shape
-      {...STEREOTYPE_NOTE_4}
-      {...props}
-      _style={extendStyle(STEREOTYPE_NOTE_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STEREOTYPE_NOTE_4)} />
 }

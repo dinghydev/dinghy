@@ -13,9 +13,8 @@ export const LINE_ITEM_WITH_PRIMARY_CHECKBOX = {
 export function LineItemWithPrimaryCheckbox(props: NodeProps) {
   return (
     <Shape
-      {...LINE_ITEM_WITH_PRIMARY_CHECKBOX}
       {...props}
-      _style={extendStyle(LINE_ITEM_WITH_PRIMARY_CHECKBOX, props)}
+      _style={extendStyle(props, LINE_ITEM_WITH_PRIMARY_CHECKBOX)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const NUCLEAR_2 = {
 }
 
 export function Nuclear2(props: NodeProps) {
-  return (
-    <Shape {...NUCLEAR_2} {...props} _style={extendStyle(NUCLEAR_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NUCLEAR_2)} />
 }

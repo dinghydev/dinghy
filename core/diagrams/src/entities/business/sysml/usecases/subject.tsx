@@ -11,5 +11,5 @@ export const SUBJECT = {
 }
 
 export function Subject(props: NodeProps) {
-  return <Shape {...SUBJECT} {...props} _style={extendStyle(SUBJECT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SUBJECT)} />
 }

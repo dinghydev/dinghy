@@ -11,11 +11,5 @@ export const RELATIONAL_DATABASE = {
 }
 
 export function RelationalDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...RELATIONAL_DATABASE}
-      {...props}
-      _style={extendStyle(RELATIONAL_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RELATIONAL_DATABASE)} />
 }

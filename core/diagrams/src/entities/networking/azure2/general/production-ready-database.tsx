@@ -12,10 +12,6 @@ export const PRODUCTION_READY_DATABASE = {
 
 export function ProductionReadyDatabase(props: NodeProps) {
   return (
-    <Shape
-      {...PRODUCTION_READY_DATABASE}
-      {...props}
-      _style={extendStyle(PRODUCTION_READY_DATABASE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PRODUCTION_READY_DATABASE)} />
   )
 }

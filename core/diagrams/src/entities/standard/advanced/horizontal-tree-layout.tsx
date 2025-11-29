@@ -12,10 +12,6 @@ export const HORIZONTAL_TREE_LAYOUT = {
 
 export function HorizontalTreeLayout(props: NodeProps) {
   return (
-    <Shape
-      {...HORIZONTAL_TREE_LAYOUT}
-      {...props}
-      _style={extendStyle(HORIZONTAL_TREE_LAYOUT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HORIZONTAL_TREE_LAYOUT)} />
   )
 }

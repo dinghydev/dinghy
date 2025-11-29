@@ -11,11 +11,5 @@ export const CISCO_SECURITY = {
 }
 
 export function CiscoSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_SECURITY}
-      {...props}
-      _style={extendStyle(CISCO_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_SECURITY)} />
 }

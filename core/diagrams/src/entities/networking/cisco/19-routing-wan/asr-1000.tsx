@@ -11,7 +11,5 @@ export const ASR_1000 = {
 }
 
 export function Asr1000(props: NodeProps) {
-  return (
-    <Shape {...ASR_1000} {...props} _style={extendStyle(ASR_1000, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASR_1000)} />
 }

@@ -11,7 +11,5 @@ export const VOICEMAIL = {
 }
 
 export function Voicemail(props: NodeProps) {
-  return (
-    <Shape {...VOICEMAIL} {...props} _style={extendStyle(VOICEMAIL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOICEMAIL)} />
 }

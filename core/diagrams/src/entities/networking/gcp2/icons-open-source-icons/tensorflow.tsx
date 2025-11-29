@@ -11,7 +11,5 @@ export const TENSORFLOW = {
 }
 
 export function Tensorflow(props: NodeProps) {
-  return (
-    <Shape {...TENSORFLOW} {...props} _style={extendStyle(TENSORFLOW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENSORFLOW)} />
 }

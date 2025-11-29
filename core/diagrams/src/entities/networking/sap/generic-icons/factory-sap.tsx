@@ -11,11 +11,5 @@ export const FACTORY_SAP = {
 }
 
 export function FactorySap(props: NodeProps) {
-  return (
-    <Shape
-      {...FACTORY_SAP}
-      {...props}
-      _style={extendStyle(FACTORY_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACTORY_SAP)} />
 }

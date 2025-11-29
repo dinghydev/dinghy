@@ -11,11 +11,5 @@ export const CATALYST_SWITCH = {
 }
 
 export function CatalystSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...CATALYST_SWITCH}
-      {...props}
-      _style={extendStyle(CATALYST_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CATALYST_SWITCH)} />
 }

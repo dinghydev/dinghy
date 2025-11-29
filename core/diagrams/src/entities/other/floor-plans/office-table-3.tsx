@@ -11,11 +11,5 @@ export const OFFICE_TABLE_3 = {
 }
 
 export function OfficeTable3(props: NodeProps) {
-  return (
-    <Shape
-      {...OFFICE_TABLE_3}
-      {...props}
-      _style={extendStyle(OFFICE_TABLE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFFICE_TABLE_3)} />
 }

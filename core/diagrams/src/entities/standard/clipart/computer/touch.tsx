@@ -11,5 +11,5 @@ export const TOUCH = {
 }
 
 export function Touch(props: NodeProps) {
-  return <Shape {...TOUCH} {...props} _style={extendStyle(TOUCH, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOUCH)} />
 }

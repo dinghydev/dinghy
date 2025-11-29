@@ -12,10 +12,6 @@ export const CHECKLIST_FAULT_TOLERANCE = {
 
 export function ChecklistFaultTolerance(props: NodeProps) {
   return (
-    <Shape
-      {...CHECKLIST_FAULT_TOLERANCE}
-      {...props}
-      _style={extendStyle(CHECKLIST_FAULT_TOLERANCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CHECKLIST_FAULT_TOLERANCE)} />
   )
 }

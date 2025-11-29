@@ -11,11 +11,5 @@ export const PRIVATE_CLOUD = {
 }
 
 export function PrivateCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIVATE_CLOUD}
-      {...props}
-      _style={extendStyle(PRIVATE_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIVATE_CLOUD)} />
 }

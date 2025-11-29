@@ -11,7 +11,5 @@ export const STRAINER = {
 }
 
 export function Strainer(props: NodeProps) {
-  return (
-    <Shape {...STRAINER} {...props} _style={extendStyle(STRAINER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STRAINER)} />
 }

@@ -11,7 +11,5 @@ export const NAS_BACKUP = {
 }
 
 export function NasBackup(props: NodeProps) {
-  return (
-    <Shape {...NAS_BACKUP} {...props} _style={extendStyle(NAS_BACKUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAS_BACKUP)} />
 }

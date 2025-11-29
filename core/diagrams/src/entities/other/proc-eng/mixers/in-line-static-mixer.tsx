@@ -11,11 +11,5 @@ export const IN_LINE_STATIC_MIXER = {
 }
 
 export function InLineStaticMixer(props: NodeProps) {
-  return (
-    <Shape
-      {...IN_LINE_STATIC_MIXER}
-      {...props}
-      _style={extendStyle(IN_LINE_STATIC_MIXER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IN_LINE_STATIC_MIXER)} />
 }

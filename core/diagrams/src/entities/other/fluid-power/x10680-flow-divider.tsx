@@ -11,11 +11,5 @@ export const X10680_FLOW_DIVIDER = {
 }
 
 export function X10680FlowDivider(props: NodeProps) {
-  return (
-    <Shape
-      {...X10680_FLOW_DIVIDER}
-      {...props}
-      _style={extendStyle(X10680_FLOW_DIVIDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10680_FLOW_DIVIDER)} />
 }

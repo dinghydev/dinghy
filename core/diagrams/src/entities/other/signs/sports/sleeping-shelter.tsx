@@ -11,11 +11,5 @@ export const SLEEPING_SHELTER = {
 }
 
 export function SleepingShelter(props: NodeProps) {
-  return (
-    <Shape
-      {...SLEEPING_SHELTER}
-      {...props}
-      _style={extendStyle(SLEEPING_SHELTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLEEPING_SHELTER)} />
 }

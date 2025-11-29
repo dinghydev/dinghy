@@ -12,10 +12,6 @@ export const WEB_APPLICATION_FIREWALL = {
 
 export function WebApplicationFirewall(props: NodeProps) {
   return (
-    <Shape
-      {...WEB_APPLICATION_FIREWALL}
-      {...props}
-      _style={extendStyle(WEB_APPLICATION_FIREWALL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WEB_APPLICATION_FIREWALL)} />
   )
 }

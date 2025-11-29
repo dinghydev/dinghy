@@ -11,5 +11,5 @@ export const DELETE = {
 }
 
 export function Delete(props: NodeProps) {
-  return <Shape {...DELETE} {...props} _style={extendStyle(DELETE, props)} />
+  return <Shape {...props} _style={extendStyle(props, DELETE)} />
 }

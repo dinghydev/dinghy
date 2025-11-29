@@ -11,5 +11,5 @@ export const ATA = {
 }
 
 export function Ata(props: NodeProps) {
-  return <Shape {...ATA} {...props} _style={extendStyle(ATA, props)} />
+  return <Shape {...props} _style={extendStyle(props, ATA)} />
 }

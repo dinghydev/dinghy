@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { CallChoreographyCallingGlobal } from '@dinghy/diagrams/containersBpmn2Choreographies'
 
 <CallChoreographyCallingGlobal/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CALL_CHOREOGRAPHY_CALLING_GLOBAL } from '@dinghy/diagrams/containersBpmn2Choreographies'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CALL_CHOREOGRAPHY_CALLING_GLOBAL)}
+  />
+
 ```
 
   </TabItem>
@@ -49,6 +60,17 @@ import { CallChoreographyCallingGlobal } from '@dinghy/diagrams/containersBpmn2C
 import { ChoreographyTask } from '@dinghy/diagrams/containersBpmn2Choreographies'
 
 <ChoreographyTask/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CHOREOGRAPHY_TASK } from '@dinghy/diagrams/containersBpmn2Choreographies'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CHOREOGRAPHY_TASK)}
+  />
+
 ```
 
   </TabItem>

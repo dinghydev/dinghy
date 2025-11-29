@@ -11,5 +11,5 @@ export const GITHUB = {
 }
 
 export function Github(props: NodeProps) {
-  return <Shape {...GITHUB} {...props} _style={extendStyle(GITHUB, props)} />
+  return <Shape {...props} _style={extendStyle(props, GITHUB)} />
 }

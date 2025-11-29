@@ -11,11 +11,5 @@ export const SOLIDIFIER_OPEN = {
 }
 
 export function SolidifierOpen(props: NodeProps) {
-  return (
-    <Shape
-      {...SOLIDIFIER_OPEN}
-      {...props}
-      _style={extendStyle(SOLIDIFIER_OPEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOLIDIFIER_OPEN)} />
 }

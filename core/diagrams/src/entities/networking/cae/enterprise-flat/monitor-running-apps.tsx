@@ -11,11 +11,5 @@ export const MONITOR_RUNNING_APPS = {
 }
 
 export function MonitorRunningApps(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITOR_RUNNING_APPS}
-      {...props}
-      _style={extendStyle(MONITOR_RUNNING_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITOR_RUNNING_APPS)} />
 }

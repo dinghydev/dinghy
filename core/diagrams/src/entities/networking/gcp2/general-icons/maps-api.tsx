@@ -11,7 +11,5 @@ export const MAPS_API = {
 }
 
 export function MapsApi(props: NodeProps) {
-  return (
-    <Shape {...MAPS_API} {...props} _style={extendStyle(MAPS_API, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAPS_API)} />
 }

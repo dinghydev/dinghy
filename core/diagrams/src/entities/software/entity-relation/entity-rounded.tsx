@@ -10,11 +10,5 @@ export const ENTITY_ROUNDED = {
 }
 
 export function EntityRounded(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTITY_ROUNDED}
-      {...props}
-      _style={extendStyle(ENTITY_ROUNDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTITY_ROUNDED)} />
 }

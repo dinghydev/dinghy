@@ -15,11 +15,10 @@ export function Jl073aHpeAruba3810m24PortGtPoeplus1SlotSwitch(
 ) {
   return (
     <Shape
-      {...JL073A_HPE_ARUBA_3810M_24_PORT_GT_POEPLUS_1_SLOT_SWITCH}
       {...props}
       _style={extendStyle(
-        JL073A_HPE_ARUBA_3810M_24_PORT_GT_POEPLUS_1_SLOT_SWITCH,
         props,
+        JL073A_HPE_ARUBA_3810M_24_PORT_GT_POEPLUS_1_SLOT_SWITCH,
       )}
     />
   )

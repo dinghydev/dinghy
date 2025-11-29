@@ -13,9 +13,8 @@ export const SAP_ASSET_PERFORMANCE_MANAGEMENT = {
 export function SapAssetPerformanceManagement(props: NodeProps) {
   return (
     <Shape
-      {...SAP_ASSET_PERFORMANCE_MANAGEMENT}
       {...props}
-      _style={extendStyle(SAP_ASSET_PERFORMANCE_MANAGEMENT, props)}
+      _style={extendStyle(props, SAP_ASSET_PERFORMANCE_MANAGEMENT)}
     />
   )
 }

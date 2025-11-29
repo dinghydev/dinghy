@@ -12,10 +12,6 @@ export const APP_SERVICE_ENVIRONMENTS = {
 
 export function AppServiceEnvironments(props: NodeProps) {
   return (
-    <Shape
-      {...APP_SERVICE_ENVIRONMENTS}
-      {...props}
-      _style={extendStyle(APP_SERVICE_ENVIRONMENTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APP_SERVICE_ENVIRONMENTS)} />
   )
 }

@@ -11,11 +11,5 @@ export const CUSTOM_EVENT_BUS = {
 }
 
 export function CustomEventBus(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOM_EVENT_BUS}
-      {...props}
-      _style={extendStyle(CUSTOM_EVENT_BUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOM_EVENT_BUS)} />
 }

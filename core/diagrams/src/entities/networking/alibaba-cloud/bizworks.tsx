@@ -11,7 +11,5 @@ export const BIZWORKS = {
 }
 
 export function Bizworks(props: NodeProps) {
-  return (
-    <Shape {...BIZWORKS} {...props} _style={extendStyle(BIZWORKS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIZWORKS)} />
 }

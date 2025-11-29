@@ -11,7 +11,5 @@ export const DA_NON_SAP = {
 }
 
 export function DaNonSap(props: NodeProps) {
-  return (
-    <Shape {...DA_NON_SAP} {...props} _style={extendStyle(DA_NON_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DA_NON_SAP)} />
 }

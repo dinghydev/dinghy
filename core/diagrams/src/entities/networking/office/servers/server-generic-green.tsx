@@ -11,11 +11,5 @@ export const SERVER_GENERIC_GREEN = {
 }
 
 export function ServerGenericGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_GENERIC_GREEN}
-      {...props}
-      _style={extendStyle(SERVER_GENERIC_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_GENERIC_GREEN)} />
 }

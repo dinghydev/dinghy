@@ -11,5 +11,5 @@ export const JOB = {
 }
 
 export function Job(props: NodeProps) {
-  return <Shape {...JOB} {...props} _style={extendStyle(JOB, props)} />
+  return <Shape {...props} _style={extendStyle(props, JOB)} />
 }

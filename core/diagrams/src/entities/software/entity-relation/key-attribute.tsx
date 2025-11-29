@@ -10,11 +10,5 @@ export const KEY_ATTRIBUTE = {
 }
 
 export function KeyAttribute(props: NodeProps) {
-  return (
-    <Shape
-      {...KEY_ATTRIBUTE}
-      {...props}
-      _style={extendStyle(KEY_ATTRIBUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEY_ATTRIBUTE)} />
 }

@@ -11,7 +11,5 @@ export const DISKETTE = {
 }
 
 export function Diskette(props: NodeProps) {
-  return (
-    <Shape {...DISKETTE} {...props} _style={extendStyle(DISKETTE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISKETTE)} />
 }

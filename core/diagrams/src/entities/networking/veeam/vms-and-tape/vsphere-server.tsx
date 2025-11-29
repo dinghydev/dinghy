@@ -11,11 +11,5 @@ export const VSPHERE_SERVER = {
 }
 
 export function VsphereServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VSPHERE_SERVER}
-      {...props}
-      _style={extendStyle(VSPHERE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VSPHERE_SERVER)} />
 }

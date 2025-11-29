@@ -11,5 +11,5 @@ export const SPOT_VM = {
 }
 
 export function SpotVm(props: NodeProps) {
-  return <Shape {...SPOT_VM} {...props} _style={extendStyle(SPOT_VM, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPOT_VM)} />
 }

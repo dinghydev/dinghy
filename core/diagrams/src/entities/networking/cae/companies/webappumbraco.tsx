@@ -11,11 +11,5 @@ export const WEBAPPUMBRACO = {
 }
 
 export function Webappumbraco(props: NodeProps) {
-  return (
-    <Shape
-      {...WEBAPPUMBRACO}
-      {...props}
-      _style={extendStyle(WEBAPPUMBRACO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBAPPUMBRACO)} />
 }

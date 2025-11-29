@@ -11,11 +11,5 @@ export const TRN1_INSTANCE = {
 }
 
 export function Trn1Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...TRN1_INSTANCE}
-      {...props}
-      _style={extendStyle(TRN1_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRN1_INSTANCE)} />
 }

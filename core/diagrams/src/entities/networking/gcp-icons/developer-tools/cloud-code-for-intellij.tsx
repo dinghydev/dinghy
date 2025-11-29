@@ -12,10 +12,6 @@ export const CLOUD_CODE_FOR_INTELLIJ = {
 
 export function CloudCodeForIntellij(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_CODE_FOR_INTELLIJ}
-      {...props}
-      _style={extendStyle(CLOUD_CODE_FOR_INTELLIJ, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_CODE_FOR_INTELLIJ)} />
   )
 }

@@ -11,7 +11,5 @@ export const APPLIED_AI = {
 }
 
 export function AppliedAi(props: NodeProps) {
-  return (
-    <Shape {...APPLIED_AI} {...props} _style={extendStyle(APPLIED_AI, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLIED_AI)} />
 }

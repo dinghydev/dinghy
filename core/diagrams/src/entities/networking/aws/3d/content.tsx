@@ -11,5 +11,5 @@ export const CONTENT = {
 }
 
 export function Content(props: NodeProps) {
-  return <Shape {...CONTENT} {...props} _style={extendStyle(CONTENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, CONTENT)} />
 }

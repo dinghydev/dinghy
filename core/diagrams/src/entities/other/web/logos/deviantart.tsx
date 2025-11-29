@@ -11,7 +11,5 @@ export const DEVIANTART = {
 }
 
 export function Deviantart(props: NodeProps) {
-  return (
-    <Shape {...DEVIANTART} {...props} _style={extendStyle(DEVIANTART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVIANTART)} />
 }

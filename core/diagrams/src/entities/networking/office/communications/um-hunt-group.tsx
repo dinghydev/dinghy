@@ -11,11 +11,5 @@ export const UM_HUNT_GROUP = {
 }
 
 export function UmHuntGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_HUNT_GROUP}
-      {...props}
-      _style={extendStyle(UM_HUNT_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_HUNT_GROUP)} />
 }

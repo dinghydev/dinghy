@@ -11,11 +11,5 @@ export const RACK_OUT_OF_BAND = {
 }
 
 export function RackOutOfBand(props: NodeProps) {
-  return (
-    <Shape
-      {...RACK_OUT_OF_BAND}
-      {...props}
-      _style={extendStyle(RACK_OUT_OF_BAND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RACK_OUT_OF_BAND)} />
 }

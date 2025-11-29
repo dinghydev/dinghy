@@ -11,11 +11,5 @@ export const VEEAM_FULL_BACKUP = {
 }
 
 export function VeeamFullBackup(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_FULL_BACKUP}
-      {...props}
-      _style={extendStyle(VEEAM_FULL_BACKUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_FULL_BACKUP)} />
 }

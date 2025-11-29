@@ -12,9 +12,8 @@ export const REQUIREMENT_CONTAINMENT_RELATIONSHIP = {
 export function RequirementContainmentRelationship(props: NodeProps) {
   return (
     <Shape
-      {...REQUIREMENT_CONTAINMENT_RELATIONSHIP}
       {...props}
-      _style={extendStyle(REQUIREMENT_CONTAINMENT_RELATIONSHIP, props)}
+      _style={extendStyle(props, REQUIREMENT_CONTAINMENT_RELATIONSHIP)}
     />
   )
 }

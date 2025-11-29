@@ -11,11 +11,5 @@ export const HARDWARE_CONTROLLER = {
 }
 
 export function HardwareController(props: NodeProps) {
-  return (
-    <Shape
-      {...HARDWARE_CONTROLLER}
-      {...props}
-      _style={extendStyle(HARDWARE_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HARDWARE_CONTROLLER)} />
 }

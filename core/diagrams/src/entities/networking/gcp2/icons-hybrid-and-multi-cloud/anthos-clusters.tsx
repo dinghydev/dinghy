@@ -11,11 +11,5 @@ export const ANTHOS_CLUSTERS = {
 }
 
 export function AnthosClusters(props: NodeProps) {
-  return (
-    <Shape
-      {...ANTHOS_CLUSTERS}
-      {...props}
-      _style={extendStyle(ANTHOS_CLUSTERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANTHOS_CLUSTERS)} />
 }

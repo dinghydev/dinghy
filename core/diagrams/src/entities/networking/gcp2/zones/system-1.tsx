@@ -11,7 +11,5 @@ export const SYSTEM_1 = {
 }
 
 export function System1(props: NodeProps) {
-  return (
-    <Shape {...SYSTEM_1} {...props} _style={extendStyle(SYSTEM_1, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_1)} />
 }

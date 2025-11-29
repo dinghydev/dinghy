@@ -13,9 +13,8 @@ export const DISCRETE_SLIDER_NORMAL_LIGHT = {
 export function DiscreteSliderNormalLight(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_SLIDER_NORMAL_LIGHT}
       {...props}
-      _style={extendStyle(DISCRETE_SLIDER_NORMAL_LIGHT, props)}
+      _style={extendStyle(props, DISCRETE_SLIDER_NORMAL_LIGHT)}
     />
   )
 }

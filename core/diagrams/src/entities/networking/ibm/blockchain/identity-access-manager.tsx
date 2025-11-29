@@ -12,10 +12,6 @@ export const IDENTITY_ACCESS_MANAGER = {
 
 export function IdentityAccessManager(props: NodeProps) {
   return (
-    <Shape
-      {...IDENTITY_ACCESS_MANAGER}
-      {...props}
-      _style={extendStyle(IDENTITY_ACCESS_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IDENTITY_ACCESS_MANAGER)} />
   )
 }

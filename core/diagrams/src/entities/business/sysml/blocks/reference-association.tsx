@@ -11,11 +11,5 @@ export const REFERENCE_ASSOCIATION = {
 }
 
 export function ReferenceAssociation(props: NodeProps) {
-  return (
-    <Shape
-      {...REFERENCE_ASSOCIATION}
-      {...props}
-      _style={extendStyle(REFERENCE_ASSOCIATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REFERENCE_ASSOCIATION)} />
 }

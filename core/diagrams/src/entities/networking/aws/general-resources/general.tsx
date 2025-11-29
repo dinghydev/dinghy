@@ -11,5 +11,5 @@ export const GENERAL = {
 }
 
 export function General(props: NodeProps) {
-  return <Shape {...GENERAL} {...props} _style={extendStyle(GENERAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, GENERAL)} />
 }

@@ -11,11 +11,5 @@ export const PUSHBUTTON_MAKE = {
 }
 
 export function PushbuttonMake(props: NodeProps) {
-  return (
-    <Shape
-      {...PUSHBUTTON_MAKE}
-      {...props}
-      _style={extendStyle(PUSHBUTTON_MAKE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUSHBUTTON_MAKE)} />
 }

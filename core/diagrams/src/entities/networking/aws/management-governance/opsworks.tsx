@@ -11,7 +11,5 @@ export const OPSWORKS = {
 }
 
 export function Opsworks(props: NodeProps) {
-  return (
-    <Shape {...OPSWORKS} {...props} _style={extendStyle(OPSWORKS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPSWORKS)} />
 }

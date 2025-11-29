@@ -11,7 +11,5 @@ export const EXPANSION = {
 }
 
 export function Expansion(props: NodeProps) {
-  return (
-    <Shape {...EXPANSION} {...props} _style={extendStyle(EXPANSION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPANSION)} />
 }

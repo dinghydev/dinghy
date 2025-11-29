@@ -11,5 +11,5 @@ export const LOCKER = {
 }
 
 export function Locker(props: NodeProps) {
-  return <Shape {...LOCKER} {...props} _style={extendStyle(LOCKER, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOCKER)} />
 }

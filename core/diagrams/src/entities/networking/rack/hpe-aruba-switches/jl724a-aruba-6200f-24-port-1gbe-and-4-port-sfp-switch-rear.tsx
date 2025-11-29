@@ -15,11 +15,10 @@ export function Jl724aAruba6200f24Port1gbeAnd4PortSfpSwitchRear(
 ) {
   return (
     <Shape
-      {...JL724A_ARUBA_6200F_24_PORT_1GBE_AND_4_PORT_SFP_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL724A_ARUBA_6200F_24_PORT_1GBE_AND_4_PORT_SFP_SWITCH_REAR,
         props,
+        JL724A_ARUBA_6200F_24_PORT_1GBE_AND_4_PORT_SFP_SWITCH_REAR,
       )}
     />
   )

@@ -11,11 +11,5 @@ export const BLANK_DEVICE = {
 }
 
 export function BlankDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...BLANK_DEVICE}
-      {...props}
-      _style={extendStyle(BLANK_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLANK_DEVICE)} />
 }

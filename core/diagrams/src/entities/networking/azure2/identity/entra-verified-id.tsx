@@ -11,11 +11,5 @@ export const ENTRA_VERIFIED_ID = {
 }
 
 export function EntraVerifiedId(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_VERIFIED_ID}
-      {...props}
-      _style={extendStyle(ENTRA_VERIFIED_ID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_VERIFIED_ID)} />
 }

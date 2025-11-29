@@ -11,11 +11,5 @@ export const Z1D_INSTANCE = {
 }
 
 export function Z1dInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...Z1D_INSTANCE}
-      {...props}
-      _style={extendStyle(Z1D_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, Z1D_INSTANCE)} />
 }

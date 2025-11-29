@@ -11,7 +11,5 @@ export const SNOWFLAKE = {
 }
 
 export function Snowflake(props: NodeProps) {
-  return (
-    <Shape {...SNOWFLAKE} {...props} _style={extendStyle(SNOWFLAKE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNOWFLAKE)} />
 }

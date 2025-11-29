@@ -11,7 +11,5 @@ export const VIEW_NAME = {
 }
 
 export function ViewName(props: NodeProps) {
-  return (
-    <Shape {...VIEW_NAME} {...props} _style={extendStyle(VIEW_NAME, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIEW_NAME)} />
 }

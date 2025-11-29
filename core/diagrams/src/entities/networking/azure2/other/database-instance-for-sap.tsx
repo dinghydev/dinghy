@@ -12,10 +12,6 @@ export const DATABASE_INSTANCE_FOR_SAP = {
 
 export function DatabaseInstanceForSap(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_INSTANCE_FOR_SAP}
-      {...props}
-      _style={extendStyle(DATABASE_INSTANCE_FOR_SAP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_INSTANCE_FOR_SAP)} />
   )
 }

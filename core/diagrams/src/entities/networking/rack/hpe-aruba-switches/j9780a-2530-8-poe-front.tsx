@@ -12,10 +12,6 @@ export const J9780A_2530_8_POE_FRONT = {
 
 export function J9780a25308PoeFront(props: NodeProps) {
   return (
-    <Shape
-      {...J9780A_2530_8_POE_FRONT}
-      {...props}
-      _style={extendStyle(J9780A_2530_8_POE_FRONT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, J9780A_2530_8_POE_FRONT)} />
   )
 }

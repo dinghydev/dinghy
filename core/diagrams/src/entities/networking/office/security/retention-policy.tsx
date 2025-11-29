@@ -11,11 +11,5 @@ export const RETENTION_POLICY = {
 }
 
 export function RetentionPolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...RETENTION_POLICY}
-      {...props}
-      _style={extendStyle(RETENTION_POLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETENTION_POLICY)} />
 }

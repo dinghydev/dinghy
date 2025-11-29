@@ -11,7 +11,5 @@ export const UMBRELLA = {
 }
 
 export function Umbrella(props: NodeProps) {
-  return (
-    <Shape {...UMBRELLA} {...props} _style={extendStyle(UMBRELLA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, UMBRELLA)} />
 }

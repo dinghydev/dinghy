@@ -11,11 +11,5 @@ export const DIRECT_CONNECT = {
 }
 
 export function DirectConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_CONNECT}
-      {...props}
-      _style={extendStyle(DIRECT_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_CONNECT)} />
 }

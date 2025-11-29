@@ -11,11 +11,5 @@ export const DIRSYNC_SERVER = {
 }
 
 export function DirsyncServer(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRSYNC_SERVER}
-      {...props}
-      _style={extendStyle(DIRSYNC_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRSYNC_SERVER)} />
 }

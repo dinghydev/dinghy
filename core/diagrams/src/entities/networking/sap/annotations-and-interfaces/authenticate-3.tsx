@@ -11,11 +11,5 @@ export const AUTHENTICATE_3 = {
 }
 
 export function Authenticate3(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATE_3}
-      {...props}
-      _style={extendStyle(AUTHENTICATE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATE_3)} />
 }

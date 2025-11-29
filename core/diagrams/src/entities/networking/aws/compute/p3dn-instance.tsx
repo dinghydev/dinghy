@@ -11,11 +11,5 @@ export const P3DN_INSTANCE = {
 }
 
 export function P3dnInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...P3DN_INSTANCE}
-      {...props}
-      _style={extendStyle(P3DN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, P3DN_INSTANCE)} />
 }

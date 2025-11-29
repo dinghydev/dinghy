@@ -11,7 +11,5 @@ export const DATA_JACK = {
 }
 
 export function DataJack(props: NodeProps) {
-  return (
-    <Shape {...DATA_JACK} {...props} _style={extendStyle(DATA_JACK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_JACK)} />
 }

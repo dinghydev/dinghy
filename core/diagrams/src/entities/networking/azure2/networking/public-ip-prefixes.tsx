@@ -11,11 +11,5 @@ export const PUBLIC_IP_PREFIXES = {
 }
 
 export function PublicIpPrefixes(props: NodeProps) {
-  return (
-    <Shape
-      {...PUBLIC_IP_PREFIXES}
-      {...props}
-      _style={extendStyle(PUBLIC_IP_PREFIXES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUBLIC_IP_PREFIXES)} />
 }

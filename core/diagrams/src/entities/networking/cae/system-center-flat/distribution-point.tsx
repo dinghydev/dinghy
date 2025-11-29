@@ -11,11 +11,5 @@ export const DISTRIBUTION_POINT = {
 }
 
 export function DistributionPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...DISTRIBUTION_POINT}
-      {...props}
-      _style={extendStyle(DISTRIBUTION_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISTRIBUTION_POINT)} />
 }

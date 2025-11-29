@@ -13,9 +13,8 @@ export const DROPDOWN_WITH_RIGHT_ALIGNED_MENU = {
 export function DropdownWithRightAlignedMenu(props: NodeProps) {
   return (
     <Shape
-      {...DROPDOWN_WITH_RIGHT_ALIGNED_MENU}
       {...props}
-      _style={extendStyle(DROPDOWN_WITH_RIGHT_ALIGNED_MENU, props)}
+      _style={extendStyle(props, DROPDOWN_WITH_RIGHT_ALIGNED_MENU)}
     />
   )
 }

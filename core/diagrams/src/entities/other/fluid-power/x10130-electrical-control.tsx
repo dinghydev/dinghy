@@ -12,10 +12,6 @@ export const X10130_ELECTRICAL_CONTROL = {
 
 export function X10130ElectricalControl(props: NodeProps) {
   return (
-    <Shape
-      {...X10130_ELECTRICAL_CONTROL}
-      {...props}
-      _style={extendStyle(X10130_ELECTRICAL_CONTROL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10130_ELECTRICAL_CONTROL)} />
   )
 }

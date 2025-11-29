@@ -11,11 +11,5 @@ export const CLOUD_NON_SAP = {
 }
 
 export function CloudNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_NON_SAP}
-      {...props}
-      _style={extendStyle(CLOUD_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_NON_SAP)} />
 }

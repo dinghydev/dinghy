@@ -11,11 +11,5 @@ export const SERVER_FARM_ORANGE = {
 }
 
 export function ServerFarmOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_FARM_ORANGE}
-      {...props}
-      _style={extendStyle(SERVER_FARM_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_FARM_ORANGE)} />
 }

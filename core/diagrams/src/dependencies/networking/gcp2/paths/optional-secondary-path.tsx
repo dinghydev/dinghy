@@ -11,9 +11,8 @@ export const OPTIONAL_SECONDARY_PATH = {
 export function OptionalSecondaryPath(props: NodeProps) {
   return (
     <Dependency
-      {...OPTIONAL_SECONDARY_PATH}
       {...props}
-      _style={extendStyle(OPTIONAL_SECONDARY_PATH, props)}
+      _style={extendStyle(props, OPTIONAL_SECONDARY_PATH)}
     />
   )
 }

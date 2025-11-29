@@ -10,11 +10,5 @@ export const ACTION_DIALOG = {
 }
 
 export function ActionDialog(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTION_DIALOG}
-      {...props}
-      _style={extendStyle(ACTION_DIALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_DIALOG)} />
 }

@@ -11,11 +11,5 @@ export const VOICEMAIL_PREVIEW = {
 }
 
 export function VoicemailPreview(props: NodeProps) {
-  return (
-    <Shape
-      {...VOICEMAIL_PREVIEW}
-      {...props}
-      _style={extendStyle(VOICEMAIL_PREVIEW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOICEMAIL_PREVIEW)} />
 }

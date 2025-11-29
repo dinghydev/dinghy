@@ -11,11 +11,5 @@ export const LAPTOP_CLIENT = {
 }
 
 export function LaptopClient(props: NodeProps) {
-  return (
-    <Shape
-      {...LAPTOP_CLIENT}
-      {...props}
-      _style={extendStyle(LAPTOP_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAPTOP_CLIENT)} />
 }

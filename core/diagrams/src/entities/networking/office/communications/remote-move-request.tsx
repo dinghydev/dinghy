@@ -11,11 +11,5 @@ export const REMOTE_MOVE_REQUEST = {
 }
 
 export function RemoteMoveRequest(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_MOVE_REQUEST}
-      {...props}
-      _style={extendStyle(REMOTE_MOVE_REQUEST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_MOVE_REQUEST)} />
 }

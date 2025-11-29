@@ -11,11 +11,5 @@ export const INTERNAL_MEDICINE = {
 }
 
 export function InternalMedicine(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNAL_MEDICINE}
-      {...props}
-      _style={extendStyle(INTERNAL_MEDICINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNAL_MEDICINE)} />
 }

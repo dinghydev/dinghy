@@ -12,10 +12,6 @@ export const ROUTE_53_ROUTING_CONTROLS = {
 
 export function Route53RoutingControls(props: NodeProps) {
   return (
-    <Shape
-      {...ROUTE_53_ROUTING_CONTROLS}
-      {...props}
-      _style={extendStyle(ROUTE_53_ROUTING_CONTROLS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROUTE_53_ROUTING_CONTROLS)} />
   )
 }

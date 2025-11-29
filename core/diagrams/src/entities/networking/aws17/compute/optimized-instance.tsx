@@ -11,11 +11,5 @@ export const OPTIMIZED_INSTANCE = {
 }
 
 export function OptimizedInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTIMIZED_INSTANCE}
-      {...props}
-      _style={extendStyle(OPTIMIZED_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTIMIZED_INSTANCE)} />
 }

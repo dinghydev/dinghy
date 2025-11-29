@@ -12,10 +12,6 @@ export const PUSHBUTTON_2_CIRCUIT_2 = {
 
 export function Pushbutton2Circuit2(props: NodeProps) {
   return (
-    <Shape
-      {...PUSHBUTTON_2_CIRCUIT_2}
-      {...props}
-      _style={extendStyle(PUSHBUTTON_2_CIRCUIT_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUSHBUTTON_2_CIRCUIT_2)} />
   )
 }

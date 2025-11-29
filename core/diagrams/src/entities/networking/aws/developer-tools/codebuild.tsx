@@ -11,7 +11,5 @@ export const CODEBUILD = {
 }
 
 export function Codebuild(props: NodeProps) {
-  return (
-    <Shape {...CODEBUILD} {...props} _style={extendStyle(CODEBUILD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEBUILD)} />
 }

@@ -13,9 +13,8 @@ export const RESTORE_DATA_FROM_VM_BACKUP = {
 export function RestoreDataFromVmBackup(props: NodeProps) {
   return (
     <Shape
-      {...RESTORE_DATA_FROM_VM_BACKUP}
       {...props}
-      _style={extendStyle(RESTORE_DATA_FROM_VM_BACKUP, props)}
+      _style={extendStyle(props, RESTORE_DATA_FROM_VM_BACKUP)}
     />
   )
 }

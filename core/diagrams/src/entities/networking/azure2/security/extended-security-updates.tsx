@@ -12,10 +12,6 @@ export const EXTENDED_SECURITY_UPDATES = {
 
 export function ExtendedSecurityUpdates(props: NodeProps) {
   return (
-    <Shape
-      {...EXTENDED_SECURITY_UPDATES}
-      {...props}
-      _style={extendStyle(EXTENDED_SECURITY_UPDATES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXTENDED_SECURITY_UPDATES)} />
   )
 }

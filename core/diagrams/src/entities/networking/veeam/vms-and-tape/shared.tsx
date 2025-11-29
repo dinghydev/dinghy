@@ -11,5 +11,5 @@ export const SHARED = {
 }
 
 export function Shared(props: NodeProps) {
-  return <Shape {...SHARED} {...props} _style={extendStyle(SHARED, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHARED)} />
 }

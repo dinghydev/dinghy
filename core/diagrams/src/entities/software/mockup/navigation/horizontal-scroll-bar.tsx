@@ -11,11 +11,5 @@ export const HORIZONTAL_SCROLL_BAR = {
 }
 
 export function HorizontalScrollBar(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_SCROLL_BAR}
-      {...props}
-      _style={extendStyle(HORIZONTAL_SCROLL_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_SCROLL_BAR)} />
 }

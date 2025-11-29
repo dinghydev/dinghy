@@ -11,11 +11,5 @@ export const SPEECH_SERVICES = {
 }
 
 export function SpeechServices(props: NodeProps) {
-  return (
-    <Shape
-      {...SPEECH_SERVICES}
-      {...props}
-      _style={extendStyle(SPEECH_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPEECH_SERVICES)} />
 }

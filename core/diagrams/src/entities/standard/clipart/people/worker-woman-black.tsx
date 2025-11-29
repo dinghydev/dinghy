@@ -11,11 +11,5 @@ export const WORKER_WOMAN_BLACK = {
 }
 
 export function WorkerWomanBlack(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKER_WOMAN_BLACK}
-      {...props}
-      _style={extendStyle(WORKER_WOMAN_BLACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKER_WOMAN_BLACK)} />
 }

@@ -11,5 +11,5 @@ export const VIP = {
 }
 
 export function Vip(props: NodeProps) {
-  return <Shape {...VIP} {...props} _style={extendStyle(VIP, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIP)} />
 }

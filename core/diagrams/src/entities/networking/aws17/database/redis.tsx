@@ -11,5 +11,5 @@ export const REDIS = {
 }
 
 export function Redis(props: NodeProps) {
-  return <Shape {...REDIS} {...props} _style={extendStyle(REDIS, props)} />
+  return <Shape {...props} _style={extendStyle(props, REDIS)} />
 }

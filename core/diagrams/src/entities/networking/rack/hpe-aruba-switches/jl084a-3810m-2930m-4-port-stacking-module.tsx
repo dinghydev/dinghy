@@ -13,9 +13,8 @@ export const JL084A_3810M_2930M_4_PORT_STACKING_MODULE = {
 export function Jl084a3810m2930m4PortStackingModule(props: NodeProps) {
   return (
     <Shape
-      {...JL084A_3810M_2930M_4_PORT_STACKING_MODULE}
       {...props}
-      _style={extendStyle(JL084A_3810M_2930M_4_PORT_STACKING_MODULE, props)}
+      _style={extendStyle(props, JL084A_3810M_2930M_4_PORT_STACKING_MODULE)}
     />
   )
 }

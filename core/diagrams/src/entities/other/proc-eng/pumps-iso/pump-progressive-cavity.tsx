@@ -12,10 +12,6 @@ export const PUMP_PROGRESSIVE_CAVITY = {
 
 export function PumpProgressiveCavity(props: NodeProps) {
   return (
-    <Shape
-      {...PUMP_PROGRESSIVE_CAVITY}
-      {...props}
-      _style={extendStyle(PUMP_PROGRESSIVE_CAVITY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUMP_PROGRESSIVE_CAVITY)} />
   )
 }

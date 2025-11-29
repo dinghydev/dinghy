@@ -11,5 +11,5 @@ export const DEVOPS = {
 }
 
 export function Devops(props: NodeProps) {
-  return <Shape {...DEVOPS} {...props} _style={extendStyle(DEVOPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, DEVOPS)} />
 }

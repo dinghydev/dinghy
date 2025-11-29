@@ -11,11 +11,5 @@ export const TRASHCAN_ICON = {
 }
 
 export function TrashcanIcon(props: NodeProps) {
-  return (
-    <Shape
-      {...TRASHCAN_ICON}
-      {...props}
-      _style={extendStyle(TRASHCAN_ICON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRASHCAN_ICON)} />
 }

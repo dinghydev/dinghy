@@ -11,11 +11,5 @@ export const ASR_1000_SERIES = {
 }
 
 export function Asr1000Series(props: NodeProps) {
-  return (
-    <Shape
-      {...ASR_1000_SERIES}
-      {...props}
-      _style={extendStyle(ASR_1000_SERIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASR_1000_SERIES)} />
 }

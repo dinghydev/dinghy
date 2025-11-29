@@ -11,11 +11,5 @@ export const AMAZON_COGNITO = {
 }
 
 export function AmazonCognito(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_COGNITO}
-      {...props}
-      _style={extendStyle(AMAZON_COGNITO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_COGNITO)} />
 }

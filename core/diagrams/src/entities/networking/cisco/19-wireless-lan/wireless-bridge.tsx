@@ -11,11 +11,5 @@ export const WIRELESS_BRIDGE = {
 }
 
 export function WirelessBridge(props: NodeProps) {
-  return (
-    <Shape
-      {...WIRELESS_BRIDGE}
-      {...props}
-      _style={extendStyle(WIRELESS_BRIDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRELESS_BRIDGE)} />
 }

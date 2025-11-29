@@ -11,11 +11,5 @@ export const C6GN_INSTANCE = {
 }
 
 export function C6gnInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...C6GN_INSTANCE}
-      {...props}
-      _style={extendStyle(C6GN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, C6GN_INSTANCE)} />
 }

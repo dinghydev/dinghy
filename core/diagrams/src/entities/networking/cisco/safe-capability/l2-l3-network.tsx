@@ -11,11 +11,5 @@ export const L2_L3_NETWORK = {
 }
 
 export function L2L3Network(props: NodeProps) {
-  return (
-    <Shape
-      {...L2_L3_NETWORK}
-      {...props}
-      _style={extendStyle(L2_L3_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, L2_L3_NETWORK)} />
 }

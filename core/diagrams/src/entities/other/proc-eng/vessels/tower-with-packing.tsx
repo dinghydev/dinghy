@@ -11,11 +11,5 @@ export const TOWER_WITH_PACKING = {
 }
 
 export function TowerWithPacking(props: NodeProps) {
-  return (
-    <Shape
-      {...TOWER_WITH_PACKING}
-      {...props}
-      _style={extendStyle(TOWER_WITH_PACKING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOWER_WITH_PACKING)} />
 }

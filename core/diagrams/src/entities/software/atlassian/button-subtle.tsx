@@ -11,11 +11,5 @@ export const BUTTON_SUBTLE = {
 }
 
 export function ButtonSubtle(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_SUBTLE}
-      {...props}
-      _style={extendStyle(BUTTON_SUBTLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_SUBTLE)} />
 }

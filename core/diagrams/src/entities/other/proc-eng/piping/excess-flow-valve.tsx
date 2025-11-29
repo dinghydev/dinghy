@@ -11,11 +11,5 @@ export const EXCESS_FLOW_VALVE = {
 }
 
 export function ExcessFlowValve(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCESS_FLOW_VALVE}
-      {...props}
-      _style={extendStyle(EXCESS_FLOW_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCESS_FLOW_VALVE)} />
 }

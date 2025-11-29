@@ -12,10 +12,6 @@ export const ADB_ANALYTICDB_FOR_MYSQL = {
 
 export function AdbAnalyticdbForMysql(props: NodeProps) {
   return (
-    <Shape
-      {...ADB_ANALYTICDB_FOR_MYSQL}
-      {...props}
-      _style={extendStyle(ADB_ANALYTICDB_FOR_MYSQL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ADB_ANALYTICDB_FOR_MYSQL)} />
   )
 }

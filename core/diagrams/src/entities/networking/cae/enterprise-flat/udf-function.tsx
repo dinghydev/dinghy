@@ -11,11 +11,5 @@ export const UDF_FUNCTION = {
 }
 
 export function UdfFunction(props: NodeProps) {
-  return (
-    <Shape
-      {...UDF_FUNCTION}
-      {...props}
-      _style={extendStyle(UDF_FUNCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UDF_FUNCTION)} />
 }

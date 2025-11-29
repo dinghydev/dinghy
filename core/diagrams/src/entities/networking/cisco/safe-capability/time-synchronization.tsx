@@ -11,11 +11,5 @@ export const TIME_SYNCHRONIZATION = {
 }
 
 export function TimeSynchronization(props: NodeProps) {
-  return (
-    <Shape
-      {...TIME_SYNCHRONIZATION}
-      {...props}
-      _style={extendStyle(TIME_SYNCHRONIZATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_SYNCHRONIZATION)} />
 }

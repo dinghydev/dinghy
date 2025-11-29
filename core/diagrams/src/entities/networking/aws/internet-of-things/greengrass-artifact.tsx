@@ -11,11 +11,5 @@ export const GREENGRASS_ARTIFACT = {
 }
 
 export function GreengrassArtifact(props: NodeProps) {
-  return (
-    <Shape
-      {...GREENGRASS_ARTIFACT}
-      {...props}
-      _style={extendStyle(GREENGRASS_ARTIFACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GREENGRASS_ARTIFACT)} />
 }

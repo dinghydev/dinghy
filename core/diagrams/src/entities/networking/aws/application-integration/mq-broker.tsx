@@ -11,7 +11,5 @@ export const MQ_BROKER = {
 }
 
 export function MqBroker(props: NodeProps) {
-  return (
-    <Shape {...MQ_BROKER} {...props} _style={extendStyle(MQ_BROKER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MQ_BROKER)} />
 }

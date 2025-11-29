@@ -11,7 +11,5 @@ export const SUMP_PUMP = {
 }
 
 export function SumpPump(props: NodeProps) {
-  return (
-    <Shape {...SUMP_PUMP} {...props} _style={extendStyle(SUMP_PUMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUMP_PUMP)} />
 }

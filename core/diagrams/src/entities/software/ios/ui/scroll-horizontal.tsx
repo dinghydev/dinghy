@@ -11,11 +11,5 @@ export const SCROLL_HORIZONTAL = {
 }
 
 export function ScrollHorizontal(props: NodeProps) {
-  return (
-    <Shape
-      {...SCROLL_HORIZONTAL}
-      {...props}
-      _style={extendStyle(SCROLL_HORIZONTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCROLL_HORIZONTAL)} />
 }

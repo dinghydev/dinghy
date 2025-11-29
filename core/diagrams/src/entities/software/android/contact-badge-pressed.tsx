@@ -11,11 +11,5 @@ export const CONTACT_BADGE_PRESSED = {
 }
 
 export function ContactBadgePressed(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACT_BADGE_PRESSED}
-      {...props}
-      _style={extendStyle(CONTACT_BADGE_PRESSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_BADGE_PRESSED)} />
 }

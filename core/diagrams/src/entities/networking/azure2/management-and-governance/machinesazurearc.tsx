@@ -11,11 +11,5 @@ export const MACHINESAZUREARC = {
 }
 
 export function Machinesazurearc(props: NodeProps) {
-  return (
-    <Shape
-      {...MACHINESAZUREARC}
-      {...props}
-      _style={extendStyle(MACHINESAZUREARC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MACHINESAZUREARC)} />
 }

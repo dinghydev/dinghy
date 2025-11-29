@@ -11,11 +11,5 @@ export const CLOUD_HIGHLIGHT = {
 }
 
 export function CloudHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(CLOUD_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_HIGHLIGHT)} />
 }

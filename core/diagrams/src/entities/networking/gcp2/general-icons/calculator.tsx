@@ -11,7 +11,5 @@ export const CALCULATOR = {
 }
 
 export function Calculator(props: NodeProps) {
-  return (
-    <Shape {...CALCULATOR} {...props} _style={extendStyle(CALCULATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALCULATOR)} />
 }

@@ -11,11 +11,5 @@ export const IBM_UPS10000 = {
 }
 
 export function IbmUps10000(props: NodeProps) {
-  return (
-    <Shape
-      {...IBM_UPS10000}
-      {...props}
-      _style={extendStyle(IBM_UPS10000, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_UPS10000)} />
 }

@@ -11,11 +11,5 @@ export const CORE_SWITCH = {
 }
 
 export function CoreSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...CORE_SWITCH}
-      {...props}
-      _style={extendStyle(CORE_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CORE_SWITCH)} />
 }

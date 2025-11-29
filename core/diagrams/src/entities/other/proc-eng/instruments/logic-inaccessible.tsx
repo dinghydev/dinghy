@@ -11,11 +11,5 @@ export const LOGIC_INACCESSIBLE = {
 }
 
 export function LogicInaccessible(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGIC_INACCESSIBLE}
-      {...props}
-      _style={extendStyle(LOGIC_INACCESSIBLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGIC_INACCESSIBLE)} />
 }

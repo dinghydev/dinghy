@@ -11,11 +11,5 @@ export const OPEN_CONNECTORS = {
 }
 
 export function OpenConnectors(props: NodeProps) {
-  return (
-    <Shape
-      {...OPEN_CONNECTORS}
-      {...props}
-      _style={extendStyle(OPEN_CONNECTORS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPEN_CONNECTORS)} />
 }

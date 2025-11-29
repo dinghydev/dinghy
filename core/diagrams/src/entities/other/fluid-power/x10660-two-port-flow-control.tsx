@@ -13,9 +13,8 @@ export const X10660_TWO_PORT_FLOW_CONTROL = {
 export function X10660TwoPortFlowControl(props: NodeProps) {
   return (
     <Shape
-      {...X10660_TWO_PORT_FLOW_CONTROL}
       {...props}
-      _style={extendStyle(X10660_TWO_PORT_FLOW_CONTROL, props)}
+      _style={extendStyle(props, X10660_TWO_PORT_FLOW_CONTROL)}
     />
   )
 }

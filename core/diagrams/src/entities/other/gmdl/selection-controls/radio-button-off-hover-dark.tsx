@@ -13,9 +13,8 @@ export const RADIO_BUTTON_OFF_HOVER_DARK = {
 export function RadioButtonOffHoverDark(props: NodeProps) {
   return (
     <Shape
-      {...RADIO_BUTTON_OFF_HOVER_DARK}
       {...props}
-      _style={extendStyle(RADIO_BUTTON_OFF_HOVER_DARK, props)}
+      _style={extendStyle(props, RADIO_BUTTON_OFF_HOVER_DARK)}
     />
   )
 }

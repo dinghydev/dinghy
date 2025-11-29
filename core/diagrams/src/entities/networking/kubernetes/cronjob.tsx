@@ -11,5 +11,5 @@ export const CRONJOB = {
 }
 
 export function Cronjob(props: NodeProps) {
-  return <Shape {...CRONJOB} {...props} _style={extendStyle(CRONJOB, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRONJOB)} />
 }

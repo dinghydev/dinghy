@@ -11,7 +11,5 @@ export const ACTIVATE = {
 }
 
 export function Activate(props: NodeProps) {
-  return (
-    <Shape {...ACTIVATE} {...props} _style={extendStyle(ACTIVATE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTIVATE)} />
 }

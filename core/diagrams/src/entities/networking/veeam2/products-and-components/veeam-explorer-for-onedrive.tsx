@@ -13,9 +13,8 @@ export const VEEAM_EXPLORER_FOR_ONEDRIVE = {
 export function VeeamExplorerForOnedrive(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_EXPLORER_FOR_ONEDRIVE}
       {...props}
-      _style={extendStyle(VEEAM_EXPLORER_FOR_ONEDRIVE, props)}
+      _style={extendStyle(props, VEEAM_EXPLORER_FOR_ONEDRIVE)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const SERVICE_DISCOVERY_CONFIGURATION = {
 export function ServiceDiscoveryConfiguration(props: NodeProps) {
   return (
     <Shape
-      {...SERVICE_DISCOVERY_CONFIGURATION}
       {...props}
-      _style={extendStyle(SERVICE_DISCOVERY_CONFIGURATION, props)}
+      _style={extendStyle(props, SERVICE_DISCOVERY_CONFIGURATION)}
     />
   )
 }

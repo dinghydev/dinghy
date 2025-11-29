@@ -13,9 +13,8 @@ export const SECURE_CATALYST_SWITCH_SUBDUED_2 = {
 export function SecureCatalystSwitchSubdued2(props: NodeProps) {
   return (
     <Shape
-      {...SECURE_CATALYST_SWITCH_SUBDUED_2}
       {...props}
-      _style={extendStyle(SECURE_CATALYST_SWITCH_SUBDUED_2, props)}
+      _style={extendStyle(props, SECURE_CATALYST_SWITCH_SUBDUED_2)}
     />
   )
 }

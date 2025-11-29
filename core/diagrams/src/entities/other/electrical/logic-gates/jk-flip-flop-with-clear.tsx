@@ -12,10 +12,6 @@ export const JK_FLIP_FLOP_WITH_CLEAR = {
 
 export function JkFlipFlopWithClear(props: NodeProps) {
   return (
-    <Shape
-      {...JK_FLIP_FLOP_WITH_CLEAR}
-      {...props}
-      _style={extendStyle(JK_FLIP_FLOP_WITH_CLEAR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, JK_FLIP_FLOP_WITH_CLEAR)} />
   )
 }

@@ -11,11 +11,5 @@ export const ZENER_DIODE_1 = {
 }
 
 export function ZenerDiode1(props: NodeProps) {
-  return (
-    <Shape
-      {...ZENER_DIODE_1}
-      {...props}
-      _style={extendStyle(ZENER_DIODE_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ZENER_DIODE_1)} />
 }

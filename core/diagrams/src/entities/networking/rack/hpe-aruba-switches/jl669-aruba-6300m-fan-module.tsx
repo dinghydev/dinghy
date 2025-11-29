@@ -13,9 +13,8 @@ export const JL669_ARUBA_6300M_FAN_MODULE = {
 export function Jl669Aruba6300mFanModule(props: NodeProps) {
   return (
     <Shape
-      {...JL669_ARUBA_6300M_FAN_MODULE}
       {...props}
-      _style={extendStyle(JL669_ARUBA_6300M_FAN_MODULE, props)}
+      _style={extendStyle(props, JL669_ARUBA_6300M_FAN_MODULE)}
     />
   )
 }

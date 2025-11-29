@@ -11,11 +11,5 @@ export const ANGLE_VALVE_MANUAL = {
 }
 
 export function AngleValveManual(props: NodeProps) {
-  return (
-    <Shape
-      {...ANGLE_VALVE_MANUAL}
-      {...props}
-      _style={extendStyle(ANGLE_VALVE_MANUAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANGLE_VALVE_MANUAL)} />
 }

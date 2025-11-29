@@ -11,5 +11,5 @@ export const EXIT = {
 }
 
 export function Exit(props: NodeProps) {
-  return <Shape {...EXIT} {...props} _style={extendStyle(EXIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, EXIT)} />
 }

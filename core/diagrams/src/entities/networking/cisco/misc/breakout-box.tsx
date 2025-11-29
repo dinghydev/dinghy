@@ -11,11 +11,5 @@ export const BREAKOUT_BOX = {
 }
 
 export function BreakoutBox(props: NodeProps) {
-  return (
-    <Shape
-      {...BREAKOUT_BOX}
-      {...props}
-      _style={extendStyle(BREAKOUT_BOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREAKOUT_BOX)} />
 }

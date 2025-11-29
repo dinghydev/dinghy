@@ -13,9 +13,8 @@ export const LICENSE_MANAGER_APPLICATION_DISCOVERY = {
 export function LicenseManagerApplicationDiscovery(props: NodeProps) {
   return (
     <Shape
-      {...LICENSE_MANAGER_APPLICATION_DISCOVERY}
       {...props}
-      _style={extendStyle(LICENSE_MANAGER_APPLICATION_DISCOVERY, props)}
+      _style={extendStyle(props, LICENSE_MANAGER_APPLICATION_DISCOVERY)}
     />
   )
 }

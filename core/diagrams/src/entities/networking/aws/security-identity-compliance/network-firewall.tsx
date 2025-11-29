@@ -11,11 +11,5 @@ export const NETWORK_FIREWALL = {
 }
 
 export function NetworkFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_FIREWALL}
-      {...props}
-      _style={extendStyle(NETWORK_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_FIREWALL)} />
 }

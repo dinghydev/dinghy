@@ -11,7 +11,5 @@ export const APPSTREAM = {
 }
 
 export function Appstream(props: NodeProps) {
-  return (
-    <Shape {...APPSTREAM} {...props} _style={extendStyle(APPSTREAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPSTREAM)} />
 }

@@ -15,11 +15,10 @@ export function SunBlade6000EthernetNetworkExpressModule24p10Gbe(
 ) {
   return (
     <Shape
-      {...SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE}
       {...props}
       _style={extendStyle(
-        SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE,
         props,
+        SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE,
       )}
     />
   )

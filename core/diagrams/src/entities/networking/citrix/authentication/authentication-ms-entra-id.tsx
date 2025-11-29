@@ -12,10 +12,6 @@ export const AUTHENTICATION_MS_ENTRA_ID = {
 
 export function AuthenticationMsEntraId(props: NodeProps) {
   return (
-    <Shape
-      {...AUTHENTICATION_MS_ENTRA_ID}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_MS_ENTRA_ID, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTHENTICATION_MS_ENTRA_ID)} />
   )
 }

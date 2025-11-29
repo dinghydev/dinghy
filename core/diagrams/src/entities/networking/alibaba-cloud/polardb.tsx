@@ -11,5 +11,5 @@ export const POLARDB = {
 }
 
 export function Polardb(props: NodeProps) {
-  return <Shape {...POLARDB} {...props} _style={extendStyle(POLARDB, props)} />
+  return <Shape {...props} _style={extendStyle(props, POLARDB)} />
 }

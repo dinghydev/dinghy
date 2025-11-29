@@ -12,10 +12,6 @@ export const GWS_GRAPHIC_WORKSTATION = {
 
 export function GwsGraphicWorkstation(props: NodeProps) {
   return (
-    <Shape
-      {...GWS_GRAPHIC_WORKSTATION}
-      {...props}
-      _style={extendStyle(GWS_GRAPHIC_WORKSTATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GWS_GRAPHIC_WORKSTATION)} />
   )
 }

@@ -11,11 +11,5 @@ export const MULTIPLE_INTERRUPTING = {
 }
 
 export function MultipleInterrupting(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_INTERRUPTING}
-      {...props}
-      _style={extendStyle(MULTIPLE_INTERRUPTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_INTERRUPTING)} />
 }

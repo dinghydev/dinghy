@@ -11,11 +11,5 @@ export const E_MAPREDUCE = {
 }
 
 export function EMapreduce(props: NodeProps) {
-  return (
-    <Shape
-      {...E_MAPREDUCE}
-      {...props}
-      _style={extendStyle(E_MAPREDUCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, E_MAPREDUCE)} />
 }

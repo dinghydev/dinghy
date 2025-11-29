@@ -11,11 +11,5 @@ export const DETECTED_SOFTWARE = {
 }
 
 export function DetectedSoftware(props: NodeProps) {
-  return (
-    <Shape
-      {...DETECTED_SOFTWARE}
-      {...props}
-      _style={extendStyle(DETECTED_SOFTWARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETECTED_SOFTWARE)} />
 }

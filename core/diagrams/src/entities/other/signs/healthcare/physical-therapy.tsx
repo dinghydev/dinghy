@@ -11,11 +11,5 @@ export const PHYSICAL_THERAPY = {
 }
 
 export function PhysicalTherapy(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_THERAPY}
-      {...props}
-      _style={extendStyle(PHYSICAL_THERAPY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_THERAPY)} />
 }

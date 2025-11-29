@@ -13,10 +13,6 @@ export const AUTHORIZATION_BOUNDARY = {
 
 export function AuthorizationBoundary(props: NodeProps) {
   return (
-    <Shape
-      {...AUTHORIZATION_BOUNDARY}
-      {...props}
-      _style={extendStyle(AUTHORIZATION_BOUNDARY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTHORIZATION_BOUNDARY)} />
   )
 }

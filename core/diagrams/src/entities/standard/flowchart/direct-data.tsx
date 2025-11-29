@@ -11,11 +11,5 @@ export const DIRECT_DATA = {
 }
 
 export function DirectData(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_DATA}
-      {...props}
-      _style={extendStyle(DIRECT_DATA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_DATA)} />
 }

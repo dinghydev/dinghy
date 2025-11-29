@@ -11,11 +11,5 @@ export const GOOGLE_DRIVE = {
 }
 
 export function GoogleDrive(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_DRIVE}
-      {...props}
-      _style={extendStyle(GOOGLE_DRIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_DRIVE)} />
 }

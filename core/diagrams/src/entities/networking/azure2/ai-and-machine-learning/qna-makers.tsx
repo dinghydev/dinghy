@@ -11,7 +11,5 @@ export const QNA_MAKERS = {
 }
 
 export function QnaMakers(props: NodeProps) {
-  return (
-    <Shape {...QNA_MAKERS} {...props} _style={extendStyle(QNA_MAKERS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, QNA_MAKERS)} />
 }

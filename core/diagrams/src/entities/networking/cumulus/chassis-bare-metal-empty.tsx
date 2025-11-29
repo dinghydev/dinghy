@@ -12,10 +12,6 @@ export const CHASSIS_BARE_METAL_EMPTY = {
 
 export function ChassisBareMetalEmpty(props: NodeProps) {
   return (
-    <Shape
-      {...CHASSIS_BARE_METAL_EMPTY}
-      {...props}
-      _style={extendStyle(CHASSIS_BARE_METAL_EMPTY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CHASSIS_BARE_METAL_EMPTY)} />
   )
 }

@@ -11,5 +11,5 @@ export const PLUTO = {
 }
 
 export function Pluto(props: NodeProps) {
-  return <Shape {...PLUTO} {...props} _style={extendStyle(PLUTO, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLUTO)} />
 }

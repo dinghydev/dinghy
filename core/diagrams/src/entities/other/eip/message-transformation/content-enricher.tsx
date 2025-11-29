@@ -11,11 +11,5 @@ export const CONTENT_ENRICHER = {
 }
 
 export function ContentEnricher(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_ENRICHER}
-      {...props}
-      _style={extendStyle(CONTENT_ENRICHER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_ENRICHER)} />
 }

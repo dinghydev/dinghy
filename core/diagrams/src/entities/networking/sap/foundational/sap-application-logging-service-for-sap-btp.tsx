@@ -13,9 +13,8 @@ export const SAP_APPLICATION_LOGGING_SERVICE_FOR_SAP_BTP = {
 export function SapApplicationLoggingServiceForSapBtp(props: NodeProps) {
   return (
     <Shape
-      {...SAP_APPLICATION_LOGGING_SERVICE_FOR_SAP_BTP}
       {...props}
-      _style={extendStyle(SAP_APPLICATION_LOGGING_SERVICE_FOR_SAP_BTP, props)}
+      _style={extendStyle(props, SAP_APPLICATION_LOGGING_SERVICE_FOR_SAP_BTP)}
     />
   )
 }

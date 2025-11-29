@@ -10,5 +10,5 @@ export const CROSS = {
 }
 
 export function Cross(props: NodeProps) {
-  return <Shape {...CROSS} {...props} _style={extendStyle(CROSS, props)} />
+  return <Shape {...props} _style={extendStyle(props, CROSS)} />
 }

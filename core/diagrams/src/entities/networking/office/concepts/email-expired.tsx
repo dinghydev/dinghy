@@ -11,11 +11,5 @@ export const EMAIL_EXPIRED = {
 }
 
 export function EmailExpired(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_EXPIRED}
-      {...props}
-      _style={extendStyle(EMAIL_EXPIRED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_EXPIRED)} />
 }

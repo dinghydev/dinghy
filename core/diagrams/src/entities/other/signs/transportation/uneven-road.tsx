@@ -11,11 +11,5 @@ export const UNEVEN_ROAD = {
 }
 
 export function UnevenRoad(props: NodeProps) {
-  return (
-    <Shape
-      {...UNEVEN_ROAD}
-      {...props}
-      _style={extendStyle(UNEVEN_ROAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNEVEN_ROAD)} />
 }

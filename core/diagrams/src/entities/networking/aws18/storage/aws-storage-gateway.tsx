@@ -11,11 +11,5 @@ export const AWS_STORAGE_GATEWAY = {
 }
 
 export function AwsStorageGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_STORAGE_GATEWAY}
-      {...props}
-      _style={extendStyle(AWS_STORAGE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_STORAGE_GATEWAY)} />
 }

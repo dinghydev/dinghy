@@ -12,10 +12,6 @@ export const INDUCED_FLOW_AIR_COOLER = {
 
 export function InducedFlowAirCooler(props: NodeProps) {
   return (
-    <Shape
-      {...INDUCED_FLOW_AIR_COOLER}
-      {...props}
-      _style={extendStyle(INDUCED_FLOW_AIR_COOLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INDUCED_FLOW_AIR_COOLER)} />
   )
 }

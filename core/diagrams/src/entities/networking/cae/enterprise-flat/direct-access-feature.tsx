@@ -11,11 +11,5 @@ export const DIRECT_ACCESS_FEATURE = {
 }
 
 export function DirectAccessFeature(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_ACCESS_FEATURE}
-      {...props}
-      _style={extendStyle(DIRECT_ACCESS_FEATURE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_ACCESS_FEATURE)} />
 }

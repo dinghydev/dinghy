@@ -1,0 +1,2376 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# EC2 (Elastic Compute Cloud)
+
+## AwsAmi
+
+Creates and manages a custom Amazon Machine Image (AMI).
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsAmi.tsx)
+
+```js
+import { AwsAmi } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsAmi/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ami)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsAmi.tsx)
+
+```js
+import { DataAwsAmi } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsAmi/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAmiCopy
+
+Duplicates an existing Amazon Machine Image (AMI)
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_copy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsAmiCopy.tsx)
+
+```js
+import { AwsAmiCopy } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsAmiCopy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAmiFromInstance
+
+Creates an Amazon Machine Image (AMI) from an EBS-backed EC2 instance
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_from_instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsAmiFromInstance.tsx)
+
+```js
+import { AwsAmiFromInstance } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsAmiFromInstance/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAmiIds
+
+Provides a list of AMI IDs.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ami_ids)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsAmiIds.tsx)
+
+```js
+import { DataAwsAmiIds } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsAmiIds/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAmiLaunchPermission
+
+Adds a launch permission to an Amazon Machine Image (AMI).
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_launch_permission)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsAmiLaunchPermission.tsx)
+
+```js
+import { AwsAmiLaunchPermission } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsAmiLaunchPermission/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAvailabilityZone
+
+Provides details about a specific availability zone
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/availability_zone)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsAvailabilityZone.tsx)
+
+```js
+import { DataAwsAvailabilityZone } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsAvailabilityZone/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAvailabilityZones
+
+Provides a list of Availability Zones which can be used by an AWS account.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/availability_zones)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsAvailabilityZones.tsx)
+
+```js
+import { DataAwsAvailabilityZones } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsAvailabilityZones/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2AllowedImagesSettings
+
+Provides EC2 allowed images settings.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_allowed_images_settings)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2AllowedImagesSettings.tsx)
+
+```js
+import { AwsEc2AllowedImagesSettings } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2AllowedImagesSettings/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2AvailabilityZoneGroup
+
+Manages an EC2 Availability Zone Group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_availability_zone_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2AvailabilityZoneGroup.tsx)
+
+```js
+import { AwsEc2AvailabilityZoneGroup } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2AvailabilityZoneGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2CapacityBlockOffering
+
+Information about a single EC2 Capacity Block Offering.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_capacity_block_offering)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2CapacityBlockOffering.tsx)
+
+```js
+import { DataAwsEc2CapacityBlockOffering } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2CapacityBlockOffering/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2CapacityBlockReservation
+
+Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_capacity_block_reservation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2CapacityBlockReservation.tsx)
+
+```js
+import { AwsEc2CapacityBlockReservation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2CapacityBlockReservation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2CapacityReservation
+
+Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_capacity_reservation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2CapacityReservation.tsx)
+
+```js
+import { AwsEc2CapacityReservation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2CapacityReservation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2CarrierGateway
+
+Manages an EC2 Carrier Gateway.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_carrier_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2CarrierGateway.tsx)
+
+```js
+import { AwsEc2CarrierGateway } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2CarrierGateway/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ClientVpnAuthorizationRule
+
+Provides authorization rules for AWS Client VPN endpoints.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_authorization_rule)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ClientVpnAuthorizationRule.tsx)
+
+```js
+import { AwsEc2ClientVpnAuthorizationRule } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ClientVpnAuthorizationRule/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ClientVpnEndpoint
+
+Provides an AWS Client VPN endpoint for OpenVPN clients.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_endpoint)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ClientVpnEndpoint.tsx)
+
+```js
+import { AwsEc2ClientVpnEndpoint } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ClientVpnEndpoint/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_client_vpn_endpoint)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2ClientVpnEndpoint.tsx)
+
+```js
+import { DataAwsEc2ClientVpnEndpoint } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2ClientVpnEndpoint/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ClientVpnNetworkAssociation
+
+Provides network associations for AWS Client VPN endpoints.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_network_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ClientVpnNetworkAssociation.tsx)
+
+```js
+import { AwsEc2ClientVpnNetworkAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ClientVpnNetworkAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ClientVpnRoute
+
+Provides additional routes for AWS Client VPN endpoints.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_route)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ClientVpnRoute.tsx)
+
+```js
+import { AwsEc2ClientVpnRoute } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ClientVpnRoute/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2CoipPool
+
+Provides details about a specific EC2 Customer-Owned IP Pool
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_coip_pool)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2CoipPool.tsx)
+
+```js
+import { DataAwsEc2CoipPool } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2CoipPool/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2CoipPools
+
+Provides information for multiple EC2 Customer-Owned IP Pools
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_coip_pools)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2CoipPools.tsx)
+
+```js
+import { DataAwsEc2CoipPools } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2CoipPools/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2DefaultCreditSpecification
+
+Terraform resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_default_credit_specification)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2DefaultCreditSpecification.tsx)
+
+```js
+import { AwsEc2DefaultCreditSpecification } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2DefaultCreditSpecification/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2Fleet
+
+Provides a resource to manage EC2 Fleets
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_fleet)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2Fleet.tsx)
+
+```js
+import { AwsEc2Fleet } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2Fleet/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2Host
+
+Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_host)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2Host.tsx)
+
+```js
+import { AwsEc2Host } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2Host/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_host)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2Host.tsx)
+
+```js
+import { DataAwsEc2Host } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2Host/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ImageBlockPublicAccess
+
+Provides a regional public access block for AMIs. This prevents AMIs from being made publicly accessible.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_image_block_public_access)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ImageBlockPublicAccess.tsx)
+
+```js
+import { AwsEc2ImageBlockPublicAccess } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ImageBlockPublicAccess/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceConnectEndpoint
+
+Provides an EC2 Instance Connect Endpoint resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_connect_endpoint)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2InstanceConnectEndpoint.tsx)
+
+```js
+import { AwsEc2InstanceConnectEndpoint } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2InstanceConnectEndpoint/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceMetadataDefaults
+
+Manages regional EC2 instance metadata default settings.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_metadata_defaults)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2InstanceMetadataDefaults.tsx)
+
+```js
+import { AwsEc2InstanceMetadataDefaults } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2InstanceMetadataDefaults/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceState
+
+Provides an EC2 instance state resource. This allows managing an instance power state. 
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_state)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2InstanceState.tsx)
+
+```js
+import { AwsEc2InstanceState } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2InstanceState/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceType
+
+Information about single EC2 Instance Type.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_instance_type)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2InstanceType.tsx)
+
+```js
+import { DataAwsEc2InstanceType } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2InstanceType/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceTypeOffering
+
+Information about single EC2 Instance Type Offering.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_instance_type_offering)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2InstanceTypeOffering.tsx)
+
+```js
+import { DataAwsEc2InstanceTypeOffering } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2InstanceTypeOffering/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceTypeOfferings
+
+Information about EC2 Instance Type Offerings.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_instance_type_offerings)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2InstanceTypeOfferings.tsx)
+
+```js
+import { DataAwsEc2InstanceTypeOfferings } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2InstanceTypeOfferings/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2InstanceTypes
+
+Information about EC2 Instance Types.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_instance_types)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2InstanceTypes.tsx)
+
+```js
+import { DataAwsEc2InstanceTypes } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2InstanceTypes/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGateway
+
+Provides details about an EC2 Local Gateway
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGateway.tsx)
+
+```js
+import { DataAwsEc2LocalGateway } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGateway/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayRoute
+
+Manages an EC2 Local Gateway Route
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_local_gateway_route)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2LocalGatewayRoute.tsx)
+
+```js
+import { AwsEc2LocalGatewayRoute } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2LocalGatewayRoute/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayRouteTable
+
+Provides details about an EC2 Local Gateway Route Table
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_route_table)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGatewayRouteTable.tsx)
+
+```js
+import { DataAwsEc2LocalGatewayRouteTable } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGatewayRouteTable/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayRouteTables
+
+Provides information for multiple EC2 Local Gateway Route Tables
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_route_tables)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGatewayRouteTables.tsx)
+
+```js
+import { DataAwsEc2LocalGatewayRouteTables } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGatewayRouteTables/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayRouteTableVpcAssociation
+
+Manages an EC2 Local Gateway Route Table VPC Association
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_local_gateway_route_table_vpc_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2LocalGatewayRouteTableVpcAssociation.tsx)
+
+```js
+import { AwsEc2LocalGatewayRouteTableVpcAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2LocalGatewayRouteTableVpcAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGateways
+
+Provides information for multiple EC2 Local Gateways
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateways)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGateways.tsx)
+
+```js
+import { DataAwsEc2LocalGateways } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGateways/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayVirtualInterface
+
+Provides details about an EC2 Local Gateway Virtual Interface
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_virtual_interface)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGatewayVirtualInterface.tsx)
+
+```js
+import { DataAwsEc2LocalGatewayVirtualInterface } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGatewayVirtualInterface/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayVirtualInterfaceGroup
+
+Provides details about an EC2 Local Gateway Virtual Interface Group
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_virtual_interface_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGatewayVirtualInterfaceGroup.tsx)
+
+```js
+import { DataAwsEc2LocalGatewayVirtualInterfaceGroup } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGatewayVirtualInterfaceGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2LocalGatewayVirtualInterfaceGroups
+
+Provides details about multiple EC2 Local Gateway Virtual Interface Groups
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_virtual_interface_groups)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2LocalGatewayVirtualInterfaceGroups.tsx)
+
+```js
+import { DataAwsEc2LocalGatewayVirtualInterfaceGroups } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2LocalGatewayVirtualInterfaceGroups/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ManagedPrefixList
+
+Provides a managed prefix list resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_managed_prefix_list)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ManagedPrefixList.tsx)
+
+```js
+import { AwsEc2ManagedPrefixList } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ManagedPrefixList/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_managed_prefix_list)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2ManagedPrefixList.tsx)
+
+```js
+import { DataAwsEc2ManagedPrefixList } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2ManagedPrefixList/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ManagedPrefixListEntry
+
+Use the `aws_ec2_managed_prefix_list_entry` resource to manage a managed prefix list entry.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_managed_prefix_list_entry)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2ManagedPrefixListEntry.tsx)
+
+```js
+import { AwsEc2ManagedPrefixListEntry } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2ManagedPrefixListEntry/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2ManagedPrefixLists
+
+Get information on managed prefix lists
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_managed_prefix_lists)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2ManagedPrefixLists.tsx)
+
+```js
+import { DataAwsEc2ManagedPrefixLists } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2ManagedPrefixLists/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2NetworkInsightsAnalysis
+
+Provides a Network Insights Analysis resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_network_insights_analysis)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2NetworkInsightsAnalysis.tsx)
+
+```js
+import { AwsEc2NetworkInsightsAnalysis } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2NetworkInsightsAnalysis/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_network_insights_analysis)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2NetworkInsightsAnalysis.tsx)
+
+```js
+import { DataAwsEc2NetworkInsightsAnalysis } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2NetworkInsightsAnalysis/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2NetworkInsightsPath
+
+Provides a Network Insights Path resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_network_insights_path)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2NetworkInsightsPath.tsx)
+
+```js
+import { AwsEc2NetworkInsightsPath } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2NetworkInsightsPath/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_network_insights_path)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2NetworkInsightsPath.tsx)
+
+```js
+import { DataAwsEc2NetworkInsightsPath } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2NetworkInsightsPath/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2PublicIpv4Pool
+
+Provides details about a specific AWS EC2 Public IPv4 Pool.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_public_ipv4_pool)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2PublicIpv4Pool.tsx)
+
+```js
+import { DataAwsEc2PublicIpv4Pool } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2PublicIpv4Pool/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2PublicIpv4Pools
+
+Terraform data source for getting information about AWS EC2 Public IPv4 Pools.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_public_ipv4_pools)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2PublicIpv4Pools.tsx)
+
+```js
+import { DataAwsEc2PublicIpv4Pools } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2PublicIpv4Pools/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2SerialConsoleAccess
+
+Manages whether serial console access is enabled for your AWS account in the current AWS region.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_serial_console_access)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2SerialConsoleAccess.tsx)
+
+```js
+import { AwsEc2SerialConsoleAccess } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2SerialConsoleAccess/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_serial_console_access)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2SerialConsoleAccess.tsx)
+
+```js
+import { DataAwsEc2SerialConsoleAccess } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2SerialConsoleAccess/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2SpotPrice
+
+Information about most recent Spot Price for a given EC2 instance.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_spot_price)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2SpotPrice.tsx)
+
+```js
+import { DataAwsEc2SpotPrice } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2SpotPrice/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2SubnetCidrReservation
+
+Provides a subnet CIDR reservation resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_subnet_cidr_reservation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2SubnetCidrReservation.tsx)
+
+```js
+import { AwsEc2SubnetCidrReservation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2SubnetCidrReservation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2Tag
+
+Manages an individual EC2 resource tag
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_tag)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2Tag.tsx)
+
+```js
+import { AwsEc2Tag } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2Tag/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TrafficMirrorFilter
+
+Provides an Traffic mirror filter
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_filter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TrafficMirrorFilter.tsx)
+
+```js
+import { AwsEc2TrafficMirrorFilter } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TrafficMirrorFilter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TrafficMirrorFilterRule
+
+Provides an Traffic mirror filter rule
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_filter_rule)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TrafficMirrorFilterRule.tsx)
+
+```js
+import { AwsEc2TrafficMirrorFilterRule } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TrafficMirrorFilterRule/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TrafficMirrorSession
+
+Provides a Traffic mirror session
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_session)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TrafficMirrorSession.tsx)
+
+```js
+import { AwsEc2TrafficMirrorSession } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TrafficMirrorSession/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TrafficMirrorTarget
+
+Provides a Traffic mirror target
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_target)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TrafficMirrorTarget.tsx)
+
+```js
+import { AwsEc2TrafficMirrorTarget } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TrafficMirrorTarget/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGateway
+
+Manages an EC2 Transit Gateway
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGateway.tsx)
+
+```js
+import { AwsEc2TransitGateway } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGateway/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGateway.tsx)
+
+```js
+import { DataAwsEc2TransitGateway } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGateway/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayAttachment
+
+Get information on an EC2 Transit Gateway&#39;s attachment to a resource
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayAttachment.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayAttachments
+
+Get information on EC2 Transit Gateway Attachments
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_attachments)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayAttachments.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayAttachments } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayAttachments/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayConnect
+
+Manages an EC2 Transit Gateway Connect
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_connect)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayConnect.tsx)
+
+```js
+import { AwsEc2TransitGatewayConnect } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayConnect/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_connect)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayConnect.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayConnect } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayConnect/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayConnectPeer
+
+Manages an EC2 Transit Gateway Connect Peer
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_connect_peer)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayConnectPeer.tsx)
+
+```js
+import { AwsEc2TransitGatewayConnectPeer } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayConnectPeer/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_connect_peer)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayConnectPeer.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayConnectPeer } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayConnectPeer/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayDefaultRouteTableAssociation
+
+Terraform resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Association.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_default_route_table_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayDefaultRouteTableAssociation.tsx)
+
+```js
+import { AwsEc2TransitGatewayDefaultRouteTableAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayDefaultRouteTableAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayDefaultRouteTablePropagation
+
+Terraform resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Propagation.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_default_route_table_propagation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayDefaultRouteTablePropagation.tsx)
+
+```js
+import { AwsEc2TransitGatewayDefaultRouteTablePropagation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayDefaultRouteTablePropagation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayDxGatewayAttachment
+
+Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_dx_gateway_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayDxGatewayAttachment.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayDxGatewayAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayDxGatewayAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayMulticastDomain
+
+Manages an EC2 Transit Gateway Multicast Domain
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayMulticastDomain.tsx)
+
+```js
+import { AwsEc2TransitGatewayMulticastDomain } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayMulticastDomain/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_multicast_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayMulticastDomain.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayMulticastDomain } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayMulticastDomain/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayMulticastDomainAssociation
+
+Manages an EC2 Transit Gateway Multicast Domain Association
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_domain_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayMulticastDomainAssociation.tsx)
+
+```js
+import { AwsEc2TransitGatewayMulticastDomainAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayMulticastDomainAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayMulticastGroupMember
+
+Manages an EC2 Transit Gateway Multicast Group Member
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_group_member)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayMulticastGroupMember.tsx)
+
+```js
+import { AwsEc2TransitGatewayMulticastGroupMember } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayMulticastGroupMember/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayMulticastGroupSource
+
+Manages an EC2 Transit Gateway Multicast Group Source
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_group_source)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayMulticastGroupSource.tsx)
+
+```js
+import { AwsEc2TransitGatewayMulticastGroupSource } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayMulticastGroupSource/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayPeeringAttachment
+
+Manages an EC2 Transit Gateway Peering Attachment
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_peering_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayPeeringAttachment.tsx)
+
+```js
+import { AwsEc2TransitGatewayPeeringAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayPeeringAttachment/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_peering_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayPeeringAttachment.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayPeeringAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayPeeringAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayPeeringAttachmentAccepter
+
+Manages the accepter&#39;s side of an EC2 Transit Gateway peering Attachment
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_peering_attachment_accepter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayPeeringAttachmentAccepter.tsx)
+
+```js
+import { AwsEc2TransitGatewayPeeringAttachmentAccepter } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayPeeringAttachmentAccepter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayPeeringAttachments
+
+Get information on EC2 Transit Gateway Peering Attachments
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_peering_attachments)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayPeeringAttachments.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayPeeringAttachments } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayPeeringAttachments/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayPolicyTable
+
+Manages an EC2 Transit Gateway Policy Table
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_policy_table)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayPolicyTable.tsx)
+
+```js
+import { AwsEc2TransitGatewayPolicyTable } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayPolicyTable/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayPolicyTableAssociation
+
+Manages an EC2 Transit Gateway Policy Table association
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_policy_table_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayPolicyTableAssociation.tsx)
+
+```js
+import { AwsEc2TransitGatewayPolicyTableAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayPolicyTableAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayPrefixListReference
+
+Manages an EC2 Transit Gateway Prefix List Reference
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_prefix_list_reference)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayPrefixListReference.tsx)
+
+```js
+import { AwsEc2TransitGatewayPrefixListReference } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayPrefixListReference/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRoute
+
+Manages an EC2 Transit Gateway Route
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_route)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayRoute.tsx)
+
+```js
+import { AwsEc2TransitGatewayRoute } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayRoute/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTable
+
+Manages an EC2 Transit Gateway Route Table
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_route_table)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayRouteTable.tsx)
+
+```js
+import { AwsEc2TransitGatewayRouteTable } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayRouteTable/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_table)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayRouteTable.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayRouteTable } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayRouteTable/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTableAssociation
+
+Manages an EC2 Transit Gateway Route Table association
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_route_table_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayRouteTableAssociation.tsx)
+
+```js
+import { AwsEc2TransitGatewayRouteTableAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayRouteTableAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTableAssociations
+
+Provides information for multiple EC2 Transit Gateway Route Table Associations
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_table_associations)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayRouteTableAssociations.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayRouteTableAssociations } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayRouteTableAssociations/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTablePropagation
+
+Manages an EC2 Transit Gateway Route Table propagation
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_route_table_propagation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayRouteTablePropagation.tsx)
+
+```js
+import { AwsEc2TransitGatewayRouteTablePropagation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayRouteTablePropagation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTablePropagations
+
+Provides information for multiple EC2 Transit Gateway Route Table Propagations
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_table_propagations)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayRouteTablePropagations.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayRouteTablePropagations } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayRouteTablePropagations/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTableRoutes
+
+Provides informations for routes of a specific transit gateway
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_table_routes)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayRouteTableRoutes.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayRouteTableRoutes } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayRouteTableRoutes/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayRouteTables
+
+Provides information for multiple EC2 Transit Gateway Route Tables
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_tables)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayRouteTables.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayRouteTables } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayRouteTables/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayVpcAttachment
+
+Manages an EC2 Transit Gateway VPC Attachment
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_vpc_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayVpcAttachment.tsx)
+
+```js
+import { AwsEc2TransitGatewayVpcAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayVpcAttachment/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_vpc_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayVpcAttachment.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayVpcAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayVpcAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayVpcAttachmentAccepter
+
+Manages the accepter&#39;s side of an EC2 Transit Gateway VPC Attachment
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEc2TransitGatewayVpcAttachmentAccepter.tsx)
+
+```js
+import { AwsEc2TransitGatewayVpcAttachmentAccepter } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEc2TransitGatewayVpcAttachmentAccepter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayVpcAttachments
+
+Get information on EC2 Transit Gateway VPC Attachments
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_vpc_attachments)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayVpcAttachments.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayVpcAttachments } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayVpcAttachments/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEc2TransitGatewayVpnAttachment
+
+Get information on an EC2 Transit Gateway VPN Attachment
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_vpn_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEc2TransitGatewayVpnAttachment.tsx)
+
+```js
+import { DataAwsEc2TransitGatewayVpnAttachment } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEc2TransitGatewayVpnAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEip
+
+Provides an Elastic IP resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEip.tsx)
+
+```js
+import { AwsEip } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEip/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eip)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEip.tsx)
+
+```js
+import { DataAwsEip } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEip/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEipAssociation
+
+Provides an AWS EIP Association
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEipAssociation.tsx)
+
+```js
+import { AwsEipAssociation } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEipAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEipDomainName
+
+Assigns a static reverse DNS record to an Elastic IP addresses
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip_domain_name)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsEipDomainName.tsx)
+
+```js
+import { AwsEipDomainName } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsEipDomainName/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEips
+
+Provides a list of Elastic IPs in a region
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eips)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsEips.tsx)
+
+```js
+import { DataAwsEips } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsEips/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsInstance
+
+Provides an EC2 instance resource. This allows instances to be created, updated, and deleted. Instances also support provisioning.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsInstance.tsx)
+
+```js
+import { AwsInstance } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsInstance/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsInstance.tsx)
+
+```js
+import { DataAwsInstance } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsInstance/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/instance#import)
+
+```js
+<AwsInstance
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsInstances
+
+Get information on an Amazon EC2 instances.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/instances)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsInstances.tsx)
+
+```js
+import { DataAwsInstances } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsInstances/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsKeyPair
+
+Provides a Key Pair resource. Currently this supports importing an existing key pair but not creating a new key pair.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/key_pair)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsKeyPair.tsx)
+
+```js
+import { AwsKeyPair } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsKeyPair/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/key_pair)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsKeyPair.tsx)
+
+```js
+import { DataAwsKeyPair } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsKeyPair/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsLaunchTemplate
+
+Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/launch_template)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsLaunchTemplate.tsx)
+
+```js
+import { AwsLaunchTemplate } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsLaunchTemplate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/launch_template)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsLaunchTemplate.tsx)
+
+```js
+import { DataAwsLaunchTemplate } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsLaunchTemplate/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsPlacementGroup
+
+Provides an EC2 placement group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/placement_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsPlacementGroup.tsx)
+
+```js
+import { AwsPlacementGroup } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsPlacementGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSpotDatafeedSubscription
+
+Provides a Spot Datafeed Subscription resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_datafeed_subscription)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsSpotDatafeedSubscription.tsx)
+
+```js
+import { AwsSpotDatafeedSubscription } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsSpotDatafeedSubscription/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/spot_datafeed_subscription)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/DataAwsSpotDatafeedSubscription.tsx)
+
+```js
+import { DataAwsSpotDatafeedSubscription } from "@dinghy/tf-aws/serviceEc2"
+
+<DataAwsSpotDatafeedSubscription/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSpotFleetRequest
+
+Provides a Spot Fleet Request resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_fleet_request)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsSpotFleetRequest.tsx)
+
+```js
+import { AwsSpotFleetRequest } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsSpotFleetRequest/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSpotInstanceRequest
+
+Provides a Spot Instance Request resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_instance_request)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ec2/AwsSpotInstanceRequest.tsx)
+
+```js
+import { AwsSpotInstanceRequest } from "@dinghy/tf-aws/serviceEc2"
+
+<AwsSpotInstanceRequest/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

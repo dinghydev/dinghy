@@ -11,11 +11,5 @@ export const CLOUD_INTEGRATION = {
 }
 
 export function CloudIntegration(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_INTEGRATION}
-      {...props}
-      _style={extendStyle(CLOUD_INTEGRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_INTEGRATION)} />
 }

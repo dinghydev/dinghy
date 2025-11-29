@@ -10,5 +10,5 @@ export const VALUE = {
 }
 
 export function Value(props: NodeProps) {
-  return <Shape {...VALUE} {...props} _style={extendStyle(VALUE, props)} />
+  return <Shape {...props} _style={extendStyle(props, VALUE)} />
 }

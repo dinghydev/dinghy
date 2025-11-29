@@ -11,7 +11,5 @@ export const INCREASE = {
 }
 
 export function Increase(props: NodeProps) {
-  return (
-    <Shape {...INCREASE} {...props} _style={extendStyle(INCREASE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INCREASE)} />
 }

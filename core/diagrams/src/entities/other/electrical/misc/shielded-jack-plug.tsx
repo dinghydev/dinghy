@@ -11,11 +11,5 @@ export const SHIELDED_JACK_PLUG = {
 }
 
 export function ShieldedJackPlug(props: NodeProps) {
-  return (
-    <Shape
-      {...SHIELDED_JACK_PLUG}
-      {...props}
-      _style={extendStyle(SHIELDED_JACK_PLUG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHIELDED_JACK_PLUG)} />
 }

@@ -13,9 +13,8 @@ export const CISCO_ASA_5585_X_ADAPTIVE_SECURITY_APPLIANCE = {
 export function CiscoAsa5585XAdaptiveSecurityAppliance(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_ASA_5585_X_ADAPTIVE_SECURITY_APPLIANCE}
       {...props}
-      _style={extendStyle(CISCO_ASA_5585_X_ADAPTIVE_SECURITY_APPLIANCE, props)}
+      _style={extendStyle(props, CISCO_ASA_5585_X_ADAPTIVE_SECURITY_APPLIANCE)}
     />
   )
 }

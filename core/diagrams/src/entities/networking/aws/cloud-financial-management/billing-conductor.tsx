@@ -11,11 +11,5 @@ export const BILLING_CONDUCTOR = {
 }
 
 export function BillingConductor(props: NodeProps) {
-  return (
-    <Shape
-      {...BILLING_CONDUCTOR}
-      {...props}
-      _style={extendStyle(BILLING_CONDUCTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BILLING_CONDUCTOR)} />
 }

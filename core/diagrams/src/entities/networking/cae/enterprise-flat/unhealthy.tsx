@@ -11,7 +11,5 @@ export const UNHEALTHY = {
 }
 
 export function Unhealthy(props: NodeProps) {
-  return (
-    <Shape {...UNHEALTHY} {...props} _style={extendStyle(UNHEALTHY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNHEALTHY)} />
 }

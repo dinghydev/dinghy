@@ -11,11 +11,5 @@ export const HPC_WORKBENCH = {
 }
 
 export function HpcWorkbench(props: NodeProps) {
-  return (
-    <Shape
-      {...HPC_WORKBENCH}
-      {...props}
-      _style={extendStyle(HPC_WORKBENCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HPC_WORKBENCH)} />
 }

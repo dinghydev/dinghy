@@ -12,10 +12,6 @@ export const X10090_PNEUMATIC_SPRING = {
 
 export function X10090PneumaticSpring(props: NodeProps) {
   return (
-    <Shape
-      {...X10090_PNEUMATIC_SPRING}
-      {...props}
-      _style={extendStyle(X10090_PNEUMATIC_SPRING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10090_PNEUMATIC_SPRING)} />
   )
 }

@@ -11,11 +11,5 @@ export const ENTERPRISE_MANAGER = {
 }
 
 export function EnterpriseManager(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTERPRISE_MANAGER}
-      {...props}
-      _style={extendStyle(ENTERPRISE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTERPRISE_MANAGER)} />
 }

@@ -11,11 +11,5 @@ export const HORIZONTAL_BUTTON_BAR = {
 }
 
 export function HorizontalButtonBar(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_BUTTON_BAR}
-      {...props}
-      _style={extendStyle(HORIZONTAL_BUTTON_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_BUTTON_BAR)} />
 }

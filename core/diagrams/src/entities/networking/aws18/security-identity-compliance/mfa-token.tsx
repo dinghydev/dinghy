@@ -11,7 +11,5 @@ export const MFA_TOKEN = {
 }
 
 export function MfaToken(props: NodeProps) {
-  return (
-    <Shape {...MFA_TOKEN} {...props} _style={extendStyle(MFA_TOKEN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MFA_TOKEN)} />
 }

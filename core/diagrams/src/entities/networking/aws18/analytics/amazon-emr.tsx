@@ -11,7 +11,5 @@ export const AMAZON_EMR = {
 }
 
 export function AmazonEmr(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_EMR} {...props} _style={extendStyle(AMAZON_EMR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_EMR)} />
 }

@@ -3,10 +3,10 @@ import {
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
-import { awsProps } from './index.ts'
 import z from 'zod'
 import { useTypedNode } from '@dinghy/base-components'
 import { CertificateManager } from '@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance'
+import { awsProps } from './utils/awsProps.ts'
 
 export const AwsAcmCertificateInputSchema = z.object({
   domain: ResolvableStringArraySchema.optional(),

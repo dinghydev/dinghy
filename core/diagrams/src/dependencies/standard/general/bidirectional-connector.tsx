@@ -10,9 +10,8 @@ export const BIDIRECTIONAL_CONNECTOR = {
 export function BidirectionalConnector(props: NodeProps) {
   return (
     <Dependency
-      {...BIDIRECTIONAL_CONNECTOR}
       {...props}
-      _style={extendStyle(BIDIRECTIONAL_CONNECTOR, props)}
+      _style={extendStyle(props, BIDIRECTIONAL_CONNECTOR)}
     />
   )
 }

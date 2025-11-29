@@ -11,11 +11,5 @@ export const MANAGED_MS_AD = {
 }
 
 export function ManagedMsAd(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_MS_AD}
-      {...props}
-      _style={extendStyle(MANAGED_MS_AD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_MS_AD)} />
 }

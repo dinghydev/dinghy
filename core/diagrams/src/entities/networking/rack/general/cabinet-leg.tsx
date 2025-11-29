@@ -11,11 +11,5 @@ export const CABINET_LEG = {
 }
 
 export function CabinetLeg(props: NodeProps) {
-  return (
-    <Shape
-      {...CABINET_LEG}
-      {...props}
-      _style={extendStyle(CABINET_LEG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CABINET_LEG)} />
 }

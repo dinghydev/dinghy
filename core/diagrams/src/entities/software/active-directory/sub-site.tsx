@@ -11,7 +11,5 @@ export const SUB_SITE = {
 }
 
 export function SubSite(props: NodeProps) {
-  return (
-    <Shape {...SUB_SITE} {...props} _style={extendStyle(SUB_SITE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUB_SITE)} />
 }

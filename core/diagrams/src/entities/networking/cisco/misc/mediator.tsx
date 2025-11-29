@@ -11,7 +11,5 @@ export const MEDIATOR = {
 }
 
 export function Mediator(props: NodeProps) {
-  return (
-    <Shape {...MEDIATOR} {...props} _style={extendStyle(MEDIATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIATOR)} />
 }

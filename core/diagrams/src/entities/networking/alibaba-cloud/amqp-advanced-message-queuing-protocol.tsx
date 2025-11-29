@@ -13,9 +13,8 @@ export const AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL = {
 export function AmqpAdvancedMessageQueuingProtocol(props: NodeProps) {
   return (
     <Shape
-      {...AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL}
       {...props}
-      _style={extendStyle(AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL, props)}
+      _style={extendStyle(props, AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL)}
     />
   )
 }

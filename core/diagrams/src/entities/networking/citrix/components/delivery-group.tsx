@@ -11,11 +11,5 @@ export const DELIVERY_GROUP = {
 }
 
 export function DeliveryGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...DELIVERY_GROUP}
-      {...props}
-      _style={extendStyle(DELIVERY_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELIVERY_GROUP)} />
 }

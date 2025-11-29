@@ -11,11 +11,5 @@ export const THIRD_PARTY_NON_SAP = {
 }
 
 export function ThirdPartyNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...THIRD_PARTY_NON_SAP}
-      {...props}
-      _style={extendStyle(THIRD_PARTY_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THIRD_PARTY_NON_SAP)} />
 }

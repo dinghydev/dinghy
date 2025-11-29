@@ -11,11 +11,5 @@ export const MPS_MULTIMOD = {
 }
 
 export function MpsMultimod(props: NodeProps) {
-  return (
-    <Shape
-      {...MPS_MULTIMOD}
-      {...props}
-      _style={extendStyle(MPS_MULTIMOD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MPS_MULTIMOD)} />
 }

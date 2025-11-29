@@ -11,5 +11,5 @@ export const BBSM = {
 }
 
 export function Bbsm(props: NodeProps) {
-  return <Shape {...BBSM} {...props} _style={extendStyle(BBSM, props)} />
+  return <Shape {...props} _style={extendStyle(props, BBSM)} />
 }

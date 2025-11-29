@@ -12,10 +12,6 @@ export const OBJECT_STORAGE_SUPPORT = {
 
 export function ObjectStorageSupport(props: NodeProps) {
   return (
-    <Shape
-      {...OBJECT_STORAGE_SUPPORT}
-      {...props}
-      _style={extendStyle(OBJECT_STORAGE_SUPPORT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OBJECT_STORAGE_SUPPORT)} />
   )
 }

@@ -11,11 +11,5 @@ export const TURBINE_AGITATOR = {
 }
 
 export function TurbineAgitator(props: NodeProps) {
-  return (
-    <Shape
-      {...TURBINE_AGITATOR}
-      {...props}
-      _style={extendStyle(TURBINE_AGITATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TURBINE_AGITATOR)} />
 }

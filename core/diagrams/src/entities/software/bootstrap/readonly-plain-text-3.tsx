@@ -11,11 +11,5 @@ export const READONLY_PLAIN_TEXT_3 = {
 }
 
 export function ReadonlyPlainText3(props: NodeProps) {
-  return (
-    <Shape
-      {...READONLY_PLAIN_TEXT_3}
-      {...props}
-      _style={extendStyle(READONLY_PLAIN_TEXT_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, READONLY_PLAIN_TEXT_3)} />
 }

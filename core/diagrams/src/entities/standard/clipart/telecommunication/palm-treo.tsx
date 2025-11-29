@@ -11,7 +11,5 @@ export const PALM_TREO = {
 }
 
 export function PalmTreo(props: NodeProps) {
-  return (
-    <Shape {...PALM_TREO} {...props} _style={extendStyle(PALM_TREO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PALM_TREO)} />
 }

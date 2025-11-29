@@ -11,11 +11,5 @@ export const FSX_FOR_NETAPP_ONTAP = {
 }
 
 export function FsxForNetappOntap(props: NodeProps) {
-  return (
-    <Shape
-      {...FSX_FOR_NETAPP_ONTAP}
-      {...props}
-      _style={extendStyle(FSX_FOR_NETAPP_ONTAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FSX_FOR_NETAPP_ONTAP)} />
 }

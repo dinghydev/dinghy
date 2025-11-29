@@ -12,10 +12,6 @@ export const TOOLKIT_FOR_VISUAL_STUDIO = {
 
 export function ToolkitForVisualStudio(props: NodeProps) {
   return (
-    <Shape
-      {...TOOLKIT_FOR_VISUAL_STUDIO}
-      {...props}
-      _style={extendStyle(TOOLKIT_FOR_VISUAL_STUDIO, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TOOLKIT_FOR_VISUAL_STUDIO)} />
   )
 }

@@ -11,7 +11,5 @@ export const BICYCLE_2 = {
 }
 
 export function Bicycle2(props: NodeProps) {
-  return (
-    <Shape {...BICYCLE_2} {...props} _style={extendStyle(BICYCLE_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BICYCLE_2)} />
 }

@@ -11,11 +11,5 @@ export const CONSTRUCTION = {
 }
 
 export function Construction(props: NodeProps) {
-  return (
-    <Shape
-      {...CONSTRUCTION}
-      {...props}
-      _style={extendStyle(CONSTRUCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSTRUCTION)} />
 }

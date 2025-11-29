@@ -12,10 +12,6 @@ export const LAYER_3_NEXUS_5K_SWITCH = {
 
 export function Layer3Nexus5kSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...LAYER_3_NEXUS_5K_SWITCH}
-      {...props}
-      _style={extendStyle(LAYER_3_NEXUS_5K_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LAYER_3_NEXUS_5K_SWITCH)} />
   )
 }

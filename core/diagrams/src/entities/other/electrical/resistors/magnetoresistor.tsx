@@ -11,11 +11,5 @@ export const MAGNETORESISTOR = {
 }
 
 export function Magnetoresistor(props: NodeProps) {
-  return (
-    <Shape
-      {...MAGNETORESISTOR}
-      {...props}
-      _style={extendStyle(MAGNETORESISTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAGNETORESISTOR)} />
 }

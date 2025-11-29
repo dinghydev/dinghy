@@ -11,7 +11,5 @@ export const AMBULANCE = {
 }
 
 export function Ambulance(props: NodeProps) {
-  return (
-    <Shape {...AMBULANCE} {...props} _style={extendStyle(AMBULANCE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMBULANCE)} />
 }

@@ -12,10 +12,6 @@ export const PLUG_SOCKET_CONNECTION = {
 
 export function PlugSocketConnection(props: NodeProps) {
   return (
-    <Shape
-      {...PLUG_SOCKET_CONNECTION}
-      {...props}
-      _style={extendStyle(PLUG_SOCKET_CONNECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PLUG_SOCKET_CONNECTION)} />
   )
 }

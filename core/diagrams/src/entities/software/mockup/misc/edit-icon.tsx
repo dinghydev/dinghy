@@ -11,7 +11,5 @@ export const EDIT_ICON = {
 }
 
 export function EditIcon(props: NodeProps) {
-  return (
-    <Shape {...EDIT_ICON} {...props} _style={extendStyle(EDIT_ICON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDIT_ICON)} />
 }

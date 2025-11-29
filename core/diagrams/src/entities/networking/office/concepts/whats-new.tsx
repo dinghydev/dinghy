@@ -11,7 +11,5 @@ export const WHATS_NEW = {
 }
 
 export function WhatsNew(props: NodeProps) {
-  return (
-    <Shape {...WHATS_NEW} {...props} _style={extendStyle(WHATS_NEW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WHATS_NEW)} />
 }

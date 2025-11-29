@@ -11,11 +11,5 @@ export const ESXI_HYPER_V_AHV_HOST = {
 }
 
 export function EsxiHyperVAhvHost(props: NodeProps) {
-  return (
-    <Shape
-      {...ESXI_HYPER_V_AHV_HOST}
-      {...props}
-      _style={extendStyle(ESXI_HYPER_V_AHV_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ESXI_HYPER_V_AHV_HOST)} />
 }

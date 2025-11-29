@@ -11,11 +11,5 @@ export const MOBILE_HOTFIX = {
 }
 
 export function MobileHotfix(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_HOTFIX}
-      {...props}
-      _style={extendStyle(MOBILE_HOTFIX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_HOTFIX)} />
 }

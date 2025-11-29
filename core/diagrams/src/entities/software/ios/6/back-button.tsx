@@ -11,11 +11,5 @@ export const BACK_BUTTON = {
 }
 
 export function BackButton(props: NodeProps) {
-  return (
-    <Shape
-      {...BACK_BUTTON}
-      {...props}
-      _style={extendStyle(BACK_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACK_BUTTON)} />
 }

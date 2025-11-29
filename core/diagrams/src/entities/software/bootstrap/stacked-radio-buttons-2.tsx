@@ -12,10 +12,6 @@ export const STACKED_RADIO_BUTTONS_2 = {
 
 export function StackedRadioButtons2(props: NodeProps) {
   return (
-    <Shape
-      {...STACKED_RADIO_BUTTONS_2}
-      {...props}
-      _style={extendStyle(STACKED_RADIO_BUTTONS_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STACKED_RADIO_BUTTONS_2)} />
   )
 }

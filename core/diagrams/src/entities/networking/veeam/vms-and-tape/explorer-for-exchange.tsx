@@ -11,11 +11,5 @@ export const EXPLORER_FOR_EXCHANGE = {
 }
 
 export function ExplorerForExchange(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPLORER_FOR_EXCHANGE}
-      {...props}
-      _style={extendStyle(EXPLORER_FOR_EXCHANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPLORER_FOR_EXCHANGE)} />
 }

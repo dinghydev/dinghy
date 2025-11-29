@@ -13,9 +13,8 @@ export const GRID_STYLE_WITH_SOME_OPTIONS = {
 export function GridStyleWithSomeOptions(props: NodeProps) {
   return (
     <Shape
-      {...GRID_STYLE_WITH_SOME_OPTIONS}
       {...props}
-      _style={extendStyle(GRID_STYLE_WITH_SOME_OPTIONS, props)}
+      _style={extendStyle(props, GRID_STYLE_WITH_SOME_OPTIONS)}
     />
   )
 }

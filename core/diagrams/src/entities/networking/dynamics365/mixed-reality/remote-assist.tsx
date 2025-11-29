@@ -11,11 +11,5 @@ export const REMOTE_ASSIST = {
 }
 
 export function RemoteAssist(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_ASSIST}
-      {...props}
-      _style={extendStyle(REMOTE_ASSIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_ASSIST)} />
 }

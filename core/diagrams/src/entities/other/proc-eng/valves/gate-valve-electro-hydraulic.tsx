@@ -13,9 +13,8 @@ export const GATE_VALVE_ELECTRO_HYDRAULIC = {
 export function GateValveElectroHydraulic(props: NodeProps) {
   return (
     <Shape
-      {...GATE_VALVE_ELECTRO_HYDRAULIC}
       {...props}
-      _style={extendStyle(GATE_VALVE_ELECTRO_HYDRAULIC, props)}
+      _style={extendStyle(props, GATE_VALVE_ELECTRO_HYDRAULIC)}
     />
   )
 }

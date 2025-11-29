@@ -1,0 +1,181 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Meta Data Sources
+
+## AwsArn
+
+Parses an ARN into its constituent parts.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/arn)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsArn.tsx)
+
+```js
+import { DataAwsArn } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsArn/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDefaultTags
+
+Access the default tags configured on the provider.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/default_tags)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsDefaultTags.tsx)
+
+```js
+import { DataAwsDefaultTags } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsDefaultTags/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsIpRanges
+
+Get information on AWS IP ranges.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ip_ranges)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsIpRanges.tsx)
+
+```js
+import { DataAwsIpRanges } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsIpRanges/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsPartition
+
+Get AWS partition identifier
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/partition)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsPartition.tsx)
+
+```js
+import { DataAwsPartition } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsPartition/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRegion
+
+Provides details about a specific AWS Region
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/region)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsRegion.tsx)
+
+```js
+import { DataAwsRegion } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsRegion/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRegions
+
+Provides information about AWS Regions.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/regions)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsRegions.tsx)
+
+```js
+import { DataAwsRegions } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsRegions/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsService
+
+Compose and decompose AWS service DNS names
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsService.tsx)
+
+```js
+import { DataAwsService } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsService/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsServicePrincipal
+
+Compose a Service Principal Name.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_principal)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/meta/DataAwsServicePrincipal.tsx)
+
+```js
+import { DataAwsServicePrincipal } from "@dinghy/tf-aws/serviceMeta"
+
+<DataAwsServicePrincipal/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

@@ -12,10 +12,6 @@ export const ADVANCED_SOLUTIONS_LAB = {
 
 export function AdvancedSolutionsLab(props: NodeProps) {
   return (
-    <Shape
-      {...ADVANCED_SOLUTIONS_LAB}
-      {...props}
-      _style={extendStyle(ADVANCED_SOLUTIONS_LAB, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ADVANCED_SOLUTIONS_LAB)} />
   )
 }

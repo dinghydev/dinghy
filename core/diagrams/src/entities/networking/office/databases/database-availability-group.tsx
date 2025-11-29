@@ -13,9 +13,8 @@ export const DATABASE_AVAILABILITY_GROUP = {
 export function DatabaseAvailabilityGroup(props: NodeProps) {
   return (
     <Shape
-      {...DATABASE_AVAILABILITY_GROUP}
       {...props}
-      _style={extendStyle(DATABASE_AVAILABILITY_GROUP, props)}
+      _style={extendStyle(props, DATABASE_AVAILABILITY_GROUP)}
     />
   )
 }

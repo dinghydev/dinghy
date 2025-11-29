@@ -13,9 +13,8 @@ export const COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION = {
 export function Component3rdPartyCallCenterSolution(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION}
       {...props}
-      _style={extendStyle(COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION, props)}
+      _style={extendStyle(props, COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION)}
     />
   )
 }

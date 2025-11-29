@@ -11,7 +11,5 @@ export const RESISTOR_2 = {
 }
 
 export function Resistor2(props: NodeProps) {
-  return (
-    <Shape {...RESISTOR_2} {...props} _style={extendStyle(RESISTOR_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESISTOR_2)} />
 }

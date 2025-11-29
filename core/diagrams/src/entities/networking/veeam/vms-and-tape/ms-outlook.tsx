@@ -11,7 +11,5 @@ export const MS_OUTLOOK = {
 }
 
 export function MsOutlook(props: NodeProps) {
-  return (
-    <Shape {...MS_OUTLOOK} {...props} _style={extendStyle(MS_OUTLOOK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_OUTLOOK)} />
 }

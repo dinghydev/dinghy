@@ -12,10 +12,6 @@ export const X10540_PRESSURE_REGULATOR = {
 
 export function X10540PressureRegulator(props: NodeProps) {
   return (
-    <Shape
-      {...X10540_PRESSURE_REGULATOR}
-      {...props}
-      _style={extendStyle(X10540_PRESSURE_REGULATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10540_PRESSURE_REGULATOR)} />
   )
 }

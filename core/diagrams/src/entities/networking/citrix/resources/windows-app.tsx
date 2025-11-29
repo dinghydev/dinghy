@@ -11,11 +11,5 @@ export const WINDOWS_APP = {
 }
 
 export function WindowsApp(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOWS_APP}
-      {...props}
-      _style={extendStyle(WINDOWS_APP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOWS_APP)} />
 }

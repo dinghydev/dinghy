@@ -13,9 +13,8 @@ export const CALLOUT_WITH_DOUBLE_ARROW_90 = {
 export function CalloutWithDoubleArrow90(props: NodeProps) {
   return (
     <Shape
-      {...CALLOUT_WITH_DOUBLE_ARROW_90}
       {...props}
-      _style={extendStyle(CALLOUT_WITH_DOUBLE_ARROW_90, props)}
+      _style={extendStyle(props, CALLOUT_WITH_DOUBLE_ARROW_90)}
     />
   )
 }

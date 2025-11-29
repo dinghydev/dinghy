@@ -11,7 +11,5 @@ export const TRANSPORT = {
 }
 
 export function Transport(props: NodeProps) {
-  return (
-    <Shape {...TRANSPORT} {...props} _style={extendStyle(TRANSPORT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSPORT)} />
 }

@@ -11,11 +11,5 @@ export const BUTTON_LABEL_ONLY = {
 }
 
 export function ButtonLabelOnly(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_LABEL_ONLY}
-      {...props}
-      _style={extendStyle(BUTTON_LABEL_ONLY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_LABEL_ONLY)} />
 }

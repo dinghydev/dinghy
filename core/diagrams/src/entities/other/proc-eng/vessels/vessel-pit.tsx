@@ -11,7 +11,5 @@ export const VESSEL_PIT = {
 }
 
 export function VesselPit(props: NodeProps) {
-  return (
-    <Shape {...VESSEL_PIT} {...props} _style={extendStyle(VESSEL_PIT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VESSEL_PIT)} />
 }

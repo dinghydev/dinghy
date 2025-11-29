@@ -11,11 +11,5 @@ export const AZURE_DATA_CATALOG = {
 }
 
 export function AzureDataCatalog(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_DATA_CATALOG}
-      {...props}
-      _style={extendStyle(AZURE_DATA_CATALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_DATA_CATALOG)} />
 }

@@ -11,11 +11,5 @@ export const NEUTRON_SUBNET = {
 }
 
 export function NeutronSubnet(props: NodeProps) {
-  return (
-    <Shape
-      {...NEUTRON_SUBNET}
-      {...props}
-      _style={extendStyle(NEUTRON_SUBNET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEUTRON_SUBNET)} />
 }

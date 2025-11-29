@@ -11,11 +11,5 @@ export const THINKBOX_STOKE = {
 }
 
 export function ThinkboxStoke(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_STOKE}
-      {...props}
-      _style={extendStyle(THINKBOX_STOKE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_STOKE)} />
 }

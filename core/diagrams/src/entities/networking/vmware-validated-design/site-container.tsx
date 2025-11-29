@@ -11,11 +11,5 @@ export const SITE_CONTAINER = {
 }
 
 export function SiteContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_CONTAINER}
-      {...props}
-      _style={extendStyle(SITE_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_CONTAINER)} />
 }

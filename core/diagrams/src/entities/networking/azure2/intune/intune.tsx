@@ -11,5 +11,5 @@ export const INTUNE = {
 }
 
 export function Intune(props: NodeProps) {
-  return <Shape {...INTUNE} {...props} _style={extendStyle(INTUNE, props)} />
+  return <Shape {...props} _style={extendStyle(props, INTUNE)} />
 }

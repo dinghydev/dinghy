@@ -10,11 +10,5 @@ export const SUBMACHINE_STATE = {
 }
 
 export function SubmachineState(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBMACHINE_STATE}
-      {...props}
-      _style={extendStyle(SUBMACHINE_STATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBMACHINE_STATE)} />
 }

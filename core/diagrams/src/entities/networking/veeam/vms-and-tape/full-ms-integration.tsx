@@ -11,11 +11,5 @@ export const FULL_MS_INTEGRATION = {
 }
 
 export function FullMsIntegration(props: NodeProps) {
-  return (
-    <Shape
-      {...FULL_MS_INTEGRATION}
-      {...props}
-      _style={extendStyle(FULL_MS_INTEGRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FULL_MS_INTEGRATION)} />
 }

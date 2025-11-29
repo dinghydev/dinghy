@@ -12,10 +12,6 @@ export const AMAZON_ELASTIC_TRANSCODER = {
 
 export function AmazonElasticTranscoder(props: NodeProps) {
   return (
-    <Shape
-      {...AMAZON_ELASTIC_TRANSCODER}
-      {...props}
-      _style={extendStyle(AMAZON_ELASTIC_TRANSCODER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AMAZON_ELASTIC_TRANSCODER)} />
   )
 }

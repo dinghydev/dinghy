@@ -11,7 +11,5 @@ export const COPYRIGHT = {
 }
 
 export function Copyright(props: NodeProps) {
-  return (
-    <Shape {...COPYRIGHT} {...props} _style={extendStyle(COPYRIGHT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COPYRIGHT)} />
 }

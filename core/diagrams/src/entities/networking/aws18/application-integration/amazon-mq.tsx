@@ -11,7 +11,5 @@ export const AMAZON_MQ = {
 }
 
 export function AmazonMq(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_MQ} {...props} _style={extendStyle(AMAZON_MQ, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_MQ)} />
 }

@@ -11,11 +11,5 @@ export const DATA_VOLUME = {
 }
 
 export function DataVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_VOLUME}
-      {...props}
-      _style={extendStyle(DATA_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_VOLUME)} />
 }

@@ -11,11 +11,5 @@ export const CUSTOM_AZURE_AD_ROLES = {
 }
 
 export function CustomAzureAdRoles(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOM_AZURE_AD_ROLES}
-      {...props}
-      _style={extendStyle(CUSTOM_AZURE_AD_ROLES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOM_AZURE_AD_ROLES)} />
 }

@@ -11,11 +11,5 @@ export const AMAZON_DYNAMODB = {
 }
 
 export function AmazonDynamodb(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_DYNAMODB}
-      {...props}
-      _style={extendStyle(AMAZON_DYNAMODB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_DYNAMODB)} />
 }

@@ -11,11 +11,5 @@ export const CONTENT_BASED_ROUTER = {
 }
 
 export function ContentBasedRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_BASED_ROUTER}
-      {...props}
-      _style={extendStyle(CONTENT_BASED_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_BASED_ROUTER)} />
 }

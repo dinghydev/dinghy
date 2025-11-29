@@ -11,5 +11,5 @@ export const CLOVER = {
 }
 
 export function Clover(props: NodeProps) {
-  return <Shape {...CLOVER} {...props} _style={extendStyle(CLOVER, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLOVER)} />
 }

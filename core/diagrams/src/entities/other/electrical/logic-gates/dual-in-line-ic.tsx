@@ -11,11 +11,5 @@ export const DUAL_IN_LINE_IC = {
 }
 
 export function DualInLineIc(props: NodeProps) {
-  return (
-    <Shape
-      {...DUAL_IN_LINE_IC}
-      {...props}
-      _style={extendStyle(DUAL_IN_LINE_IC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DUAL_IN_LINE_IC)} />
 }

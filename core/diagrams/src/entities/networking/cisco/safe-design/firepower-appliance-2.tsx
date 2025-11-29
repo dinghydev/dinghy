@@ -11,11 +11,5 @@ export const FIREPOWER_APPLIANCE_2 = {
 }
 
 export function FirepowerAppliance2(props: NodeProps) {
-  return (
-    <Shape
-      {...FIREPOWER_APPLIANCE_2}
-      {...props}
-      _style={extendStyle(FIREPOWER_APPLIANCE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREPOWER_APPLIANCE_2)} />
 }

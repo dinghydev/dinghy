@@ -11,5 +11,5 @@ export const LEX = {
 }
 
 export function Lex(props: NodeProps) {
-  return <Shape {...LEX} {...props} _style={extendStyle(LEX, props)} />
+  return <Shape {...props} _style={extendStyle(props, LEX)} />
 }

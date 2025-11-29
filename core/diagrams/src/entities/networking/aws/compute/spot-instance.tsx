@@ -11,11 +11,5 @@ export const SPOT_INSTANCE = {
 }
 
 export function SpotInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...SPOT_INSTANCE}
-      {...props}
-      _style={extendStyle(SPOT_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPOT_INSTANCE)} />
 }

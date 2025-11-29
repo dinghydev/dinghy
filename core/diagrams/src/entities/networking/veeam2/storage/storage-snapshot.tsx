@@ -11,11 +11,5 @@ export const STORAGE_SNAPSHOT = {
 }
 
 export function StorageSnapshot(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_SNAPSHOT}
-      {...props}
-      _style={extendStyle(STORAGE_SNAPSHOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_SNAPSHOT)} />
 }

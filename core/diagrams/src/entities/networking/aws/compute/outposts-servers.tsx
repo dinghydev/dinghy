@@ -11,11 +11,5 @@ export const OUTPOSTS_SERVERS = {
 }
 
 export function OutpostsServers(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTPOSTS_SERVERS}
-      {...props}
-      _style={extendStyle(OUTPOSTS_SERVERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTPOSTS_SERVERS)} />
 }

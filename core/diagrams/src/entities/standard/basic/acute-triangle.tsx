@@ -11,11 +11,5 @@ export const ACUTE_TRIANGLE = {
 }
 
 export function AcuteTriangle(props: NodeProps) {
-  return (
-    <Shape
-      {...ACUTE_TRIANGLE}
-      {...props}
-      _style={extendStyle(ACUTE_TRIANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACUTE_TRIANGLE)} />
 }

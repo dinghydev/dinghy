@@ -11,11 +11,5 @@ export const PROPORTIONAL_FEEDER = {
 }
 
 export function ProportionalFeeder(props: NodeProps) {
-  return (
-    <Shape
-      {...PROPORTIONAL_FEEDER}
-      {...props}
-      _style={extendStyle(PROPORTIONAL_FEEDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROPORTIONAL_FEEDER)} />
 }

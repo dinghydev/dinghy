@@ -11,7 +11,5 @@ export const EYE_WASH = {
 }
 
 export function EyeWash(props: NodeProps) {
-  return (
-    <Shape {...EYE_WASH} {...props} _style={extendStyle(EYE_WASH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EYE_WASH)} />
 }

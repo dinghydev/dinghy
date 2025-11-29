@@ -11,11 +11,5 @@ export const CLOUD_DEBUGGER = {
 }
 
 export function CloudDebugger(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DEBUGGER}
-      {...props}
-      _style={extendStyle(CLOUD_DEBUGGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DEBUGGER)} />
 }

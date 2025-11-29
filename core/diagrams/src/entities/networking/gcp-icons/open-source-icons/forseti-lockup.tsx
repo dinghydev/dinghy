@@ -11,11 +11,5 @@ export const FORSETI_LOCKUP = {
 }
 
 export function ForsetiLockup(props: NodeProps) {
-  return (
-    <Shape
-      {...FORSETI_LOCKUP}
-      {...props}
-      _style={extendStyle(FORSETI_LOCKUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORSETI_LOCKUP)} />
 }

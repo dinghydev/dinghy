@@ -11,11 +11,5 @@ export const SHARED_PROCESS = {
 }
 
 export function SharedProcess(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARED_PROCESS}
-      {...props}
-      _style={extendStyle(SHARED_PROCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARED_PROCESS)} />
 }

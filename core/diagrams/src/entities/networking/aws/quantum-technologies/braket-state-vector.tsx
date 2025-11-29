@@ -11,11 +11,5 @@ export const BRAKET_STATE_VECTOR = {
 }
 
 export function BraketStateVector(props: NodeProps) {
-  return (
-    <Shape
-      {...BRAKET_STATE_VECTOR}
-      {...props}
-      _style={extendStyle(BRAKET_STATE_VECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRAKET_STATE_VECTOR)} />
 }

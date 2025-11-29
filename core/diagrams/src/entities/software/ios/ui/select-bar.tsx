@@ -11,7 +11,5 @@ export const SELECT_BAR = {
 }
 
 export function SelectBar(props: NodeProps) {
-  return (
-    <Shape {...SELECT_BAR} {...props} _style={extendStyle(SELECT_BAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SELECT_BAR)} />
 }

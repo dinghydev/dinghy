@@ -13,9 +13,8 @@ export const GIGABIT_SWITCH_ATM_TAG_ROUTER = {
 export function GigabitSwitchAtmTagRouter(props: NodeProps) {
   return (
     <Shape
-      {...GIGABIT_SWITCH_ATM_TAG_ROUTER}
       {...props}
-      _style={extendStyle(GIGABIT_SWITCH_ATM_TAG_ROUTER, props)}
+      _style={extendStyle(props, GIGABIT_SWITCH_ATM_TAG_ROUTER)}
     />
   )
 }

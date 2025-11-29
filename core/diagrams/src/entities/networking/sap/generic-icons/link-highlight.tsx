@@ -11,11 +11,5 @@ export const LINK_HIGHLIGHT = {
 }
 
 export function LinkHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...LINK_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(LINK_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINK_HIGHLIGHT)} />
 }

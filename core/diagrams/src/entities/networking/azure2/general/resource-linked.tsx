@@ -11,11 +11,5 @@ export const RESOURCE_LINKED = {
 }
 
 export function ResourceLinked(props: NodeProps) {
-  return (
-    <Shape
-      {...RESOURCE_LINKED}
-      {...props}
-      _style={extendStyle(RESOURCE_LINKED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE_LINKED)} />
 }

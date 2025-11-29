@@ -11,11 +11,5 @@ export const INTERNAL_USERS = {
 }
 
 export function InternalUsers(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNAL_USERS}
-      {...props}
-      _style={extendStyle(INTERNAL_USERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNAL_USERS)} />
 }

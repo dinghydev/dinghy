@@ -11,11 +11,5 @@ export const PRIVATE_KEY = {
 }
 
 export function PrivateKey(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIVATE_KEY}
-      {...props}
-      _style={extendStyle(PRIVATE_KEY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIVATE_KEY)} />
 }

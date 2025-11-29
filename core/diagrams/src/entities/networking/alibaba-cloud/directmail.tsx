@@ -11,7 +11,5 @@ export const DIRECTMAIL = {
 }
 
 export function Directmail(props: NodeProps) {
-  return (
-    <Shape {...DIRECTMAIL} {...props} _style={extendStyle(DIRECTMAIL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECTMAIL)} />
 }

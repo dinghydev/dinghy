@@ -11,5 +11,5 @@ export const APPS = {
 }
 
 export function Apps(props: NodeProps) {
-  return <Shape {...APPS} {...props} _style={extendStyle(APPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, APPS)} />
 }

@@ -11,11 +11,5 @@ export const TAPE_SERVER = {
 }
 
 export function TapeServer(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_SERVER}
-      {...props}
-      _style={extendStyle(TAPE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_SERVER)} />
 }

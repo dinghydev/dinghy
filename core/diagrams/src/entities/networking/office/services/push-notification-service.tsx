@@ -12,10 +12,6 @@ export const PUSH_NOTIFICATION_SERVICE = {
 
 export function PushNotificationService(props: NodeProps) {
   return (
-    <Shape
-      {...PUSH_NOTIFICATION_SERVICE}
-      {...props}
-      _style={extendStyle(PUSH_NOTIFICATION_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUSH_NOTIFICATION_SERVICE)} />
   )
 }

@@ -11,11 +11,5 @@ export const TRANSACTIONAL_CLIENT = {
 }
 
 export function TransactionalClient(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSACTIONAL_CLIENT}
-      {...props}
-      _style={extendStyle(TRANSACTIONAL_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSACTIONAL_CLIENT)} />
 }

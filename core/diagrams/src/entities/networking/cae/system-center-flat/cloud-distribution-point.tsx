@@ -12,10 +12,6 @@ export const CLOUD_DISTRIBUTION_POINT = {
 
 export function CloudDistributionPoint(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_DISTRIBUTION_POINT}
-      {...props}
-      _style={extendStyle(CLOUD_DISTRIBUTION_POINT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_DISTRIBUTION_POINT)} />
   )
 }

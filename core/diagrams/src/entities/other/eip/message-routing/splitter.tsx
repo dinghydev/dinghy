@@ -11,7 +11,5 @@ export const SPLITTER = {
 }
 
 export function Splitter(props: NodeProps) {
-  return (
-    <Shape {...SPLITTER} {...props} _style={extendStyle(SPLITTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPLITTER)} />
 }

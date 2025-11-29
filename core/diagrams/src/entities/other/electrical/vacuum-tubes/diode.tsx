@@ -11,5 +11,5 @@ export const DIODE = {
 }
 
 export function Diode(props: NodeProps) {
-  return <Shape {...DIODE} {...props} _style={extendStyle(DIODE, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIODE)} />
 }

@@ -11,11 +11,5 @@ export const TETRATION_ANALYTICS = {
 }
 
 export function TetrationAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...TETRATION_ANALYTICS}
-      {...props}
-      _style={extendStyle(TETRATION_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TETRATION_ANALYTICS)} />
 }

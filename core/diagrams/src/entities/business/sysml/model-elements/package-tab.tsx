@@ -11,11 +11,5 @@ export const PACKAGE_TAB = {
 }
 
 export function PackageTab(props: NodeProps) {
-  return (
-    <Shape
-      {...PACKAGE_TAB}
-      {...props}
-      _style={extendStyle(PACKAGE_TAB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PACKAGE_TAB)} />
 }

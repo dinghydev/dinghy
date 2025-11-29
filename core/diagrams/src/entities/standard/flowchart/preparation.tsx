@@ -11,11 +11,5 @@ export const PREPARATION = {
 }
 
 export function Preparation(props: NodeProps) {
-  return (
-    <Shape
-      {...PREPARATION}
-      {...props}
-      _style={extendStyle(PREPARATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PREPARATION)} />
 }

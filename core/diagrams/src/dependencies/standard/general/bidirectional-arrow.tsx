@@ -9,10 +9,6 @@ export const BIDIRECTIONAL_ARROW = {
 
 export function BidirectionalArrow(props: NodeProps) {
   return (
-    <Dependency
-      {...BIDIRECTIONAL_ARROW}
-      {...props}
-      _style={extendStyle(BIDIRECTIONAL_ARROW, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, BIDIRECTIONAL_ARROW)} />
   )
 }

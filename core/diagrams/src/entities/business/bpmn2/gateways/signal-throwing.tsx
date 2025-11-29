@@ -11,11 +11,5 @@ export const SIGNAL_THROWING = {
 }
 
 export function SignalThrowing(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNAL_THROWING}
-      {...props}
-      _style={extendStyle(SIGNAL_THROWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNAL_THROWING)} />
 }

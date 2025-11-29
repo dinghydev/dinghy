@@ -11,11 +11,5 @@ export const OS_IMAGES_CLASSIC = {
 }
 
 export function OsImagesClassic(props: NodeProps) {
-  return (
-    <Shape
-      {...OS_IMAGES_CLASSIC}
-      {...props}
-      _style={extendStyle(OS_IMAGES_CLASSIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OS_IMAGES_CLASSIC)} />
 }

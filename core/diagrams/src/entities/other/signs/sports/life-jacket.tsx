@@ -11,11 +11,5 @@ export const LIFE_JACKET = {
 }
 
 export function LifeJacket(props: NodeProps) {
-  return (
-    <Shape
-      {...LIFE_JACKET}
-      {...props}
-      _style={extendStyle(LIFE_JACKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIFE_JACKET)} />
 }

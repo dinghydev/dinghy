@@ -11,5 +11,5 @@ export const NAT = {
 }
 
 export function Nat(props: NodeProps) {
-  return <Shape {...NAT} {...props} _style={extendStyle(NAT, props)} />
+  return <Shape {...props} _style={extendStyle(props, NAT)} />
 }

@@ -9,11 +9,5 @@ export const COMPENSATION_2 = {
 }
 
 export function Compensation2(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPENSATION_2}
-      {...props}
-      _style={extendStyle(COMPENSATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPENSATION_2)} />
 }

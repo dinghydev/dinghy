@@ -11,11 +11,5 @@ export const CONFIDENTIAL_LEDGER = {
 }
 
 export function ConfidentialLedger(props: NodeProps) {
-  return (
-    <Shape
-      {...CONFIDENTIAL_LEDGER}
-      {...props}
-      _style={extendStyle(CONFIDENTIAL_LEDGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONFIDENTIAL_LEDGER)} />
 }

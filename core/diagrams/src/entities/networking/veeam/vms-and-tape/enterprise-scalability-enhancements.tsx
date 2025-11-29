@@ -13,9 +13,8 @@ export const ENTERPRISE_SCALABILITY_ENHANCEMENTS = {
 export function EnterpriseScalabilityEnhancements(props: NodeProps) {
   return (
     <Shape
-      {...ENTERPRISE_SCALABILITY_ENHANCEMENTS}
       {...props}
-      _style={extendStyle(ENTERPRISE_SCALABILITY_ENHANCEMENTS, props)}
+      _style={extendStyle(props, ENTERPRISE_SCALABILITY_ENHANCEMENTS)}
     />
   )
 }

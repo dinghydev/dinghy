@@ -11,11 +11,5 @@ export const SUBTLE_TOGGLE = {
 }
 
 export function SubtleToggle(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBTLE_TOGGLE}
-      {...props}
-      _style={extendStyle(SUBTLE_TOGGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBTLE_TOGGLE)} />
 }

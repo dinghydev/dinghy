@@ -12,10 +12,6 @@ export const COMPONENT_7500ARS_7513 = {
 
 export function Component7500ars7513(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_7500ARS_7513}
-      {...props}
-      _style={extendStyle(COMPONENT_7500ARS_7513, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_7500ARS_7513)} />
   )
 }

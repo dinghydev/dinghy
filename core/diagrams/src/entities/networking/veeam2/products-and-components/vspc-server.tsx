@@ -11,11 +11,5 @@ export const VSPC_SERVER = {
 }
 
 export function VspcServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VSPC_SERVER}
-      {...props}
-      _style={extendStyle(VSPC_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VSPC_SERVER)} />
 }

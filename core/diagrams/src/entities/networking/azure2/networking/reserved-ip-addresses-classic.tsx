@@ -13,9 +13,8 @@ export const RESERVED_IP_ADDRESSES_CLASSIC = {
 export function ReservedIpAddressesClassic(props: NodeProps) {
   return (
     <Shape
-      {...RESERVED_IP_ADDRESSES_CLASSIC}
       {...props}
-      _style={extendStyle(RESERVED_IP_ADDRESSES_CLASSIC, props)}
+      _style={extendStyle(props, RESERVED_IP_ADDRESSES_CLASSIC)}
     />
   )
 }

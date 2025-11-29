@@ -11,7 +11,5 @@ export const CLOUD_DNS = {
 }
 
 export function CloudDns(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_DNS} {...props} _style={extendStyle(CLOUD_DNS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DNS)} />
 }

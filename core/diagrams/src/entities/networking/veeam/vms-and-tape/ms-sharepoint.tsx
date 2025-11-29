@@ -11,11 +11,5 @@ export const MS_SHAREPOINT = {
 }
 
 export function MsSharepoint(props: NodeProps) {
-  return (
-    <Shape
-      {...MS_SHAREPOINT}
-      {...props}
-      _style={extendStyle(MS_SHAREPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_SHAREPOINT)} />
 }

@@ -11,7 +11,5 @@ export const BLACKBERRY = {
 }
 
 export function Blackberry(props: NodeProps) {
-  return (
-    <Shape {...BLACKBERRY} {...props} _style={extendStyle(BLACKBERRY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLACKBERRY)} />
 }

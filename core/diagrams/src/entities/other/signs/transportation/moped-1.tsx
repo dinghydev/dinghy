@@ -11,5 +11,5 @@ export const MOPED_1 = {
 }
 
 export function Moped1(props: NodeProps) {
-  return <Shape {...MOPED_1} {...props} _style={extendStyle(MOPED_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, MOPED_1)} />
 }

@@ -11,11 +11,5 @@ export const DOOR_ACCORDION = {
 }
 
 export function DoorAccordion(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_ACCORDION}
-      {...props}
-      _style={extendStyle(DOOR_ACCORDION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_ACCORDION)} />
 }

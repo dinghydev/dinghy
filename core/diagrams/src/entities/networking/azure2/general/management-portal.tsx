@@ -11,11 +11,5 @@ export const MANAGEMENT_PORTAL = {
 }
 
 export function ManagementPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_PORTAL}
-      {...props}
-      _style={extendStyle(MANAGEMENT_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_PORTAL)} />
 }

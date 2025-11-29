@@ -11,7 +11,5 @@ export const DATAPHIN = {
 }
 
 export function Dataphin(props: NodeProps) {
-  return (
-    <Shape {...DATAPHIN} {...props} _style={extendStyle(DATAPHIN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAPHIN)} />
 }

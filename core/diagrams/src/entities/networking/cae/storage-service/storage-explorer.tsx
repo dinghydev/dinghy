@@ -11,11 +11,5 @@ export const STORAGE_EXPLORER = {
 }
 
 export function StorageExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_EXPLORER}
-      {...props}
-      _style={extendStyle(STORAGE_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_EXPLORER)} />
 }

@@ -11,7 +11,5 @@ export const WIRING_HUB = {
 }
 
 export function WiringHub(props: NodeProps) {
-  return (
-    <Shape {...WIRING_HUB} {...props} _style={extendStyle(WIRING_HUB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRING_HUB)} />
 }

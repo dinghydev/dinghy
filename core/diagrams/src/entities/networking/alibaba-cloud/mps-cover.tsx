@@ -11,7 +11,5 @@ export const MPS_COVER = {
 }
 
 export function MpsCover(props: NodeProps) {
-  return (
-    <Shape {...MPS_COVER} {...props} _style={extendStyle(MPS_COVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MPS_COVER)} />
 }

@@ -11,11 +11,5 @@ export const DEVICE_UPDATE_IOT_HUB = {
 }
 
 export function DeviceUpdateIotHub(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_UPDATE_IOT_HUB}
-      {...props}
-      _style={extendStyle(DEVICE_UPDATE_IOT_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_UPDATE_IOT_HUB)} />
 }

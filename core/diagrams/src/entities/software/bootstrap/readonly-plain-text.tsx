@@ -11,11 +11,5 @@ export const READONLY_PLAIN_TEXT = {
 }
 
 export function ReadonlyPlainText(props: NodeProps) {
-  return (
-    <Shape
-      {...READONLY_PLAIN_TEXT}
-      {...props}
-      _style={extendStyle(READONLY_PLAIN_TEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, READONLY_PLAIN_TEXT)} />
 }

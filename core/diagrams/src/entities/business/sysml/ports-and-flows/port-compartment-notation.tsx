@@ -12,10 +12,6 @@ export const PORT_COMPARTMENT_NOTATION = {
 
 export function PortCompartmentNotation(props: NodeProps) {
   return (
-    <Shape
-      {...PORT_COMPARTMENT_NOTATION}
-      {...props}
-      _style={extendStyle(PORT_COMPARTMENT_NOTATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PORT_COMPARTMENT_NOTATION)} />
   )
 }

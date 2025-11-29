@@ -9,11 +9,5 @@ export const TERMINATE = {
 }
 
 export function Terminate(props: NodeProps) {
-  return (
-    <Dependency
-      {...TERMINATE}
-      {...props}
-      _style={extendStyle(TERMINATE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, TERMINATE)} />
 }

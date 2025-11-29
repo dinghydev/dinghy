@@ -11,5 +11,5 @@ export const VOL = {
 }
 
 export function Vol(props: NodeProps) {
-  return <Shape {...VOL} {...props} _style={extendStyle(VOL, props)} />
+  return <Shape {...props} _style={extendStyle(props, VOL)} />
 }

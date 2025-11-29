@@ -11,7 +11,5 @@ export const AIRPLANE_2 = {
 }
 
 export function Airplane2(props: NodeProps) {
-  return (
-    <Shape {...AIRPLANE_2} {...props} _style={extendStyle(AIRPLANE_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AIRPLANE_2)} />
 }

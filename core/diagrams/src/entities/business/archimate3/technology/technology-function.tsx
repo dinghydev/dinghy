@@ -11,11 +11,5 @@ export const TECHNOLOGY_FUNCTION = {
 }
 
 export function TechnologyFunction(props: NodeProps) {
-  return (
-    <Shape
-      {...TECHNOLOGY_FUNCTION}
-      {...props}
-      _style={extendStyle(TECHNOLOGY_FUNCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECHNOLOGY_FUNCTION)} />
 }

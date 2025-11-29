@@ -12,10 +12,6 @@ export const INFRASTRUCTURE_REDUNDANCY = {
 
 export function InfrastructureRedundancy(props: NodeProps) {
   return (
-    <Shape
-      {...INFRASTRUCTURE_REDUNDANCY}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_REDUNDANCY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_REDUNDANCY)} />
   )
 }

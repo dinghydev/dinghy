@@ -12,10 +12,6 @@ export const BRAKET_EMBEDDED_SIMULATOR = {
 
 export function BraketEmbeddedSimulator(props: NodeProps) {
   return (
-    <Shape
-      {...BRAKET_EMBEDDED_SIMULATOR}
-      {...props}
-      _style={extendStyle(BRAKET_EMBEDDED_SIMULATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BRAKET_EMBEDDED_SIMULATOR)} />
   )
 }

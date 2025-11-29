@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { EventSubProcessExpanded } from '@dinghy/diagrams/entitiesBpmn2Tasks'
 
 <EventSubProcessExpanded/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { EVENT_SUB_PROCESS_EXPANDED } from '@dinghy/diagrams/entitiesBpmn2Tasks'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, EVENT_SUB_PROCESS_EXPANDED)}
+  />
+
 ```
 
   </TabItem>

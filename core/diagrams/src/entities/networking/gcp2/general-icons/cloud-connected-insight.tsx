@@ -12,10 +12,6 @@ export const CLOUD_CONNECTED_INSIGHT = {
 
 export function CloudConnectedInsight(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_CONNECTED_INSIGHT}
-      {...props}
-      _style={extendStyle(CLOUD_CONNECTED_INSIGHT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_CONNECTED_INSIGHT)} />
   )
 }

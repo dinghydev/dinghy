@@ -11,11 +11,5 @@ export const AMAZON_KINESIS = {
 }
 
 export function AmazonKinesis(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_KINESIS}
-      {...props}
-      _style={extendStyle(AMAZON_KINESIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_KINESIS)} />
 }

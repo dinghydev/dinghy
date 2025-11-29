@@ -12,10 +12,6 @@ export const SEPARATOR_PERMANENT_MAGNET = {
 
 export function SeparatorPermanentMagnet(props: NodeProps) {
   return (
-    <Shape
-      {...SEPARATOR_PERMANENT_MAGNET}
-      {...props}
-      _style={extendStyle(SEPARATOR_PERMANENT_MAGNET, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SEPARATOR_PERMANENT_MAGNET)} />
   )
 }

@@ -11,5 +11,5 @@ export const LOOKER = {
 }
 
 export function Looker(props: NodeProps) {
-  return <Shape {...LOOKER} {...props} _style={extendStyle(LOOKER, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOOKER)} />
 }

@@ -11,11 +11,5 @@ export const MERCHANDISING_SERVER = {
 }
 
 export function MerchandisingServer(props: NodeProps) {
-  return (
-    <Shape
-      {...MERCHANDISING_SERVER}
-      {...props}
-      _style={extendStyle(MERCHANDISING_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MERCHANDISING_SERVER)} />
 }

@@ -11,5 +11,5 @@ export const ALLOYDB = {
 }
 
 export function Alloydb(props: NodeProps) {
-  return <Shape {...ALLOYDB} {...props} _style={extendStyle(ALLOYDB, props)} />
+  return <Shape {...props} _style={extendStyle(props, ALLOYDB)} />
 }

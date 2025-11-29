@@ -11,11 +11,5 @@ export const BORDER_SPINNER = {
 }
 
 export function BorderSpinner(props: NodeProps) {
-  return (
-    <Shape
-      {...BORDER_SPINNER}
-      {...props}
-      _style={extendStyle(BORDER_SPINNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BORDER_SPINNER)} />
 }

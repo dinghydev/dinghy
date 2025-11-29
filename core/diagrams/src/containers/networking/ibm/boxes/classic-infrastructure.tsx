@@ -13,10 +13,6 @@ export const CLASSIC_INFRASTRUCTURE = {
 
 export function ClassicInfrastructure(props: NodeProps) {
   return (
-    <Shape
-      {...CLASSIC_INFRASTRUCTURE}
-      {...props}
-      _style={extendStyle(CLASSIC_INFRASTRUCTURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLASSIC_INFRASTRUCTURE)} />
   )
 }

@@ -11,11 +11,5 @@ export const CINDER_VOLUME = {
 }
 
 export function CinderVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...CINDER_VOLUME}
-      {...props}
-      _style={extendStyle(CINDER_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CINDER_VOLUME)} />
 }

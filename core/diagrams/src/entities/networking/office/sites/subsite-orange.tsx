@@ -11,11 +11,5 @@ export const SUBSITE_ORANGE = {
 }
 
 export function SubsiteOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBSITE_ORANGE}
-      {...props}
-      _style={extendStyle(SUBSITE_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBSITE_ORANGE)} />
 }

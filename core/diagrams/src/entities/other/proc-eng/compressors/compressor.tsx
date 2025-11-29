@@ -11,7 +11,5 @@ export const COMPRESSOR = {
 }
 
 export function Compressor(props: NodeProps) {
-  return (
-    <Shape {...COMPRESSOR} {...props} _style={extendStyle(COMPRESSOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR)} />
 }

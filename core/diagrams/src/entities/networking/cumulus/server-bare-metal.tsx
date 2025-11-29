@@ -11,11 +11,5 @@ export const SERVER_BARE_METAL = {
 }
 
 export function ServerBareMetal(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_BARE_METAL}
-      {...props}
-      _style={extendStyle(SERVER_BARE_METAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_BARE_METAL)} />
 }

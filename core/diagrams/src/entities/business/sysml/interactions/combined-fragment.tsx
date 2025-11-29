@@ -11,11 +11,5 @@ export const COMBINED_FRAGMENT = {
 }
 
 export function CombinedFragment(props: NodeProps) {
-  return (
-    <Shape
-      {...COMBINED_FRAGMENT}
-      {...props}
-      _style={extendStyle(COMBINED_FRAGMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMBINED_FRAGMENT)} />
 }

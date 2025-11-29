@@ -11,7 +11,5 @@ export const BUS_WIDTH = {
 }
 
 export function BusWidth(props: NodeProps) {
-  return (
-    <Shape {...BUS_WIDTH} {...props} _style={extendStyle(BUS_WIDTH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUS_WIDTH)} />
 }

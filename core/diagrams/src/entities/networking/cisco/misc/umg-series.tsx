@@ -11,7 +11,5 @@ export const UMG_SERIES = {
 }
 
 export function UmgSeries(props: NodeProps) {
-  return (
-    <Shape {...UMG_SERIES} {...props} _style={extendStyle(UMG_SERIES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, UMG_SERIES)} />
 }

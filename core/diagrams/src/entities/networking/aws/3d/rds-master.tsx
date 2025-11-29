@@ -11,7 +11,5 @@ export const RDS_MASTER = {
 }
 
 export function RdsMaster(props: NodeProps) {
-  return (
-    <Shape {...RDS_MASTER} {...props} _style={extendStyle(RDS_MASTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_MASTER)} />
 }

@@ -11,7 +11,5 @@ export const POWERAPPS = {
 }
 
 export function Powerapps(props: NodeProps) {
-  return (
-    <Shape {...POWERAPPS} {...props} _style={extendStyle(POWERAPPS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERAPPS)} />
 }

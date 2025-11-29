@@ -11,11 +11,5 @@ export const ADVANCED_EVENT_MESH = {
 }
 
 export function AdvancedEventMesh(props: NodeProps) {
-  return (
-    <Shape
-      {...ADVANCED_EVENT_MESH}
-      {...props}
-      _style={extendStyle(ADVANCED_EVENT_MESH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADVANCED_EVENT_MESH)} />
 }

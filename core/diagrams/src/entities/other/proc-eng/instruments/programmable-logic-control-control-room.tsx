@@ -13,9 +13,8 @@ export const PROGRAMMABLE_LOGIC_CONTROL_CONTROL_ROOM = {
 export function ProgrammableLogicControlControlRoom(props: NodeProps) {
   return (
     <Shape
-      {...PROGRAMMABLE_LOGIC_CONTROL_CONTROL_ROOM}
       {...props}
-      _style={extendStyle(PROGRAMMABLE_LOGIC_CONTROL_CONTROL_ROOM, props)}
+      _style={extendStyle(props, PROGRAMMABLE_LOGIC_CONTROL_CONTROL_ROOM)}
     />
   )
 }

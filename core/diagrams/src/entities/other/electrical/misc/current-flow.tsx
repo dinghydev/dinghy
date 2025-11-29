@@ -11,11 +11,5 @@ export const CURRENT_FLOW = {
 }
 
 export function CurrentFlow(props: NodeProps) {
-  return (
-    <Shape
-      {...CURRENT_FLOW}
-      {...props}
-      _style={extendStyle(CURRENT_FLOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CURRENT_FLOW)} />
 }

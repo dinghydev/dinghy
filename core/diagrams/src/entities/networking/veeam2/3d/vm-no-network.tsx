@@ -11,11 +11,5 @@ export const VM_NO_NETWORK = {
 }
 
 export function VmNoNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_NO_NETWORK}
-      {...props}
-      _style={extendStyle(VM_NO_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_NO_NETWORK)} />
 }

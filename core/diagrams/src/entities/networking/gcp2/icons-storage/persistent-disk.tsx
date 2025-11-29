@@ -11,11 +11,5 @@ export const PERSISTENT_DISK = {
 }
 
 export function PersistentDisk(props: NodeProps) {
-  return (
-    <Shape
-      {...PERSISTENT_DISK}
-      {...props}
-      _style={extendStyle(PERSISTENT_DISK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERSISTENT_DISK)} />
 }

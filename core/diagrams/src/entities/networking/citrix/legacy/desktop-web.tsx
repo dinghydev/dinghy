@@ -11,11 +11,5 @@ export const DESKTOP_WEB = {
 }
 
 export function DesktopWeb(props: NodeProps) {
-  return (
-    <Shape
-      {...DESKTOP_WEB}
-      {...props}
-      _style={extendStyle(DESKTOP_WEB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESKTOP_WEB)} />
 }

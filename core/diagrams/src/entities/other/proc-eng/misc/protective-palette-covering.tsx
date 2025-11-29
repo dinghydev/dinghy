@@ -13,9 +13,8 @@ export const PROTECTIVE_PALETTE_COVERING = {
 export function ProtectivePaletteCovering(props: NodeProps) {
   return (
     <Shape
-      {...PROTECTIVE_PALETTE_COVERING}
       {...props}
-      _style={extendStyle(PROTECTIVE_PALETTE_COVERING, props)}
+      _style={extendStyle(props, PROTECTIVE_PALETTE_COVERING)}
     />
   )
 }

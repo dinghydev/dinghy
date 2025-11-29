@@ -11,7 +11,5 @@ export const YOUTUBE_2 = {
 }
 
 export function Youtube2(props: NodeProps) {
-  return (
-    <Shape {...YOUTUBE_2} {...props} _style={extendStyle(YOUTUBE_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, YOUTUBE_2)} />
 }

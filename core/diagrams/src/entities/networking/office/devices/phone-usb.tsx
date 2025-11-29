@@ -11,7 +11,5 @@ export const PHONE_USB = {
 }
 
 export function PhoneUsb(props: NodeProps) {
-  return (
-    <Shape {...PHONE_USB} {...props} _style={extendStyle(PHONE_USB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_USB)} />
 }

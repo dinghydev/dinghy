@@ -11,11 +11,5 @@ export const CLOUD_TRANSLATION_API = {
 }
 
 export function CloudTranslationApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_TRANSLATION_API}
-      {...props}
-      _style={extendStyle(CLOUD_TRANSLATION_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_TRANSLATION_API)} />
 }

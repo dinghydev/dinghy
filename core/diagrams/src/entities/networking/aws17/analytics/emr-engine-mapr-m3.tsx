@@ -11,11 +11,5 @@ export const EMR_ENGINE_MAPR_M3 = {
 }
 
 export function EmrEngineMaprM3(props: NodeProps) {
-  return (
-    <Shape
-      {...EMR_ENGINE_MAPR_M3}
-      {...props}
-      _style={extendStyle(EMR_ENGINE_MAPR_M3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMR_ENGINE_MAPR_M3)} />
 }

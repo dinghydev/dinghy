@@ -11,11 +11,5 @@ export const NETWORKEDBLOGS = {
 }
 
 export function Networkedblogs(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORKEDBLOGS}
-      {...props}
-      _style={extendStyle(NETWORKEDBLOGS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORKEDBLOGS)} />
 }

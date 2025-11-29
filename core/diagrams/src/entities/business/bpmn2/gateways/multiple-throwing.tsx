@@ -11,11 +11,5 @@ export const MULTIPLE_THROWING = {
 }
 
 export function MultipleThrowing(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_THROWING}
-      {...props}
-      _style={extendStyle(MULTIPLE_THROWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_THROWING)} />
 }

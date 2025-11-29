@@ -11,11 +11,5 @@ export const AGW_ALIGATEWAY = {
 }
 
 export function AgwAligateway(props: NodeProps) {
-  return (
-    <Shape
-      {...AGW_ALIGATEWAY}
-      {...props}
-      _style={extendStyle(AGW_ALIGATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGW_ALIGATEWAY)} />
 }

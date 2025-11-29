@@ -11,11 +11,5 @@ export const RIBBON_FRONT_FOLDED = {
 }
 
 export function RibbonFrontFolded(props: NodeProps) {
-  return (
-    <Shape
-      {...RIBBON_FRONT_FOLDED}
-      {...props}
-      _style={extendStyle(RIBBON_FRONT_FOLDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIBBON_FRONT_FOLDED)} />
 }

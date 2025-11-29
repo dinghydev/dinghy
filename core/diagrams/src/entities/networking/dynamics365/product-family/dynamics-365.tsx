@@ -11,11 +11,5 @@ export const DYNAMICS_365 = {
 }
 
 export function Dynamics365(props: NodeProps) {
-  return (
-    <Shape
-      {...DYNAMICS_365}
-      {...props}
-      _style={extendStyle(DYNAMICS_365, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DYNAMICS_365)} />
 }

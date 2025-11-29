@@ -12,10 +12,6 @@ export const CISCO_CATALYST_4948_SWITCH = {
 
 export function CiscoCatalyst4948Switch(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_CATALYST_4948_SWITCH}
-      {...props}
-      _style={extendStyle(CISCO_CATALYST_4948_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_CATALYST_4948_SWITCH)} />
   )
 }

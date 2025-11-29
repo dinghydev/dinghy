@@ -11,11 +11,5 @@ export const LICENSE_MANAGER = {
 }
 
 export function LicenseManager(props: NodeProps) {
-  return (
-    <Shape
-      {...LICENSE_MANAGER}
-      {...props}
-      _style={extendStyle(LICENSE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LICENSE_MANAGER)} />
 }

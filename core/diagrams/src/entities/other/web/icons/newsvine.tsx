@@ -11,7 +11,5 @@ export const NEWSVINE = {
 }
 
 export function Newsvine(props: NodeProps) {
-  return (
-    <Shape {...NEWSVINE} {...props} _style={extendStyle(NEWSVINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEWSVINE)} />
 }

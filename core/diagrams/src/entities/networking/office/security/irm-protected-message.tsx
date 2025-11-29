@@ -11,11 +11,5 @@ export const IRM_PROTECTED_MESSAGE = {
 }
 
 export function IrmProtectedMessage(props: NodeProps) {
-  return (
-    <Shape
-      {...IRM_PROTECTED_MESSAGE}
-      {...props}
-      _style={extendStyle(IRM_PROTECTED_MESSAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IRM_PROTECTED_MESSAGE)} />
 }

@@ -11,5 +11,5 @@ export const ROLL_8 = {
 }
 
 export function Roll8(props: NodeProps) {
-  return <Shape {...ROLL_8} {...props} _style={extendStyle(ROLL_8, props)} />
+  return <Shape {...props} _style={extendStyle(props, ROLL_8)} />
 }

@@ -11,11 +11,5 @@ export const ATM_TAG_SWITCH_ROUTER = {
 }
 
 export function AtmTagSwitchRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...ATM_TAG_SWITCH_ROUTER}
-      {...props}
-      _style={extendStyle(ATM_TAG_SWITCH_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATM_TAG_SWITCH_ROUTER)} />
 }

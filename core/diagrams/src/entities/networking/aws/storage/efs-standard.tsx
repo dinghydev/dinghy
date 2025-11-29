@@ -11,11 +11,5 @@ export const EFS_STANDARD = {
 }
 
 export function EfsStandard(props: NodeProps) {
-  return (
-    <Shape
-      {...EFS_STANDARD}
-      {...props}
-      _style={extendStyle(EFS_STANDARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EFS_STANDARD)} />
 }

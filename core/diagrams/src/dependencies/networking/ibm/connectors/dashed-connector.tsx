@@ -9,11 +9,5 @@ export const DASHED_CONNECTOR = {
 }
 
 export function DashedConnector(props: NodeProps) {
-  return (
-    <Dependency
-      {...DASHED_CONNECTOR}
-      {...props}
-      _style={extendStyle(DASHED_CONNECTOR, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DASHED_CONNECTOR)} />
 }

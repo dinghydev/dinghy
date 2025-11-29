@@ -11,11 +11,5 @@ export const WAF_MANAGED_RULE = {
 }
 
 export function WafManagedRule(props: NodeProps) {
-  return (
-    <Shape
-      {...WAF_MANAGED_RULE}
-      {...props}
-      _style={extendStyle(WAF_MANAGED_RULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAF_MANAGED_RULE)} />
 }

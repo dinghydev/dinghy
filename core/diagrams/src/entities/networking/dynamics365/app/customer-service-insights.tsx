@@ -12,10 +12,6 @@ export const CUSTOMER_SERVICE_INSIGHTS = {
 
 export function CustomerServiceInsights(props: NodeProps) {
   return (
-    <Shape
-      {...CUSTOMER_SERVICE_INSIGHTS}
-      {...props}
-      _style={extendStyle(CUSTOMER_SERVICE_INSIGHTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CUSTOMER_SERVICE_INSIGHTS)} />
   )
 }

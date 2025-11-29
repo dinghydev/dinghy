@@ -11,11 +11,5 @@ export const MILL_VIBRATION = {
 }
 
 export function MillVibration(props: NodeProps) {
-  return (
-    <Shape
-      {...MILL_VIBRATION}
-      {...props}
-      _style={extendStyle(MILL_VIBRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MILL_VIBRATION)} />
 }

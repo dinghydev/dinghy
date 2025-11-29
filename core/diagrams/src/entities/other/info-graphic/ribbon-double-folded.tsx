@@ -11,11 +11,5 @@ export const RIBBON_DOUBLE_FOLDED = {
 }
 
 export function RibbonDoubleFolded(props: NodeProps) {
-  return (
-    <Shape
-      {...RIBBON_DOUBLE_FOLDED}
-      {...props}
-      _style={extendStyle(RIBBON_DOUBLE_FOLDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIBBON_DOUBLE_FOLDED)} />
 }

@@ -13,9 +13,8 @@ export const SCA_SMART_CONVERSATION_ANALYSIS_2 = {
 export function ScaSmartConversationAnalysis2(props: NodeProps) {
   return (
     <Shape
-      {...SCA_SMART_CONVERSATION_ANALYSIS_2}
       {...props}
-      _style={extendStyle(SCA_SMART_CONVERSATION_ANALYSIS_2, props)}
+      _style={extendStyle(props, SCA_SMART_CONVERSATION_ANALYSIS_2)}
     />
   )
 }

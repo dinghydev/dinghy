@@ -1,0 +1,62 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# EMR Containers
+
+## AwsEmrcontainersJobTemplate
+
+Manages an EMR Containers (EMR on EKS) Job Template
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emrcontainers_job_template)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/emrcontainers/AwsEmrcontainersJobTemplate.tsx)
+
+```js
+import { AwsEmrcontainersJobTemplate } from "@dinghy/tf-aws/serviceEmrcontainers"
+
+<AwsEmrcontainersJobTemplate/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEmrcontainersVirtualCluster
+
+Manages an EMR Containers (EMR on EKS) Virtual Cluster
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emrcontainers_virtual_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/emrcontainers/AwsEmrcontainersVirtualCluster.tsx)
+
+```js
+import { AwsEmrcontainersVirtualCluster } from "@dinghy/tf-aws/serviceEmrcontainers"
+
+<AwsEmrcontainersVirtualCluster/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/emrcontainers_virtual_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/emrcontainers/DataAwsEmrcontainersVirtualCluster.tsx)
+
+```js
+import { DataAwsEmrcontainersVirtualCluster } from "@dinghy/tf-aws/serviceEmrcontainers"
+
+<DataAwsEmrcontainersVirtualCluster/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

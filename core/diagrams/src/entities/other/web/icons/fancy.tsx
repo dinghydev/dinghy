@@ -11,5 +11,5 @@ export const FANCY = {
 }
 
 export function Fancy(props: NodeProps) {
-  return <Shape {...FANCY} {...props} _style={extendStyle(FANCY, props)} />
+  return <Shape {...props} _style={extendStyle(props, FANCY)} />
 }

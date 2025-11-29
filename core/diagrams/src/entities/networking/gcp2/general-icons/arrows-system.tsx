@@ -11,11 +11,5 @@ export const ARROWS_SYSTEM = {
 }
 
 export function ArrowsSystem(props: NodeProps) {
-  return (
-    <Shape
-      {...ARROWS_SYSTEM}
-      {...props}
-      _style={extendStyle(ARROWS_SYSTEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROWS_SYSTEM)} />
 }

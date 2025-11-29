@@ -10,5 +10,5 @@ export const NOTE = {
 }
 
 export function Note(props: NodeProps) {
-  return <Shape {...NOTE} {...props} _style={extendStyle(NOTE, props)} />
+  return <Shape {...props} _style={extendStyle(props, NOTE)} />
 }

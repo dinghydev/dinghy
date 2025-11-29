@@ -11,11 +11,5 @@ export const SECONDARY_SITE = {
 }
 
 export function SecondarySite(props: NodeProps) {
-  return (
-    <Shape
-      {...SECONDARY_SITE}
-      {...props}
-      _style={extendStyle(SECONDARY_SITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECONDARY_SITE)} />
 }

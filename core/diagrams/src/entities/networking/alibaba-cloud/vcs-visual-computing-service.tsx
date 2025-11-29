@@ -13,9 +13,8 @@ export const VCS_VISUAL_COMPUTING_SERVICE = {
 export function VcsVisualComputingService(props: NodeProps) {
   return (
     <Shape
-      {...VCS_VISUAL_COMPUTING_SERVICE}
       {...props}
-      _style={extendStyle(VCS_VISUAL_COMPUTING_SERVICE, props)}
+      _style={extendStyle(props, VCS_VISUAL_COMPUTING_SERVICE)}
     />
   )
 }

@@ -1,0 +1,94 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+import { AwsLbTargetGroup } from './AwsLbTargetGroup.tsx'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb_target_group
+
+export const InputSchema = z.object({
+  arn_suffix: resolvableValue(z.string()),
+  connection_termination: resolvableValue(z.boolean()),
+  deregistration_delay: resolvableValue(z.string()),
+  health_check: resolvableValue(
+    z.object({
+      enabled: z.boolean(),
+      healthy_threshold: z.number(),
+      interval: z.number(),
+      matcher: z.string(),
+      path: z.string(),
+      port: z.string(),
+      protocol: z.string(),
+      timeout: z.number(),
+      unhealthy_threshold: z.number(),
+    }).array(),
+  ),
+  lambda_multi_value_headers_enabled: resolvableValue(z.boolean()),
+  load_balancer_arns: resolvableValue(z.string().array()),
+  load_balancing_algorithm_type: resolvableValue(z.string()),
+  load_balancing_cross_zone_enabled: resolvableValue(z.string()),
+  port: resolvableValue(z.number()),
+  preserve_client_ip: resolvableValue(z.string()),
+  protocol: resolvableValue(z.string()),
+  protocol_version: resolvableValue(z.string()),
+  proxy_protocol_v2: resolvableValue(z.boolean()),
+  slow_start: resolvableValue(z.number()),
+  stickiness: resolvableValue(
+    z.object({
+      cookie_duration: z.number(),
+      cookie_name: z.string(),
+      enabled: z.boolean(),
+      type: z.string(),
+    }).array(),
+  ),
+  target_type: resolvableValue(z.string()),
+  vpc_id: resolvableValue(z.string()),
+  arn: resolvableValue(z.string().optional()),
+  id: resolvableValue(z.string().optional()),
+  load_balancing_anomaly_mitigation: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  timeouts: resolvableValue(
+    z.object({
+      read: z.string().optional(),
+    }).optional(),
+  ),
+})
+
+export const OutputSchema = z.object({})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <AwsLbTargetGroup
+      _type='aws_lb_target_group'
+      _category='data'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props as any}
+    />
+  )
+}
+
+export const useDataAwsLbTargetGroup = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(DataAwsLbTargetGroup, node, id)
+
+export const useDataAwsLbTargetGroups = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(DataAwsLbTargetGroup, node, id)

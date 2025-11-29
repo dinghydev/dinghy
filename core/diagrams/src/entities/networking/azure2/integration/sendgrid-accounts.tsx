@@ -11,11 +11,5 @@ export const SENDGRID_ACCOUNTS = {
 }
 
 export function SendgridAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...SENDGRID_ACCOUNTS}
-      {...props}
-      _style={extendStyle(SENDGRID_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SENDGRID_ACCOUNTS)} />
 }

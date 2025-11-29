@@ -11,5 +11,5 @@ export const POPOVER = {
 }
 
 export function Popover(props: NodeProps) {
-  return <Shape {...POPOVER} {...props} _style={extendStyle(POPOVER, props)} />
+  return <Shape {...props} _style={extendStyle(props, POPOVER)} />
 }

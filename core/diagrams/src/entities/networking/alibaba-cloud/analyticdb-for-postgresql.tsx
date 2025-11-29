@@ -12,10 +12,6 @@ export const ANALYTICDB_FOR_POSTGRESQL = {
 
 export function AnalyticdbForPostgresql(props: NodeProps) {
   return (
-    <Shape
-      {...ANALYTICDB_FOR_POSTGRESQL}
-      {...props}
-      _style={extendStyle(ANALYTICDB_FOR_POSTGRESQL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ANALYTICDB_FOR_POSTGRESQL)} />
   )
 }

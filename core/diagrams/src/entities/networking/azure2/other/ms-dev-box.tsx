@@ -11,7 +11,5 @@ export const MS_DEV_BOX = {
 }
 
 export function MsDevBox(props: NodeProps) {
-  return (
-    <Shape {...MS_DEV_BOX} {...props} _style={extendStyle(MS_DEV_BOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_DEV_BOX)} />
 }

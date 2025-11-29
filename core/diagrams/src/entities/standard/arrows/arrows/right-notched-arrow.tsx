@@ -11,11 +11,5 @@ export const RIGHT_NOTCHED_ARROW = {
 }
 
 export function RightNotchedArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...RIGHT_NOTCHED_ARROW}
-      {...props}
-      _style={extendStyle(RIGHT_NOTCHED_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIGHT_NOTCHED_ARROW)} />
 }

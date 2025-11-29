@@ -11,11 +11,5 @@ export const MESSAGE_CHANNEL = {
 }
 
 export function MessageChannel(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_CHANNEL}
-      {...props}
-      _style={extendStyle(MESSAGE_CHANNEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_CHANNEL)} />
 }

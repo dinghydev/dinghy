@@ -13,9 +13,8 @@ export const ELASTIC_BLOCK_STORE_VOLUME_GP3 = {
 export function ElasticBlockStoreVolumeGp3(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_BLOCK_STORE_VOLUME_GP3}
       {...props}
-      _style={extendStyle(ELASTIC_BLOCK_STORE_VOLUME_GP3, props)}
+      _style={extendStyle(props, ELASTIC_BLOCK_STORE_VOLUME_GP3)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const BUDDYMARKS = {
 }
 
 export function Buddymarks(props: NodeProps) {
-  return (
-    <Shape {...BUDDYMARKS} {...props} _style={extendStyle(BUDDYMARKS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUDDYMARKS)} />
 }

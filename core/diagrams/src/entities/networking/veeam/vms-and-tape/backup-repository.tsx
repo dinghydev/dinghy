@@ -11,11 +11,5 @@ export const BACKUP_REPOSITORY = {
 }
 
 export function BackupRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_REPOSITORY}
-      {...props}
-      _style={extendStyle(BACKUP_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_REPOSITORY)} />
 }

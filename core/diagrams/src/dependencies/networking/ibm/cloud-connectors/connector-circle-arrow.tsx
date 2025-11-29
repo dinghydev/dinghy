@@ -11,9 +11,8 @@ export const CONNECTOR_CIRCLE_ARROW = {
 export function ConnectorCircleArrow(props: NodeProps) {
   return (
     <Dependency
-      {...CONNECTOR_CIRCLE_ARROW}
       {...props}
-      _style={extendStyle(CONNECTOR_CIRCLE_ARROW, props)}
+      _style={extendStyle(props, CONNECTOR_CIRCLE_ARROW)}
     />
   )
 }

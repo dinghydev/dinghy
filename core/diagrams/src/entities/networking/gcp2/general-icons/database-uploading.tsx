@@ -11,11 +11,5 @@ export const DATABASE_UPLOADING = {
 }
 
 export function DatabaseUploading(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_UPLOADING}
-      {...props}
-      _style={extendStyle(DATABASE_UPLOADING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_UPLOADING)} />
 }

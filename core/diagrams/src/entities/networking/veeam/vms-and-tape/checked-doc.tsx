@@ -11,11 +11,5 @@ export const CHECKED_DOC = {
 }
 
 export function CheckedDoc(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKED_DOC}
-      {...props}
-      _style={extendStyle(CHECKED_DOC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKED_DOC)} />
 }

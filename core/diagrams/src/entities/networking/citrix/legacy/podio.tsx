@@ -11,5 +11,5 @@ export const PODIO = {
 }
 
 export function Podio(props: NodeProps) {
-  return <Shape {...PODIO} {...props} _style={extendStyle(PODIO, props)} />
+  return <Shape {...props} _style={extendStyle(props, PODIO)} />
 }

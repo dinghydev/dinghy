@@ -11,11 +11,5 @@ export const CONNECTED_CACHE = {
 }
 
 export function ConnectedCache(props: NodeProps) {
-  return (
-    <Shape
-      {...CONNECTED_CACHE}
-      {...props}
-      _style={extendStyle(CONNECTED_CACHE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONNECTED_CACHE)} />
 }

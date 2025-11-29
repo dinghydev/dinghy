@@ -11,5 +11,5 @@ export const NOR_IEC = {
 }
 
 export function NorIec(props: NodeProps) {
-  return <Shape {...NOR_IEC} {...props} _style={extendStyle(NOR_IEC, props)} />
+  return <Shape {...props} _style={extendStyle(props, NOR_IEC)} />
 }

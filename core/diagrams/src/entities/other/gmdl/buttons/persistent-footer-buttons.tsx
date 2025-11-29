@@ -12,10 +12,6 @@ export const PERSISTENT_FOOTER_BUTTONS = {
 
 export function PersistentFooterButtons(props: NodeProps) {
   return (
-    <Shape
-      {...PERSISTENT_FOOTER_BUTTONS}
-      {...props}
-      _style={extendStyle(PERSISTENT_FOOTER_BUTTONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PERSISTENT_FOOTER_BUTTONS)} />
   )
 }

@@ -11,5 +11,5 @@ export const GMAIL = {
 }
 
 export function Gmail(props: NodeProps) {
-  return <Shape {...GMAIL} {...props} _style={extendStyle(GMAIL, props)} />
+  return <Shape {...props} _style={extendStyle(props, GMAIL)} />
 }

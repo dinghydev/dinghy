@@ -11,11 +11,5 @@ export const FISH_CLEANING = {
 }
 
 export function FishCleaning(props: NodeProps) {
-  return (
-    <Shape
-      {...FISH_CLEANING}
-      {...props}
-      _style={extendStyle(FISH_CLEANING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FISH_CLEANING)} />
 }

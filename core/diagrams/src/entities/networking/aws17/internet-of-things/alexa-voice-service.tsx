@@ -11,11 +11,5 @@ export const ALEXA_VOICE_SERVICE = {
 }
 
 export function AlexaVoiceService(props: NodeProps) {
-  return (
-    <Shape
-      {...ALEXA_VOICE_SERVICE}
-      {...props}
-      _style={extendStyle(ALEXA_VOICE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALEXA_VOICE_SERVICE)} />
 }

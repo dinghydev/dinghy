@@ -13,9 +13,8 @@ export const SAP_ALERT_NOTIFICATION_SERVICE_FOR_SAP_BTP = {
 export function SapAlertNotificationServiceForSapBtp(props: NodeProps) {
   return (
     <Shape
-      {...SAP_ALERT_NOTIFICATION_SERVICE_FOR_SAP_BTP}
       {...props}
-      _style={extendStyle(SAP_ALERT_NOTIFICATION_SERVICE_FOR_SAP_BTP, props)}
+      _style={extendStyle(props, SAP_ALERT_NOTIFICATION_SERVICE_FOR_SAP_BTP)}
     />
   )
 }

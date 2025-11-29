@@ -11,11 +11,5 @@ export const ARC_LIST_12 = {
 }
 
 export function ArcList12(props: NodeProps) {
-  return (
-    <Shape
-      {...ARC_LIST_12}
-      {...props}
-      _style={extendStyle(ARC_LIST_12, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARC_LIST_12)} />
 }

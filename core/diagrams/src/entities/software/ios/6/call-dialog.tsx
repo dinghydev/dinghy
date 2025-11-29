@@ -11,11 +11,5 @@ export const CALL_DIALOG = {
 }
 
 export function CallDialog(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_DIALOG}
-      {...props}
-      _style={extendStyle(CALL_DIALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_DIALOG)} />
 }

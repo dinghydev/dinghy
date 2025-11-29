@@ -11,11 +11,5 @@ export const DISCONNECTED_MAILBOX = {
 }
 
 export function DisconnectedMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...DISCONNECTED_MAILBOX}
-      {...props}
-      _style={extendStyle(DISCONNECTED_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISCONNECTED_MAILBOX)} />
 }

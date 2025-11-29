@@ -11,5 +11,5 @@ export const GABBR = {
 }
 
 export function Gabbr(props: NodeProps) {
-  return <Shape {...GABBR} {...props} _style={extendStyle(GABBR, props)} />
+  return <Shape {...props} _style={extendStyle(props, GABBR)} />
 }

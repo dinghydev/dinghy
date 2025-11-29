@@ -11,5 +11,5 @@ export const TWITTER = {
 }
 
 export function Twitter(props: NodeProps) {
-  return <Shape {...TWITTER} {...props} _style={extendStyle(TWITTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, TWITTER)} />
 }

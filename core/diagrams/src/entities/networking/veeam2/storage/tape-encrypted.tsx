@@ -11,11 +11,5 @@ export const TAPE_ENCRYPTED = {
 }
 
 export function TapeEncrypted(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_ENCRYPTED}
-      {...props}
-      _style={extendStyle(TAPE_ENCRYPTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_ENCRYPTED)} />
 }

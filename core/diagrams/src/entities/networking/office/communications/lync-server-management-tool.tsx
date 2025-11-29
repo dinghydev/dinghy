@@ -13,9 +13,8 @@ export const LYNC_SERVER_MANAGEMENT_TOOL = {
 export function LyncServerManagementTool(props: NodeProps) {
   return (
     <Shape
-      {...LYNC_SERVER_MANAGEMENT_TOOL}
       {...props}
-      _style={extendStyle(LYNC_SERVER_MANAGEMENT_TOOL, props)}
+      _style={extendStyle(props, LYNC_SERVER_MANAGEMENT_TOOL)}
     />
   )
 }

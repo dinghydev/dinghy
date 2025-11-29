@@ -12,10 +12,6 @@ export const VMWARE_VCLOUD_DIRECTOR = {
 
 export function VmwareVcloudDirector(props: NodeProps) {
   return (
-    <Shape
-      {...VMWARE_VCLOUD_DIRECTOR}
-      {...props}
-      _style={extendStyle(VMWARE_VCLOUD_DIRECTOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VMWARE_VCLOUD_DIRECTOR)} />
   )
 }

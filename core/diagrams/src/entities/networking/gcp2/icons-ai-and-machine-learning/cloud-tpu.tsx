@@ -11,7 +11,5 @@ export const CLOUD_TPU = {
 }
 
 export function CloudTpu(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_TPU} {...props} _style={extendStyle(CLOUD_TPU, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_TPU)} />
 }

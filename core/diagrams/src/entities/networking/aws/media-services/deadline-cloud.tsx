@@ -11,11 +11,5 @@ export const DEADLINE_CLOUD = {
 }
 
 export function DeadlineCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...DEADLINE_CLOUD}
-      {...props}
-      _style={extendStyle(DEADLINE_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEADLINE_CLOUD)} />
 }

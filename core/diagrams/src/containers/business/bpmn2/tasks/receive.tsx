@@ -9,5 +9,5 @@ export const RECEIVE = {
 }
 
 export function Receive(props: NodeProps) {
-  return <Shape {...RECEIVE} {...props} _style={extendStyle(RECEIVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, RECEIVE)} />
 }

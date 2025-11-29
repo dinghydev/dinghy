@@ -10,11 +10,5 @@ export const MULTI_PROCESS = {
 }
 
 export function MultiProcess(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTI_PROCESS}
-      {...props}
-      _style={extendStyle(MULTI_PROCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTI_PROCESS)} />
 }

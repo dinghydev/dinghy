@@ -11,11 +11,5 @@ export const WINDOW_GLIDER = {
 }
 
 export function WindowGlider(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOW_GLIDER}
-      {...props}
-      _style={extendStyle(WINDOW_GLIDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOW_GLIDER)} />
 }

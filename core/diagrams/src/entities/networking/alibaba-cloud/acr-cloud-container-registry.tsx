@@ -13,9 +13,8 @@ export const ACR_CLOUD_CONTAINER_REGISTRY = {
 export function AcrCloudContainerRegistry(props: NodeProps) {
   return (
     <Shape
-      {...ACR_CLOUD_CONTAINER_REGISTRY}
       {...props}
-      _style={extendStyle(ACR_CLOUD_CONTAINER_REGISTRY, props)}
+      _style={extendStyle(props, ACR_CLOUD_CONTAINER_REGISTRY)}
     />
   )
 }

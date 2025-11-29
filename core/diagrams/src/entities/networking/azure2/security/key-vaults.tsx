@@ -11,7 +11,5 @@ export const KEY_VAULTS = {
 }
 
 export function KeyVaults(props: NodeProps) {
-  return (
-    <Shape {...KEY_VAULTS} {...props} _style={extendStyle(KEY_VAULTS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEY_VAULTS)} />
 }

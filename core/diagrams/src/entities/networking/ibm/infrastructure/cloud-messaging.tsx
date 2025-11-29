@@ -11,11 +11,5 @@ export const CLOUD_MESSAGING = {
 }
 
 export function CloudMessaging(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_MESSAGING}
-      {...props}
-      _style={extendStyle(CLOUD_MESSAGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_MESSAGING)} />
 }

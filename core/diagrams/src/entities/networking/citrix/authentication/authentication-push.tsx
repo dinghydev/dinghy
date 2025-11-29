@@ -11,11 +11,5 @@ export const AUTHENTICATION_PUSH = {
 }
 
 export function AuthenticationPush(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_PUSH}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_PUSH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_PUSH)} />
 }

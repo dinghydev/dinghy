@@ -12,10 +12,6 @@ export const EXCHANGE_ACTIVE_SYNC_BLUE = {
 
 export function ExchangeActiveSyncBlue(props: NodeProps) {
   return (
-    <Shape
-      {...EXCHANGE_ACTIVE_SYNC_BLUE}
-      {...props}
-      _style={extendStyle(EXCHANGE_ACTIVE_SYNC_BLUE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXCHANGE_ACTIVE_SYNC_BLUE)} />
   )
 }

@@ -11,11 +11,5 @@ export const MULTIMEDIAAI = {
 }
 
 export function Multimediaai(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIMEDIAAI}
-      {...props}
-      _style={extendStyle(MULTIMEDIAAI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIMEDIAAI)} />
 }

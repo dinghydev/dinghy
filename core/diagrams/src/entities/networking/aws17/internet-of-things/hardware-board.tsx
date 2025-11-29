@@ -11,11 +11,5 @@ export const HARDWARE_BOARD = {
 }
 
 export function HardwareBoard(props: NodeProps) {
-  return (
-    <Shape
-      {...HARDWARE_BOARD}
-      {...props}
-      _style={extendStyle(HARDWARE_BOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HARDWARE_BOARD)} />
 }

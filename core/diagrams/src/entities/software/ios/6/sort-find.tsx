@@ -11,7 +11,5 @@ export const SORT_FIND = {
 }
 
 export function SortFind(props: NodeProps) {
-  return (
-    <Shape {...SORT_FIND} {...props} _style={extendStyle(SORT_FIND, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SORT_FIND)} />
 }

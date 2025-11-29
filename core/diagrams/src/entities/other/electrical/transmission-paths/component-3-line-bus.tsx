@@ -11,11 +11,5 @@ export const COMPONENT_3_LINE_BUS = {
 }
 
 export function Component3LineBus(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_3_LINE_BUS}
-      {...props}
-      _style={extendStyle(COMPONENT_3_LINE_BUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_3_LINE_BUS)} />
 }

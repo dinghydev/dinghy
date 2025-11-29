@@ -11,11 +11,5 @@ export const VIRTUAL_LAYER_SWITCH = {
 }
 
 export function VirtualLayerSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_LAYER_SWITCH}
-      {...props}
-      _style={extendStyle(VIRTUAL_LAYER_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_LAYER_SWITCH)} />
 }

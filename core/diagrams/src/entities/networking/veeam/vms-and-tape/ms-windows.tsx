@@ -11,7 +11,5 @@ export const MS_WINDOWS = {
 }
 
 export function MsWindows(props: NodeProps) {
-  return (
-    <Shape {...MS_WINDOWS} {...props} _style={extendStyle(MS_WINDOWS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MS_WINDOWS)} />
 }

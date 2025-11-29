@@ -11,7 +11,5 @@ export const NETRANGER = {
 }
 
 export function Netranger(props: NodeProps) {
-  return (
-    <Shape {...NETRANGER} {...props} _style={extendStyle(NETRANGER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETRANGER)} />
 }

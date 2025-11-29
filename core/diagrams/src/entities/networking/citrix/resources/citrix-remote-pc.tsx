@@ -11,11 +11,5 @@ export const CITRIX_REMOTE_PC = {
 }
 
 export function CitrixRemotePc(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_REMOTE_PC}
-      {...props}
-      _style={extendStyle(CITRIX_REMOTE_PC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_REMOTE_PC)} />
 }

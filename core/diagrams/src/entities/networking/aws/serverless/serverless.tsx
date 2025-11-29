@@ -11,7 +11,5 @@ export const SERVERLESS = {
 }
 
 export function Serverless(props: NodeProps) {
-  return (
-    <Shape {...SERVERLESS} {...props} _style={extendStyle(SERVERLESS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVERLESS)} />
 }

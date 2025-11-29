@@ -11,5 +11,5 @@ export const SAFETY = {
 }
 
 export function Safety(props: NodeProps) {
-  return <Shape {...SAFETY} {...props} _style={extendStyle(SAFETY, props)} />
+  return <Shape {...props} _style={extendStyle(props, SAFETY)} />
 }

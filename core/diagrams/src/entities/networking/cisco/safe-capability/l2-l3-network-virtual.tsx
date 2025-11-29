@@ -11,11 +11,5 @@ export const L2_L3_NETWORK_VIRTUAL = {
 }
 
 export function L2L3NetworkVirtual(props: NodeProps) {
-  return (
-    <Shape
-      {...L2_L3_NETWORK_VIRTUAL}
-      {...props}
-      _style={extendStyle(L2_L3_NETWORK_VIRTUAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, L2_L3_NETWORK_VIRTUAL)} />
 }

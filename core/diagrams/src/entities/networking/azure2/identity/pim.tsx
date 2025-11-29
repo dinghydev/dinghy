@@ -11,5 +11,5 @@ export const PIM = {
 }
 
 export function Pim(props: NodeProps) {
-  return <Shape {...PIM} {...props} _style={extendStyle(PIM, props)} />
+  return <Shape {...props} _style={extendStyle(props, PIM)} />
 }

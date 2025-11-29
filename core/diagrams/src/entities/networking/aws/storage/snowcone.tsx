@@ -11,7 +11,5 @@ export const SNOWCONE = {
 }
 
 export function Snowcone(props: NodeProps) {
-  return (
-    <Shape {...SNOWCONE} {...props} _style={extendStyle(SNOWCONE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNOWCONE)} />
 }

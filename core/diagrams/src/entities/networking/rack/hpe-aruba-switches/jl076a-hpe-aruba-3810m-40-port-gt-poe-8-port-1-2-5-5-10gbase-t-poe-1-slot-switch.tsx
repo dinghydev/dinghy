@@ -16,11 +16,10 @@ export function Jl076aHpeAruba3810m40PortGtPoe8Port125510gbaseTPoe1SlotSwitch(
 ) {
   return (
     <Shape
-      {...JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH}
       {...props}
       _style={extendStyle(
-        JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH,
         props,
+        JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH,
       )}
     />
   )

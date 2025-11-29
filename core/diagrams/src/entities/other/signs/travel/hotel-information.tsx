@@ -11,11 +11,5 @@ export const HOTEL_INFORMATION = {
 }
 
 export function HotelInformation(props: NodeProps) {
-  return (
-    <Shape
-      {...HOTEL_INFORMATION}
-      {...props}
-      _style={extendStyle(HOTEL_INFORMATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOTEL_INFORMATION)} />
 }

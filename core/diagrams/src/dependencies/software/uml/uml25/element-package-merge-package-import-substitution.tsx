@@ -11,11 +11,10 @@ export const ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION = {
 export function ElementPackageMergePackageImportSubstitution(props: NodeProps) {
   return (
     <Dependency
-      {...ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION}
       {...props}
       _style={extendStyle(
-        ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION,
         props,
+        ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION,
       )}
     />
   )

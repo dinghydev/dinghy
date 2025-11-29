@@ -11,11 +11,5 @@ export const SECONDARY_CODEC = {
 }
 
 export function SecondaryCodec(props: NodeProps) {
-  return (
-    <Shape
-      {...SECONDARY_CODEC}
-      {...props}
-      _style={extendStyle(SECONDARY_CODEC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECONDARY_CODEC)} />
 }

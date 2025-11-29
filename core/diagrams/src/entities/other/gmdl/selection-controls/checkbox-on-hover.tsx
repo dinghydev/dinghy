@@ -11,11 +11,5 @@ export const CHECKBOX_ON_HOVER = {
 }
 
 export function CheckboxOnHover(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKBOX_ON_HOVER}
-      {...props}
-      _style={extendStyle(CHECKBOX_ON_HOVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKBOX_ON_HOVER)} />
 }

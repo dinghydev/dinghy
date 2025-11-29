@@ -11,11 +11,5 @@ export const NAVIGATION_BAR_6 = {
 }
 
 export function NavigationBar6(props: NodeProps) {
-  return (
-    <Shape
-      {...NAVIGATION_BAR_6}
-      {...props}
-      _style={extendStyle(NAVIGATION_BAR_6, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVIGATION_BAR_6)} />
 }

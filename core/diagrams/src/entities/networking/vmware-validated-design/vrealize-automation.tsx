@@ -11,11 +11,5 @@ export const VREALIZE_AUTOMATION = {
 }
 
 export function VrealizeAutomation(props: NodeProps) {
-  return (
-    <Shape
-      {...VREALIZE_AUTOMATION}
-      {...props}
-      _style={extendStyle(VREALIZE_AUTOMATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VREALIZE_AUTOMATION)} />
 }

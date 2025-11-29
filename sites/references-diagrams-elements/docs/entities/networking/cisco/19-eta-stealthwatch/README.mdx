@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Cognitive } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
 
 <Cognitive/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { COGNITIVE } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, COGNITIVE)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { Cognitive } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
 import { FlowCollector } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
 
 <FlowCollector/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { FLOW_COLLECTOR } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, FLOW_COLLECTOR)}
+  />
+
 ```
 
   </TabItem>
@@ -86,6 +108,17 @@ import { FlowCollector } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
 import { StealthwatchManagementConsoleSmc } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
 
 <StealthwatchManagementConsoleSmc/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { STEALTHWATCH_MANAGEMENT_CONSOLE_SMC } from '@dinghy/diagrams/entitiesCisco19EtaStealthwatch'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, STEALTHWATCH_MANAGEMENT_CONSOLE_SMC)}
+  />
+
 ```
 
   </TabItem>

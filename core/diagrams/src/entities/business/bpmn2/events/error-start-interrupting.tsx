@@ -12,10 +12,6 @@ export const ERROR_START_INTERRUPTING = {
 
 export function ErrorStartInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...ERROR_START_INTERRUPTING}
-      {...props}
-      _style={extendStyle(ERROR_START_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ERROR_START_INTERRUPTING)} />
   )
 }

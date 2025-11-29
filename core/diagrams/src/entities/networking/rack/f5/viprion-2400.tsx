@@ -11,11 +11,5 @@ export const VIPRION_2400 = {
 }
 
 export function Viprion2400(props: NodeProps) {
-  return (
-    <Shape
-      {...VIPRION_2400}
-      {...props}
-      _style={extendStyle(VIPRION_2400, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIPRION_2400)} />
 }

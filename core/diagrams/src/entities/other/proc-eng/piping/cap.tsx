@@ -11,5 +11,5 @@ export const CAP = {
 }
 
 export function Cap(props: NodeProps) {
-  return <Shape {...CAP} {...props} _style={extendStyle(CAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, CAP)} />
 }

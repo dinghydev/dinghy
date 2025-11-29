@@ -13,9 +13,8 @@ export const REDSHIFT_STREAMING_INGESTION = {
 export function RedshiftStreamingIngestion(props: NodeProps) {
   return (
     <Shape
-      {...REDSHIFT_STREAMING_INGESTION}
       {...props}
-      _style={extendStyle(REDSHIFT_STREAMING_INGESTION, props)}
+      _style={extendStyle(props, REDSHIFT_STREAMING_INGESTION)}
     />
   )
 }

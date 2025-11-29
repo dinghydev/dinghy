@@ -11,11 +11,5 @@ export const RPD_REMOTING_FILE = {
 }
 
 export function RpdRemotingFile(props: NodeProps) {
-  return (
-    <Shape
-      {...RPD_REMOTING_FILE}
-      {...props}
-      _style={extendStyle(RPD_REMOTING_FILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RPD_REMOTING_FILE)} />
 }

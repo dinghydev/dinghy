@@ -12,10 +12,6 @@ export const X10640_FLOW_CONTROL_VALVE = {
 
 export function X10640FlowControlValve(props: NodeProps) {
   return (
-    <Shape
-      {...X10640_FLOW_CONTROL_VALVE}
-      {...props}
-      _style={extendStyle(X10640_FLOW_CONTROL_VALVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10640_FLOW_CONTROL_VALVE)} />
   )
 }

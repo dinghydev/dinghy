@@ -11,7 +11,5 @@ export const PARTNERS = {
 }
 
 export function Partners(props: NodeProps) {
-  return (
-    <Shape {...PARTNERS} {...props} _style={extendStyle(PARTNERS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTNERS)} />
 }

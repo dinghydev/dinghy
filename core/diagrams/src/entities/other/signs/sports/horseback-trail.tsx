@@ -11,11 +11,5 @@ export const HORSEBACK_TRAIL = {
 }
 
 export function HorsebackTrail(props: NodeProps) {
-  return (
-    <Shape
-      {...HORSEBACK_TRAIL}
-      {...props}
-      _style={extendStyle(HORSEBACK_TRAIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORSEBACK_TRAIL)} />
 }

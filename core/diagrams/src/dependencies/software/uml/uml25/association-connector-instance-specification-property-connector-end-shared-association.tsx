@@ -14,11 +14,10 @@ export function AssociationConnectorInstanceSpecificationPropertyConnectorEndSha
 ) {
   return (
     <Dependency
-      {...ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION}
       {...props}
       _style={extendStyle(
-        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION,
         props,
+        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION,
       )}
     />
   )

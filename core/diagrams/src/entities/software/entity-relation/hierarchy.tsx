@@ -10,7 +10,5 @@ export const HIERARCHY = {
 }
 
 export function Hierarchy(props: NodeProps) {
-  return (
-    <Shape {...HIERARCHY} {...props} _style={extendStyle(HIERARCHY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HIERARCHY)} />
 }

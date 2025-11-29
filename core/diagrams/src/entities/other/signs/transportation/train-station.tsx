@@ -11,11 +11,5 @@ export const TRAIN_STATION = {
 }
 
 export function TrainStation(props: NodeProps) {
-  return (
-    <Shape
-      {...TRAIN_STATION}
-      {...props}
-      _style={extendStyle(TRAIN_STATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRAIN_STATION)} />
 }

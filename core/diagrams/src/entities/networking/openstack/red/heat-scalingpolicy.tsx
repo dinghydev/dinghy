@@ -11,11 +11,5 @@ export const HEAT_SCALINGPOLICY = {
 }
 
 export function HeatScalingpolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...HEAT_SCALINGPOLICY}
-      {...props}
-      _style={extendStyle(HEAT_SCALINGPOLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEAT_SCALINGPOLICY)} />
 }

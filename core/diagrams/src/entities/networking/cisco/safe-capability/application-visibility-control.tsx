@@ -13,9 +13,8 @@ export const APPLICATION_VISIBILITY_CONTROL = {
 export function ApplicationVisibilityControl(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_VISIBILITY_CONTROL}
       {...props}
-      _style={extendStyle(APPLICATION_VISIBILITY_CONTROL, props)}
+      _style={extendStyle(props, APPLICATION_VISIBILITY_CONTROL)}
     />
   )
 }

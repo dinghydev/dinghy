@@ -11,11 +11,5 @@ export const SHARING_POLICY = {
 }
 
 export function SharingPolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARING_POLICY}
-      {...props}
-      _style={extendStyle(SHARING_POLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARING_POLICY)} />
 }

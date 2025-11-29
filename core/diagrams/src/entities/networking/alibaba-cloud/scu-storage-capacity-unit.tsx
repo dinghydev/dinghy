@@ -12,10 +12,6 @@ export const SCU_STORAGE_CAPACITY_UNIT = {
 
 export function ScuStorageCapacityUnit(props: NodeProps) {
   return (
-    <Shape
-      {...SCU_STORAGE_CAPACITY_UNIT}
-      {...props}
-      _style={extendStyle(SCU_STORAGE_CAPACITY_UNIT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SCU_STORAGE_CAPACITY_UNIT)} />
   )
 }

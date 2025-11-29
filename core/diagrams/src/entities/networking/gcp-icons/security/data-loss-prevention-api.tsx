@@ -12,10 +12,6 @@ export const DATA_LOSS_PREVENTION_API = {
 
 export function DataLossPreventionApi(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_LOSS_PREVENTION_API}
-      {...props}
-      _style={extendStyle(DATA_LOSS_PREVENTION_API, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_LOSS_PREVENTION_API)} />
   )
 }

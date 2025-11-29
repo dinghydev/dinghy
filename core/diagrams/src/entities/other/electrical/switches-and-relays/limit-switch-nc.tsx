@@ -11,11 +11,5 @@ export const LIMIT_SWITCH_NC = {
 }
 
 export function LimitSwitchNc(props: NodeProps) {
-  return (
-    <Shape
-      {...LIMIT_SWITCH_NC}
-      {...props}
-      _style={extendStyle(LIMIT_SWITCH_NC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIMIT_SWITCH_NC)} />
 }

@@ -11,11 +11,5 @@ export const COMPUTER_VISION = {
 }
 
 export function ComputerVision(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTER_VISION}
-      {...props}
-      _style={extendStyle(COMPUTER_VISION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTER_VISION)} />
 }

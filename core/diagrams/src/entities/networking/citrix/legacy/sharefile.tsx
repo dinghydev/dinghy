@@ -11,7 +11,5 @@ export const SHAREFILE = {
 }
 
 export function Sharefile(props: NodeProps) {
-  return (
-    <Shape {...SHAREFILE} {...props} _style={extendStyle(SHAREFILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHAREFILE)} />
 }

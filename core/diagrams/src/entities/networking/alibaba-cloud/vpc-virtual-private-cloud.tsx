@@ -12,10 +12,6 @@ export const VPC_VIRTUAL_PRIVATE_CLOUD = {
 
 export function VpcVirtualPrivateCloud(props: NodeProps) {
   return (
-    <Shape
-      {...VPC_VIRTUAL_PRIVATE_CLOUD}
-      {...props}
-      _style={extendStyle(VPC_VIRTUAL_PRIVATE_CLOUD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VPC_VIRTUAL_PRIVATE_CLOUD)} />
   )
 }

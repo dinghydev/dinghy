@@ -12,10 +12,6 @@ export const HORIZONTAL_CURLY_BRACE = {
 
 export function HorizontalCurlyBrace(props: NodeProps) {
   return (
-    <Shape
-      {...HORIZONTAL_CURLY_BRACE}
-      {...props}
-      _style={extendStyle(HORIZONTAL_CURLY_BRACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HORIZONTAL_CURLY_BRACE)} />
   )
 }

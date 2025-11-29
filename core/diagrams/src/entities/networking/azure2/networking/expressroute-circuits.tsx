@@ -11,11 +11,5 @@ export const EXPRESSROUTE_CIRCUITS = {
 }
 
 export function ExpressrouteCircuits(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPRESSROUTE_CIRCUITS}
-      {...props}
-      _style={extendStyle(EXPRESSROUTE_CIRCUITS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPRESSROUTE_CIRCUITS)} />
 }

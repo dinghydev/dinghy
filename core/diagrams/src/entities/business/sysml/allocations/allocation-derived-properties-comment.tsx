@@ -13,9 +13,8 @@ export const ALLOCATION_DERIVED_PROPERTIES_COMMENT = {
 export function AllocationDerivedPropertiesComment(props: NodeProps) {
   return (
     <Shape
-      {...ALLOCATION_DERIVED_PROPERTIES_COMMENT}
       {...props}
-      _style={extendStyle(ALLOCATION_DERIVED_PROPERTIES_COMMENT, props)}
+      _style={extendStyle(props, ALLOCATION_DERIVED_PROPERTIES_COMMENT)}
     />
   )
 }

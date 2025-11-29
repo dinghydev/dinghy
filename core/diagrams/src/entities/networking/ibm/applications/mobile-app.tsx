@@ -11,7 +11,5 @@ export const MOBILE_APP = {
 }
 
 export function MobileApp(props: NodeProps) {
-  return (
-    <Shape {...MOBILE_APP} {...props} _style={extendStyle(MOBILE_APP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_APP)} />
 }

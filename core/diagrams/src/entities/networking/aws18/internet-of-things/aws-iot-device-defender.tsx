@@ -12,10 +12,6 @@ export const AWS_IOT_DEVICE_DEFENDER = {
 
 export function AwsIotDeviceDefender(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_IOT_DEVICE_DEFENDER}
-      {...props}
-      _style={extendStyle(AWS_IOT_DEVICE_DEFENDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_IOT_DEVICE_DEFENDER)} />
   )
 }

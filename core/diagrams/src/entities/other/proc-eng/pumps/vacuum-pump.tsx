@@ -11,11 +11,5 @@ export const VACUUM_PUMP = {
 }
 
 export function VacuumPump(props: NodeProps) {
-  return (
-    <Shape
-      {...VACUUM_PUMP}
-      {...props}
-      _style={extendStyle(VACUUM_PUMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VACUUM_PUMP)} />
 }

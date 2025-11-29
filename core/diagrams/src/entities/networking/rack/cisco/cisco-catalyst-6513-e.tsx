@@ -11,11 +11,5 @@ export const CISCO_CATALYST_6513_E = {
 }
 
 export function CiscoCatalyst6513E(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_CATALYST_6513_E}
-      {...props}
-      _style={extendStyle(CISCO_CATALYST_6513_E, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_CATALYST_6513_E)} />
 }

@@ -11,7 +11,5 @@ export const CALLBACK = {
 }
 
 export function Callback(props: NodeProps) {
-  return (
-    <Shape {...CALLBACK} {...props} _style={extendStyle(CALLBACK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALLBACK)} />
 }

@@ -11,11 +11,5 @@ export const GENOMICS_CLI = {
 }
 
 export function GenomicsCli(props: NodeProps) {
-  return (
-    <Shape
-      {...GENOMICS_CLI}
-      {...props}
-      _style={extendStyle(GENOMICS_CLI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENOMICS_CLI)} />
 }

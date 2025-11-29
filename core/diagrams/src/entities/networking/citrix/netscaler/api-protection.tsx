@@ -11,11 +11,5 @@ export const API_PROTECTION = {
 }
 
 export function ApiProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...API_PROTECTION}
-      {...props}
-      _style={extendStyle(API_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_PROTECTION)} />
 }

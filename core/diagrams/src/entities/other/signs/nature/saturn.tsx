@@ -11,5 +11,5 @@ export const SATURN = {
 }
 
 export function Saturn(props: NodeProps) {
-  return <Shape {...SATURN} {...props} _style={extendStyle(SATURN, props)} />
+  return <Shape {...props} _style={extendStyle(props, SATURN)} />
 }

@@ -11,7 +11,5 @@ export const ARROWHEAD = {
 }
 
 export function Arrowhead(props: NodeProps) {
-  return (
-    <Shape {...ARROWHEAD} {...props} _style={extendStyle(ARROWHEAD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROWHEAD)} />
 }

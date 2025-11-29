@@ -11,11 +11,5 @@ export const ROLE_SECURE_ACCESS = {
 }
 
 export function RoleSecureAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_SECURE_ACCESS}
-      {...props}
-      _style={extendStyle(ROLE_SECURE_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_SECURE_ACCESS)} />
 }

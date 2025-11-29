@@ -11,5 +11,5 @@ export const KMS = {
 }
 
 export function Kms(props: NodeProps) {
-  return <Shape {...KMS} {...props} _style={extendStyle(KMS, props)} />
+  return <Shape {...props} _style={extendStyle(props, KMS)} />
 }

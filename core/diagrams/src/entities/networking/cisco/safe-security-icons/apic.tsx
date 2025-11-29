@@ -11,5 +11,5 @@ export const APIC = {
 }
 
 export function Apic(props: NodeProps) {
-  return <Shape {...APIC} {...props} _style={extendStyle(APIC, props)} />
+  return <Shape {...props} _style={extendStyle(props, APIC)} />
 }

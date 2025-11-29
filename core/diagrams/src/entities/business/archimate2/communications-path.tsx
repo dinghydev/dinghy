@@ -11,11 +11,5 @@ export const COMMUNICATIONS_PATH = {
 }
 
 export function CommunicationsPath(props: NodeProps) {
-  return (
-    <Shape
-      {...COMMUNICATIONS_PATH}
-      {...props}
-      _style={extendStyle(COMMUNICATIONS_PATH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMUNICATIONS_PATH)} />
 }

@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { TransferAppliance } from '@dinghy/diagrams/entitiesGcp2DataTransfer'
 
 <TransferAppliance/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { TRANSFER_APPLIANCE } from '@dinghy/diagrams/entitiesGcp2DataTransfer'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, TRANSFER_APPLIANCE)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { TransferAppliance } from '@dinghy/diagrams/entitiesGcp2DataTransfer'
 import { TransferAppliance2 } from '@dinghy/diagrams/entitiesGcp2DataTransfer'
 
 <TransferAppliance2/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { TRANSFER_APPLIANCE_2 } from '@dinghy/diagrams/entitiesGcp2DataTransfer'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, TRANSFER_APPLIANCE_2)}
+  />
+
 ```
 
   </TabItem>

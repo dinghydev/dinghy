@@ -13,9 +13,8 @@ export const DEFENDER_DISTRIBUTER_CONTROL_SYSTEM = {
 export function DefenderDistributerControlSystem(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_DISTRIBUTER_CONTROL_SYSTEM}
       {...props}
-      _style={extendStyle(DEFENDER_DISTRIBUTER_CONTROL_SYSTEM, props)}
+      _style={extendStyle(props, DEFENDER_DISTRIBUTER_CONTROL_SYSTEM)}
     />
   )
 }

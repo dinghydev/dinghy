@@ -11,11 +11,5 @@ export const VREALIZE_ORCHESTRATOR = {
 }
 
 export function VrealizeOrchestrator(props: NodeProps) {
-  return (
-    <Shape
-      {...VREALIZE_ORCHESTRATOR}
-      {...props}
-      _style={extendStyle(VREALIZE_ORCHESTRATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VREALIZE_ORCHESTRATOR)} />
 }

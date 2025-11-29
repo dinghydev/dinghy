@@ -11,7 +11,5 @@ export const OCEANBASE = {
 }
 
 export function Oceanbase(props: NodeProps) {
-  return (
-    <Shape {...OCEANBASE} {...props} _style={extendStyle(OCEANBASE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OCEANBASE)} />
 }

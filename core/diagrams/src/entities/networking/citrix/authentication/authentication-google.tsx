@@ -11,11 +11,5 @@ export const AUTHENTICATION_GOOGLE = {
 }
 
 export function AuthenticationGoogle(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_GOOGLE}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_GOOGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_GOOGLE)} />
 }

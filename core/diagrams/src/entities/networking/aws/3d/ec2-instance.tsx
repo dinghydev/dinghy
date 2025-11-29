@@ -11,11 +11,5 @@ export const EC2_INSTANCE = {
 }
 
 export function Ec2Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_INSTANCE}
-      {...props}
-      _style={extendStyle(EC2_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_INSTANCE)} />
 }

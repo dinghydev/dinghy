@@ -11,11 +11,5 @@ export const ORTHOGONAL_TRIANGLE = {
 }
 
 export function OrthogonalTriangle(props: NodeProps) {
-  return (
-    <Shape
-      {...ORTHOGONAL_TRIANGLE}
-      {...props}
-      _style={extendStyle(ORTHOGONAL_TRIANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORTHOGONAL_TRIANGLE)} />
 }

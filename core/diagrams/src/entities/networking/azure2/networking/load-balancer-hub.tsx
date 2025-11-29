@@ -11,11 +11,5 @@ export const LOAD_BALANCER_HUB = {
 }
 
 export function LoadBalancerHub(props: NodeProps) {
-  return (
-    <Shape
-      {...LOAD_BALANCER_HUB}
-      {...props}
-      _style={extendStyle(LOAD_BALANCER_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOAD_BALANCER_HUB)} />
 }

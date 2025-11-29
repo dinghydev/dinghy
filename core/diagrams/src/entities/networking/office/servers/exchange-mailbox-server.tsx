@@ -12,10 +12,6 @@ export const EXCHANGE_MAILBOX_SERVER = {
 
 export function ExchangeMailboxServer(props: NodeProps) {
   return (
-    <Shape
-      {...EXCHANGE_MAILBOX_SERVER}
-      {...props}
-      _style={extendStyle(EXCHANGE_MAILBOX_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXCHANGE_MAILBOX_SERVER)} />
   )
 }

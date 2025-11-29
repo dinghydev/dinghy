@@ -12,10 +12,6 @@ export const CISCO_BLADE_SWITCH_3030 = {
 
 export function CiscoBladeSwitch3030(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_BLADE_SWITCH_3030}
-      {...props}
-      _style={extendStyle(CISCO_BLADE_SWITCH_3030, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_BLADE_SWITCH_3030)} />
   )
 }

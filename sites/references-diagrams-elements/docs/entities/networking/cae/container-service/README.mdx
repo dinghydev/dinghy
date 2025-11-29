@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { ContainerInstances } from '@dinghy/diagrams/entitiesCaeContainerService'
 
 <ContainerInstances/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CONTAINER_INSTANCES } from '@dinghy/diagrams/entitiesCaeContainerService'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CONTAINER_INSTANCES)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { ContainerInstances } from '@dinghy/diagrams/entitiesCaeContainerService
 import { ContainerRegistries } from '@dinghy/diagrams/entitiesCaeContainerService'
 
 <ContainerRegistries/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CONTAINER_REGISTRIES } from '@dinghy/diagrams/entitiesCaeContainerService'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CONTAINER_REGISTRIES)}
+  />
+
 ```
 
   </TabItem>
@@ -86,6 +108,17 @@ import { ContainerRegistries } from '@dinghy/diagrams/entitiesCaeContainerServic
 import { KubernetesServices } from '@dinghy/diagrams/entitiesCaeContainerService'
 
 <KubernetesServices/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { KUBERNETES_SERVICES } from '@dinghy/diagrams/entitiesCaeContainerService'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, KUBERNETES_SERVICES)}
+  />
+
 ```
 
   </TabItem>

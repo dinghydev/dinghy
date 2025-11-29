@@ -12,10 +12,6 @@ export const SWITCH_DISCONNECTOR_OFF = {
 
 export function SwitchDisconnectorOff(props: NodeProps) {
   return (
-    <Shape
-      {...SWITCH_DISCONNECTOR_OFF}
-      {...props}
-      _style={extendStyle(SWITCH_DISCONNECTOR_OFF, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SWITCH_DISCONNECTOR_OFF)} />
   )
 }

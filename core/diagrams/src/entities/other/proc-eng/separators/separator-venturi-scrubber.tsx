@@ -12,10 +12,6 @@ export const SEPARATOR_VENTURI_SCRUBBER = {
 
 export function SeparatorVenturiScrubber(props: NodeProps) {
   return (
-    <Shape
-      {...SEPARATOR_VENTURI_SCRUBBER}
-      {...props}
-      _style={extendStyle(SEPARATOR_VENTURI_SCRUBBER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SEPARATOR_VENTURI_SCRUBBER)} />
   )
 }

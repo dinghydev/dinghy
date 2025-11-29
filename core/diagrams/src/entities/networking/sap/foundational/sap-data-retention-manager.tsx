@@ -12,10 +12,6 @@ export const SAP_DATA_RETENTION_MANAGER = {
 
 export function SapDataRetentionManager(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_DATA_RETENTION_MANAGER}
-      {...props}
-      _style={extendStyle(SAP_DATA_RETENTION_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_DATA_RETENTION_MANAGER)} />
   )
 }

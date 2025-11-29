@@ -8,11 +8,5 @@ export const COMPOSITION_2 = {
 }
 
 export function Composition2(props: NodeProps) {
-  return (
-    <Dependency
-      {...COMPOSITION_2}
-      {...props}
-      _style={extendStyle(COMPOSITION_2, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, COMPOSITION_2)} />
 }

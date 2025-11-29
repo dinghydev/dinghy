@@ -11,11 +11,5 @@ export const APPLICATION_WEB = {
 }
 
 export function ApplicationWeb(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_WEB}
-      {...props}
-      _style={extendStyle(APPLICATION_WEB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_WEB)} />
 }

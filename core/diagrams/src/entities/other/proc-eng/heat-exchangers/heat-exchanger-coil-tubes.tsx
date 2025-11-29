@@ -12,10 +12,6 @@ export const HEAT_EXCHANGER_COIL_TUBES = {
 
 export function HeatExchangerCoilTubes(props: NodeProps) {
   return (
-    <Shape
-      {...HEAT_EXCHANGER_COIL_TUBES}
-      {...props}
-      _style={extendStyle(HEAT_EXCHANGER_COIL_TUBES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HEAT_EXCHANGER_COIL_TUBES)} />
   )
 }

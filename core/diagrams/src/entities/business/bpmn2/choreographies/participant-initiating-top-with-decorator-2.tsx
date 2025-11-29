@@ -12,9 +12,8 @@ export const PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_2 = {
 export function ParticipantInitiatingTopWithDecorator2(props: NodeProps) {
   return (
     <Shape
-      {...PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_2}
       {...props}
-      _style={extendStyle(PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_2, props)}
+      _style={extendStyle(props, PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_2)}
     />
   )
 }

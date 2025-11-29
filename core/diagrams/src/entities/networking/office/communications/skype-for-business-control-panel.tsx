@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_CONTROL_PANEL = {
 export function SkypeForBusinessControlPanel(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_CONTROL_PANEL}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_CONTROL_PANEL, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_CONTROL_PANEL)}
     />
   )
 }

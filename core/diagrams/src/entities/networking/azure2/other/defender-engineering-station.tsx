@@ -13,9 +13,8 @@ export const DEFENDER_ENGINEERING_STATION = {
 export function DefenderEngineeringStation(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_ENGINEERING_STATION}
       {...props}
-      _style={extendStyle(DEFENDER_ENGINEERING_STATION, props)}
+      _style={extendStyle(props, DEFENDER_ENGINEERING_STATION)}
     />
   )
 }

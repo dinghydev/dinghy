@@ -11,5 +11,5 @@ export const PAGE = {
 }
 
 export function Page(props: NodeProps) {
-  return <Shape {...PAGE} {...props} _style={extendStyle(PAGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, PAGE)} />
 }

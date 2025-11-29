@@ -12,10 +12,6 @@ export const RECOVERY_SERVICES_VAULT = {
 
 export function RecoveryServicesVault(props: NodeProps) {
   return (
-    <Shape
-      {...RECOVERY_SERVICES_VAULT}
-      {...props}
-      _style={extendStyle(RECOVERY_SERVICES_VAULT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RECOVERY_SERVICES_VAULT)} />
   )
 }

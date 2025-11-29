@@ -11,11 +11,5 @@ export const LICENSE_GROUP = {
 }
 
 export function LicenseGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...LICENSE_GROUP}
-      {...props}
-      _style={extendStyle(LICENSE_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LICENSE_GROUP)} />
 }

@@ -11,11 +11,5 @@ export const RDS_PROXY_INSTANCE = {
 }
 
 export function RdsProxyInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...RDS_PROXY_INSTANCE}
-      {...props}
-      _style={extendStyle(RDS_PROXY_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_PROXY_INSTANCE)} />
 }

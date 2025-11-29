@@ -11,11 +11,5 @@ export const CONTAINER_ENGINE = {
 }
 
 export function ContainerEngine(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTAINER_ENGINE}
-      {...props}
-      _style={extendStyle(CONTAINER_ENGINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTAINER_ENGINE)} />
 }

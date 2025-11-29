@@ -11,7 +11,5 @@ export const CLOUD_AI = {
 }
 
 export function CloudAi(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_AI} {...props} _style={extendStyle(CLOUD_AI, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_AI)} />
 }

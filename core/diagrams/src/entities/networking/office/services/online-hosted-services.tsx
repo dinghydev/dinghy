@@ -12,10 +12,6 @@ export const ONLINE_HOSTED_SERVICES = {
 
 export function OnlineHostedServices(props: NodeProps) {
   return (
-    <Shape
-      {...ONLINE_HOSTED_SERVICES}
-      {...props}
-      _style={extendStyle(ONLINE_HOSTED_SERVICES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ONLINE_HOSTED_SERVICES)} />
   )
 }

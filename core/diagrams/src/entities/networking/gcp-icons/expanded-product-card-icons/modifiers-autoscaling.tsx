@@ -11,11 +11,5 @@ export const MODIFIERS_AUTOSCALING = {
 }
 
 export function ModifiersAutoscaling(props: NodeProps) {
-  return (
-    <Shape
-      {...MODIFIERS_AUTOSCALING}
-      {...props}
-      _style={extendStyle(MODIFIERS_AUTOSCALING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MODIFIERS_AUTOSCALING)} />
 }

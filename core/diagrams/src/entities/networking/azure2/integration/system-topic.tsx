@@ -11,11 +11,5 @@ export const SYSTEM_TOPIC = {
 }
 
 export function SystemTopic(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEM_TOPIC}
-      {...props}
-      _style={extendStyle(SYSTEM_TOPIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_TOPIC)} />
 }

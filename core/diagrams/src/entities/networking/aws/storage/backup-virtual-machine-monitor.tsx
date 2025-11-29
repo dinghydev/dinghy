@@ -13,9 +13,8 @@ export const BACKUP_VIRTUAL_MACHINE_MONITOR = {
 export function BackupVirtualMachineMonitor(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_VIRTUAL_MACHINE_MONITOR}
       {...props}
-      _style={extendStyle(BACKUP_VIRTUAL_MACHINE_MONITOR, props)}
+      _style={extendStyle(props, BACKUP_VIRTUAL_MACHINE_MONITOR)}
     />
   )
 }

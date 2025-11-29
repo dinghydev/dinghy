@@ -12,10 +12,6 @@ export const SAP_WATCH_LIST_SCREENING = {
 
 export function SapWatchListScreening(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_WATCH_LIST_SCREENING}
-      {...props}
-      _style={extendStyle(SAP_WATCH_LIST_SCREENING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_WATCH_LIST_SCREENING)} />
   )
 }

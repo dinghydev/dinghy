@@ -11,5 +11,5 @@ export const POD = {
 }
 
 export function Pod(props: NodeProps) {
-  return <Shape {...POD} {...props} _style={extendStyle(POD, props)} />
+  return <Shape {...props} _style={extendStyle(props, POD)} />
 }

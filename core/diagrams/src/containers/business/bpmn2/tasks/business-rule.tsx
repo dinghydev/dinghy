@@ -9,11 +9,5 @@ export const BUSINESS_RULE = {
 }
 
 export function BusinessRule(props: NodeProps) {
-  return (
-    <Shape
-      {...BUSINESS_RULE}
-      {...props}
-      _style={extendStyle(BUSINESS_RULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUSINESS_RULE)} />
 }

@@ -13,9 +13,8 @@ export const PLATE_AND_FRAME_HEAT_EXCHANGER = {
 export function PlateAndFrameHeatExchanger(props: NodeProps) {
   return (
     <Shape
-      {...PLATE_AND_FRAME_HEAT_EXCHANGER}
       {...props}
-      _style={extendStyle(PLATE_AND_FRAME_HEAT_EXCHANGER, props)}
+      _style={extendStyle(props, PLATE_AND_FRAME_HEAT_EXCHANGER)}
     />
   )
 }

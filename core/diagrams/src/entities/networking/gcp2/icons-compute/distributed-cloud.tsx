@@ -11,11 +11,5 @@ export const DISTRIBUTED_CLOUD = {
 }
 
 export function DistributedCloud(props: NodeProps) {
-  return (
-    <Shape
-      {...DISTRIBUTED_CLOUD}
-      {...props}
-      _style={extendStyle(DISTRIBUTED_CLOUD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISTRIBUTED_CLOUD)} />
 }

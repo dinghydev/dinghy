@@ -13,9 +13,8 @@ export const EXCHANGE_HUB_TRANSPORT_SERVER_ROLE = {
 export function ExchangeHubTransportServerRole(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_HUB_TRANSPORT_SERVER_ROLE}
       {...props}
-      _style={extendStyle(EXCHANGE_HUB_TRANSPORT_SERVER_ROLE, props)}
+      _style={extendStyle(props, EXCHANGE_HUB_TRANSPORT_SERVER_ROLE)}
     />
   )
 }

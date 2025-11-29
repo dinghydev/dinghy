@@ -11,11 +11,5 @@ export const COMPONENT_2FTVM_ERROR = {
 }
 
 export function Component2ftvmError(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_2FTVM_ERROR}
-      {...props}
-      _style={extendStyle(COMPONENT_2FTVM_ERROR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_2FTVM_ERROR)} />
 }

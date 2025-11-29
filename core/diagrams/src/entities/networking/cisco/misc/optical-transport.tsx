@@ -11,11 +11,5 @@ export const OPTICAL_TRANSPORT = {
 }
 
 export function OpticalTransport(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTICAL_TRANSPORT}
-      {...props}
-      _style={extendStyle(OPTICAL_TRANSPORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTICAL_TRANSPORT)} />
 }

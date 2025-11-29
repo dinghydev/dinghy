@@ -11,11 +11,5 @@ export const WEB_SERVER_GREEN = {
 }
 
 export function WebServerGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SERVER_GREEN}
-      {...props}
-      _style={extendStyle(WEB_SERVER_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SERVER_GREEN)} />
 }

@@ -11,5 +11,5 @@ export const DA_SAP = {
 }
 
 export function DaSap(props: NodeProps) {
-  return <Shape {...DA_SAP} {...props} _style={extendStyle(DA_SAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, DA_SAP)} />
 }

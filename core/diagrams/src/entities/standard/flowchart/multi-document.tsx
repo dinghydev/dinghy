@@ -11,11 +11,5 @@ export const MULTI_DOCUMENT = {
 }
 
 export function MultiDocument(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTI_DOCUMENT}
-      {...props}
-      _style={extendStyle(MULTI_DOCUMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTI_DOCUMENT)} />
 }

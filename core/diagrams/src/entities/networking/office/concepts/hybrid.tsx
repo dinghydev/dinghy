@@ -11,5 +11,5 @@ export const HYBRID = {
 }
 
 export function Hybrid(props: NodeProps) {
-  return <Shape {...HYBRID} {...props} _style={extendStyle(HYBRID, props)} />
+  return <Shape {...props} _style={extendStyle(props, HYBRID)} />
 }

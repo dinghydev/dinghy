@@ -12,10 +12,6 @@ export const ELASTIC_KUBERNETES_SERVICE = {
 
 export function ElasticKubernetesService(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_KUBERNETES_SERVICE}
-      {...props}
-      _style={extendStyle(ELASTIC_KUBERNETES_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_KUBERNETES_SERVICE)} />
   )
 }

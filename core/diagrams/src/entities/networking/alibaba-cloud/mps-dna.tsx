@@ -11,5 +11,5 @@ export const MPS_DNA = {
 }
 
 export function MpsDna(props: NodeProps) {
-  return <Shape {...MPS_DNA} {...props} _style={extendStyle(MPS_DNA, props)} />
+  return <Shape {...props} _style={extendStyle(props, MPS_DNA)} />
 }

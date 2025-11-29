@@ -12,10 +12,6 @@ export const KEY_MANAGEMENT_SERVICE = {
 
 export function KeyManagementService(props: NodeProps) {
   return (
-    <Shape
-      {...KEY_MANAGEMENT_SERVICE}
-      {...props}
-      _style={extendStyle(KEY_MANAGEMENT_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, KEY_MANAGEMENT_SERVICE)} />
   )
 }

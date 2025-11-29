@@ -11,7 +11,5 @@ export const DIMENSION = {
 }
 
 export function Dimension(props: NodeProps) {
-  return (
-    <Shape {...DIMENSION} {...props} _style={extendStyle(DIMENSION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIMENSION)} />
 }

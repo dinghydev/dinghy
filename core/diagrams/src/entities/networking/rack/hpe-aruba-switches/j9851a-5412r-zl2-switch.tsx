@@ -12,10 +12,6 @@ export const J9851A_5412R_ZL2_SWITCH = {
 
 export function J9851a5412rZl2Switch(props: NodeProps) {
   return (
-    <Shape
-      {...J9851A_5412R_ZL2_SWITCH}
-      {...props}
-      _style={extendStyle(J9851A_5412R_ZL2_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, J9851A_5412R_ZL2_SWITCH)} />
   )
 }

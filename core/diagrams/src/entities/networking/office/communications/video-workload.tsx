@@ -11,11 +11,5 @@ export const VIDEO_WORKLOAD = {
 }
 
 export function VideoWorkload(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_WORKLOAD}
-      {...props}
-      _style={extendStyle(VIDEO_WORKLOAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_WORKLOAD)} />
 }

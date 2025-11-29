@@ -13,9 +13,8 @@ export const CPNS_CELL_PHONE_NUMBER_SERVICE = {
 export function CpnsCellPhoneNumberService(props: NodeProps) {
   return (
     <Shape
-      {...CPNS_CELL_PHONE_NUMBER_SERVICE}
       {...props}
-      _style={extendStyle(CPNS_CELL_PHONE_NUMBER_SERVICE, props)}
+      _style={extendStyle(props, CPNS_CELL_PHONE_NUMBER_SERVICE)}
     />
   )
 }

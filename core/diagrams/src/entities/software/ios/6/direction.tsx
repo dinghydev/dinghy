@@ -11,7 +11,5 @@ export const DIRECTION = {
 }
 
 export function Direction(props: NodeProps) {
-  return (
-    <Shape {...DIRECTION} {...props} _style={extendStyle(DIRECTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECTION)} />
 }

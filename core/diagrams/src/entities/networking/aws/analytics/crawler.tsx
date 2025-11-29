@@ -11,5 +11,5 @@ export const CRAWLER = {
 }
 
 export function Crawler(props: NodeProps) {
-  return <Shape {...CRAWLER} {...props} _style={extendStyle(CRAWLER, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRAWLER)} />
 }

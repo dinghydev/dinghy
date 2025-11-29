@@ -11,11 +11,5 @@ export const TAPE_MEDIA_POOL = {
 }
 
 export function TapeMediaPool(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_MEDIA_POOL}
-      {...props}
-      _style={extendStyle(TAPE_MEDIA_POOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_MEDIA_POOL)} />
 }

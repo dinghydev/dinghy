@@ -11,11 +11,5 @@ export const BADGE_SUCCESS = {
 }
 
 export function BadgeSuccess(props: NodeProps) {
-  return (
-    <Shape
-      {...BADGE_SUCCESS}
-      {...props}
-      _style={extendStyle(BADGE_SUCCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BADGE_SUCCESS)} />
 }

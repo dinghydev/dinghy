@@ -12,10 +12,6 @@ export const STREAMING_DISTRIBUTION = {
 
 export function StreamingDistribution(props: NodeProps) {
   return (
-    <Shape
-      {...STREAMING_DISTRIBUTION}
-      {...props}
-      _style={extendStyle(STREAMING_DISTRIBUTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STREAMING_DISTRIBUTION)} />
   )
 }

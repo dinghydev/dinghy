@@ -12,10 +12,6 @@ export const DUAL_MODE_ACCESS_POINT = {
 
 export function DualModeAccessPoint(props: NodeProps) {
   return (
-    <Shape
-      {...DUAL_MODE_ACCESS_POINT}
-      {...props}
-      _style={extendStyle(DUAL_MODE_ACCESS_POINT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DUAL_MODE_ACCESS_POINT)} />
   )
 }

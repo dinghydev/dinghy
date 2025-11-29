@@ -11,7 +11,5 @@ export const SERVER_4 = {
 }
 
 export function Server4(props: NodeProps) {
-  return (
-    <Shape {...SERVER_4} {...props} _style={extendStyle(SERVER_4, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_4)} />
 }

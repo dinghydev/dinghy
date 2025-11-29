@@ -13,9 +13,8 @@ export const ALB_APPLICATION_LOAD_BALANCER_2 = {
 export function AlbApplicationLoadBalancer2(props: NodeProps) {
   return (
     <Shape
-      {...ALB_APPLICATION_LOAD_BALANCER_2}
       {...props}
-      _style={extendStyle(ALB_APPLICATION_LOAD_BALANCER_2, props)}
+      _style={extendStyle(props, ALB_APPLICATION_LOAD_BALANCER_2)}
     />
   )
 }

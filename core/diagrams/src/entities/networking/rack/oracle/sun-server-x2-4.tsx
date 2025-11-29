@@ -11,11 +11,5 @@ export const SUN_SERVER_X2_4 = {
 }
 
 export function SunServerX24(props: NodeProps) {
-  return (
-    <Shape
-      {...SUN_SERVER_X2_4}
-      {...props}
-      _style={extendStyle(SUN_SERVER_X2_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUN_SERVER_X2_4)} />
 }

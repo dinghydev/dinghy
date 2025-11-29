@@ -13,9 +13,8 @@ export const MOTOR_CIRCUIT_BREAKER_125_400A = {
 export function MotorCircuitBreaker125400a(props: NodeProps) {
   return (
     <Shape
-      {...MOTOR_CIRCUIT_BREAKER_125_400A}
       {...props}
-      _style={extendStyle(MOTOR_CIRCUIT_BREAKER_125_400A, props)}
+      _style={extendStyle(props, MOTOR_CIRCUIT_BREAKER_125_400A)}
     />
   )
 }

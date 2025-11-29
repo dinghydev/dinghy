@@ -12,10 +12,6 @@ export const CENTRIFUGAL_COMPRESSOR = {
 
 export function CentrifugalCompressor(props: NodeProps) {
   return (
-    <Shape
-      {...CENTRIFUGAL_COMPRESSOR}
-      {...props}
-      _style={extendStyle(CENTRIFUGAL_COMPRESSOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CENTRIFUGAL_COMPRESSOR)} />
   )
 }

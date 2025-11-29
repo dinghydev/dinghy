@@ -11,11 +11,5 @@ export const USER_PRIVACY = {
 }
 
 export function UserPrivacy(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_PRIVACY}
-      {...props}
-      _style={extendStyle(USER_PRIVACY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_PRIVACY)} />
 }

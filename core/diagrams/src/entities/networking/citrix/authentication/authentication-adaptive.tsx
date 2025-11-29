@@ -12,10 +12,6 @@ export const AUTHENTICATION_ADAPTIVE = {
 
 export function AuthenticationAdaptive(props: NodeProps) {
   return (
-    <Shape
-      {...AUTHENTICATION_ADAPTIVE}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_ADAPTIVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTHENTICATION_ADAPTIVE)} />
   )
 }

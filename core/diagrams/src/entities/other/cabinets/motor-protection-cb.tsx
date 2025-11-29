@@ -11,11 +11,5 @@ export const MOTOR_PROTECTION_CB = {
 }
 
 export function MotorProtectionCb(props: NodeProps) {
-  return (
-    <Shape
-      {...MOTOR_PROTECTION_CB}
-      {...props}
-      _style={extendStyle(MOTOR_PROTECTION_CB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOTOR_PROTECTION_CB)} />
 }

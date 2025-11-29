@@ -12,10 +12,6 @@ export const POWER_DISTRIBUTION_UNIT = {
 
 export function PowerDistributionUnit(props: NodeProps) {
   return (
-    <Shape
-      {...POWER_DISTRIBUTION_UNIT}
-      {...props}
-      _style={extendStyle(POWER_DISTRIBUTION_UNIT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, POWER_DISTRIBUTION_UNIT)} />
   )
 }

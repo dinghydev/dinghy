@@ -11,11 +11,5 @@ export const PRESS_ROLLER = {
 }
 
 export function PressRoller(props: NodeProps) {
-  return (
-    <Shape
-      {...PRESS_ROLLER}
-      {...props}
-      _style={extendStyle(PRESS_ROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRESS_ROLLER)} />
 }

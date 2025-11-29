@@ -12,10 +12,6 @@ export const VEEAM_INCREMENTAL_BACKUP = {
 
 export function VeeamIncrementalBackup(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_INCREMENTAL_BACKUP}
-      {...props}
-      _style={extendStyle(VEEAM_INCREMENTAL_BACKUP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_INCREMENTAL_BACKUP)} />
   )
 }

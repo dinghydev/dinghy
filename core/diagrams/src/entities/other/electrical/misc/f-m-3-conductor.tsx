@@ -11,11 +11,5 @@ export const F_M_3_CONDUCTOR = {
 }
 
 export function FM3Conductor(props: NodeProps) {
-  return (
-    <Shape
-      {...F_M_3_CONDUCTOR}
-      {...props}
-      _style={extendStyle(F_M_3_CONDUCTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, F_M_3_CONDUCTOR)} />
 }

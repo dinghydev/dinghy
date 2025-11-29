@@ -11,11 +11,5 @@ export const RANGE_INPUT_2 = {
 }
 
 export function RangeInput2(props: NodeProps) {
-  return (
-    <Shape
-      {...RANGE_INPUT_2}
-      {...props}
-      _style={extendStyle(RANGE_INPUT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RANGE_INPUT_2)} />
 }

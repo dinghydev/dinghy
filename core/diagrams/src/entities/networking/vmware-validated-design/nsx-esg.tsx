@@ -11,5 +11,5 @@ export const NSX_ESG = {
 }
 
 export function NsxEsg(props: NodeProps) {
-  return <Shape {...NSX_ESG} {...props} _style={extendStyle(NSX_ESG, props)} />
+  return <Shape {...props} _style={extendStyle(props, NSX_ESG)} />
 }

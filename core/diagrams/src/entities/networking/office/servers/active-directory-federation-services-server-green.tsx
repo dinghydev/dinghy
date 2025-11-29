@@ -13,11 +13,10 @@ export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GREEN = {
 export function ActiveDirectoryFederationServicesServerGreen(props: NodeProps) {
   return (
     <Shape
-      {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GREEN}
       {...props}
       _style={extendStyle(
-        ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GREEN,
         props,
+        ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GREEN,
       )}
     />
   )

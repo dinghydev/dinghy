@@ -11,11 +11,5 @@ export const S3_BATCH_OPERATIONS = {
 }
 
 export function S3BatchOperations(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_BATCH_OPERATIONS}
-      {...props}
-      _style={extendStyle(S3_BATCH_OPERATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_BATCH_OPERATIONS)} />
 }

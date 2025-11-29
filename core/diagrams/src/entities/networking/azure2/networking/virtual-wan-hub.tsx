@@ -11,11 +11,5 @@ export const VIRTUAL_WAN_HUB = {
 }
 
 export function VirtualWanHub(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_WAN_HUB}
-      {...props}
-      _style={extendStyle(VIRTUAL_WAN_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_WAN_HUB)} />
 }

@@ -11,11 +11,5 @@ export const JOURNEY_HUB = {
 }
 
 export function JourneyHub(props: NodeProps) {
-  return (
-    <Shape
-      {...JOURNEY_HUB}
-      {...props}
-      _style={extendStyle(JOURNEY_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JOURNEY_HUB)} />
 }

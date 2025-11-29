@@ -11,7 +11,5 @@ export const BLOB_PAGE = {
 }
 
 export function BlobPage(props: NodeProps) {
-  return (
-    <Shape {...BLOB_PAGE} {...props} _style={extendStyle(BLOB_PAGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLOB_PAGE)} />
 }

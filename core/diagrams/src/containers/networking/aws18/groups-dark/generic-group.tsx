@@ -13,11 +13,5 @@ export const GENERIC_GROUP = {
 }
 
 export function GenericGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_GROUP}
-      {...props}
-      _style={extendStyle(GENERIC_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_GROUP)} />
 }

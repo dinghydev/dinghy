@@ -11,11 +11,5 @@ export const AGITATOR_ANCHOR = {
 }
 
 export function AgitatorAnchor(props: NodeProps) {
-  return (
-    <Shape
-      {...AGITATOR_ANCHOR}
-      {...props}
-      _style={extendStyle(AGITATOR_ANCHOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AGITATOR_ANCHOR)} />
 }

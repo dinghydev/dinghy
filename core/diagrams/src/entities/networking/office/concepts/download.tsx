@@ -11,7 +11,5 @@ export const DOWNLOAD = {
 }
 
 export function Download(props: NodeProps) {
-  return (
-    <Shape {...DOWNLOAD} {...props} _style={extendStyle(DOWNLOAD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOWNLOAD)} />
 }

@@ -9,11 +9,5 @@ export const CONTROL_LIFELINE = {
 }
 
 export function ControlLifeline(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_LIFELINE}
-      {...props}
-      _style={extendStyle(CONTROL_LIFELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_LIFELINE)} />
 }

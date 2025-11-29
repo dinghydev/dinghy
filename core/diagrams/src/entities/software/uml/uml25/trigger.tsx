@@ -11,5 +11,5 @@ export const TRIGGER = {
 }
 
 export function Trigger(props: NodeProps) {
-  return <Shape {...TRIGGER} {...props} _style={extendStyle(TRIGGER, props)} />
+  return <Shape {...props} _style={extendStyle(props, TRIGGER)} />
 }

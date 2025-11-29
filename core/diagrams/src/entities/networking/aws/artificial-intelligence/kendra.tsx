@@ -11,5 +11,5 @@ export const KENDRA = {
 }
 
 export function Kendra(props: NodeProps) {
-  return <Shape {...KENDRA} {...props} _style={extendStyle(KENDRA, props)} />
+  return <Shape {...props} _style={extendStyle(props, KENDRA)} />
 }

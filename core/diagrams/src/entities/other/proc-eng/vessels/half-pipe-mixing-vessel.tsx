@@ -12,10 +12,6 @@ export const HALF_PIPE_MIXING_VESSEL = {
 
 export function HalfPipeMixingVessel(props: NodeProps) {
   return (
-    <Shape
-      {...HALF_PIPE_MIXING_VESSEL}
-      {...props}
-      _style={extendStyle(HALF_PIPE_MIXING_VESSEL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HALF_PIPE_MIXING_VESSEL)} />
   )
 }

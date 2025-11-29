@@ -11,11 +11,5 @@ export const TRIAD_ARROW = {
 }
 
 export function TriadArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...TRIAD_ARROW}
-      {...props}
-      _style={extendStyle(TRIAD_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRIAD_ARROW)} />
 }

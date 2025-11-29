@@ -12,10 +12,6 @@ export const NORMALLY_CLOSED_GATE_VALVE = {
 
 export function NormallyClosedGateValve(props: NodeProps) {
   return (
-    <Shape
-      {...NORMALLY_CLOSED_GATE_VALVE}
-      {...props}
-      _style={extendStyle(NORMALLY_CLOSED_GATE_VALVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NORMALLY_CLOSED_GATE_VALVE)} />
   )
 }

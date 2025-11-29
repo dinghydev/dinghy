@@ -11,11 +11,5 @@ export const WRITING_PENCIL = {
 }
 
 export function WritingPencil(props: NodeProps) {
-  return (
-    <Shape
-      {...WRITING_PENCIL}
-      {...props}
-      _style={extendStyle(WRITING_PENCIL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WRITING_PENCIL)} />
 }

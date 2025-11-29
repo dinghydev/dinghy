@@ -11,5 +11,5 @@ export const LOUD = {
 }
 
 export function Loud(props: NodeProps) {
-  return <Shape {...LOUD} {...props} _style={extendStyle(LOUD, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOUD)} />
 }

@@ -11,11 +11,5 @@ export const CLOUD_STOREFRONT = {
 }
 
 export function CloudStorefront(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_STOREFRONT}
-      {...props}
-      _style={extendStyle(CLOUD_STOREFRONT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_STOREFRONT)} />
 }

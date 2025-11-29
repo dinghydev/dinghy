@@ -11,11 +11,5 @@ export const CHANGEOVER_CONTACT_2 = {
 }
 
 export function ChangeoverContact2(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANGEOVER_CONTACT_2}
-      {...props}
-      _style={extendStyle(CHANGEOVER_CONTACT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGEOVER_CONTACT_2)} />
 }

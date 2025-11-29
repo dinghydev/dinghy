@@ -11,11 +11,5 @@ export const COVER_PLATE = {
 }
 
 export function CoverPlate(props: NodeProps) {
-  return (
-    <Shape
-      {...COVER_PLATE}
-      {...props}
-      _style={extendStyle(COVER_PLATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COVER_PLATE)} />
 }

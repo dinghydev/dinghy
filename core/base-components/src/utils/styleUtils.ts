@@ -1,14 +1,21 @@
-export const extendStyle = (originalProps: any, extendedProps: any): any => {
-  let _style = originalProps._style
-  if (extendedProps._style) {
-    if (_style) {
-      if (Array.isArray(_style)) {
-        _style.push(extendedProps._style)
+export const extendStyle = (priorityProps: any, ...styles: any): any => {
+  const _style: any[] = []
+  for (const style of styles) {
+    if (style._style) {
+      if (Array.isArray(style._style)) {
+        _style.push(...style._style)
       } else {
-        _style = [_style, extendedProps._style]
+        _style.push(style._style)
       }
     } else {
-      _style = extendedProps._style
+      _style.push(style)
+    }
+  }
+  if (priorityProps._style) {
+    if (Array.isArray(priorityProps._style)) {
+      _style.push(...priorityProps._style)
+    } else {
+      _style.push(priorityProps._style)
     }
   }
   return _style

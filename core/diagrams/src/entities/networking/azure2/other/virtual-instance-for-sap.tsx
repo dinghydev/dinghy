@@ -12,10 +12,6 @@ export const VIRTUAL_INSTANCE_FOR_SAP = {
 
 export function VirtualInstanceForSap(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_INSTANCE_FOR_SAP}
-      {...props}
-      _style={extendStyle(VIRTUAL_INSTANCE_FOR_SAP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_INSTANCE_FOR_SAP)} />
   )
 }

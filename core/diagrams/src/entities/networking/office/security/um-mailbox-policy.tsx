@@ -11,11 +11,5 @@ export const UM_MAILBOX_POLICY = {
 }
 
 export function UmMailboxPolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_MAILBOX_POLICY}
-      {...props}
-      _style={extendStyle(UM_MAILBOX_POLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_MAILBOX_POLICY)} />
 }

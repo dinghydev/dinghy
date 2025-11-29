@@ -11,11 +11,5 @@ export const VIDEO_CALL_SERVER = {
 }
 
 export function VideoCallServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_CALL_SERVER}
-      {...props}
-      _style={extendStyle(VIDEO_CALL_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_CALL_SERVER)} />
 }

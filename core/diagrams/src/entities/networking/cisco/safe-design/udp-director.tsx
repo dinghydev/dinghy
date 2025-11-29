@@ -11,11 +11,5 @@ export const UDP_DIRECTOR = {
 }
 
 export function UdpDirector(props: NodeProps) {
-  return (
-    <Shape
-      {...UDP_DIRECTOR}
-      {...props}
-      _style={extendStyle(UDP_DIRECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UDP_DIRECTOR)} />
 }

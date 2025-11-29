@@ -11,5 +11,5 @@ export const WAVE = {
 }
 
 export function Wave(props: NodeProps) {
-  return <Shape {...WAVE} {...props} _style={extendStyle(WAVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, WAVE)} />
 }

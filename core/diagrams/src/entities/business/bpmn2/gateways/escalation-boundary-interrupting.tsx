@@ -13,9 +13,8 @@ export const ESCALATION_BOUNDARY_INTERRUPTING = {
 export function EscalationBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...ESCALATION_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(ESCALATION_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, ESCALATION_BOUNDARY_INTERRUPTING)}
     />
   )
 }

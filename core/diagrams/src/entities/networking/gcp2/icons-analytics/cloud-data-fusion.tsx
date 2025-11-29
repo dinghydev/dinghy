@@ -11,11 +11,5 @@ export const CLOUD_DATA_FUSION = {
 }
 
 export function CloudDataFusion(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DATA_FUSION}
-      {...props}
-      _style={extendStyle(CLOUD_DATA_FUSION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DATA_FUSION)} />
 }

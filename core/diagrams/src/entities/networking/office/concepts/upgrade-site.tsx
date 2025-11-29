@@ -11,11 +11,5 @@ export const UPGRADE_SITE = {
 }
 
 export function UpgradeSite(props: NodeProps) {
-  return (
-    <Shape
-      {...UPGRADE_SITE}
-      {...props}
-      _style={extendStyle(UPGRADE_SITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UPGRADE_SITE)} />
 }

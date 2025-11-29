@@ -12,10 +12,6 @@ export const VEEAM_BACKUP_SEARCH_SERVER = {
 
 export function VeeamBackupSearchServer(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_BACKUP_SEARCH_SERVER}
-      {...props}
-      _style={extendStyle(VEEAM_BACKUP_SEARCH_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_BACKUP_SEARCH_SERVER)} />
   )
 }

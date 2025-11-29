@@ -11,11 +11,5 @@ export const GATE_VALVE_MANUAL = {
 }
 
 export function GateValveManual(props: NodeProps) {
-  return (
-    <Shape
-      {...GATE_VALVE_MANUAL}
-      {...props}
-      _style={extendStyle(GATE_VALVE_MANUAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GATE_VALVE_MANUAL)} />
 }

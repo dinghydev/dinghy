@@ -11,5 +11,5 @@ export const CAPTCHA = {
 }
 
 export function Captcha(props: NodeProps) {
-  return <Shape {...CAPTCHA} {...props} _style={extendStyle(CAPTCHA, props)} />
+  return <Shape {...props} _style={extendStyle(props, CAPTCHA)} />
 }

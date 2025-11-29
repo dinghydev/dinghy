@@ -12,10 +12,6 @@ export const COMPONENT_2_CONDUCTOR_JACK = {
 
 export function Component2ConductorJack(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_2_CONDUCTOR_JACK}
-      {...props}
-      _style={extendStyle(COMPONENT_2_CONDUCTOR_JACK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_2_CONDUCTOR_JACK)} />
   )
 }

@@ -11,11 +11,5 @@ export const VISUAL_INSPECTION_AI = {
 }
 
 export function VisualInspectionAi(props: NodeProps) {
-  return (
-    <Shape
-      {...VISUAL_INSPECTION_AI}
-      {...props}
-      _style={extendStyle(VISUAL_INSPECTION_AI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISUAL_INSPECTION_AI)} />
 }

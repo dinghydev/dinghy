@@ -11,11 +11,5 @@ export const CITRIX_UBER_AGENT = {
 }
 
 export function CitrixUberAgent(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_UBER_AGENT}
-      {...props}
-      _style={extendStyle(CITRIX_UBER_AGENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_UBER_AGENT)} />
 }

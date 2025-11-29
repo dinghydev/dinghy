@@ -11,11 +11,5 @@ export const PARALLELOGRAM = {
 }
 
 export function Parallelogram(props: NodeProps) {
-  return (
-    <Shape
-      {...PARALLELOGRAM}
-      {...props}
-      _style={extendStyle(PARALLELOGRAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARALLELOGRAM)} />
 }

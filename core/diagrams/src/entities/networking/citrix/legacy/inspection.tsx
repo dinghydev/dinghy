@@ -11,7 +11,5 @@ export const INSPECTION = {
 }
 
 export function Inspection(props: NodeProps) {
-  return (
-    <Shape {...INSPECTION} {...props} _style={extendStyle(INSPECTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSPECTION)} />
 }

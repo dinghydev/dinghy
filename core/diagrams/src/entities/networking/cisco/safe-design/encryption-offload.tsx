@@ -11,11 +11,5 @@ export const ENCRYPTION_OFFLOAD = {
 }
 
 export function EncryptionOffload(props: NodeProps) {
-  return (
-    <Shape
-      {...ENCRYPTION_OFFLOAD}
-      {...props}
-      _style={extendStyle(ENCRYPTION_OFFLOAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENCRYPTION_OFFLOAD)} />
 }

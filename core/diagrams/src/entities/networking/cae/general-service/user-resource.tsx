@@ -11,11 +11,5 @@ export const USER_RESOURCE = {
 }
 
 export function UserResource(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_RESOURCE}
-      {...props}
-      _style={extendStyle(USER_RESOURCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_RESOURCE)} />
 }

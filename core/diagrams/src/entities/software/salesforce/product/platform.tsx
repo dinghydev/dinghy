@@ -11,7 +11,5 @@ export const PLATFORM = {
 }
 
 export function Platform(props: NodeProps) {
-  return (
-    <Shape {...PLATFORM} {...props} _style={extendStyle(PLATFORM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLATFORM)} />
 }

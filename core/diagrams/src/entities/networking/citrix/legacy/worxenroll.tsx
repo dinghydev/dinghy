@@ -11,7 +11,5 @@ export const WORXENROLL = {
 }
 
 export function Worxenroll(props: NodeProps) {
-  return (
-    <Shape {...WORXENROLL} {...props} _style={extendStyle(WORXENROLL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORXENROLL)} />
 }

@@ -11,11 +11,5 @@ export const UPGRADE_APPLICATION = {
 }
 
 export function UpgradeApplication(props: NodeProps) {
-  return (
-    <Shape
-      {...UPGRADE_APPLICATION}
-      {...props}
-      _style={extendStyle(UPGRADE_APPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UPGRADE_APPLICATION)} />
 }

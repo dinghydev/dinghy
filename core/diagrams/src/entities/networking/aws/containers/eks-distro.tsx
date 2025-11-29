@@ -11,7 +11,5 @@ export const EKS_DISTRO = {
 }
 
 export function EksDistro(props: NodeProps) {
-  return (
-    <Shape {...EKS_DISTRO} {...props} _style={extendStyle(EKS_DISTRO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EKS_DISTRO)} />
 }

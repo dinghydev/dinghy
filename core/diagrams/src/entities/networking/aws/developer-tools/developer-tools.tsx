@@ -11,11 +11,5 @@ export const DEVELOPER_TOOLS = {
 }
 
 export function DeveloperTools(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVELOPER_TOOLS}
-      {...props}
-      _style={extendStyle(DEVELOPER_TOOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVELOPER_TOOLS)} />
 }

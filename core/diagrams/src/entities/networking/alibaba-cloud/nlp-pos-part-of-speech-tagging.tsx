@@ -13,9 +13,8 @@ export const NLP_POS_PART_OF_SPEECH_TAGGING = {
 export function NlpPosPartOfSpeechTagging(props: NodeProps) {
   return (
     <Shape
-      {...NLP_POS_PART_OF_SPEECH_TAGGING}
       {...props}
-      _style={extendStyle(NLP_POS_PART_OF_SPEECH_TAGGING, props)}
+      _style={extendStyle(props, NLP_POS_PART_OF_SPEECH_TAGGING)}
     />
   )
 }

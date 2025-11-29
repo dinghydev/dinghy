@@ -1,0 +1,430 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Cognito IDP (Identity Provider)
+
+## AwsCognitoIdentityProvider
+
+Provides a Cognito User Identity Provider resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_provider)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoIdentityProvider.tsx)
+
+```js
+import { AwsCognitoIdentityProvider } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoIdentityProvider/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoLogDeliveryConfiguration
+
+Manages an AWS Cognito IDP (Identity Provider) Log Delivery Configuration.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_log_delivery_configuration)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoLogDeliveryConfiguration.tsx)
+
+```js
+import { AwsCognitoLogDeliveryConfiguration } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoLogDeliveryConfiguration/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_log_delivery_configuration#import)
+
+```js
+<AwsCognitoLogDeliveryConfiguration
+   user_pool_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoManagedLoginBranding
+
+Manages branding settings for a user pool style and associates it with an app client.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_login_branding)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoManagedLoginBranding.tsx)
+
+```js
+import { AwsCognitoManagedLoginBranding } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoManagedLoginBranding/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoManagedUserPoolClient
+
+Use the `aws_cognito_user_pool_client` resource to manage a Cognito User Pool Client. This resource is created by another service.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_user_pool_client)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoManagedUserPoolClient.tsx)
+
+```js
+import { AwsCognitoManagedUserPoolClient } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoManagedUserPoolClient/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoResourceServer
+
+Provides a Cognito Resource Server.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_resource_server)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoResourceServer.tsx)
+
+```js
+import { AwsCognitoResourceServer } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoResourceServer/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoRiskConfiguration
+
+Provides a Cognito Risk Configuration resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_risk_configuration)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoRiskConfiguration.tsx)
+
+```js
+import { AwsCognitoRiskConfiguration } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoRiskConfiguration/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUser
+
+Provides a Cognito User resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUser.tsx)
+
+```js
+import { AwsCognitoUser } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUser/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserGroup
+
+Provides a Cognito User Group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUserGroup.tsx)
+
+```js
+import { AwsCognitoUserGroup } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUserGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserGroup.tsx)
+
+```js
+import { DataAwsCognitoUserGroup } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserGroups
+
+Terraform data source for managing AWS Cognito IDP (Identity Provider) User Groups.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_groups)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserGroups.tsx)
+
+```js
+import { DataAwsCognitoUserGroups } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserGroups/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserInGroup
+
+Adds the specified user to the specified group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_in_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUserInGroup.tsx)
+
+```js
+import { AwsCognitoUserInGroup } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUserInGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPool
+
+Provides a Cognito User Pool resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUserPool.tsx)
+
+```js
+import { AwsCognitoUserPool } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUserPool/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserPool.tsx)
+
+```js
+import { DataAwsCognitoUserPool } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserPool/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPoolClient
+
+Provides a Cognito User Pool Client resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool_client)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUserPoolClient.tsx)
+
+```js
+import { AwsCognitoUserPoolClient } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUserPoolClient/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool_client)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserPoolClient.tsx)
+
+```js
+import { DataAwsCognitoUserPoolClient } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserPoolClient/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPoolClients
+
+Get list of cognito user pool clients connected to user pool.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool_clients)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserPoolClients.tsx)
+
+```js
+import { DataAwsCognitoUserPoolClients } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserPoolClients/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPoolDomain
+
+Provides a Cognito User Pool Domain resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUserPoolDomain.tsx)
+
+```js
+import { AwsCognitoUserPoolDomain } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUserPoolDomain/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPools
+
+Get list of cognito user pools.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pools)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserPools.tsx)
+
+```js
+import { DataAwsCognitoUserPools } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserPools/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPoolSigningCertificate
+
+Get signing certificate of user pool
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool_signing_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/DataAwsCognitoUserPoolSigningCertificate.tsx)
+
+```js
+import { DataAwsCognitoUserPoolSigningCertificate } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<DataAwsCognitoUserPoolSigningCertificate/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCognitoUserPoolUiCustomization
+
+Provides a Cognito User Pool UI Customization resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool_ui_customization)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cognitoidp/AwsCognitoUserPoolUiCustomization.tsx)
+
+```js
+import { AwsCognitoUserPoolUiCustomization } from "@dinghy/tf-aws/serviceCognitoidp"
+
+<AwsCognitoUserPoolUiCustomization/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

@@ -13,9 +13,8 @@ export const SECURITY_MONITORING_INTELLIGENCE = {
 export function SecurityMonitoringIntelligence(props: NodeProps) {
   return (
     <Shape
-      {...SECURITY_MONITORING_INTELLIGENCE}
       {...props}
-      _style={extendStyle(SECURITY_MONITORING_INTELLIGENCE, props)}
+      _style={extendStyle(props, SECURITY_MONITORING_INTELLIGENCE)}
     />
   )
 }

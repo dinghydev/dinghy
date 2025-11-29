@@ -11,7 +11,5 @@ export const RETAIL_API = {
 }
 
 export function RetailApi(props: NodeProps) {
-  return (
-    <Shape {...RETAIL_API} {...props} _style={extendStyle(RETAIL_API, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RETAIL_API)} />
 }

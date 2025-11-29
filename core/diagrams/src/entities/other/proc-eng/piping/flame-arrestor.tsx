@@ -11,11 +11,5 @@ export const FLAME_ARRESTOR = {
 }
 
 export function FlameArrestor(props: NodeProps) {
-  return (
-    <Shape
-      {...FLAME_ARRESTOR}
-      {...props}
-      _style={extendStyle(FLAME_ARRESTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLAME_ARRESTOR)} />
 }

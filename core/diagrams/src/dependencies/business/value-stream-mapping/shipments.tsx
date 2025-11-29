@@ -8,11 +8,5 @@ export const SHIPMENTS = {
 }
 
 export function Shipments(props: NodeProps) {
-  return (
-    <Dependency
-      {...SHIPMENTS}
-      {...props}
-      _style={extendStyle(SHIPMENTS, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, SHIPMENTS)} />
 }

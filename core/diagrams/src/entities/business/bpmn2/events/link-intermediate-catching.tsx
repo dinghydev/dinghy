@@ -12,10 +12,6 @@ export const LINK_INTERMEDIATE_CATCHING = {
 
 export function LinkIntermediateCatching(props: NodeProps) {
   return (
-    <Shape
-      {...LINK_INTERMEDIATE_CATCHING}
-      {...props}
-      _style={extendStyle(LINK_INTERMEDIATE_CATCHING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LINK_INTERMEDIATE_CATCHING)} />
   )
 }

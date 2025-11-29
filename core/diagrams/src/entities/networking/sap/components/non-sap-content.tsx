@@ -11,11 +11,5 @@ export const NON_SAP_CONTENT = {
 }
 
 export function NonSapContent(props: NodeProps) {
-  return (
-    <Shape
-      {...NON_SAP_CONTENT}
-      {...props}
-      _style={extendStyle(NON_SAP_CONTENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NON_SAP_CONTENT)} />
 }

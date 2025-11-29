@@ -11,11 +11,5 @@ export const BUTTON_FOCUSED_BRIGHT = {
 }
 
 export function ButtonFocusedBright(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_FOCUSED_BRIGHT}
-      {...props}
-      _style={extendStyle(BUTTON_FOCUSED_BRIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_FOCUSED_BRIGHT)} />
 }

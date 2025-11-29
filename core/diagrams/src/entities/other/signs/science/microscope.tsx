@@ -11,7 +11,5 @@ export const MICROSCOPE = {
 }
 
 export function Microscope(props: NodeProps) {
-  return (
-    <Shape {...MICROSCOPE} {...props} _style={extendStyle(MICROSCOPE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSCOPE)} />
 }

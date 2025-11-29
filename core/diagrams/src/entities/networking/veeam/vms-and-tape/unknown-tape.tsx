@@ -11,11 +11,5 @@ export const UNKNOWN_TAPE = {
 }
 
 export function UnknownTape(props: NodeProps) {
-  return (
-    <Shape
-      {...UNKNOWN_TAPE}
-      {...props}
-      _style={extendStyle(UNKNOWN_TAPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNKNOWN_TAPE)} />
 }

@@ -11,11 +11,5 @@ export const SUPPLY_CHAIN = {
 }
 
 export function SupplyChain(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPPLY_CHAIN}
-      {...props}
-      _style={extendStyle(SUPPLY_CHAIN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPPLY_CHAIN)} />
 }

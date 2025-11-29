@@ -13,9 +13,8 @@ export const ABAP_BUSINESS_APPLICATION_PLATFORM = {
 export function AbapBusinessApplicationPlatform(props: NodeProps) {
   return (
     <Shape
-      {...ABAP_BUSINESS_APPLICATION_PLATFORM}
       {...props}
-      _style={extendStyle(ABAP_BUSINESS_APPLICATION_PLATFORM, props)}
+      _style={extendStyle(props, ABAP_BUSINESS_APPLICATION_PLATFORM)}
     />
   )
 }

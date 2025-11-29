@@ -11,7 +11,5 @@ export const ACCENT_3_3 = {
 }
 
 export function Accent33(props: NodeProps) {
-  return (
-    <Shape {...ACCENT_3_3} {...props} _style={extendStyle(ACCENT_3_3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCENT_3_3)} />
 }

@@ -11,11 +11,5 @@ export const D3_INSTANCE = {
 }
 
 export function D3Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...D3_INSTANCE}
-      {...props}
-      _style={extendStyle(D3_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, D3_INSTANCE)} />
 }

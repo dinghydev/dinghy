@@ -11,11 +11,5 @@ export const PILL_BADGE_WARNING = {
 }
 
 export function PillBadgeWarning(props: NodeProps) {
-  return (
-    <Shape
-      {...PILL_BADGE_WARNING}
-      {...props}
-      _style={extendStyle(PILL_BADGE_WARNING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PILL_BADGE_WARNING)} />
 }

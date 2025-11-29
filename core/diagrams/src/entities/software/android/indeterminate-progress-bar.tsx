@@ -12,10 +12,6 @@ export const INDETERMINATE_PROGRESS_BAR = {
 
 export function IndeterminateProgressBar(props: NodeProps) {
   return (
-    <Shape
-      {...INDETERMINATE_PROGRESS_BAR}
-      {...props}
-      _style={extendStyle(INDETERMINATE_PROGRESS_BAR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INDETERMINATE_PROGRESS_BAR)} />
   )
 }

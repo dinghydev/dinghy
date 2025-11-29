@@ -11,11 +11,5 @@ export const FLEXIBLE_PIPE = {
 }
 
 export function FlexiblePipe(props: NodeProps) {
-  return (
-    <Shape
-      {...FLEXIBLE_PIPE}
-      {...props}
-      _style={extendStyle(FLEXIBLE_PIPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLEXIBLE_PIPE)} />
 }

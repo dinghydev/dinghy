@@ -11,11 +11,5 @@ export const LOUDSPEAKER = {
 }
 
 export function Loudspeaker(props: NodeProps) {
-  return (
-    <Shape
-      {...LOUDSPEAKER}
-      {...props}
-      _style={extendStyle(LOUDSPEAKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOUDSPEAKER)} />
 }

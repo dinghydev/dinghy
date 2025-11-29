@@ -13,9 +13,8 @@ export const DECISION_ENTITY_RELATIONSHIP = {
 export function DecisionEntityRelationship(props: NodeProps) {
   return (
     <Shape
-      {...DECISION_ENTITY_RELATIONSHIP}
       {...props}
-      _style={extendStyle(DECISION_ENTITY_RELATIONSHIP, props)}
+      _style={extendStyle(props, DECISION_ENTITY_RELATIONSHIP)}
     />
   )
 }

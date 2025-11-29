@@ -13,9 +13,8 @@ export const DATABASE_MIRROR_WITNESS_NODE = {
 export function DatabaseMirrorWitnessNode(props: NodeProps) {
   return (
     <Shape
-      {...DATABASE_MIRROR_WITNESS_NODE}
       {...props}
-      _style={extendStyle(DATABASE_MIRROR_WITNESS_NODE, props)}
+      _style={extendStyle(props, DATABASE_MIRROR_WITNESS_NODE)}
     />
   )
 }

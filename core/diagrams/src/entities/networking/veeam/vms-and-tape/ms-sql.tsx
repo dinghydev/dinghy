@@ -11,5 +11,5 @@ export const MS_SQL = {
 }
 
 export function MsSql(props: NodeProps) {
-  return <Shape {...MS_SQL} {...props} _style={extendStyle(MS_SQL, props)} />
+  return <Shape {...props} _style={extendStyle(props, MS_SQL)} />
 }

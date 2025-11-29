@@ -12,10 +12,6 @@ export const MULTILAYER_REMOTE_SWITCH = {
 
 export function MultilayerRemoteSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...MULTILAYER_REMOTE_SWITCH}
-      {...props}
-      _style={extendStyle(MULTILAYER_REMOTE_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTILAYER_REMOTE_SWITCH)} />
   )
 }

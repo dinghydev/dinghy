@@ -11,5 +11,5 @@ export const LIVE = {
 }
 
 export function Live(props: NodeProps) {
-  return <Shape {...LIVE} {...props} _style={extendStyle(LIVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, LIVE)} />
 }

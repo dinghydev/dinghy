@@ -11,11 +11,5 @@ export const ANTHOS_SERVICE_MESH = {
 }
 
 export function AnthosServiceMesh(props: NodeProps) {
-  return (
-    <Shape
-      {...ANTHOS_SERVICE_MESH}
-      {...props}
-      _style={extendStyle(ANTHOS_SERVICE_MESH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANTHOS_SERVICE_MESH)} />
 }

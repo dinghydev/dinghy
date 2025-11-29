@@ -11,11 +11,5 @@ export const SITE_RECOVERY = {
 }
 
 export function SiteRecovery(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_RECOVERY}
-      {...props}
-      _style={extendStyle(SITE_RECOVERY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_RECOVERY)} />
 }

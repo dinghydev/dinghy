@@ -12,10 +12,6 @@ export const X12100_COALESCING_FILTER = {
 
 export function X12100CoalescingFilter(props: NodeProps) {
   return (
-    <Shape
-      {...X12100_COALESCING_FILTER}
-      {...props}
-      _style={extendStyle(X12100_COALESCING_FILTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12100_COALESCING_FILTER)} />
   )
 }

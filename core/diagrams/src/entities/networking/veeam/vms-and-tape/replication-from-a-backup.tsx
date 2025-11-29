@@ -12,10 +12,6 @@ export const REPLICATION_FROM_A_BACKUP = {
 
 export function ReplicationFromABackup(props: NodeProps) {
   return (
-    <Shape
-      {...REPLICATION_FROM_A_BACKUP}
-      {...props}
-      _style={extendStyle(REPLICATION_FROM_A_BACKUP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, REPLICATION_FROM_A_BACKUP)} />
   )
 }

@@ -13,9 +13,8 @@ export const NETWORK_ACCESS_CONTROL_LIST = {
 export function NetworkAccessControlList(props: NodeProps) {
   return (
     <Shape
-      {...NETWORK_ACCESS_CONTROL_LIST}
       {...props}
-      _style={extendStyle(NETWORK_ACCESS_CONTROL_LIST, props)}
+      _style={extendStyle(props, NETWORK_ACCESS_CONTROL_LIST)}
     />
   )
 }

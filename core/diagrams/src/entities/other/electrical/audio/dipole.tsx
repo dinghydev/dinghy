@@ -11,5 +11,5 @@ export const DIPOLE = {
 }
 
 export function Dipole(props: NodeProps) {
-  return <Shape {...DIPOLE} {...props} _style={extendStyle(DIPOLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIPOLE)} />
 }

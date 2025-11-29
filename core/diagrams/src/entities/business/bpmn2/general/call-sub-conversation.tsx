@@ -11,11 +11,5 @@ export const CALL_SUB_CONVERSATION = {
 }
 
 export function CallSubConversation(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_SUB_CONVERSATION}
-      {...props}
-      _style={extendStyle(CALL_SUB_CONVERSATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_SUB_CONVERSATION)} />
 }

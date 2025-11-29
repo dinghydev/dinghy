@@ -11,7 +11,5 @@ export const NEON_LAMP = {
 }
 
 export function NeonLamp(props: NodeProps) {
-  return (
-    <Shape {...NEON_LAMP} {...props} _style={extendStyle(NEON_LAMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEON_LAMP)} />
 }

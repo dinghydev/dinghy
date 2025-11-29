@@ -9,7 +9,5 @@ export const SERVING = {
 }
 
 export function Serving(props: NodeProps) {
-  return (
-    <Dependency {...SERVING} {...props} _style={extendStyle(SERVING, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, SERVING)} />
 }

@@ -10,11 +10,5 @@ export const FULLSCREEN_DIALOG = {
 }
 
 export function FullscreenDialog(props: NodeProps) {
-  return (
-    <Shape
-      {...FULLSCREEN_DIALOG}
-      {...props}
-      _style={extendStyle(FULLSCREEN_DIALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FULLSCREEN_DIALOG)} />
 }

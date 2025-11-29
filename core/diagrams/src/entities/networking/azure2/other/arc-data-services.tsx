@@ -11,11 +11,5 @@ export const ARC_DATA_SERVICES = {
 }
 
 export function ArcDataServices(props: NodeProps) {
-  return (
-    <Shape
-      {...ARC_DATA_SERVICES}
-      {...props}
-      _style={extendStyle(ARC_DATA_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARC_DATA_SERVICES)} />
 }

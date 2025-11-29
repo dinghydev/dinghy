@@ -12,10 +12,6 @@ export const HBR_HYBRID_BACKUP_RECOVERY = {
 
 export function HbrHybridBackupRecovery(props: NodeProps) {
   return (
-    <Shape
-      {...HBR_HYBRID_BACKUP_RECOVERY}
-      {...props}
-      _style={extendStyle(HBR_HYBRID_BACKUP_RECOVERY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HBR_HYBRID_BACKUP_RECOVERY)} />
   )
 }

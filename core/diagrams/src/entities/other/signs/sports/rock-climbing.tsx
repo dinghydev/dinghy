@@ -11,11 +11,5 @@ export const ROCK_CLIMBING = {
 }
 
 export function RockClimbing(props: NodeProps) {
-  return (
-    <Shape
-      {...ROCK_CLIMBING}
-      {...props}
-      _style={extendStyle(ROCK_CLIMBING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROCK_CLIMBING)} />
 }

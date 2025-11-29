@@ -11,11 +11,5 @@ export const TAPE_STORAGE = {
 }
 
 export function TapeStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_STORAGE}
-      {...props}
-      _style={extendStyle(TAPE_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_STORAGE)} />
 }

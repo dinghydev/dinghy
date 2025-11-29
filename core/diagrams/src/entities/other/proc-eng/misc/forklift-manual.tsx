@@ -11,11 +11,5 @@ export const FORKLIFT_MANUAL = {
 }
 
 export function ForkliftManual(props: NodeProps) {
-  return (
-    <Shape
-      {...FORKLIFT_MANUAL}
-      {...props}
-      _style={extendStyle(FORKLIFT_MANUAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORKLIFT_MANUAL)} />
 }

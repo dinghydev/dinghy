@@ -12,10 +12,6 @@ export const CROSS_FUNCTIONAL_FLOWCHART = {
 
 export function CrossFunctionalFlowchart(props: NodeProps) {
   return (
-    <Shape
-      {...CROSS_FUNCTIONAL_FLOWCHART}
-      {...props}
-      _style={extendStyle(CROSS_FUNCTIONAL_FLOWCHART, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CROSS_FUNCTIONAL_FLOWCHART)} />
   )
 }

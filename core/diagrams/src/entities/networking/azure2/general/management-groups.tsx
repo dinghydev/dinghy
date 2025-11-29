@@ -11,11 +11,5 @@ export const MANAGEMENT_GROUPS = {
 }
 
 export function ManagementGroups(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_GROUPS}
-      {...props}
-      _style={extendStyle(MANAGEMENT_GROUPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_GROUPS)} />
 }

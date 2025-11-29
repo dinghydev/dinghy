@@ -11,11 +11,5 @@ export const HYBRID_SERVER = {
 }
 
 export function HybridServer(props: NodeProps) {
-  return (
-    <Shape
-      {...HYBRID_SERVER}
-      {...props}
-      _style={extendStyle(HYBRID_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYBRID_SERVER)} />
 }

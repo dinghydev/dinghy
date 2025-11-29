@@ -11,11 +11,5 @@ export const CRUSHER_IMPACT = {
 }
 
 export function CrusherImpact(props: NodeProps) {
-  return (
-    <Shape
-      {...CRUSHER_IMPACT}
-      {...props}
-      _style={extendStyle(CRUSHER_IMPACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CRUSHER_IMPACT)} />
 }

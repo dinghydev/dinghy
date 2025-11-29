@@ -11,11 +11,5 @@ export const CWH_CLOUD_WEB_HOSTING = {
 }
 
 export function CwhCloudWebHosting(props: NodeProps) {
-  return (
-    <Shape
-      {...CWH_CLOUD_WEB_HOSTING}
-      {...props}
-      _style={extendStyle(CWH_CLOUD_WEB_HOSTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CWH_CLOUD_WEB_HOSTING)} />
 }

@@ -12,10 +12,6 @@ export const INTERNAL_BLOCK_DIAGRAM = {
 
 export function InternalBlockDiagram(props: NodeProps) {
   return (
-    <Shape
-      {...INTERNAL_BLOCK_DIAGRAM}
-      {...props}
-      _style={extendStyle(INTERNAL_BLOCK_DIAGRAM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTERNAL_BLOCK_DIAGRAM)} />
   )
 }

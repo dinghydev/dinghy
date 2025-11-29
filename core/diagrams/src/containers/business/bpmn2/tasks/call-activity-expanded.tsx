@@ -10,10 +10,6 @@ export const CALL_ACTIVITY_EXPANDED = {
 
 export function CallActivityExpanded(props: NodeProps) {
   return (
-    <Shape
-      {...CALL_ACTIVITY_EXPANDED}
-      {...props}
-      _style={extendStyle(CALL_ACTIVITY_EXPANDED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CALL_ACTIVITY_EXPANDED)} />
   )
 }

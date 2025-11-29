@@ -11,5 +11,5 @@ export const UPDATES = {
 }
 
 export function Updates(props: NodeProps) {
-  return <Shape {...UPDATES} {...props} _style={extendStyle(UPDATES, props)} />
+  return <Shape {...props} _style={extendStyle(props, UPDATES)} />
 }

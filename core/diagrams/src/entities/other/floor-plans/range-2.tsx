@@ -11,5 +11,5 @@ export const RANGE_2 = {
 }
 
 export function Range2(props: NodeProps) {
-  return <Shape {...RANGE_2} {...props} _style={extendStyle(RANGE_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, RANGE_2)} />
 }

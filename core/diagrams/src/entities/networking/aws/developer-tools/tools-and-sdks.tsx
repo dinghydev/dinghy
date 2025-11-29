@@ -11,11 +11,5 @@ export const TOOLS_AND_SDKS = {
 }
 
 export function ToolsAndSdks(props: NodeProps) {
-  return (
-    <Shape
-      {...TOOLS_AND_SDKS}
-      {...props}
-      _style={extendStyle(TOOLS_AND_SDKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOOLS_AND_SDKS)} />
 }

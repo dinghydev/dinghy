@@ -13,9 +13,8 @@ export const TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER = {
 export function TurboDrierDiscDrierMovingShelfDrier(props: NodeProps) {
   return (
     <Shape
-      {...TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER}
       {...props}
-      _style={extendStyle(TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER, props)}
+      _style={extendStyle(props, TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER)}
     />
   )
 }

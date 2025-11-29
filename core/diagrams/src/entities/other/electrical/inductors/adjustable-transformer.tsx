@@ -12,10 +12,6 @@ export const ADJUSTABLE_TRANSFORMER = {
 
 export function AdjustableTransformer(props: NodeProps) {
   return (
-    <Shape
-      {...ADJUSTABLE_TRANSFORMER}
-      {...props}
-      _style={extendStyle(ADJUSTABLE_TRANSFORMER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ADJUSTABLE_TRANSFORMER)} />
   )
 }

@@ -11,7 +11,5 @@ export const CAPACITOR = {
 }
 
 export function Capacitor(props: NodeProps) {
-  return (
-    <Shape {...CAPACITOR} {...props} _style={extendStyle(CAPACITOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAPACITOR)} />
 }

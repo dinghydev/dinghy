@@ -11,7 +11,5 @@ export const TIME_EVENT = {
 }
 
 export function TimeEvent(props: NodeProps) {
-  return (
-    <Shape {...TIME_EVENT} {...props} _style={extendStyle(TIME_EVENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_EVENT)} />
 }

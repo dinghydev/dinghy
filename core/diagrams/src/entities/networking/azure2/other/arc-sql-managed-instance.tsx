@@ -12,10 +12,6 @@ export const ARC_SQL_MANAGED_INSTANCE = {
 
 export function ArcSqlManagedInstance(props: NodeProps) {
   return (
-    <Shape
-      {...ARC_SQL_MANAGED_INSTANCE}
-      {...props}
-      _style={extendStyle(ARC_SQL_MANAGED_INSTANCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ARC_SQL_MANAGED_INSTANCE)} />
   )
 }

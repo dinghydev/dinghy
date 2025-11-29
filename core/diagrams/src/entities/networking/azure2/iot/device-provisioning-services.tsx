@@ -13,9 +13,8 @@ export const DEVICE_PROVISIONING_SERVICES = {
 export function DeviceProvisioningServices(props: NodeProps) {
   return (
     <Shape
-      {...DEVICE_PROVISIONING_SERVICES}
       {...props}
-      _style={extendStyle(DEVICE_PROVISIONING_SERVICES, props)}
+      _style={extendStyle(props, DEVICE_PROVISIONING_SERVICES)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const CELL_LIST = {
 }
 
 export function CellList(props: NodeProps) {
-  return (
-    <Shape {...CELL_LIST} {...props} _style={extendStyle(CELL_LIST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CELL_LIST)} />
 }

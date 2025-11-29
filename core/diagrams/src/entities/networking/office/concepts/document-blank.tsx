@@ -11,11 +11,5 @@ export const DOCUMENT_BLANK = {
 }
 
 export function DocumentBlank(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_BLANK}
-      {...props}
-      _style={extendStyle(DOCUMENT_BLANK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_BLANK)} />
 }

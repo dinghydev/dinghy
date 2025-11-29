@@ -11,11 +11,5 @@ export const DROPDOWN_BUTTON_9 = {
 }
 
 export function DropdownButton9(props: NodeProps) {
-  return (
-    <Shape
-      {...DROPDOWN_BUTTON_9}
-      {...props}
-      _style={extendStyle(DROPDOWN_BUTTON_9, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DROPDOWN_BUTTON_9)} />
 }

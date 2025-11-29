@@ -11,5 +11,5 @@ export const DRIER = {
 }
 
 export function Drier(props: NodeProps) {
-  return <Shape {...DRIER} {...props} _style={extendStyle(DRIER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DRIER)} />
 }

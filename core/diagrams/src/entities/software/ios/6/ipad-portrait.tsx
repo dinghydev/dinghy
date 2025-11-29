@@ -11,11 +11,5 @@ export const IPAD_PORTRAIT = {
 }
 
 export function IpadPortrait(props: NodeProps) {
-  return (
-    <Shape
-      {...IPAD_PORTRAIT}
-      {...props}
-      _style={extendStyle(IPAD_PORTRAIT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPAD_PORTRAIT)} />
 }

@@ -11,11 +11,5 @@ export const IDENTITY_PROVISIONING = {
 }
 
 export function IdentityProvisioning(props: NodeProps) {
-  return (
-    <Shape
-      {...IDENTITY_PROVISIONING}
-      {...props}
-      _style={extendStyle(IDENTITY_PROVISIONING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDENTITY_PROVISIONING)} />
 }

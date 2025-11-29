@@ -11,11 +11,5 @@ export const M_F_CONTACT_2 = {
 }
 
 export function MFContact2(props: NodeProps) {
-  return (
-    <Shape
-      {...M_F_CONTACT_2}
-      {...props}
-      _style={extendStyle(M_F_CONTACT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, M_F_CONTACT_2)} />
 }

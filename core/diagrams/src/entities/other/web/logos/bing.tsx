@@ -11,5 +11,5 @@ export const BING = {
 }
 
 export function Bing(props: NodeProps) {
-  return <Shape {...BING} {...props} _style={extendStyle(BING, props)} />
+  return <Shape {...props} _style={extendStyle(props, BING)} />
 }

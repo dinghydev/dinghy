@@ -11,7 +11,5 @@ export const DOCTOR_MAN = {
 }
 
 export function DoctorMan(props: NodeProps) {
-  return (
-    <Shape {...DOCTOR_MAN} {...props} _style={extendStyle(DOCTOR_MAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCTOR_MAN)} />
 }

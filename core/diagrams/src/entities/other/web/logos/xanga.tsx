@@ -11,5 +11,5 @@ export const XANGA = {
 }
 
 export function Xanga(props: NodeProps) {
-  return <Shape {...XANGA} {...props} _style={extendStyle(XANGA, props)} />
+  return <Shape {...props} _style={extendStyle(props, XANGA)} />
 }

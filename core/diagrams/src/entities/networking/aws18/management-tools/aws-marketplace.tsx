@@ -11,11 +11,5 @@ export const AWS_MARKETPLACE = {
 }
 
 export function AwsMarketplace(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_MARKETPLACE}
-      {...props}
-      _style={extendStyle(AWS_MARKETPLACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_MARKETPLACE)} />
 }

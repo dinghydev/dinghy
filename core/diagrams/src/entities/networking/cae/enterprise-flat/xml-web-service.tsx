@@ -11,11 +11,5 @@ export const XML_WEB_SERVICE = {
 }
 
 export function XmlWebService(props: NodeProps) {
-  return (
-    <Shape
-      {...XML_WEB_SERVICE}
-      {...props}
-      _style={extendStyle(XML_WEB_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, XML_WEB_SERVICE)} />
 }

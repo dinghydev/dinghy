@@ -11,11 +11,5 @@ export const T_TYPE_STRAINER = {
 }
 
 export function TTypeStrainer(props: NodeProps) {
-  return (
-    <Shape
-      {...T_TYPE_STRAINER}
-      {...props}
-      _style={extendStyle(T_TYPE_STRAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, T_TYPE_STRAINER)} />
 }

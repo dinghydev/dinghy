@@ -11,11 +11,5 @@ export const SPRAY_SCRUBBER = {
 }
 
 export function SprayScrubber(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRAY_SCRUBBER}
-      {...props}
-      _style={extendStyle(SPRAY_SCRUBBER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRAY_SCRUBBER)} />
 }

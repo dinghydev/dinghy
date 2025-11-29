@@ -11,7 +11,5 @@ export const PHISHING = {
 }
 
 export function Phishing(props: NodeProps) {
-  return (
-    <Shape {...PHISHING} {...props} _style={extendStyle(PHISHING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHISHING)} />
 }

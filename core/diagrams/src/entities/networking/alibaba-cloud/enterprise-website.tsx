@@ -11,11 +11,5 @@ export const ENTERPRISE_WEBSITE = {
 }
 
 export function EnterpriseWebsite(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTERPRISE_WEBSITE}
-      {...props}
-      _style={extendStyle(ENTERPRISE_WEBSITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTERPRISE_WEBSITE)} />
 }

@@ -11,7 +11,5 @@ export const CLOUD_RUN = {
 }
 
 export function CloudRun(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_RUN} {...props} _style={extendStyle(CLOUD_RUN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_RUN)} />
 }

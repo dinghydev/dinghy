@@ -11,11 +11,5 @@ export const FULL_FOLDER = {
 }
 
 export function FullFolder(props: NodeProps) {
-  return (
-    <Shape
-      {...FULL_FOLDER}
-      {...props}
-      _style={extendStyle(FULL_FOLDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FULL_FOLDER)} />
 }

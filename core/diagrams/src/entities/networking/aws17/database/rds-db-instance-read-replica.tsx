@@ -13,9 +13,8 @@ export const RDS_DB_INSTANCE_READ_REPLICA = {
 export function RdsDbInstanceReadReplica(props: NodeProps) {
   return (
     <Shape
-      {...RDS_DB_INSTANCE_READ_REPLICA}
       {...props}
-      _style={extendStyle(RDS_DB_INSTANCE_READ_REPLICA, props)}
+      _style={extendStyle(props, RDS_DB_INSTANCE_READ_REPLICA)}
     />
   )
 }

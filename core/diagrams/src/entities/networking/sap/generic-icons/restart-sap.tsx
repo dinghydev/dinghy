@@ -11,11 +11,5 @@ export const RESTART_SAP = {
 }
 
 export function RestartSap(props: NodeProps) {
-  return (
-    <Shape
-      {...RESTART_SAP}
-      {...props}
-      _style={extendStyle(RESTART_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESTART_SAP)} />
 }

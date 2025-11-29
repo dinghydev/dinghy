@@ -12,10 +12,6 @@ export const APPLICATION_LOAD_BALANCER = {
 
 export function ApplicationLoadBalancer(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(APPLICATION_LOAD_BALANCER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_LOAD_BALANCER)} />
   )
 }

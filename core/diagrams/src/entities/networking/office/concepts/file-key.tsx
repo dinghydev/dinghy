@@ -11,7 +11,5 @@ export const FILE_KEY = {
 }
 
 export function FileKey(props: NodeProps) {
-  return (
-    <Shape {...FILE_KEY} {...props} _style={extendStyle(FILE_KEY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_KEY)} />
 }

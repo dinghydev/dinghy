@@ -11,11 +11,5 @@ export const VPC_PEERING = {
 }
 
 export function VpcPeering(props: NodeProps) {
-  return (
-    <Shape
-      {...VPC_PEERING}
-      {...props}
-      _style={extendStyle(VPC_PEERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_PEERING)} />
 }

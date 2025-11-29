@@ -11,11 +11,5 @@ export const MQ_MESSAGE_QUEUE = {
 }
 
 export function MqMessageQueue(props: NodeProps) {
-  return (
-    <Shape
-      {...MQ_MESSAGE_QUEUE}
-      {...props}
-      _style={extendStyle(MQ_MESSAGE_QUEUE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MQ_MESSAGE_QUEUE)} />
 }

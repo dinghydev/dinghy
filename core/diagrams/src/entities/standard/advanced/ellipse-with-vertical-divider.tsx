@@ -13,9 +13,8 @@ export const ELLIPSE_WITH_VERTICAL_DIVIDER = {
 export function EllipseWithVerticalDivider(props: NodeProps) {
   return (
     <Shape
-      {...ELLIPSE_WITH_VERTICAL_DIVIDER}
       {...props}
-      _style={extendStyle(ELLIPSE_WITH_VERTICAL_DIVIDER, props)}
+      _style={extendStyle(props, ELLIPSE_WITH_VERTICAL_DIVIDER)}
     />
   )
 }

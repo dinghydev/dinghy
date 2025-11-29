@@ -11,11 +11,5 @@ export const MEDICAL_INTERPRETER = {
 }
 
 export function MedicalInterpreter(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDICAL_INTERPRETER}
-      {...props}
-      _style={extendStyle(MEDICAL_INTERPRETER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDICAL_INTERPRETER)} />
 }

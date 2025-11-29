@@ -11,11 +11,5 @@ export const COMPOSITE_STATE_2 = {
 }
 
 export function CompositeState2(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPOSITE_STATE_2}
-      {...props}
-      _style={extendStyle(COMPOSITE_STATE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPOSITE_STATE_2)} />
 }

@@ -13,9 +13,8 @@ export const CISCO_CATALYST_BLADE_SWITCH_3120_FOR_HP = {
 export function CiscoCatalystBladeSwitch3120ForHp(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_CATALYST_BLADE_SWITCH_3120_FOR_HP}
       {...props}
-      _style={extendStyle(CISCO_CATALYST_BLADE_SWITCH_3120_FOR_HP, props)}
+      _style={extendStyle(props, CISCO_CATALYST_BLADE_SWITCH_3120_FOR_HP)}
     />
   )
 }

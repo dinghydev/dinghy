@@ -11,5 +11,5 @@ export const IP_TV = {
 }
 
 export function IpTv(props: NodeProps) {
-  return <Shape {...IP_TV} {...props} _style={extendStyle(IP_TV, props)} />
+  return <Shape {...props} _style={extendStyle(props, IP_TV)} />
 }

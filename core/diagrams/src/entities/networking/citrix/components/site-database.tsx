@@ -11,11 +11,5 @@ export const SITE_DATABASE = {
 }
 
 export function SiteDatabase(props: NodeProps) {
-  return (
-    <Shape
-      {...SITE_DATABASE}
-      {...props}
-      _style={extendStyle(SITE_DATABASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITE_DATABASE)} />
 }

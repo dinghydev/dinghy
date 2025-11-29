@@ -13,9 +13,8 @@ export const JL625A_ARUBA_8325_32Y_8C_B2F_REAR = {
 export function Jl625aAruba832532y8cB2fRear(props: NodeProps) {
   return (
     <Shape
-      {...JL625A_ARUBA_8325_32Y_8C_B2F_REAR}
       {...props}
-      _style={extendStyle(JL625A_ARUBA_8325_32Y_8C_B2F_REAR, props)}
+      _style={extendStyle(props, JL625A_ARUBA_8325_32Y_8C_B2F_REAR)}
     />
   )
 }

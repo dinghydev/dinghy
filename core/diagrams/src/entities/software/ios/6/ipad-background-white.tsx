@@ -11,11 +11,5 @@ export const IPAD_BACKGROUND_WHITE = {
 }
 
 export function IpadBackgroundWhite(props: NodeProps) {
-  return (
-    <Shape
-      {...IPAD_BACKGROUND_WHITE}
-      {...props}
-      _style={extendStyle(IPAD_BACKGROUND_WHITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPAD_BACKGROUND_WHITE)} />
 }

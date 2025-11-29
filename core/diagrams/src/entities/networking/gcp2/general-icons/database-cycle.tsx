@@ -11,11 +11,5 @@ export const DATABASE_CYCLE = {
 }
 
 export function DatabaseCycle(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_CYCLE}
-      {...props}
-      _style={extendStyle(DATABASE_CYCLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_CYCLE)} />
 }

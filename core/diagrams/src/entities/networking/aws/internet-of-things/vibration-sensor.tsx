@@ -11,11 +11,5 @@ export const VIBRATION_SENSOR = {
 }
 
 export function VibrationSensor(props: NodeProps) {
-  return (
-    <Shape
-      {...VIBRATION_SENSOR}
-      {...props}
-      _style={extendStyle(VIBRATION_SENSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIBRATION_SENSOR)} />
 }

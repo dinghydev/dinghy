@@ -11,11 +11,5 @@ export const CISCO_WAE_512 = {
 }
 
 export function CiscoWae512(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_WAE_512}
-      {...props}
-      _style={extendStyle(CISCO_WAE_512, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_WAE_512)} />
 }

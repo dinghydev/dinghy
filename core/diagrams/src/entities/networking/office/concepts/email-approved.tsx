@@ -11,11 +11,5 @@ export const EMAIL_APPROVED = {
 }
 
 export function EmailApproved(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_APPROVED}
-      {...props}
-      _style={extendStyle(EMAIL_APPROVED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_APPROVED)} />
 }

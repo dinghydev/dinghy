@@ -11,5 +11,5 @@ export const VIMEO = {
 }
 
 export function Vimeo(props: NodeProps) {
-  return <Shape {...VIMEO} {...props} _style={extendStyle(VIMEO, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIMEO)} />
 }

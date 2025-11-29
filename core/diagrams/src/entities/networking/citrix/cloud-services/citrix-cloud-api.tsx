@@ -11,11 +11,5 @@ export const CITRIX_CLOUD_API = {
 }
 
 export function CitrixCloudApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_CLOUD_API}
-      {...props}
-      _style={extendStyle(CITRIX_CLOUD_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_CLOUD_API)} />
 }

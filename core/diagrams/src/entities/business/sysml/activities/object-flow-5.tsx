@@ -11,11 +11,5 @@ export const OBJECT_FLOW_5 = {
 }
 
 export function ObjectFlow5(props: NodeProps) {
-  return (
-    <Shape
-      {...OBJECT_FLOW_5}
-      {...props}
-      _style={extendStyle(OBJECT_FLOW_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OBJECT_FLOW_5)} />
 }

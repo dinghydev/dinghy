@@ -11,5 +11,5 @@ export const UTM = {
 }
 
 export function Utm(props: NodeProps) {
-  return <Shape {...UTM} {...props} _style={extendStyle(UTM, props)} />
+  return <Shape {...props} _style={extendStyle(props, UTM)} />
 }

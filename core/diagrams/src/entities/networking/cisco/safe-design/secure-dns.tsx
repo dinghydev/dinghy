@@ -11,7 +11,5 @@ export const SECURE_DNS = {
 }
 
 export function SecureDns(props: NodeProps) {
-  return (
-    <Shape {...SECURE_DNS} {...props} _style={extendStyle(SECURE_DNS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_DNS)} />
 }

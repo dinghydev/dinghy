@@ -13,9 +13,8 @@ export const ELEMENTAL_APPLIANCES_SOFTWARE = {
 export function ElementalAppliancesSoftware(props: NodeProps) {
   return (
     <Shape
-      {...ELEMENTAL_APPLIANCES_SOFTWARE}
       {...props}
-      _style={extendStyle(ELEMENTAL_APPLIANCES_SOFTWARE, props)}
+      _style={extendStyle(props, ELEMENTAL_APPLIANCES_SOFTWARE)}
     />
   )
 }

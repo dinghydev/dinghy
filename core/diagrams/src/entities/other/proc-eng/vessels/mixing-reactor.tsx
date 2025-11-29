@@ -11,11 +11,5 @@ export const MIXING_REACTOR = {
 }
 
 export function MixingReactor(props: NodeProps) {
-  return (
-    <Shape
-      {...MIXING_REACTOR}
-      {...props}
-      _style={extendStyle(MIXING_REACTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIXING_REACTOR)} />
 }

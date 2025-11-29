@@ -11,5 +11,5 @@ export const ALIMAIL = {
 }
 
 export function Alimail(props: NodeProps) {
-  return <Shape {...ALIMAIL} {...props} _style={extendStyle(ALIMAIL, props)} />
+  return <Shape {...props} _style={extendStyle(props, ALIMAIL)} />
 }

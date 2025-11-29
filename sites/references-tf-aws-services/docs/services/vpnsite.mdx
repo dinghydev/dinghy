@@ -1,0 +1,178 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# VPN (Site-to-Site)
+
+## AwsCustomerGateway
+
+Provides a customer gateway inside a VPC. These objects can be
+connected to VPN gateways via VPN connections, and allow you to
+establish tunnels between your network and the VPC.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/customer_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsCustomerGateway.tsx)
+
+```js
+import { AwsCustomerGateway } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsCustomerGateway/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/customer_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/DataAwsCustomerGateway.tsx)
+
+```js
+import { DataAwsCustomerGateway } from "@dinghy/tf-aws/serviceVpnsite"
+
+<DataAwsCustomerGateway/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsVpnConnection
+
+Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnConnection.tsx)
+
+```js
+import { AwsVpnConnection } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsVpnConnection/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/DataAwsVpnConnection.tsx)
+
+```js
+import { DataAwsVpnConnection } from "@dinghy/tf-aws/serviceVpnsite"
+
+<DataAwsVpnConnection/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsVpnConnectionRoute
+
+Provides a static route between a VPN connection and a customer gateway.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection_route)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnConnectionRoute.tsx)
+
+```js
+import { AwsVpnConnectionRoute } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsVpnConnectionRoute/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsVpnGateway
+
+Provides a resource to create a VPC VPN Gateway.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnGateway.tsx)
+
+```js
+import { AwsVpnGateway } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsVpnGateway/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_gateway)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/DataAwsVpnGateway.tsx)
+
+```js
+import { DataAwsVpnGateway } from "@dinghy/tf-aws/serviceVpnsite"
+
+<DataAwsVpnGateway/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsVpnGatewayAttachment
+
+Provides a Virtual Private Gateway attachment resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway_attachment)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnGatewayAttachment.tsx)
+
+```js
+import { AwsVpnGatewayAttachment } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsVpnGatewayAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsVpnGatewayRoutePropagation
+
+Requests automatic route propagation between a VPN gateway and a route table.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway_route_propagation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnGatewayRoutePropagation.tsx)
+
+```js
+import { AwsVpnGatewayRoutePropagation } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsVpnGatewayRoutePropagation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

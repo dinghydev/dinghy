@@ -11,11 +11,5 @@ export const VIDEO_CONVERSATION = {
 }
 
 export function VideoConversation(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_CONVERSATION}
-      {...props}
-      _style={extendStyle(VIDEO_CONVERSATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_CONVERSATION)} />
 }

@@ -11,7 +11,5 @@ export const AI_NON_SAP = {
 }
 
 export function AiNonSap(props: NodeProps) {
-  return (
-    <Shape {...AI_NON_SAP} {...props} _style={extendStyle(AI_NON_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AI_NON_SAP)} />
 }

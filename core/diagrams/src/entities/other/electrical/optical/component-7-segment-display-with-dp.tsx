@@ -13,9 +13,8 @@ export const COMPONENT_7_SEGMENT_DISPLAY_WITH_DP = {
 export function Component7SegmentDisplayWithDp(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_7_SEGMENT_DISPLAY_WITH_DP}
       {...props}
-      _style={extendStyle(COMPONENT_7_SEGMENT_DISPLAY_WITH_DP, props)}
+      _style={extendStyle(props, COMPONENT_7_SEGMENT_DISPLAY_WITH_DP)}
     />
   )
 }

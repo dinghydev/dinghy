@@ -11,5 +11,5 @@ export const XAMARIN = {
 }
 
 export function Xamarin(props: NodeProps) {
-  return <Shape {...XAMARIN} {...props} _style={extendStyle(XAMARIN, props)} />
+  return <Shape {...props} _style={extendStyle(props, XAMARIN)} />
 }

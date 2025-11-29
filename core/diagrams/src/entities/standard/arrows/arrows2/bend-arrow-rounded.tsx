@@ -11,11 +11,5 @@ export const BEND_ARROW_ROUNDED = {
 }
 
 export function BendArrowRounded(props: NodeProps) {
-  return (
-    <Shape
-      {...BEND_ARROW_ROUNDED}
-      {...props}
-      _style={extendStyle(BEND_ARROW_ROUNDED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEND_ARROW_ROUNDED)} />
 }

@@ -10,11 +10,5 @@ export const BACKGROUND_LIGHT = {
 }
 
 export function BackgroundLight(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKGROUND_LIGHT}
-      {...props}
-      _style={extendStyle(BACKGROUND_LIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKGROUND_LIGHT)} />
 }

@@ -11,11 +11,5 @@ export const HORIZONTAL_FORM_5 = {
 }
 
 export function HorizontalForm5(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_FORM_5}
-      {...props}
-      _style={extendStyle(HORIZONTAL_FORM_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_FORM_5)} />
 }

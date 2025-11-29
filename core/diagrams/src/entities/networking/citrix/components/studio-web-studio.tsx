@@ -11,11 +11,5 @@ export const STUDIO_WEB_STUDIO = {
 }
 
 export function StudioWebStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...STUDIO_WEB_STUDIO}
-      {...props}
-      _style={extendStyle(STUDIO_WEB_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STUDIO_WEB_STUDIO)} />
 }

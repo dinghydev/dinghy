@@ -11,11 +11,5 @@ export const ACTOR_FEMALE = {
 }
 
 export function ActorFemale(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTOR_FEMALE}
-      {...props}
-      _style={extendStyle(ACTOR_FEMALE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTOR_FEMALE)} />
 }

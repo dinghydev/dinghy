@@ -11,11 +11,5 @@ export const INVENTORY_LICENSE = {
 }
 
 export function InventoryLicense(props: NodeProps) {
-  return (
-    <Shape
-      {...INVENTORY_LICENSE}
-      {...props}
-      _style={extendStyle(INVENTORY_LICENSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INVENTORY_LICENSE)} />
 }

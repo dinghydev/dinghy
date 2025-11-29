@@ -11,11 +11,5 @@ export const DIAGRAM_TITLE_2 = {
 }
 
 export function DiagramTitle2(props: NodeProps) {
-  return (
-    <Shape
-      {...DIAGRAM_TITLE_2}
-      {...props}
-      _style={extendStyle(DIAGRAM_TITLE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIAGRAM_TITLE_2)} />
 }

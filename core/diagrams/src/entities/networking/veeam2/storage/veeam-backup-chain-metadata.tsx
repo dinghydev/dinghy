@@ -13,9 +13,8 @@ export const VEEAM_BACKUP_CHAIN_METADATA = {
 export function VeeamBackupChainMetadata(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_BACKUP_CHAIN_METADATA}
       {...props}
-      _style={extendStyle(VEEAM_BACKUP_CHAIN_METADATA, props)}
+      _style={extendStyle(props, VEEAM_BACKUP_CHAIN_METADATA)}
     />
   )
 }

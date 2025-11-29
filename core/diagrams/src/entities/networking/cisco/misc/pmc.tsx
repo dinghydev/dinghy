@@ -11,5 +11,5 @@ export const PMC = {
 }
 
 export function Pmc(props: NodeProps) {
-  return <Shape {...PMC} {...props} _style={extendStyle(PMC, props)} />
+  return <Shape {...props} _style={extendStyle(props, PMC)} />
 }

@@ -11,11 +11,5 @@ export const LIST_GROUP_2 = {
 }
 
 export function ListGroup2(props: NodeProps) {
-  return (
-    <Shape
-      {...LIST_GROUP_2}
-      {...props}
-      _style={extendStyle(LIST_GROUP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_GROUP_2)} />
 }

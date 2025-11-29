@@ -11,11 +11,5 @@ export const DOOR_REVOLVING = {
 }
 
 export function DoorRevolving(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_REVOLVING}
-      {...props}
-      _style={extendStyle(DOOR_REVOLVING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_REVOLVING)} />
 }

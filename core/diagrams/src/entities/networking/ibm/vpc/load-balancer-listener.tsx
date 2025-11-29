@@ -12,10 +12,6 @@ export const LOAD_BALANCER_LISTENER = {
 
 export function LoadBalancerListener(props: NodeProps) {
   return (
-    <Shape
-      {...LOAD_BALANCER_LISTENER}
-      {...props}
-      _style={extendStyle(LOAD_BALANCER_LISTENER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOAD_BALANCER_LISTENER)} />
   )
 }

@@ -13,9 +13,8 @@ export const SCREENING_DEVICE_SIEVE_STRAINER_ROTATING_DRUM = {
 export function ScreeningDeviceSieveStrainerRotatingDrum(props: NodeProps) {
   return (
     <Shape
-      {...SCREENING_DEVICE_SIEVE_STRAINER_ROTATING_DRUM}
       {...props}
-      _style={extendStyle(SCREENING_DEVICE_SIEVE_STRAINER_ROTATING_DRUM, props)}
+      _style={extendStyle(props, SCREENING_DEVICE_SIEVE_STRAINER_ROTATING_DRUM)}
     />
   )
 }

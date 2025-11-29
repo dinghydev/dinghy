@@ -11,11 +11,5 @@ export const INTERNET_GLOBE = {
 }
 
 export function InternetGlobe(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_GLOBE}
-      {...props}
-      _style={extendStyle(INTERNET_GLOBE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_GLOBE)} />
 }

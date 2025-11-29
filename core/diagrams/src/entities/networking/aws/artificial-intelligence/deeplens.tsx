@@ -11,7 +11,5 @@ export const DEEPLENS = {
 }
 
 export function Deeplens(props: NodeProps) {
-  return (
-    <Shape {...DEEPLENS} {...props} _style={extendStyle(DEEPLENS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEEPLENS)} />
 }

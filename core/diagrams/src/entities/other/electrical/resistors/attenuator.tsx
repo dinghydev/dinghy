@@ -11,7 +11,5 @@ export const ATTENUATOR = {
 }
 
 export function Attenuator(props: NodeProps) {
-  return (
-    <Shape {...ATTENUATOR} {...props} _style={extendStyle(ATTENUATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATTENUATOR)} />
 }

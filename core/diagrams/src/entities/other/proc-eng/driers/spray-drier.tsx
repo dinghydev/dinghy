@@ -11,11 +11,5 @@ export const SPRAY_DRIER = {
 }
 
 export function SprayDrier(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRAY_DRIER}
-      {...props}
-      _style={extendStyle(SPRAY_DRIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRAY_DRIER)} />
 }

@@ -11,11 +11,5 @@ export const FRAME_TOPAZ = {
 }
 
 export function FrameTopaz(props: NodeProps) {
-  return (
-    <Shape
-      {...FRAME_TOPAZ}
-      {...props}
-      _style={extendStyle(FRAME_TOPAZ, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRAME_TOPAZ)} />
 }

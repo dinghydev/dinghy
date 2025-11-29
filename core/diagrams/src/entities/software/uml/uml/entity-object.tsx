@@ -10,11 +10,5 @@ export const ENTITY_OBJECT = {
 }
 
 export function EntityObject(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTITY_OBJECT}
-      {...props}
-      _style={extendStyle(ENTITY_OBJECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTITY_OBJECT)} />
 }

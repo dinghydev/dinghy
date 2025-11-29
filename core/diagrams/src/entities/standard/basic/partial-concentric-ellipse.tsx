@@ -12,10 +12,6 @@ export const PARTIAL_CONCENTRIC_ELLIPSE = {
 
 export function PartialConcentricEllipse(props: NodeProps) {
   return (
-    <Shape
-      {...PARTIAL_CONCENTRIC_ELLIPSE}
-      {...props}
-      _style={extendStyle(PARTIAL_CONCENTRIC_ELLIPSE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PARTIAL_CONCENTRIC_ELLIPSE)} />
   )
 }

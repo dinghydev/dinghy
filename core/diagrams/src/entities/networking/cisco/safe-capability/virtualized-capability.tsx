@@ -12,10 +12,6 @@ export const VIRTUALIZED_CAPABILITY = {
 
 export function VirtualizedCapability(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUALIZED_CAPABILITY}
-      {...props}
-      _style={extendStyle(VIRTUALIZED_CAPABILITY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUALIZED_CAPABILITY)} />
   )
 }

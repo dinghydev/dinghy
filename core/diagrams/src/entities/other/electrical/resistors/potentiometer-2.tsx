@@ -11,11 +11,5 @@ export const POTENTIOMETER_2 = {
 }
 
 export function Potentiometer2(props: NodeProps) {
-  return (
-    <Shape
-      {...POTENTIOMETER_2}
-      {...props}
-      _style={extendStyle(POTENTIOMETER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POTENTIOMETER_2)} />
 }

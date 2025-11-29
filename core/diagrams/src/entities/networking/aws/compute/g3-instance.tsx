@@ -11,11 +11,5 @@ export const G3_INSTANCE = {
 }
 
 export function G3Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...G3_INSTANCE}
-      {...props}
-      _style={extendStyle(G3_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, G3_INSTANCE)} />
 }

@@ -11,7 +11,5 @@ export const INVERTER = {
 }
 
 export function Inverter(props: NodeProps) {
-  return (
-    <Shape {...INVERTER} {...props} _style={extendStyle(INVERTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INVERTER)} />
 }

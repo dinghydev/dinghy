@@ -11,11 +11,5 @@ export const IAM_ACCESS_ANALYZER = {
 }
 
 export function IamAccessAnalyzer(props: NodeProps) {
-  return (
-    <Shape
-      {...IAM_ACCESS_ANALYZER}
-      {...props}
-      _style={extendStyle(IAM_ACCESS_ANALYZER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IAM_ACCESS_ANALYZER)} />
 }

@@ -11,11 +11,5 @@ export const FORWARD_BUTTON = {
 }
 
 export function ForwardButton(props: NodeProps) {
-  return (
-    <Shape
-      {...FORWARD_BUTTON}
-      {...props}
-      _style={extendStyle(FORWARD_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORWARD_BUTTON)} />
 }

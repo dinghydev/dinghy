@@ -11,11 +11,5 @@ export const INLINE_DIALOG_3 = {
 }
 
 export function InlineDialog3(props: NodeProps) {
-  return (
-    <Shape
-      {...INLINE_DIALOG_3}
-      {...props}
-      _style={extendStyle(INLINE_DIALOG_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INLINE_DIALOG_3)} />
 }

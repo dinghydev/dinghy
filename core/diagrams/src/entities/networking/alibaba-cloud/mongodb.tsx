@@ -11,5 +11,5 @@ export const MONGODB = {
 }
 
 export function Mongodb(props: NodeProps) {
-  return <Shape {...MONGODB} {...props} _style={extendStyle(MONGODB, props)} />
+  return <Shape {...props} _style={extendStyle(props, MONGODB)} />
 }

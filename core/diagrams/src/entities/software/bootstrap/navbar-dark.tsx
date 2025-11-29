@@ -11,11 +11,5 @@ export const NAVBAR_DARK = {
 }
 
 export function NavbarDark(props: NodeProps) {
-  return (
-    <Shape
-      {...NAVBAR_DARK}
-      {...props}
-      _style={extendStyle(NAVBAR_DARK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVBAR_DARK)} />
 }

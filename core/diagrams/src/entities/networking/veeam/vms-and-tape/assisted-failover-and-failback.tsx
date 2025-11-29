@@ -13,9 +13,8 @@ export const ASSISTED_FAILOVER_AND_FAILBACK = {
 export function AssistedFailoverAndFailback(props: NodeProps) {
   return (
     <Shape
-      {...ASSISTED_FAILOVER_AND_FAILBACK}
       {...props}
-      _style={extendStyle(ASSISTED_FAILOVER_AND_FAILBACK, props)}
+      _style={extendStyle(props, ASSISTED_FAILOVER_AND_FAILBACK)}
     />
   )
 }

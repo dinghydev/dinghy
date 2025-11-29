@@ -11,11 +11,5 @@ export const SQL_DATABASES = {
 }
 
 export function SqlDatabases(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_DATABASES}
-      {...props}
-      _style={extendStyle(SQL_DATABASES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_DATABASES)} />
 }

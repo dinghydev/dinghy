@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_WEB_APP_CLIENT = {
 export function SkypeForBusinessWebAppClient(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_WEB_APP_CLIENT}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_WEB_APP_CLIENT, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_WEB_APP_CLIENT)}
     />
   )
 }

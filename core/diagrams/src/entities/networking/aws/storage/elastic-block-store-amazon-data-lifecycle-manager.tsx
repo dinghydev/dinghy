@@ -13,11 +13,10 @@ export const ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER = {
 export function ElasticBlockStoreAmazonDataLifecycleManager(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER}
       {...props}
       _style={extendStyle(
-        ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER,
         props,
+        ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER,
       )}
     />
   )

@@ -12,10 +12,6 @@ export const SECURE_ENDPOINT_LAPTOP = {
 
 export function SecureEndpointLaptop(props: NodeProps) {
   return (
-    <Shape
-      {...SECURE_ENDPOINT_LAPTOP}
-      {...props}
-      _style={extendStyle(SECURE_ENDPOINT_LAPTOP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURE_ENDPOINT_LAPTOP)} />
   )
 }

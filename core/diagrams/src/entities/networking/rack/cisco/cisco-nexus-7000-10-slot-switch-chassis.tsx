@@ -13,9 +13,8 @@ export const CISCO_NEXUS_7000_10_SLOT_SWITCH_CHASSIS = {
 export function CiscoNexus700010SlotSwitchChassis(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_NEXUS_7000_10_SLOT_SWITCH_CHASSIS}
       {...props}
-      _style={extendStyle(CISCO_NEXUS_7000_10_SLOT_SWITCH_CHASSIS, props)}
+      _style={extendStyle(props, CISCO_NEXUS_7000_10_SLOT_SWITCH_CHASSIS)}
     />
   )
 }

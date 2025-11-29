@@ -11,5 +11,5 @@ export const ADD_ON = {
 }
 
 export function AddOn(props: NodeProps) {
-  return <Shape {...ADD_ON} {...props} _style={extendStyle(ADD_ON, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADD_ON)} />
 }

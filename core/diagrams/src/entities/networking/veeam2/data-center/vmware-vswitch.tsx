@@ -11,11 +11,5 @@ export const VMWARE_VSWITCH = {
 }
 
 export function VmwareVswitch(props: NodeProps) {
-  return (
-    <Shape
-      {...VMWARE_VSWITCH}
-      {...props}
-      _style={extendStyle(VMWARE_VSWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VMWARE_VSWITCH)} />
 }

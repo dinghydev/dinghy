@@ -13,9 +13,8 @@ export const HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY = {
 export function HcsSgwHybridCloudStorageGateway(props: NodeProps) {
   return (
     <Shape
-      {...HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY}
       {...props}
-      _style={extendStyle(HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY, props)}
+      _style={extendStyle(props, HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY)}
     />
   )
 }

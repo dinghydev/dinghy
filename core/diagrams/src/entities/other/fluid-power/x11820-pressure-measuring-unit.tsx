@@ -13,9 +13,8 @@ export const X11820_PRESSURE_MEASURING_UNIT = {
 export function X11820PressureMeasuringUnit(props: NodeProps) {
   return (
     <Shape
-      {...X11820_PRESSURE_MEASURING_UNIT}
       {...props}
-      _style={extendStyle(X11820_PRESSURE_MEASURING_UNIT, props)}
+      _style={extendStyle(props, X11820_PRESSURE_MEASURING_UNIT)}
     />
   )
 }

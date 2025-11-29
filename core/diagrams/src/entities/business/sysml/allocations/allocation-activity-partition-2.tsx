@@ -13,9 +13,8 @@ export const ALLOCATION_ACTIVITY_PARTITION_2 = {
 export function AllocationActivityPartition2(props: NodeProps) {
   return (
     <Shape
-      {...ALLOCATION_ACTIVITY_PARTITION_2}
       {...props}
-      _style={extendStyle(ALLOCATION_ACTIVITY_PARTITION_2, props)}
+      _style={extendStyle(props, ALLOCATION_ACTIVITY_PARTITION_2)}
     />
   )
 }

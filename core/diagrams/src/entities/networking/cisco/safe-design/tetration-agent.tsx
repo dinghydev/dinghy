@@ -11,11 +11,5 @@ export const TETRATION_AGENT = {
 }
 
 export function TetrationAgent(props: NodeProps) {
-  return (
-    <Shape
-      {...TETRATION_AGENT}
-      {...props}
-      _style={extendStyle(TETRATION_AGENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TETRATION_AGENT)} />
 }

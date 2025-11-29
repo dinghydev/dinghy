@@ -11,11 +11,5 @@ export const MERGE_NODE_2 = {
 }
 
 export function MergeNode2(props: NodeProps) {
-  return (
-    <Shape
-      {...MERGE_NODE_2}
-      {...props}
-      _style={extendStyle(MERGE_NODE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MERGE_NODE_2)} />
 }

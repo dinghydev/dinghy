@@ -11,5 +11,5 @@ export const EDMODO = {
 }
 
 export function Edmodo(props: NodeProps) {
-  return <Shape {...EDMODO} {...props} _style={extendStyle(EDMODO, props)} />
+  return <Shape {...props} _style={extendStyle(props, EDMODO)} />
 }

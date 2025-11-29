@@ -11,5 +11,5 @@ export const DRIVER = {
 }
 
 export function Driver(props: NodeProps) {
-  return <Shape {...DRIVER} {...props} _style={extendStyle(DRIVER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DRIVER)} />
 }

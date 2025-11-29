@@ -11,11 +11,5 @@ export const SIGNAL_INTERRUPTING = {
 }
 
 export function SignalInterrupting(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNAL_INTERRUPTING}
-      {...props}
-      _style={extendStyle(SIGNAL_INTERRUPTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNAL_INTERRUPTING)} />
 }

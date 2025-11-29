@@ -11,11 +11,5 @@ export const INFRASTRUCTURE_ROLE = {
 }
 
 export function InfrastructureRole(props: NodeProps) {
-  return (
-    <Shape
-      {...INFRASTRUCTURE_ROLE}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_ROLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_ROLE)} />
 }

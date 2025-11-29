@@ -11,11 +11,5 @@ export const DNS_SECURITY_POLICY = {
 }
 
 export function DnsSecurityPolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...DNS_SECURITY_POLICY}
-      {...props}
-      _style={extendStyle(DNS_SECURITY_POLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DNS_SECURITY_POLICY)} />
 }

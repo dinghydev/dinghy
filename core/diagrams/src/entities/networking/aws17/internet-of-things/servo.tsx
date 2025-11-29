@@ -11,5 +11,5 @@ export const SERVO = {
 }
 
 export function Servo(props: NodeProps) {
-  return <Shape {...SERVO} {...props} _style={extendStyle(SERVO, props)} />
+  return <Shape {...props} _style={extendStyle(props, SERVO)} />
 }

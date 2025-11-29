@@ -11,11 +11,5 @@ export const LAYER_3_SWITCH = {
 }
 
 export function Layer3Switch(props: NodeProps) {
-  return (
-    <Shape
-      {...LAYER_3_SWITCH}
-      {...props}
-      _style={extendStyle(LAYER_3_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAYER_3_SWITCH)} />
 }

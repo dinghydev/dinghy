@@ -11,11 +11,5 @@ export const ISCI_ROUTER = {
 }
 
 export function IsciRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...ISCI_ROUTER}
-      {...props}
-      _style={extendStyle(ISCI_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISCI_ROUTER)} />
 }

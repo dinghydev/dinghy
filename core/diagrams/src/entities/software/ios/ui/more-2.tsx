@@ -11,5 +11,5 @@ export const MORE_2 = {
 }
 
 export function More2(props: NodeProps) {
-  return <Shape {...MORE_2} {...props} _style={extendStyle(MORE_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, MORE_2)} />
 }

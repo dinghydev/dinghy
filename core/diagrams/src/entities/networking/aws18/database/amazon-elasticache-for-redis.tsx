@@ -13,9 +13,8 @@ export const AMAZON_ELASTICACHE_FOR_REDIS = {
 export function AmazonElasticacheForRedis(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_ELASTICACHE_FOR_REDIS}
       {...props}
-      _style={extendStyle(AMAZON_ELASTICACHE_FOR_REDIS, props)}
+      _style={extendStyle(props, AMAZON_ELASTICACHE_FOR_REDIS)}
     />
   )
 }

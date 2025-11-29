@@ -11,11 +11,5 @@ export const DATABASE_SERVER_GREEN = {
 }
 
 export function DatabaseServerGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_SERVER_GREEN}
-      {...props}
-      _style={extendStyle(DATABASE_SERVER_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_SERVER_GREEN)} />
 }

@@ -13,11 +13,10 @@ export const JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE = {
 export function Jl081a3810m2930m4125510GbeHpeSmartRateModule(props: NodeProps) {
   return (
     <Shape
-      {...JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE}
       {...props}
       _style={extendStyle(
-        JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE,
         props,
+        JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE,
       )}
     />
   )

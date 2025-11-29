@@ -11,11 +11,5 @@ export const RESILIENCE_HUB = {
 }
 
 export function ResilienceHub(props: NodeProps) {
-  return (
-    <Shape
-      {...RESILIENCE_HUB}
-      {...props}
-      _style={extendStyle(RESILIENCE_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESILIENCE_HUB)} />
 }

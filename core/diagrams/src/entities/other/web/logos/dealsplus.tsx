@@ -11,7 +11,5 @@ export const DEALSPLUS = {
 }
 
 export function Dealsplus(props: NodeProps) {
-  return (
-    <Shape {...DEALSPLUS} {...props} _style={extendStyle(DEALSPLUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEALSPLUS)} />
 }

@@ -11,11 +11,5 @@ export const PROTOCOL_STACK = {
 }
 
 export function ProtocolStack(props: NodeProps) {
-  return (
-    <Shape
-      {...PROTOCOL_STACK}
-      {...props}
-      _style={extendStyle(PROTOCOL_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTOCOL_STACK)} />
 }

@@ -11,11 +11,5 @@ export const ERROR_MESSAGE_FIELD_2 = {
 }
 
 export function ErrorMessageField2(props: NodeProps) {
-  return (
-    <Shape
-      {...ERROR_MESSAGE_FIELD_2}
-      {...props}
-      _style={extendStyle(ERROR_MESSAGE_FIELD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ERROR_MESSAGE_FIELD_2)} />
 }

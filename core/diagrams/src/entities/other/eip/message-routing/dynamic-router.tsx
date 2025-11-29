@@ -11,11 +11,5 @@ export const DYNAMIC_ROUTER = {
 }
 
 export function DynamicRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...DYNAMIC_ROUTER}
-      {...props}
-      _style={extendStyle(DYNAMIC_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DYNAMIC_ROUTER)} />
 }

@@ -11,11 +11,10 @@ export const MULTIPLE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
 export function MultipleEventSubProcessInterruptingCollapsed(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        MULTIPLE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
         props,
+        MULTIPLE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
       )}
     />
   )

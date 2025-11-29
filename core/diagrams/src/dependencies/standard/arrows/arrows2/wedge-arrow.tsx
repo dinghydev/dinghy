@@ -9,11 +9,5 @@ export const WEDGE_ARROW = {
 }
 
 export function WedgeArrow(props: NodeProps) {
-  return (
-    <Dependency
-      {...WEDGE_ARROW}
-      {...props}
-      _style={extendStyle(WEDGE_ARROW, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, WEDGE_ARROW)} />
 }

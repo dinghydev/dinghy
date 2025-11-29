@@ -13,9 +13,8 @@ export const DISCRETE_SLIDER_NORMAL_DARK = {
 export function DiscreteSliderNormalDark(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_SLIDER_NORMAL_DARK}
       {...props}
-      _style={extendStyle(DISCRETE_SLIDER_NORMAL_DARK, props)}
+      _style={extendStyle(props, DISCRETE_SLIDER_NORMAL_DARK)}
     />
   )
 }

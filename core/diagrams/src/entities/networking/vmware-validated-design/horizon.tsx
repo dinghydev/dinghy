@@ -11,5 +11,5 @@ export const HORIZON = {
 }
 
 export function Horizon(props: NodeProps) {
-  return <Shape {...HORIZON} {...props} _style={extendStyle(HORIZON, props)} />
+  return <Shape {...props} _style={extendStyle(props, HORIZON)} />
 }

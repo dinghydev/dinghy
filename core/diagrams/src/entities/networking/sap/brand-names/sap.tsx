@@ -11,5 +11,5 @@ export const SAP = {
 }
 
 export function Sap(props: NodeProps) {
-  return <Shape {...SAP} {...props} _style={extendStyle(SAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, SAP)} />
 }

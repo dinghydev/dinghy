@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
   StringSchema,
 } from '@dinghy/base-components'
-import { awsProps } from '../index.ts'
+import { awsProps } from '../utils/awsProps.ts'
 import z from 'zod'
 import { useTypedNode, useTypedNodes } from '@dinghy/base-components'
 import { NeutronSubnet } from '@dinghy/diagrams/entitiesOpenstackBlue'

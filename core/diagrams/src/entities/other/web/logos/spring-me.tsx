@@ -11,7 +11,5 @@ export const SPRING_ME = {
 }
 
 export function SpringMe(props: NodeProps) {
-  return (
-    <Shape {...SPRING_ME} {...props} _style={extendStyle(SPRING_ME, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRING_ME)} />
 }

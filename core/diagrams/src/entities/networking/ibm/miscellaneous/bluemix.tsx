@@ -11,5 +11,5 @@ export const BLUEMIX = {
 }
 
 export function Bluemix(props: NodeProps) {
-  return <Shape {...BLUEMIX} {...props} _style={extendStyle(BLUEMIX, props)} />
+  return <Shape {...props} _style={extendStyle(props, BLUEMIX)} />
 }

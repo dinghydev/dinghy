@@ -11,11 +11,5 @@ export const DOOR_BY_PASS = {
 }
 
 export function DoorByPass(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_BY_PASS}
-      {...props}
-      _style={extendStyle(DOOR_BY_PASS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_BY_PASS)} />
 }

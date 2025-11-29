@@ -11,5 +11,5 @@ export const FSX = {
 }
 
 export function Fsx(props: NodeProps) {
-  return <Shape {...FSX} {...props} _style={extendStyle(FSX, props)} />
+  return <Shape {...props} _style={extendStyle(props, FSX)} />
 }

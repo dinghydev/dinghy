@@ -11,11 +11,5 @@ export const AZURE_IOT_HUB = {
 }
 
 export function AzureIotHub(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_IOT_HUB}
-      {...props}
-      _style={extendStyle(AZURE_IOT_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_IOT_HUB)} />
 }

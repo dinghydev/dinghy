@@ -1,0 +1,164 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# CE (Cost Explorer)
+
+## AwsCeAnomalyMonitor
+
+Provides a CE Cost Anomaly Monitor
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_anomaly_monitor)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ce/AwsCeAnomalyMonitor.tsx)
+
+```js
+import { AwsCeAnomalyMonitor } from "@dinghy/tf-aws/serviceCe"
+
+<AwsCeAnomalyMonitor/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_anomaly_monitor#import)
+
+```js
+<AwsCeAnomalyMonitor
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCeAnomalySubscription
+
+Provides a CE Cost Anomaly Subscription
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_anomaly_subscription)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ce/AwsCeAnomalySubscription.tsx)
+
+```js
+import { AwsCeAnomalySubscription } from "@dinghy/tf-aws/serviceCe"
+
+<AwsCeAnomalySubscription/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_anomaly_subscription#import)
+
+```js
+<AwsCeAnomalySubscription
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCeCostAllocationTag
+
+Provides a CE Cost Allocation Tag
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_allocation_tag)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ce/AwsCeCostAllocationTag.tsx)
+
+```js
+import { AwsCeCostAllocationTag } from "@dinghy/tf-aws/serviceCe"
+
+<AwsCeCostAllocationTag/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCeCostCategory
+
+Provides a CE Cost Category Definition
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_category)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ce/AwsCeCostCategory.tsx)
+
+```js
+import { AwsCeCostCategory } from "@dinghy/tf-aws/serviceCe"
+
+<AwsCeCostCategory/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ce_cost_category)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ce/DataAwsCeCostCategory.tsx)
+
+```js
+import { DataAwsCeCostCategory } from "@dinghy/tf-aws/serviceCe"
+
+<DataAwsCeCostCategory/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_category#import)
+
+```js
+<AwsCeCostCategory
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCeTags
+
+Provides the available cost allocation tag keys and tag values for a specified period.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ce_tags)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ce/DataAwsCeTags.tsx)
+
+```js
+import { DataAwsCeTags } from "@dinghy/tf-aws/serviceCe"
+
+<DataAwsCeTags/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

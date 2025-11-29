@@ -11,11 +11,5 @@ export const SEARCH_GRID = {
 }
 
 export function SearchGrid(props: NodeProps) {
-  return (
-    <Shape
-      {...SEARCH_GRID}
-      {...props}
-      _style={extendStyle(SEARCH_GRID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEARCH_GRID)} />
 }

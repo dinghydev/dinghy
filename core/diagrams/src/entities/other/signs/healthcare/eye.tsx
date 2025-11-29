@@ -11,5 +11,5 @@ export const EYE = {
 }
 
 export function Eye(props: NodeProps) {
-  return <Shape {...EYE} {...props} _style={extendStyle(EYE, props)} />
+  return <Shape {...props} _style={extendStyle(props, EYE)} />
 }

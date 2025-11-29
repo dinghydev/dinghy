@@ -11,7 +11,5 @@ export const SIMULATION = {
 }
 
 export function Simulation(props: NodeProps) {
-  return (
-    <Shape {...SIMULATION} {...props} _style={extendStyle(SIMULATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMULATION)} />
 }

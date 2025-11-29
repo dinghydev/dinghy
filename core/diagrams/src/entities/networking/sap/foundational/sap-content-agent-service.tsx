@@ -12,10 +12,6 @@ export const SAP_CONTENT_AGENT_SERVICE = {
 
 export function SapContentAgentService(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_CONTENT_AGENT_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_CONTENT_AGENT_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_CONTENT_AGENT_SERVICE)} />
   )
 }

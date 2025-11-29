@@ -13,9 +13,8 @@ export const X10780_PROPORTIONAL_DIRECTIONAL = {
 export function X10780ProportionalDirectional(props: NodeProps) {
   return (
     <Shape
-      {...X10780_PROPORTIONAL_DIRECTIONAL}
       {...props}
-      _style={extendStyle(X10780_PROPORTIONAL_DIRECTIONAL, props)}
+      _style={extendStyle(props, X10780_PROPORTIONAL_DIRECTIONAL)}
     />
   )
 }

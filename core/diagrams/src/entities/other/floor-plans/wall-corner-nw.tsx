@@ -11,11 +11,5 @@ export const WALL_CORNER_NW = {
 }
 
 export function WallCornerNw(props: NodeProps) {
-  return (
-    <Shape
-      {...WALL_CORNER_NW}
-      {...props}
-      _style={extendStyle(WALL_CORNER_NW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WALL_CORNER_NW)} />
 }

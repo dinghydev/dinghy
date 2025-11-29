@@ -11,11 +11,5 @@ export const DISCRETE_SLIDER_CLICK = {
 }
 
 export function DiscreteSliderClick(props: NodeProps) {
-  return (
-    <Shape
-      {...DISCRETE_SLIDER_CLICK}
-      {...props}
-      _style={extendStyle(DISCRETE_SLIDER_CLICK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISCRETE_SLIDER_CLICK)} />
 }

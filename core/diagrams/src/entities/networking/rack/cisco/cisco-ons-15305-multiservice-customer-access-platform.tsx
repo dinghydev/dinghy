@@ -15,11 +15,10 @@ export function CiscoOns15305MultiserviceCustomerAccessPlatform(
 ) {
   return (
     <Shape
-      {...CISCO_ONS_15305_MULTISERVICE_CUSTOMER_ACCESS_PLATFORM}
       {...props}
       _style={extendStyle(
-        CISCO_ONS_15305_MULTISERVICE_CUSTOMER_ACCESS_PLATFORM,
         props,
+        CISCO_ONS_15305_MULTISERVICE_CUSTOMER_ACCESS_PLATFORM,
       )}
     />
   )

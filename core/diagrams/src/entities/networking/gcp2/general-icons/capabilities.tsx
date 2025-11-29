@@ -11,11 +11,5 @@ export const CAPABILITIES = {
 }
 
 export function Capabilities(props: NodeProps) {
-  return (
-    <Shape
-      {...CAPABILITIES}
-      {...props}
-      _style={extendStyle(CAPABILITIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAPABILITIES)} />
 }

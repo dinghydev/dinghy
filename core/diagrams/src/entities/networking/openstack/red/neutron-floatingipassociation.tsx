@@ -13,9 +13,8 @@ export const NEUTRON_FLOATINGIPASSOCIATION = {
 export function NeutronFloatingipassociation(props: NodeProps) {
   return (
     <Shape
-      {...NEUTRON_FLOATINGIPASSOCIATION}
       {...props}
-      _style={extendStyle(NEUTRON_FLOATINGIPASSOCIATION, props)}
+      _style={extendStyle(props, NEUTRON_FLOATINGIPASSOCIATION)}
     />
   )
 }

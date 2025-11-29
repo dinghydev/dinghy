@@ -13,9 +13,8 @@ export const ATHENA_DATA_SOURCE_CONNECTORS = {
 export function AthenaDataSourceConnectors(props: NodeProps) {
   return (
     <Shape
-      {...ATHENA_DATA_SOURCE_CONNECTORS}
       {...props}
-      _style={extendStyle(ATHENA_DATA_SOURCE_CONNECTORS, props)}
+      _style={extendStyle(props, ATHENA_DATA_SOURCE_CONNECTORS)}
     />
   )
 }

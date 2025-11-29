@@ -11,11 +11,5 @@ export const EVENT_HIGHLIGHT = {
 }
 
 export function EventHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(EVENT_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_HIGHLIGHT)} />
 }

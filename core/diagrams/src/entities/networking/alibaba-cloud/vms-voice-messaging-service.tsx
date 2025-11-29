@@ -13,9 +13,8 @@ export const VMS_VOICE_MESSAGING_SERVICE = {
 export function VmsVoiceMessagingService(props: NodeProps) {
   return (
     <Shape
-      {...VMS_VOICE_MESSAGING_SERVICE}
       {...props}
-      _style={extendStyle(VMS_VOICE_MESSAGING_SERVICE, props)}
+      _style={extendStyle(props, VMS_VOICE_MESSAGING_SERVICE)}
     />
   )
 }

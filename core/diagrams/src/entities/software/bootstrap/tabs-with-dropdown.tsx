@@ -11,11 +11,5 @@ export const TABS_WITH_DROPDOWN = {
 }
 
 export function TabsWithDropdown(props: NodeProps) {
-  return (
-    <Shape
-      {...TABS_WITH_DROPDOWN}
-      {...props}
-      _style={extendStyle(TABS_WITH_DROPDOWN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABS_WITH_DROPDOWN)} />
 }

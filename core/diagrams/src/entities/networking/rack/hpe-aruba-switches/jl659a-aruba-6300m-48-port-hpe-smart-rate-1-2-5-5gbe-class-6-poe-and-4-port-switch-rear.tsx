@@ -16,11 +16,10 @@ export function Jl659aAruba6300m48PortHpeSmartRate1255gbeClass6PoeAnd4PortSwitch
 ) {
   return (
     <Shape
-      {...JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH_REAR}
       {...props}
       _style={extendStyle(
-        JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH_REAR,
         props,
+        JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH_REAR,
       )}
     />
   )

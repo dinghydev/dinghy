@@ -11,11 +11,5 @@ export const MOST_VIEWED = {
 }
 
 export function MostViewed(props: NodeProps) {
-  return (
-    <Shape
-      {...MOST_VIEWED}
-      {...props}
-      _style={extendStyle(MOST_VIEWED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOST_VIEWED)} />
 }

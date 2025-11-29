@@ -11,11 +11,5 @@ export const AZURE_CACHE_FOR_REDIS = {
 }
 
 export function AzureCacheForRedis(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_CACHE_FOR_REDIS}
-      {...props}
-      _style={extendStyle(AZURE_CACHE_FOR_REDIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_CACHE_FOR_REDIS)} />
 }

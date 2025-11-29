@@ -12,10 +12,6 @@ export const GOOGLE_CLOUD_VMWARE_ENGINE = {
 
 export function GoogleCloudVmwareEngine(props: NodeProps) {
   return (
-    <Shape
-      {...GOOGLE_CLOUD_VMWARE_ENGINE}
-      {...props}
-      _style={extendStyle(GOOGLE_CLOUD_VMWARE_ENGINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GOOGLE_CLOUD_VMWARE_ENGINE)} />
   )
 }

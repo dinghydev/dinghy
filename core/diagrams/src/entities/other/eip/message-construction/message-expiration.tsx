@@ -11,11 +11,5 @@ export const MESSAGE_EXPIRATION = {
 }
 
 export function MessageExpiration(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_EXPIRATION}
-      {...props}
-      _style={extendStyle(MESSAGE_EXPIRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_EXPIRATION)} />
 }

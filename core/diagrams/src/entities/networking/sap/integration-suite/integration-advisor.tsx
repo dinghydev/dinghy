@@ -11,11 +11,5 @@ export const INTEGRATION_ADVISOR = {
 }
 
 export function IntegrationAdvisor(props: NodeProps) {
-  return (
-    <Shape
-      {...INTEGRATION_ADVISOR}
-      {...props}
-      _style={extendStyle(INTEGRATION_ADVISOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTEGRATION_ADVISOR)} />
 }

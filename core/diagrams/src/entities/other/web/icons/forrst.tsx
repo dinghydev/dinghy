@@ -11,5 +11,5 @@ export const FORRST = {
 }
 
 export function Forrst(props: NodeProps) {
-  return <Shape {...FORRST} {...props} _style={extendStyle(FORRST, props)} />
+  return <Shape {...props} _style={extendStyle(props, FORRST)} />
 }

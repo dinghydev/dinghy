@@ -11,11 +11,5 @@ export const DISABLED_TEXT_FIELD = {
 }
 
 export function DisabledTextField(props: NodeProps) {
-  return (
-    <Shape
-      {...DISABLED_TEXT_FIELD}
-      {...props}
-      _style={extendStyle(DISABLED_TEXT_FIELD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISABLED_TEXT_FIELD)} />
 }

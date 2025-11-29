@@ -11,11 +11,5 @@ export const INSTANCE_POOLS = {
 }
 
 export function InstancePools(props: NodeProps) {
-  return (
-    <Shape
-      {...INSTANCE_POOLS}
-      {...props}
-      _style={extendStyle(INSTANCE_POOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSTANCE_POOLS)} />
 }

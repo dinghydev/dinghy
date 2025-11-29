@@ -11,7 +11,5 @@ export const ARX_2500 = {
 }
 
 export function Arx2500(props: NodeProps) {
-  return (
-    <Shape {...ARX_2500} {...props} _style={extendStyle(ARX_2500, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARX_2500)} />
 }

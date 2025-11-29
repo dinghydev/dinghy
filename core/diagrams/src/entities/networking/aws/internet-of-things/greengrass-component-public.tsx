@@ -13,9 +13,8 @@ export const GREENGRASS_COMPONENT_PUBLIC = {
 export function GreengrassComponentPublic(props: NodeProps) {
   return (
     <Shape
-      {...GREENGRASS_COMPONENT_PUBLIC}
       {...props}
-      _style={extendStyle(GREENGRASS_COMPONENT_PUBLIC, props)}
+      _style={extendStyle(props, GREENGRASS_COMPONENT_PUBLIC)}
     />
   )
 }

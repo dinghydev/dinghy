@@ -10,5 +10,5 @@ export const LOOP = {
 }
 
 export function Loop(props: NodeProps) {
-  return <Shape {...LOOP} {...props} _style={extendStyle(LOOP, props)} />
+  return <Shape {...props} _style={extendStyle(props, LOOP)} />
 }

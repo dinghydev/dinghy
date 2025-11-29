@@ -13,9 +13,8 @@ export const TRANSPORTATION_AND_TECHNOLOGY_2 = {
 export function TransportationAndTechnology2(props: NodeProps) {
   return (
     <Shape
-      {...TRANSPORTATION_AND_TECHNOLOGY_2}
       {...props}
-      _style={extendStyle(TRANSPORTATION_AND_TECHNOLOGY_2, props)}
+      _style={extendStyle(props, TRANSPORTATION_AND_TECHNOLOGY_2)}
     />
   )
 }

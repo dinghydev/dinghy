@@ -12,10 +12,6 @@ export const AWS_ELEMENTAL_MEDIALIVE = {
 
 export function AwsElementalMedialive(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_ELEMENTAL_MEDIALIVE}
-      {...props}
-      _style={extendStyle(AWS_ELEMENTAL_MEDIALIVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_ELEMENTAL_MEDIALIVE)} />
   )
 }

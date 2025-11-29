@@ -11,11 +11,5 @@ export const AWS_SINGLE_SIGN_ON = {
 }
 
 export function AwsSingleSignOn(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_SINGLE_SIGN_ON}
-      {...props}
-      _style={extendStyle(AWS_SINGLE_SIGN_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_SINGLE_SIGN_ON)} />
 }

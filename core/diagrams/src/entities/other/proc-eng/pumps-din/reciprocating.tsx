@@ -11,11 +11,5 @@ export const RECIPROCATING = {
 }
 
 export function Reciprocating(props: NodeProps) {
-  return (
-    <Shape
-      {...RECIPROCATING}
-      {...props}
-      _style={extendStyle(RECIPROCATING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECIPROCATING)} />
 }

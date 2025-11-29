@@ -13,9 +13,8 @@ export const NETRA_SPARC_T4_1B_SERVER_MODULE = {
 export function NetraSparcT41bServerModule(props: NodeProps) {
   return (
     <Shape
-      {...NETRA_SPARC_T4_1B_SERVER_MODULE}
       {...props}
-      _style={extendStyle(NETRA_SPARC_T4_1B_SERVER_MODULE, props)}
+      _style={extendStyle(props, NETRA_SPARC_T4_1B_SERVER_MODULE)}
     />
   )
 }

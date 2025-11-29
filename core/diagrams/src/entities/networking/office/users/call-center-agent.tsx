@@ -11,11 +11,5 @@ export const CALL_CENTER_AGENT = {
 }
 
 export function CallCenterAgent(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_CENTER_AGENT}
-      {...props}
-      _style={extendStyle(CALL_CENTER_AGENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_CENTER_AGENT)} />
 }

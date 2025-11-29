@@ -13,9 +13,8 @@ export const JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH = {
 export function Jl557aAruba2930f48gPoe4sfp740wSwitch(props: NodeProps) {
   return (
     <Shape
-      {...JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH}
       {...props}
-      _style={extendStyle(JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH, props)}
+      _style={extendStyle(props, JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH)}
     />
   )
 }

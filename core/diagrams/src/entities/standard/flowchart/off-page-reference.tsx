@@ -11,11 +11,5 @@ export const OFF_PAGE_REFERENCE = {
 }
 
 export function OffPageReference(props: NodeProps) {
-  return (
-    <Shape
-      {...OFF_PAGE_REFERENCE}
-      {...props}
-      _style={extendStyle(OFF_PAGE_REFERENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFF_PAGE_REFERENCE)} />
 }

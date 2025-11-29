@@ -11,5 +11,5 @@ export const OCTEL = {
 }
 
 export function Octel(props: NodeProps) {
-  return <Shape {...OCTEL} {...props} _style={extendStyle(OCTEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, OCTEL)} />
 }

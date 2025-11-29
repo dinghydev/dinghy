@@ -11,11 +11,5 @@ export const SLIDER_CLICK = {
 }
 
 export function SliderClick(props: NodeProps) {
-  return (
-    <Shape
-      {...SLIDER_CLICK}
-      {...props}
-      _style={extendStyle(SLIDER_CLICK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLIDER_CLICK)} />
 }

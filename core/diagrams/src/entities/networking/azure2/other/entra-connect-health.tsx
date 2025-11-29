@@ -11,11 +11,5 @@ export const ENTRA_CONNECT_HEALTH = {
 }
 
 export function EntraConnectHealth(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_CONNECT_HEALTH}
-      {...props}
-      _style={extendStyle(ENTRA_CONNECT_HEALTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_CONNECT_HEALTH)} />
 }

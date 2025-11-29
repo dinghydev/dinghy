@@ -13,9 +13,8 @@ export const ROUTE_53_RESOLVER_DNS_FIREWALL = {
 export function Route53ResolverDnsFirewall(props: NodeProps) {
   return (
     <Shape
-      {...ROUTE_53_RESOLVER_DNS_FIREWALL}
       {...props}
-      _style={extendStyle(ROUTE_53_RESOLVER_DNS_FIREWALL, props)}
+      _style={extendStyle(props, ROUTE_53_RESOLVER_DNS_FIREWALL)}
     />
   )
 }

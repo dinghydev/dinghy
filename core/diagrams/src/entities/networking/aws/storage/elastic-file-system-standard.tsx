@@ -13,9 +13,8 @@ export const ELASTIC_FILE_SYSTEM_STANDARD = {
 export function ElasticFileSystemStandard(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_FILE_SYSTEM_STANDARD}
       {...props}
-      _style={extendStyle(ELASTIC_FILE_SYSTEM_STANDARD, props)}
+      _style={extendStyle(props, ELASTIC_FILE_SYSTEM_STANDARD)}
     />
   )
 }

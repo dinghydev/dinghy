@@ -12,10 +12,6 @@ export const PORANA_PORTRAIT_ANALYSIS = {
 
 export function PoranaPortraitAnalysis(props: NodeProps) {
   return (
-    <Shape
-      {...PORANA_PORTRAIT_ANALYSIS}
-      {...props}
-      _style={extendStyle(PORANA_PORTRAIT_ANALYSIS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PORANA_PORTRAIT_ANALYSIS)} />
   )
 }

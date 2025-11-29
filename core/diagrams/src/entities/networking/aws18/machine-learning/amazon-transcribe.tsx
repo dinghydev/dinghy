@@ -11,11 +11,5 @@ export const AMAZON_TRANSCRIBE = {
 }
 
 export function AmazonTranscribe(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_TRANSCRIBE}
-      {...props}
-      _style={extendStyle(AMAZON_TRANSCRIBE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_TRANSCRIBE)} />
 }

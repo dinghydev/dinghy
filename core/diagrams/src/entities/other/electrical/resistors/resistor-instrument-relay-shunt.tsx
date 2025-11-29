@@ -13,9 +13,8 @@ export const RESISTOR_INSTRUMENT_RELAY_SHUNT = {
 export function ResistorInstrumentRelayShunt(props: NodeProps) {
   return (
     <Shape
-      {...RESISTOR_INSTRUMENT_RELAY_SHUNT}
       {...props}
-      _style={extendStyle(RESISTOR_INSTRUMENT_RELAY_SHUNT, props)}
+      _style={extendStyle(props, RESISTOR_INSTRUMENT_RELAY_SHUNT)}
     />
   )
 }

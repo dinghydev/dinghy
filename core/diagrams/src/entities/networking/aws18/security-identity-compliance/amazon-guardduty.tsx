@@ -11,11 +11,5 @@ export const AMAZON_GUARDDUTY = {
 }
 
 export function AmazonGuardduty(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_GUARDDUTY}
-      {...props}
-      _style={extendStyle(AMAZON_GUARDDUTY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_GUARDDUTY)} />
 }

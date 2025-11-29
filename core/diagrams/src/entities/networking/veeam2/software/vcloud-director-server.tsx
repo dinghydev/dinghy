@@ -12,10 +12,6 @@ export const VCLOUD_DIRECTOR_SERVER = {
 
 export function VcloudDirectorServer(props: NodeProps) {
   return (
-    <Shape
-      {...VCLOUD_DIRECTOR_SERVER}
-      {...props}
-      _style={extendStyle(VCLOUD_DIRECTOR_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VCLOUD_DIRECTOR_SERVER)} />
   )
 }

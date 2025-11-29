@@ -11,11 +11,5 @@ export const MOBILE_ANALYTICS = {
 }
 
 export function MobileAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_ANALYTICS}
-      {...props}
-      _style={extendStyle(MOBILE_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_ANALYTICS)} />
 }

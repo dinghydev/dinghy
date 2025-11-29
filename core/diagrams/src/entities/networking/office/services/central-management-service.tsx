@@ -12,10 +12,6 @@ export const CENTRAL_MANAGEMENT_SERVICE = {
 
 export function CentralManagementService(props: NodeProps) {
   return (
-    <Shape
-      {...CENTRAL_MANAGEMENT_SERVICE}
-      {...props}
-      _style={extendStyle(CENTRAL_MANAGEMENT_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CENTRAL_MANAGEMENT_SERVICE)} />
   )
 }

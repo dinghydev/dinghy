@@ -11,7 +11,5 @@ export const DIRECT_SFP = {
 }
 
 export function DirectSfp(props: NodeProps) {
-  return (
-    <Shape {...DIRECT_SFP} {...props} _style={extendStyle(DIRECT_SFP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_SFP)} />
 }

@@ -11,11 +11,5 @@ export const RESISTOR_TRIMMER = {
 }
 
 export function ResistorTrimmer(props: NodeProps) {
-  return (
-    <Shape
-      {...RESISTOR_TRIMMER}
-      {...props}
-      _style={extendStyle(RESISTOR_TRIMMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESISTOR_TRIMMER)} />
 }

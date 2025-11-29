@@ -12,10 +12,6 @@ export const PHYSICAL_NETWORK_ADAPTER = {
 
 export function PhysicalNetworkAdapter(props: NodeProps) {
   return (
-    <Shape
-      {...PHYSICAL_NETWORK_ADAPTER}
-      {...props}
-      _style={extendStyle(PHYSICAL_NETWORK_ADAPTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PHYSICAL_NETWORK_ADAPTER)} />
   )
 }

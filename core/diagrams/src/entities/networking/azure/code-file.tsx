@@ -11,7 +11,5 @@ export const CODE_FILE = {
 }
 
 export function CodeFile(props: NodeProps) {
-  return (
-    <Shape {...CODE_FILE} {...props} _style={extendStyle(CODE_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODE_FILE)} />
 }

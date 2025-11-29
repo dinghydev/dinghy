@@ -13,9 +13,8 @@ export const LONG_TERM_SECURITY_CREDENTIAL = {
 export function LongTermSecurityCredential(props: NodeProps) {
   return (
     <Shape
-      {...LONG_TERM_SECURITY_CREDENTIAL}
       {...props}
-      _style={extendStyle(LONG_TERM_SECURITY_CREDENTIAL, props)}
+      _style={extendStyle(props, LONG_TERM_SECURITY_CREDENTIAL)}
     />
   )
 }

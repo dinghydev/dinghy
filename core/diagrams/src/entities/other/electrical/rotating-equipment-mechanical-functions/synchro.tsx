@@ -11,5 +11,5 @@ export const SYNCHRO = {
 }
 
 export function Synchro(props: NodeProps) {
-  return <Shape {...SYNCHRO} {...props} _style={extendStyle(SYNCHRO, props)} />
+  return <Shape {...props} _style={extendStyle(props, SYNCHRO)} />
 }

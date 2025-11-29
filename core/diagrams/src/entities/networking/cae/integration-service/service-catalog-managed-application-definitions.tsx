@@ -13,11 +13,10 @@ export const SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS = {
 export function ServiceCatalogManagedApplicationDefinitions(props: NodeProps) {
   return (
     <Shape
-      {...SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS}
       {...props}
       _style={extendStyle(
-        SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS,
         props,
+        SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS,
       )}
     />
   )

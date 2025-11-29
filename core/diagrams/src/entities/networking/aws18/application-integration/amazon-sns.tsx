@@ -11,7 +11,5 @@ export const AMAZON_SNS = {
 }
 
 export function AmazonSns(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_SNS} {...props} _style={extendStyle(AMAZON_SNS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_SNS)} />
 }

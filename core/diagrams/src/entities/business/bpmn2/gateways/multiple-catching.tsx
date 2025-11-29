@@ -11,11 +11,5 @@ export const MULTIPLE_CATCHING = {
 }
 
 export function MultipleCatching(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_CATCHING}
-      {...props}
-      _style={extendStyle(MULTIPLE_CATCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_CATCHING)} />
 }

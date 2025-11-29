@@ -12,10 +12,6 @@ export const GLACIER_INSTANT_RETRIEVAL = {
 
 export function GlacierInstantRetrieval(props: NodeProps) {
   return (
-    <Shape
-      {...GLACIER_INSTANT_RETRIEVAL}
-      {...props}
-      _style={extendStyle(GLACIER_INSTANT_RETRIEVAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GLACIER_INSTANT_RETRIEVAL)} />
   )
 }

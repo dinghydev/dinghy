@@ -11,11 +11,5 @@ export const MOVE_BY_FORKLIFT = {
 }
 
 export function MoveByForklift(props: NodeProps) {
-  return (
-    <Shape
-      {...MOVE_BY_FORKLIFT}
-      {...props}
-      _style={extendStyle(MOVE_BY_FORKLIFT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOVE_BY_FORKLIFT)} />
 }

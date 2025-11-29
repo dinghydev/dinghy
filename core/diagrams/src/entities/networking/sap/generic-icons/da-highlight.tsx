@@ -11,11 +11,5 @@ export const DA_HIGHLIGHT = {
 }
 
 export function DaHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...DA_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(DA_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DA_HIGHLIGHT)} />
 }

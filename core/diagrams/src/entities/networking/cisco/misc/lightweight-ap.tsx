@@ -11,11 +11,5 @@ export const LIGHTWEIGHT_AP = {
 }
 
 export function LightweightAp(props: NodeProps) {
-  return (
-    <Shape
-      {...LIGHTWEIGHT_AP}
-      {...props}
-      _style={extendStyle(LIGHTWEIGHT_AP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIGHTWEIGHT_AP)} />
 }

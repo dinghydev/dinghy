@@ -11,11 +11,5 @@ export const STACK_AWS_OPSWORKS = {
 }
 
 export function StackAwsOpsworks(props: NodeProps) {
-  return (
-    <Shape
-      {...STACK_AWS_OPSWORKS}
-      {...props}
-      _style={extendStyle(STACK_AWS_OPSWORKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACK_AWS_OPSWORKS)} />
 }

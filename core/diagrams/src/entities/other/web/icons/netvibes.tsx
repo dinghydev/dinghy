@@ -11,7 +11,5 @@ export const NETVIBES = {
 }
 
 export function Netvibes(props: NodeProps) {
-  return (
-    <Shape {...NETVIBES} {...props} _style={extendStyle(NETVIBES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETVIBES)} />
 }

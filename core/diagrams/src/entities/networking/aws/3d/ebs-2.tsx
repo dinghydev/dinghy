@@ -11,5 +11,5 @@ export const EBS_2 = {
 }
 
 export function Ebs2(props: NodeProps) {
-  return <Shape {...EBS_2} {...props} _style={extendStyle(EBS_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, EBS_2)} />
 }

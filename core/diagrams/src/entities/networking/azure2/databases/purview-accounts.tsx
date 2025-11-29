@@ -11,11 +11,5 @@ export const PURVIEW_ACCOUNTS = {
 }
 
 export function PurviewAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...PURVIEW_ACCOUNTS}
-      {...props}
-      _style={extendStyle(PURVIEW_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PURVIEW_ACCOUNTS)} />
 }

@@ -11,7 +11,5 @@ export const BIOGRAPHY = {
 }
 
 export function Biography(props: NodeProps) {
-  return (
-    <Shape {...BIOGRAPHY} {...props} _style={extendStyle(BIOGRAPHY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIOGRAPHY)} />
 }

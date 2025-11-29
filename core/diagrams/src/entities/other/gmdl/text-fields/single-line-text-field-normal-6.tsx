@@ -13,9 +13,8 @@ export const SINGLE_LINE_TEXT_FIELD_NORMAL_6 = {
 export function SingleLineTextFieldNormal6(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_LINE_TEXT_FIELD_NORMAL_6}
       {...props}
-      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_NORMAL_6, props)}
+      _style={extendStyle(props, SINGLE_LINE_TEXT_FIELD_NORMAL_6)}
     />
   )
 }

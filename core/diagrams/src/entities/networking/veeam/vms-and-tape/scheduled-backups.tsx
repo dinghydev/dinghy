@@ -11,11 +11,5 @@ export const SCHEDULED_BACKUPS = {
 }
 
 export function ScheduledBackups(props: NodeProps) {
-  return (
-    <Shape
-      {...SCHEDULED_BACKUPS}
-      {...props}
-      _style={extendStyle(SCHEDULED_BACKUPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCHEDULED_BACKUPS)} />
 }

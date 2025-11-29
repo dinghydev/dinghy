@@ -11,5 +11,5 @@ export const YOUMOB = {
 }
 
 export function Youmob(props: NodeProps) {
-  return <Shape {...YOUMOB} {...props} _style={extendStyle(YOUMOB, props)} />
+  return <Shape {...props} _style={extendStyle(props, YOUMOB)} />
 }

@@ -12,10 +12,6 @@ export const SHAPING_MACHINE_VERTICAL = {
 
 export function ShapingMachineVertical(props: NodeProps) {
   return (
-    <Shape
-      {...SHAPING_MACHINE_VERTICAL}
-      {...props}
-      _style={extendStyle(SHAPING_MACHINE_VERTICAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SHAPING_MACHINE_VERTICAL)} />
   )
 }

@@ -11,11 +11,5 @@ export const X11940_TORQUE_METER = {
 }
 
 export function X11940TorqueMeter(props: NodeProps) {
-  return (
-    <Shape
-      {...X11940_TORQUE_METER}
-      {...props}
-      _style={extendStyle(X11940_TORQUE_METER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11940_TORQUE_METER)} />
 }

@@ -11,11 +11,5 @@ export const EDGE_SERVICES = {
 }
 
 export function EdgeServices(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_SERVICES}
-      {...props}
-      _style={extendStyle(EDGE_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_SERVICES)} />
 }

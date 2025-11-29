@@ -11,11 +11,5 @@ export const INSPECTION_FORENSICS = {
 }
 
 export function InspectionForensics(props: NodeProps) {
-  return (
-    <Shape
-      {...INSPECTION_FORENSICS}
-      {...props}
-      _style={extendStyle(INSPECTION_FORENSICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSPECTION_FORENSICS)} />
 }

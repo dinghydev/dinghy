@@ -11,5 +11,5 @@ export const HPA_2 = {
 }
 
 export function Hpa2(props: NodeProps) {
-  return <Shape {...HPA_2} {...props} _style={extendStyle(HPA_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, HPA_2)} />
 }

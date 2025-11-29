@@ -11,11 +11,5 @@ export const ONLINE_USER = {
 }
 
 export function OnlineUser(props: NodeProps) {
-  return (
-    <Shape
-      {...ONLINE_USER}
-      {...props}
-      _style={extendStyle(ONLINE_USER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONLINE_USER)} />
 }

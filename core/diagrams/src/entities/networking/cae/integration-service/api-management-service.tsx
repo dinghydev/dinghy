@@ -12,10 +12,6 @@ export const API_MANAGEMENT_SERVICE = {
 
 export function ApiManagementService(props: NodeProps) {
   return (
-    <Shape
-      {...API_MANAGEMENT_SERVICE}
-      {...props}
-      _style={extendStyle(API_MANAGEMENT_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, API_MANAGEMENT_SERVICE)} />
   )
 }

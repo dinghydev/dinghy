@@ -11,5 +11,5 @@ export const FRAME = {
 }
 
 export function Frame(props: NodeProps) {
-  return <Shape {...FRAME} {...props} _style={extendStyle(FRAME, props)} />
+  return <Shape {...props} _style={extendStyle(props, FRAME)} />
 }

@@ -11,11 +11,5 @@ export const POWERSHELL_EXTENSION = {
 }
 
 export function PowershellExtension(props: NodeProps) {
-  return (
-    <Shape
-      {...POWERSHELL_EXTENSION}
-      {...props}
-      _style={extendStyle(POWERSHELL_EXTENSION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERSHELL_EXTENSION)} />
 }

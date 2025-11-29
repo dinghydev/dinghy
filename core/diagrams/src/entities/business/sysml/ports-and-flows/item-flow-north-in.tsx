@@ -11,11 +11,5 @@ export const ITEM_FLOW_NORTH_IN = {
 }
 
 export function ItemFlowNorthIn(props: NodeProps) {
-  return (
-    <Shape
-      {...ITEM_FLOW_NORTH_IN}
-      {...props}
-      _style={extendStyle(ITEM_FLOW_NORTH_IN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ITEM_FLOW_NORTH_IN)} />
 }

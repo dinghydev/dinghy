@@ -11,5 +11,5 @@ export const MEETUP = {
 }
 
 export function Meetup(props: NodeProps) {
-  return <Shape {...MEETUP} {...props} _style={extendStyle(MEETUP, props)} />
+  return <Shape {...props} _style={extendStyle(props, MEETUP)} />
 }

@@ -11,11 +11,5 @@ export const SUMMATION_POINT = {
 }
 
 export function SummationPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...SUMMATION_POINT}
-      {...props}
-      _style={extendStyle(SUMMATION_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUMMATION_POINT)} />
 }

@@ -11,11 +11,5 @@ export const ROTARY_PISTON = {
 }
 
 export function RotaryPiston(props: NodeProps) {
-  return (
-    <Shape
-      {...ROTARY_PISTON}
-      {...props}
-      _style={extendStyle(ROTARY_PISTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTARY_PISTON)} />
 }

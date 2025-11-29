@@ -11,7 +11,5 @@ export const INSTAGRAM = {
 }
 
 export function Instagram(props: NodeProps) {
-  return (
-    <Shape {...INSTAGRAM} {...props} _style={extendStyle(INSTAGRAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSTAGRAM)} />
 }

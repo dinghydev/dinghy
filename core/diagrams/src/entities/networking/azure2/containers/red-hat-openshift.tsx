@@ -11,11 +11,5 @@ export const RED_HAT_OPENSHIFT = {
 }
 
 export function RedHatOpenshift(props: NodeProps) {
-  return (
-    <Shape
-      {...RED_HAT_OPENSHIFT}
-      {...props}
-      _style={extendStyle(RED_HAT_OPENSHIFT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RED_HAT_OPENSHIFT)} />
 }

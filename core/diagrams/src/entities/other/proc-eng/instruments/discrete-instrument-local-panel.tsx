@@ -13,9 +13,8 @@ export const DISCRETE_INSTRUMENT_LOCAL_PANEL = {
 export function DiscreteInstrumentLocalPanel(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_INSTRUMENT_LOCAL_PANEL}
       {...props}
-      _style={extendStyle(DISCRETE_INSTRUMENT_LOCAL_PANEL, props)}
+      _style={extendStyle(props, DISCRETE_INSTRUMENT_LOCAL_PANEL)}
     />
   )
 }

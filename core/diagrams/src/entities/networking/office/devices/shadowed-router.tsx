@@ -11,11 +11,5 @@ export const SHADOWED_ROUTER = {
 }
 
 export function ShadowedRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...SHADOWED_ROUTER}
-      {...props}
-      _style={extendStyle(SHADOWED_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHADOWED_ROUTER)} />
 }

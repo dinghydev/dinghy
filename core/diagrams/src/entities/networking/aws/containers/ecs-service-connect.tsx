@@ -11,11 +11,5 @@ export const ECS_SERVICE_CONNECT = {
 }
 
 export function EcsServiceConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...ECS_SERVICE_CONNECT}
-      {...props}
-      _style={extendStyle(ECS_SERVICE_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ECS_SERVICE_CONNECT)} />
 }

@@ -13,9 +13,8 @@ export const FIBRE_CHANNEL_FABRIC_SWITCH = {
 export function FibreChannelFabricSwitch(props: NodeProps) {
   return (
     <Shape
-      {...FIBRE_CHANNEL_FABRIC_SWITCH}
       {...props}
-      _style={extendStyle(FIBRE_CHANNEL_FABRIC_SWITCH, props)}
+      _style={extendStyle(props, FIBRE_CHANNEL_FABRIC_SWITCH)}
     />
   )
 }

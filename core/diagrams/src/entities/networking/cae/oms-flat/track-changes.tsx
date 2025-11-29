@@ -11,11 +11,5 @@ export const TRACK_CHANGES = {
 }
 
 export function TrackChanges(props: NodeProps) {
-  return (
-    <Shape
-      {...TRACK_CHANGES}
-      {...props}
-      _style={extendStyle(TRACK_CHANGES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRACK_CHANGES)} />
 }

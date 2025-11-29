@@ -11,11 +11,5 @@ export const EXECUTION_REGION = {
 }
 
 export function ExecutionRegion(props: NodeProps) {
-  return (
-    <Shape
-      {...EXECUTION_REGION}
-      {...props}
-      _style={extendStyle(EXECUTION_REGION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXECUTION_REGION)} />
 }

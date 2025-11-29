@@ -11,11 +11,5 @@ export const SWITCH_VOYAGER = {
 }
 
 export function SwitchVoyager(props: NodeProps) {
-  return (
-    <Shape
-      {...SWITCH_VOYAGER}
-      {...props}
-      _style={extendStyle(SWITCH_VOYAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWITCH_VOYAGER)} />
 }

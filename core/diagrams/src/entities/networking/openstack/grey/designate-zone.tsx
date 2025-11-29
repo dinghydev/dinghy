@@ -11,11 +11,5 @@ export const DESIGNATE_ZONE = {
 }
 
 export function DesignateZone(props: NodeProps) {
-  return (
-    <Shape
-      {...DESIGNATE_ZONE}
-      {...props}
-      _style={extendStyle(DESIGNATE_ZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESIGNATE_ZONE)} />
 }

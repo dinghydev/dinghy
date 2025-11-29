@@ -11,11 +11,5 @@ export const ROLE_RECEIVER = {
 }
 
 export function RoleReceiver(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_RECEIVER}
-      {...props}
-      _style={extendStyle(ROLE_RECEIVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_RECEIVER)} />
 }

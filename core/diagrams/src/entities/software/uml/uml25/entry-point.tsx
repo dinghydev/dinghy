@@ -10,11 +10,5 @@ export const ENTRY_POINT = {
 }
 
 export function EntryPoint(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRY_POINT}
-      {...props}
-      _style={extendStyle(ENTRY_POINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRY_POINT)} />
 }

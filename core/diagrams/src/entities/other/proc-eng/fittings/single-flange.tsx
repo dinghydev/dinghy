@@ -11,11 +11,5 @@ export const SINGLE_FLANGE = {
 }
 
 export function SingleFlange(props: NodeProps) {
-  return (
-    <Shape
-      {...SINGLE_FLANGE}
-      {...props}
-      _style={extendStyle(SINGLE_FLANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINGLE_FLANGE)} />
 }

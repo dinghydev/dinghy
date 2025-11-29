@@ -11,11 +11,5 @@ export const BACK_DRAFT_DAMPER = {
 }
 
 export function BackDraftDamper(props: NodeProps) {
-  return (
-    <Shape
-      {...BACK_DRAFT_DAMPER}
-      {...props}
-      _style={extendStyle(BACK_DRAFT_DAMPER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACK_DRAFT_DAMPER)} />
 }

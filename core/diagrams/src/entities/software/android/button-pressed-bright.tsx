@@ -11,11 +11,5 @@ export const BUTTON_PRESSED_BRIGHT = {
 }
 
 export function ButtonPressedBright(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_PRESSED_BRIGHT}
-      {...props}
-      _style={extendStyle(BUTTON_PRESSED_BRIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_PRESSED_BRIGHT)} />
 }

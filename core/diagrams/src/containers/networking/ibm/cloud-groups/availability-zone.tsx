@@ -12,11 +12,5 @@ export const AVAILABILITY_ZONE = {
 }
 
 export function AvailabilityZone(props: NodeProps) {
-  return (
-    <Shape
-      {...AVAILABILITY_ZONE}
-      {...props}
-      _style={extendStyle(AVAILABILITY_ZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVAILABILITY_ZONE)} />
 }

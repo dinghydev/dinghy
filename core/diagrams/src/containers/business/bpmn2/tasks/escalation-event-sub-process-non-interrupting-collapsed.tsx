@@ -13,11 +13,10 @@ export function EscalationEventSubProcessNonInterruptingCollapsed(
 ) {
   return (
     <Shape
-      {...ESCALATION_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        ESCALATION_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
         props,
+        ESCALATION_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
       )}
     />
   )

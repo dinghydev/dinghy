@@ -11,7 +11,5 @@ export const MY_SITES = {
 }
 
 export function MySites(props: NodeProps) {
-  return (
-    <Shape {...MY_SITES} {...props} _style={extendStyle(MY_SITES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MY_SITES)} />
 }

@@ -11,7 +11,5 @@ export const DNS_ZONES = {
 }
 
 export function DnsZones(props: NodeProps) {
-  return (
-    <Shape {...DNS_ZONES} {...props} _style={extendStyle(DNS_ZONES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DNS_ZONES)} />
 }

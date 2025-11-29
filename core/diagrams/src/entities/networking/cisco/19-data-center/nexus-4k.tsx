@@ -11,7 +11,5 @@ export const NEXUS_4K = {
 }
 
 export function Nexus4k(props: NodeProps) {
-  return (
-    <Shape {...NEXUS_4K} {...props} _style={extendStyle(NEXUS_4K, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_4K)} />
 }

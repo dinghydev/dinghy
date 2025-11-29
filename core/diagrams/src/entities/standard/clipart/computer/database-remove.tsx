@@ -11,11 +11,5 @@ export const DATABASE_REMOVE = {
 }
 
 export function DatabaseRemove(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_REMOVE}
-      {...props}
-      _style={extendStyle(DATABASE_REMOVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_REMOVE)} />
 }

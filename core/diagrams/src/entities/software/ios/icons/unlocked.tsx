@@ -11,7 +11,5 @@ export const UNLOCKED = {
 }
 
 export function Unlocked(props: NodeProps) {
-  return (
-    <Shape {...UNLOCKED} {...props} _style={extendStyle(UNLOCKED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNLOCKED)} />
 }

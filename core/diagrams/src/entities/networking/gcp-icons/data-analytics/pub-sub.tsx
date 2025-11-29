@@ -11,5 +11,5 @@ export const PUB_SUB = {
 }
 
 export function PubSub(props: NodeProps) {
-  return <Shape {...PUB_SUB} {...props} _style={extendStyle(PUB_SUB, props)} />
+  return <Shape {...props} _style={extendStyle(props, PUB_SUB)} />
 }

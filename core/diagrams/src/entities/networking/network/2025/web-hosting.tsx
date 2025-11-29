@@ -11,11 +11,5 @@ export const WEB_HOSTING = {
 }
 
 export function WebHosting(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_HOSTING}
-      {...props}
-      _style={extendStyle(WEB_HOSTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_HOSTING)} />
 }

@@ -11,7 +11,5 @@ export const VM_LOCKED = {
 }
 
 export function VmLocked(props: NodeProps) {
-  return (
-    <Shape {...VM_LOCKED} {...props} _style={extendStyle(VM_LOCKED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_LOCKED)} />
 }

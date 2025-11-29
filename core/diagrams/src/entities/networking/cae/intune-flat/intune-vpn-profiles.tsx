@@ -11,11 +11,5 @@ export const INTUNE_VPN_PROFILES = {
 }
 
 export function IntuneVpnProfiles(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_VPN_PROFILES}
-      {...props}
-      _style={extendStyle(INTUNE_VPN_PROFILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_VPN_PROFILES)} />
 }

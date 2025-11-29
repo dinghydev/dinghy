@@ -11,11 +11,5 @@ export const SHORTING_SELECTOR = {
 }
 
 export function ShortingSelector(props: NodeProps) {
-  return (
-    <Shape
-      {...SHORTING_SELECTOR}
-      {...props}
-      _style={extendStyle(SHORTING_SELECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHORTING_SELECTOR)} />
 }

@@ -12,10 +12,6 @@ export const DISCRETE_INSTRUMENT_FIELD = {
 
 export function DiscreteInstrumentField(props: NodeProps) {
   return (
-    <Shape
-      {...DISCRETE_INSTRUMENT_FIELD}
-      {...props}
-      _style={extendStyle(DISCRETE_INSTRUMENT_FIELD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DISCRETE_INSTRUMENT_FIELD)} />
   )
 }

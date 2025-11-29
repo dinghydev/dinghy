@@ -11,11 +11,5 @@ export const INTRUSION_PREVENTION = {
 }
 
 export function IntrusionPrevention(props: NodeProps) {
-  return (
-    <Shape
-      {...INTRUSION_PREVENTION}
-      {...props}
-      _style={extendStyle(INTRUSION_PREVENTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTRUSION_PREVENTION)} />
 }

@@ -11,11 +11,5 @@ export const GKE_ON_PREM = {
 }
 
 export function GkeOnPrem(props: NodeProps) {
-  return (
-    <Shape
-      {...GKE_ON_PREM}
-      {...props}
-      _style={extendStyle(GKE_ON_PREM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GKE_ON_PREM)} />
 }

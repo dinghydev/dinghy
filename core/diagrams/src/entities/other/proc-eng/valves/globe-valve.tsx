@@ -11,11 +11,5 @@ export const GLOBE_VALVE = {
 }
 
 export function GlobeValve(props: NodeProps) {
-  return (
-    <Shape
-      {...GLOBE_VALVE}
-      {...props}
-      _style={extendStyle(GLOBE_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLOBE_VALVE)} />
 }

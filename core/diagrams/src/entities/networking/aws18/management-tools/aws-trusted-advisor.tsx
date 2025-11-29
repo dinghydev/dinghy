@@ -11,11 +11,5 @@ export const AWS_TRUSTED_ADVISOR = {
 }
 
 export function AwsTrustedAdvisor(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_TRUSTED_ADVISOR}
-      {...props}
-      _style={extendStyle(AWS_TRUSTED_ADVISOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_TRUSTED_ADVISOR)} />
 }

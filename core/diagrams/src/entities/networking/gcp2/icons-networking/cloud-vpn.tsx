@@ -11,7 +11,5 @@ export const CLOUD_VPN = {
 }
 
 export function CloudVpn(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_VPN} {...props} _style={extendStyle(CLOUD_VPN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_VPN)} />
 }

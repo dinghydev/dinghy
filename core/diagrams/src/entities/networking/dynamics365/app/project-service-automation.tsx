@@ -12,10 +12,6 @@ export const PROJECT_SERVICE_AUTOMATION = {
 
 export function ProjectServiceAutomation(props: NodeProps) {
   return (
-    <Shape
-      {...PROJECT_SERVICE_AUTOMATION}
-      {...props}
-      _style={extendStyle(PROJECT_SERVICE_AUTOMATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROJECT_SERVICE_AUTOMATION)} />
   )
 }

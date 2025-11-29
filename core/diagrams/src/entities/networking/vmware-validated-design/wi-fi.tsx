@@ -11,5 +11,5 @@ export const WI_FI = {
 }
 
 export function WiFi(props: NodeProps) {
-  return <Shape {...WI_FI} {...props} _style={extendStyle(WI_FI, props)} />
+  return <Shape {...props} _style={extendStyle(props, WI_FI)} />
 }

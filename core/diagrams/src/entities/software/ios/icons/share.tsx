@@ -11,5 +11,5 @@ export const SHARE = {
 }
 
 export function Share(props: NodeProps) {
-  return <Shape {...SHARE} {...props} _style={extendStyle(SHARE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHARE)} />
 }

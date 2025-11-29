@@ -11,11 +11,5 @@ export const CLIENT_FIREWALL = {
 }
 
 export function ClientFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...CLIENT_FIREWALL}
-      {...props}
-      _style={extendStyle(CLIENT_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLIENT_FIREWALL)} />
 }

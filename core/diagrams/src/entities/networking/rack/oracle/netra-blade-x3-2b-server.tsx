@@ -12,10 +12,6 @@ export const NETRA_BLADE_X3_2B_SERVER = {
 
 export function NetraBladeX32bServer(props: NodeProps) {
   return (
-    <Shape
-      {...NETRA_BLADE_X3_2B_SERVER}
-      {...props}
-      _style={extendStyle(NETRA_BLADE_X3_2B_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NETRA_BLADE_X3_2B_SERVER)} />
   )
 }

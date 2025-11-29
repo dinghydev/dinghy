@@ -11,11 +11,5 @@ export const X12170_DOUBLE_FILTER = {
 }
 
 export function X12170DoubleFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...X12170_DOUBLE_FILTER}
-      {...props}
-      _style={extendStyle(X12170_DOUBLE_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12170_DOUBLE_FILTER)} />
 }

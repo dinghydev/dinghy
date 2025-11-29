@@ -11,11 +11,5 @@ export const MILL_PULVERIZER = {
 }
 
 export function MillPulverizer(props: NodeProps) {
-  return (
-    <Shape
-      {...MILL_PULVERIZER}
-      {...props}
-      _style={extendStyle(MILL_PULVERIZER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MILL_PULVERIZER)} />
 }

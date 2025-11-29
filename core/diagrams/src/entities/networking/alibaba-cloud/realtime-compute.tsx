@@ -11,11 +11,5 @@ export const REALTIME_COMPUTE = {
 }
 
 export function RealtimeCompute(props: NodeProps) {
-  return (
-    <Shape
-      {...REALTIME_COMPUTE}
-      {...props}
-      _style={extendStyle(REALTIME_COMPUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REALTIME_COMPUTE)} />
 }

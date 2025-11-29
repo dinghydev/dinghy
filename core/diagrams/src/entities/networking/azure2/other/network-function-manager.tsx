@@ -12,10 +12,6 @@ export const NETWORK_FUNCTION_MANAGER = {
 
 export function NetworkFunctionManager(props: NodeProps) {
   return (
-    <Shape
-      {...NETWORK_FUNCTION_MANAGER}
-      {...props}
-      _style={extendStyle(NETWORK_FUNCTION_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NETWORK_FUNCTION_MANAGER)} />
   )
 }

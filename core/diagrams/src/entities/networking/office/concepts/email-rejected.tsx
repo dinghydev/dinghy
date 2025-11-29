@@ -11,11 +11,5 @@ export const EMAIL_REJECTED = {
 }
 
 export function EmailRejected(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_REJECTED}
-      {...props}
-      _style={extendStyle(EMAIL_REJECTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_REJECTED)} />
 }

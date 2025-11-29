@@ -11,11 +11,5 @@ export const FIXED_TAB_BAR_2 = {
 }
 
 export function FixedTabBar2(props: NodeProps) {
-  return (
-    <Shape
-      {...FIXED_TAB_BAR_2}
-      {...props}
-      _style={extendStyle(FIXED_TAB_BAR_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIXED_TAB_BAR_2)} />
 }

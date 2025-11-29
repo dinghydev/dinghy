@@ -11,11 +11,5 @@ export const IMMERSIVE_READERS = {
 }
 
 export function ImmersiveReaders(props: NodeProps) {
-  return (
-    <Shape
-      {...IMMERSIVE_READERS}
-      {...props}
-      _style={extendStyle(IMMERSIVE_READERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMMERSIVE_READERS)} />
 }

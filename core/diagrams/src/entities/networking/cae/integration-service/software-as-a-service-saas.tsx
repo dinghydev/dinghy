@@ -12,10 +12,6 @@ export const SOFTWARE_AS_A_SERVICE_SAAS = {
 
 export function SoftwareAsAServiceSaas(props: NodeProps) {
   return (
-    <Shape
-      {...SOFTWARE_AS_A_SERVICE_SAAS}
-      {...props}
-      _style={extendStyle(SOFTWARE_AS_A_SERVICE_SAAS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SOFTWARE_AS_A_SERVICE_SAAS)} />
   )
 }

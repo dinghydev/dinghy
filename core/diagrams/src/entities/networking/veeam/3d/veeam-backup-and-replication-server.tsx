@@ -13,9 +13,8 @@ export const VEEAM_BACKUP_AND_REPLICATION_SERVER = {
 export function VeeamBackupAndReplicationServer(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_BACKUP_AND_REPLICATION_SERVER}
       {...props}
-      _style={extendStyle(VEEAM_BACKUP_AND_REPLICATION_SERVER, props)}
+      _style={extendStyle(props, VEEAM_BACKUP_AND_REPLICATION_SERVER)}
     />
   )
 }

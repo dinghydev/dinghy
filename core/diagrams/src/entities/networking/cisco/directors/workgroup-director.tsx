@@ -11,11 +11,5 @@ export const WORKGROUP_DIRECTOR = {
 }
 
 export function WorkgroupDirector(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKGROUP_DIRECTOR}
-      {...props}
-      _style={extendStyle(WORKGROUP_DIRECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKGROUP_DIRECTOR)} />
 }

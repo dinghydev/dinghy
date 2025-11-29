@@ -11,11 +11,5 @@ export const ORACLE_RMAN = {
 }
 
 export function OracleRman(props: NodeProps) {
-  return (
-    <Shape
-      {...ORACLE_RMAN}
-      {...props}
-      _style={extendStyle(ORACLE_RMAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORACLE_RMAN)} />
 }

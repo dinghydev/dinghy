@@ -11,5 +11,5 @@ export const TUNNEL = {
 }
 
 export function Tunnel(props: NodeProps) {
-  return <Shape {...TUNNEL} {...props} _style={extendStyle(TUNNEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, TUNNEL)} />
 }

@@ -11,11 +11,5 @@ export const AVATAR_AWAY = {
 }
 
 export function AvatarAway(props: NodeProps) {
-  return (
-    <Shape
-      {...AVATAR_AWAY}
-      {...props}
-      _style={extendStyle(AVATAR_AWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVATAR_AWAY)} />
 }

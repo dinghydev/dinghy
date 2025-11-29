@@ -10,11 +10,5 @@ export const ISOMETRIC_CUBE = {
 }
 
 export function IsometricCube(props: NodeProps) {
-  return (
-    <Shape
-      {...ISOMETRIC_CUBE}
-      {...props}
-      _style={extendStyle(ISOMETRIC_CUBE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISOMETRIC_CUBE)} />
 }

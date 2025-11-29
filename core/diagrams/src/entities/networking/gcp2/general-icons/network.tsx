@@ -11,5 +11,5 @@ export const NETWORK = {
 }
 
 export function Network(props: NodeProps) {
-  return <Shape {...NETWORK} {...props} _style={extendStyle(NETWORK, props)} />
+  return <Shape {...props} _style={extendStyle(props, NETWORK)} />
 }

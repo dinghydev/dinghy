@@ -11,11 +11,5 @@ export const MESSAGE_BUS_CONTAINER = {
 }
 
 export function MessageBusContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_BUS_CONTAINER}
-      {...props}
-      _style={extendStyle(MESSAGE_BUS_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_BUS_CONTAINER)} />
 }

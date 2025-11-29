@@ -11,7 +11,5 @@ export const MAINFRAME = {
 }
 
 export function Mainframe(props: NodeProps) {
-  return (
-    <Shape {...MAINFRAME} {...props} _style={extendStyle(MAINFRAME, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAINFRAME)} />
 }

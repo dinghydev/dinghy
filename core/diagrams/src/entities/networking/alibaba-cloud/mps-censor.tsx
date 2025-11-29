@@ -11,7 +11,5 @@ export const MPS_CENSOR = {
 }
 
 export function MpsCensor(props: NodeProps) {
-  return (
-    <Shape {...MPS_CENSOR} {...props} _style={extendStyle(MPS_CENSOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MPS_CENSOR)} />
 }

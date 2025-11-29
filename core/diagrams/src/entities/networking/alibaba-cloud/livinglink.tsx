@@ -11,7 +11,5 @@ export const LIVINGLINK = {
 }
 
 export function Livinglink(props: NodeProps) {
-  return (
-    <Shape {...LIVINGLINK} {...props} _style={extendStyle(LIVINGLINK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIVINGLINK)} />
 }

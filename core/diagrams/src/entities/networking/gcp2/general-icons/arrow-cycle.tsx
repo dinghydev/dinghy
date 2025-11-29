@@ -11,11 +11,5 @@ export const ARROW_CYCLE = {
 }
 
 export function ArrowCycle(props: NodeProps) {
-  return (
-    <Shape
-      {...ARROW_CYCLE}
-      {...props}
-      _style={extendStyle(ARROW_CYCLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROW_CYCLE)} />
 }

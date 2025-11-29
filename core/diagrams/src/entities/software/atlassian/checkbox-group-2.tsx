@@ -11,11 +11,5 @@ export const CHECKBOX_GROUP_2 = {
 }
 
 export function CheckboxGroup2(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKBOX_GROUP_2}
-      {...props}
-      _style={extendStyle(CHECKBOX_GROUP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKBOX_GROUP_2)} />
 }

@@ -11,5 +11,5 @@ export const JBOD = {
 }
 
 export function Jbod(props: NodeProps) {
-  return <Shape {...JBOD} {...props} _style={extendStyle(JBOD, props)} />
+  return <Shape {...props} _style={extendStyle(props, JBOD)} />
 }

@@ -11,7 +11,5 @@ export const FILESHARE = {
 }
 
 export function Fileshare(props: NodeProps) {
-  return (
-    <Shape {...FILESHARE} {...props} _style={extendStyle(FILESHARE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILESHARE)} />
 }

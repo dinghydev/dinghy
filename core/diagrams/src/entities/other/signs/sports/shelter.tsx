@@ -11,5 +11,5 @@ export const SHELTER = {
 }
 
 export function Shelter(props: NodeProps) {
-  return <Shape {...SHELTER} {...props} _style={extendStyle(SHELTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHELTER)} />
 }

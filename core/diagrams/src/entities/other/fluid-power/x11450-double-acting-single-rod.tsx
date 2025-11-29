@@ -13,9 +13,8 @@ export const X11450_DOUBLE_ACTING_SINGLE_ROD = {
 export function X11450DoubleActingSingleRod(props: NodeProps) {
   return (
     <Shape
-      {...X11450_DOUBLE_ACTING_SINGLE_ROD}
       {...props}
-      _style={extendStyle(X11450_DOUBLE_ACTING_SINGLE_ROD, props)}
+      _style={extendStyle(props, X11450_DOUBLE_ACTING_SINGLE_ROD)}
     />
   )
 }

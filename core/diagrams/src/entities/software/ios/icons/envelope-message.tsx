@@ -11,11 +11,5 @@ export const ENVELOPE_MESSAGE = {
 }
 
 export function EnvelopeMessage(props: NodeProps) {
-  return (
-    <Shape
-      {...ENVELOPE_MESSAGE}
-      {...props}
-      _style={extendStyle(ENVELOPE_MESSAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENVELOPE_MESSAGE)} />
 }

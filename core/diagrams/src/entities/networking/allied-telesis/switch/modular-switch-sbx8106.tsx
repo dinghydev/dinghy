@@ -12,10 +12,6 @@ export const MODULAR_SWITCH_SBX8106 = {
 
 export function ModularSwitchSbx8106(props: NodeProps) {
   return (
-    <Shape
-      {...MODULAR_SWITCH_SBX8106}
-      {...props}
-      _style={extendStyle(MODULAR_SWITCH_SBX8106, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MODULAR_SWITCH_SBX8106)} />
   )
 }

@@ -9,11 +9,5 @@ export const INNER_CLASS = {
 }
 
 export function InnerClass(props: NodeProps) {
-  return (
-    <Dependency
-      {...INNER_CLASS}
-      {...props}
-      _style={extendStyle(INNER_CLASS, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, INNER_CLASS)} />
 }

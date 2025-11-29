@@ -11,7 +11,5 @@ export const DASHBOARD = {
 }
 
 export function Dashboard(props: NodeProps) {
-  return (
-    <Shape {...DASHBOARD} {...props} _style={extendStyle(DASHBOARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DASHBOARD)} />
 }

@@ -12,10 +12,6 @@ export const CHECKBOX_OFF_HOVER_LIGHT = {
 
 export function CheckboxOffHoverLight(props: NodeProps) {
   return (
-    <Shape
-      {...CHECKBOX_OFF_HOVER_LIGHT}
-      {...props}
-      _style={extendStyle(CHECKBOX_OFF_HOVER_LIGHT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CHECKBOX_OFF_HOVER_LIGHT)} />
   )
 }

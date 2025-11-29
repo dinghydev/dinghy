@@ -12,10 +12,6 @@ export const SMS_SHORT_MESSAGE_SERVICE = {
 
 export function SmsShortMessageService(props: NodeProps) {
   return (
-    <Shape
-      {...SMS_SHORT_MESSAGE_SERVICE}
-      {...props}
-      _style={extendStyle(SMS_SHORT_MESSAGE_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SMS_SHORT_MESSAGE_SERVICE)} />
   )
 }

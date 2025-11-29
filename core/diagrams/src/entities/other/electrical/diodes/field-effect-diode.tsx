@@ -11,11 +11,5 @@ export const FIELD_EFFECT_DIODE = {
 }
 
 export function FieldEffectDiode(props: NodeProps) {
-  return (
-    <Shape
-      {...FIELD_EFFECT_DIODE}
-      {...props}
-      _style={extendStyle(FIELD_EFFECT_DIODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIELD_EFFECT_DIODE)} />
 }

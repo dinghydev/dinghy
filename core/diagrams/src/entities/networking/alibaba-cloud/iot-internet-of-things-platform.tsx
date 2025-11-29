@@ -13,9 +13,8 @@ export const IOT_INTERNET_OF_THINGS_PLATFORM = {
 export function IotInternetOfThingsPlatform(props: NodeProps) {
   return (
     <Shape
-      {...IOT_INTERNET_OF_THINGS_PLATFORM}
       {...props}
-      _style={extendStyle(IOT_INTERNET_OF_THINGS_PLATFORM, props)}
+      _style={extendStyle(props, IOT_INTERNET_OF_THINGS_PLATFORM)}
     />
   )
 }

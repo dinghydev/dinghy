@@ -11,5 +11,5 @@ export const TIME = {
 }
 
 export function Time(props: NodeProps) {
-  return <Shape {...TIME} {...props} _style={extendStyle(TIME, props)} />
+  return <Shape {...props} _style={extendStyle(props, TIME)} />
 }

@@ -13,9 +13,8 @@ export const DISCRETE_INSTRUMENT_INACCESSIBLE = {
 export function DiscreteInstrumentInaccessible(props: NodeProps) {
   return (
     <Shape
-      {...DISCRETE_INSTRUMENT_INACCESSIBLE}
       {...props}
-      _style={extendStyle(DISCRETE_INSTRUMENT_INACCESSIBLE, props)}
+      _style={extendStyle(props, DISCRETE_INSTRUMENT_INACCESSIBLE)}
     />
   )
 }

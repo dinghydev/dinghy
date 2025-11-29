@@ -11,11 +11,5 @@ export const DURATION_CONSTRAINT_5 = {
 }
 
 export function DurationConstraint5(props: NodeProps) {
-  return (
-    <Shape
-      {...DURATION_CONSTRAINT_5}
-      {...props}
-      _style={extendStyle(DURATION_CONSTRAINT_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DURATION_CONSTRAINT_5)} />
 }

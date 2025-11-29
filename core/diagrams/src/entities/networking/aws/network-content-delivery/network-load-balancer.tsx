@@ -11,11 +11,5 @@ export const NETWORK_LOAD_BALANCER = {
 }
 
 export function NetworkLoadBalancer(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(NETWORK_LOAD_BALANCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_LOAD_BALANCER)} />
 }

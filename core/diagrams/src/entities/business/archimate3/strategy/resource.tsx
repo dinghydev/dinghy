@@ -11,7 +11,5 @@ export const RESOURCE = {
 }
 
 export function Resource(props: NodeProps) {
-  return (
-    <Shape {...RESOURCE} {...props} _style={extendStyle(RESOURCE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE)} />
 }

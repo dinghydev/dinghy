@@ -11,5 +11,5 @@ export const CURRENT = {
 }
 
 export function Current(props: NodeProps) {
-  return <Shape {...CURRENT} {...props} _style={extendStyle(CURRENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, CURRENT)} />
 }

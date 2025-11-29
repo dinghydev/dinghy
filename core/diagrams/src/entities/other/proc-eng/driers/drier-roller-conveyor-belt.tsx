@@ -12,10 +12,6 @@ export const DRIER_ROLLER_CONVEYOR_BELT = {
 
 export function DrierRollerConveyorBelt(props: NodeProps) {
   return (
-    <Shape
-      {...DRIER_ROLLER_CONVEYOR_BELT}
-      {...props}
-      _style={extendStyle(DRIER_ROLLER_CONVEYOR_BELT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DRIER_ROLLER_CONVEYOR_BELT)} />
   )
 }

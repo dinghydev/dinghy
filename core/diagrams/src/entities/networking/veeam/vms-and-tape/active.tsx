@@ -11,5 +11,5 @@ export const ACTIVE = {
 }
 
 export function Active(props: NodeProps) {
-  return <Shape {...ACTIVE} {...props} _style={extendStyle(ACTIVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, ACTIVE)} />
 }

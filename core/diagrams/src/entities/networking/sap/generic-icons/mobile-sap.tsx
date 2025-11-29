@@ -11,7 +11,5 @@ export const MOBILE_SAP = {
 }
 
 export function MobileSap(props: NodeProps) {
-  return (
-    <Shape {...MOBILE_SAP} {...props} _style={extendStyle(MOBILE_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_SAP)} />
 }

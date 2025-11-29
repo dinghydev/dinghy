@@ -11,11 +11,5 @@ export const CONVEYOR_SCREW_CLOSED = {
 }
 
 export function ConveyorScrewClosed(props: NodeProps) {
-  return (
-    <Shape
-      {...CONVEYOR_SCREW_CLOSED}
-      {...props}
-      _style={extendStyle(CONVEYOR_SCREW_CLOSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONVEYOR_SCREW_CLOSED)} />
 }

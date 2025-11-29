@@ -11,11 +11,5 @@ export const CUSTOMER_ENABLEMENT = {
 }
 
 export function CustomerEnablement(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOMER_ENABLEMENT}
-      {...props}
-      _style={extendStyle(CUSTOMER_ENABLEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOMER_ENABLEMENT)} />
 }

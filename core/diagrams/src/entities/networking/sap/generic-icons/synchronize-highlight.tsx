@@ -11,11 +11,5 @@ export const SYNCHRONIZE_HIGHLIGHT = {
 }
 
 export function SynchronizeHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...SYNCHRONIZE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(SYNCHRONIZE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYNCHRONIZE_HIGHLIGHT)} />
 }

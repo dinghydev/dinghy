@@ -13,9 +13,8 @@ export const TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY = {
 export function TelepresenceEndpointTwinDataDisplay(props: NodeProps) {
   return (
     <Shape
-      {...TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY}
       {...props}
-      _style={extendStyle(TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY, props)}
+      _style={extendStyle(props, TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY)}
     />
   )
 }

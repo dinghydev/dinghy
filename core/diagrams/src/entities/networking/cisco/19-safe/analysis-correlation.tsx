@@ -11,11 +11,5 @@ export const ANALYSIS_CORRELATION = {
 }
 
 export function AnalysisCorrelation(props: NodeProps) {
-  return (
-    <Shape
-      {...ANALYSIS_CORRELATION}
-      {...props}
-      _style={extendStyle(ANALYSIS_CORRELATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANALYSIS_CORRELATION)} />
 }

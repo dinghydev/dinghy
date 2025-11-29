@@ -11,11 +11,5 @@ export const COLUMN_FIXED_BED = {
 }
 
 export function ColumnFixedBed(props: NodeProps) {
-  return (
-    <Shape
-      {...COLUMN_FIXED_BED}
-      {...props}
-      _style={extendStyle(COLUMN_FIXED_BED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLUMN_FIXED_BED)} />
 }

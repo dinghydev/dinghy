@@ -11,5 +11,5 @@ export const ICS = {
 }
 
 export function Ics(props: NodeProps) {
-  return <Shape {...ICS} {...props} _style={extendStyle(ICS, props)} />
+  return <Shape {...props} _style={extendStyle(props, ICS)} />
 }

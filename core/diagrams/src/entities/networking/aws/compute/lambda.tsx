@@ -11,5 +11,5 @@ export const LAMBDA = {
 }
 
 export function Lambda(props: NodeProps) {
-  return <Shape {...LAMBDA} {...props} _style={extendStyle(LAMBDA, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAMBDA)} />
 }

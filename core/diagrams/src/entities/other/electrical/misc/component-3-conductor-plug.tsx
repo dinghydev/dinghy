@@ -12,10 +12,6 @@ export const COMPONENT_3_CONDUCTOR_PLUG = {
 
 export function Component3ConductorPlug(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_3_CONDUCTOR_PLUG}
-      {...props}
-      _style={extendStyle(COMPONENT_3_CONDUCTOR_PLUG, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_3_CONDUCTOR_PLUG)} />
   )
 }

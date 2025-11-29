@@ -11,11 +11,5 @@ export const BANNER_HALF_FOLD = {
 }
 
 export function BannerHalfFold(props: NodeProps) {
-  return (
-    <Shape
-      {...BANNER_HALF_FOLD}
-      {...props}
-      _style={extendStyle(BANNER_HALF_FOLD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BANNER_HALF_FOLD)} />
 }

@@ -12,10 +12,6 @@ export const PROGRESS_SCRUBBER_PRESSED = {
 
 export function ProgressScrubberPressed(props: NodeProps) {
   return (
-    <Shape
-      {...PROGRESS_SCRUBBER_PRESSED}
-      {...props}
-      _style={extendStyle(PROGRESS_SCRUBBER_PRESSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROGRESS_SCRUBBER_PRESSED)} />
   )
 }

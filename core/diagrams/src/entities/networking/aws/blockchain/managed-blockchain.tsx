@@ -11,11 +11,5 @@ export const MANAGED_BLOCKCHAIN = {
 }
 
 export function ManagedBlockchain(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_BLOCKCHAIN}
-      {...props}
-      _style={extendStyle(MANAGED_BLOCKCHAIN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_BLOCKCHAIN)} />
 }

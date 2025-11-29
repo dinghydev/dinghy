@@ -13,9 +13,8 @@ export const DTS_DATA_TRANSMISSION_SERVICE = {
 export function DtsDataTransmissionService(props: NodeProps) {
   return (
     <Shape
-      {...DTS_DATA_TRANSMISSION_SERVICE}
       {...props}
-      _style={extendStyle(DTS_DATA_TRANSMISSION_SERVICE, props)}
+      _style={extendStyle(props, DTS_DATA_TRANSMISSION_SERVICE)}
     />
   )
 }

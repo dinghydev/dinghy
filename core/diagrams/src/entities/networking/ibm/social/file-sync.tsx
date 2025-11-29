@@ -11,7 +11,5 @@ export const FILE_SYNC = {
 }
 
 export function FileSync(props: NodeProps) {
-  return (
-    <Shape {...FILE_SYNC} {...props} _style={extendStyle(FILE_SYNC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_SYNC)} />
 }

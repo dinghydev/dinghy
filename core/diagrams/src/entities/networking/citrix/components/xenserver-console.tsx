@@ -11,11 +11,5 @@ export const XENSERVER_CONSOLE = {
 }
 
 export function XenserverConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...XENSERVER_CONSOLE}
-      {...props}
-      _style={extendStyle(XENSERVER_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENSERVER_CONSOLE)} />
 }

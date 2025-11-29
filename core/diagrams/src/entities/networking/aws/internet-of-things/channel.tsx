@@ -11,5 +11,5 @@ export const CHANNEL = {
 }
 
 export function Channel(props: NodeProps) {
-  return <Shape {...CHANNEL} {...props} _style={extendStyle(CHANNEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHANNEL)} />
 }

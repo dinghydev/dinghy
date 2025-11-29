@@ -11,5 +11,5 @@ export const CRT_TV = {
 }
 
 export function CrtTv(props: NodeProps) {
-  return <Shape {...CRT_TV} {...props} _style={extendStyle(CRT_TV, props)} />
+  return <Shape {...props} _style={extendStyle(props, CRT_TV)} />
 }

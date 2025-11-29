@@ -11,11 +11,5 @@ export const AWS_AUTO_SCALING = {
 }
 
 export function AwsAutoScaling(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_AUTO_SCALING}
-      {...props}
-      _style={extendStyle(AWS_AUTO_SCALING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_AUTO_SCALING)} />
 }

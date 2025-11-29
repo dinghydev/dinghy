@@ -11,5 +11,5 @@ export const STAR = {
 }
 
 export function Star(props: NodeProps) {
-  return <Shape {...STAR} {...props} _style={extendStyle(STAR, props)} />
+  return <Shape {...props} _style={extendStyle(props, STAR)} />
 }

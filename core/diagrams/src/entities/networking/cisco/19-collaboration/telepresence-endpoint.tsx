@@ -11,11 +11,5 @@ export const TELEPRESENCE_ENDPOINT = {
 }
 
 export function TelepresenceEndpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...TELEPRESENCE_ENDPOINT}
-      {...props}
-      _style={extendStyle(TELEPRESENCE_ENDPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TELEPRESENCE_ENDPOINT)} />
 }

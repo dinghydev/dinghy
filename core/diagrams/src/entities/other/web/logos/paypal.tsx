@@ -11,5 +11,5 @@ export const PAYPAL = {
 }
 
 export function Paypal(props: NodeProps) {
-  return <Shape {...PAYPAL} {...props} _style={extendStyle(PAYPAL, props)} />
+  return <Shape {...props} _style={extendStyle(props, PAYPAL)} />
 }

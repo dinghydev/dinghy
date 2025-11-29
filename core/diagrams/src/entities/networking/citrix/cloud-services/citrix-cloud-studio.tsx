@@ -11,11 +11,5 @@ export const CITRIX_CLOUD_STUDIO = {
 }
 
 export function CitrixCloudStudio(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_CLOUD_STUDIO}
-      {...props}
-      _style={extendStyle(CITRIX_CLOUD_STUDIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_CLOUD_STUDIO)} />
 }

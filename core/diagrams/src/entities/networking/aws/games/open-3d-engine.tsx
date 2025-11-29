@@ -11,11 +11,5 @@ export const OPEN_3D_ENGINE = {
 }
 
 export function Open3dEngine(props: NodeProps) {
-  return (
-    <Shape
-      {...OPEN_3D_ENGINE}
-      {...props}
-      _style={extendStyle(OPEN_3D_ENGINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPEN_3D_ENGINE)} />
 }

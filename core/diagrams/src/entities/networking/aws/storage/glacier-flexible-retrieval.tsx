@@ -12,10 +12,6 @@ export const GLACIER_FLEXIBLE_RETRIEVAL = {
 
 export function GlacierFlexibleRetrieval(props: NodeProps) {
   return (
-    <Shape
-      {...GLACIER_FLEXIBLE_RETRIEVAL}
-      {...props}
-      _style={extendStyle(GLACIER_FLEXIBLE_RETRIEVAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GLACIER_FLEXIBLE_RETRIEVAL)} />
   )
 }

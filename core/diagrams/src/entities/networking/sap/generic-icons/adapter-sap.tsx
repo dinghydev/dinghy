@@ -11,11 +11,5 @@ export const ADAPTER_SAP = {
 }
 
 export function AdapterSap(props: NodeProps) {
-  return (
-    <Shape
-      {...ADAPTER_SAP}
-      {...props}
-      _style={extendStyle(ADAPTER_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADAPTER_SAP)} />
 }

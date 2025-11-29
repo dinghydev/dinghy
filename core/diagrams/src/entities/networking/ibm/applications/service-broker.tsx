@@ -11,11 +11,5 @@ export const SERVICE_BROKER = {
 }
 
 export function ServiceBroker(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_BROKER}
-      {...props}
-      _style={extendStyle(SERVICE_BROKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_BROKER)} />
 }

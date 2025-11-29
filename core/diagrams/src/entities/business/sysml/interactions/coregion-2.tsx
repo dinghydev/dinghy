@@ -10,7 +10,5 @@ export const COREGION_2 = {
 }
 
 export function Coregion2(props: NodeProps) {
-  return (
-    <Shape {...COREGION_2} {...props} _style={extendStyle(COREGION_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COREGION_2)} />
 }

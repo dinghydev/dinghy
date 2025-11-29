@@ -11,5 +11,5 @@ export const GUIDE = {
 }
 
 export function Guide(props: NodeProps) {
-  return <Shape {...GUIDE} {...props} _style={extendStyle(GUIDE, props)} />
+  return <Shape {...props} _style={extendStyle(props, GUIDE)} />
 }

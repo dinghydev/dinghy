@@ -11,5 +11,5 @@ export const PV_2 = {
 }
 
 export function Pv2(props: NodeProps) {
-  return <Shape {...PV_2} {...props} _style={extendStyle(PV_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, PV_2)} />
 }

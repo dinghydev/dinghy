@@ -11,11 +11,5 @@ export const BUTTON_GROUPED_3 = {
 }
 
 export function ButtonGrouped3(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_GROUPED_3}
-      {...props}
-      _style={extendStyle(BUTTON_GROUPED_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_GROUPED_3)} />
 }

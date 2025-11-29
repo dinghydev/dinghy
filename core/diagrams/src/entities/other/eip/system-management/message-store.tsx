@@ -11,11 +11,5 @@ export const MESSAGE_STORE = {
 }
 
 export function MessageStore(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_STORE}
-      {...props}
-      _style={extendStyle(MESSAGE_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_STORE)} />
 }

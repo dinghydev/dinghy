@@ -11,7 +11,5 @@ export const IAD_ROUTER = {
 }
 
 export function IadRouter(props: NodeProps) {
-  return (
-    <Shape {...IAD_ROUTER} {...props} _style={extendStyle(IAD_ROUTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IAD_ROUTER)} />
 }

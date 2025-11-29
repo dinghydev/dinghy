@@ -11,11 +11,5 @@ export const FISHING_PIER = {
 }
 
 export function FishingPier(props: NodeProps) {
-  return (
-    <Shape
-      {...FISHING_PIER}
-      {...props}
-      _style={extendStyle(FISHING_PIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FISHING_PIER)} />
 }

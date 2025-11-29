@@ -13,9 +13,8 @@ export const CONVERSATION_TRAINED_DEPLOYED = {
 export function ConversationTrainedDeployed(props: NodeProps) {
   return (
     <Shape
-      {...CONVERSATION_TRAINED_DEPLOYED}
       {...props}
-      _style={extendStyle(CONVERSATION_TRAINED_DEPLOYED, props)}
+      _style={extendStyle(props, CONVERSATION_TRAINED_DEPLOYED)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const LIST_ITEM_2 = {
 }
 
 export function ListItem2(props: NodeProps) {
-  return (
-    <Shape
-      {...LIST_ITEM_2}
-      {...props}
-      _style={extendStyle(LIST_ITEM_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_ITEM_2)} />
 }

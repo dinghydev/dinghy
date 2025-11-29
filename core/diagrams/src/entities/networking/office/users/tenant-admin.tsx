@@ -11,11 +11,5 @@ export const TENANT_ADMIN = {
 }
 
 export function TenantAdmin(props: NodeProps) {
-  return (
-    <Shape
-      {...TENANT_ADMIN}
-      {...props}
-      _style={extendStyle(TENANT_ADMIN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENANT_ADMIN)} />
 }

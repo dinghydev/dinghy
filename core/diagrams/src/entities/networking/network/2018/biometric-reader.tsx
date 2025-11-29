@@ -11,11 +11,5 @@ export const BIOMETRIC_READER = {
 }
 
 export function BiometricReader(props: NodeProps) {
-  return (
-    <Shape
-      {...BIOMETRIC_READER}
-      {...props}
-      _style={extendStyle(BIOMETRIC_READER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIOMETRIC_READER)} />
 }

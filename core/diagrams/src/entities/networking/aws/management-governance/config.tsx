@@ -11,5 +11,5 @@ export const CONFIG = {
 }
 
 export function Config(props: NodeProps) {
-  return <Shape {...CONFIG} {...props} _style={extendStyle(CONFIG, props)} />
+  return <Shape {...props} _style={extendStyle(props, CONFIG)} />
 }

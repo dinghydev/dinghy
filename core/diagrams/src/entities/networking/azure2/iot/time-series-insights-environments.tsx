@@ -13,9 +13,8 @@ export const TIME_SERIES_INSIGHTS_ENVIRONMENTS = {
 export function TimeSeriesInsightsEnvironments(props: NodeProps) {
   return (
     <Shape
-      {...TIME_SERIES_INSIGHTS_ENVIRONMENTS}
       {...props}
-      _style={extendStyle(TIME_SERIES_INSIGHTS_ENVIRONMENTS, props)}
+      _style={extendStyle(props, TIME_SERIES_INSIGHTS_ENVIRONMENTS)}
     />
   )
 }

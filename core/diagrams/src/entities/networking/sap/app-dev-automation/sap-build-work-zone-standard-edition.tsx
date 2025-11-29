@@ -13,9 +13,8 @@ export const SAP_BUILD_WORK_ZONE_STANDARD_EDITION = {
 export function SapBuildWorkZoneStandardEdition(props: NodeProps) {
   return (
     <Shape
-      {...SAP_BUILD_WORK_ZONE_STANDARD_EDITION}
       {...props}
-      _style={extendStyle(SAP_BUILD_WORK_ZONE_STANDARD_EDITION, props)}
+      _style={extendStyle(props, SAP_BUILD_WORK_ZONE_STANDARD_EDITION)}
     />
   )
 }

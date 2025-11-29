@@ -11,11 +11,5 @@ export const GENERIC_FIREWALL = {
 }
 
 export function GenericFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_FIREWALL}
-      {...props}
-      _style={extendStyle(GENERIC_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_FIREWALL)} />
 }

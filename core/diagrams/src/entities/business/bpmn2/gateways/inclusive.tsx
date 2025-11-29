@@ -11,7 +11,5 @@ export const INCLUSIVE = {
 }
 
 export function Inclusive(props: NodeProps) {
-  return (
-    <Shape {...INCLUSIVE} {...props} _style={extendStyle(INCLUSIVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INCLUSIVE)} />
 }

@@ -13,9 +13,8 @@ export const DEFAULT_SIZE_DROPDOWN_BUTTON = {
 export function DefaultSizeDropdownButton(props: NodeProps) {
   return (
     <Shape
-      {...DEFAULT_SIZE_DROPDOWN_BUTTON}
       {...props}
-      _style={extendStyle(DEFAULT_SIZE_DROPDOWN_BUTTON, props)}
+      _style={extendStyle(props, DEFAULT_SIZE_DROPDOWN_BUTTON)}
     />
   )
 }

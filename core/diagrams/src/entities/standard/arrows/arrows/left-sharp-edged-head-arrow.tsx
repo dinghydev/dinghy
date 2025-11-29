@@ -13,9 +13,8 @@ export const LEFT_SHARP_EDGED_HEAD_ARROW = {
 export function LeftSharpEdgedHeadArrow(props: NodeProps) {
   return (
     <Shape
-      {...LEFT_SHARP_EDGED_HEAD_ARROW}
       {...props}
-      _style={extendStyle(LEFT_SHARP_EDGED_HEAD_ARROW, props)}
+      _style={extendStyle(props, LEFT_SHARP_EDGED_HEAD_ARROW)}
     />
   )
 }

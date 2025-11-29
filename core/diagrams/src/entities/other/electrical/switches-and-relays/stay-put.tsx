@@ -11,7 +11,5 @@ export const STAY_PUT = {
 }
 
 export function StayPut(props: NodeProps) {
-  return (
-    <Shape {...STAY_PUT} {...props} _style={extendStyle(STAY_PUT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STAY_PUT)} />
 }

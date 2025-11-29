@@ -12,10 +12,6 @@ export const CLOUD_DIGITAL_INTERFACE = {
 
 export function CloudDigitalInterface(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_DIGITAL_INTERFACE}
-      {...props}
-      _style={extendStyle(CLOUD_DIGITAL_INTERFACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_DIGITAL_INTERFACE)} />
   )
 }

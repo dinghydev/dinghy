@@ -13,9 +13,8 @@ export const SWITCH_24_PORT_L3_ALTERNATIVE = {
 export function Switch24PortL3Alternative(props: NodeProps) {
   return (
     <Shape
-      {...SWITCH_24_PORT_L3_ALTERNATIVE}
       {...props}
-      _style={extendStyle(SWITCH_24_PORT_L3_ALTERNATIVE, props)}
+      _style={extendStyle(props, SWITCH_24_PORT_L3_ALTERNATIVE)}
     />
   )
 }

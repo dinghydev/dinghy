@@ -11,11 +11,5 @@ export const GATEWAY_SERVER = {
 }
 
 export function GatewayServer(props: NodeProps) {
-  return (
-    <Shape
-      {...GATEWAY_SERVER}
-      {...props}
-      _style={extendStyle(GATEWAY_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GATEWAY_SERVER)} />
 }

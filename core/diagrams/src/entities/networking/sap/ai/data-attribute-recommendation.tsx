@@ -13,9 +13,8 @@ export const DATA_ATTRIBUTE_RECOMMENDATION = {
 export function DataAttributeRecommendation(props: NodeProps) {
   return (
     <Shape
-      {...DATA_ATTRIBUTE_RECOMMENDATION}
       {...props}
-      _style={extendStyle(DATA_ATTRIBUTE_RECOMMENDATION, props)}
+      _style={extendStyle(props, DATA_ATTRIBUTE_RECOMMENDATION)}
     />
   )
 }

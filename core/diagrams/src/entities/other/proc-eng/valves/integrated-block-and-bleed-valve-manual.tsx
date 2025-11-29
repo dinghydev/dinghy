@@ -13,9 +13,8 @@ export const INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL = {
 export function IntegratedBlockAndBleedValveManual(props: NodeProps) {
   return (
     <Shape
-      {...INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL}
       {...props}
-      _style={extendStyle(INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL, props)}
+      _style={extendStyle(props, INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL)}
     />
   )
 }

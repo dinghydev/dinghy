@@ -11,11 +11,5 @@ export const SIGNAL_KANBAN = {
 }
 
 export function SignalKanban(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNAL_KANBAN}
-      {...props}
-      _style={extendStyle(SIGNAL_KANBAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNAL_KANBAN)} />
 }

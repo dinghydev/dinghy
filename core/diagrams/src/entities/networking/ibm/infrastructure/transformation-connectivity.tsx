@@ -13,9 +13,8 @@ export const TRANSFORMATION_CONNECTIVITY = {
 export function TransformationConnectivity(props: NodeProps) {
   return (
     <Shape
-      {...TRANSFORMATION_CONNECTIVITY}
       {...props}
-      _style={extendStyle(TRANSFORMATION_CONNECTIVITY, props)}
+      _style={extendStyle(props, TRANSFORMATION_CONNECTIVITY)}
     />
   )
 }

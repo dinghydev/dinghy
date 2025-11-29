@@ -13,9 +13,8 @@ export const X10590_ACCUMULATOR_CHARGING_VALVE = {
 export function X10590AccumulatorChargingValve(props: NodeProps) {
   return (
     <Shape
-      {...X10590_ACCUMULATOR_CHARGING_VALVE}
       {...props}
-      _style={extendStyle(X10590_ACCUMULATOR_CHARGING_VALVE, props)}
+      _style={extendStyle(props, X10590_ACCUMULATOR_CHARGING_VALVE)}
     />
   )
 }

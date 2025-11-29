@@ -11,7 +11,5 @@ export const PINTEREST = {
 }
 
 export function Pinterest(props: NodeProps) {
-  return (
-    <Shape {...PINTEREST} {...props} _style={extendStyle(PINTEREST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PINTEREST)} />
 }

@@ -13,9 +13,8 @@ export const CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE = {
 export function CasSslCentralAuthenticationService(props: NodeProps) {
   return (
     <Shape
-      {...CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE}
       {...props}
-      _style={extendStyle(CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE, props)}
+      _style={extendStyle(props, CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE)}
     />
   )
 }

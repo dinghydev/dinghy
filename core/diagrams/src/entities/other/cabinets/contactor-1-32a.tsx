@@ -11,11 +11,5 @@ export const CONTACTOR_1_32A = {
 }
 
 export function Contactor132a(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACTOR_1_32A}
-      {...props}
-      _style={extendStyle(CONTACTOR_1_32A, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACTOR_1_32A)} />
 }

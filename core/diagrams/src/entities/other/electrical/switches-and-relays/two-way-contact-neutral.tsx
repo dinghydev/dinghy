@@ -12,10 +12,6 @@ export const TWO_WAY_CONTACT_NEUTRAL = {
 
 export function TwoWayContactNeutral(props: NodeProps) {
   return (
-    <Shape
-      {...TWO_WAY_CONTACT_NEUTRAL}
-      {...props}
-      _style={extendStyle(TWO_WAY_CONTACT_NEUTRAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TWO_WAY_CONTACT_NEUTRAL)} />
   )
 }

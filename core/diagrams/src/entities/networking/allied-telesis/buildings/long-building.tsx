@@ -11,11 +11,5 @@ export const LONG_BUILDING = {
 }
 
 export function LongBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...LONG_BUILDING}
-      {...props}
-      _style={extendStyle(LONG_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LONG_BUILDING)} />
 }

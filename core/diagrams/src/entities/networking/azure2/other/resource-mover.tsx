@@ -11,11 +11,5 @@ export const RESOURCE_MOVER = {
 }
 
 export function ResourceMover(props: NodeProps) {
-  return (
-    <Shape
-      {...RESOURCE_MOVER}
-      {...props}
-      _style={extendStyle(RESOURCE_MOVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE_MOVER)} />
 }

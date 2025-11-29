@@ -11,11 +11,5 @@ export const DOOR_POCKET = {
 }
 
 export function DoorPocket(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_POCKET}
-      {...props}
-      _style={extendStyle(DOOR_POCKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_POCKET)} />
 }

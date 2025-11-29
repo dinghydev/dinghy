@@ -11,7 +11,5 @@ export const USER_STORE = {
 }
 
 export function UserStore(props: NodeProps) {
-  return (
-    <Shape {...USER_STORE} {...props} _style={extendStyle(USER_STORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_STORE)} />
 }

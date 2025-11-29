@@ -13,9 +13,8 @@ export const MULTIBRANCH_PART_ASSOCIATION_3 = {
 export function MultibranchPartAssociation3(props: NodeProps) {
   return (
     <Shape
-      {...MULTIBRANCH_PART_ASSOCIATION_3}
       {...props}
-      _style={extendStyle(MULTIBRANCH_PART_ASSOCIATION_3, props)}
+      _style={extendStyle(props, MULTIBRANCH_PART_ASSOCIATION_3)}
     />
   )
 }

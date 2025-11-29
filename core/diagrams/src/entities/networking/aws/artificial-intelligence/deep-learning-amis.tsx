@@ -11,11 +11,5 @@ export const DEEP_LEARNING_AMIS = {
 }
 
 export function DeepLearningAmis(props: NodeProps) {
-  return (
-    <Shape
-      {...DEEP_LEARNING_AMIS}
-      {...props}
-      _style={extendStyle(DEEP_LEARNING_AMIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEEP_LEARNING_AMIS)} />
 }

@@ -12,10 +12,6 @@ export const AWS_KEY_MANAGEMENT_SERVICE = {
 
 export function AwsKeyManagementService(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_KEY_MANAGEMENT_SERVICE}
-      {...props}
-      _style={extendStyle(AWS_KEY_MANAGEMENT_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_KEY_MANAGEMENT_SERVICE)} />
   )
 }

@@ -11,5 +11,5 @@ export const BAGGAGE = {
 }
 
 export function Baggage(props: NodeProps) {
-  return <Shape {...BAGGAGE} {...props} _style={extendStyle(BAGGAGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, BAGGAGE)} />
 }

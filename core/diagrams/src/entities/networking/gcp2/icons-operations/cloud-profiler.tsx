@@ -11,11 +11,5 @@ export const CLOUD_PROFILER = {
 }
 
 export function CloudProfiler(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_PROFILER}
-      {...props}
-      _style={extendStyle(CLOUD_PROFILER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_PROFILER)} />
 }

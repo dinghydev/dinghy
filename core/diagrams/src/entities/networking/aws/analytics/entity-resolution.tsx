@@ -11,11 +11,5 @@ export const ENTITY_RESOLUTION = {
 }
 
 export function EntityResolution(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTITY_RESOLUTION}
-      {...props}
-      _style={extendStyle(ENTITY_RESOLUTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTITY_RESOLUTION)} />
 }

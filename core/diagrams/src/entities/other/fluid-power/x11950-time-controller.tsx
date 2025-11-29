@@ -12,10 +12,6 @@ export const X11950_TIME_CONTROLLER = {
 
 export function X11950TimeController(props: NodeProps) {
   return (
-    <Shape
-      {...X11950_TIME_CONTROLLER}
-      {...props}
-      _style={extendStyle(X11950_TIME_CONTROLLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11950_TIME_CONTROLLER)} />
   )
 }

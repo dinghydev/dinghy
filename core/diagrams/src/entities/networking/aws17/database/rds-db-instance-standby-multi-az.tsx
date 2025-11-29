@@ -13,9 +13,8 @@ export const RDS_DB_INSTANCE_STANDBY_MULTI_AZ = {
 export function RdsDbInstanceStandbyMultiAz(props: NodeProps) {
   return (
     <Shape
-      {...RDS_DB_INSTANCE_STANDBY_MULTI_AZ}
       {...props}
-      _style={extendStyle(RDS_DB_INSTANCE_STANDBY_MULTI_AZ, props)}
+      _style={extendStyle(props, RDS_DB_INSTANCE_STANDBY_MULTI_AZ)}
     />
   )
 }

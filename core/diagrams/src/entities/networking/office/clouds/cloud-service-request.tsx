@@ -11,11 +11,5 @@ export const CLOUD_SERVICE_REQUEST = {
 }
 
 export function CloudServiceRequest(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_SERVICE_REQUEST}
-      {...props}
-      _style={extendStyle(CLOUD_SERVICE_REQUEST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SERVICE_REQUEST)} />
 }

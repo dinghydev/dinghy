@@ -12,10 +12,6 @@ export const SECTION_HEADER_FOCUSED = {
 
 export function SectionHeaderFocused(props: NodeProps) {
   return (
-    <Shape
-      {...SECTION_HEADER_FOCUSED}
-      {...props}
-      _style={extendStyle(SECTION_HEADER_FOCUSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECTION_HEADER_FOCUSED)} />
   )
 }

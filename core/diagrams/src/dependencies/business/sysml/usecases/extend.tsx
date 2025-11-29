@@ -9,7 +9,5 @@ export const EXTEND = {
 }
 
 export function Extend(props: NodeProps) {
-  return (
-    <Dependency {...EXTEND} {...props} _style={extendStyle(EXTEND, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, EXTEND)} />
 }

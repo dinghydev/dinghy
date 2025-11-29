@@ -11,11 +11,5 @@ export const ROUTER_ICON = {
 }
 
 export function RouterIcon(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTER_ICON}
-      {...props}
-      _style={extendStyle(ROUTER_ICON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTER_ICON)} />
 }

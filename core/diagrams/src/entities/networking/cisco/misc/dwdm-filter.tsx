@@ -11,11 +11,5 @@ export const DWDM_FILTER = {
 }
 
 export function DwdmFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...DWDM_FILTER}
-      {...props}
-      _style={extendStyle(DWDM_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DWDM_FILTER)} />
 }

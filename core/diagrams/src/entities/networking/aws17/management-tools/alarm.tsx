@@ -11,5 +11,5 @@ export const ALARM = {
 }
 
 export function Alarm(props: NodeProps) {
-  return <Shape {...ALARM} {...props} _style={extendStyle(ALARM, props)} />
+  return <Shape {...props} _style={extendStyle(props, ALARM)} />
 }

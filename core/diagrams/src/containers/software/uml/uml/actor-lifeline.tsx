@@ -9,11 +9,5 @@ export const ACTOR_LIFELINE = {
 }
 
 export function ActorLifeline(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTOR_LIFELINE}
-      {...props}
-      _style={extendStyle(ACTOR_LIFELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTOR_LIFELINE)} />
 }

@@ -11,5 +11,5 @@ export const WINDOW = {
 }
 
 export function Window(props: NodeProps) {
-  return <Shape {...WINDOW} {...props} _style={extendStyle(WINDOW, props)} />
+  return <Shape {...props} _style={extendStyle(props, WINDOW)} />
 }

@@ -11,5 +11,5 @@ export const MYSQL = {
 }
 
 export function Mysql(props: NodeProps) {
-  return <Shape {...MYSQL} {...props} _style={extendStyle(MYSQL, props)} />
+  return <Shape {...props} _style={extendStyle(props, MYSQL)} />
 }

@@ -11,5 +11,5 @@ export const NS_2 = {
 }
 
 export function Ns2(props: NodeProps) {
-  return <Shape {...NS_2} {...props} _style={extendStyle(NS_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, NS_2)} />
 }

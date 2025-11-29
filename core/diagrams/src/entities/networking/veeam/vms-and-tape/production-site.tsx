@@ -11,11 +11,5 @@ export const PRODUCTION_SITE = {
 }
 
 export function ProductionSite(props: NodeProps) {
-  return (
-    <Shape
-      {...PRODUCTION_SITE}
-      {...props}
-      _style={extendStyle(PRODUCTION_SITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRODUCTION_SITE)} />
 }

@@ -11,11 +11,5 @@ export const S3_OBJECT_LOCK = {
 }
 
 export function S3ObjectLock(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_OBJECT_LOCK}
-      {...props}
-      _style={extendStyle(S3_OBJECT_LOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_OBJECT_LOCK)} />
 }

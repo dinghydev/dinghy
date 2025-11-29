@@ -13,9 +13,8 @@ export const VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER = {
 export function VeeamBackupEnterpriseManagerServer(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER}
       {...props}
-      _style={extendStyle(VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER, props)}
+      _style={extendStyle(props, VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER)}
     />
   )
 }

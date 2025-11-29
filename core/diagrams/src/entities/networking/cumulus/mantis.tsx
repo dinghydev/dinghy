@@ -10,5 +10,5 @@ export const MANTIS = {
 }
 
 export function Mantis(props: NodeProps) {
-  return <Shape {...MANTIS} {...props} _style={extendStyle(MANTIS, props)} />
+  return <Shape {...props} _style={extendStyle(props, MANTIS)} />
 }

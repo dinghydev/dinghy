@@ -11,11 +11,5 @@ export const COLUMN_FLUIDIZED_BED = {
 }
 
 export function ColumnFluidizedBed(props: NodeProps) {
-  return (
-    <Shape
-      {...COLUMN_FLUIDIZED_BED}
-      {...props}
-      _style={extendStyle(COLUMN_FLUIDIZED_BED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLUMN_FLUIDIZED_BED)} />
 }

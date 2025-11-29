@@ -11,11 +11,5 @@ export const BACKUP_AUDIT_MANAGER = {
 }
 
 export function BackupAuditManager(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_AUDIT_MANAGER}
-      {...props}
-      _style={extendStyle(BACKUP_AUDIT_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_AUDIT_MANAGER)} />
 }

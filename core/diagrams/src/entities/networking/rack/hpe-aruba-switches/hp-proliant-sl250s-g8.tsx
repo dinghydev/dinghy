@@ -11,11 +11,5 @@ export const HP_PROLIANT_SL250S_G8 = {
 }
 
 export function HpProliantSl250sG8(props: NodeProps) {
-  return (
-    <Shape
-      {...HP_PROLIANT_SL250S_G8}
-      {...props}
-      _style={extendStyle(HP_PROLIANT_SL250S_G8, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HP_PROLIANT_SL250S_G8)} />
 }

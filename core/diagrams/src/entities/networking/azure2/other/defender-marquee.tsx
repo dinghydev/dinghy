@@ -11,11 +11,5 @@ export const DEFENDER_MARQUEE = {
 }
 
 export function DefenderMarquee(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_MARQUEE}
-      {...props}
-      _style={extendStyle(DEFENDER_MARQUEE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_MARQUEE)} />
 }

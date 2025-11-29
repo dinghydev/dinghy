@@ -11,11 +11,5 @@ export const OR_JUNCTION = {
 }
 
 export function OrJunction(props: NodeProps) {
-  return (
-    <Shape
-      {...OR_JUNCTION}
-      {...props}
-      _style={extendStyle(OR_JUNCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OR_JUNCTION)} />
 }

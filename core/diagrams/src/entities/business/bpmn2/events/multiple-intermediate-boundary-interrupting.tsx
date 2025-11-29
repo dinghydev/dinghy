@@ -13,9 +13,8 @@ export const MULTIPLE_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
 export function MultipleIntermediateBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_INTERMEDIATE_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(MULTIPLE_INTERMEDIATE_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, MULTIPLE_INTERMEDIATE_BOUNDARY_INTERRUPTING)}
     />
   )
 }

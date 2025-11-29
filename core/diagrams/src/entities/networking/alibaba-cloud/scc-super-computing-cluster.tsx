@@ -13,9 +13,8 @@ export const SCC_SUPER_COMPUTING_CLUSTER = {
 export function SccSuperComputingCluster(props: NodeProps) {
   return (
     <Shape
-      {...SCC_SUPER_COMPUTING_CLUSTER}
       {...props}
-      _style={extendStyle(SCC_SUPER_COMPUTING_CLUSTER, props)}
+      _style={extendStyle(props, SCC_SUPER_COMPUTING_CLUSTER)}
     />
   )
 }

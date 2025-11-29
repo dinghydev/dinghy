@@ -11,7 +11,5 @@ export const CANCEL_END = {
 }
 
 export function CancelEnd(props: NodeProps) {
-  return (
-    <Shape {...CANCEL_END} {...props} _style={extendStyle(CANCEL_END, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CANCEL_END)} />
 }

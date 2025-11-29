@@ -11,11 +11,5 @@ export const STATIC_APPS = {
 }
 
 export function StaticApps(props: NodeProps) {
-  return (
-    <Shape
-      {...STATIC_APPS}
-      {...props}
-      _style={extendStyle(STATIC_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STATIC_APPS)} />
 }

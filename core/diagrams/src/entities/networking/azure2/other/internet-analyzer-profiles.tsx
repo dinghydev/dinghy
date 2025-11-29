@@ -12,10 +12,6 @@ export const INTERNET_ANALYZER_PROFILES = {
 
 export function InternetAnalyzerProfiles(props: NodeProps) {
   return (
-    <Shape
-      {...INTERNET_ANALYZER_PROFILES}
-      {...props}
-      _style={extendStyle(INTERNET_ANALYZER_PROFILES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTERNET_ANALYZER_PROFILES)} />
   )
 }

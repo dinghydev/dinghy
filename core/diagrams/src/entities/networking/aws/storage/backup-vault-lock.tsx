@@ -11,11 +11,5 @@ export const BACKUP_VAULT_LOCK = {
 }
 
 export function BackupVaultLock(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_VAULT_LOCK}
-      {...props}
-      _style={extendStyle(BACKUP_VAULT_LOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_VAULT_LOCK)} />
 }

@@ -1,7 +1,6 @@
 import { type NodeTree } from '../types/index.ts'
 import type { Props } from '../cli-shared/index.ts'
 import { useNodeContext } from './NodeContext.tsx'
-import type { ZodObject, ZodRawShape } from 'zod'
 import { renderKey } from '../utils/stringUtils.ts'
 import { getRootNode } from '../utils/nodeUtils.ts'
 import { capitalise, decapitalise } from '../utils/stringUtils.ts'
@@ -12,16 +11,18 @@ function proxyNodeProps({ _props }: NodeTree) {
       if (key in _props) {
         return (_props as any)[key]
       }
-      const _outputSchema = (_props as any)
-        ._outputSchema as ZodObject<ZodRawShape>
       const noneArrayKey = key.includes('[') ? key.split('[')[0] : key
-      if (_outputSchema && noneArrayKey in _outputSchema.shape) {
-        return `\${${(_props as any)._category === 'data' ? 'data.' : ''}${
-          (_props as any)._type
-        }.${(_props as any)._id}.${renderKey(key)}}`
-      }
-      if (`_${key}` in _props) {
-        return (_props as any)[`_${key}`]
+      for (
+        const schema of [
+          (_props as any)._outputSchema,
+          (_props as any)._inputSchema,
+        ]
+      ) {
+        if (schema && noneArrayKey in (schema as any).shape) {
+          return `\${${(_props as any)._category === 'data' ? 'data.' : ''}${
+            (_props as any)._type
+          }.${(_props as any)._id}.${renderKey(key)}}`
+        }
       }
       throw new Error(`Property ${key} not found in ${_props._id}`)
     },

@@ -11,5 +11,5 @@ export const EMR = {
 }
 
 export function Emr(props: NodeProps) {
-  return <Shape {...EMR} {...props} _style={extendStyle(EMR, props)} />
+  return <Shape {...props} _style={extendStyle(props, EMR)} />
 }

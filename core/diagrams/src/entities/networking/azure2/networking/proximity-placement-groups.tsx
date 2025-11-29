@@ -12,10 +12,6 @@ export const PROXIMITY_PLACEMENT_GROUPS = {
 
 export function ProximityPlacementGroups(props: NodeProps) {
   return (
-    <Shape
-      {...PROXIMITY_PLACEMENT_GROUPS}
-      {...props}
-      _style={extendStyle(PROXIMITY_PLACEMENT_GROUPS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PROXIMITY_PLACEMENT_GROUPS)} />
   )
 }

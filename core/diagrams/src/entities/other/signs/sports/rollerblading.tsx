@@ -11,11 +11,5 @@ export const ROLLERBLADING = {
 }
 
 export function Rollerblading(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLLERBLADING}
-      {...props}
-      _style={extendStyle(ROLLERBLADING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLLERBLADING)} />
 }

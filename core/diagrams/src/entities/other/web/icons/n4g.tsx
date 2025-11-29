@@ -11,5 +11,5 @@ export const N4G = {
 }
 
 export function N4g(props: NodeProps) {
-  return <Shape {...N4G} {...props} _style={extendStyle(N4G, props)} />
+  return <Shape {...props} _style={extendStyle(props, N4G)} />
 }

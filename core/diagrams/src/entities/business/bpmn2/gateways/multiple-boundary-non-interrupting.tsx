@@ -13,9 +13,8 @@ export const MULTIPLE_BOUNDARY_NON_INTERRUPTING = {
 export function MultipleBoundaryNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_BOUNDARY_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(MULTIPLE_BOUNDARY_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, MULTIPLE_BOUNDARY_NON_INTERRUPTING)}
     />
   )
 }

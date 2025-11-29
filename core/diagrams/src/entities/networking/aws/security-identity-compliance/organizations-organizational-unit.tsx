@@ -13,9 +13,8 @@ export const ORGANIZATIONS_ORGANIZATIONAL_UNIT = {
 export function OrganizationsOrganizationalUnit(props: NodeProps) {
   return (
     <Shape
-      {...ORGANIZATIONS_ORGANIZATIONAL_UNIT}
       {...props}
-      _style={extendStyle(ORGANIZATIONS_ORGANIZATIONAL_UNIT, props)}
+      _style={extendStyle(props, ORGANIZATIONS_ORGANIZATIONAL_UNIT)}
     />
   )
 }

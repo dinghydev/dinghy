@@ -11,11 +11,5 @@ export const INTERFACE_CONSOLE = {
 }
 
 export function InterfaceConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERFACE_CONSOLE}
-      {...props}
-      _style={extendStyle(INTERFACE_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERFACE_CONSOLE)} />
 }

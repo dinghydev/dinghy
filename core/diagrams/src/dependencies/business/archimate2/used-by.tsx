@@ -9,7 +9,5 @@ export const USED_BY = {
 }
 
 export function UsedBy(props: NodeProps) {
-  return (
-    <Dependency {...USED_BY} {...props} _style={extendStyle(USED_BY, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, USED_BY)} />
 }

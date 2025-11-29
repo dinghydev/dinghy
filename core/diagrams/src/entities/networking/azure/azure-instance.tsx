@@ -11,11 +11,5 @@ export const AZURE_INSTANCE = {
 }
 
 export function AzureInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_INSTANCE}
-      {...props}
-      _style={extendStyle(AZURE_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_INSTANCE)} />
 }

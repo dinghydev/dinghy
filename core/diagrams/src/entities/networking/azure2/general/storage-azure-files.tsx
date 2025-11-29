@@ -11,11 +11,5 @@ export const STORAGE_AZURE_FILES = {
 }
 
 export function StorageAzureFiles(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_AZURE_FILES}
-      {...props}
-      _style={extendStyle(STORAGE_AZURE_FILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_AZURE_FILES)} />
 }

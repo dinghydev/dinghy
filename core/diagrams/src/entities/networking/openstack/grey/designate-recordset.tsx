@@ -11,11 +11,5 @@ export const DESIGNATE_RECORDSET = {
 }
 
 export function DesignateRecordset(props: NodeProps) {
-  return (
-    <Shape
-      {...DESIGNATE_RECORDSET}
-      {...props}
-      _style={extendStyle(DESIGNATE_RECORDSET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESIGNATE_RECORDSET)} />
 }

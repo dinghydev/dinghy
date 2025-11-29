@@ -11,11 +11,5 @@ export const SEARCH_SERVER = {
 }
 
 export function SearchServer(props: NodeProps) {
-  return (
-    <Shape
-      {...SEARCH_SERVER}
-      {...props}
-      _style={extendStyle(SEARCH_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEARCH_SERVER)} />
 }

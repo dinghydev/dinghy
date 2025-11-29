@@ -11,11 +11,5 @@ export const SETTINGS_OFFICE_365 = {
 }
 
 export function SettingsOffice365(props: NodeProps) {
-  return (
-    <Shape
-      {...SETTINGS_OFFICE_365}
-      {...props}
-      _style={extendStyle(SETTINGS_OFFICE_365, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SETTINGS_OFFICE_365)} />
 }

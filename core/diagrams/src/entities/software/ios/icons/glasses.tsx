@@ -11,5 +11,5 @@ export const GLASSES = {
 }
 
 export function Glasses(props: NodeProps) {
-  return <Shape {...GLASSES} {...props} _style={extendStyle(GLASSES, props)} />
+  return <Shape {...props} _style={extendStyle(props, GLASSES)} />
 }

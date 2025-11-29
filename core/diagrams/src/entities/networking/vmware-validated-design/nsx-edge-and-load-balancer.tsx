@@ -12,10 +12,6 @@ export const NSX_EDGE_AND_LOAD_BALANCER = {
 
 export function NsxEdgeAndLoadBalancer(props: NodeProps) {
   return (
-    <Shape
-      {...NSX_EDGE_AND_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(NSX_EDGE_AND_LOAD_BALANCER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NSX_EDGE_AND_LOAD_BALANCER)} />
   )
 }

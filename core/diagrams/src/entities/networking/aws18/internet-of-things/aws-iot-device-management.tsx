@@ -12,10 +12,6 @@ export const AWS_IOT_DEVICE_MANAGEMENT = {
 
 export function AwsIotDeviceManagement(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_IOT_DEVICE_MANAGEMENT}
-      {...props}
-      _style={extendStyle(AWS_IOT_DEVICE_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_IOT_DEVICE_MANAGEMENT)} />
   )
 }

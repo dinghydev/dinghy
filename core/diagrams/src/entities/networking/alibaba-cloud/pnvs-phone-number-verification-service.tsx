@@ -13,9 +13,8 @@ export const PNVS_PHONE_NUMBER_VERIFICATION_SERVICE = {
 export function PnvsPhoneNumberVerificationService(props: NodeProps) {
   return (
     <Shape
-      {...PNVS_PHONE_NUMBER_VERIFICATION_SERVICE}
       {...props}
-      _style={extendStyle(PNVS_PHONE_NUMBER_VERIFICATION_SERVICE, props)}
+      _style={extendStyle(props, PNVS_PHONE_NUMBER_VERIFICATION_SERVICE)}
     />
   )
 }

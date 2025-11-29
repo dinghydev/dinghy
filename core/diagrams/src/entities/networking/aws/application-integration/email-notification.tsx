@@ -11,11 +11,5 @@ export const EMAIL_NOTIFICATION = {
 }
 
 export function EmailNotification(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_NOTIFICATION}
-      {...props}
-      _style={extendStyle(EMAIL_NOTIFICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_NOTIFICATION)} />
 }

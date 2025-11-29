@@ -11,11 +11,5 @@ export const MEDICAL_LIBRARY = {
 }
 
 export function MedicalLibrary(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDICAL_LIBRARY}
-      {...props}
-      _style={extendStyle(MEDICAL_LIBRARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDICAL_LIBRARY)} />
 }

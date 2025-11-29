@@ -11,11 +11,5 @@ export const CONTAINER_REGISTRIES = {
 }
 
 export function ContainerRegistries(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTAINER_REGISTRIES}
-      {...props}
-      _style={extendStyle(CONTAINER_REGISTRIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTAINER_REGISTRIES)} />
 }

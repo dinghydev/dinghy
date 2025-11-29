@@ -11,11 +11,5 @@ export const DATA_OUTPUT = {
 }
 
 export function DataOutput(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_OUTPUT}
-      {...props}
-      _style={extendStyle(DATA_OUTPUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_OUTPUT)} />
 }

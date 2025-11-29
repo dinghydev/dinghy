@@ -11,11 +11,5 @@ export const ENTRA_DOMAIN_SERVICES = {
 }
 
 export function EntraDomainServices(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_DOMAIN_SERVICES}
-      {...props}
-      _style={extendStyle(ENTRA_DOMAIN_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_DOMAIN_SERVICES)} />
 }

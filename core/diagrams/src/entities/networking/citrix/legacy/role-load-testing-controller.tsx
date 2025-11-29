@@ -13,9 +13,8 @@ export const ROLE_LOAD_TESTING_CONTROLLER = {
 export function RoleLoadTestingController(props: NodeProps) {
   return (
     <Shape
-      {...ROLE_LOAD_TESTING_CONTROLLER}
       {...props}
-      _style={extendStyle(ROLE_LOAD_TESTING_CONTROLLER, props)}
+      _style={extendStyle(props, ROLE_LOAD_TESTING_CONTROLLER)}
     />
   )
 }

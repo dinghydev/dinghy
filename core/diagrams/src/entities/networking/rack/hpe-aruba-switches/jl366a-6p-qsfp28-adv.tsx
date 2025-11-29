@@ -11,11 +11,5 @@ export const JL366A_6P_QSFP28_ADV = {
 }
 
 export function Jl366a6pQsfp28Adv(props: NodeProps) {
-  return (
-    <Shape
-      {...JL366A_6P_QSFP28_ADV}
-      {...props}
-      _style={extendStyle(JL366A_6P_QSFP28_ADV, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JL366A_6P_QSFP28_ADV)} />
 }

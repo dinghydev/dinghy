@@ -11,11 +11,5 @@ export const FIREWALL_ORANGE = {
 }
 
 export function FirewallOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...FIREWALL_ORANGE}
-      {...props}
-      _style={extendStyle(FIREWALL_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREWALL_ORANGE)} />
 }

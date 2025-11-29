@@ -11,11 +11,5 @@ export const SOFTSWITCH_PGW_MGC = {
 }
 
 export function SoftswitchPgwMgc(props: NodeProps) {
-  return (
-    <Shape
-      {...SOFTSWITCH_PGW_MGC}
-      {...props}
-      _style={extendStyle(SOFTSWITCH_PGW_MGC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTSWITCH_PGW_MGC)} />
 }

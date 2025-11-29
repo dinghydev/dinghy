@@ -11,5 +11,5 @@ export const ERROR = {
 }
 
 export function Error(props: NodeProps) {
-  return <Shape {...ERROR} {...props} _style={extendStyle(ERROR, props)} />
+  return <Shape {...props} _style={extendStyle(props, ERROR)} />
 }

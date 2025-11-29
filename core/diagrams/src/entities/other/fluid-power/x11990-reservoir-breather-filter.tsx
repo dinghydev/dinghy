@@ -13,9 +13,8 @@ export const X11990_RESERVOIR_BREATHER_FILTER = {
 export function X11990ReservoirBreatherFilter(props: NodeProps) {
   return (
     <Shape
-      {...X11990_RESERVOIR_BREATHER_FILTER}
       {...props}
-      _style={extendStyle(X11990_RESERVOIR_BREATHER_FILTER, props)}
+      _style={extendStyle(props, X11990_RESERVOIR_BREATHER_FILTER)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const PROFESSIONAL_SERVICES = {
 }
 
 export function ProfessionalServices(props: NodeProps) {
-  return (
-    <Shape
-      {...PROFESSIONAL_SERVICES}
-      {...props}
-      _style={extendStyle(PROFESSIONAL_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROFESSIONAL_SERVICES)} />
 }

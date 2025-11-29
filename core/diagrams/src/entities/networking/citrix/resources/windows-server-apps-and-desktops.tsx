@@ -13,9 +13,8 @@ export const WINDOWS_SERVER_APPS_AND_DESKTOPS = {
 export function WindowsServerAppsAndDesktops(props: NodeProps) {
   return (
     <Shape
-      {...WINDOWS_SERVER_APPS_AND_DESKTOPS}
       {...props}
-      _style={extendStyle(WINDOWS_SERVER_APPS_AND_DESKTOPS, props)}
+      _style={extendStyle(props, WINDOWS_SERVER_APPS_AND_DESKTOPS)}
     />
   )
 }

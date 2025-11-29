@@ -12,10 +12,6 @@ export const ACTION_WITH_PARAMETERS = {
 
 export function ActionWithParameters(props: NodeProps) {
   return (
-    <Shape
-      {...ACTION_WITH_PARAMETERS}
-      {...props}
-      _style={extendStyle(ACTION_WITH_PARAMETERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ACTION_WITH_PARAMETERS)} />
   )
 }

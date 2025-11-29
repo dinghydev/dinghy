@@ -11,11 +11,5 @@ export const MACHINE_NON_SAP = {
 }
 
 export function MachineNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...MACHINE_NON_SAP}
-      {...props}
-      _style={extendStyle(MACHINE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MACHINE_NON_SAP)} />
 }

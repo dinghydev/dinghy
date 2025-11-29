@@ -11,11 +11,5 @@ export const SAFETY_INTERLOCK_ON = {
 }
 
 export function SafetyInterlockOn(props: NodeProps) {
-  return (
-    <Shape
-      {...SAFETY_INTERLOCK_ON}
-      {...props}
-      _style={extendStyle(SAFETY_INTERLOCK_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAFETY_INTERLOCK_ON)} />
 }

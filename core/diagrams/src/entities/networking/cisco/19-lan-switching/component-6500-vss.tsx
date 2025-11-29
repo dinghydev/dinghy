@@ -11,11 +11,5 @@ export const COMPONENT_6500_VSS = {
 }
 
 export function Component6500Vss(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_6500_VSS}
-      {...props}
-      _style={extendStyle(COMPONENT_6500_VSS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_6500_VSS)} />
 }

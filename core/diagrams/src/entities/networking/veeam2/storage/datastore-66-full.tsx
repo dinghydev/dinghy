@@ -11,11 +11,5 @@ export const DATASTORE_66_FULL = {
 }
 
 export function Datastore66Full(props: NodeProps) {
-  return (
-    <Shape
-      {...DATASTORE_66_FULL}
-      {...props}
-      _style={extendStyle(DATASTORE_66_FULL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATASTORE_66_FULL)} />
 }

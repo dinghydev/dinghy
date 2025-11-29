@@ -11,11 +11,5 @@ export const PRODUCT_RESULT = {
 }
 
 export function ProductResult(props: NodeProps) {
-  return (
-    <Shape
-      {...PRODUCT_RESULT}
-      {...props}
-      _style={extendStyle(PRODUCT_RESULT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRODUCT_RESULT)} />
 }

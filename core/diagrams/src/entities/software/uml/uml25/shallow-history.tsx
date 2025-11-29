@@ -10,11 +10,5 @@ export const SHALLOW_HISTORY = {
 }
 
 export function ShallowHistory(props: NodeProps) {
-  return (
-    <Shape
-      {...SHALLOW_HISTORY}
-      {...props}
-      _style={extendStyle(SHALLOW_HISTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHALLOW_HISTORY)} />
 }

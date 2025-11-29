@@ -11,11 +11,5 @@ export const USER_ENTERPRISE = {
 }
 
 export function UserEnterprise(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_ENTERPRISE}
-      {...props}
-      _style={extendStyle(USER_ENTERPRISE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_ENTERPRISE)} />
 }

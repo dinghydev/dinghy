@@ -11,7 +11,5 @@ export const ONEDRIVE = {
 }
 
 export function Onedrive(props: NodeProps) {
-  return (
-    <Shape {...ONEDRIVE} {...props} _style={extendStyle(ONEDRIVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONEDRIVE)} />
 }

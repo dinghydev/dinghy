@@ -13,9 +13,8 @@ export const CHECKBOX_ON_FOCUSED_OR_PRESSED = {
 export function CheckboxOnFocusedOrPressed(props: NodeProps) {
   return (
     <Shape
-      {...CHECKBOX_ON_FOCUSED_OR_PRESSED}
       {...props}
-      _style={extendStyle(CHECKBOX_ON_FOCUSED_OR_PRESSED, props)}
+      _style={extendStyle(props, CHECKBOX_ON_FOCUSED_OR_PRESSED)}
     />
   )
 }

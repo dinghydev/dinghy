@@ -11,11 +11,5 @@ export const FALLING_ROCKS = {
 }
 
 export function FallingRocks(props: NodeProps) {
-  return (
-    <Shape
-      {...FALLING_ROCKS}
-      {...props}
-      _style={extendStyle(FALLING_ROCKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FALLING_ROCKS)} />
 }

@@ -11,11 +11,5 @@ export const EVENT_EVENT_BASED = {
 }
 
 export function EventEventBased(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_EVENT_BASED}
-      {...props}
-      _style={extendStyle(EVENT_EVENT_BASED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_EVENT_BASED)} />
 }

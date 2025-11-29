@@ -11,7 +11,5 @@ export const FACEBOOK = {
 }
 
 export function Facebook(props: NodeProps) {
-  return (
-    <Shape {...FACEBOOK} {...props} _style={extendStyle(FACEBOOK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACEBOOK)} />
 }

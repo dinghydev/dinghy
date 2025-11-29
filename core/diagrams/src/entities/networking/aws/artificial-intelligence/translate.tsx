@@ -11,7 +11,5 @@ export const TRANSLATE = {
 }
 
 export function Translate(props: NodeProps) {
-  return (
-    <Shape {...TRANSLATE} {...props} _style={extendStyle(TRANSLATE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSLATE)} />
 }

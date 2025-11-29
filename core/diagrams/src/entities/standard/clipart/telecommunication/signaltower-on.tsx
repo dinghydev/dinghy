@@ -11,11 +11,5 @@ export const SIGNALTOWER_ON = {
 }
 
 export function SignaltowerOn(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNALTOWER_ON}
-      {...props}
-      _style={extendStyle(SIGNALTOWER_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNALTOWER_ON)} />
 }

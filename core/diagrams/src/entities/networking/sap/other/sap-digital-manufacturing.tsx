@@ -12,10 +12,6 @@ export const SAP_DIGITAL_MANUFACTURING = {
 
 export function SapDigitalManufacturing(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_DIGITAL_MANUFACTURING}
-      {...props}
-      _style={extendStyle(SAP_DIGITAL_MANUFACTURING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_DIGITAL_MANUFACTURING)} />
   )
 }

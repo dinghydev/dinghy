@@ -11,11 +11,5 @@ export const MANAGEMENT_CONSOLE = {
 }
 
 export function ManagementConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGEMENT_CONSOLE}
-      {...props}
-      _style={extendStyle(MANAGEMENT_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT_CONSOLE)} />
 }

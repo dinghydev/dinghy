@@ -11,11 +11,5 @@ export const LOZENGE_TOOLTIP = {
 }
 
 export function LozengeTooltip(props: NodeProps) {
-  return (
-    <Shape
-      {...LOZENGE_TOOLTIP}
-      {...props}
-      _style={extendStyle(LOZENGE_TOOLTIP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOZENGE_TOOLTIP)} />
 }

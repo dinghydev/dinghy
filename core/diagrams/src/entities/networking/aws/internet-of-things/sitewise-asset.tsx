@@ -11,11 +11,5 @@ export const SITEWISE_ASSET = {
 }
 
 export function SitewiseAsset(props: NodeProps) {
-  return (
-    <Shape
-      {...SITEWISE_ASSET}
-      {...props}
-      _style={extendStyle(SITEWISE_ASSET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITEWISE_ASSET)} />
 }

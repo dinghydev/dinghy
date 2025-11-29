@@ -13,9 +13,8 @@ export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
 export function InterchangeableDiscOpenDiscInFunction(props: NodeProps) {
   return (
     <Shape
-      {...INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION}
       {...props}
-      _style={extendStyle(INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION, props)}
+      _style={extendStyle(props, INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION)}
     />
   )
 }

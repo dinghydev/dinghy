@@ -11,11 +11,5 @@ export const STANDARD_NETWORK_TIER = {
 }
 
 export function StandardNetworkTier(props: NodeProps) {
-  return (
-    <Shape
-      {...STANDARD_NETWORK_TIER}
-      {...props}
-      _style={extendStyle(STANDARD_NETWORK_TIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STANDARD_NETWORK_TIER)} />
 }

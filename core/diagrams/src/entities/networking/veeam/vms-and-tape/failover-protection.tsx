@@ -11,11 +11,5 @@ export const FAILOVER_PROTECTION = {
 }
 
 export function FailoverProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...FAILOVER_PROTECTION}
-      {...props}
-      _style={extendStyle(FAILOVER_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FAILOVER_PROTECTION)} />
 }

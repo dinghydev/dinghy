@@ -11,11 +11,5 @@ export const VEEAM_CLOUD_MOBILITY = {
 }
 
 export function VeeamCloudMobility(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_CLOUD_MOBILITY}
-      {...props}
-      _style={extendStyle(VEEAM_CLOUD_MOBILITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_CLOUD_MOBILITY)} />
 }

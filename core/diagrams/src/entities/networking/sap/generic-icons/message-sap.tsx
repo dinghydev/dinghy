@@ -11,11 +11,5 @@ export const MESSAGE_SAP = {
 }
 
 export function MessageSap(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_SAP}
-      {...props}
-      _style={extendStyle(MESSAGE_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_SAP)} />
 }

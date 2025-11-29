@@ -11,11 +11,5 @@ export const SMART_PROXY = {
 }
 
 export function SmartProxy(props: NodeProps) {
-  return (
-    <Shape
-      {...SMART_PROXY}
-      {...props}
-      _style={extendStyle(SMART_PROXY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMART_PROXY)} />
 }

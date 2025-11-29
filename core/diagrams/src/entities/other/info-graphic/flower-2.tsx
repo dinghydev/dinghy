@@ -11,7 +11,5 @@ export const FLOWER_2 = {
 }
 
 export function Flower2(props: NodeProps) {
-  return (
-    <Shape {...FLOWER_2} {...props} _style={extendStyle(FLOWER_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOWER_2)} />
 }

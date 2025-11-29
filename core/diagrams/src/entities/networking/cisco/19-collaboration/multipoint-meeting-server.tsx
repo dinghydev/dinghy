@@ -12,10 +12,6 @@ export const MULTIPOINT_MEETING_SERVER = {
 
 export function MultipointMeetingServer(props: NodeProps) {
   return (
-    <Shape
-      {...MULTIPOINT_MEETING_SERVER}
-      {...props}
-      _style={extendStyle(MULTIPOINT_MEETING_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTIPOINT_MEETING_SERVER)} />
   )
 }

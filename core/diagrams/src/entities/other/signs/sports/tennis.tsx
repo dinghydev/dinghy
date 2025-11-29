@@ -11,5 +11,5 @@ export const TENNIS = {
 }
 
 export function Tennis(props: NodeProps) {
-  return <Shape {...TENNIS} {...props} _style={extendStyle(TENNIS, props)} />
+  return <Shape {...props} _style={extendStyle(props, TENNIS)} />
 }

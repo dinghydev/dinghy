@@ -11,11 +11,5 @@ export const NETRA_CT9000_SERVER = {
 }
 
 export function NetraCt9000Server(props: NodeProps) {
-  return (
-    <Shape
-      {...NETRA_CT9000_SERVER}
-      {...props}
-      _style={extendStyle(NETRA_CT9000_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETRA_CT9000_SERVER)} />
 }

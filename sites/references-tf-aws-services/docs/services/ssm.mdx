@@ -1,0 +1,482 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# SSM (Systems Manager)
+
+## AwsSsmActivation
+
+Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_activation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmActivation.tsx)
+
+```js
+import { AwsSsmActivation } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmActivation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmAssociation
+
+Associates an SSM Document to an instance or EC2 tag.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmAssociation.tsx)
+
+```js
+import { AwsSsmAssociation } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmAssociation/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_association#import)
+
+```js
+<AwsSsmAssociation
+   association_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmDefaultPatchBaseline
+
+Terraform resource for managing an AWS Systems Manager Default Patch Baseline.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_default_patch_baseline)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmDefaultPatchBaseline.tsx)
+
+```js
+import { AwsSsmDefaultPatchBaseline } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmDefaultPatchBaseline/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmDocument
+
+Provides an SSM Document resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_document)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmDocument.tsx)
+
+```js
+import { AwsSsmDocument } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmDocument/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_document)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmDocument.tsx)
+
+```js
+import { DataAwsSsmDocument } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmDocument/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_document#import)
+
+```js
+<AwsSsmDocument
+   name = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmInstances
+
+Get information on SSM managed instances.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_instances)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmInstances.tsx)
+
+```js
+import { DataAwsSsmInstances } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmInstances/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmMaintenanceWindow
+
+Provides an SSM Maintenance Window resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmMaintenanceWindow.tsx)
+
+```js
+import { AwsSsmMaintenanceWindow } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmMaintenanceWindow/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window#import)
+
+```js
+<AwsSsmMaintenanceWindow
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmMaintenanceWindows
+
+Get information on SSM maintenance windows.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_maintenance_windows)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmMaintenanceWindows.tsx)
+
+```js
+import { DataAwsSsmMaintenanceWindows } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmMaintenanceWindows/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmMaintenanceWindowTarget
+
+Provides an SSM Maintenance Window Target resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_target)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmMaintenanceWindowTarget.tsx)
+
+```js
+import { AwsSsmMaintenanceWindowTarget } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmMaintenanceWindowTarget/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_target#import)
+
+```js
+<AwsSsmMaintenanceWindowTarget
+   id = {}
+   window_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmMaintenanceWindowTask
+
+Provides an SSM Maintenance Window Task resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_task)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmMaintenanceWindowTask.tsx)
+
+```js
+import { AwsSsmMaintenanceWindowTask } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmMaintenanceWindowTask/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_task#import)
+
+```js
+<AwsSsmMaintenanceWindowTask
+   id = {}
+   window_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmParameter
+
+Provides a SSM Parameter resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_parameter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmParameter.tsx)
+
+```js
+import { AwsSsmParameter } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmParameter/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_parameter)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmParameter.tsx)
+
+```js
+import { DataAwsSsmParameter } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmParameter/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_parameter#import)
+
+```js
+<AwsSsmParameter
+   name = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmParametersByPath
+
+Provides SSM Parameters by path
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_parameters_by_path)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmParametersByPath.tsx)
+
+```js
+import { DataAwsSsmParametersByPath } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmParametersByPath/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmPatchBaseline
+
+Provides an SSM Patch Baseline resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_baseline)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmPatchBaseline.tsx)
+
+```js
+import { AwsSsmPatchBaseline } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmPatchBaseline/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_patch_baseline)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmPatchBaseline.tsx)
+
+```js
+import { DataAwsSsmPatchBaseline } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmPatchBaseline/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_baseline#import)
+
+```js
+<AwsSsmPatchBaseline
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmPatchBaselines
+
+Terraform data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_patch_baselines)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/DataAwsSsmPatchBaselines.tsx)
+
+```js
+import { DataAwsSsmPatchBaselines } from "@dinghy/tf-aws/serviceSsm"
+
+<DataAwsSsmPatchBaselines/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmPatchGroup
+
+Provides an SSM Patch Group resource
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmPatchGroup.tsx)
+
+```js
+import { AwsSsmPatchGroup } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmPatchGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmResourceDataSync
+
+Provides a SSM resource data sync.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_resource_data_sync)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmResourceDataSync.tsx)
+
+```js
+import { AwsSsmResourceDataSync } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmResourceDataSync/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsmServiceSetting
+
+Defines how a user interacts with or uses a service or a feature of a service.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_service_setting)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssm/AwsSsmServiceSetting.tsx)
+
+```js
+import { AwsSsmServiceSetting } from "@dinghy/tf-aws/serviceSsm"
+
+<AwsSsmServiceSetting/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

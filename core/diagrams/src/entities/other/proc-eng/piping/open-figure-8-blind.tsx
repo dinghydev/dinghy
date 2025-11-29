@@ -11,11 +11,5 @@ export const OPEN_FIGURE_8_BLIND = {
 }
 
 export function OpenFigure8Blind(props: NodeProps) {
-  return (
-    <Shape
-      {...OPEN_FIGURE_8_BLIND}
-      {...props}
-      _style={extendStyle(OPEN_FIGURE_8_BLIND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPEN_FIGURE_8_BLIND)} />
 }

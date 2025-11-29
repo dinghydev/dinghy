@@ -11,11 +11,5 @@ export const PLAYBACK_CONTROLS = {
 }
 
 export function PlaybackControls(props: NodeProps) {
-  return (
-    <Shape
-      {...PLAYBACK_CONTROLS}
-      {...props}
-      _style={extendStyle(PLAYBACK_CONTROLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAYBACK_CONTROLS)} />
 }

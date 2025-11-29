@@ -11,11 +11,5 @@ export const SCALE_OUT_REPOSITORY = {
 }
 
 export function ScaleOutRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...SCALE_OUT_REPOSITORY}
-      {...props}
-      _style={extendStyle(SCALE_OUT_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCALE_OUT_REPOSITORY)} />
 }

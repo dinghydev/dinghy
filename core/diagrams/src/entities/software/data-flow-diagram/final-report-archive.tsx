@@ -10,11 +10,5 @@ export const FINAL_REPORT_ARCHIVE = {
 }
 
 export function FinalReportArchive(props: NodeProps) {
-  return (
-    <Shape
-      {...FINAL_REPORT_ARCHIVE}
-      {...props}
-      _style={extendStyle(FINAL_REPORT_ARCHIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FINAL_REPORT_ARCHIVE)} />
 }

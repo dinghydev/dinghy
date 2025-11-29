@@ -11,11 +11,5 @@ export const DEVICES_HIGHLIGHT = {
 }
 
 export function DevicesHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICES_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(DEVICES_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICES_HIGHLIGHT)} />
 }

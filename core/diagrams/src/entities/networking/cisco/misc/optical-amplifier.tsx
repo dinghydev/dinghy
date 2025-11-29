@@ -11,11 +11,5 @@ export const OPTICAL_AMPLIFIER = {
 }
 
 export function OpticalAmplifier(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTICAL_AMPLIFIER}
-      {...props}
-      _style={extendStyle(OPTICAL_AMPLIFIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTICAL_AMPLIFIER)} />
 }

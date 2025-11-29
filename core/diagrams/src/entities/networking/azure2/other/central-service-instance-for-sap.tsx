@@ -13,9 +13,8 @@ export const CENTRAL_SERVICE_INSTANCE_FOR_SAP = {
 export function CentralServiceInstanceForSap(props: NodeProps) {
   return (
     <Shape
-      {...CENTRAL_SERVICE_INSTANCE_FOR_SAP}
       {...props}
-      _style={extendStyle(CENTRAL_SERVICE_INSTANCE_FOR_SAP, props)}
+      _style={extendStyle(props, CENTRAL_SERVICE_INSTANCE_FOR_SAP)}
     />
   )
 }

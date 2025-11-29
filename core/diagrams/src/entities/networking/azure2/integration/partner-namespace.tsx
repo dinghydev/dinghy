@@ -11,11 +11,5 @@ export const PARTNER_NAMESPACE = {
 }
 
 export function PartnerNamespace(props: NodeProps) {
-  return (
-    <Shape
-      {...PARTNER_NAMESPACE}
-      {...props}
-      _style={extendStyle(PARTNER_NAMESPACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARTNER_NAMESPACE)} />
 }

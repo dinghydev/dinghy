@@ -11,7 +11,5 @@ export const COMMUNITY = {
 }
 
 export function Community(props: NodeProps) {
-  return (
-    <Shape {...COMMUNITY} {...props} _style={extendStyle(COMMUNITY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMUNITY)} />
 }

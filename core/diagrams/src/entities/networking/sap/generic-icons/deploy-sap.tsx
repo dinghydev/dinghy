@@ -11,7 +11,5 @@ export const DEPLOY_SAP = {
 }
 
 export function DeploySap(props: NodeProps) {
-  return (
-    <Shape {...DEPLOY_SAP} {...props} _style={extendStyle(DEPLOY_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEPLOY_SAP)} />
 }

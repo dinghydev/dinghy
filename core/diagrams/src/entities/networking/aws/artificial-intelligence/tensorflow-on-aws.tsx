@@ -11,11 +11,5 @@ export const TENSORFLOW_ON_AWS = {
 }
 
 export function TensorflowOnAws(props: NodeProps) {
-  return (
-    <Shape
-      {...TENSORFLOW_ON_AWS}
-      {...props}
-      _style={extendStyle(TENSORFLOW_ON_AWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENSORFLOW_ON_AWS)} />
 }

@@ -11,11 +11,5 @@ export const DYNAMODB_STREAM = {
 }
 
 export function DynamodbStream(props: NodeProps) {
-  return (
-    <Shape
-      {...DYNAMODB_STREAM}
-      {...props}
-      _style={extendStyle(DYNAMODB_STREAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DYNAMODB_STREAM)} />
 }

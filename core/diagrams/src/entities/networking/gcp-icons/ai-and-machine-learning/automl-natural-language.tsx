@@ -12,10 +12,6 @@ export const AUTOML_NATURAL_LANGUAGE = {
 
 export function AutomlNaturalLanguage(props: NodeProps) {
   return (
-    <Shape
-      {...AUTOML_NATURAL_LANGUAGE}
-      {...props}
-      _style={extendStyle(AUTOML_NATURAL_LANGUAGE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTOML_NATURAL_LANGUAGE)} />
   )
 }

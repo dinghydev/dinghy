@@ -11,11 +11,5 @@ export const SWITCH_OUT_OF_BAND = {
 }
 
 export function SwitchOutOfBand(props: NodeProps) {
-  return (
-    <Shape
-      {...SWITCH_OUT_OF_BAND}
-      {...props}
-      _style={extendStyle(SWITCH_OUT_OF_BAND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWITCH_OUT_OF_BAND)} />
 }

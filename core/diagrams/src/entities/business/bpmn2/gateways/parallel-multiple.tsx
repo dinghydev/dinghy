@@ -11,11 +11,5 @@ export const PARALLEL_MULTIPLE = {
 }
 
 export function ParallelMultiple(props: NodeProps) {
-  return (
-    <Shape
-      {...PARALLEL_MULTIPLE}
-      {...props}
-      _style={extendStyle(PARALLEL_MULTIPLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARALLEL_MULTIPLE)} />
 }

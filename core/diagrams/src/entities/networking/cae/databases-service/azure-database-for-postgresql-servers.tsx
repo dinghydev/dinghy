@@ -13,9 +13,8 @@ export const AZURE_DATABASE_FOR_POSTGRESQL_SERVERS = {
 export function AzureDatabaseForPostgresqlServers(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_DATABASE_FOR_POSTGRESQL_SERVERS}
       {...props}
-      _style={extendStyle(AZURE_DATABASE_FOR_POSTGRESQL_SERVERS, props)}
+      _style={extendStyle(props, AZURE_DATABASE_FOR_POSTGRESQL_SERVERS)}
     />
   )
 }

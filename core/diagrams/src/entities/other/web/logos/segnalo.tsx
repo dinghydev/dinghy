@@ -11,5 +11,5 @@ export const SEGNALO = {
 }
 
 export function Segnalo(props: NodeProps) {
-  return <Shape {...SEGNALO} {...props} _style={extendStyle(SEGNALO, props)} />
+  return <Shape {...props} _style={extendStyle(props, SEGNALO)} />
 }

@@ -15,9 +15,8 @@ export const AWS_IOT_GREENGRASS_DEPLOYMENT = {
 export function AwsIotGreengrassDeployment(props: NodeProps) {
   return (
     <Shape
-      {...AWS_IOT_GREENGRASS_DEPLOYMENT}
       {...props}
-      _style={extendStyle(AWS_IOT_GREENGRASS_DEPLOYMENT, props)}
+      _style={extendStyle(props, AWS_IOT_GREENGRASS_DEPLOYMENT)}
     />
   )
 }

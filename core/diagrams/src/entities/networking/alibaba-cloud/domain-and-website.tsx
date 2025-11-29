@@ -11,11 +11,5 @@ export const DOMAIN_AND_WEBSITE = {
 }
 
 export function DomainAndWebsite(props: NodeProps) {
-  return (
-    <Shape
-      {...DOMAIN_AND_WEBSITE}
-      {...props}
-      _style={extendStyle(DOMAIN_AND_WEBSITE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOMAIN_AND_WEBSITE)} />
 }

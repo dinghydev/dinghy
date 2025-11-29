@@ -11,11 +11,5 @@ export const END_USER_COMPUTING = {
 }
 
 export function EndUserComputing(props: NodeProps) {
-  return (
-    <Shape
-      {...END_USER_COMPUTING}
-      {...props}
-      _style={extendStyle(END_USER_COMPUTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, END_USER_COMPUTING)} />
 }

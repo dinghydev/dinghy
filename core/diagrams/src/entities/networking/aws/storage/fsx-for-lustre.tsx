@@ -11,11 +11,5 @@ export const FSX_FOR_LUSTRE = {
 }
 
 export function FsxForLustre(props: NodeProps) {
-  return (
-    <Shape
-      {...FSX_FOR_LUSTRE}
-      {...props}
-      _style={extendStyle(FSX_FOR_LUSTRE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FSX_FOR_LUSTRE)} />
 }

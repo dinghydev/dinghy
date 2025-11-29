@@ -11,11 +11,5 @@ export const SOURCE_INVERSE_PULSE = {
 }
 
 export function SourceInversePulse(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCE_INVERSE_PULSE}
-      {...props}
-      _style={extendStyle(SOURCE_INVERSE_PULSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_INVERSE_PULSE)} />
 }

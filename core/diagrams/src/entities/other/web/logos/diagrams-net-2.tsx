@@ -11,11 +11,5 @@ export const DIAGRAMS_NET_2 = {
 }
 
 export function DiagramsNet2(props: NodeProps) {
-  return (
-    <Shape
-      {...DIAGRAMS_NET_2}
-      {...props}
-      _style={extendStyle(DIAGRAMS_NET_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIAGRAMS_NET_2)} />
 }

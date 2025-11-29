@@ -13,11 +13,10 @@ export const SAP_AUTHORIZATION_AND_TRUST_MANAGEMENT_SERVICE = {
 export function SapAuthorizationAndTrustManagementService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_AUTHORIZATION_AND_TRUST_MANAGEMENT_SERVICE}
       {...props}
       _style={extendStyle(
-        SAP_AUTHORIZATION_AND_TRUST_MANAGEMENT_SERVICE,
         props,
+        SAP_AUTHORIZATION_AND_TRUST_MANAGEMENT_SERVICE,
       )}
     />
   )

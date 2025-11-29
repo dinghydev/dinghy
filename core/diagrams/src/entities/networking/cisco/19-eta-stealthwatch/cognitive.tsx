@@ -11,7 +11,5 @@ export const COGNITIVE = {
 }
 
 export function Cognitive(props: NodeProps) {
-  return (
-    <Shape {...COGNITIVE} {...props} _style={extendStyle(COGNITIVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COGNITIVE)} />
 }

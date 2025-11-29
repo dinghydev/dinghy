@@ -12,10 +12,6 @@ export const SECURITY_CONTROL_LABEL = {
 
 export function SecurityControlLabel(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_CONTROL_LABEL}
-      {...props}
-      _style={extendStyle(SECURITY_CONTROL_LABEL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_CONTROL_LABEL)} />
   )
 }

@@ -10,10 +10,6 @@ export const LOGICAL_CONNECTOR = {
 
 export function LogicalConnector(props: NodeProps) {
   return (
-    <Dependency
-      {...LOGICAL_CONNECTOR}
-      {...props}
-      _style={extendStyle(LOGICAL_CONNECTOR, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, LOGICAL_CONNECTOR)} />
   )
 }

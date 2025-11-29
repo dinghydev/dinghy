@@ -11,11 +11,5 @@ export const ARCHIVE_TIER = {
 }
 
 export function ArchiveTier(props: NodeProps) {
-  return (
-    <Shape
-      {...ARCHIVE_TIER}
-      {...props}
-      _style={extendStyle(ARCHIVE_TIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARCHIVE_TIER)} />
 }

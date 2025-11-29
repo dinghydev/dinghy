@@ -11,11 +11,5 @@ export const INLINE_CHECKBOXES = {
 }
 
 export function InlineCheckboxes(props: NodeProps) {
-  return (
-    <Shape
-      {...INLINE_CHECKBOXES}
-      {...props}
-      _style={extendStyle(INLINE_CHECKBOXES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INLINE_CHECKBOXES)} />
 }

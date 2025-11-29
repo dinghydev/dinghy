@@ -11,11 +11,5 @@ export const AWS_PRIVATELINK = {
 }
 
 export function AwsPrivatelink(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_PRIVATELINK}
-      {...props}
-      _style={extendStyle(AWS_PRIVATELINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_PRIVATELINK)} />
 }

@@ -11,11 +11,5 @@ export const LINUX_SERVER = {
 }
 
 export function LinuxServer(props: NodeProps) {
-  return (
-    <Shape
-      {...LINUX_SERVER}
-      {...props}
-      _style={extendStyle(LINUX_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINUX_SERVER)} />
 }

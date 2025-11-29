@@ -11,11 +11,5 @@ export const TIME_SERIES_DATA_SETS = {
 }
 
 export function TimeSeriesDataSets(props: NodeProps) {
-  return (
-    <Shape
-      {...TIME_SERIES_DATA_SETS}
-      {...props}
-      _style={extendStyle(TIME_SERIES_DATA_SETS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_SERIES_DATA_SETS)} />
 }

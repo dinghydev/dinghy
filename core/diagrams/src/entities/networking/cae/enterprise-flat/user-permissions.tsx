@@ -11,11 +11,5 @@ export const USER_PERMISSIONS = {
 }
 
 export function UserPermissions(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_PERMISSIONS}
-      {...props}
-      _style={extendStyle(USER_PERMISSIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_PERMISSIONS)} />
 }

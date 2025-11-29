@@ -11,11 +11,5 @@ export const PULSATION_DAMPENER = {
 }
 
 export function PulsationDampener(props: NodeProps) {
-  return (
-    <Shape
-      {...PULSATION_DAMPENER}
-      {...props}
-      _style={extendStyle(PULSATION_DAMPENER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PULSATION_DAMPENER)} />
 }

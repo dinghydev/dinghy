@@ -13,9 +13,8 @@ export const GRAVITY_SEPARATOR_SETTLING_CHAMBER = {
 export function GravitySeparatorSettlingChamber(props: NodeProps) {
   return (
     <Shape
-      {...GRAVITY_SEPARATOR_SETTLING_CHAMBER}
       {...props}
-      _style={extendStyle(GRAVITY_SEPARATOR_SETTLING_CHAMBER, props)}
+      _style={extendStyle(props, GRAVITY_SEPARATOR_SETTLING_CHAMBER)}
     />
   )
 }

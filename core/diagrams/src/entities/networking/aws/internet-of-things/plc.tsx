@@ -11,5 +11,5 @@ export const PLC = {
 }
 
 export function Plc(props: NodeProps) {
-  return <Shape {...PLC} {...props} _style={extendStyle(PLC, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLC)} />
 }

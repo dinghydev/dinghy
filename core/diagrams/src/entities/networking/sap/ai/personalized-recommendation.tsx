@@ -13,9 +13,8 @@ export const PERSONALIZED_RECOMMENDATION = {
 export function PersonalizedRecommendation(props: NodeProps) {
   return (
     <Shape
-      {...PERSONALIZED_RECOMMENDATION}
       {...props}
-      _style={extendStyle(PERSONALIZED_RECOMMENDATION, props)}
+      _style={extendStyle(props, PERSONALIZED_RECOMMENDATION)}
     />
   )
 }

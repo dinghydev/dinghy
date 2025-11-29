@@ -11,11 +11,5 @@ export const PEER_SERVICES = {
 }
 
 export function PeerServices(props: NodeProps) {
-  return (
-    <Shape
-      {...PEER_SERVICES}
-      {...props}
-      _style={extendStyle(PEER_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PEER_SERVICES)} />
 }

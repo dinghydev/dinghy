@@ -11,11 +11,5 @@ export const APIGEE_SENSE = {
 }
 
 export function ApigeeSense(props: NodeProps) {
-  return (
-    <Shape
-      {...APIGEE_SENSE}
-      {...props}
-      _style={extendStyle(APIGEE_SENSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APIGEE_SENSE)} />
 }

@@ -11,5 +11,5 @@ export const DETENT = {
 }
 
 export function Detent(props: NodeProps) {
-  return <Shape {...DETENT} {...props} _style={extendStyle(DETENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, DETENT)} />
 }

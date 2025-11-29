@@ -11,11 +11,5 @@ export const EXPRESS_WORKFLOWS = {
 }
 
 export function ExpressWorkflows(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPRESS_WORKFLOWS}
-      {...props}
-      _style={extendStyle(EXPRESS_WORKFLOWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPRESS_WORKFLOWS)} />
 }

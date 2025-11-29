@@ -11,9 +11,8 @@ export const DIRECTIONAL_DIRECTED_DATA_ASSOCIATION = {
 export function DirectionalDirectedDataAssociation(props: NodeProps) {
   return (
     <Dependency
-      {...DIRECTIONAL_DIRECTED_DATA_ASSOCIATION}
       {...props}
-      _style={extendStyle(DIRECTIONAL_DIRECTED_DATA_ASSOCIATION, props)}
+      _style={extendStyle(props, DIRECTIONAL_DIRECTED_DATA_ASSOCIATION)}
     />
   )
 }

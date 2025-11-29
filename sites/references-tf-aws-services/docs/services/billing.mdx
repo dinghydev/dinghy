@@ -1,0 +1,71 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Billing
+
+## AwsBillingServiceAccount
+
+Get AWS Billing Service Account
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/billing_service_account)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/billing/DataAwsBillingServiceAccount.tsx)
+
+```js
+import { DataAwsBillingServiceAccount } from "@dinghy/tf-aws/serviceBilling"
+
+<DataAwsBillingServiceAccount/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsBillingView
+
+Manages an AWS Billing View.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/billing_view)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/billing/AwsBillingView.tsx)
+
+```js
+import { AwsBillingView } from "@dinghy/tf-aws/serviceBilling"
+
+<AwsBillingView/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsBillingViews
+
+Retrieve a list of AWS Billing Views.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/billing_views)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/billing/DataAwsBillingViews.tsx)
+
+```js
+import { DataAwsBillingViews } from "@dinghy/tf-aws/serviceBilling"
+
+<DataAwsBillingViews/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

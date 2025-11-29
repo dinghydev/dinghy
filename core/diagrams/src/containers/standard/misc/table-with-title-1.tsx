@@ -9,11 +9,5 @@ export const TABLE_WITH_TITLE_1 = {
 }
 
 export function TableWithTitle1(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLE_WITH_TITLE_1}
-      {...props}
-      _style={extendStyle(TABLE_WITH_TITLE_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLE_WITH_TITLE_1)} />
 }

@@ -11,11 +11,5 @@ export const FLAT_DOUBLE_EDGE = {
 }
 
 export function FlatDoubleEdge(props: NodeProps) {
-  return (
-    <Shape
-      {...FLAT_DOUBLE_EDGE}
-      {...props}
-      _style={extendStyle(FLAT_DOUBLE_EDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLAT_DOUBLE_EDGE)} />
 }

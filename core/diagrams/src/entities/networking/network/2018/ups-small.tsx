@@ -11,7 +11,5 @@ export const UPS_SMALL = {
 }
 
 export function UpsSmall(props: NodeProps) {
-  return (
-    <Shape {...UPS_SMALL} {...props} _style={extendStyle(UPS_SMALL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, UPS_SMALL)} />
 }

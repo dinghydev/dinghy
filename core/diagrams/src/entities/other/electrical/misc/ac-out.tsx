@@ -11,5 +11,5 @@ export const AC_OUT = {
 }
 
 export function AcOut(props: NodeProps) {
-  return <Shape {...AC_OUT} {...props} _style={extendStyle(AC_OUT, props)} />
+  return <Shape {...props} _style={extendStyle(props, AC_OUT)} />
 }

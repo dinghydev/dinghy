@@ -12,10 +12,6 @@ export const AUTOML_VIDEO_INTELLIGENCE = {
 
 export function AutomlVideoIntelligence(props: NodeProps) {
   return (
-    <Shape
-      {...AUTOML_VIDEO_INTELLIGENCE}
-      {...props}
-      _style={extendStyle(AUTOML_VIDEO_INTELLIGENCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AUTOML_VIDEO_INTELLIGENCE)} />
   )
 }

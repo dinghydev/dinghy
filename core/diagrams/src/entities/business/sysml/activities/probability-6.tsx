@@ -11,11 +11,5 @@ export const PROBABILITY_6 = {
 }
 
 export function Probability6(props: NodeProps) {
-  return (
-    <Shape
-      {...PROBABILITY_6}
-      {...props}
-      _style={extendStyle(PROBABILITY_6, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROBABILITY_6)} />
 }

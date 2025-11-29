@@ -11,11 +11,5 @@ export const BLOCK_STORAGE = {
 }
 
 export function BlockStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...BLOCK_STORAGE}
-      {...props}
-      _style={extendStyle(BLOCK_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLOCK_STORAGE)} />
 }

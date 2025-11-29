@@ -11,7 +11,5 @@ export const WEB_SLOTS = {
 }
 
 export function WebSlots(props: NodeProps) {
-  return (
-    <Shape {...WEB_SLOTS} {...props} _style={extendStyle(WEB_SLOTS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SLOTS)} />
 }

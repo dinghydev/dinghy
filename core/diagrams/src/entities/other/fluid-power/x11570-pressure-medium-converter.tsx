@@ -13,9 +13,8 @@ export const X11570_PRESSURE_MEDIUM_CONVERTER = {
 export function X11570PressureMediumConverter(props: NodeProps) {
   return (
     <Shape
-      {...X11570_PRESSURE_MEDIUM_CONVERTER}
       {...props}
-      _style={extendStyle(X11570_PRESSURE_MEDIUM_CONVERTER, props)}
+      _style={extendStyle(props, X11570_PRESSURE_MEDIUM_CONVERTER)}
     />
   )
 }

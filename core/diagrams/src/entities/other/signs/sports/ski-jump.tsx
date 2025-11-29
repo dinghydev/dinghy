@@ -11,7 +11,5 @@ export const SKI_JUMP = {
 }
 
 export function SkiJump(props: NodeProps) {
-  return (
-    <Shape {...SKI_JUMP} {...props} _style={extendStyle(SKI_JUMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SKI_JUMP)} />
 }

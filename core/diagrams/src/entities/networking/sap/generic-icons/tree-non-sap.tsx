@@ -11,11 +11,5 @@ export const TREE_NON_SAP = {
 }
 
 export function TreeNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...TREE_NON_SAP}
-      {...props}
-      _style={extendStyle(TREE_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TREE_NON_SAP)} />
 }

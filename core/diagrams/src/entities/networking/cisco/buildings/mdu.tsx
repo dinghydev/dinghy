@@ -11,5 +11,5 @@ export const MDU = {
 }
 
 export function Mdu(props: NodeProps) {
-  return <Shape {...MDU} {...props} _style={extendStyle(MDU, props)} />
+  return <Shape {...props} _style={extendStyle(props, MDU)} />
 }

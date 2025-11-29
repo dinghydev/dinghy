@@ -11,11 +11,5 @@ export const DISK_BLOCK_STORAGE = {
 }
 
 export function DiskBlockStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...DISK_BLOCK_STORAGE}
-      {...props}
-      _style={extendStyle(DISK_BLOCK_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISK_BLOCK_STORAGE)} />
 }

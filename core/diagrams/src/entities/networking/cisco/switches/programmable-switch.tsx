@@ -11,11 +11,5 @@ export const PROGRAMMABLE_SWITCH = {
 }
 
 export function ProgrammableSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...PROGRAMMABLE_SWITCH}
-      {...props}
-      _style={extendStyle(PROGRAMMABLE_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROGRAMMABLE_SWITCH)} />
 }

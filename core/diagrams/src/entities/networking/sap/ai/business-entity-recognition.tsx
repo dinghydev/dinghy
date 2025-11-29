@@ -13,9 +13,8 @@ export const BUSINESS_ENTITY_RECOGNITION = {
 export function BusinessEntityRecognition(props: NodeProps) {
   return (
     <Shape
-      {...BUSINESS_ENTITY_RECOGNITION}
       {...props}
-      _style={extendStyle(BUSINESS_ENTITY_RECOGNITION, props)}
+      _style={extendStyle(props, BUSINESS_ENTITY_RECOGNITION)}
     />
   )
 }

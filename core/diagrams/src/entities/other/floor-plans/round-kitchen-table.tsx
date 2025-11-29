@@ -10,11 +10,5 @@ export const ROUND_KITCHEN_TABLE = {
 }
 
 export function RoundKitchenTable(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUND_KITCHEN_TABLE}
-      {...props}
-      _style={extendStyle(ROUND_KITCHEN_TABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUND_KITCHEN_TABLE)} />
 }

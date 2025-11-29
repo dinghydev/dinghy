@@ -12,10 +12,6 @@ export const CLB_CLASSIC_LOAD_BALANCER = {
 
 export function ClbClassicLoadBalancer(props: NodeProps) {
   return (
-    <Shape
-      {...CLB_CLASSIC_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(CLB_CLASSIC_LOAD_BALANCER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLB_CLASSIC_LOAD_BALANCER)} />
   )
 }

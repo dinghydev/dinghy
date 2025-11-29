@@ -11,11 +11,5 @@ export const RESISTOR_VARIABLE = {
 }
 
 export function ResistorVariable(props: NodeProps) {
-  return (
-    <Shape
-      {...RESISTOR_VARIABLE}
-      {...props}
-      _style={extendStyle(RESISTOR_VARIABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESISTOR_VARIABLE)} />
 }

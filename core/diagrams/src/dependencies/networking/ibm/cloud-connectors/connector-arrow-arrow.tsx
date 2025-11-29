@@ -10,10 +10,6 @@ export const CONNECTOR_ARROW_ARROW = {
 
 export function ConnectorArrowArrow(props: NodeProps) {
   return (
-    <Dependency
-      {...CONNECTOR_ARROW_ARROW}
-      {...props}
-      _style={extendStyle(CONNECTOR_ARROW_ARROW, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, CONNECTOR_ARROW_ARROW)} />
   )
 }

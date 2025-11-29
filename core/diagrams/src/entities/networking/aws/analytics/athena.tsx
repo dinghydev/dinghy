@@ -11,5 +11,5 @@ export const ATHENA = {
 }
 
 export function Athena(props: NodeProps) {
-  return <Shape {...ATHENA} {...props} _style={extendStyle(ATHENA, props)} />
+  return <Shape {...props} _style={extendStyle(props, ATHENA)} />
 }

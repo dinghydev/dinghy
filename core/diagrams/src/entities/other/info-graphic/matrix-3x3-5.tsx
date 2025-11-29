@@ -11,11 +11,5 @@ export const MATRIX_3X3_5 = {
 }
 
 export function Matrix3x35(props: NodeProps) {
-  return (
-    <Shape
-      {...MATRIX_3X3_5}
-      {...props}
-      _style={extendStyle(MATRIX_3X3_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MATRIX_3X3_5)} />
 }

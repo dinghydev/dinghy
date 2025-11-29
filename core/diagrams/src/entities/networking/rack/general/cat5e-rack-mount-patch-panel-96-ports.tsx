@@ -13,9 +13,8 @@ export const CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS = {
 export function Cat5eRackMountPatchPanel96Ports(props: NodeProps) {
   return (
     <Shape
-      {...CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS}
       {...props}
-      _style={extendStyle(CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS, props)}
+      _style={extendStyle(props, CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS)}
     />
   )
 }

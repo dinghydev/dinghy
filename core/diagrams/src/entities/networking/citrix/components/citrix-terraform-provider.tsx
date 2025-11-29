@@ -12,10 +12,6 @@ export const CITRIX_TERRAFORM_PROVIDER = {
 
 export function CitrixTerraformProvider(props: NodeProps) {
   return (
-    <Shape
-      {...CITRIX_TERRAFORM_PROVIDER}
-      {...props}
-      _style={extendStyle(CITRIX_TERRAFORM_PROVIDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CITRIX_TERRAFORM_PROVIDER)} />
   )
 }

@@ -13,9 +13,8 @@ export const WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE = {
 export function WorkspacesFamilyAmazonWorkspacesCore(props: NodeProps) {
   return (
     <Shape
-      {...WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE}
       {...props}
-      _style={extendStyle(WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE, props)}
+      _style={extendStyle(props, WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE)}
     />
   )
 }

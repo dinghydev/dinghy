@@ -11,7 +11,5 @@ export const WEBCAM_HD = {
 }
 
 export function WebcamHd(props: NodeProps) {
-  return (
-    <Shape {...WEBCAM_HD} {...props} _style={extendStyle(WEBCAM_HD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBCAM_HD)} />
 }

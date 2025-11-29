@@ -11,11 +11,5 @@ export const AWS_CODEPIPELINE = {
 }
 
 export function AwsCodepipeline(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CODEPIPELINE}
-      {...props}
-      _style={extendStyle(AWS_CODEPIPELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CODEPIPELINE)} />
 }

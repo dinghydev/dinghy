@@ -11,7 +11,5 @@ export const NLS_TTSBAG = {
 }
 
 export function NlsTtsbag(props: NodeProps) {
-  return (
-    <Shape {...NLS_TTSBAG} {...props} _style={extendStyle(NLS_TTSBAG, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLS_TTSBAG)} />
 }

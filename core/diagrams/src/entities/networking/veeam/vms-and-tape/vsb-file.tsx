@@ -11,7 +11,5 @@ export const VSB_FILE = {
 }
 
 export function VsbFile(props: NodeProps) {
-  return (
-    <Shape {...VSB_FILE} {...props} _style={extendStyle(VSB_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VSB_FILE)} />
 }

@@ -11,11 +11,5 @@ export const M5N_INSTANCE = {
 }
 
 export function M5nInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...M5N_INSTANCE}
-      {...props}
-      _style={extendStyle(M5N_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, M5N_INSTANCE)} />
 }

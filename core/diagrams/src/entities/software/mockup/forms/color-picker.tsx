@@ -11,11 +11,5 @@ export const COLOR_PICKER = {
 }
 
 export function ColorPicker(props: NodeProps) {
-  return (
-    <Shape
-      {...COLOR_PICKER}
-      {...props}
-      _style={extendStyle(COLOR_PICKER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLOR_PICKER)} />
 }

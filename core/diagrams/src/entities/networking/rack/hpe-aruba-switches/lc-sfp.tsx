@@ -11,5 +11,5 @@ export const LC_SFP = {
 }
 
 export function LcSfp(props: NodeProps) {
-  return <Shape {...LC_SFP} {...props} _style={extendStyle(LC_SFP, props)} />
+  return <Shape {...props} _style={extendStyle(props, LC_SFP)} />
 }

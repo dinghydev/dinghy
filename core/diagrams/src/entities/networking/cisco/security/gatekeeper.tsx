@@ -11,7 +11,5 @@ export const GATEKEEPER = {
 }
 
 export function Gatekeeper(props: NodeProps) {
-  return (
-    <Shape {...GATEKEEPER} {...props} _style={extendStyle(GATEKEEPER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GATEKEEPER)} />
 }

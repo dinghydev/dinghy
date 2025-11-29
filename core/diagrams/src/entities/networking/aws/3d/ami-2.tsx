@@ -11,5 +11,5 @@ export const AMI_2 = {
 }
 
 export function Ami2(props: NodeProps) {
-  return <Shape {...AMI_2} {...props} _style={extendStyle(AMI_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, AMI_2)} />
 }

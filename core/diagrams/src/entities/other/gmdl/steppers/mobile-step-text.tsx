@@ -10,11 +10,5 @@ export const MOBILE_STEP_TEXT = {
 }
 
 export function MobileStepText(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_STEP_TEXT}
-      {...props}
-      _style={extendStyle(MOBILE_STEP_TEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_STEP_TEXT)} />
 }

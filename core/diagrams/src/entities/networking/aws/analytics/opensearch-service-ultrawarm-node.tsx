@@ -13,9 +13,8 @@ export const OPENSEARCH_SERVICE_ULTRAWARM_NODE = {
 export function OpensearchServiceUltrawarmNode(props: NodeProps) {
   return (
     <Shape
-      {...OPENSEARCH_SERVICE_ULTRAWARM_NODE}
       {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE_ULTRAWARM_NODE, props)}
+      _style={extendStyle(props, OPENSEARCH_SERVICE_ULTRAWARM_NODE)}
     />
   )
 }

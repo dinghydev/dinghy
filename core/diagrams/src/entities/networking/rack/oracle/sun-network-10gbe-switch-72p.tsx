@@ -13,9 +13,8 @@ export const SUN_NETWORK_10GBE_SWITCH_72P = {
 export function SunNetwork10gbeSwitch72p(props: NodeProps) {
   return (
     <Shape
-      {...SUN_NETWORK_10GBE_SWITCH_72P}
       {...props}
-      _style={extendStyle(SUN_NETWORK_10GBE_SWITCH_72P, props)}
+      _style={extendStyle(props, SUN_NETWORK_10GBE_SWITCH_72P)}
     />
   )
 }

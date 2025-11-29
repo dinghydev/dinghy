@@ -11,7 +11,5 @@ export const FLAT_EDGE = {
 }
 
 export function FlatEdge(props: NodeProps) {
-  return (
-    <Shape {...FLAT_EDGE} {...props} _style={extendStyle(FLAT_EDGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLAT_EDGE)} />
 }

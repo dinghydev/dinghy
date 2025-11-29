@@ -13,9 +13,8 @@ export const TIME_SERIES_INSIGHTS_ACCESS_POLICIES = {
 export function TimeSeriesInsightsAccessPolicies(props: NodeProps) {
   return (
     <Shape
-      {...TIME_SERIES_INSIGHTS_ACCESS_POLICIES}
       {...props}
-      _style={extendStyle(TIME_SERIES_INSIGHTS_ACCESS_POLICIES, props)}
+      _style={extendStyle(props, TIME_SERIES_INSIGHTS_ACCESS_POLICIES)}
     />
   )
 }

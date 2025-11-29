@@ -9,10 +9,6 @@ export const DIRECTIONAL_CONNECTOR = {
 
 export function DirectionalConnector(props: NodeProps) {
   return (
-    <Dependency
-      {...DIRECTIONAL_CONNECTOR}
-      {...props}
-      _style={extendStyle(DIRECTIONAL_CONNECTOR, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, DIRECTIONAL_CONNECTOR)} />
   )
 }

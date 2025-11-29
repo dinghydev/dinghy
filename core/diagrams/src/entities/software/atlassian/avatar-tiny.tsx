@@ -11,11 +11,5 @@ export const AVATAR_TINY = {
 }
 
 export function AvatarTiny(props: NodeProps) {
-  return (
-    <Shape
-      {...AVATAR_TINY}
-      {...props}
-      _style={extendStyle(AVATAR_TINY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVATAR_TINY)} />
 }

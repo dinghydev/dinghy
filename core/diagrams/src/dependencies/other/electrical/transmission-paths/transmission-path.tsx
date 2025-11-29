@@ -9,10 +9,6 @@ export const TRANSMISSION_PATH = {
 
 export function TransmissionPath(props: NodeProps) {
   return (
-    <Dependency
-      {...TRANSMISSION_PATH}
-      {...props}
-      _style={extendStyle(TRANSMISSION_PATH, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, TRANSMISSION_PATH)} />
   )
 }

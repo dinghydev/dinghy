@@ -11,11 +11,5 @@ export const DESKTOP_SAP = {
 }
 
 export function DesktopSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DESKTOP_SAP}
-      {...props}
-      _style={extendStyle(DESKTOP_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESKTOP_SAP)} />
 }

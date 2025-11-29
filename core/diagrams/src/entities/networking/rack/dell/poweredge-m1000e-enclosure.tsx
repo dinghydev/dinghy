@@ -12,10 +12,6 @@ export const POWEREDGE_M1000E_ENCLOSURE = {
 
 export function PoweredgeM1000eEnclosure(props: NodeProps) {
   return (
-    <Shape
-      {...POWEREDGE_M1000E_ENCLOSURE}
-      {...props}
-      _style={extendStyle(POWEREDGE_M1000E_ENCLOSURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, POWEREDGE_M1000E_ENCLOSURE)} />
   )
 }

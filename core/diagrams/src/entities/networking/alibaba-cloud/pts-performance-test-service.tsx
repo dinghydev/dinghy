@@ -13,9 +13,8 @@ export const PTS_PERFORMANCE_TEST_SERVICE = {
 export function PtsPerformanceTestService(props: NodeProps) {
   return (
     <Shape
-      {...PTS_PERFORMANCE_TEST_SERVICE}
       {...props}
-      _style={extendStyle(PTS_PERFORMANCE_TEST_SERVICE, props)}
+      _style={extendStyle(props, PTS_PERFORMANCE_TEST_SERVICE)}
     />
   )
 }

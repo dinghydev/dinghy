@@ -10,11 +10,5 @@ export const MESSAGE_BROKER_3 = {
 }
 
 export function MessageBroker3(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_BROKER_3}
-      {...props}
-      _style={extendStyle(MESSAGE_BROKER_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_BROKER_3)} />
 }

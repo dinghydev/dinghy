@@ -11,11 +11,5 @@ export const UM_ENABLED_MAILBOX = {
 }
 
 export function UmEnabledMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_ENABLED_MAILBOX}
-      {...props}
-      _style={extendStyle(UM_ENABLED_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_ENABLED_MAILBOX)} />
 }

@@ -11,5 +11,5 @@ export const KEY_SAP = {
 }
 
 export function KeySap(props: NodeProps) {
-  return <Shape {...KEY_SAP} {...props} _style={extendStyle(KEY_SAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, KEY_SAP)} />
 }

@@ -11,7 +11,5 @@ export const SNACKBAR = {
 }
 
 export function Snackbar(props: NodeProps) {
-  return (
-    <Shape {...SNACKBAR} {...props} _style={extendStyle(SNACKBAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNACKBAR)} />
 }

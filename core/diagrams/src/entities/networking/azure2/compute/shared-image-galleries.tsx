@@ -12,10 +12,6 @@ export const SHARED_IMAGE_GALLERIES = {
 
 export function SharedImageGalleries(props: NodeProps) {
   return (
-    <Shape
-      {...SHARED_IMAGE_GALLERIES}
-      {...props}
-      _style={extendStyle(SHARED_IMAGE_GALLERIES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SHARED_IMAGE_GALLERIES)} />
   )
 }

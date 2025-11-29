@@ -13,9 +13,8 @@ export const X11310_VARIABLE_DISPLACEMENT_PUMP = {
 export function X11310VariableDisplacementPump(props: NodeProps) {
   return (
     <Shape
-      {...X11310_VARIABLE_DISPLACEMENT_PUMP}
       {...props}
-      _style={extendStyle(X11310_VARIABLE_DISPLACEMENT_PUMP, props)}
+      _style={extendStyle(props, X11310_VARIABLE_DISPLACEMENT_PUMP)}
     />
   )
 }

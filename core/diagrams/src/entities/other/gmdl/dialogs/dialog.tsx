@@ -11,5 +11,5 @@ export const DIALOG = {
 }
 
 export function Dialog(props: NodeProps) {
-  return <Shape {...DIALOG} {...props} _style={extendStyle(DIALOG, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIALOG)} />
 }

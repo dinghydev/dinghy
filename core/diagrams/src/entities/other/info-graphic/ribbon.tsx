@@ -11,5 +11,5 @@ export const RIBBON = {
 }
 
 export function Ribbon(props: NodeProps) {
-  return <Shape {...RIBBON} {...props} _style={extendStyle(RIBBON, props)} />
+  return <Shape {...props} _style={extendStyle(props, RIBBON)} />
 }

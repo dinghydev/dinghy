@@ -11,7 +11,5 @@ export const OKNOTIZIE = {
 }
 
 export function Oknotizie(props: NodeProps) {
-  return (
-    <Shape {...OKNOTIZIE} {...props} _style={extendStyle(OKNOTIZIE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OKNOTIZIE)} />
 }

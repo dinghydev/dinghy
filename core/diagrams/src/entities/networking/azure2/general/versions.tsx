@@ -11,7 +11,5 @@ export const VERSIONS = {
 }
 
 export function Versions(props: NodeProps) {
-  return (
-    <Shape {...VERSIONS} {...props} _style={extendStyle(VERSIONS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERSIONS)} />
 }

@@ -11,11 +11,5 @@ export const PRODUCTION_KANBAN = {
 }
 
 export function ProductionKanban(props: NodeProps) {
-  return (
-    <Shape
-      {...PRODUCTION_KANBAN}
-      {...props}
-      _style={extendStyle(PRODUCTION_KANBAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRODUCTION_KANBAN)} />
 }

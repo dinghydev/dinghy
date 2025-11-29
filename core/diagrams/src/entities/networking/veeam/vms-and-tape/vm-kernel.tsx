@@ -11,7 +11,5 @@ export const VM_KERNEL = {
 }
 
 export function VmKernel(props: NodeProps) {
-  return (
-    <Shape {...VM_KERNEL} {...props} _style={extendStyle(VM_KERNEL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_KERNEL)} />
 }

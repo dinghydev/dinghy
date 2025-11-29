@@ -12,10 +12,6 @@ export const RETROSPECTIVE_SECURITY = {
 
 export function RetrospectiveSecurity(props: NodeProps) {
   return (
-    <Shape
-      {...RETROSPECTIVE_SECURITY}
-      {...props}
-      _style={extendStyle(RETROSPECTIVE_SECURITY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RETROSPECTIVE_SECURITY)} />
   )
 }

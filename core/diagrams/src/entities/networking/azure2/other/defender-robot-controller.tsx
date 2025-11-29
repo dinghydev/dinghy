@@ -12,10 +12,6 @@ export const DEFENDER_ROBOT_CONTROLLER = {
 
 export function DefenderRobotController(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_ROBOT_CONTROLLER}
-      {...props}
-      _style={extendStyle(DEFENDER_ROBOT_CONTROLLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_ROBOT_CONTROLLER)} />
   )
 }

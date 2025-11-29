@@ -11,5 +11,5 @@ export const MQ = {
 }
 
 export function Mq(props: NodeProps) {
-  return <Shape {...MQ} {...props} _style={extendStyle(MQ, props)} />
+  return <Shape {...props} _style={extendStyle(props, MQ)} />
 }

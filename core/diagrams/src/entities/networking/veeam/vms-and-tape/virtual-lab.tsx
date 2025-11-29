@@ -11,11 +11,5 @@ export const VIRTUAL_LAB = {
 }
 
 export function VirtualLab(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_LAB}
-      {...props}
-      _style={extendStyle(VIRTUAL_LAB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_LAB)} />
 }

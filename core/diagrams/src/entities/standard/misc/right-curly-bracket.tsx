@@ -11,11 +11,5 @@ export const RIGHT_CURLY_BRACKET = {
 }
 
 export function RightCurlyBracket(props: NodeProps) {
-  return (
-    <Shape
-      {...RIGHT_CURLY_BRACKET}
-      {...props}
-      _style={extendStyle(RIGHT_CURLY_BRACKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIGHT_CURLY_BRACKET)} />
 }

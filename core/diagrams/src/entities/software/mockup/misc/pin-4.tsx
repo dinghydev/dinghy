@@ -11,5 +11,5 @@ export const PIN_4 = {
 }
 
 export function Pin4(props: NodeProps) {
-  return <Shape {...PIN_4} {...props} _style={extendStyle(PIN_4, props)} />
+  return <Shape {...props} _style={extendStyle(props, PIN_4)} />
 }

@@ -13,9 +13,8 @@ export const INTUNE_CERTIFICATE_PROFILES = {
 export function IntuneCertificateProfiles(props: NodeProps) {
   return (
     <Shape
-      {...INTUNE_CERTIFICATE_PROFILES}
       {...props}
-      _style={extendStyle(INTUNE_CERTIFICATE_PROFILES, props)}
+      _style={extendStyle(props, INTUNE_CERTIFICATE_PROFILES)}
     />
   )
 }

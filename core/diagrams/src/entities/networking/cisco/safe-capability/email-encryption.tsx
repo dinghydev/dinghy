@@ -11,11 +11,5 @@ export const EMAIL_ENCRYPTION = {
 }
 
 export function EmailEncryption(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_ENCRYPTION}
-      {...props}
-      _style={extendStyle(EMAIL_ENCRYPTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_ENCRYPTION)} />
 }

@@ -13,9 +13,8 @@ export const AWS_SERVERLESS_APPLICATION_REPOSITORY = {
 export function AwsServerlessApplicationRepository(props: NodeProps) {
   return (
     <Shape
-      {...AWS_SERVERLESS_APPLICATION_REPOSITORY}
       {...props}
-      _style={extendStyle(AWS_SERVERLESS_APPLICATION_REPOSITORY, props)}
+      _style={extendStyle(props, AWS_SERVERLESS_APPLICATION_REPOSITORY)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const IBM_1U_FLAT_PANEL_CONSOLE_KIT = {
 export function Ibm1uFlatPanelConsoleKit(props: NodeProps) {
   return (
     <Shape
-      {...IBM_1U_FLAT_PANEL_CONSOLE_KIT}
       {...props}
-      _style={extendStyle(IBM_1U_FLAT_PANEL_CONSOLE_KIT, props)}
+      _style={extendStyle(props, IBM_1U_FLAT_PANEL_CONSOLE_KIT)}
     />
   )
 }

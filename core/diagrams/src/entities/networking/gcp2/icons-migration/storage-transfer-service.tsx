@@ -12,10 +12,6 @@ export const STORAGE_TRANSFER_SERVICE = {
 
 export function StorageTransferService(props: NodeProps) {
   return (
-    <Shape
-      {...STORAGE_TRANSFER_SERVICE}
-      {...props}
-      _style={extendStyle(STORAGE_TRANSFER_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STORAGE_TRANSFER_SERVICE)} />
   )
 }

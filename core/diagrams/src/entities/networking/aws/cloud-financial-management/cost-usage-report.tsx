@@ -11,11 +11,5 @@ export const COST_USAGE_REPORT = {
 }
 
 export function CostUsageReport(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_USAGE_REPORT}
-      {...props}
-      _style={extendStyle(COST_USAGE_REPORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_USAGE_REPORT)} />
 }

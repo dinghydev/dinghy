@@ -11,11 +11,5 @@ export const IMMIGRATION = {
 }
 
 export function Immigration(props: NodeProps) {
-  return (
-    <Shape
-      {...IMMIGRATION}
-      {...props}
-      _style={extendStyle(IMMIGRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMMIGRATION)} />
 }

@@ -11,11 +11,5 @@ export const BACKUP_FOR_OFFICE_365 = {
 }
 
 export function BackupForOffice365(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_FOR_OFFICE_365}
-      {...props}
-      _style={extendStyle(BACKUP_FOR_OFFICE_365, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_FOR_OFFICE_365)} />
 }

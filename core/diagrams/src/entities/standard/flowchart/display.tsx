@@ -11,5 +11,5 @@ export const DISPLAY = {
 }
 
 export function Display(props: NodeProps) {
-  return <Shape {...DISPLAY} {...props} _style={extendStyle(DISPLAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, DISPLAY)} />
 }

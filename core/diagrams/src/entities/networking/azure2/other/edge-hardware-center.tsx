@@ -11,11 +11,5 @@ export const EDGE_HARDWARE_CENTER = {
 }
 
 export function EdgeHardwareCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_HARDWARE_CENTER}
-      {...props}
-      _style={extendStyle(EDGE_HARDWARE_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_HARDWARE_CENTER)} />
 }

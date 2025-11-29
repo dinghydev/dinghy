@@ -11,11 +11,5 @@ export const CLOUD_BASED = {
 }
 
 export function CloudBased(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_BASED}
-      {...props}
-      _style={extendStyle(CLOUD_BASED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_BASED)} />
 }

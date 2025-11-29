@@ -12,10 +12,6 @@ export const COMPRESSOR_AND_SILENCERS = {
 
 export function CompressorAndSilencers(props: NodeProps) {
   return (
-    <Shape
-      {...COMPRESSOR_AND_SILENCERS}
-      {...props}
-      _style={extendStyle(COMPRESSOR_AND_SILENCERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPRESSOR_AND_SILENCERS)} />
   )
 }

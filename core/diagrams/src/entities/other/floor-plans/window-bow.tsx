@@ -11,7 +11,5 @@ export const WINDOW_BOW = {
 }
 
 export function WindowBow(props: NodeProps) {
-  return (
-    <Shape {...WINDOW_BOW} {...props} _style={extendStyle(WINDOW_BOW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOW_BOW)} />
 }

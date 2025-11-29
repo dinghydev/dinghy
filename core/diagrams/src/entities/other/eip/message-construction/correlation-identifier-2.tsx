@@ -12,10 +12,6 @@ export const CORRELATION_IDENTIFIER_2 = {
 
 export function CorrelationIdentifier2(props: NodeProps) {
   return (
-    <Shape
-      {...CORRELATION_IDENTIFIER_2}
-      {...props}
-      _style={extendStyle(CORRELATION_IDENTIFIER_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CORRELATION_IDENTIFIER_2)} />
   )
 }

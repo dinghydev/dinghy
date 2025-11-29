@@ -13,9 +13,8 @@ export const CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM = {
 export function CiscoOns15310MaSdhMultiservicePlatform(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM}
       {...props}
-      _style={extendStyle(CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM, props)}
+      _style={extendStyle(props, CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM)}
     />
   )
 }

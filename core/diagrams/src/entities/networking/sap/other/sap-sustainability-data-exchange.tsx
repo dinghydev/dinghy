@@ -13,9 +13,8 @@ export const SAP_SUSTAINABILITY_DATA_EXCHANGE = {
 export function SapSustainabilityDataExchange(props: NodeProps) {
   return (
     <Shape
-      {...SAP_SUSTAINABILITY_DATA_EXCHANGE}
       {...props}
-      _style={extendStyle(SAP_SUSTAINABILITY_DATA_EXCHANGE, props)}
+      _style={extendStyle(props, SAP_SUSTAINABILITY_DATA_EXCHANGE)}
     />
   )
 }

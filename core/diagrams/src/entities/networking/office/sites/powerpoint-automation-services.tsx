@@ -13,9 +13,8 @@ export const POWERPOINT_AUTOMATION_SERVICES = {
 export function PowerpointAutomationServices(props: NodeProps) {
   return (
     <Shape
-      {...POWERPOINT_AUTOMATION_SERVICES}
       {...props}
-      _style={extendStyle(POWERPOINT_AUTOMATION_SERVICES, props)}
+      _style={extendStyle(props, POWERPOINT_AUTOMATION_SERVICES)}
     />
   )
 }

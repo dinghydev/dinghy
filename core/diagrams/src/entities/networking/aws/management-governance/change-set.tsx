@@ -11,7 +11,5 @@ export const CHANGE_SET = {
 }
 
 export function ChangeSet(props: NodeProps) {
-  return (
-    <Shape {...CHANGE_SET} {...props} _style={extendStyle(CHANGE_SET, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGE_SET)} />
 }

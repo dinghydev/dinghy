@@ -11,11 +11,5 @@ export const TAPE_LOCKED = {
 }
 
 export function TapeLocked(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_LOCKED}
-      {...props}
-      _style={extendStyle(TAPE_LOCKED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_LOCKED)} />
 }

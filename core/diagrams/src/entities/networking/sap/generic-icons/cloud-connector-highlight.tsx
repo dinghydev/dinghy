@@ -12,10 +12,6 @@ export const CLOUD_CONNECTOR_HIGHLIGHT = {
 
 export function CloudConnectorHighlight(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_CONNECTOR_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(CLOUD_CONNECTOR_HIGHLIGHT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_CONNECTOR_HIGHLIGHT)} />
   )
 }

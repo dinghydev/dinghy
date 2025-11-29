@@ -11,11 +11,5 @@ export const UNIVERSAL_STORAGE_API = {
 }
 
 export function UniversalStorageApi(props: NodeProps) {
-  return (
-    <Shape
-      {...UNIVERSAL_STORAGE_API}
-      {...props}
-      _style={extendStyle(UNIVERSAL_STORAGE_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNIVERSAL_STORAGE_API)} />
 }

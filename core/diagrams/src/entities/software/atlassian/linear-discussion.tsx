@@ -11,11 +11,5 @@ export const LINEAR_DISCUSSION = {
 }
 
 export function LinearDiscussion(props: NodeProps) {
-  return (
-    <Shape
-      {...LINEAR_DISCUSSION}
-      {...props}
-      _style={extendStyle(LINEAR_DISCUSSION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINEAR_DISCUSSION)} />
 }

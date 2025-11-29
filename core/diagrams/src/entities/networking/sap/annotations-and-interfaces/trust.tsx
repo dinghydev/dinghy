@@ -11,5 +11,5 @@ export const TRUST = {
 }
 
 export function Trust(props: NodeProps) {
-  return <Shape {...TRUST} {...props} _style={extendStyle(TRUST, props)} />
+  return <Shape {...props} _style={extendStyle(props, TRUST)} />
 }

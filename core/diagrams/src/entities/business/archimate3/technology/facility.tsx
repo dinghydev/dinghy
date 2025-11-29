@@ -11,7 +11,5 @@ export const FACILITY = {
 }
 
 export function Facility(props: NodeProps) {
-  return (
-    <Shape {...FACILITY} {...props} _style={extendStyle(FACILITY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACILITY)} />
 }

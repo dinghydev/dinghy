@@ -9,11 +9,5 @@ export const CONTROL_FLOW = {
 }
 
 export function ControlFlow(props: NodeProps) {
-  return (
-    <Dependency
-      {...CONTROL_FLOW}
-      {...props}
-      _style={extendStyle(CONTROL_FLOW, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, CONTROL_FLOW)} />
 }

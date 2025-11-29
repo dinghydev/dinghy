@@ -11,11 +11,5 @@ export const PHONE_TRADITIONAL = {
 }
 
 export function PhoneTraditional(props: NodeProps) {
-  return (
-    <Shape
-      {...PHONE_TRADITIONAL}
-      {...props}
-      _style={extendStyle(PHONE_TRADITIONAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_TRADITIONAL)} />
 }

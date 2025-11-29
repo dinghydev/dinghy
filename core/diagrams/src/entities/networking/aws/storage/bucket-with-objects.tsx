@@ -11,11 +11,5 @@ export const BUCKET_WITH_OBJECTS = {
 }
 
 export function BucketWithObjects(props: NodeProps) {
-  return (
-    <Shape
-      {...BUCKET_WITH_OBJECTS}
-      {...props}
-      _style={extendStyle(BUCKET_WITH_OBJECTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUCKET_WITH_OBJECTS)} />
 }

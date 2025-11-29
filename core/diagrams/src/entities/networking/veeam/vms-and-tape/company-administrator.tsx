@@ -11,11 +11,5 @@ export const COMPANY_ADMINISTRATOR = {
 }
 
 export function CompanyAdministrator(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPANY_ADMINISTRATOR}
-      {...props}
-      _style={extendStyle(COMPANY_ADMINISTRATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPANY_ADMINISTRATOR)} />
 }

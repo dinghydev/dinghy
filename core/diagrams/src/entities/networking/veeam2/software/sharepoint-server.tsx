@@ -11,11 +11,5 @@ export const SHAREPOINT_SERVER = {
 }
 
 export function SharepointServer(props: NodeProps) {
-  return (
-    <Shape
-      {...SHAREPOINT_SERVER}
-      {...props}
-      _style={extendStyle(SHAREPOINT_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHAREPOINT_SERVER)} />
 }

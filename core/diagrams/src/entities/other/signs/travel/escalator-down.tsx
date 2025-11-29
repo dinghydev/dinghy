@@ -11,11 +11,5 @@ export const ESCALATOR_DOWN = {
 }
 
 export function EscalatorDown(props: NodeProps) {
-  return (
-    <Shape
-      {...ESCALATOR_DOWN}
-      {...props}
-      _style={extendStyle(ESCALATOR_DOWN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ESCALATOR_DOWN)} />
 }

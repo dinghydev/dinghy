@@ -11,11 +11,5 @@ export const QUEUE_GENERIC = {
 }
 
 export function QueueGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...QUEUE_GENERIC}
-      {...props}
-      _style={extendStyle(QUEUE_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUEUE_GENERIC)} />
 }

@@ -11,5 +11,5 @@ export const DRAW_IO = {
 }
 
 export function DrawIo(props: NodeProps) {
-  return <Shape {...DRAW_IO} {...props} _style={extendStyle(DRAW_IO, props)} />
+  return <Shape {...props} _style={extendStyle(props, DRAW_IO)} />
 }

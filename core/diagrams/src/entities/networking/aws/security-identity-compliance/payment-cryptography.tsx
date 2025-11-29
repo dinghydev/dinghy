@@ -11,11 +11,5 @@ export const PAYMENT_CRYPTOGRAPHY = {
 }
 
 export function PaymentCryptography(props: NodeProps) {
-  return (
-    <Shape
-      {...PAYMENT_CRYPTOGRAPHY}
-      {...props}
-      _style={extendStyle(PAYMENT_CRYPTOGRAPHY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAYMENT_CRYPTOGRAPHY)} />
 }

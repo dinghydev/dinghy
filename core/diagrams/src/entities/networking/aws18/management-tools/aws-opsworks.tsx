@@ -11,11 +11,5 @@ export const AWS_OPSWORKS = {
 }
 
 export function AwsOpsworks(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_OPSWORKS}
-      {...props}
-      _style={extendStyle(AWS_OPSWORKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_OPSWORKS)} />
 }

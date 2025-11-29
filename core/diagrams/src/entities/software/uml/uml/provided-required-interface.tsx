@@ -13,9 +13,8 @@ export const PROVIDED_REQUIRED_INTERFACE = {
 export function ProvidedRequiredInterface(props: NodeProps) {
   return (
     <Shape
-      {...PROVIDED_REQUIRED_INTERFACE}
       {...props}
-      _style={extendStyle(PROVIDED_REQUIRED_INTERFACE, props)}
+      _style={extendStyle(props, PROVIDED_REQUIRED_INTERFACE)}
     />
   )
 }

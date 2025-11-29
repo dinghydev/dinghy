@@ -13,9 +13,8 @@ export const MEMBERSHIP_SERVICES_PROVIDER_API = {
 export function MembershipServicesProviderApi(props: NodeProps) {
   return (
     <Shape
-      {...MEMBERSHIP_SERVICES_PROVIDER_API}
       {...props}
-      _style={extendStyle(MEMBERSHIP_SERVICES_PROVIDER_API, props)}
+      _style={extendStyle(props, MEMBERSHIP_SERVICES_PROVIDER_API)}
     />
   )
 }

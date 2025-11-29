@@ -11,5 +11,5 @@ export const MACIE = {
 }
 
 export function Macie(props: NodeProps) {
-  return <Shape {...MACIE} {...props} _style={extendStyle(MACIE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MACIE)} />
 }

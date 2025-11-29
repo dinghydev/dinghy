@@ -11,11 +11,5 @@ export const CONTROL_PLANE = {
 }
 
 export function ControlPlane(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_PLANE}
-      {...props}
-      _style={extendStyle(CONTROL_PLANE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_PLANE)} />
 }

@@ -12,10 +12,6 @@ export const ELASTIC_NETWORK_INTERFACE = {
 
 export function ElasticNetworkInterface(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_NETWORK_INTERFACE}
-      {...props}
-      _style={extendStyle(ELASTIC_NETWORK_INTERFACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_NETWORK_INTERFACE)} />
   )
 }

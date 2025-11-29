@@ -11,11 +11,5 @@ export const GLUE_DATA_CATALOG = {
 }
 
 export function GlueDataCatalog(props: NodeProps) {
-  return (
-    <Shape
-      {...GLUE_DATA_CATALOG}
-      {...props}
-      _style={extendStyle(GLUE_DATA_CATALOG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLUE_DATA_CATALOG)} />
 }

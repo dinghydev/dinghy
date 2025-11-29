@@ -11,11 +11,5 @@ export const IS4GEN_INSTANCE = {
 }
 
 export function Is4genInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...IS4GEN_INSTANCE}
-      {...props}
-      _style={extendStyle(IS4GEN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IS4GEN_INSTANCE)} />
 }

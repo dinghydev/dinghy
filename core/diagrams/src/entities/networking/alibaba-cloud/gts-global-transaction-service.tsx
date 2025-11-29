@@ -13,9 +13,8 @@ export const GTS_GLOBAL_TRANSACTION_SERVICE = {
 export function GtsGlobalTransactionService(props: NodeProps) {
   return (
     <Shape
-      {...GTS_GLOBAL_TRANSACTION_SERVICE}
       {...props}
-      _style={extendStyle(GTS_GLOBAL_TRANSACTION_SERVICE, props)}
+      _style={extendStyle(props, GTS_GLOBAL_TRANSACTION_SERVICE)}
     />
   )
 }

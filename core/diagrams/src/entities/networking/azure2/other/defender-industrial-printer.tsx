@@ -13,9 +13,8 @@ export const DEFENDER_INDUSTRIAL_PRINTER = {
 export function DefenderIndustrialPrinter(props: NodeProps) {
   return (
     <Shape
-      {...DEFENDER_INDUSTRIAL_PRINTER}
       {...props}
-      _style={extendStyle(DEFENDER_INDUSTRIAL_PRINTER, props)}
+      _style={extendStyle(props, DEFENDER_INDUSTRIAL_PRINTER)}
     />
   )
 }

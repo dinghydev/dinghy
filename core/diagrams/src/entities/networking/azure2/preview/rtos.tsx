@@ -11,5 +11,5 @@ export const RTOS = {
 }
 
 export function Rtos(props: NodeProps) {
-  return <Shape {...RTOS} {...props} _style={extendStyle(RTOS, props)} />
+  return <Shape {...props} _style={extendStyle(props, RTOS)} />
 }

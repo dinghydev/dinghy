@@ -11,11 +11,5 @@ export const Y_TYPE_STRAINER = {
 }
 
 export function YTypeStrainer(props: NodeProps) {
-  return (
-    <Shape
-      {...Y_TYPE_STRAINER}
-      {...props}
-      _style={extendStyle(Y_TYPE_STRAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, Y_TYPE_STRAINER)} />
 }

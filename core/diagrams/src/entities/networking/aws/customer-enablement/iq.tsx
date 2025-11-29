@@ -11,5 +11,5 @@ export const IQ = {
 }
 
 export function Iq(props: NodeProps) {
-  return <Shape {...IQ} {...props} _style={extendStyle(IQ, props)} />
+  return <Shape {...props} _style={extendStyle(props, IQ)} />
 }

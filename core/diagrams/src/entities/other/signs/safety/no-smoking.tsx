@@ -11,7 +11,5 @@ export const NO_SMOKING = {
 }
 
 export function NoSmoking(props: NodeProps) {
-  return (
-    <Shape {...NO_SMOKING} {...props} _style={extendStyle(NO_SMOKING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NO_SMOKING)} />
 }

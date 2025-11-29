@@ -13,9 +13,8 @@ export const CENTRAL_ADMINISTRATION_SITE_SQL = {
 export function CentralAdministrationSiteSql(props: NodeProps) {
   return (
     <Shape
-      {...CENTRAL_ADMINISTRATION_SITE_SQL}
       {...props}
-      _style={extendStyle(CENTRAL_ADMINISTRATION_SITE_SQL, props)}
+      _style={extendStyle(props, CENTRAL_ADMINISTRATION_SITE_SQL)}
     />
   )
 }

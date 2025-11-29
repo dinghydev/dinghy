@@ -11,11 +11,5 @@ export const UM_AUTO_ATTENDANT = {
 }
 
 export function UmAutoAttendant(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_AUTO_ATTENDANT}
-      {...props}
-      _style={extendStyle(UM_AUTO_ATTENDANT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_AUTO_ATTENDANT)} />
 }

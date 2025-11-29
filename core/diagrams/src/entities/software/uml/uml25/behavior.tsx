@@ -11,7 +11,5 @@ export const BEHAVIOR = {
 }
 
 export function Behavior(props: NodeProps) {
-  return (
-    <Shape {...BEHAVIOR} {...props} _style={extendStyle(BEHAVIOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEHAVIOR)} />
 }

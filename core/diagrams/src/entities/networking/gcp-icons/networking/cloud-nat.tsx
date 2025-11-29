@@ -11,7 +11,5 @@ export const CLOUD_NAT = {
 }
 
 export function CloudNat(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_NAT} {...props} _style={extendStyle(CLOUD_NAT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_NAT)} />
 }

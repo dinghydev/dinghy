@@ -11,11 +11,5 @@ export const X11960_COUNTER = {
 }
 
 export function X11960Counter(props: NodeProps) {
-  return (
-    <Shape
-      {...X11960_COUNTER}
-      {...props}
-      _style={extendStyle(X11960_COUNTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11960_COUNTER)} />
 }

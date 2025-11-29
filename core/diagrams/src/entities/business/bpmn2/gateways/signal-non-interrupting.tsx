@@ -12,10 +12,6 @@ export const SIGNAL_NON_INTERRUPTING = {
 
 export function SignalNonInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...SIGNAL_NON_INTERRUPTING}
-      {...props}
-      _style={extendStyle(SIGNAL_NON_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SIGNAL_NON_INTERRUPTING)} />
   )
 }

@@ -11,5 +11,5 @@ export const DATA_2 = {
 }
 
 export function Data2(props: NodeProps) {
-  return <Shape {...DATA_2} {...props} _style={extendStyle(DATA_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, DATA_2)} />
 }

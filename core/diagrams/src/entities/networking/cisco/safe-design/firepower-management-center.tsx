@@ -13,9 +13,8 @@ export const FIREPOWER_MANAGEMENT_CENTER = {
 export function FirepowerManagementCenter(props: NodeProps) {
   return (
     <Shape
-      {...FIREPOWER_MANAGEMENT_CENTER}
       {...props}
-      _style={extendStyle(FIREPOWER_MANAGEMENT_CENTER, props)}
+      _style={extendStyle(props, FIREPOWER_MANAGEMENT_CENTER)}
     />
   )
 }

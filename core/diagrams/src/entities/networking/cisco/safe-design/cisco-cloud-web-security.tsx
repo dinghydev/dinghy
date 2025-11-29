@@ -12,10 +12,6 @@ export const CISCO_CLOUD_WEB_SECURITY = {
 
 export function CiscoCloudWebSecurity(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_CLOUD_WEB_SECURITY}
-      {...props}
-      _style={extendStyle(CISCO_CLOUD_WEB_SECURITY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_CLOUD_WEB_SECURITY)} />
   )
 }

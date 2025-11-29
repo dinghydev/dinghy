@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_EDGE_SERVER = {
 export function SkypeForBusinessEdgeServer(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_EDGE_SERVER}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_EDGE_SERVER, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_EDGE_SERVER)}
     />
   )
 }

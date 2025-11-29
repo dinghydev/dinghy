@@ -13,9 +13,8 @@ export const X11550_DOUBLE_ACTING_CYLINDER = {
 export function X11550DoubleActingCylinder(props: NodeProps) {
   return (
     <Shape
-      {...X11550_DOUBLE_ACTING_CYLINDER}
       {...props}
-      _style={extendStyle(X11550_DOUBLE_ACTING_CYLINDER, props)}
+      _style={extendStyle(props, X11550_DOUBLE_ACTING_CYLINDER)}
     />
   )
 }

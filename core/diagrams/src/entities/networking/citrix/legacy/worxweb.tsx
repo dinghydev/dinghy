@@ -11,5 +11,5 @@ export const WORXWEB = {
 }
 
 export function Worxweb(props: NodeProps) {
-  return <Shape {...WORXWEB} {...props} _style={extendStyle(WORXWEB, props)} />
+  return <Shape {...props} _style={extendStyle(props, WORXWEB)} />
 }

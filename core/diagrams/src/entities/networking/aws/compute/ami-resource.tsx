@@ -11,11 +11,5 @@ export const AMI_RESOURCE = {
 }
 
 export function AmiResource(props: NodeProps) {
-  return (
-    <Shape
-      {...AMI_RESOURCE}
-      {...props}
-      _style={extendStyle(AMI_RESOURCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMI_RESOURCE)} />
 }

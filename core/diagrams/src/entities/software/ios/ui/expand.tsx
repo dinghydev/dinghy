@@ -11,5 +11,5 @@ export const EXPAND = {
 }
 
 export function Expand(props: NodeProps) {
-  return <Shape {...EXPAND} {...props} _style={extendStyle(EXPAND, props)} />
+  return <Shape {...props} _style={extendStyle(props, EXPAND)} />
 }

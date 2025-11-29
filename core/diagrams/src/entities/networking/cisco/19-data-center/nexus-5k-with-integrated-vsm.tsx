@@ -13,9 +13,8 @@ export const NEXUS_5K_WITH_INTEGRATED_VSM = {
 export function Nexus5kWithIntegratedVsm(props: NodeProps) {
   return (
     <Shape
-      {...NEXUS_5K_WITH_INTEGRATED_VSM}
       {...props}
-      _style={extendStyle(NEXUS_5K_WITH_INTEGRATED_VSM, props)}
+      _style={extendStyle(props, NEXUS_5K_WITH_INTEGRATED_VSM)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL = {
 export function X10920AdjustableOrificeFlowControl(props: NodeProps) {
   return (
     <Shape
-      {...X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL}
       {...props}
-      _style={extendStyle(X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL, props)}
+      _style={extendStyle(props, X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const OPENSEARCH_SERVICE = {
 }
 
 export function OpensearchService(props: NodeProps) {
-  return (
-    <Shape
-      {...OPENSEARCH_SERVICE}
-      {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPENSEARCH_SERVICE)} />
 }

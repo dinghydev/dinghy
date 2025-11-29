@@ -11,11 +11,5 @@ export const SERVERS_STACKED = {
 }
 
 export function ServersStacked(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVERS_STACKED}
-      {...props}
-      _style={extendStyle(SERVERS_STACKED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVERS_STACKED)} />
 }

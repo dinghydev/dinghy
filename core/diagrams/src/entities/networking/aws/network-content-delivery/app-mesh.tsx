@@ -11,7 +11,5 @@ export const APP_MESH = {
 }
 
 export function AppMesh(props: NodeProps) {
-  return (
-    <Shape {...APP_MESH} {...props} _style={extendStyle(APP_MESH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_MESH)} />
 }

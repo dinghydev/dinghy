@@ -11,11 +11,5 @@ export const POWERAUTOMATE = {
 }
 
 export function Powerautomate(props: NodeProps) {
-  return (
-    <Shape
-      {...POWERAUTOMATE}
-      {...props}
-      _style={extendStyle(POWERAUTOMATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERAUTOMATE)} />
 }

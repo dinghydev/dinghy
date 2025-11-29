@@ -12,10 +12,6 @@ export const MEDIA_CONVERTER_STANDALONE = {
 
 export function MediaConverterStandalone(props: NodeProps) {
   return (
-    <Shape
-      {...MEDIA_CONVERTER_STANDALONE}
-      {...props}
-      _style={extendStyle(MEDIA_CONVERTER_STANDALONE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MEDIA_CONVERTER_STANDALONE)} />
   )
 }

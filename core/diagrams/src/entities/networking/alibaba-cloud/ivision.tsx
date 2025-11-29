@@ -11,5 +11,5 @@ export const IVISION = {
 }
 
 export function Ivision(props: NodeProps) {
-  return <Shape {...IVISION} {...props} _style={extendStyle(IVISION, props)} />
+  return <Shape {...props} _style={extendStyle(props, IVISION)} />
 }

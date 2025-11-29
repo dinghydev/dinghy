@@ -11,5 +11,5 @@ export const POCKET = {
 }
 
 export function Pocket(props: NodeProps) {
-  return <Shape {...POCKET} {...props} _style={extendStyle(POCKET, props)} />
+  return <Shape {...props} _style={extendStyle(props, POCKET)} />
 }

@@ -11,7 +11,5 @@ export const CROSS_DOCK = {
 }
 
 export function CrossDock(props: NodeProps) {
-  return (
-    <Shape {...CROSS_DOCK} {...props} _style={extendStyle(CROSS_DOCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CROSS_DOCK)} />
 }

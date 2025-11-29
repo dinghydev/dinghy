@@ -11,11 +11,5 @@ export const CLASSIC_LOAD_BALANCER = {
 }
 
 export function ClassicLoadBalancer(props: NodeProps) {
-  return (
-    <Shape
-      {...CLASSIC_LOAD_BALANCER}
-      {...props}
-      _style={extendStyle(CLASSIC_LOAD_BALANCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLASSIC_LOAD_BALANCER)} />
 }

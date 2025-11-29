@@ -11,11 +11,5 @@ export const IDENTITY_DIRECTORY = {
 }
 
 export function IdentityDirectory(props: NodeProps) {
-  return (
-    <Shape
-      {...IDENTITY_DIRECTORY}
-      {...props}
-      _style={extendStyle(IDENTITY_DIRECTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDENTITY_DIRECTORY)} />
 }

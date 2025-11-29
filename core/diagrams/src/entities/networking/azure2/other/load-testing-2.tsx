@@ -11,11 +11,5 @@ export const LOAD_TESTING_2 = {
 }
 
 export function LoadTesting2(props: NodeProps) {
-  return (
-    <Shape
-      {...LOAD_TESTING_2}
-      {...props}
-      _style={extendStyle(LOAD_TESTING_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOAD_TESTING_2)} />
 }

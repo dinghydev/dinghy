@@ -12,10 +12,6 @@ export const GUEST_AGENT_CUSTOMIZATION = {
 
 export function GuestAgentCustomization(props: NodeProps) {
   return (
-    <Shape
-      {...GUEST_AGENT_CUSTOMIZATION}
-      {...props}
-      _style={extendStyle(GUEST_AGENT_CUSTOMIZATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GUEST_AGENT_CUSTOMIZATION)} />
   )
 }

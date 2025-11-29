@@ -11,11 +11,5 @@ export const VOLTAGE_REGULATOR = {
 }
 
 export function VoltageRegulator(props: NodeProps) {
-  return (
-    <Shape
-      {...VOLTAGE_REGULATOR}
-      {...props}
-      _style={extendStyle(VOLTAGE_REGULATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOLTAGE_REGULATOR)} />
 }

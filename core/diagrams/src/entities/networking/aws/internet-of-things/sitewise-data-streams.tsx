@@ -11,11 +11,5 @@ export const SITEWISE_DATA_STREAMS = {
 }
 
 export function SitewiseDataStreams(props: NodeProps) {
-  return (
-    <Shape
-      {...SITEWISE_DATA_STREAMS}
-      {...props}
-      _style={extendStyle(SITEWISE_DATA_STREAMS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SITEWISE_DATA_STREAMS)} />
 }

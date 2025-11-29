@@ -12,10 +12,6 @@ export const J9780A_2530_8_POE_REAR = {
 
 export function J9780a25308PoeRear(props: NodeProps) {
   return (
-    <Shape
-      {...J9780A_2530_8_POE_REAR}
-      {...props}
-      _style={extendStyle(J9780A_2530_8_POE_REAR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, J9780A_2530_8_POE_REAR)} />
   )
 }

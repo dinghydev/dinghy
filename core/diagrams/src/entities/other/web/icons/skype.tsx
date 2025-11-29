@@ -11,5 +11,5 @@ export const SKYPE = {
 }
 
 export function Skype(props: NodeProps) {
-  return <Shape {...SKYPE} {...props} _style={extendStyle(SKYPE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SKYPE)} />
 }

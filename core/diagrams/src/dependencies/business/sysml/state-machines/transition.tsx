@@ -9,11 +9,5 @@ export const TRANSITION = {
 }
 
 export function Transition(props: NodeProps) {
-  return (
-    <Dependency
-      {...TRANSITION}
-      {...props}
-      _style={extendStyle(TRANSITION, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, TRANSITION)} />
 }

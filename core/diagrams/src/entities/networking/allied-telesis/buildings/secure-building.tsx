@@ -11,11 +11,5 @@ export const SECURE_BUILDING = {
 }
 
 export function SecureBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_BUILDING}
-      {...props}
-      _style={extendStyle(SECURE_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_BUILDING)} />
 }

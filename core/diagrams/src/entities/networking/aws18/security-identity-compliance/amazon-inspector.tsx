@@ -11,11 +11,5 @@ export const AMAZON_INSPECTOR = {
 }
 
 export function AmazonInspector(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_INSPECTOR}
-      {...props}
-      _style={extendStyle(AMAZON_INSPECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_INSPECTOR)} />
 }

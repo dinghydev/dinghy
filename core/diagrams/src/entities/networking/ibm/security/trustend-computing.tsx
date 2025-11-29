@@ -11,11 +11,5 @@ export const TRUSTEND_COMPUTING = {
 }
 
 export function TrustendComputing(props: NodeProps) {
-  return (
-    <Shape
-      {...TRUSTEND_COMPUTING}
-      {...props}
-      _style={extendStyle(TRUSTEND_COMPUTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRUSTEND_COMPUTING)} />
 }

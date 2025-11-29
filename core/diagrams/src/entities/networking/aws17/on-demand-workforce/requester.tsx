@@ -11,7 +11,5 @@ export const REQUESTER = {
 }
 
 export function Requester(props: NodeProps) {
-  return (
-    <Shape {...REQUESTER} {...props} _style={extendStyle(REQUESTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REQUESTER)} />
 }

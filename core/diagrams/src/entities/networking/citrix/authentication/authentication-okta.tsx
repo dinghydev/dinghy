@@ -11,11 +11,5 @@ export const AUTHENTICATION_OKTA = {
 }
 
 export function AuthenticationOkta(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_OKTA}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_OKTA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_OKTA)} />
 }

@@ -13,9 +13,8 @@ export const WINDOWS_NOTIFICATION_SERVICES = {
 export function WindowsNotificationServices(props: NodeProps) {
   return (
     <Shape
-      {...WINDOWS_NOTIFICATION_SERVICES}
       {...props}
-      _style={extendStyle(WINDOWS_NOTIFICATION_SERVICES, props)}
+      _style={extendStyle(props, WINDOWS_NOTIFICATION_SERVICES)}
     />
   )
 }

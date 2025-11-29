@@ -11,11 +11,5 @@ export const FUJITSU_TABLET = {
 }
 
 export function FujitsuTablet(props: NodeProps) {
-  return (
-    <Shape
-      {...FUJITSU_TABLET}
-      {...props}
-      _style={extendStyle(FUJITSU_TABLET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FUJITSU_TABLET)} />
 }

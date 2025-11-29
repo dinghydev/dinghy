@@ -11,7 +11,5 @@ export const ROUTER_UTM = {
 }
 
 export function RouterUtm(props: NodeProps) {
-  return (
-    <Shape {...ROUTER_UTM} {...props} _style={extendStyle(ROUTER_UTM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTER_UTM)} />
 }

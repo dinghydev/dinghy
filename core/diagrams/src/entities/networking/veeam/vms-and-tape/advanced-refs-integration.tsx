@@ -12,10 +12,6 @@ export const ADVANCED_REFS_INTEGRATION = {
 
 export function AdvancedRefsIntegration(props: NodeProps) {
   return (
-    <Shape
-      {...ADVANCED_REFS_INTEGRATION}
-      {...props}
-      _style={extendStyle(ADVANCED_REFS_INTEGRATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ADVANCED_REFS_INTEGRATION)} />
   )
 }

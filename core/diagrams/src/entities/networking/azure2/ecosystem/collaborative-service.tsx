@@ -11,11 +11,5 @@ export const COLLABORATIVE_SERVICE = {
 }
 
 export function CollaborativeService(props: NodeProps) {
-  return (
-    <Shape
-      {...COLLABORATIVE_SERVICE}
-      {...props}
-      _style={extendStyle(COLLABORATIVE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLLABORATIVE_SERVICE)} />
 }

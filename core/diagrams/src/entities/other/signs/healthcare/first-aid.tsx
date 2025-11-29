@@ -11,7 +11,5 @@ export const FIRST_AID = {
 }
 
 export function FirstAid(props: NodeProps) {
-  return (
-    <Shape {...FIRST_AID} {...props} _style={extendStyle(FIRST_AID, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIRST_AID)} />
 }

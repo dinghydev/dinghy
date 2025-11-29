@@ -12,10 +12,6 @@ export const RECIPROCATING_COMPRESSOR_2 = {
 
 export function ReciprocatingCompressor2(props: NodeProps) {
   return (
-    <Shape
-      {...RECIPROCATING_COMPRESSOR_2}
-      {...props}
-      _style={extendStyle(RECIPROCATING_COMPRESSOR_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RECIPROCATING_COMPRESSOR_2)} />
   )
 }

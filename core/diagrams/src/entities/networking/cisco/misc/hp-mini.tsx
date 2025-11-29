@@ -11,5 +11,5 @@ export const HP_MINI = {
 }
 
 export function HpMini(props: NodeProps) {
-  return <Shape {...HP_MINI} {...props} _style={extendStyle(HP_MINI, props)} />
+  return <Shape {...props} _style={extendStyle(props, HP_MINI)} />
 }

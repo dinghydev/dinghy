@@ -11,11 +11,5 @@ export const SINK_DOUBLE = {
 }
 
 export function SinkDouble(props: NodeProps) {
-  return (
-    <Shape
-      {...SINK_DOUBLE}
-      {...props}
-      _style={extendStyle(SINK_DOUBLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINK_DOUBLE)} />
 }

@@ -12,11 +12,5 @@ export const PUBLIC_NETWORK = {
 }
 
 export function PublicNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...PUBLIC_NETWORK}
-      {...props}
-      _style={extendStyle(PUBLIC_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUBLIC_NETWORK)} />
 }

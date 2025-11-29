@@ -12,10 +12,6 @@ export const AWS_COST_AND_USAGE_REPORT = {
 
 export function AwsCostAndUsageReport(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_COST_AND_USAGE_REPORT}
-      {...props}
-      _style={extendStyle(AWS_COST_AND_USAGE_REPORT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_COST_AND_USAGE_REPORT)} />
   )
 }

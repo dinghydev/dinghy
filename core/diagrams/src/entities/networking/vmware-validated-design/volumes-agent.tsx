@@ -11,11 +11,5 @@ export const VOLUMES_AGENT = {
 }
 
 export function VolumesAgent(props: NodeProps) {
-  return (
-    <Shape
-      {...VOLUMES_AGENT}
-      {...props}
-      _style={extendStyle(VOLUMES_AGENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOLUMES_AGENT)} />
 }

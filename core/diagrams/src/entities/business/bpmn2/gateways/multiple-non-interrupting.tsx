@@ -12,10 +12,6 @@ export const MULTIPLE_NON_INTERRUPTING = {
 
 export function MultipleNonInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...MULTIPLE_NON_INTERRUPTING}
-      {...props}
-      _style={extendStyle(MULTIPLE_NON_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTIPLE_NON_INTERRUPTING)} />
   )
 }

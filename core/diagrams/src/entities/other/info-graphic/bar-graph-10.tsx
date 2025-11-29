@@ -11,11 +11,5 @@ export const BAR_GRAPH_10 = {
 }
 
 export function BarGraph10(props: NodeProps) {
-  return (
-    <Shape
-      {...BAR_GRAPH_10}
-      {...props}
-      _style={extendStyle(BAR_GRAPH_10, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BAR_GRAPH_10)} />
 }

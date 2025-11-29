@@ -11,11 +11,5 @@ export const BUILDING_HIGHLIGHT = {
 }
 
 export function BuildingHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...BUILDING_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(BUILDING_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUILDING_HIGHLIGHT)} />
 }

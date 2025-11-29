@@ -11,5 +11,5 @@ export const SPACING = {
 }
 
 export function Spacing(props: NodeProps) {
-  return <Shape {...SPACING} {...props} _style={extendStyle(SPACING, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPACING)} />
 }

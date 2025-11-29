@@ -11,5 +11,5 @@ export const UBR910 = {
 }
 
 export function Ubr910(props: NodeProps) {
-  return <Shape {...UBR910} {...props} _style={extendStyle(UBR910, props)} />
+  return <Shape {...props} _style={extendStyle(props, UBR910)} />
 }

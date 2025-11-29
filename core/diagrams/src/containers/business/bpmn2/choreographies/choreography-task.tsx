@@ -9,11 +9,5 @@ export const CHOREOGRAPHY_TASK = {
 }
 
 export function ChoreographyTask(props: NodeProps) {
-  return (
-    <Shape
-      {...CHOREOGRAPHY_TASK}
-      {...props}
-      _style={extendStyle(CHOREOGRAPHY_TASK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHOREOGRAPHY_TASK)} />
 }

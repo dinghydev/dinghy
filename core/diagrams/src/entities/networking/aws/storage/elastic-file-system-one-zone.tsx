@@ -13,9 +13,8 @@ export const ELASTIC_FILE_SYSTEM_ONE_ZONE = {
 export function ElasticFileSystemOneZone(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_FILE_SYSTEM_ONE_ZONE}
       {...props}
-      _style={extendStyle(ELASTIC_FILE_SYSTEM_ONE_ZONE, props)}
+      _style={extendStyle(props, ELASTIC_FILE_SYSTEM_ONE_ZONE)}
     />
   )
 }

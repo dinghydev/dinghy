@@ -11,11 +11,5 @@ export const HOME_PAGE_CONTROL = {
 }
 
 export function HomePageControl(props: NodeProps) {
-  return (
-    <Shape
-      {...HOME_PAGE_CONTROL}
-      {...props}
-      _style={extendStyle(HOME_PAGE_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_PAGE_CONTROL)} />
 }

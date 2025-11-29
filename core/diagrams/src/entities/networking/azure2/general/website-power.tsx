@@ -11,11 +11,5 @@ export const WEBSITE_POWER = {
 }
 
 export function WebsitePower(props: NodeProps) {
-  return (
-    <Shape
-      {...WEBSITE_POWER}
-      {...props}
-      _style={extendStyle(WEBSITE_POWER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBSITE_POWER)} />
 }

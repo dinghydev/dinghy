@@ -12,10 +12,6 @@ export const SURVIVABLE_BRANCH_SERVER = {
 
 export function SurvivableBranchServer(props: NodeProps) {
   return (
-    <Shape
-      {...SURVIVABLE_BRANCH_SERVER}
-      {...props}
-      _style={extendStyle(SURVIVABLE_BRANCH_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SURVIVABLE_BRANCH_SERVER)} />
   )
 }

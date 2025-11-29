@@ -11,7 +11,5 @@ export const ISO_FILE = {
 }
 
 export function IsoFile(props: NodeProps) {
-  return (
-    <Shape {...ISO_FILE} {...props} _style={extendStyle(ISO_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISO_FILE)} />
 }

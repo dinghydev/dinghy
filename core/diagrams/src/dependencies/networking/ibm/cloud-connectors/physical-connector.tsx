@@ -10,10 +10,6 @@ export const PHYSICAL_CONNECTOR = {
 
 export function PhysicalConnector(props: NodeProps) {
   return (
-    <Dependency
-      {...PHYSICAL_CONNECTOR}
-      {...props}
-      _style={extendStyle(PHYSICAL_CONNECTOR, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, PHYSICAL_CONNECTOR)} />
   )
 }

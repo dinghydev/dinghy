@@ -11,11 +11,5 @@ export const DATA_INCREASE = {
 }
 
 export function DataIncrease(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_INCREASE}
-      {...props}
-      _style={extendStyle(DATA_INCREASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_INCREASE)} />
 }

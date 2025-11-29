@@ -11,11 +11,5 @@ export const PREFERENCES = {
 }
 
 export function Preferences(props: NodeProps) {
-  return (
-    <Shape
-      {...PREFERENCES}
-      {...props}
-      _style={extendStyle(PREFERENCES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PREFERENCES)} />
 }

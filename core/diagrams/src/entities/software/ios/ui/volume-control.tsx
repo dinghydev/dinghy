@@ -11,11 +11,5 @@ export const VOLUME_CONTROL = {
 }
 
 export function VolumeControl(props: NodeProps) {
-  return (
-    <Shape
-      {...VOLUME_CONTROL}
-      {...props}
-      _style={extendStyle(VOLUME_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOLUME_CONTROL)} />
 }

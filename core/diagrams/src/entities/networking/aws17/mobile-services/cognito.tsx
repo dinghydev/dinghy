@@ -11,5 +11,5 @@ export const COGNITO = {
 }
 
 export function Cognito(props: NodeProps) {
-  return <Shape {...COGNITO} {...props} _style={extendStyle(COGNITO, props)} />
+  return <Shape {...props} _style={extendStyle(props, COGNITO)} />
 }

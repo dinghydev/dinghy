@@ -11,5 +11,5 @@ export const FUNNEL = {
 }
 
 export function Funnel(props: NodeProps) {
-  return <Shape {...FUNNEL} {...props} _style={extendStyle(FUNNEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, FUNNEL)} />
 }

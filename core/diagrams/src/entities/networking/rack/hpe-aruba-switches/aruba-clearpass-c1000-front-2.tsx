@@ -13,9 +13,8 @@ export const ARUBA_CLEARPASS_C1000_FRONT_2 = {
 export function ArubaClearpassC1000Front2(props: NodeProps) {
   return (
     <Shape
-      {...ARUBA_CLEARPASS_C1000_FRONT_2}
       {...props}
-      _style={extendStyle(ARUBA_CLEARPASS_C1000_FRONT_2, props)}
+      _style={extendStyle(props, ARUBA_CLEARPASS_C1000_FRONT_2)}
     />
   )
 }

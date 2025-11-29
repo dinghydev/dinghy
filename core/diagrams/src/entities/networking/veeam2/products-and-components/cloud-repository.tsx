@@ -11,11 +11,5 @@ export const CLOUD_REPOSITORY = {
 }
 
 export function CloudRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_REPOSITORY}
-      {...props}
-      _style={extendStyle(CLOUD_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_REPOSITORY)} />
 }

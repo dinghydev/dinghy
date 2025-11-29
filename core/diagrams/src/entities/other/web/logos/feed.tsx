@@ -11,5 +11,5 @@ export const FEED = {
 }
 
 export function Feed(props: NodeProps) {
-  return <Shape {...FEED} {...props} _style={extendStyle(FEED, props)} />
+  return <Shape {...props} _style={extendStyle(props, FEED)} />
 }

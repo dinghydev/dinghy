@@ -11,11 +11,5 @@ export const SERVER_RACK_PARTIAL = {
 }
 
 export function ServerRackPartial(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_RACK_PARTIAL}
-      {...props}
-      _style={extendStyle(SERVER_RACK_PARTIAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_RACK_PARTIAL)} />
 }

@@ -13,9 +13,8 @@ export const THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER = {
 export function ThermistorWithIndependentIntegralHeater(props: NodeProps) {
   return (
     <Shape
-      {...THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER}
       {...props}
-      _style={extendStyle(THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER, props)}
+      _style={extendStyle(props, THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER)}
     />
   )
 }

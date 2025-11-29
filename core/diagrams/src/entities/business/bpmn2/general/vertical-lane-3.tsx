@@ -11,11 +11,5 @@ export const VERTICAL_LANE_3 = {
 }
 
 export function VerticalLane3(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_LANE_3}
-      {...props}
-      _style={extendStyle(VERTICAL_LANE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_LANE_3)} />
 }

@@ -11,11 +11,5 @@ export const MONITORING_STORE = {
 }
 
 export function MonitoringStore(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITORING_STORE}
-      {...props}
-      _style={extendStyle(MONITORING_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITORING_STORE)} />
 }

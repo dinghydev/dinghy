@@ -13,9 +13,8 @@ export const SECTION_HEADER_DISABLED_BRIGHT = {
 export function SectionHeaderDisabledBright(props: NodeProps) {
   return (
     <Shape
-      {...SECTION_HEADER_DISABLED_BRIGHT}
       {...props}
-      _style={extendStyle(SECTION_HEADER_DISABLED_BRIGHT, props)}
+      _style={extendStyle(props, SECTION_HEADER_DISABLED_BRIGHT)}
     />
   )
 }

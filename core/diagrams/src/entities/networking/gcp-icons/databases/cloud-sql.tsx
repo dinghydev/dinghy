@@ -11,7 +11,5 @@ export const CLOUD_SQL = {
 }
 
 export function CloudSql(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_SQL} {...props} _style={extendStyle(CLOUD_SQL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SQL)} />
 }

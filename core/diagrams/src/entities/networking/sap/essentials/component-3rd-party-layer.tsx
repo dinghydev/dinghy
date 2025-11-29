@@ -12,10 +12,6 @@ export const COMPONENT_3RD_PARTY_LAYER = {
 
 export function Component3rdPartyLayer(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_3RD_PARTY_LAYER}
-      {...props}
-      _style={extendStyle(COMPONENT_3RD_PARTY_LAYER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_3RD_PARTY_LAYER)} />
   )
 }

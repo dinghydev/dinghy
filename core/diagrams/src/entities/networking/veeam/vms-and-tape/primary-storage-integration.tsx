@@ -13,9 +13,8 @@ export const PRIMARY_STORAGE_INTEGRATION = {
 export function PrimaryStorageIntegration(props: NodeProps) {
   return (
     <Shape
-      {...PRIMARY_STORAGE_INTEGRATION}
       {...props}
-      _style={extendStyle(PRIMARY_STORAGE_INTEGRATION, props)}
+      _style={extendStyle(props, PRIMARY_STORAGE_INTEGRATION)}
     />
   )
 }

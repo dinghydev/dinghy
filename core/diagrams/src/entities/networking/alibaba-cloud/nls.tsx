@@ -11,5 +11,5 @@ export const NLS = {
 }
 
 export function Nls(props: NodeProps) {
-  return <Shape {...NLS} {...props} _style={extendStyle(NLS, props)} />
+  return <Shape {...props} _style={extendStyle(props, NLS)} />
 }

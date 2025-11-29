@@ -12,10 +12,6 @@ export const CONTENT_DELIVERY_NETWORK = {
 
 export function ContentDeliveryNetwork(props: NodeProps) {
   return (
-    <Shape
-      {...CONTENT_DELIVERY_NETWORK}
-      {...props}
-      _style={extendStyle(CONTENT_DELIVERY_NETWORK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTENT_DELIVERY_NETWORK)} />
   )
 }

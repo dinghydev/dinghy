@@ -8,11 +8,5 @@ export const DATA_FLOW = {
 }
 
 export function DataFlow(props: NodeProps) {
-  return (
-    <Dependency
-      {...DATA_FLOW}
-      {...props}
-      _style={extendStyle(DATA_FLOW, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DATA_FLOW)} />
 }

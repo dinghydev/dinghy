@@ -11,7 +11,5 @@ export const BIZDEVOPS = {
 }
 
 export function Bizdevops(props: NodeProps) {
-  return (
-    <Shape {...BIZDEVOPS} {...props} _style={extendStyle(BIZDEVOPS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIZDEVOPS)} />
 }

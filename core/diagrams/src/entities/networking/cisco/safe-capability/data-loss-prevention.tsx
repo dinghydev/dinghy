@@ -11,11 +11,5 @@ export const DATA_LOSS_PREVENTION = {
 }
 
 export function DataLossPrevention(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_LOSS_PREVENTION}
-      {...props}
-      _style={extendStyle(DATA_LOSS_PREVENTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_LOSS_PREVENTION)} />
 }

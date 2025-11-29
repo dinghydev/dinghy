@@ -11,7 +11,5 @@ export const HALF_CLOUD = {
 }
 
 export function HalfCloud(props: NodeProps) {
-  return (
-    <Shape {...HALF_CLOUD} {...props} _style={extendStyle(HALF_CLOUD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HALF_CLOUD)} />
 }

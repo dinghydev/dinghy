@@ -11,11 +11,5 @@ export const PRESSURE_ACTUATED_ON = {
 }
 
 export function PressureActuatedOn(props: NodeProps) {
-  return (
-    <Shape
-      {...PRESSURE_ACTUATED_ON}
-      {...props}
-      _style={extendStyle(PRESSURE_ACTUATED_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRESSURE_ACTUATED_ON)} />
 }

@@ -12,10 +12,6 @@ export const VBR_CONFIGURATION_BACKUP = {
 
 export function VbrConfigurationBackup(props: NodeProps) {
   return (
-    <Shape
-      {...VBR_CONFIGURATION_BACKUP}
-      {...props}
-      _style={extendStyle(VBR_CONFIGURATION_BACKUP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VBR_CONFIGURATION_BACKUP)} />
   )
 }

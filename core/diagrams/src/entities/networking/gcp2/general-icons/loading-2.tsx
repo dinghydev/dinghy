@@ -11,7 +11,5 @@ export const LOADING_2 = {
 }
 
 export function Loading2(props: NodeProps) {
-  return (
-    <Shape {...LOADING_2} {...props} _style={extendStyle(LOADING_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOADING_2)} />
 }

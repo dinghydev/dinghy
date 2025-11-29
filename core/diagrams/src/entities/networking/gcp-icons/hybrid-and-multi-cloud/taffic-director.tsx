@@ -11,11 +11,5 @@ export const TAFFIC_DIRECTOR = {
 }
 
 export function TafficDirector(props: NodeProps) {
-  return (
-    <Shape
-      {...TAFFIC_DIRECTOR}
-      {...props}
-      _style={extendStyle(TAFFIC_DIRECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAFFIC_DIRECTOR)} />
 }

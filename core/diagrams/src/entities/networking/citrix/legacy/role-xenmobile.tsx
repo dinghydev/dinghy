@@ -11,11 +11,5 @@ export const ROLE_XENMOBILE = {
 }
 
 export function RoleXenmobile(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_XENMOBILE}
-      {...props}
-      _style={extendStyle(ROLE_XENMOBILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_XENMOBILE)} />
 }

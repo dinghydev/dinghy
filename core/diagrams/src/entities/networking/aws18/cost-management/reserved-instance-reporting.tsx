@@ -13,9 +13,8 @@ export const RESERVED_INSTANCE_REPORTING = {
 export function ReservedInstanceReporting(props: NodeProps) {
   return (
     <Shape
-      {...RESERVED_INSTANCE_REPORTING}
       {...props}
-      _style={extendStyle(RESERVED_INSTANCE_REPORTING, props)}
+      _style={extendStyle(props, RESERVED_INSTANCE_REPORTING)}
     />
   )
 }

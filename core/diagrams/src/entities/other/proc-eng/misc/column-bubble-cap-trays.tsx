@@ -12,10 +12,6 @@ export const COLUMN_BUBBLE_CAP_TRAYS = {
 
 export function ColumnBubbleCapTrays(props: NodeProps) {
   return (
-    <Shape
-      {...COLUMN_BUBBLE_CAP_TRAYS}
-      {...props}
-      _style={extendStyle(COLUMN_BUBBLE_CAP_TRAYS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COLUMN_BUBBLE_CAP_TRAYS)} />
   )
 }

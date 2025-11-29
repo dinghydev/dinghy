@@ -11,11 +11,5 @@ export const DEVICE_COMPLIANCE = {
 }
 
 export function DeviceCompliance(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_COMPLIANCE}
-      {...props}
-      _style={extendStyle(DEVICE_COMPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_COMPLIANCE)} />
 }

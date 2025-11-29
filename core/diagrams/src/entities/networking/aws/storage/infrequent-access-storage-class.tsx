@@ -13,9 +13,8 @@ export const INFREQUENT_ACCESS_STORAGE_CLASS = {
 export function InfrequentAccessStorageClass(props: NodeProps) {
   return (
     <Shape
-      {...INFREQUENT_ACCESS_STORAGE_CLASS}
       {...props}
-      _style={extendStyle(INFREQUENT_ACCESS_STORAGE_CLASS, props)}
+      _style={extendStyle(props, INFREQUENT_ACCESS_STORAGE_CLASS)}
     />
   )
 }

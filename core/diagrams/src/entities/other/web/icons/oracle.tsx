@@ -11,5 +11,5 @@ export const ORACLE = {
 }
 
 export function Oracle(props: NodeProps) {
-  return <Shape {...ORACLE} {...props} _style={extendStyle(ORACLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, ORACLE)} />
 }

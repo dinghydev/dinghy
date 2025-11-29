@@ -12,9 +12,8 @@ export const CARD_WITH_SEGMENTED_BUTTONS = {
 export function CardWithSegmentedButtons(props: NodeProps) {
   return (
     <Shape
-      {...CARD_WITH_SEGMENTED_BUTTONS}
       {...props}
-      _style={extendStyle(CARD_WITH_SEGMENTED_BUTTONS, props)}
+      _style={extendStyle(props, CARD_WITH_SEGMENTED_BUTTONS)}
     />
   )
 }

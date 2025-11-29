@@ -11,7 +11,5 @@ export const MR_PORTAL = {
 }
 
 export function MrPortal(props: NodeProps) {
-  return (
-    <Shape {...MR_PORTAL} {...props} _style={extendStyle(MR_PORTAL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MR_PORTAL)} />
 }

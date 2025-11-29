@@ -11,11 +11,5 @@ export const RESISTOR_TAPPED = {
 }
 
 export function ResistorTapped(props: NodeProps) {
-  return (
-    <Shape
-      {...RESISTOR_TAPPED}
-      {...props}
-      _style={extendStyle(RESISTOR_TAPPED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESISTOR_TAPPED)} />
 }

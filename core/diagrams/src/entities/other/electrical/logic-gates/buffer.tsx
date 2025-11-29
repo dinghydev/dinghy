@@ -11,5 +11,5 @@ export const BUFFER = {
 }
 
 export function Buffer(props: NodeProps) {
-  return <Shape {...BUFFER} {...props} _style={extendStyle(BUFFER, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUFFER)} />
 }

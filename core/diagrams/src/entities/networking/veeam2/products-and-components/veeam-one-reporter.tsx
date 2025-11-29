@@ -11,11 +11,5 @@ export const VEEAM_ONE_REPORTER = {
 }
 
 export function VeeamOneReporter(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_ONE_REPORTER}
-      {...props}
-      _style={extendStyle(VEEAM_ONE_REPORTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_ONE_REPORTER)} />
 }

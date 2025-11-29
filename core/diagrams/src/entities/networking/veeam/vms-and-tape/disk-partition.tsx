@@ -11,11 +11,5 @@ export const DISK_PARTITION = {
 }
 
 export function DiskPartition(props: NodeProps) {
-  return (
-    <Shape
-      {...DISK_PARTITION}
-      {...props}
-      _style={extendStyle(DISK_PARTITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISK_PARTITION)} />
 }

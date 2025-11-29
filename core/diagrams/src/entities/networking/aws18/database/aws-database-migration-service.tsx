@@ -13,9 +13,8 @@ export const AWS_DATABASE_MIGRATION_SERVICE = {
 export function AwsDatabaseMigrationService(props: NodeProps) {
   return (
     <Shape
-      {...AWS_DATABASE_MIGRATION_SERVICE}
       {...props}
-      _style={extendStyle(AWS_DATABASE_MIGRATION_SERVICE, props)}
+      _style={extendStyle(props, AWS_DATABASE_MIGRATION_SERVICE)}
     />
   )
 }

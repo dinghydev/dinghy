@@ -11,11 +11,5 @@ export const LAPTOP_VIDEO_CLIENT = {
 }
 
 export function LaptopVideoClient(props: NodeProps) {
-  return (
-    <Shape
-      {...LAPTOP_VIDEO_CLIENT}
-      {...props}
-      _style={extendStyle(LAPTOP_VIDEO_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAPTOP_VIDEO_CLIENT)} />
 }

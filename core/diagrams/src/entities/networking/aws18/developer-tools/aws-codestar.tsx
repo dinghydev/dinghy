@@ -11,11 +11,5 @@ export const AWS_CODESTAR = {
 }
 
 export function AwsCodestar(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CODESTAR}
-      {...props}
-      _style={extendStyle(AWS_CODESTAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CODESTAR)} />
 }

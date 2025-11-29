@@ -12,10 +12,6 @@ export const NEXUS_DATA_CENTER_SWITCH = {
 
 export function NexusDataCenterSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...NEXUS_DATA_CENTER_SWITCH}
-      {...props}
-      _style={extendStyle(NEXUS_DATA_CENTER_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NEXUS_DATA_CENTER_SWITCH)} />
   )
 }

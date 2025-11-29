@@ -11,11 +11,5 @@ export const GATE_VALVE_WEIGHT = {
 }
 
 export function GateValveWeight(props: NodeProps) {
-  return (
-    <Shape
-      {...GATE_VALVE_WEIGHT}
-      {...props}
-      _style={extendStyle(GATE_VALVE_WEIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GATE_VALVE_WEIGHT)} />
 }

@@ -11,5 +11,5 @@ export const LIBRARY = {
 }
 
 export function Library(props: NodeProps) {
-  return <Shape {...LIBRARY} {...props} _style={extendStyle(LIBRARY, props)} />
+  return <Shape {...props} _style={extendStyle(props, LIBRARY)} />
 }

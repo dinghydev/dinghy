@@ -11,11 +11,5 @@ export const MOBILE_SERVICES = {
 }
 
 export function MobileServices(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_SERVICES}
-      {...props}
-      _style={extendStyle(MOBILE_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_SERVICES)} />
 }

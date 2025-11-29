@@ -11,11 +11,5 @@ export const MOBILE_DEVICE = {
 }
 
 export function MobileDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_DEVICE}
-      {...props}
-      _style={extendStyle(MOBILE_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_DEVICE)} />
 }

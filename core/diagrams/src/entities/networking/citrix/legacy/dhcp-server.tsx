@@ -11,11 +11,5 @@ export const DHCP_SERVER = {
 }
 
 export function DhcpServer(props: NodeProps) {
-  return (
-    <Shape
-      {...DHCP_SERVER}
-      {...props}
-      _style={extendStyle(DHCP_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DHCP_SERVER)} />
 }

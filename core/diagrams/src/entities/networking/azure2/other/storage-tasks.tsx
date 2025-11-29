@@ -11,11 +11,5 @@ export const STORAGE_TASKS = {
 }
 
 export function StorageTasks(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_TASKS}
-      {...props}
-      _style={extendStyle(STORAGE_TASKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_TASKS)} />
 }

@@ -11,7 +11,5 @@ export const STATUS_BAR = {
 }
 
 export function StatusBar(props: NodeProps) {
-  return (
-    <Shape {...STATUS_BAR} {...props} _style={extendStyle(STATUS_BAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STATUS_BAR)} />
 }

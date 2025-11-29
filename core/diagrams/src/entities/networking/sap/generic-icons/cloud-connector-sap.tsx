@@ -11,11 +11,5 @@ export const CLOUD_CONNECTOR_SAP = {
 }
 
 export function CloudConnectorSap(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CONNECTOR_SAP}
-      {...props}
-      _style={extendStyle(CLOUD_CONNECTOR_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CONNECTOR_SAP)} />
 }

@@ -11,7 +11,5 @@ export const MAC_CLIENT = {
 }
 
 export function MacClient(props: NodeProps) {
-  return (
-    <Shape {...MAC_CLIENT} {...props} _style={extendStyle(MAC_CLIENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAC_CLIENT)} />
 }

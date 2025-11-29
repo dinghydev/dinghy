@@ -11,11 +11,5 @@ export const VIRTUAL_SECURE_SERVER = {
 }
 
 export function VirtualSecureServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_SECURE_SERVER}
-      {...props}
-      _style={extendStyle(VIRTUAL_SECURE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_SECURE_SERVER)} />
 }

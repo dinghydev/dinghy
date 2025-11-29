@@ -11,11 +11,5 @@ export const WATERSKIING = {
 }
 
 export function Waterskiing(props: NodeProps) {
-  return (
-    <Shape
-      {...WATERSKIING}
-      {...props}
-      _style={extendStyle(WATERSKIING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WATERSKIING)} />
 }

@@ -11,11 +11,5 @@ export const PARAMETRIC_DIAGRAM = {
 }
 
 export function ParametricDiagram(props: NodeProps) {
-  return (
-    <Shape
-      {...PARAMETRIC_DIAGRAM}
-      {...props}
-      _style={extendStyle(PARAMETRIC_DIAGRAM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARAMETRIC_DIAGRAM)} />
 }

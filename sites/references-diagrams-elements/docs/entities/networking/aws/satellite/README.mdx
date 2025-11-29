@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { GroundStation } from '@dinghy/diagrams/entitiesAwsSatellite'
 
 <GroundStation/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { GROUND_STATION } from '@dinghy/diagrams/entitiesAwsSatellite'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, GROUND_STATION)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { GroundStation } from '@dinghy/diagrams/entitiesAwsSatellite'
 import { Satellite } from '@dinghy/diagrams/entitiesAwsSatellite'
 
 <Satellite/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { SATELLITE } from '@dinghy/diagrams/entitiesAwsSatellite'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, SATELLITE)}
+  />
+
 ```
 
   </TabItem>

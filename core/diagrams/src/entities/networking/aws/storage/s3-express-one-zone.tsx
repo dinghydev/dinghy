@@ -11,11 +11,5 @@ export const S3_EXPRESS_ONE_ZONE = {
 }
 
 export function S3ExpressOneZone(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_EXPRESS_ONE_ZONE}
-      {...props}
-      _style={extendStyle(S3_EXPRESS_ONE_ZONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_EXPRESS_ONE_ZONE)} />
 }

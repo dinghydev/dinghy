@@ -11,11 +11,5 @@ export const HYBRID_CENTER = {
 }
 
 export function HybridCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...HYBRID_CENTER}
-      {...props}
-      _style={extendStyle(HYBRID_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYBRID_CENTER)} />
 }

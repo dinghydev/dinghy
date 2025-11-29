@@ -11,7 +11,5 @@ export const BIGQUERY_2 = {
 }
 
 export function Bigquery2(props: NodeProps) {
-  return (
-    <Shape {...BIGQUERY_2} {...props} _style={extendStyle(BIGQUERY_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIGQUERY_2)} />
 }

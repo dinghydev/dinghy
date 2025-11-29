@@ -12,10 +12,6 @@ export const MULTICELL_BATTERY_TAPPED = {
 
 export function MulticellBatteryTapped(props: NodeProps) {
   return (
-    <Shape
-      {...MULTICELL_BATTERY_TAPPED}
-      {...props}
-      _style={extendStyle(MULTICELL_BATTERY_TAPPED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTICELL_BATTERY_TAPPED)} />
   )
 }

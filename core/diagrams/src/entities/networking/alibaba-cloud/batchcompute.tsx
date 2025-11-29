@@ -11,11 +11,5 @@ export const BATCHCOMPUTE = {
 }
 
 export function Batchcompute(props: NodeProps) {
-  return (
-    <Shape
-      {...BATCHCOMPUTE}
-      {...props}
-      _style={extendStyle(BATCHCOMPUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BATCHCOMPUTE)} />
 }

@@ -13,9 +13,8 @@ export const WINDOWS_AND_LINUX_VIRTUALIZED_APPS = {
 export function WindowsAndLinuxVirtualizedApps(props: NodeProps) {
   return (
     <Shape
-      {...WINDOWS_AND_LINUX_VIRTUALIZED_APPS}
       {...props}
-      _style={extendStyle(WINDOWS_AND_LINUX_VIRTUALIZED_APPS, props)}
+      _style={extendStyle(props, WINDOWS_AND_LINUX_VIRTUALIZED_APPS)}
     />
   )
 }

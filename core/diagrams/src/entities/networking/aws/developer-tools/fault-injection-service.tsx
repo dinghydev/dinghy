@@ -12,10 +12,6 @@ export const FAULT_INJECTION_SERVICE = {
 
 export function FaultInjectionService(props: NodeProps) {
   return (
-    <Shape
-      {...FAULT_INJECTION_SERVICE}
-      {...props}
-      _style={extendStyle(FAULT_INJECTION_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FAULT_INJECTION_SERVICE)} />
   )
 }

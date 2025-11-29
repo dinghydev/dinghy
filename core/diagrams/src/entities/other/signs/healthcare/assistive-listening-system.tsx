@@ -12,10 +12,6 @@ export const ASSISTIVE_LISTENING_SYSTEM = {
 
 export function AssistiveListeningSystem(props: NodeProps) {
   return (
-    <Shape
-      {...ASSISTIVE_LISTENING_SYSTEM}
-      {...props}
-      _style={extendStyle(ASSISTIVE_LISTENING_SYSTEM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ASSISTIVE_LISTENING_SYSTEM)} />
   )
 }

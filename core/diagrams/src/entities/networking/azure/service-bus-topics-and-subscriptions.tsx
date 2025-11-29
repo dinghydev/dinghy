@@ -13,9 +13,8 @@ export const SERVICE_BUS_TOPICS_AND_SUBSCRIPTIONS = {
 export function ServiceBusTopicsAndSubscriptions(props: NodeProps) {
   return (
     <Shape
-      {...SERVICE_BUS_TOPICS_AND_SUBSCRIPTIONS}
       {...props}
-      _style={extendStyle(SERVICE_BUS_TOPICS_AND_SUBSCRIPTIONS, props)}
+      _style={extendStyle(props, SERVICE_BUS_TOPICS_AND_SUBSCRIPTIONS)}
     />
   )
 }

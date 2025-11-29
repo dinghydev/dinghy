@@ -11,5 +11,5 @@ export const FUSE_ON = {
 }
 
 export function FuseOn(props: NodeProps) {
-  return <Shape {...FUSE_ON} {...props} _style={extendStyle(FUSE_ON, props)} />
+  return <Shape {...props} _style={extendStyle(props, FUSE_ON)} />
 }

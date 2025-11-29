@@ -11,7 +11,5 @@ export const BASTIONS = {
 }
 
 export function Bastions(props: NodeProps) {
-  return (
-    <Shape {...BASTIONS} {...props} _style={extendStyle(BASTIONS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASTIONS)} />
 }

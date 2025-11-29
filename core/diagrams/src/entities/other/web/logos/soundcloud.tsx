@@ -11,7 +11,5 @@ export const SOUNDCLOUD = {
 }
 
 export function Soundcloud(props: NodeProps) {
-  return (
-    <Shape {...SOUNDCLOUD} {...props} _style={extendStyle(SOUNDCLOUD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOUNDCLOUD)} />
 }

@@ -15,10 +15,6 @@ export const SECURITY_CONTROL_TABLE = {
 
 export function SecurityControlTable(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_CONTROL_TABLE}
-      {...props}
-      _style={extendStyle(SECURITY_CONTROL_TABLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_CONTROL_TABLE)} />
   )
 }

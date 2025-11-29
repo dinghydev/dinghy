@@ -12,10 +12,6 @@ export const INFRASTRUCTURE_INTERFACE_2 = {
 
 export function InfrastructureInterface2(props: NodeProps) {
   return (
-    <Shape
-      {...INFRASTRUCTURE_INTERFACE_2}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_INTERFACE_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_INTERFACE_2)} />
   )
 }

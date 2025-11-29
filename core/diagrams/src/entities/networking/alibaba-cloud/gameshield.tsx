@@ -11,7 +11,5 @@ export const GAMESHIELD = {
 }
 
 export function Gameshield(props: NodeProps) {
-  return (
-    <Shape {...GAMESHIELD} {...props} _style={extendStyle(GAMESHIELD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAMESHIELD)} />
 }

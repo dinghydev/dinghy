@@ -11,11 +11,5 @@ export const HORIZONTAL_NAVIGATION = {
 }
 
 export function HorizontalNavigation(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_NAVIGATION}
-      {...props}
-      _style={extendStyle(HORIZONTAL_NAVIGATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_NAVIGATION)} />
 }

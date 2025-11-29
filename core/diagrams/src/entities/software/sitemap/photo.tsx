@@ -11,5 +11,5 @@ export const PHOTO = {
 }
 
 export function Photo(props: NodeProps) {
-  return <Shape {...PHOTO} {...props} _style={extendStyle(PHOTO, props)} />
+  return <Shape {...props} _style={extendStyle(props, PHOTO)} />
 }

@@ -11,11 +11,5 @@ export const IMAGE_SERVICE = {
 }
 
 export function ImageService(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_SERVICE}
-      {...props}
-      _style={extendStyle(IMAGE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_SERVICE)} />
 }

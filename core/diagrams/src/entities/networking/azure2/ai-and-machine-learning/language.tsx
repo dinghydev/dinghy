@@ -11,7 +11,5 @@ export const LANGUAGE = {
 }
 
 export function Language(props: NodeProps) {
-  return (
-    <Shape {...LANGUAGE} {...props} _style={extendStyle(LANGUAGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LANGUAGE)} />
 }

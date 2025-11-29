@@ -11,5 +11,5 @@ export const LUNGS = {
 }
 
 export function Lungs(props: NodeProps) {
-  return <Shape {...LUNGS} {...props} _style={extendStyle(LUNGS, props)} />
+  return <Shape {...props} _style={extendStyle(props, LUNGS)} />
 }

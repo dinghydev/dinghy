@@ -13,9 +13,8 @@ export const VEEAM_AGENT_FOR_ORACLE_SOLARIS = {
 export function VeeamAgentForOracleSolaris(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_AGENT_FOR_ORACLE_SOLARIS}
       {...props}
-      _style={extendStyle(VEEAM_AGENT_FOR_ORACLE_SOLARIS, props)}
+      _style={extendStyle(props, VEEAM_AGENT_FOR_ORACLE_SOLARIS)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const CANS_AND_BOTTLES = {
 }
 
 export function CansAndBottles(props: NodeProps) {
-  return (
-    <Shape
-      {...CANS_AND_BOTTLES}
-      {...props}
-      _style={extendStyle(CANS_AND_BOTTLES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CANS_AND_BOTTLES)} />
 }

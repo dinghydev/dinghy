@@ -11,11 +11,5 @@ export const DATABASE_SPEED = {
 }
 
 export function DatabaseSpeed(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_SPEED}
-      {...props}
-      _style={extendStyle(DATABASE_SPEED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_SPEED)} />
 }

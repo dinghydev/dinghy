@@ -11,11 +11,5 @@ export const MESSAGE_INTERRUPTING = {
 }
 
 export function MessageInterrupting(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_INTERRUPTING}
-      {...props}
-      _style={extendStyle(MESSAGE_INTERRUPTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_INTERRUPTING)} />
 }

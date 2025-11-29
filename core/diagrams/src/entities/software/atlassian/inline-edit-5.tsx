@@ -11,11 +11,5 @@ export const INLINE_EDIT_5 = {
 }
 
 export function InlineEdit5(props: NodeProps) {
-  return (
-    <Shape
-      {...INLINE_EDIT_5}
-      {...props}
-      _style={extendStyle(INLINE_EDIT_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INLINE_EDIT_5)} />
 }

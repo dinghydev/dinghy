@@ -11,11 +11,5 @@ export const BOOKMARKS_FR = {
 }
 
 export function BookmarksFr(props: NodeProps) {
-  return (
-    <Shape
-      {...BOOKMARKS_FR}
-      {...props}
-      _style={extendStyle(BOOKMARKS_FR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOOKMARKS_FR)} />
 }

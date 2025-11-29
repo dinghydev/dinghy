@@ -12,10 +12,6 @@ export const DATA_TRANSFER_TERMINAL = {
 
 export function DataTransferTerminal(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_TRANSFER_TERMINAL}
-      {...props}
-      _style={extendStyle(DATA_TRANSFER_TERMINAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_TRANSFER_TERMINAL)} />
   )
 }

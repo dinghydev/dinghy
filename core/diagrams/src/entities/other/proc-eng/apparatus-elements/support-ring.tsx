@@ -11,11 +11,5 @@ export const SUPPORT_RING = {
 }
 
 export function SupportRing(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPPORT_RING}
-      {...props}
-      _style={extendStyle(SUPPORT_RING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPPORT_RING)} />
 }

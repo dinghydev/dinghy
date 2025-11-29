@@ -11,11 +11,5 @@ export const R6G_INSTANCE = {
 }
 
 export function R6gInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...R6G_INSTANCE}
-      {...props}
-      _style={extendStyle(R6G_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, R6G_INSTANCE)} />
 }

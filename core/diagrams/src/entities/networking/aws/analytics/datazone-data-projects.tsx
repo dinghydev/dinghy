@@ -12,10 +12,6 @@ export const DATAZONE_DATA_PROJECTS = {
 
 export function DatazoneDataProjects(props: NodeProps) {
   return (
-    <Shape
-      {...DATAZONE_DATA_PROJECTS}
-      {...props}
-      _style={extendStyle(DATAZONE_DATA_PROJECTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATAZONE_DATA_PROJECTS)} />
   )
 }

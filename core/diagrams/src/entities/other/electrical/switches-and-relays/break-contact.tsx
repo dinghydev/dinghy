@@ -11,11 +11,5 @@ export const BREAK_CONTACT = {
 }
 
 export function BreakContact(props: NodeProps) {
-  return (
-    <Shape
-      {...BREAK_CONTACT}
-      {...props}
-      _style={extendStyle(BREAK_CONTACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREAK_CONTACT)} />
 }

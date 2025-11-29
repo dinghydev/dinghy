@@ -11,5 +11,5 @@ export const CABINET = {
 }
 
 export function Cabinet(props: NodeProps) {
-  return <Shape {...CABINET} {...props} _style={extendStyle(CABINET, props)} />
+  return <Shape {...props} _style={extendStyle(props, CABINET)} />
 }

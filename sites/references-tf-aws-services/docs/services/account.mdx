@@ -1,0 +1,84 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Account Management
+
+## AwsAccountAlternateContact
+
+Manages the specified alternate contact attached to an AWS Account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_alternate_contact)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/account/AwsAccountAlternateContact.tsx)
+
+```js
+import { AwsAccountAlternateContact } from "@dinghy/tf-aws/serviceAccount"
+
+<AwsAccountAlternateContact/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAccountPrimaryContact
+
+Manages the specified primary contact information associated with an AWS Account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_primary_contact)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/account/AwsAccountPrimaryContact.tsx)
+
+```js
+import { AwsAccountPrimaryContact } from "@dinghy/tf-aws/serviceAccount"
+
+<AwsAccountPrimaryContact/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/account_primary_contact)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/account/DataAwsAccountPrimaryContact.tsx)
+
+```js
+import { DataAwsAccountPrimaryContact } from "@dinghy/tf-aws/serviceAccount"
+
+<DataAwsAccountPrimaryContact/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAccountRegion
+
+Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account 
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_region)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/account/AwsAccountRegion.tsx)
+
+```js
+import { AwsAccountRegion } from "@dinghy/tf-aws/serviceAccount"
+
+<AwsAccountRegion/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

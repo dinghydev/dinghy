@@ -11,11 +11,5 @@ export const X11900_FLOW_INDICATOR = {
 }
 
 export function X11900FlowIndicator(props: NodeProps) {
-  return (
-    <Shape
-      {...X11900_FLOW_INDICATOR}
-      {...props}
-      _style={extendStyle(X11900_FLOW_INDICATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11900_FLOW_INDICATOR)} />
 }

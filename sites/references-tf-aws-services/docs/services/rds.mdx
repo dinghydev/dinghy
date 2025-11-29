@@ -1,0 +1,917 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# RDS (Relational Database)
+
+## AwsDbClusterSnapshot
+
+Manages an RDS database cluster snapshot.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_cluster_snapshot)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbClusterSnapshot.tsx)
+
+```js
+import { AwsDbClusterSnapshot } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbClusterSnapshot/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_cluster_snapshot)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbClusterSnapshot.tsx)
+
+```js
+import { DataAwsDbClusterSnapshot } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbClusterSnapshot/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbEventCategories
+
+Provides a list of DB Event Categories which can be used to pass values into DB Event Subscription.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_event_categories)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbEventCategories.tsx)
+
+```js
+import { DataAwsDbEventCategories } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbEventCategories/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbEventSubscription
+
+Provides a DB event subscription resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_event_subscription)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbEventSubscription.tsx)
+
+```js
+import { AwsDbEventSubscription } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbEventSubscription/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbInstance
+
+Provides an RDS instance resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbInstance.tsx)
+
+```js
+import { AwsDbInstance } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbInstance/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbInstance.tsx)
+
+```js
+import { DataAwsDbInstance } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbInstance/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbInstanceAutomatedBackupsReplication
+
+Enables replication of automated backups to a different AWS Region.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_automated_backups_replication)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbInstanceAutomatedBackupsReplication.tsx)
+
+```js
+import { AwsDbInstanceAutomatedBackupsReplication } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbInstanceAutomatedBackupsReplication/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbInstanceRoleAssociation
+
+Manages an RDS DB Instance association with an IAM Role.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_role_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbInstanceRoleAssociation.tsx)
+
+```js
+import { AwsDbInstanceRoleAssociation } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbInstanceRoleAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbInstances
+
+Terraform data source for listing RDS Database Instances.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_instances)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbInstances.tsx)
+
+```js
+import { DataAwsDbInstances } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbInstances/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbOptionGroup
+
+Provides an RDS DB option group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_option_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbOptionGroup.tsx)
+
+```js
+import { AwsDbOptionGroup } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbOptionGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbParameterGroup
+
+Provides an RDS DB parameter group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_parameter_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbParameterGroup.tsx)
+
+```js
+import { AwsDbParameterGroup } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbParameterGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_parameter_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbParameterGroup.tsx)
+
+```js
+import { DataAwsDbParameterGroup } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbParameterGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbProxy
+
+Provides an RDS DB proxy resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbProxy.tsx)
+
+```js
+import { AwsDbProxy } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbProxy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_proxy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbProxy.tsx)
+
+```js
+import { DataAwsDbProxy } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbProxy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbProxyDefaultTargetGroup
+
+Manage an RDS DB proxy default target group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy_default_target_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbProxyDefaultTargetGroup.tsx)
+
+```js
+import { AwsDbProxyDefaultTargetGroup } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbProxyDefaultTargetGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbProxyEndpoint
+
+Provides an RDS DB proxy endpoint resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy_endpoint)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbProxyEndpoint.tsx)
+
+```js
+import { AwsDbProxyEndpoint } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbProxyEndpoint/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbProxyTarget
+
+Provides an RDS DB proxy target resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy_target)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbProxyTarget.tsx)
+
+```js
+import { AwsDbProxyTarget } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbProxyTarget/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbSnapshot
+
+Manages an RDS database instance snapshot.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_snapshot)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbSnapshot.tsx)
+
+```js
+import { AwsDbSnapshot } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbSnapshot/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_snapshot)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbSnapshot.tsx)
+
+```js
+import { DataAwsDbSnapshot } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbSnapshot/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbSnapshotCopy
+
+Manages an RDS database instance snapshot copy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_snapshot_copy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbSnapshotCopy.tsx)
+
+```js
+import { AwsDbSnapshotCopy } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbSnapshotCopy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsDbSubnetGroup
+
+Provides an RDS DB subnet group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_subnet_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsDbSubnetGroup.tsx)
+
+```js
+import { AwsDbSubnetGroup } from "@dinghy/tf-aws/serviceRds"
+
+<AwsDbSubnetGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_subnet_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsDbSubnetGroup.tsx)
+
+```js
+import { DataAwsDbSubnetGroup } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsDbSubnetGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsCertificate
+
+Terraform resource for managing an AWS RDS (Relational Database) Certificate.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsCertificate.tsx)
+
+```js
+import { AwsRdsCertificate } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsCertificate.tsx)
+
+```js
+import { DataAwsRdsCertificate } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsCertificate/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsCluster
+
+Manages an RDS Aurora Cluster or a RDS Multi-AZ DB Cluster
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsCluster.tsx)
+
+```js
+import { AwsRdsCluster } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsCluster/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsCluster.tsx)
+
+```js
+import { DataAwsRdsCluster } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsCluster/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusterActivityStream
+
+Manages RDS Aurora Cluster Database Activity Streams
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_activity_stream)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsClusterActivityStream.tsx)
+
+```js
+import { AwsRdsClusterActivityStream } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsClusterActivityStream/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusterEndpoint
+
+Manages an RDS Aurora Cluster Endpoint
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_endpoint)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsClusterEndpoint.tsx)
+
+```js
+import { AwsRdsClusterEndpoint } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsClusterEndpoint/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusterInstance
+
+Provides an RDS Cluster Resource Instance
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsClusterInstance.tsx)
+
+```js
+import { AwsRdsClusterInstance } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsClusterInstance/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusterParameterGroup
+
+Provides an RDS DB cluster parameter group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_parameter_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsClusterParameterGroup.tsx)
+
+```js
+import { AwsRdsClusterParameterGroup } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsClusterParameterGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_cluster_parameter_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsClusterParameterGroup.tsx)
+
+```js
+import { DataAwsRdsClusterParameterGroup } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsClusterParameterGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusterRoleAssociation
+
+Manages a RDS DB Cluster association with an IAM Role.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_role_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsClusterRoleAssociation.tsx)
+
+```js
+import { AwsRdsClusterRoleAssociation } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsClusterRoleAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusters
+
+Terraform data source for managing an AWS RDS (Relational Database) Clusters.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_clusters)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsClusters.tsx)
+
+```js
+import { DataAwsRdsClusters } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsClusters/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsClusterSnapshotCopy
+
+Manages an RDS database cluster snapshot copy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_snapshot_copy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsClusterSnapshotCopy.tsx)
+
+```js
+import { AwsRdsClusterSnapshotCopy } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsClusterSnapshotCopy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsCustomDbEngineVersion
+
+Provides an custom engine version (CEV) resource for Amazon RDS Custom.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_custom_db_engine_version)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsCustomDbEngineVersion.tsx)
+
+```js
+import { AwsRdsCustomDbEngineVersion } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsCustomDbEngineVersion/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsEngineVersion
+
+Information about an RDS engine version.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_engine_version)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsEngineVersion.tsx)
+
+```js
+import { DataAwsRdsEngineVersion } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsEngineVersion/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsExportTask
+
+Terraform resource for managing an AWS RDS (Relational Database) Export Task.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_export_task)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsExportTask.tsx)
+
+```js
+import { AwsRdsExportTask } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsExportTask/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsGlobalCluster
+
+Manages an RDS Global Cluster
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_global_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsGlobalCluster.tsx)
+
+```js
+import { AwsRdsGlobalCluster } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsGlobalCluster/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_global_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsGlobalCluster.tsx)
+
+```js
+import { DataAwsRdsGlobalCluster } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsGlobalCluster/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsInstanceState
+
+Terraform resource for managing an AWS RDS (Relational Database) RDS Instance State.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_instance_state)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsInstanceState.tsx)
+
+```js
+import { AwsRdsInstanceState } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsInstanceState/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsIntegration
+
+Terraform resource for managing an AWS RDS (Relational Database) Integration.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_integration)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsIntegration.tsx)
+
+```js
+import { AwsRdsIntegration } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsIntegration/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_integration#import)
+
+```js
+<AwsRdsIntegration
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsOrderableDbInstance
+
+Information about RDS orderable DB instances.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_orderable_db_instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsOrderableDbInstance.tsx)
+
+```js
+import { DataAwsRdsOrderableDbInstance } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsOrderableDbInstance/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsReservedInstance
+
+Manages an RDS DB Reserved Instance
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_reserved_instance)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsReservedInstance.tsx)
+
+```js
+import { AwsRdsReservedInstance } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsReservedInstance/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsReservedInstanceOffering
+
+Information about a single RDS Reserved Instance Offering.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_reserved_instance_offering)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/DataAwsRdsReservedInstanceOffering.tsx)
+
+```js
+import { DataAwsRdsReservedInstanceOffering } from "@dinghy/tf-aws/serviceRds"
+
+<DataAwsRdsReservedInstanceOffering/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRdsShardGroup
+
+Terraform resource for managing an Amazon Aurora Limitless Database DB shard group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_shard_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/rds/AwsRdsShardGroup.tsx)
+
+```js
+import { AwsRdsShardGroup } from "@dinghy/tf-aws/serviceRds"
+
+<AwsRdsShardGroup/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

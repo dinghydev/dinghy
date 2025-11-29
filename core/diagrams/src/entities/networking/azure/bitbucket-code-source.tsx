@@ -11,11 +11,5 @@ export const BITBUCKET_CODE_SOURCE = {
 }
 
 export function BitbucketCodeSource(props: NodeProps) {
-  return (
-    <Shape
-      {...BITBUCKET_CODE_SOURCE}
-      {...props}
-      _style={extendStyle(BITBUCKET_CODE_SOURCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BITBUCKET_CODE_SOURCE)} />
 }

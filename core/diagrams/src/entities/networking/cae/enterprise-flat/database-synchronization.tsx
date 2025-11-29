@@ -12,10 +12,6 @@ export const DATABASE_SYNCHRONIZATION = {
 
 export function DatabaseSynchronization(props: NodeProps) {
   return (
-    <Shape
-      {...DATABASE_SYNCHRONIZATION}
-      {...props}
-      _style={extendStyle(DATABASE_SYNCHRONIZATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATABASE_SYNCHRONIZATION)} />
   )
 }

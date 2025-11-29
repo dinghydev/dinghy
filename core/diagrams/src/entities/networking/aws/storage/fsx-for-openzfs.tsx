@@ -11,11 +11,5 @@ export const FSX_FOR_OPENZFS = {
 }
 
 export function FsxForOpenzfs(props: NodeProps) {
-  return (
-    <Shape
-      {...FSX_FOR_OPENZFS}
-      {...props}
-      _style={extendStyle(FSX_FOR_OPENZFS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FSX_FOR_OPENZFS)} />
 }

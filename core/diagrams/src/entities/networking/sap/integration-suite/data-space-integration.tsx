@@ -12,10 +12,6 @@ export const DATA_SPACE_INTEGRATION = {
 
 export function DataSpaceIntegration(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_SPACE_INTEGRATION}
-      {...props}
-      _style={extendStyle(DATA_SPACE_INTEGRATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_SPACE_INTEGRATION)} />
   )
 }

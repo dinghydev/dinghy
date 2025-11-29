@@ -11,7 +11,5 @@ export const LOOP_LIMIT = {
 }
 
 export function LoopLimit(props: NodeProps) {
-  return (
-    <Shape {...LOOP_LIMIT} {...props} _style={extendStyle(LOOP_LIMIT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOOP_LIMIT)} />
 }

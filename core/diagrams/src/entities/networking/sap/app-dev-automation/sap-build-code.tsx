@@ -11,11 +11,5 @@ export const SAP_BUILD_CODE = {
 }
 
 export function SapBuildCode(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_BUILD_CODE}
-      {...props}
-      _style={extendStyle(SAP_BUILD_CODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_BUILD_CODE)} />
 }

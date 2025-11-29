@@ -13,9 +13,8 @@ export const OOS_OPERATION_ORCHESTRATION_SERVICE = {
 export function OosOperationOrchestrationService(props: NodeProps) {
   return (
     <Shape
-      {...OOS_OPERATION_ORCHESTRATION_SERVICE}
       {...props}
-      _style={extendStyle(OOS_OPERATION_ORCHESTRATION_SERVICE, props)}
+      _style={extendStyle(props, OOS_OPERATION_ORCHESTRATION_SERVICE)}
     />
   )
 }

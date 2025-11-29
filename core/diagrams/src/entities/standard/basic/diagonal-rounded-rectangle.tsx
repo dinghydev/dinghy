@@ -12,10 +12,6 @@ export const DIAGONAL_ROUNDED_RECTANGLE = {
 
 export function DiagonalRoundedRectangle(props: NodeProps) {
   return (
-    <Shape
-      {...DIAGONAL_ROUNDED_RECTANGLE}
-      {...props}
-      _style={extendStyle(DIAGONAL_ROUNDED_RECTANGLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DIAGONAL_ROUNDED_RECTANGLE)} />
   )
 }

@@ -12,10 +12,6 @@ export const CONTAINER_OPTIMIZED_OS = {
 
 export function ContainerOptimizedOs(props: NodeProps) {
   return (
-    <Shape
-      {...CONTAINER_OPTIMIZED_OS}
-      {...props}
-      _style={extendStyle(CONTAINER_OPTIMIZED_OS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTAINER_OPTIMIZED_OS)} />
   )
 }

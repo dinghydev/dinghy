@@ -11,11 +11,5 @@ export const AZURE_SPHERE = {
 }
 
 export function AzureSphere(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_SPHERE}
-      {...props}
-      _style={extendStyle(AZURE_SPHERE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_SPHERE)} />
 }

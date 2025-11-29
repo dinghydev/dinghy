@@ -11,11 +11,5 @@ export const COLUMN_TRAY = {
 }
 
 export function ColumnTray(props: NodeProps) {
-  return (
-    <Shape
-      {...COLUMN_TRAY}
-      {...props}
-      _style={extendStyle(COLUMN_TRAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLUMN_TRAY)} />
 }

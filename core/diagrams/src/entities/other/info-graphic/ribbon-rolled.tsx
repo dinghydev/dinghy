@@ -11,11 +11,5 @@ export const RIBBON_ROLLED = {
 }
 
 export function RibbonRolled(props: NodeProps) {
-  return (
-    <Shape
-      {...RIBBON_ROLLED}
-      {...props}
-      _style={extendStyle(RIBBON_ROLLED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RIBBON_ROLLED)} />
 }

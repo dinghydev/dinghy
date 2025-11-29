@@ -11,11 +11,5 @@ export const DEVICE_ANALYTICS = {
 }
 
 export function DeviceAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_ANALYTICS}
-      {...props}
-      _style={extendStyle(DEVICE_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_ANALYTICS)} />
 }

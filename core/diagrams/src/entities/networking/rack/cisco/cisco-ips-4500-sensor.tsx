@@ -11,11 +11,5 @@ export const CISCO_IPS_4500_SENSOR = {
 }
 
 export function CiscoIps4500Sensor(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_IPS_4500_SENSOR}
-      {...props}
-      _style={extendStyle(CISCO_IPS_4500_SENSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_IPS_4500_SENSOR)} />
 }

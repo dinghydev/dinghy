@@ -1,0 +1,16 @@
+# Aws Cloud
+
+This is the top level wrapper component for official [Hashicorp AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs)
+
+## Usage
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/base/AwsCloud.tsx)
+
+`required_providers` attribute will be rendered in `terraform` section and rest of attributes will be in `provider` section.
+
+```js
+import { AwsCloud } from "@dinghy/tf-aws/base"
+
+<AwsCloud/>
+```

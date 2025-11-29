@@ -11,11 +11,5 @@ export const SOURCE_STEP_OFF = {
 }
 
 export function SourceStepOff(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCE_STEP_OFF}
-      {...props}
-      _style={extendStyle(SOURCE_STEP_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_STEP_OFF)} />
 }

@@ -11,11 +11,5 @@ export const IMAGE_VERSIONS = {
 }
 
 export function ImageVersions(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_VERSIONS}
-      {...props}
-      _style={extendStyle(IMAGE_VERSIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_VERSIONS)} />
 }

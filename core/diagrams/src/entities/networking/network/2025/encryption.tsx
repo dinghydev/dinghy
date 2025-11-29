@@ -11,7 +11,5 @@ export const ENCRYPTION = {
 }
 
 export function Encryption(props: NodeProps) {
-  return (
-    <Shape {...ENCRYPTION} {...props} _style={extendStyle(ENCRYPTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENCRYPTION)} />
 }

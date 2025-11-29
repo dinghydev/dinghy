@@ -11,7 +11,5 @@ export const ALERT_BOX = {
 }
 
 export function AlertBox(props: NodeProps) {
-  return (
-    <Shape {...ALERT_BOX} {...props} _style={extendStyle(ALERT_BOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALERT_BOX)} />
 }

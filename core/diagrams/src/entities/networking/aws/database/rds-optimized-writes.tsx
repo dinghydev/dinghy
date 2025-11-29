@@ -11,11 +11,5 @@ export const RDS_OPTIMIZED_WRITES = {
 }
 
 export function RdsOptimizedWrites(props: NodeProps) {
-  return (
-    <Shape
-      {...RDS_OPTIMIZED_WRITES}
-      {...props}
-      _style={extendStyle(RDS_OPTIMIZED_WRITES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_OPTIMIZED_WRITES)} />
 }

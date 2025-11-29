@@ -11,11 +11,5 @@ export const NETFLOW_ROUTER = {
 }
 
 export function NetflowRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...NETFLOW_ROUTER}
-      {...props}
-      _style={extendStyle(NETFLOW_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETFLOW_ROUTER)} />
 }

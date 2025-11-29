@@ -11,5 +11,5 @@ export const CSM_S = {
 }
 
 export function CsmS(props: NodeProps) {
-  return <Shape {...CSM_S} {...props} _style={extendStyle(CSM_S, props)} />
+  return <Shape {...props} _style={extendStyle(props, CSM_S)} />
 }

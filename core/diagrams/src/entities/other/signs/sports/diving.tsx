@@ -11,5 +11,5 @@ export const DIVING = {
 }
 
 export function Diving(props: NodeProps) {
-  return <Shape {...DIVING} {...props} _style={extendStyle(DIVING, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIVING)} />
 }

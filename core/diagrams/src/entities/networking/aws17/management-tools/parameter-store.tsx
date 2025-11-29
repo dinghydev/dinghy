@@ -11,11 +11,5 @@ export const PARAMETER_STORE = {
 }
 
 export function ParameterStore(props: NodeProps) {
-  return (
-    <Shape
-      {...PARAMETER_STORE}
-      {...props}
-      _style={extendStyle(PARAMETER_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARAMETER_STORE)} />
 }

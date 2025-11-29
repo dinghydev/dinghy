@@ -11,11 +11,5 @@ export const SERVICE_BUS_RELAY = {
 }
 
 export function ServiceBusRelay(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_BUS_RELAY}
-      {...props}
-      _style={extendStyle(SERVICE_BUS_RELAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_BUS_RELAY)} />
 }

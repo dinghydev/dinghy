@@ -10,11 +10,5 @@ export const DERIVE_CALLOUT = {
 }
 
 export function DeriveCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...DERIVE_CALLOUT}
-      {...props}
-      _style={extendStyle(DERIVE_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DERIVE_CALLOUT)} />
 }

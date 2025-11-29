@@ -11,5 +11,5 @@ export const COMMAND = {
 }
 
 export function Command(props: NodeProps) {
-  return <Shape {...COMMAND} {...props} _style={extendStyle(COMMAND, props)} />
+  return <Shape {...props} _style={extendStyle(props, COMMAND)} />
 }

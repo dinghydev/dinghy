@@ -11,11 +11,5 @@ export const AUTHENTICATION_EPA = {
 }
 
 export function AuthenticationEpa(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_EPA}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_EPA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_EPA)} />
 }

@@ -11,11 +11,5 @@ export const COMPRESSOR_DIAPHRAGM = {
 }
 
 export function CompressorDiaphragm(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPRESSOR_DIAPHRAGM}
-      {...props}
-      _style={extendStyle(COMPRESSOR_DIAPHRAGM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR_DIAPHRAGM)} />
 }

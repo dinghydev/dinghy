@@ -11,11 +11,5 @@ export const GA_GLOBAL_ACCELERATOR = {
 }
 
 export function GaGlobalAccelerator(props: NodeProps) {
-  return (
-    <Shape
-      {...GA_GLOBAL_ACCELERATOR}
-      {...props}
-      _style={extendStyle(GA_GLOBAL_ACCELERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GA_GLOBAL_ACCELERATOR)} />
 }

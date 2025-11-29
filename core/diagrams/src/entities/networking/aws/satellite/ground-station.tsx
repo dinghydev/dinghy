@@ -11,11 +11,5 @@ export const GROUND_STATION = {
 }
 
 export function GroundStation(props: NodeProps) {
-  return (
-    <Shape
-      {...GROUND_STATION}
-      {...props}
-      _style={extendStyle(GROUND_STATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GROUND_STATION)} />
 }

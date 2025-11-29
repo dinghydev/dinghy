@@ -11,5 +11,5 @@ export const GONDOLA = {
 }
 
 export function Gondola(props: NodeProps) {
-  return <Shape {...GONDOLA} {...props} _style={extendStyle(GONDOLA, props)} />
+  return <Shape {...props} _style={extendStyle(props, GONDOLA)} />
 }

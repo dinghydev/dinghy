@@ -11,11 +11,5 @@ export const HTTPS_PROTOCOL_2 = {
 }
 
 export function HttpsProtocol2(props: NodeProps) {
-  return (
-    <Shape
-      {...HTTPS_PROTOCOL_2}
-      {...props}
-      _style={extendStyle(HTTPS_PROTOCOL_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HTTPS_PROTOCOL_2)} />
 }

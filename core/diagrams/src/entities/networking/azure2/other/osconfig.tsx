@@ -11,7 +11,5 @@ export const OSCONFIG = {
 }
 
 export function Osconfig(props: NodeProps) {
-  return (
-    <Shape {...OSCONFIG} {...props} _style={extendStyle(OSCONFIG, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OSCONFIG)} />
 }

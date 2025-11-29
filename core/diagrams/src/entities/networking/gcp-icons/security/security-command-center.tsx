@@ -12,10 +12,6 @@ export const SECURITY_COMMAND_CENTER = {
 
 export function SecurityCommandCenter(props: NodeProps) {
   return (
-    <Shape
-      {...SECURITY_COMMAND_CENTER}
-      {...props}
-      _style={extendStyle(SECURITY_COMMAND_CENTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURITY_COMMAND_CENTER)} />
   )
 }

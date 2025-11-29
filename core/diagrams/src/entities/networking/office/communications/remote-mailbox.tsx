@@ -11,11 +11,5 @@ export const REMOTE_MAILBOX = {
 }
 
 export function RemoteMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_MAILBOX}
-      {...props}
-      _style={extendStyle(REMOTE_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_MAILBOX)} />
 }

@@ -11,11 +11,5 @@ export const CLOUDSEARCH = {
 }
 
 export function Cloudsearch(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUDSEARCH}
-      {...props}
-      _style={extendStyle(CLOUDSEARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDSEARCH)} />
 }

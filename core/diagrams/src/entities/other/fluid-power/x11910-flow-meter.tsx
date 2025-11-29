@@ -11,11 +11,5 @@ export const X11910_FLOW_METER = {
 }
 
 export function X11910FlowMeter(props: NodeProps) {
-  return (
-    <Shape
-      {...X11910_FLOW_METER}
-      {...props}
-      _style={extendStyle(X11910_FLOW_METER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11910_FLOW_METER)} />
 }

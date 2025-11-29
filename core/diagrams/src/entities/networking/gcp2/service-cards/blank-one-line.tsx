@@ -11,11 +11,5 @@ export const BLANK_ONE_LINE = {
 }
 
 export function BlankOneLine(props: NodeProps) {
-  return (
-    <Shape
-      {...BLANK_ONE_LINE}
-      {...props}
-      _style={extendStyle(BLANK_ONE_LINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLANK_ONE_LINE)} />
 }

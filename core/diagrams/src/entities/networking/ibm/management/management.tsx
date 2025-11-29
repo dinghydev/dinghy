@@ -11,7 +11,5 @@ export const MANAGEMENT = {
 }
 
 export function Management(props: NodeProps) {
-  return (
-    <Shape {...MANAGEMENT} {...props} _style={extendStyle(MANAGEMENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGEMENT)} />
 }

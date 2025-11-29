@@ -11,11 +11,5 @@ export const ELASTIC_BLOCK_STORE = {
 }
 
 export function ElasticBlockStore(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_BLOCK_STORE}
-      {...props}
-      _style={extendStyle(ELASTIC_BLOCK_STORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_BLOCK_STORE)} />
 }

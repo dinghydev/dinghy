@@ -12,10 +12,6 @@ export const NLP_WS_WORD_SEGMENTATION = {
 
 export function NlpWsWordSegmentation(props: NodeProps) {
   return (
-    <Shape
-      {...NLP_WS_WORD_SEGMENTATION}
-      {...props}
-      _style={extendStyle(NLP_WS_WORD_SEGMENTATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NLP_WS_WORD_SEGMENTATION)} />
   )
 }

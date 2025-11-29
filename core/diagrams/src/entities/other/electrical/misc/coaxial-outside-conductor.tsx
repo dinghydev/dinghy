@@ -12,10 +12,6 @@ export const COAXIAL_OUTSIDE_CONDUCTOR = {
 
 export function CoaxialOutsideConductor(props: NodeProps) {
   return (
-    <Shape
-      {...COAXIAL_OUTSIDE_CONDUCTOR}
-      {...props}
-      _style={extendStyle(COAXIAL_OUTSIDE_CONDUCTOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COAXIAL_OUTSIDE_CONDUCTOR)} />
   )
 }

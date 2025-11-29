@@ -11,5 +11,5 @@ export const KAFKA = {
 }
 
 export function Kafka(props: NodeProps) {
-  return <Shape {...KAFKA} {...props} _style={extendStyle(KAFKA, props)} />
+  return <Shape {...props} _style={extendStyle(props, KAFKA)} />
 }

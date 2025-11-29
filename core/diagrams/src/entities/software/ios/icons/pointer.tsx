@@ -11,5 +11,5 @@ export const POINTER = {
 }
 
 export function Pointer(props: NodeProps) {
-  return <Shape {...POINTER} {...props} _style={extendStyle(POINTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, POINTER)} />
 }

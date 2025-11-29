@@ -12,10 +12,6 @@ export const PUMP_RECIPROCATING_PISTON = {
 
 export function PumpReciprocatingPiston(props: NodeProps) {
   return (
-    <Shape
-      {...PUMP_RECIPROCATING_PISTON}
-      {...props}
-      _style={extendStyle(PUMP_RECIPROCATING_PISTON, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PUMP_RECIPROCATING_PISTON)} />
   )
 }

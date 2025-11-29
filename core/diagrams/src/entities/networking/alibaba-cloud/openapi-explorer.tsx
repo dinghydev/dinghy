@@ -11,11 +11,5 @@ export const OPENAPI_EXPLORER = {
 }
 
 export function OpenapiExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...OPENAPI_EXPLORER}
-      {...props}
-      _style={extendStyle(OPENAPI_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPENAPI_EXPLORER)} />
 }

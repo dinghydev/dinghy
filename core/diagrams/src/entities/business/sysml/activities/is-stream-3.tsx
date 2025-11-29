@@ -11,11 +11,5 @@ export const IS_STREAM_3 = {
 }
 
 export function IsStream3(props: NodeProps) {
-  return (
-    <Shape
-      {...IS_STREAM_3}
-      {...props}
-      _style={extendStyle(IS_STREAM_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IS_STREAM_3)} />
 }

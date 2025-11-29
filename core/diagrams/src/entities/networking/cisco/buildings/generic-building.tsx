@@ -11,11 +11,5 @@ export const GENERIC_BUILDING = {
 }
 
 export function GenericBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_BUILDING}
-      {...props}
-      _style={extendStyle(GENERIC_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_BUILDING)} />
 }

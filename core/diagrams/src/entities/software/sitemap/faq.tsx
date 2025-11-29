@@ -11,5 +11,5 @@ export const FAQ = {
 }
 
 export function Faq(props: NodeProps) {
-  return <Shape {...FAQ} {...props} _style={extendStyle(FAQ, props)} />
+  return <Shape {...props} _style={extendStyle(props, FAQ)} />
 }

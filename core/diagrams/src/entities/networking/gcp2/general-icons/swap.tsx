@@ -11,5 +11,5 @@ export const SWAP = {
 }
 
 export function Swap(props: NodeProps) {
-  return <Shape {...SWAP} {...props} _style={extendStyle(SWAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, SWAP)} />
 }

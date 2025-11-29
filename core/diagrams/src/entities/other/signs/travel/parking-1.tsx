@@ -11,7 +11,5 @@ export const PARKING_1 = {
 }
 
 export function Parking1(props: NodeProps) {
-  return (
-    <Shape {...PARKING_1} {...props} _style={extendStyle(PARKING_1, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARKING_1)} />
 }

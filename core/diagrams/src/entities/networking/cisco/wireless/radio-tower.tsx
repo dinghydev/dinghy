@@ -11,11 +11,5 @@ export const RADIO_TOWER = {
 }
 
 export function RadioTower(props: NodeProps) {
-  return (
-    <Shape
-      {...RADIO_TOWER}
-      {...props}
-      _style={extendStyle(RADIO_TOWER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADIO_TOWER)} />
 }

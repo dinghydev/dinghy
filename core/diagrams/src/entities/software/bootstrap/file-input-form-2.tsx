@@ -10,11 +10,5 @@ export const FILE_INPUT_FORM_2 = {
 }
 
 export function FileInputForm2(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_INPUT_FORM_2}
-      {...props}
-      _style={extendStyle(FILE_INPUT_FORM_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_INPUT_FORM_2)} />
 }

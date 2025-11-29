@@ -11,11 +11,5 @@ export const SETTINGS_NON_SAP = {
 }
 
 export function SettingsNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...SETTINGS_NON_SAP}
-      {...props}
-      _style={extendStyle(SETTINGS_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SETTINGS_NON_SAP)} />
 }

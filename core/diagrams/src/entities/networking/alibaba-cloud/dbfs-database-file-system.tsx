@@ -12,10 +12,6 @@ export const DBFS_DATABASE_FILE_SYSTEM = {
 
 export function DbfsDatabaseFileSystem(props: NodeProps) {
   return (
-    <Shape
-      {...DBFS_DATABASE_FILE_SYSTEM}
-      {...props}
-      _style={extendStyle(DBFS_DATABASE_FILE_SYSTEM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DBFS_DATABASE_FILE_SYSTEM)} />
   )
 }

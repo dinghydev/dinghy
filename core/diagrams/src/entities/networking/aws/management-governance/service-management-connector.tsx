@@ -13,9 +13,8 @@ export const SERVICE_MANAGEMENT_CONNECTOR = {
 export function ServiceManagementConnector(props: NodeProps) {
   return (
     <Shape
-      {...SERVICE_MANAGEMENT_CONNECTOR}
       {...props}
-      _style={extendStyle(SERVICE_MANAGEMENT_CONNECTOR, props)}
+      _style={extendStyle(props, SERVICE_MANAGEMENT_CONNECTOR)}
     />
   )
 }

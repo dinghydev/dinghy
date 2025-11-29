@@ -11,7 +11,5 @@ export const INSTAPAPER = {
 }
 
 export function Instapaper(props: NodeProps) {
-  return (
-    <Shape {...INSTAPAPER} {...props} _style={extendStyle(INSTAPAPER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSTAPAPER)} />
 }

@@ -10,11 +10,5 @@ export const DOUBLE_CIRCLE = {
 }
 
 export function DoubleCircle(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_CIRCLE}
-      {...props}
-      _style={extendStyle(DOUBLE_CIRCLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_CIRCLE)} />
 }

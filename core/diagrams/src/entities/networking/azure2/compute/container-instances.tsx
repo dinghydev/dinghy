@@ -11,11 +11,5 @@ export const CONTAINER_INSTANCES = {
 }
 
 export function ContainerInstances(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTAINER_INSTANCES}
-      {...props}
-      _style={extendStyle(CONTAINER_INSTANCES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTAINER_INSTANCES)} />
 }

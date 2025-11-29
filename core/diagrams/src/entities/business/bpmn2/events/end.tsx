@@ -11,5 +11,5 @@ export const END = {
 }
 
 export function End(props: NodeProps) {
-  return <Shape {...END} {...props} _style={extendStyle(END, props)} />
+  return <Shape {...props} _style={extendStyle(props, END)} />
 }

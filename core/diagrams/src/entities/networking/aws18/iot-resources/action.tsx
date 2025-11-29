@@ -11,5 +11,5 @@ export const ACTION = {
 }
 
 export function Action(props: NodeProps) {
-  return <Shape {...ACTION} {...props} _style={extendStyle(ACTION, props)} />
+  return <Shape {...props} _style={extendStyle(props, ACTION)} />
 }

@@ -12,10 +12,6 @@ export const ALEXA_SMART_HOME_SKILL = {
 
 export function AlexaSmartHomeSkill(props: NodeProps) {
   return (
-    <Shape
-      {...ALEXA_SMART_HOME_SKILL}
-      {...props}
-      _style={extendStyle(ALEXA_SMART_HOME_SKILL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ALEXA_SMART_HOME_SKILL)} />
   )
 }

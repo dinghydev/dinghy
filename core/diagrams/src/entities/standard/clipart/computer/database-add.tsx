@@ -11,11 +11,5 @@ export const DATABASE_ADD = {
 }
 
 export function DatabaseAdd(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_ADD}
-      {...props}
-      _style={extendStyle(DATABASE_ADD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_ADD)} />
 }

@@ -11,5 +11,5 @@ export const CASB = {
 }
 
 export function Casb(props: NodeProps) {
-  return <Shape {...CASB} {...props} _style={extendStyle(CASB, props)} />
+  return <Shape {...props} _style={extendStyle(props, CASB)} />
 }

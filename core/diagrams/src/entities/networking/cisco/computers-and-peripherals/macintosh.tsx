@@ -11,7 +11,5 @@ export const MACINTOSH = {
 }
 
 export function Macintosh(props: NodeProps) {
-  return (
-    <Shape {...MACINTOSH} {...props} _style={extendStyle(MACINTOSH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MACINTOSH)} />
 }

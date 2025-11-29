@@ -11,5 +11,5 @@ export const BUDGETS = {
 }
 
 export function Budgets(props: NodeProps) {
-  return <Shape {...BUDGETS} {...props} _style={extendStyle(BUDGETS, props)} />
+  return <Shape {...props} _style={extendStyle(props, BUDGETS)} />
 }

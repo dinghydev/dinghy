@@ -11,11 +11,5 @@ export const INSTANT_VM_RECOVERY = {
 }
 
 export function InstantVmRecovery(props: NodeProps) {
-  return (
-    <Shape
-      {...INSTANT_VM_RECOVERY}
-      {...props}
-      _style={extendStyle(INSTANT_VM_RECOVERY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSTANT_VM_RECOVERY)} />
 }

@@ -11,7 +11,5 @@ export const COSMOS_DB = {
 }
 
 export function CosmosDb(props: NodeProps) {
-  return (
-    <Shape {...COSMOS_DB} {...props} _style={extendStyle(COSMOS_DB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COSMOS_DB)} />
 }

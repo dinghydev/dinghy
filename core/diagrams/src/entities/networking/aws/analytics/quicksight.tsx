@@ -11,7 +11,5 @@ export const QUICKSIGHT = {
 }
 
 export function Quicksight(props: NodeProps) {
-  return (
-    <Shape {...QUICKSIGHT} {...props} _style={extendStyle(QUICKSIGHT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUICKSIGHT)} />
 }

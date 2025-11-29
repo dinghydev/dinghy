@@ -11,11 +11,5 @@ export const DELIVERABLE = {
 }
 
 export function Deliverable(props: NodeProps) {
-  return (
-    <Shape
-      {...DELIVERABLE}
-      {...props}
-      _style={extendStyle(DELIVERABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELIVERABLE)} />
 }

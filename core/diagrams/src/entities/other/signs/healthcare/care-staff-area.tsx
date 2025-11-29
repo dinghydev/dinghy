@@ -11,11 +11,5 @@ export const CARE_STAFF_AREA = {
 }
 
 export function CareStaffArea(props: NodeProps) {
-  return (
-    <Shape
-      {...CARE_STAFF_AREA}
-      {...props}
-      _style={extendStyle(CARE_STAFF_AREA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CARE_STAFF_AREA)} />
 }

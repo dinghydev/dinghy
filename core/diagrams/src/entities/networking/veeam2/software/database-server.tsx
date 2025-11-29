@@ -11,11 +11,5 @@ export const DATABASE_SERVER = {
 }
 
 export function DatabaseServer(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_SERVER}
-      {...props}
-      _style={extendStyle(DATABASE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_SERVER)} />
 }

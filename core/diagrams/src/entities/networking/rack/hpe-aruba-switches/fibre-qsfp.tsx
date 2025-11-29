@@ -11,7 +11,5 @@ export const FIBRE_QSFP = {
 }
 
 export function FibreQsfp(props: NodeProps) {
-  return (
-    <Shape {...FIBRE_QSFP} {...props} _style={extendStyle(FIBRE_QSFP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIBRE_QSFP)} />
 }

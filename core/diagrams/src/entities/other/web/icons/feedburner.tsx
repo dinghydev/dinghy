@@ -11,7 +11,5 @@ export const FEEDBURNER = {
 }
 
 export function Feedburner(props: NodeProps) {
-  return (
-    <Shape {...FEEDBURNER} {...props} _style={extendStyle(FEEDBURNER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEEDBURNER)} />
 }

@@ -11,11 +11,5 @@ export const VIDEO_ENDPOINT = {
 }
 
 export function VideoEndpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...VIDEO_ENDPOINT}
-      {...props}
-      _style={extendStyle(VIDEO_ENDPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIDEO_ENDPOINT)} />
 }

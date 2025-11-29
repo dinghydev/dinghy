@@ -11,11 +11,5 @@ export const NEXUS_FABRIC_SWITCH = {
 }
 
 export function NexusFabricSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...NEXUS_FABRIC_SWITCH}
-      {...props}
-      _style={extendStyle(NEXUS_FABRIC_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_FABRIC_SWITCH)} />
 }

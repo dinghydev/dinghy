@@ -10,10 +10,6 @@ export const METAMODEL_REFERENCE = {
 
 export function MetamodelReference(props: NodeProps) {
   return (
-    <Dependency
-      {...METAMODEL_REFERENCE}
-      {...props}
-      _style={extendStyle(METAMODEL_REFERENCE, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, METAMODEL_REFERENCE)} />
   )
 }

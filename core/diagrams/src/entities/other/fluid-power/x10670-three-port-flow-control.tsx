@@ -13,9 +13,8 @@ export const X10670_THREE_PORT_FLOW_CONTROL = {
 export function X10670ThreePortFlowControl(props: NodeProps) {
   return (
     <Shape
-      {...X10670_THREE_PORT_FLOW_CONTROL}
       {...props}
-      _style={extendStyle(X10670_THREE_PORT_FLOW_CONTROL, props)}
+      _style={extendStyle(props, X10670_THREE_PORT_FLOW_CONTROL)}
     />
   )
 }

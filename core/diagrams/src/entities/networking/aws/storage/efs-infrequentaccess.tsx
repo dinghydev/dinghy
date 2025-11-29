@@ -11,11 +11,5 @@ export const EFS_INFREQUENTACCESS = {
 }
 
 export function EfsInfrequentaccess(props: NodeProps) {
-  return (
-    <Shape
-      {...EFS_INFREQUENTACCESS}
-      {...props}
-      _style={extendStyle(EFS_INFREQUENTACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EFS_INFREQUENTACCESS)} />
 }

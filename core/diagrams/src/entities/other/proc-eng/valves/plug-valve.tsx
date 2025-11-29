@@ -11,7 +11,5 @@ export const PLUG_VALVE = {
 }
 
 export function PlugValve(props: NodeProps) {
-  return (
-    <Shape {...PLUG_VALVE} {...props} _style={extendStyle(PLUG_VALVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLUG_VALVE)} />
 }

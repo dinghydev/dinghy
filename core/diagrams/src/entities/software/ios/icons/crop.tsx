@@ -11,5 +11,5 @@ export const CROP = {
 }
 
 export function Crop(props: NodeProps) {
-  return <Shape {...CROP} {...props} _style={extendStyle(CROP, props)} />
+  return <Shape {...props} _style={extendStyle(props, CROP)} />
 }

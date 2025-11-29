@@ -11,11 +11,5 @@ export const PLATFORM_OPTIONS = {
 }
 
 export function PlatformOptions(props: NodeProps) {
-  return (
-    <Shape
-      {...PLATFORM_OPTIONS}
-      {...props}
-      _style={extendStyle(PLATFORM_OPTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLATFORM_OPTIONS)} />
 }

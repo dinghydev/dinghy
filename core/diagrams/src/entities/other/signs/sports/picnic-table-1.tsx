@@ -11,11 +11,5 @@ export const PICNIC_TABLE_1 = {
 }
 
 export function PicnicTable1(props: NodeProps) {
-  return (
-    <Shape
-      {...PICNIC_TABLE_1}
-      {...props}
-      _style={extendStyle(PICNIC_TABLE_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PICNIC_TABLE_1)} />
 }

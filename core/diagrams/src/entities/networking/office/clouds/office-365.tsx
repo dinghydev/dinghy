@@ -11,7 +11,5 @@ export const OFFICE_365 = {
 }
 
 export function Office365(props: NodeProps) {
-  return (
-    <Shape {...OFFICE_365} {...props} _style={extendStyle(OFFICE_365, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFFICE_365)} />
 }

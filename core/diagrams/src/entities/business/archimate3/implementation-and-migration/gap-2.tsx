@@ -11,5 +11,5 @@ export const GAP_2 = {
 }
 
 export function Gap2(props: NodeProps) {
-  return <Shape {...GAP_2} {...props} _style={extendStyle(GAP_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, GAP_2)} />
 }

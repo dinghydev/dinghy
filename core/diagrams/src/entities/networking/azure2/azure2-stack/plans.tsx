@@ -11,5 +11,5 @@ export const PLANS = {
 }
 
 export function Plans(props: NodeProps) {
-  return <Shape {...PLANS} {...props} _style={extendStyle(PLANS, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLANS)} />
 }

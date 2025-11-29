@@ -12,10 +12,6 @@ export const APC_SMART_UPS_5000_VA_5U = {
 
 export function ApcSmartUps5000Va5u(props: NodeProps) {
   return (
-    <Shape
-      {...APC_SMART_UPS_5000_VA_5U}
-      {...props}
-      _style={extendStyle(APC_SMART_UPS_5000_VA_5U, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APC_SMART_UPS_5000_VA_5U)} />
   )
 }

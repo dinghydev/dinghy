@@ -11,11 +11,5 @@ export const STACKOVERFLOW = {
 }
 
 export function Stackoverflow(props: NodeProps) {
-  return (
-    <Shape
-      {...STACKOVERFLOW}
-      {...props}
-      _style={extendStyle(STACKOVERFLOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACKOVERFLOW)} />
 }

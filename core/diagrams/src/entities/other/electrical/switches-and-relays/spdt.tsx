@@ -11,5 +11,5 @@ export const SPDT = {
 }
 
 export function Spdt(props: NodeProps) {
-  return <Shape {...SPDT} {...props} _style={extendStyle(SPDT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPDT)} />
 }

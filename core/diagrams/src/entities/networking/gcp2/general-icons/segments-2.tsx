@@ -11,7 +11,5 @@ export const SEGMENTS_2 = {
 }
 
 export function Segments2(props: NodeProps) {
-  return (
-    <Shape {...SEGMENTS_2} {...props} _style={extendStyle(SEGMENTS_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEGMENTS_2)} />
 }

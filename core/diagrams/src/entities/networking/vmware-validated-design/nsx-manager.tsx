@@ -11,11 +11,5 @@ export const NSX_MANAGER = {
 }
 
 export function NsxManager(props: NodeProps) {
-  return (
-    <Shape
-      {...NSX_MANAGER}
-      {...props}
-      _style={extendStyle(NSX_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NSX_MANAGER)} />
 }

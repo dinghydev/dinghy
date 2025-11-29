@@ -11,11 +11,5 @@ export const DEVICE_HEALTH = {
 }
 
 export function DeviceHealth(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_HEALTH}
-      {...props}
-      _style={extendStyle(DEVICE_HEALTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_HEALTH)} />
 }

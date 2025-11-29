@@ -13,11 +13,10 @@ export const CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM = {
 export function CiscoOns15310ClSonetMultiservicePlatform(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM}
       {...props}
       _style={extendStyle(
-        CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM,
         props,
+        CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM,
       )}
     />
   )

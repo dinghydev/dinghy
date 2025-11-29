@@ -11,5 +11,5 @@ export const TALOS = {
 }
 
 export function Talos(props: NodeProps) {
-  return <Shape {...TALOS} {...props} _style={extendStyle(TALOS, props)} />
+  return <Shape {...props} _style={extendStyle(props, TALOS)} />
 }

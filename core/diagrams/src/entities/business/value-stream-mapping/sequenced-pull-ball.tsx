@@ -11,11 +11,5 @@ export const SEQUENCED_PULL_BALL = {
 }
 
 export function SequencedPullBall(props: NodeProps) {
-  return (
-    <Shape
-      {...SEQUENCED_PULL_BALL}
-      {...props}
-      _style={extendStyle(SEQUENCED_PULL_BALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEQUENCED_PULL_BALL)} />
 }

@@ -11,11 +11,5 @@ export const SETTINGS_HIGHLIGHT = {
 }
 
 export function SettingsHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...SETTINGS_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(SETTINGS_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SETTINGS_HIGHLIGHT)} />
 }

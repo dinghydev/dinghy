@@ -11,11 +11,5 @@ export const TASK_QUEUES = {
 }
 
 export function TaskQueues(props: NodeProps) {
-  return (
-    <Shape
-      {...TASK_QUEUES}
-      {...props}
-      _style={extendStyle(TASK_QUEUES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TASK_QUEUES)} />
 }

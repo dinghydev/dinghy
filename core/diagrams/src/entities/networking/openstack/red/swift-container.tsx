@@ -11,11 +11,5 @@ export const SWIFT_CONTAINER = {
 }
 
 export function SwiftContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...SWIFT_CONTAINER}
-      {...props}
-      _style={extendStyle(SWIFT_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWIFT_CONTAINER)} />
 }

@@ -11,11 +11,5 @@ export const MAGNETIC_CORE = {
 }
 
 export function MagneticCore(props: NodeProps) {
-  return (
-    <Shape
-      {...MAGNETIC_CORE}
-      {...props}
-      _style={extendStyle(MAGNETIC_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAGNETIC_CORE)} />
 }

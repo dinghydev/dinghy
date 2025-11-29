@@ -11,11 +11,5 @@ export const X2GD_INSTANCE = {
 }
 
 export function X2gdInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...X2GD_INSTANCE}
-      {...props}
-      _style={extendStyle(X2GD_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X2GD_INSTANCE)} />
 }

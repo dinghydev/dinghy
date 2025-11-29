@@ -11,11 +11,5 @@ export const CACHE_SERVER = {
 }
 
 export function CacheServer(props: NodeProps) {
-  return (
-    <Shape
-      {...CACHE_SERVER}
-      {...props}
-      _style={extendStyle(CACHE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CACHE_SERVER)} />
 }

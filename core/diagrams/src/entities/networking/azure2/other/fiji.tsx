@@ -11,5 +11,5 @@ export const FIJI = {
 }
 
 export function Fiji(props: NodeProps) {
-  return <Shape {...FIJI} {...props} _style={extendStyle(FIJI, props)} />
+  return <Shape {...props} _style={extendStyle(props, FIJI)} />
 }

@@ -13,9 +13,8 @@ export const CLOUD_SERVICES_EXTENDED_SUPPORT = {
 export function CloudServicesExtendedSupport(props: NodeProps) {
   return (
     <Shape
-      {...CLOUD_SERVICES_EXTENDED_SUPPORT}
       {...props}
-      _style={extendStyle(CLOUD_SERVICES_EXTENDED_SUPPORT, props)}
+      _style={extendStyle(props, CLOUD_SERVICES_EXTENDED_SUPPORT)}
     />
   )
 }

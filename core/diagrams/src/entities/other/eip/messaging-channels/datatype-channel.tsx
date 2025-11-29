@@ -11,11 +11,5 @@ export const DATATYPE_CHANNEL = {
 }
 
 export function DatatypeChannel(props: NodeProps) {
-  return (
-    <Shape
-      {...DATATYPE_CHANNEL}
-      {...props}
-      _style={extendStyle(DATATYPE_CHANNEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATATYPE_CHANNEL)} />
 }

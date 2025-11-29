@@ -12,10 +12,6 @@ export const DIRECT_RESTORE_TO_MS_AZURE = {
 
 export function DirectRestoreToMsAzure(props: NodeProps) {
   return (
-    <Shape
-      {...DIRECT_RESTORE_TO_MS_AZURE}
-      {...props}
-      _style={extendStyle(DIRECT_RESTORE_TO_MS_AZURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DIRECT_RESTORE_TO_MS_AZURE)} />
   )
 }

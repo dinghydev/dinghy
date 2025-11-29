@@ -11,11 +11,5 @@ export const INTERNET_STREAMER = {
 }
 
 export function InternetStreamer(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_STREAMER}
-      {...props}
-      _style={extendStyle(INTERNET_STREAMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_STREAMER)} />
 }

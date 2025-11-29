@@ -11,11 +11,5 @@ export const ORIFICE_PLATE = {
 }
 
 export function OrificePlate(props: NodeProps) {
-  return (
-    <Shape
-      {...ORIFICE_PLATE}
-      {...props}
-      _style={extendStyle(ORIFICE_PLATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ORIFICE_PLATE)} />
 }

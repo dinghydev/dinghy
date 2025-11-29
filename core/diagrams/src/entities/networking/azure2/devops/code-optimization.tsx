@@ -11,11 +11,5 @@ export const CODE_OPTIMIZATION = {
 }
 
 export function CodeOptimization(props: NodeProps) {
-  return (
-    <Shape
-      {...CODE_OPTIMIZATION}
-      {...props}
-      _style={extendStyle(CODE_OPTIMIZATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODE_OPTIMIZATION)} />
 }

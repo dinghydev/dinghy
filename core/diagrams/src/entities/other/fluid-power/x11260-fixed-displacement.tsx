@@ -12,10 +12,6 @@ export const X11260_FIXED_DISPLACEMENT = {
 
 export function X11260FixedDisplacement(props: NodeProps) {
   return (
-    <Shape
-      {...X11260_FIXED_DISPLACEMENT}
-      {...props}
-      _style={extendStyle(X11260_FIXED_DISPLACEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11260_FIXED_DISPLACEMENT)} />
   )
 }

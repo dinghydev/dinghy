@@ -11,11 +11,5 @@ export const BEND_DOUBLE_ARROW = {
 }
 
 export function BendDoubleArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...BEND_DOUBLE_ARROW}
-      {...props}
-      _style={extendStyle(BEND_DOUBLE_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEND_DOUBLE_ARROW)} />
 }

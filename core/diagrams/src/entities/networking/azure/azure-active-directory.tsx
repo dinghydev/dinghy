@@ -12,10 +12,6 @@ export const AZURE_ACTIVE_DIRECTORY = {
 
 export function AzureActiveDirectory(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_ACTIVE_DIRECTORY}
-      {...props}
-      _style={extendStyle(AZURE_ACTIVE_DIRECTORY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_ACTIVE_DIRECTORY)} />
   )
 }

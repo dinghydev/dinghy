@@ -11,11 +11,5 @@ export const DB_INSTANCE_STANDBY = {
 }
 
 export function DbInstanceStandby(props: NodeProps) {
-  return (
-    <Shape
-      {...DB_INSTANCE_STANDBY}
-      {...props}
-      _style={extendStyle(DB_INSTANCE_STANDBY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DB_INSTANCE_STANDBY)} />
 }

@@ -11,7 +11,5 @@ export const GEAR_ARROW = {
 }
 
 export function GearArrow(props: NodeProps) {
-  return (
-    <Shape {...GEAR_ARROW} {...props} _style={extendStyle(GEAR_ARROW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GEAR_ARROW)} />
 }

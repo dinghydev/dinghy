@@ -11,7 +11,5 @@ export const TECH_MAN = {
 }
 
 export function TechMan(props: NodeProps) {
-  return (
-    <Shape {...TECH_MAN} {...props} _style={extendStyle(TECH_MAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECH_MAN)} />
 }

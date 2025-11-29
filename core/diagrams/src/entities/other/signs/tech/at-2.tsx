@@ -11,5 +11,5 @@ export const AT_2 = {
 }
 
 export function At2(props: NodeProps) {
-  return <Shape {...AT_2} {...props} _style={extendStyle(AT_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, AT_2)} />
 }

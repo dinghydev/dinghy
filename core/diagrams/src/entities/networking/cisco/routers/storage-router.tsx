@@ -11,11 +11,5 @@ export const STORAGE_ROUTER = {
 }
 
 export function StorageRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_ROUTER}
-      {...props}
-      _style={extendStyle(STORAGE_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_ROUTER)} />
 }

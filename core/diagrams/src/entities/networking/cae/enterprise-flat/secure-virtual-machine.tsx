@@ -12,10 +12,6 @@ export const SECURE_VIRTUAL_MACHINE = {
 
 export function SecureVirtualMachine(props: NodeProps) {
   return (
-    <Shape
-      {...SECURE_VIRTUAL_MACHINE}
-      {...props}
-      _style={extendStyle(SECURE_VIRTUAL_MACHINE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECURE_VIRTUAL_MACHINE)} />
   )
 }

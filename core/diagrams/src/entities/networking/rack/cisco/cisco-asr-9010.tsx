@@ -11,11 +11,5 @@ export const CISCO_ASR_9010 = {
 }
 
 export function CiscoAsr9010(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_ASR_9010}
-      {...props}
-      _style={extendStyle(CISCO_ASR_9010, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_ASR_9010)} />
 }

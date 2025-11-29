@@ -11,11 +11,5 @@ export const POS_PRINTER = {
 }
 
 export function PosPrinter(props: NodeProps) {
-  return (
-    <Shape
-      {...POS_PRINTER}
-      {...props}
-      _style={extendStyle(POS_PRINTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POS_PRINTER)} />
 }

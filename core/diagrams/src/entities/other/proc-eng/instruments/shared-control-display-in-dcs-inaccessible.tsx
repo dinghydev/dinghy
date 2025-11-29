@@ -13,9 +13,8 @@ export const SHARED_CONTROL_DISPLAY_IN_DCS_INACCESSIBLE = {
 export function SharedControlDisplayInDcsInaccessible(props: NodeProps) {
   return (
     <Shape
-      {...SHARED_CONTROL_DISPLAY_IN_DCS_INACCESSIBLE}
       {...props}
-      _style={extendStyle(SHARED_CONTROL_DISPLAY_IN_DCS_INACCESSIBLE, props)}
+      _style={extendStyle(props, SHARED_CONTROL_DISPLAY_IN_DCS_INACCESSIBLE)}
     />
   )
 }

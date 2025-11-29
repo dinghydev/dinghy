@@ -11,11 +11,5 @@ export const SPRING_RETURN_OFF = {
 }
 
 export function SpringReturnOff(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRING_RETURN_OFF}
-      {...props}
-      _style={extendStyle(SPRING_RETURN_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRING_RETURN_OFF)} />
 }

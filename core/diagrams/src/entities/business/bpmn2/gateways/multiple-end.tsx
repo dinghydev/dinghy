@@ -11,11 +11,5 @@ export const MULTIPLE_END = {
 }
 
 export function MultipleEnd(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_END}
-      {...props}
-      _style={extendStyle(MULTIPLE_END, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_END)} />
 }

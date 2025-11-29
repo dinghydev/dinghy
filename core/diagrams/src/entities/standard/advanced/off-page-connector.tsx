@@ -10,11 +10,5 @@ export const OFF_PAGE_CONNECTOR = {
 }
 
 export function OffPageConnector(props: NodeProps) {
-  return (
-    <Shape
-      {...OFF_PAGE_CONNECTOR}
-      {...props}
-      _style={extendStyle(OFF_PAGE_CONNECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFF_PAGE_CONNECTOR)} />
 }

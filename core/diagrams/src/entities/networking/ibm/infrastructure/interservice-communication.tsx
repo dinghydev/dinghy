@@ -12,10 +12,6 @@ export const INTERSERVICE_COMMUNICATION = {
 
 export function InterserviceCommunication(props: NodeProps) {
   return (
-    <Shape
-      {...INTERSERVICE_COMMUNICATION}
-      {...props}
-      _style={extendStyle(INTERSERVICE_COMMUNICATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTERSERVICE_COMMUNICATION)} />
   )
 }

@@ -13,9 +13,8 @@ export const RESOURCE_MANAGEMENT_PRIVATE_LINK = {
 export function ResourceManagementPrivateLink(props: NodeProps) {
   return (
     <Shape
-      {...RESOURCE_MANAGEMENT_PRIVATE_LINK}
       {...props}
-      _style={extendStyle(RESOURCE_MANAGEMENT_PRIVATE_LINK, props)}
+      _style={extendStyle(props, RESOURCE_MANAGEMENT_PRIVATE_LINK)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const BUSINESS_FUNCTION = {
 }
 
 export function BusinessFunction(props: NodeProps) {
-  return (
-    <Shape
-      {...BUSINESS_FUNCTION}
-      {...props}
-      _style={extendStyle(BUSINESS_FUNCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUSINESS_FUNCTION)} />
 }

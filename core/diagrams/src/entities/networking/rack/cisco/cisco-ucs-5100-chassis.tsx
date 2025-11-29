@@ -12,10 +12,6 @@ export const CISCO_UCS_5100_CHASSIS = {
 
 export function CiscoUcs5100Chassis(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_UCS_5100_CHASSIS}
-      {...props}
-      _style={extendStyle(CISCO_UCS_5100_CHASSIS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_UCS_5100_CHASSIS)} />
   )
 }

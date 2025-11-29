@@ -11,11 +11,5 @@ export const MICROSOFT_SQL = {
 }
 
 export function MicrosoftSql(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_SQL}
-      {...props}
-      _style={extendStyle(MICROSOFT_SQL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_SQL)} />
 }

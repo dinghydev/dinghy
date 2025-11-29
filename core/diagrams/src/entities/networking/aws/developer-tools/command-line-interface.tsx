@@ -12,10 +12,6 @@ export const COMMAND_LINE_INTERFACE = {
 
 export function CommandLineInterface(props: NodeProps) {
   return (
-    <Shape
-      {...COMMAND_LINE_INTERFACE}
-      {...props}
-      _style={extendStyle(COMMAND_LINE_INTERFACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMMAND_LINE_INTERFACE)} />
   )
 }

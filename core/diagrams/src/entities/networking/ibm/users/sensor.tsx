@@ -11,5 +11,5 @@ export const SENSOR = {
 }
 
 export function Sensor(props: NodeProps) {
-  return <Shape {...SENSOR} {...props} _style={extendStyle(SENSOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, SENSOR)} />
 }

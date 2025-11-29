@@ -11,11 +11,5 @@ export const DEPLOYMENTS = {
 }
 
 export function Deployments(props: NodeProps) {
-  return (
-    <Shape
-      {...DEPLOYMENTS}
-      {...props}
-      _style={extendStyle(DEPLOYMENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEPLOYMENTS)} />
 }

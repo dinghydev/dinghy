@@ -11,11 +11,5 @@ export const MOTIVATION_ELEMENT = {
 }
 
 export function MotivationElement(props: NodeProps) {
-  return (
-    <Shape
-      {...MOTIVATION_ELEMENT}
-      {...props}
-      _style={extendStyle(MOTIVATION_ELEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOTIVATION_ELEMENT)} />
 }

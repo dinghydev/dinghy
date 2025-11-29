@@ -11,7 +11,5 @@ export const USER_GREEN = {
 }
 
 export function UserGreen(props: NodeProps) {
-  return (
-    <Shape {...USER_GREEN} {...props} _style={extendStyle(USER_GREEN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_GREEN)} />
 }

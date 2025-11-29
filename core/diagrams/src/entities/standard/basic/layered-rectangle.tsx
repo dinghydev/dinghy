@@ -11,11 +11,5 @@ export const LAYERED_RECTANGLE = {
 }
 
 export function LayeredRectangle(props: NodeProps) {
-  return (
-    <Shape
-      {...LAYERED_RECTANGLE}
-      {...props}
-      _style={extendStyle(LAYERED_RECTANGLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAYERED_RECTANGLE)} />
 }

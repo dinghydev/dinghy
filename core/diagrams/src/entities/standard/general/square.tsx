@@ -10,5 +10,5 @@ export const SQUARE = {
 }
 
 export function Square(props: NodeProps) {
-  return <Shape {...SQUARE} {...props} _style={extendStyle(SQUARE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SQUARE)} />
 }

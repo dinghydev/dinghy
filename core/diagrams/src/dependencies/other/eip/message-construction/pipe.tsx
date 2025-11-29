@@ -9,5 +9,5 @@ export const PIPE = {
 }
 
 export function Pipe(props: NodeProps) {
-  return <Dependency {...PIPE} {...props} _style={extendStyle(PIPE, props)} />
+  return <Dependency {...props} _style={extendStyle(props, PIPE)} />
 }

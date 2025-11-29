@@ -11,11 +11,5 @@ export const TURN_ON_OFF = {
 }
 
 export function TurnOnOff(props: NodeProps) {
-  return (
-    <Shape
-      {...TURN_ON_OFF}
-      {...props}
-      _style={extendStyle(TURN_ON_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TURN_ON_OFF)} />
 }

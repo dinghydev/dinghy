@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 
-import { awsProps } from './index.ts'
+import { awsProps } from './utils/awsProps.ts'
 import z from 'zod'
 import { useTypedNode } from '@dinghy/base-components'
 import { AwsCloud as AwsCloudDiagram } from '@dinghy/diagrams/containersAwsGroups'
@@ -27,7 +27,7 @@ export default function AwsCloud(props: AwsCloudInputProps) {
             required_providers: {
               aws: {
                 source: 'aws',
-                version: props.version || '6.20.0',
+                version: props.version || '6.22.0',
               },
             },
           },

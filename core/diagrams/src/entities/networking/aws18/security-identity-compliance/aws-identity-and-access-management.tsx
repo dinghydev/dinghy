@@ -13,9 +13,8 @@ export const AWS_IDENTITY_AND_ACCESS_MANAGEMENT = {
 export function AwsIdentityAndAccessManagement(props: NodeProps) {
   return (
     <Shape
-      {...AWS_IDENTITY_AND_ACCESS_MANAGEMENT}
       {...props}
-      _style={extendStyle(AWS_IDENTITY_AND_ACCESS_MANAGEMENT, props)}
+      _style={extendStyle(props, AWS_IDENTITY_AND_ACCESS_MANAGEMENT)}
     />
   )
 }

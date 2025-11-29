@@ -11,7 +11,5 @@ export const ATM_SWITCH = {
 }
 
 export function AtmSwitch(props: NodeProps) {
-  return (
-    <Shape {...ATM_SWITCH} {...props} _style={extendStyle(ATM_SWITCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATM_SWITCH)} />
 }

@@ -11,7 +11,5 @@ export const CLOUDHSM = {
 }
 
 export function Cloudhsm(props: NodeProps) {
-  return (
-    <Shape {...CLOUDHSM} {...props} _style={extendStyle(CLOUDHSM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDHSM)} />
 }

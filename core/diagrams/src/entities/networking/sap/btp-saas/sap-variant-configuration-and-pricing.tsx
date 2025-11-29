@@ -13,9 +13,8 @@ export const SAP_VARIANT_CONFIGURATION_AND_PRICING = {
 export function SapVariantConfigurationAndPricing(props: NodeProps) {
   return (
     <Shape
-      {...SAP_VARIANT_CONFIGURATION_AND_PRICING}
       {...props}
-      _style={extendStyle(SAP_VARIANT_CONFIGURATION_AND_PRICING, props)}
+      _style={extendStyle(props, SAP_VARIANT_CONFIGURATION_AND_PRICING)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const GROUND_TRUTH = {
 }
 
 export function GroundTruth(props: NodeProps) {
-  return (
-    <Shape
-      {...GROUND_TRUTH}
-      {...props}
-      _style={extendStyle(GROUND_TRUTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GROUND_TRUTH)} />
 }

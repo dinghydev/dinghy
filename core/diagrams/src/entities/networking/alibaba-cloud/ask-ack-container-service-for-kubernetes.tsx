@@ -13,9 +13,8 @@ export const ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES = {
 export function AskAckContainerServiceForKubernetes(props: NodeProps) {
   return (
     <Shape
-      {...ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES}
       {...props}
-      _style={extendStyle(ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES, props)}
+      _style={extendStyle(props, ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES)}
     />
   )
 }

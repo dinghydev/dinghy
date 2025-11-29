@@ -11,11 +11,5 @@ export const SIMULTILAYER_SWITCH = {
 }
 
 export function SimultilayerSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...SIMULTILAYER_SWITCH}
-      {...props}
-      _style={extendStyle(SIMULTILAYER_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMULTILAYER_SWITCH)} />
 }

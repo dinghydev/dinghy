@@ -1,0 +1,277 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# EBS (Elastic Block Store)
+
+## AwsEbsDefaultKmsKey
+
+Manages the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_default_kms_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsDefaultKmsKey.tsx)
+
+```js
+import { AwsEbsDefaultKmsKey } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsDefaultKmsKey/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_default_kms_key)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/DataAwsEbsDefaultKmsKey.tsx)
+
+```js
+import { DataAwsEbsDefaultKmsKey } from "@dinghy/tf-aws/serviceEbs"
+
+<DataAwsEbsDefaultKmsKey/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsEncryptionByDefault
+
+Manages whether default EBS encryption is enabled for your AWS account in the current AWS region.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_encryption_by_default)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsEncryptionByDefault.tsx)
+
+```js
+import { AwsEbsEncryptionByDefault } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsEncryptionByDefault/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_encryption_by_default)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/DataAwsEbsEncryptionByDefault.tsx)
+
+```js
+import { DataAwsEbsEncryptionByDefault } from "@dinghy/tf-aws/serviceEbs"
+
+<DataAwsEbsEncryptionByDefault/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsFastSnapshotRestore
+
+Terraform resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_fast_snapshot_restore)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsFastSnapshotRestore.tsx)
+
+```js
+import { AwsEbsFastSnapshotRestore } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsFastSnapshotRestore/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsSnapshot
+
+Provides an elastic block storage snapshot resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsSnapshot.tsx)
+
+```js
+import { AwsEbsSnapshot } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsSnapshot/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_snapshot)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/DataAwsEbsSnapshot.tsx)
+
+```js
+import { DataAwsEbsSnapshot } from "@dinghy/tf-aws/serviceEbs"
+
+<DataAwsEbsSnapshot/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsSnapshotBlockPublicAccess
+
+Manages EBS snapshot public access block configuration.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot_block_public_access)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsSnapshotBlockPublicAccess.tsx)
+
+```js
+import { AwsEbsSnapshotBlockPublicAccess } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsSnapshotBlockPublicAccess/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsSnapshotCopy
+
+Duplicates an existing Amazon snapshot
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot_copy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsSnapshotCopy.tsx)
+
+```js
+import { AwsEbsSnapshotCopy } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsSnapshotCopy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsSnapshotIds
+
+Provides a list of EBS snapshot IDs.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_snapshot_ids)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/DataAwsEbsSnapshotIds.tsx)
+
+```js
+import { DataAwsEbsSnapshotIds } from "@dinghy/tf-aws/serviceEbs"
+
+<DataAwsEbsSnapshotIds/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsSnapshotImport
+
+Provides an elastic block storage snapshot import resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot_import)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsSnapshotImport.tsx)
+
+```js
+import { AwsEbsSnapshotImport } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsSnapshotImport/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsVolume
+
+Provides an elastic block storage resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_volume)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/AwsEbsVolume.tsx)
+
+```js
+import { AwsEbsVolume } from "@dinghy/tf-aws/serviceEbs"
+
+<AwsEbsVolume/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_volume)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/DataAwsEbsVolume.tsx)
+
+```js
+import { DataAwsEbsVolume } from "@dinghy/tf-aws/serviceEbs"
+
+<DataAwsEbsVolume/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEbsVolumes
+
+Provides identifying information for EBS volumes matching given criteria
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_volumes)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ebs/DataAwsEbsVolumes.tsx)
+
+```js
+import { DataAwsEbsVolumes } from "@dinghy/tf-aws/serviceEbs"
+
+<DataAwsEbsVolumes/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

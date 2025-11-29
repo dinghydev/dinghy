@@ -11,11 +11,5 @@ export const EXCLUSIVE_2 = {
 }
 
 export function Exclusive2(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCLUSIVE_2}
-      {...props}
-      _style={extendStyle(EXCLUSIVE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCLUSIVE_2)} />
 }

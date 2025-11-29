@@ -11,11 +11,5 @@ export const TERMINAL_4_6MM2 = {
 }
 
 export function Terminal46mm2(props: NodeProps) {
-  return (
-    <Shape
-      {...TERMINAL_4_6MM2}
-      {...props}
-      _style={extendStyle(TERMINAL_4_6MM2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMINAL_4_6MM2)} />
 }

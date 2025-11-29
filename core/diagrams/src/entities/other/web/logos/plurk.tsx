@@ -11,5 +11,5 @@ export const PLURK = {
 }
 
 export function Plurk(props: NodeProps) {
-  return <Shape {...PLURK} {...props} _style={extendStyle(PLURK, props)} />
+  return <Shape {...props} _style={extendStyle(props, PLURK)} />
 }

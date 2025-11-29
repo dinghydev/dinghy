@@ -13,9 +13,8 @@ export const INTUNE_MOBILE_APPLICATION_MANAGEMENT = {
 export function IntuneMobileApplicationManagement(props: NodeProps) {
   return (
     <Shape
-      {...INTUNE_MOBILE_APPLICATION_MANAGEMENT}
       {...props}
-      _style={extendStyle(INTUNE_MOBILE_APPLICATION_MANAGEMENT, props)}
+      _style={extendStyle(props, INTUNE_MOBILE_APPLICATION_MANAGEMENT)}
     />
   )
 }

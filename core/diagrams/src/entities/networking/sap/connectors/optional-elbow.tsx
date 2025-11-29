@@ -11,11 +11,5 @@ export const OPTIONAL_ELBOW = {
 }
 
 export function OptionalElbow(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTIONAL_ELBOW}
-      {...props}
-      _style={extendStyle(OPTIONAL_ELBOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTIONAL_ELBOW)} />
 }

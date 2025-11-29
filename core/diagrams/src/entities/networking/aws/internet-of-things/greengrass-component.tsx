@@ -11,11 +11,5 @@ export const GREENGRASS_COMPONENT = {
 }
 
 export function GreengrassComponent(props: NodeProps) {
-  return (
-    <Shape
-      {...GREENGRASS_COMPONENT}
-      {...props}
-      _style={extendStyle(GREENGRASS_COMPONENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GREENGRASS_COMPONENT)} />
 }

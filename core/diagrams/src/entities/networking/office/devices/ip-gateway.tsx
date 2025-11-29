@@ -11,7 +11,5 @@ export const IP_GATEWAY = {
 }
 
 export function IpGateway(props: NodeProps) {
-  return (
-    <Shape {...IP_GATEWAY} {...props} _style={extendStyle(IP_GATEWAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IP_GATEWAY)} />
 }

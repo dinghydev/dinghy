@@ -12,10 +12,6 @@ export const INDUSTRIAL_MEDIA_CONVERTER = {
 
 export function IndustrialMediaConverter(props: NodeProps) {
   return (
-    <Shape
-      {...INDUSTRIAL_MEDIA_CONVERTER}
-      {...props}
-      _style={extendStyle(INDUSTRIAL_MEDIA_CONVERTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INDUSTRIAL_MEDIA_CONVERTER)} />
   )
 }

@@ -11,11 +11,5 @@ export const APPLICATION_COMPONENT = {
 }
 
 export function ApplicationComponent(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_COMPONENT}
-      {...props}
-      _style={extendStyle(APPLICATION_COMPONENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_COMPONENT)} />
 }

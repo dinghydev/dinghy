@@ -11,5 +11,5 @@ export const VIBER = {
 }
 
 export function Viber(props: NodeProps) {
-  return <Shape {...VIBER} {...props} _style={extendStyle(VIBER, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIBER)} />
 }

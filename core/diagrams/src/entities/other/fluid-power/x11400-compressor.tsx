@@ -11,11 +11,5 @@ export const X11400_COMPRESSOR = {
 }
 
 export function X11400Compressor(props: NodeProps) {
-  return (
-    <Shape
-      {...X11400_COMPRESSOR}
-      {...props}
-      _style={extendStyle(X11400_COMPRESSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11400_COMPRESSOR)} />
 }

@@ -11,11 +11,5 @@ export const SCUBA_DIVING = {
 }
 
 export function ScubaDiving(props: NodeProps) {
-  return (
-    <Shape
-      {...SCUBA_DIVING}
-      {...props}
-      _style={extendStyle(SCUBA_DIVING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCUBA_DIVING)} />
 }

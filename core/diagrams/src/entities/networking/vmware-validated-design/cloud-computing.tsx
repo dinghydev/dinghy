@@ -11,11 +11,5 @@ export const CLOUD_COMPUTING = {
 }
 
 export function CloudComputing(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_COMPUTING}
-      {...props}
-      _style={extendStyle(CLOUD_COMPUTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_COMPUTING)} />
 }

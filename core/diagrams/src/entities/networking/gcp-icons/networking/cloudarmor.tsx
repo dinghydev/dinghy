@@ -11,7 +11,5 @@ export const CLOUDARMOR = {
 }
 
 export function Cloudarmor(props: NodeProps) {
-  return (
-    <Shape {...CLOUDARMOR} {...props} _style={extendStyle(CLOUDARMOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDARMOR)} />
 }

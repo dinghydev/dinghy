@@ -11,11 +11,5 @@ export const PICNIC_SHELTER = {
 }
 
 export function PicnicShelter(props: NodeProps) {
-  return (
-    <Shape
-      {...PICNIC_SHELTER}
-      {...props}
-      _style={extendStyle(PICNIC_SHELTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PICNIC_SHELTER)} />
 }

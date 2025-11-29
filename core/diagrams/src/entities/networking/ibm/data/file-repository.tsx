@@ -11,11 +11,5 @@ export const FILE_REPOSITORY = {
 }
 
 export function FileRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_REPOSITORY}
-      {...props}
-      _style={extendStyle(FILE_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_REPOSITORY)} />
 }

@@ -11,11 +11,5 @@ export const RDN_INSTANCE = {
 }
 
 export function RdnInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...RDN_INSTANCE}
-      {...props}
-      _style={extendStyle(RDN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDN_INSTANCE)} />
 }

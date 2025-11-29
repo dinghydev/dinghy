@@ -1,0 +1,73 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_query_logging_configuration
+
+export const InputSchema = z.object({
+  workspace_id: resolvableValue(z.string()),
+  destination: resolvableValue(
+    z.object({
+      cloudwatch_logs: z.object({
+        log_group_arn: z.string(),
+      }).optional(),
+      filters: z.object({
+        qsp_threshold: z.number(),
+      }).optional(),
+    }).optional(),
+  ),
+  region: resolvableValue(z.string().optional()),
+  timeouts: resolvableValue(
+    z.object({
+      create: z.string().optional(),
+      delete: z.string().optional(),
+      update: z.string().optional(),
+    }).optional(),
+  ),
+})
+
+export const OutputSchema = z.object({})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsPrometheusQueryLoggingConfiguration(
+  props: Partial<InputProps>,
+) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_prometheus_query_logging_configuration'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsPrometheusQueryLoggingConfiguration = (
+  node?: any,
+  id?: string,
+) => useTypedNode<OutputProps>(AwsPrometheusQueryLoggingConfiguration, node, id)
+
+export const useAwsPrometheusQueryLoggingConfigurations = (
+  node?: any,
+  id?: string,
+) =>
+  useTypedNodes<OutputProps>(AwsPrometheusQueryLoggingConfiguration, node, id)

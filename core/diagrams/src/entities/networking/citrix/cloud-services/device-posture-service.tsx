@@ -12,10 +12,6 @@ export const DEVICE_POSTURE_SERVICE = {
 
 export function DevicePostureService(props: NodeProps) {
   return (
-    <Shape
-      {...DEVICE_POSTURE_SERVICE}
-      {...props}
-      _style={extendStyle(DEVICE_POSTURE_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEVICE_POSTURE_SERVICE)} />
   )
 }

@@ -12,10 +12,6 @@ export const CISCO_NEXUS_5596UP_SWITCH = {
 
 export function CiscoNexus5596upSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...CISCO_NEXUS_5596UP_SWITCH}
-      {...props}
-      _style={extendStyle(CISCO_NEXUS_5596UP_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CISCO_NEXUS_5596UP_SWITCH)} />
   )
 }

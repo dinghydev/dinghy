@@ -12,10 +12,6 @@ export const INTERACTIVE_VIDEO_SERVICE = {
 
 export function InteractiveVideoService(props: NodeProps) {
   return (
-    <Shape
-      {...INTERACTIVE_VIDEO_SERVICE}
-      {...props}
-      _style={extendStyle(INTERACTIVE_VIDEO_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTERACTIVE_VIDEO_SERVICE)} />
   )
 }

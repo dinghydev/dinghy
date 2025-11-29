@@ -11,11 +11,5 @@ export const FIREPASS_1200 = {
 }
 
 export function Firepass1200(props: NodeProps) {
-  return (
-    <Shape
-      {...FIREPASS_1200}
-      {...props}
-      _style={extendStyle(FIREPASS_1200, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIREPASS_1200)} />
 }

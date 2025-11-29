@@ -13,9 +13,8 @@ export const SQL_SERVER_STRETCH_DATABASES = {
 export function SqlServerStretchDatabases(props: NodeProps) {
   return (
     <Shape
-      {...SQL_SERVER_STRETCH_DATABASES}
       {...props}
-      _style={extendStyle(SQL_SERVER_STRETCH_DATABASES, props)}
+      _style={extendStyle(props, SQL_SERVER_STRETCH_DATABASES)}
     />
   )
 }

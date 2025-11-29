@@ -11,11 +11,5 @@ export const UPGRADE_SERVER = {
 }
 
 export function UpgradeServer(props: NodeProps) {
-  return (
-    <Shape
-      {...UPGRADE_SERVER}
-      {...props}
-      _style={extendStyle(UPGRADE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UPGRADE_SERVER)} />
 }

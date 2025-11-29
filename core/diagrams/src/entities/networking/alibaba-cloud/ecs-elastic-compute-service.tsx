@@ -13,9 +13,8 @@ export const ECS_ELASTIC_COMPUTE_SERVICE = {
 export function EcsElasticComputeService(props: NodeProps) {
   return (
     <Shape
-      {...ECS_ELASTIC_COMPUTE_SERVICE}
       {...props}
-      _style={extendStyle(ECS_ELASTIC_COMPUTE_SERVICE, props)}
+      _style={extendStyle(props, ECS_ELASTIC_COMPUTE_SERVICE)}
     />
   )
 }

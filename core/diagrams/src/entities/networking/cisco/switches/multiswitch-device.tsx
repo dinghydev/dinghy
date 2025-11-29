@@ -11,11 +11,5 @@ export const MULTISWITCH_DEVICE = {
 }
 
 export function MultiswitchDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTISWITCH_DEVICE}
-      {...props}
-      _style={extendStyle(MULTISWITCH_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTISWITCH_DEVICE)} />
 }

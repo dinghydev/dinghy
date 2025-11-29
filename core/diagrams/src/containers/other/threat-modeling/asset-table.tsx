@@ -14,11 +14,5 @@ export const ASSET_TABLE = {
 }
 
 export function AssetTable(props: NodeProps) {
-  return (
-    <Shape
-      {...ASSET_TABLE}
-      {...props}
-      _style={extendStyle(ASSET_TABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASSET_TABLE)} />
 }

@@ -11,5 +11,5 @@ export const START = {
 }
 
 export function Start(props: NodeProps) {
-  return <Shape {...START} {...props} _style={extendStyle(START, props)} />
+  return <Shape {...props} _style={extendStyle(props, START)} />
 }

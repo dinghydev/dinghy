@@ -11,11 +11,5 @@ export const CHECKLIST_PERFORMANCE = {
 }
 
 export function ChecklistPerformance(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKLIST_PERFORMANCE}
-      {...props}
-      _style={extendStyle(CHECKLIST_PERFORMANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKLIST_PERFORMANCE)} />
 }

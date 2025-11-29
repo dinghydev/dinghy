@@ -13,9 +13,8 @@ export const BACKUP_RECOVERY_TIME_OBJECTIVE = {
 export function BackupRecoveryTimeObjective(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_RECOVERY_TIME_OBJECTIVE}
       {...props}
-      _style={extendStyle(BACKUP_RECOVERY_TIME_OBJECTIVE, props)}
+      _style={extendStyle(props, BACKUP_RECOVERY_TIME_OBJECTIVE)}
     />
   )
 }

@@ -11,7 +11,5 @@ export const ADOBE_PDF = {
 }
 
 export function AdobePdf(props: NodeProps) {
-  return (
-    <Shape {...ADOBE_PDF} {...props} _style={extendStyle(ADOBE_PDF, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADOBE_PDF)} />
 }

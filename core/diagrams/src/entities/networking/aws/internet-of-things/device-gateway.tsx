@@ -11,11 +11,5 @@ export const DEVICE_GATEWAY = {
 }
 
 export function DeviceGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_GATEWAY}
-      {...props}
-      _style={extendStyle(DEVICE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_GATEWAY)} />
 }

@@ -13,9 +13,8 @@ export const BUSINESS_APPLICATION_STUDIO = {
 export function BusinessApplicationStudio(props: NodeProps) {
   return (
     <Shape
-      {...BUSINESS_APPLICATION_STUDIO}
       {...props}
-      _style={extendStyle(BUSINESS_APPLICATION_STUDIO, props)}
+      _style={extendStyle(props, BUSINESS_APPLICATION_STUDIO)}
     />
   )
 }

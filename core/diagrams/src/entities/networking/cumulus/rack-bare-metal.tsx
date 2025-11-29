@@ -11,11 +11,5 @@ export const RACK_BARE_METAL = {
 }
 
 export function RackBareMetal(props: NodeProps) {
-  return (
-    <Shape
-      {...RACK_BARE_METAL}
-      {...props}
-      _style={extendStyle(RACK_BARE_METAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RACK_BARE_METAL)} />
 }

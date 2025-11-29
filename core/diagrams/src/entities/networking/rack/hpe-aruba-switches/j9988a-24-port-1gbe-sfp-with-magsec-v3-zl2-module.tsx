@@ -13,11 +13,10 @@ export const J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE = {
 export function J9988a24Port1gbeSfpWithMagsecV3Zl2Module(props: NodeProps) {
   return (
     <Shape
-      {...J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE}
       {...props}
       _style={extendStyle(
-        J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE,
         props,
+        J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE,
       )}
     />
   )

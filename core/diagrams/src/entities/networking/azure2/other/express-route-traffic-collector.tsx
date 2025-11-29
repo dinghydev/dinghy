@@ -13,9 +13,8 @@ export const EXPRESS_ROUTE_TRAFFIC_COLLECTOR = {
 export function ExpressRouteTrafficCollector(props: NodeProps) {
   return (
     <Shape
-      {...EXPRESS_ROUTE_TRAFFIC_COLLECTOR}
       {...props}
-      _style={extendStyle(EXPRESS_ROUTE_TRAFFIC_COLLECTOR, props)}
+      _style={extendStyle(props, EXPRESS_ROUTE_TRAFFIC_COLLECTOR)}
     />
   )
 }

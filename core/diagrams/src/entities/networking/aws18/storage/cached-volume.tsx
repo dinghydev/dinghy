@@ -11,11 +11,5 @@ export const CACHED_VOLUME = {
 }
 
 export function CachedVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...CACHED_VOLUME}
-      {...props}
-      _style={extendStyle(CACHED_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CACHED_VOLUME)} />
 }

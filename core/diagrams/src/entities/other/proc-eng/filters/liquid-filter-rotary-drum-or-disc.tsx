@@ -13,9 +13,8 @@ export const LIQUID_FILTER_ROTARY_DRUM_OR_DISC = {
 export function LiquidFilterRotaryDrumOrDisc(props: NodeProps) {
   return (
     <Shape
-      {...LIQUID_FILTER_ROTARY_DRUM_OR_DISC}
       {...props}
-      _style={extendStyle(LIQUID_FILTER_ROTARY_DRUM_OR_DISC, props)}
+      _style={extendStyle(props, LIQUID_FILTER_ROTARY_DRUM_OR_DISC)}
     />
   )
 }

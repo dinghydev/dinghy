@@ -11,7 +11,5 @@ export const DETONATION = {
 }
 
 export function Detonation(props: NodeProps) {
-  return (
-    <Shape {...DETONATION} {...props} _style={extendStyle(DETONATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETONATION)} />
 }

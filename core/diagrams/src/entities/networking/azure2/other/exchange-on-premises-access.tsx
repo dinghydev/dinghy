@@ -13,9 +13,8 @@ export const EXCHANGE_ON_PREMISES_ACCESS = {
 export function ExchangeOnPremisesAccess(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_ON_PREMISES_ACCESS}
       {...props}
-      _style={extendStyle(EXCHANGE_ON_PREMISES_ACCESS, props)}
+      _style={extendStyle(props, EXCHANGE_ON_PREMISES_ACCESS)}
     />
   )
 }

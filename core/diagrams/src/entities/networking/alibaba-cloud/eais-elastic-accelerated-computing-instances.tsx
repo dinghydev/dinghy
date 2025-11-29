@@ -13,9 +13,8 @@ export const EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES = {
 export function EaisElasticAcceleratedComputingInstances(props: NodeProps) {
   return (
     <Shape
-      {...EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES}
       {...props}
-      _style={extendStyle(EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES, props)}
+      _style={extendStyle(props, EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const SSIS_LIFT_AND_SHIFT_IR = {
 
 export function SsisLiftAndShiftIr(props: NodeProps) {
   return (
-    <Shape
-      {...SSIS_LIFT_AND_SHIFT_IR}
-      {...props}
-      _style={extendStyle(SSIS_LIFT_AND_SHIFT_IR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SSIS_LIFT_AND_SHIFT_IR)} />
   )
 }

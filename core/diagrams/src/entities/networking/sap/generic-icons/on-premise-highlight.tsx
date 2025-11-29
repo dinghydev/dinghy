@@ -11,11 +11,5 @@ export const ON_PREMISE_HIGHLIGHT = {
 }
 
 export function OnPremiseHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PREMISE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(ON_PREMISE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PREMISE_HIGHLIGHT)} />
 }

@@ -13,9 +13,8 @@ export const REDSHIFT_DATA_SHARING_GOVERNANCE = {
 export function RedshiftDataSharingGovernance(props: NodeProps) {
   return (
     <Shape
-      {...REDSHIFT_DATA_SHARING_GOVERNANCE}
       {...props}
-      _style={extendStyle(REDSHIFT_DATA_SHARING_GOVERNANCE, props)}
+      _style={extendStyle(props, REDSHIFT_DATA_SHARING_GOVERNANCE)}
     />
   )
 }

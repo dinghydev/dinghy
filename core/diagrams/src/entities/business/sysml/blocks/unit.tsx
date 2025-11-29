@@ -10,5 +10,5 @@ export const UNIT = {
 }
 
 export function Unit(props: NodeProps) {
-  return <Shape {...UNIT} {...props} _style={extendStyle(UNIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, UNIT)} />
 }

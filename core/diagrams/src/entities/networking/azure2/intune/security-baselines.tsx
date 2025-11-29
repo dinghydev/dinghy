@@ -11,11 +11,5 @@ export const SECURITY_BASELINES = {
 }
 
 export function SecurityBaselines(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURITY_BASELINES}
-      {...props}
-      _style={extendStyle(SECURITY_BASELINES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURITY_BASELINES)} />
 }

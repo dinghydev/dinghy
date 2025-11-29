@@ -1,0 +1,189 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# ACM PCA (Certificate Manager Private Certificate Authority)
+
+## AwsAcmpcaCertificate
+
+Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA)
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/AwsAcmpcaCertificate.tsx)
+
+```js
+import { AwsAcmpcaCertificate } from "@dinghy/tf-aws/serviceAcmpca"
+
+<AwsAcmpcaCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acmpca_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/DataAwsAcmpcaCertificate.tsx)
+
+```js
+import { DataAwsAcmpcaCertificate } from "@dinghy/tf-aws/serviceAcmpca"
+
+<DataAwsAcmpcaCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate#import)
+
+```js
+<AwsAcmpcaCertificate
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAcmpcaCertificateAuthority
+
+Provides a resource to manage AWS Certificate Manager Private Certificate Authorities
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/AwsAcmpcaCertificateAuthority.tsx)
+
+```js
+import { AwsAcmpcaCertificateAuthority } from "@dinghy/tf-aws/serviceAcmpca"
+
+<AwsAcmpcaCertificateAuthority/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acmpca_certificate_authority)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/DataAwsAcmpcaCertificateAuthority.tsx)
+
+```js
+import { DataAwsAcmpcaCertificateAuthority } from "@dinghy/tf-aws/serviceAcmpca"
+
+<DataAwsAcmpcaCertificateAuthority/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority#import)
+
+```js
+<AwsAcmpcaCertificateAuthority
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAcmpcaCertificateAuthorityCertificate
+
+Associates a certificate with an AWS Certificate Manager Private Certificate Authority
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/AwsAcmpcaCertificateAuthorityCertificate.tsx)
+
+```js
+import { AwsAcmpcaCertificateAuthorityCertificate } from "@dinghy/tf-aws/serviceAcmpca"
+
+<AwsAcmpcaCertificateAuthorityCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority_certificate#import)
+
+```js
+<AwsAcmpcaCertificateAuthorityCertificate
+   certificate_authority_arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAcmpcaPermission
+
+Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_permission)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/AwsAcmpcaPermission.tsx)
+
+```js
+import { AwsAcmpcaPermission } from "@dinghy/tf-aws/serviceAcmpca"
+
+<AwsAcmpcaPermission/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAcmpcaPolicy
+
+Attaches a resource based policy to an AWS Certificate Manager Private Certificate Authority (ACM PCA)
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acmpca/AwsAcmpcaPolicy.tsx)
+
+```js
+import { AwsAcmpcaPolicy } from "@dinghy/tf-aws/serviceAcmpca"
+
+<AwsAcmpcaPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_policy#import)
+
+```js
+<AwsAcmpcaPolicy
+   resource_arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

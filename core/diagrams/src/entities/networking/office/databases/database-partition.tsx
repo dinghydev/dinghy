@@ -11,11 +11,5 @@ export const DATABASE_PARTITION = {
 }
 
 export function DatabasePartition(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_PARTITION}
-      {...props}
-      _style={extendStyle(DATABASE_PARTITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_PARTITION)} />
 }

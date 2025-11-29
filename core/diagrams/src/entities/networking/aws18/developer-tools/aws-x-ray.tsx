@@ -11,7 +11,5 @@ export const AWS_X_RAY = {
 }
 
 export function AwsXRay(props: NodeProps) {
-  return (
-    <Shape {...AWS_X_RAY} {...props} _style={extendStyle(AWS_X_RAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_X_RAY)} />
 }

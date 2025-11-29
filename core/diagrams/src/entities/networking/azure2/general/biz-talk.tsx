@@ -11,7 +11,5 @@ export const BIZ_TALK = {
 }
 
 export function BizTalk(props: NodeProps) {
-  return (
-    <Shape {...BIZ_TALK} {...props} _style={extendStyle(BIZ_TALK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIZ_TALK)} />
 }

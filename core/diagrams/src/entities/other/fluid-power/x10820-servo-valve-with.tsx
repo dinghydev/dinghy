@@ -12,10 +12,6 @@ export const X10820_SERVO_VALVE_WITH = {
 
 export function X10820ServoValveWith(props: NodeProps) {
   return (
-    <Shape
-      {...X10820_SERVO_VALVE_WITH}
-      {...props}
-      _style={extendStyle(X10820_SERVO_VALVE_WITH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10820_SERVO_VALVE_WITH)} />
   )
 }

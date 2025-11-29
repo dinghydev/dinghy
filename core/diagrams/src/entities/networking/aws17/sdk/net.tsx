@@ -11,5 +11,5 @@ export const NET = {
 }
 
 export function Net(props: NodeProps) {
-  return <Shape {...NET} {...props} _style={extendStyle(NET, props)} />
+  return <Shape {...props} _style={extendStyle(props, NET)} />
 }

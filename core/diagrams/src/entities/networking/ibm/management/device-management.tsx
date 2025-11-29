@@ -11,11 +11,5 @@ export const DEVICE_MANAGEMENT = {
 }
 
 export function DeviceManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_MANAGEMENT}
-      {...props}
-      _style={extendStyle(DEVICE_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_MANAGEMENT)} />
 }

@@ -11,7 +11,5 @@ export const METRO_1500 = {
 }
 
 export function Metro1500(props: NodeProps) {
-  return (
-    <Shape {...METRO_1500} {...props} _style={extendStyle(METRO_1500, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, METRO_1500)} />
 }

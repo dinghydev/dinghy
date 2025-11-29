@@ -11,7 +11,5 @@ export const WORKDOCS = {
 }
 
 export function Workdocs(props: NodeProps) {
-  return (
-    <Shape {...WORKDOCS} {...props} _style={extendStyle(WORKDOCS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKDOCS)} />
 }

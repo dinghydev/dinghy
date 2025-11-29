@@ -11,7 +11,5 @@ export const PORTFOLIO = {
 }
 
 export function Portfolio(props: NodeProps) {
-  return (
-    <Shape {...PORTFOLIO} {...props} _style={extendStyle(PORTFOLIO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PORTFOLIO)} />
 }

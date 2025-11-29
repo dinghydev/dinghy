@@ -13,9 +13,8 @@ export const VOICEBOT_INTELLIGENT_VOICE_NAVIGATION = {
 export function VoicebotIntelligentVoiceNavigation(props: NodeProps) {
   return (
     <Shape
-      {...VOICEBOT_INTELLIGENT_VOICE_NAVIGATION}
       {...props}
-      _style={extendStyle(VOICEBOT_INTELLIGENT_VOICE_NAVIGATION, props)}
+      _style={extendStyle(props, VOICEBOT_INTELLIGENT_VOICE_NAVIGATION)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const UI_THEME_DESIGNER = {
 }
 
 export function UiThemeDesigner(props: NodeProps) {
-  return (
-    <Shape
-      {...UI_THEME_DESIGNER}
-      {...props}
-      _style={extendStyle(UI_THEME_DESIGNER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UI_THEME_DESIGNER)} />
 }

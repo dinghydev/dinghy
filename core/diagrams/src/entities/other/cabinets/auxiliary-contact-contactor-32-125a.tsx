@@ -13,9 +13,8 @@ export const AUXILIARY_CONTACT_CONTACTOR_32_125A = {
 export function AuxiliaryContactContactor32125a(props: NodeProps) {
   return (
     <Shape
-      {...AUXILIARY_CONTACT_CONTACTOR_32_125A}
       {...props}
-      _style={extendStyle(AUXILIARY_CONTACT_CONTACTOR_32_125A, props)}
+      _style={extendStyle(props, AUXILIARY_CONTACT_CONTACTOR_32_125A)}
     />
   )
 }

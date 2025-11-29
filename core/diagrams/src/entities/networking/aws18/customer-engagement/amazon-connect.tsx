@@ -11,11 +11,5 @@ export const AMAZON_CONNECT = {
 }
 
 export function AmazonConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_CONNECT}
-      {...props}
-      _style={extendStyle(AMAZON_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_CONNECT)} />
 }

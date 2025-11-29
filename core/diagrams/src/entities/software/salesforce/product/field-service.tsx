@@ -11,11 +11,5 @@ export const FIELD_SERVICE = {
 }
 
 export function FieldService(props: NodeProps) {
-  return (
-    <Shape
-      {...FIELD_SERVICE}
-      {...props}
-      _style={extendStyle(FIELD_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIELD_SERVICE)} />
 }

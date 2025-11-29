@@ -11,11 +11,5 @@ export const DOOR_OPPOSING = {
 }
 
 export function DoorOpposing(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_OPPOSING}
-      {...props}
-      _style={extendStyle(DOOR_OPPOSING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_OPPOSING)} />
 }

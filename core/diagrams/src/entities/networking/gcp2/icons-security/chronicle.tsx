@@ -11,7 +11,5 @@ export const CHRONICLE = {
 }
 
 export function Chronicle(props: NodeProps) {
-  return (
-    <Shape {...CHRONICLE} {...props} _style={extendStyle(CHRONICLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHRONICLE)} />
 }

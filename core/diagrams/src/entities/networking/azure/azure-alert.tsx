@@ -11,11 +11,5 @@ export const AZURE_ALERT = {
 }
 
 export function AzureAlert(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_ALERT}
-      {...props}
-      _style={extendStyle(AZURE_ALERT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_ALERT)} />
 }

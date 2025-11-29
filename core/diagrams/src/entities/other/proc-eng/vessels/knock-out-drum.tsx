@@ -11,11 +11,5 @@ export const KNOCK_OUT_DRUM = {
 }
 
 export function KnockOutDrum(props: NodeProps) {
-  return (
-    <Shape
-      {...KNOCK_OUT_DRUM}
-      {...props}
-      _style={extendStyle(KNOCK_OUT_DRUM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KNOCK_OUT_DRUM)} />
 }

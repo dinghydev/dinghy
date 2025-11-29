@@ -11,7 +11,5 @@ export const WAVELENGTH = {
 }
 
 export function Wavelength(props: NodeProps) {
-  return (
-    <Shape {...WAVELENGTH} {...props} _style={extendStyle(WAVELENGTH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAVELENGTH)} />
 }

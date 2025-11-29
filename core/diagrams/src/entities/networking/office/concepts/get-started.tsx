@@ -11,11 +11,5 @@ export const GET_STARTED = {
 }
 
 export function GetStarted(props: NodeProps) {
-  return (
-    <Shape
-      {...GET_STARTED}
-      {...props}
-      _style={extendStyle(GET_STARTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GET_STARTED)} />
 }

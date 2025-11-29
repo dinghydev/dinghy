@@ -11,11 +11,5 @@ export const AMAZON_FREERTOS = {
 }
 
 export function AmazonFreertos(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_FREERTOS}
-      {...props}
-      _style={extendStyle(AMAZON_FREERTOS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_FREERTOS)} />
 }

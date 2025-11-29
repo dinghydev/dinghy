@@ -11,11 +11,5 @@ export const BACKUP_COMPUTE = {
 }
 
 export function BackupCompute(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_COMPUTE}
-      {...props}
-      _style={extendStyle(BACKUP_COMPUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_COMPUTE)} />
 }

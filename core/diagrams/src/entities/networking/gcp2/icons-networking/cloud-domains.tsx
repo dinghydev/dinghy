@@ -11,11 +11,5 @@ export const CLOUD_DOMAINS = {
 }
 
 export function CloudDomains(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DOMAINS}
-      {...props}
-      _style={extendStyle(CLOUD_DOMAINS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DOMAINS)} />
 }

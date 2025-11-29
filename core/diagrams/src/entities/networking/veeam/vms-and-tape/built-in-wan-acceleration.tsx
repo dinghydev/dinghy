@@ -12,10 +12,6 @@ export const BUILT_IN_WAN_ACCELERATION = {
 
 export function BuiltInWanAcceleration(props: NodeProps) {
   return (
-    <Shape
-      {...BUILT_IN_WAN_ACCELERATION}
-      {...props}
-      _style={extendStyle(BUILT_IN_WAN_ACCELERATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BUILT_IN_WAN_ACCELERATION)} />
   )
 }

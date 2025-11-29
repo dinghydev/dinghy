@@ -11,11 +11,5 @@ export const CLIENT_BASED_SECURITY = {
 }
 
 export function ClientBasedSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...CLIENT_BASED_SECURITY}
-      {...props}
-      _style={extendStyle(CLIENT_BASED_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLIENT_BASED_SECURITY)} />
 }

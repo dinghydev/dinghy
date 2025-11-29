@@ -11,11 +11,5 @@ export const SERVICE_MODULE = {
 }
 
 export function ServiceModule(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_MODULE}
-      {...props}
-      _style={extendStyle(SERVICE_MODULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_MODULE)} />
 }

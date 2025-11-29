@@ -11,11 +11,5 @@ export const HEAT_AUTOSCALINGGROUP = {
 }
 
 export function HeatAutoscalinggroup(props: NodeProps) {
-  return (
-    <Shape
-      {...HEAT_AUTOSCALINGGROUP}
-      {...props}
-      _style={extendStyle(HEAT_AUTOSCALINGGROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEAT_AUTOSCALINGGROUP)} />
 }

@@ -11,11 +11,5 @@ export const ERROR_DASHED_3 = {
 }
 
 export function ErrorDashed3(props: NodeProps) {
-  return (
-    <Shape
-      {...ERROR_DASHED_3}
-      {...props}
-      _style={extendStyle(ERROR_DASHED_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ERROR_DASHED_3)} />
 }

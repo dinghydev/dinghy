@@ -11,11 +11,5 @@ export const TRANSFER_FAMILY = {
 }
 
 export function TransferFamily(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSFER_FAMILY}
-      {...props}
-      _style={extendStyle(TRANSFER_FAMILY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSFER_FAMILY)} />
 }

@@ -11,11 +11,5 @@ export const DOUBLE_TRIODE = {
 }
 
 export function DoubleTriode(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_TRIODE}
-      {...props}
-      _style={extendStyle(DOUBLE_TRIODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_TRIODE)} />
 }

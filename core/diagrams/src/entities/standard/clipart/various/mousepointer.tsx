@@ -11,11 +11,5 @@ export const MOUSEPOINTER = {
 }
 
 export function Mousepointer(props: NodeProps) {
-  return (
-    <Shape
-      {...MOUSEPOINTER}
-      {...props}
-      _style={extendStyle(MOUSEPOINTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOUSEPOINTER)} />
 }

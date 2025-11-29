@@ -11,11 +11,5 @@ export const VS_VIDEO_SURVEILLANCE = {
 }
 
 export function VsVideoSurveillance(props: NodeProps) {
-  return (
-    <Shape
-      {...VS_VIDEO_SURVEILLANCE}
-      {...props}
-      _style={extendStyle(VS_VIDEO_SURVEILLANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VS_VIDEO_SURVEILLANCE)} />
 }

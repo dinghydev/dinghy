@@ -12,10 +12,6 @@ export const AZURE_OPERATOR_INSIGHTS = {
 
 export function AzureOperatorInsights(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_OPERATOR_INSIGHTS}
-      {...props}
-      _style={extendStyle(AZURE_OPERATOR_INSIGHTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_OPERATOR_INSIGHTS)} />
   )
 }

@@ -11,11 +11,5 @@ export const RUNTIME_SERVICES = {
 }
 
 export function RuntimeServices(props: NodeProps) {
-  return (
-    <Shape
-      {...RUNTIME_SERVICES}
-      {...props}
-      _style={extendStyle(RUNTIME_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RUNTIME_SERVICES)} />
 }

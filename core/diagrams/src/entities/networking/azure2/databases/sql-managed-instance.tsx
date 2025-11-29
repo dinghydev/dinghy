@@ -11,11 +11,5 @@ export const SQL_MANAGED_INSTANCE = {
 }
 
 export function SqlManagedInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_MANAGED_INSTANCE}
-      {...props}
-      _style={extendStyle(SQL_MANAGED_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_MANAGED_INSTANCE)} />
 }

@@ -11,7 +11,5 @@ export const TEST_POINT = {
 }
 
 export function TestPoint(props: NodeProps) {
-  return (
-    <Shape {...TEST_POINT} {...props} _style={extendStyle(TEST_POINT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEST_POINT)} />
 }

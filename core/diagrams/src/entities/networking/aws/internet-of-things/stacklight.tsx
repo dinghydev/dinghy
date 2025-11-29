@@ -11,7 +11,5 @@ export const STACKLIGHT = {
 }
 
 export function Stacklight(props: NodeProps) {
-  return (
-    <Shape {...STACKLIGHT} {...props} _style={extendStyle(STACKLIGHT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACKLIGHT)} />
 }

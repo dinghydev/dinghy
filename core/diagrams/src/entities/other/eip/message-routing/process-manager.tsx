@@ -11,11 +11,5 @@ export const PROCESS_MANAGER = {
 }
 
 export function ProcessManager(props: NodeProps) {
-  return (
-    <Shape
-      {...PROCESS_MANAGER}
-      {...props}
-      _style={extendStyle(PROCESS_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROCESS_MANAGER)} />
 }

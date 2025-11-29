@@ -11,11 +11,5 @@ export const RAIL_SHIPMENT = {
 }
 
 export function RailShipment(props: NodeProps) {
-  return (
-    <Shape
-      {...RAIL_SHIPMENT}
-      {...props}
-      _style={extendStyle(RAIL_SHIPMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RAIL_SHIPMENT)} />
 }

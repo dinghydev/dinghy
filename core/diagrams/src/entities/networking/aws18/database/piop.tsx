@@ -11,5 +11,5 @@ export const PIOP = {
 }
 
 export function Piop(props: NodeProps) {
-  return <Shape {...PIOP} {...props} _style={extendStyle(PIOP, props)} />
+  return <Shape {...props} _style={extendStyle(props, PIOP)} />
 }

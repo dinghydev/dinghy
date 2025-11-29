@@ -11,11 +11,5 @@ export const SPINNER_NORMAL = {
 }
 
 export function SpinnerNormal(props: NodeProps) {
-  return (
-    <Shape
-      {...SPINNER_NORMAL}
-      {...props}
-      _style={extendStyle(SPINNER_NORMAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPINNER_NORMAL)} />
 }

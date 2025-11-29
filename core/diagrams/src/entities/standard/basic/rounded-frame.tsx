@@ -11,11 +11,5 @@ export const ROUNDED_FRAME = {
 }
 
 export function RoundedFrame(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUNDED_FRAME}
-      {...props}
-      _style={extendStyle(ROUNDED_FRAME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUNDED_FRAME)} />
 }

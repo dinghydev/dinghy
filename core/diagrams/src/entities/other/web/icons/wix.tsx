@@ -11,5 +11,5 @@ export const WIX = {
 }
 
 export function Wix(props: NodeProps) {
-  return <Shape {...WIX} {...props} _style={extendStyle(WIX, props)} />
+  return <Shape {...props} _style={extendStyle(props, WIX)} />
 }

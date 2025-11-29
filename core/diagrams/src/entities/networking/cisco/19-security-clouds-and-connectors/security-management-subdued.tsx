@@ -13,9 +13,8 @@ export const SECURITY_MANAGEMENT_SUBDUED = {
 export function SecurityManagementSubdued(props: NodeProps) {
   return (
     <Shape
-      {...SECURITY_MANAGEMENT_SUBDUED}
       {...props}
-      _style={extendStyle(SECURITY_MANAGEMENT_SUBDUED, props)}
+      _style={extendStyle(props, SECURITY_MANAGEMENT_SUBDUED)}
     />
   )
 }

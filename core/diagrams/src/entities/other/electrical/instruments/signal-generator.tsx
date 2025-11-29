@@ -11,11 +11,5 @@ export const SIGNAL_GENERATOR = {
 }
 
 export function SignalGenerator(props: NodeProps) {
-  return (
-    <Shape
-      {...SIGNAL_GENERATOR}
-      {...props}
-      _style={extendStyle(SIGNAL_GENERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIGNAL_GENERATOR)} />
 }

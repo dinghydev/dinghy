@@ -11,11 +11,5 @@ export const POWER_INSTANCE = {
 }
 
 export function PowerInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...POWER_INSTANCE}
-      {...props}
-      _style={extendStyle(POWER_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWER_INSTANCE)} />
 }

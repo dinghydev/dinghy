@@ -11,11 +11,5 @@ export const INDENT_HIGHLIGHT = {
 }
 
 export function IndentHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...INDENT_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(INDENT_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDENT_HIGHLIGHT)} />
 }

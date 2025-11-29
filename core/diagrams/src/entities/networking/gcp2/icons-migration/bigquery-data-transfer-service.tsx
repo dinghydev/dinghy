@@ -13,9 +13,8 @@ export const BIGQUERY_DATA_TRANSFER_SERVICE = {
 export function BigqueryDataTransferService(props: NodeProps) {
   return (
     <Shape
-      {...BIGQUERY_DATA_TRANSFER_SERVICE}
       {...props}
-      _style={extendStyle(BIGQUERY_DATA_TRANSFER_SERVICE, props)}
+      _style={extendStyle(props, BIGQUERY_DATA_TRANSFER_SERVICE)}
     />
   )
 }

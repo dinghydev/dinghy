@@ -11,11 +11,5 @@ export const AZURE_BOARDS = {
 }
 
 export function AzureBoards(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_BOARDS}
-      {...props}
-      _style={extendStyle(AZURE_BOARDS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_BOARDS)} />
 }

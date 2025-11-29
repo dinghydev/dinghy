@@ -11,5 +11,5 @@ export const GOOGLE = {
 }
 
 export function Google(props: NodeProps) {
-  return <Shape {...GOOGLE} {...props} _style={extendStyle(GOOGLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, GOOGLE)} />
 }

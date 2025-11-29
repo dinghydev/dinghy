@@ -13,9 +13,8 @@ export const CONTEXTUAL_ACTION_BAR_BRIGHT = {
 export function ContextualActionBarBright(props: NodeProps) {
   return (
     <Shape
-      {...CONTEXTUAL_ACTION_BAR_BRIGHT}
       {...props}
-      _style={extendStyle(CONTEXTUAL_ACTION_BAR_BRIGHT, props)}
+      _style={extendStyle(props, CONTEXTUAL_ACTION_BAR_BRIGHT)}
     />
   )
 }

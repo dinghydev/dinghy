@@ -11,11 +11,5 @@ export const TRADEMARK_SERVICE = {
 }
 
 export function TrademarkService(props: NodeProps) {
-  return (
-    <Shape
-      {...TRADEMARK_SERVICE}
-      {...props}
-      _style={extendStyle(TRADEMARK_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRADEMARK_SERVICE)} />
 }

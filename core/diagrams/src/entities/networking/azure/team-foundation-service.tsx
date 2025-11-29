@@ -12,10 +12,6 @@ export const TEAM_FOUNDATION_SERVICE = {
 
 export function TeamFoundationService(props: NodeProps) {
   return (
-    <Shape
-      {...TEAM_FOUNDATION_SERVICE}
-      {...props}
-      _style={extendStyle(TEAM_FOUNDATION_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TEAM_FOUNDATION_SERVICE)} />
   )
 }

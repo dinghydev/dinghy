@@ -11,11 +11,5 @@ export const NAVBAR_WITH_TEXT = {
 }
 
 export function NavbarWithText(props: NodeProps) {
-  return (
-    <Shape
-      {...NAVBAR_WITH_TEXT}
-      {...props}
-      _style={extendStyle(NAVBAR_WITH_TEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVBAR_WITH_TEXT)} />
 }

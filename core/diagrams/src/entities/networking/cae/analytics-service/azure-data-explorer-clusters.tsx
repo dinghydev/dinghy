@@ -13,9 +13,8 @@ export const AZURE_DATA_EXPLORER_CLUSTERS = {
 export function AzureDataExplorerClusters(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_DATA_EXPLORER_CLUSTERS}
       {...props}
-      _style={extendStyle(AZURE_DATA_EXPLORER_CLUSTERS, props)}
+      _style={extendStyle(props, AZURE_DATA_EXPLORER_CLUSTERS)}
     />
   )
 }

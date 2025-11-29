@@ -11,11 +11,5 @@ export const HANDLE_WITH_CARE = {
 }
 
 export function HandleWithCare(props: NodeProps) {
-  return (
-    <Shape
-      {...HANDLE_WITH_CARE}
-      {...props}
-      _style={extendStyle(HANDLE_WITH_CARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HANDLE_WITH_CARE)} />
 }

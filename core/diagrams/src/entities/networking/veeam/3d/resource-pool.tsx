@@ -11,11 +11,5 @@ export const RESOURCE_POOL = {
 }
 
 export function ResourcePool(props: NodeProps) {
-  return (
-    <Shape
-      {...RESOURCE_POOL}
-      {...props}
-      _style={extendStyle(RESOURCE_POOL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESOURCE_POOL)} />
 }

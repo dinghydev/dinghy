@@ -11,11 +11,5 @@ export const MODULAR_DATA_CENTER = {
 }
 
 export function ModularDataCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...MODULAR_DATA_CENTER}
-      {...props}
-      _style={extendStyle(MODULAR_DATA_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MODULAR_DATA_CENTER)} />
 }

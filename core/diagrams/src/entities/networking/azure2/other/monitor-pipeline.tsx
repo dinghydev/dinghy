@@ -11,11 +11,5 @@ export const MONITOR_PIPELINE = {
 }
 
 export function MonitorPipeline(props: NodeProps) {
-  return (
-    <Shape
-      {...MONITOR_PIPELINE}
-      {...props}
-      _style={extendStyle(MONITOR_PIPELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITOR_PIPELINE)} />
 }

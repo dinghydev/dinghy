@@ -12,10 +12,6 @@ export const X10040_CONTROL_MECHANISM = {
 
 export function X10040ControlMechanism(props: NodeProps) {
   return (
-    <Shape
-      {...X10040_CONTROL_MECHANISM}
-      {...props}
-      _style={extendStyle(X10040_CONTROL_MECHANISM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10040_CONTROL_MECHANISM)} />
   )
 }

@@ -11,11 +11,5 @@ export const PRINT_SERVER_WIRELESS = {
 }
 
 export function PrintServerWireless(props: NodeProps) {
-  return (
-    <Shape
-      {...PRINT_SERVER_WIRELESS}
-      {...props}
-      _style={extendStyle(PRINT_SERVER_WIRELESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRINT_SERVER_WIRELESS)} />
 }

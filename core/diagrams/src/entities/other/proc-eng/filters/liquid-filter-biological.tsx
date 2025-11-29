@@ -12,10 +12,6 @@ export const LIQUID_FILTER_BIOLOGICAL = {
 
 export function LiquidFilterBiological(props: NodeProps) {
   return (
-    <Shape
-      {...LIQUID_FILTER_BIOLOGICAL}
-      {...props}
-      _style={extendStyle(LIQUID_FILTER_BIOLOGICAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIQUID_FILTER_BIOLOGICAL)} />
   )
 }

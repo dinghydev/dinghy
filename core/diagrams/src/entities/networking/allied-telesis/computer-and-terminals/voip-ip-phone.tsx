@@ -11,11 +11,5 @@ export const VOIP_IP_PHONE = {
 }
 
 export function VoipIpPhone(props: NodeProps) {
-  return (
-    <Shape
-      {...VOIP_IP_PHONE}
-      {...props}
-      _style={extendStyle(VOIP_IP_PHONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOIP_IP_PHONE)} />
 }

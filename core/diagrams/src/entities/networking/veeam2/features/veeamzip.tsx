@@ -11,7 +11,5 @@ export const VEEAMZIP = {
 }
 
 export function Veeamzip(props: NodeProps) {
-  return (
-    <Shape {...VEEAMZIP} {...props} _style={extendStyle(VEEAMZIP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAMZIP)} />
 }

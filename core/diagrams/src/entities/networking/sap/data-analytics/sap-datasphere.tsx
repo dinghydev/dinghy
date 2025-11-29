@@ -11,11 +11,5 @@ export const SAP_DATASPHERE = {
 }
 
 export function SapDatasphere(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_DATASPHERE}
-      {...props}
-      _style={extendStyle(SAP_DATASPHERE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_DATASPHERE)} />
 }

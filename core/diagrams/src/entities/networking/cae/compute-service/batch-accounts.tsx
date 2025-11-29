@@ -11,11 +11,5 @@ export const BATCH_ACCOUNTS = {
 }
 
 export function BatchAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...BATCH_ACCOUNTS}
-      {...props}
-      _style={extendStyle(BATCH_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BATCH_ACCOUNTS)} />
 }

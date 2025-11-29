@@ -12,10 +12,6 @@ export const VEEAM_EXPLORER_FOR_ORACLE = {
 
 export function VeeamExplorerForOracle(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_EXPLORER_FOR_ORACLE}
-      {...props}
-      _style={extendStyle(VEEAM_EXPLORER_FOR_ORACLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_EXPLORER_FOR_ORACLE)} />
   )
 }

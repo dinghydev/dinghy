@@ -11,11 +11,5 @@ export const NOTCHED_ARROW = {
 }
 
 export function NotchedArrow(props: NodeProps) {
-  return (
-    <Shape
-      {...NOTCHED_ARROW}
-      {...props}
-      _style={extendStyle(NOTCHED_ARROW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NOTCHED_ARROW)} />
 }

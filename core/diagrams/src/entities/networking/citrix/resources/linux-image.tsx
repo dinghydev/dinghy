@@ -11,11 +11,5 @@ export const LINUX_IMAGE = {
 }
 
 export function LinuxImage(props: NodeProps) {
-  return (
-    <Shape
-      {...LINUX_IMAGE}
-      {...props}
-      _style={extendStyle(LINUX_IMAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINUX_IMAGE)} />
 }

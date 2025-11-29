@@ -13,9 +13,8 @@ export const R0X38A_ARUBA_6400_48P_1GBE_CLS4_POE_MODULE = {
 export function R0x38aAruba640048p1gbeCls4PoeModule(props: NodeProps) {
   return (
     <Shape
-      {...R0X38A_ARUBA_6400_48P_1GBE_CLS4_POE_MODULE}
       {...props}
-      _style={extendStyle(R0X38A_ARUBA_6400_48P_1GBE_CLS4_POE_MODULE, props)}
+      _style={extendStyle(props, R0X38A_ARUBA_6400_48P_1GBE_CLS4_POE_MODULE)}
     />
   )
 }

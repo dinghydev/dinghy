@@ -11,7 +11,5 @@ export const CLOUD_IAM = {
 }
 
 export function CloudIam(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_IAM} {...props} _style={extendStyle(CLOUD_IAM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_IAM)} />
 }

@@ -11,11 +11,5 @@ export const TANK_CONCRETE_BASE = {
 }
 
 export function TankConcreteBase(props: NodeProps) {
-  return (
-    <Shape
-      {...TANK_CONCRETE_BASE}
-      {...props}
-      _style={extendStyle(TANK_CONCRETE_BASE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_CONCRETE_BASE)} />
 }

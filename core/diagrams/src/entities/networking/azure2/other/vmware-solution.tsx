@@ -11,11 +11,5 @@ export const VMWARE_SOLUTION = {
 }
 
 export function VmwareSolution(props: NodeProps) {
-  return (
-    <Shape
-      {...VMWARE_SOLUTION}
-      {...props}
-      _style={extendStyle(VMWARE_SOLUTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VMWARE_SOLUTION)} />
 }

@@ -11,7 +11,5 @@ export const TIMESTAMP = {
 }
 
 export function Timestamp(props: NodeProps) {
-  return (
-    <Shape {...TIMESTAMP} {...props} _style={extendStyle(TIMESTAMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIMESTAMP)} />
 }

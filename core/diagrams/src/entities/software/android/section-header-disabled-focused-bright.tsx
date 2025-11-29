@@ -13,9 +13,8 @@ export const SECTION_HEADER_DISABLED_FOCUSED_BRIGHT = {
 export function SectionHeaderDisabledFocusedBright(props: NodeProps) {
   return (
     <Shape
-      {...SECTION_HEADER_DISABLED_FOCUSED_BRIGHT}
       {...props}
-      _style={extendStyle(SECTION_HEADER_DISABLED_FOCUSED_BRIGHT, props)}
+      _style={extendStyle(props, SECTION_HEADER_DISABLED_FOCUSED_BRIGHT)}
     />
   )
 }

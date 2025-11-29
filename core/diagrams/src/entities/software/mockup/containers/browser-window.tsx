@@ -11,11 +11,5 @@ export const BROWSER_WINDOW = {
 }
 
 export function BrowserWindow(props: NodeProps) {
-  return (
-    <Shape
-      {...BROWSER_WINDOW}
-      {...props}
-      _style={extendStyle(BROWSER_WINDOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BROWSER_WINDOW)} />
 }

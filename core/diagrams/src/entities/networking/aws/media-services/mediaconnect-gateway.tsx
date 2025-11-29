@@ -11,11 +11,5 @@ export const MEDIACONNECT_GATEWAY = {
 }
 
 export function MediaconnectGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDIACONNECT_GATEWAY}
-      {...props}
-      _style={extendStyle(MEDIACONNECT_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIACONNECT_GATEWAY)} />
 }

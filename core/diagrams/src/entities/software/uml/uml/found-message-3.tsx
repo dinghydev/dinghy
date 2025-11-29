@@ -11,11 +11,5 @@ export const FOUND_MESSAGE_3 = {
 }
 
 export function FoundMessage3(props: NodeProps) {
-  return (
-    <Shape
-      {...FOUND_MESSAGE_3}
-      {...props}
-      _style={extendStyle(FOUND_MESSAGE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOUND_MESSAGE_3)} />
 }

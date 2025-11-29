@@ -11,11 +11,5 @@ export const LOGIC_APPS_2 = {
 }
 
 export function LogicApps2(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGIC_APPS_2}
-      {...props}
-      _style={extendStyle(LOGIC_APPS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGIC_APPS_2)} />
 }

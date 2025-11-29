@@ -11,7 +11,5 @@ export const TRANSORB_2 = {
 }
 
 export function Transorb2(props: NodeProps) {
-  return (
-    <Shape {...TRANSORB_2} {...props} _style={extendStyle(TRANSORB_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSORB_2)} />
 }

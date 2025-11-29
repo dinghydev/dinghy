@@ -11,11 +11,5 @@ export const BOOK_JOURNAL = {
 }
 
 export function BookJournal(props: NodeProps) {
-  return (
-    <Shape
-      {...BOOK_JOURNAL}
-      {...props}
-      _style={extendStyle(BOOK_JOURNAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOOK_JOURNAL)} />
 }

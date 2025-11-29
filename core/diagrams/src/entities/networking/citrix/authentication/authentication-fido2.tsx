@@ -11,11 +11,5 @@ export const AUTHENTICATION_FIDO2 = {
 }
 
 export function AuthenticationFido2(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_FIDO2}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_FIDO2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_FIDO2)} />
 }

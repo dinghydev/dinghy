@@ -11,11 +11,5 @@ export const DOCUMENT_HIGHLIGHT = {
 }
 
 export function DocumentHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(DOCUMENT_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_HIGHLIGHT)} />
 }

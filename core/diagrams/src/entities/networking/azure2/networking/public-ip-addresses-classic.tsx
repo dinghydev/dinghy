@@ -13,9 +13,8 @@ export const PUBLIC_IP_ADDRESSES_CLASSIC = {
 export function PublicIpAddressesClassic(props: NodeProps) {
   return (
     <Shape
-      {...PUBLIC_IP_ADDRESSES_CLASSIC}
       {...props}
-      _style={extendStyle(PUBLIC_IP_ADDRESSES_CLASSIC, props)}
+      _style={extendStyle(props, PUBLIC_IP_ADDRESSES_CLASSIC)}
     />
   )
 }

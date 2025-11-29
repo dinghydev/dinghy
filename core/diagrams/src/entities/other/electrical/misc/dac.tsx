@@ -11,5 +11,5 @@ export const DAC = {
 }
 
 export function Dac(props: NodeProps) {
-  return <Shape {...DAC} {...props} _style={extendStyle(DAC, props)} />
+  return <Shape {...props} _style={extendStyle(props, DAC)} />
 }

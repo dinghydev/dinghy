@@ -11,5 +11,5 @@ export const WEDGE = {
 }
 
 export function Wedge(props: NodeProps) {
-  return <Shape {...WEDGE} {...props} _style={extendStyle(WEDGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEDGE)} />
 }

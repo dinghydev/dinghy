@@ -11,11 +11,5 @@ export const SUCCESS_HIGHLIGHT = {
 }
 
 export function SuccessHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...SUCCESS_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(SUCCESS_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCCESS_HIGHLIGHT)} />
 }

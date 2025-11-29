@@ -11,5 +11,5 @@ export const HTTPDNS = {
 }
 
 export function Httpdns(props: NodeProps) {
-  return <Shape {...HTTPDNS} {...props} _style={extendStyle(HTTPDNS, props)} />
+  return <Shape {...props} _style={extendStyle(props, HTTPDNS)} />
 }

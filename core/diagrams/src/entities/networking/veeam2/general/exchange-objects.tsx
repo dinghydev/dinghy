@@ -11,11 +11,5 @@ export const EXCHANGE_OBJECTS = {
 }
 
 export function ExchangeObjects(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCHANGE_OBJECTS}
-      {...props}
-      _style={extendStyle(EXCHANGE_OBJECTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCHANGE_OBJECTS)} />
 }

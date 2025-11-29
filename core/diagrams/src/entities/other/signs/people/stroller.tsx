@@ -11,7 +11,5 @@ export const STROLLER = {
 }
 
 export function Stroller(props: NodeProps) {
-  return (
-    <Shape {...STROLLER} {...props} _style={extendStyle(STROLLER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STROLLER)} />
 }

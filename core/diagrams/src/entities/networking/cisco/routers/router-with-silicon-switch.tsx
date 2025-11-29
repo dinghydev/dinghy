@@ -12,10 +12,6 @@ export const ROUTER_WITH_SILICON_SWITCH = {
 
 export function RouterWithSiliconSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...ROUTER_WITH_SILICON_SWITCH}
-      {...props}
-      _style={extendStyle(ROUTER_WITH_SILICON_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROUTER_WITH_SILICON_SWITCH)} />
   )
 }

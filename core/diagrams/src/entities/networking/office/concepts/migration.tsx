@@ -11,7 +11,5 @@ export const MIGRATION = {
 }
 
 export function Migration(props: NodeProps) {
-  return (
-    <Shape {...MIGRATION} {...props} _style={extendStyle(MIGRATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATION)} />
 }

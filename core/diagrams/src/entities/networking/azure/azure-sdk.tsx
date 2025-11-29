@@ -11,7 +11,5 @@ export const AZURE_SDK = {
 }
 
 export function AzureSdk(props: NodeProps) {
-  return (
-    <Shape {...AZURE_SDK} {...props} _style={extendStyle(AZURE_SDK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_SDK)} />
 }

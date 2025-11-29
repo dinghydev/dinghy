@@ -11,7 +11,5 @@ export const DYNAMO_DB = {
 }
 
 export function DynamoDb(props: NodeProps) {
-  return (
-    <Shape {...DYNAMO_DB} {...props} _style={extendStyle(DYNAMO_DB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DYNAMO_DB)} />
 }

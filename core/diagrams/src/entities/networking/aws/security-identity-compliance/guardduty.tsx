@@ -11,7 +11,5 @@ export const GUARDDUTY = {
 }
 
 export function Guardduty(props: NodeProps) {
-  return (
-    <Shape {...GUARDDUTY} {...props} _style={extendStyle(GUARDDUTY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GUARDDUTY)} />
 }

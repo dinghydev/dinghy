@@ -11,11 +11,5 @@ export const DATAPREP_BY_TRIFACTA = {
 }
 
 export function DataprepByTrifacta(props: NodeProps) {
-  return (
-    <Shape
-      {...DATAPREP_BY_TRIFACTA}
-      {...props}
-      _style={extendStyle(DATAPREP_BY_TRIFACTA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAPREP_BY_TRIFACTA)} />
 }

@@ -11,7 +11,5 @@ export const PALLETIZER = {
 }
 
 export function Palletizer(props: NodeProps) {
-  return (
-    <Shape {...PALLETIZER} {...props} _style={extendStyle(PALLETIZER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PALLETIZER)} />
 }

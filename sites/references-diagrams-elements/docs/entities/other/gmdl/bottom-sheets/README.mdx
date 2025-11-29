@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { BottomSheet } from '@dinghy/diagrams/entitiesGmdlBottomSheets'
 
 <BottomSheet/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BOTTOM_SHEET } from '@dinghy/diagrams/entitiesGmdlBottomSheets'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BOTTOM_SHEET)}
+  />
+
 ```
 
   </TabItem>
@@ -51,6 +62,17 @@ import { BottomSheet } from '@dinghy/diagrams/entitiesGmdlBottomSheets'
 import { GridStyleWithSomeOptions } from '@dinghy/diagrams/entitiesGmdlBottomSheets'
 
 <GridStyleWithSomeOptions/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { GRID_STYLE_WITH_SOME_OPTIONS } from '@dinghy/diagrams/entitiesGmdlBottomSheets'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, GRID_STYLE_WITH_SOME_OPTIONS)}
+  />
+
 ```
 
   </TabItem>

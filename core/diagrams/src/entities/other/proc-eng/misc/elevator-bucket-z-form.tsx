@@ -12,10 +12,6 @@ export const ELEVATOR_BUCKET_Z_FORM = {
 
 export function ElevatorBucketZForm(props: NodeProps) {
   return (
-    <Shape
-      {...ELEVATOR_BUCKET_Z_FORM}
-      {...props}
-      _style={extendStyle(ELEVATOR_BUCKET_Z_FORM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELEVATOR_BUCKET_Z_FORM)} />
   )
 }

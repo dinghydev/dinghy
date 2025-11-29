@@ -11,7 +11,5 @@ export const REGISTERED = {
 }
 
 export function Registered(props: NodeProps) {
-  return (
-    <Shape {...REGISTERED} {...props} _style={extendStyle(REGISTERED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REGISTERED)} />
 }

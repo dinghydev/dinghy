@@ -11,11 +11,5 @@ export const REMOVABLE_TAG_LINK = {
 }
 
 export function RemovableTagLink(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOVABLE_TAG_LINK}
-      {...props}
-      _style={extendStyle(REMOVABLE_TAG_LINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOVABLE_TAG_LINK)} />
 }

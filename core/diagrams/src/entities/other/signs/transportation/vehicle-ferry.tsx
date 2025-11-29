@@ -11,11 +11,5 @@ export const VEHICLE_FERRY = {
 }
 
 export function VehicleFerry(props: NodeProps) {
-  return (
-    <Shape
-      {...VEHICLE_FERRY}
-      {...props}
-      _style={extendStyle(VEHICLE_FERRY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEHICLE_FERRY)} />
 }

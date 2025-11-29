@@ -11,11 +11,5 @@ export const PHONE_LANDSCAPE = {
 }
 
 export function PhoneLandscape(props: NodeProps) {
-  return (
-    <Shape
-      {...PHONE_LANDSCAPE}
-      {...props}
-      _style={extendStyle(PHONE_LANDSCAPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_LANDSCAPE)} />
 }

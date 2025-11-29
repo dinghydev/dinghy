@@ -11,11 +11,5 @@ export const APP_CONFIGURATION = {
 }
 
 export function AppConfiguration(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_CONFIGURATION}
-      {...props}
-      _style={extendStyle(APP_CONFIGURATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_CONFIGURATION)} />
 }

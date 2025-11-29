@@ -11,11 +11,5 @@ export const NOT_ALLOWED = {
 }
 
 export function NotAllowed(props: NodeProps) {
-  return (
-    <Shape
-      {...NOT_ALLOWED}
-      {...props}
-      _style={extendStyle(NOT_ALLOWED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NOT_ALLOWED)} />
 }

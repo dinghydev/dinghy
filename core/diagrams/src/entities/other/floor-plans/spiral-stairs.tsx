@@ -11,11 +11,5 @@ export const SPIRAL_STAIRS = {
 }
 
 export function SpiralStairs(props: NodeProps) {
-  return (
-    <Shape
-      {...SPIRAL_STAIRS}
-      {...props}
-      _style={extendStyle(SPIRAL_STAIRS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPIRAL_STAIRS)} />
 }

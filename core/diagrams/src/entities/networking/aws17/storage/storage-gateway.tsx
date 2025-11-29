@@ -11,11 +11,5 @@ export const STORAGE_GATEWAY = {
 }
 
 export function StorageGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_GATEWAY}
-      {...props}
-      _style={extendStyle(STORAGE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_GATEWAY)} />
 }

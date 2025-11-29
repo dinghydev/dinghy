@@ -11,11 +11,5 @@ export const ASSIGNMENT_TASK = {
 }
 
 export function AssignmentTask(props: NodeProps) {
-  return (
-    <Shape
-      {...ASSIGNMENT_TASK}
-      {...props}
-      _style={extendStyle(ASSIGNMENT_TASK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASSIGNMENT_TASK)} />
 }

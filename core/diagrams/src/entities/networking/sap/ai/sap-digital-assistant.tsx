@@ -11,11 +11,5 @@ export const SAP_DIGITAL_ASSISTANT = {
 }
 
 export function SapDigitalAssistant(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_DIGITAL_ASSISTANT}
-      {...props}
-      _style={extendStyle(SAP_DIGITAL_ASSISTANT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_DIGITAL_ASSISTANT)} />
 }

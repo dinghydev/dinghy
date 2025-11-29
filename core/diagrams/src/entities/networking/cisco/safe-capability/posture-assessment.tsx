@@ -11,11 +11,5 @@ export const POSTURE_ASSESSMENT = {
 }
 
 export function PostureAssessment(props: NodeProps) {
-  return (
-    <Shape
-      {...POSTURE_ASSESSMENT}
-      {...props}
-      _style={extendStyle(POSTURE_ASSESSMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POSTURE_ASSESSMENT)} />
 }

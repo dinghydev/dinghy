@@ -13,9 +13,8 @@ export const J9774A_2530_8G_POEPLUS_REAR = {
 export function J9774a25308gPoeplusRear(props: NodeProps) {
   return (
     <Shape
-      {...J9774A_2530_8G_POEPLUS_REAR}
       {...props}
-      _style={extendStyle(J9774A_2530_8G_POEPLUS_REAR, props)}
+      _style={extendStyle(props, J9774A_2530_8G_POEPLUS_REAR)}
     />
   )
 }

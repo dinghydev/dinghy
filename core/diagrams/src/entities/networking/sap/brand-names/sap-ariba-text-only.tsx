@@ -11,11 +11,5 @@ export const SAP_ARIBA_TEXT_ONLY = {
 }
 
 export function SapAribaTextOnly(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_ARIBA_TEXT_ONLY}
-      {...props}
-      _style={extendStyle(SAP_ARIBA_TEXT_ONLY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_ARIBA_TEXT_ONLY)} />
 }

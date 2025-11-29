@@ -11,11 +11,5 @@ export const RADIOBUTTON = {
 }
 
 export function Radiobutton(props: NodeProps) {
-  return (
-    <Shape
-      {...RADIOBUTTON}
-      {...props}
-      _style={extendStyle(RADIOBUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADIOBUTTON)} />
 }

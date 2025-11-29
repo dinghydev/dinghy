@@ -13,9 +13,8 @@ export const TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL = {
 export function TrustedLanguageExtensionsForPostgresql(props: NodeProps) {
   return (
     <Shape
-      {...TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL}
       {...props}
-      _style={extendStyle(TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL, props)}
+      _style={extendStyle(props, TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL)}
     />
   )
 }

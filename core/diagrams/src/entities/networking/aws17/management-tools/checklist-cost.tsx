@@ -11,11 +11,5 @@ export const CHECKLIST_COST = {
 }
 
 export function ChecklistCost(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKLIST_COST}
-      {...props}
-      _style={extendStyle(CHECKLIST_COST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKLIST_COST)} />
 }

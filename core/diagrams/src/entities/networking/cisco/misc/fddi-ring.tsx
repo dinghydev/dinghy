@@ -11,7 +11,5 @@ export const FDDI_RING = {
 }
 
 export function FddiRing(props: NodeProps) {
-  return (
-    <Shape {...FDDI_RING} {...props} _style={extendStyle(FDDI_RING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FDDI_RING)} />
 }

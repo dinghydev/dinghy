@@ -11,7 +11,5 @@ export const GAMESPOT = {
 }
 
 export function Gamespot(props: NodeProps) {
-  return (
-    <Shape {...GAMESPOT} {...props} _style={extendStyle(GAMESPOT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAMESPOT)} />
 }

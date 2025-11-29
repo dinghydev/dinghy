@@ -11,11 +11,5 @@ export const PRODUCT_VISUALIZE = {
 }
 
 export function ProductVisualize(props: NodeProps) {
-  return (
-    <Shape
-      {...PRODUCT_VISUALIZE}
-      {...props}
-      _style={extendStyle(PRODUCT_VISUALIZE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRODUCT_VISUALIZE)} />
 }

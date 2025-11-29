@@ -11,11 +11,5 @@ export const DOOR_BI_FOLD = {
 }
 
 export function DoorBiFold(props: NodeProps) {
-  return (
-    <Shape
-      {...DOOR_BI_FOLD}
-      {...props}
-      _style={extendStyle(DOOR_BI_FOLD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOOR_BI_FOLD)} />
 }

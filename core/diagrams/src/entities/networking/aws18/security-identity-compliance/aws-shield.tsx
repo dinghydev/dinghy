@@ -11,7 +11,5 @@ export const AWS_SHIELD = {
 }
 
 export function AwsShield(props: NodeProps) {
-  return (
-    <Shape {...AWS_SHIELD} {...props} _style={extendStyle(AWS_SHIELD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_SHIELD)} />
 }

@@ -12,10 +12,6 @@ export const APPLICATION_SERVER_GHOSTED = {
 
 export function ApplicationServerGhosted(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_SERVER_GHOSTED}
-      {...props}
-      _style={extendStyle(APPLICATION_SERVER_GHOSTED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_SERVER_GHOSTED)} />
   )
 }

@@ -24,7 +24,7 @@ themeConfig:
         html: Examples
         target: _self
         position: left
-      - href: /references/
+      - href: https://dinghy.dev/references
         html: References
         target: _self
         className: navbar__link--active

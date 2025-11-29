@@ -11,5 +11,5 @@ export const TRAIL = {
 }
 
 export function Trail(props: NodeProps) {
-  return <Shape {...TRAIL} {...props} _style={extendStyle(TRAIL, props)} />
+  return <Shape {...props} _style={extendStyle(props, TRAIL)} />
 }

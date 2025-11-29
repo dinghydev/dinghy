@@ -11,5 +11,5 @@ export const DECIDER = {
 }
 
 export function Decider(props: NodeProps) {
-  return <Shape {...DECIDER} {...props} _style={extendStyle(DECIDER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DECIDER)} />
 }

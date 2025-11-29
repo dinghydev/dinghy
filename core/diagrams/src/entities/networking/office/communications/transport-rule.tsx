@@ -11,11 +11,5 @@ export const TRANSPORT_RULE = {
 }
 
 export function TransportRule(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSPORT_RULE}
-      {...props}
-      _style={extendStyle(TRANSPORT_RULE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSPORT_RULE)} />
 }

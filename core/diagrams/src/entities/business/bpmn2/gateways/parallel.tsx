@@ -11,7 +11,5 @@ export const PARALLEL = {
 }
 
 export function Parallel(props: NodeProps) {
-  return (
-    <Shape {...PARALLEL} {...props} _style={extendStyle(PARALLEL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARALLEL)} />
 }

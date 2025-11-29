@@ -11,11 +11,5 @@ export const GENERIC_GATEWAY = {
 }
 
 export function GenericGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERIC_GATEWAY}
-      {...props}
-      _style={extendStyle(GENERIC_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERIC_GATEWAY)} />
 }

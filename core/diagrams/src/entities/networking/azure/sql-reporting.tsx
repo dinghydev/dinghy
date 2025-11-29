@@ -11,11 +11,5 @@ export const SQL_REPORTING = {
 }
 
 export function SqlReporting(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_REPORTING}
-      {...props}
-      _style={extendStyle(SQL_REPORTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_REPORTING)} />
 }

@@ -11,11 +11,5 @@ export const OUTLOOK_WEB_APP = {
 }
 
 export function OutlookWebApp(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTLOOK_WEB_APP}
-      {...props}
-      _style={extendStyle(OUTLOOK_WEB_APP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTLOOK_WEB_APP)} />
 }

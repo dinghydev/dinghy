@@ -11,11 +11,5 @@ export const DEFENDER_HMI = {
 }
 
 export function DefenderHmi(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_HMI}
-      {...props}
-      _style={extendStyle(DEFENDER_HMI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_HMI)} />
 }

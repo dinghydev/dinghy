@@ -11,11 +11,5 @@ export const HABANA_GAUDI_INSTANCE = {
 }
 
 export function HabanaGaudiInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...HABANA_GAUDI_INSTANCE}
-      {...props}
-      _style={extendStyle(HABANA_GAUDI_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HABANA_GAUDI_INSTANCE)} />
 }

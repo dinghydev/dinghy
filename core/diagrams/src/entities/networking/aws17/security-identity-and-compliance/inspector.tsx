@@ -11,7 +11,5 @@ export const INSPECTOR = {
 }
 
 export function Inspector(props: NodeProps) {
-  return (
-    <Shape {...INSPECTOR} {...props} _style={extendStyle(INSPECTOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSPECTOR)} />
 }

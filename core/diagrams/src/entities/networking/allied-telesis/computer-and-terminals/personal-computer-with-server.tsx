@@ -13,9 +13,8 @@ export const PERSONAL_COMPUTER_WITH_SERVER = {
 export function PersonalComputerWithServer(props: NodeProps) {
   return (
     <Shape
-      {...PERSONAL_COMPUTER_WITH_SERVER}
       {...props}
-      _style={extendStyle(PERSONAL_COMPUTER_WITH_SERVER, props)}
+      _style={extendStyle(props, PERSONAL_COMPUTER_WITH_SERVER)}
     />
   )
 }

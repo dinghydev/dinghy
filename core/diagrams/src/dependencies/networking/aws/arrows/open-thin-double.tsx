@@ -9,11 +9,5 @@ export const OPEN_THIN_DOUBLE = {
 }
 
 export function OpenThinDouble(props: NodeProps) {
-  return (
-    <Dependency
-      {...OPEN_THIN_DOUBLE}
-      {...props}
-      _style={extendStyle(OPEN_THIN_DOUBLE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, OPEN_THIN_DOUBLE)} />
 }

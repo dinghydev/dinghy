@@ -11,11 +11,5 @@ export const USER_SUBSCRIPTIONS = {
 }
 
 export function UserSubscriptions(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_SUBSCRIPTIONS}
-      {...props}
-      _style={extendStyle(USER_SUBSCRIPTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_SUBSCRIPTIONS)} />
 }

@@ -11,11 +11,5 @@ export const THIN_FILM_EVAPORATOR = {
 }
 
 export function ThinFilmEvaporator(props: NodeProps) {
-  return (
-    <Shape
-      {...THIN_FILM_EVAPORATOR}
-      {...props}
-      _style={extendStyle(THIN_FILM_EVAPORATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THIN_FILM_EVAPORATOR)} />
 }

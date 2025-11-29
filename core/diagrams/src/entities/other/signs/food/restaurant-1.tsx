@@ -11,11 +11,5 @@ export const RESTAURANT_1 = {
 }
 
 export function Restaurant1(props: NodeProps) {
-  return (
-    <Shape
-      {...RESTAURANT_1}
-      {...props}
-      _style={extendStyle(RESTAURANT_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESTAURANT_1)} />
 }

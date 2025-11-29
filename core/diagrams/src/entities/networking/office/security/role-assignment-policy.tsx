@@ -12,10 +12,6 @@ export const ROLE_ASSIGNMENT_POLICY = {
 
 export function RoleAssignmentPolicy(props: NodeProps) {
   return (
-    <Shape
-      {...ROLE_ASSIGNMENT_POLICY}
-      {...props}
-      _style={extendStyle(ROLE_ASSIGNMENT_POLICY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROLE_ASSIGNMENT_POLICY)} />
   )
 }

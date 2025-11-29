@@ -13,11 +13,10 @@ export const JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_REAR = {
 export function Jl668aAruba6300f24Port1gbeAnd4PortSfp56Rear(props: NodeProps) {
   return (
     <Shape
-      {...JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_REAR}
       {...props}
       _style={extendStyle(
-        JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_REAR,
         props,
+        JL668A_ARUBA_6300F_24_PORT_1GBE_AND_4_PORT_SFP56_REAR,
       )}
     />
   )

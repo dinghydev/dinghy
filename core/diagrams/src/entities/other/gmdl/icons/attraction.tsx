@@ -11,7 +11,5 @@ export const ATTRACTION = {
 }
 
 export function Attraction(props: NodeProps) {
-  return (
-    <Shape {...ATTRACTION} {...props} _style={extendStyle(ATTRACTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATTRACTION)} />
 }

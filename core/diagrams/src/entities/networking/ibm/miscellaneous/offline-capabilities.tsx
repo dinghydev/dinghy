@@ -11,11 +11,5 @@ export const OFFLINE_CAPABILITIES = {
 }
 
 export function OfflineCapabilities(props: NodeProps) {
-  return (
-    <Shape
-      {...OFFLINE_CAPABILITIES}
-      {...props}
-      _style={extendStyle(OFFLINE_CAPABILITIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OFFLINE_CAPABILITIES)} />
 }

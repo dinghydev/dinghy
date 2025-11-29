@@ -11,11 +11,5 @@ export const MESSAGING_BRIDGE = {
 }
 
 export function MessagingBridge(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGING_BRIDGE}
-      {...props}
-      _style={extendStyle(MESSAGING_BRIDGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGING_BRIDGE)} />
 }

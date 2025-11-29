@@ -10,11 +10,5 @@ export const EXTERNAL_ENTITY = {
 }
 
 export function ExternalEntity(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTERNAL_ENTITY}
-      {...props}
-      _style={extendStyle(EXTERNAL_ENTITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTERNAL_ENTITY)} />
 }

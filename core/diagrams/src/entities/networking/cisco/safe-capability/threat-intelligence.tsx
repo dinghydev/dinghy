@@ -11,11 +11,5 @@ export const THREAT_INTELLIGENCE = {
 }
 
 export function ThreatIntelligence(props: NodeProps) {
-  return (
-    <Shape
-      {...THREAT_INTELLIGENCE}
-      {...props}
-      _style={extendStyle(THREAT_INTELLIGENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THREAT_INTELLIGENCE)} />
 }

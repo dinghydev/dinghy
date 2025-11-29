@@ -11,7 +11,5 @@ export const DELICIOUS = {
 }
 
 export function Delicious(props: NodeProps) {
-  return (
-    <Shape {...DELICIOUS} {...props} _style={extendStyle(DELICIOUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DELICIOUS)} />
 }

@@ -11,7 +11,5 @@ export const JAVASCRIPT = {
 }
 
 export function Javascript(props: NodeProps) {
-  return (
-    <Shape {...JAVASCRIPT} {...props} _style={extendStyle(JAVASCRIPT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, JAVASCRIPT)} />
 }

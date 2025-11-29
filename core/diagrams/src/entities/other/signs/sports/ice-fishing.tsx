@@ -11,11 +11,5 @@ export const ICE_FISHING = {
 }
 
 export function IceFishing(props: NodeProps) {
-  return (
-    <Shape
-      {...ICE_FISHING}
-      {...props}
-      _style={extendStyle(ICE_FISHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ICE_FISHING)} />
 }

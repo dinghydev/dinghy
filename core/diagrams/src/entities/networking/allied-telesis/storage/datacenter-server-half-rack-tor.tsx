@@ -13,9 +13,8 @@ export const DATACENTER_SERVER_HALF_RACK_TOR = {
 export function DatacenterServerHalfRackTor(props: NodeProps) {
   return (
     <Shape
-      {...DATACENTER_SERVER_HALF_RACK_TOR}
       {...props}
-      _style={extendStyle(DATACENTER_SERVER_HALF_RACK_TOR, props)}
+      _style={extendStyle(props, DATACENTER_SERVER_HALF_RACK_TOR)}
     />
   )
 }

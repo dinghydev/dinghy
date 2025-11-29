@@ -11,5 +11,5 @@ export const XING = {
 }
 
 export function Xing(props: NodeProps) {
-  return <Shape {...XING} {...props} _style={extendStyle(XING, props)} />
+  return <Shape {...props} _style={extendStyle(props, XING)} />
 }

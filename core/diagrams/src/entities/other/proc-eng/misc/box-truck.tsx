@@ -11,7 +11,5 @@ export const BOX_TRUCK = {
 }
 
 export function BoxTruck(props: NodeProps) {
-  return (
-    <Shape {...BOX_TRUCK} {...props} _style={extendStyle(BOX_TRUCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOX_TRUCK)} />
 }

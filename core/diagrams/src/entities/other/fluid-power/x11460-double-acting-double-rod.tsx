@@ -13,9 +13,8 @@ export const X11460_DOUBLE_ACTING_DOUBLE_ROD = {
 export function X11460DoubleActingDoubleRod(props: NodeProps) {
   return (
     <Shape
-      {...X11460_DOUBLE_ACTING_DOUBLE_ROD}
       {...props}
-      _style={extendStyle(X11460_DOUBLE_ACTING_DOUBLE_ROD, props)}
+      _style={extendStyle(props, X11460_DOUBLE_ACTING_DOUBLE_ROD)}
     />
   )
 }

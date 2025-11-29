@@ -11,7 +11,5 @@ export const TERMINATOR = {
 }
 
 export function Terminator(props: NodeProps) {
-  return (
-    <Shape {...TERMINATOR} {...props} _style={extendStyle(TERMINATOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TERMINATOR)} />
 }

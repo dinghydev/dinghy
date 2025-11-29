@@ -11,11 +11,5 @@ export const DEDICATED_PROCESS = {
 }
 
 export function DedicatedProcess(props: NodeProps) {
-  return (
-    <Shape
-      {...DEDICATED_PROCESS}
-      {...props}
-      _style={extendStyle(DEDICATED_PROCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEDICATED_PROCESS)} />
 }

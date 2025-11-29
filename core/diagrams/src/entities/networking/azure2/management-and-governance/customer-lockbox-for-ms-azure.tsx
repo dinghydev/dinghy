@@ -13,9 +13,8 @@ export const CUSTOMER_LOCKBOX_FOR_MS_AZURE = {
 export function CustomerLockboxForMsAzure(props: NodeProps) {
   return (
     <Shape
-      {...CUSTOMER_LOCKBOX_FOR_MS_AZURE}
       {...props}
-      _style={extendStyle(CUSTOMER_LOCKBOX_FOR_MS_AZURE, props)}
+      _style={extendStyle(props, CUSTOMER_LOCKBOX_FOR_MS_AZURE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const NONCOMPLIANT_APPS = {
 }
 
 export function NoncompliantApps(props: NodeProps) {
-  return (
-    <Shape
-      {...NONCOMPLIANT_APPS}
-      {...props}
-      _style={extendStyle(NONCOMPLIANT_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NONCOMPLIANT_APPS)} />
 }

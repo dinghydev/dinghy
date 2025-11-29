@@ -13,9 +13,8 @@ export const ROS_RESOURCE_ORCHESTRATION_SERVICE = {
 export function RosResourceOrchestrationService(props: NodeProps) {
   return (
     <Shape
-      {...ROS_RESOURCE_ORCHESTRATION_SERVICE}
       {...props}
-      _style={extendStyle(ROS_RESOURCE_ORCHESTRATION_SERVICE, props)}
+      _style={extendStyle(props, ROS_RESOURCE_ORCHESTRATION_SERVICE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const UNAVAILABLE = {
 }
 
 export function Unavailable(props: NodeProps) {
-  return (
-    <Shape
-      {...UNAVAILABLE}
-      {...props}
-      _style={extendStyle(UNAVAILABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNAVAILABLE)} />
 }

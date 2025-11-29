@@ -12,10 +12,6 @@ export const DELL_EMC_DATA_DOMAIN_BOOST = {
 
 export function DellEmcDataDomainBoost(props: NodeProps) {
   return (
-    <Shape
-      {...DELL_EMC_DATA_DOMAIN_BOOST}
-      {...props}
-      _style={extendStyle(DELL_EMC_DATA_DOMAIN_BOOST, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DELL_EMC_DATA_DOMAIN_BOOST)} />
   )
 }

@@ -11,11 +11,5 @@ export const CONTACTS_BAR = {
 }
 
 export function ContactsBar(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACTS_BAR}
-      {...props}
-      _style={extendStyle(CONTACTS_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACTS_BAR)} />
 }

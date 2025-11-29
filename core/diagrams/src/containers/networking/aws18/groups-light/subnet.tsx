@@ -13,5 +13,5 @@ export const SUBNET = {
 }
 
 export function Subnet(props: NodeProps) {
-  return <Shape {...SUBNET} {...props} _style={extendStyle(SUBNET, props)} />
+  return <Shape {...props} _style={extendStyle(props, SUBNET)} />
 }

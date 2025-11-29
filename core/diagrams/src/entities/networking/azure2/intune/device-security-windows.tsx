@@ -12,10 +12,6 @@ export const DEVICE_SECURITY_WINDOWS = {
 
 export function DeviceSecurityWindows(props: NodeProps) {
   return (
-    <Shape
-      {...DEVICE_SECURITY_WINDOWS}
-      {...props}
-      _style={extendStyle(DEVICE_SECURITY_WINDOWS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEVICE_SECURITY_WINDOWS)} />
   )
 }

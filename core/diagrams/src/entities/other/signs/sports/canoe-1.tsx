@@ -11,5 +11,5 @@ export const CANOE_1 = {
 }
 
 export function Canoe1(props: NodeProps) {
-  return <Shape {...CANOE_1} {...props} _style={extendStyle(CANOE_1, props)} />
+  return <Shape {...props} _style={extendStyle(props, CANOE_1)} />
 }

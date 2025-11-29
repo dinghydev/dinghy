@@ -13,9 +13,8 @@ export const COMPUTER_FUNCTION_INACCESSIBLE = {
 export function ComputerFunctionInaccessible(props: NodeProps) {
   return (
     <Shape
-      {...COMPUTER_FUNCTION_INACCESSIBLE}
       {...props}
-      _style={extendStyle(COMPUTER_FUNCTION_INACCESSIBLE, props)}
+      _style={extendStyle(props, COMPUTER_FUNCTION_INACCESSIBLE)}
     />
   )
 }

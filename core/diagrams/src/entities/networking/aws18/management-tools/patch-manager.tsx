@@ -11,11 +11,5 @@ export const PATCH_MANAGER = {
 }
 
 export function PatchManager(props: NodeProps) {
-  return (
-    <Shape
-      {...PATCH_MANAGER}
-      {...props}
-      _style={extendStyle(PATCH_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PATCH_MANAGER)} />
 }

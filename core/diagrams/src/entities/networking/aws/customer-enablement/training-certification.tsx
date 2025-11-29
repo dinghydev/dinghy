@@ -12,10 +12,6 @@ export const TRAINING_CERTIFICATION = {
 
 export function TrainingCertification(props: NodeProps) {
   return (
-    <Shape
-      {...TRAINING_CERTIFICATION}
-      {...props}
-      _style={extendStyle(TRAINING_CERTIFICATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TRAINING_CERTIFICATION)} />
   )
 }

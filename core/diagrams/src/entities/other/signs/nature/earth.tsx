@@ -11,5 +11,5 @@ export const EARTH = {
 }
 
 export function Earth(props: NodeProps) {
-  return <Shape {...EARTH} {...props} _style={extendStyle(EARTH, props)} />
+  return <Shape {...props} _style={extendStyle(props, EARTH)} />
 }

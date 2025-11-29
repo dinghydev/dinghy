@@ -11,7 +11,5 @@ export const CONFLUENCE = {
 }
 
 export function Confluence(props: NodeProps) {
-  return (
-    <Shape {...CONFLUENCE} {...props} _style={extendStyle(CONFLUENCE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONFLUENCE)} />
 }

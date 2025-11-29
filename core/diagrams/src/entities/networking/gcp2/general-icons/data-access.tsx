@@ -11,11 +11,5 @@ export const DATA_ACCESS = {
 }
 
 export function DataAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_ACCESS}
-      {...props}
-      _style={extendStyle(DATA_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_ACCESS)} />
 }

@@ -12,10 +12,6 @@ export const BARE_METAL_INFRASTRUCTURE = {
 
 export function BareMetalInfrastructure(props: NodeProps) {
   return (
-    <Shape
-      {...BARE_METAL_INFRASTRUCTURE}
-      {...props}
-      _style={extendStyle(BARE_METAL_INFRASTRUCTURE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BARE_METAL_INFRASTRUCTURE)} />
   )
 }

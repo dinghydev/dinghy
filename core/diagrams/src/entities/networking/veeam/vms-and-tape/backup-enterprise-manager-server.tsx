@@ -13,9 +13,8 @@ export const BACKUP_ENTERPRISE_MANAGER_SERVER = {
 export function BackupEnterpriseManagerServer(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_ENTERPRISE_MANAGER_SERVER}
       {...props}
-      _style={extendStyle(BACKUP_ENTERPRISE_MANAGER_SERVER, props)}
+      _style={extendStyle(props, BACKUP_ENTERPRISE_MANAGER_SERVER)}
     />
   )
 }

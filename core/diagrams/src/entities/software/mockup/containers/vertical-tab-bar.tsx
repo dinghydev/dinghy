@@ -11,11 +11,5 @@ export const VERTICAL_TAB_BAR = {
 }
 
 export function VerticalTabBar(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_TAB_BAR}
-      {...props}
-      _style={extendStyle(VERTICAL_TAB_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_TAB_BAR)} />
 }

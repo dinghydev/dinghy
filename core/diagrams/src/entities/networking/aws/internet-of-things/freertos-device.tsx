@@ -11,11 +11,5 @@ export const FREERTOS_DEVICE = {
 }
 
 export function FreertosDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...FREERTOS_DEVICE}
-      {...props}
-      _style={extendStyle(FREERTOS_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FREERTOS_DEVICE)} />
 }

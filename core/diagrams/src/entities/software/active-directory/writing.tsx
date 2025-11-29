@@ -11,5 +11,5 @@ export const WRITING = {
 }
 
 export function Writing(props: NodeProps) {
-  return <Shape {...WRITING} {...props} _style={extendStyle(WRITING, props)} />
+  return <Shape {...props} _style={extendStyle(props, WRITING)} />
 }

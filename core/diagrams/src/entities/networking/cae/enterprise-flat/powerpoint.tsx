@@ -11,7 +11,5 @@ export const POWERPOINT = {
 }
 
 export function Powerpoint(props: NodeProps) {
-  return (
-    <Shape {...POWERPOINT} {...props} _style={extendStyle(POWERPOINT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWERPOINT)} />
 }

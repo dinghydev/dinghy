@@ -13,9 +13,8 @@ export const ACCESS_CONTROL_AND_TRUSTSEC = {
 export function AccessControlAndTrustsec(props: NodeProps) {
   return (
     <Shape
-      {...ACCESS_CONTROL_AND_TRUSTSEC}
       {...props}
-      _style={extendStyle(ACCESS_CONTROL_AND_TRUSTSEC, props)}
+      _style={extendStyle(props, ACCESS_CONTROL_AND_TRUSTSEC)}
     />
   )
 }

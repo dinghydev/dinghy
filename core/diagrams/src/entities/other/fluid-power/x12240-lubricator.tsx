@@ -11,11 +11,5 @@ export const X12240_LUBRICATOR = {
 }
 
 export function X12240Lubricator(props: NodeProps) {
-  return (
-    <Shape
-      {...X12240_LUBRICATOR}
-      {...props}
-      _style={extendStyle(X12240_LUBRICATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12240_LUBRICATOR)} />
 }

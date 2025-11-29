@@ -11,11 +11,5 @@ export const CURVED_GAS_VENT = {
 }
 
 export function CurvedGasVent(props: NodeProps) {
-  return (
-    <Shape
-      {...CURVED_GAS_VENT}
-      {...props}
-      _style={extendStyle(CURVED_GAS_VENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CURVED_GAS_VENT)} />
 }

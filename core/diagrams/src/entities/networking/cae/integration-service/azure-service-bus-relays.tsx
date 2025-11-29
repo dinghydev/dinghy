@@ -12,10 +12,6 @@ export const AZURE_SERVICE_BUS_RELAYS = {
 
 export function AzureServiceBusRelays(props: NodeProps) {
   return (
-    <Shape
-      {...AZURE_SERVICE_BUS_RELAYS}
-      {...props}
-      _style={extendStyle(AZURE_SERVICE_BUS_RELAYS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AZURE_SERVICE_BUS_RELAYS)} />
   )
 }

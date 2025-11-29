@@ -11,11 +11,5 @@ export const NEUTRON_FLOATINGIP = {
 }
 
 export function NeutronFloatingip(props: NodeProps) {
-  return (
-    <Shape
-      {...NEUTRON_FLOATINGIP}
-      {...props}
-      _style={extendStyle(NEUTRON_FLOATINGIP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEUTRON_FLOATINGIP)} />
 }

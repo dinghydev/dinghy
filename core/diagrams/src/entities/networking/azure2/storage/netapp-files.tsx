@@ -11,11 +11,5 @@ export const NETAPP_FILES = {
 }
 
 export function NetappFiles(props: NodeProps) {
-  return (
-    <Shape
-      {...NETAPP_FILES}
-      {...props}
-      _style={extendStyle(NETAPP_FILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETAPP_FILES)} />
 }

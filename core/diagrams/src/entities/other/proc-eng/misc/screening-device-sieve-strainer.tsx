@@ -13,9 +13,8 @@ export const SCREENING_DEVICE_SIEVE_STRAINER = {
 export function ScreeningDeviceSieveStrainer(props: NodeProps) {
   return (
     <Shape
-      {...SCREENING_DEVICE_SIEVE_STRAINER}
       {...props}
-      _style={extendStyle(SCREENING_DEVICE_SIEVE_STRAINER, props)}
+      _style={extendStyle(props, SCREENING_DEVICE_SIEVE_STRAINER)}
     />
   )
 }

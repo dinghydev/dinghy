@@ -11,11 +11,5 @@ export const SERVER_WITH_ROUTER = {
 }
 
 export function ServerWithRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_WITH_ROUTER}
-      {...props}
-      _style={extendStyle(SERVER_WITH_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_WITH_ROUTER)} />
 }

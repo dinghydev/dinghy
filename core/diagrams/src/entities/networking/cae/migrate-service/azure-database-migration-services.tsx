@@ -13,9 +13,8 @@ export const AZURE_DATABASE_MIGRATION_SERVICES = {
 export function AzureDatabaseMigrationServices(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_DATABASE_MIGRATION_SERVICES}
       {...props}
-      _style={extendStyle(AZURE_DATABASE_MIGRATION_SERVICES, props)}
+      _style={extendStyle(props, AZURE_DATABASE_MIGRATION_SERVICES)}
     />
   )
 }

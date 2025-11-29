@@ -11,5 +11,5 @@ export const PROTON = {
 }
 
 export function Proton(props: NodeProps) {
-  return <Shape {...PROTON} {...props} _style={extendStyle(PROTON, props)} />
+  return <Shape {...props} _style={extendStyle(props, PROTON)} />
 }

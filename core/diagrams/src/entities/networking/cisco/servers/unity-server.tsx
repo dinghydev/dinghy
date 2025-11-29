@@ -11,11 +11,5 @@ export const UNITY_SERVER = {
 }
 
 export function UnityServer(props: NodeProps) {
-  return (
-    <Shape
-      {...UNITY_SERVER}
-      {...props}
-      _style={extendStyle(UNITY_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UNITY_SERVER)} />
 }

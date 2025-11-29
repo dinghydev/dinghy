@@ -11,5 +11,5 @@ export const FLAT_TV = {
 }
 
 export function FlatTv(props: NodeProps) {
-  return <Shape {...FLAT_TV} {...props} _style={extendStyle(FLAT_TV, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLAT_TV)} />
 }

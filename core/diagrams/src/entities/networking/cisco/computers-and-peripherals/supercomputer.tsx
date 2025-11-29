@@ -11,11 +11,5 @@ export const SUPERCOMPUTER = {
 }
 
 export function Supercomputer(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPERCOMPUTER}
-      {...props}
-      _style={extendStyle(SUPERCOMPUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPERCOMPUTER)} />
 }

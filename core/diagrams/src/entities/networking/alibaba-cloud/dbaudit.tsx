@@ -11,5 +11,5 @@ export const DBAUDIT = {
 }
 
 export function Dbaudit(props: NodeProps) {
-  return <Shape {...DBAUDIT} {...props} _style={extendStyle(DBAUDIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, DBAUDIT)} />
 }

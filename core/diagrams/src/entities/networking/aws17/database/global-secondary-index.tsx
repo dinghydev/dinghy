@@ -12,10 +12,6 @@ export const GLOBAL_SECONDARY_INDEX = {
 
 export function GlobalSecondaryIndex(props: NodeProps) {
   return (
-    <Shape
-      {...GLOBAL_SECONDARY_INDEX}
-      {...props}
-      _style={extendStyle(GLOBAL_SECONDARY_INDEX, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GLOBAL_SECONDARY_INDEX)} />
   )
 }

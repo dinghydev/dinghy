@@ -11,11 +11,5 @@ export const VIRTUAL_L2_SWITCHING = {
 }
 
 export function VirtualL2Switching(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_L2_SWITCHING}
-      {...props}
-      _style={extendStyle(VIRTUAL_L2_SWITCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_L2_SWITCHING)} />
 }

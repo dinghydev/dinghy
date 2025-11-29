@@ -9,11 +9,5 @@ export const FOUND_MESSAGE_1 = {
 }
 
 export function FoundMessage1(props: NodeProps) {
-  return (
-    <Dependency
-      {...FOUND_MESSAGE_1}
-      {...props}
-      _style={extendStyle(FOUND_MESSAGE_1, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, FOUND_MESSAGE_1)} />
 }

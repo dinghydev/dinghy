@@ -11,5 +11,5 @@ export const SINA = {
 }
 
 export function Sina(props: NodeProps) {
-  return <Shape {...SINA} {...props} _style={extendStyle(SINA, props)} />
+  return <Shape {...props} _style={extendStyle(props, SINA)} />
 }

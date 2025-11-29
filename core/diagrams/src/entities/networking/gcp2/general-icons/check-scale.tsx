@@ -11,11 +11,5 @@ export const CHECK_SCALE = {
 }
 
 export function CheckScale(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECK_SCALE}
-      {...props}
-      _style={extendStyle(CHECK_SCALE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECK_SCALE)} />
 }

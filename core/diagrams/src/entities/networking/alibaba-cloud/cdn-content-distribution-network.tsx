@@ -13,9 +13,8 @@ export const CDN_CONTENT_DISTRIBUTION_NETWORK = {
 export function CdnContentDistributionNetwork(props: NodeProps) {
   return (
     <Shape
-      {...CDN_CONTENT_DISTRIBUTION_NETWORK}
       {...props}
-      _style={extendStyle(CDN_CONTENT_DISTRIBUTION_NETWORK, props)}
+      _style={extendStyle(props, CDN_CONTENT_DISTRIBUTION_NETWORK)}
     />
   )
 }

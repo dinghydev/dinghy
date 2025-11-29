@@ -11,11 +11,5 @@ export const T2_INSTANCE = {
 }
 
 export function T2Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...T2_INSTANCE}
-      {...props}
-      _style={extendStyle(T2_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, T2_INSTANCE)} />
 }

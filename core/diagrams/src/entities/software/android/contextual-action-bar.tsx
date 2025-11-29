@@ -11,11 +11,5 @@ export const CONTEXTUAL_ACTION_BAR = {
 }
 
 export function ContextualActionBar(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTEXTUAL_ACTION_BAR}
-      {...props}
-      _style={extendStyle(CONTEXTUAL_ACTION_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTEXTUAL_ACTION_BAR)} />
 }

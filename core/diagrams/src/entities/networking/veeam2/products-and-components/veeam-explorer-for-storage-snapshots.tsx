@@ -13,9 +13,8 @@ export const VEEAM_EXPLORER_FOR_STORAGE_SNAPSHOTS = {
 export function VeeamExplorerForStorageSnapshots(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_EXPLORER_FOR_STORAGE_SNAPSHOTS}
       {...props}
-      _style={extendStyle(VEEAM_EXPLORER_FOR_STORAGE_SNAPSHOTS, props)}
+      _style={extendStyle(props, VEEAM_EXPLORER_FOR_STORAGE_SNAPSHOTS)}
     />
   )
 }

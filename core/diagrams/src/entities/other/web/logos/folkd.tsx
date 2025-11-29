@@ -11,5 +11,5 @@ export const FOLKD = {
 }
 
 export function Folkd(props: NodeProps) {
-  return <Shape {...FOLKD} {...props} _style={extendStyle(FOLKD, props)} />
+  return <Shape {...props} _style={extendStyle(props, FOLKD)} />
 }

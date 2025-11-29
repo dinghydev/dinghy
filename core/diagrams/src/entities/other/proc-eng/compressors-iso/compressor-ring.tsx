@@ -11,11 +11,5 @@ export const COMPRESSOR_RING = {
 }
 
 export function CompressorRing(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPRESSOR_RING}
-      {...props}
-      _style={extendStyle(COMPRESSOR_RING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR_RING)} />
 }

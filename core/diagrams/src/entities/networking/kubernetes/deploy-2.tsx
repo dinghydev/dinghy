@@ -11,7 +11,5 @@ export const DEPLOY_2 = {
 }
 
 export function Deploy2(props: NodeProps) {
-  return (
-    <Shape {...DEPLOY_2} {...props} _style={extendStyle(DEPLOY_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEPLOY_2)} />
 }

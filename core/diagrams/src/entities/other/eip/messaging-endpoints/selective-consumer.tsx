@@ -11,11 +11,5 @@ export const SELECTIVE_CONSUMER = {
 }
 
 export function SelectiveConsumer(props: NodeProps) {
-  return (
-    <Shape
-      {...SELECTIVE_CONSUMER}
-      {...props}
-      _style={extendStyle(SELECTIVE_CONSUMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SELECTIVE_CONSUMER)} />
 }

@@ -11,11 +11,5 @@ export const LOAD_BALANCER_GENERIC = {
 }
 
 export function LoadBalancerGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...LOAD_BALANCER_GENERIC}
-      {...props}
-      _style={extendStyle(LOAD_BALANCER_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOAD_BALANCER_GENERIC)} />
 }

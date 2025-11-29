@@ -11,5 +11,5 @@ export const SPPC = {
 }
 
 export function Sppc(props: NodeProps) {
-  return <Shape {...SPPC} {...props} _style={extendStyle(SPPC, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPPC)} />
 }

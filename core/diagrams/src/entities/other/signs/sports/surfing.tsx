@@ -11,5 +11,5 @@ export const SURFING = {
 }
 
 export function Surfing(props: NodeProps) {
-  return <Shape {...SURFING} {...props} _style={extendStyle(SURFING, props)} />
+  return <Shape {...props} _style={extendStyle(props, SURFING)} />
 }

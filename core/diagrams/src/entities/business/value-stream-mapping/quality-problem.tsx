@@ -11,11 +11,5 @@ export const QUALITY_PROBLEM = {
 }
 
 export function QualityProblem(props: NodeProps) {
-  return (
-    <Shape
-      {...QUALITY_PROBLEM}
-      {...props}
-      _style={extendStyle(QUALITY_PROBLEM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUALITY_PROBLEM)} />
 }

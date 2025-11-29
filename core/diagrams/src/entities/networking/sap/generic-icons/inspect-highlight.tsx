@@ -11,11 +11,5 @@ export const INSPECT_HIGHLIGHT = {
 }
 
 export function InspectHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...INSPECT_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(INSPECT_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INSPECT_HIGHLIGHT)} />
 }

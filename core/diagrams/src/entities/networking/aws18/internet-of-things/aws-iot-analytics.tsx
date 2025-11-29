@@ -11,11 +11,5 @@ export const AWS_IOT_ANALYTICS = {
 }
 
 export function AwsIotAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_IOT_ANALYTICS}
-      {...props}
-      _style={extendStyle(AWS_IOT_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_IOT_ANALYTICS)} />
 }

@@ -11,5 +11,5 @@ export const SPEED = {
 }
 
 export function Speed(props: NodeProps) {
-  return <Shape {...SPEED} {...props} _style={extendStyle(SPEED, props)} />
+  return <Shape {...props} _style={extendStyle(props, SPEED)} />
 }

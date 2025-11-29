@@ -11,7 +11,5 @@ export const WEHEARTIT = {
 }
 
 export function Weheartit(props: NodeProps) {
-  return (
-    <Shape {...WEHEARTIT} {...props} _style={extendStyle(WEHEARTIT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEHEARTIT)} />
 }

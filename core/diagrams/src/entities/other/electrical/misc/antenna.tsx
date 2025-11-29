@@ -11,5 +11,5 @@ export const ANTENNA = {
 }
 
 export function Antenna(props: NodeProps) {
-  return <Shape {...ANTENNA} {...props} _style={extendStyle(ANTENNA, props)} />
+  return <Shape {...props} _style={extendStyle(props, ANTENNA)} />
 }

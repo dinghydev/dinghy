@@ -11,7 +11,5 @@ export const AMAZON_ECR = {
 }
 
 export function AmazonEcr(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_ECR} {...props} _style={extendStyle(AMAZON_ECR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_ECR)} />
 }

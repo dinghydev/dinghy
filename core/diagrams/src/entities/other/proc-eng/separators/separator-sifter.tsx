@@ -11,11 +11,5 @@ export const SEPARATOR_SIFTER = {
 }
 
 export function SeparatorSifter(props: NodeProps) {
-  return (
-    <Shape
-      {...SEPARATOR_SIFTER}
-      {...props}
-      _style={extendStyle(SEPARATOR_SIFTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SEPARATOR_SIFTER)} />
 }

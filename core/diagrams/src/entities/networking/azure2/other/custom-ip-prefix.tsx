@@ -11,11 +11,5 @@ export const CUSTOM_IP_PREFIX = {
 }
 
 export function CustomIpPrefix(props: NodeProps) {
-  return (
-    <Shape
-      {...CUSTOM_IP_PREFIX}
-      {...props}
-      _style={extendStyle(CUSTOM_IP_PREFIX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CUSTOM_IP_PREFIX)} />
 }

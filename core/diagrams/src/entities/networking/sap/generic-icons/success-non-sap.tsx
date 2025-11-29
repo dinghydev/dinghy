@@ -11,11 +11,5 @@ export const SUCCESS_NON_SAP = {
 }
 
 export function SuccessNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...SUCCESS_NON_SAP}
-      {...props}
-      _style={extendStyle(SUCCESS_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCCESS_NON_SAP)} />
 }

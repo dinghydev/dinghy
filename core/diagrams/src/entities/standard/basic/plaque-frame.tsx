@@ -11,11 +11,5 @@ export const PLAQUE_FRAME = {
 }
 
 export function PlaqueFrame(props: NodeProps) {
-  return (
-    <Shape
-      {...PLAQUE_FRAME}
-      {...props}
-      _style={extendStyle(PLAQUE_FRAME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAQUE_FRAME)} />
 }

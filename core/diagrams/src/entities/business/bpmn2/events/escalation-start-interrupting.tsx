@@ -13,9 +13,8 @@ export const ESCALATION_START_INTERRUPTING = {
 export function EscalationStartInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...ESCALATION_START_INTERRUPTING}
       {...props}
-      _style={extendStyle(ESCALATION_START_INTERRUPTING, props)}
+      _style={extendStyle(props, ESCALATION_START_INTERRUPTING)}
     />
   )
 }

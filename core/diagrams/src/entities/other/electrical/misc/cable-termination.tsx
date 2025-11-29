@@ -11,11 +11,5 @@ export const CABLE_TERMINATION = {
 }
 
 export function CableTermination(props: NodeProps) {
-  return (
-    <Shape
-      {...CABLE_TERMINATION}
-      {...props}
-      _style={extendStyle(CABLE_TERMINATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CABLE_TERMINATION)} />
 }

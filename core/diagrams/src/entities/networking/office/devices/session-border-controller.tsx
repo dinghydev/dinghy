@@ -12,10 +12,6 @@ export const SESSION_BORDER_CONTROLLER = {
 
 export function SessionBorderController(props: NodeProps) {
   return (
-    <Shape
-      {...SESSION_BORDER_CONTROLLER}
-      {...props}
-      _style={extendStyle(SESSION_BORDER_CONTROLLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SESSION_BORDER_CONTROLLER)} />
   )
 }

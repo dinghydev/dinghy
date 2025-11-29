@@ -11,11 +11,5 @@ export const ANGLED_ENTRY_2 = {
 }
 
 export function AngledEntry2(props: NodeProps) {
-  return (
-    <Shape
-      {...ANGLED_ENTRY_2}
-      {...props}
-      _style={extendStyle(ANGLED_ENTRY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANGLED_ENTRY_2)} />
 }

@@ -11,11 +11,5 @@ export const ALIYUN_LINUX = {
 }
 
 export function AliyunLinux(props: NodeProps) {
-  return (
-    <Shape
-      {...ALIYUN_LINUX}
-      {...props}
-      _style={extendStyle(ALIYUN_LINUX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALIYUN_LINUX)} />
 }

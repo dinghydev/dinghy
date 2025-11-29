@@ -11,11 +11,5 @@ export const MECHANICAL_TURK = {
 }
 
 export function MechanicalTurk(props: NodeProps) {
-  return (
-    <Shape
-      {...MECHANICAL_TURK}
-      {...props}
-      _style={extendStyle(MECHANICAL_TURK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MECHANICAL_TURK)} />
 }

@@ -13,9 +13,8 @@ export const COMPONENT_3RD_PARTY_SERVICE = {
 export function Component3rdPartyService(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3RD_PARTY_SERVICE}
       {...props}
-      _style={extendStyle(COMPONENT_3RD_PARTY_SERVICE, props)}
+      _style={extendStyle(props, COMPONENT_3RD_PARTY_SERVICE)}
     />
   )
 }

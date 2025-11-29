@@ -11,11 +11,5 @@ export const REED_SWITCH_OFF = {
 }
 
 export function ReedSwitchOff(props: NodeProps) {
-  return (
-    <Shape
-      {...REED_SWITCH_OFF}
-      {...props}
-      _style={extendStyle(REED_SWITCH_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REED_SWITCH_OFF)} />
 }

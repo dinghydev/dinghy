@@ -11,11 +11,5 @@ export const TENANT_STATUS = {
 }
 
 export function TenantStatus(props: NodeProps) {
-  return (
-    <Shape
-      {...TENANT_STATUS}
-      {...props}
-      _style={extendStyle(TENANT_STATUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENANT_STATUS)} />
 }

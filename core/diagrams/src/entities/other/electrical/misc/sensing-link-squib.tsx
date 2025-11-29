@@ -11,11 +11,5 @@ export const SENSING_LINK_SQUIB = {
 }
 
 export function SensingLinkSquib(props: NodeProps) {
-  return (
-    <Shape
-      {...SENSING_LINK_SQUIB}
-      {...props}
-      _style={extendStyle(SENSING_LINK_SQUIB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SENSING_LINK_SQUIB)} />
 }

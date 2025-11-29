@@ -11,11 +11,5 @@ export const FORK_NODE_3 = {
 }
 
 export function ForkNode3(props: NodeProps) {
-  return (
-    <Shape
-      {...FORK_NODE_3}
-      {...props}
-      _style={extendStyle(FORK_NODE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORK_NODE_3)} />
 }

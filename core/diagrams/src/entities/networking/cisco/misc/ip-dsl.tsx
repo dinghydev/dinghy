@@ -11,5 +11,5 @@ export const IP_DSL = {
 }
 
 export function IpDsl(props: NodeProps) {
-  return <Shape {...IP_DSL} {...props} _style={extendStyle(IP_DSL, props)} />
+  return <Shape {...props} _style={extendStyle(props, IP_DSL)} />
 }

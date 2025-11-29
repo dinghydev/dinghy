@@ -13,11 +13,10 @@ export const JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH = {
 export function Jl726aAruba6200f48Port1gbeAnd4PortSfpSwitch(props: NodeProps) {
   return (
     <Shape
-      {...JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH}
       {...props}
       _style={extendStyle(
-        JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH,
         props,
+        JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH,
       )}
     />
   )

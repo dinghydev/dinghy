@@ -13,9 +13,8 @@ export const SAP_HEALTH_DATA_SERVICES_FOR_FHIR = {
 export function SapHealthDataServicesForFhir(props: NodeProps) {
   return (
     <Shape
-      {...SAP_HEALTH_DATA_SERVICES_FOR_FHIR}
       {...props}
-      _style={extendStyle(SAP_HEALTH_DATA_SERVICES_FOR_FHIR, props)}
+      _style={extendStyle(props, SAP_HEALTH_DATA_SERVICES_FOR_FHIR)}
     />
   )
 }

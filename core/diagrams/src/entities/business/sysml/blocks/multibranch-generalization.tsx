@@ -12,10 +12,6 @@ export const MULTIBRANCH_GENERALIZATION = {
 
 export function MultibranchGeneralization(props: NodeProps) {
   return (
-    <Shape
-      {...MULTIBRANCH_GENERALIZATION}
-      {...props}
-      _style={extendStyle(MULTIBRANCH_GENERALIZATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTIBRANCH_GENERALIZATION)} />
   )
 }

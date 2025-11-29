@@ -12,10 +12,6 @@ export const ENTERPRISE_APPLICATIONS = {
 
 export function EnterpriseApplications(props: NodeProps) {
   return (
-    <Shape
-      {...ENTERPRISE_APPLICATIONS}
-      {...props}
-      _style={extendStyle(ENTERPRISE_APPLICATIONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ENTERPRISE_APPLICATIONS)} />
   )
 }

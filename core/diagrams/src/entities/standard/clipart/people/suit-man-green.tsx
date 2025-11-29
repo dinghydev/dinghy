@@ -11,11 +11,5 @@ export const SUIT_MAN_GREEN = {
 }
 
 export function SuitManGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...SUIT_MAN_GREEN}
-      {...props}
-      _style={extendStyle(SUIT_MAN_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUIT_MAN_GREEN)} />
 }

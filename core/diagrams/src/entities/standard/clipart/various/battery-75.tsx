@@ -11,7 +11,5 @@ export const BATTERY_75 = {
 }
 
 export function Battery75(props: NodeProps) {
-  return (
-    <Shape {...BATTERY_75} {...props} _style={extendStyle(BATTERY_75, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BATTERY_75)} />
 }

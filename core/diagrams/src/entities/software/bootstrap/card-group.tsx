@@ -11,7 +11,5 @@ export const CARD_GROUP = {
 }
 
 export function CardGroup(props: NodeProps) {
-  return (
-    <Shape {...CARD_GROUP} {...props} _style={extendStyle(CARD_GROUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CARD_GROUP)} />
 }

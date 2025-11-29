@@ -11,11 +11,5 @@ export const PATH_CONTROL = {
 }
 
 export function PathControl(props: NodeProps) {
-  return (
-    <Shape
-      {...PATH_CONTROL}
-      {...props}
-      _style={extendStyle(PATH_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PATH_CONTROL)} />
 }

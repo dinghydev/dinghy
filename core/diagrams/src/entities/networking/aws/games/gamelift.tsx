@@ -11,7 +11,5 @@ export const GAMELIFT = {
 }
 
 export function Gamelift(props: NodeProps) {
-  return (
-    <Shape {...GAMELIFT} {...props} _style={extendStyle(GAMELIFT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAMELIFT)} />
 }

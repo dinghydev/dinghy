@@ -11,5 +11,5 @@ export const SCHED = {
 }
 
 export function Sched(props: NodeProps) {
-  return <Shape {...SCHED} {...props} _style={extendStyle(SCHED, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCHED)} />
 }

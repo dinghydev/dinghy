@@ -11,11 +11,5 @@ export const ROLE_SYNCHRONIZER = {
 }
 
 export function RoleSynchronizer(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_SYNCHRONIZER}
-      {...props}
-      _style={extendStyle(ROLE_SYNCHRONIZER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_SYNCHRONIZER)} />
 }

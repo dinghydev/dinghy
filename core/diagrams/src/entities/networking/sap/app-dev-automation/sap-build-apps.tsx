@@ -11,11 +11,5 @@ export const SAP_BUILD_APPS = {
 }
 
 export function SapBuildApps(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_BUILD_APPS}
-      {...props}
-      _style={extendStyle(SAP_BUILD_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_BUILD_APPS)} />
 }

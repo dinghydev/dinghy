@@ -12,10 +12,6 @@ export const STANDARDIZED_SYSTEM_IMAGES = {
 
 export function StandardizedSystemImages(props: NodeProps) {
   return (
-    <Shape
-      {...STANDARDIZED_SYSTEM_IMAGES}
-      {...props}
-      _style={extendStyle(STANDARDIZED_SYSTEM_IMAGES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STANDARDIZED_SYSTEM_IMAGES)} />
   )
 }

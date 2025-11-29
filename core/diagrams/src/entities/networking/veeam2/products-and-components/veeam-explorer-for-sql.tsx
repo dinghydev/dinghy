@@ -12,10 +12,6 @@ export const VEEAM_EXPLORER_FOR_SQL = {
 
 export function VeeamExplorerForSql(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_EXPLORER_FOR_SQL}
-      {...props}
-      _style={extendStyle(VEEAM_EXPLORER_FOR_SQL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_EXPLORER_FOR_SQL)} />
   )
 }

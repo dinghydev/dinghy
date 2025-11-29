@@ -11,5 +11,5 @@ export const AI_SAP = {
 }
 
 export function AiSap(props: NodeProps) {
-  return <Shape {...AI_SAP} {...props} _style={extendStyle(AI_SAP, props)} />
+  return <Shape {...props} _style={extendStyle(props, AI_SAP)} />
 }

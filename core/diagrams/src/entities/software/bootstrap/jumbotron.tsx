@@ -11,7 +11,5 @@ export const JUMBOTRON = {
 }
 
 export function Jumbotron(props: NodeProps) {
-  return (
-    <Shape {...JUMBOTRON} {...props} _style={extendStyle(JUMBOTRON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, JUMBOTRON)} />
 }

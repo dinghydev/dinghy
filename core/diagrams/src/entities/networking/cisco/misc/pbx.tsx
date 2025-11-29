@@ -11,5 +11,5 @@ export const PBX = {
 }
 
 export function Pbx(props: NodeProps) {
-  return <Shape {...PBX} {...props} _style={extendStyle(PBX, props)} />
+  return <Shape {...props} _style={extendStyle(props, PBX)} />
 }

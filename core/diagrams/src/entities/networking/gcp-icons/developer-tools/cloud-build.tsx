@@ -11,11 +11,5 @@ export const CLOUD_BUILD = {
 }
 
 export function CloudBuild(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_BUILD}
-      {...props}
-      _style={extendStyle(CLOUD_BUILD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_BUILD)} />
 }

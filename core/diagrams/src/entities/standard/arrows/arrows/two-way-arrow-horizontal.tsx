@@ -12,10 +12,6 @@ export const TWO_WAY_ARROW_HORIZONTAL = {
 
 export function TwoWayArrowHorizontal(props: NodeProps) {
   return (
-    <Shape
-      {...TWO_WAY_ARROW_HORIZONTAL}
-      {...props}
-      _style={extendStyle(TWO_WAY_ARROW_HORIZONTAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TWO_WAY_ARROW_HORIZONTAL)} />
   )
 }

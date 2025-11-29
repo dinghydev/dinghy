@@ -11,11 +11,5 @@ export const MULTIPLE_FLAG_MESSAGE = {
 }
 
 export function MultipleFlagMessage(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_FLAG_MESSAGE}
-      {...props}
-      _style={extendStyle(MULTIPLE_FLAG_MESSAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_FLAG_MESSAGE)} />
 }

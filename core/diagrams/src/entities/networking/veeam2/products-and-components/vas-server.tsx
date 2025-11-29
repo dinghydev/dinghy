@@ -11,7 +11,5 @@ export const VAS_SERVER = {
 }
 
 export function VasServer(props: NodeProps) {
-  return (
-    <Shape {...VAS_SERVER} {...props} _style={extendStyle(VAS_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VAS_SERVER)} />
 }

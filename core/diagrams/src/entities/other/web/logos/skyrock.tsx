@@ -11,5 +11,5 @@ export const SKYROCK = {
 }
 
 export function Skyrock(props: NodeProps) {
-  return <Shape {...SKYROCK} {...props} _style={extendStyle(SKYROCK, props)} />
+  return <Shape {...props} _style={extendStyle(props, SKYROCK)} />
 }

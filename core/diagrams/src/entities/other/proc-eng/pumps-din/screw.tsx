@@ -11,5 +11,5 @@ export const SCREW = {
 }
 
 export function Screw(props: NodeProps) {
-  return <Shape {...SCREW} {...props} _style={extendStyle(SCREW, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCREW)} />
 }

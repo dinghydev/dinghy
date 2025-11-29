@@ -13,9 +13,8 @@ export const FIREWALL_SERVICE_MODULE_FWSM = {
 export function FirewallServiceModuleFwsm(props: NodeProps) {
   return (
     <Shape
-      {...FIREWALL_SERVICE_MODULE_FWSM}
       {...props}
-      _style={extendStyle(FIREWALL_SERVICE_MODULE_FWSM, props)}
+      _style={extendStyle(props, FIREWALL_SERVICE_MODULE_FWSM)}
     />
   )
 }

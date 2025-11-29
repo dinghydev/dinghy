@@ -11,11 +11,5 @@ export const A1_INSTANCE = {
 }
 
 export function A1Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...A1_INSTANCE}
-      {...props}
-      _style={extendStyle(A1_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, A1_INSTANCE)} />
 }

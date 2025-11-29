@@ -1,0 +1,5 @@
+export {
+  AwsObservabilityadminCentralizationRuleForOrganization,
+  useAwsObservabilityadminCentralizationRuleForOrganization,
+  useAwsObservabilityadminCentralizationRuleForOrganizations,
+} from './AwsObservabilityadminCentralizationRuleForOrganization.tsx'

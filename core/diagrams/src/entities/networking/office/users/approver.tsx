@@ -11,7 +11,5 @@ export const APPROVER = {
 }
 
 export function Approver(props: NodeProps) {
-  return (
-    <Shape {...APPROVER} {...props} _style={extendStyle(APPROVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPROVER)} />
 }

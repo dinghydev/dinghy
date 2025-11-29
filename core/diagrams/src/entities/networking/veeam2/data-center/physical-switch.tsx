@@ -11,11 +11,5 @@ export const PHYSICAL_SWITCH = {
 }
 
 export function PhysicalSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_SWITCH}
-      {...props}
-      _style={extendStyle(PHYSICAL_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_SWITCH)} />
 }

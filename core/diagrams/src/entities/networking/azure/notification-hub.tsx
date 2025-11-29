@@ -11,11 +11,5 @@ export const NOTIFICATION_HUB = {
 }
 
 export function NotificationHub(props: NodeProps) {
-  return (
-    <Shape
-      {...NOTIFICATION_HUB}
-      {...props}
-      _style={extendStyle(NOTIFICATION_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NOTIFICATION_HUB)} />
 }

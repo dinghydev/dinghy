@@ -11,7 +11,5 @@ export const USE_CASE = {
 }
 
 export function UseCase(props: NodeProps) {
-  return (
-    <Shape {...USE_CASE} {...props} _style={extendStyle(USE_CASE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USE_CASE)} />
 }

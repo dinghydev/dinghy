@@ -11,11 +11,5 @@ export const CURRENT_TRANSFORMER_3 = {
 }
 
 export function CurrentTransformer3(props: NodeProps) {
-  return (
-    <Shape
-      {...CURRENT_TRANSFORMER_3}
-      {...props}
-      _style={extendStyle(CURRENT_TRANSFORMER_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CURRENT_TRANSFORMER_3)} />
 }

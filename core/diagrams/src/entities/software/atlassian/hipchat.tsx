@@ -11,5 +11,5 @@ export const HIPCHAT = {
 }
 
 export function Hipchat(props: NodeProps) {
-  return <Shape {...HIPCHAT} {...props} _style={extendStyle(HIPCHAT, props)} />
+  return <Shape {...props} _style={extendStyle(props, HIPCHAT)} />
 }

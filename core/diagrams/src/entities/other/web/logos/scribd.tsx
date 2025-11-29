@@ -11,5 +11,5 @@ export const SCRIBD = {
 }
 
 export function Scribd(props: NodeProps) {
-  return <Shape {...SCRIBD} {...props} _style={extendStyle(SCRIBD, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCRIBD)} />
 }

@@ -11,7 +11,5 @@ export const CLOUD_GPUS = {
 }
 
 export function CloudGpus(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_GPUS} {...props} _style={extendStyle(CLOUD_GPUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_GPUS)} />
 }

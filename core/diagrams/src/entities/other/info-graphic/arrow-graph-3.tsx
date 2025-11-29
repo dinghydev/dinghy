@@ -11,11 +11,5 @@ export const ARROW_GRAPH_3 = {
 }
 
 export function ArrowGraph3(props: NodeProps) {
-  return (
-    <Shape
-      {...ARROW_GRAPH_3}
-      {...props}
-      _style={extendStyle(ARROW_GRAPH_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARROW_GRAPH_3)} />
 }

@@ -11,11 +11,5 @@ export const ENHANCE_UI_2 = {
 }
 
 export function EnhanceUi2(props: NodeProps) {
-  return (
-    <Shape
-      {...ENHANCE_UI_2}
-      {...props}
-      _style={extendStyle(ENHANCE_UI_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENHANCE_UI_2)} />
 }

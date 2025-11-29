@@ -11,11 +11,5 @@ export const TENSORFLOW_LOGO = {
 }
 
 export function TensorflowLogo(props: NodeProps) {
-  return (
-    <Shape
-      {...TENSORFLOW_LOGO}
-      {...props}
-      _style={extendStyle(TENSORFLOW_LOGO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TENSORFLOW_LOGO)} />
 }

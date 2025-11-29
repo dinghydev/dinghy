@@ -10,5 +10,5 @@ export const RARITY = {
 }
 
 export function Rarity(props: NodeProps) {
-  return <Shape {...RARITY} {...props} _style={extendStyle(RARITY, props)} />
+  return <Shape {...props} _style={extendStyle(props, RARITY)} />
 }

@@ -11,7 +11,5 @@ export const SETTINGS = {
 }
 
 export function Settings(props: NodeProps) {
-  return (
-    <Shape {...SETTINGS} {...props} _style={extendStyle(SETTINGS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SETTINGS)} />
 }

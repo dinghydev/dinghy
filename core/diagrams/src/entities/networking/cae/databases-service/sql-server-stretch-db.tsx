@@ -11,11 +11,5 @@ export const SQL_SERVER_STRETCH_DB = {
 }
 
 export function SqlServerStretchDb(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_SERVER_STRETCH_DB}
-      {...props}
-      _style={extendStyle(SQL_SERVER_STRETCH_DB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_SERVER_STRETCH_DB)} />
 }

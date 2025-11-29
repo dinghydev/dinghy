@@ -11,7 +11,5 @@ export const OPENSHIFT = {
 }
 
 export function Openshift(props: NodeProps) {
-  return (
-    <Shape {...OPENSHIFT} {...props} _style={extendStyle(OPENSHIFT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPENSHIFT)} />
 }

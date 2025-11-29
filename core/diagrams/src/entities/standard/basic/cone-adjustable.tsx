@@ -11,11 +11,5 @@ export const CONE_ADJUSTABLE = {
 }
 
 export function ConeAdjustable(props: NodeProps) {
-  return (
-    <Shape
-      {...CONE_ADJUSTABLE}
-      {...props}
-      _style={extendStyle(CONE_ADJUSTABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONE_ADJUSTABLE)} />
 }

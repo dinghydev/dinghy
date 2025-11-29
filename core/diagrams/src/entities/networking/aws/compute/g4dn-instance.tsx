@@ -11,11 +11,5 @@ export const G4DN_INSTANCE = {
 }
 
 export function G4dnInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...G4DN_INSTANCE}
-      {...props}
-      _style={extendStyle(G4DN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, G4DN_INSTANCE)} />
 }

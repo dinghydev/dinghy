@@ -10,11 +10,5 @@ export const ALLOCATION_GENERAL = {
 }
 
 export function AllocationGeneral(props: NodeProps) {
-  return (
-    <Shape
-      {...ALLOCATION_GENERAL}
-      {...props}
-      _style={extendStyle(ALLOCATION_GENERAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALLOCATION_GENERAL)} />
 }

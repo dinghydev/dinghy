@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_MEDIATION_SERVER = {
 export function SkypeForBusinessMediationServer(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_MEDIATION_SERVER}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_MEDIATION_SERVER, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_MEDIATION_SERVER)}
     />
   )
 }

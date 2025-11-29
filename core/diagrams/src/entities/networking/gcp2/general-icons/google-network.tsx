@@ -11,11 +11,5 @@ export const GOOGLE_NETWORK = {
 }
 
 export function GoogleNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_NETWORK}
-      {...props}
-      _style={extendStyle(GOOGLE_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_NETWORK)} />
 }

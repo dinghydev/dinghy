@@ -13,9 +13,8 @@ export const INDUCTION_VOLTAGE_REGULATOR = {
 export function InductionVoltageRegulator(props: NodeProps) {
   return (
     <Shape
-      {...INDUCTION_VOLTAGE_REGULATOR}
       {...props}
-      _style={extendStyle(INDUCTION_VOLTAGE_REGULATOR, props)}
+      _style={extendStyle(props, INDUCTION_VOLTAGE_REGULATOR)}
     />
   )
 }

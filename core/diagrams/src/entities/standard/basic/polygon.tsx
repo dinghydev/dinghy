@@ -11,5 +11,5 @@ export const POLYGON = {
 }
 
 export function Polygon(props: NodeProps) {
-  return <Shape {...POLYGON} {...props} _style={extendStyle(POLYGON, props)} />
+  return <Shape {...props} _style={extendStyle(props, POLYGON)} />
 }

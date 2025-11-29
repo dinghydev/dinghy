@@ -1,0 +1,5 @@
+export {
+  AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration,
+  useAwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration,
+  useAwsChimesdkmediapipelinesMediaInsightsPipelineConfigurations,
+} from './AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration.tsx'

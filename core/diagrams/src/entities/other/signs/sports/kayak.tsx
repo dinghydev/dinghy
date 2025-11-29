@@ -11,5 +11,5 @@ export const KAYAK = {
 }
 
 export function Kayak(props: NodeProps) {
-  return <Shape {...KAYAK} {...props} _style={extendStyle(KAYAK, props)} />
+  return <Shape {...props} _style={extendStyle(props, KAYAK)} />
 }

@@ -13,9 +13,8 @@ export const UIS_ULTIMATE_INTERNET_SERVICE = {
 export function UisUltimateInternetService(props: NodeProps) {
   return (
     <Shape
-      {...UIS_ULTIMATE_INTERNET_SERVICE}
       {...props}
-      _style={extendStyle(UIS_ULTIMATE_INTERNET_SERVICE, props)}
+      _style={extendStyle(props, UIS_ULTIMATE_INTERNET_SERVICE)}
     />
   )
 }

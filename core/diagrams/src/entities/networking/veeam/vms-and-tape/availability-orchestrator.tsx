@@ -12,10 +12,6 @@ export const AVAILABILITY_ORCHESTRATOR = {
 
 export function AvailabilityOrchestrator(props: NodeProps) {
   return (
-    <Shape
-      {...AVAILABILITY_ORCHESTRATOR}
-      {...props}
-      _style={extendStyle(AVAILABILITY_ORCHESTRATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AVAILABILITY_ORCHESTRATOR)} />
   )
 }

@@ -11,11 +11,5 @@ export const SERVICE_ACTIVATOR = {
 }
 
 export function ServiceActivator(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVICE_ACTIVATOR}
-      {...props}
-      _style={extendStyle(SERVICE_ACTIVATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVICE_ACTIVATOR)} />
 }

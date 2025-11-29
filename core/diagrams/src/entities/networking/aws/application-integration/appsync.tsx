@@ -11,5 +11,5 @@ export const APPSYNC = {
 }
 
 export function Appsync(props: NodeProps) {
-  return <Shape {...APPSYNC} {...props} _style={extendStyle(APPSYNC, props)} />
+  return <Shape {...props} _style={extendStyle(props, APPSYNC)} />
 }

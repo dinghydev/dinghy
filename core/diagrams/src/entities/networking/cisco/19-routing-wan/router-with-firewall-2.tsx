@@ -12,10 +12,6 @@ export const ROUTER_WITH_FIREWALL_2 = {
 
 export function RouterWithFirewall2(props: NodeProps) {
   return (
-    <Shape
-      {...ROUTER_WITH_FIREWALL_2}
-      {...props}
-      _style={extendStyle(ROUTER_WITH_FIREWALL_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROUTER_WITH_FIREWALL_2)} />
   )
 }

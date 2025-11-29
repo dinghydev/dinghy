@@ -12,10 +12,6 @@ export const SAGEMAKER_GROUND_TRUTH = {
 
 export function SagemakerGroundTruth(props: NodeProps) {
   return (
-    <Shape
-      {...SAGEMAKER_GROUND_TRUTH}
-      {...props}
-      _style={extendStyle(SAGEMAKER_GROUND_TRUTH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAGEMAKER_GROUND_TRUTH)} />
   )
 }

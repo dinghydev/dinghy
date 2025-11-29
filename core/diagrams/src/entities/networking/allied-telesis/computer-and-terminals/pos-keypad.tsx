@@ -11,7 +11,5 @@ export const POS_KEYPAD = {
 }
 
 export function PosKeypad(props: NodeProps) {
-  return (
-    <Shape {...POS_KEYPAD} {...props} _style={extendStyle(POS_KEYPAD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POS_KEYPAD)} />
 }

@@ -11,11 +11,5 @@ export const ILLUMINATING_BULB = {
 }
 
 export function IlluminatingBulb(props: NodeProps) {
-  return (
-    <Shape
-      {...ILLUMINATING_BULB}
-      {...props}
-      _style={extendStyle(ILLUMINATING_BULB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ILLUMINATING_BULB)} />
 }

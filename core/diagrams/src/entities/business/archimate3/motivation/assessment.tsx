@@ -11,7 +11,5 @@ export const ASSESSMENT = {
 }
 
 export function Assessment(props: NodeProps) {
-  return (
-    <Shape {...ASSESSMENT} {...props} _style={extendStyle(ASSESSMENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASSESSMENT)} />
 }

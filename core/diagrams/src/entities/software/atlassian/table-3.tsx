@@ -11,5 +11,5 @@ export const TABLE_3 = {
 }
 
 export function Table3(props: NodeProps) {
-  return <Shape {...TABLE_3} {...props} _style={extendStyle(TABLE_3, props)} />
+  return <Shape {...props} _style={extendStyle(props, TABLE_3)} />
 }

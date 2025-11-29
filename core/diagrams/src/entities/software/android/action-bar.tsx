@@ -11,7 +11,5 @@ export const ACTION_BAR = {
 }
 
 export function ActionBar(props: NodeProps) {
-  return (
-    <Shape {...ACTION_BAR} {...props} _style={extendStyle(ACTION_BAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_BAR)} />
 }

@@ -11,11 +11,5 @@ export const VEEAM_EXPLORER = {
 }
 
 export function VeeamExplorer(props: NodeProps) {
-  return (
-    <Shape
-      {...VEEAM_EXPLORER}
-      {...props}
-      _style={extendStyle(VEEAM_EXPLORER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_EXPLORER)} />
 }

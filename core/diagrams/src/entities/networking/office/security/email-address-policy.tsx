@@ -11,11 +11,5 @@ export const EMAIL_ADDRESS_POLICY = {
 }
 
 export function EmailAddressPolicy(props: NodeProps) {
-  return (
-    <Shape
-      {...EMAIL_ADDRESS_POLICY}
-      {...props}
-      _style={extendStyle(EMAIL_ADDRESS_POLICY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EMAIL_ADDRESS_POLICY)} />
 }

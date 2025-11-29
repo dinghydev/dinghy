@@ -11,11 +11,5 @@ export const LINK_CATCHING = {
 }
 
 export function LinkCatching(props: NodeProps) {
-  return (
-    <Shape
-      {...LINK_CATCHING}
-      {...props}
-      _style={extendStyle(LINK_CATCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINK_CATCHING)} />
 }

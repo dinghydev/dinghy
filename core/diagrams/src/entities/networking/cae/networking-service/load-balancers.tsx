@@ -11,11 +11,5 @@ export const LOAD_BALANCERS = {
 }
 
 export function LoadBalancers(props: NodeProps) {
-  return (
-    <Shape
-      {...LOAD_BALANCERS}
-      {...props}
-      _style={extendStyle(LOAD_BALANCERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOAD_BALANCERS)} />
 }

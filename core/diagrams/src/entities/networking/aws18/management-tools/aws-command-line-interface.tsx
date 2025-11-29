@@ -12,10 +12,6 @@ export const AWS_COMMAND_LINE_INTERFACE = {
 
 export function AwsCommandLineInterface(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_COMMAND_LINE_INTERFACE}
-      {...props}
-      _style={extendStyle(AWS_COMMAND_LINE_INTERFACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_COMMAND_LINE_INTERFACE)} />
   )
 }

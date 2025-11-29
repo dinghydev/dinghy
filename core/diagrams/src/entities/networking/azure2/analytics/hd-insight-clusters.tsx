@@ -11,11 +11,5 @@ export const HD_INSIGHT_CLUSTERS = {
 }
 
 export function HdInsightClusters(props: NodeProps) {
-  return (
-    <Shape
-      {...HD_INSIGHT_CLUSTERS}
-      {...props}
-      _style={extendStyle(HD_INSIGHT_CLUSTERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HD_INSIGHT_CLUSTERS)} />
 }

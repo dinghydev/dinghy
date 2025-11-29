@@ -11,11 +11,5 @@ export const HTC_SMARTPHONE = {
 }
 
 export function HtcSmartphone(props: NodeProps) {
-  return (
-    <Shape
-      {...HTC_SMARTPHONE}
-      {...props}
-      _style={extendStyle(HTC_SMARTPHONE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HTC_SMARTPHONE)} />
 }

@@ -11,11 +11,5 @@ export const MAINFRAME_HOST = {
 }
 
 export function MainframeHost(props: NodeProps) {
-  return (
-    <Shape
-      {...MAINFRAME_HOST}
-      {...props}
-      _style={extendStyle(MAINFRAME_HOST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAINFRAME_HOST)} />
 }

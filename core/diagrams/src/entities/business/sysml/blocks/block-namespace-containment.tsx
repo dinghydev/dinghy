@@ -13,9 +13,8 @@ export const BLOCK_NAMESPACE_CONTAINMENT = {
 export function BlockNamespaceContainment(props: NodeProps) {
   return (
     <Shape
-      {...BLOCK_NAMESPACE_CONTAINMENT}
       {...props}
-      _style={extendStyle(BLOCK_NAMESPACE_CONTAINMENT, props)}
+      _style={extendStyle(props, BLOCK_NAMESPACE_CONTAINMENT)}
     />
   )
 }

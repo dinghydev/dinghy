@@ -11,11 +11,5 @@ export const PHYSICAL_SECURITY = {
 }
 
 export function PhysicalSecurity(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_SECURITY}
-      {...props}
-      _style={extendStyle(PHYSICAL_SECURITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_SECURITY)} />
 }

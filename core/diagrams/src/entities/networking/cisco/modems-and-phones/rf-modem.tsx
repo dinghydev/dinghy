@@ -11,7 +11,5 @@ export const RF_MODEM = {
 }
 
 export function RfModem(props: NodeProps) {
-  return (
-    <Shape {...RF_MODEM} {...props} _style={extendStyle(RF_MODEM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RF_MODEM)} />
 }

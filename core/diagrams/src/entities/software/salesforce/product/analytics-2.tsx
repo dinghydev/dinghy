@@ -11,11 +11,5 @@ export const ANALYTICS_2 = {
 }
 
 export function Analytics2(props: NodeProps) {
-  return (
-    <Shape
-      {...ANALYTICS_2}
-      {...props}
-      _style={extendStyle(ANALYTICS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANALYTICS_2)} />
 }

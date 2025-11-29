@@ -11,11 +11,5 @@ export const DOUBLE_DIODE = {
 }
 
 export function DoubleDiode(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_DIODE}
-      {...props}
-      _style={extendStyle(DOUBLE_DIODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_DIODE)} />
 }

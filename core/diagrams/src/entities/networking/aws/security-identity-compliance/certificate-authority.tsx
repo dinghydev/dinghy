@@ -11,11 +11,5 @@ export const CERTIFICATE_AUTHORITY = {
 }
 
 export function CertificateAuthority(props: NodeProps) {
-  return (
-    <Shape
-      {...CERTIFICATE_AUTHORITY}
-      {...props}
-      _style={extendStyle(CERTIFICATE_AUTHORITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CERTIFICATE_AUTHORITY)} />
 }

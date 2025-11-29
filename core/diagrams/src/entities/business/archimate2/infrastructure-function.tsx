@@ -12,10 +12,6 @@ export const INFRASTRUCTURE_FUNCTION = {
 
 export function InfrastructureFunction(props: NodeProps) {
   return (
-    <Shape
-      {...INFRASTRUCTURE_FUNCTION}
-      {...props}
-      _style={extendStyle(INFRASTRUCTURE_FUNCTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INFRASTRUCTURE_FUNCTION)} />
   )
 }

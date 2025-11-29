@@ -12,10 +12,6 @@ export const KEY_ACCESS_JUSTIFICATIONS = {
 
 export function KeyAccessJustifications(props: NodeProps) {
   return (
-    <Shape
-      {...KEY_ACCESS_JUSTIFICATIONS}
-      {...props}
-      _style={extendStyle(KEY_ACCESS_JUSTIFICATIONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, KEY_ACCESS_JUSTIFICATIONS)} />
   )
 }

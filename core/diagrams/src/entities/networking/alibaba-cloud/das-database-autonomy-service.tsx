@@ -13,9 +13,8 @@ export const DAS_DATABASE_AUTONOMY_SERVICE = {
 export function DasDatabaseAutonomyService(props: NodeProps) {
   return (
     <Shape
-      {...DAS_DATABASE_AUTONOMY_SERVICE}
       {...props}
-      _style={extendStyle(DAS_DATABASE_AUTONOMY_SERVICE, props)}
+      _style={extendStyle(props, DAS_DATABASE_AUTONOMY_SERVICE)}
     />
   )
 }

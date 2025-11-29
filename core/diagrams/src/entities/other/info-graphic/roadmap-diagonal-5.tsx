@@ -11,11 +11,5 @@ export const ROADMAP_DIAGONAL_5 = {
 }
 
 export function RoadmapDiagonal5(props: NodeProps) {
-  return (
-    <Shape
-      {...ROADMAP_DIAGONAL_5}
-      {...props}
-      _style={extendStyle(ROADMAP_DIAGONAL_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROADMAP_DIAGONAL_5)} />
 }

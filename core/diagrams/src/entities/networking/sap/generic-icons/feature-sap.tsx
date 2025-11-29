@@ -11,11 +11,5 @@ export const FEATURE_SAP = {
 }
 
 export function FeatureSap(props: NodeProps) {
-  return (
-    <Shape
-      {...FEATURE_SAP}
-      {...props}
-      _style={extendStyle(FEATURE_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEATURE_SAP)} />
 }

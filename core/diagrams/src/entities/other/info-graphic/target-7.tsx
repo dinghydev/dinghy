@@ -11,7 +11,5 @@ export const TARGET_7 = {
 }
 
 export function Target7(props: NodeProps) {
-  return (
-    <Shape {...TARGET_7} {...props} _style={extendStyle(TARGET_7, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TARGET_7)} />
 }

@@ -11,11 +11,5 @@ export const SNOWBOARDER = {
 }
 
 export function Snowboarder(props: NodeProps) {
-  return (
-    <Shape
-      {...SNOWBOARDER}
-      {...props}
-      _style={extendStyle(SNOWBOARDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SNOWBOARDER)} />
 }

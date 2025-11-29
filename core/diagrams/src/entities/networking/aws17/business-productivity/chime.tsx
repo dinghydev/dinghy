@@ -11,5 +11,5 @@ export const CHIME = {
 }
 
 export function Chime(props: NodeProps) {
-  return <Shape {...CHIME} {...props} _style={extendStyle(CHIME, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHIME)} />
 }

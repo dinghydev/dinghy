@@ -11,11 +11,5 @@ export const ENDPOINT_ANALYTICS = {
 }
 
 export function EndpointAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...ENDPOINT_ANALYTICS}
-      {...props}
-      _style={extendStyle(ENDPOINT_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENDPOINT_ANALYTICS)} />
 }

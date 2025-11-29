@@ -11,11 +11,5 @@ export const BACKINT_AGENT = {
 }
 
 export function BackintAgent(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKINT_AGENT}
-      {...props}
-      _style={extendStyle(BACKINT_AGENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKINT_AGENT)} />
 }

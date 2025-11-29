@@ -11,11 +11,5 @@ export const DATA_SHARES = {
 }
 
 export function DataShares(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_SHARES}
-      {...props}
-      _style={extendStyle(DATA_SHARES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_SHARES)} />
 }

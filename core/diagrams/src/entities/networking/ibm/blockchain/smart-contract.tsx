@@ -11,11 +11,5 @@ export const SMART_CONTRACT = {
 }
 
 export function SmartContract(props: NodeProps) {
-  return (
-    <Shape
-      {...SMART_CONTRACT}
-      {...props}
-      _style={extendStyle(SMART_CONTRACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMART_CONTRACT)} />
 }

@@ -11,5 +11,5 @@ export const NBA = {
 }
 
 export function Nba(props: NodeProps) {
-  return <Shape {...NBA} {...props} _style={extendStyle(NBA, props)} />
+  return <Shape {...props} _style={extendStyle(props, NBA)} />
 }

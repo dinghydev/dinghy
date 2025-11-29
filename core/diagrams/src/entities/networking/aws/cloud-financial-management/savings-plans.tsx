@@ -11,11 +11,5 @@ export const SAVINGS_PLANS = {
 }
 
 export function SavingsPlans(props: NodeProps) {
-  return (
-    <Shape
-      {...SAVINGS_PLANS}
-      {...props}
-      _style={extendStyle(SAVINGS_PLANS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAVINGS_PLANS)} />
 }

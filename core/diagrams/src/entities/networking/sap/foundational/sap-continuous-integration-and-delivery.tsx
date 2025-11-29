@@ -13,9 +13,8 @@ export const SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY = {
 export function SapContinuousIntegrationAndDelivery(props: NodeProps) {
   return (
     <Shape
-      {...SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY}
       {...props}
-      _style={extendStyle(SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY, props)}
+      _style={extendStyle(props, SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY)}
     />
   )
 }

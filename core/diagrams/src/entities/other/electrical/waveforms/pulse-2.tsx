@@ -11,5 +11,5 @@ export const PULSE_2 = {
 }
 
 export function Pulse2(props: NodeProps) {
-  return <Shape {...PULSE_2} {...props} _style={extendStyle(PULSE_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, PULSE_2)} />
 }

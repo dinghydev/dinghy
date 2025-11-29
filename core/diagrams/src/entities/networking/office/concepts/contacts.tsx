@@ -11,7 +11,5 @@ export const CONTACTS = {
 }
 
 export function Contacts(props: NodeProps) {
-  return (
-    <Shape {...CONTACTS} {...props} _style={extendStyle(CONTACTS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACTS)} />
 }

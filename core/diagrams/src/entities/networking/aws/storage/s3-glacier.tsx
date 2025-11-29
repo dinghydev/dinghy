@@ -11,7 +11,5 @@ export const S3_GLACIER = {
 }
 
 export function S3Glacier(props: NodeProps) {
-  return (
-    <Shape {...S3_GLACIER} {...props} _style={extendStyle(S3_GLACIER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_GLACIER)} />
 }

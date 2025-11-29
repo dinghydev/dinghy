@@ -11,11 +11,5 @@ export const EXPRESS_CONNECT = {
 }
 
 export function ExpressConnect(props: NodeProps) {
-  return (
-    <Shape
-      {...EXPRESS_CONNECT}
-      {...props}
-      _style={extendStyle(EXPRESS_CONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXPRESS_CONNECT)} />
 }

@@ -11,11 +11,5 @@ export const VIRTUAL_CLUSTERS = {
 }
 
 export function VirtualClusters(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_CLUSTERS}
-      {...props}
-      _style={extendStyle(VIRTUAL_CLUSTERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_CLUSTERS)} />
 }

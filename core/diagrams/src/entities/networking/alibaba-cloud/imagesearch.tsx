@@ -11,11 +11,5 @@ export const IMAGESEARCH = {
 }
 
 export function Imagesearch(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGESEARCH}
-      {...props}
-      _style={extendStyle(IMAGESEARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGESEARCH)} />
 }

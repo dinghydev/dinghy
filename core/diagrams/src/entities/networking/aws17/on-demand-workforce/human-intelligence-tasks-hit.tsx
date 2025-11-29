@@ -13,9 +13,8 @@ export const HUMAN_INTELLIGENCE_TASKS_HIT = {
 export function HumanIntelligenceTasksHit(props: NodeProps) {
   return (
     <Shape
-      {...HUMAN_INTELLIGENCE_TASKS_HIT}
       {...props}
-      _style={extendStyle(HUMAN_INTELLIGENCE_TASKS_HIT, props)}
+      _style={extendStyle(props, HUMAN_INTELLIGENCE_TASKS_HIT)}
     />
   )
 }

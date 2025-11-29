@@ -11,7 +11,5 @@ export const COUPLING = {
 }
 
 export function Coupling(props: NodeProps) {
-  return (
-    <Shape {...COUPLING} {...props} _style={extendStyle(COUPLING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COUPLING)} />
 }

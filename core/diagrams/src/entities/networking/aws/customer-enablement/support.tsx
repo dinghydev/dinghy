@@ -11,5 +11,5 @@ export const SUPPORT = {
 }
 
 export function Support(props: NodeProps) {
-  return <Shape {...SUPPORT} {...props} _style={extendStyle(SUPPORT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SUPPORT)} />
 }

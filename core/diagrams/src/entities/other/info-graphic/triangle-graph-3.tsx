@@ -11,11 +11,5 @@ export const TRIANGLE_GRAPH_3 = {
 }
 
 export function TriangleGraph3(props: NodeProps) {
-  return (
-    <Shape
-      {...TRIANGLE_GRAPH_3}
-      {...props}
-      _style={extendStyle(TRIANGLE_GRAPH_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRIANGLE_GRAPH_3)} />
 }

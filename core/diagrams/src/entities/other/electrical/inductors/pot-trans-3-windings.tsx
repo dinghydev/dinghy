@@ -11,11 +11,5 @@ export const POT_TRANS_3_WINDINGS = {
 }
 
 export function PotTrans3Windings(props: NodeProps) {
-  return (
-    <Shape
-      {...POT_TRANS_3_WINDINGS}
-      {...props}
-      _style={extendStyle(POT_TRANS_3_WINDINGS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POT_TRANS_3_WINDINGS)} />
 }

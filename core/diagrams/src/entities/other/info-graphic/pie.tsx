@@ -11,5 +11,5 @@ export const PIE = {
 }
 
 export function Pie(props: NodeProps) {
-  return <Shape {...PIE} {...props} _style={extendStyle(PIE, props)} />
+  return <Shape {...props} _style={extendStyle(props, PIE)} />
 }

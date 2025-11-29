@@ -15,9 +15,8 @@ export const AWS_STEP_FUNCTIONS_WORKFLOW = {
 export function AwsStepFunctionsWorkflow(props: NodeProps) {
   return (
     <Shape
-      {...AWS_STEP_FUNCTIONS_WORKFLOW}
       {...props}
-      _style={extendStyle(AWS_STEP_FUNCTIONS_WORKFLOW, props)}
+      _style={extendStyle(props, AWS_STEP_FUNCTIONS_WORKFLOW)}
     />
   )
 }

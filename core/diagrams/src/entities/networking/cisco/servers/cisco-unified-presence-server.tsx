@@ -13,9 +13,8 @@ export const CISCO_UNIFIED_PRESENCE_SERVER = {
 export function CiscoUnifiedPresenceServer(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_UNIFIED_PRESENCE_SERVER}
       {...props}
-      _style={extendStyle(CISCO_UNIFIED_PRESENCE_SERVER, props)}
+      _style={extendStyle(props, CISCO_UNIFIED_PRESENCE_SERVER)}
     />
   )
 }

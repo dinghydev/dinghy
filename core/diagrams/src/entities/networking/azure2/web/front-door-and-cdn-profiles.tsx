@@ -13,9 +13,8 @@ export const FRONT_DOOR_AND_CDN_PROFILES = {
 export function FrontDoorAndCdnProfiles(props: NodeProps) {
   return (
     <Shape
-      {...FRONT_DOOR_AND_CDN_PROFILES}
       {...props}
-      _style={extendStyle(FRONT_DOOR_AND_CDN_PROFILES, props)}
+      _style={extendStyle(props, FRONT_DOOR_AND_CDN_PROFILES)}
     />
   )
 }

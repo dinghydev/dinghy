@@ -13,9 +13,8 @@ export const APPLICATION_RECOVERY_CONTROLLER = {
 export function ApplicationRecoveryController(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_RECOVERY_CONTROLLER}
       {...props}
-      _style={extendStyle(APPLICATION_RECOVERY_CONTROLLER, props)}
+      _style={extendStyle(props, APPLICATION_RECOVERY_CONTROLLER)}
     />
   )
 }

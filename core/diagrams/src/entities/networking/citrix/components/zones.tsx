@@ -11,5 +11,5 @@ export const ZONES = {
 }
 
 export function Zones(props: NodeProps) {
-  return <Shape {...ZONES} {...props} _style={extendStyle(ZONES, props)} />
+  return <Shape {...props} _style={extendStyle(props, ZONES)} />
 }

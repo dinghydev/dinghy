@@ -11,5 +11,5 @@ export const CLASS = {
 }
 
 export function Class(props: NodeProps) {
-  return <Shape {...CLASS} {...props} _style={extendStyle(CLASS, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLASS)} />
 }

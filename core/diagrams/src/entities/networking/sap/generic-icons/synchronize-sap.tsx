@@ -11,11 +11,5 @@ export const SYNCHRONIZE_SAP = {
 }
 
 export function SynchronizeSap(props: NodeProps) {
-  return (
-    <Shape
-      {...SYNCHRONIZE_SAP}
-      {...props}
-      _style={extendStyle(SYNCHRONIZE_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYNCHRONIZE_SAP)} />
 }

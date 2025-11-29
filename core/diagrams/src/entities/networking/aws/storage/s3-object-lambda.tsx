@@ -11,11 +11,5 @@ export const S3_OBJECT_LAMBDA = {
 }
 
 export function S3ObjectLambda(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_OBJECT_LAMBDA}
-      {...props}
-      _style={extendStyle(S3_OBJECT_LAMBDA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_OBJECT_LAMBDA)} />
 }

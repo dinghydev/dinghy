@@ -13,9 +13,8 @@ export const MESSAGE_INTERMEDIATE_THROWING = {
 export function MessageIntermediateThrowing(props: NodeProps) {
   return (
     <Shape
-      {...MESSAGE_INTERMEDIATE_THROWING}
       {...props}
-      _style={extendStyle(MESSAGE_INTERMEDIATE_THROWING, props)}
+      _style={extendStyle(props, MESSAGE_INTERMEDIATE_THROWING)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const FEDERATION_TRUST = {
 }
 
 export function FederationTrust(props: NodeProps) {
-  return (
-    <Shape
-      {...FEDERATION_TRUST}
-      {...props}
-      _style={extendStyle(FEDERATION_TRUST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEDERATION_TRUST)} />
 }

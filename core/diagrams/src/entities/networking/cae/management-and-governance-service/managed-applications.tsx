@@ -11,11 +11,5 @@ export const MANAGED_APPLICATIONS = {
 }
 
 export function ManagedApplications(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_APPLICATIONS}
-      {...props}
-      _style={extendStyle(MANAGED_APPLICATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_APPLICATIONS)} />
 }

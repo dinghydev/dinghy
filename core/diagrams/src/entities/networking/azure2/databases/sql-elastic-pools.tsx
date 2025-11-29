@@ -11,11 +11,5 @@ export const SQL_ELASTIC_POOLS = {
 }
 
 export function SqlElasticPools(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_ELASTIC_POOLS}
-      {...props}
-      _style={extendStyle(SQL_ELASTIC_POOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_ELASTIC_POOLS)} />
 }

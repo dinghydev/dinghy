@@ -11,11 +11,5 @@ export const UM_DIAL_PLAN_E164 = {
 }
 
 export function UmDialPlanE164(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_DIAL_PLAN_E164}
-      {...props}
-      _style={extendStyle(UM_DIAL_PLAN_E164, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_DIAL_PLAN_E164)} />
 }

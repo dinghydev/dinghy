@@ -12,9 +12,8 @@ export const CHOICE_MERGE_NODE_DECISION_NODE = {
 export function ChoiceMergeNodeDecisionNode(props: NodeProps) {
   return (
     <Shape
-      {...CHOICE_MERGE_NODE_DECISION_NODE}
       {...props}
-      _style={extendStyle(CHOICE_MERGE_NODE_DECISION_NODE, props)}
+      _style={extendStyle(props, CHOICE_MERGE_NODE_DECISION_NODE)}
     />
   )
 }

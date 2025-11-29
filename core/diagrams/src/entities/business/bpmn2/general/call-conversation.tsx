@@ -11,11 +11,5 @@ export const CALL_CONVERSATION = {
 }
 
 export function CallConversation(props: NodeProps) {
-  return (
-    <Shape
-      {...CALL_CONVERSATION}
-      {...props}
-      _style={extendStyle(CALL_CONVERSATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_CONVERSATION)} />
 }

@@ -1,0 +1,176 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# SQS (Simple Queue)
+
+## AwsSqsQueue
+
+Provides a SQS resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sqs/AwsSqsQueue.tsx)
+
+```js
+import { AwsSqsQueue } from "@dinghy/tf-aws/serviceSqs"
+
+<AwsSqsQueue/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sqs_queue)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sqs/DataAwsSqsQueue.tsx)
+
+```js
+import { DataAwsSqsQueue } from "@dinghy/tf-aws/serviceSqs"
+
+<DataAwsSqsQueue/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue#import)
+
+```js
+<AwsSqsQueue
+   url = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSqsQueuePolicy
+
+Provides a SQS Queue Policy resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sqs/AwsSqsQueuePolicy.tsx)
+
+```js
+import { AwsSqsQueuePolicy } from "@dinghy/tf-aws/serviceSqs"
+
+<AwsSqsQueuePolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_policy#import)
+
+```js
+<AwsSqsQueuePolicy
+   queue_url = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSqsQueueRedriveAllowPolicy
+
+Provides a SQS Queue Redrive Allow Policy resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_redrive_allow_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sqs/AwsSqsQueueRedriveAllowPolicy.tsx)
+
+```js
+import { AwsSqsQueueRedriveAllowPolicy } from "@dinghy/tf-aws/serviceSqs"
+
+<AwsSqsQueueRedriveAllowPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_redrive_allow_policy#import)
+
+```js
+<AwsSqsQueueRedriveAllowPolicy
+   queue_url = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSqsQueueRedrivePolicy
+
+Provides a SQS Queue Redrive Policy resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_redrive_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sqs/AwsSqsQueueRedrivePolicy.tsx)
+
+```js
+import { AwsSqsQueueRedrivePolicy } from "@dinghy/tf-aws/serviceSqs"
+
+<AwsSqsQueueRedrivePolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_redrive_policy#import)
+
+```js
+<AwsSqsQueueRedrivePolicy
+   queue_url = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSqsQueues
+
+Terraform data source for managing an AWS SQS (Simple Queue) Queues.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sqs_queues)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sqs/DataAwsSqsQueues.tsx)
+
+```js
+import { DataAwsSqsQueues } from "@dinghy/tf-aws/serviceSqs"
+
+<DataAwsSqsQueues/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

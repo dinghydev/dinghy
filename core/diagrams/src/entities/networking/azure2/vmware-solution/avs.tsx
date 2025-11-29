@@ -11,5 +11,5 @@ export const AVS = {
 }
 
 export function Avs(props: NodeProps) {
-  return <Shape {...AVS} {...props} _style={extendStyle(AVS, props)} />
+  return <Shape {...props} _style={extendStyle(props, AVS)} />
 }

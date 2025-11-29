@@ -11,5 +11,5 @@ export const CHECK = {
 }
 
 export function Check(props: NodeProps) {
-  return <Shape {...CHECK} {...props} _style={extendStyle(CHECK, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHECK)} />
 }

@@ -11,11 +11,5 @@ export const NSX_DASHBOARD = {
 }
 
 export function NsxDashboard(props: NodeProps) {
-  return (
-    <Shape
-      {...NSX_DASHBOARD}
-      {...props}
-      _style={extendStyle(NSX_DASHBOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NSX_DASHBOARD)} />
 }

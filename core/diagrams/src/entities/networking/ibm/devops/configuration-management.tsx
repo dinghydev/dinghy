@@ -12,10 +12,6 @@ export const CONFIGURATION_MANAGEMENT = {
 
 export function ConfigurationManagement(props: NodeProps) {
   return (
-    <Shape
-      {...CONFIGURATION_MANAGEMENT}
-      {...props}
-      _style={extendStyle(CONFIGURATION_MANAGEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONFIGURATION_MANAGEMENT)} />
   )
 }

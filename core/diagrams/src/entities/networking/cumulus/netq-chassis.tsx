@@ -11,11 +11,5 @@ export const NETQ_CHASSIS = {
 }
 
 export function NetqChassis(props: NodeProps) {
-  return (
-    <Shape
-      {...NETQ_CHASSIS}
-      {...props}
-      _style={extendStyle(NETQ_CHASSIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETQ_CHASSIS)} />
 }

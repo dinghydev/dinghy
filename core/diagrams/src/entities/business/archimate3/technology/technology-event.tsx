@@ -11,11 +11,5 @@ export const TECHNOLOGY_EVENT = {
 }
 
 export function TechnologyEvent(props: NodeProps) {
-  return (
-    <Shape
-      {...TECHNOLOGY_EVENT}
-      {...props}
-      _style={extendStyle(TECHNOLOGY_EVENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TECHNOLOGY_EVENT)} />
 }

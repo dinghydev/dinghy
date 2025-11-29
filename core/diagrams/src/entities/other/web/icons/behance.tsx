@@ -11,5 +11,5 @@ export const BEHANCE = {
 }
 
 export function Behance(props: NodeProps) {
-  return <Shape {...BEHANCE} {...props} _style={extendStyle(BEHANCE, props)} />
+  return <Shape {...props} _style={extendStyle(props, BEHANCE)} />
 }

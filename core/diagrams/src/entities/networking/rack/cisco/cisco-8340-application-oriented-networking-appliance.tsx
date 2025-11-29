@@ -15,11 +15,10 @@ export function Cisco8340ApplicationOrientedNetworkingAppliance(
 ) {
   return (
     <Shape
-      {...CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE}
       {...props}
       _style={extendStyle(
-        CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE,
         props,
+        CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE,
       )}
     />
   )

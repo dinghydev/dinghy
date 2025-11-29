@@ -11,11 +11,5 @@ export const PAUSED_SAVED = {
 }
 
 export function PausedSaved(props: NodeProps) {
-  return (
-    <Shape
-      {...PAUSED_SAVED}
-      {...props}
-      _style={extendStyle(PAUSED_SAVED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAUSED_SAVED)} />
 }

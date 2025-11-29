@@ -12,10 +12,6 @@ export const SECTION_HEADER_DISABLED = {
 
 export function SectionHeaderDisabled(props: NodeProps) {
   return (
-    <Shape
-      {...SECTION_HEADER_DISABLED}
-      {...props}
-      _style={extendStyle(SECTION_HEADER_DISABLED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECTION_HEADER_DISABLED)} />
   )
 }

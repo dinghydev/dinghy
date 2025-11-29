@@ -11,11 +11,5 @@ export const ASSET_LABEL = {
 }
 
 export function AssetLabel(props: NodeProps) {
-  return (
-    <Shape
-      {...ASSET_LABEL}
-      {...props}
-      _style={extendStyle(ASSET_LABEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASSET_LABEL)} />
 }

@@ -11,11 +11,5 @@ export const CONSUMPTION_PLANE = {
 }
 
 export function ConsumptionPlane(props: NodeProps) {
-  return (
-    <Shape
-      {...CONSUMPTION_PLANE}
-      {...props}
-      _style={extendStyle(CONSUMPTION_PLANE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSUMPTION_PLANE)} />
 }

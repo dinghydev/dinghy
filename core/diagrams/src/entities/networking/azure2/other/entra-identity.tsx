@@ -11,11 +11,5 @@ export const ENTRA_IDENTITY = {
 }
 
 export function EntraIdentity(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_IDENTITY}
-      {...props}
-      _style={extendStyle(ENTRA_IDENTITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_IDENTITY)} />
 }

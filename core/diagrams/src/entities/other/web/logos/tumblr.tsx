@@ -11,5 +11,5 @@ export const TUMBLR = {
 }
 
 export function Tumblr(props: NodeProps) {
-  return <Shape {...TUMBLR} {...props} _style={extendStyle(TUMBLR, props)} />
+  return <Shape {...props} _style={extendStyle(props, TUMBLR)} />
 }

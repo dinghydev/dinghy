@@ -11,11 +11,5 @@ export const CLOUD_MONITORING = {
 }
 
 export function CloudMonitoring(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_MONITORING}
-      {...props}
-      _style={extendStyle(CLOUD_MONITORING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_MONITORING)} />
 }

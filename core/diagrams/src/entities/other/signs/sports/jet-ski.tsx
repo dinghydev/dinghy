@@ -11,5 +11,5 @@ export const JET_SKI = {
 }
 
 export function JetSki(props: NodeProps) {
-  return <Shape {...JET_SKI} {...props} _style={extendStyle(JET_SKI, props)} />
+  return <Shape {...props} _style={extendStyle(props, JET_SKI)} />
 }

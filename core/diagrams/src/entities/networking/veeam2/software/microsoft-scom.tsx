@@ -11,11 +11,5 @@ export const MICROSOFT_SCOM = {
 }
 
 export function MicrosoftScom(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROSOFT_SCOM}
-      {...props}
-      _style={extendStyle(MICROSOFT_SCOM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROSOFT_SCOM)} />
 }

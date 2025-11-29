@@ -11,7 +11,5 @@ export const ACTIVITY = {
 }
 
 export function Activity(props: NodeProps) {
-  return (
-    <Shape {...ACTIVITY} {...props} _style={extendStyle(ACTIVITY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTIVITY)} />
 }

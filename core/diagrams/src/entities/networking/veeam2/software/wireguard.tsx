@@ -11,7 +11,5 @@ export const WIREGUARD = {
 }
 
 export function Wireguard(props: NodeProps) {
-  return (
-    <Shape {...WIREGUARD} {...props} _style={extendStyle(WIREGUARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIREGUARD)} />
 }

@@ -11,7 +11,5 @@ export const DRIBBBLE = {
 }
 
 export function Dribbble(props: NodeProps) {
-  return (
-    <Shape {...DRIBBBLE} {...props} _style={extendStyle(DRIBBBLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DRIBBBLE)} />
 }

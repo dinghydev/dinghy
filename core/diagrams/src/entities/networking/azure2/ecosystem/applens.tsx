@@ -11,5 +11,5 @@ export const APPLENS = {
 }
 
 export function Applens(props: NodeProps) {
-  return <Shape {...APPLENS} {...props} _style={extendStyle(APPLENS, props)} />
+  return <Shape {...props} _style={extendStyle(props, APPLENS)} />
 }

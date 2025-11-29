@@ -53,6 +53,7 @@
       "args": [
         "deno task release-site www"
         // "deno task release-site references-diagrams-elements"
+        // "deno task release-site references-tf-aws-services"
       ],
       "env": {
         "CI": "true"

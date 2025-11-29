@@ -11,11 +11,5 @@ export const AZURE_DEVTEST_LABS = {
 }
 
 export function AzureDevtestLabs(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_DEVTEST_LABS}
-      {...props}
-      _style={extendStyle(AZURE_DEVTEST_LABS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_DEVTEST_LABS)} />
 }

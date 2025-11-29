@@ -11,11 +11,5 @@ export const J9777A_2530_8G_FRONT = {
 }
 
 export function J9777a25308gFront(props: NodeProps) {
-  return (
-    <Shape
-      {...J9777A_2530_8G_FRONT}
-      {...props}
-      _style={extendStyle(J9777A_2530_8G_FRONT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, J9777A_2530_8G_FRONT)} />
 }

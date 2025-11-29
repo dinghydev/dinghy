@@ -12,10 +12,6 @@ export const EVENT_GRID_SUBSCRIPTIONS = {
 
 export function EventGridSubscriptions(props: NodeProps) {
   return (
-    <Shape
-      {...EVENT_GRID_SUBSCRIPTIONS}
-      {...props}
-      _style={extendStyle(EVENT_GRID_SUBSCRIPTIONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EVENT_GRID_SUBSCRIPTIONS)} />
   )
 }

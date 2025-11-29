@@ -12,10 +12,6 @@ export const INDIRECT_ONE_DIRECTIONAL = {
 
 export function IndirectOneDirectional(props: NodeProps) {
   return (
-    <Shape
-      {...INDIRECT_ONE_DIRECTIONAL}
-      {...props}
-      _style={extendStyle(INDIRECT_ONE_DIRECTIONAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INDIRECT_ONE_DIRECTIONAL)} />
   )
 }

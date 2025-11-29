@@ -11,5 +11,5 @@ export const URL = {
 }
 
 export function Url(props: NodeProps) {
-  return <Shape {...URL} {...props} _style={extendStyle(URL, props)} />
+  return <Shape {...props} _style={extendStyle(props, URL)} />
 }

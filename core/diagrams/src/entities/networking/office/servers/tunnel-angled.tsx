@@ -11,11 +11,5 @@ export const TUNNEL_ANGLED = {
 }
 
 export function TunnelAngled(props: NodeProps) {
-  return (
-    <Shape
-      {...TUNNEL_ANGLED}
-      {...props}
-      _style={extendStyle(TUNNEL_ANGLED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TUNNEL_ANGLED)} />
 }

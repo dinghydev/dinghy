@@ -1,0 +1,286 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Managed Streaming for Kafka
+
+## AwsMskBootstrapBrokers
+
+Get a list of brokers that a client application can use to bootstrap.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_bootstrap_brokers)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/DataAwsMskBootstrapBrokers.tsx)
+
+```js
+import { DataAwsMskBootstrapBrokers } from "@dinghy/tf-aws/serviceKafka"
+
+<DataAwsMskBootstrapBrokers/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskBrokerNodes
+
+Get information on an Amazon MSK Broker Nodes
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_broker_nodes)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/DataAwsMskBrokerNodes.tsx)
+
+```js
+import { DataAwsMskBrokerNodes } from "@dinghy/tf-aws/serviceKafka"
+
+<DataAwsMskBrokerNodes/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskCluster
+
+Terraform resource for managing an AWS Managed Streaming for Kafka cluster.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskCluster.tsx)
+
+```js
+import { AwsMskCluster } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskCluster/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/DataAwsMskCluster.tsx)
+
+```js
+import { DataAwsMskCluster } from "@dinghy/tf-aws/serviceKafka"
+
+<DataAwsMskCluster/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskClusterPolicy
+
+Terraform resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_cluster_policy)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskClusterPolicy.tsx)
+
+```js
+import { AwsMskClusterPolicy } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskClusterPolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskConfiguration
+
+Terraform resource for managing an Amazon Managed Streaming for Kafka configuration
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_configuration)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskConfiguration.tsx)
+
+```js
+import { AwsMskConfiguration } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskConfiguration/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_configuration)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/DataAwsMskConfiguration.tsx)
+
+```js
+import { DataAwsMskConfiguration } from "@dinghy/tf-aws/serviceKafka"
+
+<DataAwsMskConfiguration/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskKafkaVersion
+
+Get information on a Amazon MSK Kafka Version
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_kafka_version)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/DataAwsMskKafkaVersion.tsx)
+
+```js
+import { DataAwsMskKafkaVersion } from "@dinghy/tf-aws/serviceKafka"
+
+<DataAwsMskKafkaVersion/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskReplicator
+
+Terraform resource for managing an AWS Managed Streaming for Kafka Replicator.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_replicator)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskReplicator.tsx)
+
+```js
+import { AwsMskReplicator } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskReplicator/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskScramSecretAssociation
+
+Associates SCRAM secrets with a Managed Streaming for Kafka (MSK) cluster.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_scram_secret_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskScramSecretAssociation.tsx)
+
+```js
+import { AwsMskScramSecretAssociation } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskScramSecretAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskServerlessCluster
+
+Terraform resource for managing an Amazon MSK Serverless cluster.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_serverless_cluster)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskServerlessCluster.tsx)
+
+```js
+import { AwsMskServerlessCluster } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskServerlessCluster/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskSingleScramSecretAssociation
+
+Associates a single SCRAM secret with a Managed Streaming for Kafka (MSK) cluster.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_single_scram_secret_association)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskSingleScramSecretAssociation.tsx)
+
+```js
+import { AwsMskSingleScramSecretAssociation } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskSingleScramSecretAssociation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsMskVpcConnection
+
+Terraform resource for managing an AWS Managed Streaming for Kafka VPC Connection.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_vpc_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/AwsMskVpcConnection.tsx)
+
+```js
+import { AwsMskVpcConnection } from "@dinghy/tf-aws/serviceKafka"
+
+<AwsMskVpcConnection/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_vpc_connection)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/kafka/DataAwsMskVpcConnection.tsx)
+
+```js
+import { DataAwsMskVpcConnection } from "@dinghy/tf-aws/serviceKafka"
+
+<DataAwsMskVpcConnection/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

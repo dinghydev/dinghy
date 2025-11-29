@@ -11,7 +11,5 @@ export const CALL_PAD = {
 }
 
 export function CallPad(props: NodeProps) {
-  return (
-    <Shape {...CALL_PAD} {...props} _style={extendStyle(CALL_PAD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CALL_PAD)} />
 }

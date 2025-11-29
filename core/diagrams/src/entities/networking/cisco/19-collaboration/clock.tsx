@@ -11,5 +11,5 @@ export const CLOCK = {
 }
 
 export function Clock(props: NodeProps) {
-  return <Shape {...CLOCK} {...props} _style={extendStyle(CLOCK, props)} />
+  return <Shape {...props} _style={extendStyle(props, CLOCK)} />
 }

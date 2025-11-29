@@ -11,11 +11,5 @@ export const TABLE_STORAGE = {
 }
 
 export function TableStorage(props: NodeProps) {
-  return (
-    <Shape
-      {...TABLE_STORAGE}
-      {...props}
-      _style={extendStyle(TABLE_STORAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TABLE_STORAGE)} />
 }

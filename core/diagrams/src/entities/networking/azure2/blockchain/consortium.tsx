@@ -11,7 +11,5 @@ export const CONSORTIUM = {
 }
 
 export function Consortium(props: NodeProps) {
-  return (
-    <Shape {...CONSORTIUM} {...props} _style={extendStyle(CONSORTIUM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSORTIUM)} />
 }

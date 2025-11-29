@@ -11,7 +11,5 @@ export const ROBORUNNER = {
 }
 
 export function Roborunner(props: NodeProps) {
-  return (
-    <Shape {...ROBORUNNER} {...props} _style={extendStyle(ROBORUNNER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROBORUNNER)} />
 }

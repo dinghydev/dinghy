@@ -11,11 +11,5 @@ export const VCENTER_SERVER = {
 }
 
 export function VcenterServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VCENTER_SERVER}
-      {...props}
-      _style={extendStyle(VCENTER_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VCENTER_SERVER)} />
 }

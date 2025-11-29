@@ -11,11 +11,5 @@ export const CLOUD_BIGTABLE = {
 }
 
 export function CloudBigtable(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_BIGTABLE}
-      {...props}
-      _style={extendStyle(CLOUD_BIGTABLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_BIGTABLE)} />
 }

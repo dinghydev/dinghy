@@ -11,11 +11,5 @@ export const DOCUMENT_AI = {
 }
 
 export function DocumentAi(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_AI}
-      {...props}
-      _style={extendStyle(DOCUMENT_AI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_AI)} />
 }

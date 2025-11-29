@@ -11,5 +11,5 @@ export const NAC = {
 }
 
 export function Nac(props: NodeProps) {
-  return <Shape {...NAC} {...props} _style={extendStyle(NAC, props)} />
+  return <Shape {...props} _style={extendStyle(props, NAC)} />
 }

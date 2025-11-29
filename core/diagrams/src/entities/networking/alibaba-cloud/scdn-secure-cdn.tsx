@@ -11,11 +11,5 @@ export const SCDN_SECURE_CDN = {
 }
 
 export function ScdnSecureCdn(props: NodeProps) {
-  return (
-    <Shape
-      {...SCDN_SECURE_CDN}
-      {...props}
-      _style={extendStyle(SCDN_SECURE_CDN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCDN_SECURE_CDN)} />
 }

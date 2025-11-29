@@ -11,11 +11,5 @@ export const MEDIUM_DATASTORE = {
 }
 
 export function MediumDatastore(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDIUM_DATASTORE}
-      {...props}
-      _style={extendStyle(MEDIUM_DATASTORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIUM_DATASTORE)} />
 }

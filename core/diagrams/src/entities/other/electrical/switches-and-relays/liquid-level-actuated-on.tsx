@@ -12,10 +12,6 @@ export const LIQUID_LEVEL_ACTUATED_ON = {
 
 export function LiquidLevelActuatedOn(props: NodeProps) {
   return (
-    <Shape
-      {...LIQUID_LEVEL_ACTUATED_ON}
-      {...props}
-      _style={extendStyle(LIQUID_LEVEL_ACTUATED_ON, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIQUID_LEVEL_ACTUATED_ON)} />
   )
 }

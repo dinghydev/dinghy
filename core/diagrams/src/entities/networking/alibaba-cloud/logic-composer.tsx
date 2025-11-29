@@ -11,11 +11,5 @@ export const LOGIC_COMPOSER = {
 }
 
 export function LogicComposer(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGIC_COMPOSER}
-      {...props}
-      _style={extendStyle(LOGIC_COMPOSER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGIC_COMPOSER)} />
 }

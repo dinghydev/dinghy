@@ -11,7 +11,5 @@ export const DEBUGGER = {
 }
 
 export function Debugger(props: NodeProps) {
-  return (
-    <Shape {...DEBUGGER} {...props} _style={extendStyle(DEBUGGER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEBUGGER)} />
 }

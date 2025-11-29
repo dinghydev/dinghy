@@ -11,11 +11,5 @@ export const AVATAR_DO_NOT_DISTURB = {
 }
 
 export function AvatarDoNotDisturb(props: NodeProps) {
-  return (
-    <Shape
-      {...AVATAR_DO_NOT_DISTURB}
-      {...props}
-      _style={extendStyle(AVATAR_DO_NOT_DISTURB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AVATAR_DO_NOT_DISTURB)} />
 }

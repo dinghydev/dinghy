@@ -11,5 +11,5 @@ export const BLOCK = {
 }
 
 export function Block(props: NodeProps) {
-  return <Shape {...BLOCK} {...props} _style={extendStyle(BLOCK, props)} />
+  return <Shape {...props} _style={extendStyle(props, BLOCK)} />
 }

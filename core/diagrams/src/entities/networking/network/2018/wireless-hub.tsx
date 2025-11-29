@@ -11,11 +11,5 @@ export const WIRELESS_HUB = {
 }
 
 export function WirelessHub(props: NodeProps) {
-  return (
-    <Shape
-      {...WIRELESS_HUB}
-      {...props}
-      _style={extendStyle(WIRELESS_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRELESS_HUB)} />
 }

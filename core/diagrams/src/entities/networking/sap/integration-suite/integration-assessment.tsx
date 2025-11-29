@@ -12,10 +12,6 @@ export const INTEGRATION_ASSESSMENT = {
 
 export function IntegrationAssessment(props: NodeProps) {
   return (
-    <Shape
-      {...INTEGRATION_ASSESSMENT}
-      {...props}
-      _style={extendStyle(INTEGRATION_ASSESSMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTEGRATION_ASSESSMENT)} />
   )
 }

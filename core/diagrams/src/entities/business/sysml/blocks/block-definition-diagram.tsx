@@ -12,10 +12,6 @@ export const BLOCK_DEFINITION_DIAGRAM = {
 
 export function BlockDefinitionDiagram(props: NodeProps) {
   return (
-    <Shape
-      {...BLOCK_DEFINITION_DIAGRAM}
-      {...props}
-      _style={extendStyle(BLOCK_DEFINITION_DIAGRAM, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BLOCK_DEFINITION_DIAGRAM)} />
   )
 }

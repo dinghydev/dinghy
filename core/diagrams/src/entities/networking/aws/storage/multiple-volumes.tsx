@@ -11,11 +11,5 @@ export const MULTIPLE_VOLUMES = {
 }
 
 export function MultipleVolumes(props: NodeProps) {
-  return (
-    <Shape
-      {...MULTIPLE_VOLUMES}
-      {...props}
-      _style={extendStyle(MULTIPLE_VOLUMES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIPLE_VOLUMES)} />
 }

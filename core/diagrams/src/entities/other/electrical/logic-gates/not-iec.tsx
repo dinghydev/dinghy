@@ -11,5 +11,5 @@ export const NOT_IEC = {
 }
 
 export function NotIec(props: NodeProps) {
-  return <Shape {...NOT_IEC} {...props} _style={extendStyle(NOT_IEC, props)} />
+  return <Shape {...props} _style={extendStyle(props, NOT_IEC)} />
 }

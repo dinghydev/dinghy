@@ -11,5 +11,5 @@ export const STRIDE = {
 }
 
 export function Stride(props: NodeProps) {
-  return <Shape {...STRIDE} {...props} _style={extendStyle(STRIDE, props)} />
+  return <Shape {...props} _style={extendStyle(props, STRIDE)} />
 }

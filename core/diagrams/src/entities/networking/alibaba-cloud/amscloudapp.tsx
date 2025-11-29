@@ -11,11 +11,5 @@ export const AMSCLOUDAPP = {
 }
 
 export function Amscloudapp(props: NodeProps) {
-  return (
-    <Shape
-      {...AMSCLOUDAPP}
-      {...props}
-      _style={extendStyle(AMSCLOUDAPP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMSCLOUDAPP)} />
 }

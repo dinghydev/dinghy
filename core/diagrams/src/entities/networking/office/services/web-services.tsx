@@ -11,11 +11,5 @@ export const WEB_SERVICES = {
 }
 
 export function WebServices(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SERVICES}
-      {...props}
-      _style={extendStyle(WEB_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SERVICES)} />
 }

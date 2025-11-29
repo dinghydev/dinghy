@@ -11,11 +11,5 @@ export const HEALTHCARE_API = {
 }
 
 export function HealthcareApi(props: NodeProps) {
-  return (
-    <Shape
-      {...HEALTHCARE_API}
-      {...props}
-      _style={extendStyle(HEALTHCARE_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEALTHCARE_API)} />
 }

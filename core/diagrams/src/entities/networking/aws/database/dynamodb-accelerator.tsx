@@ -11,11 +11,5 @@ export const DYNAMODB_ACCELERATOR = {
 }
 
 export function DynamodbAccelerator(props: NodeProps) {
-  return (
-    <Shape
-      {...DYNAMODB_ACCELERATOR}
-      {...props}
-      _style={extendStyle(DYNAMODB_ACCELERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DYNAMODB_ACCELERATOR)} />
 }

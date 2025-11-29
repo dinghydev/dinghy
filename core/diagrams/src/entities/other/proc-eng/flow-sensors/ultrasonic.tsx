@@ -11,7 +11,5 @@ export const ULTRASONIC = {
 }
 
 export function Ultrasonic(props: NodeProps) {
-  return (
-    <Shape {...ULTRASONIC} {...props} _style={extendStyle(ULTRASONIC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ULTRASONIC)} />
 }

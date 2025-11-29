@@ -11,11 +11,5 @@ export const STORAGE_MOVER = {
 }
 
 export function StorageMover(props: NodeProps) {
-  return (
-    <Shape
-      {...STORAGE_MOVER}
-      {...props}
-      _style={extendStyle(STORAGE_MOVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORAGE_MOVER)} />
 }

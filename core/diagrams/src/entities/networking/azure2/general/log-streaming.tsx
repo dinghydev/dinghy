@@ -11,11 +11,5 @@ export const LOG_STREAMING = {
 }
 
 export function LogStreaming(props: NodeProps) {
-  return (
-    <Shape
-      {...LOG_STREAMING}
-      {...props}
-      _style={extendStyle(LOG_STREAMING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOG_STREAMING)} />
 }

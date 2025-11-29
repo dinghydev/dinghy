@@ -11,11 +11,5 @@ export const BRAKET_TENSOR_NETWORK = {
 }
 
 export function BraketTensorNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...BRAKET_TENSOR_NETWORK}
-      {...props}
-      _style={extendStyle(BRAKET_TENSOR_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BRAKET_TENSOR_NETWORK)} />
 }

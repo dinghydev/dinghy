@@ -11,11 +11,5 @@ export const GLUE_FOR_RAY = {
 }
 
 export function GlueForRay(props: NodeProps) {
-  return (
-    <Shape
-      {...GLUE_FOR_RAY}
-      {...props}
-      _style={extendStyle(GLUE_FOR_RAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLUE_FOR_RAY)} />
 }

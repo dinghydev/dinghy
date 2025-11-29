@@ -11,5 +11,5 @@ export const TABS = {
 }
 
 export function Tabs(props: NodeProps) {
-  return <Shape {...TABS} {...props} _style={extendStyle(TABS, props)} />
+  return <Shape {...props} _style={extendStyle(props, TABS)} />
 }

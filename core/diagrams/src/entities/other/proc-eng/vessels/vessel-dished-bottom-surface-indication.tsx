@@ -13,9 +13,8 @@ export const VESSEL_DISHED_BOTTOM_SURFACE_INDICATION = {
 export function VesselDishedBottomSurfaceIndication(props: NodeProps) {
   return (
     <Shape
-      {...VESSEL_DISHED_BOTTOM_SURFACE_INDICATION}
       {...props}
-      _style={extendStyle(VESSEL_DISHED_BOTTOM_SURFACE_INDICATION, props)}
+      _style={extendStyle(props, VESSEL_DISHED_BOTTOM_SURFACE_INDICATION)}
     />
   )
 }

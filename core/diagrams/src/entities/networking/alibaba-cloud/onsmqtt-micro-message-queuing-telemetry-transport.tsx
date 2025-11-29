@@ -13,11 +13,10 @@ export const ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT = {
 export function OnsmqttMicroMessageQueuingTelemetryTransport(props: NodeProps) {
   return (
     <Shape
-      {...ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT}
       {...props}
       _style={extendStyle(
-        ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT,
         props,
+        ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT,
       )}
     />
   )

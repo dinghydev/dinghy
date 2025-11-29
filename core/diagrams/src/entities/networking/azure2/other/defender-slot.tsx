@@ -11,11 +11,5 @@ export const DEFENDER_SLOT = {
 }
 
 export function DefenderSlot(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_SLOT}
-      {...props}
-      _style={extendStyle(DEFENDER_SLOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_SLOT)} />
 }

@@ -11,11 +11,5 @@ export const AWS_CLOUDHSM = {
 }
 
 export function AwsCloudhsm(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_CLOUDHSM}
-      {...props}
-      _style={extendStyle(AWS_CLOUDHSM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_CLOUDHSM)} />
 }

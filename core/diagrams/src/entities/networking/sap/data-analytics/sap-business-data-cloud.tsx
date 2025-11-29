@@ -12,10 +12,6 @@ export const SAP_BUSINESS_DATA_CLOUD = {
 
 export function SapBusinessDataCloud(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_BUSINESS_DATA_CLOUD}
-      {...props}
-      _style={extendStyle(SAP_BUSINESS_DATA_CLOUD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_BUSINESS_DATA_CLOUD)} />
   )
 }

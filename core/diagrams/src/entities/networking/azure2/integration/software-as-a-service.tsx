@@ -11,11 +11,5 @@ export const SOFTWARE_AS_A_SERVICE = {
 }
 
 export function SoftwareAsAService(props: NodeProps) {
-  return (
-    <Shape
-      {...SOFTWARE_AS_A_SERVICE}
-      {...props}
-      _style={extendStyle(SOFTWARE_AS_A_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTWARE_AS_A_SERVICE)} />
 }

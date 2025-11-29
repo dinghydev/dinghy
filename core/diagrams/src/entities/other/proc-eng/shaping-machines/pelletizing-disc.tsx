@@ -11,11 +11,5 @@ export const PELLETIZING_DISC = {
 }
 
 export function PelletizingDisc(props: NodeProps) {
-  return (
-    <Shape
-      {...PELLETIZING_DISC}
-      {...props}
-      _style={extendStyle(PELLETIZING_DISC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PELLETIZING_DISC)} />
 }

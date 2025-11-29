@@ -11,11 +11,5 @@ export const SERVER_FARM_GHOSTED = {
 }
 
 export function ServerFarmGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_FARM_GHOSTED}
-      {...props}
-      _style={extendStyle(SERVER_FARM_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_FARM_GHOSTED)} />
 }

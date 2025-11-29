@@ -11,7 +11,5 @@ export const FILESERVER = {
 }
 
 export function Fileserver(props: NodeProps) {
-  return (
-    <Shape {...FILESERVER} {...props} _style={extendStyle(FILESERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILESERVER)} />
 }

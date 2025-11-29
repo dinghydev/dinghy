@@ -11,11 +11,5 @@ export const X12220_OIL_MIST = {
 }
 
 export function X12220OilMist(props: NodeProps) {
-  return (
-    <Shape
-      {...X12220_OIL_MIST}
-      {...props}
-      _style={extendStyle(X12220_OIL_MIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X12220_OIL_MIST)} />
 }

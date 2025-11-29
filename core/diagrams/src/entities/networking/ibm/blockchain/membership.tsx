@@ -11,7 +11,5 @@ export const MEMBERSHIP = {
 }
 
 export function Membership(props: NodeProps) {
-  return (
-    <Shape {...MEMBERSHIP} {...props} _style={extendStyle(MEMBERSHIP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEMBERSHIP)} />
 }

@@ -11,11 +11,5 @@ export const R6IDN_INSTANCE = {
 }
 
 export function R6idnInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...R6IDN_INSTANCE}
-      {...props}
-      _style={extendStyle(R6IDN_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, R6IDN_INSTANCE)} />
 }

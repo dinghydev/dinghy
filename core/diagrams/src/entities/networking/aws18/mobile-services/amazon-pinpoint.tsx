@@ -11,11 +11,5 @@ export const AMAZON_PINPOINT = {
 }
 
 export function AmazonPinpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_PINPOINT}
-      {...props}
-      _style={extendStyle(AMAZON_PINPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_PINPOINT)} />
 }

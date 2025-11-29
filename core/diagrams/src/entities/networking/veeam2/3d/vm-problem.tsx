@@ -11,7 +11,5 @@ export const VM_PROBLEM = {
 }
 
 export function VmProblem(props: NodeProps) {
-  return (
-    <Shape {...VM_PROBLEM} {...props} _style={extendStyle(VM_PROBLEM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_PROBLEM)} />
 }

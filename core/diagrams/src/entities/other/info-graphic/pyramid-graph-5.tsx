@@ -11,11 +11,5 @@ export const PYRAMID_GRAPH_5 = {
 }
 
 export function PyramidGraph5(props: NodeProps) {
-  return (
-    <Shape
-      {...PYRAMID_GRAPH_5}
-      {...props}
-      _style={extendStyle(PYRAMID_GRAPH_5, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PYRAMID_GRAPH_5)} />
 }

@@ -11,11 +11,5 @@ export const CACHE_PLUS_REDIS = {
 }
 
 export function CachePlusRedis(props: NodeProps) {
-  return (
-    <Shape
-      {...CACHE_PLUS_REDIS}
-      {...props}
-      _style={extendStyle(CACHE_PLUS_REDIS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CACHE_PLUS_REDIS)} />
 }

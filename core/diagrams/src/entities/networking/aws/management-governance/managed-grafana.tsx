@@ -11,11 +11,5 @@ export const MANAGED_GRAFANA = {
 }
 
 export function ManagedGrafana(props: NodeProps) {
-  return (
-    <Shape
-      {...MANAGED_GRAFANA}
-      {...props}
-      _style={extendStyle(MANAGED_GRAFANA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANAGED_GRAFANA)} />
 }

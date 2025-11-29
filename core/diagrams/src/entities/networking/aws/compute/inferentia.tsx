@@ -11,7 +11,5 @@ export const INFERENTIA = {
 }
 
 export function Inferentia(props: NodeProps) {
-  return (
-    <Shape {...INFERENTIA} {...props} _style={extendStyle(INFERENTIA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INFERENTIA)} />
 }

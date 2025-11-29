@@ -11,7 +11,5 @@ export const LEARNING = {
 }
 
 export function Learning(props: NodeProps) {
-  return (
-    <Shape {...LEARNING} {...props} _style={extendStyle(LEARNING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LEARNING)} />
 }

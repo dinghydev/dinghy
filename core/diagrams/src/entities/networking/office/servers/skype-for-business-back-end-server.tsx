@@ -13,9 +13,8 @@ export const SKYPE_FOR_BUSINESS_BACK_END_SERVER = {
 export function SkypeForBusinessBackEndServer(props: NodeProps) {
   return (
     <Shape
-      {...SKYPE_FOR_BUSINESS_BACK_END_SERVER}
       {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_BACK_END_SERVER, props)}
+      _style={extendStyle(props, SKYPE_FOR_BUSINESS_BACK_END_SERVER)}
     />
   )
 }

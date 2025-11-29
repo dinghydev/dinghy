@@ -11,11 +11,5 @@ export const BIOMEDICAL_TEST_TUBE = {
 }
 
 export function BiomedicalTestTube(props: NodeProps) {
-  return (
-    <Shape
-      {...BIOMEDICAL_TEST_TUBE}
-      {...props}
-      _style={extendStyle(BIOMEDICAL_TEST_TUBE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIOMEDICAL_TEST_TUBE)} />
 }

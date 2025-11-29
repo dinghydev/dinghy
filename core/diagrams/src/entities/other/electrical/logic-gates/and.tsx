@@ -11,5 +11,5 @@ export const AND = {
 }
 
 export function And(props: NodeProps) {
-  return <Shape {...AND} {...props} _style={extendStyle(AND, props)} />
+  return <Shape {...props} _style={extendStyle(props, AND)} />
 }

@@ -11,11 +11,5 @@ export const UM_IP_GATEWAY = {
 }
 
 export function UmIpGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...UM_IP_GATEWAY}
-      {...props}
-      _style={extendStyle(UM_IP_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UM_IP_GATEWAY)} />
 }

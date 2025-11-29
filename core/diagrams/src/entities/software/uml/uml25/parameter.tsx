@@ -10,7 +10,5 @@ export const PARAMETER = {
 }
 
 export function Parameter(props: NodeProps) {
-  return (
-    <Shape {...PARAMETER} {...props} _style={extendStyle(PARAMETER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PARAMETER)} />
 }

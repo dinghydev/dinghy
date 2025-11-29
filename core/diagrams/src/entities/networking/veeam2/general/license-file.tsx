@@ -11,11 +11,5 @@ export const LICENSE_FILE = {
 }
 
 export function LicenseFile(props: NodeProps) {
-  return (
-    <Shape
-      {...LICENSE_FILE}
-      {...props}
-      _style={extendStyle(LICENSE_FILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LICENSE_FILE)} />
 }

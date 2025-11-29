@@ -11,11 +11,5 @@ export const HYPERLEDGER_FABRIC = {
 }
 
 export function HyperledgerFabric(props: NodeProps) {
-  return (
-    <Shape
-      {...HYPERLEDGER_FABRIC}
-      {...props}
-      _style={extendStyle(HYPERLEDGER_FABRIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HYPERLEDGER_FABRIC)} />
 }

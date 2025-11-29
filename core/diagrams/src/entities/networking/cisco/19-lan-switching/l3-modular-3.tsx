@@ -11,11 +11,5 @@ export const L3_MODULAR_3 = {
 }
 
 export function L3Modular3(props: NodeProps) {
-  return (
-    <Shape
-      {...L3_MODULAR_3}
-      {...props}
-      _style={extendStyle(L3_MODULAR_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, L3_MODULAR_3)} />
 }

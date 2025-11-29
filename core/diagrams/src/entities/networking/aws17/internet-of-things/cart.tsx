@@ -11,5 +11,5 @@ export const CART = {
 }
 
 export function Cart(props: NodeProps) {
-  return <Shape {...CART} {...props} _style={extendStyle(CART, props)} />
+  return <Shape {...props} _style={extendStyle(props, CART)} />
 }

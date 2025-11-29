@@ -11,11 +11,5 @@ export const FACTORY_HIGHLIGHT = {
 }
 
 export function FactoryHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...FACTORY_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(FACTORY_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FACTORY_HIGHLIGHT)} />
 }

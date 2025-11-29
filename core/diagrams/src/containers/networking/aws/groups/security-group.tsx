@@ -13,11 +13,5 @@ export const SECURITY_GROUP = {
 }
 
 export function SecurityGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURITY_GROUP}
-      {...props}
-      _style={extendStyle(SECURITY_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURITY_GROUP)} />
 }

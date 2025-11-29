@@ -11,7 +11,5 @@ export const BEYONDCORP = {
 }
 
 export function Beyondcorp(props: NodeProps) {
-  return (
-    <Shape {...BEYONDCORP} {...props} _style={extendStyle(BEYONDCORP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BEYONDCORP)} />
 }

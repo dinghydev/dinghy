@@ -11,5 +11,5 @@ export const CORE_HR = {
 }
 
 export function CoreHr(props: NodeProps) {
-  return <Shape {...CORE_HR} {...props} _style={extendStyle(CORE_HR, props)} />
+  return <Shape {...props} _style={extendStyle(props, CORE_HR)} />
 }

@@ -12,10 +12,6 @@ export const TRAFFIC_MANAGER_PROFILES = {
 
 export function TrafficManagerProfiles(props: NodeProps) {
   return (
-    <Shape
-      {...TRAFFIC_MANAGER_PROFILES}
-      {...props}
-      _style={extendStyle(TRAFFIC_MANAGER_PROFILES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TRAFFIC_MANAGER_PROFILES)} />
   )
 }

@@ -11,5 +11,5 @@ export const EDIT = {
 }
 
 export function Edit(props: NodeProps) {
-  return <Shape {...EDIT} {...props} _style={extendStyle(EDIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, EDIT)} />
 }

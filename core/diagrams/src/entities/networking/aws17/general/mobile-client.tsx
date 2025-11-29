@@ -11,11 +11,5 @@ export const MOBILE_CLIENT = {
 }
 
 export function MobileClient(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILE_CLIENT}
-      {...props}
-      _style={extendStyle(MOBILE_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILE_CLIENT)} />
 }

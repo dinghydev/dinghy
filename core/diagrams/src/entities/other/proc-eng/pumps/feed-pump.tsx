@@ -11,7 +11,5 @@ export const FEED_PUMP = {
 }
 
 export function FeedPump(props: NodeProps) {
-  return (
-    <Shape {...FEED_PUMP} {...props} _style={extendStyle(FEED_PUMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FEED_PUMP)} />
 }

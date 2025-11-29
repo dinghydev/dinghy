@@ -11,11 +11,5 @@ export const BULLETED_LIST = {
 }
 
 export function BulletedList(props: NodeProps) {
-  return (
-    <Shape
-      {...BULLETED_LIST}
-      {...props}
-      _style={extendStyle(BULLETED_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BULLETED_LIST)} />
 }

@@ -11,11 +11,5 @@ export const CITRIX_ANALYTICS = {
 }
 
 export function CitrixAnalytics(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_ANALYTICS}
-      {...props}
-      _style={extendStyle(CITRIX_ANALYTICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_ANALYTICS)} />
 }

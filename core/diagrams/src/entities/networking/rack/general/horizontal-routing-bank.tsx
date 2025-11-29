@@ -12,10 +12,6 @@ export const HORIZONTAL_ROUTING_BANK = {
 
 export function HorizontalRoutingBank(props: NodeProps) {
   return (
-    <Shape
-      {...HORIZONTAL_ROUTING_BANK}
-      {...props}
-      _style={extendStyle(HORIZONTAL_ROUTING_BANK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HORIZONTAL_ROUTING_BANK)} />
   )
 }

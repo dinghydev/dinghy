@@ -11,11 +11,5 @@ export const DESIRED_STATE = {
 }
 
 export function DesiredState(props: NodeProps) {
-  return (
-    <Shape
-      {...DESIRED_STATE}
-      {...props}
-      _style={extendStyle(DESIRED_STATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESIRED_STATE)} />
 }

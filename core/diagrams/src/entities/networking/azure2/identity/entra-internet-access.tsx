@@ -11,11 +11,5 @@ export const ENTRA_INTERNET_ACCESS = {
 }
 
 export function EntraInternetAccess(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_INTERNET_ACCESS}
-      {...props}
-      _style={extendStyle(ENTRA_INTERNET_ACCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_INTERNET_ACCESS)} />
 }

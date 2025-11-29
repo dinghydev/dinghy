@@ -11,11 +11,5 @@ export const SLIDER_NORMAL_3 = {
 }
 
 export function SliderNormal3(props: NodeProps) {
-  return (
-    <Shape
-      {...SLIDER_NORMAL_3}
-      {...props}
-      _style={extendStyle(SLIDER_NORMAL_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SLIDER_NORMAL_3)} />
 }

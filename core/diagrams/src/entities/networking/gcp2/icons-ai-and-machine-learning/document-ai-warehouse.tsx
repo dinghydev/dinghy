@@ -11,11 +11,5 @@ export const DOCUMENT_AI_WAREHOUSE = {
 }
 
 export function DocumentAiWarehouse(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_AI_WAREHOUSE}
-      {...props}
-      _style={extendStyle(DOCUMENT_AI_WAREHOUSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_AI_WAREHOUSE)} />
 }

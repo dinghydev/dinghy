@@ -10,11 +10,5 @@ export const RADICAL_RED = {
 }
 
 export function RadicalRed(props: NodeProps) {
-  return (
-    <Shape
-      {...RADICAL_RED}
-      {...props}
-      _style={extendStyle(RADICAL_RED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADICAL_RED)} />
 }

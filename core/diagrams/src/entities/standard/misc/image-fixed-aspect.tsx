@@ -11,11 +11,5 @@ export const IMAGE_FIXED_ASPECT = {
 }
 
 export function ImageFixedAspect(props: NodeProps) {
-  return (
-    <Shape
-      {...IMAGE_FIXED_ASPECT}
-      {...props}
-      _style={extendStyle(IMAGE_FIXED_ASPECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMAGE_FIXED_ASPECT)} />
 }

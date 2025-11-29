@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-import { awsProps } from '../index.ts'
+import { awsProps } from '../utils/awsProps.ts'
 // import { awsProps } from "@dinghy/tf-aws";
 
 // Schema based on documentation:

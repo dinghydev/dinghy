@@ -11,7 +11,5 @@ export const FIRETRUCK = {
 }
 
 export function Firetruck(props: NodeProps) {
-  return (
-    <Shape {...FIRETRUCK} {...props} _style={extendStyle(FIRETRUCK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIRETRUCK)} />
 }

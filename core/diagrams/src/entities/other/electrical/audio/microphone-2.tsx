@@ -11,11 +11,5 @@ export const MICROPHONE_2 = {
 }
 
 export function Microphone2(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROPHONE_2}
-      {...props}
-      _style={extendStyle(MICROPHONE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROPHONE_2)} />
 }

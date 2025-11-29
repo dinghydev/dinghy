@@ -11,11 +11,5 @@ export const INTELLIGENT_TIERING = {
 }
 
 export function IntelligentTiering(props: NodeProps) {
-  return (
-    <Shape
-      {...INTELLIGENT_TIERING}
-      {...props}
-      _style={extendStyle(INTELLIGENT_TIERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTELLIGENT_TIERING)} />
 }

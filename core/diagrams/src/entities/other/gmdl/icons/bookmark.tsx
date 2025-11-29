@@ -11,7 +11,5 @@ export const BOOKMARK = {
 }
 
 export function Bookmark(props: NodeProps) {
-  return (
-    <Shape {...BOOKMARK} {...props} _style={extendStyle(BOOKMARK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOOKMARK)} />
 }

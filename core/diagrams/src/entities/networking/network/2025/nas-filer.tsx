@@ -11,7 +11,5 @@ export const NAS_FILER = {
 }
 
 export function NasFiler(props: NodeProps) {
-  return (
-    <Shape {...NAS_FILER} {...props} _style={extendStyle(NAS_FILER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAS_FILER)} />
 }

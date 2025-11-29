@@ -11,11 +11,5 @@ export const ELLIPSE_SKETCH = {
 }
 
 export function EllipseSketch(props: NodeProps) {
-  return (
-    <Shape
-      {...ELLIPSE_SKETCH}
-      {...props}
-      _style={extendStyle(ELLIPSE_SKETCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELLIPSE_SKETCH)} />
 }

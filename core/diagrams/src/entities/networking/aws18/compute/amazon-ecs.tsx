@@ -11,7 +11,5 @@ export const AMAZON_ECS = {
 }
 
 export function AmazonEcs(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_ECS} {...props} _style={extendStyle(AMAZON_ECS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_ECS)} />
 }

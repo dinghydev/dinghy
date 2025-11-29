@@ -13,9 +13,8 @@ export const PROGRAMMABLE_LOGIC_CONTROL_INACCESSIBLE = {
 export function ProgrammableLogicControlInaccessible(props: NodeProps) {
   return (
     <Shape
-      {...PROGRAMMABLE_LOGIC_CONTROL_INACCESSIBLE}
       {...props}
-      _style={extendStyle(PROGRAMMABLE_LOGIC_CONTROL_INACCESSIBLE, props)}
+      _style={extendStyle(props, PROGRAMMABLE_LOGIC_CONTROL_INACCESSIBLE)}
     />
   )
 }

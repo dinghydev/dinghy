@@ -11,7 +11,5 @@ export const CONTACT_US = {
 }
 
 export function ContactUs(props: NodeProps) {
-  return (
-    <Shape {...CONTACT_US} {...props} _style={extendStyle(CONTACT_US, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_US)} />
 }

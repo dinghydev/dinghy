@@ -11,11 +11,5 @@ export const ENTERPRISE_MESSAGING = {
 }
 
 export function EnterpriseMessaging(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTERPRISE_MESSAGING}
-      {...props}
-      _style={extendStyle(ENTERPRISE_MESSAGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTERPRISE_MESSAGING)} />
 }

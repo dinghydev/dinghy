@@ -11,5 +11,5 @@ export const VXLAN = {
 }
 
 export function Vxlan(props: NodeProps) {
-  return <Shape {...VXLAN} {...props} _style={extendStyle(VXLAN, props)} />
+  return <Shape {...props} _style={extendStyle(props, VXLAN)} />
 }

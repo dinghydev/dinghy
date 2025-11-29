@@ -12,10 +12,6 @@ export const X10710_NON_RETURN_VALVE = {
 
 export function X10710NonReturnValve(props: NodeProps) {
   return (
-    <Shape
-      {...X10710_NON_RETURN_VALVE}
-      {...props}
-      _style={extendStyle(X10710_NON_RETURN_VALVE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10710_NON_RETURN_VALVE)} />
   )
 }

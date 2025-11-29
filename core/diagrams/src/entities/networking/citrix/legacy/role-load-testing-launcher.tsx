@@ -12,10 +12,6 @@ export const ROLE_LOAD_TESTING_LAUNCHER = {
 
 export function RoleLoadTestingLauncher(props: NodeProps) {
   return (
-    <Shape
-      {...ROLE_LOAD_TESTING_LAUNCHER}
-      {...props}
-      _style={extendStyle(ROLE_LOAD_TESTING_LAUNCHER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ROLE_LOAD_TESTING_LAUNCHER)} />
   )
 }

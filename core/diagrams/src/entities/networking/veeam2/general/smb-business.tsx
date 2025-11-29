@@ -11,11 +11,5 @@ export const SMB_BUSINESS = {
 }
 
 export function SmbBusiness(props: NodeProps) {
-  return (
-    <Shape
-      {...SMB_BUSINESS}
-      {...props}
-      _style={extendStyle(SMB_BUSINESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMB_BUSINESS)} />
 }

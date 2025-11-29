@@ -11,11 +11,5 @@ export const IPAD_BACKGROUND_MAP = {
 }
 
 export function IpadBackgroundMap(props: NodeProps) {
-  return (
-    <Shape
-      {...IPAD_BACKGROUND_MAP}
-      {...props}
-      _style={extendStyle(IPAD_BACKGROUND_MAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPAD_BACKGROUND_MAP)} />
 }

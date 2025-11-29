@@ -13,9 +13,8 @@ export const LOCK_WITH_KEY_SECURITY_GHOSTED = {
 export function LockWithKeySecurityGhosted(props: NodeProps) {
   return (
     <Shape
-      {...LOCK_WITH_KEY_SECURITY_GHOSTED}
       {...props}
-      _style={extendStyle(LOCK_WITH_KEY_SECURITY_GHOSTED, props)}
+      _style={extendStyle(props, LOCK_WITH_KEY_SECURITY_GHOSTED)}
     />
   )
 }

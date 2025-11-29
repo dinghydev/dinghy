@@ -11,11 +11,5 @@ export const STAKEHOLDER_2 = {
 }
 
 export function Stakeholder2(props: NodeProps) {
-  return (
-    <Shape
-      {...STAKEHOLDER_2}
-      {...props}
-      _style={extendStyle(STAKEHOLDER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STAKEHOLDER_2)} />
 }

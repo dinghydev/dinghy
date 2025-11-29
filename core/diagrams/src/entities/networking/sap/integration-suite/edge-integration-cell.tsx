@@ -11,11 +11,5 @@ export const EDGE_INTEGRATION_CELL = {
 }
 
 export function EdgeIntegrationCell(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_INTEGRATION_CELL}
-      {...props}
-      _style={extendStyle(EDGE_INTEGRATION_CELL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_INTEGRATION_CELL)} />
 }

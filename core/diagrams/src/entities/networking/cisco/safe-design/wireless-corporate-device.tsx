@@ -12,10 +12,6 @@ export const WIRELESS_CORPORATE_DEVICE = {
 
 export function WirelessCorporateDevice(props: NodeProps) {
   return (
-    <Shape
-      {...WIRELESS_CORPORATE_DEVICE}
-      {...props}
-      _style={extendStyle(WIRELESS_CORPORATE_DEVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WIRELESS_CORPORATE_DEVICE)} />
   )
 }

@@ -11,11 +11,5 @@ export const DATABASE_MINI_GREEN_3 = {
 }
 
 export function DatabaseMiniGreen3(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_MINI_GREEN_3}
-      {...props}
-      _style={extendStyle(DATABASE_MINI_GREEN_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_MINI_GREEN_3)} />
 }

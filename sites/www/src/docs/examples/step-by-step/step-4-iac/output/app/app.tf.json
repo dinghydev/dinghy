@@ -3,43 +3,42 @@
     "required_providers": {
       "aws": {
         "source": "aws",
-        "version": "6.20.0"
+        "version": "6.22.0"
       }
     }
   },
   "provider": {
     "aws": [
       {
-        "default_tags": [
-          {
-            "tags": {
-              "iac:stack-title": "Web App",
-              "iac:stack-name": "web-app"
-            }
+        "region": "eu-west-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "Web App",
+            "iac:stack-name": "web-app"
           }
-        ],
-        "region": "eu-west-1"
+        }
       }
     ]
   },
   "data": {
     "aws_vpc": {
-      "vpcid1": {
-        "id": "vpcid1"
-      }
+      "awsvpc_vpc": {}
     }
   },
   "resource": {
     "aws_subnet": {
       "awssubnet_publicsubnet": {
+        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
         "cidr_block": "10.0.0.0/16"
       },
       "awssubnet_privatesubnet": {
+        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
         "cidr_block": "10.10.0.0/16"
       }
     },
     "aws_lb": {
       "awslb_loadbalancer": {
+        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
         "subnets": [
           "${aws_subnet.awssubnet_publicsubnet.id}"
         ]
@@ -47,13 +46,13 @@
     },
     "aws_instance": {
       "awsinstance_application": {
-        "subnet_id": "${aws_subnet.awssubnet_privatesubnet.id}",
-        "ami": "ami-005e54dee72cc1d00"
+        "ami": "ami-005e54dee72cc1d00",
+        "subnet_id": "${aws_subnet.awssubnet_privatesubnet.id}"
       }
     },
     "aws_db_instance": {
       "awsdbinstance_postgres": {
-        "engine": "postgres"
+        "instance_class": "db.t3.micro"
       }
     }
   }

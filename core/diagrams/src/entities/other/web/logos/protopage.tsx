@@ -11,7 +11,5 @@ export const PROTOPAGE = {
 }
 
 export function Protopage(props: NodeProps) {
-  return (
-    <Shape {...PROTOPAGE} {...props} _style={extendStyle(PROTOPAGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROTOPAGE)} />
 }

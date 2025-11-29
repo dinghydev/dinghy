@@ -11,11 +11,5 @@ export const SHARED_DASHBOARD = {
 }
 
 export function SharedDashboard(props: NodeProps) {
-  return (
-    <Shape
-      {...SHARED_DASHBOARD}
-      {...props}
-      _style={extendStyle(SHARED_DASHBOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHARED_DASHBOARD)} />
 }

@@ -11,7 +11,5 @@ export const USER_GROUP = {
 }
 
 export function UserGroup(props: NodeProps) {
-  return (
-    <Shape {...USER_GROUP} {...props} _style={extendStyle(USER_GROUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_GROUP)} />
 }

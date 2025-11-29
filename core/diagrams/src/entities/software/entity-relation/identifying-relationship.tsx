@@ -12,10 +12,6 @@ export const IDENTIFYING_RELATIONSHIP = {
 
 export function IdentifyingRelationship(props: NodeProps) {
   return (
-    <Shape
-      {...IDENTIFYING_RELATIONSHIP}
-      {...props}
-      _style={extendStyle(IDENTIFYING_RELATIONSHIP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IDENTIFYING_RELATIONSHIP)} />
   )
 }

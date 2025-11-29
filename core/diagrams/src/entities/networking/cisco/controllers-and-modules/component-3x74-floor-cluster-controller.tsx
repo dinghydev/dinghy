@@ -13,9 +13,8 @@ export const COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER = {
 export function Component3x74FloorClusterController(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER}
       {...props}
-      _style={extendStyle(COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER, props)}
+      _style={extendStyle(props, COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER)}
     />
   )
 }

@@ -11,5 +11,5 @@ export const TOOLKIT = {
 }
 
 export function Toolkit(props: NodeProps) {
-  return <Shape {...TOOLKIT} {...props} _style={extendStyle(TOOLKIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOOLKIT)} />
 }

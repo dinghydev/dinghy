@@ -11,5 +11,5 @@ export const POWERED = {
 }
 
 export function Powered(props: NodeProps) {
-  return <Shape {...POWERED} {...props} _style={extendStyle(POWERED, props)} />
+  return <Shape {...props} _style={extendStyle(props, POWERED)} />
 }

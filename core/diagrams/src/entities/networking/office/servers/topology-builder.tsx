@@ -11,11 +11,5 @@ export const TOPOLOGY_BUILDER = {
 }
 
 export function TopologyBuilder(props: NodeProps) {
-  return (
-    <Shape
-      {...TOPOLOGY_BUILDER}
-      {...props}
-      _style={extendStyle(TOPOLOGY_BUILDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOPOLOGY_BUILDER)} />
 }

@@ -11,11 +11,5 @@ export const REFRIGERATOR = {
 }
 
 export function Refrigerator(props: NodeProps) {
-  return (
-    <Shape
-      {...REFRIGERATOR}
-      {...props}
-      _style={extendStyle(REFRIGERATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REFRIGERATOR)} />
 }

@@ -12,10 +12,6 @@ export const DATACENTER_SERVER_RACK = {
 
 export function DatacenterServerRack(props: NodeProps) {
   return (
-    <Shape
-      {...DATACENTER_SERVER_RACK}
-      {...props}
-      _style={extendStyle(DATACENTER_SERVER_RACK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATACENTER_SERVER_RACK)} />
   )
 }

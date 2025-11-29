@@ -11,11 +11,5 @@ export const BUTTON_LIGHT = {
 }
 
 export function ButtonLight(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_LIGHT}
-      {...props}
-      _style={extendStyle(BUTTON_LIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_LIGHT)} />
 }

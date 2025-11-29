@@ -11,5 +11,5 @@ export const ISTIO = {
 }
 
 export function Istio(props: NodeProps) {
-  return <Shape {...ISTIO} {...props} _style={extendStyle(ISTIO, props)} />
+  return <Shape {...props} _style={extendStyle(props, ISTIO)} />
 }

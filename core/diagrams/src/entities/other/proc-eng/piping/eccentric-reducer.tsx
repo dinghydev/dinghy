@@ -11,11 +11,5 @@ export const ECCENTRIC_REDUCER = {
 }
 
 export function EccentricReducer(props: NodeProps) {
-  return (
-    <Shape
-      {...ECCENTRIC_REDUCER}
-      {...props}
-      _style={extendStyle(ECCENTRIC_REDUCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ECCENTRIC_REDUCER)} />
 }

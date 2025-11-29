@@ -11,11 +11,5 @@ export const OPERATION_LOG_CLASSIC = {
 }
 
 export function OperationLogClassic(props: NodeProps) {
-  return (
-    <Shape
-      {...OPERATION_LOG_CLASSIC}
-      {...props}
-      _style={extendStyle(OPERATION_LOG_CLASSIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPERATION_LOG_CLASSIC)} />
 }

@@ -13,9 +13,8 @@ export const SCREENING_DEVICE_SIEVE_STRAINER_COARSE_RAKE = {
 export function ScreeningDeviceSieveStrainerCoarseRake(props: NodeProps) {
   return (
     <Shape
-      {...SCREENING_DEVICE_SIEVE_STRAINER_COARSE_RAKE}
       {...props}
-      _style={extendStyle(SCREENING_DEVICE_SIEVE_STRAINER_COARSE_RAKE, props)}
+      _style={extendStyle(props, SCREENING_DEVICE_SIEVE_STRAINER_COARSE_RAKE)}
     />
   )
 }

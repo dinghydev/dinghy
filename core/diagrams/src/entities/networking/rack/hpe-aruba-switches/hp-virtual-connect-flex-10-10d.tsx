@@ -13,9 +13,8 @@ export const HP_VIRTUAL_CONNECT_FLEX_10_10D = {
 export function HpVirtualConnectFlex1010d(props: NodeProps) {
   return (
     <Shape
-      {...HP_VIRTUAL_CONNECT_FLEX_10_10D}
       {...props}
-      _style={extendStyle(HP_VIRTUAL_CONNECT_FLEX_10_10D, props)}
+      _style={extendStyle(props, HP_VIRTUAL_CONNECT_FLEX_10_10D)}
     />
   )
 }

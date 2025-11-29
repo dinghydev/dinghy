@@ -11,7 +11,5 @@ export const EVERNOTE = {
 }
 
 export function Evernote(props: NodeProps) {
-  return (
-    <Shape {...EVERNOTE} {...props} _style={extendStyle(EVERNOTE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVERNOTE)} />
 }

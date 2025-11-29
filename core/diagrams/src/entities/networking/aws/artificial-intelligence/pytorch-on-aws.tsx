@@ -11,11 +11,5 @@ export const PYTORCH_ON_AWS = {
 }
 
 export function PytorchOnAws(props: NodeProps) {
-  return (
-    <Shape
-      {...PYTORCH_ON_AWS}
-      {...props}
-      _style={extendStyle(PYTORCH_ON_AWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PYTORCH_ON_AWS)} />
 }

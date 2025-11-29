@@ -11,11 +11,5 @@ export const COMPREHEND_MEDICAL = {
 }
 
 export function ComprehendMedical(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPREHEND_MEDICAL}
-      {...props}
-      _style={extendStyle(COMPREHEND_MEDICAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPREHEND_MEDICAL)} />
 }

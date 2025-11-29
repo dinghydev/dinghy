@@ -11,7 +11,5 @@ export const GENETICS = {
 }
 
 export function Genetics(props: NodeProps) {
-  return (
-    <Shape {...GENETICS} {...props} _style={extendStyle(GENETICS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENETICS)} />
 }

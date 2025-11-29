@@ -11,11 +11,5 @@ export const TMS_DATA_INTERFACE = {
 }
 
 export function TmsDataInterface(props: NodeProps) {
-  return (
-    <Shape
-      {...TMS_DATA_INTERFACE}
-      {...props}
-      _style={extendStyle(TMS_DATA_INTERFACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TMS_DATA_INTERFACE)} />
 }

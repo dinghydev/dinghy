@@ -11,11 +11,5 @@ export const MOUNT_SERVER = {
 }
 
 export function MountServer(props: NodeProps) {
-  return (
-    <Shape
-      {...MOUNT_SERVER}
-      {...props}
-      _style={extendStyle(MOUNT_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOUNT_SERVER)} />
 }

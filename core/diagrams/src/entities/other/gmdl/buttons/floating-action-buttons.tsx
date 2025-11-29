@@ -12,10 +12,6 @@ export const FLOATING_ACTION_BUTTONS = {
 
 export function FloatingActionButtons(props: NodeProps) {
   return (
-    <Shape
-      {...FLOATING_ACTION_BUTTONS}
-      {...props}
-      _style={extendStyle(FLOATING_ACTION_BUTTONS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FLOATING_ACTION_BUTTONS)} />
   )
 }

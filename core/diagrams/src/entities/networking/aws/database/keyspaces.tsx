@@ -11,7 +11,5 @@ export const KEYSPACES = {
 }
 
 export function Keyspaces(props: NodeProps) {
-  return (
-    <Shape {...KEYSPACES} {...props} _style={extendStyle(KEYSPACES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEYSPACES)} />
 }

@@ -11,7 +11,5 @@ export const ANCHOR_3 = {
 }
 
 export function Anchor3(props: NodeProps) {
-  return (
-    <Shape {...ANCHOR_3} {...props} _style={extendStyle(ANCHOR_3, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANCHOR_3)} />
 }

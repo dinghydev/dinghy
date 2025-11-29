@@ -11,11 +11,5 @@ export const NETWORK_WATCHER = {
 }
 
 export function NetworkWatcher(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_WATCHER}
-      {...props}
-      _style={extendStyle(NETWORK_WATCHER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_WATCHER)} />
 }

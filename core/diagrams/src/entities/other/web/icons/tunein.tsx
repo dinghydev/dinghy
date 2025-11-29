@@ -11,5 +11,5 @@ export const TUNEIN = {
 }
 
 export function Tunein(props: NodeProps) {
-  return <Shape {...TUNEIN} {...props} _style={extendStyle(TUNEIN, props)} />
+  return <Shape {...props} _style={extendStyle(props, TUNEIN)} />
 }

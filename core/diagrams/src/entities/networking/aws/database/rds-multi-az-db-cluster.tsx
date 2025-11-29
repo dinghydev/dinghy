@@ -12,10 +12,6 @@ export const RDS_MULTI_AZ_DB_CLUSTER = {
 
 export function RdsMultiAzDbCluster(props: NodeProps) {
   return (
-    <Shape
-      {...RDS_MULTI_AZ_DB_CLUSTER}
-      {...props}
-      _style={extendStyle(RDS_MULTI_AZ_DB_CLUSTER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RDS_MULTI_AZ_DB_CLUSTER)} />
   )
 }

@@ -11,11 +11,5 @@ export const SECTION_HEADER_NORMAL = {
 }
 
 export function SectionHeaderNormal(props: NodeProps) {
-  return (
-    <Shape
-      {...SECTION_HEADER_NORMAL}
-      {...props}
-      _style={extendStyle(SECTION_HEADER_NORMAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECTION_HEADER_NORMAL)} />
 }

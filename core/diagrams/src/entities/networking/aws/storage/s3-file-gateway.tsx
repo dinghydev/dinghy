@@ -11,11 +11,5 @@ export const S3_FILE_GATEWAY = {
 }
 
 export function S3FileGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_FILE_GATEWAY}
-      {...props}
-      _style={extendStyle(S3_FILE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_FILE_GATEWAY)} />
 }

@@ -11,7 +11,5 @@ export const LIST_GROUP = {
 }
 
 export function ListGroup(props: NodeProps) {
-  return (
-    <Shape {...LIST_GROUP} {...props} _style={extendStyle(LIST_GROUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_GROUP)} />
 }

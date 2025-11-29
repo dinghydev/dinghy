@@ -11,11 +11,5 @@ export const CHANGE_CALENDAR = {
 }
 
 export function ChangeCalendar(props: NodeProps) {
-  return (
-    <Shape
-      {...CHANGE_CALENDAR}
-      {...props}
-      _style={extendStyle(CHANGE_CALENDAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHANGE_CALENDAR)} />
 }

@@ -10,11 +10,5 @@ export const BUTTON_COMPACT_2 = {
 }
 
 export function ButtonCompact2(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_COMPACT_2}
-      {...props}
-      _style={extendStyle(BUTTON_COMPACT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_COMPACT_2)} />
 }

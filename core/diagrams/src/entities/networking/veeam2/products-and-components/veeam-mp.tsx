@@ -11,7 +11,5 @@ export const VEEAM_MP = {
 }
 
 export function VeeamMp(props: NodeProps) {
-  return (
-    <Shape {...VEEAM_MP} {...props} _style={extendStyle(VEEAM_MP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VEEAM_MP)} />
 }

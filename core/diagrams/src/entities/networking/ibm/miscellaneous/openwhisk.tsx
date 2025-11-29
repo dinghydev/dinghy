@@ -11,7 +11,5 @@ export const OPENWHISK = {
 }
 
 export function Openwhisk(props: NodeProps) {
-  return (
-    <Shape {...OPENWHISK} {...props} _style={extendStyle(OPENWHISK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPENWHISK)} />
 }

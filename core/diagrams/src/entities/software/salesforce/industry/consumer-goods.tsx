@@ -11,11 +11,5 @@ export const CONSUMER_GOODS = {
 }
 
 export function ConsumerGoods(props: NodeProps) {
-  return (
-    <Shape
-      {...CONSUMER_GOODS}
-      {...props}
-      _style={extendStyle(CONSUMER_GOODS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSUMER_GOODS)} />
 }

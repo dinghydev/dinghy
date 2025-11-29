@@ -11,5 +11,5 @@ export const HAIRCUT = {
 }
 
 export function Haircut(props: NodeProps) {
-  return <Shape {...HAIRCUT} {...props} _style={extendStyle(HAIRCUT, props)} />
+  return <Shape {...props} _style={extendStyle(props, HAIRCUT)} />
 }

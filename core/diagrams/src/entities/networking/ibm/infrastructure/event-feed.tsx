@@ -11,7 +11,5 @@ export const EVENT_FEED = {
 }
 
 export function EventFeed(props: NodeProps) {
-  return (
-    <Shape {...EVENT_FEED} {...props} _style={extendStyle(EVENT_FEED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_FEED)} />
 }

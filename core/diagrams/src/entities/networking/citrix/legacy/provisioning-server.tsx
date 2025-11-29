@@ -11,11 +11,5 @@ export const PROVISIONING_SERVER = {
 }
 
 export function ProvisioningServer(props: NodeProps) {
-  return (
-    <Shape
-      {...PROVISIONING_SERVER}
-      {...props}
-      _style={extendStyle(PROVISIONING_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROVISIONING_SERVER)} />
 }

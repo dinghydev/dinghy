@@ -11,11 +11,5 @@ export const REDSHIFT_ML = {
 }
 
 export function RedshiftMl(props: NodeProps) {
-  return (
-    <Shape
-      {...REDSHIFT_ML}
-      {...props}
-      _style={extendStyle(REDSHIFT_ML, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REDSHIFT_ML)} />
 }

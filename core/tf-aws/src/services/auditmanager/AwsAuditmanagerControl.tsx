@@ -1,0 +1,74 @@
+import {
+  camelCaseToWords,
+  type NodeProps,
+  resolvableValue,
+  Shape,
+  useTypedNode,
+  useTypedNodes,
+} from '@dinghy/base-components'
+import z from 'zod'
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_control
+
+export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
+  tags_all: resolvableValue(z.record(z.string(), z.string())),
+  action_plan_instructions: resolvableValue(z.string().optional()),
+  action_plan_title: resolvableValue(z.string().optional()),
+  control_mapping_sources: resolvableValue(
+    z.object({
+      source_description: z.string().optional(),
+      source_frequency: z.string().optional(),
+      source_id: z.string(),
+      source_keyword: z.object({
+        keyword_input_type: z.string(),
+        keyword_value: z.string(),
+      }).array().optional(),
+      source_name: z.string(),
+      source_set_up_option: z.string(),
+      source_type: z.string(),
+      troubleshooting_text: z.string().optional(),
+    }).array().optional(),
+  ),
+  description: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  testing_information: resolvableValue(z.string().optional()),
+})
+
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  id: z.string().optional(),
+  type: z.string().optional(),
+})
+
+export type InputProps =
+  & z.input<typeof InputSchema>
+  & NodeProps
+
+export type OutputProps =
+  & z.output<typeof OutputSchema>
+  & z.output<typeof InputSchema>
+
+export function AwsAuditmanagerControl(props: Partial<InputProps>) {
+  const _title = (node: any) => {
+    const namedTag = camelCaseToWords(node._props._tags[0])
+    return namedTag.replace(/^(Data )?Aws /, '')
+  }
+  return (
+    <Shape
+      _type='aws_auditmanager_control'
+      _category='resource'
+      _title={_title}
+      _inputSchema={InputSchema}
+      _outputSchema={OutputSchema}
+      {...props}
+    />
+  )
+}
+
+export const useAwsAuditmanagerControl = (node?: any, id?: string) =>
+  useTypedNode<OutputProps>(AwsAuditmanagerControl, node, id)
+
+export const useAwsAuditmanagerControls = (node?: any, id?: string) =>
+  useTypedNodes<OutputProps>(AwsAuditmanagerControl, node, id)

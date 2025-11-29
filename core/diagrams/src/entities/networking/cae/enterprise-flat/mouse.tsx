@@ -11,5 +11,5 @@ export const MOUSE = {
 }
 
 export function Mouse(props: NodeProps) {
-  return <Shape {...MOUSE} {...props} _style={extendStyle(MOUSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MOUSE)} />
 }

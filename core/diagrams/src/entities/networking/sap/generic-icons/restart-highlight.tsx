@@ -11,11 +11,5 @@ export const RESTART_HIGHLIGHT = {
 }
 
 export function RestartHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...RESTART_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(RESTART_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESTART_HIGHLIGHT)} />
 }

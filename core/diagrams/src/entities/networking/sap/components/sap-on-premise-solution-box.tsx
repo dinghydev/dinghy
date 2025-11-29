@@ -13,9 +13,8 @@ export const SAP_ON_PREMISE_SOLUTION_BOX = {
 export function SapOnPremiseSolutionBox(props: NodeProps) {
   return (
     <Shape
-      {...SAP_ON_PREMISE_SOLUTION_BOX}
       {...props}
-      _style={extendStyle(SAP_ON_PREMISE_SOLUTION_BOX, props)}
+      _style={extendStyle(props, SAP_ON_PREMISE_SOLUTION_BOX)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const SQL_SERVER_INSTANCE = {
 }
 
 export function SqlServerInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...SQL_SERVER_INSTANCE}
-      {...props}
-      _style={extendStyle(SQL_SERVER_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_SERVER_INSTANCE)} />
 }

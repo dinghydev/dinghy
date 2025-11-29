@@ -11,5 +11,5 @@ export const LAYOUT = {
 }
 
 export function Layout(props: NodeProps) {
-  return <Shape {...LAYOUT} {...props} _style={extendStyle(LAYOUT, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAYOUT)} />
 }

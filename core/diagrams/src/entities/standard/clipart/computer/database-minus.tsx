@@ -11,11 +11,5 @@ export const DATABASE_MINUS = {
 }
 
 export function DatabaseMinus(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_MINUS}
-      {...props}
-      _style={extendStyle(DATABASE_MINUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_MINUS)} />
 }

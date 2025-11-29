@@ -12,10 +12,6 @@ export const IDENTITY_AUTHORIZATION = {
 
 export function IdentityAuthorization(props: NodeProps) {
   return (
-    <Shape
-      {...IDENTITY_AUTHORIZATION}
-      {...props}
-      _style={extendStyle(IDENTITY_AUTHORIZATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IDENTITY_AUTHORIZATION)} />
   )
 }

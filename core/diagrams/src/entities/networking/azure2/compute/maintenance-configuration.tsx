@@ -12,10 +12,6 @@ export const MAINTENANCE_CONFIGURATION = {
 
 export function MaintenanceConfiguration(props: NodeProps) {
   return (
-    <Shape
-      {...MAINTENANCE_CONFIGURATION}
-      {...props}
-      _style={extendStyle(MAINTENANCE_CONFIGURATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MAINTENANCE_CONFIGURATION)} />
   )
 }

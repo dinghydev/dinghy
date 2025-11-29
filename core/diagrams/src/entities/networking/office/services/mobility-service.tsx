@@ -11,11 +11,5 @@ export const MOBILITY_SERVICE = {
 }
 
 export function MobilityService(props: NodeProps) {
-  return (
-    <Shape
-      {...MOBILITY_SERVICE}
-      {...props}
-      _style={extendStyle(MOBILITY_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOBILITY_SERVICE)} />
 }

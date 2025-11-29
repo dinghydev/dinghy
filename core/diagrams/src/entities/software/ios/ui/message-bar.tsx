@@ -11,11 +11,5 @@ export const MESSAGE_BAR = {
 }
 
 export function MessageBar(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_BAR}
-      {...props}
-      _style={extendStyle(MESSAGE_BAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_BAR)} />
 }

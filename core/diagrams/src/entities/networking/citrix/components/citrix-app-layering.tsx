@@ -11,11 +11,5 @@ export const CITRIX_APP_LAYERING = {
 }
 
 export function CitrixAppLayering(props: NodeProps) {
-  return (
-    <Shape
-      {...CITRIX_APP_LAYERING}
-      {...props}
-      _style={extendStyle(CITRIX_APP_LAYERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CITRIX_APP_LAYERING)} />
 }

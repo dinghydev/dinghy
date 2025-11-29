@@ -11,7 +11,5 @@ export const ALLVOICES = {
 }
 
 export function Allvoices(props: NodeProps) {
-  return (
-    <Shape {...ALLVOICES} {...props} _style={extendStyle(ALLVOICES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALLVOICES)} />
 }

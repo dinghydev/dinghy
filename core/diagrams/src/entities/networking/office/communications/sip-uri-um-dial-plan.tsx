@@ -11,11 +11,5 @@ export const SIP_URI_UM_DIAL_PLAN = {
 }
 
 export function SipUriUmDialPlan(props: NodeProps) {
-  return (
-    <Shape
-      {...SIP_URI_UM_DIAL_PLAN}
-      {...props}
-      _style={extendStyle(SIP_URI_UM_DIAL_PLAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIP_URI_UM_DIAL_PLAN)} />
 }

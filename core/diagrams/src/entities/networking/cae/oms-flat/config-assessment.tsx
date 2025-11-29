@@ -11,11 +11,5 @@ export const CONFIG_ASSESSMENT = {
 }
 
 export function ConfigAssessment(props: NodeProps) {
-  return (
-    <Shape
-      {...CONFIG_ASSESSMENT}
-      {...props}
-      _style={extendStyle(CONFIG_ASSESSMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONFIG_ASSESSMENT)} />
 }

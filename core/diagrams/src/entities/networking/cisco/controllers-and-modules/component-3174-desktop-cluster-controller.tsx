@@ -13,9 +13,8 @@ export const COMPONENT_3174_DESKTOP_CLUSTER_CONTROLLER = {
 export function Component3174DesktopClusterController(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3174_DESKTOP_CLUSTER_CONTROLLER}
       {...props}
-      _style={extendStyle(COMPONENT_3174_DESKTOP_CLUSTER_CONTROLLER, props)}
+      _style={extendStyle(props, COMPONENT_3174_DESKTOP_CLUSTER_CONTROLLER)}
     />
   )
 }

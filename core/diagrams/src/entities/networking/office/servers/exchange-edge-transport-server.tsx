@@ -13,9 +13,8 @@ export const EXCHANGE_EDGE_TRANSPORT_SERVER = {
 export function ExchangeEdgeTransportServer(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_EDGE_TRANSPORT_SERVER}
       {...props}
-      _style={extendStyle(EXCHANGE_EDGE_TRANSPORT_SERVER, props)}
+      _style={extendStyle(props, EXCHANGE_EDGE_TRANSPORT_SERVER)}
     />
   )
 }

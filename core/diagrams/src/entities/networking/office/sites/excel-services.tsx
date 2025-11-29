@@ -11,11 +11,5 @@ export const EXCEL_SERVICES = {
 }
 
 export function ExcelServices(props: NodeProps) {
-  return (
-    <Shape
-      {...EXCEL_SERVICES}
-      {...props}
-      _style={extendStyle(EXCEL_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXCEL_SERVICES)} />
 }

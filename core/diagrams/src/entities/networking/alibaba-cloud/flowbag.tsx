@@ -11,5 +11,5 @@ export const FLOWBAG = {
 }
 
 export function Flowbag(props: NodeProps) {
-  return <Shape {...FLOWBAG} {...props} _style={extendStyle(FLOWBAG, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLOWBAG)} />
 }

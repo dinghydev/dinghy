@@ -11,11 +11,5 @@ export const RESISTOR_NONLINEAR = {
 }
 
 export function ResistorNonlinear(props: NodeProps) {
-  return (
-    <Shape
-      {...RESISTOR_NONLINEAR}
-      {...props}
-      _style={extendStyle(RESISTOR_NONLINEAR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESISTOR_NONLINEAR)} />
 }

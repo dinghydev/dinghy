@@ -11,7 +11,5 @@ export const TRANSDUCER = {
 }
 
 export function Transducer(props: NodeProps) {
-  return (
-    <Shape {...TRANSDUCER} {...props} _style={extendStyle(TRANSDUCER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSDUCER)} />
 }

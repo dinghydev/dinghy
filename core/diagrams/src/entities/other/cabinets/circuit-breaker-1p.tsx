@@ -11,11 +11,5 @@ export const CIRCUIT_BREAKER_1P = {
 }
 
 export function CircuitBreaker1p(props: NodeProps) {
-  return (
-    <Shape
-      {...CIRCUIT_BREAKER_1P}
-      {...props}
-      _style={extendStyle(CIRCUIT_BREAKER_1P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CIRCUIT_BREAKER_1P)} />
 }

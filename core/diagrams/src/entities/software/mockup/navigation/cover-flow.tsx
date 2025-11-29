@@ -11,7 +11,5 @@ export const COVER_FLOW = {
 }
 
 export function CoverFlow(props: NodeProps) {
-  return (
-    <Shape {...COVER_FLOW} {...props} _style={extendStyle(COVER_FLOW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COVER_FLOW)} />
 }

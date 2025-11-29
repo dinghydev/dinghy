@@ -12,10 +12,6 @@ export const LOCK_UNPROTECTED_GHOSTED = {
 
 export function LockUnprotectedGhosted(props: NodeProps) {
   return (
-    <Shape
-      {...LOCK_UNPROTECTED_GHOSTED}
-      {...props}
-      _style={extendStyle(LOCK_UNPROTECTED_GHOSTED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOCK_UNPROTECTED_GHOSTED)} />
   )
 }

@@ -12,10 +12,6 @@ export const CCN_CLOUD_CONNECT_NETWORK = {
 
 export function CcnCloudConnectNetwork(props: NodeProps) {
   return (
-    <Shape
-      {...CCN_CLOUD_CONNECT_NETWORK}
-      {...props}
-      _style={extendStyle(CCN_CLOUD_CONNECT_NETWORK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CCN_CLOUD_CONNECT_NETWORK)} />
   )
 }

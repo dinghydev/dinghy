@@ -39,7 +39,7 @@
           <mxGeometry
             as="geometry" 
             width="840" 
-            height="570" 
+            height="600" 
             x="0" 
             y="0"
             />
@@ -54,7 +54,7 @@
           <mxGeometry
             as="geometry" 
             width="570" 
-            height="510" 
+            height="540" 
             x="30" 
             y="30"
             />
@@ -69,7 +69,7 @@
           <mxGeometry
             as="geometry" 
             width="510" 
-            height="130" 
+            height="140" 
             x="30" 
             y="30"
             />
@@ -83,8 +83,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="70" 
             y="30"
             />
@@ -98,8 +98,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="310" 
             y="30"
             />
@@ -114,9 +114,9 @@
           <mxGeometry
             as="geometry" 
             width="510" 
-            height="130" 
+            height="140" 
             x="30" 
-            y="190"
+            y="200"
             />
           </mxCell>
         <mxCell
@@ -128,8 +128,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="70" 
             y="30"
             />
@@ -143,8 +143,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="310" 
             y="30"
             />
@@ -159,9 +159,9 @@
           <mxGeometry
             as="geometry" 
             width="510" 
-            height="130" 
+            height="140" 
             x="30" 
-            y="350"
+            y="370"
             />
           </mxCell>
         <mxCell
@@ -173,8 +173,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="30" 
             y="30"
             />
@@ -188,8 +188,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="190" 
             y="30"
             />
@@ -203,8 +203,8 @@
           >
           <mxGeometry
             width="130" 
-            height="50" 
             as="geometry" 
+            height="60" 
             x="350" 
             y="30"
             />
@@ -219,7 +219,7 @@
           <mxGeometry
             as="geometry" 
             width="180" 
-            height="510" 
+            height="540" 
             x="630" 
             y="30"
             />
@@ -236,7 +236,7 @@
             height="60" 
             as="geometry" 
             x="30" 
-            y="65"
+            y="70"
             />
           </mxCell>
         <mxCell
@@ -251,7 +251,7 @@
             height="60" 
             as="geometry" 
             x="30" 
-            y="225"
+            y="240"
             />
           </mxCell>
         <mxCell
@@ -266,7 +266,7 @@
             height="60" 
             as="geometry" 
             x="30" 
-            y="385"
+            y="410"
             />
           </mxCell>
         <mxCell
@@ -286,11 +286,11 @@
               >
               <mxPoint
                 x="195" 
-                y="220"
+                y="230"
                 />
               <mxPoint
                 x="195" 
-                y="220"
+                y="230"
                 />
               </Array>
             </mxGeometry>
@@ -312,11 +312,11 @@
               >
               <mxPoint
                 x="315" 
-                y="275"
+                y="290"
                 />
               <mxPoint
                 x="315" 
-                y="275"
+                y="290"
                 />
               </Array>
             </mxGeometry>
@@ -338,11 +338,11 @@
               >
               <mxPoint
                 x="435" 
-                y="340"
+                y="360"
                 />
               <mxPoint
                 x="435" 
-                y="340"
+                y="360"
                 />
               </Array>
             </mxGeometry>
@@ -364,11 +364,11 @@
               >
               <mxPoint
                 x="615" 
-                y="125"
+                y="130"
                 />
               <mxPoint
                 x="615" 
-                y="125"
+                y="130"
                 />
               </Array>
             </mxGeometry>
@@ -390,11 +390,11 @@
               >
               <mxPoint
                 x="720" 
-                y="205"
+                y="215"
                 />
               <mxPoint
                 x="720" 
-                y="205"
+                y="215"
                 />
               </Array>
             </mxGeometry>
@@ -416,11 +416,11 @@
               >
               <mxPoint
                 x="615" 
-                y="445"
+                y="470"
                 />
               <mxPoint
                 x="615" 
-                y="445"
+                y="470"
                 />
               </Array>
             </mxGeometry>
@@ -442,11 +442,11 @@
               >
               <mxPoint
                 x="720" 
-                y="365"
+                y="385"
                 />
               <mxPoint
                 x="720" 
-                y="365"
+                y="385"
                 />
               </Array>
             </mxGeometry>

@@ -12,10 +12,6 @@ export const CDT_CLOUD_DATATRANSFER = {
 
 export function CdtCloudDatatransfer(props: NodeProps) {
   return (
-    <Shape
-      {...CDT_CLOUD_DATATRANSFER}
-      {...props}
-      _style={extendStyle(CDT_CLOUD_DATATRANSFER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CDT_CLOUD_DATATRANSFER)} />
   )
 }

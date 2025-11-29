@@ -11,11 +11,5 @@ export const AZURE_MEDIA_PLAYER = {
 }
 
 export function AzureMediaPlayer(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_MEDIA_PLAYER}
-      {...props}
-      _style={extendStyle(AZURE_MEDIA_PLAYER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_MEDIA_PLAYER)} />
 }

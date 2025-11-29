@@ -12,10 +12,6 @@ export const X11750_PRESSURE_SWITCH = {
 
 export function X11750PressureSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...X11750_PRESSURE_SWITCH}
-      {...props}
-      _style={extendStyle(X11750_PRESSURE_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11750_PRESSURE_SWITCH)} />
   )
 }

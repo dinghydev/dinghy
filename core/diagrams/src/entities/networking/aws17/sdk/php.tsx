@@ -11,5 +11,5 @@ export const PHP = {
 }
 
 export function Php(props: NodeProps) {
-  return <Shape {...PHP} {...props} _style={extendStyle(PHP, props)} />
+  return <Shape {...props} _style={extendStyle(props, PHP)} />
 }

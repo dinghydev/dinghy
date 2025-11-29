@@ -10,5 +10,5 @@ export const JADE = {
 }
 
 export function Jade(props: NodeProps) {
-  return <Shape {...JADE} {...props} _style={extendStyle(JADE, props)} />
+  return <Shape {...props} _style={extendStyle(props, JADE)} />
 }

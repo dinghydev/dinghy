@@ -11,11 +11,5 @@ export const BASIC_INPUT_GROUP_2 = {
 }
 
 export function BasicInputGroup2(props: NodeProps) {
-  return (
-    <Shape
-      {...BASIC_INPUT_GROUP_2}
-      {...props}
-      _style={extendStyle(BASIC_INPUT_GROUP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASIC_INPUT_GROUP_2)} />
 }

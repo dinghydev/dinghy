@@ -11,7 +11,5 @@ export const SUCCESS_2 = {
 }
 
 export function Success2(props: NodeProps) {
-  return (
-    <Shape {...SUCCESS_2} {...props} _style={extendStyle(SUCCESS_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUCCESS_2)} />
 }

@@ -1,0 +1,71 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Route 53 Domains
+
+## AwsRoute53domainsDelegationSignerRecord
+
+Provides a resource to manage a delegation signer record in the parent DNS zone for domains registered with Route53.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_delegation_signer_record)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/route53domains/AwsRoute53domainsDelegationSignerRecord.tsx)
+
+```js
+import { AwsRoute53domainsDelegationSignerRecord } from "@dinghy/tf-aws/serviceRoute53domains"
+
+<AwsRoute53domainsDelegationSignerRecord/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRoute53domainsDomain
+
+Provides a resource to manage a domain.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/route53domains/AwsRoute53domainsDomain.tsx)
+
+```js
+import { AwsRoute53domainsDomain } from "@dinghy/tf-aws/serviceRoute53domains"
+
+<AwsRoute53domainsDomain/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRoute53domainsRegisteredDomain
+
+Provides a resource to manage a domain that has been registered and associated with the current AWS account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_registered_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/route53domains/AwsRoute53domainsRegisteredDomain.tsx)
+
+```js
+import { AwsRoute53domainsRegisteredDomain } from "@dinghy/tf-aws/serviceRoute53domains"
+
+<AwsRoute53domainsRegisteredDomain/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

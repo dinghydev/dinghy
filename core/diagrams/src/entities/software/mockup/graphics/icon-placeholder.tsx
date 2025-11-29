@@ -11,11 +11,5 @@ export const ICON_PLACEHOLDER = {
 }
 
 export function IconPlaceholder(props: NodeProps) {
-  return (
-    <Shape
-      {...ICON_PLACEHOLDER}
-      {...props}
-      _style={extendStyle(ICON_PLACEHOLDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ICON_PLACEHOLDER)} />
 }

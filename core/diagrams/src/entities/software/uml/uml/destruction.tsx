@@ -11,11 +11,5 @@ export const DESTRUCTION = {
 }
 
 export function Destruction(props: NodeProps) {
-  return (
-    <Shape
-      {...DESTRUCTION}
-      {...props}
-      _style={extendStyle(DESTRUCTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESTRUCTION)} />
 }

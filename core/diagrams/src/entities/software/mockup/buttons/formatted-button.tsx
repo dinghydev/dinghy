@@ -11,11 +11,5 @@ export const FORMATTED_BUTTON = {
 }
 
 export function FormattedButton(props: NodeProps) {
-  return (
-    <Shape
-      {...FORMATTED_BUTTON}
-      {...props}
-      _style={extendStyle(FORMATTED_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORMATTED_BUTTON)} />
 }

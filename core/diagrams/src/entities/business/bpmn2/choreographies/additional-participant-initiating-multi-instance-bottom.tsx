@@ -15,11 +15,10 @@ export function AdditionalParticipantInitiatingMultiInstanceBottom(
 ) {
   return (
     <Shape
-      {...ADDITIONAL_PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM}
       {...props}
       _style={extendStyle(
-        ADDITIONAL_PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM,
         props,
+        ADDITIONAL_PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM,
       )}
     />
   )

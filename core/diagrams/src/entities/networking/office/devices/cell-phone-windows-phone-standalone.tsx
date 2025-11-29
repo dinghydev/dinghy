@@ -13,9 +13,8 @@ export const CELL_PHONE_WINDOWS_PHONE_STANDALONE = {
 export function CellPhoneWindowsPhoneStandalone(props: NodeProps) {
   return (
     <Shape
-      {...CELL_PHONE_WINDOWS_PHONE_STANDALONE}
       {...props}
-      _style={extendStyle(CELL_PHONE_WINDOWS_PHONE_STANDALONE, props)}
+      _style={extendStyle(props, CELL_PHONE_WINDOWS_PHONE_STANDALONE)}
     />
   )
 }

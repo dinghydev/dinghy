@@ -101,11 +101,6 @@
         "dependencies": [
           "npm:debug@4.4.0"
         ]
-      },
-      "tf-aws": {
-        "dependencies": [
-          "npm:debug@4.4.0"
-        ]
       }
     }
   }

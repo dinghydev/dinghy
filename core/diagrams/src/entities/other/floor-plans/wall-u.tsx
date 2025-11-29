@@ -11,5 +11,5 @@ export const WALL_U = {
 }
 
 export function WallU(props: NodeProps) {
-  return <Shape {...WALL_U} {...props} _style={extendStyle(WALL_U, props)} />
+  return <Shape {...props} _style={extendStyle(props, WALL_U)} />
 }

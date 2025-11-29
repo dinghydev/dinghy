@@ -11,11 +11,5 @@ export const DOUBLE_FLANGE = {
 }
 
 export function DoubleFlange(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_FLANGE}
-      {...props}
-      _style={extendStyle(DOUBLE_FLANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_FLANGE)} />
 }

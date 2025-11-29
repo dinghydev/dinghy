@@ -11,7 +11,5 @@ export const OPEN_DISC = {
 }
 
 export function OpenDisc(props: NodeProps) {
-  return (
-    <Shape {...OPEN_DISC} {...props} _style={extendStyle(OPEN_DISC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPEN_DISC)} />
 }

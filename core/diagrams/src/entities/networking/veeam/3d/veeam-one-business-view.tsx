@@ -12,10 +12,6 @@ export const VEEAM_ONE_BUSINESS_VIEW = {
 
 export function VeeamOneBusinessView(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_ONE_BUSINESS_VIEW}
-      {...props}
-      _style={extendStyle(VEEAM_ONE_BUSINESS_VIEW, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_ONE_BUSINESS_VIEW)} />
   )
 }

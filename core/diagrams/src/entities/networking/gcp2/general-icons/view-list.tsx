@@ -11,7 +11,5 @@ export const VIEW_LIST = {
 }
 
 export function ViewList(props: NodeProps) {
-  return (
-    <Shape {...VIEW_LIST} {...props} _style={extendStyle(VIEW_LIST, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIEW_LIST)} />
 }

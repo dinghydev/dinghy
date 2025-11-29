@@ -11,5 +11,5 @@ export const ZIPPED = {
 }
 
 export function Zipped(props: NodeProps) {
-  return <Shape {...ZIPPED} {...props} _style={extendStyle(ZIPPED, props)} />
+  return <Shape {...props} _style={extendStyle(props, ZIPPED)} />
 }

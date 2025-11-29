@@ -11,11 +11,5 @@ export const APP_BAR_PORTRAIT = {
 }
 
 export function AppBarPortrait(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_BAR_PORTRAIT}
-      {...props}
-      _style={extendStyle(APP_BAR_PORTRAIT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_BAR_PORTRAIT)} />
 }

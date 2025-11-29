@@ -11,5 +11,5 @@ export const QUICKBI = {
 }
 
 export function Quickbi(props: NodeProps) {
-  return <Shape {...QUICKBI} {...props} _style={extendStyle(QUICKBI, props)} />
+  return <Shape {...props} _style={extendStyle(props, QUICKBI)} />
 }

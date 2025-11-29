@@ -11,11 +11,5 @@ export const ELASTIC_INFERENCE = {
 }
 
 export function ElasticInference(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_INFERENCE}
-      {...props}
-      _style={extendStyle(ELASTIC_INFERENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_INFERENCE)} />
 }

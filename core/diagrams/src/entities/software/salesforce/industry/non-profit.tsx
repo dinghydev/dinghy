@@ -11,7 +11,5 @@ export const NON_PROFIT = {
 }
 
 export function NonProfit(props: NodeProps) {
-  return (
-    <Shape {...NON_PROFIT} {...props} _style={extendStyle(NON_PROFIT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NON_PROFIT)} />
 }

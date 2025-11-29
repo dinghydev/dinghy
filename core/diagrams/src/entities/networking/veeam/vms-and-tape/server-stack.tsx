@@ -11,11 +11,5 @@ export const SERVER_STACK = {
 }
 
 export function ServerStack(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_STACK}
-      {...props}
-      _style={extendStyle(SERVER_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_STACK)} />
 }

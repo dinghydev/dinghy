@@ -11,5 +11,5 @@ export const VSWITCH = {
 }
 
 export function Vswitch(props: NodeProps) {
-  return <Shape {...VSWITCH} {...props} _style={extendStyle(VSWITCH, props)} />
+  return <Shape {...props} _style={extendStyle(props, VSWITCH)} />
 }

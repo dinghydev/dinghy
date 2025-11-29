@@ -11,11 +11,5 @@ export const FREE_DATASTORE = {
 }
 
 export function FreeDatastore(props: NodeProps) {
-  return (
-    <Shape
-      {...FREE_DATASTORE}
-      {...props}
-      _style={extendStyle(FREE_DATASTORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FREE_DATASTORE)} />
 }

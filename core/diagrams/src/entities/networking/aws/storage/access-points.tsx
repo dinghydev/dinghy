@@ -11,11 +11,5 @@ export const ACCESS_POINTS = {
 }
 
 export function AccessPoints(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCESS_POINTS}
-      {...props}
-      _style={extendStyle(ACCESS_POINTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCESS_POINTS)} />
 }

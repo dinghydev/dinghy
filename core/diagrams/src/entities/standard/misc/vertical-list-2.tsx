@@ -11,11 +11,5 @@ export const VERTICAL_LIST_2 = {
 }
 
 export function VerticalList2(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_LIST_2}
-      {...props}
-      _style={extendStyle(VERTICAL_LIST_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_LIST_2)} />
 }

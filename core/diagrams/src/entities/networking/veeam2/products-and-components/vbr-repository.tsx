@@ -11,11 +11,5 @@ export const VBR_REPOSITORY = {
 }
 
 export function VbrRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...VBR_REPOSITORY}
-      {...props}
-      _style={extendStyle(VBR_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VBR_REPOSITORY)} />
 }

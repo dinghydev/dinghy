@@ -11,11 +11,5 @@ export const SPRING_APPS = {
 }
 
 export function SpringApps(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRING_APPS}
-      {...props}
-      _style={extendStyle(SPRING_APPS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRING_APPS)} />
 }

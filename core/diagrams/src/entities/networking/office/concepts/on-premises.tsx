@@ -11,11 +11,5 @@ export const ON_PREMISES = {
 }
 
 export function OnPremises(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PREMISES}
-      {...props}
-      _style={extendStyle(ON_PREMISES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PREMISES)} />
 }

@@ -11,11 +11,5 @@ export const MEDIA_SERVICES = {
 }
 
 export function MediaServices(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDIA_SERVICES}
-      {...props}
-      _style={extendStyle(MEDIA_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIA_SERVICES)} />
 }

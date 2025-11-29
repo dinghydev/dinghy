@@ -11,11 +11,5 @@ export const DNS_MULTISTACK = {
 }
 
 export function DnsMultistack(props: NodeProps) {
-  return (
-    <Shape
-      {...DNS_MULTISTACK}
-      {...props}
-      _style={extendStyle(DNS_MULTISTACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DNS_MULTISTACK)} />
 }

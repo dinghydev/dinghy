@@ -11,11 +11,5 @@ export const STORED_DATA = {
 }
 
 export function StoredData(props: NodeProps) {
-  return (
-    <Shape
-      {...STORED_DATA}
-      {...props}
-      _style={extendStyle(STORED_DATA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORED_DATA)} />
 }

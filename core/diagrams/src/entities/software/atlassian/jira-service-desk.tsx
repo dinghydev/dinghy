@@ -11,11 +11,5 @@ export const JIRA_SERVICE_DESK = {
 }
 
 export function JiraServiceDesk(props: NodeProps) {
-  return (
-    <Shape
-      {...JIRA_SERVICE_DESK}
-      {...props}
-      _style={extendStyle(JIRA_SERVICE_DESK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, JIRA_SERVICE_DESK)} />
 }

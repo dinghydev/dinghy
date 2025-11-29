@@ -13,9 +13,8 @@ export const BACKUP_FOR_AWS_CLOUDFORMATION = {
 export function BackupForAwsCloudformation(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_FOR_AWS_CLOUDFORMATION}
       {...props}
-      _style={extendStyle(BACKUP_FOR_AWS_CLOUDFORMATION, props)}
+      _style={extendStyle(props, BACKUP_FOR_AWS_CLOUDFORMATION)}
     />
   )
 }

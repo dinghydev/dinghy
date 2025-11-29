@@ -11,7 +11,5 @@ export const FLEETWISE = {
 }
 
 export function Fleetwise(props: NodeProps) {
-  return (
-    <Shape {...FLEETWISE} {...props} _style={extendStyle(FLEETWISE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLEETWISE)} />
 }

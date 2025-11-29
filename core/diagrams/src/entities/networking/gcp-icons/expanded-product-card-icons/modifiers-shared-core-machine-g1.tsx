@@ -13,9 +13,8 @@ export const MODIFIERS_SHARED_CORE_MACHINE_G1 = {
 export function ModifiersSharedCoreMachineG1(props: NodeProps) {
   return (
     <Shape
-      {...MODIFIERS_SHARED_CORE_MACHINE_G1}
       {...props}
-      _style={extendStyle(MODIFIERS_SHARED_CORE_MACHINE_G1, props)}
+      _style={extendStyle(props, MODIFIERS_SHARED_CORE_MACHINE_G1)}
     />
   )
 }

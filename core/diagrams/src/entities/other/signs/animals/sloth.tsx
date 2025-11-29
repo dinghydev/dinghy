@@ -11,5 +11,5 @@ export const SLOTH = {
 }
 
 export function Sloth(props: NodeProps) {
-  return <Shape {...SLOTH} {...props} _style={extendStyle(SLOTH, props)} />
+  return <Shape {...props} _style={extendStyle(props, SLOTH)} />
 }

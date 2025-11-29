@@ -11,7 +11,5 @@ export const DIN_RAIL = {
 }
 
 export function DinRail(props: NodeProps) {
-  return (
-    <Shape {...DIN_RAIL} {...props} _style={extendStyle(DIN_RAIL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIN_RAIL)} />
 }

@@ -12,10 +12,6 @@ export const WADCFG_DIAGNOSTICS_FILE = {
 
 export function WadcfgDiagnosticsFile(props: NodeProps) {
   return (
-    <Shape
-      {...WADCFG_DIAGNOSTICS_FILE}
-      {...props}
-      _style={extendStyle(WADCFG_DIAGNOSTICS_FILE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WADCFG_DIAGNOSTICS_FILE)} />
   )
 }

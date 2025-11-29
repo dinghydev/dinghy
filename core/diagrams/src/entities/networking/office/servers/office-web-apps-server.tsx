@@ -12,10 +12,6 @@ export const OFFICE_WEB_APPS_SERVER = {
 
 export function OfficeWebAppsServer(props: NodeProps) {
   return (
-    <Shape
-      {...OFFICE_WEB_APPS_SERVER}
-      {...props}
-      _style={extendStyle(OFFICE_WEB_APPS_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OFFICE_WEB_APPS_SERVER)} />
   )
 }

@@ -13,9 +13,8 @@ export const LOGIC_APPS_CUSTOM_CONNECTOR = {
 export function LogicAppsCustomConnector(props: NodeProps) {
   return (
     <Shape
-      {...LOGIC_APPS_CUSTOM_CONNECTOR}
       {...props}
-      _style={extendStyle(LOGIC_APPS_CUSTOM_CONNECTOR, props)}
+      _style={extendStyle(props, LOGIC_APPS_CUSTOM_CONNECTOR)}
     />
   )
 }

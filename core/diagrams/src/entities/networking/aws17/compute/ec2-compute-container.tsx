@@ -11,11 +11,5 @@ export const EC2_COMPUTE_CONTAINER = {
 }
 
 export function Ec2ComputeContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_COMPUTE_CONTAINER}
-      {...props}
-      _style={extendStyle(EC2_COMPUTE_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_COMPUTE_CONTAINER)} />
 }

@@ -11,7 +11,5 @@ export const SD_WAN_2 = {
 }
 
 export function SdWan2(props: NodeProps) {
-  return (
-    <Shape {...SD_WAN_2} {...props} _style={extendStyle(SD_WAN_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SD_WAN_2)} />
 }

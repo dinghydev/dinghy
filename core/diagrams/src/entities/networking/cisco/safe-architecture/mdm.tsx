@@ -11,5 +11,5 @@ export const MDM = {
 }
 
 export function Mdm(props: NodeProps) {
-  return <Shape {...MDM} {...props} _style={extendStyle(MDM, props)} />
+  return <Shape {...props} _style={extendStyle(props, MDM)} />
 }

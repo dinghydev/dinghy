@@ -11,11 +11,5 @@ export const VIRTUAL_FIREWALL = {
 }
 
 export function VirtualFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_FIREWALL}
-      {...props}
-      _style={extendStyle(VIRTUAL_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_FIREWALL)} />
 }

@@ -15,11 +15,10 @@ export function ScreeningDeviceSieveStrainerCoarseAndFineScreens(
 ) {
   return (
     <Shape
-      {...SCREENING_DEVICE_SIEVE_STRAINER_COARSE_AND_FINE_SCREENS}
       {...props}
       _style={extendStyle(
-        SCREENING_DEVICE_SIEVE_STRAINER_COARSE_AND_FINE_SCREENS,
         props,
+        SCREENING_DEVICE_SIEVE_STRAINER_COARSE_AND_FINE_SCREENS,
       )}
     />
   )

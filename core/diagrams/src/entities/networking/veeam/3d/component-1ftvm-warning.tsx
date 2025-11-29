@@ -12,10 +12,6 @@ export const COMPONENT_1FTVM_WARNING = {
 
 export function Component1ftvmWarning(props: NodeProps) {
   return (
-    <Shape
-      {...COMPONENT_1FTVM_WARNING}
-      {...props}
-      _style={extendStyle(COMPONENT_1FTVM_WARNING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPONENT_1FTVM_WARNING)} />
   )
 }

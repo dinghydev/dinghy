@@ -11,11 +11,5 @@ export const DATA_PROCESS = {
 }
 
 export function DataProcess(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_PROCESS}
-      {...props}
-      _style={extendStyle(DATA_PROCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_PROCESS)} />
 }

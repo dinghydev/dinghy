@@ -12,10 +12,6 @@ export const VEEAM_AVAILABILITY_SUITE = {
 
 export function VeeamAvailabilitySuite(props: NodeProps) {
   return (
-    <Shape
-      {...VEEAM_AVAILABILITY_SUITE}
-      {...props}
-      _style={extendStyle(VEEAM_AVAILABILITY_SUITE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VEEAM_AVAILABILITY_SUITE)} />
   )
 }

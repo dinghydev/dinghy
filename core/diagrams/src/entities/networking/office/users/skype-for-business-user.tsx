@@ -12,10 +12,6 @@ export const SKYPE_FOR_BUSINESS_USER = {
 
 export function SkypeForBusinessUser(props: NodeProps) {
   return (
-    <Shape
-      {...SKYPE_FOR_BUSINESS_USER}
-      {...props}
-      _style={extendStyle(SKYPE_FOR_BUSINESS_USER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SKYPE_FOR_BUSINESS_USER)} />
   )
 }

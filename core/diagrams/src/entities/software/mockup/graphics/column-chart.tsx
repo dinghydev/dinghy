@@ -11,11 +11,5 @@ export const COLUMN_CHART = {
 }
 
 export function ColumnChart(props: NodeProps) {
-  return (
-    <Shape
-      {...COLUMN_CHART}
-      {...props}
-      _style={extendStyle(COLUMN_CHART, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLUMN_CHART)} />
 }

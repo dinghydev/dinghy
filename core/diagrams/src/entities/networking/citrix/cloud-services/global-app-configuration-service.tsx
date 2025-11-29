@@ -13,9 +13,8 @@ export const GLOBAL_APP_CONFIGURATION_SERVICE = {
 export function GlobalAppConfigurationService(props: NodeProps) {
   return (
     <Shape
-      {...GLOBAL_APP_CONFIGURATION_SERVICE}
       {...props}
-      _style={extendStyle(GLOBAL_APP_CONFIGURATION_SERVICE, props)}
+      _style={extendStyle(props, GLOBAL_APP_CONFIGURATION_SERVICE)}
     />
   )
 }

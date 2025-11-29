@@ -11,7 +11,5 @@ export const NAVIGATION = {
 }
 
 export function Navigation(props: NodeProps) {
-  return (
-    <Shape {...NAVIGATION} {...props} _style={extendStyle(NAVIGATION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAVIGATION)} />
 }

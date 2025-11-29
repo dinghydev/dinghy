@@ -11,5 +11,5 @@ export const SECURED = {
 }
 
 export function Secured(props: NodeProps) {
-  return <Shape {...SECURED} {...props} _style={extendStyle(SECURED, props)} />
+  return <Shape {...props} _style={extendStyle(props, SECURED)} />
 }

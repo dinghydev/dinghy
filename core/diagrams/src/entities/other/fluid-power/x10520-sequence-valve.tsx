@@ -11,11 +11,5 @@ export const X10520_SEQUENCE_VALVE = {
 }
 
 export function X10520SequenceValve(props: NodeProps) {
-  return (
-    <Shape
-      {...X10520_SEQUENCE_VALVE}
-      {...props}
-      _style={extendStyle(X10520_SEQUENCE_VALVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10520_SEQUENCE_VALVE)} />
 }

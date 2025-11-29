@@ -11,7 +11,5 @@ export const SUMERIAN = {
 }
 
 export function Sumerian(props: NodeProps) {
-  return (
-    <Shape {...SUMERIAN} {...props} _style={extendStyle(SUMERIAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUMERIAN)} />
 }

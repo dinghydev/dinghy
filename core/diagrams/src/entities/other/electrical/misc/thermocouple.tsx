@@ -11,11 +11,5 @@ export const THERMOCOUPLE = {
 }
 
 export function Thermocouple(props: NodeProps) {
-  return (
-    <Shape
-      {...THERMOCOUPLE}
-      {...props}
-      _style={extendStyle(THERMOCOUPLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THERMOCOUPLE)} />
 }

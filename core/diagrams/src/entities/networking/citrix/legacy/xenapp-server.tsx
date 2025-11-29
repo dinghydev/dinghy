@@ -11,11 +11,5 @@ export const XENAPP_SERVER = {
 }
 
 export function XenappServer(props: NodeProps) {
-  return (
-    <Shape
-      {...XENAPP_SERVER}
-      {...props}
-      _style={extendStyle(XENAPP_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, XENAPP_SERVER)} />
 }

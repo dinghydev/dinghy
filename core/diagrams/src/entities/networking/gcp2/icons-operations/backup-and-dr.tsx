@@ -11,11 +11,5 @@ export const BACKUP_AND_DR = {
 }
 
 export function BackupAndDr(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_AND_DR}
-      {...props}
-      _style={extendStyle(BACKUP_AND_DR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_AND_DR)} />
 }

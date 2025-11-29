@@ -11,11 +11,5 @@ export const CREDIT_CARD = {
 }
 
 export function CreditCard(props: NodeProps) {
-  return (
-    <Shape
-      {...CREDIT_CARD}
-      {...props}
-      _style={extendStyle(CREDIT_CARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CREDIT_CARD)} />
 }

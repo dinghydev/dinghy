@@ -11,11 +11,5 @@ export const COMMAND_MESSAGE_3 = {
 }
 
 export function CommandMessage3(props: NodeProps) {
-  return (
-    <Shape
-      {...COMMAND_MESSAGE_3}
-      {...props}
-      _style={extendStyle(COMMAND_MESSAGE_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMMAND_MESSAGE_3)} />
 }

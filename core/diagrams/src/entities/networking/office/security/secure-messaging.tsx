@@ -11,11 +11,5 @@ export const SECURE_MESSAGING = {
 }
 
 export function SecureMessaging(props: NodeProps) {
-  return (
-    <Shape
-      {...SECURE_MESSAGING}
-      {...props}
-      _style={extendStyle(SECURE_MESSAGING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SECURE_MESSAGING)} />
 }

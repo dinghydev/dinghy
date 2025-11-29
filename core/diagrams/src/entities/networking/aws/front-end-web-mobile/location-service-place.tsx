@@ -12,10 +12,6 @@ export const LOCATION_SERVICE_PLACE = {
 
 export function LocationServicePlace(props: NodeProps) {
   return (
-    <Shape
-      {...LOCATION_SERVICE_PLACE}
-      {...props}
-      _style={extendStyle(LOCATION_SERVICE_PLACE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOCATION_SERVICE_PLACE)} />
   )
 }

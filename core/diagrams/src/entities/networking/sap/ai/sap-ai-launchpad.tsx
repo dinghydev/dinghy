@@ -11,11 +11,5 @@ export const SAP_AI_LAUNCHPAD = {
 }
 
 export function SapAiLaunchpad(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_AI_LAUNCHPAD}
-      {...props}
-      _style={extendStyle(SAP_AI_LAUNCHPAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_AI_LAUNCHPAD)} />
 }

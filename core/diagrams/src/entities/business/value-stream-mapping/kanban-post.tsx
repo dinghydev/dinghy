@@ -11,11 +11,5 @@ export const KANBAN_POST = {
 }
 
 export function KanbanPost(props: NodeProps) {
-  return (
-    <Shape
-      {...KANBAN_POST}
-      {...props}
-      _style={extendStyle(KANBAN_POST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KANBAN_POST)} />
 }

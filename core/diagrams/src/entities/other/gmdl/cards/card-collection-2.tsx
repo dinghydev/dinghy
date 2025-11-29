@@ -10,11 +10,5 @@ export const CARD_COLLECTION_2 = {
 }
 
 export function CardCollection2(props: NodeProps) {
-  return (
-    <Shape
-      {...CARD_COLLECTION_2}
-      {...props}
-      _style={extendStyle(CARD_COLLECTION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CARD_COLLECTION_2)} />
 }

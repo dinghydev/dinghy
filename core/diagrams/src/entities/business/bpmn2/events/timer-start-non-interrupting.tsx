@@ -13,9 +13,8 @@ export const TIMER_START_NON_INTERRUPTING = {
 export function TimerStartNonInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...TIMER_START_NON_INTERRUPTING}
       {...props}
-      _style={extendStyle(TIMER_START_NON_INTERRUPTING, props)}
+      _style={extendStyle(props, TIMER_START_NON_INTERRUPTING)}
     />
   )
 }

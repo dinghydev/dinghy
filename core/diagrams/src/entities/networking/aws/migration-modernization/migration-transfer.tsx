@@ -11,11 +11,5 @@ export const MIGRATION_TRANSFER = {
 }
 
 export function MigrationTransfer(props: NodeProps) {
-  return (
-    <Shape
-      {...MIGRATION_TRANSFER}
-      {...props}
-      _style={extendStyle(MIGRATION_TRANSFER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATION_TRANSFER)} />
 }

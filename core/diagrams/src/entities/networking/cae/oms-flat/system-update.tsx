@@ -11,11 +11,5 @@ export const SYSTEM_UPDATE = {
 }
 
 export function SystemUpdate(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEM_UPDATE}
-      {...props}
-      _style={extendStyle(SYSTEM_UPDATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEM_UPDATE)} />
 }

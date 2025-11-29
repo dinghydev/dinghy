@@ -13,11 +13,10 @@ export const J9996A_2_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE = {
 export function J9996a2Port40gbeQsfpWithMacsecV3Zl2Module(props: NodeProps) {
   return (
     <Shape
-      {...J9996A_2_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE}
       {...props}
       _style={extendStyle(
-        J9996A_2_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE,
         props,
+        J9996A_2_PORT_40GBE_QSFP_WITH_MACSEC_V3_ZL2_MODULE,
       )}
     />
   )

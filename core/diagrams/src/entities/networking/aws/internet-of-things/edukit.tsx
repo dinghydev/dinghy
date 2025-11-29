@@ -11,5 +11,5 @@ export const EDUKIT = {
 }
 
 export function Edukit(props: NodeProps) {
-  return <Shape {...EDUKIT} {...props} _style={extendStyle(EDUKIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, EDUKIT)} />
 }

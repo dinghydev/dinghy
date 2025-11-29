@@ -11,11 +11,5 @@ export const BUCKET_SCALE = {
 }
 
 export function BucketScale(props: NodeProps) {
-  return (
-    <Shape
-      {...BUCKET_SCALE}
-      {...props}
-      _style={extendStyle(BUCKET_SCALE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUCKET_SCALE)} />
 }

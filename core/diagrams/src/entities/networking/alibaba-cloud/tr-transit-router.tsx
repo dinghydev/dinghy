@@ -11,11 +11,5 @@ export const TR_TRANSIT_ROUTER = {
 }
 
 export function TrTransitRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...TR_TRANSIT_ROUTER}
-      {...props}
-      _style={extendStyle(TR_TRANSIT_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TR_TRANSIT_ROUTER)} />
 }

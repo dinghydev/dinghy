@@ -11,7 +11,5 @@ export const AZURE_BLOB = {
 }
 
 export function AzureBlob(props: NodeProps) {
-  return (
-    <Shape {...AZURE_BLOB} {...props} _style={extendStyle(AZURE_BLOB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_BLOB)} />
 }

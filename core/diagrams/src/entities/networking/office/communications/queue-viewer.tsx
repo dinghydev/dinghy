@@ -11,11 +11,5 @@ export const QUEUE_VIEWER = {
 }
 
 export function QueueViewer(props: NodeProps) {
-  return (
-    <Shape
-      {...QUEUE_VIEWER}
-      {...props}
-      _style={extendStyle(QUEUE_VIEWER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUEUE_VIEWER)} />
 }

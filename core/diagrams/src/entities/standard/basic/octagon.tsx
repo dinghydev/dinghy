@@ -11,5 +11,5 @@ export const OCTAGON = {
 }
 
 export function Octagon(props: NodeProps) {
-  return <Shape {...OCTAGON} {...props} _style={extendStyle(OCTAGON, props)} />
+  return <Shape {...props} _style={extendStyle(props, OCTAGON)} />
 }

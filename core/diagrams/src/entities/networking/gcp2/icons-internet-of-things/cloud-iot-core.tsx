@@ -11,11 +11,5 @@ export const CLOUD_IOT_CORE = {
 }
 
 export function CloudIotCore(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_IOT_CORE}
-      {...props}
-      _style={extendStyle(CLOUD_IOT_CORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_IOT_CORE)} />
 }

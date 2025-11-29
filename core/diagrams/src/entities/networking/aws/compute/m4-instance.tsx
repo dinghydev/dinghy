@@ -11,11 +11,5 @@ export const M4_INSTANCE = {
 }
 
 export function M4Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...M4_INSTANCE}
-      {...props}
-      _style={extendStyle(M4_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, M4_INSTANCE)} />
 }

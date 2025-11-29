@@ -11,11 +11,5 @@ export const NON_PROFIT_2 = {
 }
 
 export function NonProfit2(props: NodeProps) {
-  return (
-    <Shape
-      {...NON_PROFIT_2}
-      {...props}
-      _style={extendStyle(NON_PROFIT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NON_PROFIT_2)} />
 }

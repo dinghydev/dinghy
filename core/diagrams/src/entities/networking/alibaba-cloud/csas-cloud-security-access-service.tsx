@@ -13,9 +13,8 @@ export const CSAS_CLOUD_SECURITY_ACCESS_SERVICE = {
 export function CsasCloudSecurityAccessService(props: NodeProps) {
   return (
     <Shape
-      {...CSAS_CLOUD_SECURITY_ACCESS_SERVICE}
       {...props}
-      _style={extendStyle(CSAS_CLOUD_SECURITY_ACCESS_SERVICE, props)}
+      _style={extendStyle(props, CSAS_CLOUD_SECURITY_ACCESS_SERVICE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const RESEQUENCER = {
 }
 
 export function Resequencer(props: NodeProps) {
-  return (
-    <Shape
-      {...RESEQUENCER}
-      {...props}
-      _style={extendStyle(RESEQUENCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RESEQUENCER)} />
 }

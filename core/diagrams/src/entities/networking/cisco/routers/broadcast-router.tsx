@@ -11,11 +11,5 @@ export const BROADCAST_ROUTER = {
 }
 
 export function BroadcastRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...BROADCAST_ROUTER}
-      {...props}
-      _style={extendStyle(BROADCAST_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BROADCAST_ROUTER)} />
 }

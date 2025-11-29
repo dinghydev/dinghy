@@ -11,11 +11,5 @@ export const WEBSITE_PUBLIC = {
 }
 
 export function WebsitePublic(props: NodeProps) {
-  return (
-    <Shape
-      {...WEBSITE_PUBLIC}
-      {...props}
-      _style={extendStyle(WEBSITE_PUBLIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEBSITE_PUBLIC)} />
 }

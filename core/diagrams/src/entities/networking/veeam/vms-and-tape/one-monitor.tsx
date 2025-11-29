@@ -11,11 +11,5 @@ export const ONE_MONITOR = {
 }
 
 export function OneMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...ONE_MONITOR}
-      {...props}
-      _style={extendStyle(ONE_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONE_MONITOR)} />
 }

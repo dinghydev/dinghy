@@ -11,11 +11,5 @@ export const VISUAL_RECOGNITION = {
 }
 
 export function VisualRecognition(props: NodeProps) {
-  return (
-    <Shape
-      {...VISUAL_RECOGNITION}
-      {...props}
-      _style={extendStyle(VISUAL_RECOGNITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISUAL_RECOGNITION)} />
 }

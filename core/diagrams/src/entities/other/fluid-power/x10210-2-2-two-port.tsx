@@ -11,11 +11,5 @@ export const X10210_2_2_TWO_PORT = {
 }
 
 export function X1021022TwoPort(props: NodeProps) {
-  return (
-    <Shape
-      {...X10210_2_2_TWO_PORT}
-      {...props}
-      _style={extendStyle(X10210_2_2_TWO_PORT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10210_2_2_TWO_PORT)} />
 }

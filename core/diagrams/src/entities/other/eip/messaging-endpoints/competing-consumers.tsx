@@ -11,11 +11,5 @@ export const COMPETING_CONSUMERS = {
 }
 
 export function CompetingConsumers(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPETING_CONSUMERS}
-      {...props}
-      _style={extendStyle(COMPETING_CONSUMERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPETING_CONSUMERS)} />
 }

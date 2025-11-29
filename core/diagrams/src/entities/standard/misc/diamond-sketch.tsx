@@ -11,11 +11,5 @@ export const DIAMOND_SKETCH = {
 }
 
 export function DiamondSketch(props: NodeProps) {
-  return (
-    <Shape
-      {...DIAMOND_SKETCH}
-      {...props}
-      _style={extendStyle(DIAMOND_SKETCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIAMOND_SKETCH)} />
 }

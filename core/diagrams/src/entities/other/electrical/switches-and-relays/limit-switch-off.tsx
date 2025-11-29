@@ -11,11 +11,5 @@ export const LIMIT_SWITCH_OFF = {
 }
 
 export function LimitSwitchOff(props: NodeProps) {
-  return (
-    <Shape
-      {...LIMIT_SWITCH_OFF}
-      {...props}
-      _style={extendStyle(LIMIT_SWITCH_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIMIT_SWITCH_OFF)} />
 }

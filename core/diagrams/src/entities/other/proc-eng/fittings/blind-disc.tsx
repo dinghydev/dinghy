@@ -11,7 +11,5 @@ export const BLIND_DISC = {
 }
 
 export function BlindDisc(props: NodeProps) {
-  return (
-    <Shape {...BLIND_DISC} {...props} _style={extendStyle(BLIND_DISC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BLIND_DISC)} />
 }

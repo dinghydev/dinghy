@@ -13,9 +13,8 @@ export const CHECKBOX_OFF_DISABLED_LIGHT = {
 export function CheckboxOffDisabledLight(props: NodeProps) {
   return (
     <Shape
-      {...CHECKBOX_OFF_DISABLED_LIGHT}
       {...props}
-      _style={extendStyle(CHECKBOX_OFF_DISABLED_LIGHT, props)}
+      _style={extendStyle(props, CHECKBOX_OFF_DISABLED_LIGHT)}
     />
   )
 }

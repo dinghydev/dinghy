@@ -13,9 +13,8 @@ export const VESSEL_SEMI_TUBE_HEATING_COOLING_COIL = {
 export function VesselSemiTubeHeatingCoolingCoil(props: NodeProps) {
   return (
     <Shape
-      {...VESSEL_SEMI_TUBE_HEATING_COOLING_COIL}
       {...props}
-      _style={extendStyle(VESSEL_SEMI_TUBE_HEATING_COOLING_COIL, props)}
+      _style={extendStyle(props, VESSEL_SEMI_TUBE_HEATING_COOLING_COIL)}
     />
   )
 }

@@ -13,9 +13,8 @@ export const X11830_DIFFERENTIAL_PRESSURE_GAUGE = {
 export function X11830DifferentialPressureGauge(props: NodeProps) {
   return (
     <Shape
-      {...X11830_DIFFERENTIAL_PRESSURE_GAUGE}
       {...props}
-      _style={extendStyle(X11830_DIFFERENTIAL_PRESSURE_GAUGE, props)}
+      _style={extendStyle(props, X11830_DIFFERENTIAL_PRESSURE_GAUGE)}
     />
   )
 }

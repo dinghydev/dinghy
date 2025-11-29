@@ -11,5 +11,5 @@ export const NOR = {
 }
 
 export function Nor(props: NodeProps) {
-  return <Shape {...NOR} {...props} _style={extendStyle(NOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, NOR)} />
 }

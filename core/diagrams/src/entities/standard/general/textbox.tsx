@@ -10,5 +10,5 @@ export const TEXTBOX = {
 }
 
 export function Textbox(props: NodeProps) {
-  return <Shape {...TEXTBOX} {...props} _style={extendStyle(TEXTBOX, props)} />
+  return <Shape {...props} _style={extendStyle(props, TEXTBOX)} />
 }

@@ -11,7 +11,5 @@ export const REGISTRY = {
 }
 
 export function Registry(props: NodeProps) {
-  return (
-    <Shape {...REGISTRY} {...props} _style={extendStyle(REGISTRY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REGISTRY)} />
 }

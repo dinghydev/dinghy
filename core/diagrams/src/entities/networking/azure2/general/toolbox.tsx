@@ -11,5 +11,5 @@ export const TOOLBOX = {
 }
 
 export function Toolbox(props: NodeProps) {
-  return <Shape {...TOOLBOX} {...props} _style={extendStyle(TOOLBOX, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOOLBOX)} />
 }

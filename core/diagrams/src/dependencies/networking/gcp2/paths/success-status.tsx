@@ -9,11 +9,5 @@ export const SUCCESS_STATUS = {
 }
 
 export function SuccessStatus(props: NodeProps) {
-  return (
-    <Dependency
-      {...SUCCESS_STATUS}
-      {...props}
-      _style={extendStyle(SUCCESS_STATUS, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, SUCCESS_STATUS)} />
 }

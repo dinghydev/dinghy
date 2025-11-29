@@ -11,7 +11,5 @@ export const IOT_CORE = {
 }
 
 export function IotCore(props: NodeProps) {
-  return (
-    <Shape {...IOT_CORE} {...props} _style={extendStyle(IOT_CORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOT_CORE)} />
 }

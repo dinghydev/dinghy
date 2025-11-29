@@ -11,11 +11,5 @@ export const OPERATIONAL_AMP_2 = {
 }
 
 export function OperationalAmp2(props: NodeProps) {
-  return (
-    <Shape
-      {...OPERATIONAL_AMP_2}
-      {...props}
-      _style={extendStyle(OPERATIONAL_AMP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPERATIONAL_AMP_2)} />
 }

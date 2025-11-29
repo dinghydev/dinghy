@@ -13,9 +13,8 @@ export const AMAZON_SIMPLE_EMAIL_SERVICE = {
 export function AmazonSimpleEmailService(props: NodeProps) {
   return (
     <Shape
-      {...AMAZON_SIMPLE_EMAIL_SERVICE}
       {...props}
-      _style={extendStyle(AMAZON_SIMPLE_EMAIL_SERVICE, props)}
+      _style={extendStyle(props, AMAZON_SIMPLE_EMAIL_SERVICE)}
     />
   )
 }

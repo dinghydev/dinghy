@@ -11,11 +11,5 @@ export const SSL_TERMINATOR = {
 }
 
 export function SslTerminator(props: NodeProps) {
-  return (
-    <Shape
-      {...SSL_TERMINATOR}
-      {...props}
-      _style={extendStyle(SSL_TERMINATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SSL_TERMINATOR)} />
 }

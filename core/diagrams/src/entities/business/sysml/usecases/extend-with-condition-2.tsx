@@ -12,10 +12,6 @@ export const EXTEND_WITH_CONDITION_2 = {
 
 export function ExtendWithCondition2(props: NodeProps) {
   return (
-    <Shape
-      {...EXTEND_WITH_CONDITION_2}
-      {...props}
-      _style={extendStyle(EXTEND_WITH_CONDITION_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXTEND_WITH_CONDITION_2)} />
   )
 }

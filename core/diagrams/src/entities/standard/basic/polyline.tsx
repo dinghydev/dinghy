@@ -11,7 +11,5 @@ export const POLYLINE = {
 }
 
 export function Polyline(props: NodeProps) {
-  return (
-    <Shape {...POLYLINE} {...props} _style={extendStyle(POLYLINE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POLYLINE)} />
 }

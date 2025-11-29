@@ -11,11 +11,5 @@ export const ELASTIC_IP_ADDRESS = {
 }
 
 export function ElasticIpAddress(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_IP_ADDRESS}
-      {...props}
-      _style={extendStyle(ELASTIC_IP_ADDRESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_IP_ADDRESS)} />
 }

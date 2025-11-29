@@ -11,11 +11,5 @@ export const LARGE_DROPDOWN_BUTTON = {
 }
 
 export function LargeDropdownButton(props: NodeProps) {
-  return (
-    <Shape
-      {...LARGE_DROPDOWN_BUTTON}
-      {...props}
-      _style={extendStyle(LARGE_DROPDOWN_BUTTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LARGE_DROPDOWN_BUTTON)} />
 }

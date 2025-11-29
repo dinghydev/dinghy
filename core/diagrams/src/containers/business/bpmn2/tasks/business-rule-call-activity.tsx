@@ -11,9 +11,8 @@ export const BUSINESS_RULE_CALL_ACTIVITY = {
 export function BusinessRuleCallActivity(props: NodeProps) {
   return (
     <Shape
-      {...BUSINESS_RULE_CALL_ACTIVITY}
       {...props}
-      _style={extendStyle(BUSINESS_RULE_CALL_ACTIVITY, props)}
+      _style={extendStyle(props, BUSINESS_RULE_CALL_ACTIVITY)}
     />
   )
 }

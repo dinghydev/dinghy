@@ -13,9 +13,8 @@ export const IBM_1754_LOCAL_CONSOLE_MANAGER = {
 export function Ibm1754LocalConsoleManager(props: NodeProps) {
   return (
     <Shape
-      {...IBM_1754_LOCAL_CONSOLE_MANAGER}
       {...props}
-      _style={extendStyle(IBM_1754_LOCAL_CONSOLE_MANAGER, props)}
+      _style={extendStyle(props, IBM_1754_LOCAL_CONSOLE_MANAGER)}
     />
   )
 }

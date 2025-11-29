@@ -12,10 +12,6 @@ export const OPENSEARCH_SERVICE_INDEX = {
 
 export function OpensearchServiceIndex(props: NodeProps) {
   return (
-    <Shape
-      {...OPENSEARCH_SERVICE_INDEX}
-      {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE_INDEX, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPENSEARCH_SERVICE_INDEX)} />
   )
 }

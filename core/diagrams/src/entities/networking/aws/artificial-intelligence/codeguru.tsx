@@ -11,7 +11,5 @@ export const CODEGURU = {
 }
 
 export function Codeguru(props: NodeProps) {
-  return (
-    <Shape {...CODEGURU} {...props} _style={extendStyle(CODEGURU, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEGURU)} />
 }

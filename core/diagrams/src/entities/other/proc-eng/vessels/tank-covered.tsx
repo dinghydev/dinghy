@@ -11,11 +11,5 @@ export const TANK_COVERED = {
 }
 
 export function TankCovered(props: NodeProps) {
-  return (
-    <Shape
-      {...TANK_COVERED}
-      {...props}
-      _style={extendStyle(TANK_COVERED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_COVERED)} />
 }

@@ -13,9 +13,8 @@ export const SAP_CLOUD_APPLICATION_PROGRAMMING_MODEL = {
 export function SapCloudApplicationProgrammingModel(props: NodeProps) {
   return (
     <Shape
-      {...SAP_CLOUD_APPLICATION_PROGRAMMING_MODEL}
       {...props}
-      _style={extendStyle(SAP_CLOUD_APPLICATION_PROGRAMMING_MODEL, props)}
+      _style={extendStyle(props, SAP_CLOUD_APPLICATION_PROGRAMMING_MODEL)}
     />
   )
 }

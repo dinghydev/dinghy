@@ -11,7 +11,5 @@ export const VISIBILITY = {
 }
 
 export function Visibility(props: NodeProps) {
-  return (
-    <Shape {...VISIBILITY} {...props} _style={extendStyle(VISIBILITY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISIBILITY)} />
 }

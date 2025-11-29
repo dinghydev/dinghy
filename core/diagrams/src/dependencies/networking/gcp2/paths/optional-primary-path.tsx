@@ -10,10 +10,6 @@ export const OPTIONAL_PRIMARY_PATH = {
 
 export function OptionalPrimaryPath(props: NodeProps) {
   return (
-    <Dependency
-      {...OPTIONAL_PRIMARY_PATH}
-      {...props}
-      _style={extendStyle(OPTIONAL_PRIMARY_PATH, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, OPTIONAL_PRIMARY_PATH)} />
   )
 }

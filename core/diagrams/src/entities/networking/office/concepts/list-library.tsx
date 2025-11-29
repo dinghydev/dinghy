@@ -11,11 +11,5 @@ export const LIST_LIBRARY = {
 }
 
 export function ListLibrary(props: NodeProps) {
-  return (
-    <Shape
-      {...LIST_LIBRARY}
-      {...props}
-      _style={extendStyle(LIST_LIBRARY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIST_LIBRARY)} />
 }

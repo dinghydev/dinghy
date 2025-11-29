@@ -11,5 +11,5 @@ export const CSU_DSU = {
 }
 
 export function CsuDsu(props: NodeProps) {
-  return <Shape {...CSU_DSU} {...props} _style={extendStyle(CSU_DSU, props)} />
+  return <Shape {...props} _style={extendStyle(props, CSU_DSU)} />
 }

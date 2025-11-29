@@ -11,5 +11,5 @@ export const RATEMUX = {
 }
 
 export function Ratemux(props: NodeProps) {
-  return <Shape {...RATEMUX} {...props} _style={extendStyle(RATEMUX, props)} />
+  return <Shape {...props} _style={extendStyle(props, RATEMUX)} />
 }

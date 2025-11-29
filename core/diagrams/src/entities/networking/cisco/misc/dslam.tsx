@@ -11,5 +11,5 @@ export const DSLAM = {
 }
 
 export function Dslam(props: NodeProps) {
-  return <Shape {...DSLAM} {...props} _style={extendStyle(DSLAM, props)} />
+  return <Shape {...props} _style={extendStyle(props, DSLAM)} />
 }

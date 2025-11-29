@@ -11,11 +11,5 @@ export const AMAZON_NEPTUNE = {
 }
 
 export function AmazonNeptune(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_NEPTUNE}
-      {...props}
-      _style={extendStyle(AMAZON_NEPTUNE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_NEPTUNE)} />
 }

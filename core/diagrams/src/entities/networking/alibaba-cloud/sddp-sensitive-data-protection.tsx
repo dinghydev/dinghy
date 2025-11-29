@@ -13,9 +13,8 @@ export const SDDP_SENSITIVE_DATA_PROTECTION = {
 export function SddpSensitiveDataProtection(props: NodeProps) {
   return (
     <Shape
-      {...SDDP_SENSITIVE_DATA_PROTECTION}
       {...props}
-      _style={extendStyle(SDDP_SENSITIVE_DATA_PROTECTION, props)}
+      _style={extendStyle(props, SDDP_SENSITIVE_DATA_PROTECTION)}
     />
   )
 }

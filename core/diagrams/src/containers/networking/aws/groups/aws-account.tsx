@@ -13,11 +13,5 @@ export const AWS_ACCOUNT = {
 }
 
 export function AwsAccount(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_ACCOUNT}
-      {...props}
-      _style={extendStyle(AWS_ACCOUNT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_ACCOUNT)} />
 }

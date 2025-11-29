@@ -11,11 +11,5 @@ export const CODEPLEX_CODE_SOURCE = {
 }
 
 export function CodeplexCodeSource(props: NodeProps) {
-  return (
-    <Shape
-      {...CODEPLEX_CODE_SOURCE}
-      {...props}
-      _style={extendStyle(CODEPLEX_CODE_SOURCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEPLEX_CODE_SOURCE)} />
 }

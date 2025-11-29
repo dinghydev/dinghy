@@ -12,10 +12,6 @@ export const DLF_DATA_LAKE_FORMATION = {
 
 export function DlfDataLakeFormation(props: NodeProps) {
   return (
-    <Shape
-      {...DLF_DATA_LAKE_FORMATION}
-      {...props}
-      _style={extendStyle(DLF_DATA_LAKE_FORMATION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DLF_DATA_LAKE_FORMATION)} />
   )
 }

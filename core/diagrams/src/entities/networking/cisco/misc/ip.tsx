@@ -11,5 +11,5 @@ export const IP = {
 }
 
 export function Ip(props: NodeProps) {
-  return <Shape {...IP} {...props} _style={extendStyle(IP, props)} />
+  return <Shape {...props} _style={extendStyle(props, IP)} />
 }

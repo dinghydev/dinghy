@@ -12,10 +12,6 @@ export const X11500_TELESCOPIC_CYLINDER = {
 
 export function X11500TelescopicCylinder(props: NodeProps) {
   return (
-    <Shape
-      {...X11500_TELESCOPIC_CYLINDER}
-      {...props}
-      _style={extendStyle(X11500_TELESCOPIC_CYLINDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X11500_TELESCOPIC_CYLINDER)} />
   )
 }

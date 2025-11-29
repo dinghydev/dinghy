@@ -11,5 +11,5 @@ export const FARGATE = {
 }
 
 export function Fargate(props: NodeProps) {
-  return <Shape {...FARGATE} {...props} _style={extendStyle(FARGATE, props)} />
+  return <Shape {...props} _style={extendStyle(props, FARGATE)} />
 }

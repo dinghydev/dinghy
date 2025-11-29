@@ -11,5 +11,5 @@ export const OTA_2 = {
 }
 
 export function Ota2(props: NodeProps) {
-  return <Shape {...OTA_2} {...props} _style={extendStyle(OTA_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, OTA_2)} />
 }

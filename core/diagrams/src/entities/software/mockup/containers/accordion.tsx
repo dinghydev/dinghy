@@ -11,7 +11,5 @@ export const ACCORDION = {
 }
 
 export function Accordion(props: NodeProps) {
-  return (
-    <Shape {...ACCORDION} {...props} _style={extendStyle(ACCORDION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCORDION)} />
 }

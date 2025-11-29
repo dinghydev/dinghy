@@ -11,5 +11,5 @@ export const POS = {
 }
 
 export function Pos(props: NodeProps) {
-  return <Shape {...POS} {...props} _style={extendStyle(POS, props)} />
+  return <Shape {...props} _style={extendStyle(props, POS)} />
 }

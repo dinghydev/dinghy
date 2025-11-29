@@ -11,5 +11,5 @@ export const HOSE = {
 }
 
 export function Hose(props: NodeProps) {
-  return <Shape {...HOSE} {...props} _style={extendStyle(HOSE, props)} />
+  return <Shape {...props} _style={extendStyle(props, HOSE)} />
 }

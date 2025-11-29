@@ -11,11 +11,5 @@ export const MODAL_TITLE = {
 }
 
 export function ModalTitle(props: NodeProps) {
-  return (
-    <Shape
-      {...MODAL_TITLE}
-      {...props}
-      _style={extendStyle(MODAL_TITLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MODAL_TITLE)} />
 }

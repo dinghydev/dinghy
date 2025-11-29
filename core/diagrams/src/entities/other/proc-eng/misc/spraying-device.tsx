@@ -11,11 +11,5 @@ export const SPRAYING_DEVICE = {
 }
 
 export function SprayingDevice(props: NodeProps) {
-  return (
-    <Shape
-      {...SPRAYING_DEVICE}
-      {...props}
-      _style={extendStyle(SPRAYING_DEVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPRAYING_DEVICE)} />
 }

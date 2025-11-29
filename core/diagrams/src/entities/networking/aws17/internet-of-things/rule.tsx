@@ -11,5 +11,5 @@ export const RULE = {
 }
 
 export function Rule(props: NodeProps) {
-  return <Shape {...RULE} {...props} _style={extendStyle(RULE, props)} />
+  return <Shape {...props} _style={extendStyle(props, RULE)} />
 }

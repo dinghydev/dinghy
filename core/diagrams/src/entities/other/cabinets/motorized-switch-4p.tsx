@@ -11,11 +11,5 @@ export const MOTORIZED_SWITCH_4P = {
 }
 
 export function MotorizedSwitch4p(props: NodeProps) {
-  return (
-    <Shape
-      {...MOTORIZED_SWITCH_4P}
-      {...props}
-      _style={extendStyle(MOTORIZED_SWITCH_4P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MOTORIZED_SWITCH_4P)} />
 }

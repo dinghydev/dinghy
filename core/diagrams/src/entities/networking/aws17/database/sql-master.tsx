@@ -11,7 +11,5 @@ export const SQL_MASTER = {
 }
 
 export function SqlMaster(props: NodeProps) {
-  return (
-    <Shape {...SQL_MASTER} {...props} _style={extendStyle(SQL_MASTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQL_MASTER)} />
 }

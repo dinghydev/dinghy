@@ -11,5 +11,5 @@ export const DISK = {
 }
 
 export function Disk(props: NodeProps) {
-  return <Shape {...DISK} {...props} _style={extendStyle(DISK, props)} />
+  return <Shape {...props} _style={extendStyle(props, DISK)} />
 }

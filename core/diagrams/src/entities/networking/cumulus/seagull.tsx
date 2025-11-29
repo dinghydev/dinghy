@@ -10,5 +10,5 @@ export const SEAGULL = {
 }
 
 export function Seagull(props: NodeProps) {
-  return <Shape {...SEAGULL} {...props} _style={extendStyle(SEAGULL, props)} />
+  return <Shape {...props} _style={extendStyle(props, SEAGULL)} />
 }

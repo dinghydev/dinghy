@@ -11,11 +11,5 @@ export const HORIZONTAL_SPLITTER = {
 }
 
 export function HorizontalSplitter(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_SPLITTER}
-      {...props}
-      _style={extendStyle(HORIZONTAL_SPLITTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_SPLITTER)} />
 }

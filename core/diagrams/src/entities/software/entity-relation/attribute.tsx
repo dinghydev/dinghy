@@ -10,7 +10,5 @@ export const ATTRIBUTE = {
 }
 
 export function Attribute(props: NodeProps) {
-  return (
-    <Shape {...ATTRIBUTE} {...props} _style={extendStyle(ATTRIBUTE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ATTRIBUTE)} />
 }

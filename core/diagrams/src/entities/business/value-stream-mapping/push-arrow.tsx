@@ -11,7 +11,5 @@ export const PUSH_ARROW = {
 }
 
 export function PushArrow(props: NodeProps) {
-  return (
-    <Shape {...PUSH_ARROW} {...props} _style={extendStyle(PUSH_ARROW, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUSH_ARROW)} />
 }

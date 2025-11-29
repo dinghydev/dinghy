@@ -11,11 +11,5 @@ export const ADMIN_CONSOLE = {
 }
 
 export function AdminConsole(props: NodeProps) {
-  return (
-    <Shape
-      {...ADMIN_CONSOLE}
-      {...props}
-      _style={extendStyle(ADMIN_CONSOLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADMIN_CONSOLE)} />
 }

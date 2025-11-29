@@ -11,7 +11,5 @@ export const BINOCULARS = {
 }
 
 export function Binoculars(props: NodeProps) {
-  return (
-    <Shape {...BINOCULARS} {...props} _style={extendStyle(BINOCULARS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BINOCULARS)} />
 }

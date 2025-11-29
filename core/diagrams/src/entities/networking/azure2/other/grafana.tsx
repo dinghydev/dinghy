@@ -11,5 +11,5 @@ export const GRAFANA = {
 }
 
 export function Grafana(props: NodeProps) {
-  return <Shape {...GRAFANA} {...props} _style={extendStyle(GRAFANA, props)} />
+  return <Shape {...props} _style={extendStyle(props, GRAFANA)} />
 }

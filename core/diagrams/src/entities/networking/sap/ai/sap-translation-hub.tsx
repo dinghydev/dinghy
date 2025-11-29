@@ -11,11 +11,5 @@ export const SAP_TRANSLATION_HUB = {
 }
 
 export function SapTranslationHub(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_TRANSLATION_HUB}
-      {...props}
-      _style={extendStyle(SAP_TRANSLATION_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_TRANSLATION_HUB)} />
 }

@@ -11,11 +11,5 @@ export const HOME_GHOSTED = {
 }
 
 export function HomeGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...HOME_GHOSTED}
-      {...props}
-      _style={extendStyle(HOME_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOME_GHOSTED)} />
 }

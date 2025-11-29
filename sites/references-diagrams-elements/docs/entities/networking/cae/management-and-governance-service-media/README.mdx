@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { AzureMediaPlayer } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
 
 <AzureMediaPlayer/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { AZURE_MEDIA_PLAYER } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, AZURE_MEDIA_PLAYER)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { AzureMediaPlayer } from '@dinghy/diagrams/entitiesCaeManagementAndGover
 import { ContentProtection } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
 
 <ContentProtection/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { CONTENT_PROTECTION } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, CONTENT_PROTECTION)}
+  />
+
 ```
 
   </TabItem>
@@ -86,6 +108,17 @@ import { ContentProtection } from '@dinghy/diagrams/entitiesCaeManagementAndGove
 import { MediaEncoding } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
 
 <MediaEncoding/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { MEDIA_ENCODING } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, MEDIA_ENCODING)}
+  />
+
 ```
 
   </TabItem>
@@ -120,6 +153,17 @@ import { MediaEncoding } from '@dinghy/diagrams/entitiesCaeManagementAndGovernan
 import { MediaOnDemand } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
 
 <MediaOnDemand/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { MEDIA_ON_DEMAND } from '@dinghy/diagrams/entitiesCaeManagementAndGovernanceServiceMedia'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, MEDIA_ON_DEMAND)}
+  />
+
 ```
 
   </TabItem>

@@ -14,9 +14,8 @@ export const ELASTIC_BEANSTALK_CONTAINER_2 = {
 export function ElasticBeanstalkContainer2(props: NodeProps) {
   return (
     <Shape
-      {...ELASTIC_BEANSTALK_CONTAINER_2}
       {...props}
-      _style={extendStyle(ELASTIC_BEANSTALK_CONTAINER_2, props)}
+      _style={extendStyle(props, ELASTIC_BEANSTALK_CONTAINER_2)}
     />
   )
 }

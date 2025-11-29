@@ -13,9 +13,8 @@ export const ITSM_ADAPTER_FOR_SERVICENOW = {
 export function ItsmAdapterForServicenow(props: NodeProps) {
   return (
     <Shape
-      {...ITSM_ADAPTER_FOR_SERVICENOW}
       {...props}
-      _style={extendStyle(ITSM_ADAPTER_FOR_SERVICENOW, props)}
+      _style={extendStyle(props, ITSM_ADAPTER_FOR_SERVICENOW)}
     />
   )
 }

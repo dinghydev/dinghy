@@ -13,9 +13,8 @@ export const INVOICE_OBJECT_RECOMMENDATION = {
 export function InvoiceObjectRecommendation(props: NodeProps) {
   return (
     <Shape
-      {...INVOICE_OBJECT_RECOMMENDATION}
       {...props}
-      _style={extendStyle(INVOICE_OBJECT_RECOMMENDATION, props)}
+      _style={extendStyle(props, INVOICE_OBJECT_RECOMMENDATION)}
     />
   )
 }

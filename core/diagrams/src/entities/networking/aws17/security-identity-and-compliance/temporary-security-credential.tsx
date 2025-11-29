@@ -13,9 +13,8 @@ export const TEMPORARY_SECURITY_CREDENTIAL = {
 export function TemporarySecurityCredential(props: NodeProps) {
   return (
     <Shape
-      {...TEMPORARY_SECURITY_CREDENTIAL}
       {...props}
-      _style={extendStyle(TEMPORARY_SECURITY_CREDENTIAL, props)}
+      _style={extendStyle(props, TEMPORARY_SECURITY_CREDENTIAL)}
     />
   )
 }

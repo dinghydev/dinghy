@@ -13,9 +13,8 @@ export const VESSEL_DISHED_ENDS_THERMAL_INSULATION = {
 export function VesselDishedEndsThermalInsulation(props: NodeProps) {
   return (
     <Shape
-      {...VESSEL_DISHED_ENDS_THERMAL_INSULATION}
       {...props}
-      _style={extendStyle(VESSEL_DISHED_ENDS_THERMAL_INSULATION, props)}
+      _style={extendStyle(props, VESSEL_DISHED_ENDS_THERMAL_INSULATION)}
     />
   )
 }

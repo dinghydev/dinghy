@@ -11,5 +11,5 @@ export const MEMORY = {
 }
 
 export function Memory(props: NodeProps) {
-  return <Shape {...MEMORY} {...props} _style={extendStyle(MEMORY, props)} />
+  return <Shape {...props} _style={extendStyle(props, MEMORY)} />
 }

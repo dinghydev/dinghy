@@ -12,10 +12,6 @@ export const DIAGONAL_SNIP_RECTANGLE = {
 
 export function DiagonalSnipRectangle(props: NodeProps) {
   return (
-    <Shape
-      {...DIAGONAL_SNIP_RECTANGLE}
-      {...props}
-      _style={extendStyle(DIAGONAL_SNIP_RECTANGLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DIAGONAL_SNIP_RECTANGLE)} />
   )
 }

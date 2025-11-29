@@ -11,11 +11,5 @@ export const IDRSSERVICE = {
 }
 
 export function Idrsservice(props: NodeProps) {
-  return (
-    <Shape
-      {...IDRSSERVICE}
-      {...props}
-      _style={extendStyle(IDRSSERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IDRSSERVICE)} />
 }

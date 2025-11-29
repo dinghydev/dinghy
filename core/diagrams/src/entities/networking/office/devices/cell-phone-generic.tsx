@@ -11,11 +11,5 @@ export const CELL_PHONE_GENERIC = {
 }
 
 export function CellPhoneGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...CELL_PHONE_GENERIC}
-      {...props}
-      _style={extendStyle(CELL_PHONE_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CELL_PHONE_GENERIC)} />
 }

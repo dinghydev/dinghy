@@ -11,11 +11,5 @@ export const SAP_MOBILE_SERVICES = {
 }
 
 export function SapMobileServices(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_MOBILE_SERVICES}
-      {...props}
-      _style={extendStyle(SAP_MOBILE_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_MOBILE_SERVICES)} />
 }

@@ -11,5 +11,5 @@ export const AWS = {
 }
 
 export function Aws(props: NodeProps) {
-  return <Shape {...AWS} {...props} _style={extendStyle(AWS, props)} />
+  return <Shape {...props} _style={extendStyle(props, AWS)} />
 }

@@ -9,11 +9,5 @@ export const COMPONENT_10G = {
 }
 
 export function Component10g(props: NodeProps) {
-  return (
-    <Dependency
-      {...COMPONENT_10G}
-      {...props}
-      _style={extendStyle(COMPONENT_10G, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, COMPONENT_10G)} />
 }

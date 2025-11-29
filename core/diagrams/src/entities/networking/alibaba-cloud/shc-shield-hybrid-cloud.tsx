@@ -12,10 +12,6 @@ export const SHC_SHIELD_HYBRID_CLOUD = {
 
 export function ShcShieldHybridCloud(props: NodeProps) {
   return (
-    <Shape
-      {...SHC_SHIELD_HYBRID_CLOUD}
-      {...props}
-      _style={extendStyle(SHC_SHIELD_HYBRID_CLOUD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SHC_SHIELD_HYBRID_CLOUD)} />
   )
 }

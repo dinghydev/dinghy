@@ -11,11 +11,5 @@ export const BTP_BASIC_LAYER = {
 }
 
 export function BtpBasicLayer(props: NodeProps) {
-  return (
-    <Shape
-      {...BTP_BASIC_LAYER}
-      {...props}
-      _style={extendStyle(BTP_BASIC_LAYER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BTP_BASIC_LAYER)} />
 }

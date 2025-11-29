@@ -12,10 +12,6 @@ export const INTEGRATION_ENVIRONMENTS = {
 
 export function IntegrationEnvironments(props: NodeProps) {
   return (
-    <Shape
-      {...INTEGRATION_ENVIRONMENTS}
-      {...props}
-      _style={extendStyle(INTEGRATION_ENVIRONMENTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INTEGRATION_ENVIRONMENTS)} />
   )
 }

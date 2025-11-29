@@ -12,10 +12,6 @@ export const DEFENDER_CM_LOCAL_MANAGER = {
 
 export function DefenderCmLocalManager(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_CM_LOCAL_MANAGER}
-      {...props}
-      _style={extendStyle(DEFENDER_CM_LOCAL_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_CM_LOCAL_MANAGER)} />
   )
 }

@@ -11,7 +11,5 @@ export const SPOT_VMSS = {
 }
 
 export function SpotVmss(props: NodeProps) {
-  return (
-    <Shape {...SPOT_VMSS} {...props} _style={extendStyle(SPOT_VMSS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPOT_VMSS)} />
 }

@@ -11,11 +11,5 @@ export const NLS_FILEBAG = {
 }
 
 export function NlsFilebag(props: NodeProps) {
-  return (
-    <Shape
-      {...NLS_FILEBAG}
-      {...props}
-      _style={extendStyle(NLS_FILEBAG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLS_FILEBAG)} />
 }

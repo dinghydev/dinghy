@@ -11,11 +11,5 @@ export const REGISTRAR_SERVICE = {
 }
 
 export function RegistrarService(props: NodeProps) {
-  return (
-    <Shape
-      {...REGISTRAR_SERVICE}
-      {...props}
-      _style={extendStyle(REGISTRAR_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REGISTRAR_SERVICE)} />
 }

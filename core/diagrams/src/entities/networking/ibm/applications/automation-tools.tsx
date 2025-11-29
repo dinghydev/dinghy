@@ -11,11 +11,5 @@ export const AUTOMATION_TOOLS = {
 }
 
 export function AutomationTools(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOMATION_TOOLS}
-      {...props}
-      _style={extendStyle(AUTOMATION_TOOLS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOMATION_TOOLS)} />
 }

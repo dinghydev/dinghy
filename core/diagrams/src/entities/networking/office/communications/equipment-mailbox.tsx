@@ -11,11 +11,5 @@ export const EQUIPMENT_MAILBOX = {
 }
 
 export function EquipmentMailbox(props: NodeProps) {
-  return (
-    <Shape
-      {...EQUIPMENT_MAILBOX}
-      {...props}
-      _style={extendStyle(EQUIPMENT_MAILBOX, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EQUIPMENT_MAILBOX)} />
 }

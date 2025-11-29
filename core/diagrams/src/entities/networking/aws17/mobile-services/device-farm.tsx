@@ -11,11 +11,5 @@ export const DEVICE_FARM = {
 }
 
 export function DeviceFarm(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_FARM}
-      {...props}
-      _style={extendStyle(DEVICE_FARM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_FARM)} />
 }

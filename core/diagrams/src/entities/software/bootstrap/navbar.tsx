@@ -11,5 +11,5 @@ export const NAVBAR = {
 }
 
 export function Navbar(props: NodeProps) {
-  return <Shape {...NAVBAR} {...props} _style={extendStyle(NAVBAR, props)} />
+  return <Shape {...props} _style={extendStyle(props, NAVBAR)} />
 }

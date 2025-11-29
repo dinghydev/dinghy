@@ -11,11 +11,5 @@ export const USER_FEEDBACK = {
 }
 
 export function UserFeedback(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_FEEDBACK}
-      {...props}
-      _style={extendStyle(USER_FEEDBACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_FEEDBACK)} />
 }

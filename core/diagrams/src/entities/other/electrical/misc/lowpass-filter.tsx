@@ -11,11 +11,5 @@ export const LOWPASS_FILTER = {
 }
 
 export function LowpassFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...LOWPASS_FILTER}
-      {...props}
-      _style={extendStyle(LOWPASS_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOWPASS_FILTER)} />
 }

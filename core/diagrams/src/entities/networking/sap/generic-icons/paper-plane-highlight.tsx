@@ -11,11 +11,5 @@ export const PAPER_PLANE_HIGHLIGHT = {
 }
 
 export function PaperPlaneHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...PAPER_PLANE_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(PAPER_PLANE_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAPER_PLANE_HIGHLIGHT)} />
 }

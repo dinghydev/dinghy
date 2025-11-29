@@ -11,11 +11,5 @@ export const VM_TURN_ON_OFF = {
 }
 
 export function VmTurnOnOff(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_TURN_ON_OFF}
-      {...props}
-      _style={extendStyle(VM_TURN_ON_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_TURN_ON_OFF)} />
 }

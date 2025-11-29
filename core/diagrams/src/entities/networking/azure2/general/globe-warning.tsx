@@ -11,11 +11,5 @@ export const GLOBE_WARNING = {
 }
 
 export function GlobeWarning(props: NodeProps) {
-  return (
-    <Shape
-      {...GLOBE_WARNING}
-      {...props}
-      _style={extendStyle(GLOBE_WARNING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLOBE_WARNING)} />
 }

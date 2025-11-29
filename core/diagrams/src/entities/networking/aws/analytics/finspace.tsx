@@ -11,7 +11,5 @@ export const FINSPACE = {
 }
 
 export function Finspace(props: NodeProps) {
-  return (
-    <Shape {...FINSPACE} {...props} _style={extendStyle(FINSPACE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FINSPACE)} />
 }

@@ -11,5 +11,5 @@ export const TDD = {
 }
 
 export function Tdd(props: NodeProps) {
-  return <Shape {...TDD} {...props} _style={extendStyle(TDD, props)} />
+  return <Shape {...props} _style={extendStyle(props, TDD)} />
 }

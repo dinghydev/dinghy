@@ -13,9 +13,8 @@ export const SAP_DOCUMENT_MANAGEMENT_SERVICE = {
 export function SapDocumentManagementService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_DOCUMENT_MANAGEMENT_SERVICE}
       {...props}
-      _style={extendStyle(SAP_DOCUMENT_MANAGEMENT_SERVICE, props)}
+      _style={extendStyle(props, SAP_DOCUMENT_MANAGEMENT_SERVICE)}
     />
   )
 }

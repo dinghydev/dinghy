@@ -12,10 +12,6 @@ export const NLP_SA_SENTIMENT_ANALYSIS = {
 
 export function NlpSaSentimentAnalysis(props: NodeProps) {
   return (
-    <Shape
-      {...NLP_SA_SENTIMENT_ANALYSIS}
-      {...props}
-      _style={extendStyle(NLP_SA_SENTIMENT_ANALYSIS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NLP_SA_SENTIMENT_ANALYSIS)} />
   )
 }

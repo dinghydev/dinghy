@@ -11,7 +11,5 @@ export const SCROLLBARS = {
 }
 
 export function Scrollbars(props: NodeProps) {
-  return (
-    <Shape {...SCROLLBARS} {...props} _style={extendStyle(SCROLLBARS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCROLLBARS)} />
 }

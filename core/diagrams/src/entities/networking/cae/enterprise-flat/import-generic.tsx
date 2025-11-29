@@ -11,11 +11,5 @@ export const IMPORT_GENERIC = {
 }
 
 export function ImportGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...IMPORT_GENERIC}
-      {...props}
-      _style={extendStyle(IMPORT_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IMPORT_GENERIC)} />
 }

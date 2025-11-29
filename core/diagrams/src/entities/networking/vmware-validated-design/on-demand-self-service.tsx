@@ -12,10 +12,6 @@ export const ON_DEMAND_SELF_SERVICE = {
 
 export function OnDemandSelfService(props: NodeProps) {
   return (
-    <Shape
-      {...ON_DEMAND_SELF_SERVICE}
-      {...props}
-      _style={extendStyle(ON_DEMAND_SELF_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ON_DEMAND_SELF_SERVICE)} />
   )
 }

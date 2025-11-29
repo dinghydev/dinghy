@@ -11,11 +11,5 @@ export const MAC_INSTANCE = {
 }
 
 export function MacInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...MAC_INSTANCE}
-      {...props}
-      _style={extendStyle(MAC_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAC_INSTANCE)} />
 }

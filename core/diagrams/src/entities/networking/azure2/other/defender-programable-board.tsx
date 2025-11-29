@@ -12,10 +12,6 @@ export const DEFENDER_PROGRAMABLE_BOARD = {
 
 export function DefenderProgramableBoard(props: NodeProps) {
   return (
-    <Shape
-      {...DEFENDER_PROGRAMABLE_BOARD}
-      {...props}
-      _style={extendStyle(DEFENDER_PROGRAMABLE_BOARD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEFENDER_PROGRAMABLE_BOARD)} />
   )
 }

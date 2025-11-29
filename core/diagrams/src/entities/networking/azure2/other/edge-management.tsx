@@ -11,11 +11,5 @@ export const EDGE_MANAGEMENT = {
 }
 
 export function EdgeManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_MANAGEMENT}
-      {...props}
-      _style={extendStyle(EDGE_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_MANAGEMENT)} />
 }

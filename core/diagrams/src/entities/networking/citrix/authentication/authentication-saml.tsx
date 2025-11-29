@@ -11,11 +11,5 @@ export const AUTHENTICATION_SAML = {
 }
 
 export function AuthenticationSaml(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHENTICATION_SAML}
-      {...props}
-      _style={extendStyle(AUTHENTICATION_SAML, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHENTICATION_SAML)} />
 }

@@ -11,11 +11,5 @@ export const CLOUD_VISION_API = {
 }
 
 export function CloudVisionApi(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_VISION_API}
-      {...props}
-      _style={extendStyle(CLOUD_VISION_API, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_VISION_API)} />
 }

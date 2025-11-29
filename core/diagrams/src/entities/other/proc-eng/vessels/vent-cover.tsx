@@ -11,7 +11,5 @@ export const VENT_COVER = {
 }
 
 export function VentCover(props: NodeProps) {
-  return (
-    <Shape {...VENT_COVER} {...props} _style={extendStyle(VENT_COVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VENT_COVER)} />
 }

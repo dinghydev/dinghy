@@ -11,7 +11,5 @@ export const AD_ENCODER = {
 }
 
 export function AdEncoder(props: NodeProps) {
-  return (
-    <Shape {...AD_ENCODER} {...props} _style={extendStyle(AD_ENCODER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AD_ENCODER)} />
 }

@@ -11,7 +11,5 @@ export const HCP_CACHE = {
 }
 
 export function HcpCache(props: NodeProps) {
-  return (
-    <Shape {...HCP_CACHE} {...props} _style={extendStyle(HCP_CACHE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HCP_CACHE)} />
 }

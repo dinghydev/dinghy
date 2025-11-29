@@ -11,7 +11,5 @@ export const PEDESTRIAN = {
 }
 
 export function Pedestrian(props: NodeProps) {
-  return (
-    <Shape {...PEDESTRIAN} {...props} _style={extendStyle(PEDESTRIAN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PEDESTRIAN)} />
 }

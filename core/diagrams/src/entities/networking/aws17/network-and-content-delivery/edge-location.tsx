@@ -11,11 +11,5 @@ export const EDGE_LOCATION = {
 }
 
 export function EdgeLocation(props: NodeProps) {
-  return (
-    <Shape
-      {...EDGE_LOCATION}
-      {...props}
-      _style={extendStyle(EDGE_LOCATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EDGE_LOCATION)} />
 }

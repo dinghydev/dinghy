@@ -11,5 +11,5 @@ export const ING = {
 }
 
 export function Ing(props: NodeProps) {
-  return <Shape {...ING} {...props} _style={extendStyle(ING, props)} />
+  return <Shape {...props} _style={extendStyle(props, ING)} />
 }

@@ -11,11 +11,5 @@ export const USER_CONTROL = {
 }
 
 export function UserControl(props: NodeProps) {
-  return (
-    <Shape
-      {...USER_CONTROL}
-      {...props}
-      _style={extendStyle(USER_CONTROL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_CONTROL)} />
 }

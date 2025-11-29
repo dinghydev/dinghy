@@ -11,11 +11,5 @@ export const STACK_HCI_PREMIUM = {
 }
 
 export function StackHciPremium(props: NodeProps) {
-  return (
-    <Shape
-      {...STACK_HCI_PREMIUM}
-      {...props}
-      _style={extendStyle(STACK_HCI_PREMIUM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACK_HCI_PREMIUM)} />
 }

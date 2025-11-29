@@ -12,10 +12,6 @@ export const NETWORK_FILE_SHARE_SERVICE = {
 
 export function NetworkFileShareService(props: NodeProps) {
   return (
-    <Shape
-      {...NETWORK_FILE_SHARE_SERVICE}
-      {...props}
-      _style={extendStyle(NETWORK_FILE_SHARE_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NETWORK_FILE_SHARE_SERVICE)} />
   )
 }

@@ -11,7 +11,5 @@ export const LIGHT_CARD = {
 }
 
 export function LightCard(props: NodeProps) {
-  return (
-    <Shape {...LIGHT_CARD} {...props} _style={extendStyle(LIGHT_CARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIGHT_CARD)} />
 }

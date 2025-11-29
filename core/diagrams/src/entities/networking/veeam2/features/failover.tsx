@@ -11,7 +11,5 @@ export const FAILOVER = {
 }
 
 export function Failover(props: NodeProps) {
-  return (
-    <Shape {...FAILOVER} {...props} _style={extendStyle(FAILOVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FAILOVER)} />
 }

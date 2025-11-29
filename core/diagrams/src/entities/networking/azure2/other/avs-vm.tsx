@@ -11,5 +11,5 @@ export const AVS_VM = {
 }
 
 export function AvsVm(props: NodeProps) {
-  return <Shape {...AVS_VM} {...props} _style={extendStyle(AVS_VM, props)} />
+  return <Shape {...props} _style={extendStyle(props, AVS_VM)} />
 }

@@ -11,11 +11,5 @@ export const ON_PREMISES_DIRECTORY = {
 }
 
 export function OnPremisesDirectory(props: NodeProps) {
-  return (
-    <Shape
-      {...ON_PREMISES_DIRECTORY}
-      {...props}
-      _style={extendStyle(ON_PREMISES_DIRECTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ON_PREMISES_DIRECTORY)} />
 }

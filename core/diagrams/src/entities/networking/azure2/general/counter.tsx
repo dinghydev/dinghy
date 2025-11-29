@@ -11,5 +11,5 @@ export const COUNTER = {
 }
 
 export function Counter(props: NodeProps) {
-  return <Shape {...COUNTER} {...props} _style={extendStyle(COUNTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, COUNTER)} />
 }

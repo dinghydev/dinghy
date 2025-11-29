@@ -11,11 +11,5 @@ export const API_CONNECTIONS = {
 }
 
 export function ApiConnections(props: NodeProps) {
-  return (
-    <Shape
-      {...API_CONNECTIONS}
-      {...props}
-      _style={extendStyle(API_CONNECTIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_CONNECTIONS)} />
 }

@@ -11,11 +11,5 @@ export const REVERSE_PROXY = {
 }
 
 export function ReverseProxy(props: NodeProps) {
-  return (
-    <Shape
-      {...REVERSE_PROXY}
-      {...props}
-      _style={extendStyle(REVERSE_PROXY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REVERSE_PROXY)} />
 }

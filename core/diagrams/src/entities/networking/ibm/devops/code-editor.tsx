@@ -11,11 +11,5 @@ export const CODE_EDITOR = {
 }
 
 export function CodeEditor(props: NodeProps) {
-  return (
-    <Shape
-      {...CODE_EDITOR}
-      {...props}
-      _style={extendStyle(CODE_EDITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODE_EDITOR)} />
 }

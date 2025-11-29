@@ -11,11 +11,5 @@ export const EXTRUDER_PISTON = {
 }
 
 export function ExtruderPiston(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTRUDER_PISTON}
-      {...props}
-      _style={extendStyle(EXTRUDER_PISTON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTRUDER_PISTON)} />
 }

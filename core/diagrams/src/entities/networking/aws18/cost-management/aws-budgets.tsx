@@ -11,11 +11,5 @@ export const AWS_BUDGETS = {
 }
 
 export function AwsBudgets(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_BUDGETS}
-      {...props}
-      _style={extendStyle(AWS_BUDGETS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_BUDGETS)} />
 }

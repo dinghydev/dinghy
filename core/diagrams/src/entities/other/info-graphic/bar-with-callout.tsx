@@ -11,11 +11,5 @@ export const BAR_WITH_CALLOUT = {
 }
 
 export function BarWithCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...BAR_WITH_CALLOUT}
-      {...props}
-      _style={extendStyle(BAR_WITH_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BAR_WITH_CALLOUT)} />
 }

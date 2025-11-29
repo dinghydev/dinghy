@@ -11,11 +11,5 @@ export const POTENTIOMETER_TRIMMER = {
 }
 
 export function PotentiometerTrimmer(props: NodeProps) {
-  return (
-    <Shape
-      {...POTENTIOMETER_TRIMMER}
-      {...props}
-      _style={extendStyle(POTENTIOMETER_TRIMMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POTENTIOMETER_TRIMMER)} />
 }

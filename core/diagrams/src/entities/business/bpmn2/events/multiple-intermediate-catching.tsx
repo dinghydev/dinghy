@@ -13,9 +13,8 @@ export const MULTIPLE_INTERMEDIATE_CATCHING = {
 export function MultipleIntermediateCatching(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_INTERMEDIATE_CATCHING}
       {...props}
-      _style={extendStyle(MULTIPLE_INTERMEDIATE_CATCHING, props)}
+      _style={extendStyle(props, MULTIPLE_INTERMEDIATE_CATCHING)}
     />
   )
 }

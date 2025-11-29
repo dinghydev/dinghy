@@ -11,7 +11,5 @@ export const SIMPLE_AD = {
 }
 
 export function SimpleAd(props: NodeProps) {
-  return (
-    <Shape {...SIMPLE_AD} {...props} _style={extendStyle(SIMPLE_AD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMPLE_AD)} />
 }

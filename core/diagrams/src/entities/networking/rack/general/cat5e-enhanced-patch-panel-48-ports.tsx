@@ -13,9 +13,8 @@ export const CAT5E_ENHANCED_PATCH_PANEL_48_PORTS = {
 export function Cat5eEnhancedPatchPanel48Ports(props: NodeProps) {
   return (
     <Shape
-      {...CAT5E_ENHANCED_PATCH_PANEL_48_PORTS}
       {...props}
-      _style={extendStyle(CAT5E_ENHANCED_PATCH_PANEL_48_PORTS, props)}
+      _style={extendStyle(props, CAT5E_ENHANCED_PATCH_PANEL_48_PORTS)}
     />
   )
 }

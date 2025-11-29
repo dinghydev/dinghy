@@ -11,5 +11,5 @@ export const VNF_M = {
 }
 
 export function VnfM(props: NodeProps) {
-  return <Shape {...VNF_M} {...props} _style={extendStyle(VNF_M, props)} />
+  return <Shape {...props} _style={extendStyle(props, VNF_M)} />
 }

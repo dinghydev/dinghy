@@ -11,7 +11,5 @@ export const SINE_WAVE = {
 }
 
 export function SineWave(props: NodeProps) {
-  return (
-    <Shape {...SINE_WAVE} {...props} _style={extendStyle(SINE_WAVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SINE_WAVE)} />
 }

@@ -11,11 +11,5 @@ export const ROLE_STOREFRONT = {
 }
 
 export function RoleStorefront(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_STOREFRONT}
-      {...props}
-      _style={extendStyle(ROLE_STOREFRONT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_STOREFRONT)} />
 }

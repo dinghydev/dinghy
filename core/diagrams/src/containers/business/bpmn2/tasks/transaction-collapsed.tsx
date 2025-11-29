@@ -9,11 +9,5 @@ export const TRANSACTION_COLLAPSED = {
 }
 
 export function TransactionCollapsed(props: NodeProps) {
-  return (
-    <Shape
-      {...TRANSACTION_COLLAPSED}
-      {...props}
-      _style={extendStyle(TRANSACTION_COLLAPSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TRANSACTION_COLLAPSED)} />
 }

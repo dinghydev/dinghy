@@ -11,11 +11,5 @@ export const AWS_ARTIFACT = {
 }
 
 export function AwsArtifact(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_ARTIFACT}
-      {...props}
-      _style={extendStyle(AWS_ARTIFACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_ARTIFACT)} />
 }

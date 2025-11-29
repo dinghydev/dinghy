@@ -11,11 +11,5 @@ export const LOCKED_NON_SAP = {
 }
 
 export function LockedNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCKED_NON_SAP}
-      {...props}
-      _style={extendStyle(LOCKED_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCKED_NON_SAP)} />
 }

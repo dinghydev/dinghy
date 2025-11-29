@@ -11,11 +11,5 @@ export const FOLDER_SHARED = {
 }
 
 export function FolderShared(props: NodeProps) {
-  return (
-    <Shape
-      {...FOLDER_SHARED}
-      {...props}
-      _style={extendStyle(FOLDER_SHARED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FOLDER_SHARED)} />
 }

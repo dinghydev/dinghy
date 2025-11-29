@@ -11,5 +11,5 @@ export const ADVISOR = {
 }
 
 export function Advisor(props: NodeProps) {
-  return <Shape {...ADVISOR} {...props} _style={extendStyle(ADVISOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADVISOR)} />
 }

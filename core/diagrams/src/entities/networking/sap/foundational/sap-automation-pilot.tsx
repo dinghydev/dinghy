@@ -11,11 +11,5 @@ export const SAP_AUTOMATION_PILOT = {
 }
 
 export function SapAutomationPilot(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_AUTOMATION_PILOT}
-      {...props}
-      _style={extendStyle(SAP_AUTOMATION_PILOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_AUTOMATION_PILOT)} />
 }

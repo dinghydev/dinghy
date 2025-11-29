@@ -11,5 +11,5 @@ export const SELECT = {
 }
 
 export function Select(props: NodeProps) {
-  return <Shape {...SELECT} {...props} _style={extendStyle(SELECT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SELECT)} />
 }

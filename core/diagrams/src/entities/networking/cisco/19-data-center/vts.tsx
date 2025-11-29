@@ -11,5 +11,5 @@ export const VTS = {
 }
 
 export function Vts(props: NodeProps) {
-  return <Shape {...VTS} {...props} _style={extendStyle(VTS, props)} />
+  return <Shape {...props} _style={extendStyle(props, VTS)} />
 }

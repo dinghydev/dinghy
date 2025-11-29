@@ -11,5 +11,5 @@ export const KENNEL = {
 }
 
 export function Kennel(props: NodeProps) {
-  return <Shape {...KENNEL} {...props} _style={extendStyle(KENNEL, props)} />
+  return <Shape {...props} _style={extendStyle(props, KENNEL)} />
 }

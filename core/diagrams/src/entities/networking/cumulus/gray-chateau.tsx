@@ -10,11 +10,5 @@ export const GRAY_CHATEAU = {
 }
 
 export function GrayChateau(props: NodeProps) {
-  return (
-    <Shape
-      {...GRAY_CHATEAU}
-      {...props}
-      _style={extendStyle(GRAY_CHATEAU, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GRAY_CHATEAU)} />
 }

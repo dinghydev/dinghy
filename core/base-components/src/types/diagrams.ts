@@ -142,4 +142,4 @@ export const DiagramNodeSchema = z.object({
   ).meta({ hidden: true }),
 }).meta({ hideRequired: true, hideDefault: true })
 
-export type DiagramNodeType = z.output<typeof DiagramNodeSchema>
+export type DiagramNodeType = z.input<typeof DiagramNodeSchema>

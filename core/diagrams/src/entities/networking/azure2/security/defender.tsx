@@ -11,7 +11,5 @@ export const DEFENDER = {
 }
 
 export function Defender(props: NodeProps) {
-  return (
-    <Shape {...DEFENDER} {...props} _style={extendStyle(DEFENDER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER)} />
 }

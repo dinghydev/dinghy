@@ -11,5 +11,5 @@ export const WAF = {
 }
 
 export function Waf(props: NodeProps) {
-  return <Shape {...WAF} {...props} _style={extendStyle(WAF, props)} />
+  return <Shape {...props} _style={extendStyle(props, WAF)} />
 }

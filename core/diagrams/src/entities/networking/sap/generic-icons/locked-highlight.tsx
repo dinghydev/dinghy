@@ -11,11 +11,5 @@ export const LOCKED_HIGHLIGHT = {
 }
 
 export function LockedHighlight(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCKED_HIGHLIGHT}
-      {...props}
-      _style={extendStyle(LOCKED_HIGHLIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCKED_HIGHLIGHT)} />
 }

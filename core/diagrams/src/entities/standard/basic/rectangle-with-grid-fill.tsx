@@ -12,10 +12,6 @@ export const RECTANGLE_WITH_GRID_FILL = {
 
 export function RectangleWithGridFill(props: NodeProps) {
   return (
-    <Shape
-      {...RECTANGLE_WITH_GRID_FILL}
-      {...props}
-      _style={extendStyle(RECTANGLE_WITH_GRID_FILL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, RECTANGLE_WITH_GRID_FILL)} />
   )
 }

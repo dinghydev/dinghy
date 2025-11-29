@@ -11,11 +11,5 @@ export const BREADCRUMB_ONE_LEVEL = {
 }
 
 export function BreadcrumbOneLevel(props: NodeProps) {
-  return (
-    <Shape
-      {...BREADCRUMB_ONE_LEVEL}
-      {...props}
-      _style={extendStyle(BREADCRUMB_ONE_LEVEL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREADCRUMB_ONE_LEVEL)} />
 }

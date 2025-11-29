@@ -11,5 +11,5 @@ export const SORT = {
 }
 
 export function Sort(props: NodeProps) {
-  return <Shape {...SORT} {...props} _style={extendStyle(SORT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SORT)} />
 }

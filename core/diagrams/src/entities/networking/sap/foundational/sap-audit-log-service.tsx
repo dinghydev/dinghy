@@ -11,11 +11,5 @@ export const SAP_AUDIT_LOG_SERVICE = {
 }
 
 export function SapAuditLogService(props: NodeProps) {
-  return (
-    <Shape
-      {...SAP_AUDIT_LOG_SERVICE}
-      {...props}
-      _style={extendStyle(SAP_AUDIT_LOG_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAP_AUDIT_LOG_SERVICE)} />
 }

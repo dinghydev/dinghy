@@ -11,11 +11,5 @@ export const CODEWHISPERER = {
 }
 
 export function Codewhisperer(props: NodeProps) {
-  return (
-    <Shape
-      {...CODEWHISPERER}
-      {...props}
-      _style={extendStyle(CODEWHISPERER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEWHISPERER)} />
 }

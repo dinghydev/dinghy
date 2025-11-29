@@ -11,11 +11,5 @@ export const COST_ARROWS = {
 }
 
 export function CostArrows(props: NodeProps) {
-  return (
-    <Shape
-      {...COST_ARROWS}
-      {...props}
-      _style={extendStyle(COST_ARROWS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_ARROWS)} />
 }

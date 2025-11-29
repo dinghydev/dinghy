@@ -11,5 +11,5 @@ export const REDUCER = {
 }
 
 export function Reducer(props: NodeProps) {
-  return <Shape {...REDUCER} {...props} _style={extendStyle(REDUCER, props)} />
+  return <Shape {...props} _style={extendStyle(props, REDUCER)} />
 }

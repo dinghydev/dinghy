@@ -11,11 +11,5 @@ export const COMPACT_TEXT_FIELD_2 = {
 }
 
 export function CompactTextField2(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPACT_TEXT_FIELD_2}
-      {...props}
-      _style={extendStyle(COMPACT_TEXT_FIELD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPACT_TEXT_FIELD_2)} />
 }

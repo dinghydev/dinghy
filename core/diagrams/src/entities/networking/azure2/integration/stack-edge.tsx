@@ -11,7 +11,5 @@ export const STACK_EDGE = {
 }
 
 export function StackEdge(props: NodeProps) {
-  return (
-    <Shape {...STACK_EDGE} {...props} _style={extendStyle(STACK_EDGE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACK_EDGE)} />
 }

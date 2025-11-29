@@ -11,11 +11,5 @@ export const VBEM_SERVER = {
 }
 
 export function VbemServer(props: NodeProps) {
-  return (
-    <Shape
-      {...VBEM_SERVER}
-      {...props}
-      _style={extendStyle(VBEM_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VBEM_SERVER)} />
 }

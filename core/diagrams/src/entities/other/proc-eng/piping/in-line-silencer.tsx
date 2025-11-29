@@ -11,11 +11,5 @@ export const IN_LINE_SILENCER = {
 }
 
 export function InLineSilencer(props: NodeProps) {
-  return (
-    <Shape
-      {...IN_LINE_SILENCER}
-      {...props}
-      _style={extendStyle(IN_LINE_SILENCER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IN_LINE_SILENCER)} />
 }

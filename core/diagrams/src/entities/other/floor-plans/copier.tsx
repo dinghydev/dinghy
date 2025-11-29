@@ -11,5 +11,5 @@ export const COPIER = {
 }
 
 export function Copier(props: NodeProps) {
-  return <Shape {...COPIER} {...props} _style={extendStyle(COPIER, props)} />
+  return <Shape {...props} _style={extendStyle(props, COPIER)} />
 }

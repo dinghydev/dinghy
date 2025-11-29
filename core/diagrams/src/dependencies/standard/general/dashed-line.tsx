@@ -8,11 +8,5 @@ export const DASHED_LINE = {
 }
 
 export function DashedLine(props: NodeProps) {
-  return (
-    <Dependency
-      {...DASHED_LINE}
-      {...props}
-      _style={extendStyle(DASHED_LINE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DASHED_LINE)} />
 }

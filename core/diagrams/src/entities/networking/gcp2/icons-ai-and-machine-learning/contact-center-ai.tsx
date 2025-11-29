@@ -11,11 +11,5 @@ export const CONTACT_CENTER_AI = {
 }
 
 export function ContactCenterAi(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACT_CENTER_AI}
-      {...props}
-      _style={extendStyle(CONTACT_CENTER_AI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_CENTER_AI)} />
 }

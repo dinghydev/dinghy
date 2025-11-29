@@ -11,11 +11,5 @@ export const TARGETS_MANAGEMENT = {
 }
 
 export function TargetsManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...TARGETS_MANAGEMENT}
-      {...props}
-      _style={extendStyle(TARGETS_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TARGETS_MANAGEMENT)} />
 }

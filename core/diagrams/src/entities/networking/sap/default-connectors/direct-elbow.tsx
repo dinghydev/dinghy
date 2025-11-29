@@ -11,11 +11,5 @@ export const DIRECT_ELBOW = {
 }
 
 export function DirectElbow(props: NodeProps) {
-  return (
-    <Shape
-      {...DIRECT_ELBOW}
-      {...props}
-      _style={extendStyle(DIRECT_ELBOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECT_ELBOW)} />
 }

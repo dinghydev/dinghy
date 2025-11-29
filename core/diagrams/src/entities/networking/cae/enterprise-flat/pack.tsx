@@ -11,5 +11,5 @@ export const PACK = {
 }
 
 export function Pack(props: NodeProps) {
-  return <Shape {...PACK} {...props} _style={extendStyle(PACK, props)} />
+  return <Shape {...props} _style={extendStyle(props, PACK)} />
 }

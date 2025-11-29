@@ -11,11 +11,5 @@ export const PAPER_PLANE_SAP = {
 }
 
 export function PaperPlaneSap(props: NodeProps) {
-  return (
-    <Shape
-      {...PAPER_PLANE_SAP}
-      {...props}
-      _style={extendStyle(PAPER_PLANE_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PAPER_PLANE_SAP)} />
 }

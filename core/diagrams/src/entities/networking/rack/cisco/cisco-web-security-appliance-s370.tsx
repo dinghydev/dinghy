@@ -13,9 +13,8 @@ export const CISCO_WEB_SECURITY_APPLIANCE_S370 = {
 export function CiscoWebSecurityApplianceS370(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_WEB_SECURITY_APPLIANCE_S370}
       {...props}
-      _style={extendStyle(CISCO_WEB_SECURITY_APPLIANCE_S370, props)}
+      _style={extendStyle(props, CISCO_WEB_SECURITY_APPLIANCE_S370)}
     />
   )
 }

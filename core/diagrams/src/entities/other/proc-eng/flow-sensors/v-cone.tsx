@@ -11,5 +11,5 @@ export const V_CONE = {
 }
 
 export function VCone(props: NodeProps) {
-  return <Shape {...V_CONE} {...props} _style={extendStyle(V_CONE, props)} />
+  return <Shape {...props} _style={extendStyle(props, V_CONE)} />
 }

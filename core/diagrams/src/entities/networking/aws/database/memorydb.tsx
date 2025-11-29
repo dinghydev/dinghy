@@ -11,7 +11,5 @@ export const MEMORYDB = {
 }
 
 export function Memorydb(props: NodeProps) {
-  return (
-    <Shape {...MEMORYDB} {...props} _style={extendStyle(MEMORYDB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEMORYDB)} />
 }

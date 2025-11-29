@@ -11,11 +11,5 @@ export const BACKUP_LEGAL_HOLD = {
 }
 
 export function BackupLegalHold(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_LEGAL_HOLD}
-      {...props}
-      _style={extendStyle(BACKUP_LEGAL_HOLD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_LEGAL_HOLD)} />
 }

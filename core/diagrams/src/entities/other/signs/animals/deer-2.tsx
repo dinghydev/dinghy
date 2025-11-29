@@ -11,5 +11,5 @@ export const DEER_2 = {
 }
 
 export function Deer2(props: NodeProps) {
-  return <Shape {...DEER_2} {...props} _style={extendStyle(DEER_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, DEER_2)} />
 }

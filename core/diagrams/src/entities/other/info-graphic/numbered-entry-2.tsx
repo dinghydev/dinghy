@@ -11,11 +11,5 @@ export const NUMBERED_ENTRY_2 = {
 }
 
 export function NumberedEntry2(props: NodeProps) {
-  return (
-    <Shape
-      {...NUMBERED_ENTRY_2}
-      {...props}
-      _style={extendStyle(NUMBERED_ENTRY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NUMBERED_ENTRY_2)} />
 }

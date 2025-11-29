@@ -11,11 +11,5 @@ export const DATABASE_GENERIC = {
 }
 
 export function DatabaseGeneric(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_GENERIC}
-      {...props}
-      _style={extendStyle(DATABASE_GENERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_GENERIC)} />
 }

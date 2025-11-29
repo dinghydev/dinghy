@@ -11,5 +11,5 @@ export const GEAR = {
 }
 
 export function Gear(props: NodeProps) {
-  return <Shape {...GEAR} {...props} _style={extendStyle(GEAR, props)} />
+  return <Shape {...props} _style={extendStyle(props, GEAR)} />
 }

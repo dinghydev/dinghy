@@ -11,11 +11,5 @@ export const CLASSIFIER_4 = {
 }
 
 export function Classifier4(props: NodeProps) {
-  return (
-    <Shape
-      {...CLASSIFIER_4}
-      {...props}
-      _style={extendStyle(CLASSIFIER_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLASSIFIER_4)} />
 }

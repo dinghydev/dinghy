@@ -11,5 +11,5 @@ export const API_2 = {
 }
 
 export function Api2(props: NodeProps) {
-  return <Shape {...API_2} {...props} _style={extendStyle(API_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, API_2)} />
 }

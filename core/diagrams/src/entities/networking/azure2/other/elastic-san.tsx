@@ -11,11 +11,5 @@ export const ELASTIC_SAN = {
 }
 
 export function ElasticSan(props: NodeProps) {
-  return (
-    <Shape
-      {...ELASTIC_SAN}
-      {...props}
-      _style={extendStyle(ELASTIC_SAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_SAN)} />
 }

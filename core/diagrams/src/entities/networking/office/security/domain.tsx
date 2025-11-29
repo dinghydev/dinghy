@@ -11,5 +11,5 @@ export const DOMAIN = {
 }
 
 export function Domain(props: NodeProps) {
-  return <Shape {...DOMAIN} {...props} _style={extendStyle(DOMAIN, props)} />
+  return <Shape {...props} _style={extendStyle(props, DOMAIN)} />
 }

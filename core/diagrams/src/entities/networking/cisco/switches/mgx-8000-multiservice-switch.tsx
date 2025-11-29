@@ -13,9 +13,8 @@ export const MGX_8000_MULTISERVICE_SWITCH = {
 export function Mgx8000MultiserviceSwitch(props: NodeProps) {
   return (
     <Shape
-      {...MGX_8000_MULTISERVICE_SWITCH}
       {...props}
-      _style={extendStyle(MGX_8000_MULTISERVICE_SWITCH, props)}
+      _style={extendStyle(props, MGX_8000_MULTISERVICE_SWITCH)}
     />
   )
 }

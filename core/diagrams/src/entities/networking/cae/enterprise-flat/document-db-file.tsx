@@ -11,11 +11,5 @@ export const DOCUMENT_DB_FILE = {
 }
 
 export function DocumentDbFile(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_DB_FILE}
-      {...props}
-      _style={extendStyle(DOCUMENT_DB_FILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_DB_FILE)} />
 }

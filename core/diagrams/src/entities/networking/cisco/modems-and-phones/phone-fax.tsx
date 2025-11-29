@@ -11,7 +11,5 @@ export const PHONE_FAX = {
 }
 
 export function PhoneFax(props: NodeProps) {
-  return (
-    <Shape {...PHONE_FAX} {...props} _style={extendStyle(PHONE_FAX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_FAX)} />
 }

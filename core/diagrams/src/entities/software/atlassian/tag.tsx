@@ -11,5 +11,5 @@ export const TAG = {
 }
 
 export function Tag(props: NodeProps) {
-  return <Shape {...TAG} {...props} _style={extendStyle(TAG, props)} />
+  return <Shape {...props} _style={extendStyle(props, TAG)} />
 }

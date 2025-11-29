@@ -11,11 +11,5 @@ export const BREADCRUMB_3 = {
 }
 
 export function Breadcrumb3(props: NodeProps) {
-  return (
-    <Shape
-      {...BREADCRUMB_3}
-      {...props}
-      _style={extendStyle(BREADCRUMB_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREADCRUMB_3)} />
 }

@@ -11,11 +11,5 @@ export const T_TYPE_FLIP_FLOP = {
 }
 
 export function TTypeFlipFlop(props: NodeProps) {
-  return (
-    <Shape
-      {...T_TYPE_FLIP_FLOP}
-      {...props}
-      _style={extendStyle(T_TYPE_FLIP_FLOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, T_TYPE_FLIP_FLOP)} />
 }

@@ -11,7 +11,5 @@ export const QUANTIZER = {
 }
 
 export function Quantizer(props: NodeProps) {
-  return (
-    <Shape {...QUANTIZER} {...props} _style={extendStyle(QUANTIZER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, QUANTIZER)} />
 }

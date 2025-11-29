@@ -11,11 +11,5 @@ export const AWS_DATA_PIPELINE = {
 }
 
 export function AwsDataPipeline(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_DATA_PIPELINE}
-      {...props}
-      _style={extendStyle(AWS_DATA_PIPELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_DATA_PIPELINE)} />
 }

@@ -11,11 +11,5 @@ export const CAVITY_PUMP = {
 }
 
 export function CavityPump(props: NodeProps) {
-  return (
-    <Shape
-      {...CAVITY_PUMP}
-      {...props}
-      _style={extendStyle(CAVITY_PUMP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CAVITY_PUMP)} />
 }

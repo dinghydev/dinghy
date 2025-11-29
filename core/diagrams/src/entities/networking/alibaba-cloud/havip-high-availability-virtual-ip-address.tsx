@@ -13,9 +13,8 @@ export const HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS = {
 export function HavipHighAvailabilityVirtualIpAddress(props: NodeProps) {
   return (
     <Shape
-      {...HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS}
       {...props}
-      _style={extendStyle(HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS, props)}
+      _style={extendStyle(props, HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS)}
     />
   )
 }

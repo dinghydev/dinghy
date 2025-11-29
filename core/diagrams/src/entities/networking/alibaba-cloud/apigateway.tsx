@@ -11,7 +11,5 @@ export const APIGATEWAY = {
 }
 
 export function Apigateway(props: NodeProps) {
-  return (
-    <Shape {...APIGATEWAY} {...props} _style={extendStyle(APIGATEWAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, APIGATEWAY)} />
 }

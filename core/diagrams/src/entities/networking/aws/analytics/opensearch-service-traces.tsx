@@ -12,10 +12,6 @@ export const OPENSEARCH_SERVICE_TRACES = {
 
 export function OpensearchServiceTraces(props: NodeProps) {
   return (
-    <Shape
-      {...OPENSEARCH_SERVICE_TRACES}
-      {...props}
-      _style={extendStyle(OPENSEARCH_SERVICE_TRACES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPENSEARCH_SERVICE_TRACES)} />
   )
 }

@@ -11,5 +11,5 @@ export const WAC = {
 }
 
 export function Wac(props: NodeProps) {
-  return <Shape {...WAC} {...props} _style={extendStyle(WAC, props)} />
+  return <Shape {...props} _style={extendStyle(props, WAC)} />
 }

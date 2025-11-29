@@ -1,0 +1,49 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# S3 Glacier
+
+## AwsGlacierVault
+
+Provides a Glacier Vault.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glacier_vault)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/glacier/AwsGlacierVault.tsx)
+
+```js
+import { AwsGlacierVault } from "@dinghy/tf-aws/serviceGlacier"
+
+<AwsGlacierVault/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsGlacierVaultLock
+
+Manages a Glacier Vault Lock.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glacier_vault_lock)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/glacier/AwsGlacierVaultLock.tsx)
+
+```js
+import { AwsGlacierVaultLock } from "@dinghy/tf-aws/serviceGlacier"
+
+<AwsGlacierVaultLock/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

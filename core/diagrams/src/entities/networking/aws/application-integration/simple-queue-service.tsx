@@ -11,11 +11,5 @@ export const SIMPLE_QUEUE_SERVICE = {
 }
 
 export function SimpleQueueService(props: NodeProps) {
-  return (
-    <Shape
-      {...SIMPLE_QUEUE_SERVICE}
-      {...props}
-      _style={extendStyle(SIMPLE_QUEUE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SIMPLE_QUEUE_SERVICE)} />
 }

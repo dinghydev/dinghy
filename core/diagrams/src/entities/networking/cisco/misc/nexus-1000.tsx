@@ -11,7 +11,5 @@ export const NEXUS_1000 = {
 }
 
 export function Nexus1000(props: NodeProps) {
-  return (
-    <Shape {...NEXUS_1000} {...props} _style={extendStyle(NEXUS_1000, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEXUS_1000)} />
 }

@@ -11,11 +11,5 @@ export const THIN_CLIENT = {
 }
 
 export function ThinClient(props: NodeProps) {
-  return (
-    <Shape
-      {...THIN_CLIENT}
-      {...props}
-      _style={extendStyle(THIN_CLIENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THIN_CLIENT)} />
 }

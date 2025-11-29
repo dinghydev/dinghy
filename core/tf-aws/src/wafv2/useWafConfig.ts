@@ -1,7 +1,5 @@
 import { z } from 'zod'
 import { loadFilesData, useRenderOptions } from '@dinghy/base-components'
-import Debug from 'debug'
-const debug = Debug('useWafConfig')
 
 const WafActionSchema = z.object({
   pathRegex: z.string().optional(),
@@ -47,7 +45,7 @@ const loadIpList = (
   const listData = renderOptions.files?.data?.waf?.files[listFile]
   if (listData) {
     ipList.push(...listData)
-    debug('loaded %s', listFile)
+    // debug('loaded %s', listFile)
   }
 }
 
@@ -63,6 +61,6 @@ export function useWafConfig(name: string) {
   loadIpList(renderOptions, inputData, 'allowed')
 
   const config = WafConfigSchema.passthrough().parse(inputData)
-  debug('loaded waf config %O', config)
+  // debug('loaded waf config %O', config)
   return { config }
 }

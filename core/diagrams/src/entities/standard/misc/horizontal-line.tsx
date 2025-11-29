@@ -10,11 +10,5 @@ export const HORIZONTAL_LINE = {
 }
 
 export function HorizontalLine(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_LINE}
-      {...props}
-      _style={extendStyle(HORIZONTAL_LINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_LINE)} />
 }

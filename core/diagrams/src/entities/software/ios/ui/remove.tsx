@@ -11,5 +11,5 @@ export const REMOVE = {
 }
 
 export function Remove(props: NodeProps) {
-  return <Shape {...REMOVE} {...props} _style={extendStyle(REMOVE, props)} />
+  return <Shape {...props} _style={extendStyle(props, REMOVE)} />
 }

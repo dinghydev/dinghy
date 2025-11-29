@@ -11,11 +11,5 @@ export const WINDOWS_ROUTER = {
 }
 
 export function WindowsRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...WINDOWS_ROUTER}
-      {...props}
-      _style={extendStyle(WINDOWS_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDOWS_ROUTER)} />
 }

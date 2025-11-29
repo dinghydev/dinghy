@@ -11,11 +11,5 @@ export const BIOMEDICAL_TRIO = {
 }
 
 export function BiomedicalTrio(props: NodeProps) {
-  return (
-    <Shape
-      {...BIOMEDICAL_TRIO}
-      {...props}
-      _style={extendStyle(BIOMEDICAL_TRIO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BIOMEDICAL_TRIO)} />
 }

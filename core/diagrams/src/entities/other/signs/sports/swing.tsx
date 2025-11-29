@@ -11,5 +11,5 @@ export const SWING = {
 }
 
 export function Swing(props: NodeProps) {
-  return <Shape {...SWING} {...props} _style={extendStyle(SWING, props)} />
+  return <Shape {...props} _style={extendStyle(props, SWING)} />
 }

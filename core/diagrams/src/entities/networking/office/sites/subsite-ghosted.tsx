@@ -11,11 +11,5 @@ export const SUBSITE_GHOSTED = {
 }
 
 export function SubsiteGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...SUBSITE_GHOSTED}
-      {...props}
-      _style={extendStyle(SUBSITE_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBSITE_GHOSTED)} />
 }

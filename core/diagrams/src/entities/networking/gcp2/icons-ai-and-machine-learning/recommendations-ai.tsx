@@ -11,11 +11,5 @@ export const RECOMMENDATIONS_AI = {
 }
 
 export function RecommendationsAi(props: NodeProps) {
-  return (
-    <Shape
-      {...RECOMMENDATIONS_AI}
-      {...props}
-      _style={extendStyle(RECOMMENDATIONS_AI, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECOMMENDATIONS_AI)} />
 }

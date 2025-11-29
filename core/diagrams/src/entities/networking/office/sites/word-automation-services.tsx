@@ -12,10 +12,6 @@ export const WORD_AUTOMATION_SERVICES = {
 
 export function WordAutomationServices(props: NodeProps) {
   return (
-    <Shape
-      {...WORD_AUTOMATION_SERVICES}
-      {...props}
-      _style={extendStyle(WORD_AUTOMATION_SERVICES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WORD_AUTOMATION_SERVICES)} />
   )
 }

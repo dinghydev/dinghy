@@ -11,11 +11,5 @@ export const AZURE_CACHE = {
 }
 
 export function AzureCache(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_CACHE}
-      {...props}
-      _style={extendStyle(AZURE_CACHE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_CACHE)} />
 }

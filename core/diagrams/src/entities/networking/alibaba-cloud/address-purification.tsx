@@ -11,11 +11,5 @@ export const ADDRESS_PURIFICATION = {
 }
 
 export function AddressPurification(props: NodeProps) {
-  return (
-    <Shape
-      {...ADDRESS_PURIFICATION}
-      {...props}
-      _style={extendStyle(ADDRESS_PURIFICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADDRESS_PURIFICATION)} />
 }

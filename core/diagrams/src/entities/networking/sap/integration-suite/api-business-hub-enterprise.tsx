@@ -13,9 +13,8 @@ export const API_BUSINESS_HUB_ENTERPRISE = {
 export function ApiBusinessHubEnterprise(props: NodeProps) {
   return (
     <Shape
-      {...API_BUSINESS_HUB_ENTERPRISE}
       {...props}
-      _style={extendStyle(API_BUSINESS_HUB_ENTERPRISE, props)}
+      _style={extendStyle(props, API_BUSINESS_HUB_ENTERPRISE)}
     />
   )
 }

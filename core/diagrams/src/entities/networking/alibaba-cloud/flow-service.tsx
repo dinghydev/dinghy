@@ -11,11 +11,5 @@ export const FLOW_SERVICE = {
 }
 
 export function FlowService(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOW_SERVICE}
-      {...props}
-      _style={extendStyle(FLOW_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_SERVICE)} />
 }

@@ -11,11 +11,5 @@ export const COMPRESSOR_TURBO = {
 }
 
 export function CompressorTurbo(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPRESSOR_TURBO}
-      {...props}
-      _style={extendStyle(COMPRESSOR_TURBO, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR_TURBO)} />
 }

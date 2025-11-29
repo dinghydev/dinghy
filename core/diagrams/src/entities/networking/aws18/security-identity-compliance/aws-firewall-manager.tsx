@@ -11,11 +11,5 @@ export const AWS_FIREWALL_MANAGER = {
 }
 
 export function AwsFirewallManager(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_FIREWALL_MANAGER}
-      {...props}
-      _style={extendStyle(AWS_FIREWALL_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_FIREWALL_MANAGER)} />
 }

@@ -11,7 +11,5 @@ export const MEDIA_POOL = {
 }
 
 export function MediaPool(props: NodeProps) {
-  return (
-    <Shape {...MEDIA_POOL} {...props} _style={extendStyle(MEDIA_POOL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIA_POOL)} />
 }

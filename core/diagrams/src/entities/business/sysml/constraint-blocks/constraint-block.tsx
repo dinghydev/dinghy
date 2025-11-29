@@ -11,11 +11,5 @@ export const CONSTRAINT_BLOCK = {
 }
 
 export function ConstraintBlock(props: NodeProps) {
-  return (
-    <Shape
-      {...CONSTRAINT_BLOCK}
-      {...props}
-      _style={extendStyle(CONSTRAINT_BLOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSTRAINT_BLOCK)} />
 }

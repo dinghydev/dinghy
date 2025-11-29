@@ -11,7 +11,5 @@ export const PROMETHEUS = {
 }
 
 export function Prometheus(props: NodeProps) {
-  return (
-    <Shape {...PROMETHEUS} {...props} _style={extendStyle(PROMETHEUS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROMETHEUS)} />
 }

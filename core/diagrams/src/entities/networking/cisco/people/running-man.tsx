@@ -11,11 +11,5 @@ export const RUNNING_MAN = {
 }
 
 export function RunningMan(props: NodeProps) {
-  return (
-    <Shape
-      {...RUNNING_MAN}
-      {...props}
-      _style={extendStyle(RUNNING_MAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RUNNING_MAN)} />
 }

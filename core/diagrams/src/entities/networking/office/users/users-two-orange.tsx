@@ -11,11 +11,5 @@ export const USERS_TWO_ORANGE = {
 }
 
 export function UsersTwoOrange(props: NodeProps) {
-  return (
-    <Shape
-      {...USERS_TWO_ORANGE}
-      {...props}
-      _style={extendStyle(USERS_TWO_ORANGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USERS_TWO_ORANGE)} />
 }

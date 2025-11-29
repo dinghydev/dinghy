@@ -15,11 +15,10 @@ export function CiscoOns15454SonetSdhMultiserviceProvisioningPlatform(
 ) {
   return (
     <Shape
-      {...CISCO_ONS_15454_SONET_SDH_MULTISERVICE_PROVISIONING_PLATFORM}
       {...props}
       _style={extendStyle(
-        CISCO_ONS_15454_SONET_SDH_MULTISERVICE_PROVISIONING_PLATFORM,
         props,
+        CISCO_ONS_15454_SONET_SDH_MULTISERVICE_PROVISIONING_PLATFORM,
       )}
     />
   )

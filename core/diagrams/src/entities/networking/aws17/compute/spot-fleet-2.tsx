@@ -11,11 +11,5 @@ export const SPOT_FLEET_2 = {
 }
 
 export function SpotFleet2(props: NodeProps) {
-  return (
-    <Shape
-      {...SPOT_FLEET_2}
-      {...props}
-      _style={extendStyle(SPOT_FLEET_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPOT_FLEET_2)} />
 }

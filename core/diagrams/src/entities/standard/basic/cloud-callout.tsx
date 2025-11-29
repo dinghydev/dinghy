@@ -10,11 +10,5 @@ export const CLOUD_CALLOUT = {
 }
 
 export function CloudCallout(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_CALLOUT}
-      {...props}
-      _style={extendStyle(CLOUD_CALLOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_CALLOUT)} />
 }

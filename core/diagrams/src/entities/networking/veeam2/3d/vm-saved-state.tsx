@@ -11,11 +11,5 @@ export const VM_SAVED_STATE = {
 }
 
 export function VmSavedState(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_SAVED_STATE}
-      {...props}
-      _style={extendStyle(VM_SAVED_STATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_SAVED_STATE)} />
 }

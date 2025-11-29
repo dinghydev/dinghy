@@ -11,11 +11,5 @@ export const C4_INSTANCE = {
 }
 
 export function C4Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...C4_INSTANCE}
-      {...props}
-      _style={extendStyle(C4_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, C4_INSTANCE)} />
 }

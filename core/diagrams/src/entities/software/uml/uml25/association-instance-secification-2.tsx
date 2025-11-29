@@ -13,9 +13,8 @@ export const ASSOCIATION_INSTANCE_SECIFICATION_2 = {
 export function AssociationInstanceSecification2(props: NodeProps) {
   return (
     <Shape
-      {...ASSOCIATION_INSTANCE_SECIFICATION_2}
       {...props}
-      _style={extendStyle(ASSOCIATION_INSTANCE_SECIFICATION_2, props)}
+      _style={extendStyle(props, ASSOCIATION_INSTANCE_SECIFICATION_2)}
     />
   )
 }

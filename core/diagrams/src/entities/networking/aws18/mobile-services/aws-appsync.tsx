@@ -11,11 +11,5 @@ export const AWS_APPSYNC = {
 }
 
 export function AwsAppsync(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_APPSYNC}
-      {...props}
-      _style={extendStyle(AWS_APPSYNC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_APPSYNC)} />
 }

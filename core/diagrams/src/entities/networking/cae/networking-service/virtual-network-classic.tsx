@@ -12,10 +12,6 @@ export const VIRTUAL_NETWORK_CLASSIC = {
 
 export function VirtualNetworkClassic(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_NETWORK_CLASSIC}
-      {...props}
-      _style={extendStyle(VIRTUAL_NETWORK_CLASSIC, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_NETWORK_CLASSIC)} />
   )
 }

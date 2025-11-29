@@ -12,10 +12,6 @@ export const VIRTUAL_APPLICATION_SERVER = {
 
 export function VirtualApplicationServer(props: NodeProps) {
   return (
-    <Shape
-      {...VIRTUAL_APPLICATION_SERVER}
-      {...props}
-      _style={extendStyle(VIRTUAL_APPLICATION_SERVER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VIRTUAL_APPLICATION_SERVER)} />
   )
 }

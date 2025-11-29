@@ -11,11 +11,5 @@ export const MESSAGE_ENDPOINT_2 = {
 }
 
 export function MessageEndpoint2(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_ENDPOINT_2}
-      {...props}
-      _style={extendStyle(MESSAGE_ENDPOINT_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_ENDPOINT_2)} />
 }

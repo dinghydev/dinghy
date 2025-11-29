@@ -13,9 +13,8 @@ export const CLIENT_SOFTWARE_DEPLOYMENT_WIZARD = {
 export function ClientSoftwareDeploymentWizard(props: NodeProps) {
   return (
     <Shape
-      {...CLIENT_SOFTWARE_DEPLOYMENT_WIZARD}
       {...props}
-      _style={extendStyle(CLIENT_SOFTWARE_DEPLOYMENT_WIZARD, props)}
+      _style={extendStyle(props, CLIENT_SOFTWARE_DEPLOYMENT_WIZARD)}
     />
   )
 }

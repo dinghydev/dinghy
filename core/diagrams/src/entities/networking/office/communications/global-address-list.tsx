@@ -11,11 +11,5 @@ export const GLOBAL_ADDRESS_LIST = {
 }
 
 export function GlobalAddressList(props: NodeProps) {
-  return (
-    <Shape
-      {...GLOBAL_ADDRESS_LIST}
-      {...props}
-      _style={extendStyle(GLOBAL_ADDRESS_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLOBAL_ADDRESS_LIST)} />
 }

@@ -13,9 +13,8 @@ export const FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER = {
 export function FixedStraightTubesHeatExchanger(props: NodeProps) {
   return (
     <Shape
-      {...FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER}
       {...props}
-      _style={extendStyle(FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER, props)}
+      _style={extendStyle(props, FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER)}
     />
   )
 }

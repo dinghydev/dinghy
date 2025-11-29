@@ -11,7 +11,5 @@ export const BREAKDOWN = {
 }
 
 export function Breakdown(props: NodeProps) {
-  return (
-    <Shape {...BREAKDOWN} {...props} _style={extendStyle(BREAKDOWN, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BREAKDOWN)} />
 }

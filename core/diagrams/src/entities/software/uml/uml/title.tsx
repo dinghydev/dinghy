@@ -11,5 +11,5 @@ export const TITLE = {
 }
 
 export function Title(props: NodeProps) {
-  return <Shape {...TITLE} {...props} _style={extendStyle(TITLE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TITLE)} />
 }

@@ -11,7 +11,5 @@ export const EVENT_MESH = {
 }
 
 export function EventMesh(props: NodeProps) {
-  return (
-    <Shape {...EVENT_MESH} {...props} _style={extendStyle(EVENT_MESH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_MESH)} />
 }

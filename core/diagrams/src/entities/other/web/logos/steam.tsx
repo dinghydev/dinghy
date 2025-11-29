@@ -11,5 +11,5 @@ export const STEAM = {
 }
 
 export function Steam(props: NodeProps) {
-  return <Shape {...STEAM} {...props} _style={extendStyle(STEAM, props)} />
+  return <Shape {...props} _style={extendStyle(props, STEAM)} />
 }

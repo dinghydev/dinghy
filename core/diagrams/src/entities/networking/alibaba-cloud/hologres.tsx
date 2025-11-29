@@ -11,7 +11,5 @@ export const HOLOGRES = {
 }
 
 export function Hologres(props: NodeProps) {
-  return (
-    <Shape {...HOLOGRES} {...props} _style={extendStyle(HOLOGRES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOLOGRES)} />
 }

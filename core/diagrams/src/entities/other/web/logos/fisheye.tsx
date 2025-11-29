@@ -11,5 +11,5 @@ export const FISHEYE = {
 }
 
 export function Fisheye(props: NodeProps) {
-  return <Shape {...FISHEYE} {...props} _style={extendStyle(FISHEYE, props)} />
+  return <Shape {...props} _style={extendStyle(props, FISHEYE)} />
 }

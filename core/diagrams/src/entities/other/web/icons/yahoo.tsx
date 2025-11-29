@@ -11,5 +11,5 @@ export const YAHOO = {
 }
 
 export function Yahoo(props: NodeProps) {
-  return <Shape {...YAHOO} {...props} _style={extendStyle(YAHOO, props)} />
+  return <Shape {...props} _style={extendStyle(props, YAHOO)} />
 }

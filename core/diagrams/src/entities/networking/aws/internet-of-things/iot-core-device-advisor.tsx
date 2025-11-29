@@ -12,10 +12,6 @@ export const IOT_CORE_DEVICE_ADVISOR = {
 
 export function IotCoreDeviceAdvisor(props: NodeProps) {
   return (
-    <Shape
-      {...IOT_CORE_DEVICE_ADVISOR}
-      {...props}
-      _style={extendStyle(IOT_CORE_DEVICE_ADVISOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IOT_CORE_DEVICE_ADVISOR)} />
   )
 }

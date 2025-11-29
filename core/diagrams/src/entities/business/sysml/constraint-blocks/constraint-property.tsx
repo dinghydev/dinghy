@@ -11,11 +11,5 @@ export const CONSTRAINT_PROPERTY = {
 }
 
 export function ConstraintProperty(props: NodeProps) {
-  return (
-    <Shape
-      {...CONSTRAINT_PROPERTY}
-      {...props}
-      _style={extendStyle(CONSTRAINT_PROPERTY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSTRAINT_PROPERTY)} />
 }

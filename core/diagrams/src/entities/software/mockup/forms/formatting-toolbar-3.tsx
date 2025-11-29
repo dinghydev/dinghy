@@ -11,11 +11,5 @@ export const FORMATTING_TOOLBAR_3 = {
 }
 
 export function FormattingToolbar3(props: NodeProps) {
-  return (
-    <Shape
-      {...FORMATTING_TOOLBAR_3}
-      {...props}
-      _style={extendStyle(FORMATTING_TOOLBAR_3, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORMATTING_TOOLBAR_3)} />
 }

@@ -12,10 +12,6 @@ export const CLOUD_COMPUTER_PRIVATE = {
 
 export function CloudComputerPrivate(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_COMPUTER_PRIVATE}
-      {...props}
-      _style={extendStyle(CLOUD_COMPUTER_PRIVATE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_COMPUTER_PRIVATE)} />
   )
 }

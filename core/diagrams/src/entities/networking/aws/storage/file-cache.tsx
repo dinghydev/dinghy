@@ -11,7 +11,5 @@ export const FILE_CACHE = {
 }
 
 export function FileCache(props: NodeProps) {
-  return (
-    <Shape {...FILE_CACHE} {...props} _style={extendStyle(FILE_CACHE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_CACHE)} />
 }

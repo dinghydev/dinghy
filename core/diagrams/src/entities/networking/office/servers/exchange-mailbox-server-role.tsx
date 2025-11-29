@@ -13,9 +13,8 @@ export const EXCHANGE_MAILBOX_SERVER_ROLE = {
 export function ExchangeMailboxServerRole(props: NodeProps) {
   return (
     <Shape
-      {...EXCHANGE_MAILBOX_SERVER_ROLE}
       {...props}
-      _style={extendStyle(EXCHANGE_MAILBOX_SERVER_ROLE, props)}
+      _style={extendStyle(props, EXCHANGE_MAILBOX_SERVER_ROLE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const PHONE_DIGITAL = {
 }
 
 export function PhoneDigital(props: NodeProps) {
-  return (
-    <Shape
-      {...PHONE_DIGITAL}
-      {...props}
-      _style={extendStyle(PHONE_DIGITAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONE_DIGITAL)} />
 }

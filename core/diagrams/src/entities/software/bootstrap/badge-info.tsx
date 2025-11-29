@@ -11,7 +11,5 @@ export const BADGE_INFO = {
 }
 
 export function BadgeInfo(props: NodeProps) {
-  return (
-    <Shape {...BADGE_INFO} {...props} _style={extendStyle(BADGE_INFO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BADGE_INFO)} />
 }

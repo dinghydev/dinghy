@@ -9,11 +9,5 @@ export const SEQUENCE_FLOW = {
 }
 
 export function SequenceFlow(props: NodeProps) {
-  return (
-    <Dependency
-      {...SEQUENCE_FLOW}
-      {...props}
-      _style={extendStyle(SEQUENCE_FLOW, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, SEQUENCE_FLOW)} />
 }

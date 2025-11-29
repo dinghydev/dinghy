@@ -11,11 +11,5 @@ export const FLOATING_IP = {
 }
 
 export function FloatingIp(props: NodeProps) {
-  return (
-    <Shape
-      {...FLOATING_IP}
-      {...props}
-      _style={extendStyle(FLOATING_IP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOATING_IP)} />
 }

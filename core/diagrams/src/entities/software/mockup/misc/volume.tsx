@@ -11,5 +11,5 @@ export const VOLUME = {
 }
 
 export function Volume(props: NodeProps) {
-  return <Shape {...VOLUME} {...props} _style={extendStyle(VOLUME, props)} />
+  return <Shape {...props} _style={extendStyle(props, VOLUME)} />
 }

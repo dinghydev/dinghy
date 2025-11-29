@@ -11,11 +11,5 @@ export const SUPPORT_BRACKET = {
 }
 
 export function SupportBracket(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPPORT_BRACKET}
-      {...props}
-      _style={extendStyle(SUPPORT_BRACKET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPPORT_BRACKET)} />
 }

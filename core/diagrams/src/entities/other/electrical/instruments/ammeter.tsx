@@ -11,5 +11,5 @@ export const AMMETER = {
 }
 
 export function Ammeter(props: NodeProps) {
-  return <Shape {...AMMETER} {...props} _style={extendStyle(AMMETER, props)} />
+  return <Shape {...props} _style={extendStyle(props, AMMETER)} />
 }

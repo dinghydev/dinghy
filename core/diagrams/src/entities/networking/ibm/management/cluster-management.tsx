@@ -11,11 +11,5 @@ export const CLUSTER_MANAGEMENT = {
 }
 
 export function ClusterManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...CLUSTER_MANAGEMENT}
-      {...props}
-      _style={extendStyle(CLUSTER_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLUSTER_MANAGEMENT)} />
 }

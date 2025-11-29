@@ -11,11 +11,5 @@ export const EVENT_MESSAGE = {
 }
 
 export function EventMessage(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_MESSAGE}
-      {...props}
-      _style={extendStyle(EVENT_MESSAGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_MESSAGE)} />
 }

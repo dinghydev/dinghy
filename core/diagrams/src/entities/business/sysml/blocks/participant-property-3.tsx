@@ -11,10 +11,6 @@ export const PARTICIPANT_PROPERTY_3 = {
 
 export function ParticipantProperty3(props: NodeProps) {
   return (
-    <Shape
-      {...PARTICIPANT_PROPERTY_3}
-      {...props}
-      _style={extendStyle(PARTICIPANT_PROPERTY_3, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, PARTICIPANT_PROPERTY_3)} />
   )
 }

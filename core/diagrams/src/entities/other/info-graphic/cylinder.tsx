@@ -11,7 +11,5 @@ export const CYLINDER = {
 }
 
 export function Cylinder(props: NodeProps) {
-  return (
-    <Shape {...CYLINDER} {...props} _style={extendStyle(CYLINDER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CYLINDER)} />
 }

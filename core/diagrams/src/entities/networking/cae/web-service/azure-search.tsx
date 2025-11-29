@@ -11,11 +11,5 @@ export const AZURE_SEARCH = {
 }
 
 export function AzureSearch(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_SEARCH}
-      {...props}
-      _style={extendStyle(AZURE_SEARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_SEARCH)} />
 }

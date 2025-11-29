@@ -11,11 +11,5 @@ export const DOCUMENT_SHARED = {
 }
 
 export function DocumentShared(props: NodeProps) {
-  return (
-    <Shape
-      {...DOCUMENT_SHARED}
-      {...props}
-      _style={extendStyle(DOCUMENT_SHARED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOCUMENT_SHARED)} />
 }

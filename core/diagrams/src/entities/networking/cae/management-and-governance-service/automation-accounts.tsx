@@ -11,11 +11,5 @@ export const AUTOMATION_ACCOUNTS = {
 }
 
 export function AutomationAccounts(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOMATION_ACCOUNTS}
-      {...props}
-      _style={extendStyle(AUTOMATION_ACCOUNTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOMATION_ACCOUNTS)} />
 }

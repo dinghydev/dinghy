@@ -11,11 +11,5 @@ export const BUTTON_LINK = {
 }
 
 export function ButtonLink(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_LINK}
-      {...props}
-      _style={extendStyle(BUTTON_LINK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_LINK)} />
 }

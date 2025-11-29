@@ -11,7 +11,5 @@ export const DIRECTOR = {
 }
 
 export function Director(props: NodeProps) {
-  return (
-    <Shape {...DIRECTOR} {...props} _style={extendStyle(DIRECTOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRECTOR)} />
 }

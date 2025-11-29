@@ -11,7 +11,5 @@ export const CLOUD_SDK = {
 }
 
 export function CloudSdk(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_SDK} {...props} _style={extendStyle(CLOUD_SDK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SDK)} />
 }

@@ -11,5 +11,5 @@ export const COMPUTE = {
 }
 
 export function Compute(props: NodeProps) {
-  return <Shape {...COMPUTE} {...props} _style={extendStyle(COMPUTE, props)} />
+  return <Shape {...props} _style={extendStyle(props, COMPUTE)} />
 }

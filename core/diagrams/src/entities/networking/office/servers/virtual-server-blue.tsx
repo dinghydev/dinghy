@@ -11,11 +11,5 @@ export const VIRTUAL_SERVER_BLUE = {
 }
 
 export function VirtualServerBlue(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_SERVER_BLUE}
-      {...props}
-      _style={extendStyle(VIRTUAL_SERVER_BLUE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_SERVER_BLUE)} />
 }

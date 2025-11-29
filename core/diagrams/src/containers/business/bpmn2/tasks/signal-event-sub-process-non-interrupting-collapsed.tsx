@@ -13,11 +13,10 @@ export function SignalEventSubProcessNonInterruptingCollapsed(
 ) {
   return (
     <Shape
-      {...SIGNAL_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        SIGNAL_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
         props,
+        SIGNAL_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
       )}
     />
   )

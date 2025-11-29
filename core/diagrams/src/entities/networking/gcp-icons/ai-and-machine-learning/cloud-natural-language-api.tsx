@@ -12,10 +12,6 @@ export const CLOUD_NATURAL_LANGUAGE_API = {
 
 export function CloudNaturalLanguageApi(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_NATURAL_LANGUAGE_API}
-      {...props}
-      _style={extendStyle(CLOUD_NATURAL_LANGUAGE_API, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_NATURAL_LANGUAGE_API)} />
   )
 }

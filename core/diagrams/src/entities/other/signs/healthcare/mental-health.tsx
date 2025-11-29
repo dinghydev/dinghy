@@ -11,11 +11,5 @@ export const MENTAL_HEALTH = {
 }
 
 export function MentalHealth(props: NodeProps) {
-  return (
-    <Shape
-      {...MENTAL_HEALTH}
-      {...props}
-      _style={extendStyle(MENTAL_HEALTH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MENTAL_HEALTH)} />
 }

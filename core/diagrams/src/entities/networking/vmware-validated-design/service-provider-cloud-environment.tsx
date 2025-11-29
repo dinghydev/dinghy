@@ -13,9 +13,8 @@ export const SERVICE_PROVIDER_CLOUD_ENVIRONMENT = {
 export function ServiceProviderCloudEnvironment(props: NodeProps) {
   return (
     <Shape
-      {...SERVICE_PROVIDER_CLOUD_ENVIRONMENT}
       {...props}
-      _style={extendStyle(SERVICE_PROVIDER_CLOUD_ENVIRONMENT, props)}
+      _style={extendStyle(props, SERVICE_PROVIDER_CLOUD_ENVIRONMENT)}
     />
   )
 }

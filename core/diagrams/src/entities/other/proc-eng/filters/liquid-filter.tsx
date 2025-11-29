@@ -11,11 +11,5 @@ export const LIQUID_FILTER = {
 }
 
 export function LiquidFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...LIQUID_FILTER}
-      {...props}
-      _style={extendStyle(LIQUID_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIQUID_FILTER)} />
 }

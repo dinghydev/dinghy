@@ -11,11 +11,5 @@ export const BATTERY_STACK = {
 }
 
 export function BatteryStack(props: NodeProps) {
-  return (
-    <Shape
-      {...BATTERY_STACK}
-      {...props}
-      _style={extendStyle(BATTERY_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BATTERY_STACK)} />
 }

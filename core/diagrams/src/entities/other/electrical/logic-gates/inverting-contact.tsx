@@ -11,11 +11,5 @@ export const INVERTING_CONTACT = {
 }
 
 export function InvertingContact(props: NodeProps) {
-  return (
-    <Shape
-      {...INVERTING_CONTACT}
-      {...props}
-      _style={extendStyle(INVERTING_CONTACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INVERTING_CONTACT)} />
 }

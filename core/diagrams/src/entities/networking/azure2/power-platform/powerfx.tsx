@@ -11,5 +11,5 @@ export const POWERFX = {
 }
 
 export function Powerfx(props: NodeProps) {
-  return <Shape {...POWERFX} {...props} _style={extendStyle(POWERFX, props)} />
+  return <Shape {...props} _style={extendStyle(props, POWERFX)} />
 }

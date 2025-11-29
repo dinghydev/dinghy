@@ -12,10 +12,6 @@ export const STEREOTYPE_COMPARTMENT_2 = {
 
 export function StereotypeCompartment2(props: NodeProps) {
   return (
-    <Shape
-      {...STEREOTYPE_COMPARTMENT_2}
-      {...props}
-      _style={extendStyle(STEREOTYPE_COMPARTMENT_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STEREOTYPE_COMPARTMENT_2)} />
   )
 }

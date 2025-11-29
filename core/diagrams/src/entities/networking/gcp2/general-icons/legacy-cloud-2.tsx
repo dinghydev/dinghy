@@ -11,11 +11,5 @@ export const LEGACY_CLOUD_2 = {
 }
 
 export function LegacyCloud2(props: NodeProps) {
-  return (
-    <Shape
-      {...LEGACY_CLOUD_2}
-      {...props}
-      _style={extendStyle(LEGACY_CLOUD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LEGACY_CLOUD_2)} />
 }

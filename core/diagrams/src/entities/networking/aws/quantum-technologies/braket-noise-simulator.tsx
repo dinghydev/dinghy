@@ -12,10 +12,6 @@ export const BRAKET_NOISE_SIMULATOR = {
 
 export function BraketNoiseSimulator(props: NodeProps) {
   return (
-    <Shape
-      {...BRAKET_NOISE_SIMULATOR}
-      {...props}
-      _style={extendStyle(BRAKET_NOISE_SIMULATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, BRAKET_NOISE_SIMULATOR)} />
   )
 }

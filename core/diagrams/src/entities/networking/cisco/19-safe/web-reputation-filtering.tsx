@@ -12,10 +12,6 @@ export const WEB_REPUTATION_FILTERING = {
 
 export function WebReputationFiltering(props: NodeProps) {
   return (
-    <Shape
-      {...WEB_REPUTATION_FILTERING}
-      {...props}
-      _style={extendStyle(WEB_REPUTATION_FILTERING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, WEB_REPUTATION_FILTERING)} />
   )
 }

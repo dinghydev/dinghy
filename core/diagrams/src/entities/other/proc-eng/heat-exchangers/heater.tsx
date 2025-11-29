@@ -11,5 +11,5 @@ export const HEATER = {
 }
 
 export function Heater(props: NodeProps) {
-  return <Shape {...HEATER} {...props} _style={extendStyle(HEATER, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEATER)} />
 }

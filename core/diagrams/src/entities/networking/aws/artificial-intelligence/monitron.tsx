@@ -11,7 +11,5 @@ export const MONITRON = {
 }
 
 export function Monitron(props: NodeProps) {
-  return (
-    <Shape {...MONITRON} {...props} _style={extendStyle(MONITRON, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MONITRON)} />
 }

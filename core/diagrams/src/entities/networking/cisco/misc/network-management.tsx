@@ -11,11 +11,5 @@ export const NETWORK_MANAGEMENT = {
 }
 
 export function NetworkManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...NETWORK_MANAGEMENT}
-      {...props}
-      _style={extendStyle(NETWORK_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORK_MANAGEMENT)} />
 }

@@ -11,7 +11,5 @@ export const PHONEFAVS = {
 }
 
 export function Phonefavs(props: NodeProps) {
-  return (
-    <Shape {...PHONEFAVS} {...props} _style={extendStyle(PHONEFAVS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHONEFAVS)} />
 }

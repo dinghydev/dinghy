@@ -12,10 +12,6 @@ export const CMS_CLOUD_MONITOR_SERVICE = {
 
 export function CmsCloudMonitorService(props: NodeProps) {
   return (
-    <Shape
-      {...CMS_CLOUD_MONITOR_SERVICE}
-      {...props}
-      _style={extendStyle(CMS_CLOUD_MONITOR_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CMS_CLOUD_MONITOR_SERVICE)} />
   )
 }

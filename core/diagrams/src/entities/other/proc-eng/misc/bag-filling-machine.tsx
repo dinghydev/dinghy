@@ -11,11 +11,5 @@ export const BAG_FILLING_MACHINE = {
 }
 
 export function BagFillingMachine(props: NodeProps) {
-  return (
-    <Shape
-      {...BAG_FILLING_MACHINE}
-      {...props}
-      _style={extendStyle(BAG_FILLING_MACHINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BAG_FILLING_MACHINE)} />
 }

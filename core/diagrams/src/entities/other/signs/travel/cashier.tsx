@@ -11,5 +11,5 @@ export const CASHIER = {
 }
 
 export function Cashier(props: NodeProps) {
-  return <Shape {...CASHIER} {...props} _style={extendStyle(CASHIER, props)} />
+  return <Shape {...props} _style={extendStyle(props, CASHIER)} />
 }

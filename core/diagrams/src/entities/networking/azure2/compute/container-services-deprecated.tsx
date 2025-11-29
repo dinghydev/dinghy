@@ -13,9 +13,8 @@ export const CONTAINER_SERVICES_DEPRECATED = {
 export function ContainerServicesDeprecated(props: NodeProps) {
   return (
     <Shape
-      {...CONTAINER_SERVICES_DEPRECATED}
       {...props}
-      _style={extendStyle(CONTAINER_SERVICES_DEPRECATED, props)}
+      _style={extendStyle(props, CONTAINER_SERVICES_DEPRECATED)}
     />
   )
 }

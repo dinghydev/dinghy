@@ -11,11 +11,5 @@ export const APIGEE_API_MANAGEMENT = {
 }
 
 export function ApigeeApiManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...APIGEE_API_MANAGEMENT}
-      {...props}
-      _style={extendStyle(APIGEE_API_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APIGEE_API_MANAGEMENT)} />
 }

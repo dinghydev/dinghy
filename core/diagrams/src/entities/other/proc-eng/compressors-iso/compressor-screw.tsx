@@ -11,11 +11,5 @@ export const COMPRESSOR_SCREW = {
 }
 
 export function CompressorScrew(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPRESSOR_SCREW}
-      {...props}
-      _style={extendStyle(COMPRESSOR_SCREW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPRESSOR_SCREW)} />
 }

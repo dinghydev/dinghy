@@ -11,11 +11,5 @@ export const DEFAULT_NUMBER = {
 }
 
 export function DefaultNumber(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFAULT_NUMBER}
-      {...props}
-      _style={extendStyle(DEFAULT_NUMBER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFAULT_NUMBER)} />
 }

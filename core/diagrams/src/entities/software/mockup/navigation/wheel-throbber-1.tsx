@@ -11,11 +11,5 @@ export const WHEEL_THROBBER_1 = {
 }
 
 export function WheelThrobber1(props: NodeProps) {
-  return (
-    <Shape
-      {...WHEEL_THROBBER_1}
-      {...props}
-      _style={extendStyle(WHEEL_THROBBER_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WHEEL_THROBBER_1)} />
 }

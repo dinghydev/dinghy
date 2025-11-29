@@ -11,5 +11,5 @@ export const RED_X = {
 }
 
 export function RedX(props: NodeProps) {
-  return <Shape {...RED_X} {...props} _style={extendStyle(RED_X, props)} />
+  return <Shape {...props} _style={extendStyle(props, RED_X)} />
 }

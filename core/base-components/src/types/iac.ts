@@ -22,7 +22,6 @@ export const IacCategorySchema = z.enum([
   'data',
   'terraform',
   'provider',
-  'none',
 ])
 
 export const IacNodeSchema = z.object({
@@ -30,6 +29,7 @@ export const IacNodeSchema = z.object({
     `Only selected stage will be rendered.`,
   ),
   _importId: ResolvableStringSchema.optional(),
+  _importSchema: z.instanceof(z.ZodType).optional(),
   _inputSchema: z.instanceof(z.ZodType).optional(),
   _outputSchema: z.instanceof(z.ZodType).optional(),
   _stackResource: ResolvableBooleanSchema.optional(),
@@ -40,4 +40,4 @@ export const IacNodeSchema = z.object({
   _category: z.union([IacCategorySchema, resolvable(z.string())]).optional(),
 })
 
-export type IacNodeType = z.output<typeof IacNodeSchema>
+export type IacNodeType = z.input<typeof IacNodeSchema>

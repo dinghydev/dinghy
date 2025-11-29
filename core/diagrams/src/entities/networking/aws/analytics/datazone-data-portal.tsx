@@ -11,11 +11,5 @@ export const DATAZONE_DATA_PORTAL = {
 }
 
 export function DatazoneDataPortal(props: NodeProps) {
-  return (
-    <Shape
-      {...DATAZONE_DATA_PORTAL}
-      {...props}
-      _style={extendStyle(DATAZONE_DATA_PORTAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATAZONE_DATA_PORTAL)} />
 }

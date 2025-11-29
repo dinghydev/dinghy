@@ -11,7 +11,5 @@ export const INTERFACE = {
 }
 
 export function Interface(props: NodeProps) {
-  return (
-    <Shape {...INTERFACE} {...props} _style={extendStyle(INTERFACE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERFACE)} />
 }

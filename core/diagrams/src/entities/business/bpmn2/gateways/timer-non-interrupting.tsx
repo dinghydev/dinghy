@@ -12,10 +12,6 @@ export const TIMER_NON_INTERRUPTING = {
 
 export function TimerNonInterrupting(props: NodeProps) {
   return (
-    <Shape
-      {...TIMER_NON_INTERRUPTING}
-      {...props}
-      _style={extendStyle(TIMER_NON_INTERRUPTING, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TIMER_NON_INTERRUPTING)} />
   )
 }

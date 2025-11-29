@@ -11,7 +11,5 @@ export const WEB_SERVER = {
 }
 
 export function WebServer(props: NodeProps) {
-  return (
-    <Shape {...WEB_SERVER} {...props} _style={extendStyle(WEB_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SERVER)} />
 }

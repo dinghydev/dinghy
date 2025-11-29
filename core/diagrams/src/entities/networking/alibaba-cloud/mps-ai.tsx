@@ -11,5 +11,5 @@ export const MPS_AI = {
 }
 
 export function MpsAi(props: NodeProps) {
-  return <Shape {...MPS_AI} {...props} _style={extendStyle(MPS_AI, props)} />
+  return <Shape {...props} _style={extendStyle(props, MPS_AI)} />
 }

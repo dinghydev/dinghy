@@ -13,9 +13,8 @@ export const R0X31A_ARUBA_6400_MANAGEMENT_MODULE = {
 export function R0x31aAruba6400ManagementModule(props: NodeProps) {
   return (
     <Shape
-      {...R0X31A_ARUBA_6400_MANAGEMENT_MODULE}
       {...props}
-      _style={extendStyle(R0X31A_ARUBA_6400_MANAGEMENT_MODULE, props)}
+      _style={extendStyle(props, R0X31A_ARUBA_6400_MANAGEMENT_MODULE)}
     />
   )
 }

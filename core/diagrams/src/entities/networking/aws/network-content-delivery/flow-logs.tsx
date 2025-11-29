@@ -11,7 +11,5 @@ export const FLOW_LOGS = {
 }
 
 export function FlowLogs(props: NodeProps) {
-  return (
-    <Shape {...FLOW_LOGS} {...props} _style={extendStyle(FLOW_LOGS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOW_LOGS)} />
 }

@@ -11,11 +11,5 @@ export const ACTION_BAR_BRIGHT = {
 }
 
 export function ActionBarBright(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTION_BAR_BRIGHT}
-      {...props}
-      _style={extendStyle(ACTION_BAR_BRIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTION_BAR_BRIGHT)} />
 }

@@ -11,7 +11,5 @@ export const HEX_LOOP_5 = {
 }
 
 export function HexLoop5(props: NodeProps) {
-  return (
-    <Shape {...HEX_LOOP_5} {...props} _style={extendStyle(HEX_LOOP_5, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEX_LOOP_5)} />
 }

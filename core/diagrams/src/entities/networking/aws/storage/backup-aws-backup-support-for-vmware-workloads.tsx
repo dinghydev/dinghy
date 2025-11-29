@@ -13,11 +13,10 @@ export const BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS = {
 export function BackupAwsBackupSupportForVmwareWorkloads(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS}
       {...props}
       _style={extendStyle(
-        BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS,
         props,
+        BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS,
       )}
     />
   )

@@ -11,7 +11,5 @@ export const INDUCTOR = {
 }
 
 export function Inductor(props: NodeProps) {
-  return (
-    <Shape {...INDUCTOR} {...props} _style={extendStyle(INDUCTOR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INDUCTOR)} />
 }

@@ -12,10 +12,6 @@ export const GREENGRASS_STREAM_MANAGER = {
 
 export function GreengrassStreamManager(props: NodeProps) {
   return (
-    <Shape
-      {...GREENGRASS_STREAM_MANAGER}
-      {...props}
-      _style={extendStyle(GREENGRASS_STREAM_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, GREENGRASS_STREAM_MANAGER)} />
   )
 }

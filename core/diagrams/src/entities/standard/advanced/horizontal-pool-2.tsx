@@ -11,11 +11,5 @@ export const HORIZONTAL_POOL_2 = {
 }
 
 export function HorizontalPool2(props: NodeProps) {
-  return (
-    <Shape
-      {...HORIZONTAL_POOL_2}
-      {...props}
-      _style={extendStyle(HORIZONTAL_POOL_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HORIZONTAL_POOL_2)} />
 }

@@ -11,5 +11,5 @@ export const SIGN_IN = {
 }
 
 export function SignIn(props: NodeProps) {
-  return <Shape {...SIGN_IN} {...props} _style={extendStyle(SIGN_IN, props)} />
+  return <Shape {...props} _style={extendStyle(props, SIGN_IN)} />
 }

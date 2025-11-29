@@ -11,7 +11,5 @@ export const SMALL_HUB = {
 }
 
 export function SmallHub(props: NodeProps) {
-  return (
-    <Shape {...SMALL_HUB} {...props} _style={extendStyle(SMALL_HUB, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SMALL_HUB)} />
 }

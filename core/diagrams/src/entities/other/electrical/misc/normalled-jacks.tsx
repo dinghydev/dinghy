@@ -11,11 +11,5 @@ export const NORMALLED_JACKS = {
 }
 
 export function NormalledJacks(props: NodeProps) {
-  return (
-    <Shape
-      {...NORMALLED_JACKS}
-      {...props}
-      _style={extendStyle(NORMALLED_JACKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NORMALLED_JACKS)} />
 }

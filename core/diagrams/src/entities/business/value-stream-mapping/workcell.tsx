@@ -11,7 +11,5 @@ export const WORKCELL = {
 }
 
 export function Workcell(props: NodeProps) {
-  return (
-    <Shape {...WORKCELL} {...props} _style={extendStyle(WORKCELL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKCELL)} />
 }

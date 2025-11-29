@@ -13,9 +13,8 @@ export const DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE = {
 export function DrdsDistributeRelationalDatabaseService(props: NodeProps) {
   return (
     <Shape
-      {...DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE}
       {...props}
-      _style={extendStyle(DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE, props)}
+      _style={extendStyle(props, DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE)}
     />
   )
 }

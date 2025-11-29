@@ -11,11 +11,5 @@ export const MESSAGE_CATCHING = {
 }
 
 export function MessageCatching(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGE_CATCHING}
-      {...props}
-      _style={extendStyle(MESSAGE_CATCHING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGE_CATCHING)} />
 }

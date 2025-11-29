@@ -11,11 +11,5 @@ export const REMOTE_RENDERING = {
 }
 
 export function RemoteRendering(props: NodeProps) {
-  return (
-    <Shape
-      {...REMOTE_RENDERING}
-      {...props}
-      _style={extendStyle(REMOTE_RENDERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, REMOTE_RENDERING)} />
 }

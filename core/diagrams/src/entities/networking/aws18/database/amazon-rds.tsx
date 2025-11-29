@@ -11,7 +11,5 @@ export const AMAZON_RDS = {
 }
 
 export function AmazonRds(props: NodeProps) {
-  return (
-    <Shape {...AMAZON_RDS} {...props} _style={extendStyle(AMAZON_RDS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_RDS)} />
 }

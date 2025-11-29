@@ -11,11 +11,5 @@ export const POPOVER_ON_TOP = {
 }
 
 export function PopoverOnTop(props: NodeProps) {
-  return (
-    <Shape
-      {...POPOVER_ON_TOP}
-      {...props}
-      _style={extendStyle(POPOVER_ON_TOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POPOVER_ON_TOP)} />
 }

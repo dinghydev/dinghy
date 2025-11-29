@@ -12,10 +12,6 @@ export const SAP_HANA_SPATIAL_SERVICES = {
 
 export function SapHanaSpatialServices(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_HANA_SPATIAL_SERVICES}
-      {...props}
-      _style={extendStyle(SAP_HANA_SPATIAL_SERVICES, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_HANA_SPATIAL_SERVICES)} />
   )
 }

@@ -11,11 +11,5 @@ export const CHECKBOX_OFF = {
 }
 
 export function CheckboxOff(props: NodeProps) {
-  return (
-    <Shape
-      {...CHECKBOX_OFF}
-      {...props}
-      _style={extendStyle(CHECKBOX_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CHECKBOX_OFF)} />
 }

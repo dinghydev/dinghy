@@ -11,5 +11,5 @@ export const FIRE_TV = {
 }
 
 export function FireTv(props: NodeProps) {
-  return <Shape {...FIRE_TV} {...props} _style={extendStyle(FIRE_TV, props)} />
+  return <Shape {...props} _style={extendStyle(props, FIRE_TV)} />
 }

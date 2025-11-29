@@ -13,9 +13,8 @@ export const J9832A_5412R_ZL2_SWITCH_FAN_TRAY = {
 export function J9832a5412rZl2SwitchFanTray(props: NodeProps) {
   return (
     <Shape
-      {...J9832A_5412R_ZL2_SWITCH_FAN_TRAY}
       {...props}
-      _style={extendStyle(J9832A_5412R_ZL2_SWITCH_FAN_TRAY, props)}
+      _style={extendStyle(props, J9832A_5412R_ZL2_SWITCH_FAN_TRAY)}
     />
   )
 }

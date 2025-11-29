@@ -11,11 +11,5 @@ export const PIX_FIREWALL = {
 }
 
 export function PixFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...PIX_FIREWALL}
-      {...props}
-      _style={extendStyle(PIX_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PIX_FIREWALL)} />
 }

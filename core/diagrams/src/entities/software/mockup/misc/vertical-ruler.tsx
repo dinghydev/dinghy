@@ -11,11 +11,5 @@ export const VERTICAL_RULER = {
 }
 
 export function VerticalRuler(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_RULER}
-      {...props}
-      _style={extendStyle(VERTICAL_RULER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_RULER)} />
 }

@@ -11,11 +11,5 @@ export const ROUTER_IN_BUILDING = {
 }
 
 export function RouterInBuilding(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTER_IN_BUILDING}
-      {...props}
-      _style={extendStyle(ROUTER_IN_BUILDING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTER_IN_BUILDING)} />
 }

@@ -11,11 +11,5 @@ export const GROOVESHARK = {
 }
 
 export function Grooveshark(props: NodeProps) {
-  return (
-    <Shape
-      {...GROOVESHARK}
-      {...props}
-      _style={extendStyle(GROOVESHARK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GROOVESHARK)} />
 }

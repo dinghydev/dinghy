@@ -11,7 +11,5 @@ export const BUILDERS = {
 }
 
 export function Builders(props: NodeProps) {
-  return (
-    <Shape {...BUILDERS} {...props} _style={extendStyle(BUILDERS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUILDERS)} />
 }

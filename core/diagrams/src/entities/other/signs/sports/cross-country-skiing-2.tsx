@@ -12,10 +12,6 @@ export const CROSS_COUNTRY_SKIING_2 = {
 
 export function CrossCountrySkiing2(props: NodeProps) {
   return (
-    <Shape
-      {...CROSS_COUNTRY_SKIING_2}
-      {...props}
-      _style={extendStyle(CROSS_COUNTRY_SKIING_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CROSS_COUNTRY_SKIING_2)} />
   )
 }

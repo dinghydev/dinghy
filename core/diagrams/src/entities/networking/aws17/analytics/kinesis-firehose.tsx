@@ -11,11 +11,5 @@ export const KINESIS_FIREHOSE = {
 }
 
 export function KinesisFirehose(props: NodeProps) {
-  return (
-    <Shape
-      {...KINESIS_FIREHOSE}
-      {...props}
-      _style={extendStyle(KINESIS_FIREHOSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KINESIS_FIREHOSE)} />
 }

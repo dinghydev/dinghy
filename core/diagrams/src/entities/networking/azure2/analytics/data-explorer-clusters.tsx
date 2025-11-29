@@ -12,10 +12,6 @@ export const DATA_EXPLORER_CLUSTERS = {
 
 export function DataExplorerClusters(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_EXPLORER_CLUSTERS}
-      {...props}
-      _style={extendStyle(DATA_EXPLORER_CLUSTERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_EXPLORER_CLUSTERS)} />
   )
 }

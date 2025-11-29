@@ -10,7 +10,5 @@ export const HALF_BAKED = {
 }
 
 export function HalfBaked(props: NodeProps) {
-  return (
-    <Shape {...HALF_BAKED} {...props} _style={extendStyle(HALF_BAKED, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HALF_BAKED)} />
 }

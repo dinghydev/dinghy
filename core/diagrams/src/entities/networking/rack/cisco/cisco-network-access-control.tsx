@@ -13,9 +13,8 @@ export const CISCO_NETWORK_ACCESS_CONTROL = {
 export function CiscoNetworkAccessControl(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_NETWORK_ACCESS_CONTROL}
       {...props}
-      _style={extendStyle(CISCO_NETWORK_ACCESS_CONTROL, props)}
+      _style={extendStyle(props, CISCO_NETWORK_ACCESS_CONTROL)}
     />
   )
 }

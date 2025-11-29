@@ -11,5 +11,5 @@ export const GPS = {
 }
 
 export function Gps(props: NodeProps) {
-  return <Shape {...GPS} {...props} _style={extendStyle(GPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, GPS)} />
 }

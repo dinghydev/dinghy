@@ -11,5 +11,5 @@ export const CHECKED = {
 }
 
 export function Checked(props: NodeProps) {
-  return <Shape {...CHECKED} {...props} _style={extendStyle(CHECKED, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHECKED)} />
 }

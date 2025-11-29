@@ -11,11 +11,5 @@ export const LICENSE_INSTALLATION = {
 }
 
 export function LicenseInstallation(props: NodeProps) {
-  return (
-    <Shape
-      {...LICENSE_INSTALLATION}
-      {...props}
-      _style={extendStyle(LICENSE_INSTALLATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LICENSE_INSTALLATION)} />
 }

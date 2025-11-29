@@ -13,11 +13,10 @@ export function CompensationEventSubProcessInterruptingCollapsed(
 ) {
   return (
     <Shape
-      {...COMPENSATION_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}
       {...props}
       _style={extendStyle(
-        COMPENSATION_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
         props,
+        COMPENSATION_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
       )}
     />
   )

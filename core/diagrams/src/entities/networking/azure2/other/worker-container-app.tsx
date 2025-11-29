@@ -11,11 +11,5 @@ export const WORKER_CONTAINER_APP = {
 }
 
 export function WorkerContainerApp(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKER_CONTAINER_APP}
-      {...props}
-      _style={extendStyle(WORKER_CONTAINER_APP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKER_CONTAINER_APP)} />
 }

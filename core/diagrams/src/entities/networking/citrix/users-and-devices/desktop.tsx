@@ -11,5 +11,5 @@ export const DESKTOP = {
 }
 
 export function Desktop(props: NodeProps) {
-  return <Shape {...DESKTOP} {...props} _style={extendStyle(DESKTOP, props)} />
+  return <Shape {...props} _style={extendStyle(props, DESKTOP)} />
 }

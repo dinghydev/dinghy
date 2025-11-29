@@ -11,11 +11,5 @@ export const SUSTAINABILITY_2 = {
 }
 
 export function Sustainability2(props: NodeProps) {
-  return (
-    <Shape
-      {...SUSTAINABILITY_2}
-      {...props}
-      _style={extendStyle(SUSTAINABILITY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUSTAINABILITY_2)} />
 }

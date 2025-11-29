@@ -11,7 +11,5 @@ export const ARTIFACT = {
 }
 
 export function Artifact(props: NodeProps) {
-  return (
-    <Shape {...ARTIFACT} {...props} _style={extendStyle(ARTIFACT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARTIFACT)} />
 }

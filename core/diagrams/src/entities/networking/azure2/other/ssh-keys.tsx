@@ -11,7 +11,5 @@ export const SSH_KEYS = {
 }
 
 export function SshKeys(props: NodeProps) {
-  return (
-    <Shape {...SSH_KEYS} {...props} _style={extendStyle(SSH_KEYS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SSH_KEYS)} />
 }

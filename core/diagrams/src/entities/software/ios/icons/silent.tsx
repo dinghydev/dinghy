@@ -11,5 +11,5 @@ export const SILENT = {
 }
 
 export function Silent(props: NodeProps) {
-  return <Shape {...SILENT} {...props} _style={extendStyle(SILENT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SILENT)} />
 }

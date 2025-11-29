@@ -11,5 +11,5 @@ export const PRINT = {
 }
 
 export function Print(props: NodeProps) {
-  return <Shape {...PRINT} {...props} _style={extendStyle(PRINT, props)} />
+  return <Shape {...props} _style={extendStyle(props, PRINT)} />
 }

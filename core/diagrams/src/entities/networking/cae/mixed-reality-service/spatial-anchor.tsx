@@ -11,11 +11,5 @@ export const SPATIAL_ANCHOR = {
 }
 
 export function SpatialAnchor(props: NodeProps) {
-  return (
-    <Shape
-      {...SPATIAL_ANCHOR}
-      {...props}
-      _style={extendStyle(SPATIAL_ANCHOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SPATIAL_ANCHOR)} />
 }

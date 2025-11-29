@@ -11,7 +11,5 @@ export const WIRE_TAP = {
 }
 
 export function WireTap(props: NodeProps) {
-  return (
-    <Shape {...WIRE_TAP} {...props} _style={extendStyle(WIRE_TAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRE_TAP)} />
 }

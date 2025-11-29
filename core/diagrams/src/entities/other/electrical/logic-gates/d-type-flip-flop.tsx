@@ -11,11 +11,5 @@ export const D_TYPE_FLIP_FLOP = {
 }
 
 export function DTypeFlipFlop(props: NodeProps) {
-  return (
-    <Shape
-      {...D_TYPE_FLIP_FLOP}
-      {...props}
-      _style={extendStyle(D_TYPE_FLIP_FLOP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, D_TYPE_FLIP_FLOP)} />
 }

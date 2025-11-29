@@ -11,11 +11,5 @@ export const LINEAR_COUPLER = {
 }
 
 export function LinearCoupler(props: NodeProps) {
-  return (
-    <Shape
-      {...LINEAR_COUPLER}
-      {...props}
-      _style={extendStyle(LINEAR_COUPLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINEAR_COUPLER)} />
 }

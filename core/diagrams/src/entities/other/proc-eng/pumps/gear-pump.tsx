@@ -11,7 +11,5 @@ export const GEAR_PUMP = {
 }
 
 export function GearPump(props: NodeProps) {
-  return (
-    <Shape {...GEAR_PUMP} {...props} _style={extendStyle(GEAR_PUMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, GEAR_PUMP)} />
 }

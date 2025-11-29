@@ -11,11 +11,5 @@ export const BACKUP_BROWSER = {
 }
 
 export function BackupBrowser(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKUP_BROWSER}
-      {...props}
-      _style={extendStyle(BACKUP_BROWSER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKUP_BROWSER)} />
 }

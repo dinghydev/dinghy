@@ -12,10 +12,6 @@ export const DATA_OBJECT_COLLECTION = {
 
 export function DataObjectCollection(props: NodeProps) {
   return (
-    <Shape
-      {...DATA_OBJECT_COLLECTION}
-      {...props}
-      _style={extendStyle(DATA_OBJECT_COLLECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DATA_OBJECT_COLLECTION)} />
   )
 }

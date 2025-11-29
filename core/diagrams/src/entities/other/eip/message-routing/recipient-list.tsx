@@ -11,11 +11,5 @@ export const RECIPIENT_LIST = {
 }
 
 export function RecipientList(props: NodeProps) {
-  return (
-    <Shape
-      {...RECIPIENT_LIST}
-      {...props}
-      _style={extendStyle(RECIPIENT_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECIPIENT_LIST)} />
 }

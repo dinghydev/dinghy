@@ -11,11 +11,5 @@ export const WEB_SERVER_GHOSTED = {
 }
 
 export function WebServerGhosted(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_SERVER_GHOSTED}
-      {...props}
-      _style={extendStyle(WEB_SERVER_GHOSTED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_SERVER_GHOSTED)} />
 }

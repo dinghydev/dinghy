@@ -11,11 +11,5 @@ export const ECS_ANYWHERE = {
 }
 
 export function EcsAnywhere(props: NodeProps) {
-  return (
-    <Shape
-      {...ECS_ANYWHERE}
-      {...props}
-      _style={extendStyle(ECS_ANYWHERE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ECS_ANYWHERE)} />
 }

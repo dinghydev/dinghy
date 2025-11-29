@@ -13,9 +13,8 @@ export const SAP_RESPONSIBILITY_MANAGEMENT_SERVICE = {
 export function SapResponsibilityManagementService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_RESPONSIBILITY_MANAGEMENT_SERVICE}
       {...props}
-      _style={extendStyle(SAP_RESPONSIBILITY_MANAGEMENT_SERVICE, props)}
+      _style={extendStyle(props, SAP_RESPONSIBILITY_MANAGEMENT_SERVICE)}
     />
   )
 }

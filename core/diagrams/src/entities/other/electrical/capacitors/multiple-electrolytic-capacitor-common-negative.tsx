@@ -13,11 +13,10 @@ export const MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE = {
 export function MultipleElectrolyticCapacitorCommonNegative(props: NodeProps) {
   return (
     <Shape
-      {...MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE}
       {...props}
       _style={extendStyle(
-        MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE,
         props,
+        MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE,
       )}
     />
   )

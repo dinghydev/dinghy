@@ -11,11 +11,5 @@ export const ADDRESS_BOOK_POLICIES = {
 }
 
 export function AddressBookPolicies(props: NodeProps) {
-  return (
-    <Shape
-      {...ADDRESS_BOOK_POLICIES}
-      {...props}
-      _style={extendStyle(ADDRESS_BOOK_POLICIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADDRESS_BOOK_POLICIES)} />
 }

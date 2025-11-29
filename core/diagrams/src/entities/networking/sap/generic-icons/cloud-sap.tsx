@@ -11,7 +11,5 @@ export const CLOUD_SAP = {
 }
 
 export function CloudSap(props: NodeProps) {
-  return (
-    <Shape {...CLOUD_SAP} {...props} _style={extendStyle(CLOUD_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_SAP)} />
 }

@@ -11,5 +11,5 @@ export const BRAKE = {
 }
 
 export function Brake(props: NodeProps) {
-  return <Shape {...BRAKE} {...props} _style={extendStyle(BRAKE, props)} />
+  return <Shape {...props} _style={extendStyle(props, BRAKE)} />
 }

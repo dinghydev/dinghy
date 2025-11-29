@@ -13,9 +13,8 @@ export const COMPONENT_7_SEGMENT_DISPLAY = {
 export function Component7SegmentDisplay(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_7_SEGMENT_DISPLAY}
       {...props}
-      _style={extendStyle(COMPONENT_7_SEGMENT_DISPLAY, props)}
+      _style={extendStyle(props, COMPONENT_7_SEGMENT_DISPLAY)}
     />
   )
 }

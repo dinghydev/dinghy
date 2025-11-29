@@ -11,11 +11,5 @@ export const SOURCE_STEP_ON = {
 }
 
 export function SourceStepOn(props: NodeProps) {
-  return (
-    <Shape
-      {...SOURCE_STEP_ON}
-      {...props}
-      _style={extendStyle(SOURCE_STEP_ON, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOURCE_STEP_ON)} />
 }

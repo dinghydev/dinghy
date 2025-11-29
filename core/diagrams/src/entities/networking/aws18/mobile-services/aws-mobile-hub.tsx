@@ -11,11 +11,5 @@ export const AWS_MOBILE_HUB = {
 }
 
 export function AwsMobileHub(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_MOBILE_HUB}
-      {...props}
-      _style={extendStyle(AWS_MOBILE_HUB, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_MOBILE_HUB)} />
 }

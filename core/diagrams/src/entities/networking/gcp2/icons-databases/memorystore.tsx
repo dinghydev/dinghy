@@ -11,11 +11,5 @@ export const MEMORYSTORE = {
 }
 
 export function Memorystore(props: NodeProps) {
-  return (
-    <Shape
-      {...MEMORYSTORE}
-      {...props}
-      _style={extendStyle(MEMORYSTORE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEMORYSTORE)} />
 }

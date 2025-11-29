@@ -11,11 +11,5 @@ export const OPTICAL_FIBER = {
 }
 
 export function OpticalFiber(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTICAL_FIBER}
-      {...props}
-      _style={extendStyle(OPTICAL_FIBER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTICAL_FIBER)} />
 }

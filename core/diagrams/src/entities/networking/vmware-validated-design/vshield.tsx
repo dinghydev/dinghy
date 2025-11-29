@@ -11,5 +11,5 @@ export const VSHIELD = {
 }
 
 export function Vshield(props: NodeProps) {
-  return <Shape {...VSHIELD} {...props} _style={extendStyle(VSHIELD, props)} />
+  return <Shape {...props} _style={extendStyle(props, VSHIELD)} />
 }

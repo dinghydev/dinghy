@@ -12,10 +12,6 @@ export const ALIBABA_CLOUD_LOGO_CHINESE = {
 
 export function AlibabaCloudLogoChinese(props: NodeProps) {
   return (
-    <Shape
-      {...ALIBABA_CLOUD_LOGO_CHINESE}
-      {...props}
-      _style={extendStyle(ALIBABA_CLOUD_LOGO_CHINESE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ALIBABA_CLOUD_LOGO_CHINESE)} />
   )
 }

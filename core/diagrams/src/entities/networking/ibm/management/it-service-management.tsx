@@ -11,11 +11,5 @@ export const IT_SERVICE_MANAGEMENT = {
 }
 
 export function ItServiceManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...IT_SERVICE_MANAGEMENT}
-      {...props}
-      _style={extendStyle(IT_SERVICE_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IT_SERVICE_MANAGEMENT)} />
 }

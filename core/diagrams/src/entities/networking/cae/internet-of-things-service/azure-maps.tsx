@@ -11,7 +11,5 @@ export const AZURE_MAPS = {
 }
 
 export function AzureMaps(props: NodeProps) {
-  return (
-    <Shape {...AZURE_MAPS} {...props} _style={extendStyle(AZURE_MAPS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_MAPS)} />
 }

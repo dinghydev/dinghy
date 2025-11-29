@@ -11,7 +11,5 @@ export const TEDDY_BEAR = {
 }
 
 export function TeddyBear(props: NodeProps) {
-  return (
-    <Shape {...TEDDY_BEAR} {...props} _style={extendStyle(TEDDY_BEAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEDDY_BEAR)} />
 }

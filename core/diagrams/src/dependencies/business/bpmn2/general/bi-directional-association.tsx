@@ -11,9 +11,8 @@ export const BI_DIRECTIONAL_ASSOCIATION = {
 export function BiDirectionalAssociation(props: NodeProps) {
   return (
     <Dependency
-      {...BI_DIRECTIONAL_ASSOCIATION}
       {...props}
-      _style={extendStyle(BI_DIRECTIONAL_ASSOCIATION, props)}
+      _style={extendStyle(props, BI_DIRECTIONAL_ASSOCIATION)}
     />
   )
 }

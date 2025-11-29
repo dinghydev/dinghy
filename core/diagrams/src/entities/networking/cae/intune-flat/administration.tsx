@@ -11,11 +11,5 @@ export const ADMINISTRATION = {
 }
 
 export function Administration(props: NodeProps) {
-  return (
-    <Shape
-      {...ADMINISTRATION}
-      {...props}
-      _style={extendStyle(ADMINISTRATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADMINISTRATION)} />
 }

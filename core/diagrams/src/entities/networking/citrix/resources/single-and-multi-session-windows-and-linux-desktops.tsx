@@ -13,11 +13,10 @@ export const SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS = {
 export function SingleAndMultiSessionWindowsAndLinuxDesktops(props: NodeProps) {
   return (
     <Shape
-      {...SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS}
       {...props}
       _style={extendStyle(
-        SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS,
         props,
+        SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS,
       )}
     />
   )

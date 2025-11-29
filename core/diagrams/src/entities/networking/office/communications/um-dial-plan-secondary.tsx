@@ -12,10 +12,6 @@ export const UM_DIAL_PLAN_SECONDARY = {
 
 export function UmDialPlanSecondary(props: NodeProps) {
   return (
-    <Shape
-      {...UM_DIAL_PLAN_SECONDARY}
-      {...props}
-      _style={extendStyle(UM_DIAL_PLAN_SECONDARY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, UM_DIAL_PLAN_SECONDARY)} />
   )
 }

@@ -11,5 +11,5 @@ export const SCOOPIT = {
 }
 
 export function Scoopit(props: NodeProps) {
-  return <Shape {...SCOOPIT} {...props} _style={extendStyle(SCOOPIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCOOPIT)} />
 }

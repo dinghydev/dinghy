@@ -11,11 +11,5 @@ export const X11800_INDICATOR_WITH = {
 }
 
 export function X11800IndicatorWith(props: NodeProps) {
-  return (
-    <Shape
-      {...X11800_INDICATOR_WITH}
-      {...props}
-      _style={extendStyle(X11800_INDICATOR_WITH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11800_INDICATOR_WITH)} />
 }

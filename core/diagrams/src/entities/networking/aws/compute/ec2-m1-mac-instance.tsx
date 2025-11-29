@@ -11,11 +11,5 @@ export const EC2_M1_MAC_INSTANCE = {
 }
 
 export function Ec2M1MacInstance(props: NodeProps) {
-  return (
-    <Shape
-      {...EC2_M1_MAC_INSTANCE}
-      {...props}
-      _style={extendStyle(EC2_M1_MAC_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EC2_M1_MAC_INSTANCE)} />
 }

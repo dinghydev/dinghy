@@ -12,10 +12,6 @@ export const HORIZONTAL_FLOW_LAYOUT = {
 
 export function HorizontalFlowLayout(props: NodeProps) {
   return (
-    <Shape
-      {...HORIZONTAL_FLOW_LAYOUT}
-      {...props}
-      _style={extendStyle(HORIZONTAL_FLOW_LAYOUT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, HORIZONTAL_FLOW_LAYOUT)} />
   )
 }

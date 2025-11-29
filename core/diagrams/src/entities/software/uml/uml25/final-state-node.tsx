@@ -10,11 +10,5 @@ export const FINAL_STATE_NODE = {
 }
 
 export function FinalStateNode(props: NodeProps) {
-  return (
-    <Shape
-      {...FINAL_STATE_NODE}
-      {...props}
-      _style={extendStyle(FINAL_STATE_NODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FINAL_STATE_NODE)} />
 }

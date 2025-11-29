@@ -12,10 +12,6 @@ export const EXIT_POINT_FLOW_FINAL_NODE = {
 
 export function ExitPointFlowFinalNode(props: NodeProps) {
   return (
-    <Shape
-      {...EXIT_POINT_FLOW_FINAL_NODE}
-      {...props}
-      _style={extendStyle(EXIT_POINT_FLOW_FINAL_NODE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXIT_POINT_FLOW_FINAL_NODE)} />
   )
 }

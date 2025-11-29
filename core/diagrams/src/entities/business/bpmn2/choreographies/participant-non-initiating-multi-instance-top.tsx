@@ -13,9 +13,8 @@ export const PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP = {
 export function ParticipantNonInitiatingMultiInstanceTop(props: NodeProps) {
   return (
     <Shape
-      {...PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP}
       {...props}
-      _style={extendStyle(PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP, props)}
+      _style={extendStyle(props, PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP)}
     />
   )
 }

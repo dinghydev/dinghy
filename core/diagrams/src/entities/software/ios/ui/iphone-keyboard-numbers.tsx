@@ -12,10 +12,6 @@ export const IPHONE_KEYBOARD_NUMBERS = {
 
 export function IphoneKeyboardNumbers(props: NodeProps) {
   return (
-    <Shape
-      {...IPHONE_KEYBOARD_NUMBERS}
-      {...props}
-      _style={extendStyle(IPHONE_KEYBOARD_NUMBERS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IPHONE_KEYBOARD_NUMBERS)} />
   )
 }

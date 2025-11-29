@@ -10,11 +10,5 @@ export const BACKGROUND_DARK = {
 }
 
 export function BackgroundDark(props: NodeProps) {
-  return (
-    <Shape
-      {...BACKGROUND_DARK}
-      {...props}
-      _style={extendStyle(BACKGROUND_DARK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BACKGROUND_DARK)} />
 }

@@ -11,11 +11,5 @@ export const GATE_VALVE_DIAPHRAGM = {
 }
 
 export function GateValveDiaphragm(props: NodeProps) {
-  return (
-    <Shape
-      {...GATE_VALVE_DIAPHRAGM}
-      {...props}
-      _style={extendStyle(GATE_VALVE_DIAPHRAGM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GATE_VALVE_DIAPHRAGM)} />
 }

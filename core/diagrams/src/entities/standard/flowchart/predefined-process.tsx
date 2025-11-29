@@ -11,11 +11,5 @@ export const PREDEFINED_PROCESS = {
 }
 
 export function PredefinedProcess(props: NodeProps) {
-  return (
-    <Shape
-      {...PREDEFINED_PROCESS}
-      {...props}
-      _style={extendStyle(PREDEFINED_PROCESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PREDEFINED_PROCESS)} />
 }

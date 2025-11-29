@@ -11,5 +11,5 @@ export const SHIELD = {
 }
 
 export function Shield(props: NodeProps) {
-  return <Shape {...SHIELD} {...props} _style={extendStyle(SHIELD, props)} />
+  return <Shape {...props} _style={extendStyle(props, SHIELD)} />
 }

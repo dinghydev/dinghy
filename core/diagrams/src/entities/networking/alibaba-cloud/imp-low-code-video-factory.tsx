@@ -12,10 +12,6 @@ export const IMP_LOW_CODE_VIDEO_FACTORY = {
 
 export function ImpLowCodeVideoFactory(props: NodeProps) {
   return (
-    <Shape
-      {...IMP_LOW_CODE_VIDEO_FACTORY}
-      {...props}
-      _style={extendStyle(IMP_LOW_CODE_VIDEO_FACTORY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IMP_LOW_CODE_VIDEO_FACTORY)} />
   )
 }

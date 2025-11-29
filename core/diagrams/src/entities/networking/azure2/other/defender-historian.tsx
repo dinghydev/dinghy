@@ -11,11 +11,5 @@ export const DEFENDER_HISTORIAN = {
 }
 
 export function DefenderHistorian(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFENDER_HISTORIAN}
-      {...props}
-      _style={extendStyle(DEFENDER_HISTORIAN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFENDER_HISTORIAN)} />
 }

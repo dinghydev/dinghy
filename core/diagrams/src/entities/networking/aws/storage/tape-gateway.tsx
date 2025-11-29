@@ -11,11 +11,5 @@ export const TAPE_GATEWAY = {
 }
 
 export function TapeGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...TAPE_GATEWAY}
-      {...props}
-      _style={extendStyle(TAPE_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_GATEWAY)} />
 }

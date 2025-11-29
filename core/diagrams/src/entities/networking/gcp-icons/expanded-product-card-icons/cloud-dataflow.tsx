@@ -11,11 +11,5 @@ export const CLOUD_DATAFLOW = {
 }
 
 export function CloudDataflow(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DATAFLOW}
-      {...props}
-      _style={extendStyle(CLOUD_DATAFLOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DATAFLOW)} />
 }

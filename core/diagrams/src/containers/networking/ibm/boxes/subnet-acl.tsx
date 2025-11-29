@@ -13,7 +13,5 @@ export const SUBNET_ACL = {
 }
 
 export function SubnetAcl(props: NodeProps) {
-  return (
-    <Shape {...SUBNET_ACL} {...props} _style={extendStyle(SUBNET_ACL, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUBNET_ACL)} />
 }

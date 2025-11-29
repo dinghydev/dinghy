@@ -11,5 +11,5 @@ export const BEACON = {
 }
 
 export function Beacon(props: NodeProps) {
-  return <Shape {...BEACON} {...props} _style={extendStyle(BEACON, props)} />
+  return <Shape {...props} _style={extendStyle(props, BEACON)} />
 }

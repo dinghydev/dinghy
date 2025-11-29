@@ -13,9 +13,8 @@ export const APSARA_FILE_STORAGE_FOR_HDFS = {
 export function ApsaraFileStorageForHdfs(props: NodeProps) {
   return (
     <Shape
-      {...APSARA_FILE_STORAGE_FOR_HDFS}
       {...props}
-      _style={extendStyle(APSARA_FILE_STORAGE_FOR_HDFS, props)}
+      _style={extendStyle(props, APSARA_FILE_STORAGE_FOR_HDFS)}
     />
   )
 }

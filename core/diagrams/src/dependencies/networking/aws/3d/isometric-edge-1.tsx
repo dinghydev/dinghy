@@ -8,11 +8,5 @@ export const ISOMETRIC_EDGE_1 = {
 }
 
 export function IsometricEdge1(props: NodeProps) {
-  return (
-    <Dependency
-      {...ISOMETRIC_EDGE_1}
-      {...props}
-      _style={extendStyle(ISOMETRIC_EDGE_1, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, ISOMETRIC_EDGE_1)} />
 }

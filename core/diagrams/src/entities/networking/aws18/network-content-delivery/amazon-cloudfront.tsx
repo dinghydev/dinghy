@@ -11,11 +11,5 @@ export const AMAZON_CLOUDFRONT = {
 }
 
 export function AmazonCloudfront(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_CLOUDFRONT}
-      {...props}
-      _style={extendStyle(AMAZON_CLOUDFRONT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_CLOUDFRONT)} />
 }

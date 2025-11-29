@@ -11,7 +11,5 @@ export const MULTIMEDIA = {
 }
 
 export function Multimedia(props: NodeProps) {
-  return (
-    <Shape {...MULTIMEDIA} {...props} _style={extendStyle(MULTIMEDIA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, MULTIMEDIA)} />
 }

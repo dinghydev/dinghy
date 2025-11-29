@@ -12,10 +12,6 @@ export const VERIFICATION_AS_A_SERVICE = {
 
 export function VerificationAsAService(props: NodeProps) {
   return (
-    <Shape
-      {...VERIFICATION_AS_A_SERVICE}
-      {...props}
-      _style={extendStyle(VERIFICATION_AS_A_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VERIFICATION_AS_A_SERVICE)} />
   )
 }

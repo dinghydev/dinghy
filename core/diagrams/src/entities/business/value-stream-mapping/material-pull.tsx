@@ -11,11 +11,5 @@ export const MATERIAL_PULL = {
 }
 
 export function MaterialPull(props: NodeProps) {
-  return (
-    <Shape
-      {...MATERIAL_PULL}
-      {...props}
-      _style={extendStyle(MATERIAL_PULL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MATERIAL_PULL)} />
 }

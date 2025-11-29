@@ -11,7 +11,5 @@ export const REPEATER = {
 }
 
 export function Repeater(props: NodeProps) {
-  return (
-    <Shape {...REPEATER} {...props} _style={extendStyle(REPEATER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, REPEATER)} />
 }

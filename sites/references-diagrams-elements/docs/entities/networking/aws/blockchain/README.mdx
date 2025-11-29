@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Blockchain } from '@dinghy/diagrams/entitiesAwsBlockchain'
 
 <Blockchain/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BLOCKCHAIN } from '@dinghy/diagrams/entitiesAwsBlockchain'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BLOCKCHAIN)}
+  />
+
 ```
 
   </TabItem>
@@ -52,6 +63,17 @@ import { Blockchain } from '@dinghy/diagrams/entitiesAwsBlockchain'
 import { Blockchain2 } from '@dinghy/diagrams/entitiesAwsBlockchain'
 
 <Blockchain2/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { BLOCKCHAIN_2 } from '@dinghy/diagrams/entitiesAwsBlockchain'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, BLOCKCHAIN_2)}
+  />
+
 ```
 
   </TabItem>
@@ -85,6 +107,17 @@ import { Blockchain2 } from '@dinghy/diagrams/entitiesAwsBlockchain'
 import { ManagedBlockchain } from '@dinghy/diagrams/entitiesAwsBlockchain'
 
 <ManagedBlockchain/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { MANAGED_BLOCKCHAIN } from '@dinghy/diagrams/entitiesAwsBlockchain'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, MANAGED_BLOCKCHAIN)}
+  />
+
 ```
 
   </TabItem>
@@ -119,6 +152,17 @@ import { ManagedBlockchain } from '@dinghy/diagrams/entitiesAwsBlockchain'
 import { QuantumLedgerDatabase } from '@dinghy/diagrams/entitiesAwsBlockchain'
 
 <QuantumLedgerDatabase/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { QUANTUM_LEDGER_DATABASE } from '@dinghy/diagrams/entitiesAwsBlockchain'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, QUANTUM_LEDGER_DATABASE)}
+  />
+
 ```
 
   </TabItem>

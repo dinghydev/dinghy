@@ -11,11 +11,5 @@ export const GANTT_CHART = {
 }
 
 export function GanttChart(props: NodeProps) {
-  return (
-    <Shape
-      {...GANTT_CHART}
-      {...props}
-      _style={extendStyle(GANTT_CHART, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GANTT_CHART)} />
 }

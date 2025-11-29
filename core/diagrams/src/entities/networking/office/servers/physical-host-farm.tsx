@@ -11,11 +11,5 @@ export const PHYSICAL_HOST_FARM = {
 }
 
 export function PhysicalHostFarm(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_HOST_FARM}
-      {...props}
-      _style={extendStyle(PHYSICAL_HOST_FARM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_HOST_FARM)} />
 }

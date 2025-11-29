@@ -13,9 +13,8 @@ export const AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION = {
 export function AirecArtificialIntelligenceRecommendation(props: NodeProps) {
   return (
     <Shape
-      {...AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION}
       {...props}
-      _style={extendStyle(AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION, props)}
+      _style={extendStyle(props, AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION)}
     />
   )
 }

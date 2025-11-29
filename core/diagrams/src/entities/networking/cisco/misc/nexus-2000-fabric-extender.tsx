@@ -12,10 +12,6 @@ export const NEXUS_2000_FABRIC_EXTENDER = {
 
 export function Nexus2000FabricExtender(props: NodeProps) {
   return (
-    <Shape
-      {...NEXUS_2000_FABRIC_EXTENDER}
-      {...props}
-      _style={extendStyle(NEXUS_2000_FABRIC_EXTENDER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NEXUS_2000_FABRIC_EXTENDER)} />
   )
 }

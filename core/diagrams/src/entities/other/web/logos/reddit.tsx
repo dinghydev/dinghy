@@ -11,5 +11,5 @@ export const REDDIT = {
 }
 
 export function Reddit(props: NodeProps) {
-  return <Shape {...REDDIT} {...props} _style={extendStyle(REDDIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, REDDIT)} />
 }

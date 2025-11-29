@@ -11,11 +11,5 @@ export const X11840_PRESSURE_GAUGE = {
 }
 
 export function X11840PressureGauge(props: NodeProps) {
-  return (
-    <Shape
-      {...X11840_PRESSURE_GAUGE}
-      {...props}
-      _style={extendStyle(X11840_PRESSURE_GAUGE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11840_PRESSURE_GAUGE)} />
 }

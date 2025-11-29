@@ -11,11 +11,5 @@ export const APPLICATION_HYBRID = {
 }
 
 export function ApplicationHybrid(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_HYBRID}
-      {...props}
-      _style={extendStyle(APPLICATION_HYBRID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_HYBRID)} />
 }

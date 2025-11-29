@@ -11,5 +11,5 @@ export const DOOR_2 = {
 }
 
 export function Door2(props: NodeProps) {
-  return <Shape {...DOOR_2} {...props} _style={extendStyle(DOOR_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, DOOR_2)} />
 }

@@ -11,5 +11,5 @@ export const NOVA = {
 }
 
 export function Nova(props: NodeProps) {
-  return <Shape {...NOVA} {...props} _style={extendStyle(NOVA, props)} />
+  return <Shape {...props} _style={extendStyle(props, NOVA)} />
 }

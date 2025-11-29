@@ -11,11 +11,5 @@ export const SUPPORT_REQUESTS = {
 }
 
 export function SupportRequests(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPPORT_REQUESTS}
-      {...props}
-      _style={extendStyle(SUPPORT_REQUESTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPPORT_REQUESTS)} />
 }

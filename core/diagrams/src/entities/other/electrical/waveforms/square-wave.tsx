@@ -11,11 +11,5 @@ export const SQUARE_WAVE = {
 }
 
 export function SquareWave(props: NodeProps) {
-  return (
-    <Shape
-      {...SQUARE_WAVE}
-      {...props}
-      _style={extendStyle(SQUARE_WAVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SQUARE_WAVE)} />
 }

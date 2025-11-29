@@ -11,5 +11,5 @@ export const KIDNEY = {
 }
 
 export function Kidney(props: NodeProps) {
-  return <Shape {...KIDNEY} {...props} _style={extendStyle(KIDNEY, props)} />
+  return <Shape {...props} _style={extendStyle(props, KIDNEY)} />
 }

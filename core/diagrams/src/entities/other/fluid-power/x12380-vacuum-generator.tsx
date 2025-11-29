@@ -12,10 +12,6 @@ export const X12380_VACUUM_GENERATOR = {
 
 export function X12380VacuumGenerator(props: NodeProps) {
   return (
-    <Shape
-      {...X12380_VACUUM_GENERATOR}
-      {...props}
-      _style={extendStyle(X12380_VACUUM_GENERATOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X12380_VACUUM_GENERATOR)} />
   )
 }

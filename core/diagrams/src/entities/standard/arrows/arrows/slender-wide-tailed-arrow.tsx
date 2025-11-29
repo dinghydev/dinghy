@@ -12,10 +12,6 @@ export const SLENDER_WIDE_TAILED_ARROW = {
 
 export function SlenderWideTailedArrow(props: NodeProps) {
   return (
-    <Shape
-      {...SLENDER_WIDE_TAILED_ARROW}
-      {...props}
-      _style={extendStyle(SLENDER_WIDE_TAILED_ARROW, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SLENDER_WIDE_TAILED_ARROW)} />
   )
 }

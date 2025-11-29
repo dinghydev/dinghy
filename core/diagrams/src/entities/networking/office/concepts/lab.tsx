@@ -11,5 +11,5 @@ export const LAB = {
 }
 
 export function Lab(props: NodeProps) {
-  return <Shape {...LAB} {...props} _style={extendStyle(LAB, props)} />
+  return <Shape {...props} _style={extendStyle(props, LAB)} />
 }

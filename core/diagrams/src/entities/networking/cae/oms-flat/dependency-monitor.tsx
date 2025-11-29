@@ -11,11 +11,5 @@ export const DEPENDENCY_MONITOR = {
 }
 
 export function DependencyMonitor(props: NodeProps) {
-  return (
-    <Shape
-      {...DEPENDENCY_MONITOR}
-      {...props}
-      _style={extendStyle(DEPENDENCY_MONITOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEPENDENCY_MONITOR)} />
 }

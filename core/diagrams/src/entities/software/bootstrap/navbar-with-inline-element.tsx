@@ -12,10 +12,6 @@ export const NAVBAR_WITH_INLINE_ELEMENT = {
 
 export function NavbarWithInlineElement(props: NodeProps) {
   return (
-    <Shape
-      {...NAVBAR_WITH_INLINE_ELEMENT}
-      {...props}
-      _style={extendStyle(NAVBAR_WITH_INLINE_ELEMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, NAVBAR_WITH_INLINE_ELEMENT)} />
   )
 }

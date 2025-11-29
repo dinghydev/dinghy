@@ -11,5 +11,5 @@ export const TOOLTIP = {
 }
 
 export function Tooltip(props: NodeProps) {
-  return <Shape {...TOOLTIP} {...props} _style={extendStyle(TOOLTIP, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOOLTIP)} />
 }

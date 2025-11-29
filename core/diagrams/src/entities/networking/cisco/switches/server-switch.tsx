@@ -11,11 +11,5 @@ export const SERVER_SWITCH = {
 }
 
 export function ServerSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_SWITCH}
-      {...props}
-      _style={extendStyle(SERVER_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_SWITCH)} />
 }

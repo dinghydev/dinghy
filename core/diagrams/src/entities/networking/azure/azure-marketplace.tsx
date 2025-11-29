@@ -11,11 +11,5 @@ export const AZURE_MARKETPLACE = {
 }
 
 export function AzureMarketplace(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_MARKETPLACE}
-      {...props}
-      _style={extendStyle(AZURE_MARKETPLACE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_MARKETPLACE)} />
 }

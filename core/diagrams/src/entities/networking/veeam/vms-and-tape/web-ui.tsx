@@ -11,5 +11,5 @@ export const WEB_UI = {
 }
 
 export function WebUi(props: NodeProps) {
-  return <Shape {...WEB_UI} {...props} _style={extendStyle(WEB_UI, props)} />
+  return <Shape {...props} _style={extendStyle(props, WEB_UI)} />
 }

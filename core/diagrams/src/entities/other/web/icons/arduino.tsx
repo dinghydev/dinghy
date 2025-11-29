@@ -11,5 +11,5 @@ export const ARDUINO = {
 }
 
 export function Arduino(props: NodeProps) {
-  return <Shape {...ARDUINO} {...props} _style={extendStyle(ARDUINO, props)} />
+  return <Shape {...props} _style={extendStyle(props, ARDUINO)} />
 }

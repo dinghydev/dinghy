@@ -13,9 +13,8 @@ export const IMMERSIVE_TELEPRESENCE_ENDPOINT = {
 export function ImmersiveTelepresenceEndpoint(props: NodeProps) {
   return (
     <Shape
-      {...IMMERSIVE_TELEPRESENCE_ENDPOINT}
       {...props}
-      _style={extendStyle(IMMERSIVE_TELEPRESENCE_ENDPOINT, props)}
+      _style={extendStyle(props, IMMERSIVE_TELEPRESENCE_ENDPOINT)}
     />
   )
 }

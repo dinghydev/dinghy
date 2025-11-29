@@ -11,11 +11,5 @@ export const GOOGLE_PLAY_LIGHT = {
 }
 
 export function GooglePlayLight(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_PLAY_LIGHT}
-      {...props}
-      _style={extendStyle(GOOGLE_PLAY_LIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_PLAY_LIGHT)} />
 }

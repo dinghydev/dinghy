@@ -11,11 +11,5 @@ export const MEDIA_ON_DEMAND = {
 }
 
 export function MediaOnDemand(props: NodeProps) {
-  return (
-    <Shape
-      {...MEDIA_ON_DEMAND}
-      {...props}
-      _style={extendStyle(MEDIA_ON_DEMAND, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MEDIA_ON_DEMAND)} />
 }

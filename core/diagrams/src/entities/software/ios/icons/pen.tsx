@@ -11,5 +11,5 @@ export const PEN = {
 }
 
 export function Pen(props: NodeProps) {
-  return <Shape {...PEN} {...props} _style={extendStyle(PEN, props)} />
+  return <Shape {...props} _style={extendStyle(props, PEN)} />
 }

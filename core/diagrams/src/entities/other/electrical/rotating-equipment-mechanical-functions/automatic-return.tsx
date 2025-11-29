@@ -11,11 +11,5 @@ export const AUTOMATIC_RETURN = {
 }
 
 export function AutomaticReturn(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTOMATIC_RETURN}
-      {...props}
-      _style={extendStyle(AUTOMATIC_RETURN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTOMATIC_RETURN)} />
 }

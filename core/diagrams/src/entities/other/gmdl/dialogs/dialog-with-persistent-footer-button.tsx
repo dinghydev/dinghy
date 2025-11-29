@@ -13,9 +13,8 @@ export const DIALOG_WITH_PERSISTENT_FOOTER_BUTTON = {
 export function DialogWithPersistentFooterButton(props: NodeProps) {
   return (
     <Shape
-      {...DIALOG_WITH_PERSISTENT_FOOTER_BUTTON}
       {...props}
-      _style={extendStyle(DIALOG_WITH_PERSISTENT_FOOTER_BUTTON, props)}
+      _style={extendStyle(props, DIALOG_WITH_PERSISTENT_FOOTER_BUTTON)}
     />
   )
 }

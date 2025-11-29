@@ -11,11 +11,5 @@ export const ROCK_COLLECTION = {
 }
 
 export function RockCollection(props: NodeProps) {
-  return (
-    <Shape
-      {...ROCK_COLLECTION}
-      {...props}
-      _style={extendStyle(ROCK_COLLECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROCK_COLLECTION)} />
 }

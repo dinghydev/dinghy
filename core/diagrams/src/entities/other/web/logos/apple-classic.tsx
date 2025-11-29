@@ -11,11 +11,5 @@ export const APPLE_CLASSIC = {
 }
 
 export function AppleClassic(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLE_CLASSIC}
-      {...props}
-      _style={extendStyle(APPLE_CLASSIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLE_CLASSIC)} />
 }

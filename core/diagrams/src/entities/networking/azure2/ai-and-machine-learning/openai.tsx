@@ -11,5 +11,5 @@ export const OPENAI = {
 }
 
 export function Openai(props: NodeProps) {
-  return <Shape {...OPENAI} {...props} _style={extendStyle(OPENAI, props)} />
+  return <Shape {...props} _style={extendStyle(props, OPENAI)} />
 }

@@ -11,11 +11,5 @@ export const API_NON_SAP = {
 }
 
 export function ApiNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...API_NON_SAP}
-      {...props}
-      _style={extendStyle(API_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_NON_SAP)} />
 }

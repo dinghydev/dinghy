@@ -11,11 +11,5 @@ export const CISCO_APPLIANCE = {
 }
 
 export function CiscoAppliance(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_APPLIANCE}
-      {...props}
-      _style={extendStyle(CISCO_APPLIANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_APPLIANCE)} />
 }

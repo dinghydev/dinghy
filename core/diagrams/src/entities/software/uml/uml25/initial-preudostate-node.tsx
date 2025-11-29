@@ -11,10 +11,6 @@ export const INITIAL_PREUDOSTATE_NODE = {
 
 export function InitialPreudostateNode(props: NodeProps) {
   return (
-    <Shape
-      {...INITIAL_PREUDOSTATE_NODE}
-      {...props}
-      _style={extendStyle(INITIAL_PREUDOSTATE_NODE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, INITIAL_PREUDOSTATE_NODE)} />
   )
 }

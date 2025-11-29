@@ -11,11 +11,5 @@ export const WAF_BAD_BOT = {
 }
 
 export function WafBadBot(props: NodeProps) {
-  return (
-    <Shape
-      {...WAF_BAD_BOT}
-      {...props}
-      _style={extendStyle(WAF_BAD_BOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WAF_BAD_BOT)} />
 }

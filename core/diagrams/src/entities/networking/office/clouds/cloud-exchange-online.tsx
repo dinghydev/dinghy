@@ -11,11 +11,5 @@ export const CLOUD_EXCHANGE_ONLINE = {
 }
 
 export function CloudExchangeOnline(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_EXCHANGE_ONLINE}
-      {...props}
-      _style={extendStyle(CLOUD_EXCHANGE_ONLINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_EXCHANGE_ONLINE)} />
 }

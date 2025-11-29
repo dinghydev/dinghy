@@ -11,11 +11,5 @@ export const HTTP_NOTIFICATION = {
 }
 
 export function HttpNotification(props: NodeProps) {
-  return (
-    <Shape
-      {...HTTP_NOTIFICATION}
-      {...props}
-      _style={extendStyle(HTTP_NOTIFICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HTTP_NOTIFICATION)} />
 }

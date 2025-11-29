@@ -11,11 +11,5 @@ export const MAINTENANCE_WINDOW = {
 }
 
 export function MaintenanceWindow(props: NodeProps) {
-  return (
-    <Shape
-      {...MAINTENANCE_WINDOW}
-      {...props}
-      _style={extendStyle(MAINTENANCE_WINDOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAINTENANCE_WINDOW)} />
 }

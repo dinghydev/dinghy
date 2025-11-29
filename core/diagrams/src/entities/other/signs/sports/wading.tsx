@@ -11,5 +11,5 @@ export const WADING = {
 }
 
 export function Wading(props: NodeProps) {
-  return <Shape {...WADING} {...props} _style={extendStyle(WADING, props)} />
+  return <Shape {...props} _style={extendStyle(props, WADING)} />
 }

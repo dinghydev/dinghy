@@ -11,5 +11,5 @@ export const TANK = {
 }
 
 export function Tank(props: NodeProps) {
-  return <Shape {...TANK} {...props} _style={extendStyle(TANK, props)} />
+  return <Shape {...props} _style={extendStyle(props, TANK)} />
 }

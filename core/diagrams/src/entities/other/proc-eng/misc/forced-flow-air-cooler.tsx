@@ -12,10 +12,6 @@ export const FORCED_FLOW_AIR_COOLER = {
 
 export function ForcedFlowAirCooler(props: NodeProps) {
   return (
-    <Shape
-      {...FORCED_FLOW_AIR_COOLER}
-      {...props}
-      _style={extendStyle(FORCED_FLOW_AIR_COOLER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FORCED_FLOW_AIR_COOLER)} />
   )
 }

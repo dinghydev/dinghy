@@ -12,10 +12,6 @@ export const AD_IDENTITY_PROTECTION = {
 
 export function AdIdentityProtection(props: NodeProps) {
   return (
-    <Shape
-      {...AD_IDENTITY_PROTECTION}
-      {...props}
-      _style={extendStyle(AD_IDENTITY_PROTECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AD_IDENTITY_PROTECTION)} />
   )
 }

@@ -11,7 +11,5 @@ export const BOARDWALK = {
 }
 
 export function Boardwalk(props: NodeProps) {
-  return (
-    <Shape {...BOARDWALK} {...props} _style={extendStyle(BOARDWALK, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOARDWALK)} />
 }

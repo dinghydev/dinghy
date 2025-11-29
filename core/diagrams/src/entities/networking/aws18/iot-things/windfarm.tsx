@@ -11,7 +11,5 @@ export const WINDFARM = {
 }
 
 export function Windfarm(props: NodeProps) {
-  return (
-    <Shape {...WINDFARM} {...props} _style={extendStyle(WINDFARM, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WINDFARM)} />
 }

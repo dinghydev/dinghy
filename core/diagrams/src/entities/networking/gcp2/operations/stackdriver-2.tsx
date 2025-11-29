@@ -11,11 +11,5 @@ export const STACKDRIVER_2 = {
 }
 
 export function Stackdriver2(props: NodeProps) {
-  return (
-    <Shape
-      {...STACKDRIVER_2}
-      {...props}
-      _style={extendStyle(STACKDRIVER_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STACKDRIVER_2)} />
 }

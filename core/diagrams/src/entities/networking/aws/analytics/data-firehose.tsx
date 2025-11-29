@@ -11,11 +11,5 @@ export const DATA_FIREHOSE = {
 }
 
 export function DataFirehose(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_FIREHOSE}
-      {...props}
-      _style={extendStyle(DATA_FIREHOSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_FIREHOSE)} />
 }

@@ -13,9 +13,8 @@ export const CISCO_PHYSICAL_SECURITY_4U_STORAGE = {
 export function CiscoPhysicalSecurity4uStorage(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_PHYSICAL_SECURITY_4U_STORAGE}
       {...props}
-      _style={extendStyle(CISCO_PHYSICAL_SECURITY_4U_STORAGE, props)}
+      _style={extendStyle(props, CISCO_PHYSICAL_SECURITY_4U_STORAGE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const PERMISSIONS_NON_SAP = {
 }
 
 export function PermissionsNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...PERMISSIONS_NON_SAP}
-      {...props}
-      _style={extendStyle(PERMISSIONS_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PERMISSIONS_NON_SAP)} />
 }

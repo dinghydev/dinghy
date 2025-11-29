@@ -12,10 +12,6 @@ export const LOCATION_SERVICE_GEOFENCE = {
 
 export function LocationServiceGeofence(props: NodeProps) {
   return (
-    <Shape
-      {...LOCATION_SERVICE_GEOFENCE}
-      {...props}
-      _style={extendStyle(LOCATION_SERVICE_GEOFENCE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOCATION_SERVICE_GEOFENCE)} />
   )
 }

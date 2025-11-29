@@ -13,9 +13,8 @@ export const AD_ROLES_AND_ADMINISTRATORS = {
 export function AdRolesAndAdministrators(props: NodeProps) {
   return (
     <Shape
-      {...AD_ROLES_AND_ADMINISTRATORS}
       {...props}
-      _style={extendStyle(AD_ROLES_AND_ADMINISTRATORS, props)}
+      _style={extendStyle(props, AD_ROLES_AND_ADMINISTRATORS)}
     />
   )
 }

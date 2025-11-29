@@ -11,11 +11,5 @@ export const GENERATOR_DC = {
 }
 
 export function GeneratorDc(props: NodeProps) {
-  return (
-    <Shape
-      {...GENERATOR_DC}
-      {...props}
-      _style={extendStyle(GENERATOR_DC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GENERATOR_DC)} />
 }

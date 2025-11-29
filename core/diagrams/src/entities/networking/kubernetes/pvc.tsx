@@ -11,5 +11,5 @@ export const PVC = {
 }
 
 export function Pvc(props: NodeProps) {
-  return <Shape {...PVC} {...props} _style={extendStyle(PVC, props)} />
+  return <Shape {...props} _style={extendStyle(props, PVC)} />
 }

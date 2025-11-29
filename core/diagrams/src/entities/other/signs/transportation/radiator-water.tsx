@@ -11,11 +11,5 @@ export const RADIATOR_WATER = {
 }
 
 export function RadiatorWater(props: NodeProps) {
-  return (
-    <Shape
-      {...RADIATOR_WATER}
-      {...props}
-      _style={extendStyle(RADIATOR_WATER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RADIATOR_WATER)} />
 }

@@ -11,5 +11,5 @@ export const DROPBOX = {
 }
 
 export function Dropbox(props: NodeProps) {
-  return <Shape {...DROPBOX} {...props} _style={extendStyle(DROPBOX, props)} />
+  return <Shape {...props} _style={extendStyle(props, DROPBOX)} />
 }

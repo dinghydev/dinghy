@@ -11,7 +11,5 @@ export const ELASTIC_IP = {
 }
 
 export function ElasticIp(props: NodeProps) {
-  return (
-    <Shape {...ELASTIC_IP} {...props} _style={extendStyle(ELASTIC_IP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ELASTIC_IP)} />
 }

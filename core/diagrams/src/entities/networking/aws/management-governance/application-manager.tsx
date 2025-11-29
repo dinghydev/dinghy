@@ -11,11 +11,5 @@ export const APPLICATION_MANAGER = {
 }
 
 export function ApplicationManager(props: NodeProps) {
-  return (
-    <Shape
-      {...APPLICATION_MANAGER}
-      {...props}
-      _style={extendStyle(APPLICATION_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APPLICATION_MANAGER)} />
 }

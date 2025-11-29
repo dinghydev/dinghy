@@ -12,9 +12,8 @@ export const ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR = {
 export function ActivityProcessEntityExternalInteractor(props: NodeProps) {
   return (
     <Shape
-      {...ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR}
       {...props}
-      _style={extendStyle(ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR, props)}
+      _style={extendStyle(props, ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR)}
     />
   )
 }

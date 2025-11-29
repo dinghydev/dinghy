@@ -11,7 +11,5 @@ export const CONSTRAINT = {
 }
 
 export function Constraint(props: NodeProps) {
-  return (
-    <Shape {...CONSTRAINT} {...props} _style={extendStyle(CONSTRAINT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONSTRAINT)} />
 }

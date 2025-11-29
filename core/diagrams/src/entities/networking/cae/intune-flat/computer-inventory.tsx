@@ -11,11 +11,5 @@ export const COMPUTER_INVENTORY = {
 }
 
 export function ComputerInventory(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPUTER_INVENTORY}
-      {...props}
-      _style={extendStyle(COMPUTER_INVENTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPUTER_INVENTORY)} />
 }

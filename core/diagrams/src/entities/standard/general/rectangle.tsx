@@ -10,7 +10,5 @@ export const RECTANGLE = {
 }
 
 export function Rectangle(props: NodeProps) {
-  return (
-    <Shape {...RECTANGLE} {...props} _style={extendStyle(RECTANGLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RECTANGLE)} />
 }

@@ -11,11 +11,5 @@ export const STATE_MANAGER = {
 }
 
 export function StateManager(props: NodeProps) {
-  return (
-    <Shape
-      {...STATE_MANAGER}
-      {...props}
-      _style={extendStyle(STATE_MANAGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STATE_MANAGER)} />
 }

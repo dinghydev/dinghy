@@ -16,11 +16,10 @@ export function Jl581aAruba832048p1g10gbaseTAnd6p40gQsfp5Fans2PsSwitchBundleRear
 ) {
   return (
     <Shape
-      {...JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR}
       {...props}
       _style={extendStyle(
-        JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR,
         props,
+        JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR,
       )}
     />
   )

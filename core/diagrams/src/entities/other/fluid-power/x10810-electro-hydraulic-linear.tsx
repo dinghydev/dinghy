@@ -13,9 +13,8 @@ export const X10810_ELECTRO_HYDRAULIC_LINEAR = {
 export function X10810ElectroHydraulicLinear(props: NodeProps) {
   return (
     <Shape
-      {...X10810_ELECTRO_HYDRAULIC_LINEAR}
       {...props}
-      _style={extendStyle(X10810_ELECTRO_HYDRAULIC_LINEAR, props)}
+      _style={extendStyle(props, X10810_ELECTRO_HYDRAULIC_LINEAR)}
     />
   )
 }

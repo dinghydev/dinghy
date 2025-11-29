@@ -12,10 +12,6 @@ export const LOZENGE_PROBLEM_SUBTLE = {
 
 export function LozengeProblemSubtle(props: NodeProps) {
   return (
-    <Shape
-      {...LOZENGE_PROBLEM_SUBTLE}
-      {...props}
-      _style={extendStyle(LOZENGE_PROBLEM_SUBTLE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LOZENGE_PROBLEM_SUBTLE)} />
   )
 }

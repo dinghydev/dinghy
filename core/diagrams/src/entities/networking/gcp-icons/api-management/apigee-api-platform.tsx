@@ -11,11 +11,5 @@ export const APIGEE_API_PLATFORM = {
 }
 
 export function ApigeeApiPlatform(props: NodeProps) {
-  return (
-    <Shape
-      {...APIGEE_API_PLATFORM}
-      {...props}
-      _style={extendStyle(APIGEE_API_PLATFORM, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APIGEE_API_PLATFORM)} />
 }

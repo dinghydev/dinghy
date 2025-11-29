@@ -11,11 +11,5 @@ export const SUPPORT_CENTER_BLUE = {
 }
 
 export function SupportCenterBlue(props: NodeProps) {
-  return (
-    <Shape
-      {...SUPPORT_CENTER_BLUE}
-      {...props}
-      _style={extendStyle(SUPPORT_CENTER_BLUE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUPPORT_CENTER_BLUE)} />
 }

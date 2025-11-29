@@ -1,0 +1,74 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# ACM (Certificate Manager)
+
+## AwsAcmCertificate
+
+Requests and manages a certificate from Amazon Certificate Manager (ACM).
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acm/AwsAcmCertificate.tsx)
+
+```js
+import { AwsAcmCertificate } from "@dinghy/tf-aws/serviceAcm"
+
+<AwsAcmCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acm_certificate)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acm/DataAwsAcmCertificate.tsx)
+
+```js
+import { DataAwsAcmCertificate } from "@dinghy/tf-aws/serviceAcm"
+
+<DataAwsAcmCertificate/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate#import)
+
+```js
+<AwsAcmCertificate
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsAcmCertificateValidation
+
+Waits for and checks successful validation of an ACM certificate.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate_validation)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/acm/AwsAcmCertificateValidation.tsx)
+
+```js
+import { AwsAcmCertificateValidation } from "@dinghy/tf-aws/serviceAcm"
+
+<AwsAcmCertificateValidation/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

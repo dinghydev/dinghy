@@ -11,5 +11,5 @@ export const DROP = {
 }
 
 export function Drop(props: NodeProps) {
-  return <Shape {...DROP} {...props} _style={extendStyle(DROP, props)} />
+  return <Shape {...props} _style={extendStyle(props, DROP)} />
 }

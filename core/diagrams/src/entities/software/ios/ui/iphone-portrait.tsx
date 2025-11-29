@@ -11,11 +11,5 @@ export const IPHONE_PORTRAIT = {
 }
 
 export function IphonePortrait(props: NodeProps) {
-  return (
-    <Shape
-      {...IPHONE_PORTRAIT}
-      {...props}
-      _style={extendStyle(IPHONE_PORTRAIT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IPHONE_PORTRAIT)} />
 }

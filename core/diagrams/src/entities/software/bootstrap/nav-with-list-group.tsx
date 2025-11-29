@@ -11,11 +11,5 @@ export const NAV_WITH_LIST_GROUP = {
 }
 
 export function NavWithListGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...NAV_WITH_LIST_GROUP}
-      {...props}
-      _style={extendStyle(NAV_WITH_LIST_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NAV_WITH_LIST_GROUP)} />
 }

@@ -13,9 +13,8 @@ export const X11490_SINGLE_ACTING_CYLINDER = {
 export function X11490SingleActingCylinder(props: NodeProps) {
   return (
     <Shape
-      {...X11490_SINGLE_ACTING_CYLINDER}
       {...props}
-      _style={extendStyle(X11490_SINGLE_ACTING_CYLINDER, props)}
+      _style={extendStyle(props, X11490_SINGLE_ACTING_CYLINDER)}
     />
   )
 }

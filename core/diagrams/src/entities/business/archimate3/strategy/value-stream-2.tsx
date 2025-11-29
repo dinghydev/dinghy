@@ -11,11 +11,5 @@ export const VALUE_STREAM_2 = {
 }
 
 export function ValueStream2(props: NodeProps) {
-  return (
-    <Shape
-      {...VALUE_STREAM_2}
-      {...props}
-      _style={extendStyle(VALUE_STREAM_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VALUE_STREAM_2)} />
 }

@@ -11,11 +11,5 @@ export const CLOUD_DATA_TRANSFER = {
 }
 
 export function CloudDataTransfer(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DATA_TRANSFER}
-      {...props}
-      _style={extendStyle(CLOUD_DATA_TRANSFER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DATA_TRANSFER)} />
 }

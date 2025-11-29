@@ -11,7 +11,5 @@ export const CODESTORE = {
 }
 
 export function Codestore(props: NodeProps) {
-  return (
-    <Shape {...CODESTORE} {...props} _style={extendStyle(CODESTORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODESTORE)} />
 }

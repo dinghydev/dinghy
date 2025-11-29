@@ -11,7 +11,5 @@ export const SCALABLE = {
 }
 
 export function Scalable(props: NodeProps) {
-  return (
-    <Shape {...SCALABLE} {...props} _style={extendStyle(SCALABLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCALABLE)} />
 }

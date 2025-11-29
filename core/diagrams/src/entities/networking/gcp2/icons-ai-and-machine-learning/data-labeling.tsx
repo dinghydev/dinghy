@@ -11,11 +11,5 @@ export const DATA_LABELING = {
 }
 
 export function DataLabeling(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_LABELING}
-      {...props}
-      _style={extendStyle(DATA_LABELING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_LABELING)} />
 }

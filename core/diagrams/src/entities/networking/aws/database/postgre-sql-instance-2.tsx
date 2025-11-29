@@ -12,10 +12,6 @@ export const POSTGRE_SQL_INSTANCE_2 = {
 
 export function PostgreSqlInstance2(props: NodeProps) {
   return (
-    <Shape
-      {...POSTGRE_SQL_INSTANCE_2}
-      {...props}
-      _style={extendStyle(POSTGRE_SQL_INSTANCE_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, POSTGRE_SQL_INSTANCE_2)} />
   )
 }

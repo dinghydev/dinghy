@@ -11,11 +11,5 @@ export const INTELLIGENT_ADVISOR = {
 }
 
 export function IntelligentAdvisor(props: NodeProps) {
-  return (
-    <Shape
-      {...INTELLIGENT_ADVISOR}
-      {...props}
-      _style={extendStyle(INTELLIGENT_ADVISOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTELLIGENT_ADVISOR)} />
 }

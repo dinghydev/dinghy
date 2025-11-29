@@ -13,10 +13,6 @@ export const EC2_INSTANCE_CONTAINER = {
 
 export function Ec2InstanceContainer(props: NodeProps) {
   return (
-    <Shape
-      {...EC2_INSTANCE_CONTAINER}
-      {...props}
-      _style={extendStyle(EC2_INSTANCE_CONTAINER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EC2_INSTANCE_CONTAINER)} />
   )
 }

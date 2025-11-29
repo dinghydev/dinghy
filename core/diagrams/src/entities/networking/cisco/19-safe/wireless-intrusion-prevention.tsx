@@ -13,9 +13,8 @@ export const WIRELESS_INTRUSION_PREVENTION = {
 export function WirelessIntrusionPrevention(props: NodeProps) {
   return (
     <Shape
-      {...WIRELESS_INTRUSION_PREVENTION}
       {...props}
-      _style={extendStyle(WIRELESS_INTRUSION_PREVENTION, props)}
+      _style={extendStyle(props, WIRELESS_INTRUSION_PREVENTION)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const VISTA_TERMINAL = {
 }
 
 export function VistaTerminal(props: NodeProps) {
-  return (
-    <Shape
-      {...VISTA_TERMINAL}
-      {...props}
-      _style={extendStyle(VISTA_TERMINAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VISTA_TERMINAL)} />
 }

@@ -18,6 +18,17 @@ import TabItem from '@theme/TabItem';
 import { Legend } from '@dinghy/diagrams/containersC4'
 
 <Legend/>
+
+// or
+
+import { extendStyle } from "@dinghy/base-components";
+import { LEGEND } from '@dinghy/diagrams/containersC4'
+
+<Shape 
+  {...props}
+  _style={extendStyle(props, LEGEND)}
+  />
+
 ```
 
   </TabItem>

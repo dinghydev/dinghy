@@ -10,5 +10,5 @@ export const DIAMOND = {
 }
 
 export function Diamond(props: NodeProps) {
-  return <Shape {...DIAMOND} {...props} _style={extendStyle(DIAMOND, props)} />
+  return <Shape {...props} _style={extendStyle(props, DIAMOND)} />
 }

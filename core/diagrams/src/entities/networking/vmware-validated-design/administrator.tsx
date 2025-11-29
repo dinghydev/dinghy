@@ -11,11 +11,5 @@ export const ADMINISTRATOR = {
 }
 
 export function Administrator(props: NodeProps) {
-  return (
-    <Shape
-      {...ADMINISTRATOR}
-      {...props}
-      _style={extendStyle(ADMINISTRATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ADMINISTRATOR)} />
 }

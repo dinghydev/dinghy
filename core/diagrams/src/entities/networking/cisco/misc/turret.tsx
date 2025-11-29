@@ -11,5 +11,5 @@ export const TURRET = {
 }
 
 export function Turret(props: NodeProps) {
-  return <Shape {...TURRET} {...props} _style={extendStyle(TURRET, props)} />
+  return <Shape {...props} _style={extendStyle(props, TURRET)} />
 }

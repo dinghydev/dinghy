@@ -11,5 +11,5 @@ export const IPS_IDS = {
 }
 
 export function IpsIds(props: NodeProps) {
-  return <Shape {...IPS_IDS} {...props} _style={extendStyle(IPS_IDS, props)} />
+  return <Shape {...props} _style={extendStyle(props, IPS_IDS)} />
 }

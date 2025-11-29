@@ -11,11 +11,5 @@ export const ANGLED_LIST = {
 }
 
 export function AngledList(props: NodeProps) {
-  return (
-    <Shape
-      {...ANGLED_LIST}
-      {...props}
-      _style={extendStyle(ANGLED_LIST, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANGLED_LIST)} />
 }

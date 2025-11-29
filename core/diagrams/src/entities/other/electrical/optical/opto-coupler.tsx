@@ -11,11 +11,5 @@ export const OPTO_COUPLER = {
 }
 
 export function OptoCoupler(props: NodeProps) {
-  return (
-    <Shape
-      {...OPTO_COUPLER}
-      {...props}
-      _style={extendStyle(OPTO_COUPLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OPTO_COUPLER)} />
 }

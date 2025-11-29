@@ -13,11 +13,10 @@ export const SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT = {
 export function SapCollaborativeDemandAndCapacityManagement(props: NodeProps) {
   return (
     <Shape
-      {...SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT}
       {...props}
       _style={extendStyle(
-        SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT,
         props,
+        SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT,
       )}
     />
   )

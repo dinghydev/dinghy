@@ -11,11 +11,5 @@ export const PRESS_FILTER = {
 }
 
 export function PressFilter(props: NodeProps) {
-  return (
-    <Shape
-      {...PRESS_FILTER}
-      {...props}
-      _style={extendStyle(PRESS_FILTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRESS_FILTER)} />
 }

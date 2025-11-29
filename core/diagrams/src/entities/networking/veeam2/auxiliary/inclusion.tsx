@@ -11,7 +11,5 @@ export const INCLUSION = {
 }
 
 export function Inclusion(props: NodeProps) {
-  return (
-    <Shape {...INCLUSION} {...props} _style={extendStyle(INCLUSION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, INCLUSION)} />
 }

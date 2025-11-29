@@ -11,11 +11,5 @@ export const BADGE_WARNING = {
 }
 
 export function BadgeWarning(props: NodeProps) {
-  return (
-    <Shape
-      {...BADGE_WARNING}
-      {...props}
-      _style={extendStyle(BADGE_WARNING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BADGE_WARNING)} />
 }

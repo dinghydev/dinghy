@@ -11,5 +11,5 @@ export const MUSEUM = {
 }
 
 export function Museum(props: NodeProps) {
-  return <Shape {...MUSEUM} {...props} _style={extendStyle(MUSEUM, props)} />
+  return <Shape {...props} _style={extendStyle(props, MUSEUM)} />
 }

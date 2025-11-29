@@ -11,11 +11,5 @@ export const THINKBOX_DEADLINE = {
 }
 
 export function ThinkboxDeadline(props: NodeProps) {
-  return (
-    <Shape
-      {...THINKBOX_DEADLINE}
-      {...props}
-      _style={extendStyle(THINKBOX_DEADLINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, THINKBOX_DEADLINE)} />
 }

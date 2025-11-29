@@ -13,9 +13,8 @@ export const D_TYPE_FLIP_FLOP_WITH_CLEAR = {
 export function DTypeFlipFlopWithClear(props: NodeProps) {
   return (
     <Shape
-      {...D_TYPE_FLIP_FLOP_WITH_CLEAR}
       {...props}
-      _style={extendStyle(D_TYPE_FLIP_FLOP_WITH_CLEAR, props)}
+      _style={extendStyle(props, D_TYPE_FLIP_FLOP_WITH_CLEAR)}
     />
   )
 }

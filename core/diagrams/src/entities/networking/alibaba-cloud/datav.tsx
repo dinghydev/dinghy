@@ -11,5 +11,5 @@ export const DATAV = {
 }
 
 export function Datav(props: NodeProps) {
-  return <Shape {...DATAV} {...props} _style={extendStyle(DATAV, props)} />
+  return <Shape {...props} _style={extendStyle(props, DATAV)} />
 }

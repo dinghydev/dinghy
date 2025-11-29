@@ -11,11 +11,5 @@ export const EVENT_GRID_TOPICS = {
 }
 
 export function EventGridTopics(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_GRID_TOPICS}
-      {...props}
-      _style={extendStyle(EVENT_GRID_TOPICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_GRID_TOPICS)} />
 }

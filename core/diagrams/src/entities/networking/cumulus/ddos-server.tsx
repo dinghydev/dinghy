@@ -11,11 +11,5 @@ export const DDOS_SERVER = {
 }
 
 export function DdosServer(props: NodeProps) {
-  return (
-    <Shape
-      {...DDOS_SERVER}
-      {...props}
-      _style={extendStyle(DDOS_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DDOS_SERVER)} />
 }

@@ -15,11 +15,10 @@ export function ActiveDirectoryFederationServicesServerOrange(
 ) {
   return (
     <Shape
-      {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_ORANGE}
       {...props}
       _style={extendStyle(
-        ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_ORANGE,
         props,
+        ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_ORANGE,
       )}
     />
   )

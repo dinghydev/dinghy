@@ -11,7 +11,5 @@ export const IBM_DX360 = {
 }
 
 export function IbmDx360(props: NodeProps) {
-  return (
-    <Shape {...IBM_DX360} {...props} _style={extendStyle(IBM_DX360, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, IBM_DX360)} />
 }

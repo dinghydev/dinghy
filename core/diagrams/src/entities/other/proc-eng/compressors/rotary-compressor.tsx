@@ -11,11 +11,5 @@ export const ROTARY_COMPRESSOR = {
 }
 
 export function RotaryCompressor(props: NodeProps) {
-  return (
-    <Shape
-      {...ROTARY_COMPRESSOR}
-      {...props}
-      _style={extendStyle(ROTARY_COMPRESSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTARY_COMPRESSOR)} />
 }

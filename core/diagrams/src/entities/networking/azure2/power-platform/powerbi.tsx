@@ -11,5 +11,5 @@ export const POWERBI = {
 }
 
 export function Powerbi(props: NodeProps) {
-  return <Shape {...POWERBI} {...props} _style={extendStyle(POWERBI, props)} />
+  return <Shape {...props} _style={extendStyle(props, POWERBI)} />
 }

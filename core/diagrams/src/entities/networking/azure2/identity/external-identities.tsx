@@ -11,11 +11,5 @@ export const EXTERNAL_IDENTITIES = {
 }
 
 export function ExternalIdentities(props: NodeProps) {
-  return (
-    <Shape
-      {...EXTERNAL_IDENTITIES}
-      {...props}
-      _style={extendStyle(EXTERNAL_IDENTITIES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EXTERNAL_IDENTITIES)} />
 }

@@ -13,9 +13,8 @@ export const LICENSE_MANAGER_LICENSE_BLENDING = {
 export function LicenseManagerLicenseBlending(props: NodeProps) {
   return (
     <Shape
-      {...LICENSE_MANAGER_LICENSE_BLENDING}
       {...props}
-      _style={extendStyle(LICENSE_MANAGER_LICENSE_BLENDING, props)}
+      _style={extendStyle(props, LICENSE_MANAGER_LICENSE_BLENDING)}
     />
   )
 }

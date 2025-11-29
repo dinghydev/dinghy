@@ -11,5 +11,5 @@ export const HIGHWAY = {
 }
 
 export function Highway(props: NodeProps) {
-  return <Shape {...HIGHWAY} {...props} _style={extendStyle(HIGHWAY, props)} />
+  return <Shape {...props} _style={extendStyle(props, HIGHWAY)} />
 }

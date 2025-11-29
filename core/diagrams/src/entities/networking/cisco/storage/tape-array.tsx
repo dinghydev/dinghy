@@ -11,7 +11,5 @@ export const TAPE_ARRAY = {
 }
 
 export function TapeArray(props: NodeProps) {
-  return (
-    <Shape {...TAPE_ARRAY} {...props} _style={extendStyle(TAPE_ARRAY, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TAPE_ARRAY)} />
 }

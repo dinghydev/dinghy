@@ -11,11 +11,5 @@ export const TOKEN_SERVICE = {
 }
 
 export function TokenService(props: NodeProps) {
-  return (
-    <Shape
-      {...TOKEN_SERVICE}
-      {...props}
-      _style={extendStyle(TOKEN_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOKEN_SERVICE)} />
 }

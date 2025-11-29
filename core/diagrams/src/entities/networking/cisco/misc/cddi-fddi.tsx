@@ -11,7 +11,5 @@ export const CDDI_FDDI = {
 }
 
 export function CddiFddi(props: NodeProps) {
-  return (
-    <Shape {...CDDI_FDDI} {...props} _style={extendStyle(CDDI_FDDI, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CDDI_FDDI)} />
 }

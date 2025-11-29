@@ -11,11 +11,5 @@ export const CLOUD_DISASTER = {
 }
 
 export function CloudDisaster(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DISASTER}
-      {...props}
-      _style={extendStyle(CLOUD_DISASTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DISASTER)} />
 }

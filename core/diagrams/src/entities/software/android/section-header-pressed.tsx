@@ -12,10 +12,6 @@ export const SECTION_HEADER_PRESSED = {
 
 export function SectionHeaderPressed(props: NodeProps) {
   return (
-    <Shape
-      {...SECTION_HEADER_PRESSED}
-      {...props}
-      _style={extendStyle(SECTION_HEADER_PRESSED, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SECTION_HEADER_PRESSED)} />
   )
 }

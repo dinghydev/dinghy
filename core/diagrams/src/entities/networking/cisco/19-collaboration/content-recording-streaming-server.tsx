@@ -13,9 +13,8 @@ export const CONTENT_RECORDING_STREAMING_SERVER = {
 export function ContentRecordingStreamingServer(props: NodeProps) {
   return (
     <Shape
-      {...CONTENT_RECORDING_STREAMING_SERVER}
       {...props}
-      _style={extendStyle(CONTENT_RECORDING_STREAMING_SERVER, props)}
+      _style={extendStyle(props, CONTENT_RECORDING_STREAMING_SERVER)}
     />
   )
 }

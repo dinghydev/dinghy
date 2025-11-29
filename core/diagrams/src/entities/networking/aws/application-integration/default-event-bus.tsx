@@ -11,11 +11,5 @@ export const DEFAULT_EVENT_BUS = {
 }
 
 export function DefaultEventBus(props: NodeProps) {
-  return (
-    <Shape
-      {...DEFAULT_EVENT_BUS}
-      {...props}
-      _style={extendStyle(DEFAULT_EVENT_BUS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEFAULT_EVENT_BUS)} />
 }

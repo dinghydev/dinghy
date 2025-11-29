@@ -11,7 +11,5 @@ export const FIRESTORE = {
 }
 
 export function Firestore(props: NodeProps) {
-  return (
-    <Shape {...FIRESTORE} {...props} _style={extendStyle(FIRESTORE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIRESTORE)} />
 }

@@ -11,5 +11,5 @@ export const IOT_HUB = {
 }
 
 export function IotHub(props: NodeProps) {
-  return <Shape {...IOT_HUB} {...props} _style={extendStyle(IOT_HUB, props)} />
+  return <Shape {...props} _style={extendStyle(props, IOT_HUB)} />
 }

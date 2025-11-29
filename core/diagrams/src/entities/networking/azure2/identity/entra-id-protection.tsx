@@ -11,11 +11,5 @@ export const ENTRA_ID_PROTECTION = {
 }
 
 export function EntraIdProtection(props: NodeProps) {
-  return (
-    <Shape
-      {...ENTRA_ID_PROTECTION}
-      {...props}
-      _style={extendStyle(ENTRA_ID_PROTECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENTRA_ID_PROTECTION)} />
 }

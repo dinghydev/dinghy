@@ -11,11 +11,5 @@ export const SERVER_SIDE_CODE = {
 }
 
 export function ServerSideCode(props: NodeProps) {
-  return (
-    <Shape
-      {...SERVER_SIDE_CODE}
-      {...props}
-      _style={extendStyle(SERVER_SIDE_CODE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SERVER_SIDE_CODE)} />
 }

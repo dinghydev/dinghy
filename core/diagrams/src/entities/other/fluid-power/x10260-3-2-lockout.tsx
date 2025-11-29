@@ -11,11 +11,5 @@ export const X10260_3_2_LOCKOUT = {
 }
 
 export function X1026032Lockout(props: NodeProps) {
-  return (
-    <Shape
-      {...X10260_3_2_LOCKOUT}
-      {...props}
-      _style={extendStyle(X10260_3_2_LOCKOUT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10260_3_2_LOCKOUT)} />
 }

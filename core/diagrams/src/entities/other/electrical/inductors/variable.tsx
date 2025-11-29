@@ -11,7 +11,5 @@ export const VARIABLE = {
 }
 
 export function Variable(props: NodeProps) {
-  return (
-    <Shape {...VARIABLE} {...props} _style={extendStyle(VARIABLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VARIABLE)} />
 }

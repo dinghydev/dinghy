@@ -11,5 +11,5 @@ export const TOPIC = {
 }
 
 export function Topic(props: NodeProps) {
-  return <Shape {...TOPIC} {...props} _style={extendStyle(TOPIC, props)} />
+  return <Shape {...props} _style={extendStyle(props, TOPIC)} />
 }

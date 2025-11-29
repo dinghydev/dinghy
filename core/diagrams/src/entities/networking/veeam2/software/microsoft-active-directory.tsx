@@ -12,10 +12,6 @@ export const MICROSOFT_ACTIVE_DIRECTORY = {
 
 export function MicrosoftActiveDirectory(props: NodeProps) {
   return (
-    <Shape
-      {...MICROSOFT_ACTIVE_DIRECTORY}
-      {...props}
-      _style={extendStyle(MICROSOFT_ACTIVE_DIRECTORY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MICROSOFT_ACTIVE_DIRECTORY)} />
   )
 }

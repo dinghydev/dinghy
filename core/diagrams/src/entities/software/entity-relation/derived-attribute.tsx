@@ -10,11 +10,5 @@ export const DERIVED_ATTRIBUTE = {
 }
 
 export function DerivedAttribute(props: NodeProps) {
-  return (
-    <Shape
-      {...DERIVED_ATTRIBUTE}
-      {...props}
-      _style={extendStyle(DERIVED_ATTRIBUTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DERIVED_ATTRIBUTE)} />
 }

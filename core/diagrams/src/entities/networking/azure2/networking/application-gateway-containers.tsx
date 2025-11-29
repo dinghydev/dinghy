@@ -13,9 +13,8 @@ export const APPLICATION_GATEWAY_CONTAINERS = {
 export function ApplicationGatewayContainers(props: NodeProps) {
   return (
     <Shape
-      {...APPLICATION_GATEWAY_CONTAINERS}
       {...props}
-      _style={extendStyle(APPLICATION_GATEWAY_CONTAINERS, props)}
+      _style={extendStyle(props, APPLICATION_GATEWAY_CONTAINERS)}
     />
   )
 }

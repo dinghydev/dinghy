@@ -11,11 +11,5 @@ export const AMAZON_CLOUDWATCH = {
 }
 
 export function AmazonCloudwatch(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_CLOUDWATCH}
-      {...props}
-      _style={extendStyle(AMAZON_CLOUDWATCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_CLOUDWATCH)} />
 }

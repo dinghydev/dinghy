@@ -11,7 +11,5 @@ export const PLAYFIRE = {
 }
 
 export function Playfire(props: NodeProps) {
-  return (
-    <Shape {...PLAYFIRE} {...props} _style={extendStyle(PLAYFIRE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLAYFIRE)} />
 }

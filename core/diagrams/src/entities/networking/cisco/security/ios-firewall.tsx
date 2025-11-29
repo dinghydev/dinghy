@@ -11,11 +11,5 @@ export const IOS_FIREWALL = {
 }
 
 export function IosFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...IOS_FIREWALL}
-      {...props}
-      _style={extendStyle(IOS_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IOS_FIREWALL)} />
 }

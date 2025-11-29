@@ -13,9 +13,8 @@ export const ROUNDED_RECTANGULAR_CALLOUT = {
 export function RoundedRectangularCallout(props: NodeProps) {
   return (
     <Shape
-      {...ROUNDED_RECTANGULAR_CALLOUT}
       {...props}
-      _style={extendStyle(ROUNDED_RECTANGULAR_CALLOUT, props)}
+      _style={extendStyle(props, ROUNDED_RECTANGULAR_CALLOUT)}
     />
   )
 }

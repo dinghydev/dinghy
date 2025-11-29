@@ -13,9 +13,8 @@ export const SAP_PERSISTENCE_SERVICE_ASE = {
 export function SapPersistenceServiceAse(props: NodeProps) {
   return (
     <Shape
-      {...SAP_PERSISTENCE_SERVICE_ASE}
       {...props}
-      _style={extendStyle(SAP_PERSISTENCE_SERVICE_ASE, props)}
+      _style={extendStyle(props, SAP_PERSISTENCE_SERVICE_ASE)}
     />
   )
 }

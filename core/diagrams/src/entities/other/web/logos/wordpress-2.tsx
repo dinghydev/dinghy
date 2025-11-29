@@ -11,11 +11,5 @@ export const WORDPRESS_2 = {
 }
 
 export function Wordpress2(props: NodeProps) {
-  return (
-    <Shape
-      {...WORDPRESS_2}
-      {...props}
-      _style={extendStyle(WORDPRESS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORDPRESS_2)} />
 }

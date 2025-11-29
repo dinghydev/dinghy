@@ -11,11 +11,5 @@ export const ALARM_CLOCK = {
 }
 
 export function AlarmClock(props: NodeProps) {
-  return (
-    <Shape
-      {...ALARM_CLOCK}
-      {...props}
-      _style={extendStyle(ALARM_CLOCK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALARM_CLOCK)} />
 }

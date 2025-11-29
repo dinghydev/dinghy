@@ -11,5 +11,5 @@ export const VROPS = {
 }
 
 export function Vrops(props: NodeProps) {
-  return <Shape {...VROPS} {...props} _style={extendStyle(VROPS, props)} />
+  return <Shape {...props} _style={extendStyle(props, VROPS)} />
 }

@@ -11,11 +11,5 @@ export const WORKER_ROLES = {
 }
 
 export function WorkerRoles(props: NodeProps) {
-  return (
-    <Shape
-      {...WORKER_ROLES}
-      {...props}
-      _style={extendStyle(WORKER_ROLES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WORKER_ROLES)} />
 }

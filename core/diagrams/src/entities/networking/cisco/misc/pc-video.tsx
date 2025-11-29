@@ -11,7 +11,5 @@ export const PC_VIDEO = {
 }
 
 export function PcVideo(props: NodeProps) {
-  return (
-    <Shape {...PC_VIDEO} {...props} _style={extendStyle(PC_VIDEO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PC_VIDEO)} />
 }

@@ -10,5 +10,5 @@ export const HEADER = {
 }
 
 export function Header(props: NodeProps) {
-  return <Shape {...HEADER} {...props} _style={extendStyle(HEADER, props)} />
+  return <Shape {...props} _style={extendStyle(props, HEADER)} />
 }

@@ -11,11 +11,5 @@ export const SAAS_APPLICATIONS = {
 }
 
 export function SaasApplications(props: NodeProps) {
-  return (
-    <Shape
-      {...SAAS_APPLICATIONS}
-      {...props}
-      _style={extendStyle(SAAS_APPLICATIONS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAAS_APPLICATIONS)} />
 }

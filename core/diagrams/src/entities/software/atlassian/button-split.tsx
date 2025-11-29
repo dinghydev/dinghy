@@ -11,11 +11,5 @@ export const BUTTON_SPLIT = {
 }
 
 export function ButtonSplit(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_SPLIT}
-      {...props}
-      _style={extendStyle(BUTTON_SPLIT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_SPLIT)} />
 }

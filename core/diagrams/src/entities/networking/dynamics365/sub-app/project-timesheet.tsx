@@ -11,11 +11,5 @@ export const PROJECT_TIMESHEET = {
 }
 
 export function ProjectTimesheet(props: NodeProps) {
-  return (
-    <Shape
-      {...PROJECT_TIMESHEET}
-      {...props}
-      _style={extendStyle(PROJECT_TIMESHEET, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROJECT_TIMESHEET)} />
 }

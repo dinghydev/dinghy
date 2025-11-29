@@ -11,5 +11,5 @@ export const EDGE = {
 }
 
 export function Edge(props: NodeProps) {
-  return <Shape {...EDGE} {...props} _style={extendStyle(EDGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, EDGE)} />
 }

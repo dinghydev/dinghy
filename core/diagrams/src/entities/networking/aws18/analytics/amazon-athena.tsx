@@ -11,11 +11,5 @@ export const AMAZON_ATHENA = {
 }
 
 export function AmazonAthena(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_ATHENA}
-      {...props}
-      _style={extendStyle(AMAZON_ATHENA, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_ATHENA)} />
 }

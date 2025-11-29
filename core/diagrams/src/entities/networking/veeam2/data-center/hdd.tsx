@@ -11,5 +11,5 @@ export const HDD = {
 }
 
 export function Hdd(props: NodeProps) {
-  return <Shape {...HDD} {...props} _style={extendStyle(HDD, props)} />
+  return <Shape {...props} _style={extendStyle(props, HDD)} />
 }

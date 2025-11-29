@@ -9,11 +9,5 @@ export const DASHED_WIRE = {
 }
 
 export function DashedWire(props: NodeProps) {
-  return (
-    <Dependency
-      {...DASHED_WIRE}
-      {...props}
-      _style={extendStyle(DASHED_WIRE, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, DASHED_WIRE)} />
 }

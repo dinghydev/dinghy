@@ -11,11 +11,5 @@ export const USERS_GREEN = {
 }
 
 export function UsersGreen(props: NodeProps) {
-  return (
-    <Shape
-      {...USERS_GREEN}
-      {...props}
-      _style={extendStyle(USERS_GREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, USERS_GREEN)} />
 }

@@ -13,9 +13,8 @@ export const PANEL_WIRING_SYSTEM_25X40MM_VERTICAL = {
 export function PanelWiringSystem25x40mmVertical(props: NodeProps) {
   return (
     <Shape
-      {...PANEL_WIRING_SYSTEM_25X40MM_VERTICAL}
       {...props}
-      _style={extendStyle(PANEL_WIRING_SYSTEM_25X40MM_VERTICAL, props)}
+      _style={extendStyle(props, PANEL_WIRING_SYSTEM_25X40MM_VERTICAL)}
     />
   )
 }

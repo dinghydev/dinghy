@@ -11,5 +11,5 @@ export const PHONE_2 = {
 }
 
 export function Phone2(props: NodeProps) {
-  return <Shape {...PHONE_2} {...props} _style={extendStyle(PHONE_2, props)} />
+  return <Shape {...props} _style={extendStyle(props, PHONE_2)} />
 }

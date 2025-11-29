@@ -11,11 +11,5 @@ export const PHYSICAL_SERVER = {
 }
 
 export function PhysicalServer(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_SERVER}
-      {...props}
-      _style={extendStyle(PHYSICAL_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_SERVER)} />
 }

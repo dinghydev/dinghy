@@ -12,10 +12,6 @@ export const SPLIT_ACTION_BAR_LANDSCAPE = {
 
 export function SplitActionBarLandscape(props: NodeProps) {
   return (
-    <Shape
-      {...SPLIT_ACTION_BAR_LANDSCAPE}
-      {...props}
-      _style={extendStyle(SPLIT_ACTION_BAR_LANDSCAPE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SPLIT_ACTION_BAR_LANDSCAPE)} />
   )
 }

@@ -11,11 +11,5 @@ export const ARTIFACT_MANAGEMENT = {
 }
 
 export function ArtifactManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...ARTIFACT_MANAGEMENT}
-      {...props}
-      _style={extendStyle(ARTIFACT_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARTIFACT_MANAGEMENT)} />
 }

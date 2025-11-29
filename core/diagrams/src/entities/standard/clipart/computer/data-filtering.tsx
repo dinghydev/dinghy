@@ -11,11 +11,5 @@ export const DATA_FILTERING = {
 }
 
 export function DataFiltering(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_FILTERING}
-      {...props}
-      _style={extendStyle(DATA_FILTERING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_FILTERING)} />
 }

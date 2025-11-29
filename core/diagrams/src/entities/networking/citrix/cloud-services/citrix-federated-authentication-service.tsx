@@ -13,9 +13,8 @@ export const CITRIX_FEDERATED_AUTHENTICATION_SERVICE = {
 export function CitrixFederatedAuthenticationService(props: NodeProps) {
   return (
     <Shape
-      {...CITRIX_FEDERATED_AUTHENTICATION_SERVICE}
       {...props}
-      _style={extendStyle(CITRIX_FEDERATED_AUTHENTICATION_SERVICE, props)}
+      _style={extendStyle(props, CITRIX_FEDERATED_AUTHENTICATION_SERVICE)}
     />
   )
 }

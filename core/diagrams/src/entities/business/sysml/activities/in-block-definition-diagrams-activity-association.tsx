@@ -13,11 +13,10 @@ export const IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION = {
 export function InBlockDefinitionDiagramsActivityAssociation(props: NodeProps) {
   return (
     <Shape
-      {...IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION}
       {...props}
       _style={extendStyle(
-        IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION,
         props,
+        IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION,
       )}
     />
   )

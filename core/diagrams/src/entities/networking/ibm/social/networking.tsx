@@ -11,7 +11,5 @@ export const NETWORKING = {
 }
 
 export function Networking(props: NodeProps) {
-  return (
-    <Shape {...NETWORKING} {...props} _style={extendStyle(NETWORKING, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NETWORKING)} />
 }

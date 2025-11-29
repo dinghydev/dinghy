@@ -11,11 +11,5 @@ export const DESUPER_HEATER = {
 }
 
 export function DesuperHeater(props: NodeProps) {
-  return (
-    <Shape
-      {...DESUPER_HEATER}
-      {...props}
-      _style={extendStyle(DESUPER_HEATER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESUPER_HEATER)} />
 }

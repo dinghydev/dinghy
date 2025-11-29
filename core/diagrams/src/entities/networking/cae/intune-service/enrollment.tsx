@@ -11,7 +11,5 @@ export const ENROLLMENT = {
 }
 
 export function Enrollment(props: NodeProps) {
-  return (
-    <Shape {...ENROLLMENT} {...props} _style={extendStyle(ENROLLMENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENROLLMENT)} />
 }

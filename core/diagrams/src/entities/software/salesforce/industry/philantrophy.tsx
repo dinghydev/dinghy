@@ -11,11 +11,5 @@ export const PHILANTROPHY = {
 }
 
 export function Philantrophy(props: NodeProps) {
-  return (
-    <Shape
-      {...PHILANTROPHY}
-      {...props}
-      _style={extendStyle(PHILANTROPHY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHILANTROPHY)} />
 }

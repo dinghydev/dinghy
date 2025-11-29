@@ -13,9 +13,8 @@ export const COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_5 = {
 export function Component3rdPartyIdpAndProtocols5(props: NodeProps) {
   return (
     <Shape
-      {...COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_5}
       {...props}
-      _style={extendStyle(COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_5, props)}
+      _style={extendStyle(props, COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_5)}
     />
   )
 }

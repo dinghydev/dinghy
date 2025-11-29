@@ -11,11 +11,5 @@ export const VERTICAL_POOL_1 = {
 }
 
 export function VerticalPool1(props: NodeProps) {
-  return (
-    <Shape
-      {...VERTICAL_POOL_1}
-      {...props}
-      _style={extendStyle(VERTICAL_POOL_1, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VERTICAL_POOL_1)} />
 }

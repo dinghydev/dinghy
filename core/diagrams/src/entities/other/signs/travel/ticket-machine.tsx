@@ -11,11 +11,5 @@ export const TICKET_MACHINE = {
 }
 
 export function TicketMachine(props: NodeProps) {
-  return (
-    <Shape
-      {...TICKET_MACHINE}
-      {...props}
-      _style={extendStyle(TICKET_MACHINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TICKET_MACHINE)} />
 }

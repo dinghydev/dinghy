@@ -11,11 +11,5 @@ export const GOOGLE_DOCUMENT = {
 }
 
 export function GoogleDocument(props: NodeProps) {
-  return (
-    <Shape
-      {...GOOGLE_DOCUMENT}
-      {...props}
-      _style={extendStyle(GOOGLE_DOCUMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GOOGLE_DOCUMENT)} />
 }

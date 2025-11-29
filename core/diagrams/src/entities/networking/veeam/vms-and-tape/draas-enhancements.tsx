@@ -11,11 +11,5 @@ export const DRAAS_ENHANCEMENTS = {
 }
 
 export function DraasEnhancements(props: NodeProps) {
-  return (
-    <Shape
-      {...DRAAS_ENHANCEMENTS}
-      {...props}
-      _style={extendStyle(DRAAS_ENHANCEMENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DRAAS_ENHANCEMENTS)} />
 }

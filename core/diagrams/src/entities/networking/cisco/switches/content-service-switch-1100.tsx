@@ -13,9 +13,8 @@ export const CONTENT_SERVICE_SWITCH_1100 = {
 export function ContentServiceSwitch1100(props: NodeProps) {
   return (
     <Shape
-      {...CONTENT_SERVICE_SWITCH_1100}
       {...props}
-      _style={extendStyle(CONTENT_SERVICE_SWITCH_1100, props)}
+      _style={extendStyle(props, CONTENT_SERVICE_SWITCH_1100)}
     />
   )
 }

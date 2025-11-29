@@ -12,10 +12,6 @@ export const COMPUTER_FUNCTION_FIELD = {
 
 export function ComputerFunctionField(props: NodeProps) {
   return (
-    <Shape
-      {...COMPUTER_FUNCTION_FIELD}
-      {...props}
-      _style={extendStyle(COMPUTER_FUNCTION_FIELD, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, COMPUTER_FUNCTION_FIELD)} />
   )
 }

@@ -11,5 +11,5 @@ export const DONUT = {
 }
 
 export function Donut(props: NodeProps) {
-  return <Shape {...DONUT} {...props} _style={extendStyle(DONUT, props)} />
+  return <Shape {...props} _style={extendStyle(props, DONUT)} />
 }

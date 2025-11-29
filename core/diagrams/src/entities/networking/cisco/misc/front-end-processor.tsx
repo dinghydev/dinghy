@@ -11,11 +11,5 @@ export const FRONT_END_PROCESSOR = {
 }
 
 export function FrontEndProcessor(props: NodeProps) {
-  return (
-    <Shape
-      {...FRONT_END_PROCESSOR}
-      {...props}
-      _style={extendStyle(FRONT_END_PROCESSOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRONT_END_PROCESSOR)} />
 }

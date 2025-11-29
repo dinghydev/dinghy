@@ -11,7 +11,5 @@ export const CONNECTION = {
 }
 
 export function Connection(props: NodeProps) {
-  return (
-    <Shape {...CONNECTION} {...props} _style={extendStyle(CONNECTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONNECTION)} />
 }

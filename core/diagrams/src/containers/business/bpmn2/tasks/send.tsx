@@ -9,5 +9,5 @@ export const SEND = {
 }
 
 export function Send(props: NodeProps) {
-  return <Shape {...SEND} {...props} _style={extendStyle(SEND, props)} />
+  return <Shape {...props} _style={extendStyle(props, SEND)} />
 }

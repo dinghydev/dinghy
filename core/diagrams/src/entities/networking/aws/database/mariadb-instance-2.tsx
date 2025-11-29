@@ -11,11 +11,5 @@ export const MARIADB_INSTANCE_2 = {
 }
 
 export function MariadbInstance2(props: NodeProps) {
-  return (
-    <Shape
-      {...MARIADB_INSTANCE_2}
-      {...props}
-      _style={extendStyle(MARIADB_INSTANCE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MARIADB_INSTANCE_2)} />
 }

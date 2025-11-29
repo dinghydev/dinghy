@@ -11,11 +11,5 @@ export const ACTIONABLE_INSIGHT = {
 }
 
 export function ActionableInsight(props: NodeProps) {
-  return (
-    <Shape
-      {...ACTIONABLE_INSIGHT}
-      {...props}
-      _style={extendStyle(ACTIONABLE_INSIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACTIONABLE_INSIGHT)} />
 }

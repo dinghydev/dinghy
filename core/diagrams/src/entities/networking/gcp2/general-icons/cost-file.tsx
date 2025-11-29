@@ -11,7 +11,5 @@ export const COST_FILE = {
 }
 
 export function CostFile(props: NodeProps) {
-  return (
-    <Shape {...COST_FILE} {...props} _style={extendStyle(COST_FILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, COST_FILE)} />
 }

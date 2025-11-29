@@ -12,10 +12,6 @@ export const ELASTIC_DATABASE_POOLS = {
 
 export function ElasticDatabasePools(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTIC_DATABASE_POOLS}
-      {...props}
-      _style={extendStyle(ELASTIC_DATABASE_POOLS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTIC_DATABASE_POOLS)} />
   )
 }

@@ -12,10 +12,6 @@ export const TECHNOLOGY_INTERACTION = {
 
 export function TechnologyInteraction(props: NodeProps) {
   return (
-    <Shape
-      {...TECHNOLOGY_INTERACTION}
-      {...props}
-      _style={extendStyle(TECHNOLOGY_INTERACTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TECHNOLOGY_INTERACTION)} />
   )
 }

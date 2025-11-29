@@ -13,9 +13,8 @@ export const MANAGED_STREAMING_FOR_APACHE_KAFKA = {
 export function ManagedStreamingForApacheKafka(props: NodeProps) {
   return (
     <Shape
-      {...MANAGED_STREAMING_FOR_APACHE_KAFKA}
       {...props}
-      _style={extendStyle(MANAGED_STREAMING_FOR_APACHE_KAFKA, props)}
+      _style={extendStyle(props, MANAGED_STREAMING_FOR_APACHE_KAFKA)}
     />
   )
 }

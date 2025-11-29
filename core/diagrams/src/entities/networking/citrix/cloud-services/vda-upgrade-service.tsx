@@ -11,11 +11,5 @@ export const VDA_UPGRADE_SERVICE = {
 }
 
 export function VdaUpgradeService(props: NodeProps) {
-  return (
-    <Shape
-      {...VDA_UPGRADE_SERVICE}
-      {...props}
-      _style={extendStyle(VDA_UPGRADE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VDA_UPGRADE_SERVICE)} />
 }

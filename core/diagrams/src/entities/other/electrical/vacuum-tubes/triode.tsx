@@ -11,5 +11,5 @@ export const TRIODE = {
 }
 
 export function Triode(props: NodeProps) {
-  return <Shape {...TRIODE} {...props} _style={extendStyle(TRIODE, props)} />
+  return <Shape {...props} _style={extendStyle(props, TRIODE)} />
 }

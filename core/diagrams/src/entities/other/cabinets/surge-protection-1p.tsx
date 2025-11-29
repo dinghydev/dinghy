@@ -11,11 +11,5 @@ export const SURGE_PROTECTION_1P = {
 }
 
 export function SurgeProtection1p(props: NodeProps) {
-  return (
-    <Shape
-      {...SURGE_PROTECTION_1P}
-      {...props}
-      _style={extendStyle(SURGE_PROTECTION_1P, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SURGE_PROTECTION_1P)} />
 }

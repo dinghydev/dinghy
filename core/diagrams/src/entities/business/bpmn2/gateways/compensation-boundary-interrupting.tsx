@@ -13,9 +13,8 @@ export const COMPENSATION_BOUNDARY_INTERRUPTING = {
 export function CompensationBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
-      {...COMPENSATION_BOUNDARY_INTERRUPTING}
       {...props}
-      _style={extendStyle(COMPENSATION_BOUNDARY_INTERRUPTING, props)}
+      _style={extendStyle(props, COMPENSATION_BOUNDARY_INTERRUPTING)}
     />
   )
 }

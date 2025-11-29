@@ -11,7 +11,5 @@ export const THERMOPILE = {
 }
 
 export function Thermopile(props: NodeProps) {
-  return (
-    <Shape {...THERMOPILE} {...props} _style={extendStyle(THERMOPILE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, THERMOPILE)} />
 }

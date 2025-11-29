@@ -11,11 +11,5 @@ export const TIME_PICKER_DARK = {
 }
 
 export function TimePickerDark(props: NodeProps) {
-  return (
-    <Shape
-      {...TIME_PICKER_DARK}
-      {...props}
-      _style={extendStyle(TIME_PICKER_DARK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_PICKER_DARK)} />
 }

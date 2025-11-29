@@ -11,5 +11,5 @@ export const VIRB = {
 }
 
 export function Virb(props: NodeProps) {
-  return <Shape {...VIRB} {...props} _style={extendStyle(VIRB, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIRB)} />
 }

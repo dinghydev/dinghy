@@ -13,9 +13,8 @@ export const HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY = {
 export function HcsHgwHybridCloudStorageArray(props: NodeProps) {
   return (
     <Shape
-      {...HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY}
       {...props}
-      _style={extendStyle(HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY, props)}
+      _style={extendStyle(props, HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY)}
     />
   )
 }

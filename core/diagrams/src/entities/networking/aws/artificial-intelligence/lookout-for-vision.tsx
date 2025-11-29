@@ -11,11 +11,5 @@ export const LOOKOUT_FOR_VISION = {
 }
 
 export function LookoutForVision(props: NodeProps) {
-  return (
-    <Shape
-      {...LOOKOUT_FOR_VISION}
-      {...props}
-      _style={extendStyle(LOOKOUT_FOR_VISION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOOKOUT_FOR_VISION)} />
 }

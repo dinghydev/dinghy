@@ -11,11 +11,5 @@ export const ENS_EDGE_NODE_SERVICE = {
 }
 
 export function EnsEdgeNodeService(props: NodeProps) {
-  return (
-    <Shape
-      {...ENS_EDGE_NODE_SERVICE}
-      {...props}
-      _style={extendStyle(ENS_EDGE_NODE_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ENS_EDGE_NODE_SERVICE)} />
 }

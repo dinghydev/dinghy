@@ -12,10 +12,6 @@ export const TWO_WAY_ARROW_VERTICAL = {
 
 export function TwoWayArrowVertical(props: NodeProps) {
   return (
-    <Shape
-      {...TWO_WAY_ARROW_VERTICAL}
-      {...props}
-      _style={extendStyle(TWO_WAY_ARROW_VERTICAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TWO_WAY_ARROW_VERTICAL)} />
   )
 }

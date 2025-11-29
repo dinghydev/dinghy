@@ -11,11 +11,5 @@ export const SCRIPT_FILE = {
 }
 
 export function ScriptFile(props: NodeProps) {
-  return (
-    <Shape
-      {...SCRIPT_FILE}
-      {...props}
-      _style={extendStyle(SCRIPT_FILE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SCRIPT_FILE)} />
 }

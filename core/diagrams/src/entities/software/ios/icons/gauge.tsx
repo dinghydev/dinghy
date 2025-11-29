@@ -11,5 +11,5 @@ export const GAUGE = {
 }
 
 export function Gauge(props: NodeProps) {
-  return <Shape {...GAUGE} {...props} _style={extendStyle(GAUGE, props)} />
+  return <Shape {...props} _style={extendStyle(props, GAUGE)} />
 }

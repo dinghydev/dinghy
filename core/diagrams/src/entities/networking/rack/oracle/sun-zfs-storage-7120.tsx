@@ -11,11 +11,5 @@ export const SUN_ZFS_STORAGE_7120 = {
 }
 
 export function SunZfsStorage7120(props: NodeProps) {
-  return (
-    <Shape
-      {...SUN_ZFS_STORAGE_7120}
-      {...props}
-      _style={extendStyle(SUN_ZFS_STORAGE_7120, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SUN_ZFS_STORAGE_7120)} />
 }

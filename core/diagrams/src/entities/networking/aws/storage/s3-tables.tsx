@@ -11,7 +11,5 @@ export const S3_TABLES = {
 }
 
 export function S3Tables(props: NodeProps) {
-  return (
-    <Shape {...S3_TABLES} {...props} _style={extendStyle(S3_TABLES, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_TABLES)} />
 }

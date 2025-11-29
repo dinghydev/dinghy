@@ -12,10 +12,6 @@ export const LIQUID_RING_COMPRESSOR = {
 
 export function LiquidRingCompressor(props: NodeProps) {
   return (
-    <Shape
-      {...LIQUID_RING_COMPRESSOR}
-      {...props}
-      _style={extendStyle(LIQUID_RING_COMPRESSOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, LIQUID_RING_COMPRESSOR)} />
   )
 }

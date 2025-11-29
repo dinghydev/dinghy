@@ -11,7 +11,5 @@ export const DNS_SERVER = {
 }
 
 export function DnsServer(props: NodeProps) {
-  return (
-    <Shape {...DNS_SERVER} {...props} _style={extendStyle(DNS_SERVER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DNS_SERVER)} />
 }

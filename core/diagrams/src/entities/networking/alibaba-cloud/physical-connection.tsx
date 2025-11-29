@@ -11,11 +11,5 @@ export const PHYSICAL_CONNECTION = {
 }
 
 export function PhysicalConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...PHYSICAL_CONNECTION}
-      {...props}
-      _style={extendStyle(PHYSICAL_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PHYSICAL_CONNECTION)} />
 }

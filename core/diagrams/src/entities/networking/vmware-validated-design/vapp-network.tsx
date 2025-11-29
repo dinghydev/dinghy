@@ -11,11 +11,5 @@ export const VAPP_NETWORK = {
 }
 
 export function VappNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...VAPP_NETWORK}
-      {...props}
-      _style={extendStyle(VAPP_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VAPP_NETWORK)} />
 }

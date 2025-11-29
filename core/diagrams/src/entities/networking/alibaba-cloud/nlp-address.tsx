@@ -11,11 +11,5 @@ export const NLP_ADDRESS = {
 }
 
 export function NlpAddress(props: NodeProps) {
-  return (
-    <Shape
-      {...NLP_ADDRESS}
-      {...props}
-      _style={extendStyle(NLP_ADDRESS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLP_ADDRESS)} />
 }

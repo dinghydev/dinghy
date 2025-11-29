@@ -11,11 +11,5 @@ export const DRIVING_TOUR = {
 }
 
 export function DrivingTour(props: NodeProps) {
-  return (
-    <Shape
-      {...DRIVING_TOUR}
-      {...props}
-      _style={extendStyle(DRIVING_TOUR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DRIVING_TOUR)} />
 }

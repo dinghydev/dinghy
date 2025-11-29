@@ -12,10 +12,6 @@ export const DEVICE_MANAGEMENT_FLEET = {
 
 export function DeviceManagementFleet(props: NodeProps) {
   return (
-    <Shape
-      {...DEVICE_MANAGEMENT_FLEET}
-      {...props}
-      _style={extendStyle(DEVICE_MANAGEMENT_FLEET, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEVICE_MANAGEMENT_FLEET)} />
   )
 }

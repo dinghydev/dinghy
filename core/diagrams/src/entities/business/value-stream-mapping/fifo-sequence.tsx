@@ -11,11 +11,5 @@ export const FIFO_SEQUENCE = {
 }
 
 export function FifoSequence(props: NodeProps) {
-  return (
-    <Shape
-      {...FIFO_SEQUENCE}
-      {...props}
-      _style={extendStyle(FIFO_SEQUENCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FIFO_SEQUENCE)} />
 }

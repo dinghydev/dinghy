@@ -11,5 +11,5 @@ export const MAIL = {
 }
 
 export function Mail(props: NodeProps) {
-  return <Shape {...MAIL} {...props} _style={extendStyle(MAIL, props)} />
+  return <Shape {...props} _style={extendStyle(props, MAIL)} />
 }

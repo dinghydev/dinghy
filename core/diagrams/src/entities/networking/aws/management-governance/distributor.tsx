@@ -11,11 +11,5 @@ export const DISTRIBUTOR = {
 }
 
 export function Distributor(props: NodeProps) {
-  return (
-    <Shape
-      {...DISTRIBUTOR}
-      {...props}
-      _style={extendStyle(DISTRIBUTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DISTRIBUTOR)} />
 }

@@ -11,7 +11,5 @@ export const USER_SAP = {
 }
 
 export function UserSap(props: NodeProps) {
-  return (
-    <Shape {...USER_SAP} {...props} _style={extendStyle(USER_SAP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, USER_SAP)} />
 }

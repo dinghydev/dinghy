@@ -11,5 +11,5 @@ export const KINESIS = {
 }
 
 export function Kinesis(props: NodeProps) {
-  return <Shape {...KINESIS} {...props} _style={extendStyle(KINESIS, props)} />
+  return <Shape {...props} _style={extendStyle(props, KINESIS)} />
 }

@@ -12,10 +12,6 @@ export const AWS_ELEMENTAL_MEDIATAILOR = {
 
 export function AwsElementalMediatailor(props: NodeProps) {
   return (
-    <Shape
-      {...AWS_ELEMENTAL_MEDIATAILOR}
-      {...props}
-      _style={extendStyle(AWS_ELEMENTAL_MEDIATAILOR, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, AWS_ELEMENTAL_MEDIATAILOR)} />
   )
 }

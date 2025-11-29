@@ -11,11 +11,5 @@ export const INTERNET_GATEWAY = {
 }
 
 export function InternetGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_GATEWAY}
-      {...props}
-      _style={extendStyle(INTERNET_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_GATEWAY)} />
 }

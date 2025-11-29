@@ -13,11 +13,10 @@ export const JL323A_ARUBA_2930M_40G_8_SMART_RATE_POE_1_SLOT_SWITCH = {
 export function Jl323aAruba2930m40g8SmartRatePoe1SlotSwitch(props: NodeProps) {
   return (
     <Shape
-      {...JL323A_ARUBA_2930M_40G_8_SMART_RATE_POE_1_SLOT_SWITCH}
       {...props}
       _style={extendStyle(
-        JL323A_ARUBA_2930M_40G_8_SMART_RATE_POE_1_SLOT_SWITCH,
         props,
+        JL323A_ARUBA_2930M_40G_8_SMART_RATE_POE_1_SLOT_SWITCH,
       )}
     />
   )

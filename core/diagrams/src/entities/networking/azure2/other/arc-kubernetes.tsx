@@ -11,11 +11,5 @@ export const ARC_KUBERNETES = {
 }
 
 export function ArcKubernetes(props: NodeProps) {
-  return (
-    <Shape
-      {...ARC_KUBERNETES}
-      {...props}
-      _style={extendStyle(ARC_KUBERNETES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARC_KUBERNETES)} />
 }

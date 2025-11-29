@@ -13,11 +13,5 @@ export const AWS_IOT_GREENGRASS = {
 }
 
 export function AwsIotGreengrass(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_IOT_GREENGRASS}
-      {...props}
-      _style={extendStyle(AWS_IOT_GREENGRASS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_IOT_GREENGRASS)} />
 }

@@ -11,11 +11,5 @@ export const DATABASE_MOVE_STACK = {
 }
 
 export function DatabaseMoveStack(props: NodeProps) {
-  return (
-    <Shape
-      {...DATABASE_MOVE_STACK}
-      {...props}
-      _style={extendStyle(DATABASE_MOVE_STACK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATABASE_MOVE_STACK)} />
 }

@@ -11,11 +11,5 @@ export const BADGE_DANGER = {
 }
 
 export function BadgeDanger(props: NodeProps) {
-  return (
-    <Shape
-      {...BADGE_DANGER}
-      {...props}
-      _style={extendStyle(BADGE_DANGER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BADGE_DANGER)} />
 }

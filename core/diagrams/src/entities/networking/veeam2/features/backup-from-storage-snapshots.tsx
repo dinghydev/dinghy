@@ -13,9 +13,8 @@ export const BACKUP_FROM_STORAGE_SNAPSHOTS = {
 export function BackupFromStorageSnapshots(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_FROM_STORAGE_SNAPSHOTS}
       {...props}
-      _style={extendStyle(BACKUP_FROM_STORAGE_SNAPSHOTS, props)}
+      _style={extendStyle(props, BACKUP_FROM_STORAGE_SNAPSHOTS)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const VIRTUAL_ROUTER = {
 }
 
 export function VirtualRouter(props: NodeProps) {
-  return (
-    <Shape
-      {...VIRTUAL_ROUTER}
-      {...props}
-      _style={extendStyle(VIRTUAL_ROUTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VIRTUAL_ROUTER)} />
 }

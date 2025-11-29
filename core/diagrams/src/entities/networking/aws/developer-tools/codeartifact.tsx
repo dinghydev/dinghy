@@ -11,11 +11,5 @@ export const CODEARTIFACT = {
 }
 
 export function Codeartifact(props: NodeProps) {
-  return (
-    <Shape
-      {...CODEARTIFACT}
-      {...props}
-      _style={extendStyle(CODEARTIFACT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEARTIFACT)} />
 }

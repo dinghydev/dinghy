@@ -11,11 +11,5 @@ export const SHADOW_TESTING = {
 }
 
 export function ShadowTesting(props: NodeProps) {
-  return (
-    <Shape
-      {...SHADOW_TESTING}
-      {...props}
-      _style={extendStyle(SHADOW_TESTING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SHADOW_TESTING)} />
 }

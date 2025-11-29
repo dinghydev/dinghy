@@ -11,11 +11,5 @@ export const VWLAN_CONTROLLER = {
 }
 
 export function VwlanController(props: NodeProps) {
-  return (
-    <Shape
-      {...VWLAN_CONTROLLER}
-      {...props}
-      _style={extendStyle(VWLAN_CONTROLLER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VWLAN_CONTROLLER)} />
 }

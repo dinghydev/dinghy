@@ -11,11 +11,5 @@ export const AZURE_FIREWALL = {
 }
 
 export function AzureFirewall(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_FIREWALL}
-      {...props}
-      _style={extendStyle(AZURE_FIREWALL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_FIREWALL)} />
 }

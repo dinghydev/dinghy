@@ -11,7 +11,5 @@ export const ONE_CLIENT = {
 }
 
 export function OneClient(props: NodeProps) {
-  return (
-    <Shape {...ONE_CLIENT} {...props} _style={extendStyle(ONE_CLIENT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ONE_CLIENT)} />
 }

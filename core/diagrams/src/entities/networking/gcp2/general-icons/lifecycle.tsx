@@ -11,7 +11,5 @@ export const LIFECYCLE = {
 }
 
 export function Lifecycle(props: NodeProps) {
-  return (
-    <Shape {...LIFECYCLE} {...props} _style={extendStyle(LIFECYCLE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LIFECYCLE)} />
 }

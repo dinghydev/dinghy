@@ -11,11 +11,5 @@ export const H1_INSTANCE = {
 }
 
 export function H1Instance(props: NodeProps) {
-  return (
-    <Shape
-      {...H1_INSTANCE}
-      {...props}
-      _style={extendStyle(H1_INSTANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, H1_INSTANCE)} />
 }

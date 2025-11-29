@@ -11,11 +11,5 @@ export const INTERNET_HOLLOW = {
 }
 
 export function InternetHollow(props: NodeProps) {
-  return (
-    <Shape
-      {...INTERNET_HOLLOW}
-      {...props}
-      _style={extendStyle(INTERNET_HOLLOW, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTERNET_HOLLOW)} />
 }

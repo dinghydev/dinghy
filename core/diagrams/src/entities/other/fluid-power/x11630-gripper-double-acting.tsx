@@ -13,9 +13,8 @@ export const X11630_GRIPPER_DOUBLE_ACTING = {
 export function X11630GripperDoubleActing(props: NodeProps) {
   return (
     <Shape
-      {...X11630_GRIPPER_DOUBLE_ACTING}
       {...props}
-      _style={extendStyle(X11630_GRIPPER_DOUBLE_ACTING, props)}
+      _style={extendStyle(props, X11630_GRIPPER_DOUBLE_ACTING)}
     />
   )
 }

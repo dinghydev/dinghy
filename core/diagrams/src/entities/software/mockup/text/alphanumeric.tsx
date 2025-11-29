@@ -11,11 +11,5 @@ export const ALPHANUMERIC = {
 }
 
 export function Alphanumeric(props: NodeProps) {
-  return (
-    <Shape
-      {...ALPHANUMERIC}
-      {...props}
-      _style={extendStyle(ALPHANUMERIC, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ALPHANUMERIC)} />
 }

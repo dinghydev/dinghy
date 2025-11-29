@@ -9,11 +9,5 @@ export const SECONDARY_PATH = {
 }
 
 export function SecondaryPath(props: NodeProps) {
-  return (
-    <Dependency
-      {...SECONDARY_PATH}
-      {...props}
-      _style={extendStyle(SECONDARY_PATH, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, SECONDARY_PATH)} />
 }

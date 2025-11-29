@@ -11,5 +11,5 @@ export const ORDERS = {
 }
 
 export function Orders(props: NodeProps) {
-  return <Shape {...ORDERS} {...props} _style={extendStyle(ORDERS, props)} />
+  return <Shape {...props} _style={extendStyle(props, ORDERS)} />
 }

@@ -10,11 +10,5 @@ export const NEON_CARROT = {
 }
 
 export function NeonCarrot(props: NodeProps) {
-  return (
-    <Shape
-      {...NEON_CARROT}
-      {...props}
-      _style={extendStyle(NEON_CARROT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, NEON_CARROT)} />
 }

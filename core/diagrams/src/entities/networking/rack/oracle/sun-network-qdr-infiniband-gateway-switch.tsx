@@ -13,9 +13,8 @@ export const SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH = {
 export function SunNetworkQdrInfinibandGatewaySwitch(props: NodeProps) {
   return (
     <Shape
-      {...SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH}
       {...props}
-      _style={extendStyle(SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH, props)}
+      _style={extendStyle(props, SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH)}
     />
   )
 }

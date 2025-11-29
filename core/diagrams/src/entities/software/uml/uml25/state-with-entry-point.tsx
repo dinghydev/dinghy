@@ -12,10 +12,6 @@ export const STATE_WITH_ENTRY_POINT = {
 
 export function StateWithEntryPoint(props: NodeProps) {
   return (
-    <Shape
-      {...STATE_WITH_ENTRY_POINT}
-      {...props}
-      _style={extendStyle(STATE_WITH_ENTRY_POINT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, STATE_WITH_ENTRY_POINT)} />
   )
 }

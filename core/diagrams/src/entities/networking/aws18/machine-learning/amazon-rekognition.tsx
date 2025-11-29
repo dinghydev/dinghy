@@ -11,11 +11,5 @@ export const AMAZON_REKOGNITION = {
 }
 
 export function AmazonRekognition(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_REKOGNITION}
-      {...props}
-      _style={extendStyle(AMAZON_REKOGNITION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_REKOGNITION)} />
 }

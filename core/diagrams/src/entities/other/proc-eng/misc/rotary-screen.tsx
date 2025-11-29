@@ -11,11 +11,5 @@ export const ROTARY_SCREEN = {
 }
 
 export function RotaryScreen(props: NodeProps) {
-  return (
-    <Shape
-      {...ROTARY_SCREEN}
-      {...props}
-      _style={extendStyle(ROTARY_SCREEN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTARY_SCREEN)} />
 }

@@ -11,11 +11,5 @@ export const GLACIER_DEEP_ARCHIVE = {
 }
 
 export function GlacierDeepArchive(props: NodeProps) {
-  return (
-    <Shape
-      {...GLACIER_DEEP_ARCHIVE}
-      {...props}
-      _style={extendStyle(GLACIER_DEEP_ARCHIVE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLACIER_DEEP_ARCHIVE)} />
 }

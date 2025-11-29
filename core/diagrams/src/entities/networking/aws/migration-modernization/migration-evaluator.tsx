@@ -11,11 +11,5 @@ export const MIGRATION_EVALUATOR = {
 }
 
 export function MigrationEvaluator(props: NodeProps) {
-  return (
-    <Shape
-      {...MIGRATION_EVALUATOR}
-      {...props}
-      _style={extendStyle(MIGRATION_EVALUATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATION_EVALUATOR)} />
 }

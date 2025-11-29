@@ -11,7 +11,5 @@ export const WIRE_DATA = {
 }
 
 export function WireData(props: NodeProps) {
-  return (
-    <Shape {...WIRE_DATA} {...props} _style={extendStyle(WIRE_DATA, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, WIRE_DATA)} />
 }

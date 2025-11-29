@@ -11,11 +11,5 @@ export const FLEXIBLE_HOSE = {
 }
 
 export function FlexibleHose(props: NodeProps) {
-  return (
-    <Shape
-      {...FLEXIBLE_HOSE}
-      {...props}
-      _style={extendStyle(FLEXIBLE_HOSE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLEXIBLE_HOSE)} />
 }

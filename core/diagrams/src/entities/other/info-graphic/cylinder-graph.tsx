@@ -11,11 +11,5 @@ export const CYLINDER_GRAPH = {
 }
 
 export function CylinderGraph(props: NodeProps) {
-  return (
-    <Shape
-      {...CYLINDER_GRAPH}
-      {...props}
-      _style={extendStyle(CYLINDER_GRAPH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CYLINDER_GRAPH)} />
 }

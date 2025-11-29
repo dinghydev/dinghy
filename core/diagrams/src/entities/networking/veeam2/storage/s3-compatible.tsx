@@ -11,11 +11,5 @@ export const S3_COMPATIBLE = {
 }
 
 export function S3Compatible(props: NodeProps) {
-  return (
-    <Shape
-      {...S3_COMPATIBLE}
-      {...props}
-      _style={extendStyle(S3_COMPATIBLE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, S3_COMPATIBLE)} />
 }

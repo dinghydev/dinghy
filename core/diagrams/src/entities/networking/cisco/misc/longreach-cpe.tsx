@@ -11,11 +11,5 @@ export const LONGREACH_CPE = {
 }
 
 export function LongreachCpe(props: NodeProps) {
-  return (
-    <Shape
-      {...LONGREACH_CPE}
-      {...props}
-      _style={extendStyle(LONGREACH_CPE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LONGREACH_CPE)} />
 }

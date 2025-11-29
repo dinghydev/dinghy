@@ -11,7 +11,5 @@ export const PUMP_GEAR = {
 }
 
 export function PumpGear(props: NodeProps) {
-  return (
-    <Shape {...PUMP_GEAR} {...props} _style={extendStyle(PUMP_GEAR, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, PUMP_GEAR)} />
 }

@@ -11,7 +11,5 @@ export const POLICY_2 = {
 }
 
 export function Policy2(props: NodeProps) {
-  return (
-    <Shape {...POLICY_2} {...props} _style={extendStyle(POLICY_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POLICY_2)} />
 }

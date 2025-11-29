@@ -11,11 +11,5 @@ export const FRAUD_DETECTION = {
 }
 
 export function FraudDetection(props: NodeProps) {
-  return (
-    <Shape
-      {...FRAUD_DETECTION}
-      {...props}
-      _style={extendStyle(FRAUD_DETECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FRAUD_DETECTION)} />
 }

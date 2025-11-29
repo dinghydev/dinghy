@@ -11,11 +11,5 @@ export const SATELLITE_DISH = {
 }
 
 export function SatelliteDish(props: NodeProps) {
-  return (
-    <Shape
-      {...SATELLITE_DISH}
-      {...props}
-      _style={extendStyle(SATELLITE_DISH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SATELLITE_DISH)} />
 }

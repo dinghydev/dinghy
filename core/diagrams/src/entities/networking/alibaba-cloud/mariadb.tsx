@@ -11,5 +11,5 @@ export const MARIADB = {
 }
 
 export function Mariadb(props: NodeProps) {
-  return <Shape {...MARIADB} {...props} _style={extendStyle(MARIADB, props)} />
+  return <Shape {...props} _style={extendStyle(props, MARIADB)} />
 }

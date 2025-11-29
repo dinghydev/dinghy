@@ -11,7 +11,5 @@ export const API_CENTER = {
 }
 
 export function ApiCenter(props: NodeProps) {
-  return (
-    <Shape {...API_CENTER} {...props} _style={extendStyle(API_CENTER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_CENTER)} />
 }

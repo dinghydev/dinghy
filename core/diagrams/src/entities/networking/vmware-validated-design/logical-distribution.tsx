@@ -11,11 +11,5 @@ export const LOGICAL_DISTRIBUTION = {
 }
 
 export function LogicalDistribution(props: NodeProps) {
-  return (
-    <Shape
-      {...LOGICAL_DISTRIBUTION}
-      {...props}
-      _style={extendStyle(LOGICAL_DISTRIBUTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOGICAL_DISTRIBUTION)} />
 }

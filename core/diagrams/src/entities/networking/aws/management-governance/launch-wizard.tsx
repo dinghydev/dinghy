@@ -11,11 +11,5 @@ export const LAUNCH_WIZARD = {
 }
 
 export function LaunchWizard(props: NodeProps) {
-  return (
-    <Shape
-      {...LAUNCH_WIZARD}
-      {...props}
-      _style={extendStyle(LAUNCH_WIZARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LAUNCH_WIZARD)} />
 }

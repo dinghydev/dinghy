@@ -11,11 +11,5 @@ export const CISCO_ANYCONNECT = {
 }
 
 export function CiscoAnyconnect(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_ANYCONNECT}
-      {...props}
-      _style={extendStyle(CISCO_ANYCONNECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_ANYCONNECT)} />
 }

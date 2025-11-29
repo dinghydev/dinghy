@@ -12,10 +12,6 @@ export const MULTI_FABRIC_SERVER_SWITCH = {
 
 export function MultiFabricServerSwitch(props: NodeProps) {
   return (
-    <Shape
-      {...MULTI_FABRIC_SERVER_SWITCH}
-      {...props}
-      _style={extendStyle(MULTI_FABRIC_SERVER_SWITCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, MULTI_FABRIC_SERVER_SWITCH)} />
   )
 }

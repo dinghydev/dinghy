@@ -9,7 +9,5 @@ export const OOB_RMP = {
 }
 
 export function OobRmp(props: NodeProps) {
-  return (
-    <Dependency {...OOB_RMP} {...props} _style={extendStyle(OOB_RMP, props)} />
-  )
+  return <Dependency {...props} _style={extendStyle(props, OOB_RMP)} />
 }

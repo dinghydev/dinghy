@@ -11,11 +11,5 @@ export const CLOUD_DIRECTORY = {
 }
 
 export function CloudDirectory(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_DIRECTORY}
-      {...props}
-      _style={extendStyle(CLOUD_DIRECTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_DIRECTORY)} />
 }

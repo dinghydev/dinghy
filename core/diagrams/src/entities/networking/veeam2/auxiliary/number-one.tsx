@@ -11,7 +11,5 @@ export const NUMBER_ONE = {
 }
 
 export function NumberOne(props: NodeProps) {
-  return (
-    <Shape {...NUMBER_ONE} {...props} _style={extendStyle(NUMBER_ONE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NUMBER_ONE)} />
 }

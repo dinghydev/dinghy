@@ -13,9 +13,8 @@ export const SAP_AUTHORIZATION_MANAGEMENT_SERVICE = {
 export function SapAuthorizationManagementService(props: NodeProps) {
   return (
     <Shape
-      {...SAP_AUTHORIZATION_MANAGEMENT_SERVICE}
       {...props}
-      _style={extendStyle(SAP_AUTHORIZATION_MANAGEMENT_SERVICE, props)}
+      _style={extendStyle(props, SAP_AUTHORIZATION_MANAGEMENT_SERVICE)}
     />
   )
 }

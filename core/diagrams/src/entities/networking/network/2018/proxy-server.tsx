@@ -11,11 +11,5 @@ export const PROXY_SERVER = {
 }
 
 export function ProxyServer(props: NodeProps) {
-  return (
-    <Shape
-      {...PROXY_SERVER}
-      {...props}
-      _style={extendStyle(PROXY_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PROXY_SERVER)} />
 }

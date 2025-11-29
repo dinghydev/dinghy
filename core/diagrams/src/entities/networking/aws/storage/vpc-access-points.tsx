@@ -11,11 +11,5 @@ export const VPC_ACCESS_POINTS = {
 }
 
 export function VpcAccessPoints(props: NodeProps) {
-  return (
-    <Shape
-      {...VPC_ACCESS_POINTS}
-      {...props}
-      _style={extendStyle(VPC_ACCESS_POINTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPC_ACCESS_POINTS)} />
 }

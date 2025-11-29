@@ -13,9 +13,8 @@ export const SIMPLE_NOTIFICATION_SERVICE = {
 export function SimpleNotificationService(props: NodeProps) {
   return (
     <Shape
-      {...SIMPLE_NOTIFICATION_SERVICE}
       {...props}
-      _style={extendStyle(SIMPLE_NOTIFICATION_SERVICE, props)}
+      _style={extendStyle(props, SIMPLE_NOTIFICATION_SERVICE)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const AZURE_API_FOR_FHIR = {
 }
 
 export function AzureApiForFhir(props: NodeProps) {
-  return (
-    <Shape
-      {...AZURE_API_FOR_FHIR}
-      {...props}
-      _style={extendStyle(AZURE_API_FOR_FHIR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AZURE_API_FOR_FHIR)} />
 }

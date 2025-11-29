@@ -12,10 +12,6 @@ export const APPLICATION_SERVER_GREEN = {
 
 export function ApplicationServerGreen(props: NodeProps) {
   return (
-    <Shape
-      {...APPLICATION_SERVER_GREEN}
-      {...props}
-      _style={extendStyle(APPLICATION_SERVER_GREEN, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, APPLICATION_SERVER_GREEN)} />
   )
 }

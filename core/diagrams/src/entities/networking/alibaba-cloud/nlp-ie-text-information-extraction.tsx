@@ -13,9 +13,8 @@ export const NLP_IE_TEXT_INFORMATION_EXTRACTION = {
 export function NlpIeTextInformationExtraction(props: NodeProps) {
   return (
     <Shape
-      {...NLP_IE_TEXT_INFORMATION_EXTRACTION}
       {...props}
-      _style={extendStyle(NLP_IE_TEXT_INFORMATION_EXTRACTION, props)}
+      _style={extendStyle(props, NLP_IE_TEXT_INFORMATION_EXTRACTION)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const X11610_HOSE_CYLINDER = {
 }
 
 export function X11610HoseCylinder(props: NodeProps) {
-  return (
-    <Shape
-      {...X11610_HOSE_CYLINDER}
-      {...props}
-      _style={extendStyle(X11610_HOSE_CYLINDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X11610_HOSE_CYLINDER)} />
 }

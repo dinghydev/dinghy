@@ -11,11 +11,5 @@ export const CONTROLLED_AMPLIFIER = {
 }
 
 export function ControlledAmplifier(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROLLED_AMPLIFIER}
-      {...props}
-      _style={extendStyle(CONTROLLED_AMPLIFIER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROLLED_AMPLIFIER)} />
 }

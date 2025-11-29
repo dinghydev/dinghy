@@ -13,9 +13,8 @@ export const X10240_PNEUMATIC_SOFT_START = {
 export function X10240PneumaticSoftStart(props: NodeProps) {
   return (
     <Shape
-      {...X10240_PNEUMATIC_SOFT_START}
       {...props}
-      _style={extendStyle(X10240_PNEUMATIC_SOFT_START, props)}
+      _style={extendStyle(props, X10240_PNEUMATIC_SOFT_START)}
     />
   )
 }

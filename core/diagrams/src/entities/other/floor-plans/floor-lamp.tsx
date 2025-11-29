@@ -11,7 +11,5 @@ export const FLOOR_LAMP = {
 }
 
 export function FloorLamp(props: NodeProps) {
-  return (
-    <Shape {...FLOOR_LAMP} {...props} _style={extendStyle(FLOOR_LAMP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLOOR_LAMP)} />
 }

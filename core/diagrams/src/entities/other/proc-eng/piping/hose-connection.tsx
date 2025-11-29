@@ -11,11 +11,5 @@ export const HOSE_CONNECTION = {
 }
 
 export function HoseConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...HOSE_CONNECTION}
-      {...props}
-      _style={extendStyle(HOSE_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOSE_CONNECTION)} />
 }

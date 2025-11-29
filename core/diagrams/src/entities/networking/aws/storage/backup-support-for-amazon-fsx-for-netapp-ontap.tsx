@@ -13,11 +13,10 @@ export const BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP = {
 export function BackupSupportForAmazonFsxForNetappOntap(props: NodeProps) {
   return (
     <Shape
-      {...BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP}
       {...props}
       _style={extendStyle(
-        BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP,
         props,
+        BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP,
       )}
     />
   )

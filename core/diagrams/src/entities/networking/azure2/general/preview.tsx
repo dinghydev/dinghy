@@ -11,5 +11,5 @@ export const PREVIEW = {
 }
 
 export function Preview(props: NodeProps) {
-  return <Shape {...PREVIEW} {...props} _style={extendStyle(PREVIEW, props)} />
+  return <Shape {...props} _style={extendStyle(props, PREVIEW)} />
 }

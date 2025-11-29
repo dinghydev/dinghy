@@ -11,11 +11,5 @@ export const VOICE_ASSISTANT = {
 }
 
 export function VoiceAssistant(props: NodeProps) {
-  return (
-    <Shape
-      {...VOICE_ASSISTANT}
-      {...props}
-      _style={extendStyle(VOICE_ASSISTANT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VOICE_ASSISTANT)} />
 }

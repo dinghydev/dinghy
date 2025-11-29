@@ -12,10 +12,6 @@ export const SWITCH_BARE_METAL_EMPTY = {
 
 export function SwitchBareMetalEmpty(props: NodeProps) {
   return (
-    <Shape
-      {...SWITCH_BARE_METAL_EMPTY}
-      {...props}
-      _style={extendStyle(SWITCH_BARE_METAL_EMPTY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SWITCH_BARE_METAL_EMPTY)} />
   )
 }

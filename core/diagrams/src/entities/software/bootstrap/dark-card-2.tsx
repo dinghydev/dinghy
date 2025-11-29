@@ -11,11 +11,5 @@ export const DARK_CARD_2 = {
 }
 
 export function DarkCard2(props: NodeProps) {
-  return (
-    <Shape
-      {...DARK_CARD_2}
-      {...props}
-      _style={extendStyle(DARK_CARD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DARK_CARD_2)} />
 }

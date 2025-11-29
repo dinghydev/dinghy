@@ -11,5 +11,5 @@ export const ANDROID = {
 }
 
 export function Android(props: NodeProps) {
-  return <Shape {...ANDROID} {...props} _style={extendStyle(ANDROID, props)} />
+  return <Shape {...props} _style={extendStyle(props, ANDROID)} />
 }

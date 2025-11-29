@@ -11,11 +11,5 @@ export const AMAZON_API_GATEWAY = {
 }
 
 export function AmazonApiGateway(props: NodeProps) {
-  return (
-    <Shape
-      {...AMAZON_API_GATEWAY}
-      {...props}
-      _style={extendStyle(AMAZON_API_GATEWAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMAZON_API_GATEWAY)} />
 }

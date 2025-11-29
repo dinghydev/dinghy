@@ -12,10 +12,6 @@ export const CHECKBOX_ON_DISABLED_DARK = {
 
 export function CheckboxOnDisabledDark(props: NodeProps) {
   return (
-    <Shape
-      {...CHECKBOX_ON_DISABLED_DARK}
-      {...props}
-      _style={extendStyle(CHECKBOX_ON_DISABLED_DARK, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CHECKBOX_ON_DISABLED_DARK)} />
   )
 }

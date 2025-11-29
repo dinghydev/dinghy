@@ -11,5 +11,5 @@ export const MACHINE = {
 }
 
 export function Machine(props: NodeProps) {
-  return <Shape {...MACHINE} {...props} _style={extendStyle(MACHINE, props)} />
+  return <Shape {...props} _style={extendStyle(props, MACHINE)} />
 }

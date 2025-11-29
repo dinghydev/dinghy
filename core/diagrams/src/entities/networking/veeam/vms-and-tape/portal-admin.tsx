@@ -11,11 +11,5 @@ export const PORTAL_ADMIN = {
 }
 
 export function PortalAdmin(props: NodeProps) {
-  return (
-    <Shape
-      {...PORTAL_ADMIN}
-      {...props}
-      _style={extendStyle(PORTAL_ADMIN, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PORTAL_ADMIN)} />
 }

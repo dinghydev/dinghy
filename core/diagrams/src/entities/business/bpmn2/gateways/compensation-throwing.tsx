@@ -11,11 +11,5 @@ export const COMPENSATION_THROWING = {
 }
 
 export function CompensationThrowing(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPENSATION_THROWING}
-      {...props}
-      _style={extendStyle(COMPENSATION_THROWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPENSATION_THROWING)} />
 }

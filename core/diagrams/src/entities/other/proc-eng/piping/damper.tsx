@@ -11,5 +11,5 @@ export const DAMPER = {
 }
 
 export function Damper(props: NodeProps) {
-  return <Shape {...DAMPER} {...props} _style={extendStyle(DAMPER, props)} />
+  return <Shape {...props} _style={extendStyle(props, DAMPER)} />
 }

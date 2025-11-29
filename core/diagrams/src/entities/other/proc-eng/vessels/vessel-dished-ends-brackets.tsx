@@ -13,9 +13,8 @@ export const VESSEL_DISHED_ENDS_BRACKETS = {
 export function VesselDishedEndsBrackets(props: NodeProps) {
   return (
     <Shape
-      {...VESSEL_DISHED_ENDS_BRACKETS}
       {...props}
-      _style={extendStyle(VESSEL_DISHED_ENDS_BRACKETS, props)}
+      _style={extendStyle(props, VESSEL_DISHED_ENDS_BRACKETS)}
     />
   )
 }

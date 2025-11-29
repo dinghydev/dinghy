@@ -11,7 +11,5 @@ export const TANK_BOOT = {
 }
 
 export function TankBoot(props: NodeProps) {
-  return (
-    <Shape {...TANK_BOOT} {...props} _style={extendStyle(TANK_BOOT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TANK_BOOT)} />
 }

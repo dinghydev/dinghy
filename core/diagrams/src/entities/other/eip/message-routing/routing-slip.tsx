@@ -11,11 +11,5 @@ export const ROUTING_SLIP = {
 }
 
 export function RoutingSlip(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTING_SLIP}
-      {...props}
-      _style={extendStyle(ROUTING_SLIP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTING_SLIP)} />
 }

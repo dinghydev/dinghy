@@ -11,5 +11,5 @@ export const METRICS = {
 }
 
 export function Metrics(props: NodeProps) {
-  return <Shape {...METRICS} {...props} _style={extendStyle(METRICS, props)} />
+  return <Shape {...props} _style={extendStyle(props, METRICS)} />
 }

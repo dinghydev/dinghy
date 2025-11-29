@@ -11,11 +11,5 @@ export const MESSAGES_QUEUED = {
 }
 
 export function MessagesQueued(props: NodeProps) {
-  return (
-    <Shape
-      {...MESSAGES_QUEUED}
-      {...props}
-      _style={extendStyle(MESSAGES_QUEUED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MESSAGES_QUEUED)} />
 }

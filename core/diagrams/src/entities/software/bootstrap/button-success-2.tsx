@@ -11,11 +11,5 @@ export const BUTTON_SUCCESS_2 = {
 }
 
 export function ButtonSuccess2(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_SUCCESS_2}
-      {...props}
-      _style={extendStyle(BUTTON_SUCCESS_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_SUCCESS_2)} />
 }

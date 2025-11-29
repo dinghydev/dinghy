@@ -11,11 +11,5 @@ export const UCWA_APPLICATION = {
 }
 
 export function UcwaApplication(props: NodeProps) {
-  return (
-    <Shape
-      {...UCWA_APPLICATION}
-      {...props}
-      _style={extendStyle(UCWA_APPLICATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, UCWA_APPLICATION)} />
 }

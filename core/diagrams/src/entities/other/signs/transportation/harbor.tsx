@@ -11,5 +11,5 @@ export const HARBOR = {
 }
 
 export function Harbor(props: NodeProps) {
-  return <Shape {...HARBOR} {...props} _style={extendStyle(HARBOR, props)} />
+  return <Shape {...props} _style={extendStyle(props, HARBOR)} />
 }

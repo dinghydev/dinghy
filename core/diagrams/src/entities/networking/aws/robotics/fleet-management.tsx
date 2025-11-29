@@ -11,11 +11,5 @@ export const FLEET_MANAGEMENT = {
 }
 
 export function FleetManagement(props: NodeProps) {
-  return (
-    <Shape
-      {...FLEET_MANAGEMENT}
-      {...props}
-      _style={extendStyle(FLEET_MANAGEMENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FLEET_MANAGEMENT)} />
 }

@@ -11,5 +11,5 @@ export const CHAT = {
 }
 
 export function Chat(props: NodeProps) {
-  return <Shape {...CHAT} {...props} _style={extendStyle(CHAT, props)} />
+  return <Shape {...props} _style={extendStyle(props, CHAT)} />
 }

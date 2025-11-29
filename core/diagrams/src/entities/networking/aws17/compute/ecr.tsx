@@ -11,5 +11,5 @@ export const ECR = {
 }
 
 export function Ecr(props: NodeProps) {
-  return <Shape {...ECR} {...props} _style={extendStyle(ECR, props)} />
+  return <Shape {...props} _style={extendStyle(props, ECR)} />
 }

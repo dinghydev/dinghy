@@ -12,10 +12,6 @@ export const FORCED_DRAFT_COOLING_TOWER = {
 
 export function ForcedDraftCoolingTower(props: NodeProps) {
   return (
-    <Shape
-      {...FORCED_DRAFT_COOLING_TOWER}
-      {...props}
-      _style={extendStyle(FORCED_DRAFT_COOLING_TOWER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, FORCED_DRAFT_COOLING_TOWER)} />
   )
 }

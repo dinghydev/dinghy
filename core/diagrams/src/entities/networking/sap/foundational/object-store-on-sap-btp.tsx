@@ -12,10 +12,6 @@ export const OBJECT_STORE_ON_SAP_BTP = {
 
 export function ObjectStoreOnSapBtp(props: NodeProps) {
   return (
-    <Shape
-      {...OBJECT_STORE_ON_SAP_BTP}
-      {...props}
-      _style={extendStyle(OBJECT_STORE_ON_SAP_BTP, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OBJECT_STORE_ON_SAP_BTP)} />
   )
 }

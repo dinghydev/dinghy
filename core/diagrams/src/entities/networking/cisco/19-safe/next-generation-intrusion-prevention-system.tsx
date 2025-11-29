@@ -13,9 +13,8 @@ export const NEXT_GENERATION_INTRUSION_PREVENTION_SYSTEM = {
 export function NextGenerationIntrusionPreventionSystem(props: NodeProps) {
   return (
     <Shape
-      {...NEXT_GENERATION_INTRUSION_PREVENTION_SYSTEM}
       {...props}
-      _style={extendStyle(NEXT_GENERATION_INTRUSION_PREVENTION_SYSTEM, props)}
+      _style={extendStyle(props, NEXT_GENERATION_INTRUSION_PREVENTION_SYSTEM)}
     />
   )
 }

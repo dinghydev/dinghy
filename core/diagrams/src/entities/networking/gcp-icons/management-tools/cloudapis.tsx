@@ -11,7 +11,5 @@ export const CLOUDAPIS = {
 }
 
 export function Cloudapis(props: NodeProps) {
-  return (
-    <Shape {...CLOUDAPIS} {...props} _style={extendStyle(CLOUDAPIS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUDAPIS)} />
 }

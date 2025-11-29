@@ -11,11 +11,5 @@ export const VM_PAUSED_SAVED_STATE = {
 }
 
 export function VmPausedSavedState(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_PAUSED_SAVED_STATE}
-      {...props}
-      _style={extendStyle(VM_PAUSED_SAVED_STATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_PAUSED_SAVED_STATE)} />
 }

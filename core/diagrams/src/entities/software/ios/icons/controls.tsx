@@ -11,7 +11,5 @@ export const CONTROLS = {
 }
 
 export function Controls(props: NodeProps) {
-  return (
-    <Shape {...CONTROLS} {...props} _style={extendStyle(CONTROLS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROLS)} />
 }

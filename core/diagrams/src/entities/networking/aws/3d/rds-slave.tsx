@@ -11,7 +11,5 @@ export const RDS_SLAVE = {
 }
 
 export function RdsSlave(props: NodeProps) {
-  return (
-    <Shape {...RDS_SLAVE} {...props} _style={extendStyle(RDS_SLAVE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, RDS_SLAVE)} />
 }

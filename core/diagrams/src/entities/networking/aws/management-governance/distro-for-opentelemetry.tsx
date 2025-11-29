@@ -12,10 +12,6 @@ export const DISTRO_FOR_OPENTELEMETRY = {
 
 export function DistroForOpentelemetry(props: NodeProps) {
   return (
-    <Shape
-      {...DISTRO_FOR_OPENTELEMETRY}
-      {...props}
-      _style={extendStyle(DISTRO_FOR_OPENTELEMETRY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DISTRO_FOR_OPENTELEMETRY)} />
   )
 }

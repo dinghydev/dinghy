@@ -11,11 +11,5 @@ export const EVENT_LISTENER = {
 }
 
 export function EventListener(props: NodeProps) {
-  return (
-    <Shape
-      {...EVENT_LISTENER}
-      {...props}
-      _style={extendStyle(EVENT_LISTENER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, EVENT_LISTENER)} />
 }

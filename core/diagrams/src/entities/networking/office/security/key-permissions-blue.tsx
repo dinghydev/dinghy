@@ -11,11 +11,5 @@ export const KEY_PERMISSIONS_BLUE = {
 }
 
 export function KeyPermissionsBlue(props: NodeProps) {
-  return (
-    <Shape
-      {...KEY_PERMISSIONS_BLUE}
-      {...props}
-      _style={extendStyle(KEY_PERMISSIONS_BLUE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEY_PERMISSIONS_BLUE)} />
 }

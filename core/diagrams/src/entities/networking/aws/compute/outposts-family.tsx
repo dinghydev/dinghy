@@ -11,11 +11,5 @@ export const OUTPOSTS_FAMILY = {
 }
 
 export function OutpostsFamily(props: NodeProps) {
-  return (
-    <Shape
-      {...OUTPOSTS_FAMILY}
-      {...props}
-      _style={extendStyle(OUTPOSTS_FAMILY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, OUTPOSTS_FAMILY)} />
 }

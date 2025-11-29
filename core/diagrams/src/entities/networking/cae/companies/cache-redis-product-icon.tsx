@@ -12,10 +12,6 @@ export const CACHE_REDIS_PRODUCT_ICON = {
 
 export function CacheRedisProductIcon(props: NodeProps) {
   return (
-    <Shape
-      {...CACHE_REDIS_PRODUCT_ICON}
-      {...props}
-      _style={extendStyle(CACHE_REDIS_PRODUCT_ICON, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CACHE_REDIS_PRODUCT_ICON)} />
   )
 }

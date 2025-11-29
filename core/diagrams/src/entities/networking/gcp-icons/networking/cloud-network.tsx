@@ -11,11 +11,5 @@ export const CLOUD_NETWORK = {
 }
 
 export function CloudNetwork(props: NodeProps) {
-  return (
-    <Shape
-      {...CLOUD_NETWORK}
-      {...props}
-      _style={extendStyle(CLOUD_NETWORK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CLOUD_NETWORK)} />
 }

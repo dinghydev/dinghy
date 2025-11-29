@@ -11,11 +11,5 @@ export const CONTACT_CENTER = {
 }
 
 export function ContactCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACT_CENTER}
-      {...props}
-      _style={extendStyle(CONTACT_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_CENTER)} />
 }

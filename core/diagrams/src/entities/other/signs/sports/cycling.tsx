@@ -11,5 +11,5 @@ export const CYCLING = {
 }
 
 export function Cycling(props: NodeProps) {
-  return <Shape {...CYCLING} {...props} _style={extendStyle(CYCLING, props)} />
+  return <Shape {...props} _style={extendStyle(props, CYCLING)} />
 }

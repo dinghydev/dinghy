@@ -12,10 +12,6 @@ export const DEPLOYMENT_ENVIRONMENTS = {
 
 export function DeploymentEnvironments(props: NodeProps) {
   return (
-    <Shape
-      {...DEPLOYMENT_ENVIRONMENTS}
-      {...props}
-      _style={extendStyle(DEPLOYMENT_ENVIRONMENTS, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, DEPLOYMENT_ENVIRONMENTS)} />
   )
 }

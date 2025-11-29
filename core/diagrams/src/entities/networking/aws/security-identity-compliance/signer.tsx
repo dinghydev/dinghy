@@ -11,5 +11,5 @@ export const SIGNER = {
 }
 
 export function Signer(props: NodeProps) {
-  return <Shape {...SIGNER} {...props} _style={extendStyle(SIGNER, props)} />
+  return <Shape {...props} _style={extendStyle(props, SIGNER)} />
 }

@@ -8,11 +8,5 @@ export const IMPLEMENTATION = {
 }
 
 export function Implementation(props: NodeProps) {
-  return (
-    <Dependency
-      {...IMPLEMENTATION}
-      {...props}
-      _style={extendStyle(IMPLEMENTATION, props)}
-    />
-  )
+  return <Dependency {...props} _style={extendStyle(props, IMPLEMENTATION)} />
 }

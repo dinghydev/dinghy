@@ -11,7 +11,5 @@ export const DATA_INPUT = {
 }
 
 export function DataInput(props: NodeProps) {
-  return (
-    <Shape {...DATA_INPUT} {...props} _style={extendStyle(DATA_INPUT, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_INPUT)} />
 }

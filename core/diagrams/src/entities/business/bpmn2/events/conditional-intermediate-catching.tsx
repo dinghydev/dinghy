@@ -13,9 +13,8 @@ export const CONDITIONAL_INTERMEDIATE_CATCHING = {
 export function ConditionalIntermediateCatching(props: NodeProps) {
   return (
     <Shape
-      {...CONDITIONAL_INTERMEDIATE_CATCHING}
       {...props}
-      _style={extendStyle(CONDITIONAL_INTERMEDIATE_CATCHING, props)}
+      _style={extendStyle(props, CONDITIONAL_INTERMEDIATE_CATCHING)}
     />
   )
 }

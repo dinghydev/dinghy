@@ -11,11 +11,5 @@ export const HEAT_CONSUMER = {
 }
 
 export function HeatConsumer(props: NodeProps) {
-  return (
-    <Shape
-      {...HEAT_CONSUMER}
-      {...props}
-      _style={extendStyle(HEAT_CONSUMER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEAT_CONSUMER)} />
 }

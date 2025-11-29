@@ -11,11 +11,5 @@ export const STICKY_NOTE = {
 }
 
 export function StickyNote(props: NodeProps) {
-  return (
-    <Shape
-      {...STICKY_NOTE}
-      {...props}
-      _style={extendStyle(STICKY_NOTE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STICKY_NOTE)} />
 }

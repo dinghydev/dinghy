@@ -11,7 +11,5 @@ export const JUNCTION = {
 }
 
 export function Junction(props: NodeProps) {
-  return (
-    <Shape {...JUNCTION} {...props} _style={extendStyle(JUNCTION, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, JUNCTION)} />
 }

@@ -13,9 +13,8 @@ export const SERVICE_TICKET_INTELLIGENCE = {
 export function ServiceTicketIntelligence(props: NodeProps) {
   return (
     <Shape
-      {...SERVICE_TICKET_INTELLIGENCE}
       {...props}
-      _style={extendStyle(SERVICE_TICKET_INTELLIGENCE, props)}
+      _style={extendStyle(props, SERVICE_TICKET_INTELLIGENCE)}
     />
   )
 }

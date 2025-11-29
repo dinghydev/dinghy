@@ -11,11 +11,5 @@ export const CISCO_WORKS = {
 }
 
 export function CiscoWorks(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_WORKS}
-      {...props}
-      _style={extendStyle(CISCO_WORKS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_WORKS)} />
 }

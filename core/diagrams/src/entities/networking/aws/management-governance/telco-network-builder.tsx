@@ -11,11 +11,5 @@ export const TELCO_NETWORK_BUILDER = {
 }
 
 export function TelcoNetworkBuilder(props: NodeProps) {
-  return (
-    <Shape
-      {...TELCO_NETWORK_BUILDER}
-      {...props}
-      _style={extendStyle(TELCO_NETWORK_BUILDER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TELCO_NETWORK_BUILDER)} />
 }

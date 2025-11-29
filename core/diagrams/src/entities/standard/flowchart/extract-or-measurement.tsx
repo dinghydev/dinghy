@@ -12,10 +12,6 @@ export const EXTRACT_OR_MEASUREMENT = {
 
 export function ExtractOrMeasurement(props: NodeProps) {
   return (
-    <Shape
-      {...EXTRACT_OR_MEASUREMENT}
-      {...props}
-      _style={extendStyle(EXTRACT_OR_MEASUREMENT, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, EXTRACT_OR_MEASUREMENT)} />
   )
 }

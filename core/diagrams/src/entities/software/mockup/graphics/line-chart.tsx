@@ -11,7 +11,5 @@ export const LINE_CHART = {
 }
 
 export function LineChart(props: NodeProps) {
-  return (
-    <Shape {...LINE_CHART} {...props} _style={extendStyle(LINE_CHART, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINE_CHART)} />
 }

@@ -11,7 +11,5 @@ export const LOG_SEARCH = {
 }
 
 export function LogSearch(props: NodeProps) {
-  return (
-    <Shape {...LOG_SEARCH} {...props} _style={extendStyle(LOG_SEARCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOG_SEARCH)} />
 }

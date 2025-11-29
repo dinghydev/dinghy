@@ -11,5 +11,5 @@ export const WALLET = {
 }
 
 export function Wallet(props: NodeProps) {
-  return <Shape {...WALLET} {...props} _style={extendStyle(WALLET, props)} />
+  return <Shape {...props} _style={extendStyle(props, WALLET)} />
 }

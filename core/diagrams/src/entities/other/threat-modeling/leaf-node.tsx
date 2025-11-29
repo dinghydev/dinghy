@@ -11,7 +11,5 @@ export const LEAF_NODE = {
 }
 
 export function LeafNode(props: NodeProps) {
-  return (
-    <Shape {...LEAF_NODE} {...props} _style={extendStyle(LEAF_NODE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LEAF_NODE)} />
 }

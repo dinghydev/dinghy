@@ -12,10 +12,6 @@ export const X10730_DOUBLE_NON_RETURN = {
 
 export function X10730DoubleNonReturn(props: NodeProps) {
   return (
-    <Shape
-      {...X10730_DOUBLE_NON_RETURN}
-      {...props}
-      _style={extendStyle(X10730_DOUBLE_NON_RETURN, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, X10730_DOUBLE_NON_RETURN)} />
   )
 }

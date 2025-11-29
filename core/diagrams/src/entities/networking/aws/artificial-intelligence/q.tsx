@@ -11,5 +11,5 @@ export const Q_CONST = {
 }
 
 export function Q(props: NodeProps) {
-  return <Shape {...Q_CONST} {...props} _style={extendStyle(Q_CONST, props)} />
+  return <Shape {...props} _style={extendStyle(props, Q_CONST)} />
 }

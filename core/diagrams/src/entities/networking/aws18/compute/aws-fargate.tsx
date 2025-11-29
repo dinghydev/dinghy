@@ -11,11 +11,5 @@ export const AWS_FARGATE = {
 }
 
 export function AwsFargate(props: NodeProps) {
-  return (
-    <Shape
-      {...AWS_FARGATE}
-      {...props}
-      _style={extendStyle(AWS_FARGATE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_FARGATE)} />
 }

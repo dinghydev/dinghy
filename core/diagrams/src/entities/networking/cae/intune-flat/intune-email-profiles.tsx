@@ -11,11 +11,5 @@ export const INTUNE_EMAIL_PROFILES = {
 }
 
 export function IntuneEmailProfiles(props: NodeProps) {
-  return (
-    <Shape
-      {...INTUNE_EMAIL_PROFILES}
-      {...props}
-      _style={extendStyle(INTUNE_EMAIL_PROFILES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, INTUNE_EMAIL_PROFILES)} />
 }

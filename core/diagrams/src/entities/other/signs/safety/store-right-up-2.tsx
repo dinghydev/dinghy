@@ -11,11 +11,5 @@ export const STORE_RIGHT_UP_2 = {
 }
 
 export function StoreRightUp2(props: NodeProps) {
-  return (
-    <Shape
-      {...STORE_RIGHT_UP_2}
-      {...props}
-      _style={extendStyle(STORE_RIGHT_UP_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STORE_RIGHT_UP_2)} />
 }

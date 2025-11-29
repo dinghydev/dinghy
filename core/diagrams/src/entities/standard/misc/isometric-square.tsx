@@ -10,11 +10,5 @@ export const ISOMETRIC_SQUARE = {
 }
 
 export function IsometricSquare(props: NodeProps) {
-  return (
-    <Shape
-      {...ISOMETRIC_SQUARE}
-      {...props}
-      _style={extendStyle(ISOMETRIC_SQUARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ISOMETRIC_SQUARE)} />
 }

@@ -11,11 +11,5 @@ export const CABLE_GROUP = {
 }
 
 export function CableGroup(props: NodeProps) {
-  return (
-    <Shape
-      {...CABLE_GROUP}
-      {...props}
-      _style={extendStyle(CABLE_GROUP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CABLE_GROUP)} />
 }

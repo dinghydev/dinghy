@@ -11,11 +11,5 @@ export const LINUX_REPOSITORY = {
 }
 
 export function LinuxRepository(props: NodeProps) {
-  return (
-    <Shape
-      {...LINUX_REPOSITORY}
-      {...props}
-      _style={extendStyle(LINUX_REPOSITORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINUX_REPOSITORY)} />
 }

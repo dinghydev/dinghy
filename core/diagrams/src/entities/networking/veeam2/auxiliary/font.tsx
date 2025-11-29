@@ -11,5 +11,5 @@ export const FONT = {
 }
 
 export function Font(props: NodeProps) {
-  return <Shape {...FONT} {...props} _style={extendStyle(FONT, props)} />
+  return <Shape {...props} _style={extendStyle(props, FONT)} />
 }

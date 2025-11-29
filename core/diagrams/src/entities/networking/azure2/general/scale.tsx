@@ -11,5 +11,5 @@ export const SCALE = {
 }
 
 export function Scale(props: NodeProps) {
-  return <Shape {...SCALE} {...props} _style={extendStyle(SCALE, props)} />
+  return <Shape {...props} _style={extendStyle(props, SCALE)} />
 }

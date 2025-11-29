@@ -11,11 +11,5 @@ export const ANOMALY_DETECTION = {
 }
 
 export function AnomalyDetection(props: NodeProps) {
-  return (
-    <Shape
-      {...ANOMALY_DETECTION}
-      {...props}
-      _style={extendStyle(ANOMALY_DETECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ANOMALY_DETECTION)} />
 }

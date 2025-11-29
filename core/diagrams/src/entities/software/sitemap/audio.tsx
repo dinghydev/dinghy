@@ -11,5 +11,5 @@ export const AUDIO = {
 }
 
 export function Audio(props: NodeProps) {
-  return <Shape {...AUDIO} {...props} _style={extendStyle(AUDIO, props)} />
+  return <Shape {...props} _style={extendStyle(props, AUDIO)} />
 }

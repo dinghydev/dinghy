@@ -11,11 +11,5 @@ export const ARC_MACHINES = {
 }
 
 export function ArcMachines(props: NodeProps) {
-  return (
-    <Shape
-      {...ARC_MACHINES}
-      {...props}
-      _style={extendStyle(ARC_MACHINES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARC_MACHINES)} />
 }

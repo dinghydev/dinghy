@@ -11,7 +11,5 @@ export const HOST_POOLS = {
 }
 
 export function HostPools(props: NodeProps) {
-  return (
-    <Shape {...HOST_POOLS} {...props} _style={extendStyle(HOST_POOLS, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOST_POOLS)} />
 }

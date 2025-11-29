@@ -11,11 +11,5 @@ export const COMPONENT_15200 = {
 }
 
 export function Component15200(props: NodeProps) {
-  return (
-    <Shape
-      {...COMPONENT_15200}
-      {...props}
-      _style={extendStyle(COMPONENT_15200, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COMPONENT_15200)} />
 }

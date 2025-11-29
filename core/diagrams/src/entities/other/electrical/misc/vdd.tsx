@@ -11,5 +11,5 @@ export const VDD = {
 }
 
 export function Vdd(props: NodeProps) {
-  return <Shape {...VDD} {...props} _style={extendStyle(VDD, props)} />
+  return <Shape {...props} _style={extendStyle(props, VDD)} />
 }

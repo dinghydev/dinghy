@@ -13,9 +13,8 @@ export const SAP_SECURE_LOGIN_SERVICE_FOR_SAP_GUI = {
 export function SapSecureLoginServiceForSapGui(props: NodeProps) {
   return (
     <Shape
-      {...SAP_SECURE_LOGIN_SERVICE_FOR_SAP_GUI}
       {...props}
-      _style={extendStyle(SAP_SECURE_LOGIN_SERVICE_FOR_SAP_GUI, props)}
+      _style={extendStyle(props, SAP_SECURE_LOGIN_SERVICE_FOR_SAP_GUI)}
     />
   )
 }

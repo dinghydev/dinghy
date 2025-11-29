@@ -11,5 +11,5 @@ export const CACHES = {
 }
 
 export function Caches(props: NodeProps) {
-  return <Shape {...CACHES} {...props} _style={extendStyle(CACHES, props)} />
+  return <Shape {...props} _style={extendStyle(props, CACHES)} />
 }

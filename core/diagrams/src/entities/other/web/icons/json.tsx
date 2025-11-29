@@ -11,5 +11,5 @@ export const JSON = {
 }
 
 export function Json(props: NodeProps) {
-  return <Shape {...JSON} {...props} _style={extendStyle(JSON, props)} />
+  return <Shape {...props} _style={extendStyle(props, JSON)} />
 }

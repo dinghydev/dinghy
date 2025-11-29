@@ -11,5 +11,5 @@ export const IOS = {
 }
 
 export function Ios(props: NodeProps) {
-  return <Shape {...IOS} {...props} _style={extendStyle(IOS, props)} />
+  return <Shape {...props} _style={extendStyle(props, IOS)} />
 }

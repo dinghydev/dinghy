@@ -11,11 +11,5 @@ export const ACCEPT_EVENT_ACTION = {
 }
 
 export function AcceptEventAction(props: NodeProps) {
-  return (
-    <Shape
-      {...ACCEPT_EVENT_ACTION}
-      {...props}
-      _style={extendStyle(ACCEPT_EVENT_ACTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ACCEPT_EVENT_ACTION)} />
 }

@@ -11,11 +11,5 @@ export const RUNNING_PLAYING = {
 }
 
 export function RunningPlaying(props: NodeProps) {
-  return (
-    <Shape
-      {...RUNNING_PLAYING}
-      {...props}
-      _style={extendStyle(RUNNING_PLAYING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RUNNING_PLAYING)} />
 }

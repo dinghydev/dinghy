@@ -13,9 +13,8 @@ export const CISCO_1941_SERIES_INTEGRATED_SERVICES_ROUTER = {
 export function Cisco1941SeriesIntegratedServicesRouter(props: NodeProps) {
   return (
     <Shape
-      {...CISCO_1941_SERIES_INTEGRATED_SERVICES_ROUTER}
       {...props}
-      _style={extendStyle(CISCO_1941_SERIES_INTEGRATED_SERVICES_ROUTER, props)}
+      _style={extendStyle(props, CISCO_1941_SERIES_INTEGRATED_SERVICES_ROUTER)}
     />
   )
 }

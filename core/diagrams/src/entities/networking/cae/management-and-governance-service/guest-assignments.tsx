@@ -11,11 +11,5 @@ export const GUEST_ASSIGNMENTS = {
 }
 
 export function GuestAssignments(props: NodeProps) {
-  return (
-    <Shape
-      {...GUEST_ASSIGNMENTS}
-      {...props}
-      _style={extendStyle(GUEST_ASSIGNMENTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GUEST_ASSIGNMENTS)} />
 }

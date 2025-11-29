@@ -11,5 +11,5 @@ export const VIRUS = {
 }
 
 export function Virus(props: NodeProps) {
-  return <Shape {...VIRUS} {...props} _style={extendStyle(VIRUS, props)} />
+  return <Shape {...props} _style={extendStyle(props, VIRUS)} />
 }

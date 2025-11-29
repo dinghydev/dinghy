@@ -11,11 +11,5 @@ export const LOCALDIRECTOR = {
 }
 
 export function Localdirector(props: NodeProps) {
-  return (
-    <Shape
-      {...LOCALDIRECTOR}
-      {...props}
-      _style={extendStyle(LOCALDIRECTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOCALDIRECTOR)} />
 }

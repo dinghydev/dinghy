@@ -11,11 +11,5 @@ export const MANUAL_SWITCH_OFF = {
 }
 
 export function ManualSwitchOff(props: NodeProps) {
-  return (
-    <Shape
-      {...MANUAL_SWITCH_OFF}
-      {...props}
-      _style={extendStyle(MANUAL_SWITCH_OFF, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MANUAL_SWITCH_OFF)} />
 }

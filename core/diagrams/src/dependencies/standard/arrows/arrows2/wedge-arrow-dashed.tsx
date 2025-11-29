@@ -10,10 +10,6 @@ export const WEDGE_ARROW_DASHED = {
 
 export function WedgeArrowDashed(props: NodeProps) {
   return (
-    <Dependency
-      {...WEDGE_ARROW_DASHED}
-      {...props}
-      _style={extendStyle(WEDGE_ARROW_DASHED, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, WEDGE_ARROW_DASHED)} />
   )
 }

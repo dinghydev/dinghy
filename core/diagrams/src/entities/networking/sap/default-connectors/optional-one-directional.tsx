@@ -12,10 +12,6 @@ export const OPTIONAL_ONE_DIRECTIONAL = {
 
 export function OptionalOneDirectional(props: NodeProps) {
   return (
-    <Shape
-      {...OPTIONAL_ONE_DIRECTIONAL}
-      {...props}
-      _style={extendStyle(OPTIONAL_ONE_DIRECTIONAL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, OPTIONAL_ONE_DIRECTIONAL)} />
   )
 }

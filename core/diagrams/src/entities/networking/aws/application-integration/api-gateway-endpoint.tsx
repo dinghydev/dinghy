@@ -11,11 +11,5 @@ export const API_GATEWAY_ENDPOINT = {
 }
 
 export function ApiGatewayEndpoint(props: NodeProps) {
-  return (
-    <Shape
-      {...API_GATEWAY_ENDPOINT}
-      {...props}
-      _style={extendStyle(API_GATEWAY_ENDPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, API_GATEWAY_ENDPOINT)} />
 }

@@ -11,11 +11,5 @@ export const MAINTENANCE = {
 }
 
 export function Maintenance(props: NodeProps) {
-  return (
-    <Shape
-      {...MAINTENANCE}
-      {...props}
-      _style={extendStyle(MAINTENANCE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MAINTENANCE)} />
 }

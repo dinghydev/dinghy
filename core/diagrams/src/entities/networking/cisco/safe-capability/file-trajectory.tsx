@@ -11,11 +11,5 @@ export const FILE_TRAJECTORY = {
 }
 
 export function FileTrajectory(props: NodeProps) {
-  return (
-    <Shape
-      {...FILE_TRAJECTORY}
-      {...props}
-      _style={extendStyle(FILE_TRAJECTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FILE_TRAJECTORY)} />
 }

@@ -11,7 +11,5 @@ export const LUMBERYARD = {
 }
 
 export function Lumberyard(props: NodeProps) {
-  return (
-    <Shape {...LUMBERYARD} {...props} _style={extendStyle(LUMBERYARD, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LUMBERYARD)} />
 }

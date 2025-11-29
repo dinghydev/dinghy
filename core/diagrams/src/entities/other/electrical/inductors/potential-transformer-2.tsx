@@ -12,10 +12,6 @@ export const POTENTIAL_TRANSFORMER_2 = {
 
 export function PotentialTransformer2(props: NodeProps) {
   return (
-    <Shape
-      {...POTENTIAL_TRANSFORMER_2}
-      {...props}
-      _style={extendStyle(POTENTIAL_TRANSFORMER_2, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, POTENTIAL_TRANSFORMER_2)} />
   )
 }

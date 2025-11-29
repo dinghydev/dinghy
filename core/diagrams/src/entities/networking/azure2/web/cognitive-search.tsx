@@ -11,11 +11,5 @@ export const COGNITIVE_SEARCH = {
 }
 
 export function CognitiveSearch(props: NodeProps) {
-  return (
-    <Shape
-      {...COGNITIVE_SEARCH}
-      {...props}
-      _style={extendStyle(COGNITIVE_SEARCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COGNITIVE_SEARCH)} />
 }

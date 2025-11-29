@@ -11,11 +11,5 @@ export const HEALTHOMICS = {
 }
 
 export function Healthomics(props: NodeProps) {
-  return (
-    <Shape
-      {...HEALTHOMICS}
-      {...props}
-      _style={extendStyle(HEALTHOMICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HEALTHOMICS)} />
 }

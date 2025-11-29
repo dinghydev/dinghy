@@ -13,9 +13,8 @@ export const MACHINE_LEARNING_STUDIO_WORKSPACES = {
 export function MachineLearningStudioWorkspaces(props: NodeProps) {
   return (
     <Shape
-      {...MACHINE_LEARNING_STUDIO_WORKSPACES}
       {...props}
-      _style={extendStyle(MACHINE_LEARNING_STUDIO_WORKSPACES, props)}
+      _style={extendStyle(props, MACHINE_LEARNING_STUDIO_WORKSPACES)}
     />
   )
 }

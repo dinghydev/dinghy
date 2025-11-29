@@ -11,7 +11,5 @@ export const TEST_BASE = {
 }
 
 export function TestBase(props: NodeProps) {
-  return (
-    <Shape {...TEST_BASE} {...props} _style={extendStyle(TEST_BASE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, TEST_BASE)} />
 }

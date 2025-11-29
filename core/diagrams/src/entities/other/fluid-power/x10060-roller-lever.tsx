@@ -11,11 +11,5 @@ export const X10060_ROLLER_LEVER = {
 }
 
 export function X10060RollerLever(props: NodeProps) {
-  return (
-    <Shape
-      {...X10060_ROLLER_LEVER}
-      {...props}
-      _style={extendStyle(X10060_ROLLER_LEVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, X10060_ROLLER_LEVER)} />
 }

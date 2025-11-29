@@ -11,11 +11,5 @@ export const CONTACT_BADGE_FOCUSED = {
 }
 
 export function ContactBadgeFocused(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACT_BADGE_FOCUSED}
-      {...props}
-      _style={extendStyle(CONTACT_BADGE_FOCUSED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_BADGE_FOCUSED)} />
 }

@@ -13,9 +13,8 @@ export const DOCUMENTDB_ELASTIC_CLUSTERS = {
 export function DocumentdbElasticClusters(props: NodeProps) {
   return (
     <Shape
-      {...DOCUMENTDB_ELASTIC_CLUSTERS}
       {...props}
-      _style={extendStyle(DOCUMENTDB_ELASTIC_CLUSTERS, props)}
+      _style={extendStyle(props, DOCUMENTDB_ELASTIC_CLUSTERS)}
     />
   )
 }

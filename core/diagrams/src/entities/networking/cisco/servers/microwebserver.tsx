@@ -11,11 +11,5 @@ export const MICROWEBSERVER = {
 }
 
 export function Microwebserver(props: NodeProps) {
-  return (
-    <Shape
-      {...MICROWEBSERVER}
-      {...props}
-      _style={extendStyle(MICROWEBSERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICROWEBSERVER)} />
 }

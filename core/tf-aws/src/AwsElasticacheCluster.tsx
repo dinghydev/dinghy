@@ -5,7 +5,7 @@ import {
 } from '@dinghy/base-components'
 import { AmazonElasticacheForRedis } from '@dinghy/diagrams/entitiesAws18Database'
 
-import { awsProps } from './index.ts'
+import { awsProps } from './utils/awsProps.ts'
 import z from 'zod'
 
 // https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster

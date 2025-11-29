@@ -10,11 +10,5 @@ export const DOUBLE_SQUARE = {
 }
 
 export function DoubleSquare(props: NodeProps) {
-  return (
-    <Shape
-      {...DOUBLE_SQUARE}
-      {...props}
-      _style={extendStyle(DOUBLE_SQUARE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DOUBLE_SQUARE)} />
 }

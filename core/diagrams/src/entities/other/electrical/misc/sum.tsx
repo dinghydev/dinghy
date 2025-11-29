@@ -11,5 +11,5 @@ export const SUM = {
 }
 
 export function Sum(props: NodeProps) {
-  return <Shape {...SUM} {...props} _style={extendStyle(SUM, props)} />
+  return <Shape {...props} _style={extendStyle(props, SUM)} />
 }

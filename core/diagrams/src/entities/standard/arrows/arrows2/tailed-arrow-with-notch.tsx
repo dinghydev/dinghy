@@ -12,10 +12,6 @@ export const TAILED_ARROW_WITH_NOTCH = {
 
 export function TailedArrowWithNotch(props: NodeProps) {
   return (
-    <Shape
-      {...TAILED_ARROW_WITH_NOTCH}
-      {...props}
-      _style={extendStyle(TAILED_ARROW_WITH_NOTCH, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, TAILED_ARROW_WITH_NOTCH)} />
   )
 }

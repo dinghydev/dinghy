@@ -12,10 +12,6 @@ export const CLOUD_SERVICE_PACKAGE_FILE = {
 
 export function CloudServicePackageFile(props: NodeProps) {
   return (
-    <Shape
-      {...CLOUD_SERVICE_PACKAGE_FILE}
-      {...props}
-      _style={extendStyle(CLOUD_SERVICE_PACKAGE_FILE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CLOUD_SERVICE_PACKAGE_FILE)} />
   )
 }

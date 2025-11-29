@@ -13,9 +13,8 @@ export const X10720_PILOT_OPERATED_NON_RETURN = {
 export function X10720PilotOperatedNonReturn(props: NodeProps) {
   return (
     <Shape
-      {...X10720_PILOT_OPERATED_NON_RETURN}
       {...props}
-      _style={extendStyle(X10720_PILOT_OPERATED_NON_RETURN, props)}
+      _style={extendStyle(props, X10720_PILOT_OPERATED_NON_RETURN)}
     />
   )
 }

@@ -12,10 +12,6 @@ export const SAP_PERSONAL_DATA_MANAGER = {
 
 export function SapPersonalDataManager(props: NodeProps) {
   return (
-    <Shape
-      {...SAP_PERSONAL_DATA_MANAGER}
-      {...props}
-      _style={extendStyle(SAP_PERSONAL_DATA_MANAGER, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, SAP_PERSONAL_DATA_MANAGER)} />
   )
 }

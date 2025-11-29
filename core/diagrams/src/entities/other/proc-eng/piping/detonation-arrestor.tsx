@@ -11,11 +11,5 @@ export const DETONATION_ARRESTOR = {
 }
 
 export function DetonationArrestor(props: NodeProps) {
-  return (
-    <Shape
-      {...DETONATION_ARRESTOR}
-      {...props}
-      _style={extendStyle(DETONATION_ARRESTOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DETONATION_ARRESTOR)} />
 }

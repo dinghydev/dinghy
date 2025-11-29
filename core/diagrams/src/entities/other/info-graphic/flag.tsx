@@ -11,5 +11,5 @@ export const FLAG = {
 }
 
 export function Flag(props: NodeProps) {
-  return <Shape {...FLAG} {...props} _style={extendStyle(FLAG, props)} />
+  return <Shape {...props} _style={extendStyle(props, FLAG)} />
 }

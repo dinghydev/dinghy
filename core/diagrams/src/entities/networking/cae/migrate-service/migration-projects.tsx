@@ -11,11 +11,5 @@ export const MIGRATION_PROJECTS = {
 }
 
 export function MigrationProjects(props: NodeProps) {
-  return (
-    <Shape
-      {...MIGRATION_PROJECTS}
-      {...props}
-      _style={extendStyle(MIGRATION_PROJECTS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATION_PROJECTS)} />
 }

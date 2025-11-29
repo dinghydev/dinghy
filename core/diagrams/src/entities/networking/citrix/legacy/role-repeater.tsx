@@ -11,11 +11,5 @@ export const ROLE_REPEATER = {
 }
 
 export function RoleRepeater(props: NodeProps) {
-  return (
-    <Shape
-      {...ROLE_REPEATER}
-      {...props}
-      _style={extendStyle(ROLE_REPEATER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROLE_REPEATER)} />
 }

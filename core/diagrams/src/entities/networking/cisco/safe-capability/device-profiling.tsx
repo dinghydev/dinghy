@@ -11,11 +11,5 @@ export const DEVICE_PROFILING = {
 }
 
 export function DeviceProfiling(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_PROFILING}
-      {...props}
-      _style={extendStyle(DEVICE_PROFILING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_PROFILING)} />
 }

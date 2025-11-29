@@ -11,5 +11,5 @@ export const TP_MCU = {
 }
 
 export function TpMcu(props: NodeProps) {
-  return <Shape {...TP_MCU} {...props} _style={extendStyle(TP_MCU, props)} />
+  return <Shape {...props} _style={extendStyle(props, TP_MCU)} />
 }

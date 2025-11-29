@@ -11,7 +11,5 @@ export const DDOS_DIP = {
 }
 
 export function DdosDip(props: NodeProps) {
-  return (
-    <Shape {...DDOS_DIP} {...props} _style={extendStyle(DDOS_DIP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DDOS_DIP)} />
 }

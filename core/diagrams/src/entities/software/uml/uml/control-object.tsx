@@ -10,11 +10,5 @@ export const CONTROL_OBJECT = {
 }
 
 export function ControlObject(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTROL_OBJECT}
-      {...props}
-      _style={extendStyle(CONTROL_OBJECT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTROL_OBJECT)} />
 }

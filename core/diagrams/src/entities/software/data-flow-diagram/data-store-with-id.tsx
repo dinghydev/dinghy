@@ -11,11 +11,5 @@ export const DATA_STORE_WITH_ID = {
 }
 
 export function DataStoreWithId(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_STORE_WITH_ID}
-      {...props}
-      _style={extendStyle(DATA_STORE_WITH_ID, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_STORE_WITH_ID)} />
 }

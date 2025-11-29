@@ -12,10 +12,6 @@ export const ELASTICACHE_FOR_VALKEY = {
 
 export function ElasticacheForValkey(props: NodeProps) {
   return (
-    <Shape
-      {...ELASTICACHE_FOR_VALKEY}
-      {...props}
-      _style={extendStyle(ELASTICACHE_FOR_VALKEY, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, ELASTICACHE_FOR_VALKEY)} />
   )
 }

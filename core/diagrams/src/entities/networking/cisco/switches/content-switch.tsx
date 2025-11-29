@@ -11,11 +11,5 @@ export const CONTENT_SWITCH = {
 }
 
 export function ContentSwitch(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTENT_SWITCH}
-      {...props}
-      _style={extendStyle(CONTENT_SWITCH, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTENT_SWITCH)} />
 }

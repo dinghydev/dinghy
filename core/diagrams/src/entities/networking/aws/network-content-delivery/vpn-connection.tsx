@@ -11,11 +11,5 @@ export const VPN_CONNECTION = {
 }
 
 export function VpnConnection(props: NodeProps) {
-  return (
-    <Shape
-      {...VPN_CONNECTION}
-      {...props}
-      _style={extendStyle(VPN_CONNECTION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VPN_CONNECTION)} />
 }

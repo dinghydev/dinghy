@@ -11,11 +11,5 @@ export const CISCO_DNA_CENTER = {
 }
 
 export function CiscoDnaCenter(props: NodeProps) {
-  return (
-    <Shape
-      {...CISCO_DNA_CENTER}
-      {...props}
-      _style={extendStyle(CISCO_DNA_CENTER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CISCO_DNA_CENTER)} />
 }

@@ -11,11 +11,5 @@ export const TALENT_ONBOARD = {
 }
 
 export function TalentOnboard(props: NodeProps) {
-  return (
-    <Shape
-      {...TALENT_ONBOARD}
-      {...props}
-      _style={extendStyle(TALENT_ONBOARD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TALENT_ONBOARD)} />
 }

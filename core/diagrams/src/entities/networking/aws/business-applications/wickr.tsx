@@ -11,5 +11,5 @@ export const WICKR = {
 }
 
 export function Wickr(props: NodeProps) {
-  return <Shape {...WICKR} {...props} _style={extendStyle(WICKR, props)} />
+  return <Shape {...props} _style={extendStyle(props, WICKR)} />
 }

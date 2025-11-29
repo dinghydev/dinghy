@@ -11,11 +11,5 @@ export const KEY_NON_SAP = {
 }
 
 export function KeyNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...KEY_NON_SAP}
-      {...props}
-      _style={extendStyle(KEY_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, KEY_NON_SAP)} />
 }

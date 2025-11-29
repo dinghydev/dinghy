@@ -12,10 +12,6 @@ export const CHECKBOX_WITHOUT_LABEL = {
 
 export function CheckboxWithoutLabel(props: NodeProps) {
   return (
-    <Shape
-      {...CHECKBOX_WITHOUT_LABEL}
-      {...props}
-      _style={extendStyle(CHECKBOX_WITHOUT_LABEL, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CHECKBOX_WITHOUT_LABEL)} />
   )
 }

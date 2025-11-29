@@ -11,11 +11,5 @@ export const COLLECTIVE_NSX_ESG = {
 }
 
 export function CollectiveNsxEsg(props: NodeProps) {
-  return (
-    <Shape
-      {...COLLECTIVE_NSX_ESG}
-      {...props}
-      _style={extendStyle(COLLECTIVE_NSX_ESG, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COLLECTIVE_NSX_ESG)} />
 }

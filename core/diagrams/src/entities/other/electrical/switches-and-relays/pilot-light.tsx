@@ -11,11 +11,5 @@ export const PILOT_LIGHT = {
 }
 
 export function PilotLight(props: NodeProps) {
-  return (
-    <Shape
-      {...PILOT_LIGHT}
-      {...props}
-      _style={extendStyle(PILOT_LIGHT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PILOT_LIGHT)} />
 }

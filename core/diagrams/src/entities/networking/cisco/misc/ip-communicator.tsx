@@ -11,11 +11,5 @@ export const IP_COMMUNICATOR = {
 }
 
 export function IpCommunicator(props: NodeProps) {
-  return (
-    <Shape
-      {...IP_COMMUNICATOR}
-      {...props}
-      _style={extendStyle(IP_COMMUNICATOR, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, IP_COMMUNICATOR)} />
 }

@@ -12,10 +12,6 @@ export const VM_APPLICATION_DEFINITION = {
 
 export function VmApplicationDefinition(props: NodeProps) {
   return (
-    <Shape
-      {...VM_APPLICATION_DEFINITION}
-      {...props}
-      _style={extendStyle(VM_APPLICATION_DEFINITION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, VM_APPLICATION_DEFINITION)} />
   )
 }

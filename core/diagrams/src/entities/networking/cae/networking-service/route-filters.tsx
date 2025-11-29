@@ -11,11 +11,5 @@ export const ROUTE_FILTERS = {
 }
 
 export function RouteFilters(props: NodeProps) {
-  return (
-    <Shape
-      {...ROUTE_FILTERS}
-      {...props}
-      _style={extendStyle(ROUTE_FILTERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTE_FILTERS)} />
 }

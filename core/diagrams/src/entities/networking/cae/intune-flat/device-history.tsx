@@ -11,11 +11,5 @@ export const DEVICE_HISTORY = {
 }
 
 export function DeviceHistory(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_HISTORY}
-      {...props}
-      _style={extendStyle(DEVICE_HISTORY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_HISTORY)} />
 }

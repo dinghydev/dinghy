@@ -12,10 +12,6 @@ export const CONTINUOUS_DATA_PROTECTION = {
 
 export function ContinuousDataProtection(props: NodeProps) {
   return (
-    <Shape
-      {...CONTINUOUS_DATA_PROTECTION}
-      {...props}
-      _style={extendStyle(CONTINUOUS_DATA_PROTECTION, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, CONTINUOUS_DATA_PROTECTION)} />
   )
 }

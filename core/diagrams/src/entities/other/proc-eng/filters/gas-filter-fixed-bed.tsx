@@ -11,11 +11,5 @@ export const GAS_FILTER_FIXED_BED = {
 }
 
 export function GasFilterFixedBed(props: NodeProps) {
-  return (
-    <Shape
-      {...GAS_FILTER_FIXED_BED}
-      {...props}
-      _style={extendStyle(GAS_FILTER_FIXED_BED, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GAS_FILTER_FIXED_BED)} />
 }

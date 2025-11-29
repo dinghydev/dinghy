@@ -11,11 +11,5 @@ export const BASKET_STRAINER = {
 }
 
 export function BasketStrainer(props: NodeProps) {
-  return (
-    <Shape
-      {...BASKET_STRAINER}
-      {...props}
-      _style={extendStyle(BASKET_STRAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BASKET_STRAINER)} />
 }

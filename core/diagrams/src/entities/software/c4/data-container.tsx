@@ -11,11 +11,5 @@ export const DATA_CONTAINER = {
 }
 
 export function DataContainer(props: NodeProps) {
-  return (
-    <Shape
-      {...DATA_CONTAINER}
-      {...props}
-      _style={extendStyle(DATA_CONTAINER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_CONTAINER)} />
 }

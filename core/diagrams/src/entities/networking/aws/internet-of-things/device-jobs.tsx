@@ -11,11 +11,5 @@ export const DEVICE_JOBS = {
 }
 
 export function DeviceJobs(props: NodeProps) {
-  return (
-    <Shape
-      {...DEVICE_JOBS}
-      {...props}
-      _style={extendStyle(DEVICE_JOBS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEVICE_JOBS)} />
 }

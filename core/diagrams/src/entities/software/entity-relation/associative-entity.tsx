@@ -10,11 +10,5 @@ export const ASSOCIATIVE_ENTITY = {
 }
 
 export function AssociativeEntity(props: NodeProps) {
-  return (
-    <Shape
-      {...ASSOCIATIVE_ENTITY}
-      {...props}
-      _style={extendStyle(ASSOCIATIVE_ENTITY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, ASSOCIATIVE_ENTITY)} />
 }

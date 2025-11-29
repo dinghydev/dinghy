@@ -11,11 +11,5 @@ export const PRIMARY_CARD_2 = {
 }
 
 export function PrimaryCard2(props: NodeProps) {
-  return (
-    <Shape
-      {...PRIMARY_CARD_2}
-      {...props}
-      _style={extendStyle(PRIMARY_CARD_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PRIMARY_CARD_2)} />
 }

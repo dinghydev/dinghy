@@ -11,11 +11,5 @@ export const RELAY_COIL_2 = {
 }
 
 export function RelayCoil2(props: NodeProps) {
-  return (
-    <Shape
-      {...RELAY_COIL_2}
-      {...props}
-      _style={extendStyle(RELAY_COIL_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, RELAY_COIL_2)} />
 }

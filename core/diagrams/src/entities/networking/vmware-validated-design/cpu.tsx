@@ -11,5 +11,5 @@ export const CPU = {
 }
 
 export function Cpu(props: NodeProps) {
-  return <Shape {...CPU} {...props} _style={extendStyle(CPU, props)} />
+  return <Shape {...props} _style={extendStyle(props, CPU)} />
 }

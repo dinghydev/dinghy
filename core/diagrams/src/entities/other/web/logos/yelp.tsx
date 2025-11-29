@@ -11,5 +11,5 @@ export const YELP = {
 }
 
 export function Yelp(props: NodeProps) {
-  return <Shape {...YELP} {...props} _style={extendStyle(YELP, props)} />
+  return <Shape {...props} _style={extendStyle(props, YELP)} />
 }

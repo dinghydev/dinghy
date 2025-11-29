@@ -11,7 +11,5 @@ export const ARX_1000 = {
 }
 
 export function Arx1000(props: NodeProps) {
-  return (
-    <Shape {...ARX_1000} {...props} _style={extendStyle(ARX_1000, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ARX_1000)} />
 }

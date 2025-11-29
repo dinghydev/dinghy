@@ -11,7 +11,5 @@ export const POWER_UP = {
 }
 
 export function PowerUp(props: NodeProps) {
-  return (
-    <Shape {...POWER_UP} {...props} _style={extendStyle(POWER_UP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWER_UP)} />
 }

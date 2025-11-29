@@ -11,11 +11,5 @@ export const LICENSE_SERVER = {
 }
 
 export function LicenseServer(props: NodeProps) {
-  return (
-    <Shape
-      {...LICENSE_SERVER}
-      {...props}
-      _style={extendStyle(LICENSE_SERVER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LICENSE_SERVER)} />
 }

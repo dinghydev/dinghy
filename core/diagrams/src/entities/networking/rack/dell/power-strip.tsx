@@ -11,11 +11,5 @@ export const POWER_STRIP = {
 }
 
 export function PowerStrip(props: NodeProps) {
-  return (
-    <Shape
-      {...POWER_STRIP}
-      {...props}
-      _style={extendStyle(POWER_STRIP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, POWER_STRIP)} />
 }

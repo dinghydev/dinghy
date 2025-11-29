@@ -11,7 +11,5 @@ export const AWS_BATCH = {
 }
 
 export function AwsBatch(props: NodeProps) {
-  return (
-    <Shape {...AWS_BATCH} {...props} _style={extendStyle(AWS_BATCH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, AWS_BATCH)} />
 }

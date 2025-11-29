@@ -11,7 +11,5 @@ export const DIRT_BIKE = {
 }
 
 export function DirtBike(props: NodeProps) {
-  return (
-    <Shape {...DIRT_BIKE} {...props} _style={extendStyle(DIRT_BIKE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIRT_BIKE)} />
 }

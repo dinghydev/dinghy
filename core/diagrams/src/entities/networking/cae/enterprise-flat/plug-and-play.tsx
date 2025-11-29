@@ -11,11 +11,5 @@ export const PLUG_AND_PLAY = {
 }
 
 export function PlugAndPlay(props: NodeProps) {
-  return (
-    <Shape
-      {...PLUG_AND_PLAY}
-      {...props}
-      _style={extendStyle(PLUG_AND_PLAY, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PLUG_AND_PLAY)} />
 }

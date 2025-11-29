@@ -11,11 +11,5 @@ export const DIGITAL_TWINS = {
 }
 
 export function DigitalTwins(props: NodeProps) {
-  return (
-    <Shape
-      {...DIGITAL_TWINS}
-      {...props}
-      _style={extendStyle(DIGITAL_TWINS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DIGITAL_TWINS)} />
 }

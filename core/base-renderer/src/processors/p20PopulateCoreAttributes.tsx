@@ -53,7 +53,7 @@ const defaultId = (node: NodeTree, _fiber: any, usedIds: string[]) => {
   let { _version } = node._props
   if (_version) {
     if (typeof _version === 'function') {
-      _version = _version(node, _fiber)
+      _version = (_version as any)(node, _fiber)
     }
     id = `${id}_${_version}`
   }

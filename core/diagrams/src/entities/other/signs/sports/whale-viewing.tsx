@@ -11,11 +11,5 @@ export const WHALE_VIEWING = {
 }
 
 export function WhaleViewing(props: NodeProps) {
-  return (
-    <Shape
-      {...WHALE_VIEWING}
-      {...props}
-      _style={extendStyle(WHALE_VIEWING, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WHALE_VIEWING)} />
 }

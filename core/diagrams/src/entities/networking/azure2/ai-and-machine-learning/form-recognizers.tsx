@@ -11,11 +11,5 @@ export const FORM_RECOGNIZERS = {
 }
 
 export function FormRecognizers(props: NodeProps) {
-  return (
-    <Shape
-      {...FORM_RECOGNIZERS}
-      {...props}
-      _style={extendStyle(FORM_RECOGNIZERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, FORM_RECOGNIZERS)} />
 }

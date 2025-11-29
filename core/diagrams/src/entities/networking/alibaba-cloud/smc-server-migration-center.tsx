@@ -13,9 +13,8 @@ export const SMC_SERVER_MIGRATION_CENTER = {
 export function SmcServerMigrationCenter(props: NodeProps) {
   return (
     <Shape
-      {...SMC_SERVER_MIGRATION_CENTER}
       {...props}
-      _style={extendStyle(SMC_SERVER_MIGRATION_CENTER, props)}
+      _style={extendStyle(props, SMC_SERVER_MIGRATION_CENTER)}
     />
   )
 }

@@ -11,11 +11,5 @@ export const MICRO_SEGMENTATION = {
 }
 
 export function MicroSegmentation(props: NodeProps) {
-  return (
-    <Shape
-      {...MICRO_SEGMENTATION}
-      {...props}
-      _style={extendStyle(MICRO_SEGMENTATION, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MICRO_SEGMENTATION)} />
 }

@@ -13,9 +13,8 @@ export const VEEAM_AVAILABILITY_ORCHESTRATOR = {
 export function VeeamAvailabilityOrchestrator(props: NodeProps) {
   return (
     <Shape
-      {...VEEAM_AVAILABILITY_ORCHESTRATOR}
       {...props}
-      _style={extendStyle(VEEAM_AVAILABILITY_ORCHESTRATOR, props)}
+      _style={extendStyle(props, VEEAM_AVAILABILITY_ORCHESTRATOR)}
     />
   )
 }

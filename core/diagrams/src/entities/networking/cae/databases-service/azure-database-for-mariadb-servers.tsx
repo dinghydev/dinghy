@@ -13,9 +13,8 @@ export const AZURE_DATABASE_FOR_MARIADB_SERVERS = {
 export function AzureDatabaseForMariadbServers(props: NodeProps) {
   return (
     <Shape
-      {...AZURE_DATABASE_FOR_MARIADB_SERVERS}
       {...props}
-      _style={extendStyle(AZURE_DATABASE_FOR_MARIADB_SERVERS, props)}
+      _style={extendStyle(props, AZURE_DATABASE_FOR_MARIADB_SERVERS)}
     />
   )
 }

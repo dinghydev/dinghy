@@ -11,11 +11,5 @@ export const MIGRATE_TO_CONTAINERS = {
 }
 
 export function MigrateToContainers(props: NodeProps) {
-  return (
-    <Shape
-      {...MIGRATE_TO_CONTAINERS}
-      {...props}
-      _style={extendStyle(MIGRATE_TO_CONTAINERS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, MIGRATE_TO_CONTAINERS)} />
 }

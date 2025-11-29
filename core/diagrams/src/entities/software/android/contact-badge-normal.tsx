@@ -11,11 +11,5 @@ export const CONTACT_BADGE_NORMAL = {
 }
 
 export function ContactBadgeNormal(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACT_BADGE_NORMAL}
-      {...props}
-      _style={extendStyle(CONTACT_BADGE_NORMAL, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_BADGE_NORMAL)} />
 }

@@ -11,11 +11,5 @@ export const PICKUP_HEAD = {
 }
 
 export function PickupHead(props: NodeProps) {
-  return (
-    <Shape
-      {...PICKUP_HEAD}
-      {...props}
-      _style={extendStyle(PICKUP_HEAD, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, PICKUP_HEAD)} />
 }

@@ -11,5 +11,5 @@ export const ALERT_7 = {
 }
 
 export function Alert7(props: NodeProps) {
-  return <Shape {...ALERT_7} {...props} _style={extendStyle(ALERT_7, props)} />
+  return <Shape {...props} _style={extendStyle(props, ALERT_7)} />
 }

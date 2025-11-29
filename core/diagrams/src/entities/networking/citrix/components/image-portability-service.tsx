@@ -12,10 +12,6 @@ export const IMAGE_PORTABILITY_SERVICE = {
 
 export function ImagePortabilityService(props: NodeProps) {
   return (
-    <Shape
-      {...IMAGE_PORTABILITY_SERVICE}
-      {...props}
-      _style={extendStyle(IMAGE_PORTABILITY_SERVICE, props)}
-    />
+    <Shape {...props} _style={extendStyle(props, IMAGE_PORTABILITY_SERVICE)} />
   )
 }

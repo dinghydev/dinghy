@@ -13,9 +13,8 @@ export const INTEGRATION_SERVICE_ENVIRONMENTS = {
 export function IntegrationServiceEnvironments(props: NodeProps) {
   return (
     <Shape
-      {...INTEGRATION_SERVICE_ENVIRONMENTS}
       {...props}
-      _style={extendStyle(INTEGRATION_SERVICE_ENVIRONMENTS, props)}
+      _style={extendStyle(props, INTEGRATION_SERVICE_ENVIRONMENTS)}
     />
   )
 }

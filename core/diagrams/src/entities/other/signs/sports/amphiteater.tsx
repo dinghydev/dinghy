@@ -11,11 +11,5 @@ export const AMPHITEATER = {
 }
 
 export function Amphiteater(props: NodeProps) {
-  return (
-    <Shape
-      {...AMPHITEATER}
-      {...props}
-      _style={extendStyle(AMPHITEATER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AMPHITEATER)} />
 }

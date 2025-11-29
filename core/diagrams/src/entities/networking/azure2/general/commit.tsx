@@ -11,5 +11,5 @@ export const COMMIT = {
 }
 
 export function Commit(props: NodeProps) {
-  return <Shape {...COMMIT} {...props} _style={extendStyle(COMMIT, props)} />
+  return <Shape {...props} _style={extendStyle(props, COMMIT)} />
 }

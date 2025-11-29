@@ -11,11 +11,5 @@ export const GLUE_DATABREW_2 = {
 }
 
 export function GlueDatabrew2(props: NodeProps) {
-  return (
-    <Shape
-      {...GLUE_DATABREW_2}
-      {...props}
-      _style={extendStyle(GLUE_DATABREW_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, GLUE_DATABREW_2)} />
 }

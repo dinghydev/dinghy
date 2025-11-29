@@ -11,7 +11,5 @@ export const VM_BACKUP = {
 }
 
 export function VmBackup(props: NodeProps) {
-  return (
-    <Shape {...VM_BACKUP} {...props} _style={extendStyle(VM_BACKUP, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_BACKUP)} />
 }

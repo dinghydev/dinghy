@@ -11,5 +11,5 @@ export const SEESAW = {
 }
 
 export function Seesaw(props: NodeProps) {
-  return <Shape {...SEESAW} {...props} _style={extendStyle(SEESAW, props)} />
+  return <Shape {...props} _style={extendStyle(props, SEESAW)} />
 }

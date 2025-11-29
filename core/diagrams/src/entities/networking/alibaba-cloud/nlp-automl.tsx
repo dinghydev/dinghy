@@ -11,7 +11,5 @@ export const NLP_AUTOML = {
 }
 
 export function NlpAutoml(props: NodeProps) {
-  return (
-    <Shape {...NLP_AUTOML} {...props} _style={extendStyle(NLP_AUTOML, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, NLP_AUTOML)} />
 }

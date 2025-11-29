@@ -11,7 +11,5 @@ export const SOFTPHONE = {
 }
 
 export function Softphone(props: NodeProps) {
-  return (
-    <Shape {...SOFTPHONE} {...props} _style={extendStyle(SOFTPHONE, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SOFTPHONE)} />
 }

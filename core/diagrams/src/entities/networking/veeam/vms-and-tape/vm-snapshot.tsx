@@ -11,11 +11,5 @@ export const VM_SNAPSHOT = {
 }
 
 export function VmSnapshot(props: NodeProps) {
-  return (
-    <Shape
-      {...VM_SNAPSHOT}
-      {...props}
-      _style={extendStyle(VM_SNAPSHOT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, VM_SNAPSHOT)} />
 }

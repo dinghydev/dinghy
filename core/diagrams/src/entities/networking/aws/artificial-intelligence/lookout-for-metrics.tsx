@@ -11,11 +11,5 @@ export const LOOKOUT_FOR_METRICS = {
 }
 
 export function LookoutForMetrics(props: NodeProps) {
-  return (
-    <Shape
-      {...LOOKOUT_FOR_METRICS}
-      {...props}
-      _style={extendStyle(LOOKOUT_FOR_METRICS, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, LOOKOUT_FOR_METRICS)} />
 }

@@ -11,11 +11,5 @@ export const TOOLTIP_ON_LEFT = {
 }
 
 export function TooltipOnLeft(props: NodeProps) {
-  return (
-    <Shape
-      {...TOOLTIP_ON_LEFT}
-      {...props}
-      _style={extendStyle(TOOLTIP_ON_LEFT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TOOLTIP_ON_LEFT)} />
 }

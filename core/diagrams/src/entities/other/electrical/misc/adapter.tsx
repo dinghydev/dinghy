@@ -11,5 +11,5 @@ export const ADAPTER = {
 }
 
 export function Adapter(props: NodeProps) {
-  return <Shape {...ADAPTER} {...props} _style={extendStyle(ADAPTER, props)} />
+  return <Shape {...props} _style={extendStyle(props, ADAPTER)} />
 }

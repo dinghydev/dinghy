@@ -11,11 +11,5 @@ export const WEB_WEB_APP_SERVICE = {
 }
 
 export function WebWebAppService(props: NodeProps) {
-  return (
-    <Shape
-      {...WEB_WEB_APP_SERVICE}
-      {...props}
-      _style={extendStyle(WEB_WEB_APP_SERVICE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, WEB_WEB_APP_SERVICE)} />
 }

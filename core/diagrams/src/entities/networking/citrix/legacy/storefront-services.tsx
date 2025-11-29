@@ -11,11 +11,5 @@ export const STOREFRONT_SERVICES = {
 }
 
 export function StorefrontServices(props: NodeProps) {
-  return (
-    <Shape
-      {...STOREFRONT_SERVICES}
-      {...props}
-      _style={extendStyle(STOREFRONT_SERVICES, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, STOREFRONT_SERVICES)} />
 }

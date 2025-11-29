@@ -11,5 +11,5 @@ export const MERCURY = {
 }
 
 export function Mercury(props: NodeProps) {
-  return <Shape {...MERCURY} {...props} _style={extendStyle(MERCURY, props)} />
+  return <Shape {...props} _style={extendStyle(props, MERCURY)} />
 }

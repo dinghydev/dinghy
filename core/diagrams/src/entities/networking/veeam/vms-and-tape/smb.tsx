@@ -11,5 +11,5 @@ export const SMB = {
 }
 
 export function Smb(props: NodeProps) {
-  return <Shape {...SMB} {...props} _style={extendStyle(SMB, props)} />
+  return <Shape {...props} _style={extendStyle(props, SMB)} />
 }

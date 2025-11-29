@@ -11,11 +11,5 @@ export const DATASTORE_VOLUME = {
 }
 
 export function DatastoreVolume(props: NodeProps) {
-  return (
-    <Shape
-      {...DATASTORE_VOLUME}
-      {...props}
-      _style={extendStyle(DATASTORE_VOLUME, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATASTORE_VOLUME)} />
 }

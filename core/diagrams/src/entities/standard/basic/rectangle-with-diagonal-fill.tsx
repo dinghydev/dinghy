@@ -13,9 +13,8 @@ export const RECTANGLE_WITH_DIAGONAL_FILL = {
 export function RectangleWithDiagonalFill(props: NodeProps) {
   return (
     <Shape
-      {...RECTANGLE_WITH_DIAGONAL_FILL}
       {...props}
-      _style={extendStyle(RECTANGLE_WITH_DIAGONAL_FILL, props)}
+      _style={extendStyle(props, RECTANGLE_WITH_DIAGONAL_FILL)}
     />
   )
 }

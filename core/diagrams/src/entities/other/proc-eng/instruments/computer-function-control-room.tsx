@@ -13,9 +13,8 @@ export const COMPUTER_FUNCTION_CONTROL_ROOM = {
 export function ComputerFunctionControlRoom(props: NodeProps) {
   return (
     <Shape
-      {...COMPUTER_FUNCTION_CONTROL_ROOM}
       {...props}
-      _style={extendStyle(COMPUTER_FUNCTION_CONTROL_ROOM, props)}
+      _style={extendStyle(props, COMPUTER_FUNCTION_CONTROL_ROOM)}
     />
   )
 }

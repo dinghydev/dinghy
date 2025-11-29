@@ -11,11 +11,5 @@ export const BUTTON_PRIMARY_2 = {
 }
 
 export function ButtonPrimary2(props: NodeProps) {
-  return (
-    <Shape
-      {...BUTTON_PRIMARY_2}
-      {...props}
-      _style={extendStyle(BUTTON_PRIMARY_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BUTTON_PRIMARY_2)} />
 }

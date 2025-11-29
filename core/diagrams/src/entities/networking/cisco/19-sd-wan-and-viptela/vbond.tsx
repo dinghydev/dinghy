@@ -11,5 +11,5 @@ export const VBOND = {
 }
 
 export function Vbond(props: NodeProps) {
-  return <Shape {...VBOND} {...props} _style={extendStyle(VBOND, props)} />
+  return <Shape {...props} _style={extendStyle(props, VBOND)} />
 }

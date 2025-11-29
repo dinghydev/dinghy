@@ -11,11 +11,5 @@ export const CONTACT_ACQUIRER = {
 }
 
 export function ContactAcquirer(props: NodeProps) {
-  return (
-    <Shape
-      {...CONTACT_ACQUIRER}
-      {...props}
-      _style={extendStyle(CONTACT_ACQUIRER, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CONTACT_ACQUIRER)} />
 }

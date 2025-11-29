@@ -11,5 +11,5 @@ export const ETCD = {
 }
 
 export function Etcd(props: NodeProps) {
-  return <Shape {...ETCD} {...props} _style={extendStyle(ETCD, props)} />
+  return <Shape {...props} _style={extendStyle(props, ETCD)} />
 }

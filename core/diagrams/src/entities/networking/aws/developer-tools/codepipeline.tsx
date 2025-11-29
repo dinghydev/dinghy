@@ -11,11 +11,5 @@ export const CODEPIPELINE = {
 }
 
 export function Codepipeline(props: NodeProps) {
-  return (
-    <Shape
-      {...CODEPIPELINE}
-      {...props}
-      _style={extendStyle(CODEPIPELINE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, CODEPIPELINE)} />
 }

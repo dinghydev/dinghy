@@ -11,11 +11,5 @@ export const APP_FOR_SHAREPOINT = {
 }
 
 export function AppForSharepoint(props: NodeProps) {
-  return (
-    <Shape
-      {...APP_FOR_SHAREPOINT}
-      {...props}
-      _style={extendStyle(APP_FOR_SHAREPOINT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, APP_FOR_SHAREPOINT)} />
 }

@@ -11,7 +11,5 @@ export const ROTAMETER = {
 }
 
 export function Rotameter(props: NodeProps) {
-  return (
-    <Shape {...ROTAMETER} {...props} _style={extendStyle(ROTAMETER, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROTAMETER)} />
 }

@@ -11,7 +11,5 @@ export const DESKTOP_PC = {
 }
 
 export function DesktopPc(props: NodeProps) {
-  return (
-    <Shape {...DESKTOP_PC} {...props} _style={extendStyle(DESKTOP_PC, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DESKTOP_PC)} />
 }

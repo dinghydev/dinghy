@@ -11,5 +11,5 @@ export const MRP_ERP = {
 }
 
 export function MrpErp(props: NodeProps) {
-  return <Shape {...MRP_ERP} {...props} _style={extendStyle(MRP_ERP, props)} />
+  return <Shape {...props} _style={extendStyle(props, MRP_ERP)} />
 }

@@ -11,7 +11,5 @@ export const LINKAGOGO = {
 }
 
 export function Linkagogo(props: NodeProps) {
-  return (
-    <Shape {...LINKAGOGO} {...props} _style={extendStyle(LINKAGOGO, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, LINKAGOGO)} />
 }

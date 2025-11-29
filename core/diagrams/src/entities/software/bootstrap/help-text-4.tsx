@@ -11,11 +11,5 @@ export const HELP_TEXT_4 = {
 }
 
 export function HelpText4(props: NodeProps) {
-  return (
-    <Shape
-      {...HELP_TEXT_4}
-      {...props}
-      _style={extendStyle(HELP_TEXT_4, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HELP_TEXT_4)} />
 }

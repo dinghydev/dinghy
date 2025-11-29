@@ -11,11 +11,5 @@ export const SYSTEMS_CHECK = {
 }
 
 export function SystemsCheck(props: NodeProps) {
-  return (
-    <Shape
-      {...SYSTEMS_CHECK}
-      {...props}
-      _style={extendStyle(SYSTEMS_CHECK, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, SYSTEMS_CHECK)} />
 }

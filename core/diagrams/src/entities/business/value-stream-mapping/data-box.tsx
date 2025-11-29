@@ -10,7 +10,5 @@ export const DATA_BOX = {
 }
 
 export function DataBox(props: NodeProps) {
-  return (
-    <Shape {...DATA_BOX} {...props} _style={extendStyle(DATA_BOX, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, DATA_BOX)} />
 }

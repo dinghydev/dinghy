@@ -11,11 +11,5 @@ export const BOTTOM_NAVIGATION_2 = {
 }
 
 export function BottomNavigation2(props: NodeProps) {
-  return (
-    <Shape
-      {...BOTTOM_NAVIGATION_2}
-      {...props}
-      _style={extendStyle(BOTTOM_NAVIGATION_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, BOTTOM_NAVIGATION_2)} />
 }

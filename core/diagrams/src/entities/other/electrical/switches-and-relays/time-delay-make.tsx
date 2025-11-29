@@ -11,11 +11,5 @@ export const TIME_DELAY_MAKE = {
 }
 
 export function TimeDelayMake(props: NodeProps) {
-  return (
-    <Shape
-      {...TIME_DELAY_MAKE}
-      {...props}
-      _style={extendStyle(TIME_DELAY_MAKE, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, TIME_DELAY_MAKE)} />
 }

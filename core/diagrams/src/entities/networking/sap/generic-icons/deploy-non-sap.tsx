@@ -11,11 +11,5 @@ export const DEPLOY_NON_SAP = {
 }
 
 export function DeployNonSap(props: NodeProps) {
-  return (
-    <Shape
-      {...DEPLOY_NON_SAP}
-      {...props}
-      _style={extendStyle(DEPLOY_NON_SAP, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, DEPLOY_NON_SAP)} />
 }

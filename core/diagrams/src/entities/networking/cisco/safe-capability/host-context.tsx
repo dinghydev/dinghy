@@ -11,11 +11,5 @@ export const HOST_CONTEXT = {
 }
 
 export function HostContext(props: NodeProps) {
-  return (
-    <Shape
-      {...HOST_CONTEXT}
-      {...props}
-      _style={extendStyle(HOST_CONTEXT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, HOST_CONTEXT)} />
 }

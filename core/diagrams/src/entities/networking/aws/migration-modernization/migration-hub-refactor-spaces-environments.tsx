@@ -13,9 +13,8 @@ export const MIGRATION_HUB_REFACTOR_SPACES_ENVIRONMENTS = {
 export function MigrationHubRefactorSpacesEnvironments(props: NodeProps) {
   return (
     <Shape
-      {...MIGRATION_HUB_REFACTOR_SPACES_ENVIRONMENTS}
       {...props}
-      _style={extendStyle(MIGRATION_HUB_REFACTOR_SPACES_ENVIRONMENTS, props)}
+      _style={extendStyle(props, MIGRATION_HUB_REFACTOR_SPACES_ENVIRONMENTS)}
     />
   )
 }

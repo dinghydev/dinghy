@@ -13,9 +13,8 @@ export const CENTRIFUGE_DECANTER_SCREW_SOLID_SHELL = {
 export function CentrifugeDecanterScrewSolidShell(props: NodeProps) {
   return (
     <Shape
-      {...CENTRIFUGE_DECANTER_SCREW_SOLID_SHELL}
       {...props}
-      _style={extendStyle(CENTRIFUGE_DECANTER_SCREW_SOLID_SHELL, props)}
+      _style={extendStyle(props, CENTRIFUGE_DECANTER_SCREW_SOLID_SHELL)}
     />
   )
 }

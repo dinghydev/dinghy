@@ -11,7 +11,5 @@ export const SAWTOOTH = {
 }
 
 export function Sawtooth(props: NodeProps) {
-  return (
-    <Shape {...SAWTOOTH} {...props} _style={extendStyle(SAWTOOTH, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SAWTOOTH)} />
 }

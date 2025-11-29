@@ -11,11 +11,5 @@ export const COVERED_GAS_VENT = {
 }
 
 export function CoveredGasVent(props: NodeProps) {
-  return (
-    <Shape
-      {...COVERED_GAS_VENT}
-      {...props}
-      _style={extendStyle(COVERED_GAS_VENT, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, COVERED_GAS_VENT)} />
 }

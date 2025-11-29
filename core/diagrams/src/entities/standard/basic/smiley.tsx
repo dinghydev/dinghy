@@ -11,5 +11,5 @@ export const SMILEY = {
 }
 
 export function Smiley(props: NodeProps) {
-  return <Shape {...SMILEY} {...props} _style={extendStyle(SMILEY, props)} />
+  return <Shape {...props} _style={extendStyle(props, SMILEY)} />
 }

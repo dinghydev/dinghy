@@ -10,10 +10,6 @@ export const COLLABORATION_USE = {
 
 export function CollaborationUse(props: NodeProps) {
   return (
-    <Dependency
-      {...COLLABORATION_USE}
-      {...props}
-      _style={extendStyle(COLLABORATION_USE, props)}
-    />
+    <Dependency {...props} _style={extendStyle(props, COLLABORATION_USE)} />
   )
 }

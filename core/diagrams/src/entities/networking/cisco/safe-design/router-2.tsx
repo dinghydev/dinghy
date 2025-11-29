@@ -11,7 +11,5 @@ export const ROUTER_2 = {
 }
 
 export function Router2(props: NodeProps) {
-  return (
-    <Shape {...ROUTER_2} {...props} _style={extendStyle(ROUTER_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, ROUTER_2)} />
 }

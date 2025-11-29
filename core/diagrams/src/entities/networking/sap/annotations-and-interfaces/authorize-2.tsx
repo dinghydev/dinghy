@@ -11,11 +11,5 @@ export const AUTHORIZE_2 = {
 }
 
 export function Authorize2(props: NodeProps) {
-  return (
-    <Shape
-      {...AUTHORIZE_2}
-      {...props}
-      _style={extendStyle(AUTHORIZE_2, props)}
-    />
-  )
+  return <Shape {...props} _style={extendStyle(props, AUTHORIZE_2)} />
 }

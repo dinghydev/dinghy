@@ -11,7 +11,5 @@ export const SWIMMING_2 = {
 }
 
 export function Swimming2(props: NodeProps) {
-  return (
-    <Shape {...SWIMMING_2} {...props} _style={extendStyle(SWIMMING_2, props)} />
-  )
+  return <Shape {...props} _style={extendStyle(props, SWIMMING_2)} />
 }
