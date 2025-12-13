@@ -29,7 +29,7 @@ const options: CommandOptions = {
     `Clone all related docker images from official registry to target docker registry`,
 }
 
-function run(_context: CommandContext, args: CommandArgs) {
+async function run(_context: CommandContext, args: CommandArgs) {
   const images = [
     ...consumerImages(),
     configGetEngineImage(),
@@ -47,10 +47,10 @@ function run(_context: CommandContext, args: CommandArgs) {
     const targetTag = `${targetRepo}:${image.split(':')[1]}`
     if (multiArch) {
       const targetArchTags: string[] = []
-      supportedArchs.map((arch) => {
+      for (const arch of supportedArchs) {
         const targetArchTag = `${targetTag}-linux-${arch}`
         if (ondemand) {
-          buildOndemandImage(targetArchTag, arch)
+          await buildOndemandImage(targetArchTag, arch)
         } else {
           const srcArchTag = `${image}-linux-${arch}`
           dockerPull(srcArchTag, true)
@@ -58,11 +58,11 @@ function run(_context: CommandContext, args: CommandArgs) {
         }
         dockerPush(targetArchTag)
         targetArchTags.push(targetArchTag)
-      })
+      }
       dockerManifestCreate(targetTag, targetArchTags)
     } else {
       if (ondemand) {
-        buildOndemandImage(targetTag)
+        await buildOndemandImage(targetTag)
       } else {
         dockerPull(image, true)
         dockerTag(image, targetTag)

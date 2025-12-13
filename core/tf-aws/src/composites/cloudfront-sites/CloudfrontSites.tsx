@@ -311,6 +311,7 @@ export function CloudfrontSites(
               _id={toId(`${site.title}_${origin.name}_bucket`)}
               _title={`Origin Bucket: ${site.title} ${origin.name}`}
               bucket={origin.targetHost}
+              _display='none'
               _distributed
             >
               <S3OriginLoggingComponent

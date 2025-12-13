@@ -113,6 +113,7 @@ export function AwsRegionalLogBucket(
     <BucketComponent
       bucket={bucket}
       _title='Regional LogBucket'
+      _display='entity'
       {...props}
       {...(_configs?.bucketLogging || {})}
     >

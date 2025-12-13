@@ -17,9 +17,9 @@ const options: CommandOptions = {
     'Cache all related docker images locally so they can be used offline',
 }
 
-function run(_context: CommandContext, _args: CommandArgs) {
+async function run(_context: CommandContext, _args: CommandArgs) {
   for (const image of consumerImages()) {
-    prepareOndemandImage(image)
+    await prepareOndemandImage(image)
     console.log(`Image ${chalk.green(image)} is ready`)
   }
 }

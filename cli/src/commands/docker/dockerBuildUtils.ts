@@ -3,6 +3,8 @@ import { DinghyError } from '../../types.ts'
 import { configGetEngineImage } from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../utils/loadConfig.ts'
 import { execaSync } from 'execa'
+import { existsSync } from '@std/fs/exists'
+import { walk } from '@std/fs/walk'
 const debug = Debug('init')
 
 const ondemandImages = {
@@ -82,7 +84,7 @@ export function dockerManifestCreate(
   dockerCommand(['manifest', 'push', image])
 }
 
-function extractDockerSourceFiles() {
+async function extractDockerSourceFiles() {
   const workingDir = Deno.makeTempDirSync({
     dir: hostAppHome,
     prefix: '.tmp-dinghy-docker-build-',
@@ -105,10 +107,25 @@ function extractDockerSourceFiles() {
     hostAppHome,
   )
 
+  const overrideDir = `${hostAppHome}/.dinghy_file_override/docker/images`
+  if (existsSync(overrideDir)) {
+    debug('Copying override files from %s to %s ...', overrideDir, workingDir)
+    // copy all files from overrideDir to workingDir
+    for await (const entry of walk(overrideDir, { includeDirs: false })) {
+      const source = entry.path
+      const target = entry.path.replace(
+        overrideDir,
+        `${workingDir}/docker/images`,
+      )
+      debug('Copying override file: %s => %s', source, target)
+      Deno.copyFileSync(source, target)
+    }
+  }
+
   return workingDir
 }
 
-export function buildOndemandImage(image: string, buildArch?: string) {
+export async function buildOndemandImage(image: string, buildArch?: string) {
   if (!buildArch) {
     buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
   }
@@ -117,7 +134,7 @@ export function buildOndemandImage(image: string, buildArch?: string) {
     throw new Error(`Image ${image} not found`)
   }
 
-  const workingDir = extractDockerSourceFiles()
+  const workingDir = await extractDockerSourceFiles()
   console.log(`Building ondemand docker image ${image}...`)
   execaSync({
     stderr: 'inherit',
@@ -128,7 +145,7 @@ export function buildOndemandImage(image: string, buildArch?: string) {
   Deno.removeSync(workingDir, { recursive: true })
 }
 
-export function prepareOndemandImage(image: string) {
+export async function prepareOndemandImage(image: string) {
   if (isImageExistLocally(image)) {
     return
   }
@@ -136,7 +153,7 @@ export function prepareOndemandImage(image: string) {
     return
   }
 
-  buildOndemandImage(image)
+  await buildOndemandImage(image)
 }
 
 export const supportedArchs =

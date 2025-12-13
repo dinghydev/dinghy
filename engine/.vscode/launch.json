@@ -15,13 +15,14 @@
         // "main",
         // "--view",
         // "overview",
+        // "all",
         // "--format",
         // "diagram",
         // "tf",
         // "--output",
         // ".",
         // "--watch",
-        // "--debug",
+        "--debug",
         // "-h",
       ],
       "program": "src/index.ts",
@@ -42,7 +43,7 @@
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/basic",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-3-draw-io"
-        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-4-iac"
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-4-iac"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
@@ -73,7 +74,7 @@
         "DEBUG": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
-        "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
@@ -120,7 +121,8 @@
       "args": [
         "tf",
         "diff",
-        "platform-staging",
+        // "--enable-additional-providers",
+        // "platform-staging",
         // "production",
         // "development",
         // "--tf-generate-import",
@@ -132,7 +134,7 @@
       "env": {
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"§
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
       },
       "type": "node",
@@ -150,9 +152,7 @@
       "args": [
         "tf",
         "apply",
-        "platform-staging",
-        // "production",
-        // "development",
+        // "--enable-additional-providers",
         // "--tf-generate-import",
         // "true",
         // "-h",
@@ -162,7 +162,7 @@
       "env": {
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
       },
       "type": "node",
