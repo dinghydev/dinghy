@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOdbCloudExadataInfrastructure } from './AwsOdbCloudExadataInfrastructure.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_exadata_infrastructure
 
 export const InputSchema = z.object({
   available_storage_size_in_gbs: resolvableValue(z.number()),
@@ -17,8 +16,9 @@ export const InputSchema = z.object({
       email: z.string(),
     }).array(),
   ),
+  id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   activated_storage_count: z.number().optional(),
@@ -39,18 +39,18 @@ export const OutputSchema = z.object({
   last_maintenance_run_id: z.string().optional(),
   maintenance_window: z.object({
     custom_action_timeout_in_mins: z.number(),
-    days_of_week: z.object({
+    days_of_week: z.set(z.object({
       name: z.string(),
-    }).array(),
-    hours_of_day: z.number().array(),
+    })),
+    hours_of_day: z.set(z.number()),
     is_custom_action_timeout_enabled: z.boolean(),
     lead_time_in_weeks: z.number(),
-    months: z.object({
+    months: z.set(z.object({
       name: z.string(),
-    }).array(),
+    })),
     patching_mode: z.string(),
     preference: z.string(),
-    weeks_of_month: z.number().array(),
+    weeks_of_month: z.set(z.number()),
   }).array().optional(),
   max_cpu_count: z.number().optional(),
   max_data_storage_in_tbs: z.number().optional(),
@@ -81,6 +81,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_exadata_infrastructure
 
 export function DataAwsOdbCloudExadataInfrastructure(
   props: Partial<InputProps>,
@@ -102,11 +105,21 @@ export function DataAwsOdbCloudExadataInfrastructure(
 }
 
 export const useDataAwsOdbCloudExadataInfrastructure = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsOdbCloudExadataInfrastructure, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOdbCloudExadataInfrastructure,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOdbCloudExadataInfrastructures = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOdbCloudExadataInfrastructure, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOdbCloudExadataInfrastructure,
+    idFilter,
+    baseNode,
+  )

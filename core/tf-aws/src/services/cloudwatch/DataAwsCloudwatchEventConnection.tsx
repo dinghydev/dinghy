@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCloudwatchEventConnection } from './AwsCloudwatchEventConnection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_event_connection
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_event_connection
 
 export function DataAwsCloudwatchEventConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,22 @@ export function DataAwsCloudwatchEventConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCloudwatchEventConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCloudwatchEventConnection, node, id)
+export const useDataAwsCloudwatchEventConnection = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudwatchEventConnection,
+    idFilter,
+    baseNode,
+  )
 
-export const useDataAwsCloudwatchEventConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCloudwatchEventConnection, node, id)
+export const useDataAwsCloudwatchEventConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudwatchEventConnection,
+    idFilter,
+    baseNode,
+  )

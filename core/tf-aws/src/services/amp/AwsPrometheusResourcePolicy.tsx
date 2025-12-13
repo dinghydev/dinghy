@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_resource_policy
 
 export const InputSchema = z.object({
   policy_document: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   revision_id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_resource_policy
 
 export function AwsPrometheusResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsPrometheusResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPrometheusResourcePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPrometheusResourcePolicy, node, id)
+export const useAwsPrometheusResourcePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsPrometheusResourcePolicy, idFilter, baseNode)
 
-export const useAwsPrometheusResourcePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPrometheusResourcePolicy, node, id)
+export const useAwsPrometheusResourcePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsPrometheusResourcePolicy, idFilter, baseNode)

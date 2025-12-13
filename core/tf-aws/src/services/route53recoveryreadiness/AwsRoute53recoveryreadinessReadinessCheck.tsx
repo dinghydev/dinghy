@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoveryreadiness_readiness_check
 
 export const InputSchema = z.object({
   readiness_check_name: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoveryreadiness_readiness_check
 
 export function AwsRoute53recoveryreadinessReadinessCheck(
   props: Partial<InputProps>,
@@ -55,17 +57,21 @@ export function AwsRoute53recoveryreadinessReadinessCheck(
 }
 
 export const useAwsRoute53recoveryreadinessReadinessCheck = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53recoveryreadinessReadinessCheck, node, id)
+  useTypedNode<OutputProps>(
+    AwsRoute53recoveryreadinessReadinessCheck,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRoute53recoveryreadinessReadinessChecks = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoveryreadinessReadinessCheck,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

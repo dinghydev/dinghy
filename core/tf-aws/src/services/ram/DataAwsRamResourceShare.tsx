@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRamResourceShare } from './AwsRamResourceShare.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ram_resource_share
 
 export const InputSchema = z.object({
   resource_owner: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resource_share_status: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ram_resource_share
 
 export function DataAwsRamResourceShare(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,10 @@ export function DataAwsRamResourceShare(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRamResourceShare = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRamResourceShare, node, id)
+export const useDataAwsRamResourceShare = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsRamResourceShare, idFilter, baseNode)
 
-export const useDataAwsRamResourceShares = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRamResourceShare, node, id)
+export const useDataAwsRamResourceShares = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsRamResourceShare, idFilter, baseNode)

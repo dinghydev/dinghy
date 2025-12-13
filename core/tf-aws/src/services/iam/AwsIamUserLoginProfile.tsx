@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_login_profile
 
 export const InputSchema = z.object({
   user: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   password_length: resolvableValue(z.number().optional()),
   password_reset_required: resolvableValue(z.boolean().optional()),
   pgp_key: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   encrypted_password: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_login_profile
 
 export function AwsIamUserLoginProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsIamUserLoginProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamUserLoginProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamUserLoginProfile, node, id)
+export const useAwsIamUserLoginProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamUserLoginProfile, idFilter, baseNode)
 
-export const useAwsIamUserLoginProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamUserLoginProfile, node, id)
+export const useAwsIamUserLoginProfiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamUserLoginProfile, idFilter, baseNode)

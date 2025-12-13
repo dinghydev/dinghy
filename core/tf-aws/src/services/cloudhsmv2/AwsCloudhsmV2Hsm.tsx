@@ -3,23 +3,26 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudhsm_v2_hsm
-
 export const InputSchema = z.object({
+  cluster_id: resolvableValue(z.string()),
+  availability_zone: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
+  ip_address: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  subnet_id: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zone: z.string().optional(),
@@ -38,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudhsm_v2_hsm
 
 export function AwsCloudhsmV2Hsm(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +62,8 @@ export function AwsCloudhsmV2Hsm(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudhsmV2Hsm = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudhsmV2Hsm, node, id)
+export const useAwsCloudhsmV2Hsm = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode)
 
-export const useAwsCloudhsmV2Hsms = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudhsmV2Hsm, node, id)
+export const useAwsCloudhsmV2Hsms = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode)

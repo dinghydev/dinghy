@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_access_entry
 
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   ),
   type: resolvableValue(z.string().optional()),
   user_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_entry_arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_access_entry
 
 export function AwsEksAccessEntry(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,8 @@ export function AwsEksAccessEntry(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEksAccessEntry = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEksAccessEntry, node, id)
+export const useAwsEksAccessEntry = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEksAccessEntry, idFilter, baseNode)
 
-export const useAwsEksAccessEntrys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEksAccessEntry, node, id)
+export const useAwsEksAccessEntrys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEksAccessEntry, idFilter, baseNode)

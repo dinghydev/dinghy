@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/docdb_orderable_db_instance
 
 export const InputSchema = z.object({
   engine: resolvableValue(z.string().optional()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   preferred_instance_classes: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   vpc: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zones: z.string().array().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/docdb_orderable_db_instance
 
 export function DataAwsDocdbOrderableDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,18 @@ export function DataAwsDocdbOrderableDbInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDocdbOrderableDbInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDocdbOrderableDbInstance, node, id)
+export const useDataAwsDocdbOrderableDbInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsDocdbOrderableDbInstance, idFilter, baseNode)
 
-export const useDataAwsDocdbOrderableDbInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDocdbOrderableDbInstance, node, id)
+export const useDataAwsDocdbOrderableDbInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDocdbOrderableDbInstance,
+    idFilter,
+    baseNode,
+  )

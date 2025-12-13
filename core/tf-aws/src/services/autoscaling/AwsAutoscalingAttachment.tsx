@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_attachment
 
 export const InputSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   lb_target_group_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_attachment
 
 export function AwsAutoscalingAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsAutoscalingAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingAttachment, node, id)
+export const useAwsAutoscalingAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAutoscalingAttachment, idFilter, baseNode)
 
-export const useAwsAutoscalingAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingAttachment, node, id)
+export const useAwsAutoscalingAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAutoscalingAttachment, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kendra_experience
 
 export const InputSchema = z.object({
   index_id: resolvableValue(z.string()),
@@ -35,14 +34,14 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  endpoints: z.object({
+  endpoints: z.set(z.object({
     endpoint: z.string(),
     endpoint_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   experience_id: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
@@ -55,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kendra_experience
 
 export function AwsKendraExperience(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +75,8 @@ export function AwsKendraExperience(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKendraExperience = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKendraExperience, node, id)
+export const useAwsKendraExperience = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKendraExperience, idFilter, baseNode)
 
-export const useAwsKendraExperiences = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKendraExperience, node, id)
+export const useAwsKendraExperiences = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKendraExperience, idFilter, baseNode)

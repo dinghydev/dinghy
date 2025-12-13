@@ -2,17 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMemorydbSnapshot } from './AwsMemorydbSnapshot.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_snapshot
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_snapshot
 
 export function DataAwsMemorydbSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +68,10 @@ export function DataAwsMemorydbSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbSnapshot, node, id)
+export const useDataAwsMemorydbSnapshot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMemorydbSnapshot, idFilter, baseNode)
 
-export const useDataAwsMemorydbSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbSnapshot, node, id)
+export const useDataAwsMemorydbSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsMemorydbSnapshot, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEbsSnapshot } from './AwsEbsSnapshot.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_snapshot
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -55,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_snapshot
 
 export function DataAwsEbsSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +75,8 @@ export function DataAwsEbsSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEbsSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEbsSnapshot, node, id)
+export const useDataAwsEbsSnapshot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEbsSnapshot, idFilter, baseNode)
 
-export const useDataAwsEbsSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEbsSnapshot, node, id)
+export const useDataAwsEbsSnapshots = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEbsSnapshot, idFilter, baseNode)

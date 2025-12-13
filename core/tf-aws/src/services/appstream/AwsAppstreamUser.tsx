@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_user
 
 export const InputSchema = z.object({
   authentication_type: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   last_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   send_email_notification: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_user
 
 export function AwsAppstreamUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsAppstreamUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppstreamUser, node, id)
+export const useAwsAppstreamUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppstreamUser, idFilter, baseNode)
 
-export const useAwsAppstreamUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppstreamUser, node, id)
+export const useAwsAppstreamUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppstreamUser, idFilter, baseNode)

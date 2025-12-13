@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_authorize_vpc_endpoint_access
 
 export const InputSchema = z.object({
   account: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   authorized_principal: z.object({
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_authorize_vpc_endpoint_access
 
 export function AwsOpensearchAuthorizeVpcEndpointAccess(
   props: Partial<InputProps>,
@@ -50,7 +52,11 @@ export function AwsOpensearchAuthorizeVpcEndpointAccess(
 }
 
 export const useAwsOpensearchAuthorizeVpcEndpointAccesss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsOpensearchAuthorizeVpcEndpointAccess, node, id)
+  useTypedNodes<OutputProps>(
+    AwsOpensearchAuthorizeVpcEndpointAccess,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_scraper
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -19,15 +18,15 @@ export const InputSchema = z.object({
     z.object({
       amp: z.object({
         workspace_arn: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   role_configuration: resolvableValue(
     z.object({
       source_role_arn: z.string().optional(),
       target_role_arn: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   source: resolvableValue(
     z.object({
@@ -35,8 +34,8 @@ export const InputSchema = z.object({
         cluster_arn: z.string(),
         security_group_ids: z.string().array().optional(),
         subnet_ids: z.string().array(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -46,7 +45,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_scraper
 
 export function AwsPrometheusScraper(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,8 @@ export function AwsPrometheusScraper(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPrometheusScraper = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPrometheusScraper, node, id)
+export const useAwsPrometheusScraper = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsPrometheusScraper, idFilter, baseNode)
 
-export const useAwsPrometheusScrapers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPrometheusScraper, node, id)
+export const useAwsPrometheusScrapers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsPrometheusScraper, idFilter, baseNode)

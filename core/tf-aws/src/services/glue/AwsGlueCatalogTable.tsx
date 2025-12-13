@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_catalog_table
 
 export const InputSchema = z.object({
   database_name: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       index_name: z.string(),
       index_status: z.string(),
       keys: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   partition_keys: resolvableValue(
     z.object({
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
       name: z.string(),
       parameters: z.record(z.string(), z.string()).optional(),
       type: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   retention: resolvableValue(z.number().optional()),
@@ -53,6 +52,36 @@ export const InputSchema = z.object({
       output_format: z.string().optional(),
       parameters: z.record(z.string(), z.string()).optional(),
       stored_as_sub_directories: z.boolean().optional(),
+      columns: z.object({
+        comment: z.string().optional(),
+        name: z.string(),
+        parameters: z.record(z.string(), z.string()).optional(),
+        type: z.string().optional(),
+      }).array().optional(),
+      schema_reference: z.object({
+        schema_version_id: z.string().optional(),
+        schema_version_number: z.number(),
+        schema_id: z.object({
+          registry_name: z.string().optional(),
+          schema_arn: z.string().optional(),
+          schema_name: z.string().optional(),
+        }).optional(),
+      }).optional(),
+      ser_de_info: z.object({
+        name: z.string().optional(),
+        parameters: z.record(z.string(), z.string()).optional(),
+        serialization_library: z.string().optional(),
+      }).optional(),
+      skewed_info: z.object({
+        skewed_column_names: z.string().array().optional(),
+        skewed_column_value_location_maps: z.record(z.string(), z.string())
+          .optional(),
+        skewed_column_values: z.string().array().optional(),
+      }).optional(),
+      sort_columns: z.object({
+        column: z.string(),
+        sort_order: z.number(),
+      }).array().optional(),
     }).optional(),
   ),
   table_type: resolvableValue(z.string().optional()),
@@ -66,7 +95,7 @@ export const InputSchema = z.object({
   ),
   view_expanded_text: resolvableValue(z.string().optional()),
   view_original_text: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -80,6 +109,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_catalog_table
 
 export function AwsGlueCatalogTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -98,8 +130,8 @@ export function AwsGlueCatalogTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueCatalogTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueCatalogTable, node, id)
+export const useAwsGlueCatalogTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode)
 
-export const useAwsGlueCatalogTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueCatalogTable, node, id)
+export const useAwsGlueCatalogTables = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode)

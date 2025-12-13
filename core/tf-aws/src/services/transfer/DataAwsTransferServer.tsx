@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsTransferServer } from './AwsTransferServer.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/transfer_server
-
 export const InputSchema = z.object({
   server_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/transfer_server
 
 export function DataAwsTransferServer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function DataAwsTransferServer(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsTransferServer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsTransferServer, node, id)
+export const useDataAwsTransferServer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsTransferServer, idFilter, baseNode)
 
-export const useDataAwsTransferServers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsTransferServer, node, id)
+export const useDataAwsTransferServers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsTransferServer, idFilter, baseNode)

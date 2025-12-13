@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_model
 
 export const InputSchema = z.object({
   execution_role_arn: resolvableValue(z.string()),
@@ -21,7 +20,37 @@ export const InputSchema = z.object({
       mode: z.string().optional(),
       model_data_url: z.string().optional(),
       model_package_name: z.string().optional(),
-    }).optional(),
+      additional_model_data_source: z.object({
+        channel_name: z.string(),
+        s3_data_source: z.object({
+          compression_type: z.string(),
+          s3_data_type: z.string(),
+          s3_uri: z.string(),
+          model_access_config: z.object({
+            accept_eula: z.boolean(),
+          }).optional(),
+        }).array(),
+      }).array().optional(),
+      image_config: z.object({
+        repository_access_mode: z.string(),
+        repository_auth_config: z.object({
+          repository_credentials_provider_arn: z.string(),
+        }).optional(),
+      }).optional(),
+      model_data_source: z.object({
+        s3_data_source: z.object({
+          compression_type: z.string(),
+          s3_data_type: z.string(),
+          s3_uri: z.string(),
+          model_access_config: z.object({
+            accept_eula: z.boolean(),
+          }).optional(),
+        }).array(),
+      }).optional(),
+      multi_model_config: z.object({
+        model_cache_setting: z.string().optional(),
+      }).optional(),
+    }).array().optional(),
   ),
   enable_network_isolation: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
@@ -30,6 +59,7 @@ export const InputSchema = z.object({
       mode: z.string(),
     }).optional(),
   ),
+  name: resolvableValue(z.string().optional()),
   primary_container: resolvableValue(
     z.object({
       container_hostname: z.string().optional(),
@@ -39,6 +69,36 @@ export const InputSchema = z.object({
       mode: z.string().optional(),
       model_data_url: z.string().optional(),
       model_package_name: z.string().optional(),
+      additional_model_data_source: z.object({
+        channel_name: z.string(),
+        s3_data_source: z.object({
+          compression_type: z.string(),
+          s3_data_type: z.string(),
+          s3_uri: z.string(),
+          model_access_config: z.object({
+            accept_eula: z.boolean(),
+          }).optional(),
+        }).array(),
+      }).array().optional(),
+      image_config: z.object({
+        repository_access_mode: z.string(),
+        repository_auth_config: z.object({
+          repository_credentials_provider_arn: z.string(),
+        }).optional(),
+      }).optional(),
+      model_data_source: z.object({
+        s3_data_source: z.object({
+          compression_type: z.string(),
+          s3_data_type: z.string(),
+          s3_uri: z.string(),
+          model_access_config: z.object({
+            accept_eula: z.boolean(),
+          }).optional(),
+        }).array(),
+      }).optional(),
+      multi_model_config: z.object({
+        model_cache_setting: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -49,7 +109,7 @@ export const InputSchema = z.object({
       subnets: z.string().array(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -64,6 +124,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_model
 
 export function AwsSagemakerModel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -82,8 +145,8 @@ export function AwsSagemakerModel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerModel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerModel, node, id)
+export const useAwsSagemakerModel = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerModel, idFilter, baseNode)
 
-export const useAwsSagemakerModels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerModel, node, id)
+export const useAwsSagemakerModels = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSagemakerModel, idFilter, baseNode)

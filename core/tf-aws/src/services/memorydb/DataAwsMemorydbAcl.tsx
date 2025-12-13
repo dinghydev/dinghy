@@ -2,25 +2,24 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMemorydbAcl } from './AwsMemorydbAcl.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_acl
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   minimum_engine_version: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
-  user_names: z.string().array().optional(),
+  user_names: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_acl
 
 export function DataAwsMemorydbAcl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function DataAwsMemorydbAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbAcl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbAcl, node, id)
+export const useDataAwsMemorydbAcl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode)
 
-export const useDataAwsMemorydbAcls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbAcl, node, id)
+export const useDataAwsMemorydbAcls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode)

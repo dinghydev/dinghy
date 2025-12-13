@@ -3,23 +3,57 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_configuration_policy
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
   configuration_policy: resolvableValue(z.object({
     enabled_standard_arns: z.string().array().optional(),
     service_enabled: z.boolean(),
+    security_controls_configuration: z.object({
+      disabled_control_identifiers: z.string().array().optional(),
+      enabled_control_identifiers: z.string().array().optional(),
+      security_control_custom_parameter: z.object({
+        security_control_id: z.string(),
+        parameter: z.object({
+          name: z.string(),
+          value_type: z.string(),
+          bool: z.object({
+            value: z.boolean(),
+          }).optional(),
+          double: z.object({
+            value: z.number(),
+          }).optional(),
+          enum: z.object({
+            value: z.string(),
+          }).optional(),
+          enum_list: z.object({
+            value: z.string().array(),
+          }).optional(),
+          int: z.object({
+            value: z.number(),
+          }).optional(),
+          int_list: z.object({
+            value: z.number().array(),
+          }).optional(),
+          string: z.object({
+            value: z.string(),
+          }).optional(),
+          string_list: z.object({
+            value: z.string().array(),
+          }).optional(),
+        }).array(),
+      }).array().optional(),
+    }).optional(),
   })),
+  name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -32,6 +66,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_configuration_policy
 
 export function AwsSecurityhubConfigurationPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,10 +87,22 @@ export function AwsSecurityhubConfigurationPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubConfigurationPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubConfigurationPolicy, node, id)
+export const useAwsSecurityhubConfigurationPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecurityhubConfigurationPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSecurityhubConfigurationPolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSecurityhubConfigurationPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubConfigurationPolicy,
+    idFilter,
+    baseNode,
+  )

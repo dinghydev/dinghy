@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_virtual_interface_group
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -26,10 +25,10 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  local_gateway_virtual_interface_ids: z.string().array().optional(),
+  local_gateway_virtual_interface_ids: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway_virtual_interface_group
 
 export function DataAwsEc2LocalGatewayVirtualInterfaceGroup(
   props: Partial<InputProps>,
@@ -60,21 +62,21 @@ export function DataAwsEc2LocalGatewayVirtualInterfaceGroup(
 }
 
 export const useDataAwsEc2LocalGatewayVirtualInterfaceGroup = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2LocalGatewayVirtualInterfaceGroup,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsEc2LocalGatewayVirtualInterfaceGroups = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2LocalGatewayVirtualInterfaceGroup,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

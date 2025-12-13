@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDynamodbTableItem } from './AwsDynamodbTableItem.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dynamodb_table_item
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   projection_expression: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   item: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dynamodb_table_item
 
 export function DataAwsDynamodbTableItem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function DataAwsDynamodbTableItem(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDynamodbTableItem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDynamodbTableItem, node, id)
+export const useDataAwsDynamodbTableItem = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsDynamodbTableItem, idFilter, baseNode)
 
-export const useDataAwsDynamodbTableItems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDynamodbTableItem, node, id)
+export const useDataAwsDynamodbTableItems = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsDynamodbTableItem, idFilter, baseNode)

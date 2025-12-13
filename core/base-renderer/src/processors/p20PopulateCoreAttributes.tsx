@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react'
 import {
   camelCaseToWords,
+  deepResolve,
   type NodeTree,
   toId,
   toName,
@@ -95,6 +96,18 @@ const populateField = (
   return value
 }
 
+const populateConsolidatedId = (
+  node: NodeTree,
+) => {
+  let value = (node._props as any)['_consolidatedId']
+  if (value !== undefined) {
+    if (typeof value === 'function') {
+      value = deepResolve(value)
+      ;(node._props as any)['_consolidatedId'] = value
+    }
+  }
+}
+
 const populateNodeAttributes = (element: ReactElement, usedIds: string[]) => {
   const fiber = (element as any).fiber
   const _node = (element as any).props._node as NodeTree
@@ -107,6 +120,8 @@ const populateNodeAttributes = (element: ReactElement, usedIds: string[]) => {
     throw new Error(`Duplicated id ${id} found!`)
   }
   usedIds.push(id)
+
+  populateConsolidatedId(_node)
 }
 
 function populateAttributes(element: ReactElement, usedIds: string[] = []) {

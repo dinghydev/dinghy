@@ -3,23 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_slot_type
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  create_version: resolvableValue(z.boolean().optional()),
-  description: resolvableValue(z.string().optional()),
   enumeration_value: resolvableValue(
     z.object({
       synonyms: z.string().array().optional(),
       value: z.string(),
     }).array(),
   ),
+  name: resolvableValue(z.string()),
+  create_version: resolvableValue(z.boolean().optional()),
+  description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   value_selection_strategy: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   checksum: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_slot_type
 
 export function AwsLexSlotType(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function AwsLexSlotType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexSlotType = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLexSlotType, node, id)
+export const useAwsLexSlotType = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLexSlotType, idFilter, baseNode)
 
-export const useAwsLexSlotTypes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexSlotType, node, id)
+export const useAwsLexSlotTypes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLexSlotType, idFilter, baseNode)

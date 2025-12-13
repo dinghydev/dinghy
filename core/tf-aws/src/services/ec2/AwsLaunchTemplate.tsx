@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/launch_template
 
 export const InputSchema = z.object({
   block_device_mappings: resolvableValue(
@@ -16,11 +15,26 @@ export const InputSchema = z.object({
       device_name: z.string().optional(),
       no_device: z.string().optional(),
       virtual_name: z.string().optional(),
-    }).optional(),
+      ebs: z.object({
+        delete_on_termination: z.string().optional(),
+        encrypted: z.string().optional(),
+        iops: z.number().optional(),
+        kms_key_id: z.string().optional(),
+        snapshot_id: z.string().optional(),
+        throughput: z.number().optional(),
+        volume_initialization_rate: z.number().optional(),
+        volume_size: z.number().optional(),
+        volume_type: z.string().optional(),
+      }).optional(),
+    }).array().optional(),
   ),
   capacity_reservation_specification: resolvableValue(
     z.object({
       capacity_reservation_preference: z.string().optional(),
+      capacity_reservation_target: z.object({
+        capacity_reservation_id: z.string().optional(),
+        capacity_reservation_resource_group_arn: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   cpu_options: resolvableValue(
@@ -61,6 +75,13 @@ export const InputSchema = z.object({
   instance_market_options: resolvableValue(
     z.object({
       market_type: z.string().optional(),
+      spot_options: z.object({
+        block_duration_minutes: z.number().optional(),
+        instance_interruption_behavior: z.string().optional(),
+        max_price: z.string().optional(),
+        spot_instance_type: z.string().optional(),
+        valid_until: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   instance_requirements: resolvableValue(
@@ -81,6 +102,42 @@ export const InputSchema = z.object({
       on_demand_max_price_percentage_over_lowest_price: z.number().optional(),
       require_hibernate_support: z.boolean().optional(),
       spot_max_price_percentage_over_lowest_price: z.number().optional(),
+      accelerator_count: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      accelerator_total_memory_mib: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      baseline_ebs_bandwidth_mbps: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      memory_gib_per_vcpu: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      memory_mib: z.object({
+        max: z.number().optional(),
+        min: z.number(),
+      }),
+      network_bandwidth_gbps: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      network_interface_count: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      total_local_storage_gb: z.object({
+        max: z.number().optional(),
+        min: z.number().optional(),
+      }).optional(),
+      vcpu_count: z.object({
+        max: z.number().optional(),
+        min: z.number(),
+      }),
     }).optional(),
   ),
   instance_type: resolvableValue(z.string().optional()),
@@ -134,7 +191,18 @@ export const InputSchema = z.object({
       private_ip_address: z.string().optional(),
       security_groups: z.string().array().optional(),
       subnet_id: z.string().optional(),
-    }).optional(),
+      connection_tracking_specification: z.object({
+        tcp_established_timeout: z.number().optional(),
+        udp_stream_timeout: z.number().optional(),
+        udp_timeout: z.number().optional(),
+      }).optional(),
+      ena_srd_specification: z.object({
+        ena_srd_enabled: z.boolean().optional(),
+        ena_srd_udp_specification: z.object({
+          ena_srd_udp_enabled: z.boolean().optional(),
+        }).optional(),
+      }).optional(),
+    }).array().optional(),
   ),
   placement: resolvableValue(
     z.object({
@@ -163,13 +231,13 @@ export const InputSchema = z.object({
     z.object({
       resource_type: z.string().optional(),
       tags: z.record(z.string(), z.string()).optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   update_default_version: resolvableValue(z.boolean().optional()),
   user_data: resolvableValue(z.string().optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -185,6 +253,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/launch_template
 
 export function AwsLaunchTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -203,8 +274,8 @@ export function AwsLaunchTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLaunchTemplate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLaunchTemplate, node, id)
+export const useAwsLaunchTemplate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLaunchTemplate, idFilter, baseNode)
 
-export const useAwsLaunchTemplates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLaunchTemplate, node, id)
+export const useAwsLaunchTemplates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLaunchTemplate, idFilter, baseNode)

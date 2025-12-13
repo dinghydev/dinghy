@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_data_protection_settings
 
 export const InputSchema = z.object({
   display_name: resolvableValue(z.string()),
@@ -21,11 +20,27 @@ export const InputSchema = z.object({
       global_confidence_level: z.number().optional(),
       global_enforced_urls: z.string().array().optional(),
       global_exempt_urls: z.string().array().optional(),
-    }).optional(),
+      inline_redaction_pattern: z.object({
+        built_in_pattern_id: z.string().optional(),
+        confidence_level: z.number().optional(),
+        enforced_urls: z.string().array().optional(),
+        exempt_urls: z.string().array().optional(),
+        custom_pattern: z.object({
+          keyword_regex: z.string().optional(),
+          pattern_description: z.string().optional(),
+          pattern_name: z.string(),
+          pattern_regex: z.string(),
+        }).array().optional(),
+        redaction_place_holder: z.object({
+          redaction_place_holder_text: z.string().optional(),
+          redaction_place_holder_type: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
@@ -40,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_data_protection_settings
 
 export function AwsWorkspaceswebDataProtectionSettings(
   props: Partial<InputProps>,
@@ -61,7 +79,11 @@ export function AwsWorkspaceswebDataProtectionSettings(
 }
 
 export const useAwsWorkspaceswebDataProtectionSettingss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebDataProtectionSettings, node, id)
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebDataProtectionSettings,
+    idFilter,
+    baseNode,
+  )

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElb } from './AwsElb.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb
 
 export const InputSchema = z.object({
   access_logs: resolvableValue(
@@ -56,7 +55,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -67,6 +66,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb
 
 export function DataAwsElb(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -85,8 +87,8 @@ export function DataAwsElb(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElb = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElb, node, id)
+export const useDataAwsElb = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsElb, idFilter, baseNode)
 
-export const useDataAwsElbs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsElb, node, id)
+export const useDataAwsElbs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsElb, idFilter, baseNode)

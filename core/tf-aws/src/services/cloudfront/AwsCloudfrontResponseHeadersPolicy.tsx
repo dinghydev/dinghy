@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_response_headers_policy
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -18,6 +17,18 @@ export const InputSchema = z.object({
       access_control_allow_credentials: z.boolean(),
       access_control_max_age_sec: z.number().optional(),
       origin_override: z.boolean(),
+      access_control_allow_headers: z.object({
+        items: z.string().array().optional(),
+      }),
+      access_control_allow_methods: z.object({
+        items: z.string().array().optional(),
+      }),
+      access_control_allow_origins: z.object({
+        items: z.string().array().optional(),
+      }),
+      access_control_expose_headers: z.object({
+        items: z.string().array().optional(),
+      }).optional(),
     }).optional(),
   ),
   custom_headers_config: resolvableValue(
@@ -73,7 +84,7 @@ export const InputSchema = z.object({
       sampling_rate: z.number(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -88,6 +99,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_response_headers_policy
 
 export function AwsCloudfrontResponseHeadersPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -107,11 +121,21 @@ export function AwsCloudfrontResponseHeadersPolicy(props: Partial<InputProps>) {
 }
 
 export const useAwsCloudfrontResponseHeadersPolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCloudfrontResponseHeadersPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontResponseHeadersPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudfrontResponseHeadersPolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCloudfrontResponseHeadersPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontResponseHeadersPolicy,
+    idFilter,
+    baseNode,
+  )

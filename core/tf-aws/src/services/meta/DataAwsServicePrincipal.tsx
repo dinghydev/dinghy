@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_principal
-
 export const InputSchema = z.object({
   service_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_principal
 
 export function DataAwsServicePrincipal(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,10 @@ export function DataAwsServicePrincipal(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsServicePrincipal = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsServicePrincipal, node, id)
+export const useDataAwsServicePrincipal = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsServicePrincipal, idFilter, baseNode)
 
-export const useDataAwsServicePrincipals = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsServicePrincipal, node, id)
+export const useDataAwsServicePrincipals = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsServicePrincipal, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptunegraph_graph
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -34,9 +33,9 @@ export const InputSchema = z.object({
   vector_search_configuration: resolvableValue(
     z.object({
       vector_search_dimension: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptunegraph_graph
 
 export function AwsNeptunegraphGraph(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsNeptunegraphGraph(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNeptunegraphGraph = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNeptunegraphGraph, node, id)
+export const useAwsNeptunegraphGraph = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode)
 
-export const useAwsNeptunegraphGraphs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNeptunegraphGraph, node, id)
+export const useAwsNeptunegraphGraphs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode)

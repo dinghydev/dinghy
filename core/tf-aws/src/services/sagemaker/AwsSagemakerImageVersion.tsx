@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_image_version
 
 export const InputSchema = z.object({
   base_image: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   release_notes: resolvableValue(z.string().optional()),
   vendor_guidance: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_image_version
 
 export function AwsSagemakerImageVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsSagemakerImageVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerImageVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerImageVersion, node, id)
+export const useAwsSagemakerImageVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSagemakerImageVersion, idFilter, baseNode)
 
-export const useAwsSagemakerImageVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerImageVersion, node, id)
+export const useAwsSagemakerImageVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSagemakerImageVersion, idFilter, baseNode)

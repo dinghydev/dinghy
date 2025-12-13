@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_account_password_policy
 
 export const InputSchema = z.object({
   allow_users_to_change_password: resolvableValue(z.boolean().optional()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   require_numbers: resolvableValue(z.boolean().optional()),
   require_symbols: resolvableValue(z.boolean().optional()),
   require_uppercase_characters: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   expire_passwords: z.boolean().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_account_password_policy
 
 export function AwsIamAccountPasswordPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsIamAccountPasswordPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamAccountPasswordPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamAccountPasswordPolicy, node, id)
+export const useAwsIamAccountPasswordPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIamAccountPasswordPolicy, idFilter, baseNode)
 
-export const useAwsIamAccountPasswordPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamAccountPasswordPolicy, node, id)
+export const useAwsIamAccountPasswordPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIamAccountPasswordPolicy, idFilter, baseNode)

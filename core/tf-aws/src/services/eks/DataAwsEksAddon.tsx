@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEksAddon } from './AwsEksAddon.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_addon
-
 export const InputSchema = z.object({
   addon_name: resolvableValue(z.string()),
   cluster_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   addon_version: z.string().optional(),
@@ -24,10 +23,10 @@ export const OutputSchema = z.object({
   created_at: z.string().optional(),
   id: z.string().optional(),
   modified_at: z.string().optional(),
-  pod_identity_association: z.object({
+  pod_identity_association: z.set(z.object({
     role_arn: z.string(),
     service_account: z.string(),
-  }).array().optional(),
+  })).optional(),
   service_account_role_arn: z.string().optional(),
 })
 
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_addon
 
 export function DataAwsEksAddon(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,8 @@ export function DataAwsEksAddon(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksAddon = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEksAddon, node, id)
+export const useDataAwsEksAddon = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEksAddon, idFilter, baseNode)
 
-export const useDataAwsEksAddons = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEksAddon, node, id)
+export const useDataAwsEksAddons = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEksAddon, idFilter, baseNode)

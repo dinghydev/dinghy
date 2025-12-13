@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53DelegationSet } from './AwsRoute53DelegationSet.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_delegation_set
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_delegation_set
 
 export function DataAwsRoute53DelegationSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function DataAwsRoute53DelegationSet(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute53DelegationSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRoute53DelegationSet, node, id)
+export const useDataAwsRoute53DelegationSet = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsRoute53DelegationSet, idFilter, baseNode)
 
-export const useDataAwsRoute53DelegationSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53DelegationSet, node, id)
+export const useDataAwsRoute53DelegationSets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsRoute53DelegationSet, idFilter, baseNode)

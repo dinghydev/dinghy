@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_route_server_peer
 
 export const InputSchema = z.object({
   peer_address: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
     z.object({
       peer_asn: z.number(),
       peer_liveness_detection: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_route_server_peer
 
 export function AwsVpcRouteServerPeer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsVpcRouteServerPeer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcRouteServerPeer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcRouteServerPeer, node, id)
+export const useAwsVpcRouteServerPeer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpcRouteServerPeer, idFilter, baseNode)
 
-export const useAwsVpcRouteServerPeers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcRouteServerPeer, node, id)
+export const useAwsVpcRouteServerPeers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVpcRouteServerPeer, idFilter, baseNode)

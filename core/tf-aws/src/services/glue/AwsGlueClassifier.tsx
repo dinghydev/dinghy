@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_classifier
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
       row_tag: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_classifier
 
 export function AwsGlueClassifier(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,8 @@ export function AwsGlueClassifier(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueClassifier = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueClassifier, node, id)
+export const useAwsGlueClassifier = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueClassifier, idFilter, baseNode)
 
-export const useAwsGlueClassifiers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueClassifier, node, id)
+export const useAwsGlueClassifiers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueClassifier, idFilter, baseNode)

@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/detective_organization_admin_account
-
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/detective_organization_admin_account
 
 export function AwsDetectiveOrganizationAdminAccount(
   props: Partial<InputProps>,
@@ -47,11 +49,21 @@ export function AwsDetectiveOrganizationAdminAccount(
 }
 
 export const useAwsDetectiveOrganizationAdminAccount = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsDetectiveOrganizationAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDetectiveOrganizationAdminAccount,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDetectiveOrganizationAdminAccounts = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsDetectiveOrganizationAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDetectiveOrganizationAdminAccount,
+    idFilter,
+    baseNode,
+  )

@@ -2,77 +2,77 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderDistributionConfiguration } from './AwsImagebuilderDistributionConfiguration.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_distribution_configuration
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   date_created: z.string().optional(),
   date_updated: z.string().optional(),
   description: z.string().optional(),
-  distribution: z.object({
-    ami_distribution_configuration: z.object({
+  distribution: z.set(z.object({
+    ami_distribution_configuration: z.set(z.object({
       ami_tags: z.record(z.string(), z.string()),
       description: z.string(),
       kms_key_id: z.string(),
-      launch_permission: z.object({
-        organization_arns: z.string().array(),
-        organizational_unit_arns: z.string().array(),
-        user_groups: z.string().array(),
-        user_ids: z.string().array(),
-      }).array(),
+      launch_permission: z.set(z.object({
+        organization_arns: z.set(z.string()),
+        organizational_unit_arns: z.set(z.string()),
+        user_groups: z.set(z.string()),
+        user_ids: z.set(z.string()),
+      })),
       name: z.string(),
-      target_account_ids: z.string().array(),
-    }).array(),
-    container_distribution_configuration: z.object({
-      container_tags: z.string().array(),
+      target_account_ids: z.set(z.string()),
+    })),
+    container_distribution_configuration: z.set(z.object({
+      container_tags: z.set(z.string()),
       description: z.string(),
-      target_repository: z.object({
+      target_repository: z.set(z.object({
         repository_name: z.string(),
         service: z.string(),
-      }).array(),
-    }).array(),
-    fast_launch_configuration: z.object({
+      })),
+    })),
+    fast_launch_configuration: z.set(z.object({
       account_id: z.string(),
       enabled: z.boolean(),
-      launch_template: z.object({
+      launch_template: z.set(z.object({
         launch_template_id: z.string(),
         launch_template_name: z.string(),
         launch_template_version: z.string(),
-      }).array(),
+      })),
       max_parallel_launches: z.number(),
-      snapshot_configuration: z.object({
+      snapshot_configuration: z.set(z.object({
         target_resource_count: z.number(),
-      }).array(),
-    }).array(),
-    launch_template_configuration: z.object({
+      })),
+    })),
+    launch_template_configuration: z.set(z.object({
       account_id: z.string(),
       default: z.boolean(),
       launch_template_id: z.string(),
-    }).array(),
-    license_configuration_arns: z.string().array(),
+    })),
+    license_configuration_arns: z.set(z.string()),
     region: z.string(),
-    s3_export_configuration: z.object({
+    s3_export_configuration: z.set(z.object({
       disk_image_format: z.string(),
       role_name: z.string(),
       s3_bucket: z.string(),
       s3_prefix: z.string(),
-    }).array(),
-    ssm_parameter_configuration: z.object({
+    })),
+    ssm_parameter_configuration: z.set(z.object({
       ami_account_id: z.string(),
       data_type: z.string(),
       parameter_name: z.string(),
-    }).array(),
-  }).array().optional(),
+    })),
+  })).optional(),
   name: z.string().optional(),
   region: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -85,6 +85,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_distribution_configuration
 
 export function DataAwsImagebuilderDistributionConfiguration(
   props: Partial<InputProps>,
@@ -106,21 +109,21 @@ export function DataAwsImagebuilderDistributionConfiguration(
 }
 
 export const useDataAwsImagebuilderDistributionConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsImagebuilderDistributionConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsImagebuilderDistributionConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderDistributionConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

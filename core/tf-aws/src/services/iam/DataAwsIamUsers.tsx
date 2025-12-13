@@ -3,21 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_users
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name_regex: resolvableValue(z.string().optional()),
   path_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  arns: z.string().array().optional(),
-  names: z.string().array().optional(),
+  arns: z.set(z.string()).optional(),
+  names: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_users
 
 export function DataAwsIamUsers(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,5 +47,5 @@ export function DataAwsIamUsers(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamUserss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamUsers, node, id)
+export const useDataAwsIamUserss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamUsers, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_product_portfolio_association
 
 export const InputSchema = z.object({
   portfolio_id: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_product_portfolio_association
 
 export function AwsServicecatalogProductPortfolioAssociation(
   props: Partial<InputProps>,
@@ -57,21 +59,21 @@ export function AwsServicecatalogProductPortfolioAssociation(
 }
 
 export const useAwsServicecatalogProductPortfolioAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogProductPortfolioAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsServicecatalogProductPortfolioAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogProductPortfolioAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

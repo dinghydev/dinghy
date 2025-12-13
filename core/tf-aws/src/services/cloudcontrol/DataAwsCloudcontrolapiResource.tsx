@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCloudcontrolapiResource } from './AwsCloudcontrolapiResource.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudcontrolapi_resource
 
 export const InputSchema = z.object({
   identifier: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
   type_version_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   properties: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudcontrolapi_resource
 
 export function DataAwsCloudcontrolapiResource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,14 @@ export function DataAwsCloudcontrolapiResource(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCloudcontrolapiResource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCloudcontrolapiResource, node, id)
+export const useDataAwsCloudcontrolapiResource = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsCloudcontrolapiResource, idFilter, baseNode)
 
-export const useDataAwsCloudcontrolapiResources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCloudcontrolapiResource, node, id)
+export const useDataAwsCloudcontrolapiResources = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsCloudcontrolapiResource, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_application_assignment
 
 export const InputSchema = z.object({
   application_arn: resolvableValue(z.string()),
   principal_id: resolvableValue(z.string()),
   principal_type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_application_assignment
 
 export function AwsSsoadminApplicationAssignment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,22 @@ export function AwsSsoadminApplicationAssignment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsoadminApplicationAssignment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsoadminApplicationAssignment, node, id)
+export const useAwsSsoadminApplicationAssignment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsoadminApplicationAssignment,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsSsoadminApplicationAssignments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsoadminApplicationAssignment, node, id)
+export const useAwsSsoadminApplicationAssignments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsoadminApplicationAssignment,
+    idFilter,
+    baseNode,
+  )

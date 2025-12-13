@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_ownership_controls
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
     object_ownership: z.string(),
   })),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_ownership_controls
 
 export function AwsS3BucketOwnershipControls(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,5 +56,8 @@ export function AwsS3BucketOwnershipControls(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketOwnershipControlss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketOwnershipControls, node, id)
+export const useAwsS3BucketOwnershipControlss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsS3BucketOwnershipControls, idFilter, baseNode)

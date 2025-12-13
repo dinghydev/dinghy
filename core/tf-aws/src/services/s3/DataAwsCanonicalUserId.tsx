@@ -2,14 +2,13 @@ import {
   camelCaseToWords,
   type NodeProps,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/canonical_user_id
-
-export const InputSchema = z.object({})
+export const InputSchema = z.object({}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   display_name: z.string().optional(),
@@ -23,6 +22,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/canonical_user_id
 
 export function DataAwsCanonicalUserId(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -41,8 +43,8 @@ export function DataAwsCanonicalUserId(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCanonicalUserId = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCanonicalUserId, node, id)
+export const useDataAwsCanonicalUserId = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsCanonicalUserId, idFilter, baseNode)
 
-export const useDataAwsCanonicalUserIds = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCanonicalUserId, node, id)
+export const useDataAwsCanonicalUserIds = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsCanonicalUserId, idFilter, baseNode)

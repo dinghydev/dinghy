@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_fsx_windows_file_system
 
 export const InputSchema = z.object({
   fsx_filesystem_arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   subdirectory: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_fsx_windows_file_system
 
 export function AwsDatasyncLocationFsxWindowsFileSystem(
   props: Partial<InputProps>,
@@ -57,13 +59,21 @@ export function AwsDatasyncLocationFsxWindowsFileSystem(
 }
 
 export const useAwsDatasyncLocationFsxWindowsFileSystem = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationFsxWindowsFileSystem, node, id)
+  useTypedNode<OutputProps>(
+    AwsDatasyncLocationFsxWindowsFileSystem,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDatasyncLocationFsxWindowsFileSystems = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationFsxWindowsFileSystem, node, id)
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationFsxWindowsFileSystem,
+    idFilter,
+    baseNode,
+  )

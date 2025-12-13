@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMemorydbCluster } from './AwsMemorydbCluster.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_cluster
 
 export const InputSchema = z.object({
   cluster_endpoint: resolvableValue(
@@ -17,9 +16,9 @@ export const InputSchema = z.object({
       port: z.number(),
     }).array(),
   ),
-  subnet_group_name: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   acl_name: z.string().optional(),
@@ -40,10 +39,10 @@ export const OutputSchema = z.object({
   num_shards: z.number().optional(),
   parameter_group_name: z.string().optional(),
   port: z.number().optional(),
-  security_group_ids: z.string().array().optional(),
-  shards: z.object({
+  security_group_ids: z.set(z.string()).optional(),
+  shards: z.set(z.object({
     name: z.string(),
-    nodes: z.object({
+    nodes: z.set(z.object({
       availability_zone: z.string(),
       create_time: z.string(),
       endpoint: z.object({
@@ -51,13 +50,14 @@ export const OutputSchema = z.object({
         port: z.number(),
       }).array(),
       name: z.string(),
-    }).array(),
+    })),
     num_nodes: z.number(),
     slots: z.string(),
-  }).array().optional(),
+  })).optional(),
   snapshot_retention_limit: z.number().optional(),
   snapshot_window: z.string().optional(),
   sns_topic_arn: z.string().optional(),
+  subnet_group_name: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   tls_enabled: z.boolean().optional(),
 })
@@ -69,6 +69,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_cluster
 
 export function DataAwsMemorydbCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,8 +90,8 @@ export function DataAwsMemorydbCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbCluster, node, id)
+export const useDataAwsMemorydbCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMemorydbCluster, idFilter, baseNode)
 
-export const useDataAwsMemorydbClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbCluster, node, id)
+export const useDataAwsMemorydbClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsMemorydbCluster, idFilter, baseNode)

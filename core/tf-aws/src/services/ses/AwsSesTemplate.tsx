@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_template
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   subject: resolvableValue(z.string().optional()),
   text: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_template
 
 export function AwsSesTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsSesTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesTemplate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesTemplate, node, id)
+export const useAwsSesTemplate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSesTemplate, idFilter, baseNode)
 
-export const useAwsSesTemplates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesTemplate, node, id)
+export const useAwsSesTemplates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSesTemplate, idFilter, baseNode)

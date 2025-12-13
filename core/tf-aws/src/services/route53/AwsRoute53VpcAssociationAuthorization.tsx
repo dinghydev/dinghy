@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_vpc_association_authorization
 
 export const InputSchema = z.object({
   vpc_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_vpc_association_authorization
 
 export function AwsRoute53VpcAssociationAuthorization(
   props: Partial<InputProps>,
@@ -55,11 +57,21 @@ export function AwsRoute53VpcAssociationAuthorization(
 }
 
 export const useAwsRoute53VpcAssociationAuthorization = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsRoute53VpcAssociationAuthorization, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53VpcAssociationAuthorization,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRoute53VpcAssociationAuthorizations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsRoute53VpcAssociationAuthorization, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53VpcAssociationAuthorization,
+    idFilter,
+    baseNode,
+  )

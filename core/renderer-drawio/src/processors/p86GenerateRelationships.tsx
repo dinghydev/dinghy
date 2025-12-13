@@ -8,9 +8,9 @@ import { deepResolve } from '@dinghy/base-components'
 import { absLeft, absTop } from '../utils.ts'
 
 function resolveElementProps({
-  _props: { _node, _diagram },
+  _props: { _diagram },
 }: DrawioNodeTree): ElementProps {
-  return deepResolve(_node, _diagram.dependency)
+  return deepResolve(_diagram.dependency)
 }
 
 const resolvePoint = (node: DrawioNodeTree, point: Point) => {
@@ -49,9 +49,9 @@ const createPoints = (node: DrawioNodeTree, points: Point[]) => {
 }
 
 function resolveGeometryProps({
-  _props: { _node, _diagram },
+  _props: { _diagram },
 }: DrawioNodeTree): ElementProps {
-  return deepResolve(_node, _diagram.geometry)
+  return deepResolve(_diagram.geometry)
 }
 
 function generate(context: DrawioContext, _node: DrawioNodeTree) {
@@ -64,7 +64,7 @@ function generate(context: DrawioContext, _node: DrawioNodeTree) {
     mxGeometry.props.children = createPoints(_node, points)
   }
   const mxCell = { type: 'mxCell', props: resolveElementProps(_node) }
-  deepResolve(_node, _node._props, 'title')
+  deepResolve(_node._props, 'title')
   if (_node._props.title !== 'Dependency') {
     mxCell.props.value = _node._props.title
   }

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_dedicated_ip_pool
 
 export const InputSchema = z.object({
   pool_name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   scaling_mode: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_dedicated_ip_pool
 
 export function AwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,10 @@ export function AwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2DedicatedIpPool = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesv2DedicatedIpPool, node, id)
+export const useAwsSesv2DedicatedIpPool = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSesv2DedicatedIpPool, idFilter, baseNode)
 
-export const useAwsSesv2DedicatedIpPools = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesv2DedicatedIpPool, node, id)
+export const useAwsSesv2DedicatedIpPools = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSesv2DedicatedIpPool, idFilter, baseNode)

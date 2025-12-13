@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_browser
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,12 +16,20 @@ export const InputSchema = z.object({
   network_configuration: resolvableValue(
     z.object({
       network_mode: z.string(),
-    }).optional(),
+      vpc_config: z.object({
+        security_groups: z.string().array(),
+        subnets: z.string().array(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   recording: resolvableValue(
     z.object({
       enabled: z.boolean().optional(),
-    }).optional(),
+      s3_location: z.object({
+        bucket: z.string(),
+        prefix: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -32,7 +39,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   browser_arn: z.string().optional(),
@@ -47,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_browser
 
 export function AwsBedrockagentcoreBrowser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +75,12 @@ export function AwsBedrockagentcoreBrowser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentcoreBrowser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentcoreBrowser, node, id)
+export const useAwsBedrockagentcoreBrowser = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsBedrockagentcoreBrowser, idFilter, baseNode)
 
-export const useAwsBedrockagentcoreBrowsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentcoreBrowser, node, id)
+export const useAwsBedrockagentcoreBrowsers = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBedrockagentcoreBrowser, idFilter, baseNode)

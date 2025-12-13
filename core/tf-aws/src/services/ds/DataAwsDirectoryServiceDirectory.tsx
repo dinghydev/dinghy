@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDirectoryServiceDirectory } from './AwsDirectoryServiceDirectory.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/directory_service_directory
 
 export const InputSchema = z.object({
   connect_settings: resolvableValue(
@@ -42,13 +41,13 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_url: z.string().optional(),
   alias: z.string().optional(),
   description: z.string().optional(),
-  dns_ip_addresses: z.string().array().optional(),
+  dns_ip_addresses: z.set(z.string()).optional(),
   edition: z.string().optional(),
   enable_sso: z.boolean().optional(),
   name: z.string().optional(),
@@ -66,6 +65,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/directory_service_directory
 
 export function DataAwsDirectoryServiceDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +86,22 @@ export function DataAwsDirectoryServiceDirectory(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDirectoryServiceDirectory = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDirectoryServiceDirectory, node, id)
+export const useDataAwsDirectoryServiceDirectory = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDirectoryServiceDirectory,
+    idFilter,
+    baseNode,
+  )
 
-export const useDataAwsDirectoryServiceDirectorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDirectoryServiceDirectory, node, id)
+export const useDataAwsDirectoryServiceDirectorys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDirectoryServiceDirectory,
+    idFilter,
+    baseNode,
+  )

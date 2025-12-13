@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appstream_image
 
 export const InputSchema = z.object({
   applications: resolvableValue(
@@ -40,12 +39,13 @@ export const InputSchema = z.object({
       message: z.string(),
     }).array(),
   ),
+  arn: resolvableValue(z.string().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
   name: resolvableValue(z.string().optional()),
   name_regex: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   appstream_agent_version: z.string().optional(),
@@ -71,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appstream_image
 
 export function DataAwsAppstreamImage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -89,8 +92,8 @@ export function DataAwsAppstreamImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppstreamImage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppstreamImage, node, id)
+export const useDataAwsAppstreamImage = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsAppstreamImage, idFilter, baseNode)
 
-export const useDataAwsAppstreamImages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppstreamImage, node, id)
+export const useDataAwsAppstreamImages = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsAppstreamImage, idFilter, baseNode)

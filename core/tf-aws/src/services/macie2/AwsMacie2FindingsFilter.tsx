@@ -3,16 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_findings_filter
-
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
   finding_criteria: resolvableValue(z.object({
     criterion: z.object({
       eq: z.string().array().optional(),
@@ -25,6 +23,7 @@ export const InputSchema = z.object({
       neq: z.string().array().optional(),
     }).array().optional(),
   })),
+  description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   position: resolvableValue(z.number().optional()),
@@ -35,7 +34,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_findings_filter
 
 export function AwsMacie2FindingsFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,10 @@ export function AwsMacie2FindingsFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2FindingsFilter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMacie2FindingsFilter, node, id)
+export const useAwsMacie2FindingsFilter = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMacie2FindingsFilter, idFilter, baseNode)
 
-export const useAwsMacie2FindingsFilters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMacie2FindingsFilter, node, id)
+export const useAwsMacie2FindingsFilters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsMacie2FindingsFilter, idFilter, baseNode)

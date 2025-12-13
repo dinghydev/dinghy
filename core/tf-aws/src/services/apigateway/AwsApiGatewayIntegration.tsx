@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_integration
 
 export const InputSchema = z.object({
   http_method: resolvableValue(z.string()),
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   uri: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -49,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_integration
 
 export function AwsApiGatewayIntegration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +69,12 @@ export function AwsApiGatewayIntegration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayIntegration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayIntegration, node, id)
+export const useAwsApiGatewayIntegration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsApiGatewayIntegration, idFilter, baseNode)
 
-export const useAwsApiGatewayIntegrations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayIntegration, node, id)
+export const useAwsApiGatewayIntegrations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsApiGatewayIntegration, idFilter, baseNode)

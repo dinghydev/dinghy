@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_vpc_association
 
 export const InputSchema = z.object({
   service_network_identifier: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_vpc_association
 
 export function AwsVpclatticeServiceNetworkVpcAssociation(
   props: Partial<InputProps>,
@@ -61,17 +63,21 @@ export function AwsVpclatticeServiceNetworkVpcAssociation(
 }
 
 export const useAwsVpclatticeServiceNetworkVpcAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsVpclatticeServiceNetworkVpcAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsVpclatticeServiceNetworkVpcAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpclatticeServiceNetworkVpcAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeServiceNetworkVpcAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

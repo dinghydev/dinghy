@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_subscriber
 
 export const InputSchema = z.object({
   access_type: resolvableValue(z.string().optional()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
       aws_log_source_resource: z.object({
         source_name: z.string(),
         source_version: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
       custom_log_source_resource: z.object({
         attributes: z.object({
           crawler_arn: z.string(),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
         }).array(),
         source_name: z.string(),
         source_version: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   subscriber_description: resolvableValue(z.string().optional()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
     z.object({
       external_id: z.string(),
       principal: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   subscriber_name: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -50,7 +49,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -71,6 +70,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_subscriber
 
 export function AwsSecuritylakeSubscriber(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -89,8 +91,12 @@ export function AwsSecuritylakeSubscriber(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecuritylakeSubscriber = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecuritylakeSubscriber, node, id)
+export const useAwsSecuritylakeSubscriber = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSecuritylakeSubscriber, idFilter, baseNode)
 
-export const useAwsSecuritylakeSubscribers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecuritylakeSubscriber, node, id)
+export const useAwsSecuritylakeSubscribers = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSecuritylakeSubscriber, idFilter, baseNode)

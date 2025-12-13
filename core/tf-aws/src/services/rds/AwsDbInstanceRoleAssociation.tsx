@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_role_association
 
 export const InputSchema = z.object({
   db_instance_identifier: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_role_association
 
 export function AwsDbInstanceRoleAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,13 @@ export function AwsDbInstanceRoleAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbInstanceRoleAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbInstanceRoleAssociation, node, id)
+export const useAwsDbInstanceRoleAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDbInstanceRoleAssociation, idFilter, baseNode)
 
-export const useAwsDbInstanceRoleAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbInstanceRoleAssociation, node, id)
+export const useAwsDbInstanceRoleAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDbInstanceRoleAssociation, idFilter, baseNode)

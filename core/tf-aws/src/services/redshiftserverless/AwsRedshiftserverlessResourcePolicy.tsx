@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_resource_policy
-
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_resource_policy
 
 export function AwsRedshiftserverlessResourcePolicy(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsRedshiftserverlessResourcePolicy(
 }
 
 export const useAwsRedshiftserverlessResourcePolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsRedshiftserverlessResourcePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftserverlessResourcePolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRedshiftserverlessResourcePolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsRedshiftserverlessResourcePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftserverlessResourcePolicy,
+    idFilter,
+    baseNode,
+  )

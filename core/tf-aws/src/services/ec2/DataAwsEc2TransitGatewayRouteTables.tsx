@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_tables
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_tables
 
 export function DataAwsEc2TransitGatewayRouteTables(
   props: Partial<InputProps>,
@@ -58,6 +60,11 @@ export function DataAwsEc2TransitGatewayRouteTables(
 }
 
 export const useDataAwsEc2TransitGatewayRouteTabless = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsEc2TransitGatewayRouteTables, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2TransitGatewayRouteTables,
+    idFilter,
+    baseNode,
+  )

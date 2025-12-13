@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53ResolverQueryLogConfig } from './AwsRoute53ResolverQueryLogConfig.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_query_log_config
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   resolver_query_log_config_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_query_log_config
 
 export function DataAwsRoute53ResolverQueryLogConfig(
   props: Partial<InputProps>,
@@ -59,11 +61,21 @@ export function DataAwsRoute53ResolverQueryLogConfig(
 }
 
 export const useDataAwsRoute53ResolverQueryLogConfig = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsRoute53ResolverQueryLogConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRoute53ResolverQueryLogConfig,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsRoute53ResolverQueryLogConfigs = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRoute53ResolverQueryLogConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53ResolverQueryLogConfig,
+    idFilter,
+    baseNode,
+  )

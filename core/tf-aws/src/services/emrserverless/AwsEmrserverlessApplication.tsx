@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emrserverless_application
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -34,6 +33,14 @@ export const InputSchema = z.object({
   initial_capacity: resolvableValue(
     z.object({
       initial_capacity_type: z.string(),
+      initial_capacity_config: z.object({
+        worker_count: z.number(),
+        worker_configuration: z.object({
+          cpu: z.string(),
+          disk: z.string().optional(),
+          memory: z.string(),
+        }).optional(),
+      }).optional(),
     }).array().optional(),
   ),
   interactive_configuration: resolvableValue(
@@ -56,6 +63,10 @@ export const InputSchema = z.object({
         encryption_key_arn: z.string().optional(),
         log_group_name: z.string().optional(),
         log_stream_name_prefix: z.string().optional(),
+        log_types: z.object({
+          name: z.string(),
+          values: z.string().array(),
+        }).array().optional(),
       }).optional(),
       managed_persistence_monitoring_configuration: z.object({
         enabled: z.boolean().optional(),
@@ -81,7 +92,7 @@ export const InputSchema = z.object({
     z.object({
       classification: z.string(),
       properties: z.record(z.string(), z.string()).optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   scheduler_configuration: resolvableValue(
     z.object({
@@ -90,7 +101,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -105,6 +116,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emrserverless_application
 
 export function AwsEmrserverlessApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -123,8 +137,12 @@ export function AwsEmrserverlessApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrserverlessApplication = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrserverlessApplication, node, id)
+export const useAwsEmrserverlessApplication = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEmrserverlessApplication, idFilter, baseNode)
 
-export const useAwsEmrserverlessApplications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrserverlessApplication, node, id)
+export const useAwsEmrserverlessApplications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEmrserverlessApplication, idFilter, baseNode)

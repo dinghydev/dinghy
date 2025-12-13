@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_user_settings_association
-
 export const InputSchema = z.object({
   portal_arn: resolvableValue(z.string()),
   user_settings_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_user_settings_association
 
 export function AwsWorkspaceswebUserSettingsAssociation(
   props: Partial<InputProps>,
@@ -46,13 +48,21 @@ export function AwsWorkspaceswebUserSettingsAssociation(
 }
 
 export const useAwsWorkspaceswebUserSettingsAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebUserSettingsAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebUserSettingsAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsWorkspaceswebUserSettingsAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebUserSettingsAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebUserSettingsAssociation,
+    idFilter,
+    baseNode,
+  )

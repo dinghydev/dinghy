@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_organization_configuration
 
 export const InputSchema = z.object({
   auto_enable: resolvableValue(z.boolean()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_organization_configuration
 
 export function AwsSecurityhubOrganizationConfiguration(
   props: Partial<InputProps>,
@@ -60,13 +62,21 @@ export function AwsSecurityhubOrganizationConfiguration(
 }
 
 export const useAwsSecurityhubOrganizationConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsSecurityhubOrganizationConfiguration, node, id)
+  useTypedNode<OutputProps>(
+    AwsSecurityhubOrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSecurityhubOrganizationConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubOrganizationConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubOrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )

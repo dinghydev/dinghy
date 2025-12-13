@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_group
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -26,6 +25,10 @@ export const InputSchema = z.object({
   capacity_reservation_specification: resolvableValue(
     z.object({
       capacity_reservation_preference: z.string().optional(),
+      capacity_reservation_target: z.object({
+        capacity_reservation_ids: z.string().array().optional(),
+        capacity_reservation_resource_group_arns: z.string().array().optional(),
+      }).optional(),
     }).optional(),
   ),
   context: resolvableValue(z.string().optional()),
@@ -61,6 +64,20 @@ export const InputSchema = z.object({
     z.object({
       strategy: z.string(),
       triggers: z.string().array().optional(),
+      preferences: z.object({
+        auto_rollback: z.boolean().optional(),
+        checkpoint_delay: z.string().optional(),
+        checkpoint_percentages: z.number().array().optional(),
+        instance_warmup: z.string().optional(),
+        max_healthy_percentage: z.number().optional(),
+        min_healthy_percentage: z.number().optional(),
+        scale_in_protected_instances: z.string().optional(),
+        skip_matching: z.boolean().optional(),
+        standby_instances: z.string().optional(),
+        alarm_specification: z.object({
+          alarms: z.string().array().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
   ),
   launch_configuration: resolvableValue(z.string().optional()),
@@ -94,7 +111,67 @@ export const InputSchema = z.object({
         override: z.object({
           instance_type: z.string().optional(),
           weighted_capacity: z.string().optional(),
-        }).optional(),
+          instance_requirements: z.object({
+            accelerator_manufacturers: z.string().array().optional(),
+            accelerator_names: z.string().array().optional(),
+            accelerator_types: z.string().array().optional(),
+            allowed_instance_types: z.string().array().optional(),
+            bare_metal: z.string().optional(),
+            burstable_performance: z.string().optional(),
+            cpu_manufacturers: z.string().array().optional(),
+            excluded_instance_types: z.string().array().optional(),
+            instance_generations: z.string().array().optional(),
+            local_storage: z.string().optional(),
+            local_storage_types: z.string().array().optional(),
+            max_spot_price_as_percentage_of_optimal_on_demand_price: z.number()
+              .optional(),
+            on_demand_max_price_percentage_over_lowest_price: z.number()
+              .optional(),
+            require_hibernate_support: z.boolean().optional(),
+            spot_max_price_percentage_over_lowest_price: z.number().optional(),
+            accelerator_count: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            accelerator_total_memory_mib: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            baseline_ebs_bandwidth_mbps: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            memory_gib_per_vcpu: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            memory_mib: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            network_bandwidth_gbps: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            network_interface_count: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            total_local_storage_gb: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+            vcpu_count: z.object({
+              max: z.number().optional(),
+              min: z.number().optional(),
+            }).optional(),
+          }).optional(),
+          launch_template_specification: z.object({
+            launch_template_id: z.string().optional(),
+            launch_template_name: z.string().optional(),
+            version: z.string().optional(),
+          }).optional(),
+        }).array().optional(),
       }),
     }).optional(),
   ),
@@ -134,9 +211,12 @@ export const InputSchema = z.object({
       max_group_prepared_capacity: z.number().optional(),
       min_size: z.number().optional(),
       pool_state: z.string().optional(),
+      instance_reuse_policy: z.object({
+        reuse_on_scale_in: z.boolean().optional(),
+      }).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -147,6 +227,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_group
 
 export function AwsAutoscalingGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -165,8 +248,8 @@ export function AwsAutoscalingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingGroup, node, id)
+export const useAwsAutoscalingGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode)
 
-export const useAwsAutoscalingGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingGroup, node, id)
+export const useAwsAutoscalingGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode)

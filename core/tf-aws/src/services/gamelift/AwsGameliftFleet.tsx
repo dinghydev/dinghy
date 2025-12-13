@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/gamelift_fleet
 
 export const InputSchema = z.object({
   ec2_instance_type: resolvableValue(z.string()),
@@ -44,6 +43,11 @@ export const InputSchema = z.object({
     z.object({
       game_session_activation_timeout_seconds: z.number().optional(),
       max_concurrent_game_session_activations: z.number().optional(),
+      server_process: z.object({
+        concurrent_executions: z.number(),
+        launch_path: z.string(),
+        parameters: z.string().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   script_id: resolvableValue(z.string().optional()),
@@ -54,7 +58,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -72,6 +76,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/gamelift_fleet
 
 export function AwsGameliftFleet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -90,8 +97,8 @@ export function AwsGameliftFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGameliftFleet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGameliftFleet, node, id)
+export const useAwsGameliftFleet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGameliftFleet, idFilter, baseNode)
 
-export const useAwsGameliftFleets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGameliftFleet, node, id)
+export const useAwsGameliftFleets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGameliftFleet, idFilter, baseNode)

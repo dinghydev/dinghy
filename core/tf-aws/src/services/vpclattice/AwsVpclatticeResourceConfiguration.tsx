@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_resource_configuration
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -24,15 +23,15 @@ export const InputSchema = z.object({
     z.object({
       arn_resource: z.object({
         arn: z.string(),
-      }).optional(),
+      }).array().optional(),
       dns_resource: z.object({
         domain_name: z.string(),
         ip_address_type: z.string(),
-      }).optional(),
+      }).array().optional(),
       ip_resource: z.object({
         ip_address: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   resource_configuration_group_id: resolvableValue(z.string().optional()),
   resource_gateway_identifier: resolvableValue(z.string().optional()),
@@ -45,7 +44,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -62,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_resource_configuration
 
 export function AwsVpclatticeResourceConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -81,11 +83,21 @@ export function AwsVpclatticeResourceConfiguration(props: Partial<InputProps>) {
 }
 
 export const useAwsVpclatticeResourceConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpclatticeResourceConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpclatticeResourceConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpclatticeResourceConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsVpclatticeResourceConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpclatticeResourceConfiguration,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_notification
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       filter_suffix: z.string().optional(),
       id: z.string().optional(),
       lambda_function_arn: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   queue: resolvableValue(
     z.object({
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       filter_suffix: z.string().optional(),
       id: z.string().optional(),
       queue_arn: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   topic: resolvableValue(
@@ -40,9 +39,9 @@ export const InputSchema = z.object({
       filter_suffix: z.string().optional(),
       id: z.string().optional(),
       topic_arn: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_notification
 
 export function AwsS3BucketNotification(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +81,10 @@ export function AwsS3BucketNotification(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketNotification = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketNotification, node, id)
+export const useAwsS3BucketNotification = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsS3BucketNotification, idFilter, baseNode)
 
-export const useAwsS3BucketNotifications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketNotification, node, id)
+export const useAwsS3BucketNotifications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsS3BucketNotification, idFilter, baseNode)

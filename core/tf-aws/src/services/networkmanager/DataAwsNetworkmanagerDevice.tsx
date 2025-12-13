@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsNetworkmanagerDevice } from './AwsNetworkmanagerDevice.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_device
-
 export const InputSchema = z.object({
   device_id: resolvableValue(z.string()),
   global_network_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_device
 
 export function DataAwsNetworkmanagerDevice(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,12 @@ export function DataAwsNetworkmanagerDevice(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNetworkmanagerDevice = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsNetworkmanagerDevice, node, id)
+export const useDataAwsNetworkmanagerDevice = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsNetworkmanagerDevice, idFilter, baseNode)
 
-export const useDataAwsNetworkmanagerDevices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsNetworkmanagerDevice, node, id)
+export const useDataAwsNetworkmanagerDevices = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsNetworkmanagerDevice, idFilter, baseNode)

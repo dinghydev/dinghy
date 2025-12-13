@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_global_replication_group
 
 export const InputSchema = z.object({
   global_replication_group_id_suffix: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,10 +35,10 @@ export const OutputSchema = z.object({
   auth_token_enabled: z.boolean().optional(),
   cluster_enabled: z.boolean().optional(),
   engine_version_actual: z.string().optional(),
-  global_node_groups: z.object({
+  global_node_groups: z.set(z.object({
     global_node_group_id: z.string(),
     slots: z.string(),
-  }).array().optional(),
+  })).optional(),
   global_replication_group_id: z.string().optional(),
   id: z.string().optional(),
   transit_encryption_enabled: z.boolean().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_global_replication_group
 
 export function AwsElasticacheGlobalReplicationGroup(
   props: Partial<InputProps>,
@@ -73,11 +75,21 @@ export function AwsElasticacheGlobalReplicationGroup(
 }
 
 export const useAwsElasticacheGlobalReplicationGroup = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsElasticacheGlobalReplicationGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElasticacheGlobalReplicationGroup,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsElasticacheGlobalReplicationGroups = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsElasticacheGlobalReplicationGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElasticacheGlobalReplicationGroup,
+    idFilter,
+    baseNode,
+  )

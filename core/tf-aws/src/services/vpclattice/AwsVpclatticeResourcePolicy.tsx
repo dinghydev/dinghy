@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_resource_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_resource_policy
 
 export function AwsVpclatticeResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,12 @@ export function AwsVpclatticeResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpclatticeResourcePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpclatticeResourcePolicy, node, id)
+export const useAwsVpclatticeResourcePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVpclatticeResourcePolicy, idFilter, baseNode)
 
-export const useAwsVpclatticeResourcePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpclatticeResourcePolicy, node, id)
+export const useAwsVpclatticeResourcePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVpclatticeResourcePolicy, idFilter, baseNode)

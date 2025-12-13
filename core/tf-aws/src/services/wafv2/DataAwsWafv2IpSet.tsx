@@ -2,22 +2,21 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafv2IpSet } from './AwsWafv2IpSet.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafv2_ip_set
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  addresses: z.string().array().optional(),
+  addresses: z.set(z.string()).optional(),
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafv2_ip_set
 
 export function DataAwsWafv2IpSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function DataAwsWafv2IpSet(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafv2IpSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafv2IpSet, node, id)
+export const useDataAwsWafv2IpSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsWafv2IpSet, idFilter, baseNode)
 
-export const useDataAwsWafv2IpSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafv2IpSet, node, id)
+export const useDataAwsWafv2IpSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsWafv2IpSet, idFilter, baseNode)

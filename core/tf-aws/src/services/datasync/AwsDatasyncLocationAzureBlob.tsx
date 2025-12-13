@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_azure_blob
 
 export const InputSchema = z.object({
   agent_arns: resolvableValue(z.string().array()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   ),
   subdirectory: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_azure_blob
 
 export function AwsDatasyncLocationAzureBlob(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,13 @@ export function AwsDatasyncLocationAzureBlob(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationAzureBlob = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationAzureBlob, node, id)
+export const useAwsDatasyncLocationAzureBlob = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDatasyncLocationAzureBlob, idFilter, baseNode)
 
-export const useAwsDatasyncLocationAzureBlobs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationAzureBlob, node, id)
+export const useAwsDatasyncLocationAzureBlobs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDatasyncLocationAzureBlob, idFilter, baseNode)

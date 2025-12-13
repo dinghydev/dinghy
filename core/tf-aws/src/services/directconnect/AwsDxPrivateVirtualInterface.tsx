@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_private_virtual_interface
 
 export const InputSchema = z.object({
   address_family: resolvableValue(z.string()),
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpn_gateway_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_private_virtual_interface
 
 export function AwsDxPrivateVirtualInterface(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,13 @@ export function AwsDxPrivateVirtualInterface(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxPrivateVirtualInterface = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxPrivateVirtualInterface, node, id)
+export const useAwsDxPrivateVirtualInterface = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDxPrivateVirtualInterface, idFilter, baseNode)
 
-export const useAwsDxPrivateVirtualInterfaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxPrivateVirtualInterface, node, id)
+export const useAwsDxPrivateVirtualInterfaces = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDxPrivateVirtualInterface, idFilter, baseNode)

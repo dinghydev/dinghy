@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_metadata_defaults
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   http_tokens: resolvableValue(z.string().optional()),
   instance_metadata_tags: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_metadata_defaults
 
 export function AwsEc2InstanceMetadataDefaults(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,5 +47,8 @@ export function AwsEc2InstanceMetadataDefaults(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2InstanceMetadataDefaultss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2InstanceMetadataDefaults, node, id)
+export const useAwsEc2InstanceMetadataDefaultss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2InstanceMetadataDefaults, idFilter, baseNode)

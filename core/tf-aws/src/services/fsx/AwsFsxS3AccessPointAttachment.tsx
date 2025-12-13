@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_s3_access_point_attachment
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,13 +15,24 @@ export const InputSchema = z.object({
   openzfs_configuration: resolvableValue(
     z.object({
       volume_id: z.string(),
-    }).optional(),
+      file_system_identity: z.object({
+        type: z.string(),
+        posix_user: z.object({
+          gid: z.number(),
+          secondary_gids: z.number().array().optional(),
+          uid: z.number(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   s3_access_point: resolvableValue(
     z.object({
       policy: z.string().optional(),
-    }).optional(),
+      vpc_configuration: z.object({
+        vpc_id: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -30,7 +40,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   s3_access_point_alias: z.string().optional(),
@@ -44,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_s3_access_point_attachment
 
 export function AwsFsxS3AccessPointAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +75,14 @@ export function AwsFsxS3AccessPointAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxS3AccessPointAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxS3AccessPointAttachment, node, id)
+export const useAwsFsxS3AccessPointAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsFsxS3AccessPointAttachment, idFilter, baseNode)
 
-export const useAwsFsxS3AccessPointAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxS3AccessPointAttachment, node, id)
+export const useAwsFsxS3AccessPointAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsFsxS3AccessPointAttachment, idFilter, baseNode)

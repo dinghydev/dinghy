@@ -3,18 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_human_task_ui
-
 export const InputSchema = z.object({
   human_task_ui_name: resolvableValue(z.string()),
+  ui_template: resolvableValue(z.object({
+    content: z.string().optional(),
+    content_sha256: z.string(),
+    url: z.string(),
+  })),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_human_task_ui
 
 export function AwsSagemakerHumanTaskUi(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +59,10 @@ export function AwsSagemakerHumanTaskUi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerHumanTaskUi = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerHumanTaskUi, node, id)
+export const useAwsSagemakerHumanTaskUi = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerHumanTaskUi, idFilter, baseNode)
 
-export const useAwsSagemakerHumanTaskUis = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerHumanTaskUi, node, id)
+export const useAwsSagemakerHumanTaskUis = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSagemakerHumanTaskUi, idFilter, baseNode)

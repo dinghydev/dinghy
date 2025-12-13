@@ -3,21 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_connect_attachment
-
 export const InputSchema = z.object({
   core_network_id: resolvableValue(z.string()),
   edge_location: resolvableValue(z.string()),
-  transport_attachment_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
   options: resolvableValue(z.object({
     protocol: z.string().optional(),
   })),
+  transport_attachment_id: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_connect_attachment
 
 export function AwsNetworkmanagerConnectAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,11 +68,21 @@ export function AwsNetworkmanagerConnectAttachment(props: Partial<InputProps>) {
 }
 
 export const useAwsNetworkmanagerConnectAttachment = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsNetworkmanagerConnectAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerConnectAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkmanagerConnectAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsNetworkmanagerConnectAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerConnectAttachment,
+    idFilter,
+    baseNode,
+  )

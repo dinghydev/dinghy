@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpointsmsvoicev2_configuration_set
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   default_sender_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpointsmsvoicev2_configuration_set
 
 export function AwsPinpointsmsvoicev2ConfigurationSet(
   props: Partial<InputProps>,
@@ -52,11 +54,21 @@ export function AwsPinpointsmsvoicev2ConfigurationSet(
 }
 
 export const useAwsPinpointsmsvoicev2ConfigurationSet = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsPinpointsmsvoicev2ConfigurationSet, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointsmsvoicev2ConfigurationSet,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsPinpointsmsvoicev2ConfigurationSets = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsPinpointsmsvoicev2ConfigurationSet, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointsmsvoicev2ConfigurationSet,
+    idFilter,
+    baseNode,
+  )

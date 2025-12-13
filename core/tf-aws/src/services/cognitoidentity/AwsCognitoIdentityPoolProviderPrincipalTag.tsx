@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool_provider_principal_tag
 
 export const InputSchema = z.object({
   identity_pool_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   principal_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   region: resolvableValue(z.string().optional()),
   use_defaults: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool_provider_principal_tag
 
 export function AwsCognitoIdentityPoolProviderPrincipalTag(
   props: Partial<InputProps>,
@@ -49,21 +51,21 @@ export function AwsCognitoIdentityPoolProviderPrincipalTag(
 }
 
 export const useAwsCognitoIdentityPoolProviderPrincipalTag = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsCognitoIdentityPoolProviderPrincipalTag,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsCognitoIdentityPoolProviderPrincipalTags = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCognitoIdentityPoolProviderPrincipalTag,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

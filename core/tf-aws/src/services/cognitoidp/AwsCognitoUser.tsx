@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user
 
 export const InputSchema = z.object({
   creation_date: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   temporary_password: resolvableValue(z.string().optional()),
   validation_data: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   status: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user
 
 export function AwsCognitoUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,8 @@ export function AwsCognitoUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoUser, node, id)
+export const useAwsCognitoUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCognitoUser, idFilter, baseNode)
 
-export const useAwsCognitoUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoUser, node, id)
+export const useAwsCognitoUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCognitoUser, idFilter, baseNode)

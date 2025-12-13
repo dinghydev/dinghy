@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppconfigConfigurationProfile } from './AwsAppconfigConfigurationProfile.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appconfig_configuration_profile
-
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
   configuration_profile_id: resolvableValue(z.string()),
   kms_key_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -26,10 +25,10 @@ export const OutputSchema = z.object({
   retrieval_role_arn: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
-  validator: z.object({
+  validator: z.set(z.object({
     content: z.string(),
     type: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appconfig_configuration_profile
 
 export function DataAwsAppconfigConfigurationProfile(
   props: Partial<InputProps>,
@@ -60,11 +62,21 @@ export function DataAwsAppconfigConfigurationProfile(
 }
 
 export const useDataAwsAppconfigConfigurationProfile = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsAppconfigConfigurationProfile, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAppconfigConfigurationProfile,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsAppconfigConfigurationProfiles = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsAppconfigConfigurationProfile, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAppconfigConfigurationProfile,
+    idFilter,
+    baseNode,
+  )

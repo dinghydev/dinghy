@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2TransitGateway } from './AwsEc2TransitGateway.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -17,13 +16,14 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   amazon_side_asn: z.number().optional(),
@@ -51,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway
 
 export function DataAwsEc2TransitGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +72,12 @@ export function DataAwsEc2TransitGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2TransitGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2TransitGateway, node, id)
+export const useDataAwsEc2TransitGateway = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsEc2TransitGateway, idFilter, baseNode)
 
-export const useDataAwsEc2TransitGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2TransitGateway, node, id)
+export const useDataAwsEc2TransitGateways = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEc2TransitGateway, idFilter, baseNode)

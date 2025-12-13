@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_trust
 
 export const InputSchema = z.object({
   directory_id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   selective_auth: resolvableValue(z.string().optional()),
   trust_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_date_time: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_trust
 
 export function AwsDirectoryServiceTrust(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,12 @@ export function AwsDirectoryServiceTrust(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDirectoryServiceTrust = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDirectoryServiceTrust, node, id)
+export const useAwsDirectoryServiceTrust = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDirectoryServiceTrust, idFilter, baseNode)
 
-export const useAwsDirectoryServiceTrusts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDirectoryServiceTrust, node, id)
+export const useAwsDirectoryServiceTrusts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDirectoryServiceTrust, idFilter, baseNode)

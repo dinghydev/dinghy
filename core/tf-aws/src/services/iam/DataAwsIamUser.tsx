@@ -1,15 +1,17 @@
 import {
   camelCaseToWords,
   type NodeProps,
+  resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamUser } from './AwsIamUser.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_user
-
-export const InputSchema = z.object({})
+export const InputSchema = z.object({
+  user_name: resolvableValue(z.string()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -28,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_user
 
 export function DataAwsIamUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +51,8 @@ export function DataAwsIamUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamUser, node, id)
+export const useDataAwsIamUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsIamUser, idFilter, baseNode)
 
-export const useDataAwsIamUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamUser, node, id)
+export const useDataAwsIamUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamUser, idFilter, baseNode)

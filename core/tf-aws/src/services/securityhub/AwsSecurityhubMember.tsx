@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_member
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
   email: resolvableValue(z.string().optional()),
   invite: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_member
 
 export function AwsSecurityhubMember(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsSecurityhubMember(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubMember = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubMember, node, id)
+export const useAwsSecurityhubMember = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSecurityhubMember, idFilter, baseNode)
 
-export const useAwsSecurityhubMembers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubMember, node, id)
+export const useAwsSecurityhubMembers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSecurityhubMember, idFilter, baseNode)

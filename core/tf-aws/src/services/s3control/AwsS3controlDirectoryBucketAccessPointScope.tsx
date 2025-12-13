@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_directory_bucket_access_point_scope
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -18,9 +17,9 @@ export const InputSchema = z.object({
     z.object({
       permissions: z.string().array().optional(),
       prefixes: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_directory_bucket_access_point_scope
 
 export function AwsS3controlDirectoryBucketAccessPointScope(
   props: Partial<InputProps>,
@@ -52,21 +54,21 @@ export function AwsS3controlDirectoryBucketAccessPointScope(
 }
 
 export const useAwsS3controlDirectoryBucketAccessPointScope = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlDirectoryBucketAccessPointScope,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsS3controlDirectoryBucketAccessPointScopes = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlDirectoryBucketAccessPointScope,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

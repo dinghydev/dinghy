@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_namespace
 
 export const InputSchema = z.object({
   namespace_name: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   manage_admin_password: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   admin_password_secret_arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_namespace
 
 export function AwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,14 @@ export function AwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftserverlessNamespace = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftserverlessNamespace, node, id)
+export const useAwsRedshiftserverlessNamespace = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRedshiftserverlessNamespace, idFilter, baseNode)
 
-export const useAwsRedshiftserverlessNamespaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftserverlessNamespace, node, id)
+export const useAwsRedshiftserverlessNamespaces = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsRedshiftserverlessNamespace, idFilter, baseNode)

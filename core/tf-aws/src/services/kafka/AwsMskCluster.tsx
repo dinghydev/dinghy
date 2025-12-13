@@ -3,26 +3,55 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_cluster
-
 export const InputSchema = z.object({
-  cluster_name: resolvableValue(z.string()),
-  kafka_version: resolvableValue(z.string()),
-  number_of_broker_nodes: resolvableValue(z.number()),
   broker_node_group_info: resolvableValue(z.object({
     az_distribution: z.string().optional(),
     client_subnets: z.string().array(),
     instance_type: z.string(),
     security_groups: z.string().array(),
+    connectivity_info: z.object({
+      public_access: z.object({
+        type: z.string().optional(),
+      }).optional(),
+      vpc_connectivity: z.object({
+        client_authentication: z.object({
+          tls: z.boolean().optional(),
+          sasl: z.object({
+            iam: z.boolean().optional(),
+            scram: z.boolean().optional(),
+          }).optional(),
+        }).optional(),
+      }).optional(),
+    }).optional(),
+    storage_info: z.object({
+      ebs_storage_info: z.object({
+        volume_size: z.number().optional(),
+        provisioned_throughput: z.object({
+          enabled: z.boolean().optional(),
+          volume_throughput: z.number().optional(),
+        }).optional(),
+      }).optional(),
+    }).optional(),
   })),
+  cluster_name: resolvableValue(z.string()),
+  kafka_version: resolvableValue(z.string()),
+  number_of_broker_nodes: resolvableValue(z.number()),
   client_authentication: resolvableValue(
     z.object({
       unauthenticated: z.boolean().optional(),
+      sasl: z.object({
+        iam: z.boolean().optional(),
+        scram: z.boolean().optional(),
+      }).optional(),
+      tls: z.object({
+        certificate_authority_arns: z.string().array().optional(),
+      }).optional(),
     }).optional(),
   ),
   configuration_info: resolvableValue(
@@ -34,6 +63,10 @@ export const InputSchema = z.object({
   encryption_info: resolvableValue(
     z.object({
       encryption_at_rest_kms_key_arn: z.string().optional(),
+      encryption_in_transit: z.object({
+        client_broker: z.string().optional(),
+        in_cluster: z.boolean().optional(),
+      }).optional(),
     }).optional(),
   ),
   enhanced_monitoring: resolvableValue(z.string().optional()),
@@ -79,7 +112,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -107,6 +140,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_cluster
 
 export function AwsMskCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -125,8 +161,8 @@ export function AwsMskCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskCluster, node, id)
+export const useAwsMskCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMskCluster, idFilter, baseNode)
 
-export const useAwsMskClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskCluster, node, id)
+export const useAwsMskClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMskCluster, idFilter, baseNode)

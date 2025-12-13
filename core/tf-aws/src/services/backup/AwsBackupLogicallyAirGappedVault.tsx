@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_logically_air_gapped_vault
 
 export const InputSchema = z.object({
   max_retention_days: resolvableValue(z.number()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_logically_air_gapped_vault
 
 export function AwsBackupLogicallyAirGappedVault(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,22 @@ export function AwsBackupLogicallyAirGappedVault(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupLogicallyAirGappedVault = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupLogicallyAirGappedVault, node, id)
+export const useAwsBackupLogicallyAirGappedVault = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBackupLogicallyAirGappedVault,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsBackupLogicallyAirGappedVaults = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupLogicallyAirGappedVault, node, id)
+export const useAwsBackupLogicallyAirGappedVaults = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBackupLogicallyAirGappedVault,
+    idFilter,
+    baseNode,
+  )

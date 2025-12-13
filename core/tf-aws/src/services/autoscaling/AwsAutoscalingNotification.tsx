@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_notification
 
 export const InputSchema = z.object({
   group_names: resolvableValue(z.string().array()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   topic_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_notification
 
 export function AwsAutoscalingNotification(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsAutoscalingNotification(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingNotification = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingNotification, node, id)
+export const useAwsAutoscalingNotification = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAutoscalingNotification, idFilter, baseNode)
 
-export const useAwsAutoscalingNotifications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingNotification, node, id)
+export const useAwsAutoscalingNotifications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAutoscalingNotification, idFilter, baseNode)

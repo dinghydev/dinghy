@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_ip_set
 
 export const InputSchema = z.object({
   ip_address_version: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_ip_set
 
 export function AwsWafv2IpSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsWafv2IpSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2IpSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafv2IpSet, node, id)
+export const useAwsWafv2IpSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafv2IpSet, idFilter, baseNode)
 
-export const useAwsWafv2IpSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafv2IpSet, node, id)
+export const useAwsWafv2IpSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafv2IpSet, idFilter, baseNode)

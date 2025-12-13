@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/memorydb_cluster
 
 export const InputSchema = z.object({
   acl_name: resolvableValue(z.string()),
@@ -28,10 +27,12 @@ export const InputSchema = z.object({
   kms_key_arn: resolvableValue(z.string().optional()),
   maintenance_window: resolvableValue(z.string().optional()),
   multi_region_cluster_name: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   num_replicas_per_shard: resolvableValue(z.number().optional()),
   num_shards: resolvableValue(z.number().optional()),
   parameter_group_name: resolvableValue(z.string().optional()),
+  port: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   security_group_ids: resolvableValue(z.string().array().optional()),
   snapshot_arns: resolvableValue(z.string().array().optional()),
@@ -49,7 +50,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tls_enabled: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -57,9 +58,9 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   name: z.string().optional(),
   port: z.number().optional(),
-  shards: z.object({
+  shards: z.set(z.object({
     name: z.string(),
-    nodes: z.object({
+    nodes: z.set(z.object({
       availability_zone: z.string(),
       create_time: z.string(),
       endpoint: z.object({
@@ -67,10 +68,10 @@ export const OutputSchema = z.object({
         port: z.number(),
       }).array(),
       name: z.string(),
-    }).array(),
+    })),
     num_nodes: z.number(),
     slots: z.string(),
-  }).array().optional(),
+  })).optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -81,6 +82,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/memorydb_cluster
 
 export function AwsMemorydbCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -99,8 +103,8 @@ export function AwsMemorydbCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMemorydbCluster, node, id)
+export const useAwsMemorydbCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMemorydbCluster, idFilter, baseNode)
 
-export const useAwsMemorydbClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMemorydbCluster, node, id)
+export const useAwsMemorydbClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMemorydbCluster, idFilter, baseNode)

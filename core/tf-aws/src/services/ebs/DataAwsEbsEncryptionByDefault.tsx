@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEbsEncryptionByDefault } from './AwsEbsEncryptionByDefault.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_encryption_by_default
 
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   enabled: z.boolean().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_encryption_by_default
 
 export function DataAwsEbsEncryptionByDefault(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,14 @@ export function DataAwsEbsEncryptionByDefault(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEbsEncryptionByDefault = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEbsEncryptionByDefault, node, id)
+export const useDataAwsEbsEncryptionByDefault = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsEbsEncryptionByDefault, idFilter, baseNode)
 
-export const useDataAwsEbsEncryptionByDefaults = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEbsEncryptionByDefault, node, id)
+export const useDataAwsEbsEncryptionByDefaults = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEbsEncryptionByDefault, idFilter, baseNode)

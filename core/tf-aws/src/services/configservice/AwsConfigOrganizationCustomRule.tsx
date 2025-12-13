@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_organization_custom_rule
 
 export const InputSchema = z.object({
   lambda_function_arn: resolvableValue(z.string()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_organization_custom_rule
 
 export function AwsConfigOrganizationCustomRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,18 @@ export function AwsConfigOrganizationCustomRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigOrganizationCustomRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigOrganizationCustomRule, node, id)
+export const useAwsConfigOrganizationCustomRule = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsConfigOrganizationCustomRule, idFilter, baseNode)
 
-export const useAwsConfigOrganizationCustomRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConfigOrganizationCustomRule, node, id)
+export const useAwsConfigOrganizationCustomRules = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigOrganizationCustomRule,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_reserved_instance
 
 export const InputSchema = z.object({
   offering_id: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -53,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_reserved_instance
 
 export function AwsRdsReservedInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +73,8 @@ export function AwsRdsReservedInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsReservedInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsReservedInstance, node, id)
+export const useAwsRdsReservedInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRdsReservedInstance, idFilter, baseNode)
 
-export const useAwsRdsReservedInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsReservedInstance, node, id)
+export const useAwsRdsReservedInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRdsReservedInstance, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service_private_dns_verification
 
 export const InputSchema = z.object({
   service_id: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   wait_for_verification: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service_private_dns_verification
 
 export function AwsVpcEndpointServicePrivateDnsVerification(
   props: Partial<InputProps>,
@@ -51,21 +53,21 @@ export function AwsVpcEndpointServicePrivateDnsVerification(
 }
 
 export const useAwsVpcEndpointServicePrivateDnsVerification = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointServicePrivateDnsVerification,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsVpcEndpointServicePrivateDnsVerifications = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointServicePrivateDnsVerification,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

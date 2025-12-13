@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesis_video_stream
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesis_video_stream
 
 export function AwsKinesisVideoStream(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,8 @@ export function AwsKinesisVideoStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKinesisVideoStream = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKinesisVideoStream, node, id)
+export const useAwsKinesisVideoStream = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKinesisVideoStream, idFilter, baseNode)
 
-export const useAwsKinesisVideoStreams = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKinesisVideoStream, node, id)
+export const useAwsKinesisVideoStreams = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKinesisVideoStream, idFilter, baseNode)

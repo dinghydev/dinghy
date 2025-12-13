@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_application_layer_automatic_response
 
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_application_layer_automatic_response
 
 export function AwsShieldApplicationLayerAutomaticResponse(
   props: Partial<InputProps>,
@@ -59,21 +61,21 @@ export function AwsShieldApplicationLayerAutomaticResponse(
 }
 
 export const useAwsShieldApplicationLayerAutomaticResponse = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsShieldApplicationLayerAutomaticResponse,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsShieldApplicationLayerAutomaticResponses = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsShieldApplicationLayerAutomaticResponse,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

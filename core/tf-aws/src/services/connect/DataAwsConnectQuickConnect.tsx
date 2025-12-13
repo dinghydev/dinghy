@@ -2,19 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectQuickConnect } from './AwsConnectQuickConnect.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_quick_connect
-
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
+  quick_connect_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_quick_connect
 
 export function DataAwsConnectQuickConnect(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +66,12 @@ export function DataAwsConnectQuickConnect(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectQuickConnect = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsConnectQuickConnect, node, id)
+export const useDataAwsConnectQuickConnect = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsConnectQuickConnect, idFilter, baseNode)
 
-export const useDataAwsConnectQuickConnects = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsConnectQuickConnect, node, id)
+export const useDataAwsConnectQuickConnects = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsConnectQuickConnect, idFilter, baseNode)

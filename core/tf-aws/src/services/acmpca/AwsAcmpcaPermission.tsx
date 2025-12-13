@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_permission
 
 export const InputSchema = z.object({
   actions: resolvableValue(z.string().array()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   source_account: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   policy: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_permission
 
 export function AwsAcmpcaPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsAcmpcaPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmpcaPermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAcmpcaPermission, node, id)
+export const useAwsAcmpcaPermission = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAcmpcaPermission, idFilter, baseNode)
 
-export const useAwsAcmpcaPermissions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAcmpcaPermission, node, id)
+export const useAwsAcmpcaPermissions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAcmpcaPermission, idFilter, baseNode)

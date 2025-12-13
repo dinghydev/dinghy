@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool_signing_certificate
-
 export const InputSchema = z.object({
   user_pool_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   certificate: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool_signing_certificate
 
 export function DataAwsCognitoUserPoolSigningCertificate(
   props: Partial<InputProps>,
@@ -48,13 +50,21 @@ export function DataAwsCognitoUserPoolSigningCertificate(
 }
 
 export const useDataAwsCognitoUserPoolSigningCertificate = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(DataAwsCognitoUserPoolSigningCertificate, node, id)
+  useTypedNode<OutputProps>(
+    DataAwsCognitoUserPoolSigningCertificate,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCognitoUserPoolSigningCertificates = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsCognitoUserPoolSigningCertificate, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsCognitoUserPoolSigningCertificate,
+    idFilter,
+    baseNode,
+  )

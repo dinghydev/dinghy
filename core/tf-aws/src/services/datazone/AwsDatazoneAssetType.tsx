@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_asset_type
 
 export const InputSchema = z.object({
   domain_identifier: resolvableValue(z.string()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_asset_type
 
 export function AwsDatazoneAssetType(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function AwsDatazoneAssetType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneAssetType = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneAssetType, node, id)
+export const useAwsDatazoneAssetType = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode)
 
-export const useAwsDatazoneAssetTypes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneAssetType, node, id)
+export const useAwsDatazoneAssetTypes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode)

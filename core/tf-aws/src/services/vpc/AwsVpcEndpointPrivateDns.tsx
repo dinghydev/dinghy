@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_private_dns
 
 export const InputSchema = z.object({
   private_dns_enabled: resolvableValue(z.boolean()),
   vpc_endpoint_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_private_dns
 
 export function AwsVpcEndpointPrivateDns(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -42,5 +44,7 @@ export function AwsVpcEndpointPrivateDns(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcEndpointPrivateDnss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcEndpointPrivateDns, node, id)
+export const useAwsVpcEndpointPrivateDnss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVpcEndpointPrivateDns, idFilter, baseNode)

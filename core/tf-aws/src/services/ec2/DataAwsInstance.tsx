@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsInstance } from './AwsInstance.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/instance
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ami: z.string().optional(),
@@ -40,7 +39,7 @@ export const OutputSchema = z.object({
   }).array().optional(),
   disable_api_stop: z.boolean().optional(),
   disable_api_termination: z.boolean().optional(),
-  ebs_block_device: z.object({
+  ebs_block_device: z.set(z.object({
     delete_on_termination: z.boolean(),
     device_name: z.string(),
     encrypted: z.boolean(),
@@ -52,7 +51,7 @@ export const OutputSchema = z.object({
     volume_id: z.string(),
     volume_size: z.number(),
     volume_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   ebs_optimized: z.boolean().optional(),
   enclave_options: z.object({
     enabled: z.boolean(),
@@ -67,7 +66,7 @@ export const OutputSchema = z.object({
   iam_instance_profile: z.string().optional(),
   instance_state: z.string().optional(),
   instance_type: z.string().optional(),
-  ipv6_addresses: z.string().array().optional(),
+  ipv6_addresses: z.set(z.string()).optional(),
   key_name: z.string().optional(),
   launch_time: z.string().optional(),
   maintenance_options: z.object({
@@ -96,7 +95,7 @@ export const OutputSchema = z.object({
   private_ip: z.string().optional(),
   public_dns: z.string().optional(),
   public_ip: z.string().optional(),
-  root_block_device: z.object({
+  root_block_device: z.set(z.object({
     delete_on_termination: z.boolean(),
     device_name: z.string(),
     encrypted: z.boolean(),
@@ -107,16 +106,16 @@ export const OutputSchema = z.object({
     volume_id: z.string(),
     volume_size: z.number(),
     volume_type: z.string(),
-  }).array().optional(),
-  secondary_private_ips: z.string().array().optional(),
-  security_groups: z.string().array().optional(),
+  })).optional(),
+  secondary_private_ips: z.set(z.string()).optional(),
+  security_groups: z.set(z.string()).optional(),
   source_dest_check: z.boolean().optional(),
   subnet_id: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   tenancy: z.string().optional(),
   user_data: z.string().optional(),
   user_data_base64: z.string().optional(),
-  vpc_security_group_ids: z.string().array().optional(),
+  vpc_security_group_ids: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -126,6 +125,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/instance
 
 export function DataAwsInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -144,8 +146,8 @@ export function DataAwsInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsInstance, node, id)
+export const useDataAwsInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsInstance, idFilter, baseNode)
 
-export const useDataAwsInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsInstance, node, id)
+export const useDataAwsInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsInstance, idFilter, baseNode)

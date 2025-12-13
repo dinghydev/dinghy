@@ -3,24 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_classification_job
-
 export const InputSchema = z.object({
   job_arn: resolvableValue(z.string()),
   job_id: resolvableValue(z.string()),
   job_type: resolvableValue(z.string()),
-  custom_data_identifier_ids: resolvableValue(z.string().array().optional()),
-  description: resolvableValue(z.string().optional()),
-  initial_run: resolvableValue(z.boolean().optional()),
-  job_status: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  name_prefix: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   s3_job_definition: resolvableValue(z.object({
     bucket_criteria: z.object({
       excludes: z.object({
@@ -32,8 +24,12 @@ export const InputSchema = z.object({
           }).optional(),
           tag_criterion: z.object({
             comparator: z.string().optional(),
+            tag_values: z.object({
+              key: z.string().optional(),
+              value: z.string().optional(),
+            }).array().optional(),
           }).optional(),
-        }).optional(),
+        }).array().optional(),
       }).optional(),
       includes: z.object({
         and: z.object({
@@ -44,14 +40,18 @@ export const InputSchema = z.object({
           }).optional(),
           tag_criterion: z.object({
             comparator: z.string().optional(),
+            tag_values: z.object({
+              key: z.string().optional(),
+              value: z.string().optional(),
+            }).array().optional(),
           }).optional(),
-        }).optional(),
+        }).array().optional(),
       }).optional(),
     }).optional(),
     bucket_definitions: z.object({
       account_id: z.string(),
       buckets: z.string().array(),
-    }).optional(),
+    }).array().optional(),
     scoping: z.object({
       excludes: z.object({
         and: z.object({
@@ -64,8 +64,12 @@ export const InputSchema = z.object({
             comparator: z.string().optional(),
             key: z.string().optional(),
             target: z.string().optional(),
+            tag_values: z.object({
+              key: z.string().optional(),
+              value: z.string().optional(),
+            }).array().optional(),
           }).optional(),
-        }).optional(),
+        }).array().optional(),
       }).optional(),
       includes: z.object({
         and: z.object({
@@ -78,11 +82,22 @@ export const InputSchema = z.object({
             comparator: z.string().optional(),
             key: z.string().optional(),
             target: z.string().optional(),
+            tag_values: z.object({
+              key: z.string().optional(),
+              value: z.string().optional(),
+            }).array().optional(),
           }).optional(),
-        }).optional(),
+        }).array().optional(),
       }).optional(),
     }).optional(),
   })),
+  custom_data_identifier_ids: resolvableValue(z.string().array().optional()),
+  description: resolvableValue(z.string().optional()),
+  initial_run: resolvableValue(z.boolean().optional()),
+  job_status: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
+  name_prefix: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   sampling_percentage: resolvableValue(z.number().optional()),
   schedule_frequency: resolvableValue(
     z.object({
@@ -98,7 +113,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -118,6 +133,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_classification_job
 
 export function AwsMacie2ClassificationJob(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -136,8 +154,12 @@ export function AwsMacie2ClassificationJob(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2ClassificationJob = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMacie2ClassificationJob, node, id)
+export const useAwsMacie2ClassificationJob = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsMacie2ClassificationJob, idFilter, baseNode)
 
-export const useAwsMacie2ClassificationJobs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMacie2ClassificationJob, node, id)
+export const useAwsMacie2ClassificationJobs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsMacie2ClassificationJob, idFilter, baseNode)

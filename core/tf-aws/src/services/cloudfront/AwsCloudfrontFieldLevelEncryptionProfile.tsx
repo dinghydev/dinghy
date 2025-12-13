@@ -3,23 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_field_level_encryption_profile
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  comment: resolvableValue(z.string().optional()),
   encryption_entities: resolvableValue(z.object({
     items: z.object({
       provider_id: z.string(),
       public_key_id: z.string(),
+      field_patterns: z.object({
+        items: z.string().array().optional(),
+      }),
     }).array().optional(),
   })),
-})
+  name: resolvableValue(z.string()),
+  comment: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_field_level_encryption_profile
 
 export function AwsCloudfrontFieldLevelEncryptionProfile(
   props: Partial<InputProps>,
@@ -56,13 +61,21 @@ export function AwsCloudfrontFieldLevelEncryptionProfile(
 }
 
 export const useAwsCloudfrontFieldLevelEncryptionProfile = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudfrontFieldLevelEncryptionProfile, node, id)
+  useTypedNode<OutputProps>(
+    AwsCloudfrontFieldLevelEncryptionProfile,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudfrontFieldLevelEncryptionProfiles = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontFieldLevelEncryptionProfile, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontFieldLevelEncryptionProfile,
+    idFilter,
+    baseNode,
+  )

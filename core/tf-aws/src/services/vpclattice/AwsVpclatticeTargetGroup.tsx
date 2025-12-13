@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_target_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -21,6 +20,20 @@ export const InputSchema = z.object({
       protocol: z.string().optional(),
       protocol_version: z.string().optional(),
       vpc_identifier: z.string().optional(),
+      health_check: z.object({
+        enabled: z.boolean().optional(),
+        health_check_interval_seconds: z.number().optional(),
+        health_check_timeout_seconds: z.number().optional(),
+        healthy_threshold_count: z.number().optional(),
+        path: z.string().optional(),
+        port: z.number().optional(),
+        protocol: z.string().optional(),
+        protocol_version: z.string().optional(),
+        unhealthy_threshold_count: z.number().optional(),
+        matcher: z.object({
+          value: z.string().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -32,7 +45,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_target_group
 
 export function AwsVpclatticeTargetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +82,12 @@ export function AwsVpclatticeTargetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpclatticeTargetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpclatticeTargetGroup, node, id)
+export const useAwsVpclatticeTargetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVpclatticeTargetGroup, idFilter, baseNode)
 
-export const useAwsVpclatticeTargetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpclatticeTargetGroup, node, id)
+export const useAwsVpclatticeTargetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVpclatticeTargetGroup, idFilter, baseNode)

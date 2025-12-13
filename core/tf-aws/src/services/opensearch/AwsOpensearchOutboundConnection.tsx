@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_outbound_connection
 
 export const InputSchema = z.object({
   connection_alias: resolvableValue(z.string()),
@@ -27,6 +26,9 @@ export const InputSchema = z.object({
   connection_properties: resolvableValue(
     z.object({
       endpoint: z.string(),
+      cross_cluster_search: z.object({
+        skip_unavailable: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -36,7 +38,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   connection_status: z.string().optional(),
@@ -50,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_outbound_connection
 
 export function AwsOpensearchOutboundConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +73,18 @@ export function AwsOpensearchOutboundConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchOutboundConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOpensearchOutboundConnection, node, id)
+export const useAwsOpensearchOutboundConnection = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsOpensearchOutboundConnection, idFilter, baseNode)
 
-export const useAwsOpensearchOutboundConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOpensearchOutboundConnection, node, id)
+export const useAwsOpensearchOutboundConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOpensearchOutboundConnection,
+    idFilter,
+    baseNode,
+  )

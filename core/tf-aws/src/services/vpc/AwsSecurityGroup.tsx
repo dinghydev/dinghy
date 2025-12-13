@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/security_group
 
 export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
@@ -50,7 +49,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -73,6 +72,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/security_group
 
 export function AwsSecurityGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -92,8 +94,8 @@ export function AwsSecurityGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityGroup, node, id)
+export const useAwsSecurityGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSecurityGroup, idFilter, baseNode)
 
-export const useAwsSecurityGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecurityGroup, node, id)
+export const useAwsSecurityGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSecurityGroup, idFilter, baseNode)

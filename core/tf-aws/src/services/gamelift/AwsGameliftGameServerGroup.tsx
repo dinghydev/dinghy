@@ -3,21 +3,28 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/gamelift_game_server_group
-
 export const InputSchema = z.object({
   game_server_group_name: resolvableValue(z.string()),
+  launch_template: resolvableValue(z.object({
+    id: z.string().optional(),
+    name: z.string().optional(),
+    version: z.string().optional(),
+  })),
   max_size: resolvableValue(z.number()),
   min_size: resolvableValue(z.number()),
   role_arn: resolvableValue(z.string()),
   auto_scaling_policy: resolvableValue(
     z.object({
       estimated_instance_warmup: z.number().optional(),
+      target_tracking_configuration: z.object({
+        target_value: z.number(),
+      }),
     }).optional(),
   ),
   balancing_strategy: resolvableValue(z.string().optional()),
@@ -28,11 +35,6 @@ export const InputSchema = z.object({
       weighted_capacity: z.string().optional(),
     }).array().optional(),
   ),
-  launch_template: resolvableValue(z.object({
-    id: z.string().optional(),
-    name: z.string().optional(),
-    version: z.string().optional(),
-  })),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -43,7 +45,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_subnets: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/gamelift_game_server_group
 
 export function AwsGameliftGameServerGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +81,12 @@ export function AwsGameliftGameServerGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGameliftGameServerGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGameliftGameServerGroup, node, id)
+export const useAwsGameliftGameServerGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsGameliftGameServerGroup, idFilter, baseNode)
 
-export const useAwsGameliftGameServerGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGameliftGameServerGroup, node, id)
+export const useAwsGameliftGameServerGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsGameliftGameServerGroup, idFilter, baseNode)

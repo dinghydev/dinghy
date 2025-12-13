@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_scram_secret_association
-
 export const InputSchema = z.object({
   cluster_arn: resolvableValue(z.string()),
   secret_arn_list: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_scram_secret_association
 
 export function AwsMskScramSecretAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,13 @@ export function AwsMskScramSecretAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskScramSecretAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskScramSecretAssociation, node, id)
+export const useAwsMskScramSecretAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsMskScramSecretAssociation, idFilter, baseNode)
 
-export const useAwsMskScramSecretAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskScramSecretAssociation, node, id)
+export const useAwsMskScramSecretAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsMskScramSecretAssociation, idFilter, baseNode)

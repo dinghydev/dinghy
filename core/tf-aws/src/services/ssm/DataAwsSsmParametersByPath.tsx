@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_parameters_by_path
 
 export const InputSchema = z.object({
   path: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   recursive: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   with_decryption: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arns: z.string().array().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_parameters_by_path
 
 export function DataAwsSsmParametersByPath(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function DataAwsSsmParametersByPath(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmParametersByPath = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmParametersByPath, node, id)
+export const useDataAwsSsmParametersByPath = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsSsmParametersByPath, idFilter, baseNode)
 
-export const useDataAwsSsmParametersByPaths = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsmParametersByPath, node, id)
+export const useDataAwsSsmParametersByPaths = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSsmParametersByPath, idFilter, baseNode)

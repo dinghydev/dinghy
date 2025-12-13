@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloud9_environment_ec2
 
 export const InputSchema = z.object({
   image_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   subnet_id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloud9_environment_ec2
 
 export function AwsCloud9EnvironmentEc2(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,10 @@ export function AwsCloud9EnvironmentEc2(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloud9EnvironmentEc2 = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloud9EnvironmentEc2, node, id)
+export const useAwsCloud9EnvironmentEc2 = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloud9EnvironmentEc2, idFilter, baseNode)
 
-export const useAwsCloud9EnvironmentEc2s = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloud9EnvironmentEc2, node, id)
+export const useAwsCloud9EnvironmentEc2s = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloud9EnvironmentEc2, idFilter, baseNode)

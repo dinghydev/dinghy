@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeartifact_repository
 
 export const InputSchema = z.object({
   domain: resolvableValue(z.string()),
@@ -27,9 +26,9 @@ export const InputSchema = z.object({
   upstream: resolvableValue(
     z.object({
       repository_name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   administrator_account: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeartifact_repository
 
 export function AwsCodeartifactRepository(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,12 @@ export function AwsCodeartifactRepository(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodeartifactRepository = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodeartifactRepository, node, id)
+export const useAwsCodeartifactRepository = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCodeartifactRepository, idFilter, baseNode)
 
-export const useAwsCodeartifactRepositorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodeartifactRepository, node, id)
+export const useAwsCodeartifactRepositorys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCodeartifactRepository, idFilter, baseNode)

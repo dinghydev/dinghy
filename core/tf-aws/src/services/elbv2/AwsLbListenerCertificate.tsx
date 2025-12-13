@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_listener_certificate
-
 export const InputSchema = z.object({
   certificate_arn: resolvableValue(z.string()),
   listener_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_listener_certificate
 
 export function AwsLbListenerCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsLbListenerCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbListenerCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbListenerCertificate, node, id)
+export const useAwsLbListenerCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLbListenerCertificate, idFilter, baseNode)
 
-export const useAwsLbListenerCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbListenerCertificate, node, id)
+export const useAwsLbListenerCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLbListenerCertificate, idFilter, baseNode)

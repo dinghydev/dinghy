@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_endpoint_access
 
 export const InputSchema = z.object({
   cluster_identifier: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   resource_owner: resolvableValue(z.string().optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   address: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_endpoint_access
 
 export function AwsRedshiftEndpointAccess(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,5 +61,7 @@ export function AwsRedshiftEndpointAccess(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftEndpointAccesss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftEndpointAccess, node, id)
+export const useAwsRedshiftEndpointAccesss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRedshiftEndpointAccess, idFilter, baseNode)

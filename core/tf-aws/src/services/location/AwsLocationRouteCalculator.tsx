@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/location_route_calculator
 
 export const InputSchema = z.object({
   calculator_name: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   calculator_arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/location_route_calculator
 
 export function AwsLocationRouteCalculator(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsLocationRouteCalculator(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLocationRouteCalculator = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLocationRouteCalculator, node, id)
+export const useAwsLocationRouteCalculator = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLocationRouteCalculator, idFilter, baseNode)
 
-export const useAwsLocationRouteCalculators = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLocationRouteCalculator, node, id)
+export const useAwsLocationRouteCalculators = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLocationRouteCalculator, idFilter, baseNode)

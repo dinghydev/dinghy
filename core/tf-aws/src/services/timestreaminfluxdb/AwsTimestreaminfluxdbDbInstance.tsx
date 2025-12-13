@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreaminfluxdb_db_instance
 
 export const InputSchema = z.object({
   allocated_storage: resolvableValue(z.number()),
@@ -28,8 +27,8 @@ export const InputSchema = z.object({
       s3_configuration: z.object({
         bucket_name: z.string(),
         enabled: z.boolean(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   network_type: resolvableValue(z.string().optional()),
   port: resolvableValue(z.number().optional()),
@@ -43,7 +42,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -62,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreaminfluxdb_db_instance
 
 export function AwsTimestreaminfluxdbDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -80,8 +82,18 @@ export function AwsTimestreaminfluxdbDbInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTimestreaminfluxdbDbInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTimestreaminfluxdbDbInstance, node, id)
+export const useAwsTimestreaminfluxdbDbInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsTimestreaminfluxdbDbInstance, idFilter, baseNode)
 
-export const useAwsTimestreaminfluxdbDbInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTimestreaminfluxdbDbInstance, node, id)
+export const useAwsTimestreaminfluxdbDbInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsTimestreaminfluxdbDbInstance,
+    idFilter,
+    baseNode,
+  )

@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLocationGeofenceCollection } from './AwsLocationGeofenceCollection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_geofence_collection
-
 export const InputSchema = z.object({
   collection_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   collection_arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_geofence_collection
 
 export function DataAwsLocationGeofenceCollection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,10 +52,22 @@ export function DataAwsLocationGeofenceCollection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLocationGeofenceCollection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLocationGeofenceCollection, node, id)
+export const useDataAwsLocationGeofenceCollection = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLocationGeofenceCollection,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsLocationGeofenceCollections = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsLocationGeofenceCollection, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLocationGeofenceCollection,
+    idFilter,
+    baseNode,
+  )

@@ -3,17 +3,24 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_hours_of_operation
-
 export const InputSchema = z.object({
   config: resolvableValue(
     z.object({
       day: z.string(),
+      end_time: z.object({
+        hours: z.number(),
+        minutes: z.number(),
+      }),
+      start_time: z.object({
+        hours: z.number(),
+        minutes: z.number(),
+      }),
     }).array(),
   ),
   instance_id: resolvableValue(z.string()),
@@ -22,7 +29,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_hours_of_operation
 
 export function AwsConnectHoursOfOperation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +66,12 @@ export function AwsConnectHoursOfOperation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectHoursOfOperation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConnectHoursOfOperation, node, id)
+export const useAwsConnectHoursOfOperation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsConnectHoursOfOperation, idFilter, baseNode)
 
-export const useAwsConnectHoursOfOperations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConnectHoursOfOperation, node, id)
+export const useAwsConnectHoursOfOperations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsConnectHoursOfOperation, idFilter, baseNode)

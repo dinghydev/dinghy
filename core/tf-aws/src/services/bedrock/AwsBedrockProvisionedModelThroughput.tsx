@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_provisioned_model_throughput
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   provisioned_model_arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_provisioned_model_throughput
 
 export function AwsBedrockProvisionedModelThroughput(
   props: Partial<InputProps>,
@@ -64,11 +66,21 @@ export function AwsBedrockProvisionedModelThroughput(
 }
 
 export const useAwsBedrockProvisionedModelThroughput = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsBedrockProvisionedModelThroughput, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockProvisionedModelThroughput,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsBedrockProvisionedModelThroughputs = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsBedrockProvisionedModelThroughput, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockProvisionedModelThroughput,
+    idFilter,
+    baseNode,
+  )

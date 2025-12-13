@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_authorization_token
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   registry_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   authorization_token: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_authorization_token
 
 export function DataAwsEcrAuthorizationToken(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,13 @@ export function DataAwsEcrAuthorizationToken(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcrAuthorizationToken = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcrAuthorizationToken, node, id)
+export const useDataAwsEcrAuthorizationToken = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsEcrAuthorizationToken, idFilter, baseNode)
 
-export const useDataAwsEcrAuthorizationTokens = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcrAuthorizationToken, node, id)
+export const useDataAwsEcrAuthorizationTokens = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEcrAuthorizationToken, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool_roles_attachment
 
 export const InputSchema = z.object({
   identity_pool_id: resolvableValue(z.string()),
@@ -19,9 +18,15 @@ export const InputSchema = z.object({
       ambiguous_role_resolution: z.string().optional(),
       identity_provider: z.string(),
       type: z.string(),
+      mapping_rule: z.object({
+        claim: z.string(),
+        match_type: z.string(),
+        role_arn: z.string(),
+        value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool_roles_attachment
 
 export function AwsCognitoIdentityPoolRolesAttachment(
   props: Partial<InputProps>,
@@ -55,11 +63,21 @@ export function AwsCognitoIdentityPoolRolesAttachment(
 }
 
 export const useAwsCognitoIdentityPoolRolesAttachment = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCognitoIdentityPoolRolesAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCognitoIdentityPoolRolesAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCognitoIdentityPoolRolesAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCognitoIdentityPoolRolesAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoIdentityPoolRolesAttachment,
+    idFilter,
+    baseNode,
+  )

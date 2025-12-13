@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCodebuildFleet } from './AwsCodebuildFleet.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codebuild_fleet
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,15 +41,15 @@ export const OutputSchema = z.object({
       target_value: z.number(),
     }).array(),
   }).array().optional(),
-  status: z.object({
+  status: z.set(z.object({
     context: z.string(),
     message: z.string(),
     status_code: z.string(),
-  }).array().optional(),
+  })).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   vpc_config: z.object({
-    security_group_ids: z.string().array(),
-    subnets: z.string().array(),
+    security_group_ids: z.set(z.string()),
+    subnets: z.set(z.string()),
     vpc_id: z.string(),
   }).array().optional(),
 })
@@ -62,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codebuild_fleet
 
 export function DataAwsCodebuildFleet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -80,8 +82,8 @@ export function DataAwsCodebuildFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCodebuildFleet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCodebuildFleet, node, id)
+export const useDataAwsCodebuildFleet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsCodebuildFleet, idFilter, baseNode)
 
-export const useDataAwsCodebuildFleets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCodebuildFleet, node, id)
+export const useDataAwsCodebuildFleets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsCodebuildFleet, idFilter, baseNode)

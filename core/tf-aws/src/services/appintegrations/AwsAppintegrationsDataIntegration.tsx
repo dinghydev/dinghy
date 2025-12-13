@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appintegrations_data_integration
 
 export const InputSchema = z.object({
   kms_key: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appintegrations_data_integration
 
 export function AwsAppintegrationsDataIntegration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,10 +57,22 @@ export function AwsAppintegrationsDataIntegration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppintegrationsDataIntegration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppintegrationsDataIntegration, node, id)
+export const useAwsAppintegrationsDataIntegration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppintegrationsDataIntegration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsAppintegrationsDataIntegrations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsAppintegrationsDataIntegration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppintegrationsDataIntegration,
+    idFilter,
+    baseNode,
+  )

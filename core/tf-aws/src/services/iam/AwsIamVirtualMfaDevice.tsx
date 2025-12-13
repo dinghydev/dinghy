@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_virtual_mfa_device
 
 export const InputSchema = z.object({
   virtual_mfa_device_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   path: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_virtual_mfa_device
 
 export function AwsIamVirtualMfaDevice(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsIamVirtualMfaDevice(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamVirtualMfaDevice = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamVirtualMfaDevice, node, id)
+export const useAwsIamVirtualMfaDevice = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamVirtualMfaDevice, idFilter, baseNode)
 
-export const useAwsIamVirtualMfaDevices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamVirtualMfaDevice, node, id)
+export const useAwsIamVirtualMfaDevices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamVirtualMfaDevice, idFilter, baseNode)

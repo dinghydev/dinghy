@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_data_lake
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -19,7 +18,20 @@ export const InputSchema = z.object({
         kms_key_id: z.string(),
       }).array().optional(),
       region: z.string(),
-    }).optional(),
+      lifecycle_configuration: z.object({
+        expiration: z.object({
+          days: z.number().optional(),
+        }).array().optional(),
+        transition: z.object({
+          days: z.number().optional(),
+          storage_class: z.string().optional(),
+        }).array().optional(),
+      }).array().optional(),
+      replication_configuration: z.object({
+        regions: z.string().array().optional(),
+        role_arn: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -30,7 +42,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_data_lake
 
 export function AwsSecuritylakeDataLake(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +84,10 @@ export function AwsSecuritylakeDataLake(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecuritylakeDataLake = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecuritylakeDataLake, node, id)
+export const useAwsSecuritylakeDataLake = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSecuritylakeDataLake, idFilter, baseNode)
 
-export const useAwsSecuritylakeDataLakes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecuritylakeDataLake, node, id)
+export const useAwsSecuritylakeDataLakes = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSecuritylakeDataLake, idFilter, baseNode)

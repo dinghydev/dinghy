@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_trust_store_revocation
 
 export const InputSchema = z.object({
   revocations_s3_bucket: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_trust_store_revocation
 
 export function AwsLbTrustStoreRevocation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,12 @@ export function AwsLbTrustStoreRevocation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbTrustStoreRevocation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbTrustStoreRevocation, node, id)
+export const useAwsLbTrustStoreRevocation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLbTrustStoreRevocation, idFilter, baseNode)
 
-export const useAwsLbTrustStoreRevocations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbTrustStoreRevocation, node, id)
+export const useAwsLbTrustStoreRevocations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLbTrustStoreRevocation, idFilter, baseNode)

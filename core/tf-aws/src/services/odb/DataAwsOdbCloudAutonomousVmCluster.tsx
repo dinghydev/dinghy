@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOdbCloudAutonomousVmCluster } from './AwsOdbCloudAutonomousVmCluster.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_autonomous_vm_cluster
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,7 +29,7 @@ export const OutputSchema = z.object({
   created_at: z.string().optional(),
   data_storage_size_in_gbs: z.number().optional(),
   data_storage_size_in_tbs: z.number().optional(),
-  db_servers: z.string().array().optional(),
+  db_servers: z.set(z.string()).optional(),
   description: z.string().optional(),
   display_name: z.string().optional(),
   domain: z.string().optional(),
@@ -39,16 +38,16 @@ export const OutputSchema = z.object({
   is_mtls_enabled_vm_cluster: z.boolean().optional(),
   license_model: z.string().optional(),
   maintenance_window: z.object({
-    days_of_week: z.object({
+    days_of_week: z.set(z.object({
       name: z.string(),
-    }).array(),
-    hours_of_day: z.number().array(),
+    })),
+    hours_of_day: z.set(z.number()),
     lead_time_in_weeks: z.number(),
-    months: z.object({
+    months: z.set(z.object({
       name: z.string(),
-    }).array(),
+    })),
     preference: z.string(),
-    weeks_of_month: z.number().array(),
+    weeks_of_month: z.set(z.number()),
   }).array().optional(),
   max_acds_lowest_scaled_value: z.number().optional(),
   memory_per_oracle_compute_unit_in_gbs: z.number().optional(),
@@ -85,6 +84,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_autonomous_vm_cluster
 
 export function DataAwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -104,11 +106,21 @@ export function DataAwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
 }
 
 export const useDataAwsOdbCloudAutonomousVmCluster = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsOdbCloudAutonomousVmCluster, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOdbCloudAutonomousVmCluster,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOdbCloudAutonomousVmClusters = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOdbCloudAutonomousVmCluster, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOdbCloudAutonomousVmCluster,
+    idFilter,
+    baseNode,
+  )

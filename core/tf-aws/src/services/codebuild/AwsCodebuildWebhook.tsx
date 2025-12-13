@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_webhook
 
 export const InputSchema = z.object({
   project_name: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
         exclude_matched_pattern: z.boolean().optional(),
         pattern: z.string(),
         type: z.string(),
-      }).optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   manual_creation: resolvableValue(z.boolean().optional()),
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
       scope: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_webhook
 
 export function AwsCodebuildWebhook(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +74,8 @@ export function AwsCodebuildWebhook(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildWebhook = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodebuildWebhook, node, id)
+export const useAwsCodebuildWebhook = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode)
 
-export const useAwsCodebuildWebhooks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodebuildWebhook, node, id)
+export const useAwsCodebuildWebhooks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode)

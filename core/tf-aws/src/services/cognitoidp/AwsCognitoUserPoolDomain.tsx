@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool_domain
 
 export const InputSchema = z.object({
   domain: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   managed_login_version: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   aws_account_id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool_domain
 
 export function AwsCognitoUserPoolDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,12 @@ export function AwsCognitoUserPoolDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoUserPoolDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoUserPoolDomain, node, id)
+export const useAwsCognitoUserPoolDomain = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCognitoUserPoolDomain, idFilter, baseNode)
 
-export const useAwsCognitoUserPoolDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoUserPoolDomain, node, id)
+export const useAwsCognitoUserPoolDomains = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCognitoUserPoolDomain, idFilter, baseNode)

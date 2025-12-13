@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAmi } from './AwsAmi.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ami
 
 export const InputSchema = z.object({
   allow_unsafe_filter: resolvableValue(z.boolean().optional()),
@@ -29,17 +28,17 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   architecture: z.string().optional(),
   arn: z.string().optional(),
-  block_device_mappings: z.object({
+  block_device_mappings: z.set(z.object({
     device_name: z.string(),
     ebs: z.record(z.string(), z.string()),
     no_device: z.string(),
     virtual_name: z.string(),
-  }).array().optional(),
+  })).optional(),
   boot_mode: z.string().optional(),
   creation_date: z.string().optional(),
   deprecation_time: z.string().optional(),
@@ -58,10 +57,10 @@ export const OutputSchema = z.object({
   owner_id: z.string().optional(),
   platform: z.string().optional(),
   platform_details: z.string().optional(),
-  product_codes: z.object({
+  product_codes: z.set(z.object({
     product_code_id: z.string(),
     product_code_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   public: z.boolean().optional(),
   ramdisk_id: z.string().optional(),
   root_device_name: z.string().optional(),
@@ -84,6 +83,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ami
 
 export function DataAwsAmi(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -102,8 +104,8 @@ export function DataAwsAmi(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAmi = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAmi, node, id)
+export const useDataAwsAmi = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsAmi, idFilter, baseNode)
 
-export const useDataAwsAmis = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAmi, node, id)
+export const useDataAwsAmis = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsAmi, idFilter, baseNode)

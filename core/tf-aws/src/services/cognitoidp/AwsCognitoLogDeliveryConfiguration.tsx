@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_log_delivery_configuration
 
 export const InputSchema = z.object({
   user_pool_id: resolvableValue(z.string()),
@@ -16,10 +15,19 @@ export const InputSchema = z.object({
     z.object({
       event_source: z.string(),
       log_level: z.string(),
-    }).optional(),
+      cloud_watch_logs_configuration: z.object({
+        log_group_arn: z.string().optional(),
+      }).array().optional(),
+      firehose_configuration: z.object({
+        stream_arn: z.string().optional(),
+      }).array().optional(),
+      s3_configuration: z.object({
+        bucket_arn: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -37,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_log_delivery_configuration
 
 export function AwsCognitoLogDeliveryConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,11 +68,21 @@ export function AwsCognitoLogDeliveryConfiguration(props: Partial<InputProps>) {
 }
 
 export const useAwsCognitoLogDeliveryConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCognitoLogDeliveryConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCognitoLogDeliveryConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCognitoLogDeliveryConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCognitoLogDeliveryConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoLogDeliveryConfiguration,
+    idFilter,
+    baseNode,
+  )

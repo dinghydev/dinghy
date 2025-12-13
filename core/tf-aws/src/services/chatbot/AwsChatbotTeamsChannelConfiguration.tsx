@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chatbot_teams_channel_configuration
 
 export const InputSchema = z.object({
   channel_id: resolvableValue(z.string()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   user_authorization_required: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   chat_configuration_arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chatbot_teams_channel_configuration
 
 export function AwsChatbotTeamsChannelConfiguration(
   props: Partial<InputProps>,
@@ -66,11 +68,21 @@ export function AwsChatbotTeamsChannelConfiguration(
 }
 
 export const useAwsChatbotTeamsChannelConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsChatbotTeamsChannelConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChatbotTeamsChannelConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsChatbotTeamsChannelConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsChatbotTeamsChannelConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChatbotTeamsChannelConfiguration,
+    idFilter,
+    baseNode,
+  )

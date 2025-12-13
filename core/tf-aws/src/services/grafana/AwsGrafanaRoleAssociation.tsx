@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_role_association
 
 export const InputSchema = z.object({
   role: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   user_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_role_association
 
 export function AwsGrafanaRoleAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsGrafanaRoleAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGrafanaRoleAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGrafanaRoleAssociation, node, id)
+export const useAwsGrafanaRoleAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsGrafanaRoleAssociation, idFilter, baseNode)
 
-export const useAwsGrafanaRoleAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGrafanaRoleAssociation, node, id)
+export const useAwsGrafanaRoleAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsGrafanaRoleAssociation, idFilter, baseNode)

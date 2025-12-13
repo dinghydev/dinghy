@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent_collaborator
 
 export const InputSchema = z.object({
   agent_id: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   agent_descriptor: resolvableValue(
     z.object({
       alias_arn: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   agent_version: resolvableValue(z.string().optional()),
   prepare_agent: resolvableValue(z.boolean().optional()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   collaborator_id: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent_collaborator
 
 export function AwsBedrockagentAgentCollaborator(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,22 @@ export function AwsBedrockagentAgentCollaborator(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentAgentCollaborator = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentAgentCollaborator, node, id)
+export const useAwsBedrockagentAgentCollaborator = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentAgentCollaborator,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsBedrockagentAgentCollaborators = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentAgentCollaborator, node, id)
+export const useAwsBedrockagentAgentCollaborators = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentAgentCollaborator,
+    idFilter,
+    baseNode,
+  )

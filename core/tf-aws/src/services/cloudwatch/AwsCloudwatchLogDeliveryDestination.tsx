@@ -3,25 +3,24 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_delivery_destination
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   delivery_destination_configuration: resolvableValue(
     z.object({
       destination_resource_arn: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   delivery_destination_type: resolvableValue(z.string().optional()),
   output_format: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_delivery_destination
 
 export function AwsCloudwatchLogDeliveryDestination(
   props: Partial<InputProps>,
@@ -56,11 +58,21 @@ export function AwsCloudwatchLogDeliveryDestination(
 }
 
 export const useAwsCloudwatchLogDeliveryDestination = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCloudwatchLogDeliveryDestination, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogDeliveryDestination,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudwatchLogDeliveryDestinations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCloudwatchLogDeliveryDestination, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogDeliveryDestination,
+    idFilter,
+    baseNode,
+  )

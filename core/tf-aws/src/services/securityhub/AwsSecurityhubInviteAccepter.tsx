@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_invite_accepter
-
 export const InputSchema = z.object({
   master_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   invitation_id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_invite_accepter
 
 export function AwsSecurityhubInviteAccepter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,13 @@ export function AwsSecurityhubInviteAccepter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubInviteAccepter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubInviteAccepter, node, id)
+export const useAwsSecurityhubInviteAccepter = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSecurityhubInviteAccepter, idFilter, baseNode)
 
-export const useAwsSecurityhubInviteAccepters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubInviteAccepter, node, id)
+export const useAwsSecurityhubInviteAccepters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSecurityhubInviteAccepter, idFilter, baseNode)

@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_networks
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   odb_networks: z.object({
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_networks
 
 export function DataAwsOdbNetworks(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,5 +51,5 @@ export function DataAwsOdbNetworks(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbNetworkss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOdbNetworks, node, id)
+export const useDataAwsOdbNetworkss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOdbNetworks, idFilter, baseNode)

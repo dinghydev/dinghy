@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2TransitGatewayPeeringAttachment } from './AwsEc2TransitGatewayPeeringAttachment.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_peering_attachment
 
 export const InputSchema = z.object({
   state: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_peering_attachment
 
 export function DataAwsEc2TransitGatewayPeeringAttachment(
   props: Partial<InputProps>,
@@ -64,17 +66,21 @@ export function DataAwsEc2TransitGatewayPeeringAttachment(
 }
 
 export const useDataAwsEc2TransitGatewayPeeringAttachment = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(DataAwsEc2TransitGatewayPeeringAttachment, node, id)
+  useTypedNode<OutputProps>(
+    DataAwsEc2TransitGatewayPeeringAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsEc2TransitGatewayPeeringAttachments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayPeeringAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

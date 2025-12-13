@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalog_provisioning_artifacts
 
 export const InputSchema = z.object({
   product_id: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   provisioning_artifact_details: z.object({
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalog_provisioning_artifacts
 
 export function DataAwsServicecatalogProvisioningArtifacts(
   props: Partial<InputProps>,
@@ -61,11 +63,11 @@ export function DataAwsServicecatalogProvisioningArtifacts(
 }
 
 export const useDataAwsServicecatalogProvisioningArtifactss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogProvisioningArtifacts,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

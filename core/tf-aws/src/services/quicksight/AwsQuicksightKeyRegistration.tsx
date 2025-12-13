@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_key_registration
 
 export const InputSchema = z.object({
   aws_account_id: resolvableValue(z.string().optional()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_key_registration
 
 export function AwsQuicksightKeyRegistration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,13 @@ export function AwsQuicksightKeyRegistration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightKeyRegistration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightKeyRegistration, node, id)
+export const useAwsQuicksightKeyRegistration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsQuicksightKeyRegistration, idFilter, baseNode)
 
-export const useAwsQuicksightKeyRegistrations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightKeyRegistration, node, id)
+export const useAwsQuicksightKeyRegistrations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightKeyRegistration, idFilter, baseNode)

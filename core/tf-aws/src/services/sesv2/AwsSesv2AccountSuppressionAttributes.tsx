@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_account_suppression_attributes
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   suppressed_reasons: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_account_suppression_attributes
 
 export function AwsSesv2AccountSuppressionAttributes(
   props: Partial<InputProps>,
@@ -45,6 +47,11 @@ export function AwsSesv2AccountSuppressionAttributes(
 }
 
 export const useAwsSesv2AccountSuppressionAttributess = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSesv2AccountSuppressionAttributes, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSesv2AccountSuppressionAttributes,
+    idFilter,
+    baseNode,
+  )

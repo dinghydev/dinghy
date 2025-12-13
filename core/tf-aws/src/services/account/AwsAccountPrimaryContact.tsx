@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_primary_contact
 
 export const InputSchema = z.object({
   address_line_1: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   state_or_region: resolvableValue(z.string().optional()),
   website_url: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_primary_contact
 
 export function AwsAccountPrimaryContact(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function AwsAccountPrimaryContact(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAccountPrimaryContact = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAccountPrimaryContact, node, id)
+export const useAwsAccountPrimaryContact = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAccountPrimaryContact, idFilter, baseNode)
 
-export const useAwsAccountPrimaryContacts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAccountPrimaryContact, node, id)
+export const useAwsAccountPrimaryContacts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAccountPrimaryContact, idFilter, baseNode)

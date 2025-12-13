@@ -2,29 +2,29 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamServerCertificate } from './AwsIamServerCertificate.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_server_certificate
-
 export const InputSchema = z.object({
-  arn: resolvableValue(z.string()),
-  certificate_body: resolvableValue(z.string()),
-  certificate_chain: resolvableValue(z.string()),
-  expiration_date: resolvableValue(z.string()),
-  path: resolvableValue(z.string()),
-  upload_date: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
   latest: resolvableValue(z.boolean().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   path_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  certificate_body: z.string().optional(),
+  certificate_chain: z.string().optional(),
+  expiration_date: z.string().optional(),
+  id: z.string().optional(),
+  path: z.string().optional(),
+  upload_date: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>
@@ -33,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_server_certificate
 
 export function DataAwsIamServerCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +54,12 @@ export function DataAwsIamServerCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamServerCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamServerCertificate, node, id)
+export const useDataAwsIamServerCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsIamServerCertificate, idFilter, baseNode)
 
-export const useDataAwsIamServerCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamServerCertificate, node, id)
+export const useDataAwsIamServerCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsIamServerCertificate, idFilter, baseNode)

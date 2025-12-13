@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMskCluster } from './AwsMskCluster.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_cluster
-
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,7 +26,7 @@ export const OutputSchema = z.object({
   bootstrap_brokers_tls: z.string().optional(),
   broker_node_group_info: z.object({
     az_distribution: z.string(),
-    client_subnets: z.string().array(),
+    client_subnets: z.set(z.string()),
     connectivity_info: z.object({
       public_access: z.object({
         type: z.string(),
@@ -43,7 +42,7 @@ export const OutputSchema = z.object({
       }).array(),
     }).array(),
     instance_type: z.string(),
-    security_groups: z.string().array(),
+    security_groups: z.set(z.string()),
     storage_info: z.object({
       ebs_storage_info: z.object({
         provisioned_throughput: z.object({
@@ -69,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_cluster
 
 export function DataAwsMskCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,8 +89,8 @@ export function DataAwsMskCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMskCluster, node, id)
+export const useDataAwsMskCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMskCluster, idFilter, baseNode)
 
-export const useDataAwsMskClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMskCluster, node, id)
+export const useDataAwsMskClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsMskCluster, idFilter, baseNode)

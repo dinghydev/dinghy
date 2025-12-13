@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fms_resource_set
 
 export const InputSchema = z.object({
   tags_all: resolvableValue(z.record(z.string(), z.string())),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       resource_set_status: z.string().optional(),
       resource_type_list: z.string().array().optional(),
       update_token: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fms_resource_set
 
 export function AwsFmsResourceSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function AwsFmsResourceSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFmsResourceSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFmsResourceSet, node, id)
+export const useAwsFmsResourceSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFmsResourceSet, idFilter, baseNode)
 
-export const useAwsFmsResourceSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFmsResourceSet, node, id)
+export const useAwsFmsResourceSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFmsResourceSet, idFilter, baseNode)

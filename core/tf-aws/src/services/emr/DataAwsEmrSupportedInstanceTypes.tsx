@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/emr_supported_instance_types
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   release_label: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   supported_instance_types: z.object({
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/emr_supported_instance_types
 
 export function DataAwsEmrSupportedInstanceTypes(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,5 +58,12 @@ export function DataAwsEmrSupportedInstanceTypes(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEmrSupportedInstanceTypess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEmrSupportedInstanceTypes, node, id)
+export const useDataAwsEmrSupportedInstanceTypess = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEmrSupportedInstanceTypes,
+    idFilter,
+    baseNode,
+  )

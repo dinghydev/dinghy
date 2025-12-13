@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_endpoint
 
 export const InputSchema = z.object({
   attachment_type: resolvableValue(z.string()),
@@ -21,6 +20,10 @@ export const InputSchema = z.object({
       cidr: z.string(),
       protocol: z.string().optional(),
       subnet_ids: z.string().array().optional(),
+      port_range: z.object({
+        from_port: z.number(),
+        to_port: z.number(),
+      }).array(),
     }).optional(),
   ),
   description: resolvableValue(z.string().optional()),
@@ -32,6 +35,10 @@ export const InputSchema = z.object({
       port: z.number().optional(),
       protocol: z.string().optional(),
       subnet_ids: z.string().array().optional(),
+      port_range: z.object({
+        from_port: z.number(),
+        to_port: z.number(),
+      }).array().optional(),
     }).optional(),
   ),
   network_interface_options: resolvableValue(
@@ -39,6 +46,10 @@ export const InputSchema = z.object({
       network_interface_id: z.string().optional(),
       port: z.number().optional(),
       protocol: z.string().optional(),
+      port_range: z.object({
+        from_port: z.number(),
+        to_port: z.number(),
+      }).array().optional(),
     }).optional(),
   ),
   policy_document: resolvableValue(z.string().optional()),
@@ -70,7 +81,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   device_validation_domain: z.string().optional(),
@@ -85,6 +96,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_endpoint
 
 export function AwsVerifiedaccessEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -103,8 +117,12 @@ export function AwsVerifiedaccessEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedaccessEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVerifiedaccessEndpoint, node, id)
+export const useAwsVerifiedaccessEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVerifiedaccessEndpoint, idFilter, baseNode)
 
-export const useAwsVerifiedaccessEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVerifiedaccessEndpoint, node, id)
+export const useAwsVerifiedaccessEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVerifiedaccessEndpoint, idFilter, baseNode)

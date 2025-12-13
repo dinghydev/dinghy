@@ -3,14 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmincidents_response_plan
-
 export const InputSchema = z.object({
+  incident_template: resolvableValue(z.object({
+    dedupe_string: z.string().optional(),
+    impact: z.number(),
+    incident_tags: z.record(z.string(), z.string()).optional(),
+    summary: z.string().optional(),
+    title: z.string(),
+    notification_target: z.object({
+      sns_topic_arn: z.string(),
+    }).array().optional(),
+  })),
   name: resolvableValue(z.string()),
   action: resolvableValue(
     z.object({
@@ -20,32 +29,29 @@ export const InputSchema = z.object({
         dynamic_parameters: z.record(z.string(), z.string()).optional(),
         role_arn: z.string(),
         target_account: z.string().optional(),
-      }).optional(),
+        parameter: z.object({
+          name: z.string(),
+          values: z.string().array(),
+        }).array().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   chat_channel: resolvableValue(z.string().array().optional()),
   display_name: resolvableValue(z.string().optional()),
   engagements: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
-  incident_template: resolvableValue(z.object({
-    dedupe_string: z.string().optional(),
-    impact: z.number(),
-    incident_tags: z.record(z.string(), z.string()).optional(),
-    summary: z.string().optional(),
-    title: z.string(),
-  })),
   integration: resolvableValue(
     z.object({
       pagerduty: z.object({
         name: z.string(),
         secret_id: z.string(),
         service_id: z.string(),
-      }).optional(),
+      }).array().optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +65,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmincidents_response_plan
 
 export function AwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +86,12 @@ export function AwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmincidentsResponsePlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmincidentsResponsePlan, node, id)
+export const useAwsSsmincidentsResponsePlan = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSsmincidentsResponsePlan, idFilter, baseNode)
 
-export const useAwsSsmincidentsResponsePlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmincidentsResponsePlan, node, id)
+export const useAwsSsmincidentsResponsePlans = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSsmincidentsResponsePlan, idFilter, baseNode)

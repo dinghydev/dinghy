@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_baseline
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -18,7 +17,11 @@ export const InputSchema = z.object({
       approve_until_date: z.string().optional(),
       compliance_level: z.string().optional(),
       enable_non_security: z.boolean().optional(),
-    }).optional(),
+      patch_filter: z.object({
+        key: z.string(),
+        values: z.string().array(),
+      }).array(),
+    }).array().optional(),
   ),
   approved_patches: resolvableValue(z.string().array().optional()),
   approved_patches_compliance_level: resolvableValue(z.string().optional()),
@@ -31,7 +34,7 @@ export const InputSchema = z.object({
     z.object({
       key: z.string(),
       values: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   operating_system: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -42,10 +45,10 @@ export const InputSchema = z.object({
       configuration: z.string(),
       name: z.string(),
       products: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -68,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_baseline
 
 export function AwsSsmPatchBaseline(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,8 +93,8 @@ export function AwsSsmPatchBaseline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmPatchBaseline = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmPatchBaseline, node, id)
+export const useAwsSsmPatchBaseline = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmPatchBaseline, idFilter, baseNode)
 
-export const useAwsSsmPatchBaselines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmPatchBaseline, node, id)
+export const useAwsSsmPatchBaselines = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmPatchBaseline, idFilter, baseNode)

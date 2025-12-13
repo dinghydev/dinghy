@@ -30,8 +30,8 @@ export type OutputProps =
 
 export function AwsWafv2WebAclAssociation(props: InputProps) {
   const _importId = (node: any) =>
-    `${deepResolve(node, node._props, 'web_acl_arn')},${
-      deepResolve(node, node._props, 'resource_arn')
+    `${deepResolve(node._props, 'web_acl_arn')},${
+      deepResolve(node._props, 'resource_arn')
     }`
   return (
     <Shape

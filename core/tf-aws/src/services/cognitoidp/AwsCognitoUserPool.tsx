@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -23,6 +22,11 @@ export const InputSchema = z.object({
   admin_create_user_config: resolvableValue(
     z.object({
       allow_admin_create_user_only: z.boolean().optional(),
+      invite_message_template: z.object({
+        email_message: z.string().optional(),
+        email_subject: z.string().optional(),
+        sms_message: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   alias_attributes: resolvableValue(z.string().array().optional()),
@@ -64,6 +68,18 @@ export const InputSchema = z.object({
       pre_token_generation: z.string().optional(),
       user_migration: z.string().optional(),
       verify_auth_challenge_response: z.string().optional(),
+      custom_email_sender: z.object({
+        lambda_arn: z.string(),
+        lambda_version: z.string(),
+      }).optional(),
+      custom_sms_sender: z.object({
+        lambda_arn: z.string(),
+        lambda_version: z.string(),
+      }).optional(),
+      pre_token_generation_config: z.object({
+        lambda_arn: z.string(),
+        lambda_version: z.string(),
+      }).optional(),
     }).optional(),
   ),
   mfa_configuration: resolvableValue(z.string().optional()),
@@ -86,6 +102,14 @@ export const InputSchema = z.object({
       mutable: z.boolean().optional(),
       name: z.string(),
       required: z.boolean().optional(),
+      number_attribute_constraints: z.object({
+        max_value: z.string().optional(),
+        min_value: z.string().optional(),
+      }).optional(),
+      string_attribute_constraints: z.object({
+        max_length: z.string().optional(),
+        min_length: z.string().optional(),
+      }).optional(),
     }).array().optional(),
   ),
   sign_in_policy: resolvableValue(
@@ -116,6 +140,9 @@ export const InputSchema = z.object({
   user_pool_add_ons: resolvableValue(
     z.object({
       advanced_security_mode: z.string(),
+      advanced_security_additional_flows: z.object({
+        custom_auth_mode: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   user_pool_tier: resolvableValue(z.string().optional()),
@@ -141,7 +168,7 @@ export const InputSchema = z.object({
       user_verification: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -162,6 +189,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_pool
 
 export function AwsCognitoUserPool(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -180,8 +210,8 @@ export function AwsCognitoUserPool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoUserPool = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoUserPool, node, id)
+export const useAwsCognitoUserPool = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCognitoUserPool, idFilter, baseNode)
 
-export const useAwsCognitoUserPools = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoUserPool, node, id)
+export const useAwsCognitoUserPools = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCognitoUserPool, idFilter, baseNode)

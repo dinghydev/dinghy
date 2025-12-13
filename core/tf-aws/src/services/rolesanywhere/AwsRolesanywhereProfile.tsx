@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rolesanywhere_profile
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   role_arns: resolvableValue(z.string().array().optional()),
   session_policy: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rolesanywhere_profile
 
 export function AwsRolesanywhereProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,10 @@ export function AwsRolesanywhereProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRolesanywhereProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRolesanywhereProfile, node, id)
+export const useAwsRolesanywhereProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRolesanywhereProfile, idFilter, baseNode)
 
-export const useAwsRolesanywhereProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRolesanywhereProfile, node, id)
+export const useAwsRolesanywhereProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRolesanywhereProfile, idFilter, baseNode)

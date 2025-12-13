@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_core_network
 
 export const InputSchema = z.object({
   global_network_id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_core_network
 
 export function AwsNetworkmanagerCoreNetwork(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,13 @@ export function AwsNetworkmanagerCoreNetwork(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmanagerCoreNetwork = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerCoreNetwork, node, id)
+export const useAwsNetworkmanagerCoreNetwork = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNetworkmanagerCoreNetwork, idFilter, baseNode)
 
-export const useAwsNetworkmanagerCoreNetworks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerCoreNetwork, node, id)
+export const useAwsNetworkmanagerCoreNetworks = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsNetworkmanagerCoreNetwork, idFilter, baseNode)

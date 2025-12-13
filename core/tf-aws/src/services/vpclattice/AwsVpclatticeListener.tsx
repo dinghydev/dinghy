@@ -3,17 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_listener
-
 export const InputSchema = z.object({
-  last_updated_at: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  protocol: resolvableValue(z.string()),
   default_action: resolvableValue(z.object({
     fixed_response: z.object({
       status_code: z.number(),
@@ -22,9 +18,12 @@ export const InputSchema = z.object({
       target_groups: z.object({
         target_group_identifier: z.string().optional(),
         weight: z.number().optional(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   })),
+  last_updated_at: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  protocol: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   port: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_listener
 
 export function AwsVpclatticeListener(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +74,8 @@ export function AwsVpclatticeListener(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpclatticeListener = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpclatticeListener, node, id)
+export const useAwsVpclatticeListener = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpclatticeListener, idFilter, baseNode)
 
-export const useAwsVpclatticeListeners = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpclatticeListener, node, id)
+export const useAwsVpclatticeListeners = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVpclatticeListener, idFilter, baseNode)

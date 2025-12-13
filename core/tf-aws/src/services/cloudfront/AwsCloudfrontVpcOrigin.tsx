@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_vpc_origin
 
 export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -26,9 +25,13 @@ export const InputSchema = z.object({
       https_port: z.number(),
       name: z.string(),
       origin_protocol_policy: z.string(),
-    }).optional(),
+      origin_ssl_protocols: z.object({
+        items: z.string().array(),
+        quantity: z.number(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_vpc_origin
 
 export function AwsCloudfrontVpcOrigin(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +68,8 @@ export function AwsCloudfrontVpcOrigin(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontVpcOrigin = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudfrontVpcOrigin, node, id)
+export const useAwsCloudfrontVpcOrigin = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudfrontVpcOrigin, idFilter, baseNode)
 
-export const useAwsCloudfrontVpcOrigins = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontVpcOrigin, node, id)
+export const useAwsCloudfrontVpcOrigins = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudfrontVpcOrigin, idFilter, baseNode)

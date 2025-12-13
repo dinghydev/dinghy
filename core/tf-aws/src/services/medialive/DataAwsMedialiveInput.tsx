@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMedialiveInput } from './AwsMedialiveInput.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/medialive_input
 
 export const InputSchema = z.object({
   destinations: resolvableValue(
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/medialive_input
 
 export function DataAwsMedialiveInput(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +78,8 @@ export function DataAwsMedialiveInput(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMedialiveInput = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMedialiveInput, node, id)
+export const useDataAwsMedialiveInput = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMedialiveInput, idFilter, baseNode)
 
-export const useDataAwsMedialiveInputs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMedialiveInput, node, id)
+export const useDataAwsMedialiveInputs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsMedialiveInput, idFilter, baseNode)

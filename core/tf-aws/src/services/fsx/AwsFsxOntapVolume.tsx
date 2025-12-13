@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_ontap_volume
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -38,6 +37,24 @@ export const InputSchema = z.object({
       privileged_delete: z.string().optional(),
       snaplock_type: z.string(),
       volume_append_mode_enabled: z.boolean().optional(),
+      autocommit_period: z.object({
+        type: z.string().optional(),
+        value: z.number().optional(),
+      }).optional(),
+      retention_period: z.object({
+        default_retention: z.object({
+          type: z.string().optional(),
+          value: z.number().optional(),
+        }).optional(),
+        maximum_retention: z.object({
+          type: z.string().optional(),
+          value: z.number().optional(),
+        }).optional(),
+        minimum_retention: z.object({
+          type: z.string().optional(),
+          value: z.number().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
   ),
   snapshot_policy: resolvableValue(z.string().optional()),
@@ -57,7 +74,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   volume_style: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -76,6 +93,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_ontap_volume
 
 export function AwsFsxOntapVolume(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -94,8 +114,8 @@ export function AwsFsxOntapVolume(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxOntapVolume = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxOntapVolume, node, id)
+export const useAwsFsxOntapVolume = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode)
 
-export const useAwsFsxOntapVolumes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxOntapVolume, node, id)
+export const useAwsFsxOntapVolumes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode)

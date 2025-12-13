@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_creation_template
 
 export const InputSchema = z.object({
   applied_for: resolvableValue(z.string().array()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     z.object({
       encryption_type: z.string().optional(),
       kms_key: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   id: resolvableValue(z.string().optional()),
   image_tag_mutability: resolvableValue(z.string().optional()),
@@ -27,13 +26,13 @@ export const InputSchema = z.object({
     z.object({
       filter: z.string(),
       filter_type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   lifecycle_policy: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   repository_policy: resolvableValue(z.string().optional()),
   resource_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_creation_template
 
 export function AwsEcrRepositoryCreationTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,22 @@ export function AwsEcrRepositoryCreationTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRepositoryCreationTemplate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrRepositoryCreationTemplate, node, id)
+export const useAwsEcrRepositoryCreationTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcrRepositoryCreationTemplate,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsEcrRepositoryCreationTemplates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrRepositoryCreationTemplate, node, id)
+export const useAwsEcrRepositoryCreationTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcrRepositoryCreationTemplate,
+    idFilter,
+    baseNode,
+  )

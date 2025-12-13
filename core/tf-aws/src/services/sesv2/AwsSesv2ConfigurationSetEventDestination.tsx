@@ -3,22 +3,41 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_configuration_set_event_destination
-
 export const InputSchema = z.object({
   configuration_set_name: resolvableValue(z.string()),
-  event_destination_name: resolvableValue(z.string()),
   event_destination: resolvableValue(z.object({
     enabled: z.boolean().optional(),
     matching_event_types: z.string().array(),
+    cloud_watch_destination: z.object({
+      dimension_configuration: z.object({
+        default_dimension_value: z.string(),
+        dimension_name: z.string(),
+        dimension_value_source: z.string(),
+      }).array(),
+    }).optional(),
+    event_bridge_destination: z.object({
+      event_bus_arn: z.string(),
+    }).optional(),
+    kinesis_firehose_destination: z.object({
+      delivery_stream_arn: z.string(),
+      iam_role_arn: z.string(),
+    }).optional(),
+    pinpoint_destination: z.object({
+      application_arn: z.string(),
+    }).optional(),
+    sns_destination: z.object({
+      topic_arn: z.string(),
+    }).optional(),
   })),
+  event_destination_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_configuration_set_event_destination
 
 export function AwsSesv2ConfigurationSetEventDestination(
   props: Partial<InputProps>,
@@ -52,13 +74,21 @@ export function AwsSesv2ConfigurationSetEventDestination(
 }
 
 export const useAwsSesv2ConfigurationSetEventDestination = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsSesv2ConfigurationSetEventDestination, node, id)
+  useTypedNode<OutputProps>(
+    AwsSesv2ConfigurationSetEventDestination,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSesv2ConfigurationSetEventDestinations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesv2ConfigurationSetEventDestination, node, id)
+  useTypedNodes<OutputProps>(
+    AwsSesv2ConfigurationSetEventDestination,
+    idFilter,
+    baseNode,
+  )

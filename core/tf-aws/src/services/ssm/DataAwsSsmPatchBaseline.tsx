@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsmPatchBaseline } from './AwsSsmPatchBaseline.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_patch_baseline
 
 export const InputSchema = z.object({
   owner: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   name_prefix: resolvableValue(z.string().optional()),
   operating_system: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   approval_rule: z.object({
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_patch_baseline
 
 export function DataAwsSsmPatchBaseline(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,10 @@ export function DataAwsSsmPatchBaseline(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmPatchBaseline = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmPatchBaseline, node, id)
+export const useDataAwsSsmPatchBaseline = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSsmPatchBaseline, idFilter, baseNode)
 
-export const useDataAwsSsmPatchBaselines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsmPatchBaseline, node, id)
+export const useDataAwsSsmPatchBaselines = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSsmPatchBaseline, idFilter, baseNode)

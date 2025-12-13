@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_service_specific_credential
 
 export const InputSchema = z.object({
   create_date: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   credential_age_days: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_service_specific_credential
 
 export function AwsIamServiceSpecificCredential(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,18 @@ export function AwsIamServiceSpecificCredential(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamServiceSpecificCredential = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamServiceSpecificCredential, node, id)
+export const useAwsIamServiceSpecificCredential = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsIamServiceSpecificCredential, idFilter, baseNode)
 
-export const useAwsIamServiceSpecificCredentials = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamServiceSpecificCredential, node, id)
+export const useAwsIamServiceSpecificCredentials = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamServiceSpecificCredential,
+    idFilter,
+    baseNode,
+  )

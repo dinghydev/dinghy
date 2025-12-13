@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEbsDefaultKmsKey } from './AwsEbsDefaultKmsKey.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_default_kms_key
 
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_default_kms_key
 
 export function DataAwsEbsDefaultKmsKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,10 @@ export function DataAwsEbsDefaultKmsKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEbsDefaultKmsKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEbsDefaultKmsKey, node, id)
+export const useDataAwsEbsDefaultKmsKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEbsDefaultKmsKey, idFilter, baseNode)
 
-export const useDataAwsEbsDefaultKmsKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEbsDefaultKmsKey, node, id)
+export const useDataAwsEbsDefaultKmsKeys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEbsDefaultKmsKey, idFilter, baseNode)

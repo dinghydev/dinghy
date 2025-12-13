@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_tag_option_resource_association
 
 export const InputSchema = z.object({
   resource_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_tag_option_resource_association
 
 export function AwsServicecatalogTagOptionResourceAssociation(
   props: Partial<InputProps>,
@@ -59,21 +61,21 @@ export function AwsServicecatalogTagOptionResourceAssociation(
 }
 
 export const useAwsServicecatalogTagOptionResourceAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogTagOptionResourceAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsServicecatalogTagOptionResourceAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogTagOptionResourceAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

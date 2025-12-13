@@ -4,36 +4,49 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { RDS_INSTANCE } from '@dinghy/diagrams/entitiesAwsDatabase'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance
-
 export const InputSchema = z.object({
   instance_class: resolvableValue(z.string()),
+  allocated_storage: resolvableValue(z.number().optional()),
   allow_major_version_upgrade: resolvableValue(z.boolean().optional()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
+  availability_zone: resolvableValue(z.string().optional()),
+  backup_retention_period: resolvableValue(z.number().optional()),
   backup_target: resolvableValue(z.string().optional()),
+  backup_window: resolvableValue(z.string().optional()),
   blue_green_update: resolvableValue(
     z.object({
       enabled: z.boolean().optional(),
     }).optional(),
   ),
+  ca_cert_identifier: resolvableValue(z.string().optional()),
+  character_set_name: resolvableValue(z.string().optional()),
   copy_tags_to_snapshot: resolvableValue(z.boolean().optional()),
   custom_iam_instance_profile: resolvableValue(z.string().optional()),
   customer_owned_ip_enabled: resolvableValue(z.boolean().optional()),
   database_insights_mode: resolvableValue(z.string().optional()),
+  db_name: resolvableValue(z.string().optional()),
   db_subnet_group_name: resolvableValue(z.string().optional()),
   dedicated_log_volume: resolvableValue(z.boolean().optional()),
   delete_automated_backups: resolvableValue(z.boolean().optional()),
   deletion_protection: resolvableValue(z.boolean().optional()),
+  domain: resolvableValue(z.string().optional()),
+  domain_auth_secret_arn: resolvableValue(z.string().optional()),
+  domain_dns_ips: resolvableValue(z.string().array().optional()),
+  domain_fqdn: resolvableValue(z.string().optional()),
+  domain_iam_role_name: resolvableValue(z.string().optional()),
+  domain_ou: resolvableValue(z.string().optional()),
   enabled_cloudwatch_logs_exports: resolvableValue(
     z.string().array().optional(),
   ),
+  engine: resolvableValue(z.string().optional()),
   engine_lifecycle_support: resolvableValue(z.string().optional()),
   engine_version: resolvableValue(z.string().optional()),
   final_snapshot_identifier: resolvableValue(z.string().optional()),
@@ -43,11 +56,13 @@ export const InputSchema = z.object({
   iops: resolvableValue(z.number().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
   license_model: resolvableValue(z.string().optional()),
+  maintenance_window: resolvableValue(z.string().optional()),
   manage_master_user_password: resolvableValue(z.boolean().optional()),
   master_user_secret_kms_key_id: resolvableValue(z.string().optional()),
   max_allocated_storage: resolvableValue(z.number().optional()),
   monitoring_interval: resolvableValue(z.number().optional()),
   monitoring_role_arn: resolvableValue(z.string().optional()),
+  multi_az: resolvableValue(z.boolean().optional()),
   nchar_character_set_name: resolvableValue(z.string().optional()),
   network_type: resolvableValue(z.string().optional()),
   option_group_name: resolvableValue(z.string().optional()),
@@ -58,6 +73,7 @@ export const InputSchema = z.object({
   performance_insights_enabled: resolvableValue(z.boolean().optional()),
   performance_insights_kms_key_id: resolvableValue(z.string().optional()),
   performance_insights_retention_period: resolvableValue(z.number().optional()),
+  port: resolvableValue(z.number().optional()),
   publicly_accessible: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   replica_mode: resolvableValue(z.string().optional()),
@@ -82,6 +98,7 @@ export const InputSchema = z.object({
   ),
   skip_final_snapshot: resolvableValue(z.boolean().optional()),
   snapshot_identifier: resolvableValue(z.string().optional()),
+  storage_encrypted: resolvableValue(z.boolean().optional()),
   storage_throughput: resolvableValue(z.number().optional()),
   storage_type: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -94,8 +111,9 @@ export const InputSchema = z.object({
   ),
   timezone: resolvableValue(z.string().optional()),
   upgrade_storage_config: resolvableValue(z.boolean().optional()),
+  username: resolvableValue(z.string().optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   address: z.string().optional(),
@@ -146,6 +164,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance
 
 export function AwsDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -165,8 +186,8 @@ export function AwsDbInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbInstance, node, id)
+export const useAwsDbInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDbInstance, idFilter, baseNode)
 
-export const useAwsDbInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbInstance, node, id)
+export const useAwsDbInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDbInstance, idFilter, baseNode)

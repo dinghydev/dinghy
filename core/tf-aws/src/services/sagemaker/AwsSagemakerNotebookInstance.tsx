@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_notebook_instance
 
 export const InputSchema = z.object({
   instance_type: resolvableValue(z.string()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
   subnet_id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   volume_size: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_notebook_instance
 
 export function AwsSagemakerNotebookInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,13 @@ export function AwsSagemakerNotebookInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerNotebookInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerNotebookInstance, node, id)
+export const useAwsSagemakerNotebookInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSagemakerNotebookInstance, idFilter, baseNode)
 
-export const useAwsSagemakerNotebookInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerNotebookInstance, node, id)
+export const useAwsSagemakerNotebookInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSagemakerNotebookInstance, idFilter, baseNode)

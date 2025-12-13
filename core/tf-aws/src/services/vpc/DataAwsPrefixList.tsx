@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/prefix_list
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -17,6 +16,7 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  name: resolvableValue(z.string().optional()),
   prefix_list_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -24,7 +24,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cidr_blocks: z.string().array().optional(),
@@ -39,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/prefix_list
 
 export function DataAwsPrefixList(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +60,8 @@ export function DataAwsPrefixList(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPrefixList = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsPrefixList, node, id)
+export const useDataAwsPrefixList = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsPrefixList, idFilter, baseNode)
 
-export const useDataAwsPrefixLists = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsPrefixList, node, id)
+export const useDataAwsPrefixLists = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsPrefixList, idFilter, baseNode)

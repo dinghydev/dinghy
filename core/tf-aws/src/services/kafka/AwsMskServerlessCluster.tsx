@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_serverless_cluster
 
 export const InputSchema = z.object({
   client_authentication: resolvableValue(z.object({
@@ -19,6 +18,12 @@ export const InputSchema = z.object({
     }),
   })),
   cluster_name: resolvableValue(z.string()),
+  vpc_config: resolvableValue(
+    z.object({
+      security_group_ids: z.string().array().optional(),
+      subnet_ids: z.string().array(),
+    }).array(),
+  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -28,11 +33,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-  vpc_config: resolvableValue(z.object({
-    security_group_ids: z.string().array().optional(),
-    subnet_ids: z.string().array(),
-  })),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_serverless_cluster
 
 export function AwsMskServerlessCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +70,10 @@ export function AwsMskServerlessCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskServerlessCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskServerlessCluster, node, id)
+export const useAwsMskServerlessCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMskServerlessCluster, idFilter, baseNode)
 
-export const useAwsMskServerlessClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskServerlessCluster, node, id)
+export const useAwsMskServerlessClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsMskServerlessCluster, idFilter, baseNode)

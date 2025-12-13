@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_detector
 
 export const InputSchema = z.object({
   datasources: resolvableValue(
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
   finding_publishing_frequency: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   account_id: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_detector
 
 export function AwsGuarddutyDetector(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,8 @@ export function AwsGuarddutyDetector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyDetector = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGuarddutyDetector, node, id)
+export const useAwsGuarddutyDetector = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGuarddutyDetector, idFilter, baseNode)
 
-export const useAwsGuarddutyDetectors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyDetector, node, id)
+export const useAwsGuarddutyDetectors = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGuarddutyDetector, idFilter, baseNode)

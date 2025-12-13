@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocation_id: z.string().optional(),
@@ -53,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip
 
 export function AwsEip(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +73,8 @@ export function AwsEip(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEip = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEip, node, id)
+export const useAwsEip = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEip, idFilter, baseNode)
 
-export const useAwsEips = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEip, node, id)
+export const useAwsEips = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEip, idFilter, baseNode)

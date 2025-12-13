@@ -43,7 +43,7 @@ export type AwsRoute53RecordOutputProps =
 
 export function AwsRoute53Record(props: AwsRoute53RecordInputProps) {
   const _importId = (node: any) => {
-    const zone_id = deepResolve(node, node._props, 'zone_id')
+    const zone_id = deepResolve(node._props, 'zone_id')
     return `${zone_id}_${node._props.name}_${node._props.type}`
   }
 

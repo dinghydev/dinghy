@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity_feedback_attributes
 
 export const InputSchema = z.object({
   email_identity: resolvableValue(z.string()),
   email_forwarding_enabled: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity_feedback_attributes
 
 export function AwsSesv2EmailIdentityFeedbackAttributes(
   props: Partial<InputProps>,
@@ -46,7 +48,11 @@ export function AwsSesv2EmailIdentityFeedbackAttributes(
 }
 
 export const useAwsSesv2EmailIdentityFeedbackAttributess = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesv2EmailIdentityFeedbackAttributes, node, id)
+  useTypedNodes<OutputProps>(
+    AwsSesv2EmailIdentityFeedbackAttributes,
+    idFilter,
+    baseNode,
+  )

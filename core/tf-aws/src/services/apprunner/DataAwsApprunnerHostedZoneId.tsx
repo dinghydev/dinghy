@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/apprunner_hosted_zone_id
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/apprunner_hosted_zone_id
 
 export function DataAwsApprunnerHostedZoneId(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,8 +45,13 @@ export function DataAwsApprunnerHostedZoneId(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApprunnerHostedZoneId = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsApprunnerHostedZoneId, node, id)
+export const useDataAwsApprunnerHostedZoneId = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsApprunnerHostedZoneId, idFilter, baseNode)
 
-export const useDataAwsApprunnerHostedZoneIds = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApprunnerHostedZoneId, node, id)
+export const useDataAwsApprunnerHostedZoneIds = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsApprunnerHostedZoneId, idFilter, baseNode)

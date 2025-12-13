@@ -3,17 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rolesanywhere_trust_anchor
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   source: resolvableValue(z.object({
     source_type: z.string(),
+    source_data: z.object({
+      acm_pca_arn: z.string().optional(),
+      x509_certificate_data: z.string().optional(),
+    }),
   })),
   enabled: resolvableValue(z.boolean().optional()),
   notification_settings: resolvableValue(
@@ -26,7 +29,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rolesanywhere_trust_anchor
 
 export function AwsRolesanywhereTrustAnchor(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +65,12 @@ export function AwsRolesanywhereTrustAnchor(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRolesanywhereTrustAnchor = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRolesanywhereTrustAnchor, node, id)
+export const useAwsRolesanywhereTrustAnchor = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRolesanywhereTrustAnchor, idFilter, baseNode)
 
-export const useAwsRolesanywhereTrustAnchors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRolesanywhereTrustAnchor, node, id)
+export const useAwsRolesanywhereTrustAnchors = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRolesanywhereTrustAnchor, idFilter, baseNode)

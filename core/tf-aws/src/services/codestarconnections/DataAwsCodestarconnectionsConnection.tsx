@@ -2,18 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCodestarconnectionsConnection } from './AwsCodestarconnectionsConnection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codestarconnections_connection
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   connection_status: z.string().optional(),
@@ -31,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codestarconnections_connection
 
 export function DataAwsCodestarconnectionsConnection(
   props: Partial<InputProps>,
@@ -52,11 +55,21 @@ export function DataAwsCodestarconnectionsConnection(
 }
 
 export const useDataAwsCodestarconnectionsConnection = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsCodestarconnectionsConnection, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCodestarconnectionsConnection,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCodestarconnectionsConnections = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsCodestarconnectionsConnection, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCodestarconnectionsConnection,
+    idFilter,
+    baseNode,
+  )

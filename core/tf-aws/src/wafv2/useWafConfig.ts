@@ -34,7 +34,7 @@ export type WafAction = z.infer<typeof WafActionSchema>
 export type WafConfig = z.infer<typeof WafConfigSchema>
 
 const loadIpList = (
-  renderOptions: any,
+  dinghyConfig: any,
   inputData: any,
   type: 'blocked' | 'allowed',
 ) => {
@@ -42,7 +42,7 @@ const loadIpList = (
   const ipList = inputData[key] ?? (inputData[key] = [])
 
   const listFile = `${type}-ip-list.yaml`
-  const listData = renderOptions.files?.data?.waf?.files[listFile]
+  const listData = dinghyConfig.files?.data?.waf?.files[listFile]
   if (listData) {
     ipList.push(...listData)
     // debug('loaded %s', listFile)
@@ -50,15 +50,15 @@ const loadIpList = (
 }
 
 export function useWafConfig(name: string) {
-  const { renderOptions } = useRenderOptions()
+  const { dinghyConfig } = useRenderOptions()
   const inputData = loadFilesData(
-    renderOptions,
+    dinghyConfig,
     'data/waf',
     name,
   )
 
-  loadIpList(renderOptions, inputData, 'blocked')
-  loadIpList(renderOptions, inputData, 'allowed')
+  loadIpList(dinghyConfig, inputData, 'blocked')
+  loadIpList(dinghyConfig, inputData, 'allowed')
 
   const config = WafConfigSchema.passthrough().parse(inputData)
   // debug('loaded waf config %O', config)

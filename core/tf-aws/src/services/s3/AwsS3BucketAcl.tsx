@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_acl
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -16,6 +15,13 @@ export const InputSchema = z.object({
     z.object({
       grant: z.object({
         permission: z.string(),
+        grantee: z.object({
+          display_name: z.string(),
+          email_address: z.string().optional(),
+          id: z.string().optional(),
+          type: z.string(),
+          uri: z.string().optional(),
+        }).optional(),
       }).array().optional(),
       owner: z.object({
         display_name: z.string().optional(),
@@ -26,7 +32,7 @@ export const InputSchema = z.object({
   acl: resolvableValue(z.string().optional()),
   expected_bucket_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -48,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_acl
 
 export function AwsS3BucketAcl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +76,8 @@ export function AwsS3BucketAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketAcl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketAcl, node, id)
+export const useAwsS3BucketAcl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsS3BucketAcl, idFilter, baseNode)
 
-export const useAwsS3BucketAcls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketAcl, node, id)
+export const useAwsS3BucketAcls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsS3BucketAcl, idFilter, baseNode)

@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service_allowed_principal
-
 export const InputSchema = z.object({
   principal_arn: resolvableValue(z.string()),
   vpc_endpoint_service_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service_allowed_principal
 
 export function AwsVpcEndpointServiceAllowedPrincipal(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsVpcEndpointServiceAllowedPrincipal(
 }
 
 export const useAwsVpcEndpointServiceAllowedPrincipal = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpcEndpointServiceAllowedPrincipal, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcEndpointServiceAllowedPrincipal,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpcEndpointServiceAllowedPrincipals = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsVpcEndpointServiceAllowedPrincipal, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcEndpointServiceAllowedPrincipal,
+    idFilter,
+    baseNode,
+  )

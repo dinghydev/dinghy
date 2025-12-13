@@ -3,17 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codecommit_trigger
-
 export const InputSchema = z.object({
   repository_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   trigger: resolvableValue(
     z.object({
       branches: z.string().array().optional(),
@@ -23,7 +20,9 @@ export const InputSchema = z.object({
       name: z.string(),
     }).array(),
   ),
-})
+  id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   configuration_id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codecommit_trigger
 
 export function AwsCodecommitTrigger(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsCodecommitTrigger(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodecommitTrigger = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodecommitTrigger, node, id)
+export const useAwsCodecommitTrigger = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode)
 
-export const useAwsCodecommitTriggers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodecommitTrigger, node, id)
+export const useAwsCodecommitTriggers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode)

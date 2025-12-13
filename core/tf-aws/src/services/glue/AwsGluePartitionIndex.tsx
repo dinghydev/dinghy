@@ -3,22 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_partition_index
-
 export const InputSchema = z.object({
   database_name: resolvableValue(z.string()),
-  table_name: resolvableValue(z.string()),
-  catalog_id: resolvableValue(z.string().optional()),
   partition_index: resolvableValue(z.object({
     index_name: z.string().optional(),
     index_status: z.string(),
     keys: z.string().array().optional(),
   })),
+  table_name: resolvableValue(z.string()),
+  catalog_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_partition_index
 
 export function AwsGluePartitionIndex(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function AwsGluePartitionIndex(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGluePartitionIndex = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGluePartitionIndex, node, id)
+export const useAwsGluePartitionIndex = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGluePartitionIndex, idFilter, baseNode)
 
-export const useAwsGluePartitionIndexs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGluePartitionIndex, node, id)
+export const useAwsGluePartitionIndexs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGluePartitionIndex, idFilter, baseNode)

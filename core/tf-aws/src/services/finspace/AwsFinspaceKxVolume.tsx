@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_volume
 
 export const InputSchema = z.object({
   attached_clusters: resolvableValue(
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
     z.object({
       size: z.number(),
       type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -41,7 +40,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_volume
 
 export function AwsFinspaceKxVolume(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +78,8 @@ export function AwsFinspaceKxVolume(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxVolume = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxVolume, node, id)
+export const useAwsFinspaceKxVolume = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode)
 
-export const useAwsFinspaceKxVolumes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxVolume, node, id)
+export const useAwsFinspaceKxVolumes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode)

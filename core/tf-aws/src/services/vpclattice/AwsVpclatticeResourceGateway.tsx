@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_resource_gateway
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_resource_gateway
 
 export function AwsVpclatticeResourceGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,13 @@ export function AwsVpclatticeResourceGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpclatticeResourceGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpclatticeResourceGateway, node, id)
+export const useAwsVpclatticeResourceGateway = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVpclatticeResourceGateway, idFilter, baseNode)
 
-export const useAwsVpclatticeResourceGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpclatticeResourceGateway, node, id)
+export const useAwsVpclatticeResourceGateways = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsVpclatticeResourceGateway, idFilter, baseNode)

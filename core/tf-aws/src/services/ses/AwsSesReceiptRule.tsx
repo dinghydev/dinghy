@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_receipt_rule
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -75,7 +74,7 @@ export const InputSchema = z.object({
       topic_arn: z.string().optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -89,6 +88,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_receipt_rule
 
 export function AwsSesReceiptRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -107,8 +109,8 @@ export function AwsSesReceiptRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesReceiptRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesReceiptRule, node, id)
+export const useAwsSesReceiptRule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSesReceiptRule, idFilter, baseNode)
 
-export const useAwsSesReceiptRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesReceiptRule, node, id)
+export const useAwsSesReceiptRules = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSesReceiptRule, idFilter, baseNode)

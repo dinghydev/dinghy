@@ -3,17 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_instance
-
 export const InputSchema = z.object({
+  cluster_identifier: resolvableValue(z.string()),
+  engine: resolvableValue(z.string()),
   instance_class: resolvableValue(z.string()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
+  availability_zone: resolvableValue(z.string().optional()),
   ca_cert_identifier: resolvableValue(z.string().optional()),
   copy_tags_to_snapshot: resolvableValue(z.boolean().optional()),
   custom_iam_instance_profile: resolvableValue(z.string().optional()),
@@ -21,9 +23,12 @@ export const InputSchema = z.object({
   db_subnet_group_name: resolvableValue(z.string().optional()),
   engine_version: resolvableValue(z.string().optional()),
   force_destroy: resolvableValue(z.boolean().optional()),
+  identifier: resolvableValue(z.string().optional()),
   identifier_prefix: resolvableValue(z.string().optional()),
   monitoring_interval: resolvableValue(z.number().optional()),
   monitoring_role_arn: resolvableValue(z.string().optional()),
+  performance_insights_enabled: resolvableValue(z.boolean().optional()),
+  performance_insights_kms_key_id: resolvableValue(z.string().optional()),
   performance_insights_retention_period: resolvableValue(z.number().optional()),
   preferred_backup_window: resolvableValue(z.string().optional()),
   preferred_maintenance_window: resolvableValue(z.string().optional()),
@@ -38,7 +43,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -67,6 +72,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_instance
 
 export function AwsRdsClusterInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -85,8 +93,8 @@ export function AwsRdsClusterInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsClusterInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsClusterInstance, node, id)
+export const useAwsRdsClusterInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRdsClusterInstance, idFilter, baseNode)
 
-export const useAwsRdsClusterInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsClusterInstance, node, id)
+export const useAwsRdsClusterInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRdsClusterInstance, idFilter, baseNode)

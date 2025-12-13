@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_budget_resource_association
 
 export const InputSchema = z.object({
   budget_name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_budget_resource_association
 
 export function AwsServicecatalogBudgetResourceAssociation(
   props: Partial<InputProps>,
@@ -55,21 +57,21 @@ export function AwsServicecatalogBudgetResourceAssociation(
 }
 
 export const useAwsServicecatalogBudgetResourceAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogBudgetResourceAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsServicecatalogBudgetResourceAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogBudgetResourceAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

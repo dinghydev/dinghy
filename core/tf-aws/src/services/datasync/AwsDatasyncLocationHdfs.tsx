@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_hdfs
 
 export const InputSchema = z.object({
   agent_arns: resolvableValue(z.string().array()),
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
   simple_user: resolvableValue(z.string().optional()),
   subdirectory: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_hdfs
 
 export function AwsDatasyncLocationHdfs(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,5 +78,7 @@ export function AwsDatasyncLocationHdfs(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationHdfss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationHdfs, node, id)
+export const useAwsDatasyncLocationHdfss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDatasyncLocationHdfs, idFilter, baseNode)

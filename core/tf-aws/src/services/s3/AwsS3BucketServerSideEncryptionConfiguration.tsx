@@ -3,24 +3,27 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_server_side_encryption_configuration
-
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
-  expected_bucket_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   rule: resolvableValue(
     z.object({
       blocked_encryption_types: z.string().array().optional(),
       bucket_key_enabled: z.boolean().optional(),
+      apply_server_side_encryption_by_default: z.object({
+        kms_master_key_id: z.string().optional(),
+        sse_algorithm: z.string(),
+      }).optional(),
     }).array(),
   ),
-})
+  expected_bucket_owner: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -41,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_server_side_encryption_configuration
 
 export function AwsS3BucketServerSideEncryptionConfiguration(
   props: Partial<InputProps>,
@@ -63,21 +69,21 @@ export function AwsS3BucketServerSideEncryptionConfiguration(
 }
 
 export const useAwsS3BucketServerSideEncryptionConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketServerSideEncryptionConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsS3BucketServerSideEncryptionConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketServerSideEncryptionConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

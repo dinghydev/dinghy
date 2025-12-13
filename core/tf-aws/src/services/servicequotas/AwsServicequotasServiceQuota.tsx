@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicequotas_service_quota
 
 export const InputSchema = z.object({
   quota_code: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   service_code: resolvableValue(z.string()),
   value: resolvableValue(z.number()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   adjustable: z.boolean().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicequotas_service_quota
 
 export function AwsServicequotasServiceQuota(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,13 @@ export function AwsServicequotasServiceQuota(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsServicequotasServiceQuota = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsServicequotasServiceQuota, node, id)
+export const useAwsServicequotasServiceQuota = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsServicequotasServiceQuota, idFilter, baseNode)
 
-export const useAwsServicequotasServiceQuotas = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsServicequotasServiceQuota, node, id)
+export const useAwsServicequotasServiceQuotas = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsServicequotasServiceQuota, idFilter, baseNode)

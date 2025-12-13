@@ -3,35 +3,65 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_core_network_policy_document
-
 export const InputSchema = z.object({
+  core_network_configuration: resolvableValue(
+    z.object({
+      asn_ranges: z.string().array(),
+      dns_support: z.boolean().optional(),
+      inside_cidr_blocks: z.string().array().optional(),
+      security_group_referencing_support: z.boolean().optional(),
+      vpn_ecmp_support: z.boolean().optional(),
+      edge_locations: z.object({
+        asn: z.string().optional(),
+        inside_cidr_blocks: z.string().array().optional(),
+        location: z.string(),
+      }).array(),
+    }).array(),
+  ),
+  segments: resolvableValue(
+    z.object({
+      allow_filter: z.string().array().optional(),
+      deny_filter: z.string().array().optional(),
+      description: z.string().optional(),
+      edge_locations: z.string().array().optional(),
+      isolate_attachments: z.boolean().optional(),
+      name: z.string(),
+      require_attachment_acceptance: z.boolean().optional(),
+    }).array(),
+  ),
   attachment_policies: resolvableValue(
     z.object({
       condition_logic: z.string().optional(),
       description: z.string().optional(),
       rule_number: z.number(),
-    }).optional(),
+      action: z.object({
+        add_to_network_function_group: z.string().optional(),
+        association_method: z.string().optional(),
+        require_acceptance: z.boolean().optional(),
+        segment: z.string().optional(),
+        tag_value_of_key: z.string().optional(),
+      }),
+      conditions: z.object({
+        key: z.string().optional(),
+        operator: z.string().optional(),
+        type: z.string(),
+        value: z.string().optional(),
+      }).array(),
+    }).array().optional(),
   ),
-  core_network_configuration: resolvableValue(z.object({
-    asn_ranges: z.string().array(),
-    dns_support: z.boolean().optional(),
-    inside_cidr_blocks: z.string().array().optional(),
-    security_group_referencing_support: z.boolean().optional(),
-    vpn_ecmp_support: z.boolean().optional(),
-  })),
   id: resolvableValue(z.string().optional()),
   network_function_groups: resolvableValue(
     z.object({
       description: z.string().optional(),
       name: z.string(),
       require_attachment_acceptance: z.boolean(),
-    }).optional(),
+    }).array().optional(),
   ),
   segment_actions: resolvableValue(
     z.object({
@@ -43,19 +73,21 @@ export const InputSchema = z.object({
       segment: z.string(),
       share_with: z.string().array().optional(),
       share_with_except: z.string().array().optional(),
-    }).optional(),
+      via: z.object({
+        network_function_groups: z.string().array().optional(),
+        with_edge_override: z.object({
+          edge_sets: z.string().array().array().optional(),
+          use_edge: z.string().optional(),
+          use_edge_location: z.string().optional(),
+        }).array().optional(),
+      }).optional(),
+      when_sent_to: z.object({
+        segments: z.string().array().optional(),
+      }).optional(),
+    }).array().optional(),
   ),
-  segments: resolvableValue(z.object({
-    allow_filter: z.string().array().optional(),
-    deny_filter: z.string().array().optional(),
-    description: z.string().optional(),
-    edge_locations: z.string().array().optional(),
-    isolate_attachments: z.boolean().optional(),
-    name: z.string(),
-    require_attachment_acceptance: z.boolean().optional(),
-  })),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   json: z.string().optional(),
@@ -68,6 +100,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_core_network_policy_document
 
 export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
   props: Partial<InputProps>,
@@ -89,21 +124,21 @@ export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
 }
 
 export const useDataAwsNetworkmanagerCoreNetworkPolicyDocument = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsNetworkmanagerCoreNetworkPolicyDocument,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsNetworkmanagerCoreNetworkPolicyDocuments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNetworkmanagerCoreNetworkPolicyDocument,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chimesdkvoice_voice_profile_domain
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chimesdkvoice_voice_profile_domain
 
 export function AwsChimesdkvoiceVoiceProfileDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,11 +61,21 @@ export function AwsChimesdkvoiceVoiceProfileDomain(props: Partial<InputProps>) {
 }
 
 export const useAwsChimesdkvoiceVoiceProfileDomain = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsChimesdkvoiceVoiceProfileDomain, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChimesdkvoiceVoiceProfileDomain,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsChimesdkvoiceVoiceProfileDomains = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsChimesdkvoiceVoiceProfileDomain, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChimesdkvoiceVoiceProfileDomain,
+    idFilter,
+    baseNode,
+  )

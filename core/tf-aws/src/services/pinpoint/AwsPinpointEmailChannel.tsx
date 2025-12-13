@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_email_channel
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   orchestration_sending_role_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   messages_per_second: z.number().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_email_channel
 
 export function AwsPinpointEmailChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,10 @@ export function AwsPinpointEmailChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointEmailChannel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointEmailChannel, node, id)
+export const useAwsPinpointEmailChannel = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsPinpointEmailChannel, idFilter, baseNode)
 
-export const useAwsPinpointEmailChannels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointEmailChannel, node, id)
+export const useAwsPinpointEmailChannels = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsPinpointEmailChannel, idFilter, baseNode)

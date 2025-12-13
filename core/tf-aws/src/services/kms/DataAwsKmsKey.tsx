@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKmsKey } from './AwsKmsKey.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_key
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -51,7 +50,7 @@ export const InputSchema = z.object({
   grant_tokens: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -62,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_key
 
 export function DataAwsKmsKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -80,8 +82,8 @@ export function DataAwsKmsKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKmsKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsKmsKey, node, id)
+export const useDataAwsKmsKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsKmsKey, idFilter, baseNode)
 
-export const useDataAwsKmsKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKmsKey, node, id)
+export const useDataAwsKmsKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsKmsKey, idFilter, baseNode)

@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafRateBasedRule } from './AwsWafRateBasedRule.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_rate_based_rule
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_rate_based_rule
 
 export function DataAwsWafRateBasedRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,8 +45,10 @@ export function DataAwsWafRateBasedRule(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafRateBasedRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafRateBasedRule, node, id)
+export const useDataAwsWafRateBasedRule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsWafRateBasedRule, idFilter, baseNode)
 
-export const useDataAwsWafRateBasedRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafRateBasedRule, node, id)
+export const useDataAwsWafRateBasedRules = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsWafRateBasedRule, idFilter, baseNode)

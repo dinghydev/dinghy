@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/qbusiness_application
 
 export const InputSchema = z.object({
   display_name: resolvableValue(z.string()),
@@ -18,13 +17,13 @@ export const InputSchema = z.object({
   attachments_configuration: resolvableValue(
     z.object({
       attachments_control_mode: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   encryption_configuration: resolvableValue(
     z.object({
       kms_key_id: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -35,7 +34,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/qbusiness_application
 
 export function AwsQbusinessApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,10 @@ export function AwsQbusinessApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQbusinessApplication = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQbusinessApplication, node, id)
+export const useAwsQbusinessApplication = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsQbusinessApplication, idFilter, baseNode)
 
-export const useAwsQbusinessApplications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQbusinessApplication, node, id)
+export const useAwsQbusinessApplications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsQbusinessApplication, idFilter, baseNode)

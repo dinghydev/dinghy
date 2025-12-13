@@ -2,24 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOpensearchDomain } from './AwsOpensearchDomain.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearch_domain
-
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
-  snapshot_options: resolvableValue(
-    z.object({
-      automated_snapshot_start_hour: z.number(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_policies: z.string().optional(),
@@ -32,14 +26,14 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   auto_tune_options: z.object({
     desired_state: z.string(),
-    maintenance_schedule: z.object({
+    maintenance_schedule: z.set(z.object({
       cron_expression_for_recurrence: z.string(),
       duration: z.object({
         unit: z.string(),
         value: z.number(),
       }).array(),
       start_at: z.string(),
-    }).array(),
+    })),
     rollback_on_disable: z.string(),
     use_off_peak_window: z.boolean(),
   }).array().optional(),
@@ -102,11 +96,11 @@ export const OutputSchema = z.object({
     subject_key: z.string(),
   }).array().optional(),
   ip_address_type: z.string().optional(),
-  log_publishing_options: z.object({
+  log_publishing_options: z.set(z.object({
     cloudwatch_log_group_arn: z.string(),
     enabled: z.boolean(),
     log_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   node_to_node_encryption: z.object({
     enabled: z.boolean(),
   }).array().optional(),
@@ -120,14 +114,17 @@ export const OutputSchema = z.object({
     }).array(),
   }).array().optional(),
   processing: z.boolean().optional(),
+  snapshot_options: z.object({
+    automated_snapshot_start_hour: z.number(),
+  }).array().optional(),
   software_update_options: z.object({
     auto_software_update_enabled: z.boolean(),
   }).array().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   vpc_options: z.object({
-    availability_zones: z.string().array(),
-    security_group_ids: z.string().array(),
-    subnet_ids: z.string().array(),
+    availability_zones: z.set(z.string()),
+    security_group_ids: z.set(z.string()),
+    subnet_ids: z.set(z.string()),
     vpc_id: z.string(),
   }).array().optional(),
 })
@@ -139,6 +136,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearch_domain
 
 export function DataAwsOpensearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -157,8 +157,10 @@ export function DataAwsOpensearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOpensearchDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOpensearchDomain, node, id)
+export const useDataAwsOpensearchDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOpensearchDomain, idFilter, baseNode)
 
-export const useDataAwsOpensearchDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOpensearchDomain, node, id)
+export const useDataAwsOpensearchDomains = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsOpensearchDomain, idFilter, baseNode)

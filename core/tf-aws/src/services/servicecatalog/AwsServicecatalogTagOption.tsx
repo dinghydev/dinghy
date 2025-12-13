@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_tag_option
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_tag_option
 
 export function AwsServicecatalogTagOption(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,12 @@ export function AwsServicecatalogTagOption(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsServicecatalogTagOption = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsServicecatalogTagOption, node, id)
+export const useAwsServicecatalogTagOption = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsServicecatalogTagOption, idFilter, baseNode)
 
-export const useAwsServicecatalogTagOptions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsServicecatalogTagOption, node, id)
+export const useAwsServicecatalogTagOptions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsServicecatalogTagOption, idFilter, baseNode)

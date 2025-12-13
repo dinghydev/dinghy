@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_indexing_configuration
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
@@ -16,6 +15,14 @@ export const InputSchema = z.object({
   thing_group_indexing_configuration: resolvableValue(
     z.object({
       thing_group_indexing_mode: z.string(),
+      custom_field: z.object({
+        name: z.string().optional(),
+        type: z.string().optional(),
+      }).array().optional(),
+      managed_field: z.object({
+        name: z.string().optional(),
+        type: z.string().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   thing_indexing_configuration: resolvableValue(
@@ -24,9 +31,20 @@ export const InputSchema = z.object({
       named_shadow_indexing_mode: z.string().optional(),
       thing_connectivity_indexing_mode: z.string().optional(),
       thing_indexing_mode: z.string(),
+      custom_field: z.object({
+        name: z.string().optional(),
+        type: z.string().optional(),
+      }).array().optional(),
+      filter: z.object({
+        named_shadow_names: z.string().array().optional(),
+      }).optional(),
+      managed_field: z.object({
+        name: z.string().optional(),
+        type: z.string().optional(),
+      }).array().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -37,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_indexing_configuration
 
 export function AwsIotIndexingConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +76,12 @@ export function AwsIotIndexingConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotIndexingConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotIndexingConfiguration, node, id)
+export const useAwsIotIndexingConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIotIndexingConfiguration, idFilter, baseNode)
 
-export const useAwsIotIndexingConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotIndexingConfiguration, node, id)
+export const useAwsIotIndexingConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIotIndexingConfiguration, idFilter, baseNode)

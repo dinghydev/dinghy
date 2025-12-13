@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_phone_number_contact_flow_association
 
 export const InputSchema = z.object({
   contact_flow_id: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
   phone_number_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_phone_number_contact_flow_association
 
 export function AwsConnectPhoneNumberContactFlowAssociation(
   props: Partial<InputProps>,
@@ -47,21 +49,21 @@ export function AwsConnectPhoneNumberContactFlowAssociation(
 }
 
 export const useAwsConnectPhoneNumberContactFlowAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsConnectPhoneNumberContactFlowAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsConnectPhoneNumberContactFlowAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConnectPhoneNumberContactFlowAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

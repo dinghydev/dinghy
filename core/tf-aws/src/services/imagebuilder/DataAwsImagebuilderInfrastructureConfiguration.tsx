@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderInfrastructureConfiguration } from './AwsImagebuilderInfrastructureConfiguration.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_infrastructure_configuration
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   date_updated: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   date_created: z.string().optional(),
@@ -25,7 +24,7 @@ export const OutputSchema = z.object({
     http_tokens: z.string(),
   }).array().optional(),
   instance_profile_name: z.string().optional(),
-  instance_types: z.string().array().optional(),
+  instance_types: z.set(z.string()).optional(),
   key_pair: z.string().optional(),
   logging: z.object({
     s3_logs: z.object({
@@ -41,7 +40,7 @@ export const OutputSchema = z.object({
     tenancy: z.string(),
   }).array().optional(),
   resource_tags: z.record(z.string(), z.string()).optional(),
-  security_group_ids: z.string().array().optional(),
+  security_group_ids: z.set(z.string()).optional(),
   sns_topic_arn: z.string().optional(),
   subnet_id: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -55,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_infrastructure_configuration
 
 export function DataAwsImagebuilderInfrastructureConfiguration(
   props: Partial<InputProps>,
@@ -76,21 +78,21 @@ export function DataAwsImagebuilderInfrastructureConfiguration(
 }
 
 export const useDataAwsImagebuilderInfrastructureConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsImagebuilderInfrastructureConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsImagebuilderInfrastructureConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderInfrastructureConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

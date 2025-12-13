@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kendra_thesaurus
 
 export const InputSchema = z.object({
   index_id: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kendra_thesaurus
 
 export function AwsKendraThesaurus(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,5 +64,5 @@ export function AwsKendraThesaurus(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKendraThesauruss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKendraThesaurus, node, id)
+export const useAwsKendraThesauruss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKendraThesaurus, idFilter, baseNode)

@@ -3,15 +3,12 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_secrets
-
 export const InputSchema = z.object({
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   secret: resolvableValue(
     z.object({
       context: z.record(z.string(), z.string()).optional(),
@@ -22,7 +19,9 @@ export const InputSchema = z.object({
       payload: z.string(),
     }).array(),
   ),
-})
+  id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   plaintext: z.record(z.string(), z.string()).optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_secrets
 
 export function DataAwsKmsSecrets(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,5 +55,5 @@ export function DataAwsKmsSecrets(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKmsSecretss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKmsSecrets, node, id)
+export const useDataAwsKmsSecretss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsKmsSecrets, idFilter, baseNode)

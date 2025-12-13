@@ -112,7 +112,10 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
     let view = availableViews[viewString]
     if (!view) {
       view = createView(options.stack, viewString)
-      if (viewString === 'all') {
+      if (
+        viewString === 'all' &&
+        !context.originalArgs.join(' ').includes('--view all')
+      ) {
         view.disabled = true
       }
     }

@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshift_data_shares
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   data_shares: z.object({
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshift_data_shares
 
 export function DataAwsRedshiftDataShares(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,5 +49,7 @@ export function DataAwsRedshiftDataShares(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRedshiftDataSharess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRedshiftDataShares, node, id)
+export const useDataAwsRedshiftDataSharess = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsRedshiftDataShares, idFilter, baseNode)

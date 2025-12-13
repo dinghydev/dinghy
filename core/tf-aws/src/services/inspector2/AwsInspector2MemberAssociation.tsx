@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_member_association
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   delegated_admin_account_id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_member_association
 
 export function AwsInspector2MemberAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function AwsInspector2MemberAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInspector2MemberAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsInspector2MemberAssociation, node, id)
+export const useAwsInspector2MemberAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsInspector2MemberAssociation, idFilter, baseNode)
 
-export const useAwsInspector2MemberAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsInspector2MemberAssociation, node, id)
+export const useAwsInspector2MemberAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsInspector2MemberAssociation, idFilter, baseNode)

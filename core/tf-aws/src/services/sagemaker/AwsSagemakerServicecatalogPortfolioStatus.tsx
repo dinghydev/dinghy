@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_servicecatalog_portfolio_status
-
 export const InputSchema = z.object({
   status: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_servicecatalog_portfolio_status
 
 export function AwsSagemakerServicecatalogPortfolioStatus(
   props: Partial<InputProps>,
@@ -46,11 +48,11 @@ export function AwsSagemakerServicecatalogPortfolioStatus(
 }
 
 export const useAwsSagemakerServicecatalogPortfolioStatuss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerServicecatalogPortfolioStatus,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ram_resource_share_accepter
 
 export const InputSchema = z.object({
   share_arn: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   invitation_arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ram_resource_share_accepter
 
 export function AwsRamResourceShareAccepter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsRamResourceShareAccepter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRamResourceShareAccepter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRamResourceShareAccepter, node, id)
+export const useAwsRamResourceShareAccepter = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRamResourceShareAccepter, idFilter, baseNode)
 
-export const useAwsRamResourceShareAccepters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRamResourceShareAccepter, node, id)
+export const useAwsRamResourceShareAccepters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRamResourceShareAccepter, idFilter, baseNode)

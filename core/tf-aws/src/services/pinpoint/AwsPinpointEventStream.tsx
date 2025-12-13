@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_event_stream
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   role_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_event_stream
 
 export function AwsPinpointEventStream(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function AwsPinpointEventStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointEventStream = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointEventStream, node, id)
+export const useAwsPinpointEventStream = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsPinpointEventStream, idFilter, baseNode)
 
-export const useAwsPinpointEventStreams = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointEventStream, node, id)
+export const useAwsPinpointEventStreams = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsPinpointEventStream, idFilter, baseNode)

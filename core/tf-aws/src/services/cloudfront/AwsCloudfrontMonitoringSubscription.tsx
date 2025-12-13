@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_monitoring_subscription
 
 export const InputSchema = z.object({
   distribution_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
       realtime_metrics_subscription_status: z.string(),
     }),
   })),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_monitoring_subscription
 
 export function AwsCloudfrontMonitoringSubscription(
   props: Partial<InputProps>,
@@ -51,11 +53,21 @@ export function AwsCloudfrontMonitoringSubscription(
 }
 
 export const useAwsCloudfrontMonitoringSubscription = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCloudfrontMonitoringSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontMonitoringSubscription,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudfrontMonitoringSubscriptions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCloudfrontMonitoringSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontMonitoringSubscription,
+    idFilter,
+    baseNode,
+  )

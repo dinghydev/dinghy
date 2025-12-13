@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdb_cluster_instance
 
 export const InputSchema = z.object({
   cluster_identifier: resolvableValue(z.string()),
@@ -36,7 +35,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdb_cluster_instance
 
 export function AwsDocdbClusterInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,10 @@ export function AwsDocdbClusterInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbClusterInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDocdbClusterInstance, node, id)
+export const useAwsDocdbClusterInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDocdbClusterInstance, idFilter, baseNode)
 
-export const useAwsDocdbClusterInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDocdbClusterInstance, node, id)
+export const useAwsDocdbClusterInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDocdbClusterInstance, idFilter, baseNode)

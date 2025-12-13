@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfrontkeyvaluestore_keys_exclusive
 
 export const InputSchema = z.object({
   key_value_store_arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       value: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   total_size_in_bytes: z.number().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfrontkeyvaluestore_keys_exclusive
 
 export function AwsCloudfrontkeyvaluestoreKeysExclusive(
   props: Partial<InputProps>,
@@ -53,13 +55,21 @@ export function AwsCloudfrontkeyvaluestoreKeysExclusive(
 }
 
 export const useAwsCloudfrontkeyvaluestoreKeysExclusive = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudfrontkeyvaluestoreKeysExclusive, node, id)
+  useTypedNode<OutputProps>(
+    AwsCloudfrontkeyvaluestoreKeysExclusive,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudfrontkeyvaluestoreKeysExclusives = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontkeyvaluestoreKeysExclusive, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontkeyvaluestoreKeysExclusive,
+    idFilter,
+    baseNode,
+  )

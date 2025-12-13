@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedpermissions_policy
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -18,14 +17,22 @@ export const InputSchema = z.object({
       static: z.object({
         description: z.string().optional(),
         statement: z.string(),
-      }).optional(),
+      }).array().optional(),
       template_linked: z.object({
         policy_template_id: z.string(),
-      }).optional(),
-    }).optional(),
+        principal: z.object({
+          entity_id: z.string(),
+          entity_type: z.string(),
+        }).array().optional(),
+        resource: z.object({
+          entity_id: z.string(),
+          entity_type: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_date: z.string().optional(),
@@ -39,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedpermissions_policy
 
 export function AwsVerifiedpermissionsPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +67,13 @@ export function AwsVerifiedpermissionsPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedpermissionsPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVerifiedpermissionsPolicy, node, id)
+export const useAwsVerifiedpermissionsPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVerifiedpermissionsPolicy, idFilter, baseNode)
 
-export const useAwsVerifiedpermissionsPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVerifiedpermissionsPolicy, node, id)
+export const useAwsVerifiedpermissionsPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsVerifiedpermissionsPolicy, idFilter, baseNode)

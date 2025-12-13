@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_graphql_api
 
 export const InputSchema = z.object({
   authentication_type: resolvableValue(z.string()),
@@ -16,7 +15,23 @@ export const InputSchema = z.object({
   additional_authentication_provider: resolvableValue(
     z.object({
       authentication_type: z.string(),
-    }).optional(),
+      lambda_authorizer_config: z.object({
+        authorizer_result_ttl_in_seconds: z.number().optional(),
+        authorizer_uri: z.string(),
+        identity_validation_expression: z.string().optional(),
+      }).optional(),
+      openid_connect_config: z.object({
+        auth_ttl: z.number().optional(),
+        client_id: z.string().optional(),
+        iat_ttl: z.number().optional(),
+        issuer: z.string(),
+      }).optional(),
+      user_pool_config: z.object({
+        app_id_client_regex: z.string().optional(),
+        aws_region: z.string().optional(),
+        user_pool_id: z.string(),
+      }).optional(),
+    }).array().optional(),
   ),
   api_type: resolvableValue(z.string().optional()),
   enhanced_metrics_config: resolvableValue(
@@ -65,7 +80,7 @@ export const InputSchema = z.object({
   ),
   visibility: resolvableValue(z.string().optional()),
   xray_enabled: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -81,6 +96,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_graphql_api
 
 export function AwsAppsyncGraphqlApi(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -99,8 +117,8 @@ export function AwsAppsyncGraphqlApi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncGraphqlApi = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncGraphqlApi, node, id)
+export const useAwsAppsyncGraphqlApi = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode)
 
-export const useAwsAppsyncGraphqlApis = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncGraphqlApi, node, id)
+export const useAwsAppsyncGraphqlApis = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode)

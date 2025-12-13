@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_working_storage
-
 export const InputSchema = z.object({
   disk_id: resolvableValue(z.string()),
   gateway_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_working_storage
 
 export function AwsStoragegatewayWorkingStorage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,18 @@ export function AwsStoragegatewayWorkingStorage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsStoragegatewayWorkingStorage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsStoragegatewayWorkingStorage, node, id)
+export const useAwsStoragegatewayWorkingStorage = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsStoragegatewayWorkingStorage, idFilter, baseNode)
 
-export const useAwsStoragegatewayWorkingStorages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayWorkingStorage, node, id)
+export const useAwsStoragegatewayWorkingStorages = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayWorkingStorage,
+    idFilter,
+    baseNode,
+  )

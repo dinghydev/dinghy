@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/internetmonitor_monitor
 
 export const InputSchema = z.object({
   monitor_name: resolvableValue(z.string()),
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
   status: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   traffic_percentage_to_monitor: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/internetmonitor_monitor
 
 export function AwsInternetmonitorMonitor(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,12 @@ export function AwsInternetmonitorMonitor(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInternetmonitorMonitor = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsInternetmonitorMonitor, node, id)
+export const useAwsInternetmonitorMonitor = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsInternetmonitorMonitor, idFilter, baseNode)
 
-export const useAwsInternetmonitorMonitors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsInternetmonitorMonitor, node, id)
+export const useAwsInternetmonitorMonitors = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsInternetmonitorMonitor, idFilter, baseNode)

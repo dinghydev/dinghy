@@ -2,19 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectUser } from './AwsConnectUser.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_user
-
 export const InputSchema = z.object({
+  instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   user_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,7 +35,7 @@ export const OutputSchema = z.object({
     phone_type: z.string(),
   }).array().optional(),
   routing_profile_id: z.string().optional(),
-  security_profile_ids: z.string().array().optional(),
+  security_profile_ids: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })
 
@@ -46,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_user
 
 export function DataAwsConnectUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +67,8 @@ export function DataAwsConnectUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsConnectUser, node, id)
+export const useDataAwsConnectUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsConnectUser, idFilter, baseNode)
 
-export const useDataAwsConnectUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsConnectUser, node, id)
+export const useDataAwsConnectUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsConnectUser, idFilter, baseNode)

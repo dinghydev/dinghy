@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_policy
 
 export function AwsAcmpcaPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsAcmpcaPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmpcaPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAcmpcaPolicy, node, id)
+export const useAwsAcmpcaPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode)
 
-export const useAwsAcmpcaPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAcmpcaPolicy, node, id)
+export const useAwsAcmpcaPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode)

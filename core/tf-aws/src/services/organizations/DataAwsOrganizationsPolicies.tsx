@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies
-
 export const InputSchema = z.object({
   filter: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ids: z.string().array().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies
 
 export function DataAwsOrganizationsPolicies(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,5 +45,8 @@ export function DataAwsOrganizationsPolicies(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOrganizationsPoliciess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOrganizationsPolicies, node, id)
+export const useDataAwsOrganizationsPoliciess = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsOrganizationsPolicies, idFilter, baseNode)

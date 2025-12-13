@@ -3,23 +3,35 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_bucket_lifecycle_configuration
-
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
   rule: resolvableValue(
     z.object({
       id: z.string(),
       status: z.string().optional(),
+      abort_incomplete_multipart_upload: z.object({
+        days_after_initiation: z.number(),
+      }).optional(),
+      expiration: z.object({
+        date: z.string().optional(),
+        days: z.number().optional(),
+        expired_object_delete_marker: z.boolean().optional(),
+      }).optional(),
+      filter: z.object({
+        prefix: z.string().optional(),
+        tags: z.record(z.string(), z.string()).optional(),
+      }).optional(),
     }).array(),
   ),
-})
+  id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -32,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_bucket_lifecycle_configuration
 
 export function AwsS3controlBucketLifecycleConfiguration(
   props: Partial<InputProps>,
@@ -53,13 +68,21 @@ export function AwsS3controlBucketLifecycleConfiguration(
 }
 
 export const useAwsS3controlBucketLifecycleConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsS3controlBucketLifecycleConfiguration, node, id)
+  useTypedNode<OutputProps>(
+    AwsS3controlBucketLifecycleConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3controlBucketLifecycleConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3controlBucketLifecycleConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsS3controlBucketLifecycleConfiguration,
+    idFilter,
+    baseNode,
+  )

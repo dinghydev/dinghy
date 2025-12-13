@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_authorizer
 
 export const InputSchema = z.object({
   authorizer_function_arn: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   token_signing_public_keys: resolvableValue(
     z.record(z.string(), z.string()).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_authorizer
 
 export function AwsIotAuthorizer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,8 @@ export function AwsIotAuthorizer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotAuthorizer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotAuthorizer, node, id)
+export const useAwsIotAuthorizer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotAuthorizer, idFilter, baseNode)
 
-export const useAwsIotAuthorizers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotAuthorizer, node, id)
+export const useAwsIotAuthorizers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIotAuthorizer, idFilter, baseNode)

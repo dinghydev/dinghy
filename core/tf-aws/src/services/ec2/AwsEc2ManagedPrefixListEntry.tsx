@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_managed_prefix_list_entry
 
 export const InputSchema = z.object({
   cidr: resolvableValue(z.string()),
   prefix_list_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_managed_prefix_list_entry
 
 export function AwsEc2ManagedPrefixListEntry(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,13 @@ export function AwsEc2ManagedPrefixListEntry(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2ManagedPrefixListEntry = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2ManagedPrefixListEntry, node, id)
+export const useAwsEc2ManagedPrefixListEntry = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEc2ManagedPrefixListEntry, idFilter, baseNode)
 
-export const useAwsEc2ManagedPrefixListEntrys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2ManagedPrefixListEntry, node, id)
+export const useAwsEc2ManagedPrefixListEntrys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2ManagedPrefixListEntry, idFilter, baseNode)

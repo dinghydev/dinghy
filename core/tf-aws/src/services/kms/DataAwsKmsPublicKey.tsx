@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_public_key
-
 export const InputSchema = z.object({
   key_id: resolvableValue(z.string()),
   grant_tokens: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_public_key
 
 export function DataAwsKmsPublicKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function DataAwsKmsPublicKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKmsPublicKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsKmsPublicKey, node, id)
+export const useDataAwsKmsPublicKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsKmsPublicKey, idFilter, baseNode)
 
-export const useDataAwsKmsPublicKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKmsPublicKey, node, id)
+export const useDataAwsKmsPublicKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsKmsPublicKey, idFilter, baseNode)

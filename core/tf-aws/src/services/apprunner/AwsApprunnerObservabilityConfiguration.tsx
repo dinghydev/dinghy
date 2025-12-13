@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_observability_configuration
 
 export const InputSchema = z.object({
   observability_configuration_name: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       vendor: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_observability_configuration
 
 export function AwsApprunnerObservabilityConfiguration(
   props: Partial<InputProps>,
@@ -64,12 +66,21 @@ export function AwsApprunnerObservabilityConfiguration(
 }
 
 export const useAwsApprunnerObservabilityConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsApprunnerObservabilityConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApprunnerObservabilityConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsApprunnerObservabilityConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsApprunnerObservabilityConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsApprunnerObservabilityConfiguration,
+    idFilter,
+    baseNode,
+  )

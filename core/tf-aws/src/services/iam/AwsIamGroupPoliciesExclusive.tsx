@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policies_exclusive
-
 export const InputSchema = z.object({
   group_name: resolvableValue(z.string()),
   policy_names: resolvableValue(z.string().array()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policies_exclusive
 
 export function AwsIamGroupPoliciesExclusive(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -42,8 +44,13 @@ export function AwsIamGroupPoliciesExclusive(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamGroupPoliciesExclusive = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamGroupPoliciesExclusive, node, id)
+export const useAwsIamGroupPoliciesExclusive = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIamGroupPoliciesExclusive, idFilter, baseNode)
 
-export const useAwsIamGroupPoliciesExclusives = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamGroupPoliciesExclusive, node, id)
+export const useAwsIamGroupPoliciesExclusives = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsIamGroupPoliciesExclusive, idFilter, baseNode)

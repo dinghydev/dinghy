@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ivs_stream_key
-
 export const InputSchema = z.object({
   channel_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ivs_stream_key
 
 export function DataAwsIvsStreamKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function DataAwsIvsStreamKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIvsStreamKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIvsStreamKey, node, id)
+export const useDataAwsIvsStreamKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode)
 
-export const useDataAwsIvsStreamKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIvsStreamKey, node, id)
+export const useDataAwsIvsStreamKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode)

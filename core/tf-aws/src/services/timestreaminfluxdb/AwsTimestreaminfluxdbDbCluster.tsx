@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreaminfluxdb_db_cluster
 
 export const InputSchema = z.object({
   db_instance_type: resolvableValue(z.string()),
@@ -26,8 +25,8 @@ export const InputSchema = z.object({
       s3_configuration: z.object({
         bucket_name: z.string(),
         enabled: z.boolean(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   network_type: resolvableValue(z.string().optional()),
   organization: resolvableValue(z.string().optional()),
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   username: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -63,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreaminfluxdb_db_cluster
 
 export function AwsTimestreaminfluxdbDbCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -81,8 +83,14 @@ export function AwsTimestreaminfluxdbDbCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTimestreaminfluxdbDbCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTimestreaminfluxdbDbCluster, node, id)
+export const useAwsTimestreaminfluxdbDbCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsTimestreaminfluxdbDbCluster, idFilter, baseNode)
 
-export const useAwsTimestreaminfluxdbDbClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTimestreaminfluxdbDbCluster, node, id)
+export const useAwsTimestreaminfluxdbDbClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsTimestreaminfluxdbDbCluster, idFilter, baseNode)

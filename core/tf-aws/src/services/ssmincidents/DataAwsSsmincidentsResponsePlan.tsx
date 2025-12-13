@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsmincidentsResponsePlan } from './AwsSsmincidentsResponsePlan.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssmincidents_response_plan
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   action: z.object({
@@ -34,17 +33,17 @@ export const OutputSchema = z.object({
       document_name: z.string(),
       document_version: z.string(),
       dynamic_parameters: z.record(z.string(), z.string()),
-      parameter: z.object({
+      parameter: z.set(z.object({
         name: z.string(),
-        values: z.string().array(),
-      }).array(),
+        values: z.set(z.string()),
+      })),
       role_arn: z.string(),
       target_account: z.string(),
     }).array(),
   }).array().optional(),
-  chat_channel: z.string().array().optional(),
+  chat_channel: z.set(z.string()).optional(),
   display_name: z.string().optional(),
-  engagements: z.string().array().optional(),
+  engagements: z.set(z.string()).optional(),
   integration: z.object({
     pagerduty: z.object({
       name: z.string(),
@@ -63,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssmincidents_response_plan
 
 export function DataAwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -81,8 +83,18 @@ export function DataAwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmincidentsResponsePlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmincidentsResponsePlan, node, id)
+export const useDataAwsSsmincidentsResponsePlan = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsSsmincidentsResponsePlan, idFilter, baseNode)
 
-export const useDataAwsSsmincidentsResponsePlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsmincidentsResponsePlan, node, id)
+export const useDataAwsSsmincidentsResponsePlans = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsmincidentsResponsePlan,
+    idFilter,
+    baseNode,
+  )

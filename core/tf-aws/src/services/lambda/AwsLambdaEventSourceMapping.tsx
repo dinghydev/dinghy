@@ -3,18 +3,28 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_event_source_mapping
 
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
   amazon_managed_kafka_event_source_config: resolvableValue(
     z.object({
       consumer_group_id: z.string().optional(),
+      schema_registry_config: z.object({
+        event_record_format: z.string().optional(),
+        schema_registry_uri: z.string().optional(),
+        access_config: z.object({
+          type: z.string().optional(),
+          uri: z.string().optional(),
+        }).array().optional(),
+        schema_validation_config: z.object({
+          attribute: z.string().optional(),
+        }).array().optional(),
+      }).optional(),
     }).optional(),
   ),
   batch_size: resolvableValue(z.number().optional()),
@@ -75,6 +85,17 @@ export const InputSchema = z.object({
   self_managed_kafka_event_source_config: resolvableValue(
     z.object({
       consumer_group_id: z.string().optional(),
+      schema_registry_config: z.object({
+        event_record_format: z.string().optional(),
+        schema_registry_uri: z.string().optional(),
+        access_config: z.object({
+          type: z.string().optional(),
+          uri: z.string().optional(),
+        }).array().optional(),
+        schema_validation_config: z.object({
+          attribute: z.string().optional(),
+        }).array().optional(),
+      }).optional(),
     }).optional(),
   ),
   source_access_configuration: resolvableValue(
@@ -88,7 +109,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   topics: resolvableValue(z.string().array().optional()),
   tumbling_window_in_seconds: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -108,6 +129,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_event_source_mapping
 
 export function AwsLambdaEventSourceMapping(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -126,8 +150,12 @@ export function AwsLambdaEventSourceMapping(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaEventSourceMapping = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaEventSourceMapping, node, id)
+export const useAwsLambdaEventSourceMapping = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLambdaEventSourceMapping, idFilter, baseNode)
 
-export const useAwsLambdaEventSourceMappings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaEventSourceMapping, node, id)
+export const useAwsLambdaEventSourceMappings = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLambdaEventSourceMapping, idFilter, baseNode)

@@ -3,16 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_cookie_stickiness_policy
-
 export const InputSchema = z.object({
+  lb_port: resolvableValue(z.number()),
+  load_balancer: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  cookie_expiration_period: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cookie_expiration_period: z.number().optional(),
@@ -29,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_cookie_stickiness_policy
 
 export function AwsLbCookieStickinessPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +53,12 @@ export function AwsLbCookieStickinessPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbCookieStickinessPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbCookieStickinessPolicy, node, id)
+export const useAwsLbCookieStickinessPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLbCookieStickinessPolicy, idFilter, baseNode)
 
-export const useAwsLbCookieStickinessPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbCookieStickinessPolicy, node, id)
+export const useAwsLbCookieStickinessPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLbCookieStickinessPolicy, idFilter, baseNode)

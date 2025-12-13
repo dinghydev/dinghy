@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_policy_document
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
@@ -25,10 +24,23 @@ export const InputSchema = z.object({
       not_resources: z.string().array().optional(),
       resources: z.string().array().optional(),
       sid: z.string().optional(),
-    }).optional(),
+      condition: z.object({
+        test: z.string(),
+        values: z.string().array(),
+        variable: z.string(),
+      }).array().optional(),
+      not_principals: z.object({
+        identifiers: z.string().array(),
+        type: z.string(),
+      }).array().optional(),
+      principals: z.object({
+        identifiers: z.string().array(),
+        type: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   json: z.string().optional(),
@@ -42,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_policy_document
 
 export function DataAwsIamPolicyDocument(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +75,12 @@ export function DataAwsIamPolicyDocument(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamPolicyDocument = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamPolicyDocument, node, id)
+export const useDataAwsIamPolicyDocument = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsIamPolicyDocument, idFilter, baseNode)
 
-export const useDataAwsIamPolicyDocuments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamPolicyDocument, node, id)
+export const useDataAwsIamPolicyDocuments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsIamPolicyDocument, idFilter, baseNode)

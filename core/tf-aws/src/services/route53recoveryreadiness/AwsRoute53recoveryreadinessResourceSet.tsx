@@ -3,29 +3,45 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoveryreadiness_resource_set
-
 export const InputSchema = z.object({
   resource_set_name: resolvableValue(z.string()),
   resource_set_type: resolvableValue(z.string()),
+  resources: resolvableValue(
+    z.object({
+      component_id: z.string(),
+      readiness_scopes: z.string().array().optional(),
+      resource_arn: z.string().optional(),
+      dns_target_resource: z.object({
+        domain_name: z.string(),
+        hosted_zone_arn: z.string().optional(),
+        record_set_id: z.string().optional(),
+        record_type: z.string().optional(),
+        target_resource: z.object({
+          nlb_resource: z.object({
+            arn: z.string().optional(),
+          }).optional(),
+          r53_resource: z.object({
+            domain_name: z.string().optional(),
+            record_set_id: z.string().optional(),
+          }).optional(),
+        }).optional(),
+      }).optional(),
+    }).array(),
+  ),
   id: resolvableValue(z.string().optional()),
-  resources: resolvableValue(z.object({
-    component_id: z.string(),
-    readiness_scopes: z.string().array().optional(),
-    resource_arn: z.string().optional(),
-  })),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoveryreadiness_resource_set
 
 export function AwsRoute53recoveryreadinessResourceSet(
   props: Partial<InputProps>,
@@ -60,12 +79,21 @@ export function AwsRoute53recoveryreadinessResourceSet(
 }
 
 export const useAwsRoute53recoveryreadinessResourceSet = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsRoute53recoveryreadinessResourceSet, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53recoveryreadinessResourceSet,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRoute53recoveryreadinessResourceSets = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsRoute53recoveryreadinessResourceSet, node, id)
+  useTypedNodes<OutputProps>(
+    AwsRoute53recoveryreadinessResourceSet,
+    idFilter,
+    baseNode,
+  )

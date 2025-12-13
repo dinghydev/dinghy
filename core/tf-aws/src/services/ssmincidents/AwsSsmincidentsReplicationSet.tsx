@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmincidents_replication_set
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
@@ -36,7 +35,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmincidents_replication_set
 
 export function AwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +74,14 @@ export function AwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmincidentsReplicationSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmincidentsReplicationSet, node, id)
+export const useAwsSsmincidentsReplicationSet = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSsmincidentsReplicationSet, idFilter, baseNode)
 
-export const useAwsSsmincidentsReplicationSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmincidentsReplicationSet, node, id)
+export const useAwsSsmincidentsReplicationSets = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSsmincidentsReplicationSet, idFilter, baseNode)

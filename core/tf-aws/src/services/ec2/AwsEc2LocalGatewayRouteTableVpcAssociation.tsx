@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_local_gateway_route_table_vpc_association
 
 export const InputSchema = z.object({
   local_gateway_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   vpc_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_local_gateway_route_table_vpc_association
 
 export function AwsEc2LocalGatewayRouteTableVpcAssociation(
   props: Partial<InputProps>,
@@ -51,21 +53,21 @@ export function AwsEc2LocalGatewayRouteTableVpcAssociation(
 }
 
 export const useAwsEc2LocalGatewayRouteTableVpcAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2LocalGatewayRouteTableVpcAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsEc2LocalGatewayRouteTableVpcAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2LocalGatewayRouteTableVpcAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

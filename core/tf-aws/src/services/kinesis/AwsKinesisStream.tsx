@@ -3,20 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesis_stream
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   encryption_type: resolvableValue(z.string().optional()),
   enforce_consumer_deletion: resolvableValue(z.boolean().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
   max_record_size_in_kib: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   retention_period: resolvableValue(z.number().optional()),
+  shard_count: resolvableValue(z.number().optional()),
   shard_level_metrics: resolvableValue(z.string().array().optional()),
   stream_mode_details: resolvableValue(
     z.object({
@@ -31,7 +32,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesis_stream
 
 export function AwsKinesisStream(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +70,8 @@ export function AwsKinesisStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKinesisStream = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKinesisStream, node, id)
+export const useAwsKinesisStream = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKinesisStream, idFilter, baseNode)
 
-export const useAwsKinesisStreams = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKinesisStream, node, id)
+export const useAwsKinesisStreams = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKinesisStream, idFilter, baseNode)

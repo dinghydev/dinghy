@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_smb
 
 export const InputSchema = z.object({
   agent_arns: resolvableValue(z.string().array()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_smb
 
 export function AwsDatasyncLocationSmb(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function AwsDatasyncLocationSmb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationSmb = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationSmb, node, id)
+export const useAwsDatasyncLocationSmb = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatasyncLocationSmb, idFilter, baseNode)
 
-export const useAwsDatasyncLocationSmbs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationSmb, node, id)
+export const useAwsDatasyncLocationSmbs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatasyncLocationSmb, idFilter, baseNode)

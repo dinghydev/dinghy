@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_tag
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_tag
 
 export function AwsEcsTag(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsEcsTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsTag = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcsTag, node, id)
+export const useAwsEcsTag = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcsTag, idFilter, baseNode)
 
-export const useAwsEcsTags = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcsTag, node, id)
+export const useAwsEcsTags = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcsTag, idFilter, baseNode)

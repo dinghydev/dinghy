@@ -3,19 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_replication_config
-
 export const InputSchema = z.object({
-  replication_config_identifier: resolvableValue(z.string()),
-  replication_type: resolvableValue(z.string()),
-  source_endpoint_arn: resolvableValue(z.string()),
-  table_mappings: resolvableValue(z.string()),
-  target_endpoint_arn: resolvableValue(z.string()),
   compute_config: resolvableValue(z.object({
     availability_zone: z.string().optional(),
     dns_name_servers: z.string().optional(),
@@ -27,6 +21,11 @@ export const InputSchema = z.object({
     replication_subnet_group_id: z.string(),
     vpc_security_group_ids: z.string().array().optional(),
   })),
+  replication_config_identifier: resolvableValue(z.string()),
+  replication_type: resolvableValue(z.string()),
+  source_endpoint_arn: resolvableValue(z.string()),
+  table_mappings: resolvableValue(z.string()),
+  target_endpoint_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   replication_settings: resolvableValue(z.string().optional()),
@@ -41,7 +40,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_replication_config
 
 export function AwsDmsReplicationConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +81,10 @@ export function AwsDmsReplicationConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsReplicationConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsReplicationConfig, node, id)
+export const useAwsDmsReplicationConfig = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDmsReplicationConfig, idFilter, baseNode)
 
-export const useAwsDmsReplicationConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsReplicationConfig, node, id)
+export const useAwsDmsReplicationConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDmsReplicationConfig, idFilter, baseNode)

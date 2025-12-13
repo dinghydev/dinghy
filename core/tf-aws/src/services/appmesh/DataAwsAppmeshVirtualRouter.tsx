@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppmeshVirtualRouter } from './AwsAppmeshVirtualRouter.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_router
 
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   mesh_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_router
 
 export function DataAwsAppmeshVirtualRouter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,12 @@ export function DataAwsAppmeshVirtualRouter(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshVirtualRouter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshVirtualRouter, node, id)
+export const useDataAwsAppmeshVirtualRouter = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppmeshVirtualRouter, idFilter, baseNode)
 
-export const useDataAwsAppmeshVirtualRouters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualRouter, node, id)
+export const useDataAwsAppmeshVirtualRouters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAppmeshVirtualRouter, idFilter, baseNode)

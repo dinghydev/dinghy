@@ -3,28 +3,27 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_shared_directory
-
 export const InputSchema = z.object({
   directory_id: resolvableValue(z.string()),
-  method: resolvableValue(z.string().optional()),
-  notes: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   target: resolvableValue(z.object({
     id: z.string(),
     type: z.string().optional(),
   })),
+  method: resolvableValue(z.string().optional()),
+  notes: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_shared_directory
 
 export function AwsDirectoryServiceSharedDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,11 +59,21 @@ export function AwsDirectoryServiceSharedDirectory(props: Partial<InputProps>) {
 }
 
 export const useAwsDirectoryServiceSharedDirectory = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsDirectoryServiceSharedDirectory, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDirectoryServiceSharedDirectory,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDirectoryServiceSharedDirectorys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsDirectoryServiceSharedDirectory, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceSharedDirectory,
+    idFilter,
+    baseNode,
+  )

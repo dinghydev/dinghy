@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_anomaly_subscription
 
 export const InputSchema = z.object({
   frequency: resolvableValue(z.string()),
@@ -92,7 +91,7 @@ export const InputSchema = z.object({
       }).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -112,6 +111,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_anomaly_subscription
 
 export function AwsCeAnomalySubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -131,8 +133,12 @@ export function AwsCeAnomalySubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCeAnomalySubscription = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCeAnomalySubscription, node, id)
+export const useAwsCeAnomalySubscription = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCeAnomalySubscription, idFilter, baseNode)
 
-export const useAwsCeAnomalySubscriptions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCeAnomalySubscription, node, id)
+export const useAwsCeAnomalySubscriptions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCeAnomalySubscription, idFilter, baseNode)

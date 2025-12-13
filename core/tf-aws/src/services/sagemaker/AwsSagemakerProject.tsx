@@ -3,24 +3,27 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_project
-
 export const InputSchema = z.object({
   project_name: resolvableValue(z.string()),
-  project_description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   service_catalog_provisioning_details: resolvableValue(z.object({
     path_id: z.string().optional(),
     product_id: z.string(),
     provisioning_artifact_id: z.string().optional(),
+    provisioning_parameter: z.object({
+      key: z.string(),
+      value: z.string().optional(),
+    }).array().optional(),
   })),
+  project_description: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_project
 
 export function AwsSagemakerProject(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +60,8 @@ export function AwsSagemakerProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerProject = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerProject, node, id)
+export const useAwsSagemakerProject = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerProject, idFilter, baseNode)
 
-export const useAwsSagemakerProjects = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerProject, node, id)
+export const useAwsSagemakerProjects = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSagemakerProject, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsNetworkInterface } from './AwsNetworkInterface.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/network_interface
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,7 +46,7 @@ export const OutputSchema = z.object({
   availability_zone: z.string().optional(),
   description: z.string().optional(),
   interface_type: z.string().optional(),
-  ipv6_addresses: z.string().array().optional(),
+  ipv6_addresses: z.set(z.string()).optional(),
   mac_address: z.string().optional(),
   outpost_arn: z.string().optional(),
   owner_id: z.string().optional(),
@@ -55,7 +54,7 @@ export const OutputSchema = z.object({
   private_ip: z.string().optional(),
   private_ips: z.string().array().optional(),
   requester_id: z.string().optional(),
-  security_groups: z.string().array().optional(),
+  security_groups: z.set(z.string()).optional(),
   subnet_id: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   vpc_id: z.string().optional(),
@@ -68,6 +67,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/network_interface
 
 export function DataAwsNetworkInterface(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -86,8 +88,10 @@ export function DataAwsNetworkInterface(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNetworkInterface = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsNetworkInterface, node, id)
+export const useDataAwsNetworkInterface = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsNetworkInterface, idFilter, baseNode)
 
-export const useDataAwsNetworkInterfaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsNetworkInterface, node, id)
+export const useDataAwsNetworkInterfaces = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsNetworkInterface, idFilter, baseNode)

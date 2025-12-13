@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesisanalyticsv2_application
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -18,6 +17,14 @@ export const InputSchema = z.object({
     z.object({
       application_code_configuration: z.object({
         code_content_type: z.string(),
+        code_content: z.object({
+          text_content: z.string().optional(),
+          s3_content_location: z.object({
+            bucket_arn: z.string(),
+            file_key: z.string(),
+            object_version: z.string().optional(),
+          }).optional(),
+        }).optional(),
       }),
       application_snapshot_configuration: z.object({
         snapshots_enabled: z.boolean(),
@@ -61,14 +68,87 @@ export const InputSchema = z.object({
           in_app_stream_names: z.string().array(),
           input_id: z.string(),
           name_prefix: z.string(),
+          input_parallelism: z.object({
+            count: z.number().optional(),
+          }).optional(),
+          input_processing_configuration: z.object({
+            input_lambda_processor: z.object({
+              resource_arn: z.string(),
+            }),
+          }).optional(),
+          input_schema: z.object({
+            record_encoding: z.string().optional(),
+            record_column: z.object({
+              mapping: z.string().optional(),
+              name: z.string(),
+              sql_type: z.string(),
+            }).array(),
+            record_format: z.object({
+              record_format_type: z.string(),
+              mapping_parameters: z.object({
+                csv_mapping_parameters: z.object({
+                  record_column_delimiter: z.string(),
+                  record_row_delimiter: z.string(),
+                }).optional(),
+                json_mapping_parameters: z.object({
+                  record_row_path: z.string(),
+                }).optional(),
+              }),
+            }),
+          }),
+          input_starting_position_configuration: z.object({
+            input_starting_position: z.string().optional(),
+          }).array().optional(),
+          kinesis_firehose_input: z.object({
+            resource_arn: z.string(),
+          }).optional(),
+          kinesis_streams_input: z.object({
+            resource_arn: z.string(),
+          }).optional(),
         }).optional(),
         output: z.object({
           name: z.string(),
           output_id: z.string(),
+          destination_schema: z.object({
+            record_format_type: z.string(),
+          }),
+          kinesis_firehose_output: z.object({
+            resource_arn: z.string(),
+          }).optional(),
+          kinesis_streams_output: z.object({
+            resource_arn: z.string(),
+          }).optional(),
+          lambda_output: z.object({
+            resource_arn: z.string(),
+          }).optional(),
         }).array().optional(),
         reference_data_source: z.object({
           reference_id: z.string(),
           table_name: z.string(),
+          reference_schema: z.object({
+            record_encoding: z.string().optional(),
+            record_column: z.object({
+              mapping: z.string().optional(),
+              name: z.string(),
+              sql_type: z.string(),
+            }).array(),
+            record_format: z.object({
+              record_format_type: z.string(),
+              mapping_parameters: z.object({
+                csv_mapping_parameters: z.object({
+                  record_column_delimiter: z.string(),
+                  record_row_delimiter: z.string(),
+                }).optional(),
+                json_mapping_parameters: z.object({
+                  record_row_path: z.string(),
+                }).optional(),
+              }),
+            }),
+          }),
+          s3_reference_data_source: z.object({
+            bucket_arn: z.string(),
+            file_key: z.string(),
+          }),
         }).optional(),
       }).optional(),
       vpc_configuration: z.object({
@@ -98,7 +178,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -117,6 +197,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesisanalyticsv2_application
 
 export function AwsKinesisanalyticsv2Application(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -135,8 +218,22 @@ export function AwsKinesisanalyticsv2Application(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKinesisanalyticsv2Application = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKinesisanalyticsv2Application, node, id)
+export const useAwsKinesisanalyticsv2Application = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsKinesisanalyticsv2Application,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsKinesisanalyticsv2Applications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKinesisanalyticsv2Application, node, id)
+export const useAwsKinesisanalyticsv2Applications = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsKinesisanalyticsv2Application,
+    idFilter,
+    baseNode,
+  )

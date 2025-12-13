@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAcmpcaCertificateAuthority } from './AwsAcmpcaCertificateAuthority.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acmpca_certificate_authority
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   key_storage_security_standard: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   certificate: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acmpca_certificate_authority
 
 export function DataAwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,10 +70,22 @@ export function DataAwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAcmpcaCertificateAuthority = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAcmpcaCertificateAuthority, node, id)
+export const useDataAwsAcmpcaCertificateAuthority = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAcmpcaCertificateAuthority,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsAcmpcaCertificateAuthoritys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsAcmpcaCertificateAuthority, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAcmpcaCertificateAuthority,
+    idFilter,
+    baseNode,
+  )

@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_account_setting
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_account_setting
 
 export function AwsEcrAccountSetting(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,8 +45,8 @@ export function AwsEcrAccountSetting(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrAccountSetting = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrAccountSetting, node, id)
+export const useAwsEcrAccountSetting = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcrAccountSetting, idFilter, baseNode)
 
-export const useAwsEcrAccountSettings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrAccountSetting, node, id)
+export const useAwsEcrAccountSettings = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcrAccountSetting, idFilter, baseNode)

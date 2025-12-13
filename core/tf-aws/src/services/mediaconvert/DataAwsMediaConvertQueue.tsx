@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMediaConvertQueue } from './AwsMediaConvertQueue.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/media_convert_queue
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/media_convert_queue
 
 export function DataAwsMediaConvertQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function DataAwsMediaConvertQueue(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMediaConvertQueue = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMediaConvertQueue, node, id)
+export const useDataAwsMediaConvertQueue = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsMediaConvertQueue, idFilter, baseNode)
 
-export const useDataAwsMediaConvertQueues = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMediaConvertQueue, node, id)
+export const useDataAwsMediaConvertQueues = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsMediaConvertQueue, idFilter, baseNode)

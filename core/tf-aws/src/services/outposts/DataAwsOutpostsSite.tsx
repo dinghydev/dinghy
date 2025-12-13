@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/outposts_site
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   account_id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/outposts_site
 
 export function DataAwsOutpostsSite(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function DataAwsOutpostsSite(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOutpostsSite = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOutpostsSite, node, id)
+export const useDataAwsOutpostsSite = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOutpostsSite, idFilter, baseNode)
 
-export const useDataAwsOutpostsSites = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOutpostsSite, node, id)
+export const useDataAwsOutpostsSites = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOutpostsSite, idFilter, baseNode)

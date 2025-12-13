@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_studio
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
   user_role: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   url: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_studio
 
 export function AwsEmrStudio(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,8 @@ export function AwsEmrStudio(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrStudio = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrStudio, node, id)
+export const useAwsEmrStudio = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEmrStudio, idFilter, baseNode)
 
-export const useAwsEmrStudios = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrStudio, node, id)
+export const useAwsEmrStudios = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEmrStudio, idFilter, baseNode)

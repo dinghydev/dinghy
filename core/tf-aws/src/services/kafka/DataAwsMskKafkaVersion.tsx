@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_kafka_version
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   preferred_versions: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   status: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_kafka_version
 
 export function DataAwsMskKafkaVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function DataAwsMskKafkaVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskKafkaVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMskKafkaVersion, node, id)
+export const useDataAwsMskKafkaVersion = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMskKafkaVersion, idFilter, baseNode)
 
-export const useDataAwsMskKafkaVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMskKafkaVersion, node, id)
+export const useDataAwsMskKafkaVersions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsMskKafkaVersion, idFilter, baseNode)

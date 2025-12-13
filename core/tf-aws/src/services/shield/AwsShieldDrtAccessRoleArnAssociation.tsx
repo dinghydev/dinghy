@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_drt_access_role_arn_association
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_drt_access_role_arn_association
 
 export function AwsShieldDrtAccessRoleArnAssociation(
   props: Partial<InputProps>,
@@ -52,11 +54,21 @@ export function AwsShieldDrtAccessRoleArnAssociation(
 }
 
 export const useAwsShieldDrtAccessRoleArnAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsShieldDrtAccessRoleArnAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsShieldDrtAccessRoleArnAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsShieldDrtAccessRoleArnAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsShieldDrtAccessRoleArnAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsShieldDrtAccessRoleArnAssociation,
+    idFilter,
+    baseNode,
+  )

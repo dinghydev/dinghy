@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_threatintelset
 
 export const InputSchema = z.object({
   activate: resolvableValue(z.boolean()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_threatintelset
 
 export function AwsGuarddutyThreatintelset(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function AwsGuarddutyThreatintelset(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyThreatintelset = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGuarddutyThreatintelset, node, id)
+export const useAwsGuarddutyThreatintelset = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsGuarddutyThreatintelset, idFilter, baseNode)
 
-export const useAwsGuarddutyThreatintelsets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyThreatintelset, node, id)
+export const useAwsGuarddutyThreatintelsets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsGuarddutyThreatintelset, idFilter, baseNode)

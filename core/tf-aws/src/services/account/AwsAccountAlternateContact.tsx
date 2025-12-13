@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_alternate_contact
 
 export const InputSchema = z.object({
   alternate_contact_type: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_alternate_contact
 
 export function AwsAccountAlternateContact(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function AwsAccountAlternateContact(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAccountAlternateContact = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAccountAlternateContact, node, id)
+export const useAwsAccountAlternateContact = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAccountAlternateContact, idFilter, baseNode)
 
-export const useAwsAccountAlternateContacts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAccountAlternateContact, node, id)
+export const useAwsAccountAlternateContacts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAccountAlternateContact, idFilter, baseNode)

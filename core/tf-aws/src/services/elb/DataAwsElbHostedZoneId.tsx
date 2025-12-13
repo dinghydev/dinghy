@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb_hosted_zone_id
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb_hosted_zone_id
 
 export function DataAwsElbHostedZoneId(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,8 +45,8 @@ export function DataAwsElbHostedZoneId(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElbHostedZoneId = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElbHostedZoneId, node, id)
+export const useDataAwsElbHostedZoneId = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsElbHostedZoneId, idFilter, baseNode)
 
-export const useDataAwsElbHostedZoneIds = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsElbHostedZoneId, node, id)
+export const useDataAwsElbHostedZoneIds = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsElbHostedZoneId, idFilter, baseNode)

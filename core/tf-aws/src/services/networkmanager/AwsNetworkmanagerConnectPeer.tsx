@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_connect_peer
 
 export const InputSchema = z.object({
   connect_attachment_id: resolvableValue(z.string()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,7 +40,7 @@ export const OutputSchema = z.object({
       peer_asn: z.number(),
     }).array(),
     core_network_address: z.string(),
-    inside_cidr_blocks: z.string().array(),
+    inside_cidr_blocks: z.set(z.string()),
     peer_address: z.string(),
     protocol: z.string(),
   }).array().optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_connect_peer
 
 export function AwsNetworkmanagerConnectPeer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,13 @@ export function AwsNetworkmanagerConnectPeer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmanagerConnectPeer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerConnectPeer, node, id)
+export const useAwsNetworkmanagerConnectPeer = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNetworkmanagerConnectPeer, idFilter, baseNode)
 
-export const useAwsNetworkmanagerConnectPeers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerConnectPeer, node, id)
+export const useAwsNetworkmanagerConnectPeers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsNetworkmanagerConnectPeer, idFilter, baseNode)

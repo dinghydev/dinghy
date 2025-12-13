@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLambdaInvocation } from './AwsLambdaInvocation.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_invocation
 
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   qualifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   result: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_invocation
 
 export function DataAwsLambdaInvocation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,10 @@ export function DataAwsLambdaInvocation(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaInvocation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLambdaInvocation, node, id)
+export const useDataAwsLambdaInvocation = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLambdaInvocation, idFilter, baseNode)
 
-export const useDataAwsLambdaInvocations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaInvocation, node, id)
+export const useDataAwsLambdaInvocations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsLambdaInvocation, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_web_acl_association
 
 export const InputSchema = z.object({
   resource_arn: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_web_acl_association
 
 export function AwsWafv2WebAclAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,12 @@ export function AwsWafv2WebAclAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2WebAclAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafv2WebAclAssociation, node, id)
+export const useAwsWafv2WebAclAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsWafv2WebAclAssociation, idFilter, baseNode)
 
-export const useAwsWafv2WebAclAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafv2WebAclAssociation, node, id)
+export const useAwsWafv2WebAclAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsWafv2WebAclAssociation, idFilter, baseNode)

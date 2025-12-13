@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_group
-
 export const InputSchema = z.object({
   items: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   etag: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_group
 
 export function AwsCloudfrontKeyGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsCloudfrontKeyGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontKeyGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudfrontKeyGroup, node, id)
+export const useAwsCloudfrontKeyGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudfrontKeyGroup, idFilter, baseNode)
 
-export const useAwsCloudfrontKeyGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontKeyGroup, node, id)
+export const useAwsCloudfrontKeyGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudfrontKeyGroup, idFilter, baseNode)

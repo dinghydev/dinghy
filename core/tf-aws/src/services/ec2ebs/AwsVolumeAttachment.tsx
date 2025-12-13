@@ -3,14 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/volume_attachment
-
 export const InputSchema = z.object({
+  device_name: resolvableValue(z.string()),
+  instance_id: resolvableValue(z.string()),
+  volume_id: resolvableValue(z.string()),
   force_detach: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -22,7 +24,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   device_name: z.string().optional(),
@@ -37,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/volume_attachment
 
 export function AwsVolumeAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +60,8 @@ export function AwsVolumeAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVolumeAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVolumeAttachment, node, id)
+export const useAwsVolumeAttachment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVolumeAttachment, idFilter, baseNode)
 
-export const useAwsVolumeAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVolumeAttachment, node, id)
+export const useAwsVolumeAttachments = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVolumeAttachment, idFilter, baseNode)

@@ -2,32 +2,26 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAutoscalingGroup } from './AwsAutoscalingGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/autoscaling_group
-
 export const InputSchema = z.object({
   default_cooldown: resolvableValue(z.number()),
+  name: resolvableValue(z.string()),
   new_instances_protected_from_scale_in: resolvableValue(z.boolean()),
-  traffic_source: resolvableValue(
-    z.object({
-      identifier: z.string(),
-      type: z.string(),
-    }).array(),
-  ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  availability_zones: z.string().array().optional(),
+  availability_zones: z.set(z.string()).optional(),
   desired_capacity: z.number().optional(),
   desired_capacity_type: z.string().optional(),
-  enabled_metrics: z.string().array().optional(),
+  enabled_metrics: z.set(z.string()).optional(),
   health_check_grace_period: z.number().optional(),
   health_check_type: z.string().optional(),
   id: z.string().optional(),
@@ -41,7 +35,7 @@ export const OutputSchema = z.object({
     name: z.string(),
     version: z.string(),
   }).array().optional(),
-  load_balancers: z.string().array().optional(),
+  load_balancers: z.set(z.string()).optional(),
   max_instance_lifetime: z.number().optional(),
   max_size: z.number().optional(),
   min_size: z.number().optional(),
@@ -66,25 +60,25 @@ export const OutputSchema = z.object({
             max: z.number(),
             min: z.number(),
           }).array(),
-          accelerator_manufacturers: z.string().array(),
-          accelerator_names: z.string().array(),
+          accelerator_manufacturers: z.set(z.string()),
+          accelerator_names: z.set(z.string()),
           accelerator_total_memory_mib: z.object({
             max: z.number(),
             min: z.number(),
           }).array(),
-          accelerator_types: z.string().array(),
-          allowed_instance_types: z.string().array(),
+          accelerator_types: z.set(z.string()),
+          allowed_instance_types: z.set(z.string()),
           bare_metal: z.string(),
           baseline_ebs_bandwidth_mbps: z.object({
             max: z.number(),
             min: z.number(),
           }).array(),
           burstable_performance: z.string(),
-          cpu_manufacturers: z.string().array(),
-          excluded_instance_types: z.string().array(),
-          instance_generations: z.string().array(),
+          cpu_manufacturers: z.set(z.string()),
+          excluded_instance_types: z.set(z.string()),
+          instance_generations: z.set(z.string()),
           local_storage: z.string(),
-          local_storage_types: z.string().array(),
+          local_storage_types: z.set(z.string()),
           max_spot_price_as_percentage_of_optimal_on_demand_price: z.number(),
           memory_gib_per_vcpu: z.object({
             max: z.number(),
@@ -129,14 +123,18 @@ export const OutputSchema = z.object({
   predicted_capacity: z.number().optional(),
   service_linked_role_arn: z.string().optional(),
   status: z.string().optional(),
-  suspended_processes: z.string().array().optional(),
-  tag: z.object({
+  suspended_processes: z.set(z.string()).optional(),
+  tag: z.set(z.object({
     key: z.string(),
     propagate_at_launch: z.boolean(),
     value: z.string(),
-  }).array().optional(),
-  target_group_arns: z.string().array().optional(),
-  termination_policies: z.string().array().optional(),
+  })).optional(),
+  target_group_arns: z.set(z.string()).optional(),
+  termination_policies: z.set(z.string()).optional(),
+  traffic_source: z.set(z.object({
+    identifier: z.string(),
+    type: z.string(),
+  })).optional(),
   vpc_zone_identifier: z.string().optional(),
   warm_pool: z.object({
     instance_reuse_policy: z.object({
@@ -156,6 +154,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/autoscaling_group
 
 export function DataAwsAutoscalingGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -174,8 +175,10 @@ export function DataAwsAutoscalingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAutoscalingGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAutoscalingGroup, node, id)
+export const useDataAwsAutoscalingGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsAutoscalingGroup, idFilter, baseNode)
 
-export const useDataAwsAutoscalingGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAutoscalingGroup, node, id)
+export const useDataAwsAutoscalingGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAutoscalingGroup, idFilter, baseNode)

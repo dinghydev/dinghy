@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_default_patch_baseline
 
 export const InputSchema = z.object({
   baseline_id: resolvableValue(z.string()),
   operating_system: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_default_patch_baseline
 
 export function AwsSsmDefaultPatchBaseline(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,12 @@ export function AwsSsmDefaultPatchBaseline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmDefaultPatchBaseline = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmDefaultPatchBaseline, node, id)
+export const useAwsSsmDefaultPatchBaseline = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSsmDefaultPatchBaseline, idFilter, baseNode)
 
-export const useAwsSsmDefaultPatchBaselines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmDefaultPatchBaseline, node, id)
+export const useAwsSsmDefaultPatchBaselines = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSsmDefaultPatchBaseline, idFilter, baseNode)

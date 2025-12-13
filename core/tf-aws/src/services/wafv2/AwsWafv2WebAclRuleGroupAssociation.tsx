@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_web_acl_rule_group_association
 
 export const InputSchema = z.object({
   priority: resolvableValue(z.number()),
@@ -19,14 +18,108 @@ export const InputSchema = z.object({
       name: z.string(),
       vendor_name: z.string(),
       version: z.string().optional(),
-    }).optional(),
+      rule_action_override: z.object({
+        name: z.string(),
+        action_to_use: z.object({
+          allow: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          block: z.object({
+            custom_response: z.object({
+              custom_response_body_key: z.string().optional(),
+              response_code: z.number(),
+              response_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          captcha: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          challenge: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          count: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   override_action: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   rule_group_reference: resolvableValue(
     z.object({
       arn: z.string(),
-    }).optional(),
+      rule_action_override: z.object({
+        name: z.string(),
+        action_to_use: z.object({
+          allow: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          block: z.object({
+            custom_response: z.object({
+              custom_response_body_key: z.string().optional(),
+              response_code: z.number(),
+              response_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          captcha: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          challenge: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          count: z.object({
+            custom_request_handling: z.object({
+              insert_header: z.object({
+                name: z.string(),
+                value: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -35,7 +128,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -46,6 +139,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_web_acl_rule_group_association
 
 export function AwsWafv2WebAclRuleGroupAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,11 +161,21 @@ export function AwsWafv2WebAclRuleGroupAssociation(props: Partial<InputProps>) {
 }
 
 export const useAwsWafv2WebAclRuleGroupAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsWafv2WebAclRuleGroupAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafv2WebAclRuleGroupAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsWafv2WebAclRuleGroupAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsWafv2WebAclRuleGroupAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafv2WebAclRuleGroupAssociation,
+    idFilter,
+    baseNode,
+  )

@@ -2,23 +2,22 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderImageRecipe } from './AwsImagebuilderImageRecipe.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_image_recipe
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ami_tags: z.record(z.string(), z.string()).optional(),
-  block_device_mapping: z.object({
+  block_device_mapping: z.set(z.object({
     device_name: z.string(),
     ebs: z.object({
       delete_on_termination: z.string(),
@@ -32,13 +31,13 @@ export const OutputSchema = z.object({
     }).array(),
     no_device: z.string(),
     virtual_name: z.string(),
-  }).array().optional(),
+  })).optional(),
   component: z.object({
     component_arn: z.string(),
-    parameter: z.object({
+    parameter: z.set(z.object({
       name: z.string(),
       value: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
   date_created: z.string().optional(),
   description: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_image_recipe
 
 export function DataAwsImagebuilderImageRecipe(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,14 @@ export function DataAwsImagebuilderImageRecipe(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsImagebuilderImageRecipe = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsImagebuilderImageRecipe, node, id)
+export const useDataAwsImagebuilderImageRecipe = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsImagebuilderImageRecipe, idFilter, baseNode)
 
-export const useDataAwsImagebuilderImageRecipes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsImagebuilderImageRecipe, node, id)
+export const useDataAwsImagebuilderImageRecipes = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsImagebuilderImageRecipe, idFilter, baseNode)

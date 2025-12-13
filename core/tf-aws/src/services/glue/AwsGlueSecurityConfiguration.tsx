@@ -3,15 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_security_configuration
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
   encryption_configuration: resolvableValue(z.object({
     cloudwatch_encryption: z.object({
       cloudwatch_encryption_mode: z.string().optional(),
@@ -26,8 +24,9 @@ export const InputSchema = z.object({
       s3_encryption_mode: z.string().optional(),
     }),
   })),
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_security_configuration
 
 export function AwsGlueSecurityConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,13 @@ export function AwsGlueSecurityConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueSecurityConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueSecurityConfiguration, node, id)
+export const useAwsGlueSecurityConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsGlueSecurityConfiguration, idFilter, baseNode)
 
-export const useAwsGlueSecurityConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueSecurityConfiguration, node, id)
+export const useAwsGlueSecurityConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsGlueSecurityConfiguration, idFilter, baseNode)

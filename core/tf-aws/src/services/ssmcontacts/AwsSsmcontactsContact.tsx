@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmcontacts_contact
 
 export const InputSchema = z.object({
   alias: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmcontacts_contact
 
 export function AwsSsmcontactsContact(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsSsmcontactsContact(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmcontactsContact = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmcontactsContact, node, id)
+export const useAwsSsmcontactsContact = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmcontactsContact, idFilter, baseNode)
 
-export const useAwsSsmcontactsContacts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmcontactsContact, node, id)
+export const useAwsSsmcontactsContacts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmcontactsContact, idFilter, baseNode)

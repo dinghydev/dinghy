@@ -3,22 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transcribe_language_model
-
 export const InputSchema = z.object({
   base_model_name: resolvableValue(z.string()),
-  language_code: resolvableValue(z.string()),
-  model_name: resolvableValue(z.string()),
   input_data_config: resolvableValue(z.object({
     data_access_role_arn: z.string(),
     s3_uri: z.string(),
     tuning_data_s3_uri: z.string().optional(),
   })),
+  language_code: resolvableValue(z.string()),
+  model_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transcribe_language_model
 
 export function AwsTranscribeLanguageModel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,12 @@ export function AwsTranscribeLanguageModel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTranscribeLanguageModel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTranscribeLanguageModel, node, id)
+export const useAwsTranscribeLanguageModel = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsTranscribeLanguageModel, idFilter, baseNode)
 
-export const useAwsTranscribeLanguageModels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTranscribeLanguageModel, node, id)
+export const useAwsTranscribeLanguageModels = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsTranscribeLanguageModel, idFilter, baseNode)

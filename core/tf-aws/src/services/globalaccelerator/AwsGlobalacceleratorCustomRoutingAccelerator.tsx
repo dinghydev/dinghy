@@ -3,15 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_custom_routing_accelerator
-
 export const InputSchema = z.object({
-  hosted_zone_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   attributes: resolvableValue(
     z.object({
@@ -22,6 +20,7 @@ export const InputSchema = z.object({
   ),
   enabled: resolvableValue(z.boolean().optional()),
   ip_address_type: resolvableValue(z.string().optional()),
+  ip_addresses: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -29,11 +28,12 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
+  hosted_zone_id: z.string().optional(),
   id: z.string().optional(),
   ip_addresses: z.string().array().optional(),
   ip_sets: z.object({
@@ -55,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_custom_routing_accelerator
 
 export function AwsGlobalacceleratorCustomRoutingAccelerator(
   props: Partial<InputProps>,
@@ -77,21 +80,21 @@ export function AwsGlobalacceleratorCustomRoutingAccelerator(
 }
 
 export const useAwsGlobalacceleratorCustomRoutingAccelerator = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsGlobalacceleratorCustomRoutingAccelerator,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsGlobalacceleratorCustomRoutingAccelerators = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorCustomRoutingAccelerator,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_target_group
 
 export const InputSchema = z.object({
   connection_termination: resolvableValue(z.boolean().optional()),
@@ -31,6 +30,7 @@ export const InputSchema = z.object({
   load_balancing_algorithm_type: resolvableValue(z.string().optional()),
   load_balancing_anomaly_mitigation: resolvableValue(z.string().optional()),
   load_balancing_cross_zone_enabled: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   port: resolvableValue(z.number().optional()),
   preserve_client_ip: resolvableValue(z.string().optional()),
@@ -52,7 +52,7 @@ export const InputSchema = z.object({
     z.object({
       on_deregistration: z.string(),
       on_unhealthy: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   target_group_health: resolvableValue(
     z.object({
@@ -70,17 +70,17 @@ export const InputSchema = z.object({
     z.object({
       enable_unhealthy_connection_termination: z.boolean(),
       unhealthy_draining_interval: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   target_type: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   arn_suffix: z.string().optional(),
   id: z.string().optional(),
-  load_balancer_arns: z.string().array().optional(),
+  load_balancer_arns: z.set(z.string()).optional(),
   name: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
@@ -97,6 +97,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_target_group
 
 export function AwsLbTargetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -116,8 +119,8 @@ export function AwsLbTargetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbTargetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbTargetGroup, node, id)
+export const useAwsLbTargetGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLbTargetGroup, idFilter, baseNode)
 
-export const useAwsLbTargetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbTargetGroup, node, id)
+export const useAwsLbTargetGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLbTargetGroup, idFilter, baseNode)

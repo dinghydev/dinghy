@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_fleet_stack_association
-
 export const InputSchema = z.object({
   fleet_name: resolvableValue(z.string()),
   stack_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_fleet_stack_association
 
 export function AwsAppstreamFleetStackAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,10 +47,22 @@ export function AwsAppstreamFleetStackAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamFleetStackAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppstreamFleetStackAssociation, node, id)
+export const useAwsAppstreamFleetStackAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppstreamFleetStackAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsAppstreamFleetStackAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsAppstreamFleetStackAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppstreamFleetStackAssociation,
+    idFilter,
+    baseNode,
+  )

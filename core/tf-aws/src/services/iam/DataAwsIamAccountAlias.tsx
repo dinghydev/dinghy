@@ -1,14 +1,13 @@
 import {
   camelCaseToWords,
   type NodeProps,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamAccountAlias } from './AwsIamAccountAlias.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_account_alias
-
-export const InputSchema = z.object({})
+export const InputSchema = z.object({}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   account_alias: z.string().optional(),
@@ -22,6 +21,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_account_alias
 
 export function DataAwsIamAccountAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -40,5 +42,5 @@ export function DataAwsIamAccountAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamAccountAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamAccountAlias, node, id)
+export const useDataAwsIamAccountAliass = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamAccountAlias, idFilter, baseNode)

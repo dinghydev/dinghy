@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_contributor_managed_insight_rules
-
 export const InputSchema = z.object({
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   managed_rules: z.object({
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_contributor_managed_insight_rules
 
 export function DataAwsCloudwatchContributorManagedInsightRules(
   props: Partial<InputProps>,
@@ -53,11 +55,11 @@ export function DataAwsCloudwatchContributorManagedInsightRules(
 }
 
 export const useDataAwsCloudwatchContributorManagedInsightRuless = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudwatchContributorManagedInsightRules,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

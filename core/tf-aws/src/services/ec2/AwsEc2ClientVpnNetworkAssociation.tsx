@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_network_association
 
 export const InputSchema = z.object({
   client_vpn_endpoint_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   association_id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_network_association
 
 export function AwsEc2ClientVpnNetworkAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,10 +55,22 @@ export function AwsEc2ClientVpnNetworkAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2ClientVpnNetworkAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2ClientVpnNetworkAssociation, node, id)
+export const useAwsEc2ClientVpnNetworkAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2ClientVpnNetworkAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2ClientVpnNetworkAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsEc2ClientVpnNetworkAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2ClientVpnNetworkAssociation,
+    idFilter,
+    baseNode,
+  )

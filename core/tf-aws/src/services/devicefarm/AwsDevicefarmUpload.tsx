@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_upload
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   content_type: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_upload
 
 export function AwsDevicefarmUpload(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function AwsDevicefarmUpload(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevicefarmUpload = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDevicefarmUpload, node, id)
+export const useAwsDevicefarmUpload = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode)
 
-export const useAwsDevicefarmUploads = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmUpload, node, id)
+export const useAwsDevicefarmUploads = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreamwrite_table
 
 export const InputSchema = z.object({
   database_name: resolvableValue(z.string()),
@@ -16,6 +15,14 @@ export const InputSchema = z.object({
   magnetic_store_write_properties: resolvableValue(
     z.object({
       enable_magnetic_store_writes: z.boolean().optional(),
+      magnetic_store_rejected_data_location: z.object({
+        s3_configuration: z.object({
+          bucket_name: z.string().optional(),
+          encryption_option: z.string().optional(),
+          kms_key_id: z.string().optional(),
+          object_key_prefix: z.string().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -35,7 +42,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreamwrite_table
 
 export function AwsTimestreamwriteTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +78,10 @@ export function AwsTimestreamwriteTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTimestreamwriteTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTimestreamwriteTable, node, id)
+export const useAwsTimestreamwriteTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTimestreamwriteTable, idFilter, baseNode)
 
-export const useAwsTimestreamwriteTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTimestreamwriteTable, node, id)
+export const useAwsTimestreamwriteTables = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsTimestreamwriteTable, idFilter, baseNode)

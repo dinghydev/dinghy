@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppconfigApplication } from './AwsAppconfigApplication.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appconfig_application
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appconfig_application
 
 export function DataAwsAppconfigApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,12 @@ export function DataAwsAppconfigApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppconfigApplication = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppconfigApplication, node, id)
+export const useDataAwsAppconfigApplication = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppconfigApplication, idFilter, baseNode)
 
-export const useDataAwsAppconfigApplications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppconfigApplication, node, id)
+export const useDataAwsAppconfigApplications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAppconfigApplication, idFilter, baseNode)

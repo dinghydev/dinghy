@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/outposts_outpost
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string().optional()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
   owner_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zone: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/outposts_outpost
 
 export function DataAwsOutpostsOutpost(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function DataAwsOutpostsOutpost(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOutpostsOutpost = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOutpostsOutpost, node, id)
+export const useDataAwsOutpostsOutpost = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOutpostsOutpost, idFilter, baseNode)
 
-export const useDataAwsOutpostsOutposts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOutpostsOutpost, node, id)
+export const useDataAwsOutpostsOutposts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOutpostsOutpost, idFilter, baseNode)

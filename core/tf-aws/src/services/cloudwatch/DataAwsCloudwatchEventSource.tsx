@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_event_source
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_event_source
 
 export function DataAwsCloudwatchEventSource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,13 @@ export function DataAwsCloudwatchEventSource(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCloudwatchEventSource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCloudwatchEventSource, node, id)
+export const useDataAwsCloudwatchEventSource = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsCloudwatchEventSource, idFilter, baseNode)
 
-export const useDataAwsCloudwatchEventSources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCloudwatchEventSource, node, id)
+export const useDataAwsCloudwatchEventSources = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsCloudwatchEventSource, idFilter, baseNode)

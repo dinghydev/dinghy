@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_trust_store
 
 export const InputSchema = z.object({
   ca_certificates_bundle_s3_bucket: resolvableValue(z.string()),
@@ -16,6 +15,7 @@ export const InputSchema = z.object({
   ca_certificates_bundle_s3_object_version: resolvableValue(
     z.string().optional(),
   ),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_trust_store
 
 export function AwsLbTrustStore(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +69,8 @@ export function AwsLbTrustStore(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbTrustStore = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbTrustStore, node, id)
+export const useAwsLbTrustStore = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLbTrustStore, idFilter, baseNode)
 
-export const useAwsLbTrustStores = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbTrustStore, node, id)
+export const useAwsLbTrustStores = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLbTrustStore, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3tables_table
 
 export const InputSchema = z.object({
   format: resolvableValue(z.string()),
@@ -46,14 +45,14 @@ export const InputSchema = z.object({
             name: z.string(),
             required: z.boolean().optional(),
             type: z.string(),
-          }).optional(),
-        }).optional(),
-      }).optional(),
-    }).optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -76,6 +75,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3tables_table
 
 export function AwsS3tablesTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -94,8 +96,8 @@ export function AwsS3tablesTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3tablesTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3tablesTable, node, id)
+export const useAwsS3tablesTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsS3tablesTable, idFilter, baseNode)
 
-export const useAwsS3tablesTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3tablesTable, node, id)
+export const useAwsS3tablesTables = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsS3tablesTable, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAuditmanagerFramework } from './AwsAuditmanagerFramework.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/auditmanager_framework
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/auditmanager_framework
 
 export function DataAwsAuditmanagerFramework(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,13 @@ export function DataAwsAuditmanagerFramework(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAuditmanagerFramework = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAuditmanagerFramework, node, id)
+export const useDataAwsAuditmanagerFramework = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAuditmanagerFramework, idFilter, baseNode)
 
-export const useDataAwsAuditmanagerFrameworks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAuditmanagerFramework, node, id)
+export const useDataAwsAuditmanagerFrameworks = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsAuditmanagerFramework, idFilter, baseNode)

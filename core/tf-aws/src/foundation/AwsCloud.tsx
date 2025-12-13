@@ -64,7 +64,7 @@ export const InputSchema = z.object({
       source_identity: z.string().optional(),
       tags: z.record(z.string(), z.string()).optional(),
       transitive_tag_keys: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   assume_role_with_web_identity: resolvableValue(
     z.object({
@@ -75,12 +75,12 @@ export const InputSchema = z.object({
       session_name: z.string().optional(),
       web_identity_token: z.string().optional(),
       web_identity_token_file: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   default_tags: resolvableValue(
     z.object({
       tags: z.record(z.string(), z.string()).optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   endpoints: resolvableValue(
     z.object({
@@ -394,7 +394,7 @@ export const InputSchema = z.object({
     z.object({
       key_prefixes: z.string().array().optional(),
       keys: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
 })
 
@@ -417,6 +417,7 @@ export function AwsCloud(props: Partial<InputProps>) {
       _category='provider'
       _inputSchema={InputSchema}
       _stackResource
+      _direction='vertical'
       {...props}
       _title={_title}
       default_tags={default_tags}

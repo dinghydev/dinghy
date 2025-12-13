@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_openid_connect_provider
 
 export const InputSchema = z.object({
   client_id_list: resolvableValue(z.string().array()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   thumbprint_list: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_openid_connect_provider
 
 export function AwsIamOpenidConnectProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function AwsIamOpenidConnectProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamOpenidConnectProvider = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamOpenidConnectProvider, node, id)
+export const useAwsIamOpenidConnectProvider = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIamOpenidConnectProvider, idFilter, baseNode)
 
-export const useAwsIamOpenidConnectProviders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamOpenidConnectProvider, node, id)
+export const useAwsIamOpenidConnectProviders = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIamOpenidConnectProvider, idFilter, baseNode)

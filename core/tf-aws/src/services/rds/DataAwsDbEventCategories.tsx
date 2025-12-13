@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_event_categories
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   source_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   event_categories: z.string().array().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_event_categories
 
 export function DataAwsDbEventCategories(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,5 +46,7 @@ export function DataAwsDbEventCategories(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbEventCategoriess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDbEventCategories, node, id)
+export const useDataAwsDbEventCategoriess = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsDbEventCategories, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_user_pool_client
 
 export const InputSchema = z.object({
   user_pool_id: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       external_id: z.string().optional(),
       role_arn: z.string().optional(),
       user_data_shared: z.boolean().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   auth_session_validity: resolvableValue(z.number().optional()),
   callback_urls: resolvableValue(z.string().array().optional()),
@@ -43,7 +42,7 @@ export const InputSchema = z.object({
     z.object({
       feature: z.string(),
       retry_grace_period_seconds: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   refresh_token_validity: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
@@ -53,10 +52,10 @@ export const InputSchema = z.object({
       access_token: z.string().optional(),
       id_token: z.string().optional(),
       refresh_token: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   write_attributes: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   client_secret: z.string().optional(),
@@ -71,6 +70,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_user_pool_client
 
 export function AwsCognitoManagedUserPoolClient(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -89,8 +91,18 @@ export function AwsCognitoManagedUserPoolClient(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoManagedUserPoolClient = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoManagedUserPoolClient, node, id)
+export const useAwsCognitoManagedUserPoolClient = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCognitoManagedUserPoolClient, idFilter, baseNode)
 
-export const useAwsCognitoManagedUserPoolClients = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoManagedUserPoolClient, node, id)
+export const useAwsCognitoManagedUserPoolClients = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoManagedUserPoolClient,
+    idFilter,
+    baseNode,
+  )

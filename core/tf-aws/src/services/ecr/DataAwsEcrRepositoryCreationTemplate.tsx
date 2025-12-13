@@ -2,22 +2,21 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEcrRepositoryCreationTemplate } from './AwsEcrRepositoryCreationTemplate.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repository_creation_template
-
 export const InputSchema = z.object({
   prefix: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  applied_for: z.string().array().optional(),
+  applied_for: z.set(z.string()).optional(),
   custom_role_arn: z.string().optional(),
   description: z.string().optional(),
   encryption_configuration: z.object({
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repository_creation_template
 
 export function DataAwsEcrRepositoryCreationTemplate(
   props: Partial<InputProps>,
@@ -63,11 +65,21 @@ export function DataAwsEcrRepositoryCreationTemplate(
 }
 
 export const useDataAwsEcrRepositoryCreationTemplate = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsEcrRepositoryCreationTemplate, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEcrRepositoryCreationTemplate,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsEcrRepositoryCreationTemplates = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsEcrRepositoryCreationTemplate, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEcrRepositoryCreationTemplate,
+    idFilter,
+    baseNode,
+  )

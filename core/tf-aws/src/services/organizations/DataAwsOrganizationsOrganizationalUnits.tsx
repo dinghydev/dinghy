@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_units
-
 export const InputSchema = z.object({
   parent_id: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   children: z.object({
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_units
 
 export function DataAwsOrganizationsOrganizationalUnits(
   props: Partial<InputProps>,
@@ -50,7 +52,11 @@ export function DataAwsOrganizationsOrganizationalUnits(
 }
 
 export const useDataAwsOrganizationsOrganizationalUnitss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsOrganizationsOrganizationalUnits, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsOrganizationsOrganizationalUnits,
+    idFilter,
+    baseNode,
+  )

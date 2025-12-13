@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/docdb_engine_version
 
 export const InputSchema = z.object({
   engine: resolvableValue(z.string().optional()),
@@ -17,13 +16,13 @@ export const InputSchema = z.object({
   preferred_versions: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   engine_description: z.string().optional(),
-  exportable_log_types: z.string().array().optional(),
+  exportable_log_types: z.set(z.string()).optional(),
   supports_log_exports_to_cloudwatch: z.boolean().optional(),
-  valid_upgrade_targets: z.string().array().optional(),
+  valid_upgrade_targets: z.set(z.string()).optional(),
   version_description: z.string().optional(),
 })
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/docdb_engine_version
 
 export function DataAwsDocdbEngineVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function DataAwsDocdbEngineVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDocdbEngineVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDocdbEngineVersion, node, id)
+export const useDataAwsDocdbEngineVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsDocdbEngineVersion, idFilter, baseNode)
 
-export const useDataAwsDocdbEngineVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDocdbEngineVersion, node, id)
+export const useDataAwsDocdbEngineVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsDocdbEngineVersion, idFilter, baseNode)

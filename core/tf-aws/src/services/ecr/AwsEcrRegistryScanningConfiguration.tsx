@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_registry_scanning_configuration
 
 export const InputSchema = z.object({
   scan_type: resolvableValue(z.string()),
@@ -17,9 +16,13 @@ export const InputSchema = z.object({
   rule: resolvableValue(
     z.object({
       scan_frequency: z.string(),
+      repository_filter: z.object({
+        filter: z.string(),
+        filter_type: z.string(),
+      }).array(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -32,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_registry_scanning_configuration
 
 export function AwsEcrRegistryScanningConfiguration(
   props: Partial<InputProps>,
@@ -53,11 +59,21 @@ export function AwsEcrRegistryScanningConfiguration(
 }
 
 export const useAwsEcrRegistryScanningConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsEcrRegistryScanningConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcrRegistryScanningConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEcrRegistryScanningConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsEcrRegistryScanningConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcrRegistryScanningConfiguration,
+    idFilter,
+    baseNode,
+  )

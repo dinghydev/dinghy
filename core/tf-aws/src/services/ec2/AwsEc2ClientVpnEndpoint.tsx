@@ -3,15 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_endpoint
-
 export const InputSchema = z.object({
-  server_certificate_arn: resolvableValue(z.string()),
   authentication_options: resolvableValue(
     z.object({
       active_directory_id: z.string().optional(),
@@ -21,6 +19,12 @@ export const InputSchema = z.object({
       type: z.string(),
     }).array(),
   ),
+  connection_log_options: resolvableValue(z.object({
+    cloudwatch_log_group: z.string().optional(),
+    cloudwatch_log_stream: z.string().optional(),
+    enabled: z.boolean(),
+  })),
+  server_certificate_arn: resolvableValue(z.string()),
   client_cidr_block: resolvableValue(z.string().optional()),
   client_connect_options: resolvableValue(
     z.object({
@@ -39,11 +43,6 @@ export const InputSchema = z.object({
       enforced: z.boolean().optional(),
     }).optional(),
   ),
-  connection_log_options: resolvableValue(z.object({
-    cloudwatch_log_group: z.string().optional(),
-    cloudwatch_log_stream: z.string().optional(),
-    enabled: z.boolean(),
-  })),
   description: resolvableValue(z.string().optional()),
   disconnect_on_session_timeout: resolvableValue(z.boolean().optional()),
   dns_servers: resolvableValue(z.string().array().optional()),
@@ -58,7 +57,7 @@ export const InputSchema = z.object({
   transport_protocol: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
   vpn_port: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -75,6 +74,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_endpoint
 
 export function AwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -93,8 +95,10 @@ export function AwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2ClientVpnEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2ClientVpnEndpoint, node, id)
+export const useAwsEc2ClientVpnEndpoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEc2ClientVpnEndpoint, idFilter, baseNode)
 
-export const useAwsEc2ClientVpnEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2ClientVpnEndpoint, node, id)
+export const useAwsEc2ClientVpnEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEc2ClientVpnEndpoint, idFilter, baseNode)

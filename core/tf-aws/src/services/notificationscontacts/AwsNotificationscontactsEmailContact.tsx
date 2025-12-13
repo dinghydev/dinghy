@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/notificationscontacts_email_contact
-
 export const InputSchema = z.object({
   email_address: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/notificationscontacts_email_contact
 
 export function AwsNotificationscontactsEmailContact(
   props: Partial<InputProps>,
@@ -49,11 +51,21 @@ export function AwsNotificationscontactsEmailContact(
 }
 
 export const useAwsNotificationscontactsEmailContact = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsNotificationscontactsEmailContact, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNotificationscontactsEmailContact,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNotificationscontactsEmailContacts = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsNotificationscontactsEmailContact, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNotificationscontactsEmailContact,
+    idFilter,
+    baseNode,
+  )

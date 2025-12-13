@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCustomerGateway } from './AwsCustomerGateway.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/customer_gateway
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/customer_gateway
 
 export function DataAwsCustomerGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function DataAwsCustomerGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCustomerGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCustomerGateway, node, id)
+export const useDataAwsCustomerGateway = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsCustomerGateway, idFilter, baseNode)
 
-export const useDataAwsCustomerGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCustomerGateway, node, id)
+export const useDataAwsCustomerGateways = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsCustomerGateway, idFilter, baseNode)

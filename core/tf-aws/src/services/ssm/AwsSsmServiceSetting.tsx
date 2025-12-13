@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_service_setting
 
 export const InputSchema = z.object({
   setting_id: resolvableValue(z.string()),
   setting_value: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_service_setting
 
 export function AwsSsmServiceSetting(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsSsmServiceSetting(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmServiceSetting = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmServiceSetting, node, id)
+export const useAwsSsmServiceSetting = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmServiceSetting, idFilter, baseNode)
 
-export const useAwsSsmServiceSettings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmServiceSetting, node, id)
+export const useAwsSsmServiceSettings = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmServiceSetting, idFilter, baseNode)

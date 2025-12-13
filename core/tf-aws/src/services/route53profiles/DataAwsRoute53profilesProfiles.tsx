@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53profiles_profiles
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   profiles: z.object({
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53profiles_profiles
 
 export function DataAwsRoute53profilesProfiles(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,5 +49,8 @@ export function DataAwsRoute53profilesProfiles(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute53profilesProfiless = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53profilesProfiles, node, id)
+export const useDataAwsRoute53profilesProfiless = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsRoute53profilesProfiles, idFilter, baseNode)

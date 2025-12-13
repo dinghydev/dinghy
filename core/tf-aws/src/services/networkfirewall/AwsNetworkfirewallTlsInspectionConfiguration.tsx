@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_tls_inspection_configuration
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -34,10 +33,34 @@ export const InputSchema = z.object({
     z.object({
       server_certificate_configuration: z.object({
         certificate_authority_arn: z.string().optional(),
-      }).optional(),
-    }).optional(),
+        check_certificate_revocation_status: z.object({
+          revoked_status_action: z.string().optional(),
+          unknown_status_action: z.string().optional(),
+        }).array().optional(),
+        scope: z.object({
+          protocols: z.number().array(),
+          destination: z.object({
+            address_definition: z.string(),
+          }).array().optional(),
+          destination_ports: z.object({
+            from_port: z.number(),
+            to_port: z.number(),
+          }).array().optional(),
+          source: z.object({
+            address_definition: z.string(),
+          }).array().optional(),
+          source_ports: z.object({
+            from_port: z.number(),
+            to_port: z.number(),
+          }).array().optional(),
+        }).array().optional(),
+        server_certificate: z.object({
+          resource_arn: z.string().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -70,6 +93,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_tls_inspection_configuration
 
 export function AwsNetworkfirewallTlsInspectionConfiguration(
   props: Partial<InputProps>,
@@ -92,21 +118,21 @@ export function AwsNetworkfirewallTlsInspectionConfiguration(
 }
 
 export const useAwsNetworkfirewallTlsInspectionConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkfirewallTlsInspectionConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsNetworkfirewallTlsInspectionConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkfirewallTlsInspectionConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

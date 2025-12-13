@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_refresh_schedule
 
 export const InputSchema = z.object({
   data_set_id: resolvableValue(z.string()),
@@ -19,9 +18,18 @@ export const InputSchema = z.object({
     z.object({
       refresh_type: z.string(),
       start_after_date_time: z.string().optional(),
-    }).optional(),
+      schedule_frequency: z.object({
+        interval: z.string(),
+        time_of_the_day: z.string().optional(),
+        timezone: z.string().optional(),
+        refresh_on_day: z.object({
+          day_of_month: z.string().optional(),
+          day_of_week: z.string().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_refresh_schedule
 
 export function AwsQuicksightRefreshSchedule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +64,13 @@ export function AwsQuicksightRefreshSchedule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightRefreshSchedule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightRefreshSchedule, node, id)
+export const useAwsQuicksightRefreshSchedule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsQuicksightRefreshSchedule, idFilter, baseNode)
 
-export const useAwsQuicksightRefreshSchedules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightRefreshSchedule, node, id)
+export const useAwsQuicksightRefreshSchedules = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightRefreshSchedule, idFilter, baseNode)

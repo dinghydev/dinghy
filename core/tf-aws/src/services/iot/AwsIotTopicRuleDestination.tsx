@@ -3,14 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_topic_rule_destination
-
 export const InputSchema = z.object({
+  vpc_configuration: resolvableValue(z.object({
+    role_arn: z.string(),
+    security_groups: z.string().array().optional(),
+    subnet_ids: z.string().array(),
+    vpc_id: z.string(),
+  })),
   enabled: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -21,13 +26,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-  vpc_configuration: resolvableValue(z.object({
-    role_arn: z.string(),
-    security_groups: z.string().array().optional(),
-    subnet_ids: z.string().array(),
-    vpc_id: z.string(),
-  })),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_topic_rule_destination
 
 export function AwsIotTopicRuleDestination(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsIotTopicRuleDestination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotTopicRuleDestination = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotTopicRuleDestination, node, id)
+export const useAwsIotTopicRuleDestination = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIotTopicRuleDestination, idFilter, baseNode)
 
-export const useAwsIotTopicRuleDestinations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotTopicRuleDestination, node, id)
+export const useAwsIotTopicRuleDestinations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIotTopicRuleDestination, idFilter, baseNode)

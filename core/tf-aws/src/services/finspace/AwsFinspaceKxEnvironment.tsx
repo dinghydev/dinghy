@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_environment
 
 export const InputSchema = z.object({
   kms_key_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
     z.object({
       custom_dns_server_ip: z.string(),
       custom_dns_server_name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -33,9 +32,23 @@ export const InputSchema = z.object({
     z.object({
       routable_cidr_space: z.string(),
       transit_gateway_id: z.string(),
+      attachment_network_acl_configuration: z.object({
+        cidr_block: z.string(),
+        protocol: z.string(),
+        rule_action: z.string(),
+        rule_number: z.number(),
+        icmp_type_code: z.object({
+          code: z.number(),
+          type: z.number(),
+        }).optional(),
+        port_range: z.object({
+          from: z.number(),
+          to: z.number(),
+        }).optional(),
+      }).array().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -55,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_environment
 
 export function AwsFinspaceKxEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +89,12 @@ export function AwsFinspaceKxEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxEnvironment, node, id)
+export const useAwsFinspaceKxEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsFinspaceKxEnvironment, idFilter, baseNode)
 
-export const useAwsFinspaceKxEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxEnvironment, node, id)
+export const useAwsFinspaceKxEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsFinspaceKxEnvironment, idFilter, baseNode)

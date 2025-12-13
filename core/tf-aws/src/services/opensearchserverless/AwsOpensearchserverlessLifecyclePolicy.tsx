@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearchserverless_lifecycle_policy
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   type: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   policy_version: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearchserverless_lifecycle_policy
 
 export function AwsOpensearchserverlessLifecyclePolicy(
   props: Partial<InputProps>,
@@ -51,12 +53,21 @@ export function AwsOpensearchserverlessLifecyclePolicy(
 }
 
 export const useAwsOpensearchserverlessLifecyclePolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsOpensearchserverlessLifecyclePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOpensearchserverlessLifecyclePolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsOpensearchserverlessLifecyclePolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsOpensearchserverlessLifecyclePolicy, node, id)
+  useTypedNodes<OutputProps>(
+    AwsOpensearchserverlessLifecyclePolicy,
+    idFilter,
+    baseNode,
+  )

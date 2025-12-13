@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_configuration_recorder_status
 
 export const InputSchema = z.object({
   is_enabled: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_configuration_recorder_status
 
 export function AwsConfigConfigurationRecorderStatus(
   props: Partial<InputProps>,
@@ -46,6 +48,11 @@ export function AwsConfigConfigurationRecorderStatus(
 }
 
 export const useAwsConfigConfigurationRecorderStatuss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsConfigConfigurationRecorderStatus, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigConfigurationRecorderStatus,
+    idFilter,
+    baseNode,
+  )

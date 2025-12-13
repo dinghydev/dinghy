@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_addon_version
 
 export const InputSchema = z.object({
   addon_name: resolvableValue(z.string()),
   kubernetes_version: resolvableValue(z.string()),
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_addon_version
 
 export function DataAwsEksAddonVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function DataAwsEksAddonVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksAddonVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEksAddonVersion, node, id)
+export const useDataAwsEksAddonVersion = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEksAddonVersion, idFilter, baseNode)
 
-export const useDataAwsEksAddonVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEksAddonVersion, node, id)
+export const useDataAwsEksAddonVersions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEksAddonVersion, idFilter, baseNode)

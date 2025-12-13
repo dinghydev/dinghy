@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_security_token_service_preferences
-
 export const InputSchema = z.object({
   global_endpoint_token_version: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_security_token_service_preferences
 
 export function AwsIamSecurityTokenServicePreferences(
   props: Partial<InputProps>,
@@ -45,6 +47,11 @@ export function AwsIamSecurityTokenServicePreferences(
 }
 
 export const useAwsIamSecurityTokenServicePreferencess = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsIamSecurityTokenServicePreferences, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamSecurityTokenServicePreferences,
+    idFilter,
+    baseNode,
+  )

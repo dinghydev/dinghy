@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_region
 
 export const InputSchema = z.object({
   directory_id: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_region
 
 export function AwsDirectoryServiceRegion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,12 @@ export function AwsDirectoryServiceRegion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDirectoryServiceRegion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDirectoryServiceRegion, node, id)
+export const useAwsDirectoryServiceRegion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDirectoryServiceRegion, idFilter, baseNode)
 
-export const useAwsDirectoryServiceRegions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDirectoryServiceRegion, node, id)
+export const useAwsDirectoryServiceRegions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDirectoryServiceRegion, idFilter, baseNode)

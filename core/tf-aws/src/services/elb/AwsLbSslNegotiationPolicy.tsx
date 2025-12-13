@@ -3,17 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_ssl_negotiation_policy
-
 export const InputSchema = z.object({
+  lb_port: resolvableValue(z.number()),
+  load_balancer: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  attribute: resolvableValue(
+    z.object({
+      name: z.string(),
+      value: z.string(),
+    }).array().optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   attribute: z.object({
@@ -33,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_ssl_negotiation_policy
 
 export function AwsLbSslNegotiationPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +62,12 @@ export function AwsLbSslNegotiationPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbSslNegotiationPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbSslNegotiationPolicy, node, id)
+export const useAwsLbSslNegotiationPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLbSslNegotiationPolicy, idFilter, baseNode)
 
-export const useAwsLbSslNegotiationPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbSslNegotiationPolicy, node, id)
+export const useAwsLbSslNegotiationPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLbSslNegotiationPolicy, idFilter, baseNode)

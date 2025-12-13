@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafregionalRateBasedRule } from './AwsWafregionalRateBasedRule.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_rate_based_rule
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_rate_based_rule
 
 export function DataAwsWafregionalRateBasedRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,18 @@ export function DataAwsWafregionalRateBasedRule(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafregionalRateBasedRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafregionalRateBasedRule, node, id)
+export const useDataAwsWafregionalRateBasedRule = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsWafregionalRateBasedRule, idFilter, baseNode)
 
-export const useDataAwsWafregionalRateBasedRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafregionalRateBasedRule, node, id)
+export const useDataAwsWafregionalRateBasedRules = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWafregionalRateBasedRule,
+    idFilter,
+    baseNode,
+  )

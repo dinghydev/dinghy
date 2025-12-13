@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsApiGatewayRestApi } from './AwsApiGatewayRestApi.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_rest_api
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   api_key_source: z.string().optional(),
@@ -23,7 +22,7 @@ export const OutputSchema = z.object({
   endpoint_configuration: z.object({
     ip_address_type: z.string(),
     types: z.string().array(),
-    vpc_endpoint_ids: z.string().array(),
+    vpc_endpoint_ids: z.set(z.string()),
   }).array().optional(),
   execution_arn: z.string().optional(),
   id: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_rest_api
 
 export function DataAwsApiGatewayRestApi(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function DataAwsApiGatewayRestApi(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApiGatewayRestApi = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsApiGatewayRestApi, node, id)
+export const useDataAwsApiGatewayRestApi = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsApiGatewayRestApi, idFilter, baseNode)
 
-export const useDataAwsApiGatewayRestApis = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApiGatewayRestApi, node, id)
+export const useDataAwsApiGatewayRestApis = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsApiGatewayRestApi, idFilter, baseNode)

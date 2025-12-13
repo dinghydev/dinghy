@@ -3,31 +3,261 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_category
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
+  rule: resolvableValue(
+    z.object({
+      type: z.string().optional(),
+      value: z.string().optional(),
+      inherited_value: z.object({
+        dimension_key: z.string().optional(),
+        dimension_name: z.string().optional(),
+      }).optional(),
+      rule: z.object({
+        and: z.object({
+          and: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).array().optional(),
+          cost_category: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+          dimension: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+          not: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).optional(),
+          or: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).array().optional(),
+          tags: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+        }).array().optional(),
+        cost_category: z.object({
+          key: z.string().optional(),
+          match_options: z.string().array().optional(),
+          values: z.string().array().optional(),
+        }).optional(),
+        dimension: z.object({
+          key: z.string().optional(),
+          match_options: z.string().array().optional(),
+          values: z.string().array().optional(),
+        }).optional(),
+        not: z.object({
+          and: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).array().optional(),
+          cost_category: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+          dimension: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+          not: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).optional(),
+          or: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).array().optional(),
+          tags: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+        }).optional(),
+        or: z.object({
+          and: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).array().optional(),
+          cost_category: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+          dimension: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+          not: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).optional(),
+          or: z.object({
+            cost_category: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            dimension: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+            tags: z.object({
+              key: z.string().optional(),
+              match_options: z.string().array().optional(),
+              values: z.string().array().optional(),
+            }).optional(),
+          }).array().optional(),
+          tags: z.object({
+            key: z.string().optional(),
+            match_options: z.string().array().optional(),
+            values: z.string().array().optional(),
+          }).optional(),
+        }).array().optional(),
+        tags: z.object({
+          key: z.string().optional(),
+          match_options: z.string().array().optional(),
+          values: z.string().array().optional(),
+        }).optional(),
+      }).optional(),
+    }).array(),
+  ),
   rule_version: resolvableValue(z.string()),
   default_value: resolvableValue(z.string().optional()),
   effective_start: resolvableValue(z.string().optional()),
-  rule: resolvableValue(z.object({
-    type: z.string().optional(),
-    value: z.string().optional(),
-  })),
   split_charge_rule: resolvableValue(
     z.object({
       method: z.string(),
       source: z.string(),
       targets: z.string().array(),
+      parameter: z.object({
+        type: z.string().optional(),
+        values: z.string().array().optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +278,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_category
 
 export function AwsCeCostCategory(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +300,8 @@ export function AwsCeCostCategory(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCeCostCategory = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCeCostCategory, node, id)
+export const useAwsCeCostCategory = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCeCostCategory, idFilter, baseNode)
 
-export const useAwsCeCostCategorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCeCostCategory, node, id)
+export const useAwsCeCostCategorys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCeCostCategory, idFilter, baseNode)

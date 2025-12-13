@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_web_app_customization
 
 export const InputSchema = z.object({
   web_app_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   logo_file: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   title: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_web_app_customization
 
 export function AwsTransferWebAppCustomization(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,14 @@ export function AwsTransferWebAppCustomization(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferWebAppCustomization = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferWebAppCustomization, node, id)
+export const useAwsTransferWebAppCustomization = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsTransferWebAppCustomization, idFilter, baseNode)
 
-export const useAwsTransferWebAppCustomizations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferWebAppCustomization, node, id)
+export const useAwsTransferWebAppCustomizations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsTransferWebAppCustomization, idFilter, baseNode)

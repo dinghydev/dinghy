@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_trust_store_association
-
 export const InputSchema = z.object({
   portal_arn: resolvableValue(z.string()),
   trust_store_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_trust_store_association
 
 export function AwsWorkspaceswebTrustStoreAssociation(
   props: Partial<InputProps>,
@@ -46,11 +48,21 @@ export function AwsWorkspaceswebTrustStoreAssociation(
 }
 
 export const useAwsWorkspaceswebTrustStoreAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsWorkspaceswebTrustStoreAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebTrustStoreAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsWorkspaceswebTrustStoreAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsWorkspaceswebTrustStoreAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebTrustStoreAssociation,
+    idFilter,
+    baseNode,
+  )

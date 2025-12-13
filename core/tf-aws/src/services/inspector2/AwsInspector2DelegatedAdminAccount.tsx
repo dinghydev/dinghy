@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_delegated_admin_account
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   relationship_status: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_delegated_admin_account
 
 export function AwsInspector2DelegatedAdminAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,11 +54,21 @@ export function AwsInspector2DelegatedAdminAccount(props: Partial<InputProps>) {
 }
 
 export const useAwsInspector2DelegatedAdminAccount = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsInspector2DelegatedAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInspector2DelegatedAdminAccount,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsInspector2DelegatedAdminAccounts = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsInspector2DelegatedAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsInspector2DelegatedAdminAccount,
+    idFilter,
+    baseNode,
+  )

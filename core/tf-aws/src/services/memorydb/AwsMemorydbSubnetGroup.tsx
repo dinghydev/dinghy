@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/memorydb_subnet_group
 
 export const InputSchema = z.object({
   subnet_ids: resolvableValue(z.string().array()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/memorydb_subnet_group
 
 export function AwsMemorydbSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsMemorydbSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMemorydbSubnetGroup, node, id)
+export const useAwsMemorydbSubnetGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMemorydbSubnetGroup, idFilter, baseNode)
 
-export const useAwsMemorydbSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMemorydbSubnetGroup, node, id)
+export const useAwsMemorydbSubnetGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMemorydbSubnetGroup, idFilter, baseNode)

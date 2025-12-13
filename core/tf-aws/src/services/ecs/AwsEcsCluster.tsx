@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_cluster
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,6 +16,13 @@ export const InputSchema = z.object({
       execute_command_configuration: z.object({
         kms_key_id: z.string().optional(),
         logging: z.string().optional(),
+        log_configuration: z.object({
+          cloud_watch_encryption_enabled: z.boolean().optional(),
+          cloud_watch_log_group_name: z.string().optional(),
+          s3_bucket_encryption_enabled: z.boolean().optional(),
+          s3_bucket_name: z.string().optional(),
+          s3_key_prefix: z.string().optional(),
+        }).optional(),
       }).optional(),
       managed_storage_configuration: z.object({
         fargate_ephemeral_storage_kms_key_id: z.string().optional(),
@@ -38,7 +44,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_cluster
 
 export function AwsEcsCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +79,8 @@ export function AwsEcsCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcsCluster, node, id)
+export const useAwsEcsCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcsCluster, idFilter, baseNode)
 
-export const useAwsEcsClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcsCluster, node, id)
+export const useAwsEcsClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcsCluster, idFilter, baseNode)

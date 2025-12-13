@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_organization_configuration
 
 export const InputSchema = z.object({
   auto_enable_organization_members: resolvableValue(z.string()),
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_organization_configuration
 
 export function AwsGuarddutyOrganizationConfiguration(
   props: Partial<InputProps>,
@@ -66,11 +68,21 @@ export function AwsGuarddutyOrganizationConfiguration(
 }
 
 export const useAwsGuarddutyOrganizationConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsGuarddutyOrganizationConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGuarddutyOrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGuarddutyOrganizationConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsGuarddutyOrganizationConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGuarddutyOrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )

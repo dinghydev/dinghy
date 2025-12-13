@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_vpc_attachment_accepter
 
 export const InputSchema = z.object({
   transit_gateway_attachment_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   transit_gateway_default_route_table_propagation: resolvableValue(
     z.boolean().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   appliance_mode_support: z.string().optional(),
@@ -28,7 +27,7 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   ipv6_support: z.string().optional(),
   security_group_referencing_support: z.string().optional(),
-  subnet_ids: z.string().array().optional(),
+  subnet_ids: z.set(z.string()).optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   transit_gateway_id: z.string().optional(),
   vpc_id: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_vpc_attachment_accepter
 
 export function AwsEc2TransitGatewayVpcAttachmentAccepter(
   props: Partial<InputProps>,
@@ -63,17 +65,21 @@ export function AwsEc2TransitGatewayVpcAttachmentAccepter(
 }
 
 export const useAwsEc2TransitGatewayVpcAttachmentAccepter = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2TransitGatewayVpcAttachmentAccepter, node, id)
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayVpcAttachmentAccepter,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2TransitGatewayVpcAttachmentAccepters = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayVpcAttachmentAccepter,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

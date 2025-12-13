@@ -2,12 +2,11 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsQuicksightAnalysis } from './AwsQuicksightAnalysis.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/quicksight_analysis
 
 export const InputSchema = z.object({
   analysis_id: resolvableValue(z.string()),
@@ -29609,7 +29608,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29620,6 +29619,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/quicksight_analysis
 
 export function DataAwsQuicksightAnalysis(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -29638,5 +29640,7 @@ export function DataAwsQuicksightAnalysis(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsQuicksightAnalysiss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsQuicksightAnalysis, node, id)
+export const useDataAwsQuicksightAnalysiss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsQuicksightAnalysis, idFilter, baseNode)

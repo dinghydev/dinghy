@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_portfolio
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_portfolio
 
 export function AwsServicecatalogPortfolio(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsServicecatalogPortfolio(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsServicecatalogPortfolio = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsServicecatalogPortfolio, node, id)
+export const useAwsServicecatalogPortfolio = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsServicecatalogPortfolio, idFilter, baseNode)
 
-export const useAwsServicecatalogPortfolios = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsServicecatalogPortfolio, node, id)
+export const useAwsServicecatalogPortfolios = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsServicecatalogPortfolio, idFilter, baseNode)

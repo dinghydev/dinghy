@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_vpc_dhcp_options
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_vpc_dhcp_options
 
 export function AwsDefaultVpcDhcpOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,5 +54,7 @@ export function AwsDefaultVpcDhcpOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDefaultVpcDhcpOptions = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDefaultVpcDhcpOptions, node, id)
+export const useAwsDefaultVpcDhcpOptions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDefaultVpcDhcpOptions, idFilter, baseNode)

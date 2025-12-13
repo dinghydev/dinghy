@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloud9_environment_membership
 
 export const InputSchema = z.object({
   environment_id: resolvableValue(z.string()),
   permissions: resolvableValue(z.string()),
   user_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloud9_environment_membership
 
 export function AwsCloud9EnvironmentMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,14 @@ export function AwsCloud9EnvironmentMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloud9EnvironmentMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloud9EnvironmentMembership, node, id)
+export const useAwsCloud9EnvironmentMembership = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCloud9EnvironmentMembership, idFilter, baseNode)
 
-export const useAwsCloud9EnvironmentMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloud9EnvironmentMembership, node, id)
+export const useAwsCloud9EnvironmentMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCloud9EnvironmentMembership, idFilter, baseNode)

@@ -3,15 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_users
-
 export const InputSchema = z.object({
   identity_store_id: resolvableValue(z.string()),
-})
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   region: z.string().optional(),
@@ -69,6 +69,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_users
 
 export function DataAwsIdentitystoreUsers(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,5 +90,7 @@ export function DataAwsIdentitystoreUsers(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIdentitystoreUserss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIdentitystoreUsers, node, id)
+export const useDataAwsIdentitystoreUserss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsIdentitystoreUsers, idFilter, baseNode)

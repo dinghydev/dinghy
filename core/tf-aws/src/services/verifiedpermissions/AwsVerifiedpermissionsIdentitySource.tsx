@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedpermissions_identity_source
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -18,16 +17,33 @@ export const InputSchema = z.object({
       cognito_user_pool_configuration: z.object({
         client_ids: z.string().array().optional(),
         user_pool_arn: z.string(),
-      }).optional(),
+        group_configuration: z.object({
+          group_entity_type: z.string(),
+        }).array().optional(),
+      }).array().optional(),
       open_id_connect_configuration: z.object({
         entity_id_prefix: z.string().optional(),
         issuer: z.string(),
-      }).optional(),
-    }).optional(),
+        group_configuration: z.object({
+          group_claim: z.string(),
+          group_entity_type: z.string(),
+        }).array().optional(),
+        token_selection: z.object({
+          access_token_only: z.object({
+            audiences: z.string().array().optional(),
+            principal_id_claim: z.string().optional(),
+          }).array().optional(),
+          identity_token_only: z.object({
+            client_ids: z.string().array().optional(),
+            principal_id_claim: z.string().optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   principal_entity_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -38,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedpermissions_identity_source
 
 export function AwsVerifiedpermissionsIdentitySource(
   props: Partial<InputProps>,
@@ -59,11 +78,21 @@ export function AwsVerifiedpermissionsIdentitySource(
 }
 
 export const useAwsVerifiedpermissionsIdentitySource = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVerifiedpermissionsIdentitySource, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVerifiedpermissionsIdentitySource,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVerifiedpermissionsIdentitySources = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsVerifiedpermissionsIdentitySource, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVerifiedpermissionsIdentitySource,
+    idFilter,
+    baseNode,
+  )

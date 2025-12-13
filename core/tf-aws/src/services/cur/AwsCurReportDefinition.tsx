@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cur_report_definition
 
 export const InputSchema = z.object({
   additional_schema_elements: resolvableValue(z.string().array()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   refresh_closed_reports: resolvableValue(z.boolean().optional()),
   report_versioning: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cur_report_definition
 
 export function AwsCurReportDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,8 @@ export function AwsCurReportDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCurReportDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCurReportDefinition, node, id)
+export const useAwsCurReportDefinition = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCurReportDefinition, idFilter, baseNode)
 
-export const useAwsCurReportDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCurReportDefinition, node, id)
+export const useAwsCurReportDefinitions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCurReportDefinition, idFilter, baseNode)

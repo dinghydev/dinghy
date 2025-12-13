@@ -3,26 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_host_key
-
 export const InputSchema = z.object({
-  host_key_id: resolvableValue(z.string()),
   server_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   host_key_body: resolvableValue(z.string().optional()),
   host_key_body_wo: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   host_key_fingerprint: z.string().optional(),
+  host_key_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_host_key
 
 export function AwsTransferHostKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsTransferHostKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferHostKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferHostKey, node, id)
+export const useAwsTransferHostKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferHostKey, idFilter, baseNode)
 
-export const useAwsTransferHostKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferHostKey, node, id)
+export const useAwsTransferHostKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferHostKey, idFilter, baseNode)

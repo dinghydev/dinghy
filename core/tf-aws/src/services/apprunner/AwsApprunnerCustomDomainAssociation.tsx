@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_custom_domain_association
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -16,15 +15,15 @@ export const InputSchema = z.object({
   status: resolvableValue(z.string()),
   enable_www_subdomain: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  certificate_validation_records: z.object({
+  certificate_validation_records: z.set(z.object({
     name: z.string(),
     status: z.string(),
     type: z.string(),
     value: z.string(),
-  }).array().optional(),
+  })).optional(),
   dns_target: z.string().optional(),
   id: z.string().optional(),
 })
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_custom_domain_association
 
 export function AwsApprunnerCustomDomainAssociation(
   props: Partial<InputProps>,
@@ -57,11 +59,21 @@ export function AwsApprunnerCustomDomainAssociation(
 }
 
 export const useAwsApprunnerCustomDomainAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsApprunnerCustomDomainAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApprunnerCustomDomainAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsApprunnerCustomDomainAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsApprunnerCustomDomainAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApprunnerCustomDomainAssociation,
+    idFilter,
+    baseNode,
+  )

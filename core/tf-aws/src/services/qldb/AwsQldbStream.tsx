@@ -3,23 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/qldb_stream
-
 export const InputSchema = z.object({
   inclusive_start_time: resolvableValue(z.string()),
-  ledger_name: resolvableValue(z.string()),
-  role_arn: resolvableValue(z.string()),
-  stream_name: resolvableValue(z.string()),
-  exclusive_end_time: resolvableValue(z.string().optional()),
   kinesis_configuration: resolvableValue(z.object({
     aggregation_enabled: z.boolean().optional(),
     stream_arn: z.string(),
   })),
+  ledger_name: resolvableValue(z.string()),
+  role_arn: resolvableValue(z.string()),
+  stream_name: resolvableValue(z.string()),
+  exclusive_end_time: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/qldb_stream
 
 export function AwsQldbStream(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,8 @@ export function AwsQldbStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQldbStream = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQldbStream, node, id)
+export const useAwsQldbStream = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsQldbStream, idFilter, baseNode)
 
-export const useAwsQldbStreams = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQldbStream, node, id)
+export const useAwsQldbStreams = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsQldbStream, idFilter, baseNode)

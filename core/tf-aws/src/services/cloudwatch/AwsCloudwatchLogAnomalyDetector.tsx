@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_anomaly_detector
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   kms_key_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_anomaly_detector
 
 export function AwsCloudwatchLogAnomalyDetector(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,18 @@ export function AwsCloudwatchLogAnomalyDetector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchLogAnomalyDetector = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogAnomalyDetector, node, id)
+export const useAwsCloudwatchLogAnomalyDetector = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCloudwatchLogAnomalyDetector, idFilter, baseNode)
 
-export const useAwsCloudwatchLogAnomalyDetectors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogAnomalyDetector, node, id)
+export const useAwsCloudwatchLogAnomalyDetectors = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogAnomalyDetector,
+    idFilter,
+    baseNode,
+  )

@@ -3,16 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_fsx_openzfs_file_system
-
 export const InputSchema = z.object({
   fsx_filesystem_arn: resolvableValue(z.string()),
-  security_group_arns: resolvableValue(z.string().array()),
   protocol: resolvableValue(z.object({
     nfs: z.object({
       mount_options: z.object({
@@ -20,10 +18,11 @@ export const InputSchema = z.object({
       }),
     }),
   })),
+  security_group_arns: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
   subdirectory: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_fsx_openzfs_file_system
 
 export function AwsDatasyncLocationFsxOpenzfsFileSystem(
   props: Partial<InputProps>,
@@ -61,13 +63,21 @@ export function AwsDatasyncLocationFsxOpenzfsFileSystem(
 }
 
 export const useAwsDatasyncLocationFsxOpenzfsFileSystem = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationFsxOpenzfsFileSystem, node, id)
+  useTypedNode<OutputProps>(
+    AwsDatasyncLocationFsxOpenzfsFileSystem,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDatasyncLocationFsxOpenzfsFileSystems = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationFsxOpenzfsFileSystem, node, id)
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationFsxOpenzfsFileSystem,
+    idFilter,
+    baseNode,
+  )

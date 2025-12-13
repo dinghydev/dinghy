@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElasticacheReplicationGroup } from './AwsElasticacheReplicationGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_replication_group
-
 export const InputSchema = z.object({
   replication_group_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -23,15 +22,15 @@ export const OutputSchema = z.object({
   cluster_mode: z.string().optional(),
   configuration_endpoint_address: z.string().optional(),
   description: z.string().optional(),
-  log_delivery_configuration: z.object({
+  log_delivery_configuration: z.set(z.object({
     destination: z.string(),
     destination_type: z.string(),
     log_format: z.string(),
     log_type: z.string(),
-  }).array().optional(),
-  member_clusters: z.string().array().optional(),
+  })).optional(),
+  member_clusters: z.set(z.string()).optional(),
   multi_az_enabled: z.boolean().optional(),
-  node_group_configuration: z.object({
+  node_group_configuration: z.set(z.object({
     node_group_id: z.string(),
     primary_availability_zone: z.string(),
     primary_outpost_arn: z.string(),
@@ -39,7 +38,7 @@ export const OutputSchema = z.object({
     replica_count: z.number(),
     replica_outpost_arns: z.string().array(),
     slots: z.string(),
-  }).array().optional(),
+  })).optional(),
   node_type: z.string().optional(),
   num_cache_clusters: z.number().optional(),
   num_node_groups: z.number().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_replication_group
 
 export function DataAwsElasticacheReplicationGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,11 +79,21 @@ export function DataAwsElasticacheReplicationGroup(props: Partial<InputProps>) {
 }
 
 export const useDataAwsElasticacheReplicationGroup = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsElasticacheReplicationGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElasticacheReplicationGroup,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsElasticacheReplicationGroups = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsElasticacheReplicationGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElasticacheReplicationGroup,
+    idFilter,
+    baseNode,
+  )

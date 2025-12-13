@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_data_catalog
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_data_catalog
 
 export function AwsAthenaDataCatalog(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsAthenaDataCatalog(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaDataCatalog = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAthenaDataCatalog, node, id)
+export const useAwsAthenaDataCatalog = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode)
 
-export const useAwsAthenaDataCatalogs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAthenaDataCatalog, node, id)
+export const useAwsAthenaDataCatalogs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_radius_settings
 
 export const InputSchema = z.object({
   authentication_protocol: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   use_same_username: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_radius_settings
 
 export function AwsDirectoryServiceRadiusSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,6 +60,11 @@ export function AwsDirectoryServiceRadiusSettings(props: Partial<InputProps>) {
 }
 
 export const useAwsDirectoryServiceRadiusSettingss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsDirectoryServiceRadiusSettings, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceRadiusSettings,
+    idFilter,
+    baseNode,
+  )

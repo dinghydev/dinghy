@@ -2,19 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamPolicy } from './AwsIamPolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_policy
-
 export const InputSchema = z.object({
+  arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   path_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_policy
 
 export function DataAwsIamPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +54,8 @@ export function DataAwsIamPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamPolicy, node, id)
+export const useDataAwsIamPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsIamPolicy, idFilter, baseNode)
 
-export const useDataAwsIamPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamPolicy, node, id)
+export const useDataAwsIamPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamPolicy, idFilter, baseNode)

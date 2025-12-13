@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLbTargetGroup } from './AwsLbTargetGroup.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb_target_group
 
 export const InputSchema = z.object({
   arn_suffix: resolvableValue(z.string()),
@@ -58,7 +57,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -69,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb_target_group
 
 export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,8 +89,8 @@ export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbTargetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLbTargetGroup, node, id)
+export const useDataAwsLbTargetGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode)
 
-export const useDataAwsLbTargetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLbTargetGroup, node, id)
+export const useDataAwsLbTargetGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode)

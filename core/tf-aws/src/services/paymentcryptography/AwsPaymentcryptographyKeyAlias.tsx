@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/paymentcryptography_key_alias
 
 export const InputSchema = z.object({
   alias_name: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   key_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/paymentcryptography_key_alias
 
 export function AwsPaymentcryptographyKeyAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,5 +45,8 @@ export function AwsPaymentcryptographyKeyAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPaymentcryptographyKeyAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPaymentcryptographyKeyAlias, node, id)
+export const useAwsPaymentcryptographyKeyAliass = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsPaymentcryptographyKeyAlias, idFilter, baseNode)

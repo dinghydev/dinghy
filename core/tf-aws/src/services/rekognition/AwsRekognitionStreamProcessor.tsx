@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rekognition_stream_processor
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,31 +15,31 @@ export const InputSchema = z.object({
   data_sharing_preference: resolvableValue(
     z.object({
       opt_in: z.boolean(),
-    }).optional(),
+    }).array().optional(),
   ),
   input: resolvableValue(
     z.object({
       kinesis_video_stream: z.object({
         arn: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   kms_key_id: resolvableValue(z.string().optional()),
   notification_channel: resolvableValue(
     z.object({
       sns_topic_arn: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   output: resolvableValue(
     z.object({
       kinesis_data_stream: z.object({
         arn: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
       s3_destination: z.object({
         bucket: z.string().optional(),
         key_prefix: z.string().optional(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   regions_of_interest: resolvableValue(
@@ -50,24 +49,24 @@ export const InputSchema = z.object({
         left: z.number().optional(),
         top: z.number().optional(),
         width: z.number().optional(),
-      }).optional(),
+      }).array().optional(),
       polygon: z.object({
         x: z.number().optional(),
         y: z.number().optional(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   settings: resolvableValue(
     z.object({
       connected_home: z.object({
         labels: z.string().array().optional(),
         min_confidence: z.number().optional(),
-      }).optional(),
+      }).array().optional(),
       face_search: z.object({
         collection_id: z.string(),
         face_match_threshold: z.number().optional(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -77,7 +76,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -92,6 +91,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rekognition_stream_processor
 
 export function AwsRekognitionStreamProcessor(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -110,8 +112,14 @@ export function AwsRekognitionStreamProcessor(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRekognitionStreamProcessor = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRekognitionStreamProcessor, node, id)
+export const useAwsRekognitionStreamProcessor = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRekognitionStreamProcessor, idFilter, baseNode)
 
-export const useAwsRekognitionStreamProcessors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRekognitionStreamProcessor, node, id)
+export const useAwsRekognitionStreamProcessors = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsRekognitionStreamProcessor, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_tape_pool
 
 export const InputSchema = z.object({
   pool_name: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   retention_lock_time_in_days: resolvableValue(z.number().optional()),
   retention_lock_type: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_tape_pool
 
 export function AwsStoragegatewayTapePool(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsStoragegatewayTapePool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsStoragegatewayTapePool = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsStoragegatewayTapePool, node, id)
+export const useAwsStoragegatewayTapePool = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsStoragegatewayTapePool, idFilter, baseNode)
 
-export const useAwsStoragegatewayTapePools = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayTapePool, node, id)
+export const useAwsStoragegatewayTapePools = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsStoragegatewayTapePool, idFilter, baseNode)

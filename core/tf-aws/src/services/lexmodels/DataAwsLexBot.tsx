@@ -2,18 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLexBot } from './AwsLexBot.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lex_bot
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+  version: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lex_bot
 
 export function DataAwsLexBot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +63,8 @@ export function DataAwsLexBot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLexBot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLexBot, node, id)
+export const useDataAwsLexBot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLexBot, idFilter, baseNode)
 
-export const useDataAwsLexBots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLexBot, node, id)
+export const useDataAwsLexBots = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLexBot, idFilter, baseNode)

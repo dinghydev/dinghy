@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_peering_connection_options
 
 export const InputSchema = z.object({
   vpc_peering_connection_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       allow_remote_vpc_dns_resolution: z.boolean().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_peering_connection_options
 
 export function AwsVpcPeeringConnectionOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,5 +55,8 @@ export function AwsVpcPeeringConnectionOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcPeeringConnectionOptions = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcPeeringConnectionOptions, node, id)
+export const useAwsVpcPeeringConnectionOptions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsVpcPeeringConnectionOptions, idFilter, baseNode)

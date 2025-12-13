@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsApiGatewayVpcLink } from './AwsApiGatewayVpcLink.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_vpc_link
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   description: z.string().optional(),
@@ -22,7 +21,7 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
   status_message: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
-  target_arns: z.string().array().optional(),
+  target_arns: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_vpc_link
 
 export function DataAwsApiGatewayVpcLink(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function DataAwsApiGatewayVpcLink(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApiGatewayVpcLink = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsApiGatewayVpcLink, node, id)
+export const useDataAwsApiGatewayVpcLink = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsApiGatewayVpcLink, idFilter, baseNode)
 
-export const useDataAwsApiGatewayVpcLinks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApiGatewayVpcLink, node, id)
+export const useDataAwsApiGatewayVpcLinks = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsApiGatewayVpcLink, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   queue_url: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_policy
 
 export function AwsSqsQueuePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsSqsQueuePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSqsQueuePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSqsQueuePolicy, node, id)
+export const useAwsSqsQueuePolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSqsQueuePolicy, idFilter, baseNode)
 
-export const useAwsSqsQueuePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSqsQueuePolicy, node, id)
+export const useAwsSqsQueuePolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSqsQueuePolicy, idFilter, baseNode)

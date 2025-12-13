@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_object_storage
 
 export const InputSchema = z.object({
   bucket_name: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   server_protocol: resolvableValue(z.string().optional()),
   subdirectory: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_object_storage
 
 export function AwsDatasyncLocationObjectStorage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,22 @@ export function AwsDatasyncLocationObjectStorage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationObjectStorage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationObjectStorage, node, id)
+export const useAwsDatasyncLocationObjectStorage = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDatasyncLocationObjectStorage,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsDatasyncLocationObjectStorages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationObjectStorage, node, id)
+export const useAwsDatasyncLocationObjectStorages = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationObjectStorage,
+    idFilter,
+    baseNode,
+  )

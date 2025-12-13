@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSfnActivity } from './AwsSfnActivity.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sfn_activity
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   creation_date: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sfn_activity
 
 export function DataAwsSfnActivity(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function DataAwsSfnActivity(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSfnActivity = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSfnActivity, node, id)
+export const useDataAwsSfnActivity = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSfnActivity, idFilter, baseNode)
 
-export const useDataAwsSfnActivitys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSfnActivity, node, id)
+export const useDataAwsSfnActivitys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsSfnActivity, idFilter, baseNode)

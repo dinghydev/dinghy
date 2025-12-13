@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_theme
 
 export const InputSchema = z.object({
   base_theme_id: resolvableValue(z.string()),
@@ -40,7 +39,7 @@ export const InputSchema = z.object({
       typography: z.object({
         font_families: z.object({
           font_family: z.string().optional(),
-        }).optional(),
+        }).array().optional(),
       }).optional(),
       ui_color_palette: z.object({
         accent: z.string().optional(),
@@ -78,7 +77,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   version_description: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -97,6 +96,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_theme
 
 export function AwsQuicksightTheme(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -115,8 +117,8 @@ export function AwsQuicksightTheme(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightTheme = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightTheme, node, id)
+export const useAwsQuicksightTheme = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsQuicksightTheme, idFilter, baseNode)
 
-export const useAwsQuicksightThemes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightTheme, node, id)
+export const useAwsQuicksightThemes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsQuicksightTheme, idFilter, baseNode)

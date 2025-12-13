@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_transit_gateway_peering
 
 export const InputSchema = z.object({
   core_network_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_transit_gateway_peering
 
 export function AwsNetworkmanagerTransitGatewayPeering(
   props: Partial<InputProps>,
@@ -62,12 +64,21 @@ export function AwsNetworkmanagerTransitGatewayPeering(
 }
 
 export const useAwsNetworkmanagerTransitGatewayPeering = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsNetworkmanagerTransitGatewayPeering, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerTransitGatewayPeering,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkmanagerTransitGatewayPeerings = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerTransitGatewayPeering, node, id)
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerTransitGatewayPeering,
+    idFilter,
+    baseNode,
+  )

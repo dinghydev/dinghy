@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_crawler
 
 export const InputSchema = z.object({
   database_name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       dlq_event_queue_arn: z.string().optional(),
       event_queue_arn: z.string().optional(),
       tables: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   classifiers: resolvableValue(z.string().array().optional()),
   configuration: resolvableValue(z.string().optional()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
       create_native_delta_table: z.boolean().optional(),
       delta_tables: z.string().array(),
       write_manifest: z.boolean(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   dynamodb_target: resolvableValue(
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       path: z.string(),
       scan_all: z.boolean().optional(),
       scan_rate: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   hudi_target: resolvableValue(
     z.object({
@@ -47,7 +46,7 @@ export const InputSchema = z.object({
       exclusions: z.string().array().optional(),
       maximum_traversal_depth: z.number(),
       paths: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   iceberg_target: resolvableValue(
     z.object({
@@ -55,7 +54,7 @@ export const InputSchema = z.object({
       exclusions: z.string().array().optional(),
       maximum_traversal_depth: z.number(),
       paths: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   jdbc_target: resolvableValue(
     z.object({
@@ -63,7 +62,7 @@ export const InputSchema = z.object({
       enable_additional_metadata: z.string().array().optional(),
       exclusions: z.string().array().optional(),
       path: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   lake_formation_configuration: resolvableValue(
     z.object({
@@ -81,7 +80,7 @@ export const InputSchema = z.object({
       connection_name: z.string(),
       path: z.string(),
       scan_all: z.boolean().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   recrawl_policy: resolvableValue(
     z.object({
@@ -97,7 +96,7 @@ export const InputSchema = z.object({
       exclusions: z.string().array().optional(),
       path: z.string(),
       sample_size: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   schedule: resolvableValue(z.string().optional()),
   schema_change_policy: resolvableValue(
@@ -109,7 +108,7 @@ export const InputSchema = z.object({
   security_configuration: resolvableValue(z.string().optional()),
   table_prefix: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -124,6 +123,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_crawler
 
 export function AwsGlueCrawler(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -142,8 +144,8 @@ export function AwsGlueCrawler(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueCrawler = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueCrawler, node, id)
+export const useAwsGlueCrawler = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueCrawler, idFilter, baseNode)
 
-export const useAwsGlueCrawlers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueCrawler, node, id)
+export const useAwsGlueCrawlers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueCrawler, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_query_logging_configuration
 
 export const InputSchema = z.object({
   workspace_id: resolvableValue(z.string()),
@@ -16,11 +15,11 @@ export const InputSchema = z.object({
     z.object({
       cloudwatch_logs: z.object({
         log_group_arn: z.string(),
-      }).optional(),
+      }).array().optional(),
       filters: z.object({
         qsp_threshold: z.number(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_query_logging_configuration
 
 export function AwsPrometheusQueryLoggingConfiguration(
   props: Partial<InputProps>,
@@ -62,12 +64,21 @@ export function AwsPrometheusQueryLoggingConfiguration(
 }
 
 export const useAwsPrometheusQueryLoggingConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsPrometheusQueryLoggingConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPrometheusQueryLoggingConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsPrometheusQueryLoggingConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsPrometheusQueryLoggingConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsPrometheusQueryLoggingConfiguration,
+    idFilter,
+    baseNode,
+  )

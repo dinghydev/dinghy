@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_peering_attachment
 
 export const InputSchema = z.object({
   peer_region: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   peer_account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_peering_attachment
 
 export function AwsEc2TransitGatewayPeeringAttachment(
   props: Partial<InputProps>,
@@ -59,11 +61,21 @@ export function AwsEc2TransitGatewayPeeringAttachment(
 }
 
 export const useAwsEc2TransitGatewayPeeringAttachment = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsEc2TransitGatewayPeeringAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayPeeringAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2TransitGatewayPeeringAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsEc2TransitGatewayPeeringAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2TransitGatewayPeeringAttachment,
+    idFilter,
+    baseNode,
+  )

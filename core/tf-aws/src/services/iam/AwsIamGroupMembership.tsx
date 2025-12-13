@@ -3,21 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_membership
-
 export const InputSchema = z.object({
+  group: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  users: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   group: z.string().optional(),
   name: z.string().optional(),
-  users: z.string().array().optional(),
+  users: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -27,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_membership
 
 export function AwsIamGroupMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +50,8 @@ export function AwsIamGroupMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamGroupMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamGroupMembership, node, id)
+export const useAwsIamGroupMembership = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamGroupMembership, idFilter, baseNode)
 
-export const useAwsIamGroupMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamGroupMembership, node, id)
+export const useAwsIamGroupMemberships = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamGroupMembership, idFilter, baseNode)

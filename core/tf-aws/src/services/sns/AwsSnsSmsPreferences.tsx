@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_sms_preferences
 
 export const InputSchema = z.object({
   default_sender_id: resolvableValue(z.string().optional()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   monthly_spend_limit: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   usage_report_s3_bucket: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_sms_preferences
 
 export function AwsSnsSmsPreferences(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,5 +49,5 @@ export function AwsSnsSmsPreferences(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSnsSmsPreferencess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSnsSmsPreferences, node, id)
+export const useAwsSnsSmsPreferencess = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSnsSmsPreferences, idFilter, baseNode)

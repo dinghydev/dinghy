@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_global_table
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_global_table
 
 export function AwsDynamodbGlobalTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function AwsDynamodbGlobalTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbGlobalTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDynamodbGlobalTable, node, id)
+export const useAwsDynamodbGlobalTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDynamodbGlobalTable, idFilter, baseNode)
 
-export const useAwsDynamodbGlobalTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDynamodbGlobalTable, node, id)
+export const useAwsDynamodbGlobalTables = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDynamodbGlobalTable, idFilter, baseNode)

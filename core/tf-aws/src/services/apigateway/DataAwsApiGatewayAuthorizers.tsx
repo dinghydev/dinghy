@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_authorizers
 
 export const InputSchema = z.object({
   rest_api_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ids: z.string().array().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_authorizers
 
 export function DataAwsApiGatewayAuthorizers(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,5 +46,8 @@ export function DataAwsApiGatewayAuthorizers(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApiGatewayAuthorizerss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApiGatewayAuthorizers, node, id)
+export const useDataAwsApiGatewayAuthorizerss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsApiGatewayAuthorizers, idFilter, baseNode)

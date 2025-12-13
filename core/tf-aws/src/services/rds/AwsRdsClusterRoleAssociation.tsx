@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_role_association
 
 export const InputSchema = z.object({
   db_cluster_identifier: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster_role_association
 
 export function AwsRdsClusterRoleAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,13 @@ export function AwsRdsClusterRoleAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsClusterRoleAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsClusterRoleAssociation, node, id)
+export const useAwsRdsClusterRoleAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRdsClusterRoleAssociation, idFilter, baseNode)
 
-export const useAwsRdsClusterRoleAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsClusterRoleAssociation, node, id)
+export const useAwsRdsClusterRoleAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsRdsClusterRoleAssociation, idFilter, baseNode)

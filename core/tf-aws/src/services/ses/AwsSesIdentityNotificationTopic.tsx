@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_identity_notification_topic
 
 export const InputSchema = z.object({
   identity: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   include_original_headers: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   topic_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_identity_notification_topic
 
 export function AwsSesIdentityNotificationTopic(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,18 @@ export function AwsSesIdentityNotificationTopic(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesIdentityNotificationTopic = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesIdentityNotificationTopic, node, id)
+export const useAwsSesIdentityNotificationTopic = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSesIdentityNotificationTopic, idFilter, baseNode)
 
-export const useAwsSesIdentityNotificationTopics = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesIdentityNotificationTopic, node, id)
+export const useAwsSesIdentityNotificationTopics = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSesIdentityNotificationTopic,
+    idFilter,
+    baseNode,
+  )

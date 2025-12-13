@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_account_public_access_block
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string().optional()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   block_public_policy: resolvableValue(z.boolean().optional()),
   ignore_public_acls: resolvableValue(z.boolean().optional()),
   restrict_public_buckets: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_account_public_access_block
 
 export function AwsS3AccountPublicAccessBlock(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,14 @@ export function AwsS3AccountPublicAccessBlock(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3AccountPublicAccessBlock = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3AccountPublicAccessBlock, node, id)
+export const useAwsS3AccountPublicAccessBlock = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsS3AccountPublicAccessBlock, idFilter, baseNode)
 
-export const useAwsS3AccountPublicAccessBlocks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3AccountPublicAccessBlock, node, id)
+export const useAwsS3AccountPublicAccessBlocks = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsS3AccountPublicAccessBlock, idFilter, baseNode)

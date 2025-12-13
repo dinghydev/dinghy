@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCodeguruprofilerProfilingGroup } from './AwsCodeguruprofilerProfilingGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codeguruprofiler_profiling_group
-
 export const InputSchema = z.object({
   created_at: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   agent_orchestration_config: z.object({
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codeguruprofiler_profiling_group
 
 export function DataAwsCodeguruprofilerProfilingGroup(
   props: Partial<InputProps>,
@@ -63,11 +65,21 @@ export function DataAwsCodeguruprofilerProfilingGroup(
 }
 
 export const useDataAwsCodeguruprofilerProfilingGroup = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsCodeguruprofilerProfilingGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCodeguruprofilerProfilingGroup,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCodeguruprofilerProfilingGroups = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsCodeguruprofilerProfilingGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCodeguruprofilerProfilingGroup,
+    idFilter,
+    baseNode,
+  )

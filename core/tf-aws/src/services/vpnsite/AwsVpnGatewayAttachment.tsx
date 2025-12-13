@@ -3,17 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway_attachment
-
 export const InputSchema = z.object({
+  vpc_id: resolvableValue(z.string()),
+  vpn_gateway_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
@@ -27,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway_attachment
 
 export function AwsVpnGatewayAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +49,10 @@ export function AwsVpnGatewayAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpnGatewayAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpnGatewayAttachment, node, id)
+export const useAwsVpnGatewayAttachment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpnGatewayAttachment, idFilter, baseNode)
 
-export const useAwsVpnGatewayAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpnGatewayAttachment, node, id)
+export const useAwsVpnGatewayAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVpnGatewayAttachment, idFilter, baseNode)

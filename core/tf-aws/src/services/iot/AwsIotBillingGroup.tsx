@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_billing_group
 
 export const InputSchema = z.object({
   metadata: resolvableValue(
@@ -21,11 +20,11 @@ export const InputSchema = z.object({
   properties: resolvableValue(
     z.object({
       description: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_billing_group
 
 export function AwsIotBillingGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsIotBillingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotBillingGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotBillingGroup, node, id)
+export const useAwsIotBillingGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotBillingGroup, idFilter, baseNode)
 
-export const useAwsIotBillingGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotBillingGroup, node, id)
+export const useAwsIotBillingGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIotBillingGroup, idFilter, baseNode)

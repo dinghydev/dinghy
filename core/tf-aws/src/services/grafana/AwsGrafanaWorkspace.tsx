@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace
 
 export const InputSchema = z.object({
   account_access_type: resolvableValue(z.string()),
@@ -18,6 +17,7 @@ export const InputSchema = z.object({
   configuration: resolvableValue(z.string().optional()),
   data_sources: resolvableValue(z.string().array().optional()),
   description: resolvableValue(z.string().optional()),
+  grafana_version: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   network_access_control: resolvableValue(
@@ -45,7 +45,7 @@ export const InputSchema = z.object({
       subnet_ids: z.string().array(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace
 
 export function AwsGrafanaWorkspace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +82,8 @@ export function AwsGrafanaWorkspace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGrafanaWorkspace = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGrafanaWorkspace, node, id)
+export const useAwsGrafanaWorkspace = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGrafanaWorkspace, idFilter, baseNode)
 
-export const useAwsGrafanaWorkspaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGrafanaWorkspace, node, id)
+export const useAwsGrafanaWorkspaces = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGrafanaWorkspace, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy
 
 export const InputSchema = z.object({
   content: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   skip_destroy: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy
 
 export function AwsOrganizationsPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function AwsOrganizationsPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOrganizationsPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOrganizationsPolicy, node, id)
+export const useAwsOrganizationsPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsOrganizationsPolicy, idFilter, baseNode)
 
-export const useAwsOrganizationsPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOrganizationsPolicy, node, id)
+export const useAwsOrganizationsPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsOrganizationsPolicy, idFilter, baseNode)

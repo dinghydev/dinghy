@@ -3,20 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_resource_association
-
 export const InputSchema = z.object({
-  dns_entry: resolvableValue(
-    z.object({
-      domain_name: z.string(),
-      hosted_zone_id: z.string(),
-    }).array(),
-  ),
   resource_configuration_identifier: resolvableValue(z.string()),
   service_network_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -27,10 +20,14 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  dns_entry: z.object({
+    domain_name: z.string(),
+    hosted_zone_id: z.string(),
+  }).array().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
@@ -42,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_resource_association
 
 export function AwsVpclatticeServiceNetworkResourceAssociation(
   props: Partial<InputProps>,
@@ -63,21 +63,21 @@ export function AwsVpclatticeServiceNetworkResourceAssociation(
 }
 
 export const useAwsVpclatticeServiceNetworkResourceAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpclatticeServiceNetworkResourceAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsVpclatticeServiceNetworkResourceAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeServiceNetworkResourceAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

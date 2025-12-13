@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_trusted_token_issuer
 
 export const InputSchema = z.object({
   instance_arn: resolvableValue(z.string()),
@@ -24,10 +23,10 @@ export const InputSchema = z.object({
         identity_store_attribute_path: z.string(),
         issuer_url: z.string(),
         jwks_retrieval_option: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_trusted_token_issuer
 
 export function AwsSsoadminTrustedTokenIssuer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +69,14 @@ export function AwsSsoadminTrustedTokenIssuer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsoadminTrustedTokenIssuer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsoadminTrustedTokenIssuer, node, id)
+export const useAwsSsoadminTrustedTokenIssuer = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSsoadminTrustedTokenIssuer, idFilter, baseNode)
 
-export const useAwsSsoadminTrustedTokenIssuers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsoadminTrustedTokenIssuer, node, id)
+export const useAwsSsoadminTrustedTokenIssuers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSsoadminTrustedTokenIssuer, idFilter, baseNode)

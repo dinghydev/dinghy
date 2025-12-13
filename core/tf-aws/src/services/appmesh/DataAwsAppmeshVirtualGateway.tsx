@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppmeshVirtualGateway } from './AwsAppmeshVirtualGateway.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_gateway
 
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,16 +36,16 @@ export const OutputSchema = z.object({
             }).array(),
           }).array(),
           enforce: z.boolean(),
-          ports: z.number().array(),
+          ports: z.set(z.number()),
           validation: z.object({
             subject_alternative_names: z.object({
               match: z.object({
-                exact: z.string().array(),
+                exact: z.set(z.string()),
               }).array(),
             }).array(),
             trust: z.object({
               acm: z.object({
-                certificate_authority_arns: z.string().array(),
+                certificate_authority_arns: z.set(z.string()),
               }).array(),
               file: z.object({
                 certificate_chain: z.string(),
@@ -102,7 +101,7 @@ export const OutputSchema = z.object({
         validation: z.object({
           subject_alternative_names: z.object({
             match: z.object({
-              exact: z.string().array(),
+              exact: z.set(z.string()),
             }).array(),
           }).array(),
           trust: z.object({
@@ -141,6 +140,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_gateway
 
 export function DataAwsAppmeshVirtualGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -159,8 +161,13 @@ export function DataAwsAppmeshVirtualGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshVirtualGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshVirtualGateway, node, id)
+export const useDataAwsAppmeshVirtualGateway = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppmeshVirtualGateway, idFilter, baseNode)
 
-export const useDataAwsAppmeshVirtualGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualGateway, node, id)
+export const useDataAwsAppmeshVirtualGateways = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualGateway, idFilter, baseNode)

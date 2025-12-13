@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssoadmin_application_providers
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_providers: z.object({
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssoadmin_application_providers
 
 export function DataAwsSsoadminApplicationProviders(
   props: Partial<InputProps>,
@@ -54,6 +56,11 @@ export function DataAwsSsoadminApplicationProviders(
 }
 
 export const useDataAwsSsoadminApplicationProviderss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsSsoadminApplicationProviders, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsoadminApplicationProviders,
+    idFilter,
+    baseNode,
+  )

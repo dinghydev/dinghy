@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_size_constraint_set
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,9 +16,13 @@ export const InputSchema = z.object({
       comparison_operator: z.string(),
       size: z.number(),
       text_transformation: z.string(),
+      field_to_match: z.object({
+        data: z.string().optional(),
+        type: z.string(),
+      }),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_size_constraint_set
 
 export function AwsWafSizeConstraintSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +57,10 @@ export function AwsWafSizeConstraintSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafSizeConstraintSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafSizeConstraintSet, node, id)
+export const useAwsWafSizeConstraintSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafSizeConstraintSet, idFilter, baseNode)
 
-export const useAwsWafSizeConstraintSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafSizeConstraintSet, node, id)
+export const useAwsWafSizeConstraintSets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsWafSizeConstraintSet, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_portal
 
 export const InputSchema = z.object({
   additional_encryption_context: resolvableValue(
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   browser_type: z.string().optional(),
@@ -56,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_portal
 
 export function AwsWorkspaceswebPortal(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +76,8 @@ export function AwsWorkspaceswebPortal(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspaceswebPortal = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebPortal, node, id)
+export const useAwsWorkspaceswebPortal = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWorkspaceswebPortal, idFilter, baseNode)
 
-export const useAwsWorkspaceswebPortals = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebPortal, node, id)
+export const useAwsWorkspaceswebPortals = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWorkspaceswebPortal, idFilter, baseNode)

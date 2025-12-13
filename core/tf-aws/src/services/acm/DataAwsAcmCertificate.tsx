@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acm_certificate
 
 export const InputSchema = z.object({
   domain: resolvableValue(z.string().optional()),
@@ -16,8 +15,9 @@ export const InputSchema = z.object({
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   statuses: resolvableValue(z.string().array().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   types: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/acm_certificate
 
 export function DataAwsAcmCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +56,8 @@ export function DataAwsAcmCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAcmCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAcmCertificate, node, id)
+export const useDataAwsAcmCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsAcmCertificate, idFilter, baseNode)
 
-export const useDataAwsAcmCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAcmCertificate, node, id)
+export const useDataAwsAcmCertificates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsAcmCertificate, idFilter, baseNode)

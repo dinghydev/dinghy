@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_network_acl
 
 export const InputSchema = z.object({
   default_network_acl_id: resolvableValue(z.string()),
@@ -41,7 +40,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   subnet_ids: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_network_acl
 
 export function AwsDefaultNetworkAcl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +78,8 @@ export function AwsDefaultNetworkAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDefaultNetworkAcl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDefaultNetworkAcl, node, id)
+export const useAwsDefaultNetworkAcl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode)
 
-export const useAwsDefaultNetworkAcls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDefaultNetworkAcl, node, id)
+export const useAwsDefaultNetworkAcls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode)

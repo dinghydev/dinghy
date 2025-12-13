@@ -4,13 +4,12 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { APPLICATION_LOAD_BALANCER } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb
 
 export const InputSchema = z.object({
   vpc_id: resolvableValue(z.string()),
@@ -87,7 +86,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   xff_header_processing_mode: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -109,6 +108,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb
 
 export function AwsLb(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -129,8 +131,8 @@ export function AwsLb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLb = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLb, node, id)
+export const useAwsLb = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLb, idFilter, baseNode)
 
-export const useAwsLbs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLb, node, id)
+export const useAwsLbs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLb, idFilter, baseNode)

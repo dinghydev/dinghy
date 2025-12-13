@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_task_definition
 
 export const InputSchema = z.object({
   container_definitions: resolvableValue(z.string()),
@@ -56,9 +55,34 @@ export const InputSchema = z.object({
       configure_at_launch: z.boolean().optional(),
       host_path: z.string().optional(),
       name: z.string(),
+      docker_volume_configuration: z.object({
+        autoprovision: z.boolean().optional(),
+        driver: z.string().optional(),
+        driver_opts: z.record(z.string(), z.string()).optional(),
+        labels: z.record(z.string(), z.string()).optional(),
+        scope: z.string().optional(),
+      }).optional(),
+      efs_volume_configuration: z.object({
+        file_system_id: z.string(),
+        root_directory: z.string().optional(),
+        transit_encryption: z.string().optional(),
+        transit_encryption_port: z.number().optional(),
+        authorization_config: z.object({
+          access_point_id: z.string().optional(),
+          iam: z.string().optional(),
+        }).optional(),
+      }).optional(),
+      fsx_windows_file_server_volume_configuration: z.object({
+        file_system_id: z.string(),
+        root_directory: z.string(),
+        authorization_config: z.object({
+          credentials_parameter: z.string(),
+          domain: z.string(),
+        }),
+      }).optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -74,6 +98,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_task_definition
 
 export function AwsEcsTaskDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -92,8 +119,8 @@ export function AwsEcsTaskDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsTaskDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcsTaskDefinition, node, id)
+export const useAwsEcsTaskDefinition = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcsTaskDefinition, idFilter, baseNode)
 
-export const useAwsEcsTaskDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcsTaskDefinition, node, id)
+export const useAwsEcsTaskDefinitions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcsTaskDefinition, idFilter, baseNode)

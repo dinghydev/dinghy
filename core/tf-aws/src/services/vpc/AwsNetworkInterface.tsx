@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/network_interface
 
 export const InputSchema = z.object({
   outpost_arn: resolvableValue(z.string()),
@@ -41,7 +40,7 @@ export const InputSchema = z.object({
   security_groups: resolvableValue(z.string().array().optional()),
   source_dest_check: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/network_interface
 
 export function AwsNetworkInterface(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,8 @@ export function AwsNetworkInterface(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkInterface = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkInterface, node, id)
+export const useAwsNetworkInterface = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsNetworkInterface, idFilter, baseNode)
 
-export const useAwsNetworkInterfaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterface, node, id)
+export const useAwsNetworkInterfaces = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsNetworkInterface, idFilter, baseNode)

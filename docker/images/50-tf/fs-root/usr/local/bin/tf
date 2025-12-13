@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Make the script exit on any error
+set -e
+
+if [ ! -d .terraform ]; then
+    echo 'creating .terraform'
+    mkdir .terraform
+fi
+
+if [ ! -L .terraform/providers ]; then
+    echo 'linking .terraform/providers'
+    ln -s /terraform/.terraform/providers .terraform/
+fi
+
+if [ ! -f .terraform.lock.hcl ]; then
+    echo "linking .terraform.lock.hcl"
+    ln -s /terraform/.terraform.lock.hcl .
+fi
+terraform init >/dev/null 2>&1
+terraform "$@"
+

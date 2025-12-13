@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_image
 
 export const InputSchema = z.object({
   repository_name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   registry_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_image
 
 export function DataAwsEcrImage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function DataAwsEcrImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcrImage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcrImage, node, id)
+export const useDataAwsEcrImage = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEcrImage, idFilter, baseNode)
 
-export const useDataAwsEcrImages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcrImage, node, id)
+export const useDataAwsEcrImages = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEcrImage, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_account_vdm_attributes
 
 export const InputSchema = z.object({
   vdm_enabled: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_account_vdm_attributes
 
 export function AwsSesv2AccountVdmAttributes(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,5 +54,8 @@ export function AwsSesv2AccountVdmAttributes(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2AccountVdmAttributess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesv2AccountVdmAttributes, node, id)
+export const useAwsSesv2AccountVdmAttributess = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSesv2AccountVdmAttributes, idFilter, baseNode)

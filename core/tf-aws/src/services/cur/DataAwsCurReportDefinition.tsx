@@ -2,22 +2,21 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCurReportDefinition } from './AwsCurReportDefinition.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cur_report_definition
-
 export const InputSchema = z.object({
   report_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  additional_artifacts: z.string().array().optional(),
-  additional_schema_elements: z.string().array().optional(),
+  additional_artifacts: z.set(z.string()).optional(),
+  additional_schema_elements: z.set(z.string()).optional(),
   compression: z.string().optional(),
   format: z.string().optional(),
   refresh_closed_reports: z.boolean().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cur_report_definition
 
 export function DataAwsCurReportDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function DataAwsCurReportDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCurReportDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCurReportDefinition, node, id)
+export const useDataAwsCurReportDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsCurReportDefinition, idFilter, baseNode)
 
-export const useDataAwsCurReportDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCurReportDefinition, node, id)
+export const useDataAwsCurReportDefinitions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsCurReportDefinition, idFilter, baseNode)

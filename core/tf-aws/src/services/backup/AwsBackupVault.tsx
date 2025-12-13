@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_vault
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_vault
 
 export function AwsBackupVault(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,8 @@ export function AwsBackupVault(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupVault = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupVault, node, id)
+export const useAwsBackupVault = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBackupVault, idFilter, baseNode)
 
-export const useAwsBackupVaults = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupVault, node, id)
+export const useAwsBackupVaults = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBackupVault, idFilter, baseNode)

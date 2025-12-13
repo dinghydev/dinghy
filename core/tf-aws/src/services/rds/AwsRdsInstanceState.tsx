@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_instance_state
 
 export const InputSchema = z.object({
   identifier: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_instance_state
 
 export function AwsRdsInstanceState(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsRdsInstanceState(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsInstanceState = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsInstanceState, node, id)
+export const useAwsRdsInstanceState = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRdsInstanceState, idFilter, baseNode)
 
-export const useAwsRdsInstanceStates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsInstanceState, node, id)
+export const useAwsRdsInstanceStates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRdsInstanceState, idFilter, baseNode)

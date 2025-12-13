@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_filter
 
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
@@ -202,42 +201,42 @@ export const InputSchema = z.object({
         architecture: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
         epoch: z.object({
           lower_inclusive: z.number(),
           upper_inclusive: z.number(),
-        }).optional(),
+        }).array().optional(),
         file_path: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
         name: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
         release: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
         source_lambda_layer_arn: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
         source_layer_hash: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
         version: z.object({
           comparison: z.string(),
           value: z.string(),
-        }).optional(),
+        }).array().optional(),
       }).array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   reason: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -255,6 +254,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_filter
 
 export function AwsInspector2Filter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -274,8 +276,8 @@ export function AwsInspector2Filter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInspector2Filter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsInspector2Filter, node, id)
+export const useAwsInspector2Filter = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsInspector2Filter, idFilter, baseNode)
 
-export const useAwsInspector2Filters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsInspector2Filter, node, id)
+export const useAwsInspector2Filters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsInspector2Filter, idFilter, baseNode)

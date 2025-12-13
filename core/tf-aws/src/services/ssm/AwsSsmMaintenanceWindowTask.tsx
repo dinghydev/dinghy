@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_task
 
 export const InputSchema = z.object({
   task_arn: resolvableValue(z.string()),
@@ -26,12 +25,16 @@ export const InputSchema = z.object({
     z.object({
       key: z.string(),
       values: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   task_invocation_parameters: resolvableValue(
     z.object({
       automation_parameters: z.object({
         document_version: z.string().optional(),
+        parameter: z.object({
+          name: z.string(),
+          values: z.string().array(),
+        }).array().optional(),
       }).optional(),
       lambda_parameters: z.object({
         client_context: z.string().optional(),
@@ -47,6 +50,19 @@ export const InputSchema = z.object({
         output_s3_key_prefix: z.string().optional(),
         service_role_arn: z.string().optional(),
         timeout_seconds: z.number().optional(),
+        cloudwatch_config: z.object({
+          cloudwatch_log_group_name: z.string().optional(),
+          cloudwatch_output_enabled: z.boolean().optional(),
+        }).optional(),
+        notification_config: z.object({
+          notification_arn: z.string().optional(),
+          notification_events: z.string().array().optional(),
+          notification_type: z.string().optional(),
+        }).optional(),
+        parameter: z.object({
+          name: z.string(),
+          values: z.string().array(),
+        }).array().optional(),
       }).optional(),
       step_functions_parameters: z.object({
         input: z.string().optional(),
@@ -54,7 +70,7 @@ export const InputSchema = z.object({
       }).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -77,6 +93,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_task
 
 export function AwsSsmMaintenanceWindowTask(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -96,8 +115,12 @@ export function AwsSsmMaintenanceWindowTask(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmMaintenanceWindowTask = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmMaintenanceWindowTask, node, id)
+export const useAwsSsmMaintenanceWindowTask = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSsmMaintenanceWindowTask, idFilter, baseNode)
 
-export const useAwsSsmMaintenanceWindowTasks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmMaintenanceWindowTask, node, id)
+export const useAwsSsmMaintenanceWindowTasks = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSsmMaintenanceWindowTask, idFilter, baseNode)

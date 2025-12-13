@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_site_to_site_vpn_attachment
 
 export const InputSchema = z.object({
   core_network_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_site_to_site_vpn_attachment
 
 export function AwsNetworkmanagerSiteToSiteVpnAttachment(
   props: Partial<InputProps>,
@@ -65,13 +67,21 @@ export function AwsNetworkmanagerSiteToSiteVpnAttachment(
 }
 
 export const useAwsNetworkmanagerSiteToSiteVpnAttachment = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerSiteToSiteVpnAttachment, node, id)
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerSiteToSiteVpnAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkmanagerSiteToSiteVpnAttachments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerSiteToSiteVpnAttachment, node, id)
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerSiteToSiteVpnAttachment,
+    idFilter,
+    baseNode,
+  )

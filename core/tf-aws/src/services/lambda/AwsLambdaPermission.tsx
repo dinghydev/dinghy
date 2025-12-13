@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_permission
 
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   source_arn: resolvableValue(z.string().optional()),
   statement_id: resolvableValue(z.string().optional()),
   statement_id_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_permission
 
 export function AwsLambdaPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +65,8 @@ export function AwsLambdaPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaPermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaPermission, node, id)
+export const useAwsLambdaPermission = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLambdaPermission, idFilter, baseNode)
 
-export const useAwsLambdaPermissions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaPermission, node, id)
+export const useAwsLambdaPermissions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLambdaPermission, idFilter, baseNode)

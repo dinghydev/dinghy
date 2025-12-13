@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_member_detector_feature
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -19,10 +18,10 @@ export const InputSchema = z.object({
     z.object({
       name: z.string(),
       status: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_member_detector_feature
 
 export function AwsGuarddutyMemberDetectorFeature(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,10 +53,22 @@ export function AwsGuarddutyMemberDetectorFeature(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyMemberDetectorFeature = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGuarddutyMemberDetectorFeature, node, id)
+export const useAwsGuarddutyMemberDetectorFeature = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGuarddutyMemberDetectorFeature,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGuarddutyMemberDetectorFeatures = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsGuarddutyMemberDetectorFeature, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGuarddutyMemberDetectorFeature,
+    idFilter,
+    baseNode,
+  )

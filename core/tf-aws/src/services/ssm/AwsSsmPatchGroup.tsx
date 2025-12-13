@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_group
-
 export const InputSchema = z.object({
   baseline_id: resolvableValue(z.string()),
   patch_group: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_patch_group
 
 export function AwsSsmPatchGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function AwsSsmPatchGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmPatchGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmPatchGroup, node, id)
+export const useAwsSsmPatchGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmPatchGroup, idFilter, baseNode)
 
-export const useAwsSsmPatchGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmPatchGroup, node, id)
+export const useAwsSsmPatchGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmPatchGroup, idFilter, baseNode)

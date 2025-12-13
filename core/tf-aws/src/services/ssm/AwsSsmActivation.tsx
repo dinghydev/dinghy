@@ -3,17 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_activation
-
 export const InputSchema = z.object({
+  iam_role: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
+  expiration_date: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  registration_limit: resolvableValue(z.number().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   activation_code: z.string().optional(),
@@ -35,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_activation
 
 export function AwsSsmActivation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +60,8 @@ export function AwsSsmActivation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmActivation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmActivation, node, id)
+export const useAwsSsmActivation = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmActivation, idFilter, baseNode)
 
-export const useAwsSsmActivations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmActivation, node, id)
+export const useAwsSsmActivations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmActivation, idFilter, baseNode)

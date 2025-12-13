@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail_event_data_store
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -16,7 +15,16 @@ export const InputSchema = z.object({
   advanced_event_selector: resolvableValue(
     z.object({
       name: z.string().optional(),
-    }).optional(),
+      field_selector: z.object({
+        ends_with: z.string().array().optional(),
+        equals: z.string().array().optional(),
+        field: z.string().optional(),
+        not_ends_with: z.string().array().optional(),
+        not_equals: z.string().array().optional(),
+        not_starts_with: z.string().array().optional(),
+        starts_with: z.string().array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   billing_mode: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -36,7 +44,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -52,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail_event_data_store
 
 export function AwsCloudtrailEventDataStore(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +82,12 @@ export function AwsCloudtrailEventDataStore(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudtrailEventDataStore = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudtrailEventDataStore, node, id)
+export const useAwsCloudtrailEventDataStore = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudtrailEventDataStore, idFilter, baseNode)
 
-export const useAwsCloudtrailEventDataStores = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudtrailEventDataStore, node, id)
+export const useAwsCloudtrailEventDataStores = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudtrailEventDataStore, idFilter, baseNode)

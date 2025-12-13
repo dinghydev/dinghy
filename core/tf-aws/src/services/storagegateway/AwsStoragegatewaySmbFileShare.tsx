@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_smb_file_share
 
 export const InputSchema = z.object({
   gateway_arn: resolvableValue(z.string()),
@@ -48,7 +47,7 @@ export const InputSchema = z.object({
   ),
   valid_user_list: resolvableValue(z.string().array().optional()),
   vpc_endpoint_dns_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -65,6 +64,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_smb_file_share
 
 export function AwsStoragegatewaySmbFileShare(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -83,8 +85,14 @@ export function AwsStoragegatewaySmbFileShare(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsStoragegatewaySmbFileShare = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsStoragegatewaySmbFileShare, node, id)
+export const useAwsStoragegatewaySmbFileShare = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsStoragegatewaySmbFileShare, idFilter, baseNode)
 
-export const useAwsStoragegatewaySmbFileShares = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewaySmbFileShare, node, id)
+export const useAwsStoragegatewaySmbFileShares = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsStoragegatewaySmbFileShare, idFilter, baseNode)

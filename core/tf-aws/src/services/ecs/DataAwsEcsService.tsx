@@ -2,29 +2,28 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEcsService } from './AwsEcsService.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_service
-
 export const InputSchema = z.object({
   cluster_arn: resolvableValue(z.string()),
   service_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone_rebalancing: z.string().optional(),
-  capacity_provider_strategy: z.object({
+  capacity_provider_strategy: z.set(z.object({
     base: z.number(),
     capacity_provider: z.string(),
     weight: z.number(),
-  }).array().optional(),
+  })).optional(),
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   deployment_configuration: z.object({
@@ -42,12 +41,12 @@ export const OutputSchema = z.object({
       enable: z.boolean(),
       rollback: z.boolean(),
     }).array(),
-    lifecycle_hook: z.object({
+    lifecycle_hook: z.set(z.object({
       hook_details: z.string(),
       hook_target_arn: z.string(),
       lifecycle_stages: z.string().array(),
       role_arn: z.string(),
-    }).array(),
+    })),
     linear_configuration: z.object({
       step_bake_time_in_minutes: z.string(),
       step_percent: z.number(),
@@ -80,7 +79,7 @@ export const OutputSchema = z.object({
   health_check_grace_period_seconds: z.number().optional(),
   iam_role: z.string().optional(),
   launch_type: z.string().optional(),
-  load_balancer: z.object({
+  load_balancer: z.set(z.object({
     advanced_configuration: z.object({
       alternate_target_group_arn: z.string(),
       production_listener_rule: z.string(),
@@ -91,21 +90,21 @@ export const OutputSchema = z.object({
     container_port: z.number(),
     elb_name: z.string(),
     target_group_arn: z.string(),
-  }).array().optional(),
+  })).optional(),
   network_configuration: z.object({
     assign_public_ip: z.boolean(),
-    security_groups: z.string().array(),
-    subnets: z.string().array(),
+    security_groups: z.set(z.string()),
+    subnets: z.set(z.string()),
   }).array().optional(),
   ordered_placement_strategy: z.object({
     field: z.string(),
     type: z.string(),
   }).array().optional(),
   pending_count: z.number().optional(),
-  placement_constraints: z.object({
+  placement_constraints: z.set(z.object({
     expression: z.string(),
     type: z.string(),
-  }).array().optional(),
+  })).optional(),
   platform_family: z.string().optional(),
   platform_version: z.string().optional(),
   propagate_tags: z.string().optional(),
@@ -140,6 +139,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_service
 
 export function DataAwsEcsService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -158,8 +160,8 @@ export function DataAwsEcsService(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcsService, node, id)
+export const useDataAwsEcsService = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEcsService, idFilter, baseNode)
 
-export const useDataAwsEcsServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcsService, node, id)
+export const useDataAwsEcsServices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEcsService, idFilter, baseNode)

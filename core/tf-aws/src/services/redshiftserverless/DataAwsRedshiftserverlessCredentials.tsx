@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshiftserverless_credentials
 
 export const InputSchema = z.object({
   workgroup_name: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   duration_seconds: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   db_password: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshiftserverless_credentials
 
 export function DataAwsRedshiftserverlessCredentials(
   props: Partial<InputProps>,
@@ -51,6 +53,11 @@ export function DataAwsRedshiftserverlessCredentials(
 }
 
 export const useDataAwsRedshiftserverlessCredentialss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRedshiftserverlessCredentials, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftserverlessCredentials,
+    idFilter,
+    baseNode,
+  )

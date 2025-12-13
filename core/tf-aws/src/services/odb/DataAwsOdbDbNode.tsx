@@ -3,18 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_db_node
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
+  cloud_vm_cluster_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   additional_details: z.string().optional(),
@@ -53,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_db_node
 
 export function DataAwsOdbDbNode(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +74,8 @@ export function DataAwsOdbDbNode(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbDbNode = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOdbDbNode, node, id)
+export const useDataAwsOdbDbNode = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOdbDbNode, idFilter, baseNode)
 
-export const useDataAwsOdbDbNodes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOdbDbNode, node, id)
+export const useDataAwsOdbDbNodes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOdbDbNode, idFilter, baseNode)

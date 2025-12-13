@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLb } from './AwsLb.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb
 
 export const InputSchema = z.object({
   access_logs: resolvableValue(
@@ -77,7 +76,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -88,6 +87,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb
 
 export function DataAwsLb(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -106,8 +108,8 @@ export function DataAwsLb(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLb = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLb, node, id)
+export const useDataAwsLb = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLb, idFilter, baseNode)
 
-export const useDataAwsLbs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLb, node, id)
+export const useDataAwsLbs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLb, idFilter, baseNode)

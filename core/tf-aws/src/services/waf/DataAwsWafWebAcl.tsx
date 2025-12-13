@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafWebAcl } from './AwsWafWebAcl.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_web_acl
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_web_acl
 
 export function DataAwsWafWebAcl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,8 +45,8 @@ export function DataAwsWafWebAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafWebAcl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafWebAcl, node, id)
+export const useDataAwsWafWebAcl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsWafWebAcl, idFilter, baseNode)
 
-export const useDataAwsWafWebAcls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafWebAcl, node, id)
+export const useDataAwsWafWebAcls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsWafWebAcl, idFilter, baseNode)

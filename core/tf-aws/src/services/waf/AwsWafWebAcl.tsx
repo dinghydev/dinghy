@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_web_acl
 
 export const InputSchema = z.object({
   default_action: resolvableValue(z.object({
@@ -19,6 +18,12 @@ export const InputSchema = z.object({
   logging_configuration: resolvableValue(
     z.object({
       log_destination: z.string(),
+      redacted_fields: z.object({
+        field_to_match: z.object({
+          data: z.string().optional(),
+          type: z.string(),
+        }).array(),
+      }).optional(),
     }).optional(),
   ),
   rules: resolvableValue(
@@ -26,10 +31,16 @@ export const InputSchema = z.object({
       priority: z.number(),
       rule_id: z.string(),
       type: z.string().optional(),
+      action: z.object({
+        type: z.string(),
+      }).optional(),
+      override_action: z.object({
+        type: z.string(),
+      }).optional(),
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_web_acl
 
 export function AwsWafWebAcl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +76,8 @@ export function AwsWafWebAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafWebAcl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafWebAcl, node, id)
+export const useAwsWafWebAcl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafWebAcl, idFilter, baseNode)
 
-export const useAwsWafWebAcls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafWebAcl, node, id)
+export const useAwsWafWebAcls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafWebAcl, idFilter, baseNode)

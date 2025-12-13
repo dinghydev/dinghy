@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_static_ip
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_static_ip
 
 export function AwsLightsailStaticIp(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsLightsailStaticIp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailStaticIp = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailStaticIp, node, id)
+export const useAwsLightsailStaticIp = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode)
 
-export const useAwsLightsailStaticIps = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailStaticIp, node, id)
+export const useAwsLightsailStaticIps = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode)

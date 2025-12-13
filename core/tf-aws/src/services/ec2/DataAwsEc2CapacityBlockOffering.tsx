@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_capacity_block_offering
 
 export const InputSchema = z.object({
   capacity_duration_hours: resolvableValue(z.number()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   end_date_range: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   start_date_range: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zone: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_capacity_block_offering
 
 export function DataAwsEc2CapacityBlockOffering(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,18 @@ export function DataAwsEc2CapacityBlockOffering(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2CapacityBlockOffering = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2CapacityBlockOffering, node, id)
+export const useDataAwsEc2CapacityBlockOffering = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsEc2CapacityBlockOffering, idFilter, baseNode)
 
-export const useDataAwsEc2CapacityBlockOfferings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2CapacityBlockOffering, node, id)
+export const useDataAwsEc2CapacityBlockOfferings = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2CapacityBlockOffering,
+    idFilter,
+    baseNode,
+  )

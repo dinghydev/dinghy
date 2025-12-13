@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate_validation
 
 export const InputSchema = z.object({
   certificate_arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   validation_record_fqdns: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate_validation
 
 export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmCertificateValidation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAcmCertificateValidation, node, id)
+export const useAwsAcmCertificateValidation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAcmCertificateValidation, idFilter, baseNode)
 
-export const useAwsAcmCertificateValidations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAcmCertificateValidation, node, id)
+export const useAwsAcmCertificateValidations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAcmCertificateValidation, idFilter, baseNode)

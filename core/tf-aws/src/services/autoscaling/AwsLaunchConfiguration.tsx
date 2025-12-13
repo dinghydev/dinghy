@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/launch_configuration
 
 export const InputSchema = z.object({
   image_id: resolvableValue(z.string()),
@@ -45,6 +44,7 @@ export const InputSchema = z.object({
       http_tokens: z.string().optional(),
     }).optional(),
   ),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   placement_tenancy: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -62,7 +62,7 @@ export const InputSchema = z.object({
   spot_price: resolvableValue(z.string().optional()),
   user_data: resolvableValue(z.string().optional()),
   user_data_base64: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -77,6 +77,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/launch_configuration
 
 export function AwsLaunchConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -95,8 +98,8 @@ export function AwsLaunchConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLaunchConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLaunchConfiguration, node, id)
+export const useAwsLaunchConfiguration = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLaunchConfiguration, idFilter, baseNode)
 
-export const useAwsLaunchConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLaunchConfiguration, node, id)
+export const useAwsLaunchConfigurations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLaunchConfiguration, idFilter, baseNode)

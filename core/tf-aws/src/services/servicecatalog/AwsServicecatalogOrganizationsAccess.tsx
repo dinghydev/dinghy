@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_organizations_access
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_organizations_access
 
 export function AwsServicecatalogOrganizationsAccess(
   props: Partial<InputProps>,
@@ -50,6 +52,11 @@ export function AwsServicecatalogOrganizationsAccess(
 }
 
 export const useAwsServicecatalogOrganizationsAccesss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsServicecatalogOrganizationsAccess, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServicecatalogOrganizationsAccess,
+    idFilter,
+    baseNode,
+  )

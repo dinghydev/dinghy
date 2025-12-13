@@ -3,22 +3,53 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_usage_plan
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
+  api_stages: resolvableValue(
+    z.object({
+      api_id: z.string(),
+      stage: z.string(),
+      throttle: z.object({
+        burst_limit: z.number().optional(),
+        path: z.string(),
+        rate_limit: z.number().optional(),
+      }).array().optional(),
+    }).array().optional(),
+  ),
+  description: resolvableValue(z.string().optional()),
+  product_code: resolvableValue(z.string().optional()),
+  quota_settings: resolvableValue(
+    z.object({
+      limit: z.number(),
+      offset: z.number().optional(),
+      period: z.string(),
+    }).optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+  throttle_settings: resolvableValue(
+    z.object({
+      burst_limit: z.number().optional(),
+      rate_limit: z.number().optional(),
+    }).optional(),
+  ),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   api_stages: z.object({
     api_id: z.string(),
     stage: z.string(),
+    throttle: z.object({
+      burst_limit: z.number().optional(),
+      path: z.string(),
+      rate_limit: z.number().optional(),
+    }).array().optional(),
   }).array().optional().optional(),
   arn: z.string().optional(),
   description: z.string().optional(),
@@ -44,6 +75,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_usage_plan
 
 export function AwsApiGatewayUsagePlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +96,8 @@ export function AwsApiGatewayUsagePlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayUsagePlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayUsagePlan, node, id)
+export const useAwsApiGatewayUsagePlan = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApiGatewayUsagePlan, idFilter, baseNode)
 
-export const useAwsApiGatewayUsagePlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayUsagePlan, node, id)
+export const useAwsApiGatewayUsagePlans = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsApiGatewayUsagePlan, idFilter, baseNode)

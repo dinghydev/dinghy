@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftdata_statement
 
 export const InputSchema = z.object({
   database: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     z.object({
       name: z.string(),
       value: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   secret_arn: resolvableValue(z.string().optional()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
   ),
   with_event: resolvableValue(z.boolean().optional()),
   workgroup_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftdata_statement
 
 export function AwsRedshiftdataStatement(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,12 @@ export function AwsRedshiftdataStatement(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftdataStatement = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftdataStatement, node, id)
+export const useAwsRedshiftdataStatement = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRedshiftdataStatement, idFilter, baseNode)
 
-export const useAwsRedshiftdataStatements = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftdataStatement, node, id)
+export const useAwsRedshiftdataStatements = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRedshiftdataStatement, idFilter, baseNode)

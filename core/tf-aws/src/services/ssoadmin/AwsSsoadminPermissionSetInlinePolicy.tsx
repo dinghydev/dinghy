@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_permission_set_inline_policy
 
 export const InputSchema = z.object({
   inline_policy: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_permission_set_inline_policy
 
 export function AwsSsoadminPermissionSetInlinePolicy(
   props: Partial<InputProps>,
@@ -55,11 +57,21 @@ export function AwsSsoadminPermissionSetInlinePolicy(
 }
 
 export const useAwsSsoadminPermissionSetInlinePolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsSsoadminPermissionSetInlinePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsoadminPermissionSetInlinePolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSsoadminPermissionSetInlinePolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSsoadminPermissionSetInlinePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsoadminPermissionSetInlinePolicy,
+    idFilter,
+    baseNode,
+  )

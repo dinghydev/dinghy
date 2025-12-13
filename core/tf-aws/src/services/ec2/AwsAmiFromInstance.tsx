@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_from_instance
 
 export const InputSchema = z.object({
   architecture: resolvableValue(z.string()),
@@ -68,7 +67,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -82,6 +81,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_from_instance
 
 export function AwsAmiFromInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -100,8 +102,8 @@ export function AwsAmiFromInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmiFromInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAmiFromInstance, node, id)
+export const useAwsAmiFromInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAmiFromInstance, idFilter, baseNode)
 
-export const useAwsAmiFromInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAmiFromInstance, node, id)
+export const useAwsAmiFromInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAmiFromInstance, idFilter, baseNode)

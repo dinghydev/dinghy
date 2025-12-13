@@ -3,18 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/media_packagev2_channel_group
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/media_packagev2_channel_group
 
 export function AwsMediaPackagev2ChannelGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +51,14 @@ export function AwsMediaPackagev2ChannelGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMediaPackagev2ChannelGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMediaPackagev2ChannelGroup, node, id)
+export const useAwsMediaPackagev2ChannelGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsMediaPackagev2ChannelGroup, idFilter, baseNode)
 
-export const useAwsMediaPackagev2ChannelGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMediaPackagev2ChannelGroup, node, id)
+export const useAwsMediaPackagev2ChannelGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsMediaPackagev2ChannelGroup, idFilter, baseNode)

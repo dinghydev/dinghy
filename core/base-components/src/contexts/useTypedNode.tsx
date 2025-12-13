@@ -8,20 +8,25 @@ import { capitalise, decapitalise } from '../utils/stringUtils.ts'
 function proxyNodeProps({ _props }: NodeTree) {
   return new Proxy(_props, {
     get: (_target: Props, key: string) => {
+      const terraformId = () => {
+        return `${(_props as any)._category === 'data' ? 'data.' : ''}${
+          (_props as any)._type
+        }.${_props._consolidatedId || _props._id}`
+      }
+      if (key === '_terraformId') {
+        return terraformId()
+      }
       if (key in _props) {
         return (_props as any)[key]
       }
-      const noneArrayKey = key.includes('[') ? key.split('[')[0] : key
       for (
         const schema of [
           (_props as any)._outputSchema,
           (_props as any)._inputSchema,
         ]
       ) {
-        if (schema && noneArrayKey in (schema as any).shape) {
-          return `\${${(_props as any)._category === 'data' ? 'data.' : ''}${
-            (_props as any)._type
-          }.${(_props as any)._id}.${renderKey(key)}}`
+        if (schema && key in (schema as any).shape) {
+          return `\${${terraformId()}.${renderKey(key)}}`
         }
       }
       throw new Error(`Property ${key} not found in ${_props._id}`)
@@ -33,18 +38,18 @@ function matchChildrenTag<T>(
   node: NodeTree,
   tag: string,
   childrenOnly: boolean,
-  id?: string,
-  result: T[] = [],
+  result: T[],
+  idFilter?: string,
 ) {
   if (
     node._props._tags &&
     (node._props._tags as string[]).includes(tag) &&
-    (!id || (node._props._id as string).includes(id))
+    (idFilter === undefined || (node._props._id as string).includes(idFilter))
   ) {
     result.push(proxyNodeProps(node) as T)
   } else {
     node._children.map((child) => {
-      matchChildrenTag<T>(child, tag, childrenOnly, id, result)
+      matchChildrenTag<T>(child, tag, childrenOnly, result, idFilter)
     })
   }
   return result
@@ -54,26 +59,42 @@ export function lookupTypedSingleValueTag<T>(
   node: NodeTree,
   tag: string,
   childrenOnly: boolean,
-  id?: string,
+  idFilter?: string,
+  optional?: boolean,
 ) {
-  const matched = matchChildrenTag<T>(node, tag, childrenOnly, id)
+  const matched = matchChildrenTag<T>(node, tag, childrenOnly, [], idFilter)
   if (childrenOnly || matched.length > 0) {
     return matched[0]
   }
   if (node._props._level) {
-    return lookupTypedSingleValueTag<T>(node._parent!, tag, childrenOnly, id)
+    return lookupTypedSingleValueTag<T>(
+      node._parent!,
+      tag,
+      childrenOnly,
+      idFilter,
+      optional,
+    )
   }
-  throw new Error(`Tag ${tag} not found`)
+  if (!optional) {
+    throw new Error(`Tag ${tag} not found`)
+  }
 }
 
 function useTypedSingleValueTag<T>(
   base: NodeTree,
   tag: string,
   childrenOnly: boolean,
-  id?: string,
+  idFilter?: string,
+  optional?: boolean,
 ) {
   if (childrenOnly) {
-    return lookupTypedSingleValueTag<T>(base, tag, childrenOnly, id) as Props
+    return lookupTypedSingleValueTag<T>(
+      base,
+      tag,
+      childrenOnly,
+      idFilter,
+      optional,
+    ) as Props
   }
   return new Proxy(base, {
     get: (_target: unknown, key: string) => {
@@ -82,9 +103,12 @@ function useTypedSingleValueTag<T>(
           base,
           tag,
           childrenOnly,
-          id,
+          idFilter,
+          optional,
         ) as Props
-        return _props[key]
+        if (_props) {
+          return _props[key]
+        }
       }
     },
     set: (_target: unknown, key: string, _value: unknown) => {
@@ -97,7 +121,8 @@ function useTypedArrayValueTag<T>(
   base: NodeTree,
   tag: string,
   childrenOnly: boolean,
-  id?: string,
+  idFilter?: string,
+  optional?: boolean,
 ) {
   return new Proxy(base, {
     get: (_target: unknown, key: string) => {
@@ -108,7 +133,8 @@ function useTypedArrayValueTag<T>(
               base,
               tag,
               childrenOnly,
-              id,
+              idFilter,
+              optional,
             ) as NodeTree[]
             return _propsArray.map(f)
           }
@@ -118,7 +144,8 @@ function useTypedArrayValueTag<T>(
               base,
               tag,
               childrenOnly,
-              id,
+              idFilter,
+              optional,
             ) as NodeTree[]
             return _propsArray.map(f)
           }
@@ -145,15 +172,24 @@ export function lookupTypedArrayValueTag<T>(
   tag: string,
   childrenOnly: boolean,
   id?: string,
+  optional?: boolean,
 ) {
-  const matched = matchChildrenTag<T>(node, tag, childrenOnly, id)
+  const matched = matchChildrenTag<T>(node, tag, childrenOnly, [], id)
   if (childrenOnly || matched.length > 0) {
     return matched
   }
   if (node._parent) {
-    return lookupTypedArrayValueTag<T>(node._parent, tag, childrenOnly, id)
+    return lookupTypedArrayValueTag<T>(
+      node._parent,
+      tag,
+      childrenOnly,
+      id,
+      optional,
+    )
   }
-  throw new Error(`Tag ${tag} not found`)
+  if (!optional) {
+    throw new Error(`Tag ${tag} not found`)
+  }
 }
 
 export function useParentsProp(name: string, node?: NodeTree): any {
@@ -174,25 +210,33 @@ export function useParentsProp(name: string, node?: NodeTree): any {
 
 export function useTypedNode<T>(
   f: any,
-  baseNnode?: NodeTree,
-  id?: string,
+  idFilter?: string,
+  baseNode?: NodeTree,
+  optional?: boolean,
 ) {
   const fName = f.name
   const fieldName = resolveFieldName(fName)
-  const base = baseNnode || useNodeContext()
-  const childrenOnly = Boolean(baseNnode)
+  const base = baseNode || useNodeContext()
+  const childrenOnly = Boolean(baseNode)
   return {
-    [fieldName]: useTypedSingleValueTag<T>(base, fName, childrenOnly, id) as T,
+    [fieldName]: useTypedSingleValueTag<T>(
+      base,
+      fName,
+      childrenOnly,
+      idFilter,
+      optional,
+    ) as T,
   }
 }
 
 export function useTypedNodes<T>(
   f: any,
-  baseNnode?: NodeTree,
-  id?: string,
+  idFilter?: string,
+  baseNode?: NodeTree,
+  optional?: boolean,
 ) {
-  const node = baseNnode || useNodeContext()
-  const childrenOnly = Boolean(baseNnode)
+  const node = baseNode || useNodeContext()
+  const childrenOnly = Boolean(baseNode)
   const fName = f.name
   const fieldName = resolveFieldName(fName)
   return {
@@ -200,13 +244,15 @@ export function useTypedNodes<T>(
       node,
       fName,
       childrenOnly,
-      id,
+      idFilter,
+      optional,
     ) as T[],
     [`all${capitalise(fieldName)}s`]: useTypedArrayValueTag<T>(
       getRootNode(node),
       fName,
       childrenOnly,
-      id,
+      idFilter,
+      optional,
     ) as T[],
   }
 }

@@ -3,22 +3,34 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_field_level_encryption_config
-
 export const InputSchema = z.object({
   content_type_profile_config: resolvableValue(z.object({
     forward_when_content_type_is_unknown: z.boolean(),
+    content_type_profiles: z.object({
+      items: z.object({
+        content_type: z.string(),
+        format: z.string(),
+        profile_id: z.string().optional(),
+      }).array(),
+    }),
   })),
   query_arg_profile_config: resolvableValue(z.object({
     forward_when_query_arg_profile_is_unknown: z.boolean(),
+    query_arg_profiles: z.object({
+      items: z.object({
+        profile_id: z.string(),
+        query_arg: z.string(),
+      }).array().optional(),
+    }).optional(),
   })),
   comment: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_field_level_encryption_config
 
 export function AwsCloudfrontFieldLevelEncryptionConfig(
   props: Partial<InputProps>,
@@ -55,13 +70,21 @@ export function AwsCloudfrontFieldLevelEncryptionConfig(
 }
 
 export const useAwsCloudfrontFieldLevelEncryptionConfig = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudfrontFieldLevelEncryptionConfig, node, id)
+  useTypedNode<OutputProps>(
+    AwsCloudfrontFieldLevelEncryptionConfig,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudfrontFieldLevelEncryptionConfigs = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontFieldLevelEncryptionConfig, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontFieldLevelEncryptionConfig,
+    idFilter,
+    baseNode,
+  )

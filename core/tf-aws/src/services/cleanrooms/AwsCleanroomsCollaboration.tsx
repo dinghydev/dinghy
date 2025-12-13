@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_collaboration
 
 export const InputSchema = z.object({
   creator_display_name: resolvableValue(z.string()),
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_collaboration
 
 export function AwsCleanroomsCollaboration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,12 @@ export function AwsCleanroomsCollaboration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCleanroomsCollaboration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCleanroomsCollaboration, node, id)
+export const useAwsCleanroomsCollaboration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCleanroomsCollaboration, idFilter, baseNode)
 
-export const useAwsCleanroomsCollaborations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCleanroomsCollaboration, node, id)
+export const useAwsCleanroomsCollaborations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCleanroomsCollaboration, idFilter, baseNode)

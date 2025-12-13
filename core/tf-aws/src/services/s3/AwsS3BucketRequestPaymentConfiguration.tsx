@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_request_payment_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
   payer: resolvableValue(z.string()),
   expected_bucket_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_request_payment_configuration
 
 export function AwsS3BucketRequestPaymentConfiguration(
   props: Partial<InputProps>,
@@ -49,12 +51,21 @@ export function AwsS3BucketRequestPaymentConfiguration(
 }
 
 export const useAwsS3BucketRequestPaymentConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsS3BucketRequestPaymentConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketRequestPaymentConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3BucketRequestPaymentConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3BucketRequestPaymentConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsS3BucketRequestPaymentConfiguration,
+    idFilter,
+    baseNode,
+  )

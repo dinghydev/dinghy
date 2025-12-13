@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devopsguru_service_integration
 
 export const InputSchema = z.object({
   kms_server_side_encryption: resolvableValue(
@@ -16,20 +15,20 @@ export const InputSchema = z.object({
       kms_key_id: z.string().optional(),
       opt_in_status: z.string().optional(),
       type: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   logs_anomaly_detection: resolvableValue(
     z.object({
       opt_in_status: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   ops_center: resolvableValue(
     z.object({
       opt_in_status: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devopsguru_service_integration
 
 export function AwsDevopsguruServiceIntegration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,18 @@ export function AwsDevopsguruServiceIntegration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevopsguruServiceIntegration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDevopsguruServiceIntegration, node, id)
+export const useAwsDevopsguruServiceIntegration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsDevopsguruServiceIntegration, idFilter, baseNode)
 
-export const useAwsDevopsguruServiceIntegrations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDevopsguruServiceIntegration, node, id)
+export const useAwsDevopsguruServiceIntegrations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDevopsguruServiceIntegration,
+    idFilter,
+    baseNode,
+  )

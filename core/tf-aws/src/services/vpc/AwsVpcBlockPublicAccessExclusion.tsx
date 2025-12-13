@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_block_public_access_exclusion
 
 export const InputSchema = z.object({
   internet_gateway_exclusion_mode: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_block_public_access_exclusion
 
 export function AwsVpcBlockPublicAccessExclusion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,22 @@ export function AwsVpcBlockPublicAccessExclusion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcBlockPublicAccessExclusion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcBlockPublicAccessExclusion, node, id)
+export const useAwsVpcBlockPublicAccessExclusion = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcBlockPublicAccessExclusion,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsVpcBlockPublicAccessExclusions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcBlockPublicAccessExclusion, node, id)
+export const useAwsVpcBlockPublicAccessExclusions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcBlockPublicAccessExclusion,
+    idFilter,
+    baseNode,
+  )

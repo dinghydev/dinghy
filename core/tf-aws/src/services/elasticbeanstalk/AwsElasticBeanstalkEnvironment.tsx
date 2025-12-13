@@ -3,33 +3,44 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elastic_beanstalk_environment
-
 export const InputSchema = z.object({
+  application: resolvableValue(z.string()),
   arn: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
   cname_prefix: resolvableValue(z.string().optional()),
+  description: resolvableValue(z.string().optional()),
   platform_arn: resolvableValue(z.string().optional()),
   poll_interval: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  setting: resolvableValue(
+    z.object({
+      name: z.string(),
+      namespace: z.string(),
+      resource: z.string().optional(),
+      value: z.string(),
+    }).array().optional(),
+  ),
   solution_stack_name: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   template_name: resolvableValue(z.string().optional()),
+  tier: resolvableValue(z.string().optional()),
   version_label: resolvableValue(z.string().optional()),
   wait_for_ready_timeout: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  all_settings: z.object({
+  all_settings: z.set(z.object({
     name: z.string(),
     namespace: z.string(),
     resource: z.string(),
     value: z.string(),
-  }).array().optional(),
+  })).optional(),
   application: z.string().optional(),
   autoscaling_groups: z.string().array().optional(),
   cname: z.string().optional(),
@@ -59,6 +70,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elastic_beanstalk_environment
 
 export function AwsElasticBeanstalkEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +91,14 @@ export function AwsElasticBeanstalkEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticBeanstalkEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElasticBeanstalkEnvironment, node, id)
+export const useAwsElasticBeanstalkEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsElasticBeanstalkEnvironment, idFilter, baseNode)
 
-export const useAwsElasticBeanstalkEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElasticBeanstalkEnvironment, node, id)
+export const useAwsElasticBeanstalkEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsElasticBeanstalkEnvironment, idFilter, baseNode)

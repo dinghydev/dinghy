@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAccountPrimaryContact } from './AwsAccountPrimaryContact.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/account_primary_contact
-
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   address_line_1: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/account_primary_contact
 
 export function DataAwsAccountPrimaryContact(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,13 @@ export function DataAwsAccountPrimaryContact(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAccountPrimaryContact = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAccountPrimaryContact, node, id)
+export const useDataAwsAccountPrimaryContact = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAccountPrimaryContact, idFilter, baseNode)
 
-export const useDataAwsAccountPrimaryContacts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAccountPrimaryContact, node, id)
+export const useDataAwsAccountPrimaryContacts = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsAccountPrimaryContact, idFilter, baseNode)

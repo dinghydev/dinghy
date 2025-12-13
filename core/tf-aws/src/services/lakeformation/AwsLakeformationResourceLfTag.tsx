@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_resource_lf_tag
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -17,14 +16,14 @@ export const InputSchema = z.object({
     z.object({
       catalog_id: z.string().optional(),
       name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   lf_tag: resolvableValue(
     z.object({
       catalog_id: z.string().optional(),
       key: z.string(),
       value: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   table: resolvableValue(
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
       database_name: z.string(),
       name: z.string().optional(),
       wildcard: z.boolean().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   table_with_columns: resolvableValue(
     z.object({
@@ -41,7 +40,10 @@ export const InputSchema = z.object({
       column_names: z.string().array().optional(),
       database_name: z.string(),
       name: z.string(),
-    }).optional(),
+      column_wildcard: z.object({
+        excluded_column_names: z.string().array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -49,7 +51,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -60,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_resource_lf_tag
 
 export function AwsLakeformationResourceLfTag(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +83,14 @@ export function AwsLakeformationResourceLfTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationResourceLfTag = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLakeformationResourceLfTag, node, id)
+export const useAwsLakeformationResourceLfTag = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsLakeformationResourceLfTag, idFilter, baseNode)
 
-export const useAwsLakeformationResourceLfTags = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLakeformationResourceLfTag, node, id)
+export const useAwsLakeformationResourceLfTags = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsLakeformationResourceLfTag, idFilter, baseNode)

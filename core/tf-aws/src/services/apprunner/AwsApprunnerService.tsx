@@ -3,15 +3,54 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_service
-
 export const InputSchema = z.object({
   service_name: resolvableValue(z.string()),
+  source_configuration: resolvableValue(z.object({
+    auto_deployments_enabled: z.boolean().optional(),
+    authentication_configuration: z.object({
+      access_role_arn: z.string().optional(),
+      connection_arn: z.string().optional(),
+    }).optional(),
+    code_repository: z.object({
+      repository_url: z.string(),
+      source_directory: z.string().optional(),
+      code_configuration: z.object({
+        configuration_source: z.string(),
+        code_configuration_values: z.object({
+          build_command: z.string().optional(),
+          port: z.string().optional(),
+          runtime: z.string(),
+          runtime_environment_secrets: z.record(z.string(), z.string())
+            .optional(),
+          runtime_environment_variables: z.record(z.string(), z.string())
+            .optional(),
+          start_command: z.string().optional(),
+        }).optional(),
+      }).optional(),
+      source_code_version: z.object({
+        type: z.string(),
+        value: z.string(),
+      }),
+    }).optional(),
+    image_repository: z.object({
+      image_identifier: z.string(),
+      image_repository_type: z.string(),
+      image_configuration: z.object({
+        port: z.string().optional(),
+        runtime_environment_secrets: z.record(z.string(), z.string())
+          .optional(),
+        runtime_environment_variables: z.record(z.string(), z.string())
+          .optional(),
+        start_command: z.string().optional(),
+      }).optional(),
+    }).optional(),
+  })),
   auto_scaling_configuration_arn: resolvableValue(z.string().optional()),
   encryption_configuration: resolvableValue(
     z.object({
@@ -39,6 +78,13 @@ export const InputSchema = z.object({
   network_configuration: resolvableValue(
     z.object({
       ip_address_type: z.string().optional(),
+      egress_configuration: z.object({
+        egress_type: z.string().optional(),
+        vpc_connector_arn: z.string().optional(),
+      }).optional(),
+      ingress_configuration: z.object({
+        is_publicly_accessible: z.boolean().optional(),
+      }).optional(),
     }).optional(),
   ),
   observability_configuration: resolvableValue(
@@ -48,11 +94,8 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
-  source_configuration: resolvableValue(z.object({
-    auto_deployments_enabled: z.boolean().optional(),
-  })),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -74,6 +117,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_service
 
 export function AwsApprunnerService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -93,8 +139,8 @@ export function AwsApprunnerService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApprunnerService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApprunnerService, node, id)
+export const useAwsApprunnerService = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApprunnerService, idFilter, baseNode)
 
-export const useAwsApprunnerServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApprunnerService, node, id)
+export const useAwsApprunnerServices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsApprunnerService, idFilter, baseNode)

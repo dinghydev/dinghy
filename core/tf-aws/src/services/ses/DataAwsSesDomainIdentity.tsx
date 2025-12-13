@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSesDomainIdentity } from './AwsSesDomainIdentity.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ses_domain_identity
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ses_domain_identity
 
 export function DataAwsSesDomainIdentity(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,12 @@ export function DataAwsSesDomainIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSesDomainIdentity = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSesDomainIdentity, node, id)
+export const useDataAwsSesDomainIdentity = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsSesDomainIdentity, idFilter, baseNode)
 
-export const useDataAwsSesDomainIdentitys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSesDomainIdentity, node, id)
+export const useDataAwsSesDomainIdentitys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSesDomainIdentity, idFilter, baseNode)

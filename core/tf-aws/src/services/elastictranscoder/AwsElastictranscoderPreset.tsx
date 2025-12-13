@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elastictranscoder_preset
 
 export const InputSchema = z.object({
   container: resolvableValue(z.string()),
@@ -80,7 +79,7 @@ export const InputSchema = z.object({
       vertical_offset: z.string().optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -93,6 +92,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elastictranscoder_preset
 
 export function AwsElastictranscoderPreset(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -111,8 +113,12 @@ export function AwsElastictranscoderPreset(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElastictranscoderPreset = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElastictranscoderPreset, node, id)
+export const useAwsElastictranscoderPreset = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsElastictranscoderPreset, idFilter, baseNode)
 
-export const useAwsElastictranscoderPresets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElastictranscoderPreset, node, id)
+export const useAwsElastictranscoderPresets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsElastictranscoderPreset, idFilter, baseNode)

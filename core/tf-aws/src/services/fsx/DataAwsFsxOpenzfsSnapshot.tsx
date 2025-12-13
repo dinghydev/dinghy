@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsFsxOpenzfsSnapshot } from './AwsFsxOpenzfsSnapshot.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_openzfs_snapshot
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   snapshot_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_openzfs_snapshot
 
 export function DataAwsFsxOpenzfsSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function DataAwsFsxOpenzfsSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsFsxOpenzfsSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsFsxOpenzfsSnapshot, node, id)
+export const useDataAwsFsxOpenzfsSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsFsxOpenzfsSnapshot, idFilter, baseNode)
 
-export const useDataAwsFsxOpenzfsSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsFsxOpenzfsSnapshot, node, id)
+export const useDataAwsFsxOpenzfsSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsFsxOpenzfsSnapshot, idFilter, baseNode)

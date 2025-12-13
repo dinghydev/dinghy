@@ -3,16 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_usage_plan_key
-
 export const InputSchema = z.object({
+  key_id: resolvableValue(z.string()),
+  key_type: resolvableValue(z.string()),
+  usage_plan_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_usage_plan_key
 
 export function AwsApiGatewayUsagePlanKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +53,12 @@ export function AwsApiGatewayUsagePlanKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayUsagePlanKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayUsagePlanKey, node, id)
+export const useAwsApiGatewayUsagePlanKey = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsApiGatewayUsagePlanKey, idFilter, baseNode)
 
-export const useAwsApiGatewayUsagePlanKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayUsagePlanKey, node, id)
+export const useAwsApiGatewayUsagePlanKeys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsApiGatewayUsagePlanKey, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/paymentcryptography_key
 
 export const InputSchema = z.object({
   exportable: resolvableValue(z.boolean()),
@@ -20,7 +19,18 @@ export const InputSchema = z.object({
       key_algorithm: z.string(),
       key_class: z.string(),
       key_usage: z.string(),
-    }).optional(),
+      key_modes_of_use: z.object({
+        decrypt: z.boolean().optional(),
+        derive_key: z.boolean().optional(),
+        encrypt: z.boolean().optional(),
+        generate: z.boolean().optional(),
+        no_restrictions: z.boolean().optional(),
+        sign: z.boolean().optional(),
+        unwrap: z.boolean().optional(),
+        verify: z.boolean().optional(),
+        wrap: z.boolean().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   key_check_value_algorithm: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -32,7 +42,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +64,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/paymentcryptography_key
 
 export function AwsPaymentcryptographyKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +86,12 @@ export function AwsPaymentcryptographyKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPaymentcryptographyKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPaymentcryptographyKey, node, id)
+export const useAwsPaymentcryptographyKey = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsPaymentcryptographyKey, idFilter, baseNode)
 
-export const useAwsPaymentcryptographyKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPaymentcryptographyKey, node, id)
+export const useAwsPaymentcryptographyKeys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsPaymentcryptographyKey, idFilter, baseNode)

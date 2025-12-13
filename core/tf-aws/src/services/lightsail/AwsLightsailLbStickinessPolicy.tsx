@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_stickiness_policy
 
 export const InputSchema = z.object({
   cookie_duration: resolvableValue(z.number()),
   enabled: resolvableValue(z.boolean()),
   lb_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_stickiness_policy
 
 export function AwsLightsailLbStickinessPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,14 @@ export function AwsLightsailLbStickinessPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailLbStickinessPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailLbStickinessPolicy, node, id)
+export const useAwsLightsailLbStickinessPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsLightsailLbStickinessPolicy, idFilter, baseNode)
 
-export const useAwsLightsailLbStickinessPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailLbStickinessPolicy, node, id)
+export const useAwsLightsailLbStickinessPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailLbStickinessPolicy, idFilter, baseNode)

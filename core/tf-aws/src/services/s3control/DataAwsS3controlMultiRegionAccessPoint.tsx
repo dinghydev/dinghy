@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsS3controlMultiRegionAccessPoint } from './AwsS3controlMultiRegionAccessPoint.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3control_multi_region_access_point
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3control_multi_region_access_point
 
 export function DataAwsS3controlMultiRegionAccessPoint(
   props: Partial<InputProps>,
@@ -64,12 +66,21 @@ export function DataAwsS3controlMultiRegionAccessPoint(
 }
 
 export const useDataAwsS3controlMultiRegionAccessPoint = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsS3controlMultiRegionAccessPoint, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsS3controlMultiRegionAccessPoint,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsS3controlMultiRegionAccessPoints = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsS3controlMultiRegionAccessPoint, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsS3controlMultiRegionAccessPoint,
+    idFilter,
+    baseNode,
+  )

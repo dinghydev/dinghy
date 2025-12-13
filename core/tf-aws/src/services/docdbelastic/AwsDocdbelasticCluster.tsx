@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdbelastic_cluster
 
 export const InputSchema = z.object({
   admin_user_name: resolvableValue(z.string()),
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -53,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdbelastic_cluster
 
 export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +74,8 @@ export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbelasticCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDocdbelasticCluster, node, id)
+export const useAwsDocdbelasticCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDocdbelasticCluster, idFilter, baseNode)
 
-export const useAwsDocdbelasticClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDocdbelasticCluster, node, id)
+export const useAwsDocdbelasticClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDocdbelasticCluster, idFilter, baseNode)

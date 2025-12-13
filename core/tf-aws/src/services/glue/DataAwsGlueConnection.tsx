@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsGlueConnection } from './AwsGlueConnection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/glue_connection
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -26,7 +25,7 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
   physical_connection_requirements: z.object({
     availability_zone: z.string(),
-    security_group_id_list: z.string().array(),
+    security_group_id_list: z.set(z.string()),
     subnet_id: z.string(),
   }).array().optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/glue_connection
 
 export function DataAwsGlueConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function DataAwsGlueConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGlueConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsGlueConnection, node, id)
+export const useDataAwsGlueConnection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsGlueConnection, idFilter, baseNode)
 
-export const useDataAwsGlueConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsGlueConnection, node, id)
+export const useDataAwsGlueConnections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsGlueConnection, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpnConnection } from './AwsVpnConnection.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_connection
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   vpn_connection_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   category: z.string().optional(),
@@ -55,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_connection
 
 export function DataAwsVpnConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +75,8 @@ export function DataAwsVpnConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpnConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpnConnection, node, id)
+export const useDataAwsVpnConnection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsVpnConnection, idFilter, baseNode)
 
-export const useDataAwsVpnConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpnConnection, node, id)
+export const useDataAwsVpnConnections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsVpnConnection, idFilter, baseNode)

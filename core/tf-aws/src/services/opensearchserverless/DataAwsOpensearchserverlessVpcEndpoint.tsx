@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOpensearchserverlessVpcEndpoint } from './AwsOpensearchserverlessVpcEndpoint.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearchserverless_vpc_endpoint
-
 export const InputSchema = z.object({
   vpc_endpoint_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_date: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearchserverless_vpc_endpoint
 
 export function DataAwsOpensearchserverlessVpcEndpoint(
   props: Partial<InputProps>,
@@ -52,12 +54,21 @@ export function DataAwsOpensearchserverlessVpcEndpoint(
 }
 
 export const useDataAwsOpensearchserverlessVpcEndpoint = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsOpensearchserverlessVpcEndpoint, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOpensearchserverlessVpcEndpoint,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOpensearchserverlessVpcEndpoints = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsOpensearchserverlessVpcEndpoint, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsOpensearchserverlessVpcEndpoint,
+    idFilter,
+    baseNode,
+  )

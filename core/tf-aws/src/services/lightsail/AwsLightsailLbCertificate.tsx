@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_certificate
 
 export const InputSchema = z.object({
   lb_name: resolvableValue(z.string()),
@@ -16,17 +15,17 @@ export const InputSchema = z.object({
   domain_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   subject_alternative_names: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
-  domain_validation_records: z.object({
+  domain_validation_records: z.set(z.object({
     domain_name: z.string(),
     resource_record_name: z.string(),
     resource_record_type: z.string(),
     resource_record_value: z.string(),
-  }).array().optional(),
+  })).optional(),
   id: z.string().optional(),
   support_code: z.string().optional(),
 })
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_certificate
 
 export function AwsLightsailLbCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,12 @@ export function AwsLightsailLbCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailLbCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailLbCertificate, node, id)
+export const useAwsLightsailLbCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLightsailLbCertificate, idFilter, baseNode)
 
-export const useAwsLightsailLbCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailLbCertificate, node, id)
+export const useAwsLightsailLbCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLightsailLbCertificate, idFilter, baseNode)

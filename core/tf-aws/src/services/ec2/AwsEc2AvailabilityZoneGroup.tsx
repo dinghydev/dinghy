@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_availability_zone_group
-
 export const InputSchema = z.object({
   group_name: resolvableValue(z.string()),
   opt_in_status: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_availability_zone_group
 
 export function AwsEc2AvailabilityZoneGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsEc2AvailabilityZoneGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2AvailabilityZoneGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2AvailabilityZoneGroup, node, id)
+export const useAwsEc2AvailabilityZoneGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEc2AvailabilityZoneGroup, idFilter, baseNode)
 
-export const useAwsEc2AvailabilityZoneGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2AvailabilityZoneGroup, node, id)
+export const useAwsEc2AvailabilityZoneGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEc2AvailabilityZoneGroup, idFilter, baseNode)

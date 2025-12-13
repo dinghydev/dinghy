@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_automated_backups_replication
 
 export const InputSchema = z.object({
   source_db_instance_arn: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_automated_backups_replication
 
 export function AwsDbInstanceAutomatedBackupsReplication(
   props: Partial<InputProps>,
@@ -56,13 +58,21 @@ export function AwsDbInstanceAutomatedBackupsReplication(
 }
 
 export const useAwsDbInstanceAutomatedBackupsReplication = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsDbInstanceAutomatedBackupsReplication, node, id)
+  useTypedNode<OutputProps>(
+    AwsDbInstanceAutomatedBackupsReplication,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDbInstanceAutomatedBackupsReplications = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsDbInstanceAutomatedBackupsReplication, node, id)
+  useTypedNodes<OutputProps>(
+    AwsDbInstanceAutomatedBackupsReplication,
+    idFilter,
+    baseNode,
+  )

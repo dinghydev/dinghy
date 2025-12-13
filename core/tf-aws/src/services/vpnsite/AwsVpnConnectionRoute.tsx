@@ -3,17 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection_route
-
 export const InputSchema = z.object({
+  destination_cidr_block: resolvableValue(z.string()),
+  vpn_connection_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   destination_cidr_block: z.string().optional(),
@@ -27,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection_route
 
 export function AwsVpnConnectionRoute(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +49,8 @@ export function AwsVpnConnectionRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpnConnectionRoute = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpnConnectionRoute, node, id)
+export const useAwsVpnConnectionRoute = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpnConnectionRoute, idFilter, baseNode)
 
-export const useAwsVpnConnectionRoutes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpnConnectionRoute, node, id)
+export const useAwsVpnConnectionRoutes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVpnConnectionRoute, idFilter, baseNode)

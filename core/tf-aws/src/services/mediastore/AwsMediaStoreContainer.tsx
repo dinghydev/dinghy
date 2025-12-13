@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/media_store_container
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/media_store_container
 
 export function AwsMediaStoreContainer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsMediaStoreContainer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMediaStoreContainer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMediaStoreContainer, node, id)
+export const useAwsMediaStoreContainer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMediaStoreContainer, idFilter, baseNode)
 
-export const useAwsMediaStoreContainers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMediaStoreContainer, node, id)
+export const useAwsMediaStoreContainers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMediaStoreContainer, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshift_cluster_credentials
 
 export const InputSchema = z.object({
   cluster_identifier: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   duration_seconds: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   db_password: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshift_cluster_credentials
 
 export function DataAwsRedshiftClusterCredentials(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,6 +53,11 @@ export function DataAwsRedshiftClusterCredentials(props: Partial<InputProps>) {
 }
 
 export const useDataAwsRedshiftClusterCredentialss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRedshiftClusterCredentials, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftClusterCredentials,
+    idFilter,
+    baseNode,
+  )

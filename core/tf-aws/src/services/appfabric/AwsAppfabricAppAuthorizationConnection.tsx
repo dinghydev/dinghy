@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_authorization_connection
 
 export const InputSchema = z.object({
   app_authorization_arn: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
     z.object({
       code: z.string(),
       redirect_uri: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   app: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_authorization_connection
 
 export function AwsAppfabricAppAuthorizationConnection(
   props: Partial<InputProps>,
@@ -64,12 +66,21 @@ export function AwsAppfabricAppAuthorizationConnection(
 }
 
 export const useAwsAppfabricAppAuthorizationConnection = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsAppfabricAppAuthorizationConnection, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppfabricAppAuthorizationConnection,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsAppfabricAppAuthorizationConnections = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppfabricAppAuthorizationConnection, node, id)
+  useTypedNodes<OutputProps>(
+    AwsAppfabricAppAuthorizationConnection,
+    idFilter,
+    baseNode,
+  )

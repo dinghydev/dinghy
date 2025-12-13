@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_vocabulary
 
 export const InputSchema = z.object({
   content: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_vocabulary
 
 export function AwsConnectVocabulary(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,8 @@ export function AwsConnectVocabulary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectVocabulary = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConnectVocabulary, node, id)
+export const useAwsConnectVocabulary = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsConnectVocabulary, idFilter, baseNode)
 
-export const useAwsConnectVocabularys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConnectVocabulary, node, id)
+export const useAwsConnectVocabularys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsConnectVocabulary, idFilter, baseNode)

@@ -3,16 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_connector
-
 export const InputSchema = z.object({
   access_role: resolvableValue(z.string()),
-  connector_id: resolvableValue(z.string()),
   url: resolvableValue(z.string()),
   as2_config: resolvableValue(
     z.object({
@@ -38,10 +36,11 @@ export const InputSchema = z.object({
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  connector_id: z.string().optional(),
 })
 
 export type InputProps =
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_connector
 
 export function AwsTransferConnector(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,8 @@ export function AwsTransferConnector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferConnector = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferConnector, node, id)
+export const useAwsTransferConnector = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferConnector, idFilter, baseNode)
 
-export const useAwsTransferConnectors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferConnector, node, id)
+export const useAwsTransferConnectors = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferConnector, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/scheduler_schedule_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/scheduler_schedule_group
 
 export function AwsSchedulerScheduleGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsSchedulerScheduleGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSchedulerScheduleGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSchedulerScheduleGroup, node, id)
+export const useAwsSchedulerScheduleGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSchedulerScheduleGroup, idFilter, baseNode)
 
-export const useAwsSchedulerScheduleGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSchedulerScheduleGroup, node, id)
+export const useAwsSchedulerScheduleGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSchedulerScheduleGroup, idFilter, baseNode)

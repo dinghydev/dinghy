@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_image_builder
 
 export const InputSchema = z.object({
   instance_type: resolvableValue(z.string()),
@@ -40,7 +39,7 @@ export const InputSchema = z.object({
       subnet_ids: z.string().array().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_image_builder
 
 export function AwsAppstreamImageBuilder(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,12 @@ export function AwsAppstreamImageBuilder(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamImageBuilder = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppstreamImageBuilder, node, id)
+export const useAwsAppstreamImageBuilder = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppstreamImageBuilder, idFilter, baseNode)
 
-export const useAwsAppstreamImageBuilders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppstreamImageBuilder, node, id)
+export const useAwsAppstreamImageBuilders = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppstreamImageBuilder, idFilter, baseNode)

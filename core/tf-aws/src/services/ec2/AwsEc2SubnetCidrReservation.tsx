@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_subnet_cidr_reservation
 
 export const InputSchema = z.object({
   cidr_block: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   subnet_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_subnet_cidr_reservation
 
 export function AwsEc2SubnetCidrReservation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,12 @@ export function AwsEc2SubnetCidrReservation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2SubnetCidrReservation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2SubnetCidrReservation, node, id)
+export const useAwsEc2SubnetCidrReservation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEc2SubnetCidrReservation, idFilter, baseNode)
 
-export const useAwsEc2SubnetCidrReservations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2SubnetCidrReservation, node, id)
+export const useAwsEc2SubnetCidrReservations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEc2SubnetCidrReservation, idFilter, baseNode)

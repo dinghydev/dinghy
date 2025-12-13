@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transcribe_vocabulary
 
 export const InputSchema = z.object({
   language_code: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vocabulary_file_uri: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transcribe_vocabulary
 
 export function AwsTranscribeVocabulary(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,10 @@ export function AwsTranscribeVocabulary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTranscribeVocabulary = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTranscribeVocabulary, node, id)
+export const useAwsTranscribeVocabulary = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTranscribeVocabulary, idFilter, baseNode)
 
-export const useAwsTranscribeVocabularys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTranscribeVocabulary, node, id)
+export const useAwsTranscribeVocabularys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsTranscribeVocabulary, idFilter, baseNode)

@@ -3,18 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_service
-
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  mesh_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   spec: resolvableValue(z.object({
     provider: z.object({
       virtual_node: z.object({
@@ -25,8 +22,10 @@ export const InputSchema = z.object({
       }).optional(),
     }).optional(),
   })),
+  mesh_owner: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_service
 
 export function AwsAppmeshVirtualService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,12 @@ export function AwsAppmeshVirtualService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshVirtualService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualService, node, id)
+export const useAwsAppmeshVirtualService = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppmeshVirtualService, idFilter, baseNode)
 
-export const useAwsAppmeshVirtualServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppmeshVirtualService, node, id)
+export const useAwsAppmeshVirtualServices = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppmeshVirtualService, idFilter, baseNode)

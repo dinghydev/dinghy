@@ -2,17 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMemorydbParameterGroup } from './AwsMemorydbParameterGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_parameter_group
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -20,10 +20,10 @@ export const OutputSchema = z.object({
   family: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
-  parameter: z.object({
+  parameter: z.set(z.object({
     name: z.string(),
     value: z.string(),
-  }).array().optional(),
+  })).optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })
 
@@ -34,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_parameter_group
 
 export function DataAwsMemorydbParameterGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +55,14 @@ export function DataAwsMemorydbParameterGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbParameterGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbParameterGroup, node, id)
+export const useDataAwsMemorydbParameterGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsMemorydbParameterGroup, idFilter, baseNode)
 
-export const useDataAwsMemorydbParameterGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbParameterGroup, node, id)
+export const useDataAwsMemorydbParameterGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsMemorydbParameterGroup, idFilter, baseNode)

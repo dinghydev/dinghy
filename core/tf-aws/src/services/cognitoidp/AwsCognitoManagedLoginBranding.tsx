@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_login_branding
 
 export const InputSchema = z.object({
   client_id: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   settings: resolvableValue(z.string().optional()),
   use_cognito_provided_values: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   managed_login_branding_id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_login_branding
 
 export function AwsCognitoManagedLoginBranding(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,14 @@ export function AwsCognitoManagedLoginBranding(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoManagedLoginBranding = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoManagedLoginBranding, node, id)
+export const useAwsCognitoManagedLoginBranding = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCognitoManagedLoginBranding, idFilter, baseNode)
 
-export const useAwsCognitoManagedLoginBrandings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoManagedLoginBranding, node, id)
+export const useAwsCognitoManagedLoginBrandings = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCognitoManagedLoginBranding, idFilter, baseNode)

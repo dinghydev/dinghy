@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_endpoint_group
 
 export const InputSchema = z.object({
   listener_arn: resolvableValue(z.string()),
@@ -40,7 +39,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   traffic_dial_percentage: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_endpoint_group
 
 export function AwsGlobalacceleratorEndpointGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,10 +80,22 @@ export function AwsGlobalacceleratorEndpointGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlobalacceleratorEndpointGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlobalacceleratorEndpointGroup, node, id)
+export const useAwsGlobalacceleratorEndpointGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlobalacceleratorEndpointGroup,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGlobalacceleratorEndpointGroups = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsGlobalacceleratorEndpointGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGlobalacceleratorEndpointGroup,
+    idFilter,
+    baseNode,
+  )

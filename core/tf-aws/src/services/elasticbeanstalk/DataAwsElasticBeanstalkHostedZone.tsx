@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elastic_beanstalk_hosted_zone
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elastic_beanstalk_hosted_zone
 
 export function DataAwsElasticBeanstalkHostedZone(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,10 +45,22 @@ export function DataAwsElasticBeanstalkHostedZone(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElasticBeanstalkHostedZone = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElasticBeanstalkHostedZone, node, id)
+export const useDataAwsElasticBeanstalkHostedZone = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElasticBeanstalkHostedZone,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsElasticBeanstalkHostedZones = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsElasticBeanstalkHostedZone, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElasticBeanstalkHostedZone,
+    idFilter,
+    baseNode,
+  )

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2ManagedPrefixList } from './AwsEc2ManagedPrefixList.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_managed_prefix_list
 
 export const InputSchema = z.object({
   version: resolvableValue(z.number()),
@@ -18,21 +17,23 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   address_family: z.string().optional(),
   arn: z.string().optional(),
-  entries: z.object({
+  entries: z.set(z.object({
     cidr: z.string(),
     description: z.string(),
-  }).array().optional(),
+  })).optional(),
   id: z.string().optional(),
   max_entries: z.number().optional(),
   name: z.string().optional(),
@@ -47,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_managed_prefix_list
 
 export function DataAwsEc2ManagedPrefixList(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +69,12 @@ export function DataAwsEc2ManagedPrefixList(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2ManagedPrefixList = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2ManagedPrefixList, node, id)
+export const useDataAwsEc2ManagedPrefixList = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsEc2ManagedPrefixList, idFilter, baseNode)
 
-export const useDataAwsEc2ManagedPrefixLists = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2ManagedPrefixList, node, id)
+export const useDataAwsEc2ManagedPrefixLists = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEc2ManagedPrefixList, idFilter, baseNode)

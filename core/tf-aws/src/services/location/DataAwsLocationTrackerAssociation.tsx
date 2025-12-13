@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLocationTrackerAssociation } from './AwsLocationTrackerAssociation.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_tracker_association
-
 export const InputSchema = z.object({
   consumer_arn: resolvableValue(z.string()),
   tracker_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_tracker_association
 
 export function DataAwsLocationTrackerAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,10 +46,22 @@ export function DataAwsLocationTrackerAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLocationTrackerAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLocationTrackerAssociation, node, id)
+export const useDataAwsLocationTrackerAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLocationTrackerAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsLocationTrackerAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsLocationTrackerAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLocationTrackerAssociation,
+    idFilter,
+    baseNode,
+  )

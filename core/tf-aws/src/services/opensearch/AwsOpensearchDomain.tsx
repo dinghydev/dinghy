@@ -3,14 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain
-
 export const InputSchema = z.object({
+  domain_name: resolvableValue(z.string()),
   access_policies: resolvableValue(z.string().optional()),
   advanced_options: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -20,6 +20,11 @@ export const InputSchema = z.object({
       anonymous_auth_enabled: z.boolean().optional(),
       enabled: z.boolean(),
       internal_user_database_enabled: z.boolean().optional(),
+      master_user_options: z.object({
+        master_user_arn: z.string().optional(),
+        master_user_name: z.string().optional(),
+        master_user_password: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   aiml_options: resolvableValue(
@@ -37,6 +42,14 @@ export const InputSchema = z.object({
       desired_state: z.string(),
       rollback_on_disable: z.string().optional(),
       use_off_peak_window: z.boolean().optional(),
+      maintenance_schedule: z.object({
+        cron_expression_for_recurrence: z.string(),
+        start_at: z.string(),
+        duration: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }),
+      }).array().optional(),
     }).optional(),
   ),
   cluster_config: resolvableValue(
@@ -51,6 +64,20 @@ export const InputSchema = z.object({
       warm_enabled: z.boolean().optional(),
       warm_type: z.string().optional(),
       zone_awareness_enabled: z.boolean().optional(),
+      cold_storage_options: z.object({
+        enabled: z.boolean().optional(),
+      }).optional(),
+      node_options: z.object({
+        node_type: z.string().optional(),
+        node_config: z.object({
+          count: z.number().optional(),
+          enabled: z.boolean().optional(),
+          type: z.string().optional(),
+        }).optional(),
+      }).array().optional(),
+      zone_awareness_config: z.object({
+        availability_zone_count: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   cognito_options: resolvableValue(
@@ -111,6 +138,12 @@ export const InputSchema = z.object({
   off_peak_window_options: resolvableValue(
     z.object({
       enabled: z.boolean().optional(),
+      off_peak_window: z.object({
+        window_start_time: z.object({
+          hours: z.number().optional(),
+          minutes: z.number().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -140,7 +173,7 @@ export const InputSchema = z.object({
       vpc_id: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -161,6 +194,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain
 
 export function AwsOpensearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -179,8 +215,8 @@ export function AwsOpensearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOpensearchDomain, node, id)
+export const useAwsOpensearchDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsOpensearchDomain, idFilter, baseNode)
 
-export const useAwsOpensearchDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOpensearchDomain, node, id)
+export const useAwsOpensearchDomains = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsOpensearchDomain, idFilter, baseNode)

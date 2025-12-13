@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_app_image_config
 
 export const InputSchema = z.object({
   app_image_config_name: resolvableValue(z.string()),
@@ -52,12 +51,12 @@ export const InputSchema = z.object({
       kernel_spec: z.object({
         display_name: z.string().optional(),
         name: z.string(),
-      }),
+      }).array(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -72,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_app_image_config
 
 export function AwsSagemakerAppImageConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -90,8 +92,12 @@ export function AwsSagemakerAppImageConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerAppImageConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerAppImageConfig, node, id)
+export const useAwsSagemakerAppImageConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSagemakerAppImageConfig, idFilter, baseNode)
 
-export const useAwsSagemakerAppImageConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerAppImageConfig, node, id)
+export const useAwsSagemakerAppImageConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSagemakerAppImageConfig, idFilter, baseNode)

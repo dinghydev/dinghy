@@ -2,17 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsFsxOntapFileSystem } from './AwsFsxOntapFileSystem.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_ontap_file_system
-
 export const InputSchema = z.object({
+  id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -28,11 +28,11 @@ export const OutputSchema = z.object({
   endpoints: z.object({
     intercluster: z.object({
       dns_name: z.string(),
-      ip_addresses: z.string().array(),
+      ip_addresses: z.set(z.string()),
     }).array(),
     management: z.object({
       dns_name: z.string(),
-      ip_addresses: z.string().array(),
+      ip_addresses: z.set(z.string()),
     }).array(),
   }).array().optional(),
   ha_pairs: z.number().optional(),
@@ -41,7 +41,7 @@ export const OutputSchema = z.object({
   network_interface_ids: z.string().array().optional(),
   owner_id: z.string().optional(),
   preferred_subnet_id: z.string().optional(),
-  route_table_ids: z.string().array().optional(),
+  route_table_ids: z.set(z.string()).optional(),
   storage_capacity: z.number().optional(),
   storage_type: z.string().optional(),
   subnet_ids: z.string().array().optional(),
@@ -59,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_ontap_file_system
 
 export function DataAwsFsxOntapFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +80,12 @@ export function DataAwsFsxOntapFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsFsxOntapFileSystem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsFsxOntapFileSystem, node, id)
+export const useDataAwsFsxOntapFileSystem = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsFsxOntapFileSystem, idFilter, baseNode)
 
-export const useDataAwsFsxOntapFileSystems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsFsxOntapFileSystem, node, id)
+export const useDataAwsFsxOntapFileSystems = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsFsxOntapFileSystem, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment_report
 
 export const InputSchema = z.object({
   assessment_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   author: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment_report
 
 export function AwsAuditmanagerAssessmentReport(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,18 @@ export function AwsAuditmanagerAssessmentReport(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAuditmanagerAssessmentReport = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAuditmanagerAssessmentReport, node, id)
+export const useAwsAuditmanagerAssessmentReport = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsAuditmanagerAssessmentReport, idFilter, baseNode)
 
-export const useAwsAuditmanagerAssessmentReports = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAuditmanagerAssessmentReport, node, id)
+export const useAwsAuditmanagerAssessmentReports = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAuditmanagerAssessmentReport,
+    idFilter,
+    baseNode,
+  )

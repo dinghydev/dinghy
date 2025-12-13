@@ -3,17 +3,31 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority
-
 export const InputSchema = z.object({
   certificate_authority_configuration: resolvableValue(z.object({
     key_algorithm: z.string(),
     signing_algorithm: z.string(),
+    subject: z.object({
+      common_name: z.string().optional(),
+      country: z.string().optional(),
+      distinguished_name_qualifier: z.string().optional(),
+      generation_qualifier: z.string().optional(),
+      given_name: z.string().optional(),
+      initials: z.string().optional(),
+      locality: z.string().optional(),
+      organization: z.string().optional(),
+      organizational_unit: z.string().optional(),
+      pseudonym: z.string().optional(),
+      state: z.string().optional(),
+      surname: z.string().optional(),
+      title: z.string().optional(),
+    }),
   })),
   enabled: resolvableValue(z.boolean().optional()),
   key_storage_security_standard: resolvableValue(z.string().optional()),
@@ -42,7 +56,7 @@ export const InputSchema = z.object({
   ),
   type: resolvableValue(z.string().optional()),
   usage_mode: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -68,6 +82,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority
 
 export function AwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,8 +104,14 @@ export function AwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmpcaCertificateAuthority = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAcmpcaCertificateAuthority, node, id)
+export const useAwsAcmpcaCertificateAuthority = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsAcmpcaCertificateAuthority, idFilter, baseNode)
 
-export const useAwsAcmpcaCertificateAuthoritys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAcmpcaCertificateAuthority, node, id)
+export const useAwsAcmpcaCertificateAuthoritys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAcmpcaCertificateAuthority, idFilter, baseNode)

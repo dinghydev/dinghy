@@ -3,21 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_snapshot_copy
-
 export const InputSchema = z.object({
   port: resolvableValue(z.number()),
   snapshot_type: resolvableValue(z.string()),
+  source_db_snapshot_identifier: resolvableValue(z.string()),
   target_db_snapshot_identifier: resolvableValue(z.string()),
   copy_tags: resolvableValue(z.boolean().optional()),
   destination_region: resolvableValue(z.string().optional()),
+  kms_key_id: resolvableValue(z.string().optional()),
   presigned_url: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  shared_accounts: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   target_custom_availability_zone: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -25,7 +27,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocated_storage: z.number().optional(),
@@ -39,7 +41,7 @@ export const OutputSchema = z.object({
   kms_key_id: z.string().optional(),
   license_model: z.string().optional(),
   option_group_name: z.string().optional(),
-  shared_accounts: z.string().array().optional(),
+  shared_accounts: z.set(z.string()).optional(),
   source_db_snapshot_identifier: z.string().optional(),
   source_region: z.string().optional(),
   storage_type: z.string().optional(),
@@ -54,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_snapshot_copy
 
 export function AwsDbSnapshotCopy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +77,8 @@ export function AwsDbSnapshotCopy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbSnapshotCopy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbSnapshotCopy, node, id)
+export const useAwsDbSnapshotCopy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDbSnapshotCopy, idFilter, baseNode)
 
-export const useAwsDbSnapshotCopys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbSnapshotCopy, node, id)
+export const useAwsDbSnapshotCopys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDbSnapshotCopy, idFilter, baseNode)

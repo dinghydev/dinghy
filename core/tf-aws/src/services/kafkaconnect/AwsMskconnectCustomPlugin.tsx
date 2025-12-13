@@ -3,18 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_custom_plugin
-
 export const InputSchema = z.object({
   content_type: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   location: resolvableValue(z.object({
     s3: z.object({
       bucket_arn: z.string(),
@@ -22,6 +18,9 @@ export const InputSchema = z.object({
       object_version: z.string().optional(),
     }),
   })),
+  name: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_custom_plugin
 
 export function AwsMskconnectCustomPlugin(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,12 @@ export function AwsMskconnectCustomPlugin(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskconnectCustomPlugin = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskconnectCustomPlugin, node, id)
+export const useAwsMskconnectCustomPlugin = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsMskconnectCustomPlugin, idFilter, baseNode)
 
-export const useAwsMskconnectCustomPlugins = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskconnectCustomPlugin, node, id)
+export const useAwsMskconnectCustomPlugins = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsMskconnectCustomPlugin, idFilter, baseNode)

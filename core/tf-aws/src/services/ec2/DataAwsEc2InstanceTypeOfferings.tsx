@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_instance_type_offerings
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_instance_type_offerings
 
 export function DataAwsEc2InstanceTypeOfferings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,5 +59,12 @@ export function DataAwsEc2InstanceTypeOfferings(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2InstanceTypeOfferingss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2InstanceTypeOfferings, node, id)
+export const useDataAwsEc2InstanceTypeOfferingss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2InstanceTypeOfferings,
+    idFilter,
+    baseNode,
+  )

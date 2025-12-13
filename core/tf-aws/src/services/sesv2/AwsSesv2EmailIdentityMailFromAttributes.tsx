@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity_mail_from_attributes
 
 export const InputSchema = z.object({
   email_identity: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   mail_from_domain: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity_mail_from_attributes
 
 export function AwsSesv2EmailIdentityMailFromAttributes(
   props: Partial<InputProps>,
@@ -47,7 +49,11 @@ export function AwsSesv2EmailIdentityMailFromAttributes(
 }
 
 export const useAwsSesv2EmailIdentityMailFromAttributess = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesv2EmailIdentityMailFromAttributes, node, id)
+  useTypedNodes<OutputProps>(
+    AwsSesv2EmailIdentityMailFromAttributes,
+    idFilter,
+    baseNode,
+  )

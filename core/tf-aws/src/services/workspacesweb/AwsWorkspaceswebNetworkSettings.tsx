@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_network_settings
 
 export const InputSchema = z.object({
   security_group_ids: resolvableValue(z.string().array()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   vpc_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_network_settings
 
 export function AwsWorkspaceswebNetworkSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,5 +50,12 @@ export function AwsWorkspaceswebNetworkSettings(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspaceswebNetworkSettingss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebNetworkSettings, node, id)
+export const useAwsWorkspaceswebNetworkSettingss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebNetworkSettings,
+    idFilter,
+    baseNode,
+  )

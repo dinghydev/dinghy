@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_allocation_tag
-
 export const InputSchema = z.object({
   status: resolvableValue(z.string()),
   tag_key: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ce_cost_allocation_tag
 
 export function AwsCeCostAllocationTag(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function AwsCeCostAllocationTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCeCostAllocationTag = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCeCostAllocationTag, node, id)
+export const useAwsCeCostAllocationTag = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCeCostAllocationTag, idFilter, baseNode)
 
-export const useAwsCeCostAllocationTags = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCeCostAllocationTag, node, id)
+export const useAwsCeCostAllocationTags = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCeCostAllocationTag, idFilter, baseNode)

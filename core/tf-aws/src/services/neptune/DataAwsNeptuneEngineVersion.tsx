@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/neptune_engine_version
 
 export const InputSchema = z.object({
   default_only: resolvableValue(z.boolean().optional()),
@@ -23,20 +22,20 @@ export const InputSchema = z.object({
   preferred_versions: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   default_character_set: z.string().optional(),
   engine_description: z.string().optional(),
-  exportable_log_types: z.string().array().optional(),
-  supported_character_sets: z.string().array().optional(),
-  supported_timezones: z.string().array().optional(),
+  exportable_log_types: z.set(z.string()).optional(),
+  supported_character_sets: z.set(z.string()).optional(),
+  supported_timezones: z.set(z.string()).optional(),
   supports_global_databases: z.boolean().optional(),
   supports_log_exports_to_cloudwatch: z.boolean().optional(),
   supports_read_replica: z.boolean().optional(),
-  valid_major_targets: z.string().array().optional(),
-  valid_minor_targets: z.string().array().optional(),
-  valid_upgrade_targets: z.string().array().optional(),
+  valid_major_targets: z.set(z.string()).optional(),
+  valid_minor_targets: z.set(z.string()).optional(),
+  valid_upgrade_targets: z.set(z.string()).optional(),
   version_actual: z.string().optional(),
   version_description: z.string().optional(),
 })
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/neptune_engine_version
 
 export function DataAwsNeptuneEngineVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,12 @@ export function DataAwsNeptuneEngineVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNeptuneEngineVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsNeptuneEngineVersion, node, id)
+export const useDataAwsNeptuneEngineVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsNeptuneEngineVersion, idFilter, baseNode)
 
-export const useDataAwsNeptuneEngineVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsNeptuneEngineVersion, node, id)
+export const useDataAwsNeptuneEngineVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsNeptuneEngineVersion, idFilter, baseNode)

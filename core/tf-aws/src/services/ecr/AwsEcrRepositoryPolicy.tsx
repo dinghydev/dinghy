@@ -3,18 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_policy
-
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
+  repository: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -35,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_policy
 
 export function AwsEcrRepositoryPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +57,8 @@ export function AwsEcrRepositoryPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRepositoryPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrRepositoryPolicy, node, id)
+export const useAwsEcrRepositoryPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcrRepositoryPolicy, idFilter, baseNode)
 
-export const useAwsEcrRepositoryPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrRepositoryPolicy, node, id)
+export const useAwsEcrRepositoryPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcrRepositoryPolicy, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_replication_subnet_group
 
 export const InputSchema = z.object({
   replication_subnet_group_arn: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_replication_subnet_group
 
 export function AwsDmsReplicationSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,13 @@ export function AwsDmsReplicationSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsReplicationSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsReplicationSubnetGroup, node, id)
+export const useAwsDmsReplicationSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDmsReplicationSubnetGroup, idFilter, baseNode)
 
-export const useAwsDmsReplicationSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsReplicationSubnetGroup, node, id)
+export const useAwsDmsReplicationSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDmsReplicationSubnetGroup, idFilter, baseNode)

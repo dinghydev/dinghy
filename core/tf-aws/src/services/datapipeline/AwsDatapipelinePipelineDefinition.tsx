@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datapipeline_pipeline_definition
 
 export const InputSchema = z.object({
   pipeline_id: resolvableValue(z.string()),
@@ -16,11 +15,20 @@ export const InputSchema = z.object({
     z.object({
       id: z.string(),
       name: z.string(),
+      field: z.object({
+        key: z.string(),
+        ref_value: z.string().optional(),
+        string_value: z.string().optional(),
+      }).array().optional(),
     }).array(),
   ),
   parameter_object: resolvableValue(
     z.object({
       id: z.string(),
+      attribute: z.object({
+        key: z.string(),
+        string_value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
   parameter_value: resolvableValue(
@@ -30,7 +38,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -43,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datapipeline_pipeline_definition
 
 export function AwsDatapipelinePipelineDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,10 +72,22 @@ export function AwsDatapipelinePipelineDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatapipelinePipelineDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatapipelinePipelineDefinition, node, id)
+export const useAwsDatapipelinePipelineDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDatapipelinePipelineDefinition,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDatapipelinePipelineDefinitions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsDatapipelinePipelineDefinition, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatapipelinePipelineDefinition,
+    idFilter,
+    baseNode,
+  )

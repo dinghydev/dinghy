@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_identity_provider_config
 
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_identity_provider_config
 
 export function AwsEksIdentityProviderConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,13 @@ export function AwsEksIdentityProviderConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEksIdentityProviderConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEksIdentityProviderConfig, node, id)
+export const useAwsEksIdentityProviderConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEksIdentityProviderConfig, idFilter, baseNode)
 
-export const useAwsEksIdentityProviderConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEksIdentityProviderConfig, node, id)
+export const useAwsEksIdentityProviderConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEksIdentityProviderConfig, idFilter, baseNode)

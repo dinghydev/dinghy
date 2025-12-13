@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_ssh_key
 
 export const InputSchema = z.object({
   body: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   user_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_ssh_key
 
 export function AwsTransferSshKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsTransferSshKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferSshKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferSshKey, node, id)
+export const useAwsTransferSshKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferSshKey, idFilter, baseNode)
 
-export const useAwsTransferSshKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferSshKey, node, id)
+export const useAwsTransferSshKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferSshKey, idFilter, baseNode)

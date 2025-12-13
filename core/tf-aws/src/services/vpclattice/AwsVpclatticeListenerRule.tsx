@@ -3,18 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_listener_rule
-
 export const InputSchema = z.object({
-  listener_identifier: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  priority: resolvableValue(z.number()),
-  service_identifier: resolvableValue(z.string()),
   action: resolvableValue(z.object({
     fixed_response: z.object({
       status_code: z.number(),
@@ -23,15 +18,35 @@ export const InputSchema = z.object({
       target_groups: z.object({
         target_group_identifier: z.string(),
         weight: z.number().optional(),
-      }),
+      }).array(),
     }).optional(),
   })),
-  id: resolvableValue(z.string().optional()),
+  listener_identifier: resolvableValue(z.string()),
   match: resolvableValue(z.object({
     http_match: z.object({
       method: z.string().optional(),
+      header_matches: z.object({
+        case_sensitive: z.boolean().optional(),
+        name: z.string(),
+        match: z.object({
+          contains: z.string().optional(),
+          exact: z.string().optional(),
+          prefix: z.string().optional(),
+        }),
+      }).array().optional(),
+      path_match: z.object({
+        case_sensitive: z.boolean().optional(),
+        match: z.object({
+          exact: z.string().optional(),
+          prefix: z.string().optional(),
+        }),
+      }).optional(),
     }),
   })),
+  name: resolvableValue(z.string()),
+  priority: resolvableValue(z.number()),
+  service_identifier: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -41,7 +56,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -56,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_listener_rule
 
 export function AwsVpclatticeListenerRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +92,12 @@ export function AwsVpclatticeListenerRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpclatticeListenerRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpclatticeListenerRule, node, id)
+export const useAwsVpclatticeListenerRule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVpclatticeListenerRule, idFilter, baseNode)
 
-export const useAwsVpclatticeListenerRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpclatticeListenerRule, node, id)
+export const useAwsVpclatticeListenerRules = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVpclatticeListenerRule, idFilter, baseNode)

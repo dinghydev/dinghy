@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmquicksetup_configuration_manager
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       parameters: z.record(z.string(), z.string()),
       type: z.string(),
       type_version: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   manager_arn: z.string().optional(),
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmquicksetup_configuration_manager
 
 export function AwsSsmquicksetupConfigurationManager(
   props: Partial<InputProps>,
@@ -72,11 +74,21 @@ export function AwsSsmquicksetupConfigurationManager(
 }
 
 export const useAwsSsmquicksetupConfigurationManager = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsSsmquicksetupConfigurationManager, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsmquicksetupConfigurationManager,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSsmquicksetupConfigurationManagers = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSsmquicksetupConfigurationManager, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsmquicksetupConfigurationManager,
+    idFilter,
+    baseNode,
+  )

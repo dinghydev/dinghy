@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_saml_provider
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   saml_metadata_document: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_saml_provider
 
 export function AwsIamSamlProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsIamSamlProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamSamlProvider = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamSamlProvider, node, id)
+export const useAwsIamSamlProvider = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamSamlProvider, idFilter, baseNode)
 
-export const useAwsIamSamlProviders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamSamlProvider, node, id)
+export const useAwsIamSamlProviders = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamSamlProvider, idFilter, baseNode)

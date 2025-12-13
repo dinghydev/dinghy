@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_group_membership
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   namespace: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_group_membership
 
 export function AwsQuicksightGroupMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,13 @@ export function AwsQuicksightGroupMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightGroupMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightGroupMembership, node, id)
+export const useAwsQuicksightGroupMembership = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsQuicksightGroupMembership, idFilter, baseNode)
 
-export const useAwsQuicksightGroupMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightGroupMembership, node, id)
+export const useAwsQuicksightGroupMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightGroupMembership, idFilter, baseNode)

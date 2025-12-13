@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_static_ip_attachment
 
 export const InputSchema = z.object({
   instance_name: resolvableValue(z.string()),
   static_ip_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ip_address: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_static_ip_attachment
 
 export function AwsLightsailStaticIpAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,14 @@ export function AwsLightsailStaticIpAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailStaticIpAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailStaticIpAttachment, node, id)
+export const useAwsLightsailStaticIpAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsLightsailStaticIpAttachment, idFilter, baseNode)
 
-export const useAwsLightsailStaticIpAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailStaticIpAttachment, node, id)
+export const useAwsLightsailStaticIpAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailStaticIpAttachment, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_lf_tag
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
   values: resolvableValue(z.string().array()),
   catalog_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_lf_tag
 
 export function AwsLakeformationLfTag(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsLakeformationLfTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationLfTag = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLakeformationLfTag, node, id)
+export const useAwsLakeformationLfTag = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLakeformationLfTag, idFilter, baseNode)
 
-export const useAwsLakeformationLfTags = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLakeformationLfTag, node, id)
+export const useAwsLakeformationLfTags = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLakeformationLfTag, idFilter, baseNode)

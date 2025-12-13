@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service
 
 export const InputSchema = z.object({
   acceptance_required: resolvableValue(z.boolean()),
@@ -27,12 +26,12 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  availability_zones: z.string().array().optional(),
-  base_endpoint_dns_names: z.string().array().optional(),
+  availability_zones: z.set(z.string()).optional(),
+  base_endpoint_dns_names: z.set(z.string()).optional(),
   id: z.string().optional(),
   manages_vpc_endpoints: z.boolean().optional(),
   private_dns_name_configuration: z.object({
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service
 
 export function AwsVpcEndpointService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +74,8 @@ export function AwsVpcEndpointService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcEndpointService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcEndpointService, node, id)
+export const useAwsVpcEndpointService = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpcEndpointService, idFilter, baseNode)
 
-export const useAwsVpcEndpointServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcEndpointService, node, id)
+export const useAwsVpcEndpointServices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVpcEndpointService, idFilter, baseNode)

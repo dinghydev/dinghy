@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_deployment
 
 export const InputSchema = z.object({
   rest_api_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
   variables: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_date: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_deployment
 
 export function AwsApiGatewayDeployment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,10 @@ export function AwsApiGatewayDeployment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayDeployment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayDeployment, node, id)
+export const useAwsApiGatewayDeployment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApiGatewayDeployment, idFilter, baseNode)
 
-export const useAwsApiGatewayDeployments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayDeployment, node, id)
+export const useAwsApiGatewayDeployments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsApiGatewayDeployment, idFilter, baseNode)

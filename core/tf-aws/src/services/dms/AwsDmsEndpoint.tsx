@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_endpoint
 
 export const InputSchema = z.object({
   endpoint_id: resolvableValue(z.string()),
@@ -153,7 +152,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   username: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   endpoint_arn: z.string().optional(),
@@ -167,6 +166,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_endpoint
 
 export function AwsDmsEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -185,8 +187,8 @@ export function AwsDmsEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsEndpoint, node, id)
+export const useAwsDmsEndpoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDmsEndpoint, idFilter, baseNode)
 
-export const useAwsDmsEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsEndpoint, node, id)
+export const useAwsDmsEndpoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDmsEndpoint, idFilter, baseNode)

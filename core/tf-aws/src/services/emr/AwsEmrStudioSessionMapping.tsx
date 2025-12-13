@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_studio_session_mapping
 
 export const InputSchema = z.object({
   identity_type: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   identity_id: resolvableValue(z.string().optional()),
   identity_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_studio_session_mapping
 
 export function AwsEmrStudioSessionMapping(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function AwsEmrStudioSessionMapping(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrStudioSessionMapping = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrStudioSessionMapping, node, id)
+export const useAwsEmrStudioSessionMapping = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEmrStudioSessionMapping, idFilter, baseNode)
 
-export const useAwsEmrStudioSessionMappings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrStudioSessionMapping, node, id)
+export const useAwsEmrStudioSessionMappings = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEmrStudioSessionMapping, idFilter, baseNode)

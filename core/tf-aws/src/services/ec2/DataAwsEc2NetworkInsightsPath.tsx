@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2NetworkInsightsPath } from './AwsEc2NetworkInsightsPath.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_network_insights_path
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   network_insights_path_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -66,6 +65,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_network_insights_path
 
 export function DataAwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +86,14 @@ export function DataAwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2NetworkInsightsPath = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2NetworkInsightsPath, node, id)
+export const useDataAwsEc2NetworkInsightsPath = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsEc2NetworkInsightsPath, idFilter, baseNode)
 
-export const useDataAwsEc2NetworkInsightsPaths = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2NetworkInsightsPath, node, id)
+export const useDataAwsEc2NetworkInsightsPaths = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEc2NetworkInsightsPath, idFilter, baseNode)

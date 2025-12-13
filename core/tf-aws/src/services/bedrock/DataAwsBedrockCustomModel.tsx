@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsBedrockCustomModel } from './AwsBedrockCustomModel.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_custom_model
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   model_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   base_model_arn: z.string().optional(),
@@ -53,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_custom_model
 
 export function DataAwsBedrockCustomModel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +73,12 @@ export function DataAwsBedrockCustomModel(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBedrockCustomModel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBedrockCustomModel, node, id)
+export const useDataAwsBedrockCustomModel = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsBedrockCustomModel, idFilter, baseNode)
 
-export const useDataAwsBedrockCustomModels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockCustomModel, node, id)
+export const useDataAwsBedrockCustomModels = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsBedrockCustomModel, idFilter, baseNode)

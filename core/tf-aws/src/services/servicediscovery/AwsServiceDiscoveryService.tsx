@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/service_discovery_service
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,6 +16,10 @@ export const InputSchema = z.object({
     z.object({
       namespace_id: z.string(),
       routing_policy: z.string().optional(),
+      dns_records: z.object({
+        ttl: z.number(),
+        type: z.string(),
+      }).array(),
     }).optional(),
   ),
   force_destroy: resolvableValue(z.boolean().optional()),
@@ -37,7 +40,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -51,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/service_discovery_service
 
 export function AwsServiceDiscoveryService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +75,12 @@ export function AwsServiceDiscoveryService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsServiceDiscoveryService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsServiceDiscoveryService, node, id)
+export const useAwsServiceDiscoveryService = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsServiceDiscoveryService, idFilter, baseNode)
 
-export const useAwsServiceDiscoveryServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsServiceDiscoveryService, node, id)
+export const useAwsServiceDiscoveryServices = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsServiceDiscoveryService, idFilter, baseNode)

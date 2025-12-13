@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsNetworkmanagerLink } from './AwsNetworkmanagerLink.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_link
-
 export const InputSchema = z.object({
   global_network_id: resolvableValue(z.string()),
   link_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_link
 
 export function DataAwsNetworkmanagerLink(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function DataAwsNetworkmanagerLink(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNetworkmanagerLink = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsNetworkmanagerLink, node, id)
+export const useDataAwsNetworkmanagerLink = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsNetworkmanagerLink, idFilter, baseNode)
 
-export const useDataAwsNetworkmanagerLinks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsNetworkmanagerLink, node, id)
+export const useDataAwsNetworkmanagerLinks = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsNetworkmanagerLink, idFilter, baseNode)

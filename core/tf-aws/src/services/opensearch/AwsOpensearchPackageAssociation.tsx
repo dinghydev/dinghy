@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_package_association
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_package_association
 
 export function AwsOpensearchPackageAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,18 @@ export function AwsOpensearchPackageAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchPackageAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOpensearchPackageAssociation, node, id)
+export const useAwsOpensearchPackageAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsOpensearchPackageAssociation, idFilter, baseNode)
 
-export const useAwsOpensearchPackageAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOpensearchPackageAssociation, node, id)
+export const useAwsOpensearchPackageAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOpensearchPackageAssociation,
+    idFilter,
+    baseNode,
+  )

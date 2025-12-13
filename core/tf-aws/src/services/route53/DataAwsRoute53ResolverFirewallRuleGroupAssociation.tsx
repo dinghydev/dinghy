@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53ResolverFirewallRuleGroupAssociation } from './AwsRoute53ResolverFirewallRuleGroupAssociation.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_rule_group_association
-
 export const InputSchema = z.object({
   firewall_rule_group_association_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_rule_group_association
 
 export function DataAwsRoute53ResolverFirewallRuleGroupAssociation(
   props: Partial<InputProps>,
@@ -59,21 +61,21 @@ export function DataAwsRoute53ResolverFirewallRuleGroupAssociation(
 }
 
 export const useDataAwsRoute53ResolverFirewallRuleGroupAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsRoute53ResolverFirewallRuleGroupAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsRoute53ResolverFirewallRuleGroupAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRoute53ResolverFirewallRuleGroupAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

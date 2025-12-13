@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_dataview
 
 export const InputSchema = z.object({
   auto_update: resolvableValue(z.boolean()),
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       db_paths: z.string().array(),
       on_demand: z.boolean().optional(),
       volume_name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -37,7 +36,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_dataview
 
 export function AwsFinspaceKxDataview(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +74,8 @@ export function AwsFinspaceKxDataview(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxDataview = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxDataview, node, id)
+export const useAwsFinspaceKxDataview = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxDataview, idFilter, baseNode)
 
-export const useAwsFinspaceKxDataviews = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxDataview, node, id)
+export const useAwsFinspaceKxDataviews = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFinspaceKxDataview, idFilter, baseNode)

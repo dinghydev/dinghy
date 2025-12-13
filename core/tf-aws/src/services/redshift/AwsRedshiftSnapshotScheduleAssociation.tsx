@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_snapshot_schedule_association
 
 export const InputSchema = z.object({
   cluster_identifier: resolvableValue(z.string()),
   schedule_identifier: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_snapshot_schedule_association
 
 export function AwsRedshiftSnapshotScheduleAssociation(
   props: Partial<InputProps>,
@@ -47,12 +49,21 @@ export function AwsRedshiftSnapshotScheduleAssociation(
 }
 
 export const useAwsRedshiftSnapshotScheduleAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsRedshiftSnapshotScheduleAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftSnapshotScheduleAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRedshiftSnapshotScheduleAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsRedshiftSnapshotScheduleAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsRedshiftSnapshotScheduleAssociation,
+    idFilter,
+    baseNode,
+  )

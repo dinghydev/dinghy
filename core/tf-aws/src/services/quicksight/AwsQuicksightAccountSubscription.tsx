@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_account_subscription
 
 export const InputSchema = z.object({
   account_name: resolvableValue(z.string()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   account_subscription_status: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_account_subscription
 
 export function AwsQuicksightAccountSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +72,22 @@ export function AwsQuicksightAccountSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightAccountSubscription = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightAccountSubscription, node, id)
+export const useAwsQuicksightAccountSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightAccountSubscription,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsQuicksightAccountSubscriptions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightAccountSubscription, node, id)
+export const useAwsQuicksightAccountSubscriptions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightAccountSubscription,
+    idFilter,
+    baseNode,
+  )

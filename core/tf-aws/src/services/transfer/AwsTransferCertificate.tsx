@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_certificate
 
 export const InputSchema = z.object({
   certificate: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   active_date: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_certificate
 
 export function AwsTransferCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsTransferCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferCertificate, node, id)
+export const useAwsTransferCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferCertificate, idFilter, baseNode)
 
-export const useAwsTransferCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferCertificate, node, id)
+export const useAwsTransferCertificates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferCertificate, idFilter, baseNode)

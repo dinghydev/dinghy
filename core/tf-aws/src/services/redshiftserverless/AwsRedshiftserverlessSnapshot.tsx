@@ -3,23 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_snapshot
 
 export const InputSchema = z.object({
   namespace_name: resolvableValue(z.string()),
   snapshot_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   retention_period: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  accounts_with_provisioned_restore_access: z.string().array().optional(),
-  accounts_with_restore_access: z.string().array().optional(),
+  accounts_with_provisioned_restore_access: z.set(z.string()).optional(),
+  accounts_with_restore_access: z.set(z.string()).optional(),
   admin_username: z.string().optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_snapshot
 
 export function AwsRedshiftserverlessSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function AwsRedshiftserverlessSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftserverlessSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftserverlessSnapshot, node, id)
+export const useAwsRedshiftserverlessSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRedshiftserverlessSnapshot, idFilter, baseNode)
 
-export const useAwsRedshiftserverlessSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftserverlessSnapshot, node, id)
+export const useAwsRedshiftserverlessSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsRedshiftserverlessSnapshot, idFilter, baseNode)

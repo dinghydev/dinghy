@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_organization_admin_account
-
 export const InputSchema = z.object({
   admin_account_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_organization_admin_account
 
 export function AwsGuarddutyOrganizationAdminAccount(
   props: Partial<InputProps>,
@@ -46,11 +48,21 @@ export function AwsGuarddutyOrganizationAdminAccount(
 }
 
 export const useAwsGuarddutyOrganizationAdminAccount = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsGuarddutyOrganizationAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGuarddutyOrganizationAdminAccount,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGuarddutyOrganizationAdminAccounts = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsGuarddutyOrganizationAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGuarddutyOrganizationAdminAccount,
+    idFilter,
+    baseNode,
+  )

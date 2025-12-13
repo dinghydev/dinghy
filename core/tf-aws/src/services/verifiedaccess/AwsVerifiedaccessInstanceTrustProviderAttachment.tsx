@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance_trust_provider_attachment
-
 export const InputSchema = z.object({
   verifiedaccess_instance_id: resolvableValue(z.string()),
   verifiedaccess_trust_provider_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance_trust_provider_attachment
 
 export function AwsVerifiedaccessInstanceTrustProviderAttachment(
   props: Partial<InputProps>,
@@ -48,21 +50,21 @@ export function AwsVerifiedaccessInstanceTrustProviderAttachment(
 }
 
 export const useAwsVerifiedaccessInstanceTrustProviderAttachment = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedaccessInstanceTrustProviderAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsVerifiedaccessInstanceTrustProviderAttachments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedaccessInstanceTrustProviderAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

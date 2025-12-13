@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_origin_access_control
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   signing_behavior: resolvableValue(z.string()),
   signing_protocol: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_origin_access_control
 
 export function AwsCloudfrontOriginAccessControl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,22 @@ export function AwsCloudfrontOriginAccessControl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontOriginAccessControl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudfrontOriginAccessControl, node, id)
+export const useAwsCloudfrontOriginAccessControl = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontOriginAccessControl,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsCloudfrontOriginAccessControls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontOriginAccessControl, node, id)
+export const useAwsCloudfrontOriginAccessControls = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontOriginAccessControl,
+    idFilter,
+    baseNode,
+  )

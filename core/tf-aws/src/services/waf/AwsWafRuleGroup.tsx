@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_rule_group
 
 export const InputSchema = z.object({
   metric_name: resolvableValue(z.string()),
@@ -18,10 +17,13 @@ export const InputSchema = z.object({
       priority: z.number(),
       rule_id: z.string(),
       type: z.string().optional(),
+      action: z.object({
+        type: z.string(),
+      }),
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_rule_group
 
 export function AwsWafRuleGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +59,8 @@ export function AwsWafRuleGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafRuleGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafRuleGroup, node, id)
+export const useAwsWafRuleGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafRuleGroup, idFilter, baseNode)
 
-export const useAwsWafRuleGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafRuleGroup, node, id)
+export const useAwsWafRuleGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafRuleGroup, idFilter, baseNode)

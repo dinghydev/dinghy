@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_alias
 
 export const InputSchema = z.object({
   target_key_id: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_alias
 
 export function AwsKmsAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,5 +57,5 @@ export function AwsKmsAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKmsAlias, node, id)
+export const useAwsKmsAliass = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKmsAlias, idFilter, baseNode)

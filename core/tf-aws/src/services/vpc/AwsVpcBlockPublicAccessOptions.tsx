@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_block_public_access_options
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   aws_account_id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_block_public_access_options
 
 export function AwsVpcBlockPublicAccessOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,5 +54,8 @@ export function AwsVpcBlockPublicAccessOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcBlockPublicAccessOptions = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcBlockPublicAccessOptions, node, id)
+export const useAwsVpcBlockPublicAccessOptions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsVpcBlockPublicAccessOptions, idFilter, baseNode)

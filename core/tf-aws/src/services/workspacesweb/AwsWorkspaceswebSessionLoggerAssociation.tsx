@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_session_logger_association
-
 export const InputSchema = z.object({
   portal_arn: resolvableValue(z.string()),
   session_logger_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_session_logger_association
 
 export function AwsWorkspaceswebSessionLoggerAssociation(
   props: Partial<InputProps>,
@@ -46,13 +48,21 @@ export function AwsWorkspaceswebSessionLoggerAssociation(
 }
 
 export const useAwsWorkspaceswebSessionLoggerAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebSessionLoggerAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebSessionLoggerAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsWorkspaceswebSessionLoggerAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebSessionLoggerAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebSessionLoggerAssociation,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_oauth2_credential_provider
 
 export const InputSchema = z.object({
   credential_provider_vendor: resolvableValue(z.string()),
@@ -21,7 +20,16 @@ export const InputSchema = z.object({
         client_id_wo: z.string().optional(),
         client_secret: z.string().optional(),
         client_secret_wo: z.string().optional(),
-      }).optional(),
+        oauth_discovery: z.object({
+          discovery_url: z.string().optional(),
+          authorization_server_metadata: z.object({
+            authorization_endpoint: z.string(),
+            issuer: z.string(),
+            response_types: z.string().array().optional(),
+            token_endpoint: z.string(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
       github_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
         client_id: z.string().optional(),
@@ -37,7 +45,7 @@ export const InputSchema = z.object({
           }).array(),
           discovery_url: z.string(),
         }).array(),
-      }).optional(),
+      }).array().optional(),
       google_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
         client_id: z.string().optional(),
@@ -53,7 +61,7 @@ export const InputSchema = z.object({
           }).array(),
           discovery_url: z.string(),
         }).array(),
-      }).optional(),
+      }).array().optional(),
       microsoft_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
         client_id: z.string().optional(),
@@ -69,7 +77,7 @@ export const InputSchema = z.object({
           }).array(),
           discovery_url: z.string(),
         }).array(),
-      }).optional(),
+      }).array().optional(),
       salesforce_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
         client_id: z.string().optional(),
@@ -85,7 +93,7 @@ export const InputSchema = z.object({
           }).array(),
           discovery_url: z.string(),
         }).array(),
-      }).optional(),
+      }).array().optional(),
       slack_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
         client_id: z.string().optional(),
@@ -101,11 +109,11 @@ export const InputSchema = z.object({
           }).array(),
           discovery_url: z.string(),
         }).array(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   client_secret_arn: z.object({
@@ -121,6 +129,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_oauth2_credential_provider
 
 export function AwsBedrockagentcoreOauth2CredentialProvider(
   props: Partial<InputProps>,
@@ -142,21 +153,21 @@ export function AwsBedrockagentcoreOauth2CredentialProvider(
 }
 
 export const useAwsBedrockagentcoreOauth2CredentialProvider = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreOauth2CredentialProvider,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsBedrockagentcoreOauth2CredentialProviders = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreOauth2CredentialProvider,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

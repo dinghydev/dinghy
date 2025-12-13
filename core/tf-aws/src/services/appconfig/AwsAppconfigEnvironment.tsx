@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_environment
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_environment
 
 export function AwsAppconfigEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,10 @@ export function AwsAppconfigEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppconfigEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppconfigEnvironment, node, id)
+export const useAwsAppconfigEnvironment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppconfigEnvironment, idFilter, baseNode)
 
-export const useAwsAppconfigEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppconfigEnvironment, node, id)
+export const useAwsAppconfigEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppconfigEnvironment, idFilter, baseNode)

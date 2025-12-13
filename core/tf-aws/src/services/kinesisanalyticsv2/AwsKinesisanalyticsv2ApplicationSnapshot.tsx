@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesisanalyticsv2_application_snapshot
 
 export const InputSchema = z.object({
   application_name: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_version_id: z.number().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesisanalyticsv2_application_snapshot
 
 export function AwsKinesisanalyticsv2ApplicationSnapshot(
   props: Partial<InputProps>,
@@ -56,13 +58,21 @@ export function AwsKinesisanalyticsv2ApplicationSnapshot(
 }
 
 export const useAwsKinesisanalyticsv2ApplicationSnapshot = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsKinesisanalyticsv2ApplicationSnapshot, node, id)
+  useTypedNode<OutputProps>(
+    AwsKinesisanalyticsv2ApplicationSnapshot,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsKinesisanalyticsv2ApplicationSnapshots = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsKinesisanalyticsv2ApplicationSnapshot, node, id)
+  useTypedNodes<OutputProps>(
+    AwsKinesisanalyticsv2ApplicationSnapshot,
+    idFilter,
+    baseNode,
+  )

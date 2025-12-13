@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_regex_pattern_set
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   regex_pattern_strings: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_regex_pattern_set
 
 export function AwsWafRegexPatternSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function AwsWafRegexPatternSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafRegexPatternSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafRegexPatternSet, node, id)
+export const useAwsWafRegexPatternSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafRegexPatternSet, idFilter, baseNode)
 
-export const useAwsWafRegexPatternSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafRegexPatternSet, node, id)
+export const useAwsWafRegexPatternSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafRegexPatternSet, idFilter, baseNode)

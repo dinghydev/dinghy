@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_distribution
 
 export const InputSchema = z.object({
   bundle_id: resolvableValue(z.string()),
@@ -16,6 +15,12 @@ export const InputSchema = z.object({
     behavior: z.string(),
   })),
   name: resolvableValue(z.string()),
+  origin: resolvableValue(z.object({
+    name: z.string(),
+    protocol_policy: z.string().optional(),
+    region_name: z.string(),
+    resource_type: z.string(),
+  })),
   cache_behavior: resolvableValue(
     z.object({
       behavior: z.string(),
@@ -29,18 +34,24 @@ export const InputSchema = z.object({
       default_ttl: z.number().optional(),
       maximum_ttl: z.number().optional(),
       minimum_ttl: z.number().optional(),
+      forwarded_cookies: z.object({
+        cookies_allow_list: z.string().array().optional(),
+        option: z.string().optional(),
+      }).optional(),
+      forwarded_headers: z.object({
+        headers_allow_list: z.string().array().optional(),
+        option: z.string().optional(),
+      }).optional(),
+      forwarded_query_strings: z.object({
+        option: z.boolean().optional(),
+        query_strings_allowed_list: z.string().array().optional(),
+      }).optional(),
     }).optional(),
   ),
   certificate_name: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   ip_address_type: resolvableValue(z.string().optional()),
   is_enabled: resolvableValue(z.boolean().optional()),
-  origin: resolvableValue(z.object({
-    name: z.string(),
-    protocol_policy: z.string().optional(),
-    region_name: z.string(),
-    resource_type: z.string(),
-  })),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -50,7 +61,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alternative_domain_names: z.string().array().optional(),
@@ -75,6 +86,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_distribution
 
 export function AwsLightsailDistribution(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -93,8 +107,12 @@ export function AwsLightsailDistribution(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailDistribution = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailDistribution, node, id)
+export const useAwsLightsailDistribution = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLightsailDistribution, idFilter, baseNode)
 
-export const useAwsLightsailDistributions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailDistribution, node, id)
+export const useAwsLightsailDistributions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLightsailDistribution, idFilter, baseNode)

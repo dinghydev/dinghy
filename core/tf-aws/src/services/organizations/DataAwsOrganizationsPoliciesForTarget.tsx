@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies_for_target
-
 export const InputSchema = z.object({
   filter: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ids: z.string().array().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies_for_target
 
 export function DataAwsOrganizationsPoliciesForTarget(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function DataAwsOrganizationsPoliciesForTarget(
 }
 
 export const useDataAwsOrganizationsPoliciesForTarget = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsOrganizationsPoliciesForTarget, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOrganizationsPoliciesForTarget,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOrganizationsPoliciesForTargets = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOrganizationsPoliciesForTarget, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOrganizationsPoliciesForTarget,
+    idFilter,
+    baseNode,
+  )

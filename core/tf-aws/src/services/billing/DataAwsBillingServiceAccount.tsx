@@ -2,14 +2,13 @@ import {
   camelCaseToWords,
   type NodeProps,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/billing_service_account
-
-export const InputSchema = z.object({})
+export const InputSchema = z.object({}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -23,6 +22,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/billing_service_account
 
 export function DataAwsBillingServiceAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -41,8 +43,13 @@ export function DataAwsBillingServiceAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBillingServiceAccount = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBillingServiceAccount, node, id)
+export const useDataAwsBillingServiceAccount = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsBillingServiceAccount, idFilter, baseNode)
 
-export const useDataAwsBillingServiceAccounts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBillingServiceAccount, node, id)
+export const useDataAwsBillingServiceAccounts = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsBillingServiceAccount, idFilter, baseNode)

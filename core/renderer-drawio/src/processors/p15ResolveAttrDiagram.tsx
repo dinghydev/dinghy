@@ -8,79 +8,77 @@ import type {
 } from '../types.ts'
 import { handleAttributes } from '../attribute-handler/index.ts'
 
-export const defaultDiagramOptions = {
-  flags: {
-    isDirectionVertical: false,
-  },
-  element: {
-    id: (node: base.NodeTree) => node._props._id,
-    parent: (node: base.NodeTree) => node._parent!._props._id,
-    value: (node: base.NodeTree) => node._props._title,
-    vertex: 1,
-    style: {},
-  },
-  entity: {
-    style: {
-      rounded: 1,
-      whiteSpace: 'wrap',
-      verticalAlign: 'middle',
-      align: 'center',
-    },
-  },
-  container: {
-    style: {
-      verticalAlign: 'top',
-      aspect: 'fixed',
-      align: 'center',
-      spacingLeft: 5,
-      spacingRight: 5,
-      spacingBottom: 5,
-    },
-  },
-  geometry: {
-    as: 'geometry',
-  },
-  dimension: {
-    boxWidth: 60,
-    boxHeight: 60,
-    textHeight: 20,
-    padding: {
-      top: 15,
-      bottom: 15,
-      left: 15,
-      right: 15,
-    },
-    margin: {
-      top: 15,
-      bottom: 15,
-      left: 15,
-      right: 15,
-    },
-  },
-}
-
-export const defaultDependencyProps: any = {
-  dependency: {
-    id: (node: base.NodeTree) => node._props._id,
-    source: (node: DrawioNodeTree) =>
-      (node._props! as any)._source?._props?._id,
-    target: (node: DrawioNodeTree) =>
-      (node._props! as any)._target?._props?._id,
-    parent: 'root',
-    edge: 1,
-    style: {},
-  },
-  geometry: {
-    relative: 1,
-    as: 'geometry',
-  },
-  dimension: {
-    arrowSpace: 10,
-  },
-}
-
 function resolve(_props: DrawioNodeProps, options: DrawioRenderOptions) {
   const drawioConfig = base.DiagramNodeSchema.parse(_props)
+
+  const defaultDiagramOptions = {
+    flags: {
+      isDirectionVertical: false,
+    },
+    element: {
+      id: () => _props._id,
+      parent: () => _props._node._parent!._props._id,
+      value: () => _props._title,
+      vertex: 1,
+      style: {},
+    },
+    entity: {
+      style: {
+        rounded: 1,
+        whiteSpace: 'wrap',
+        verticalAlign: 'middle',
+        align: 'center',
+      },
+    },
+    container: {
+      style: {
+        verticalAlign: 'top',
+        aspect: 'fixed',
+        align: 'center',
+        spacingLeft: 5,
+        spacingRight: 5,
+        spacingBottom: 5,
+      },
+    },
+    geometry: {
+      as: 'geometry',
+    },
+    dimension: {
+      boxWidth: 60,
+      boxHeight: 60,
+      textHeight: 20,
+      padding: {
+        top: 15,
+        bottom: 15,
+        left: 15,
+        right: 15,
+      },
+      margin: {
+        top: 15,
+        bottom: 15,
+        left: 15,
+        right: 15,
+      },
+    },
+  }
+
+  const defaultDependencyProps: any = {
+    dependency: {
+      id: () => _props._id,
+      source: () => (_props._source as any)?._props?._id,
+      target: () => (_props._target as any)?._props?._id,
+      parent: 'root',
+      edge: 1,
+      style: {},
+    },
+    geometry: {
+      relative: 1,
+      as: 'geometry',
+    },
+    dimension: {
+      arrowSpace: 10,
+    },
+  }
 
   const configs: base.Props[] = []
   if (_props._isDependency) {

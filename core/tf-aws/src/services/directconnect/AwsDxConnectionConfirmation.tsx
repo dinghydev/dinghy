@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection_confirmation
-
 export const InputSchema = z.object({
   connection_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection_confirmation
 
 export function AwsDxConnectionConfirmation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,12 @@ export function AwsDxConnectionConfirmation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxConnectionConfirmation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxConnectionConfirmation, node, id)
+export const useAwsDxConnectionConfirmation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDxConnectionConfirmation, idFilter, baseNode)
 
-export const useAwsDxConnectionConfirmations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxConnectionConfirmation, node, id)
+export const useAwsDxConnectionConfirmations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDxConnectionConfirmation, idFilter, baseNode)

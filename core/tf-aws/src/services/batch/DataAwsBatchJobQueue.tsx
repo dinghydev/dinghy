@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsBatchJobQueue } from './AwsBatchJobQueue.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/batch_job_queue
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/batch_job_queue
 
 export function DataAwsBatchJobQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,8 @@ export function DataAwsBatchJobQueue(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBatchJobQueue = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBatchJobQueue, node, id)
+export const useDataAwsBatchJobQueue = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsBatchJobQueue, idFilter, baseNode)
 
-export const useDataAwsBatchJobQueues = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBatchJobQueue, node, id)
+export const useDataAwsBatchJobQueues = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsBatchJobQueue, idFilter, baseNode)

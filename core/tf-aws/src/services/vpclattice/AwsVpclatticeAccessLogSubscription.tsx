@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_access_log_subscription
 
 export const InputSchema = z.object({
   destination_arn: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   service_network_log_type: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_access_log_subscription
 
 export function AwsVpclatticeAccessLogSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,11 +53,21 @@ export function AwsVpclatticeAccessLogSubscription(props: Partial<InputProps>) {
 }
 
 export const useAwsVpclatticeAccessLogSubscription = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpclatticeAccessLogSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpclatticeAccessLogSubscription,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpclatticeAccessLogSubscriptions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsVpclatticeAccessLogSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpclatticeAccessLogSubscription,
+    idFilter,
+    baseNode,
+  )

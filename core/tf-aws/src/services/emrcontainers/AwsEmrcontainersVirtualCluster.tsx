@@ -3,17 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emrcontainers_virtual_cluster
-
 export const InputSchema = z.object({
   container_provider: resolvableValue(z.object({
     id: z.string(),
     type: z.string(),
+    info: z.object({
+      eks_info: z.object({
+        namespace: z.string().optional(),
+      }),
+    }),
   })),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -23,7 +27,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emrcontainers_virtual_cluster
 
 export function AwsEmrcontainersVirtualCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +63,14 @@ export function AwsEmrcontainersVirtualCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrcontainersVirtualCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrcontainersVirtualCluster, node, id)
+export const useAwsEmrcontainersVirtualCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsEmrcontainersVirtualCluster, idFilter, baseNode)
 
-export const useAwsEmrcontainersVirtualClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrcontainersVirtualCluster, node, id)
+export const useAwsEmrcontainersVirtualClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEmrcontainersVirtualCluster, idFilter, baseNode)

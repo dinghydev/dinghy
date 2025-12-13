@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_target
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -42,6 +41,24 @@ export const InputSchema = z.object({
       tags: z.record(z.string(), z.string()).optional(),
       task_count: z.number().optional(),
       task_definition_arn: z.string(),
+      capacity_provider_strategy: z.object({
+        base: z.number().optional(),
+        capacity_provider: z.string(),
+        weight: z.number().optional(),
+      }).array().optional(),
+      network_configuration: z.object({
+        assign_public_ip: z.boolean().optional(),
+        security_groups: z.string().array().optional(),
+        subnets: z.string().array(),
+      }).optional(),
+      ordered_placement_strategy: z.object({
+        field: z.string().optional(),
+        type: z.string(),
+      }).array().optional(),
+      placement_constraint: z.object({
+        expression: z.string().optional(),
+        type: z.string(),
+      }).array().optional(),
     }).optional(),
   ),
   event_bus_name: resolvableValue(z.string().optional()),
@@ -89,7 +106,7 @@ export const InputSchema = z.object({
     z.object({
       key: z.string(),
       values: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   sagemaker_pipeline_target: resolvableValue(
     z.object({
@@ -105,7 +122,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   target_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -125,6 +142,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_target
 
 export function AwsCloudwatchEventTarget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -144,8 +164,12 @@ export function AwsCloudwatchEventTarget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventTarget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchEventTarget, node, id)
+export const useAwsCloudwatchEventTarget = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchEventTarget, idFilter, baseNode)
 
-export const useAwsCloudwatchEventTargets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventTarget, node, id)
+export const useAwsCloudwatchEventTargets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudwatchEventTarget, idFilter, baseNode)

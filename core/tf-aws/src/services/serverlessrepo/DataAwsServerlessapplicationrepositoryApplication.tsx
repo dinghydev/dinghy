@@ -3,23 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/serverlessapplicationrepository_application
-
 export const InputSchema = z.object({
+  application_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   semantic_version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_id: z.string().optional(),
   name: z.string().optional(),
-  required_capabilities: z.string().array().optional(),
+  required_capabilities: z.set(z.string()).optional(),
   source_code_url: z.string().optional(),
   template_url: z.string().optional(),
 })
@@ -31,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/serverlessapplicationrepository_application
 
 export function DataAwsServerlessapplicationrepositoryApplication(
   props: Partial<InputProps>,
@@ -52,21 +55,21 @@ export function DataAwsServerlessapplicationrepositoryApplication(
 }
 
 export const useDataAwsServerlessapplicationrepositoryApplication = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsServerlessapplicationrepositoryApplication,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsServerlessapplicationrepositoryApplications = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServerlessapplicationrepositoryApplication,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

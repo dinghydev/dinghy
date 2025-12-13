@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/amplify_app
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -43,7 +42,7 @@ export const InputSchema = z.object({
       source: z.string(),
       status: z.string().optional(),
       target: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   enable_auto_branch_creation: resolvableValue(z.boolean().optional()),
@@ -64,7 +63,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   repository: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -86,6 +85,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/amplify_app
 
 export function AwsAmplifyApp(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -104,8 +106,8 @@ export function AwsAmplifyApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmplifyApp = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAmplifyApp, node, id)
+export const useAwsAmplifyApp = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAmplifyApp, idFilter, baseNode)
 
-export const useAwsAmplifyApps = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAmplifyApp, node, id)
+export const useAwsAmplifyApps = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAmplifyApp, idFilter, baseNode)

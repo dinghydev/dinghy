@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_contributor_insight_rule
 
 export const InputSchema = z.object({
   rule_definition: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   rule_state: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   resource_arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_contributor_insight_rule
 
 export function AwsCloudwatchContributorInsightRule(
   props: Partial<InputProps>,
@@ -51,11 +53,21 @@ export function AwsCloudwatchContributorInsightRule(
 }
 
 export const useAwsCloudwatchContributorInsightRule = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCloudwatchContributorInsightRule, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchContributorInsightRule,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudwatchContributorInsightRules = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCloudwatchContributorInsightRule, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchContributorInsightRule,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_thing_group
 
 export const InputSchema = z.object({
   metadata: resolvableValue(
@@ -26,12 +25,15 @@ export const InputSchema = z.object({
   properties: resolvableValue(
     z.object({
       description: z.string().optional(),
+      attribute_payload: z.object({
+        attributes: z.record(z.string(), z.string()).optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_thing_group
 
 export function AwsIotThingGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +69,8 @@ export function AwsIotThingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotThingGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotThingGroup, node, id)
+export const useAwsIotThingGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotThingGroup, idFilter, baseNode)
 
-export const useAwsIotThingGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotThingGroup, node, id)
+export const useAwsIotThingGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIotThingGroup, idFilter, baseNode)

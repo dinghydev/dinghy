@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_delivery_channel
 
 export const InputSchema = z.object({
   s3_bucket_name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   sns_topic_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_delivery_channel
 
 export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,12 @@ export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigDeliveryChannel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigDeliveryChannel, node, id)
+export const useAwsConfigDeliveryChannel = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsConfigDeliveryChannel, idFilter, baseNode)
 
-export const useAwsConfigDeliveryChannels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConfigDeliveryChannel, node, id)
+export const useAwsConfigDeliveryChannels = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsConfigDeliveryChannel, idFilter, baseNode)

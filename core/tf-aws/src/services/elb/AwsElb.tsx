@@ -3,14 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elb
-
 export const InputSchema = z.object({
+  listener: resolvableValue(
+    z.object({
+      instance_port: z.number(),
+      instance_protocol: z.string(),
+      lb_port: z.number(),
+      lb_protocol: z.string(),
+      ssl_certificate_id: z.string().optional(),
+    }).array(),
+  ),
   access_logs: resolvableValue(
     z.object({
       bucket: z.string(),
@@ -34,16 +42,9 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   idle_timeout: resolvableValue(z.number().optional()),
+  instances: resolvableValue(z.string().array().optional()),
   internal: resolvableValue(z.boolean().optional()),
-  listener: resolvableValue(
-    z.object({
-      instance_port: z.number(),
-      instance_protocol: z.string(),
-      lb_port: z.number(),
-      lb_protocol: z.string(),
-      ssl_certificate_id: z.string().optional(),
-    }).array(),
-  ),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   security_groups: resolvableValue(z.string().array().optional()),
@@ -55,13 +56,13 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
   id: z.string().optional(),
-  instances: z.string().array().optional(),
+  instances: z.set(z.string()).optional(),
   name: z.string().optional(),
   source_security_group: z.string().optional(),
   source_security_group_id: z.string().optional(),
@@ -76,6 +77,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elb
 
 export function AwsElb(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -94,8 +98,8 @@ export function AwsElb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElb = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElb, node, id)
+export const useAwsElb = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsElb, idFilter, baseNode)
 
-export const useAwsElbs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElb, node, id)
+export const useAwsElbs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsElb, idFilter, baseNode)

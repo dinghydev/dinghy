@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_infrastructure_configuration
 
 export const InputSchema = z.object({
   instance_profile_name: resolvableValue(z.string()),
@@ -45,7 +44,7 @@ export const InputSchema = z.object({
   subnet_id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   terminate_instance_on_failure: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -67,6 +66,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_infrastructure_configuration
 
 export function AwsImagebuilderInfrastructureConfiguration(
   props: Partial<InputProps>,
@@ -89,21 +91,21 @@ export function AwsImagebuilderInfrastructureConfiguration(
 }
 
 export const useAwsImagebuilderInfrastructureConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsImagebuilderInfrastructureConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsImagebuilderInfrastructureConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsImagebuilderInfrastructureConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

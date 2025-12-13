@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamUserSshKey } from './AwsIamUserSshKey.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_user_ssh_key
-
 export const InputSchema = z.object({
   encoding: resolvableValue(z.string()),
   ssh_public_key_id: resolvableValue(z.string()),
   username: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   fingerprint: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_user_ssh_key
 
 export function DataAwsIamUserSshKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function DataAwsIamUserSshKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamUserSshKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamUserSshKey, node, id)
+export const useDataAwsIamUserSshKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsIamUserSshKey, idFilter, baseNode)
 
-export const useDataAwsIamUserSshKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamUserSshKey, node, id)
+export const useDataAwsIamUserSshKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamUserSshKey, idFilter, baseNode)

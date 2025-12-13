@@ -3,19 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscalingplans_scaling_plan
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
   application_source: resolvableValue(z.object({
     cloudformation_stack_arn: z.string().optional(),
+    tag_filter: z.object({
+      key: z.string(),
+      values: z.string().array().optional(),
+    }).array().optional(),
   })),
-  region: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string()),
   scaling_instruction: resolvableValue(
     z.object({
       disable_dynamic_scaling: z.boolean().optional(),
@@ -29,9 +31,39 @@ export const InputSchema = z.object({
       scaling_policy_update_behavior: z.string().optional(),
       scheduled_action_buffer_time: z.number().optional(),
       service_namespace: z.string(),
+      customized_load_metric_specification: z.object({
+        dimensions: z.record(z.string(), z.string()).optional(),
+        metric_name: z.string(),
+        namespace: z.string(),
+        statistic: z.string(),
+        unit: z.string().optional(),
+      }).optional(),
+      predefined_load_metric_specification: z.object({
+        predefined_load_metric_type: z.string(),
+        resource_label: z.string().optional(),
+      }).optional(),
+      target_tracking_configuration: z.object({
+        disable_scale_in: z.boolean().optional(),
+        estimated_instance_warmup: z.number().optional(),
+        scale_in_cooldown: z.number().optional(),
+        scale_out_cooldown: z.number().optional(),
+        target_value: z.number(),
+        customized_scaling_metric_specification: z.object({
+          dimensions: z.record(z.string(), z.string()).optional(),
+          metric_name: z.string(),
+          namespace: z.string(),
+          statistic: z.string(),
+          unit: z.string().optional(),
+        }).optional(),
+        predefined_scaling_metric_specification: z.object({
+          predefined_scaling_metric_type: z.string(),
+          resource_label: z.string().optional(),
+        }).optional(),
+      }).array(),
     }).array(),
   ),
-})
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -45,6 +77,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscalingplans_scaling_plan
 
 export function AwsAutoscalingplansScalingPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +98,14 @@ export function AwsAutoscalingplansScalingPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingplansScalingPlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingplansScalingPlan, node, id)
+export const useAwsAutoscalingplansScalingPlan = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsAutoscalingplansScalingPlan, idFilter, baseNode)
 
-export const useAwsAutoscalingplansScalingPlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingplansScalingPlan, node, id)
+export const useAwsAutoscalingplansScalingPlans = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAutoscalingplansScalingPlan, idFilter, baseNode)

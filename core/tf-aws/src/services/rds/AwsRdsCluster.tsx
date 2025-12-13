@@ -3,22 +3,27 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster
-
 export const InputSchema = z.object({
+  engine: resolvableValue(z.string()),
   allocated_storage: resolvableValue(z.number().optional()),
   allow_major_version_upgrade: resolvableValue(z.boolean().optional()),
   apply_immediately: resolvableValue(z.boolean().optional()),
+  availability_zones: resolvableValue(z.string().array().optional()),
   backtrack_window: resolvableValue(z.number().optional()),
+  backup_retention_period: resolvableValue(z.number().optional()),
+  ca_certificate_identifier: resolvableValue(z.string().optional()),
+  cluster_identifier: resolvableValue(z.string().optional()),
   cluster_identifier_prefix: resolvableValue(z.string().optional()),
   cluster_scalability_type: resolvableValue(z.string().optional()),
   copy_tags_to_snapshot: resolvableValue(z.boolean().optional()),
   database_insights_mode: resolvableValue(z.string().optional()),
+  database_name: resolvableValue(z.string().optional()),
   db_cluster_instance_class: resolvableValue(z.string().optional()),
   db_cluster_parameter_group_name: resolvableValue(z.string().optional()),
   db_instance_parameter_group_name: resolvableValue(z.string().optional()),
@@ -48,13 +53,18 @@ export const InputSchema = z.object({
   master_password_wo: resolvableValue(z.string().optional()),
   master_password_wo_version: resolvableValue(z.number().optional()),
   master_user_secret_kms_key_id: resolvableValue(z.string().optional()),
+  master_username: resolvableValue(z.string().optional()),
   monitoring_interval: resolvableValue(z.number().optional()),
   monitoring_role_arn: resolvableValue(z.string().optional()),
   network_type: resolvableValue(z.string().optional()),
   performance_insights_enabled: resolvableValue(z.boolean().optional()),
   performance_insights_kms_key_id: resolvableValue(z.string().optional()),
   performance_insights_retention_period: resolvableValue(z.number().optional()),
+  port: resolvableValue(z.number().optional()),
+  preferred_backup_window: resolvableValue(z.string().optional()),
+  preferred_maintenance_window: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  replication_source_identifier: resolvableValue(z.string().optional()),
   restore_to_point_in_time: resolvableValue(
     z.object({
       restore_to_time: z.string().optional(),
@@ -93,6 +103,7 @@ export const InputSchema = z.object({
   skip_final_snapshot: resolvableValue(z.boolean().optional()),
   snapshot_identifier: resolvableValue(z.string().optional()),
   source_region: resolvableValue(z.string().optional()),
+  storage_encrypted: resolvableValue(z.boolean().optional()),
   storage_type: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -103,16 +114,16 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  availability_zones: z.string().array().optional(),
+  availability_zones: z.set(z.string()).optional(),
   backup_retention_period: z.number().optional(),
   ca_certificate_identifier: z.string().optional(),
   ca_certificate_valid_till: z.string().optional(),
   cluster_identifier: z.string().optional(),
-  cluster_members: z.string().array().optional(),
+  cluster_members: z.set(z.string()).optional(),
   cluster_resource_id: z.string().optional(),
   database_name: z.string().optional(),
   endpoint: z.string().optional(),
@@ -142,6 +153,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster
 
 export function AwsRdsCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -160,8 +174,8 @@ export function AwsRdsCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsCluster, node, id)
+export const useAwsRdsCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRdsCluster, idFilter, baseNode)
 
-export const useAwsRdsClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsCluster, node, id)
+export const useAwsRdsClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRdsCluster, idFilter, baseNode)

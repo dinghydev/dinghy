@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_multi_region_access_point_policy
 
 export const InputSchema = z.object({
   details: resolvableValue(z.object({
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   established: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_multi_region_access_point_policy
 
 export function AwsS3controlMultiRegionAccessPointPolicy(
   props: Partial<InputProps>,
@@ -59,13 +61,21 @@ export function AwsS3controlMultiRegionAccessPointPolicy(
 }
 
 export const useAwsS3controlMultiRegionAccessPointPolicy = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsS3controlMultiRegionAccessPointPolicy, node, id)
+  useTypedNode<OutputProps>(
+    AwsS3controlMultiRegionAccessPointPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3controlMultiRegionAccessPointPolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3controlMultiRegionAccessPointPolicy, node, id)
+  useTypedNodes<OutputProps>(
+    AwsS3controlMultiRegionAccessPointPolicy,
+    idFilter,
+    baseNode,
+  )

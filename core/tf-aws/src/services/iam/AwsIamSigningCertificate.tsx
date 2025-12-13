@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_signing_certificate
-
 export const InputSchema = z.object({
   certificate_body: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
   status: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   certificate_id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_signing_certificate
 
 export function AwsIamSigningCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,12 @@ export function AwsIamSigningCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamSigningCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamSigningCertificate, node, id)
+export const useAwsIamSigningCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIamSigningCertificate, idFilter, baseNode)
 
-export const useAwsIamSigningCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamSigningCertificate, node, id)
+export const useAwsIamSigningCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIamSigningCertificate, idFilter, baseNode)

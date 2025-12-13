@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKinesisStreamConsumer } from './AwsKinesisStreamConsumer.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kinesis_stream_consumer
 
 export const InputSchema = z.object({
   stream_arn: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   creation_timestamp: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kinesis_stream_consumer
 
 export function DataAwsKinesisStreamConsumer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,13 @@ export function DataAwsKinesisStreamConsumer(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKinesisStreamConsumer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsKinesisStreamConsumer, node, id)
+export const useDataAwsKinesisStreamConsumer = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsKinesisStreamConsumer, idFilter, baseNode)
 
-export const useDataAwsKinesisStreamConsumers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKinesisStreamConsumer, node, id)
+export const useDataAwsKinesisStreamConsumers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsKinesisStreamConsumer, idFilter, baseNode)

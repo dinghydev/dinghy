@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElasticacheServerlessCache } from './AwsElasticacheServerlessCache.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_serverless_cache
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_serverless_cache
 
 export function DataAwsElasticacheServerlessCache(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,10 +77,22 @@ export function DataAwsElasticacheServerlessCache(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElasticacheServerlessCache = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElasticacheServerlessCache, node, id)
+export const useDataAwsElasticacheServerlessCache = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElasticacheServerlessCache,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsElasticacheServerlessCaches = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsElasticacheServerlessCache, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElasticacheServerlessCache,
+    idFilter,
+    baseNode,
+  )

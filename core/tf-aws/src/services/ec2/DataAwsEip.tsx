@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEip } from './AwsEip.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eip
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -19,13 +18,16 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
+  public_ip: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   association_id: z.string().optional(),
@@ -53,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eip
 
 export function DataAwsEip(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +76,8 @@ export function DataAwsEip(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEip = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEip, node, id)
+export const useDataAwsEip = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEip, idFilter, baseNode)
 
-export const useDataAwsEips = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEip, node, id)
+export const useDataAwsEips = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEip, idFilter, baseNode)

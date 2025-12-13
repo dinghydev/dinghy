@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_application
 
 export const InputSchema = z.object({
   application_provider_arn: resolvableValue(z.string()),
@@ -19,12 +18,16 @@ export const InputSchema = z.object({
   portal_options: resolvableValue(
     z.object({
       visibility: z.string().optional(),
-    }).optional(),
+      sign_in_options: z.object({
+        application_url: z.string().optional(),
+        origin: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_account: z.string().optional(),
@@ -47,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_application
 
 export function AwsSsoadminApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +72,8 @@ export function AwsSsoadminApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsoadminApplication = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsoadminApplication, node, id)
+export const useAwsSsoadminApplication = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsoadminApplication, idFilter, baseNode)
 
-export const useAwsSsoadminApplications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsoadminApplication, node, id)
+export const useAwsSsoadminApplications = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsoadminApplication, idFilter, baseNode)

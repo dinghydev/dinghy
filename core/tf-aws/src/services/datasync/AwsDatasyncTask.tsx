@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_task
 
 export const InputSchema = z.object({
   destination_location_arn: resolvableValue(z.string()),
@@ -59,6 +58,17 @@ export const InputSchema = z.object({
       output_type: z.string().optional(),
       report_level: z.string().optional(),
       s3_object_versioning: z.string().optional(),
+      report_overrides: z.object({
+        deleted_override: z.string().optional(),
+        skipped_override: z.string().optional(),
+        transferred_override: z.string().optional(),
+        verified_override: z.string().optional(),
+      }).optional(),
+      s3_destination: z.object({
+        bucket_access_role_arn: z.string(),
+        s3_bucket_arn: z.string(),
+        subdirectory: z.string().optional(),
+      }),
     }).optional(),
   ),
   timeouts: resolvableValue(
@@ -66,7 +76,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -86,6 +96,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_task
 
 export function AwsDatasyncTask(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -105,8 +118,8 @@ export function AwsDatasyncTask(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncTask = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatasyncTask, node, id)
+export const useAwsDatasyncTask = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatasyncTask, idFilter, baseNode)
 
-export const useAwsDatasyncTasks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatasyncTask, node, id)
+export const useAwsDatasyncTasks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatasyncTask, idFilter, baseNode)

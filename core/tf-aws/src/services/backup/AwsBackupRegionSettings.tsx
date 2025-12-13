@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_region_settings
 
 export const InputSchema = z.object({
   resource_type_opt_in_preference: resolvableValue(
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   resource_type_management_preference: resolvableValue(
     z.record(z.string(), z.boolean()).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_region_settings
 
 export function AwsBackupRegionSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,5 +50,7 @@ export function AwsBackupRegionSettings(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupRegionSettingss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupRegionSettings, node, id)
+export const useAwsBackupRegionSettingss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBackupRegionSettings, idFilter, baseNode)

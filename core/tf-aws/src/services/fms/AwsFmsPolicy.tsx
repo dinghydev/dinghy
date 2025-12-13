@@ -3,17 +3,64 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fms_policy
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   exclude_resource_tags: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
+  security_service_policy_data: resolvableValue(z.object({
+    managed_service_data: z.string().optional(),
+    type: z.string(),
+    policy_option: z.object({
+      network_acl_common_policy: z.object({
+        network_acl_entry_set: z.object({
+          force_remediate_for_first_entries: z.boolean(),
+          force_remediate_for_last_entries: z.boolean(),
+          first_entry: z.object({
+            cidr_block: z.string().optional(),
+            egress: z.boolean(),
+            ipv6_cidr_block: z.string().optional(),
+            protocol: z.string(),
+            rule_action: z.string(),
+            icmp_type_code: z.object({
+              code: z.number().optional(),
+              type: z.number().optional(),
+            }).array().optional(),
+            port_range: z.object({
+              from: z.number().optional(),
+              to: z.number().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          last_entry: z.object({
+            cidr_block: z.string().optional(),
+            egress: z.boolean(),
+            ipv6_cidr_block: z.string().optional(),
+            protocol: z.string(),
+            rule_action: z.string(),
+            icmp_type_code: z.object({
+              code: z.number().optional(),
+              type: z.number().optional(),
+            }).array().optional(),
+            port_range: z.object({
+              from: z.number().optional(),
+              to: z.number().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).optional(),
+      }).optional(),
+      network_firewall_policy: z.object({
+        firewall_deployment_model: z.string().optional(),
+      }).optional(),
+      third_party_firewall_policy: z.object({
+        firewall_deployment_model: z.string().optional(),
+      }).optional(),
+    }).optional(),
+  })),
   delete_all_policy_resources: resolvableValue(z.boolean().optional()),
   delete_unused_fm_managed_resources: resolvableValue(z.boolean().optional()),
   description: resolvableValue(z.string().optional()),
@@ -36,12 +83,8 @@ export const InputSchema = z.object({
   resource_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   resource_type: resolvableValue(z.string().optional()),
   resource_type_list: resolvableValue(z.string().array().optional()),
-  security_service_policy_data: resolvableValue(z.object({
-    managed_service_data: z.string().optional(),
-    type: z.string(),
-  })),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -56,6 +99,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fms_policy
 
 export function AwsFmsPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +120,8 @@ export function AwsFmsPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFmsPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFmsPolicy, node, id)
+export const useAwsFmsPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFmsPolicy, idFilter, baseNode)
 
-export const useAwsFmsPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFmsPolicy, node, id)
+export const useAwsFmsPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFmsPolicy, idFilter, baseNode)

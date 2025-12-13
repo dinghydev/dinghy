@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_logging_options
 
 export const InputSchema = z.object({
   default_log_level: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   disable_all_logs: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_logging_options
 
 export function AwsIotLoggingOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,5 +46,5 @@ export function AwsIotLoggingOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotLoggingOptions = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotLoggingOptions, node, id)
+export const useAwsIotLoggingOptions = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotLoggingOptions, idFilter, baseNode)

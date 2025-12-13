@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_cors_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   ),
   expected_bucket_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_cors_configuration
 
 export function AwsS3BucketCorsConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,13 @@ export function AwsS3BucketCorsConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketCorsConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketCorsConfiguration, node, id)
+export const useAwsS3BucketCorsConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsS3BucketCorsConfiguration, idFilter, baseNode)
 
-export const useAwsS3BucketCorsConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketCorsConfiguration, node, id)
+export const useAwsS3BucketCorsConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsS3BucketCorsConfiguration, idFilter, baseNode)

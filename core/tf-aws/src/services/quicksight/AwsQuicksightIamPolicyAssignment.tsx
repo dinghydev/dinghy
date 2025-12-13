@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_iam_policy_assignment
 
 export const InputSchema = z.object({
   assignment_name: resolvableValue(z.string()),
@@ -18,12 +17,12 @@ export const InputSchema = z.object({
     z.object({
       group: z.string().array().optional(),
       user: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   namespace: resolvableValue(z.string().optional()),
   policy_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   assignment_id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_iam_policy_assignment
 
 export function AwsQuicksightIamPolicyAssignment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,22 @@ export function AwsQuicksightIamPolicyAssignment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightIamPolicyAssignment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightIamPolicyAssignment, node, id)
+export const useAwsQuicksightIamPolicyAssignment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightIamPolicyAssignment,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsQuicksightIamPolicyAssignments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightIamPolicyAssignment, node, id)
+export const useAwsQuicksightIamPolicyAssignments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightIamPolicyAssignment,
+    idFilter,
+    baseNode,
+  )

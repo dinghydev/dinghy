@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderComponent } from './AwsImagebuilderComponent.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_component
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   change_description: z.string().optional(),
@@ -26,7 +25,7 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
   owner: z.string().optional(),
   platform: z.string().optional(),
-  supported_os_versions: z.string().array().optional(),
+  supported_os_versions: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
   version: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_component
 
 export function DataAwsImagebuilderComponent(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,13 @@ export function DataAwsImagebuilderComponent(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsImagebuilderComponent = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsImagebuilderComponent, node, id)
+export const useDataAwsImagebuilderComponent = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsImagebuilderComponent, idFilter, baseNode)
 
-export const useDataAwsImagebuilderComponents = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsImagebuilderComponent, node, id)
+export const useDataAwsImagebuilderComponents = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsImagebuilderComponent, idFilter, baseNode)

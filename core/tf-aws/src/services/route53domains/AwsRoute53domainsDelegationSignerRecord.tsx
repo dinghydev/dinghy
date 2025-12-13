@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_delegation_signer_record
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
       algorithm: z.number(),
       flags: z.number(),
       public_key: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   dnssec_key_id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_delegation_signer_record
 
 export function AwsRoute53domainsDelegationSignerRecord(
   props: Partial<InputProps>,
@@ -60,13 +62,21 @@ export function AwsRoute53domainsDelegationSignerRecord(
 }
 
 export const useAwsRoute53domainsDelegationSignerRecord = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53domainsDelegationSignerRecord, node, id)
+  useTypedNode<OutputProps>(
+    AwsRoute53domainsDelegationSignerRecord,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRoute53domainsDelegationSignerRecords = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsRoute53domainsDelegationSignerRecord, node, id)
+  useTypedNodes<OutputProps>(
+    AwsRoute53domainsDelegationSignerRecord,
+    idFilter,
+    baseNode,
+  )

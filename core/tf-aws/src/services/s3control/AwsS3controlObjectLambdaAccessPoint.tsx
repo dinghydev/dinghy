@@ -3,23 +3,31 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_object_lambda_access_point
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  account_id: resolvableValue(z.string().optional()),
   configuration: resolvableValue(z.object({
     allowed_features: z.string().array().optional(),
     cloud_watch_metrics_enabled: z.boolean().optional(),
     supporting_access_point: z.string(),
+    transformation_configuration: z.object({
+      actions: z.string().array(),
+      content_transformation: z.object({
+        aws_lambda: z.object({
+          function_arn: z.string(),
+          function_payload: z.string().optional(),
+        }),
+      }),
+    }).array(),
   })),
+  name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -34,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_object_lambda_access_point
 
 export function AwsS3controlObjectLambdaAccessPoint(
   props: Partial<InputProps>,
@@ -55,11 +66,21 @@ export function AwsS3controlObjectLambdaAccessPoint(
 }
 
 export const useAwsS3controlObjectLambdaAccessPoint = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsS3controlObjectLambdaAccessPoint, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3controlObjectLambdaAccessPoint,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3controlObjectLambdaAccessPoints = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsS3controlObjectLambdaAccessPoint, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3controlObjectLambdaAccessPoint,
+    idFilter,
+    baseNode,
+  )

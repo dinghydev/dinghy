@@ -2,17 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsTimestreamwriteTable } from './AwsTimestreamwriteTable.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/timestreamwrite_table
-
 export const InputSchema = z.object({
+  database_name: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/timestreamwrite_table
 
 export function DataAwsTimestreamwriteTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +74,12 @@ export function DataAwsTimestreamwriteTable(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsTimestreamwriteTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsTimestreamwriteTable, node, id)
+export const useDataAwsTimestreamwriteTable = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsTimestreamwriteTable, idFilter, baseNode)
 
-export const useDataAwsTimestreamwriteTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsTimestreamwriteTable, node, id)
+export const useDataAwsTimestreamwriteTables = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsTimestreamwriteTable, idFilter, baseNode)

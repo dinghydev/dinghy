@@ -2,24 +2,23 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMskVpcConnection } from './AwsMskVpcConnection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_vpc_connection
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   authentication: z.string().optional(),
-  client_subnets: z.string().array().optional(),
-  security_groups: z.string().array().optional(),
+  client_subnets: z.set(z.string()).optional(),
+  security_groups: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   target_cluster_arn: z.string().optional(),
   vpc_id: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_vpc_connection
 
 export function DataAwsMskVpcConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,10 @@ export function DataAwsMskVpcConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskVpcConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMskVpcConnection, node, id)
+export const useDataAwsMskVpcConnection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMskVpcConnection, idFilter, baseNode)
 
-export const useDataAwsMskVpcConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMskVpcConnection, node, id)
+export const useDataAwsMskVpcConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsMskVpcConnection, idFilter, baseNode)

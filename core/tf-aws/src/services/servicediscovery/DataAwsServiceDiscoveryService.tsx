@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsServiceDiscoveryService } from './AwsServiceDiscoveryService.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_discovery_service
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   namespace_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_discovery_service
 
 export function DataAwsServiceDiscoveryService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,14 @@ export function DataAwsServiceDiscoveryService(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsServiceDiscoveryService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsServiceDiscoveryService, node, id)
+export const useDataAwsServiceDiscoveryService = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsServiceDiscoveryService, idFilter, baseNode)
 
-export const useDataAwsServiceDiscoveryServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsServiceDiscoveryService, node, id)
+export const useDataAwsServiceDiscoveryServices = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsServiceDiscoveryService, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_instance_public_ports
 
 export const InputSchema = z.object({
   instance_name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
     }).array(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_instance_public_ports
 
 export function AwsLightsailInstancePublicPorts(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,5 +55,12 @@ export function AwsLightsailInstancePublicPorts(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailInstancePublicPortss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailInstancePublicPorts, node, id)
+export const useAwsLightsailInstancePublicPortss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailInstancePublicPorts,
+    idFilter,
+    baseNode,
+  )

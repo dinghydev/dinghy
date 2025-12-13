@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_channel_namespace
 
 export const InputSchema = z.object({
   api_id: resolvableValue(z.string()),
@@ -18,25 +17,37 @@ export const InputSchema = z.object({
     z.object({
       on_publish: z.object({
         behavior: z.string(),
-      }).optional(),
+        integration: z.object({
+          data_source_name: z.string(),
+          lambda_config: z.object({
+            invoke_type: z.string().optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
       on_subscribe: z.object({
         behavior: z.string(),
-      }).optional(),
-    }).optional(),
+        integration: z.object({
+          data_source_name: z.string(),
+          lambda_config: z.object({
+            invoke_type: z.string().optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   publish_auth_mode: resolvableValue(
     z.object({
       auth_type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   subscribe_auth_mode: resolvableValue(
     z.object({
       auth_type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   channel_namespace_arn: z.string().optional(),
@@ -50,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_channel_namespace
 
 export function AwsAppsyncChannelNamespace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +82,12 @@ export function AwsAppsyncChannelNamespace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncChannelNamespace = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncChannelNamespace, node, id)
+export const useAwsAppsyncChannelNamespace = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppsyncChannelNamespace, idFilter, baseNode)
 
-export const useAwsAppsyncChannelNamespaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncChannelNamespace, node, id)
+export const useAwsAppsyncChannelNamespaces = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppsyncChannelNamespace, idFilter, baseNode)

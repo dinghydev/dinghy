@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_account_setting_default
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   value: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_account_setting_default
 
 export function AwsEcsAccountSettingDefault(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsEcsAccountSettingDefault(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsAccountSettingDefault = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcsAccountSettingDefault, node, id)
+export const useAwsEcsAccountSettingDefault = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEcsAccountSettingDefault, idFilter, baseNode)
 
-export const useAwsEcsAccountSettingDefaults = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcsAccountSettingDefault, node, id)
+export const useAwsEcsAccountSettingDefaults = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEcsAccountSettingDefault, idFilter, baseNode)

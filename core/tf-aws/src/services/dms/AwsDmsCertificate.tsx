@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_certificate
 
 export const InputSchema = z.object({
   certificate_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   certificate_arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_certificate
 
 export function AwsDmsCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsDmsCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsCertificate, node, id)
+export const useAwsDmsCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDmsCertificate, idFilter, baseNode)
 
-export const useAwsDmsCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsCertificate, node, id)
+export const useAwsDmsCertificates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDmsCertificate, idFilter, baseNode)

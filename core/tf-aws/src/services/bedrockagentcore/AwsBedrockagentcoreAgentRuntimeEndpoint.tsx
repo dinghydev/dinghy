@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_agent_runtime_endpoint
 
 export const InputSchema = z.object({
   agent_runtime_id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   agent_runtime_arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_agent_runtime_endpoint
 
 export function AwsBedrockagentcoreAgentRuntimeEndpoint(
   props: Partial<InputProps>,
@@ -60,13 +62,21 @@ export function AwsBedrockagentcoreAgentRuntimeEndpoint(
 }
 
 export const useAwsBedrockagentcoreAgentRuntimeEndpoint = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsBedrockagentcoreAgentRuntimeEndpoint, node, id)
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreAgentRuntimeEndpoint,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsBedrockagentcoreAgentRuntimeEndpoints = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentcoreAgentRuntimeEndpoint, node, id)
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreAgentRuntimeEndpoint,
+    idFilter,
+    baseNode,
+  )

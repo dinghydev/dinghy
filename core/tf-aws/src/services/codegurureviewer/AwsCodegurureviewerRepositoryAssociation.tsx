@@ -3,30 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codegurureviewer_repository_association
-
 export const InputSchema = z.object({
-  s3_repository_details: resolvableValue(
-    z.object({
-      bucket_name: z.string(),
-      code_artifacts: z.object({
-        build_artifacts_object_key: z.string(),
-        source_code_artifacts_object_key: z.string(),
-      }).array(),
-    }).array(),
-  ),
-  kms_key_details: resolvableValue(
-    z.object({
-      encryption_option: z.string().optional(),
-      kms_key_id: z.string().optional(),
-    }).optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
   repository: resolvableValue(z.object({
     bitbucket: z.object({
       connection_arn: z.string(),
@@ -46,6 +29,22 @@ export const InputSchema = z.object({
       name: z.string(),
     }).optional(),
   })),
+  s3_repository_details: resolvableValue(
+    z.object({
+      bucket_name: z.string(),
+      code_artifacts: z.object({
+        build_artifacts_object_key: z.string(),
+        source_code_artifacts_object_key: z.string(),
+      }).array(),
+    }).array(),
+  ),
+  kms_key_details: resolvableValue(
+    z.object({
+      encryption_option: z.string().optional(),
+      kms_key_id: z.string().optional(),
+    }).optional(),
+  ),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -55,7 +54,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -81,6 +80,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codegurureviewer_repository_association
 
 export function AwsCodegurureviewerRepositoryAssociation(
   props: Partial<InputProps>,
@@ -103,13 +105,21 @@ export function AwsCodegurureviewerRepositoryAssociation(
 }
 
 export const useAwsCodegurureviewerRepositoryAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCodegurureviewerRepositoryAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsCodegurureviewerRepositoryAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCodegurureviewerRepositoryAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodegurureviewerRepositoryAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCodegurureviewerRepositoryAssociation,
+    idFilter,
+    baseNode,
+  )

@@ -3,22 +3,80 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_listener
-
 export const InputSchema = z.object({
+  default_action: resolvableValue(
+    z.object({
+      order: z.number().optional(),
+      target_group_arn: z.string().optional(),
+      type: z.string(),
+      authenticate_cognito: z.object({
+        authentication_request_extra_params: z.record(z.string(), z.string())
+          .optional(),
+        on_unauthenticated_request: z.string().optional(),
+        scope: z.string().optional(),
+        session_cookie_name: z.string().optional(),
+        session_timeout: z.number().optional(),
+        user_pool_arn: z.string(),
+        user_pool_client_id: z.string(),
+        user_pool_domain: z.string(),
+      }).optional(),
+      authenticate_oidc: z.object({
+        authentication_request_extra_params: z.record(z.string(), z.string())
+          .optional(),
+        authorization_endpoint: z.string(),
+        client_id: z.string(),
+        client_secret: z.string(),
+        issuer: z.string(),
+        on_unauthenticated_request: z.string().optional(),
+        scope: z.string().optional(),
+        session_cookie_name: z.string().optional(),
+        session_timeout: z.number().optional(),
+        token_endpoint: z.string(),
+        user_info_endpoint: z.string(),
+      }).optional(),
+      fixed_response: z.object({
+        content_type: z.string(),
+        message_body: z.string().optional(),
+        status_code: z.string().optional(),
+      }).optional(),
+      forward: z.object({
+        stickiness: z.object({
+          duration: z.number(),
+          enabled: z.boolean().optional(),
+        }).optional(),
+        target_group: z.object({
+          arn: z.string(),
+          weight: z.number().optional(),
+        }).array(),
+      }).optional(),
+      jwt_validation: z.object({
+        issuer: z.string(),
+        jwks_endpoint: z.string(),
+        additional_claim: z.object({
+          format: z.string(),
+          name: z.string(),
+          values: z.string().array(),
+        }).array().optional(),
+      }).optional(),
+      redirect: z.object({
+        host: z.string().optional(),
+        path: z.string().optional(),
+        port: z.string().optional(),
+        protocol: z.string().optional(),
+        query: z.string().optional(),
+        status_code: z.string(),
+      }).optional(),
+    }).array(),
+  ),
   load_balancer_arn: resolvableValue(z.string()),
   alpn_policy: resolvableValue(z.string().optional()),
   certificate_arn: resolvableValue(z.string().optional()),
-  default_action: resolvableValue(z.object({
-    order: z.number().optional(),
-    target_group_arn: z.string().optional(),
-    type: z.string(),
-  })),
   id: resolvableValue(z.string().optional()),
   mutual_authentication: resolvableValue(
     z.object({
@@ -86,7 +144,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -105,6 +163,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_listener
 
 export function AwsLbListener(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -124,8 +185,8 @@ export function AwsLbListener(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbListener = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbListener, node, id)
+export const useAwsLbListener = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLbListener, idFilter, baseNode)
 
-export const useAwsLbListeners = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbListener, node, id)
+export const useAwsLbListeners = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLbListener, idFilter, baseNode)

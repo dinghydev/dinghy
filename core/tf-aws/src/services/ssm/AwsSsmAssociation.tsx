@@ -3,14 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_association
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   apply_only_at_cron_interval: resolvableValue(z.boolean().optional()),
   association_name: resolvableValue(z.string().optional()),
   automation_target_parameter_name: resolvableValue(z.string().optional()),
@@ -26,6 +26,7 @@ export const InputSchema = z.object({
       s3_region: z.string().optional(),
     }).optional(),
   ),
+  parameters: resolvableValue(z.record(z.string(), z.string()).optional()),
   region: resolvableValue(z.string().optional()),
   schedule_expression: resolvableValue(z.string().optional()),
   sync_compliance: resolvableValue(z.string().optional()),
@@ -34,10 +35,10 @@ export const InputSchema = z.object({
     z.object({
       key: z.string(),
       values: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   wait_for_success_timeout_seconds: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_association
 
 export function AwsSsmAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -80,8 +84,8 @@ export function AwsSsmAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmAssociation, node, id)
+export const useAwsSsmAssociation = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmAssociation, idFilter, baseNode)
 
-export const useAwsSsmAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmAssociation, node, id)
+export const useAwsSsmAssociations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmAssociation, idFilter, baseNode)

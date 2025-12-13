@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_route_server_vpc_association
 
 export const InputSchema = z.object({
   route_server_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_route_server_vpc_association
 
 export function AwsVpcRouteServerVpcAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,18 @@ export function AwsVpcRouteServerVpcAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcRouteServerVpcAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcRouteServerVpcAssociation, node, id)
+export const useAwsVpcRouteServerVpcAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsVpcRouteServerVpcAssociation, idFilter, baseNode)
 
-export const useAwsVpcRouteServerVpcAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcRouteServerVpcAssociation, node, id)
+export const useAwsVpcRouteServerVpcAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcRouteServerVpcAssociation,
+    idFilter,
+    baseNode,
+  )

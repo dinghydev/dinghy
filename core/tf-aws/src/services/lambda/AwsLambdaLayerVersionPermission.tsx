@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_layer_version_permission
 
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   organization_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_layer_version_permission
 
 export function AwsLambdaLayerVersionPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,18 @@ export function AwsLambdaLayerVersionPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaLayerVersionPermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaLayerVersionPermission, node, id)
+export const useAwsLambdaLayerVersionPermission = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsLambdaLayerVersionPermission, idFilter, baseNode)
 
-export const useAwsLambdaLayerVersionPermissions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaLayerVersionPermission, node, id)
+export const useAwsLambdaLayerVersionPermissions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLambdaLayerVersionPermission,
+    idFilter,
+    baseNode,
+  )

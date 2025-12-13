@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_risk_configuration
 
 export const InputSchema = z.object({
   user_pool_id: resolvableValue(z.string()),
@@ -32,6 +31,21 @@ export const InputSchema = z.object({
         from: z.string().optional(),
         reply_to: z.string().optional(),
         source_arn: z.string(),
+        block_email: z.object({
+          html_body: z.string(),
+          subject: z.string(),
+          text_body: z.string(),
+        }).optional(),
+        mfa_email: z.object({
+          html_body: z.string(),
+          subject: z.string(),
+          text_body: z.string(),
+        }).optional(),
+        no_action_email: z.object({
+          html_body: z.string(),
+          subject: z.string(),
+          text_body: z.string(),
+        }).optional(),
       }).optional(),
     }).optional(),
   ),
@@ -39,6 +53,9 @@ export const InputSchema = z.object({
   compromised_credentials_risk_configuration: resolvableValue(
     z.object({
       event_filter: z.string().array().optional(),
+      actions: z.object({
+        event_action: z.string(),
+      }),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -48,7 +65,7 @@ export const InputSchema = z.object({
       skipped_ip_range_list: z.string().array().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -61,6 +78,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_risk_configuration
 
 export function AwsCognitoRiskConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +99,12 @@ export function AwsCognitoRiskConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoRiskConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoRiskConfiguration, node, id)
+export const useAwsCognitoRiskConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCognitoRiskConfiguration, idFilter, baseNode)
 
-export const useAwsCognitoRiskConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoRiskConfiguration, node, id)
+export const useAwsCognitoRiskConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCognitoRiskConfiguration, idFilter, baseNode)

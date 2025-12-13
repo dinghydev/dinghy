@@ -2,27 +2,26 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderContainerRecipe } from './AwsImagebuilderContainerRecipe.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_container_recipe
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   component: z.object({
     component_arn: z.string(),
-    parameter: z.object({
+    parameter: z.set(z.object({
       name: z.string(),
       value: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
   container_type: z.string().optional(),
   date_created: z.string().optional(),
@@ -30,7 +29,7 @@ export const OutputSchema = z.object({
   dockerfile_template_data: z.string().optional(),
   encrypted: z.boolean().optional(),
   instance_configuration: z.object({
-    block_device_mapping: z.object({
+    block_device_mapping: z.set(z.object({
       device_name: z.string(),
       ebs: z.object({
         delete_on_termination: z.boolean(),
@@ -44,7 +43,7 @@ export const OutputSchema = z.object({
       }).array(),
       no_device: z.string(),
       virtual_name: z.string(),
-    }).array(),
+    })),
     image: z.string(),
   }).array().optional(),
   kms_key_id: z.string().optional(),
@@ -68,6 +67,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_container_recipe
 
 export function DataAwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,11 +89,21 @@ export function DataAwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
 }
 
 export const useDataAwsImagebuilderContainerRecipe = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsImagebuilderContainerRecipe, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsImagebuilderContainerRecipe,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsImagebuilderContainerRecipes = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsImagebuilderContainerRecipe, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsImagebuilderContainerRecipe,
+    idFilter,
+    baseNode,
+  )

@@ -3,24 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_fargate_profile
-
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   fargate_profile_name: resolvableValue(z.string()),
   pod_execution_role_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
   selector: resolvableValue(
     z.object({
       labels: z.record(z.string(), z.string()).optional(),
       namespace: z.string(),
     }).array(),
   ),
+  region: resolvableValue(z.string().optional()),
   subnet_ids: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_fargate_profile
 
 export function AwsEksFargateProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +65,8 @@ export function AwsEksFargateProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEksFargateProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEksFargateProfile, node, id)
+export const useAwsEksFargateProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEksFargateProfile, idFilter, baseNode)
 
-export const useAwsEksFargateProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEksFargateProfile, node, id)
+export const useAwsEksFargateProfiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEksFargateProfile, idFilter, baseNode)

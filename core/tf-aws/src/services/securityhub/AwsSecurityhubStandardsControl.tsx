@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_standards_control
 
 export const InputSchema = z.object({
   control_status: resolvableValue(z.string()),
   standards_control_arn: resolvableValue(z.string()),
   disabled_reason: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   control_id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_standards_control
 
 export function AwsSecurityhubStandardsControl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function AwsSecurityhubStandardsControl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubStandardsControl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubStandardsControl, node, id)
+export const useAwsSecurityhubStandardsControl = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSecurityhubStandardsControl, idFilter, baseNode)
 
-export const useAwsSecurityhubStandardsControls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubStandardsControl, node, id)
+export const useAwsSecurityhubStandardsControls = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSecurityhubStandardsControl, idFilter, baseNode)

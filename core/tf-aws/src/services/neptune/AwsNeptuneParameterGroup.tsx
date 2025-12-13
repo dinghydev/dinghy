@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptune_parameter_group
 
 export const InputSchema = z.object({
   family: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptune_parameter_group
 
 export function AwsNeptuneParameterGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsNeptuneParameterGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNeptuneParameterGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNeptuneParameterGroup, node, id)
+export const useAwsNeptuneParameterGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNeptuneParameterGroup, idFilter, baseNode)
 
-export const useAwsNeptuneParameterGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNeptuneParameterGroup, node, id)
+export const useAwsNeptuneParameterGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsNeptuneParameterGroup, idFilter, baseNode)

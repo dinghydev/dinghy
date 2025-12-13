@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_vpc_attachment
 
 export const InputSchema = z.object({
   subnet_ids: resolvableValue(z.string().array()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   transit_gateway_default_route_table_propagation: resolvableValue(
     z.boolean().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_vpc_attachment
 
 export function AwsEc2TransitGatewayVpcAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,10 +62,22 @@ export function AwsEc2TransitGatewayVpcAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2TransitGatewayVpcAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2TransitGatewayVpcAttachment, node, id)
+export const useAwsEc2TransitGatewayVpcAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayVpcAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2TransitGatewayVpcAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsEc2TransitGatewayVpcAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2TransitGatewayVpcAttachment,
+    idFilter,
+    baseNode,
+  )

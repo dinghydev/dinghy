@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCognitoUserPool } from './AwsCognitoUserPool.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool
 
 export const InputSchema = z.object({
   account_recovery_setting: resolvableValue(
@@ -100,7 +99,7 @@ export const InputSchema = z.object({
   ),
   user_pool_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -128,6 +127,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_pool
 
 export function DataAwsCognitoUserPool(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -146,8 +148,8 @@ export function DataAwsCognitoUserPool(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCognitoUserPool = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCognitoUserPool, node, id)
+export const useDataAwsCognitoUserPool = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsCognitoUserPool, idFilter, baseNode)
 
-export const useDataAwsCognitoUserPools = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCognitoUserPool, node, id)
+export const useDataAwsCognitoUserPools = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsCognitoUserPool, idFilter, baseNode)

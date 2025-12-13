@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_termination_credentials
 
 export const InputSchema = z.object({
   credentials: resolvableValue(
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   ),
   voice_connector_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_termination_credentials
 
 export function AwsChimeVoiceConnectorTerminationCredentials(
   props: Partial<InputProps>,
@@ -52,11 +54,11 @@ export function AwsChimeVoiceConnectorTerminationCredentials(
 }
 
 export const useAwsChimeVoiceConnectorTerminationCredentialss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChimeVoiceConnectorTerminationCredentials,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,16 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_agreement
-
 export const InputSchema = z.object({
   access_role: resolvableValue(z.string()),
-  agreement_id: resolvableValue(z.string()),
   base_directory: resolvableValue(z.string()),
   local_profile_id: resolvableValue(z.string()),
   partner_profile_id: resolvableValue(z.string()),
@@ -23,9 +21,10 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
+  agreement_id: z.string().optional(),
   arn: z.string().optional(),
 })
 
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_agreement
 
 export function AwsTransferAgreement(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsTransferAgreement(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferAgreement = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferAgreement, node, id)
+export const useAwsTransferAgreement = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferAgreement, idFilter, baseNode)
 
-export const useAwsTransferAgreements = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferAgreement, node, id)
+export const useAwsTransferAgreements = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferAgreement, idFilter, baseNode)

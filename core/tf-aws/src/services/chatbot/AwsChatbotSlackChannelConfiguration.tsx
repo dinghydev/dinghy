@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chatbot_slack_channel_configuration
 
 export const InputSchema = z.object({
   configuration_name: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   user_authorization_required: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   chat_configuration_arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chatbot_slack_channel_configuration
 
 export function AwsChatbotSlackChannelConfiguration(
   props: Partial<InputProps>,
@@ -65,11 +67,21 @@ export function AwsChatbotSlackChannelConfiguration(
 }
 
 export const useAwsChatbotSlackChannelConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsChatbotSlackChannelConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChatbotSlackChannelConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsChatbotSlackChannelConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsChatbotSlackChannelConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChatbotSlackChannelConfiguration,
+    idFilter,
+    baseNode,
+  )

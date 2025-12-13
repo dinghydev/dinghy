@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElasticBeanstalkApplication } from './AwsElasticBeanstalkApplication.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elastic_beanstalk_application
 
 export const InputSchema = z.object({
   appversion_lifecycle: resolvableValue(
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   ),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elastic_beanstalk_application
 
 export function DataAwsElasticBeanstalkApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,11 +57,21 @@ export function DataAwsElasticBeanstalkApplication(props: Partial<InputProps>) {
 }
 
 export const useDataAwsElasticBeanstalkApplication = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsElasticBeanstalkApplication, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElasticBeanstalkApplication,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsElasticBeanstalkApplications = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsElasticBeanstalkApplication, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElasticBeanstalkApplication,
+    idFilter,
+    baseNode,
+  )

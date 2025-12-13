@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsBedrockInferenceProfile } from './AwsBedrockInferenceProfile.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_inference_profile
 
 export const InputSchema = z.object({
   created_at: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   type: resolvableValue(z.string()),
   updated_at: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_inference_profile
 
 export function DataAwsBedrockInferenceProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,14 @@ export function DataAwsBedrockInferenceProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBedrockInferenceProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBedrockInferenceProfile, node, id)
+export const useDataAwsBedrockInferenceProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsBedrockInferenceProfile, idFilter, baseNode)
 
-export const useDataAwsBedrockInferenceProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockInferenceProfile, node, id)
+export const useDataAwsBedrockInferenceProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsBedrockInferenceProfile, idFilter, baseNode)

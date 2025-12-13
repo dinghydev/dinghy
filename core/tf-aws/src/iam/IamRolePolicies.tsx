@@ -25,11 +25,11 @@ export type InputProps =
 export function IamRolePolicies(
   { name, path, initialPolicies, ...props }: InputProps,
 ) {
-  const { renderOptions } = useRenderOptions()
+  const { dinghyConfig } = useRenderOptions()
   const data = path
-    ? loadFilesData(renderOptions, path as string, name as string)
-    : (loadFilesData(renderOptions, 'data/iam-policy', name as string) ||
-      loadFilesData(renderOptions, 'config/iam-policy', name as string))
+    ? loadFilesData(dinghyConfig, path as string, name as string)
+    : (loadFilesData(dinghyConfig, 'data/iam-policy', name as string) ||
+      loadFilesData(dinghyConfig, 'config/iam-policy', name as string))
   const policies = {}
   if (initialPolicies) {
     deepMerge(policies, initialPolicies)
@@ -68,8 +68,8 @@ export function IamRolePolicies(
             _id={`aws_iam_role_policy_${name}_${policy.name}`}
             role={name}
             _height={30}
-            policy={(node: any) => {
-              const Statement = deepResolve(node, policy, 'statements')
+            policy={() => {
+              const Statement = deepResolve(policy, 'statements')
               return JSON.stringify({
                 Version: '2012-10-17',
                 Statement,

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_aws_log_source
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -19,9 +18,9 @@ export const InputSchema = z.object({
       regions: z.string().array(),
       source_name: z.string(),
       source_version: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_aws_log_source
 
 export function AwsSecuritylakeAwsLogSource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsSecuritylakeAwsLogSource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecuritylakeAwsLogSource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecuritylakeAwsLogSource, node, id)
+export const useAwsSecuritylakeAwsLogSource = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSecuritylakeAwsLogSource, idFilter, baseNode)
 
-export const useAwsSecuritylakeAwsLogSources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecuritylakeAwsLogSource, node, id)
+export const useAwsSecuritylakeAwsLogSources = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSecuritylakeAwsLogSource, idFilter, baseNode)

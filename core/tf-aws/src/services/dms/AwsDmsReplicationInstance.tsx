@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_replication_instance
 
 export const InputSchema = z.object({
   replication_instance_class: resolvableValue(z.string()),
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   replication_instance_arn: z.string().optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_replication_instance
 
 export function AwsDmsReplicationInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,12 @@ export function AwsDmsReplicationInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsReplicationInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsReplicationInstance, node, id)
+export const useAwsDmsReplicationInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDmsReplicationInstance, idFilter, baseNode)
 
-export const useAwsDmsReplicationInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsReplicationInstance, node, id)
+export const useAwsDmsReplicationInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDmsReplicationInstance, idFilter, baseNode)

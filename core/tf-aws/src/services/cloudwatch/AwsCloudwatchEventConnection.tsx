@@ -3,16 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_connection
-
 export const InputSchema = z.object({
-  authorization_type: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
   auth_parameters: resolvableValue(z.object({
     api_key: z.object({
       key: z.string(),
@@ -27,23 +24,46 @@ export const InputSchema = z.object({
         is_value_secret: z.boolean().optional(),
         key: z.string().optional(),
         value: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
       header: z.object({
         is_value_secret: z.boolean().optional(),
         key: z.string().optional(),
         value: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
       query_string: z.object({
         is_value_secret: z.boolean().optional(),
         key: z.string().optional(),
         value: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
     }).optional(),
     oauth: z.object({
       authorization_endpoint: z.string(),
       http_method: z.string(),
+      client_parameters: z.object({
+        client_id: z.string(),
+        client_secret: z.string(),
+      }).optional(),
+      oauth_http_parameters: z.object({
+        body: z.object({
+          is_value_secret: z.boolean().optional(),
+          key: z.string().optional(),
+          value: z.string().optional(),
+        }).array().optional(),
+        header: z.object({
+          is_value_secret: z.boolean().optional(),
+          key: z.string().optional(),
+          value: z.string().optional(),
+        }).array().optional(),
+        query_string: z.object({
+          is_value_secret: z.boolean().optional(),
+          key: z.string().optional(),
+          value: z.string().optional(),
+        }).array().optional(),
+      }),
     }).optional(),
   })),
+  authorization_type: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   invocation_connectivity_parameters: resolvableValue(
@@ -56,7 +76,7 @@ export const InputSchema = z.object({
   ),
   kms_key_identifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -70,6 +90,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_connection
 
 export function AwsCloudwatchEventConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -88,8 +111,13 @@ export function AwsCloudwatchEventConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchEventConnection, node, id)
+export const useAwsCloudwatchEventConnection = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchEventConnection, idFilter, baseNode)
 
-export const useAwsCloudwatchEventConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventConnection, node, id)
+export const useAwsCloudwatchEventConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudwatchEventConnection, idFilter, baseNode)

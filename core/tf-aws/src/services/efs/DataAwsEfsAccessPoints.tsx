@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/efs_access_points
-
 export const InputSchema = z.object({
   file_system_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arns: z.string().array().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/efs_access_points
 
 export function DataAwsEfsAccessPoints(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,5 +47,5 @@ export function DataAwsEfsAccessPoints(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEfsAccessPointss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEfsAccessPoints, node, id)
+export const useDataAwsEfsAccessPointss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEfsAccessPoints, idFilter, baseNode)

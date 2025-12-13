@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_tag
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_tag
 
 export function AwsDynamodbTag(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsDynamodbTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTag = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDynamodbTag, node, id)
+export const useAwsDynamodbTag = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDynamodbTag, idFilter, baseNode)
 
-export const useAwsDynamodbTags = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTag, node, id)
+export const useAwsDynamodbTags = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDynamodbTag, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_account_registration
 
 export const InputSchema = z.object({
   delegated_admin_account: resolvableValue(z.string().optional()),
   deregister_on_destroy: resolvableValue(z.boolean().optional()),
   kms_key: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_account_registration
 
 export function AwsAuditmanagerAccountRegistration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,11 +50,21 @@ export function AwsAuditmanagerAccountRegistration(props: Partial<InputProps>) {
 }
 
 export const useAwsAuditmanagerAccountRegistration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsAuditmanagerAccountRegistration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAuditmanagerAccountRegistration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsAuditmanagerAccountRegistrations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsAuditmanagerAccountRegistration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAuditmanagerAccountRegistration,
+    idFilter,
+    baseNode,
+  )

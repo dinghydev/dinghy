@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_runtime_management_config
 
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   runtime_version_arn: resolvableValue(z.string().optional()),
   update_runtime_on: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   function_arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_runtime_management_config
 
 export function AwsLambdaRuntimeManagementConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,22 @@ export function AwsLambdaRuntimeManagementConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaRuntimeManagementConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaRuntimeManagementConfig, node, id)
+export const useAwsLambdaRuntimeManagementConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLambdaRuntimeManagementConfig,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsLambdaRuntimeManagementConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaRuntimeManagementConfig, node, id)
+export const useAwsLambdaRuntimeManagementConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLambdaRuntimeManagementConfig,
+    idFilter,
+    baseNode,
+  )

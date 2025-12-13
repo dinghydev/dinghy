@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codestarconnections_host
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       vpc_id: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codestarconnections_host
 
 export function AwsCodestarconnectionsHost(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,12 @@ export function AwsCodestarconnectionsHost(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodestarconnectionsHost = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodestarconnectionsHost, node, id)
+export const useAwsCodestarconnectionsHost = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCodestarconnectionsHost, idFilter, baseNode)
 
-export const useAwsCodestarconnectionsHosts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodestarconnectionsHost, node, id)
+export const useAwsCodestarconnectionsHosts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCodestarconnectionsHost, idFilter, baseNode)

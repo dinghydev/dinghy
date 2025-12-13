@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_default_credit_specification
 
 export const InputSchema = z.object({
   cpu_credits: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_default_credit_specification
 
 export function AwsEc2DefaultCreditSpecification(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,22 @@ export function AwsEc2DefaultCreditSpecification(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2DefaultCreditSpecification = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2DefaultCreditSpecification, node, id)
+export const useAwsEc2DefaultCreditSpecification = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2DefaultCreditSpecification,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsEc2DefaultCreditSpecifications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2DefaultCreditSpecification, node, id)
+export const useAwsEc2DefaultCreditSpecifications = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2DefaultCreditSpecification,
+    idFilter,
+    baseNode,
+  )

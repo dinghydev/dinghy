@@ -2,26 +2,25 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCloudformationStack } from './AwsCloudformationStack.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudformation_stack
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  capabilities: z.string().array().optional(),
+  capabilities: z.set(z.string()).optional(),
   description: z.string().optional(),
   disable_rollback: z.boolean().optional(),
   iam_role_arn: z.string().optional(),
-  notification_arns: z.string().array().optional(),
+  notification_arns: z.set(z.string()).optional(),
   outputs: z.record(z.string(), z.string()).optional(),
   parameters: z.record(z.string(), z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudformation_stack
 
 export function DataAwsCloudformationStack(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function DataAwsCloudformationStack(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCloudformationStack = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCloudformationStack, node, id)
+export const useDataAwsCloudformationStack = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsCloudformationStack, idFilter, baseNode)
 
-export const useDataAwsCloudformationStacks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCloudformationStack, node, id)
+export const useDataAwsCloudformationStacks = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsCloudformationStack, idFilter, baseNode)

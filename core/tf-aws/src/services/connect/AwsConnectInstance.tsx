@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_instance
 
 export const InputSchema = z.object({
   identity_management_type: resolvableValue(z.string()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_instance
 
 export function AwsConnectInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +75,8 @@ export function AwsConnectInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConnectInstance, node, id)
+export const useAwsConnectInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsConnectInstance, idFilter, baseNode)
 
-export const useAwsConnectInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConnectInstance, node, id)
+export const useAwsConnectInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsConnectInstance, idFilter, baseNode)

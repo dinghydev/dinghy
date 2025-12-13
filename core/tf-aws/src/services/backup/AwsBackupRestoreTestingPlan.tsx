@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_restore_testing_plan
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -20,13 +19,13 @@ export const InputSchema = z.object({
       include_vaults: z.string().array(),
       recovery_point_types: z.string().array(),
       selection_window_days: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   schedule_expression_timezone: resolvableValue(z.string().optional()),
   start_window_hours: resolvableValue(z.number().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_restore_testing_plan
 
 export function AwsBackupRestoreTestingPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsBackupRestoreTestingPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupRestoreTestingPlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupRestoreTestingPlan, node, id)
+export const useAwsBackupRestoreTestingPlan = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsBackupRestoreTestingPlan, idFilter, baseNode)
 
-export const useAwsBackupRestoreTestingPlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupRestoreTestingPlan, node, id)
+export const useAwsBackupRestoreTestingPlans = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBackupRestoreTestingPlan, idFilter, baseNode)

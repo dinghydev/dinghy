@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_vpn_attachment
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -18,6 +17,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
   ),
   transit_gateway_id: resolvableValue(z.string().optional()),
   vpn_connection_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_vpn_attachment
 
 export function DataAwsEc2TransitGatewayVpnAttachment(
   props: Partial<InputProps>,
@@ -60,11 +63,21 @@ export function DataAwsEc2TransitGatewayVpnAttachment(
 }
 
 export const useDataAwsEc2TransitGatewayVpnAttachment = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsEc2TransitGatewayVpnAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEc2TransitGatewayVpnAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsEc2TransitGatewayVpnAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsEc2TransitGatewayVpnAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2TransitGatewayVpnAttachment,
+    idFilter,
+    baseNode,
+  )

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_container_recipes
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -19,11 +18,11 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  arns: z.string().array().optional(),
-  names: z.string().array().optional(),
+  arns: z.set(z.string()).optional(),
+  names: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_container_recipes
 
 export function DataAwsImagebuilderContainerRecipes(
   props: Partial<InputProps>,
@@ -54,6 +56,11 @@ export function DataAwsImagebuilderContainerRecipes(
 }
 
 export const useDataAwsImagebuilderContainerRecipess = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsImagebuilderContainerRecipes, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsImagebuilderContainerRecipes,
+    idFilter,
+    baseNode,
+  )

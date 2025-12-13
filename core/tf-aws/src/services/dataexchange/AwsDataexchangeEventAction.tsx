@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dataexchange_event_action
 
 export const InputSchema = z.object({
   action: resolvableValue(
@@ -17,23 +16,23 @@ export const InputSchema = z.object({
         encryption: z.object({
           kms_key_arn: z.string().optional(),
           type: z.string().optional(),
-        }).optional(),
+        }).array().optional(),
         revision_destination: z.object({
           bucket: z.string(),
           key_pattern: z.string().optional(),
-        }).optional(),
-      }).optional(),
-    }).optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   event: resolvableValue(
     z.object({
       revision_published: z.object({
         data_set_id: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -49,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dataexchange_event_action
 
 export function AwsDataexchangeEventAction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +69,12 @@ export function AwsDataexchangeEventAction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDataexchangeEventAction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDataexchangeEventAction, node, id)
+export const useAwsDataexchangeEventAction = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDataexchangeEventAction, idFilter, baseNode)
 
-export const useAwsDataexchangeEventActions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDataexchangeEventAction, node, id)
+export const useAwsDataexchangeEventActions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDataexchangeEventAction, idFilter, baseNode)

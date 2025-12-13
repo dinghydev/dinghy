@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance
 
 export const InputSchema = z.object({
   name_servers: resolvableValue(z.string().array()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   creation_time: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance
 
 export function AwsVerifiedaccessInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsVerifiedaccessInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedaccessInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVerifiedaccessInstance, node, id)
+export const useAwsVerifiedaccessInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVerifiedaccessInstance, idFilter, baseNode)
 
-export const useAwsVerifiedaccessInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVerifiedaccessInstance, node, id)
+export const useAwsVerifiedaccessInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVerifiedaccessInstance, idFilter, baseNode)

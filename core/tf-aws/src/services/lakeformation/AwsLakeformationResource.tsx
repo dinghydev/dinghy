@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_resource
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   use_service_linked_role: resolvableValue(z.boolean().optional()),
   with_federation: resolvableValue(z.boolean().optional()),
   with_privileged_access: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   last_modified: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_resource
 
 export function AwsLakeformationResource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsLakeformationResource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationResource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLakeformationResource, node, id)
+export const useAwsLakeformationResource = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLakeformationResource, idFilter, baseNode)
 
-export const useAwsLakeformationResources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLakeformationResource, node, id)
+export const useAwsLakeformationResources = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLakeformationResource, idFilter, baseNode)

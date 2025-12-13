@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDmsReplicationSubnetGroup } from './AwsDmsReplicationSubnetGroup.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dms_replication_subnet_group
 
 export const InputSchema = z.object({
   replication_subnet_group_arn: resolvableValue(z.string()),
@@ -17,11 +16,11 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   replication_subnet_group_description: z.string().optional(),
-  subnet_ids: z.string().array().optional(),
+  subnet_ids: z.set(z.string()).optional(),
   vpc_id: z.string().optional(),
 })
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dms_replication_subnet_group
 
 export function DataAwsDmsReplicationSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,22 @@ export function DataAwsDmsReplicationSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDmsReplicationSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDmsReplicationSubnetGroup, node, id)
+export const useDataAwsDmsReplicationSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDmsReplicationSubnetGroup,
+    idFilter,
+    baseNode,
+  )
 
-export const useDataAwsDmsReplicationSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDmsReplicationSubnetGroup, node, id)
+export const useDataAwsDmsReplicationSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDmsReplicationSubnetGroup,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_grant
 
 export const InputSchema = z.object({
   grantee_principal: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   retire_on_delete: resolvableValue(z.boolean().optional()),
   retiring_principal: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   grant_id: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_grant
 
 export function AwsKmsGrant(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsKmsGrant(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsGrant = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKmsGrant, node, id)
+export const useAwsKmsGrant = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKmsGrant, idFilter, baseNode)
 
-export const useAwsKmsGrants = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKmsGrant, node, id)
+export const useAwsKmsGrants = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKmsGrant, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace_service_account_token
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   service_account_id: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace_service_account_token
 
 export function AwsGrafanaWorkspaceServiceAccountToken(
   props: Partial<InputProps>,
@@ -54,12 +56,21 @@ export function AwsGrafanaWorkspaceServiceAccountToken(
 }
 
 export const useAwsGrafanaWorkspaceServiceAccountToken = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsGrafanaWorkspaceServiceAccountToken, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGrafanaWorkspaceServiceAccountToken,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGrafanaWorkspaceServiceAccountTokens = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsGrafanaWorkspaceServiceAccountToken, node, id)
+  useTypedNodes<OutputProps>(
+    AwsGrafanaWorkspaceServiceAccountToken,
+    idFilter,
+    baseNode,
+  )

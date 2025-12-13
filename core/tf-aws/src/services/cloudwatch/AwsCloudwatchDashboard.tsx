@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_dashboard
 
 export const InputSchema = z.object({
   dashboard_body: resolvableValue(z.string()),
   dashboard_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   dashboard_arn: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_dashboard
 
 export function AwsCloudwatchDashboard(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsCloudwatchDashboard(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchDashboard = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchDashboard, node, id)
+export const useAwsCloudwatchDashboard = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudwatchDashboard, idFilter, baseNode)
 
-export const useAwsCloudwatchDashboards = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchDashboard, node, id)
+export const useAwsCloudwatchDashboards = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudwatchDashboard, idFilter, baseNode)

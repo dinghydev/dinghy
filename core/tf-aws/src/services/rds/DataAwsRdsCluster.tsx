@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRdsCluster } from './AwsRdsCluster.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_cluster
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -54,7 +53,7 @@ export const InputSchema = z.object({
   vpc_security_group_ids: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
@@ -67,6 +66,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_cluster
 
 export function DataAwsRdsCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -85,8 +87,8 @@ export function DataAwsRdsCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRdsCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRdsCluster, node, id)
+export const useDataAwsRdsCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsRdsCluster, idFilter, baseNode)
 
-export const useDataAwsRdsClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRdsCluster, node, id)
+export const useDataAwsRdsClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsRdsCluster, idFilter, baseNode)

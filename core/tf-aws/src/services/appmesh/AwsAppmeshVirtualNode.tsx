@@ -3,22 +3,52 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_node
-
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  mesh_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   spec: resolvableValue(z.object({
     backend: z.object({
       virtual_service: z.object({
         virtual_service_name: z.string(),
+        client_policy: z.object({
+          tls: z.object({
+            enforce: z.boolean().optional(),
+            ports: z.number().array().optional(),
+            certificate: z.object({
+              file: z.object({
+                certificate_chain: z.string(),
+                private_key: z.string(),
+              }).optional(),
+              sds: z.object({
+                secret_name: z.string(),
+              }).optional(),
+            }).optional(),
+            validation: z.object({
+              subject_alternative_names: z.object({
+                match: z.object({
+                  exact: z.string().array(),
+                }),
+              }).optional(),
+              trust: z.object({
+                acm: z.object({
+                  certificate_authority_arns: z.string().array(),
+                }).optional(),
+                file: z.object({
+                  certificate_chain: z.string(),
+                }).optional(),
+                sds: z.object({
+                  secret_name: z.string(),
+                }).optional(),
+              }),
+            }),
+          }).optional(),
+        }).optional(),
       }),
     }).array().optional(),
     backend_defaults: z.object({
@@ -26,6 +56,33 @@ export const InputSchema = z.object({
         tls: z.object({
           enforce: z.boolean().optional(),
           ports: z.number().array().optional(),
+          certificate: z.object({
+            file: z.object({
+              certificate_chain: z.string(),
+              private_key: z.string(),
+            }).optional(),
+            sds: z.object({
+              secret_name: z.string(),
+            }).optional(),
+          }).optional(),
+          validation: z.object({
+            subject_alternative_names: z.object({
+              match: z.object({
+                exact: z.string().array(),
+              }),
+            }).optional(),
+            trust: z.object({
+              acm: z.object({
+                certificate_authority_arns: z.string().array(),
+              }).optional(),
+              file: z.object({
+                certificate_chain: z.string(),
+              }).optional(),
+              sds: z.object({
+                secret_name: z.string(),
+              }).optional(),
+            }),
+          }),
         }).optional(),
       }).optional(),
     }).optional(),
@@ -37,13 +94,13 @@ export const InputSchema = z.object({
         http: z.object({
           max_connections: z.number(),
           max_pending_requests: z.number().optional(),
-        }).optional(),
+        }).array().optional(),
         http2: z.object({
           max_requests: z.number(),
-        }).optional(),
+        }).array().optional(),
         tcp: z.object({
           max_connections: z.number(),
-        }).optional(),
+        }).array().optional(),
       }).optional(),
       health_check: z.object({
         healthy_threshold: z.number(),
@@ -57,6 +114,14 @@ export const InputSchema = z.object({
       outlier_detection: z.object({
         max_ejection_percent: z.number(),
         max_server_errors: z.number(),
+        base_ejection_duration: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }),
+        interval: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }),
       }).optional(),
       port_mapping: z.object({
         port: z.number(),
@@ -102,12 +167,46 @@ export const InputSchema = z.object({
       }).optional(),
       tls: z.object({
         mode: z.string(),
+        certificate: z.object({
+          acm: z.object({
+            certificate_arn: z.string(),
+          }).optional(),
+          file: z.object({
+            certificate_chain: z.string(),
+            private_key: z.string(),
+          }).optional(),
+          sds: z.object({
+            secret_name: z.string(),
+          }).optional(),
+        }),
+        validation: z.object({
+          subject_alternative_names: z.object({
+            match: z.object({
+              exact: z.string().array(),
+            }),
+          }).optional(),
+          trust: z.object({
+            file: z.object({
+              certificate_chain: z.string(),
+            }).optional(),
+            sds: z.object({
+              secret_name: z.string(),
+            }).optional(),
+          }),
+        }).optional(),
       }).optional(),
-    }).optional(),
+    }).array().optional(),
     logging: z.object({
       access_log: z.object({
         file: z.object({
           path: z.string(),
+          format: z.object({
+            text: z.string().optional(),
+            json: z.object({
+              key: z.string(),
+              value: z.string(),
+            }).array().optional(),
+          }).optional(),
         }).optional(),
       }).optional(),
     }).optional(),
@@ -124,8 +223,10 @@ export const InputSchema = z.object({
       }).optional(),
     }).optional(),
   })),
+  mesh_owner: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -143,6 +244,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_node
 
 export function AwsAppmeshVirtualNode(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -161,8 +265,8 @@ export function AwsAppmeshVirtualNode(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshVirtualNode = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualNode, node, id)
+export const useAwsAppmeshVirtualNode = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppmeshVirtualNode, idFilter, baseNode)
 
-export const useAwsAppmeshVirtualNodes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppmeshVirtualNode, node, id)
+export const useAwsAppmeshVirtualNodes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppmeshVirtualNode, idFilter, baseNode)

@@ -3,19 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/key_pair
-
 export const InputSchema = z.object({
   public_key: resolvableValue(z.string()),
+  key_name: resolvableValue(z.string().optional()),
   key_name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/key_pair
 
 export function AwsKeyPair(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +55,8 @@ export function AwsKeyPair(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKeyPair = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKeyPair, node, id)
+export const useAwsKeyPair = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKeyPair, idFilter, baseNode)
 
-export const useAwsKeyPairs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKeyPair, node, id)
+export const useAwsKeyPairs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKeyPair, idFilter, baseNode)

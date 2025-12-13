@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsGrafanaWorkspace } from './AwsGrafanaWorkspace.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/grafana_workspace
-
 export const InputSchema = z.object({
   saml_configuration_status: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   account_access_type: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/grafana_workspace
 
 export function DataAwsGrafanaWorkspace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +65,10 @@ export function DataAwsGrafanaWorkspace(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGrafanaWorkspace = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsGrafanaWorkspace, node, id)
+export const useDataAwsGrafanaWorkspace = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsGrafanaWorkspace, idFilter, baseNode)
 
-export const useDataAwsGrafanaWorkspaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsGrafanaWorkspace, node, id)
+export const useDataAwsGrafanaWorkspaces = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsGrafanaWorkspace, idFilter, baseNode)

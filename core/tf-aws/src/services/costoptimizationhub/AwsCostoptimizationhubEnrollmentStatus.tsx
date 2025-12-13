@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/costoptimizationhub_enrollment_status
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   include_member_accounts: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   status: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/costoptimizationhub_enrollment_status
 
 export function AwsCostoptimizationhubEnrollmentStatus(
   props: Partial<InputProps>,
@@ -46,7 +48,11 @@ export function AwsCostoptimizationhubEnrollmentStatus(
 }
 
 export const useAwsCostoptimizationhubEnrollmentStatuss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCostoptimizationhubEnrollmentStatus, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCostoptimizationhubEnrollmentStatus,
+    idFilter,
+    baseNode,
+  )

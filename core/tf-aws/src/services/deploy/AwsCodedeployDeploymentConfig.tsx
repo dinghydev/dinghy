@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codedeploy_deployment_config
 
 export const InputSchema = z.object({
   deployment_config_name: resolvableValue(z.string()),
@@ -23,15 +22,27 @@ export const InputSchema = z.object({
   traffic_routing_config: resolvableValue(
     z.object({
       type: z.string().optional(),
+      time_based_canary: z.object({
+        interval: z.number().optional(),
+        percentage: z.number().optional(),
+      }).optional(),
+      time_based_linear: z.object({
+        interval: z.number().optional(),
+        percentage: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   zonal_config: resolvableValue(
     z.object({
       first_zone_monitor_duration_in_seconds: z.number().optional(),
       monitor_duration_in_seconds: z.number().optional(),
+      minimum_healthy_hosts_per_zone: z.object({
+        type: z.string().optional(),
+        value: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codedeploy_deployment_config
 
 export function AwsCodedeployDeploymentConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +78,14 @@ export function AwsCodedeployDeploymentConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodedeployDeploymentConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodedeployDeploymentConfig, node, id)
+export const useAwsCodedeployDeploymentConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCodedeployDeploymentConfig, idFilter, baseNode)
 
-export const useAwsCodedeployDeploymentConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodedeployDeploymentConfig, node, id)
+export const useAwsCodedeployDeploymentConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCodedeployDeploymentConfig, idFilter, baseNode)

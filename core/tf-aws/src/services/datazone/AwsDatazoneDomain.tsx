@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_domain
 
 export const InputSchema = z.object({
   domain_execution_role: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
     z.object({
       type: z.string().optional(),
       user_assignment: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   skip_deletion_check: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_domain
 
 export function AwsDatazoneDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,8 @@ export function AwsDatazoneDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneDomain, node, id)
+export const useAwsDatazoneDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatazoneDomain, idFilter, baseNode)
 
-export const useAwsDatazoneDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneDomain, node, id)
+export const useAwsDatazoneDomains = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatazoneDomain, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_job_definition
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -23,6 +22,80 @@ export const InputSchema = z.object({
         host_network: z.boolean().optional(),
         service_account_name: z.string().optional(),
         share_process_namespace: z.boolean().optional(),
+        containers: z.object({
+          args: z.string().array().optional(),
+          command: z.string().array().optional(),
+          image: z.string(),
+          image_pull_policy: z.string().optional(),
+          name: z.string().optional(),
+          env: z.object({
+            name: z.string(),
+            value: z.string(),
+          }).array().optional(),
+          resources: z.object({
+            limits: z.record(z.string(), z.string()).optional(),
+            requests: z.record(z.string(), z.string()).optional(),
+          }).optional(),
+          security_context: z.object({
+            privileged: z.boolean().optional(),
+            read_only_root_file_system: z.boolean().optional(),
+            run_as_group: z.number().optional(),
+            run_as_non_root: z.boolean().optional(),
+            run_as_user: z.number().optional(),
+          }).optional(),
+          volume_mounts: z.object({
+            mount_path: z.string(),
+            name: z.string(),
+            read_only: z.boolean().optional(),
+          }).array().optional(),
+        }).array(),
+        image_pull_secret: z.object({
+          name: z.string(),
+        }).array().optional(),
+        init_containers: z.object({
+          args: z.string().array().optional(),
+          command: z.string().array().optional(),
+          image: z.string(),
+          image_pull_policy: z.string().optional(),
+          name: z.string().optional(),
+          env: z.object({
+            name: z.string(),
+            value: z.string(),
+          }).array().optional(),
+          resources: z.object({
+            limits: z.record(z.string(), z.string()).optional(),
+            requests: z.record(z.string(), z.string()).optional(),
+          }).optional(),
+          security_context: z.object({
+            privileged: z.boolean().optional(),
+            read_only_root_file_system: z.boolean().optional(),
+            run_as_group: z.number().optional(),
+            run_as_non_root: z.boolean().optional(),
+            run_as_user: z.number().optional(),
+          }).optional(),
+          volume_mounts: z.object({
+            mount_path: z.string(),
+            name: z.string(),
+            read_only: z.boolean().optional(),
+          }).array().optional(),
+        }).array().optional(),
+        metadata: z.object({
+          labels: z.record(z.string(), z.string()).optional(),
+        }).optional(),
+        volumes: z.object({
+          name: z.string().optional(),
+          empty_dir: z.object({
+            medium: z.string().optional(),
+            size_limit: z.string(),
+          }).optional(),
+          host_path: z.object({
+            path: z.string(),
+          }).optional(),
+          secret: z.object({
+            optional: z.boolean().optional(),
+            secret_name: z.string(),
+          }).optional(),
+        }).array().optional(),
       }),
     }).optional(),
   ),
@@ -35,6 +108,12 @@ export const InputSchema = z.object({
   retry_strategy: resolvableValue(
     z.object({
       attempts: z.number().optional(),
+      evaluate_on_exit: z.object({
+        action: z.string(),
+        on_exit_code: z.string().optional(),
+        on_reason: z.string().optional(),
+        on_status_reason: z.string().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   scheduling_priority: resolvableValue(z.number().optional()),
@@ -44,7 +123,7 @@ export const InputSchema = z.object({
       attempt_duration_seconds: z.number().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -65,6 +144,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_job_definition
 
 export function AwsBatchJobDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +166,8 @@ export function AwsBatchJobDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBatchJobDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBatchJobDefinition, node, id)
+export const useAwsBatchJobDefinition = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBatchJobDefinition, idFilter, baseNode)
 
-export const useAwsBatchJobDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBatchJobDefinition, node, id)
+export const useAwsBatchJobDefinitions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBatchJobDefinition, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudhsm_v2_cluster
 
 export const InputSchema = z.object({
   hsm_type: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cluster_certificates: z.object({
@@ -49,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudhsm_v2_cluster
 
 export function AwsCloudhsmV2Cluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +69,8 @@ export function AwsCloudhsmV2Cluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudhsmV2Cluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudhsmV2Cluster, node, id)
+export const useAwsCloudhsmV2Cluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode)
 
-export const useAwsCloudhsmV2Clusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudhsmV2Cluster, node, id)
+export const useAwsCloudhsmV2Clusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode)

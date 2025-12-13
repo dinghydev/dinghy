@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivschat_logging_configuration
 
 export const InputSchema = z.object({
   destination_configuration: resolvableValue(
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -55,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivschat_logging_configuration
 
 export function AwsIvschatLoggingConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +76,14 @@ export function AwsIvschatLoggingConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvschatLoggingConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIvschatLoggingConfiguration, node, id)
+export const useAwsIvschatLoggingConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsIvschatLoggingConfiguration, idFilter, baseNode)
 
-export const useAwsIvschatLoggingConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIvschatLoggingConfiguration, node, id)
+export const useAwsIvschatLoggingConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsIvschatLoggingConfiguration, idFilter, baseNode)

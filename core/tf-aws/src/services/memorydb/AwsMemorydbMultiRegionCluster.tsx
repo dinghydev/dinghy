@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/memorydb_multi_region_cluster
 
 export const InputSchema = z.object({
   multi_region_cluster_name_suffix: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
   ),
   tls_enabled: resolvableValue(z.boolean().optional()),
   update_strategy: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/memorydb_multi_region_cluster
 
 export function AwsMemorydbMultiRegionCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +65,14 @@ export function AwsMemorydbMultiRegionCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbMultiRegionCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMemorydbMultiRegionCluster, node, id)
+export const useAwsMemorydbMultiRegionCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsMemorydbMultiRegionCluster, idFilter, baseNode)
 
-export const useAwsMemorydbMultiRegionClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMemorydbMultiRegionCluster, node, id)
+export const useAwsMemorydbMultiRegionClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsMemorydbMultiRegionCluster, idFilter, baseNode)

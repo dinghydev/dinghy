@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_subscribed_rule_group
-
 export const InputSchema = z.object({
   metric_name: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_subscribed_rule_group
 
 export function DataAwsWafregionalSubscribedRuleGroup(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function DataAwsWafregionalSubscribedRuleGroup(
 }
 
 export const useDataAwsWafregionalSubscribedRuleGroup = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsWafregionalSubscribedRuleGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWafregionalSubscribedRuleGroup,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsWafregionalSubscribedRuleGroups = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsWafregionalSubscribedRuleGroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWafregionalSubscribedRuleGroup,
+    idFilter,
+    baseNode,
+  )

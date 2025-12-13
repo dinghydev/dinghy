@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpclatticeAuthPolicy } from './AwsVpclatticeAuthPolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpclattice_auth_policy
-
 export const InputSchema = z.object({
   resource_identifier: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   policy: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpclattice_auth_policy
 
 export function DataAwsVpclatticeAuthPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,12 @@ export function DataAwsVpclatticeAuthPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpclatticeAuthPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpclatticeAuthPolicy, node, id)
+export const useDataAwsVpclatticeAuthPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsVpclatticeAuthPolicy, idFilter, baseNode)
 
-export const useDataAwsVpclatticeAuthPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpclatticeAuthPolicy, node, id)
+export const useDataAwsVpclatticeAuthPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsVpclatticeAuthPolicy, idFilter, baseNode)

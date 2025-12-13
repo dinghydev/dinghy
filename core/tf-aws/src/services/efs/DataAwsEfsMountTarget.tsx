@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEfsMountTarget } from './AwsEfsMountTarget.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/efs_mount_target
 
 export const InputSchema = z.object({
   access_point_id: resolvableValue(z.string().optional()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   mount_target_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zone_id: z.string().optional(),
@@ -29,7 +28,7 @@ export const OutputSchema = z.object({
   mount_target_dns_name: z.string().optional(),
   network_interface_id: z.string().optional(),
   owner_id: z.string().optional(),
-  security_groups: z.string().array().optional(),
+  security_groups: z.set(z.string()).optional(),
   subnet_id: z.string().optional(),
 })
 
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/efs_mount_target
 
 export function DataAwsEfsMountTarget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function DataAwsEfsMountTarget(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEfsMountTarget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEfsMountTarget, node, id)
+export const useDataAwsEfsMountTarget = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEfsMountTarget, idFilter, baseNode)
 
-export const useDataAwsEfsMountTargets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEfsMountTarget, node, id)
+export const useDataAwsEfsMountTargets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEfsMountTarget, idFilter, baseNode)

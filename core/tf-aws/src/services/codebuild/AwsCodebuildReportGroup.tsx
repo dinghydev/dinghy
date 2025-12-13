@@ -3,23 +3,29 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_report_group
-
 export const InputSchema = z.object({
   export_config: resolvableValue(z.object({
     type: z.string(),
+    s3_destination: z.object({
+      bucket: z.string(),
+      encryption_disabled: z.boolean().optional(),
+      encryption_key: z.string(),
+      packaging: z.string().optional(),
+      path: z.string().optional(),
+    }).optional(),
   })),
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   delete_reports: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_report_group
 
 export function AwsCodebuildReportGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +68,10 @@ export function AwsCodebuildReportGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildReportGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodebuildReportGroup, node, id)
+export const useAwsCodebuildReportGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodebuildReportGroup, idFilter, baseNode)
 
-export const useAwsCodebuildReportGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodebuildReportGroup, node, id)
+export const useAwsCodebuildReportGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCodebuildReportGroup, idFilter, baseNode)

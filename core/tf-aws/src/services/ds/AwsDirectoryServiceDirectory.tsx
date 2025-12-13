@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_directory
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -47,11 +46,11 @@ export const InputSchema = z.object({
       vpc_id: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_url: z.string().optional(),
-  dns_ip_addresses: z.string().array().optional(),
+  dns_ip_addresses: z.set(z.string()).optional(),
   id: z.string().optional(),
   security_group_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -64,6 +63,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_directory
 
 export function AwsDirectoryServiceDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -82,8 +84,13 @@ export function AwsDirectoryServiceDirectory(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDirectoryServiceDirectory = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDirectoryServiceDirectory, node, id)
+export const useAwsDirectoryServiceDirectory = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDirectoryServiceDirectory, idFilter, baseNode)
 
-export const useAwsDirectoryServiceDirectorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDirectoryServiceDirectory, node, id)
+export const useAwsDirectoryServiceDirectorys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDirectoryServiceDirectory, idFilter, baseNode)

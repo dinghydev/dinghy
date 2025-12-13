@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_server_certificate
 
 export const InputSchema = z.object({
   certificate_body: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_server_certificate
 
 export function AwsIamServerCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,10 @@ export function AwsIamServerCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamServerCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamServerCertificate, node, id)
+export const useAwsIamServerCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamServerCertificate, idFilter, baseNode)
 
-export const useAwsIamServerCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamServerCertificate, node, id)
+export const useAwsIamServerCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIamServerCertificate, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dataexchange_revision_assets
 
 export const InputSchema = z.object({
   data_set_id: resolvableValue(z.string()),
@@ -18,6 +17,27 @@ export const InputSchema = z.object({
       id: z.string(),
       name: z.string(),
       updated_at: z.string(),
+      create_s3_data_access_from_s3_bucket: z.object({
+        access_point_alias: z.string(),
+        access_point_arn: z.string(),
+        asset_source: z.object({
+          bucket: z.string(),
+          key_prefixes: z.string().array().optional(),
+          keys: z.string().array().optional(),
+          kms_keys_to_grant: z.object({
+            kms_key_arn: z.string(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+      import_assets_from_s3: z.object({
+        asset_source: z.object({
+          bucket: z.string(),
+          key: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+      import_assets_from_signed_url: z.object({
+        filename: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
   comment: resolvableValue(z.string().optional()),
@@ -30,7 +50,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +67,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dataexchange_revision_assets
 
 export function AwsDataexchangeRevisionAssets(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,5 +88,8 @@ export function AwsDataexchangeRevisionAssets(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDataexchangeRevisionAssetss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDataexchangeRevisionAssets, node, id)
+export const useAwsDataexchangeRevisionAssetss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDataexchangeRevisionAssets, idFilter, baseNode)

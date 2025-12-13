@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_worker_configuration
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_worker_configuration
 
 export function AwsMskconnectWorkerConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,22 @@ export function AwsMskconnectWorkerConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskconnectWorkerConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskconnectWorkerConfiguration, node, id)
+export const useAwsMskconnectWorkerConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMskconnectWorkerConfiguration,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsMskconnectWorkerConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskconnectWorkerConfiguration, node, id)
+export const useAwsMskconnectWorkerConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMskconnectWorkerConfiguration,
+    idFilter,
+    baseNode,
+  )

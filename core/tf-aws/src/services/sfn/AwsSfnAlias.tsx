@@ -3,18 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sfn_alias
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-  routing_configuration: resolvableValue(z.object({
-    state_machine_version_arn: z.string(),
-    weight: z.number(),
-  })),
+  routing_configuration: resolvableValue(
+    z.object({
+      state_machine_version_arn: z.string(),
+      weight: z.number(),
+    }).array(),
+  ),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -25,7 +26,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sfn_alias
 
 export function AwsSfnAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,5 +67,5 @@ export function AwsSfnAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSfnAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSfnAlias, node, id)
+export const useAwsSfnAliass = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSfnAlias, idFilter, baseNode)

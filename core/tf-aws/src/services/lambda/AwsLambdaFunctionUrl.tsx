@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function_url
 
 export const InputSchema = z.object({
   authorization_type: resolvableValue(z.string()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   function_arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function_url
 
 export function AwsLambdaFunctionUrl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsLambdaFunctionUrl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaFunctionUrl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaFunctionUrl, node, id)
+export const useAwsLambdaFunctionUrl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLambdaFunctionUrl, idFilter, baseNode)
 
-export const useAwsLambdaFunctionUrls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaFunctionUrl, node, id)
+export const useAwsLambdaFunctionUrls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLambdaFunctionUrl, idFilter, baseNode)

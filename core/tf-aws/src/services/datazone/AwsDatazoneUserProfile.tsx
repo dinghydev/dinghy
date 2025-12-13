@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_user_profile
 
 export const InputSchema = z.object({
   domain_identifier: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   user_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   details: z.object({
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_user_profile
 
 export function AwsDatazoneUserProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function AwsDatazoneUserProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneUserProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneUserProfile, node, id)
+export const useAwsDatazoneUserProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatazoneUserProfile, idFilter, baseNode)
 
-export const useAwsDatazoneUserProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneUserProfile, node, id)
+export const useAwsDatazoneUserProfiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatazoneUserProfile, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_group
 
 export const InputSchema = z.object({
   verifiedaccess_instance_id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   creation_time: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_group
 
 export function AwsVerifiedaccessGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,8 @@ export function AwsVerifiedaccessGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedaccessGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVerifiedaccessGroup, node, id)
+export const useAwsVerifiedaccessGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVerifiedaccessGroup, idFilter, baseNode)
 
-export const useAwsVerifiedaccessGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVerifiedaccessGroup, node, id)
+export const useAwsVerifiedaccessGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVerifiedaccessGroup, idFilter, baseNode)

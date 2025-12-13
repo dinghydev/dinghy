@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafIpset } from './AwsWafIpset.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_ipset
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_ipset
 
 export function DataAwsWafIpset(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,8 +45,8 @@ export function DataAwsWafIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafIpset = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafIpset, node, id)
+export const useDataAwsWafIpset = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsWafIpset, idFilter, baseNode)
 
-export const useDataAwsWafIpsets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafIpset, node, id)
+export const useDataAwsWafIpsets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsWafIpset, idFilter, baseNode)

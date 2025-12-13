@@ -3,24 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_vpc_ingress_connection
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  service_arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
   ingress_vpc_configuration: resolvableValue(z.object({
     vpc_endpoint_id: z.string().optional(),
     vpc_id: z.string().optional(),
   })),
+  name: resolvableValue(z.string()),
+  service_arn: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_vpc_ingress_connection
 
 export function AwsApprunnerVpcIngressConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,22 @@ export function AwsApprunnerVpcIngressConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApprunnerVpcIngressConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApprunnerVpcIngressConnection, node, id)
+export const useAwsApprunnerVpcIngressConnection = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApprunnerVpcIngressConnection,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsApprunnerVpcIngressConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApprunnerVpcIngressConnection, node, id)
+export const useAwsApprunnerVpcIngressConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApprunnerVpcIngressConnection,
+    idFilter,
+    baseNode,
+  )

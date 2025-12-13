@@ -2,23 +2,24 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDbClusterSnapshot } from './AwsDbClusterSnapshot.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_cluster_snapshot
-
 export const InputSchema = z.object({
   source_db_cluster_snapshot_arn: resolvableValue(z.string()),
+  db_cluster_identifier: resolvableValue(z.string().optional()),
   db_cluster_snapshot_identifier: resolvableValue(z.string().optional()),
   include_public: resolvableValue(z.boolean().optional()),
   include_shared: resolvableValue(z.boolean().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   snapshot_type: resolvableValue(z.string().optional()),
-})
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocated_storage: z.number().optional(),
@@ -45,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_cluster_snapshot
 
 export function DataAwsDbClusterSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +67,12 @@ export function DataAwsDbClusterSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbClusterSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDbClusterSnapshot, node, id)
+export const useDataAwsDbClusterSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsDbClusterSnapshot, idFilter, baseNode)
 
-export const useDataAwsDbClusterSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDbClusterSnapshot, node, id)
+export const useDataAwsDbClusterSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsDbClusterSnapshot, idFilter, baseNode)

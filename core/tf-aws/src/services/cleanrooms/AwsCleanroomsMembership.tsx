@@ -3,31 +3,38 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_membership
-
 export const InputSchema = z.object({
+  collaboration_id: resolvableValue(z.string()),
   query_log_status: resolvableValue(z.string()),
   tags_all: resolvableValue(z.record(z.string(), z.string())),
   default_result_configuration: resolvableValue(
     z.object({
       role_arn: z.string().optional(),
-    }).optional(),
+      output_configuration: z.object({
+        s3: z.object({
+          bucket: z.string(),
+          key_prefix: z.string().optional(),
+          result_format: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   payment_configuration: resolvableValue(
     z.object({
       query_compute: z.object({
         is_responsible: z.boolean(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_membership
 
 export function AwsCleanroomsMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +78,10 @@ export function AwsCleanroomsMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCleanroomsMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCleanroomsMembership, node, id)
+export const useAwsCleanroomsMembership = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCleanroomsMembership, idFilter, baseNode)
 
-export const useAwsCleanroomsMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCleanroomsMembership, node, id)
+export const useAwsCleanroomsMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCleanroomsMembership, idFilter, baseNode)

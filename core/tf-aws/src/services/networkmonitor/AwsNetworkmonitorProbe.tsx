@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmonitor_probe
 
 export const InputSchema = z.object({
   address_family: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   packet_size: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmonitor_probe
 
 export function AwsNetworkmonitorProbe(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsNetworkmonitorProbe(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmonitorProbe = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkmonitorProbe, node, id)
+export const useAwsNetworkmonitorProbe = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsNetworkmonitorProbe, idFilter, baseNode)
 
-export const useAwsNetworkmonitorProbes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkmonitorProbe, node, id)
+export const useAwsNetworkmonitorProbes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsNetworkmonitorProbe, idFilter, baseNode)

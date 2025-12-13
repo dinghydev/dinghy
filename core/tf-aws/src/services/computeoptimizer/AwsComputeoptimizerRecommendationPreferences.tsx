@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/computeoptimizer_recommendation_preferences
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   external_metrics_preference: resolvableValue(
     z.object({
       source: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   inferred_workload_types: resolvableValue(z.string().optional()),
   look_back_period: resolvableValue(z.string().optional()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       exclude_list: z.string().array().optional(),
       include_list: z.string().array().optional(),
       name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   savings_estimation_mode: resolvableValue(z.string().optional()),
@@ -33,14 +32,18 @@ export const InputSchema = z.object({
     z.object({
       name: z.string(),
       value: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   utilization_preference: resolvableValue(
     z.object({
       metric_name: z.string(),
-    }).optional(),
+      metric_parameters: z.object({
+        headroom: z.string(),
+        threshold: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -51,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/computeoptimizer_recommendation_preferences
 
 export function AwsComputeoptimizerRecommendationPreferences(
   props: Partial<InputProps>,
@@ -72,11 +78,11 @@ export function AwsComputeoptimizerRecommendationPreferences(
 }
 
 export const useAwsComputeoptimizerRecommendationPreferencess = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsComputeoptimizerRecommendationPreferences,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_data_cells_filter
 
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
@@ -20,14 +19,21 @@ export const InputSchema = z.object({
       table_catalog_id: z.string(),
       table_name: z.string(),
       version_id: z.string().optional(),
-    }).optional(),
+      column_wildcard: z.object({
+        excluded_column_names: z.string().array().optional(),
+      }).array().optional(),
+      row_filter: z.object({
+        filter_expression: z.string().optional(),
+        all_rows_wildcard: z.object({}).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -40,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_data_cells_filter
 
 export function AwsLakeformationDataCellsFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +67,18 @@ export function AwsLakeformationDataCellsFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationDataCellsFilter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLakeformationDataCellsFilter, node, id)
+export const useAwsLakeformationDataCellsFilter = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsLakeformationDataCellsFilter, idFilter, baseNode)
 
-export const useAwsLakeformationDataCellsFilters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLakeformationDataCellsFilter, node, id)
+export const useAwsLakeformationDataCellsFilters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLakeformationDataCellsFilter,
+    idFilter,
+    baseNode,
+  )

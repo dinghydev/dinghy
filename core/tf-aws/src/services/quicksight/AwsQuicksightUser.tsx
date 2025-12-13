@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_user
 
 export const InputSchema = z.object({
   email: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   session_name: resolvableValue(z.string().optional()),
   user_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_user
 
 export function AwsQuicksightUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsQuicksightUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightUser, node, id)
+export const useAwsQuicksightUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsQuicksightUser, idFilter, baseNode)
 
-export const useAwsQuicksightUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightUser, node, id)
+export const useAwsQuicksightUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsQuicksightUser, idFilter, baseNode)

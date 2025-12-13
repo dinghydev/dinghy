@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2ClientVpnEndpoint } from './AwsEc2ClientVpnEndpoint.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_client_vpn_endpoint
 
 export const InputSchema = z.object({
   client_vpn_endpoint_id: resolvableValue(z.string().optional()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -77,6 +76,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_client_vpn_endpoint
 
 export function DataAwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -95,8 +97,12 @@ export function DataAwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2ClientVpnEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2ClientVpnEndpoint, node, id)
+export const useDataAwsEc2ClientVpnEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsEc2ClientVpnEndpoint, idFilter, baseNode)
 
-export const useDataAwsEc2ClientVpnEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2ClientVpnEndpoint, node, id)
+export const useDataAwsEc2ClientVpnEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEc2ClientVpnEndpoint, idFilter, baseNode)

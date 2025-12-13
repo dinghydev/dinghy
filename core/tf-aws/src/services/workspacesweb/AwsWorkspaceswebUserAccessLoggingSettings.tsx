@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_user_access_logging_settings
 
 export const InputSchema = z.object({
   kinesis_stream_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_user_access_logging_settings
 
 export function AwsWorkspaceswebUserAccessLoggingSettings(
   props: Partial<InputProps>,
@@ -49,11 +51,11 @@ export function AwsWorkspaceswebUserAccessLoggingSettings(
 }
 
 export const useAwsWorkspaceswebUserAccessLoggingSettingss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebUserAccessLoggingSettings,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,16 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_project
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  service_role: resolvableValue(z.string()),
   artifacts: resolvableValue(z.object({
     artifact_identifier: z.string().optional(),
     bucket_owner_access: z.string().optional(),
@@ -25,6 +22,51 @@ export const InputSchema = z.object({
     path: z.string().optional(),
     type: z.string(),
   })),
+  environment: resolvableValue(z.object({
+    certificate: z.string().optional(),
+    compute_type: z.string(),
+    image: z.string(),
+    image_pull_credentials_type: z.string().optional(),
+    privileged_mode: z.boolean().optional(),
+    type: z.string(),
+    docker_server: z.object({
+      compute_type: z.string(),
+      security_group_ids: z.string().array().optional(),
+    }).optional(),
+    environment_variable: z.object({
+      name: z.string(),
+      type: z.string().optional(),
+      value: z.string(),
+    }).array().optional(),
+    fleet: z.object({
+      fleet_arn: z.string().optional(),
+    }).optional(),
+    registry_credential: z.object({
+      credential: z.string(),
+      credential_provider: z.string(),
+    }).optional(),
+  })),
+  name: resolvableValue(z.string()),
+  service_role: resolvableValue(z.string()),
+  source: resolvableValue(z.object({
+    buildspec: z.string().optional(),
+    git_clone_depth: z.number().optional(),
+    insecure_ssl: z.boolean().optional(),
+    location: z.string().optional(),
+    report_build_status: z.boolean().optional(),
+    type: z.string(),
+    auth: z.object({
+      resource: z.string(),
+      type: z.string(),
+    }).optional(),
+    build_status_config: z.object({
+      context: z.string().optional(),
+      target_url: z.string().optional(),
+    }).optional(),
+    git_submodules_config: z.object({
+      fetch_submodules: z.boolean(),
+    }).optional(),
+  })),
   auto_retry_limit: resolvableValue(z.number().optional()),
   badge_enabled: resolvableValue(z.boolean().optional()),
   build_batch_config: resolvableValue(
@@ -32,6 +74,10 @@ export const InputSchema = z.object({
       combine_artifacts: z.boolean().optional(),
       service_role: z.string(),
       timeout_in_mins: z.number().optional(),
+      restrictions: z.object({
+        compute_types_allowed: z.string().array().optional(),
+        maximum_builds_allowed: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   build_timeout: resolvableValue(z.number().optional()),
@@ -45,14 +91,6 @@ export const InputSchema = z.object({
   concurrent_build_limit: resolvableValue(z.number().optional()),
   description: resolvableValue(z.string().optional()),
   encryption_key: resolvableValue(z.string().optional()),
-  environment: resolvableValue(z.object({
-    certificate: z.string().optional(),
-    compute_type: z.string(),
-    image: z.string(),
-    image_pull_credentials_type: z.string().optional(),
-    privileged_mode: z.boolean().optional(),
-    type: z.string(),
-  })),
   file_system_locations: resolvableValue(
     z.object({
       identifier: z.string().optional(),
@@ -110,16 +148,19 @@ export const InputSchema = z.object({
       report_build_status: z.boolean().optional(),
       source_identifier: z.string(),
       type: z.string(),
+      auth: z.object({
+        resource: z.string(),
+        type: z.string(),
+      }).optional(),
+      build_status_config: z.object({
+        context: z.string().optional(),
+        target_url: z.string().optional(),
+      }).optional(),
+      git_submodules_config: z.object({
+        fetch_submodules: z.boolean(),
+      }).optional(),
     }).array().optional(),
   ),
-  source: resolvableValue(z.object({
-    buildspec: z.string().optional(),
-    git_clone_depth: z.number().optional(),
-    insecure_ssl: z.boolean().optional(),
-    location: z.string().optional(),
-    report_build_status: z.boolean().optional(),
-    type: z.string(),
-  })),
   source_version: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_config: resolvableValue(
@@ -129,7 +170,7 @@ export const InputSchema = z.object({
       vpc_id: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -151,6 +192,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_project
 
 export function AwsCodebuildProject(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -170,8 +214,8 @@ export function AwsCodebuildProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildProject = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodebuildProject, node, id)
+export const useAwsCodebuildProject = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodebuildProject, idFilter, baseNode)
 
-export const useAwsCodebuildProjects = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodebuildProject, node, id)
+export const useAwsCodebuildProjects = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodebuildProject, idFilter, baseNode)

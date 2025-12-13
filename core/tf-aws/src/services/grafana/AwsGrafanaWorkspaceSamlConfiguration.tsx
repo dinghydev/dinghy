@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace_saml_configuration
 
 export const InputSchema = z.object({
   editor_role_values: resolvableValue(z.string().array()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   status: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace_saml_configuration
 
 export function AwsGrafanaWorkspaceSamlConfiguration(
   props: Partial<InputProps>,
@@ -66,11 +68,21 @@ export function AwsGrafanaWorkspaceSamlConfiguration(
 }
 
 export const useAwsGrafanaWorkspaceSamlConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsGrafanaWorkspaceSamlConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGrafanaWorkspaceSamlConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGrafanaWorkspaceSamlConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsGrafanaWorkspaceSamlConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGrafanaWorkspaceSamlConfiguration,
+    idFilter,
+    baseNode,
+  )

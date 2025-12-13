@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   precedence: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_user_group
 
 export function AwsCognitoUserGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsCognitoUserGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoUserGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoUserGroup, node, id)
+export const useAwsCognitoUserGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCognitoUserGroup, idFilter, baseNode)
 
-export const useAwsCognitoUserGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoUserGroup, node, id)
+export const useAwsCognitoUserGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCognitoUserGroup, idFilter, baseNode)

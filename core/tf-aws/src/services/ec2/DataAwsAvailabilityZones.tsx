@@ -3,14 +3,12 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/availability_zones
-
 export const InputSchema = z.object({
-  group_names: resolvableValue(z.string().array()),
   all_availability_zones: resolvableValue(z.boolean().optional()),
   exclude_names: resolvableValue(z.string().array().optional()),
   exclude_zone_ids: resolvableValue(z.string().array().optional()),
@@ -27,9 +25,10 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
+  group_names: z.set(z.string()).optional(),
   id: z.string().optional(),
   names: z.string().array().optional(),
   zone_ids: z.string().array().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/availability_zones
 
 export function DataAwsAvailabilityZones(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,5 +62,7 @@ export function DataAwsAvailabilityZones(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAvailabilityZoness = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAvailabilityZones, node, id)
+export const useDataAwsAvailabilityZoness = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAvailabilityZones, idFilter, baseNode)

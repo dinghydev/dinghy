@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLambdaFunction } from './AwsLambdaFunction.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_function
-
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   qualifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   architectures: z.string().array().optional(),
@@ -67,8 +66,8 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
   vpc_config: z.object({
     ipv6_allowed_for_dual_stack: z.boolean(),
-    security_group_ids: z.string().array(),
-    subnet_ids: z.string().array(),
+    security_group_ids: z.set(z.string()),
+    subnet_ids: z.set(z.string()),
     vpc_id: z.string(),
   }).array().optional(),
 })
@@ -80,6 +79,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_function
 
 export function DataAwsLambdaFunction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -98,8 +100,8 @@ export function DataAwsLambdaFunction(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaFunction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLambdaFunction, node, id)
+export const useDataAwsLambdaFunction = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLambdaFunction, idFilter, baseNode)
 
-export const useDataAwsLambdaFunctions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaFunction, node, id)
+export const useDataAwsLambdaFunctions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLambdaFunction, idFilter, baseNode)

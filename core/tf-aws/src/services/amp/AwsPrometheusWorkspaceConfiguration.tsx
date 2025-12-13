@@ -3,19 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_workspace_configuration
 
 export const InputSchema = z.object({
   workspace_id: resolvableValue(z.string()),
   limits_per_label_set: resolvableValue(
     z.object({
       label_set: z.record(z.string(), z.string()),
-    }).optional(),
+      limits: z.object({
+        max_series: z.number(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   retention_period_in_days: resolvableValue(z.number().optional()),
@@ -25,7 +27,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -36,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_workspace_configuration
 
 export function AwsPrometheusWorkspaceConfiguration(
   props: Partial<InputProps>,
@@ -57,11 +62,21 @@ export function AwsPrometheusWorkspaceConfiguration(
 }
 
 export const useAwsPrometheusWorkspaceConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsPrometheusWorkspaceConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPrometheusWorkspaceConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsPrometheusWorkspaceConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsPrometheusWorkspaceConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPrometheusWorkspaceConfiguration,
+    idFilter,
+    baseNode,
+  )

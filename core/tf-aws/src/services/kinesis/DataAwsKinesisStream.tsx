@@ -2,30 +2,30 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKinesisStream } from './AwsKinesisStream.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kinesis_stream
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  closed_shards: z.string().array().optional(),
+  closed_shards: z.set(z.string()).optional(),
   creation_timestamp: z.number().optional(),
   encryption_type: z.string().optional(),
   id: z.string().optional(),
   kms_key_id: z.string().optional(),
   max_record_size_in_kib: z.number().optional(),
   name: z.string().optional(),
-  open_shards: z.string().array().optional(),
+  open_shards: z.set(z.string()).optional(),
   retention_period: z.number().optional(),
-  shard_level_metrics: z.string().array().optional(),
+  shard_level_metrics: z.set(z.string()).optional(),
   status: z.string().optional(),
   stream_mode_details: z.object({
     stream_mode: z.string(),
@@ -40,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kinesis_stream
 
 export function DataAwsKinesisStream(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +61,8 @@ export function DataAwsKinesisStream(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKinesisStream = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsKinesisStream, node, id)
+export const useDataAwsKinesisStream = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsKinesisStream, idFilter, baseNode)
 
-export const useDataAwsKinesisStreams = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKinesisStream, node, id)
+export const useDataAwsKinesisStreams = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsKinesisStream, idFilter, baseNode)

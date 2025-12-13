@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderImagePipeline } from './AwsImagebuilderImagePipeline.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_image_pipeline
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   container_recipe_arn: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_image_pipeline
 
 export function DataAwsImagebuilderImagePipeline(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,22 @@ export function DataAwsImagebuilderImagePipeline(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsImagebuilderImagePipeline = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsImagebuilderImagePipeline, node, id)
+export const useDataAwsImagebuilderImagePipeline = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsImagebuilderImagePipeline,
+    idFilter,
+    baseNode,
+  )
 
-export const useDataAwsImagebuilderImagePipelines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsImagebuilderImagePipeline, node, id)
+export const useDataAwsImagebuilderImagePipelines = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsImagebuilderImagePipeline,
+    idFilter,
+    baseNode,
+  )

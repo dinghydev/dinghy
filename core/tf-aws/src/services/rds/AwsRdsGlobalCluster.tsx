@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_global_cluster
 
 export const InputSchema = z.object({
   engine_version_actual: resolvableValue(z.string()),
@@ -30,15 +29,15 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
-  global_cluster_members: z.object({
+  global_cluster_members: z.set(z.object({
     db_cluster_arn: z.string(),
     is_writer: z.boolean(),
-  }).array().optional(),
+  })).optional(),
   global_cluster_resource_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_global_cluster
 
 export function AwsRdsGlobalCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,8 @@ export function AwsRdsGlobalCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsGlobalCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsGlobalCluster, node, id)
+export const useAwsRdsGlobalCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRdsGlobalCluster, idFilter, baseNode)
 
-export const useAwsRdsGlobalClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsGlobalCluster, node, id)
+export const useAwsRdsGlobalClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRdsGlobalCluster, idFilter, baseNode)

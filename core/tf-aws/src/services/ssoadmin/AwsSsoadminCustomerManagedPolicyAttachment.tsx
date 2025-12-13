@@ -3,20 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_customer_managed_policy_attachment
-
 export const InputSchema = z.object({
-  instance_arn: resolvableValue(z.string()),
-  permission_set_arn: resolvableValue(z.string()),
   customer_managed_policy_reference: resolvableValue(z.object({
     name: z.string(),
     path: z.string().optional(),
   })),
+  instance_arn: resolvableValue(z.string()),
+  permission_set_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_customer_managed_policy_attachment
 
 export function AwsSsoadminCustomerManagedPolicyAttachment(
   props: Partial<InputProps>,
@@ -58,21 +60,21 @@ export function AwsSsoadminCustomerManagedPolicyAttachment(
 }
 
 export const useAwsSsoadminCustomerManagedPolicyAttachment = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsoadminCustomerManagedPolicyAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsSsoadminCustomerManagedPolicyAttachments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminCustomerManagedPolicyAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

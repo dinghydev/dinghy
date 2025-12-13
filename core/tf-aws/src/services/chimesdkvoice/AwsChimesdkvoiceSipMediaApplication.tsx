@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chimesdkvoice_sip_media_application
 
 export const InputSchema = z.object({
   aws_region: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chimesdkvoice_sip_media_application
 
 export function AwsChimesdkvoiceSipMediaApplication(
   props: Partial<InputProps>,
@@ -54,11 +56,21 @@ export function AwsChimesdkvoiceSipMediaApplication(
 }
 
 export const useAwsChimesdkvoiceSipMediaApplication = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsChimesdkvoiceSipMediaApplication, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChimesdkvoiceSipMediaApplication,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsChimesdkvoiceSipMediaApplications = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsChimesdkvoiceSipMediaApplication, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChimesdkvoiceSipMediaApplication,
+    idFilter,
+    baseNode,
+  )

@@ -3,20 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_vault_lock_configuration
-
 export const InputSchema = z.object({
+  backup_vault_name: resolvableValue(z.string()),
   changeable_for_days: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
   max_retention_days: resolvableValue(z.number().optional()),
   min_retention_days: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   backup_vault_arn: z.string().optional(),
@@ -30,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_vault_lock_configuration
 
 export function AwsBackupVaultLockConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +51,18 @@ export function AwsBackupVaultLockConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupVaultLockConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupVaultLockConfiguration, node, id)
+export const useAwsBackupVaultLockConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsBackupVaultLockConfiguration, idFilter, baseNode)
 
-export const useAwsBackupVaultLockConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupVaultLockConfiguration, node, id)
+export const useAwsBackupVaultLockConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBackupVaultLockConfiguration,
+    idFilter,
+    baseNode,
+  )

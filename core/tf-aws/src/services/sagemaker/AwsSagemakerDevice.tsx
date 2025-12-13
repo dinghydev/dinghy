@@ -3,23 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_device
-
 export const InputSchema = z.object({
   agent_version: resolvableValue(z.string()),
-  device_fleet_name: resolvableValue(z.string()),
   device: resolvableValue(z.object({
     description: z.string().optional(),
     device_name: z.string(),
     iot_thing_name: z.string().optional(),
   })),
+  device_fleet_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_device
 
 export function AwsSagemakerDevice(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsSagemakerDevice(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerDevice = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerDevice, node, id)
+export const useAwsSagemakerDevice = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerDevice, idFilter, baseNode)
 
-export const useAwsSagemakerDevices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerDevice, node, id)
+export const useAwsSagemakerDevices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSagemakerDevice, idFilter, baseNode)

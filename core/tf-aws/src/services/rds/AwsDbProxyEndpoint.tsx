@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy_endpoint
 
 export const InputSchema = z.object({
   db_proxy_endpoint_name: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy_endpoint
 
 export function AwsDbProxyEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,8 @@ export function AwsDbProxyEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbProxyEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbProxyEndpoint, node, id)
+export const useAwsDbProxyEndpoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDbProxyEndpoint, idFilter, baseNode)
 
-export const useAwsDbProxyEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbProxyEndpoint, node, id)
+export const useAwsDbProxyEndpoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDbProxyEndpoint, idFilter, baseNode)

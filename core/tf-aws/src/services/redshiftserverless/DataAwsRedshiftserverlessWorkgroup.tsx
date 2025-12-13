@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRedshiftserverlessWorkgroup } from './AwsRedshiftserverlessWorkgroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshiftserverless_workgroup
-
 export const InputSchema = z.object({
   namespace_name: resolvableValue(z.string()),
   workgroup_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,8 +34,8 @@ export const OutputSchema = z.object({
   enhanced_vpc_routing: z.boolean().optional(),
   id: z.string().optional(),
   publicly_accessible: z.boolean().optional(),
-  security_group_ids: z.string().array().optional(),
-  subnet_ids: z.string().array().optional(),
+  security_group_ids: z.set(z.string()).optional(),
+  subnet_ids: z.set(z.string()).optional(),
   track_name: z.string().optional(),
   workgroup_id: z.string().optional(),
 })
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshiftserverless_workgroup
 
 export function DataAwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,11 +69,21 @@ export function DataAwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
 }
 
 export const useDataAwsRedshiftserverlessWorkgroup = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsRedshiftserverlessWorkgroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRedshiftserverlessWorkgroup,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsRedshiftserverlessWorkgroups = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRedshiftserverlessWorkgroup, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftserverlessWorkgroup,
+    idFilter,
+    baseNode,
+  )

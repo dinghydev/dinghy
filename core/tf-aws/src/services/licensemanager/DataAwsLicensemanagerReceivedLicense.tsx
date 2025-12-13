@@ -3,14 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/licensemanager_received_license
-
 export const InputSchema = z.object({
+  license_arn: resolvableValue(z.string()),
   license_metadata: resolvableValue(
     z.object({
       name: z.string(),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   ),
   product_sku: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   beneficiary: z.string().optional(),
@@ -34,14 +34,14 @@ export const OutputSchema = z.object({
     renew_type: z.string(),
   }).array().optional(),
   create_time: z.string().optional(),
-  entitlements: z.object({
+  entitlements: z.set(z.object({
     allow_check_in: z.boolean(),
     max_count: z.number(),
     name: z.string(),
     overage: z.boolean(),
     unit: z.string(),
     value: z.string(),
-  }).array().optional(),
+  })).optional(),
   home_region: z.string().optional(),
   id: z.string().optional(),
   issuer: z.object({
@@ -53,7 +53,7 @@ export const OutputSchema = z.object({
   license_name: z.string().optional(),
   product_name: z.string().optional(),
   received_metadata: z.object({
-    allowed_operations: z.string().array(),
+    allowed_operations: z.set(z.string()),
     received_status: z.string(),
     received_status_reason: z.string(),
   }).array().optional(),
@@ -72,6 +72,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/licensemanager_received_license
 
 export function DataAwsLicensemanagerReceivedLicense(
   props: Partial<InputProps>,
@@ -93,11 +96,21 @@ export function DataAwsLicensemanagerReceivedLicense(
 }
 
 export const useDataAwsLicensemanagerReceivedLicense = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsLicensemanagerReceivedLicense, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLicensemanagerReceivedLicense,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsLicensemanagerReceivedLicenses = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsLicensemanagerReceivedLicense, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLicensemanagerReceivedLicense,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_topic_rule
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -58,6 +57,9 @@ export const InputSchema = z.object({
   dynamodbv2: resolvableValue(
     z.object({
       role_arn: z.string(),
+      put_item: z.object({
+        table_name: z.string(),
+      }).optional(),
     }).array().optional(),
   ),
   elasticsearch: resolvableValue(
@@ -104,6 +106,9 @@ export const InputSchema = z.object({
       }).optional(),
       dynamodbv2: z.object({
         role_arn: z.string(),
+        put_item: z.object({
+          table_name: z.string(),
+        }).optional(),
       }).optional(),
       elasticsearch: z.object({
         endpoint: z.string(),
@@ -121,6 +126,10 @@ export const InputSchema = z.object({
       http: z.object({
         confirmation_url: z.string().optional(),
         url: z.string(),
+        http_header: z.object({
+          key: z.string(),
+          value: z.string(),
+        }).array().optional(),
       }).optional(),
       iot_analytics: z.object({
         batch_mode: z.boolean().optional(),
@@ -139,6 +148,10 @@ export const InputSchema = z.object({
         key: z.string().optional(),
         partition: z.string().optional(),
         topic: z.string(),
+        header: z.object({
+          key: z.string(),
+          value: z.string(),
+        }).array().optional(),
       }).optional(),
       kinesis: z.object({
         partition_key: z.string().optional(),
@@ -178,6 +191,14 @@ export const InputSchema = z.object({
         database_name: z.string(),
         role_arn: z.string(),
         table_name: z.string(),
+        dimension: z.object({
+          name: z.string(),
+          value: z.string(),
+        }).array(),
+        timestamp: z.object({
+          unit: z.string(),
+          value: z.string(),
+        }).optional(),
       }).optional(),
     }).optional(),
   ),
@@ -193,8 +214,13 @@ export const InputSchema = z.object({
     z.object({
       confirmation_url: z.string().optional(),
       url: z.string(),
+      http_header: z.object({
+        key: z.string(),
+        value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
   iot_analytics: resolvableValue(
     z.object({
       batch_mode: z.boolean().optional(),
@@ -217,6 +243,10 @@ export const InputSchema = z.object({
       key: z.string().optional(),
       partition: z.string().optional(),
       topic: z.string(),
+      header: z.object({
+        key: z.string(),
+        value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
   kinesis: resolvableValue(
@@ -274,9 +304,17 @@ export const InputSchema = z.object({
       database_name: z.string(),
       role_arn: z.string(),
       table_name: z.string(),
+      dimension: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array(),
+      timestamp: z.object({
+        unit: z.string(),
+        value: z.string(),
+      }).optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -291,6 +329,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_topic_rule
 
 export function AwsIotTopicRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -309,8 +350,8 @@ export function AwsIotTopicRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotTopicRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotTopicRule, node, id)
+export const useAwsIotTopicRule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotTopicRule, idFilter, baseNode)
 
-export const useAwsIotTopicRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotTopicRule, node, id)
+export const useAwsIotTopicRules = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIotTopicRule, idFilter, baseNode)

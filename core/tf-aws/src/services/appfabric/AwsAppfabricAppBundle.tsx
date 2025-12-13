@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_bundle
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   customer_managed_key_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_bundle
 
 export function AwsAppfabricAppBundle(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsAppfabricAppBundle(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppfabricAppBundle = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppfabricAppBundle, node, id)
+export const useAwsAppfabricAppBundle = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppfabricAppBundle, idFilter, baseNode)
 
-export const useAwsAppfabricAppBundles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppfabricAppBundle, node, id)
+export const useAwsAppfabricAppBundles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppfabricAppBundle, idFilter, baseNode)

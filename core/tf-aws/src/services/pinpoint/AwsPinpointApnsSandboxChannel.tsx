@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_apns_sandbox_channel
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   team_id: resolvableValue(z.string().optional()),
   token_key: resolvableValue(z.string().optional()),
   token_key_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_apns_sandbox_channel
 
 export function AwsPinpointApnsSandboxChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,14 @@ export function AwsPinpointApnsSandboxChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointApnsSandboxChannel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointApnsSandboxChannel, node, id)
+export const useAwsPinpointApnsSandboxChannel = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsPinpointApnsSandboxChannel, idFilter, baseNode)
 
-export const useAwsPinpointApnsSandboxChannels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointApnsSandboxChannel, node, id)
+export const useAwsPinpointApnsSandboxChannels = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsPinpointApnsSandboxChannel, idFilter, baseNode)

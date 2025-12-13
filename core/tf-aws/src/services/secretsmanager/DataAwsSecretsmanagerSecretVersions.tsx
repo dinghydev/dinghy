@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_secret_versions
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   secret_id: resolvableValue(z.string()),
   include_deprecated: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_secret_versions
 
 export function DataAwsSecretsmanagerSecretVersions(
   props: Partial<InputProps>,
@@ -54,6 +56,11 @@ export function DataAwsSecretsmanagerSecretVersions(
 }
 
 export const useDataAwsSecretsmanagerSecretVersionss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsSecretsmanagerSecretVersions, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSecretsmanagerSecretVersions,
+    idFilter,
+    baseNode,
+  )

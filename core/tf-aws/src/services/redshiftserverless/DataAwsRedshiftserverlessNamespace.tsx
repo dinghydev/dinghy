@@ -2,28 +2,27 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRedshiftserverlessNamespace } from './AwsRedshiftserverlessNamespace.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshiftserverless_namespace
-
 export const InputSchema = z.object({
   namespace_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   admin_username: z.string().optional(),
   arn: z.string().optional(),
   db_name: z.string().optional(),
   default_iam_role_arn: z.string().optional(),
-  iam_roles: z.string().array().optional(),
+  iam_roles: z.set(z.string()).optional(),
   kms_key_id: z.string().optional(),
-  log_exports: z.string().array().optional(),
+  log_exports: z.set(z.string()).optional(),
   namespace_id: z.string().optional(),
 })
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshiftserverless_namespace
 
 export function DataAwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,11 +55,21 @@ export function DataAwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
 }
 
 export const useDataAwsRedshiftserverlessNamespace = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsRedshiftserverlessNamespace, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRedshiftserverlessNamespace,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsRedshiftserverlessNamespaces = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRedshiftserverlessNamespace, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftserverlessNamespace,
+    idFilter,
+    baseNode,
+  )

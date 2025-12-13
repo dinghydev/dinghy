@@ -3,14 +3,12 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_data_catalog_encryption_settings
-
 export const InputSchema = z.object({
-  catalog_id: resolvableValue(z.string().optional()),
   data_catalog_encryption_settings: resolvableValue(z.object({
     connection_password_encryption: z.object({
       aws_kms_key_id: z.string().optional(),
@@ -22,8 +20,9 @@ export const InputSchema = z.object({
       sse_aws_kms_key_id: z.string().optional(),
     }),
   })),
+  catalog_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_data_catalog_encryption_settings
 
 export function AwsGlueDataCatalogEncryptionSettings(
   props: Partial<InputProps>,
@@ -57,6 +59,11 @@ export function AwsGlueDataCatalogEncryptionSettings(
 }
 
 export const useAwsGlueDataCatalogEncryptionSettingss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsGlueDataCatalogEncryptionSettings, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGlueDataCatalogEncryptionSettings,
+    idFilter,
+    baseNode,
+  )

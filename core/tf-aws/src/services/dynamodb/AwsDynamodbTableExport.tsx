@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_table_export
 
 export const InputSchema = z.object({
   s3_bucket: resolvableValue(z.string()),
@@ -35,7 +34,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_table_export
 
 export function AwsDynamodbTableExport(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,8 @@ export function AwsDynamodbTableExport(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTableExport = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDynamodbTableExport, node, id)
+export const useAwsDynamodbTableExport = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDynamodbTableExport, idFilter, baseNode)
 
-export const useAwsDynamodbTableExports = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTableExport, node, id)
+export const useAwsDynamodbTableExports = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDynamodbTableExport, idFilter, baseNode)

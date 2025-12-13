@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_network_peering_connections
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  odb_peering_connections: z.object({}).optional(),
+  odb_peering_connections: z.object({}).array().optional().optional(),
 })
 
 export type InputProps =
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_network_peering_connections
 
 export function DataAwsOdbNetworkPeeringConnections(
   props: Partial<InputProps>,
@@ -45,6 +47,11 @@ export function DataAwsOdbNetworkPeeringConnections(
 }
 
 export const useDataAwsOdbNetworkPeeringConnectionss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOdbNetworkPeeringConnections, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOdbNetworkPeeringConnections,
+    idFilter,
+    baseNode,
+  )

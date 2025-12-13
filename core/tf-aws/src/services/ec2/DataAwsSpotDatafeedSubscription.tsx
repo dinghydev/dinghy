@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSpotDatafeedSubscription } from './AwsSpotDatafeedSubscription.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/spot_datafeed_subscription
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   bucket: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/spot_datafeed_subscription
 
 export function DataAwsSpotDatafeedSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,18 @@ export function DataAwsSpotDatafeedSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSpotDatafeedSubscription = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSpotDatafeedSubscription, node, id)
+export const useDataAwsSpotDatafeedSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsSpotDatafeedSubscription, idFilter, baseNode)
 
-export const useDataAwsSpotDatafeedSubscriptions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSpotDatafeedSubscription, node, id)
+export const useDataAwsSpotDatafeedSubscriptions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSpotDatafeedSubscription,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_principal_policy_simulation
 
 export const InputSchema = z.object({
   action_names: resolvableValue(z.string().array()),
@@ -30,22 +29,22 @@ export const InputSchema = z.object({
   resource_handling_option: resolvableValue(z.string().optional()),
   resource_owner_account_id: resolvableValue(z.string().optional()),
   resource_policy_json: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   all_allowed: z.boolean().optional(),
-  results: z.object({
+  results: z.set(z.object({
     action_name: z.string(),
     allowed: z.boolean(),
     decision: z.string(),
     decision_details: z.record(z.string(), z.string()),
-    matched_statements: z.object({
+    matched_statements: z.set(z.object({
       source_policy_id: z.string(),
       source_policy_type: z.string(),
-    }).array(),
-    missing_context_keys: z.string().array(),
+    })),
+    missing_context_keys: z.set(z.string()),
     resource_arn: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -55,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_principal_policy_simulation
 
 export function DataAwsIamPrincipalPolicySimulation(
   props: Partial<InputProps>,
@@ -76,11 +78,21 @@ export function DataAwsIamPrincipalPolicySimulation(
 }
 
 export const useDataAwsIamPrincipalPolicySimulation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsIamPrincipalPolicySimulation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsIamPrincipalPolicySimulation,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsIamPrincipalPolicySimulations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsIamPrincipalPolicySimulation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIamPrincipalPolicySimulation,
+    idFilter,
+    baseNode,
+  )

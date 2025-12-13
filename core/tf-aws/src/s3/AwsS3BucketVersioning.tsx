@@ -35,7 +35,7 @@ export function importId(props: AwsS3BucketVersioningOutputProps) {
 }
 
 export function AwsS3BucketVersioning(props: AwsS3BucketVersioningInputProps) {
-  const _importId = (node: any) => deepResolve(node, node._props, 'bucket')
+  const _importId = (node: any) => deepResolve(node._props, 'bucket')
   return (
     <Shape
       _importId={_importId}

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kendra_data_source
 
 export const InputSchema = z.object({
   index_id: resolvableValue(z.string()),
@@ -21,6 +20,12 @@ export const InputSchema = z.object({
         exclusion_patterns: z.string().array().optional(),
         inclusion_patterns: z.string().array().optional(),
         inclusion_prefixes: z.string().array().optional(),
+        access_control_list_configuration: z.object({
+          key_path: z.string().optional(),
+        }).optional(),
+        documents_metadata_configuration: z.object({
+          s3_prefix: z.string().optional(),
+        }).optional(),
       }).optional(),
       template_configuration: z.object({
         template: z.string(),
@@ -32,12 +37,84 @@ export const InputSchema = z.object({
         max_urls_per_minute_crawl_rate: z.number().optional(),
         url_exclusion_patterns: z.string().array().optional(),
         url_inclusion_patterns: z.string().array().optional(),
+        authentication_configuration: z.object({
+          basic_authentication: z.object({
+            credentials: z.string(),
+            host: z.string(),
+            port: z.number(),
+          }).array().optional(),
+        }).optional(),
+        proxy_configuration: z.object({
+          credentials: z.string().optional(),
+          host: z.string(),
+          port: z.number(),
+        }).optional(),
+        urls: z.object({
+          seed_url_configuration: z.object({
+            seed_urls: z.string().array(),
+            web_crawler_mode: z.string().optional(),
+          }).optional(),
+          site_maps_configuration: z.object({
+            site_maps: z.string().array(),
+          }).optional(),
+        }),
       }).optional(),
     }).optional(),
   ),
   custom_document_enrichment_configuration: resolvableValue(
     z.object({
       role_arn: z.string().optional(),
+      inline_configurations: z.object({
+        document_content_deletion: z.boolean().optional(),
+        condition: z.object({
+          condition_document_attribute_key: z.string(),
+          operator: z.string(),
+          condition_on_value: z.object({
+            date_value: z.string().optional(),
+            long_value: z.number().optional(),
+            string_list_value: z.string().array().optional(),
+            string_value: z.string().optional(),
+          }).optional(),
+        }).optional(),
+        target: z.object({
+          target_document_attribute_key: z.string().optional(),
+          target_document_attribute_value_deletion: z.boolean().optional(),
+          target_document_attribute_value: z.object({
+            date_value: z.string().optional(),
+            long_value: z.number().optional(),
+            string_list_value: z.string().array().optional(),
+            string_value: z.string().optional(),
+          }).optional(),
+        }).optional(),
+      }).array().optional(),
+      post_extraction_hook_configuration: z.object({
+        lambda_arn: z.string(),
+        s3_bucket: z.string(),
+        invocation_condition: z.object({
+          condition_document_attribute_key: z.string(),
+          operator: z.string(),
+          condition_on_value: z.object({
+            date_value: z.string().optional(),
+            long_value: z.number().optional(),
+            string_list_value: z.string().array().optional(),
+            string_value: z.string().optional(),
+          }).optional(),
+        }).optional(),
+      }).optional(),
+      pre_extraction_hook_configuration: z.object({
+        lambda_arn: z.string(),
+        s3_bucket: z.string(),
+        invocation_condition: z.object({
+          condition_document_attribute_key: z.string(),
+          operator: z.string(),
+          condition_on_value: z.object({
+            date_value: z.string().optional(),
+            long_value: z.number().optional(),
+            string_list_value: z.string().array().optional(),
+            string_value: z.string().optional(),
+          }).optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
   ),
   description: resolvableValue(z.string().optional()),
@@ -53,7 +130,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -73,6 +150,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kendra_data_source
 
 export function AwsKendraDataSource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -91,8 +171,8 @@ export function AwsKendraDataSource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKendraDataSource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKendraDataSource, node, id)
+export const useAwsKendraDataSource = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKendraDataSource, idFilter, baseNode)
 
-export const useAwsKendraDataSources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKendraDataSource, node, id)
+export const useAwsKendraDataSources = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKendraDataSource, idFilter, baseNode)

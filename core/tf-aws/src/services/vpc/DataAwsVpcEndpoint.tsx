@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpcEndpoint } from './AwsVpcEndpoint.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_endpoint
 
 export const InputSchema = z.object({
   ip_address_type: resolvableValue(z.string()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,15 +41,15 @@ export const OutputSchema = z.object({
     dns_record_ip_type: z.string(),
     private_dns_only_for_inbound_resolver_endpoint: z.boolean(),
   }).array().optional(),
-  network_interface_ids: z.string().array().optional(),
+  network_interface_ids: z.set(z.string()).optional(),
   owner_id: z.string().optional(),
   policy: z.string().optional(),
   prefix_list_id: z.string().optional(),
   private_dns_enabled: z.boolean().optional(),
   requester_managed: z.boolean().optional(),
-  route_table_ids: z.string().array().optional(),
-  security_group_ids: z.string().array().optional(),
-  subnet_ids: z.string().array().optional(),
+  route_table_ids: z.set(z.string()).optional(),
+  security_group_ids: z.set(z.string()).optional(),
+  subnet_ids: z.set(z.string()).optional(),
   vpc_endpoint_type: z.string().optional(),
 })
 
@@ -61,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_endpoint
 
 export function DataAwsVpcEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +81,8 @@ export function DataAwsVpcEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpcEndpoint, node, id)
+export const useDataAwsVpcEndpoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsVpcEndpoint, idFilter, baseNode)
 
-export const useDataAwsVpcEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpcEndpoint, node, id)
+export const useDataAwsVpcEndpoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsVpcEndpoint, idFilter, baseNode)

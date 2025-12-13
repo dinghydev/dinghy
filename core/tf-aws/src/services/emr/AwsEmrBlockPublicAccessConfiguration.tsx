@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_block_public_access_configuration
 
 export const InputSchema = z.object({
   block_public_security_group_rules: resolvableValue(z.boolean()),
@@ -17,10 +16,10 @@ export const InputSchema = z.object({
     z.object({
       max_range: z.number(),
       min_range: z.number(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_block_public_access_configuration
 
 export function AwsEmrBlockPublicAccessConfiguration(
   props: Partial<InputProps>,
@@ -52,11 +54,21 @@ export function AwsEmrBlockPublicAccessConfiguration(
 }
 
 export const useAwsEmrBlockPublicAccessConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsEmrBlockPublicAccessConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEmrBlockPublicAccessConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEmrBlockPublicAccessConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsEmrBlockPublicAccessConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEmrBlockPublicAccessConfiguration,
+    idFilter,
+    baseNode,
+  )

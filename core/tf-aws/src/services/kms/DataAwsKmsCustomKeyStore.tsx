@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKmsCustomKeyStore } from './AwsKmsCustomKeyStore.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_custom_key_store
-
 export const InputSchema = z.object({
   cloud_hsm_cluster_id: resolvableValue(z.string()),
   custom_key_store_id: resolvableValue(z.string().optional()),
   custom_key_store_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   connection_state: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_custom_key_store
 
 export function DataAwsKmsCustomKeyStore(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,12 @@ export function DataAwsKmsCustomKeyStore(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKmsCustomKeyStore = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsKmsCustomKeyStore, node, id)
+export const useDataAwsKmsCustomKeyStore = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsKmsCustomKeyStore, idFilter, baseNode)
 
-export const useDataAwsKmsCustomKeyStores = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKmsCustomKeyStore, node, id)
+export const useDataAwsKmsCustomKeyStores = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsKmsCustomKeyStore, idFilter, baseNode)

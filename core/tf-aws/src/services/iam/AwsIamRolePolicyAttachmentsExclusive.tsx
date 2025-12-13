@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy_attachments_exclusive
-
 export const InputSchema = z.object({
   policy_arns: resolvableValue(z.string().array()),
   role_name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy_attachments_exclusive
 
 export function AwsIamRolePolicyAttachmentsExclusive(
   props: Partial<InputProps>,
@@ -45,11 +47,21 @@ export function AwsIamRolePolicyAttachmentsExclusive(
 }
 
 export const useAwsIamRolePolicyAttachmentsExclusive = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsIamRolePolicyAttachmentsExclusive, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamRolePolicyAttachmentsExclusive,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsIamRolePolicyAttachmentsExclusives = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsIamRolePolicyAttachmentsExclusive, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamRolePolicyAttachmentsExclusive,
+    idFilter,
+    baseNode,
+  )

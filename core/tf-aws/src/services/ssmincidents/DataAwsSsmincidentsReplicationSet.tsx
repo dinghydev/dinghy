@@ -2,35 +2,34 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsmincidentsReplicationSet } from './AwsSsmincidentsReplicationSet.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssmincidents_replication_set
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_by: z.string().optional(),
   deletion_protected: z.boolean().optional(),
   last_modified_by: z.string().optional(),
-  region: z.object({
+  region: z.set(z.object({
     kms_key_arn: z.string(),
     name: z.string(),
     status: z.string(),
     status_message: z.string(),
-  }).array().optional(),
-  regions: z.object({
+  })).optional(),
+  regions: z.set(z.object({
     kms_key_arn: z.string(),
     name: z.string(),
     status: z.string(),
     status_message: z.string(),
-  }).array().optional(),
+  })).optional(),
   status: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssmincidents_replication_set
 
 export function DataAwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,10 +62,22 @@ export function DataAwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmincidentsReplicationSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmincidentsReplicationSet, node, id)
+export const useDataAwsSsmincidentsReplicationSet = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSsmincidentsReplicationSet,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsSsmincidentsReplicationSets = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsSsmincidentsReplicationSet, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsmincidentsReplicationSet,
+    idFilter,
+    baseNode,
+  )

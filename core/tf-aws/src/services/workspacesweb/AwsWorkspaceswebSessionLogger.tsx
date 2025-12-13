@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_session_logger
 
 export const InputSchema = z.object({
   additional_encryption_context: resolvableValue(
@@ -19,7 +18,8 @@ export const InputSchema = z.object({
   event_filter: resolvableValue(
     z.object({
       include: z.string().array().optional(),
-    }).optional(),
+      all: z.object({}).array().optional(),
+    }).array().optional(),
   ),
   log_configuration: resolvableValue(
     z.object({
@@ -29,12 +29,12 @@ export const InputSchema = z.object({
         folder_structure: z.string(),
         key_prefix: z.string().optional(),
         log_file_format: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
@@ -49,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_session_logger
 
 export function AwsWorkspaceswebSessionLogger(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +70,14 @@ export function AwsWorkspaceswebSessionLogger(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspaceswebSessionLogger = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebSessionLogger, node, id)
+export const useAwsWorkspaceswebSessionLogger = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsWorkspaceswebSessionLogger, idFilter, baseNode)
 
-export const useAwsWorkspaceswebSessionLoggers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebSessionLogger, node, id)
+export const useAwsWorkspaceswebSessionLoggers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsWorkspaceswebSessionLogger, idFilter, baseNode)

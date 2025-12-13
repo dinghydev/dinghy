@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_topic
 
 export const InputSchema = z.object({
   application_failure_feedback_role_arn: resolvableValue(z.string().optional()),
@@ -42,7 +41,7 @@ export const InputSchema = z.object({
   sqs_success_feedback_sample_rate: resolvableValue(z.number().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tracing_config: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -64,6 +63,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_topic
 
 export function AwsSnsTopic(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -83,8 +85,8 @@ export function AwsSnsTopic(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSnsTopic = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSnsTopic, node, id)
+export const useAwsSnsTopic = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSnsTopic, idFilter, baseNode)
 
-export const useAwsSnsTopics = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSnsTopic, node, id)
+export const useAwsSnsTopics = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSnsTopic, idFilter, baseNode)

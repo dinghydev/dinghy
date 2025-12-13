@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_application_access_scope
 
 export const InputSchema = z.object({
   application_arn: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   authorized_targets: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_application_access_scope
 
 export function AwsSsoadminApplicationAccessScope(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,10 +48,22 @@ export function AwsSsoadminApplicationAccessScope(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsoadminApplicationAccessScope = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsoadminApplicationAccessScope, node, id)
+export const useAwsSsoadminApplicationAccessScope = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsoadminApplicationAccessScope,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSsoadminApplicationAccessScopes = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSsoadminApplicationAccessScope, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsoadminApplicationAccessScope,
+    idFilter,
+    baseNode,
+  )

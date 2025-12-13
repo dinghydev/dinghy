@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_pool_cidr_allocation
 
 export const InputSchema = z.object({
   ipam_pool_allocation_id: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   disallowed_cidrs: resolvableValue(z.string().array().optional()),
   netmask_length: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_pool_cidr_allocation
 
 export function AwsVpcIpamPoolCidrAllocation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,13 @@ export function AwsVpcIpamPoolCidrAllocation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcIpamPoolCidrAllocation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcIpamPoolCidrAllocation, node, id)
+export const useAwsVpcIpamPoolCidrAllocation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVpcIpamPoolCidrAllocation, idFilter, baseNode)
 
-export const useAwsVpcIpamPoolCidrAllocations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamPoolCidrAllocation, node, id)
+export const useAwsVpcIpamPoolCidrAllocations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsVpcIpamPoolCidrAllocation, idFilter, baseNode)

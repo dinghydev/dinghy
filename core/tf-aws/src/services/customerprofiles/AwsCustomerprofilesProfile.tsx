@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/customerprofiles_profile
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -86,7 +85,7 @@ export const InputSchema = z.object({
       state: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -99,6 +98,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/customerprofiles_profile
 
 export function AwsCustomerprofilesProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -117,8 +119,12 @@ export function AwsCustomerprofilesProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCustomerprofilesProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCustomerprofilesProfile, node, id)
+export const useAwsCustomerprofilesProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCustomerprofilesProfile, idFilter, baseNode)
 
-export const useAwsCustomerprofilesProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCustomerprofilesProfile, node, id)
+export const useAwsCustomerprofilesProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCustomerprofilesProfile, idFilter, baseNode)

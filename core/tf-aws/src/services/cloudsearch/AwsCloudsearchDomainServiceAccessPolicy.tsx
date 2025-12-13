@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudsearch_domain_service_access_policy
 
 export const InputSchema = z.object({
   access_policy: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudsearch_domain_service_access_policy
 
 export function AwsCloudsearchDomainServiceAccessPolicy(
   props: Partial<InputProps>,
@@ -53,13 +55,21 @@ export function AwsCloudsearchDomainServiceAccessPolicy(
 }
 
 export const useAwsCloudsearchDomainServiceAccessPolicy = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudsearchDomainServiceAccessPolicy, node, id)
+  useTypedNode<OutputProps>(
+    AwsCloudsearchDomainServiceAccessPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudsearchDomainServiceAccessPolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudsearchDomainServiceAccessPolicy, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCloudsearchDomainServiceAccessPolicy,
+    idFilter,
+    baseNode,
+  )

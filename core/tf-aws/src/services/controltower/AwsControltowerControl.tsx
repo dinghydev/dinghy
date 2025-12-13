@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/controltower_control
 
 export const InputSchema = z.object({
   control_identifier: resolvableValue(z.string()),
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/controltower_control
 
 export function AwsControltowerControl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,8 @@ export function AwsControltowerControl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsControltowerControl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsControltowerControl, node, id)
+export const useAwsControltowerControl = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsControltowerControl, idFilter, baseNode)
 
-export const useAwsControltowerControls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsControltowerControl, node, id)
+export const useAwsControltowerControls = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsControltowerControl, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/swf_domain
 
 export const InputSchema = z.object({
   workflow_execution_retention_period_in_days: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/swf_domain
 
 export function AwsSwfDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsSwfDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSwfDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSwfDomain, node, id)
+export const useAwsSwfDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSwfDomain, idFilter, baseNode)
 
-export const useAwsSwfDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSwfDomain, node, id)
+export const useAwsSwfDomains = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSwfDomain, idFilter, baseNode)

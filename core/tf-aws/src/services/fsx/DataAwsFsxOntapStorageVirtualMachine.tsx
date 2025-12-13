@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsFsxOntapStorageVirtualMachine } from './AwsFsxOntapStorageVirtualMachine.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_ontap_storage_virtual_machine
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -17,15 +16,16 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   active_directory_configuration: z.object({
     netbios_name: z.string(),
     self_managed_active_directory_configuration: z.object({
-      dns_ips: z.string().array(),
+      dns_ips: z.set(z.string()),
       domain_name: z.string(),
       file_system_administrators_group: z.string(),
       organizational_unit_distinguished_name: z.string(),
@@ -37,27 +37,27 @@ export const OutputSchema = z.object({
   endpoints: z.object({
     iscsi: z.object({
       dns_name: z.string(),
-      ip_addresses: z.string().array(),
+      ip_addresses: z.set(z.string()),
     }).array(),
     management: z.object({
       dns_name: z.string(),
-      ip_addresses: z.string().array(),
+      ip_addresses: z.set(z.string()),
     }).array(),
     nfs: z.object({
       dns_name: z.string(),
-      ip_addresses: z.string().array(),
+      ip_addresses: z.set(z.string()),
     }).array(),
     smb: z.object({
       dns_name: z.string(),
-      ip_addresses: z.string().array(),
+      ip_addresses: z.set(z.string()),
     }).array(),
   }).array().optional(),
   file_system_id: z.string().optional(),
   id: z.string().optional(),
   lifecycle_status: z.string().optional(),
-  lifecycle_transition_reason: z.object({
+  lifecycle_transition_reason: z.set(z.object({
     message: z.string(),
-  }).array().optional(),
+  })).optional(),
   name: z.string().optional(),
   subtype: z.string().optional(),
   uuid: z.string().optional(),
@@ -70,6 +70,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_ontap_storage_virtual_machine
 
 export function DataAwsFsxOntapStorageVirtualMachine(
   props: Partial<InputProps>,
@@ -91,11 +94,21 @@ export function DataAwsFsxOntapStorageVirtualMachine(
 }
 
 export const useDataAwsFsxOntapStorageVirtualMachine = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsFsxOntapStorageVirtualMachine, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsFsxOntapStorageVirtualMachine,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsFsxOntapStorageVirtualMachines = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsFsxOntapStorageVirtualMachine, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsFsxOntapStorageVirtualMachine,
+    idFilter,
+    baseNode,
+  )

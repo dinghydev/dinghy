@@ -3,18 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster_versions
-
 export const InputSchema = z.object({
+  cluster_type: resolvableValue(z.string().optional()),
   cluster_versions_only: resolvableValue(z.string().array().optional()),
   default_only: resolvableValue(z.boolean().optional()),
   include_all: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+  version_status: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cluster_type: z.string().optional(),
@@ -39,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster_versions
 
 export function DataAwsEksClusterVersions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,5 +61,7 @@ export function DataAwsEksClusterVersions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksClusterVersionss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEksClusterVersions, node, id)
+export const useDataAwsEksClusterVersionss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEksClusterVersions, idFilter, baseNode)

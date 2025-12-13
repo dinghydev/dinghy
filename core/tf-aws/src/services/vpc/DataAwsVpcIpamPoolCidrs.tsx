@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipam_pool_cidrs
 
 export const InputSchema = z.object({
   ipam_pool_id: resolvableValue(z.string()),
@@ -24,13 +23,13 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  ipam_pool_cidrs: z.object({
+  ipam_pool_cidrs: z.set(z.object({
     cidr: z.string(),
     state: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipam_pool_cidrs
 
 export function DataAwsVpcIpamPoolCidrs(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,5 +60,7 @@ export function DataAwsVpcIpamPoolCidrs(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcIpamPoolCidrss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpcIpamPoolCidrs, node, id)
+export const useDataAwsVpcIpamPoolCidrss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsVpcIpamPoolCidrs, idFilter, baseNode)

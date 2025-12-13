@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsApiGatewayAuthorizer } from './AwsApiGatewayAuthorizer.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_authorizer
-
 export const InputSchema = z.object({
   authorizer_id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_authorizer
 
 export function DataAwsApiGatewayAuthorizer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function DataAwsApiGatewayAuthorizer(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApiGatewayAuthorizer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsApiGatewayAuthorizer, node, id)
+export const useDataAwsApiGatewayAuthorizer = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsApiGatewayAuthorizer, idFilter, baseNode)
 
-export const useDataAwsApiGatewayAuthorizers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApiGatewayAuthorizer, node, id)
+export const useDataAwsApiGatewayAuthorizers = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsApiGatewayAuthorizer, idFilter, baseNode)

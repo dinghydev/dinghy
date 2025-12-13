@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElasticacheCluster } from './AwsElasticacheCluster.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_cluster
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   cluster_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zone: z.string().optional(),
@@ -31,12 +30,12 @@ export const OutputSchema = z.object({
   engine: z.string().optional(),
   engine_version: z.string().optional(),
   ip_discovery: z.string().optional(),
-  log_delivery_configuration: z.object({
+  log_delivery_configuration: z.set(z.object({
     destination: z.string(),
     destination_type: z.string(),
     log_format: z.string(),
     log_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   maintenance_window: z.string().optional(),
   network_type: z.string().optional(),
   node_type: z.string().optional(),
@@ -46,7 +45,7 @@ export const OutputSchema = z.object({
   port: z.number().optional(),
   preferred_outpost_arn: z.string().optional(),
   replication_group_id: z.string().optional(),
-  security_group_ids: z.string().array().optional(),
+  security_group_ids: z.set(z.string()).optional(),
   snapshot_retention_limit: z.number().optional(),
   snapshot_window: z.string().optional(),
   subnet_group_name: z.string().optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_cluster
 
 export function DataAwsElasticacheCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,12 @@ export function DataAwsElasticacheCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElasticacheCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElasticacheCluster, node, id)
+export const useDataAwsElasticacheCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsElasticacheCluster, idFilter, baseNode)
 
-export const useDataAwsElasticacheClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsElasticacheCluster, node, id)
+export const useDataAwsElasticacheClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsElasticacheCluster, idFilter, baseNode)

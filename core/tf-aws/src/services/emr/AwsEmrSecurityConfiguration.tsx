@@ -3,17 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_security_configuration
-
 export const InputSchema = z.object({
+  configuration: resolvableValue(z.string()),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   configuration: z.string().optional(),
@@ -29,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_security_configuration
 
 export function AwsEmrSecurityConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +51,12 @@ export function AwsEmrSecurityConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrSecurityConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrSecurityConfiguration, node, id)
+export const useAwsEmrSecurityConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEmrSecurityConfiguration, idFilter, baseNode)
 
-export const useAwsEmrSecurityConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrSecurityConfiguration, node, id)
+export const useAwsEmrSecurityConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEmrSecurityConfiguration, idFilter, baseNode)

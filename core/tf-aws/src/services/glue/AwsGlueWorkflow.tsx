@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_workflow
 
 export const InputSchema = z.object({
   default_run_properties: resolvableValue(
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_workflow
 
 export function AwsGlueWorkflow(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function AwsGlueWorkflow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueWorkflow = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueWorkflow, node, id)
+export const useAwsGlueWorkflow = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueWorkflow, idFilter, baseNode)
 
-export const useAwsGlueWorkflows = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueWorkflow, node, id)
+export const useAwsGlueWorkflows = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueWorkflow, idFilter, baseNode)

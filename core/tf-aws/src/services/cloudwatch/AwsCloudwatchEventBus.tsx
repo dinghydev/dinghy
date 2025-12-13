@@ -3,13 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_bus
-
 export const InputSchema = z.object({
+  arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   dead_letter_config: resolvableValue(
     z.object({
@@ -27,7 +27,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_bus
 
 export function AwsCloudwatchEventBus(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,5 +63,5 @@ export function AwsCloudwatchEventBus(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventBuss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventBus, node, id)
+export const useAwsCloudwatchEventBuss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudwatchEventBus, idFilter, baseNode)

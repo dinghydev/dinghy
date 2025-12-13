@@ -7,6 +7,7 @@ import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { requireStacksConfig } from '@dinghy/cli'
+import { terraformCommandName } from './tfUtils.ts'
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,
@@ -21,6 +22,7 @@ const changeSummaryWording = (summary: any) => {
 }
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
+  const tfCmd = terraformCommandName(args)
   await requireStacksConfig()
   const changedStages: any[] = []
   // deno-lint-ignore require-await
@@ -39,7 +41,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         await runTfImageCmd(
           stagePath,
           args,
-          ['terraform', 'apply', args['plan-file']],
+          [tfCmd, 'apply', args['plan-file']],
         )
       }
       if (isCi()) {

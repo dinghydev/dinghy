@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_api_key
 
 export const InputSchema = z.object({
   __key: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   expires: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_api_key
 
 export function AwsAppsyncApiKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsAppsyncApiKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncApiKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncApiKey, node, id)
+export const useAwsAppsyncApiKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppsyncApiKey, idFilter, baseNode)
 
-export const useAwsAppsyncApiKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncApiKey, node, id)
+export const useAwsAppsyncApiKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppsyncApiKey, idFilter, baseNode)

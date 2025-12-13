@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_alias
 
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       additional_version_weights: z.record(z.string(), z.number()).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_alias
 
 export function AwsLambdaAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,5 +55,5 @@ export function AwsLambdaAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaAlias, node, id)
+export const useAwsLambdaAliass = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLambdaAlias, idFilter, baseNode)

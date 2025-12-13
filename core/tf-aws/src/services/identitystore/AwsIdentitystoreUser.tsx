@@ -3,16 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/identitystore_user
-
 export const InputSchema = z.object({
   display_name: resolvableValue(z.string()),
   identity_store_id: resolvableValue(z.string()),
+  name: resolvableValue(z.object({
+    family_name: z.string(),
+    formatted: z.string().optional(),
+    given_name: z.string(),
+    honorific_prefix: z.string().optional(),
+    honorific_suffix: z.string().optional(),
+    middle_name: z.string().optional(),
+  })),
   user_name: resolvableValue(z.string()),
   addresses: resolvableValue(
     z.object({
@@ -34,14 +41,6 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   locale: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.object({
-    family_name: z.string(),
-    formatted: z.string().optional(),
-    given_name: z.string(),
-    honorific_prefix: z.string().optional(),
-    honorific_suffix: z.string().optional(),
-    middle_name: z.string().optional(),
-  })),
   nickname: resolvableValue(z.string().optional()),
   phone_numbers: resolvableValue(
     z.object({
@@ -56,7 +55,7 @@ export const InputSchema = z.object({
   timezone: resolvableValue(z.string().optional()),
   title: resolvableValue(z.string().optional()),
   user_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   external_ids: z.object({
@@ -74,6 +73,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/identitystore_user
 
 export function AwsIdentitystoreUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -92,8 +94,8 @@ export function AwsIdentitystoreUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIdentitystoreUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIdentitystoreUser, node, id)
+export const useAwsIdentitystoreUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIdentitystoreUser, idFilter, baseNode)
 
-export const useAwsIdentitystoreUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIdentitystoreUser, node, id)
+export const useAwsIdentitystoreUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIdentitystoreUser, idFilter, baseNode)

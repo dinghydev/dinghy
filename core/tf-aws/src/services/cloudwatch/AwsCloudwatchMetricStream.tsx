@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_metric_stream
 
 export const InputSchema = z.object({
   firehose_arn: resolvableValue(z.string()),
@@ -34,6 +33,10 @@ export const InputSchema = z.object({
   statistics_configuration: resolvableValue(
     z.object({
       additional_statistics: z.string().array(),
+      include_metric: z.object({
+        metric_name: z.string(),
+        namespace: z.string(),
+      }).array(),
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -44,7 +47,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,6 +64,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_metric_stream
 
 export function AwsCloudwatchMetricStream(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +85,12 @@ export function AwsCloudwatchMetricStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchMetricStream = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchMetricStream, node, id)
+export const useAwsCloudwatchMetricStream = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchMetricStream, idFilter, baseNode)
 
-export const useAwsCloudwatchMetricStreams = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchMetricStream, node, id)
+export const useAwsCloudwatchMetricStreams = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudwatchMetricStream, idFilter, baseNode)

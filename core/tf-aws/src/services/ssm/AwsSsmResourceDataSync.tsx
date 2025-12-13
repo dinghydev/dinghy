@@ -3,17 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_resource_data_sync
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   s3_destination: resolvableValue(z.object({
     bucket_name: z.string(),
     kms_key_arn: z.string().optional(),
@@ -21,7 +18,9 @@ export const InputSchema = z.object({
     region: z.string(),
     sync_format: z.string().optional(),
   })),
-})
+  id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_resource_data_sync
 
 export function AwsSsmResourceDataSync(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsSsmResourceDataSync(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmResourceDataSync = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmResourceDataSync, node, id)
+export const useAwsSsmResourceDataSync = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmResourceDataSync, idFilter, baseNode)
 
-export const useAwsSsmResourceDataSyncs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmResourceDataSync, node, id)
+export const useAwsSsmResourceDataSyncs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmResourceDataSync, idFilter, baseNode)

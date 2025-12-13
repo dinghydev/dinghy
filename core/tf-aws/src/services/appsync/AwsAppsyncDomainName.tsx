@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_domain_name
 
 export const InputSchema = z.object({
   certificate_arn: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   appsync_domain_name: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_domain_name
 
 export function AwsAppsyncDomainName(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsAppsyncDomainName(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncDomainName = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncDomainName, node, id)
+export const useAwsAppsyncDomainName = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppsyncDomainName, idFilter, baseNode)
 
-export const useAwsAppsyncDomainNames = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncDomainName, node, id)
+export const useAwsAppsyncDomainNames = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppsyncDomainName, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/resourceexplorer2_view
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -17,17 +16,17 @@ export const InputSchema = z.object({
   filters: resolvableValue(
     z.object({
       filter_string: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   included_property: resolvableValue(
     z.object({
       name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   scope: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/resourceexplorer2_view
 
 export function AwsResourceexplorer2View(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,12 @@ export function AwsResourceexplorer2View(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsResourceexplorer2View = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsResourceexplorer2View, node, id)
+export const useAwsResourceexplorer2View = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsResourceexplorer2View, idFilter, baseNode)
 
-export const useAwsResourceexplorer2Views = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsResourceexplorer2View, node, id)
+export const useAwsResourceexplorer2Views = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsResourceexplorer2View, idFilter, baseNode)

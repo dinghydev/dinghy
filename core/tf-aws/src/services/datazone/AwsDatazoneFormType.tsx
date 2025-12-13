@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_form_type
 
 export const InputSchema = z.object({
   domain_identifier: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   model: resolvableValue(
     z.object({
       smithy: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_form_type
 
 export function AwsDatazoneFormType(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,8 @@ export function AwsDatazoneFormType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneFormType = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneFormType, node, id)
+export const useAwsDatazoneFormType = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatazoneFormType, idFilter, baseNode)
 
-export const useAwsDatazoneFormTypes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneFormType, node, id)
+export const useAwsDatazoneFormTypes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatazoneFormType, idFilter, baseNode)

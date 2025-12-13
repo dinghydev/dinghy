@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_connection
 
 export const InputSchema = z.object({
   connection_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_connection
 
 export function AwsApprunnerConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsApprunnerConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApprunnerConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApprunnerConnection, node, id)
+export const useAwsApprunnerConnection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApprunnerConnection, idFilter, baseNode)
 
-export const useAwsApprunnerConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApprunnerConnection, node, id)
+export const useAwsApprunnerConnections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsApprunnerConnection, idFilter, baseNode)

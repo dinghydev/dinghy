@@ -3,21 +3,32 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmcontacts_plan
-
 export const InputSchema = z.object({
   contact_id: resolvableValue(z.string()),
-  stage: resolvableValue(z.object({
-    duration_in_minutes: z.number(),
-  })),
+  stage: resolvableValue(
+    z.object({
+      duration_in_minutes: z.number(),
+      target: z.object({
+        channel_target_info: z.object({
+          contact_channel_id: z.string(),
+          retry_interval_in_minutes: z.number().optional(),
+        }).optional(),
+        contact_target_info: z.object({
+          contact_id: z.string().optional(),
+          is_essential: z.boolean(),
+        }).optional(),
+      }).array().optional(),
+    }).array(),
+  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -28,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssmcontacts_plan
 
 export function AwsSsmcontactsPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +60,8 @@ export function AwsSsmcontactsPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmcontactsPlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmcontactsPlan, node, id)
+export const useAwsSsmcontactsPlan = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSsmcontactsPlan, idFilter, baseNode)
 
-export const useAwsSsmcontactsPlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmcontactsPlan, node, id)
+export const useAwsSsmcontactsPlans = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSsmcontactsPlan, idFilter, baseNode)

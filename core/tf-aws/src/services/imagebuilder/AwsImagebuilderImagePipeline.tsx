@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_image_pipeline
 
 export const InputSchema = z.object({
   infrastructure_configuration_arn: resolvableValue(z.string()),
@@ -23,6 +22,10 @@ export const InputSchema = z.object({
   image_scanning_configuration: resolvableValue(
     z.object({
       image_scanning_enabled: z.boolean().optional(),
+      ecr_configuration: z.object({
+        container_tags: z.string().array().optional(),
+        repository_name: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   image_tests_configuration: resolvableValue(
@@ -46,9 +49,13 @@ export const InputSchema = z.object({
       on_failure: z.string().optional(),
       parallel_group: z.string().optional(),
       workflow_arn: z.string(),
-    }).optional(),
+      parameter: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -72,6 +79,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_image_pipeline
 
 export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -91,8 +101,13 @@ export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsImagebuilderImagePipeline = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsImagebuilderImagePipeline, node, id)
+export const useAwsImagebuilderImagePipeline = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsImagebuilderImagePipeline, idFilter, baseNode)
 
-export const useAwsImagebuilderImagePipelines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderImagePipeline, node, id)
+export const useAwsImagebuilderImagePipelines = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsImagebuilderImagePipeline, idFilter, baseNode)

@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOpensearchserverlessCollection } from './AwsOpensearchserverlessCollection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearchserverless_collection
-
 export const InputSchema = z.object({
   failure_message: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearchserverless_collection
 
 export function DataAwsOpensearchserverlessCollection(
   props: Partial<InputProps>,
@@ -59,11 +61,21 @@ export function DataAwsOpensearchserverlessCollection(
 }
 
 export const useDataAwsOpensearchserverlessCollection = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsOpensearchserverlessCollection, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOpensearchserverlessCollection,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOpensearchserverlessCollections = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOpensearchserverlessCollection, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOpensearchserverlessCollection,
+    idFilter,
+    baseNode,
+  )

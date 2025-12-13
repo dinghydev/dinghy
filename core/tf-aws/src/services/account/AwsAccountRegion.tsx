@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_region
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   opt_status: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/account_region
 
 export function AwsAccountRegion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function AwsAccountRegion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAccountRegion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAccountRegion, node, id)
+export const useAwsAccountRegion = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAccountRegion, idFilter, baseNode)
 
-export const useAwsAccountRegions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAccountRegion, node, id)
+export const useAwsAccountRegions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAccountRegion, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_api
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,26 +16,42 @@ export const InputSchema = z.object({
     z.object({
       auth_provider: z.object({
         auth_type: z.string(),
-      }).optional(),
+        cognito_config: z.object({
+          app_id_client_regex: z.string().optional(),
+          aws_region: z.string(),
+          user_pool_id: z.string(),
+        }).array().optional(),
+        lambda_authorizer_config: z.object({
+          authorizer_result_ttl_in_seconds: z.number().optional(),
+          authorizer_uri: z.string(),
+          identity_validation_expression: z.string().optional(),
+        }).array().optional(),
+        openid_connect_config: z.object({
+          auth_ttl: z.number().optional(),
+          client_id: z.string().optional(),
+          iat_ttl: z.number().optional(),
+          issuer: z.string(),
+        }).array().optional(),
+      }).array().optional(),
       connection_auth_mode: z.object({
         auth_type: z.string(),
-      }).optional(),
+      }).array().optional(),
       default_publish_auth_mode: z.object({
         auth_type: z.string(),
-      }).optional(),
+      }).array().optional(),
       default_subscribe_auth_mode: z.object({
         auth_type: z.string(),
-      }).optional(),
+      }).array().optional(),
       log_config: z.object({
         cloudwatch_logs_role_arn: z.string(),
         log_level: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   owner_contact: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   api_arn: z.string().optional(),
@@ -53,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_api
 
 export function AwsAppsyncApi(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +89,8 @@ export function AwsAppsyncApi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncApi = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncApi, node, id)
+export const useAwsAppsyncApi = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppsyncApi, idFilter, baseNode)
 
-export const useAwsAppsyncApis = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncApi, node, id)
+export const useAwsAppsyncApis = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppsyncApi, idFilter, baseNode)

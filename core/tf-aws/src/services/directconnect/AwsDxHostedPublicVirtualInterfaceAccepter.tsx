@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_public_virtual_interface_accepter
 
 export const InputSchema = z.object({
   virtual_interface_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_public_virtual_interface_accepter
 
 export function AwsDxHostedPublicVirtualInterfaceAccepter(
   props: Partial<InputProps>,
@@ -56,17 +58,21 @@ export function AwsDxHostedPublicVirtualInterfaceAccepter(
 }
 
 export const useAwsDxHostedPublicVirtualInterfaceAccepter = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsDxHostedPublicVirtualInterfaceAccepter, node, id)
+  useTypedNode<OutputProps>(
+    AwsDxHostedPublicVirtualInterfaceAccepter,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDxHostedPublicVirtualInterfaceAccepters = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDxHostedPublicVirtualInterfaceAccepter,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

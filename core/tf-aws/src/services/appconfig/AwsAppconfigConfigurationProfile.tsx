@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_configuration_profile
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       type: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_configuration_profile
 
 export function AwsAppconfigConfigurationProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,22 @@ export function AwsAppconfigConfigurationProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppconfigConfigurationProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppconfigConfigurationProfile, node, id)
+export const useAwsAppconfigConfigurationProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppconfigConfigurationProfile,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsAppconfigConfigurationProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppconfigConfigurationProfile, node, id)
+export const useAwsAppconfigConfigurationProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppconfigConfigurationProfile,
+    idFilter,
+    baseNode,
+  )

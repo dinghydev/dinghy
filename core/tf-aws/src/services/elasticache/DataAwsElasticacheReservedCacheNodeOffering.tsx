@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_reserved_cache_node_offering
 
 export const InputSchema = z.object({
   cache_node_type: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   offering_type: resolvableValue(z.string()),
   product_description: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   fixed_price: z.number().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_reserved_cache_node_offering
 
 export function DataAwsElasticacheReservedCacheNodeOffering(
   props: Partial<InputProps>,
@@ -51,21 +53,21 @@ export function DataAwsElasticacheReservedCacheNodeOffering(
 }
 
 export const useDataAwsElasticacheReservedCacheNodeOffering = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsElasticacheReservedCacheNodeOffering,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsElasticacheReservedCacheNodeOfferings = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsElasticacheReservedCacheNodeOffering,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

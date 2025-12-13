@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_resource_policy
-
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_resource_policy
 
 export function AwsCodebuildResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function AwsCodebuildResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildResourcePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodebuildResourcePolicy, node, id)
+export const useAwsCodebuildResourcePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCodebuildResourcePolicy, idFilter, baseNode)
 
-export const useAwsCodebuildResourcePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodebuildResourcePolicy, node, id)
+export const useAwsCodebuildResourcePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCodebuildResourcePolicy, idFilter, baseNode)

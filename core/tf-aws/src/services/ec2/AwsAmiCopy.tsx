@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_copy
 
 export const InputSchema = z.object({
   architecture: resolvableValue(z.string()),
@@ -71,7 +70,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -85,6 +84,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_copy
 
 export function AwsAmiCopy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -103,8 +105,8 @@ export function AwsAmiCopy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmiCopy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAmiCopy, node, id)
+export const useAwsAmiCopy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAmiCopy, idFilter, baseNode)
 
-export const useAwsAmiCopys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAmiCopy, node, id)
+export const useAwsAmiCopys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAmiCopy, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/accessanalyzer_analyzer
 
 export const InputSchema = z.object({
   analyzer_name: resolvableValue(z.string()),
@@ -20,18 +19,24 @@ export const InputSchema = z.object({
             account_ids: z.string().array().optional(),
             resource_arns: z.string().array().optional(),
             resource_types: z.string().array().optional(),
-          }).optional(),
+          }).array().optional(),
         }).optional(),
       }).optional(),
       unused_access: z.object({
         unused_access_age: z.number().optional(),
+        analysis_rule: z.object({
+          exclusion: z.object({
+            account_ids: z.string().array().optional(),
+            resource_tags: z.record(z.string(), z.string()).array().optional(),
+          }).array().optional(),
+        }).optional(),
       }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/accessanalyzer_analyzer
 
 export function AwsAccessanalyzerAnalyzer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +72,12 @@ export function AwsAccessanalyzerAnalyzer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAccessanalyzerAnalyzer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAccessanalyzerAnalyzer, node, id)
+export const useAwsAccessanalyzerAnalyzer = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAccessanalyzerAnalyzer, idFilter, baseNode)
 
-export const useAwsAccessanalyzerAnalyzers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAccessanalyzerAnalyzer, node, id)
+export const useAwsAccessanalyzerAnalyzers = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAccessanalyzerAnalyzer, idFilter, baseNode)

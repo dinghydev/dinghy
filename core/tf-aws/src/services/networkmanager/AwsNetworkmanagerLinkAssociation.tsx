@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_link_association
 
 export const InputSchema = z.object({
   device_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_link_association
 
 export function AwsNetworkmanagerLinkAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,22 @@ export function AwsNetworkmanagerLinkAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmanagerLinkAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerLinkAssociation, node, id)
+export const useAwsNetworkmanagerLinkAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerLinkAssociation,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsNetworkmanagerLinkAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerLinkAssociation, node, id)
+export const useAwsNetworkmanagerLinkAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerLinkAssociation,
+    idFilter,
+    baseNode,
+  )

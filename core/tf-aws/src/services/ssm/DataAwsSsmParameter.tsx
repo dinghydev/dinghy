@@ -2,19 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsmParameter } from './AwsSsmParameter.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_parameter
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   with_decryption: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_parameter
 
 export function DataAwsSsmParameter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +53,8 @@ export function DataAwsSsmParameter(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmParameter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmParameter, node, id)
+export const useDataAwsSsmParameter = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSsmParameter, idFilter, baseNode)
 
-export const useDataAwsSsmParameters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsmParameter, node, id)
+export const useDataAwsSsmParameters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsSsmParameter, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_prefix_list_reference
 
 export const InputSchema = z.object({
   prefix_list_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   blackhole: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   transit_gateway_attachment_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_prefix_list_reference
 
 export function AwsEc2TransitGatewayPrefixListReference(
   props: Partial<InputProps>,
@@ -51,13 +53,21 @@ export function AwsEc2TransitGatewayPrefixListReference(
 }
 
 export const useAwsEc2TransitGatewayPrefixListReference = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2TransitGatewayPrefixListReference, node, id)
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayPrefixListReference,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2TransitGatewayPrefixListReferences = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2TransitGatewayPrefixListReference, node, id)
+  useTypedNodes<OutputProps>(
+    AwsEc2TransitGatewayPrefixListReference,
+    idFilter,
+    baseNode,
+  )

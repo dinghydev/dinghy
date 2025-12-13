@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_redrive_policy
 
 export const InputSchema = z.object({
   queue_url: resolvableValue(z.string()),
   redrive_policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sqs_queue_redrive_policy
 
 export function AwsSqsQueueRedrivePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsSqsQueueRedrivePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSqsQueueRedrivePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSqsQueueRedrivePolicy, node, id)
+export const useAwsSqsQueueRedrivePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSqsQueueRedrivePolicy, idFilter, baseNode)
 
-export const useAwsSqsQueueRedrivePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSqsQueueRedrivePolicy, node, id)
+export const useAwsSqsQueueRedrivePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSqsQueueRedrivePolicy, idFilter, baseNode)

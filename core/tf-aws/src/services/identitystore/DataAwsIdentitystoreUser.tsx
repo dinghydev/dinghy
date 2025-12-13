@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIdentitystoreUser } from './AwsIdentitystoreUser.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_user
 
 export const InputSchema = z.object({
   identity_store_id: resolvableValue(z.string()),
@@ -24,8 +23,9 @@ export const InputSchema = z.object({
       }).optional(),
     }).optional(),
   ),
+  region: resolvableValue(z.string().optional()),
   user_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   addresses: z.object({
@@ -80,6 +80,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_user
 
 export function DataAwsIdentitystoreUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -98,8 +101,12 @@ export function DataAwsIdentitystoreUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIdentitystoreUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIdentitystoreUser, node, id)
+export const useDataAwsIdentitystoreUser = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsIdentitystoreUser, idFilter, baseNode)
 
-export const useDataAwsIdentitystoreUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIdentitystoreUser, node, id)
+export const useDataAwsIdentitystoreUsers = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsIdentitystoreUser, idFilter, baseNode)

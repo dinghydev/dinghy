@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_intelligent_tiering_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_intelligent_tiering_configuration
 
 export function AwsS3BucketIntelligentTieringConfiguration(
   props: Partial<InputProps>,
@@ -60,21 +62,21 @@ export function AwsS3BucketIntelligentTieringConfiguration(
 }
 
 export const useAwsS3BucketIntelligentTieringConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketIntelligentTieringConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsS3BucketIntelligentTieringConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketIntelligentTieringConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

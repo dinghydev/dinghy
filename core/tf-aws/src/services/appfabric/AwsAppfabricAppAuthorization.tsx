@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_authorization
 
 export const InputSchema = z.object({
   app: resolvableValue(z.string()),
@@ -22,12 +21,12 @@ export const InputSchema = z.object({
     z.object({
       api_key_credential: z.object({
         api_key: z.string(),
-      }).optional(),
+      }).array().optional(),
       oauth2_credential: z.object({
         client_id: z.string(),
         client_secret: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -35,7 +34,7 @@ export const InputSchema = z.object({
     z.object({
       tenant_display_name: z.string(),
       tenant_identifier: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_authorization
 
 export function AwsAppfabricAppAuthorization(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,13 @@ export function AwsAppfabricAppAuthorization(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppfabricAppAuthorization = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppfabricAppAuthorization, node, id)
+export const useAwsAppfabricAppAuthorization = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppfabricAppAuthorization, idFilter, baseNode)
 
-export const useAwsAppfabricAppAuthorizations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppfabricAppAuthorization, node, id)
+export const useAwsAppfabricAppAuthorizations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAppfabricAppAuthorization, idFilter, baseNode)

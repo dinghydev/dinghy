@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_route_table_association
 
 export const InputSchema = z.object({
   transit_gateway_attachment_id: resolvableValue(z.string()),
   transit_gateway_route_table_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   replace_existing_association: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_route_table_association
 
 export function AwsEc2TransitGatewayRouteTableAssociation(
   props: Partial<InputProps>,
@@ -51,17 +53,21 @@ export function AwsEc2TransitGatewayRouteTableAssociation(
 }
 
 export const useAwsEc2TransitGatewayRouteTableAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2TransitGatewayRouteTableAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayRouteTableAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2TransitGatewayRouteTableAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayRouteTableAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

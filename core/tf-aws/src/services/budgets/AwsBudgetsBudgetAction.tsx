@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/budgets_budget_action
 
 export const InputSchema = z.object({
   action_threshold: resolvableValue(z.object({
@@ -18,15 +17,6 @@ export const InputSchema = z.object({
   action_type: resolvableValue(z.string()),
   approval_model: resolvableValue(z.string()),
   budget_name: resolvableValue(z.string()),
-  execution_role_arn: resolvableValue(z.string()),
-  notification_type: resolvableValue(z.string()),
-  subscriber: resolvableValue(
-    z.object({
-      address: z.string(),
-      subscription_type: z.string(),
-    }).array(),
-  ),
-  account_id: resolvableValue(z.string().optional()),
   definition: resolvableValue(z.object({
     iam_action_definition: z.object({
       groups: z.string().array().optional(),
@@ -44,6 +34,15 @@ export const InputSchema = z.object({
       region: z.string(),
     }).optional(),
   })),
+  execution_role_arn: resolvableValue(z.string()),
+  notification_type: resolvableValue(z.string()),
+  subscriber: resolvableValue(
+    z.object({
+      address: z.string(),
+      subscription_type: z.string(),
+    }).array(),
+  ),
+  account_id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -52,7 +51,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   action_id: z.string().optional(),
@@ -69,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/budgets_budget_action
 
 export function AwsBudgetsBudgetAction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,8 +89,8 @@ export function AwsBudgetsBudgetAction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBudgetsBudgetAction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBudgetsBudgetAction, node, id)
+export const useAwsBudgetsBudgetAction = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBudgetsBudgetAction, idFilter, baseNode)
 
-export const useAwsBudgetsBudgetActions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBudgetsBudgetAction, node, id)
+export const useAwsBudgetsBudgetActions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBudgetsBudgetAction, idFilter, baseNode)

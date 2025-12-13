@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
     z.object({
       encryption_type: z.string().optional(),
       kms_key: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   force_delete: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
     z.object({
       filter: z.string(),
       filter_type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -62,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository
 
 export function AwsEcrRepository(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -81,8 +83,8 @@ export function AwsEcrRepository(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRepository = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrRepository, node, id)
+export const useAwsEcrRepository = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcrRepository, idFilter, baseNode)
 
-export const useAwsEcrRepositorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrRepository, node, id)
+export const useAwsEcrRepositorys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcrRepository, idFilter, baseNode)

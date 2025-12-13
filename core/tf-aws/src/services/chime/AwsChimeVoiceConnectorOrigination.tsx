@@ -3,17 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_origination
-
 export const InputSchema = z.object({
-  voice_connector_id: resolvableValue(z.string()),
-  disabled: resolvableValue(z.boolean().optional()),
-  region: resolvableValue(z.string().optional()),
   route: resolvableValue(
     z.object({
       host: z.string(),
@@ -23,7 +19,10 @@ export const InputSchema = z.object({
       weight: z.number(),
     }).array(),
   ),
-})
+  voice_connector_id: resolvableValue(z.string()),
+  disabled: resolvableValue(z.boolean().optional()),
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_origination
 
 export function AwsChimeVoiceConnectorOrigination(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,10 +56,22 @@ export function AwsChimeVoiceConnectorOrigination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsChimeVoiceConnectorOrigination = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsChimeVoiceConnectorOrigination, node, id)
+export const useAwsChimeVoiceConnectorOrigination = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChimeVoiceConnectorOrigination,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsChimeVoiceConnectorOriginations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsChimeVoiceConnectorOrigination, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChimeVoiceConnectorOrigination,
+    idFilter,
+    baseNode,
+  )

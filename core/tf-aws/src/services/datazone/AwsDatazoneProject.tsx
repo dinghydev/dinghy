@@ -3,15 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_project
-
 export const InputSchema = z.object({
   domain_identifier: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
+  glossary_terms: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   skip_deletion_check: resolvableValue(z.boolean().optional()),
   timeouts: resolvableValue(
@@ -20,7 +22,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -44,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_project
 
 export function AwsDatazoneProject(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +67,8 @@ export function AwsDatazoneProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneProject = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneProject, node, id)
+export const useAwsDatazoneProject = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatazoneProject, idFilter, baseNode)
 
-export const useAwsDatazoneProjects = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneProject, node, id)
+export const useAwsDatazoneProjects = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDatazoneProject, idFilter, baseNode)

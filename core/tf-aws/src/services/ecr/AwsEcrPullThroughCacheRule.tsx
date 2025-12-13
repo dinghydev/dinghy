@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_pull_through_cache_rule
 
 export const InputSchema = z.object({
   ecr_repository_prefix: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   upstream_repository_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_pull_through_cache_rule
 
 export function AwsEcrPullThroughCacheRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,12 @@ export function AwsEcrPullThroughCacheRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrPullThroughCacheRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrPullThroughCacheRule, node, id)
+export const useAwsEcrPullThroughCacheRule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEcrPullThroughCacheRule, idFilter, baseNode)
 
-export const useAwsEcrPullThroughCacheRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrPullThroughCacheRule, node, id)
+export const useAwsEcrPullThroughCacheRules = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEcrPullThroughCacheRule, idFilter, baseNode)

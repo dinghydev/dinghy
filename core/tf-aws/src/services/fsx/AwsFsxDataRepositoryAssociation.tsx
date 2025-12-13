@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_data_repository_association
 
 export const InputSchema = z.object({
   association_id: resolvableValue(z.string()),
@@ -37,7 +36,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_data_repository_association
 
 export function AwsFsxDataRepositoryAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +72,18 @@ export function AwsFsxDataRepositoryAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxDataRepositoryAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxDataRepositoryAssociation, node, id)
+export const useAwsFsxDataRepositoryAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsFsxDataRepositoryAssociation, idFilter, baseNode)
 
-export const useAwsFsxDataRepositoryAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxDataRepositoryAssociation, node, id)
+export const useAwsFsxDataRepositoryAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFsxDataRepositoryAssociation,
+    idFilter,
+    baseNode,
+  )

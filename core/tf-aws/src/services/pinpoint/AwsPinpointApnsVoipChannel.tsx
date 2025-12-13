@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_apns_voip_channel
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   team_id: resolvableValue(z.string().optional()),
   token_key: resolvableValue(z.string().optional()),
   token_key_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_apns_voip_channel
 
 export function AwsPinpointApnsVoipChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function AwsPinpointApnsVoipChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointApnsVoipChannel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointApnsVoipChannel, node, id)
+export const useAwsPinpointApnsVoipChannel = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsPinpointApnsVoipChannel, idFilter, baseNode)
 
-export const useAwsPinpointApnsVoipChannels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointApnsVoipChannel, node, id)
+export const useAwsPinpointApnsVoipChannels = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsPinpointApnsVoipChannel, idFilter, baseNode)

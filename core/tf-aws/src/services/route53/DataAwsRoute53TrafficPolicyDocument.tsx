@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_traffic_policy_document
 
 export const InputSchema = z.object({
   endpoint: resolvableValue(
@@ -25,12 +24,55 @@ export const InputSchema = z.object({
     z.object({
       id: z.string(),
       type: z.string().optional(),
+      geo_proximity_location: z.object({
+        bias: z.string().optional(),
+        endpoint_reference: z.string().optional(),
+        evaluate_target_health: z.boolean().optional(),
+        health_check: z.string().optional(),
+        latitude: z.string().optional(),
+        longitude: z.string().optional(),
+        region: z.string().optional(),
+        rule_reference: z.string().optional(),
+      }).array().optional(),
+      items: z.object({
+        endpoint_reference: z.string().optional(),
+        health_check: z.string().optional(),
+      }).array().optional(),
+      location: z.object({
+        continent: z.string().optional(),
+        country: z.string().optional(),
+        endpoint_reference: z.string().optional(),
+        evaluate_target_health: z.boolean().optional(),
+        health_check: z.string().optional(),
+        is_default: z.boolean().optional(),
+        rule_reference: z.string().optional(),
+        subdivision: z.string().optional(),
+      }).array().optional(),
+      primary: z.object({
+        endpoint_reference: z.string().optional(),
+        evaluate_target_health: z.boolean().optional(),
+        health_check: z.string().optional(),
+        rule_reference: z.string().optional(),
+      }).optional(),
+      region: z.object({
+        endpoint_reference: z.string().optional(),
+        evaluate_target_health: z.boolean().optional(),
+        health_check: z.string().optional(),
+        region: z.string().optional(),
+        rule_reference: z.string().optional(),
+      }).array().optional(),
+      secondary: z.object({
+        endpoint_reference: z.string().optional(),
+        evaluate_target_health: z.boolean().optional(),
+        health_check: z.string().optional(),
+        rule_reference: z.string().optional(),
+      }).optional(),
     }).array().optional(),
   ),
   start_endpoint: resolvableValue(z.string().optional()),
   start_rule: resolvableValue(z.string().optional()),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   json: z.string().optional(),
@@ -43,6 +85,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_traffic_policy_document
 
 export function DataAwsRoute53TrafficPolicyDocument(
   props: Partial<InputProps>,
@@ -64,11 +109,21 @@ export function DataAwsRoute53TrafficPolicyDocument(
 }
 
 export const useDataAwsRoute53TrafficPolicyDocument = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsRoute53TrafficPolicyDocument, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRoute53TrafficPolicyDocument,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsRoute53TrafficPolicyDocuments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRoute53TrafficPolicyDocument, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53TrafficPolicyDocument,
+    idFilter,
+    baseNode,
+  )

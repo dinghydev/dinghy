@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/m2_deployment
 
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/m2_deployment
 
 export function AwsM2Deployment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,8 @@ export function AwsM2Deployment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsM2Deployment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsM2Deployment, node, id)
+export const useAwsM2Deployment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsM2Deployment, idFilter, baseNode)
 
-export const useAwsM2Deployments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsM2Deployment, node, id)
+export const useAwsM2Deployments = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsM2Deployment, idFilter, baseNode)

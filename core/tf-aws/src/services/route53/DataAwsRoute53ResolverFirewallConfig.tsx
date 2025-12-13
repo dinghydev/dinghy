@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53ResolverFirewallConfig } from './AwsRoute53ResolverFirewallConfig.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_config
-
 export const InputSchema = z.object({
   resource_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   firewall_fail_open: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_config
 
 export function DataAwsRoute53ResolverFirewallConfig(
   props: Partial<InputProps>,
@@ -49,11 +51,21 @@ export function DataAwsRoute53ResolverFirewallConfig(
 }
 
 export const useDataAwsRoute53ResolverFirewallConfig = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsRoute53ResolverFirewallConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRoute53ResolverFirewallConfig,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsRoute53ResolverFirewallConfigs = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsRoute53ResolverFirewallConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53ResolverFirewallConfig,
+    idFilter,
+    baseNode,
+  )

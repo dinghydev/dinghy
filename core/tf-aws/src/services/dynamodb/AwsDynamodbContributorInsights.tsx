@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_contributor_insights
 
 export const InputSchema = z.object({
   table_name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_contributor_insights
 
 export function AwsDynamodbContributorInsights(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,5 +52,8 @@ export function AwsDynamodbContributorInsights(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbContributorInsightss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDynamodbContributorInsights, node, id)
+export const useAwsDynamodbContributorInsightss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDynamodbContributorInsights, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_customer_gateway_association
 
 export const InputSchema = z.object({
   customer_gateway_arn: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_customer_gateway_association
 
 export function AwsNetworkmanagerCustomerGatewayAssociation(
   props: Partial<InputProps>,
@@ -54,21 +56,21 @@ export function AwsNetworkmanagerCustomerGatewayAssociation(
 }
 
 export const useAwsNetworkmanagerCustomerGatewayAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerCustomerGatewayAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsNetworkmanagerCustomerGatewayAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerCustomerGatewayAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

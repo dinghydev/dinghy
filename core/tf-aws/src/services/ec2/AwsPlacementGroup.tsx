@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/placement_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   spread_level: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/placement_group
 
 export function AwsPlacementGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsPlacementGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPlacementGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPlacementGroup, node, id)
+export const useAwsPlacementGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsPlacementGroup, idFilter, baseNode)
 
-export const useAwsPlacementGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPlacementGroup, node, id)
+export const useAwsPlacementGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsPlacementGroup, idFilter, baseNode)

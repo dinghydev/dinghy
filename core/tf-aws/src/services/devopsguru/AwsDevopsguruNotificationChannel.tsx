@@ -3,27 +3,26 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devopsguru_notification_channel
 
 export const InputSchema = z.object({
   filters: resolvableValue(
     z.object({
       message_types: z.string().array().optional(),
       severities: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   sns: resolvableValue(
     z.object({
       topic_arn: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devopsguru_notification_channel
 
 export function AwsDevopsguruNotificationChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,22 @@ export function AwsDevopsguruNotificationChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevopsguruNotificationChannel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDevopsguruNotificationChannel, node, id)
+export const useAwsDevopsguruNotificationChannel = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDevopsguruNotificationChannel,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsDevopsguruNotificationChannels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDevopsguruNotificationChannel, node, id)
+export const useAwsDevopsguruNotificationChannels = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDevopsguruNotificationChannel,
+    idFilter,
+    baseNode,
+  )

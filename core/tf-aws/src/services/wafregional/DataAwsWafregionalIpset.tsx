@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafregionalIpset } from './AwsWafregionalIpset.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_ipset
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_ipset
 
 export function DataAwsWafregionalIpset(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,10 @@ export function DataAwsWafregionalIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafregionalIpset = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafregionalIpset, node, id)
+export const useDataAwsWafregionalIpset = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsWafregionalIpset, idFilter, baseNode)
 
-export const useDataAwsWafregionalIpsets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafregionalIpset, node, id)
+export const useDataAwsWafregionalIpsets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsWafregionalIpset, idFilter, baseNode)

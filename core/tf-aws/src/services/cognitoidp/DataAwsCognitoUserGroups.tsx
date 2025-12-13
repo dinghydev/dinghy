@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_groups
-
 export const InputSchema = z.object({
   user_pool_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   groups: z.object({
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_groups
 
 export function DataAwsCognitoUserGroups(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,5 +51,7 @@ export function DataAwsCognitoUserGroups(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCognitoUserGroupss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCognitoUserGroups, node, id)
+export const useDataAwsCognitoUserGroupss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsCognitoUserGroups, idFilter, baseNode)

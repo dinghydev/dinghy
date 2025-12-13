@@ -3,26 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_profile
-
 export const InputSchema = z.object({
   as2_id: resolvableValue(z.string()),
-  profile_id: resolvableValue(z.string()),
   profile_type: resolvableValue(z.string()),
   certificate_ids: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  profile_id: z.string().optional(),
 })
 
 export type InputProps =
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_profile
 
 export function AwsTransferProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsTransferProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferProfile, node, id)
+export const useAwsTransferProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferProfile, idFilter, baseNode)
 
-export const useAwsTransferProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferProfile, node, id)
+export const useAwsTransferProfiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferProfile, idFilter, baseNode)

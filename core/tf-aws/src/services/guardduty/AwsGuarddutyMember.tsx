@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_member
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   relationship_status: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_member
 
 export function AwsGuarddutyMember(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,8 @@ export function AwsGuarddutyMember(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyMember = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGuarddutyMember, node, id)
+export const useAwsGuarddutyMember = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGuarddutyMember, idFilter, baseNode)
 
-export const useAwsGuarddutyMembers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyMember, node, id)
+export const useAwsGuarddutyMembers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGuarddutyMember, idFilter, baseNode)

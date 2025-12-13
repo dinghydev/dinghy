@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsMemorydbUser } from './AwsMemorydbUser.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_user
-
 export const InputSchema = z.object({
   user_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_string: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/memorydb_user
 
 export function DataAwsMemorydbUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function DataAwsMemorydbUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbUser, node, id)
+export const useDataAwsMemorydbUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsMemorydbUser, idFilter, baseNode)
 
-export const useDataAwsMemorydbUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbUser, node, id)
+export const useDataAwsMemorydbUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsMemorydbUser, idFilter, baseNode)

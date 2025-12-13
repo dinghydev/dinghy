@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeartifact_domain
 
 export const InputSchema = z.object({
   domain: resolvableValue(z.string()),
   encryption_key: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeartifact_domain
 
 export function AwsCodeartifactDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,8 @@ export function AwsCodeartifactDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodeartifactDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodeartifactDomain, node, id)
+export const useAwsCodeartifactDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodeartifactDomain, idFilter, baseNode)
 
-export const useAwsCodeartifactDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodeartifactDomain, node, id)
+export const useAwsCodeartifactDomains = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodeartifactDomain, idFilter, baseNode)

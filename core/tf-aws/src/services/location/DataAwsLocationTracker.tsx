@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLocationTracker } from './AwsLocationTracker.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_tracker
-
 export const InputSchema = z.object({
   tracker_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   create_time: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_tracker
 
 export function DataAwsLocationTracker(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function DataAwsLocationTracker(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLocationTracker = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLocationTracker, node, id)
+export const useDataAwsLocationTracker = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLocationTracker, idFilter, baseNode)
 
-export const useDataAwsLocationTrackers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLocationTracker, node, id)
+export const useDataAwsLocationTrackers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLocationTracker, idFilter, baseNode)

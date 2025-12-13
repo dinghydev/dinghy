@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/amplify_backend_environment
 
 export const InputSchema = z.object({
   app_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   deployment_artifacts: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   stack_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/amplify_backend_environment
 
 export function AwsAmplifyBackendEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,13 @@ export function AwsAmplifyBackendEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmplifyBackendEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAmplifyBackendEnvironment, node, id)
+export const useAwsAmplifyBackendEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAmplifyBackendEnvironment, idFilter, baseNode)
 
-export const useAwsAmplifyBackendEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAmplifyBackendEnvironment, node, id)
+export const useAwsAmplifyBackendEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAmplifyBackendEnvironment, idFilter, baseNode)

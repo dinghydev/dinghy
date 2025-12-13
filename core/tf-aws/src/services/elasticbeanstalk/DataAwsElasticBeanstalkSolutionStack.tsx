@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elastic_beanstalk_solution_stack
 
 export const InputSchema = z.object({
   name_regex: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   name: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elastic_beanstalk_solution_stack
 
 export function DataAwsElasticBeanstalkSolutionStack(
   props: Partial<InputProps>,
@@ -49,11 +51,21 @@ export function DataAwsElasticBeanstalkSolutionStack(
 }
 
 export const useDataAwsElasticBeanstalkSolutionStack = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsElasticBeanstalkSolutionStack, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElasticBeanstalkSolutionStack,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsElasticBeanstalkSolutionStacks = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsElasticBeanstalkSolutionStack, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElasticBeanstalkSolutionStack,
+    idFilter,
+    baseNode,
+  )

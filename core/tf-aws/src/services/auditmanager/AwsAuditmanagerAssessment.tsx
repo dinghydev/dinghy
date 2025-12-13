@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment
 
 export const InputSchema = z.object({
   framework_id: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
     z.object({
       destination: z.string(),
       destination_type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -36,10 +35,10 @@ export const InputSchema = z.object({
       aws_services: z.object({
         service_name: z.string(),
       }).array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment
 
 export function AwsAuditmanagerAssessment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +78,12 @@ export function AwsAuditmanagerAssessment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAuditmanagerAssessment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAuditmanagerAssessment, node, id)
+export const useAwsAuditmanagerAssessment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAuditmanagerAssessment, idFilter, baseNode)
 
-export const useAwsAuditmanagerAssessments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAuditmanagerAssessment, node, id)
+export const useAwsAuditmanagerAssessments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAuditmanagerAssessment, idFilter, baseNode)

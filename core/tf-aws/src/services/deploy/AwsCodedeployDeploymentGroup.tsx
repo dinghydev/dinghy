@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codedeploy_deployment_group
 
 export const InputSchema = z.object({
   app_name: resolvableValue(z.string()),
@@ -86,7 +85,7 @@ export const InputSchema = z.object({
         }),
         target_group: z.object({
           name: z.string(),
-        }),
+        }).array(),
         test_traffic_route: z.object({
           listener_arns: z.string().array(),
         }).optional(),
@@ -111,7 +110,7 @@ export const InputSchema = z.object({
       trigger_target_arn: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -128,6 +127,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codedeploy_deployment_group
 
 export function AwsCodedeployDeploymentGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -146,8 +148,13 @@ export function AwsCodedeployDeploymentGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodedeployDeploymentGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodedeployDeploymentGroup, node, id)
+export const useAwsCodedeployDeploymentGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCodedeployDeploymentGroup, idFilter, baseNode)
 
-export const useAwsCodedeployDeploymentGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodedeployDeploymentGroup, node, id)
+export const useAwsCodedeployDeploymentGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCodedeployDeploymentGroup, idFilter, baseNode)

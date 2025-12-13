@@ -3,24 +3,23 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_rotation
-
 export const InputSchema = z.object({
-  secret_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  rotate_immediately: resolvableValue(z.boolean().optional()),
-  rotation_lambda_arn: resolvableValue(z.string().optional()),
   rotation_rules: resolvableValue(z.object({
     automatically_after_days: z.number().optional(),
     duration: z.string().optional(),
     schedule_expression: z.string().optional(),
   })),
-})
+  secret_id: resolvableValue(z.string()),
+  region: resolvableValue(z.string().optional()),
+  rotate_immediately: resolvableValue(z.boolean().optional()),
+  rotation_lambda_arn: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_rotation
 
 export function AwsSecretsmanagerSecretRotation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,18 @@ export function AwsSecretsmanagerSecretRotation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecretsmanagerSecretRotation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecretRotation, node, id)
+export const useAwsSecretsmanagerSecretRotation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSecretsmanagerSecretRotation, idFilter, baseNode)
 
-export const useAwsSecretsmanagerSecretRotations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretRotation, node, id)
+export const useAwsSecretsmanagerSecretRotations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecretsmanagerSecretRotation,
+    idFilter,
+    baseNode,
+  )

@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSignerSigningJob } from './AwsSignerSigningJob.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/signer_signing_job
-
 export const InputSchema = z.object({
   job_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   completed_at: z.string().optional(),
@@ -56,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/signer_signing_job
 
 export function DataAwsSignerSigningJob(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +76,10 @@ export function DataAwsSignerSigningJob(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSignerSigningJob = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSignerSigningJob, node, id)
+export const useDataAwsSignerSigningJob = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSignerSigningJob, idFilter, baseNode)
 
-export const useDataAwsSignerSigningJobs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSignerSigningJob, node, id)
+export const useDataAwsSignerSigningJobs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSignerSigningJob, idFilter, baseNode)

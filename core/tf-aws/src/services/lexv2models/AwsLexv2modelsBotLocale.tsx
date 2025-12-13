@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot_locale
 
 export const InputSchema = z.object({
   bot_id: resolvableValue(z.string()),
@@ -28,9 +27,9 @@ export const InputSchema = z.object({
     z.object({
       engine: z.string().optional(),
       voice_id: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot_locale
 
 export function AwsLexv2modelsBotLocale(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,10 @@ export function AwsLexv2modelsBotLocale(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsBotLocale = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsBotLocale, node, id)
+export const useAwsLexv2modelsBotLocale = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLexv2modelsBotLocale, idFilter, baseNode)
 
-export const useAwsLexv2modelsBotLocales = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsBotLocale, node, id)
+export const useAwsLexv2modelsBotLocales = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLexv2modelsBotLocale, idFilter, baseNode)

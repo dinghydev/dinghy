@@ -3,21 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_classification_export_configuration
-
 export const InputSchema = z.object({
-  region: resolvableValue(z.string().optional()),
   s3_destination: resolvableValue(z.object({
     bucket_name: z.string(),
     key_prefix: z.string().optional(),
     kms_key_arn: z.string(),
   })),
-})
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_classification_export_configuration
 
 export function AwsMacie2ClassificationExportConfiguration(
   props: Partial<InputProps>,
@@ -51,21 +53,21 @@ export function AwsMacie2ClassificationExportConfiguration(
 }
 
 export const useAwsMacie2ClassificationExportConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsMacie2ClassificationExportConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsMacie2ClassificationExportConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsMacie2ClassificationExportConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

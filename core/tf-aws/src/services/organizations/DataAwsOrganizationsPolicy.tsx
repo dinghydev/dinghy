@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOrganizationsPolicy } from './AwsOrganizationsPolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policy
-
 export const InputSchema = z.object({
   policy_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policy
 
 export function DataAwsOrganizationsPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,12 @@ export function DataAwsOrganizationsPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOrganizationsPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOrganizationsPolicy, node, id)
+export const useDataAwsOrganizationsPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsOrganizationsPolicy, idFilter, baseNode)
 
-export const useDataAwsOrganizationsPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOrganizationsPolicy, node, id)
+export const useDataAwsOrganizationsPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsOrganizationsPolicy, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_user_settings
 
 export const InputSchema = z.object({
   associated_portal_arns: resolvableValue(z.string().array()),
@@ -25,13 +24,13 @@ export const InputSchema = z.object({
         domain: z.string(),
         name: z.string().optional(),
         path: z.string().optional(),
-      }).optional(),
+      }).array().optional(),
       blocklist: z.object({
         domain: z.string(),
         name: z.string().optional(),
         path: z.string().optional(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   customer_managed_key: resolvableValue(z.string().optional()),
   deep_link_allowed: resolvableValue(z.string().optional()),
@@ -45,9 +44,9 @@ export const InputSchema = z.object({
       max_display_resolution: z.string().optional(),
       toolbar_type: z.string().optional(),
       visual_mode: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -61,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_user_settings
 
 export function AwsWorkspaceswebUserSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,5 +81,8 @@ export function AwsWorkspaceswebUserSettings(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspaceswebUserSettingss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebUserSettings, node, id)
+export const useAwsWorkspaceswebUserSettingss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsWorkspaceswebUserSettings, idFilter, baseNode)

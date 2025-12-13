@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_secrets
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -18,11 +17,11 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  arns: z.string().array().optional(),
-  names: z.string().array().optional(),
+  arns: z.set(z.string()).optional(),
+  names: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_secrets
 
 export function DataAwsSecretsmanagerSecrets(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,5 +52,8 @@ export function DataAwsSecretsmanagerSecrets(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSecretsmanagerSecretss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSecretsmanagerSecrets, node, id)
+export const useDataAwsSecretsmanagerSecretss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsSecretsmanagerSecrets, idFilter, baseNode)

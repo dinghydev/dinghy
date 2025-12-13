@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_log_subscription
 
 export const InputSchema = z.object({
   directory_id: resolvableValue(z.string()),
   log_group_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_log_subscription
 
 export function AwsDirectoryServiceLogSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,11 +47,21 @@ export function AwsDirectoryServiceLogSubscription(props: Partial<InputProps>) {
 }
 
 export const useAwsDirectoryServiceLogSubscription = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsDirectoryServiceLogSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDirectoryServiceLogSubscription,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDirectoryServiceLogSubscriptions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsDirectoryServiceLogSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceLogSubscription,
+    idFilter,
+    baseNode,
+  )

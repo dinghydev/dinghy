@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_orderable_db_instance
 
 export const InputSchema = z.object({
   engine: resolvableValue(z.string()),
@@ -36,7 +35,7 @@ export const InputSchema = z.object({
   supports_storage_autoscaling: resolvableValue(z.boolean().optional()),
   supports_storage_encryption: resolvableValue(z.boolean().optional()),
   vpc: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zones: z.string().array().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_orderable_db_instance
 
 export function DataAwsRdsOrderableDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,14 @@ export function DataAwsRdsOrderableDbInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRdsOrderableDbInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRdsOrderableDbInstance, node, id)
+export const useDataAwsRdsOrderableDbInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsRdsOrderableDbInstance, idFilter, baseNode)
 
-export const useDataAwsRdsOrderableDbInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRdsOrderableDbInstance, node, id)
+export const useDataAwsRdsOrderableDbInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsRdsOrderableDbInstance, idFilter, baseNode)

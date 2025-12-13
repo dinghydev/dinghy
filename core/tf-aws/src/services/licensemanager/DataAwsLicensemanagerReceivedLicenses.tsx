@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/licensemanager_received_licenses
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arns: z.string().array().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/licensemanager_received_licenses
 
 export function DataAwsLicensemanagerReceivedLicenses(
   props: Partial<InputProps>,
@@ -52,6 +54,11 @@ export function DataAwsLicensemanagerReceivedLicenses(
 }
 
 export const useDataAwsLicensemanagerReceivedLicensess = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsLicensemanagerReceivedLicenses, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLicensemanagerReceivedLicenses,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_capacity_reservation
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocated_dpus: z.number().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_capacity_reservation
 
 export function AwsAthenaCapacityReservation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,13 @@ export function AwsAthenaCapacityReservation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaCapacityReservation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAthenaCapacityReservation, node, id)
+export const useAwsAthenaCapacityReservation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAthenaCapacityReservation, idFilter, baseNode)
 
-export const useAwsAthenaCapacityReservations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAthenaCapacityReservation, node, id)
+export const useAwsAthenaCapacityReservations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAthenaCapacityReservation, idFilter, baseNode)

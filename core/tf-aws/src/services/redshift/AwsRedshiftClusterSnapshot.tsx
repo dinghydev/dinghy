@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_cluster_snapshot
 
 export const InputSchema = z.object({
   cluster_identifier: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   manual_snapshot_retention_period: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_cluster_snapshot
 
 export function AwsRedshiftClusterSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function AwsRedshiftClusterSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftClusterSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftClusterSnapshot, node, id)
+export const useAwsRedshiftClusterSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRedshiftClusterSnapshot, idFilter, baseNode)
 
-export const useAwsRedshiftClusterSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftClusterSnapshot, node, id)
+export const useAwsRedshiftClusterSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRedshiftClusterSnapshot, idFilter, baseNode)

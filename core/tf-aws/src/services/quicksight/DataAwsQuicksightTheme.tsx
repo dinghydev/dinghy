@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsQuicksightTheme } from './AwsQuicksightTheme.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/quicksight_theme
-
 export const InputSchema = z.object({
   theme_id: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -69,7 +68,7 @@ export const OutputSchema = z.object({
   last_updated_time: z.string().optional(),
   name: z.string().optional(),
   permissions: z.object({
-    actions: z.string().array(),
+    actions: z.set(z.string()),
     principal: z.string(),
   }).array().optional(),
   status: z.string().optional(),
@@ -85,6 +84,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/quicksight_theme
 
 export function DataAwsQuicksightTheme(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -103,8 +105,8 @@ export function DataAwsQuicksightTheme(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsQuicksightTheme = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsQuicksightTheme, node, id)
+export const useDataAwsQuicksightTheme = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsQuicksightTheme, idFilter, baseNode)
 
-export const useDataAwsQuicksightThemes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsQuicksightTheme, node, id)
+export const useDataAwsQuicksightThemes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsQuicksightTheme, idFilter, baseNode)

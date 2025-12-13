@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_ingestion_destination
 
 export const InputSchema = z.object({
   app_bundle_arn: resolvableValue(z.string()),
@@ -20,22 +19,22 @@ export const InputSchema = z.object({
         destination: z.object({
           firehose_stream: z.object({
             stream_name: z.string(),
-          }).optional(),
+          }).array().optional(),
           s3_bucket: z.object({
             bucket_name: z.string(),
             prefix: z.string().optional(),
-          }).optional(),
-        }).optional(),
-      }).optional(),
-    }).optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   processing_configuration: resolvableValue(
     z.object({
       audit_log: z.object({
         format: z.string(),
         schema: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -46,7 +45,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_ingestion_destination
 
 export function AwsAppfabricIngestionDestination(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,22 @@ export function AwsAppfabricIngestionDestination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppfabricIngestionDestination = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppfabricIngestionDestination, node, id)
+export const useAwsAppfabricIngestionDestination = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppfabricIngestionDestination,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsAppfabricIngestionDestinations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppfabricIngestionDestination, node, id)
+export const useAwsAppfabricIngestionDestinations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppfabricIngestionDestination,
+    idFilter,
+    baseNode,
+  )

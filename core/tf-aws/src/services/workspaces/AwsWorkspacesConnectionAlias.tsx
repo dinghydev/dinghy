@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_connection_alias
 
 export const InputSchema = z.object({
   connection_string: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_connection_alias
 
 export function AwsWorkspacesConnectionAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,5 +55,8 @@ export function AwsWorkspacesConnectionAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesConnectionAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesConnectionAlias, node, id)
+export const useAwsWorkspacesConnectionAliass = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsWorkspacesConnectionAlias, idFilter, baseNode)

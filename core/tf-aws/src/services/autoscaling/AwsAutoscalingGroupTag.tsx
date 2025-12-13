@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_group_tag
 
 export const InputSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
     value: z.string(),
   })),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_group_tag
 
 export function AwsAutoscalingGroupTag(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsAutoscalingGroupTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingGroupTag = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingGroupTag, node, id)
+export const useAwsAutoscalingGroupTag = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAutoscalingGroupTag, idFilter, baseNode)
 
-export const useAwsAutoscalingGroupTags = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingGroupTag, node, id)
+export const useAwsAutoscalingGroupTags = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAutoscalingGroupTag, idFilter, baseNode)

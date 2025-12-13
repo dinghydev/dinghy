@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_resource_discovery_association
 
 export const InputSchema = z.object({
   ipam_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_resource_discovery_association
 
 export function AwsVpcIpamResourceDiscoveryAssociation(
   props: Partial<InputProps>,
@@ -63,12 +65,21 @@ export function AwsVpcIpamResourceDiscoveryAssociation(
 }
 
 export const useAwsVpcIpamResourceDiscoveryAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpcIpamResourceDiscoveryAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcIpamResourceDiscoveryAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpcIpamResourceDiscoveryAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamResourceDiscoveryAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsVpcIpamResourceDiscoveryAssociation,
+    idFilter,
+    baseNode,
+  )

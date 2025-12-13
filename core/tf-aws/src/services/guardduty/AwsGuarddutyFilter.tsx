@@ -3,19 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_filter
-
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
   detector_id: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  rank: resolvableValue(z.number()),
-  description: resolvableValue(z.string().optional()),
   finding_criteria: resolvableValue(z.object({
     criterion: z.object({
       equals: z.string().array().optional(),
@@ -27,10 +23,13 @@ export const InputSchema = z.object({
       not_equals: z.string().array().optional(),
     }).array(),
   })),
+  name: resolvableValue(z.string()),
+  rank: resolvableValue(z.number()),
+  description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_filter
 
 export function AwsGuarddutyFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function AwsGuarddutyFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyFilter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGuarddutyFilter, node, id)
+export const useAwsGuarddutyFilter = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGuarddutyFilter, idFilter, baseNode)
 
-export const useAwsGuarddutyFilters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyFilter, node, id)
+export const useAwsGuarddutyFilters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGuarddutyFilter, idFilter, baseNode)

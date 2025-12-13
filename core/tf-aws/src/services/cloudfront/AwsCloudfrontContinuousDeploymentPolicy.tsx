@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_continuous_deployment_policy
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -16,14 +15,25 @@ export const InputSchema = z.object({
     z.object({
       items: z.string().array().optional(),
       quantity: z.number(),
-    }).optional(),
+    }).array().optional(),
   ),
   traffic_config: resolvableValue(
     z.object({
       type: z.string(),
-    }).optional(),
+      single_header_config: z.object({
+        header: z.string(),
+        value: z.string(),
+      }).array().optional(),
+      single_weight_config: z.object({
+        weight: z.number(),
+        session_stickiness_config: z.object({
+          idle_ttl: z.number(),
+          maximum_ttl: z.number(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_continuous_deployment_policy
 
 export function AwsCloudfrontContinuousDeploymentPolicy(
   props: Partial<InputProps>,
@@ -60,13 +73,21 @@ export function AwsCloudfrontContinuousDeploymentPolicy(
 }
 
 export const useAwsCloudfrontContinuousDeploymentPolicy = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudfrontContinuousDeploymentPolicy, node, id)
+  useTypedNode<OutputProps>(
+    AwsCloudfrontContinuousDeploymentPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCloudfrontContinuousDeploymentPolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontContinuousDeploymentPolicy, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontContinuousDeploymentPolicy,
+    idFilter,
+    baseNode,
+  )

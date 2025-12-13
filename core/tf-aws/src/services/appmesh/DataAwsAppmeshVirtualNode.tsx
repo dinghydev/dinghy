@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppmeshVirtualNode } from './AwsAppmeshVirtualNode.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_node
 
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   mesh_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -24,7 +23,7 @@ export const OutputSchema = z.object({
   last_updated_date: z.string().optional(),
   resource_owner: z.string().optional(),
   spec: z.object({
-    backend: z.object({
+    backend: z.set(z.object({
       virtual_service: z.object({
         client_policy: z.object({
           tls: z.object({
@@ -38,16 +37,16 @@ export const OutputSchema = z.object({
               }).array(),
             }).array(),
             enforce: z.boolean(),
-            ports: z.number().array(),
+            ports: z.set(z.number()),
             validation: z.object({
               subject_alternative_names: z.object({
                 match: z.object({
-                  exact: z.string().array(),
+                  exact: z.set(z.string()),
                 }).array(),
               }).array(),
               trust: z.object({
                 acm: z.object({
-                  certificate_authority_arns: z.string().array(),
+                  certificate_authority_arns: z.set(z.string()),
                 }).array(),
                 file: z.object({
                   certificate_chain: z.string(),
@@ -61,7 +60,7 @@ export const OutputSchema = z.object({
         }).array(),
         virtual_service_name: z.string(),
       }).array(),
-    }).array(),
+    })),
     backend_defaults: z.object({
       client_policy: z.object({
         tls: z.object({
@@ -75,16 +74,16 @@ export const OutputSchema = z.object({
             }).array(),
           }).array(),
           enforce: z.boolean(),
-          ports: z.number().array(),
+          ports: z.set(z.number()),
           validation: z.object({
             subject_alternative_names: z.object({
               match: z.object({
-                exact: z.string().array(),
+                exact: z.set(z.string()),
               }).array(),
             }).array(),
             trust: z.object({
               acm: z.object({
-                certificate_authority_arns: z.string().array(),
+                certificate_authority_arns: z.set(z.string()),
               }).array(),
               file: z.object({
                 certificate_chain: z.string(),
@@ -193,7 +192,7 @@ export const OutputSchema = z.object({
         validation: z.object({
           subject_alternative_names: z.object({
             match: z.object({
-              exact: z.string().array(),
+              exact: z.set(z.string()),
             }).array(),
           }).array(),
           trust: z.object({
@@ -244,6 +243,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_node
 
 export function DataAwsAppmeshVirtualNode(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -262,8 +264,12 @@ export function DataAwsAppmeshVirtualNode(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshVirtualNode = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshVirtualNode, node, id)
+export const useDataAwsAppmeshVirtualNode = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppmeshVirtualNode, idFilter, baseNode)
 
-export const useDataAwsAppmeshVirtualNodes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualNode, node, id)
+export const useDataAwsAppmeshVirtualNodes = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAppmeshVirtualNode, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_custom_domain_association
 
 export const InputSchema = z.object({
   custom_domain_certificate_arn: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   workgroup_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   custom_domain_certificate_expiry_time: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_custom_domain_association
 
 export function AwsRedshiftserverlessCustomDomainAssociation(
   props: Partial<InputProps>,
@@ -50,21 +52,21 @@ export function AwsRedshiftserverlessCustomDomainAssociation(
 }
 
 export const useAwsRedshiftserverlessCustomDomainAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftserverlessCustomDomainAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsRedshiftserverlessCustomDomainAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftserverlessCustomDomainAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/mq_broker_instance_type_offerings
 
 export const InputSchema = z.object({
   engine_type: resolvableValue(z.string().optional()),
@@ -15,17 +14,17 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   storage_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   broker_instance_options: z.object({
-    availability_zones: z.object({
+    availability_zones: z.set(z.object({
       name: z.string(),
-    }).array(),
+    })),
     engine_type: z.string(),
     host_instance_type: z.string(),
     storage_type: z.string(),
-    supported_deployment_modes: z.string().array(),
+    supported_deployment_modes: z.set(z.string()),
     supported_engine_versions: z.string().array(),
   }).array().optional(),
 })
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/mq_broker_instance_type_offerings
 
 export function DataAwsMqBrokerInstanceTypeOfferings(
   props: Partial<InputProps>,
@@ -58,6 +60,11 @@ export function DataAwsMqBrokerInstanceTypeOfferings(
 }
 
 export const useDataAwsMqBrokerInstanceTypeOfferingss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsMqBrokerInstanceTypeOfferings, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMqBrokerInstanceTypeOfferings,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_proactive_engagement
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -18,9 +17,9 @@ export const InputSchema = z.object({
       contact_notes: z.string().optional(),
       email_address: z.string(),
       phone_number: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_proactive_engagement
 
 export function AwsShieldProactiveEngagement(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,13 @@ export function AwsShieldProactiveEngagement(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsShieldProactiveEngagement = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsShieldProactiveEngagement, node, id)
+export const useAwsShieldProactiveEngagement = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsShieldProactiveEngagement, idFilter, baseNode)
 
-export const useAwsShieldProactiveEngagements = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsShieldProactiveEngagement, node, id)
+export const useAwsShieldProactiveEngagements = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsShieldProactiveEngagement, idFilter, baseNode)

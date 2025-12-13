@@ -3,16 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_service_action
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  accept_language: resolvableValue(z.string().optional()),
   definition: resolvableValue(z.object({
     assume_role: z.string().optional(),
     name: z.string(),
@@ -20,6 +17,8 @@ export const InputSchema = z.object({
     type: z.string().optional(),
     version: z.string(),
   })),
+  name: resolvableValue(z.string()),
+  accept_language: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_service_action
 
 export function AwsServicecatalogServiceAction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,14 @@ export function AwsServicecatalogServiceAction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsServicecatalogServiceAction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsServicecatalogServiceAction, node, id)
+export const useAwsServicecatalogServiceAction = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsServicecatalogServiceAction, idFilter, baseNode)
 
-export const useAwsServicecatalogServiceActions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsServicecatalogServiceAction, node, id)
+export const useAwsServicecatalogServiceActions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsServicecatalogServiceAction, idFilter, baseNode)

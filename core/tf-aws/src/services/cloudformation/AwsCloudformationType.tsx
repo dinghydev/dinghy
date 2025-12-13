@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudformation_type
 
 export const InputSchema = z.object({
   schema_handler_package: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudformation_type
 
 export function AwsCloudformationType(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsCloudformationType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudformationType = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudformationType, node, id)
+export const useAwsCloudformationType = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudformationType, idFilter, baseNode)
 
-export const useAwsCloudformationTypes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudformationType, node, id)
+export const useAwsCloudformationTypes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudformationType, idFilter, baseNode)

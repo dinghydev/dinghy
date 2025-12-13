@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_public_ipv4_pools
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   pool_ids: z.string().array().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_public_ipv4_pools
 
 export function DataAwsEc2PublicIpv4Pools(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,5 +52,7 @@ export function DataAwsEc2PublicIpv4Pools(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2PublicIpv4Poolss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2PublicIpv4Pools, node, id)
+export const useDataAwsEc2PublicIpv4Poolss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEc2PublicIpv4Pools, idFilter, baseNode)

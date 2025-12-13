@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_model_invocation_logging_configuration
 
 export const InputSchema = z.object({
   logging_config: resolvableValue(
@@ -17,10 +16,22 @@ export const InputSchema = z.object({
       image_data_delivery_enabled: z.boolean().optional(),
       text_data_delivery_enabled: z.boolean().optional(),
       video_data_delivery_enabled: z.boolean().optional(),
-    }).optional(),
+      cloudwatch_config: z.object({
+        log_group_name: z.string().optional(),
+        role_arn: z.string().optional(),
+        large_data_delivery_s3_config: z.object({
+          bucket_name: z.string().optional(),
+          key_prefix: z.string().optional(),
+        }).array().optional(),
+      }).array().optional(),
+      s3_config: z.object({
+        bucket_name: z.string().optional(),
+        key_prefix: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -33,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_model_invocation_logging_configuration
 
 export function AwsBedrockModelInvocationLoggingConfiguration(
   props: Partial<InputProps>,
@@ -54,21 +68,21 @@ export function AwsBedrockModelInvocationLoggingConfiguration(
 }
 
 export const useAwsBedrockModelInvocationLoggingConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockModelInvocationLoggingConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsBedrockModelInvocationLoggingConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockModelInvocationLoggingConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

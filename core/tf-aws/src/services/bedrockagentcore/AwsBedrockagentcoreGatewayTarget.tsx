@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_gateway_target
 
 export const InputSchema = z.object({
   gateway_identifier: resolvableValue(z.string()),
@@ -20,14 +19,14 @@ export const InputSchema = z.object({
         credential_parameter_name: z.string().optional(),
         credential_prefix: z.string().optional(),
         provider_arn: z.string(),
-      }).optional(),
-      gateway_iam_role: z.object({}),
+      }).array().optional(),
+      gateway_iam_role: z.object({}).array().optional(),
       oauth: z.object({
         custom_parameters: z.record(z.string(), z.string()).optional(),
         provider_arn: z.string(),
         scopes: z.string().array(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -36,30 +35,148 @@ export const InputSchema = z.object({
       mcp: z.object({
         lambda: z.object({
           lambda_arn: z.string(),
-        }).optional(),
+          tool_schema: z.object({
+            inline_payload: z.object({
+              description: z.string(),
+              name: z.string(),
+              input_schema: z.object({
+                description: z.string().optional(),
+                type: z.string(),
+                items: z.object({
+                  description: z.string().optional(),
+                  type: z.string(),
+                  items: z.object({
+                    description: z.string().optional(),
+                    items_json: z.string().optional(),
+                    properties_json: z.string().optional(),
+                    type: z.string(),
+                  }).array().optional(),
+                  property: z.object({
+                    description: z.string().optional(),
+                    items_json: z.string().optional(),
+                    name: z.string(),
+                    properties_json: z.string().optional(),
+                    required: z.boolean().optional(),
+                    type: z.string(),
+                  }).array().optional(),
+                }).array().optional(),
+                property: z.object({
+                  description: z.string().optional(),
+                  name: z.string(),
+                  required: z.boolean().optional(),
+                  type: z.string(),
+                  items: z.object({
+                    description: z.string().optional(),
+                    type: z.string(),
+                    items: z.object({
+                      description: z.string().optional(),
+                      items_json: z.string().optional(),
+                      properties_json: z.string().optional(),
+                      type: z.string(),
+                    }).array().optional(),
+                    property: z.object({
+                      description: z.string().optional(),
+                      items_json: z.string().optional(),
+                      name: z.string(),
+                      properties_json: z.string().optional(),
+                      required: z.boolean().optional(),
+                      type: z.string(),
+                    }).array().optional(),
+                  }).array().optional(),
+                  property: z.object({
+                    description: z.string().optional(),
+                    items_json: z.string().optional(),
+                    name: z.string(),
+                    properties_json: z.string().optional(),
+                    required: z.boolean().optional(),
+                    type: z.string(),
+                  }).array().optional(),
+                }).array().optional(),
+              }).array().optional(),
+              output_schema: z.object({
+                description: z.string().optional(),
+                type: z.string(),
+                items: z.object({
+                  description: z.string().optional(),
+                  type: z.string(),
+                  items: z.object({
+                    description: z.string().optional(),
+                    items_json: z.string().optional(),
+                    properties_json: z.string().optional(),
+                    type: z.string(),
+                  }).array().optional(),
+                  property: z.object({
+                    description: z.string().optional(),
+                    items_json: z.string().optional(),
+                    name: z.string(),
+                    properties_json: z.string().optional(),
+                    required: z.boolean().optional(),
+                    type: z.string(),
+                  }).array().optional(),
+                }).array().optional(),
+                property: z.object({
+                  description: z.string().optional(),
+                  name: z.string(),
+                  required: z.boolean().optional(),
+                  type: z.string(),
+                  items: z.object({
+                    description: z.string().optional(),
+                    type: z.string(),
+                    items: z.object({
+                      description: z.string().optional(),
+                      items_json: z.string().optional(),
+                      properties_json: z.string().optional(),
+                      type: z.string(),
+                    }).array().optional(),
+                    property: z.object({
+                      description: z.string().optional(),
+                      items_json: z.string().optional(),
+                      name: z.string(),
+                      properties_json: z.string().optional(),
+                      required: z.boolean().optional(),
+                      type: z.string(),
+                    }).array().optional(),
+                  }).array().optional(),
+                  property: z.object({
+                    description: z.string().optional(),
+                    items_json: z.string().optional(),
+                    name: z.string(),
+                    properties_json: z.string().optional(),
+                    required: z.boolean().optional(),
+                    type: z.string(),
+                  }).array().optional(),
+                }).array().optional(),
+              }).array().optional(),
+            }).array().optional(),
+            s3: z.object({
+              bucket_owner_account_id: z.string().optional(),
+              uri: z.string().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
         mcp_server: z.object({
           endpoint: z.string(),
-        }).optional(),
+        }).array().optional(),
         open_api_schema: z.object({
           inline_payload: z.object({
             payload: z.string(),
-          }).optional(),
+          }).array().optional(),
           s3: z.object({
             bucket_owner_account_id: z.string().optional(),
             uri: z.string().optional(),
-          }).optional(),
-        }).optional(),
+          }).array().optional(),
+        }).array().optional(),
         smithy_model: z.object({
           inline_payload: z.object({
             payload: z.string(),
-          }).optional(),
+          }).array().optional(),
           s3: z.object({
             bucket_owner_account_id: z.string().optional(),
             uri: z.string().optional(),
-          }).optional(),
-        }).optional(),
-      }).optional(),
-    }).optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -68,7 +185,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   target_id: z.string().optional(),
@@ -81,6 +198,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_gateway_target
 
 export function AwsBedrockagentcoreGatewayTarget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -99,8 +219,22 @@ export function AwsBedrockagentcoreGatewayTarget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentcoreGatewayTarget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentcoreGatewayTarget, node, id)
+export const useAwsBedrockagentcoreGatewayTarget = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreGatewayTarget,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsBedrockagentcoreGatewayTargets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentcoreGatewayTarget, node, id)
+export const useAwsBedrockagentcoreGatewayTargets = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreGatewayTarget,
+    idFilter,
+    baseNode,
+  )

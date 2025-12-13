@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKendraFaq } from './AwsKendraFaq.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kendra_faq
-
 export const InputSchema = z.object({
   faq_id: resolvableValue(z.string()),
   index_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kendra_faq
 
 export function DataAwsKendraFaq(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,8 @@ export function DataAwsKendraFaq(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKendraFaq = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsKendraFaq, node, id)
+export const useDataAwsKendraFaq = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsKendraFaq, idFilter, baseNode)
 
-export const useDataAwsKendraFaqs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsKendraFaq, node, id)
+export const useDataAwsKendraFaqs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsKendraFaq, idFilter, baseNode)

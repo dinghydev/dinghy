@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/computeoptimizer_enrollment_status
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   number_of_member_accounts_opted_in: z.number().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/computeoptimizer_enrollment_status
 
 export function AwsComputeoptimizerEnrollmentStatus(
   props: Partial<InputProps>,
@@ -54,6 +56,11 @@ export function AwsComputeoptimizerEnrollmentStatus(
 }
 
 export const useAwsComputeoptimizerEnrollmentStatuss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsComputeoptimizerEnrollmentStatus, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsComputeoptimizerEnrollmentStatus,
+    idFilter,
+    baseNode,
+  )

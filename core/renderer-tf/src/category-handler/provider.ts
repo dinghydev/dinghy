@@ -20,24 +20,26 @@ export const provider = (
 
   if (node._props._provider) {
     if (node._props._terraform) {
-      deepResolve(node, node._props._terraform)
+      deepResolve(node._props._terraform)
       deepMerge(terraformRoot, node._props._terraform)
     }
-    deepResolve(node, node._props._provider)
+    deepResolve(node._props._provider)
     deepMerge(providerRoot, node._props._provider)
     debug('set provider from props directly')
     return
   }
   const _inputSchema = requiredSchema(node, '_inputSchema')
   const tfElement = _inputSchema.parse(node._props)
-  deepResolve(node, tfElement)
+  deepResolve(tfElement)
   const { required_providers, ...provider } = tfElement
 
   if (required_providers) {
     deepMerge(terraformRoot, { required_providers })
   }
 
-  const providerName = Object.keys(required_providers)[0]
-  providerRoot[providerName] ??= []
-  providerRoot[providerName].push(provider)
+  if (Object.keys(provider).length !== 0) {
+    const providerName = Object.keys(required_providers)[0]
+    providerRoot[providerName] ??= []
+    providerRoot[providerName].push(provider)
+  }
 }

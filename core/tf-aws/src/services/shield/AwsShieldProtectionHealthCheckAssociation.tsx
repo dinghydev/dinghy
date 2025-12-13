@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_protection_health_check_association
-
 export const InputSchema = z.object({
   health_check_arn: resolvableValue(z.string()),
   shield_protection_id: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_protection_health_check_association
 
 export function AwsShieldProtectionHealthCheckAssociation(
   props: Partial<InputProps>,
@@ -47,17 +49,21 @@ export function AwsShieldProtectionHealthCheckAssociation(
 }
 
 export const useAwsShieldProtectionHealthCheckAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsShieldProtectionHealthCheckAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsShieldProtectionHealthCheckAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsShieldProtectionHealthCheckAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsShieldProtectionHealthCheckAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

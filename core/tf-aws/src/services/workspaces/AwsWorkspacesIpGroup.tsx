@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_ip_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_ip_group
 
 export function AwsWorkspacesIpGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsWorkspacesIpGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesIpGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWorkspacesIpGroup, node, id)
+export const useAwsWorkspacesIpGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode)
 
-export const useAwsWorkspacesIpGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesIpGroup, node, id)
+export const useAwsWorkspacesIpGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode)

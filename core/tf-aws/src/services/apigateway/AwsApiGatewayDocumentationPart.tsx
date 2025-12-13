@@ -3,16 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_documentation_part
-
 export const InputSchema = z.object({
-  properties: resolvableValue(z.string()),
-  rest_api_id: resolvableValue(z.string()),
   location: resolvableValue(z.object({
     method: z.string().optional(),
     name: z.string().optional(),
@@ -20,8 +17,10 @@ export const InputSchema = z.object({
     status_code: z.string().optional(),
     type: z.string(),
   })),
+  properties: resolvableValue(z.string()),
+  rest_api_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   documentation_part_id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_documentation_part
 
 export function AwsApiGatewayDocumentationPart(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function AwsApiGatewayDocumentationPart(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayDocumentationPart = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayDocumentationPart, node, id)
+export const useAwsApiGatewayDocumentationPart = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsApiGatewayDocumentationPart, idFilter, baseNode)
 
-export const useAwsApiGatewayDocumentationParts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayDocumentationPart, node, id)
+export const useAwsApiGatewayDocumentationParts = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsApiGatewayDocumentationPart, idFilter, baseNode)

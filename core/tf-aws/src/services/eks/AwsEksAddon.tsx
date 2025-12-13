@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_addon
 
 export const InputSchema = z.object({
   addon_name: resolvableValue(z.string()),
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_addon
 
 export function AwsEksAddon(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,8 @@ export function AwsEksAddon(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEksAddon = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEksAddon, node, id)
+export const useAwsEksAddon = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEksAddon, idFilter, baseNode)
 
-export const useAwsEksAddons = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEksAddon, node, id)
+export const useAwsEksAddons = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEksAddon, idFilter, baseNode)

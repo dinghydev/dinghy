@@ -6,6 +6,7 @@ import { doWithTfStacks } from './doWithTfStacks.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import Debug from 'debug'
+import { terraformCommandName } from './tfUtils.ts'
 const debug = Debug('tf:plan')
 const options: any = createTfOptions({
   ...tfOptionsPlan,
@@ -58,6 +59,7 @@ function collectStageChange(outputFile: string, maxLines: number) {
 }
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
+  const tfCmd = terraformCommandName(args)
   await requireStacksConfig()
   const changedStages: any[] = []
   await doWithTfStacks(args, async (tfOptions) => {
@@ -70,7 +72,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         stagePath,
         args,
         [
-          'terraform',
+          tfCmd,
           'plan',
           `-lock=${args.lock}`,
           `-out=${args['plan-file']}`,
@@ -85,7 +87,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
           stagePath,
           args,
           [
-            'terraform',
+            tfCmd,
             'show',
             format === 'json' ? '-json' : '-no-color',
             args['plan-file'],

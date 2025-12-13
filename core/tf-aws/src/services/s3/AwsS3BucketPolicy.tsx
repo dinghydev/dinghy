@@ -1,21 +1,22 @@
 import {
   camelCaseToWords,
+  extendStyle,
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_policy
+import { POLICY } from '@dinghy/diagrams/entitiesAws18IotResources'
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_policy
 
 export function AwsS3BucketPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,12 +52,13 @@ export function AwsS3BucketPolicy(props: Partial<InputProps>) {
       _outputSchema={OutputSchema}
       _importSchema={ImportSchema}
       {...props}
+      _style={extendStyle(props, POLICY)}
     />
   )
 }
 
-export const useAwsS3BucketPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketPolicy, node, id)
+export const useAwsS3BucketPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsS3BucketPolicy, idFilter, baseNode)
 
-export const useAwsS3BucketPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketPolicy, node, id)
+export const useAwsS3BucketPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsS3BucketPolicy, idFilter, baseNode)

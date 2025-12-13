@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipv4_cidr_block_association
 
 export const InputSchema = z.object({
   vpc_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipv4_cidr_block_association
 
 export function AwsVpcIpv4CidrBlockAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function AwsVpcIpv4CidrBlockAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcIpv4CidrBlockAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcIpv4CidrBlockAssociation, node, id)
+export const useAwsVpcIpv4CidrBlockAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsVpcIpv4CidrBlockAssociation, idFilter, baseNode)
 
-export const useAwsVpcIpv4CidrBlockAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcIpv4CidrBlockAssociation, node, id)
+export const useAwsVpcIpv4CidrBlockAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsVpcIpv4CidrBlockAssociation, idFilter, baseNode)

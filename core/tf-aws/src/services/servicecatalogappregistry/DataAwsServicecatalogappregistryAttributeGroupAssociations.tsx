@@ -3,20 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalogappregistry_attribute_group_associations
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  attribute_group_ids: z.string().array().optional(),
+  attribute_group_ids: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalogappregistry_attribute_group_associations
 
 export function DataAwsServicecatalogappregistryAttributeGroupAssociations(
   props: Partial<InputProps>,
@@ -47,11 +49,11 @@ export function DataAwsServicecatalogappregistryAttributeGroupAssociations(
 }
 
 export const useDataAwsServicecatalogappregistryAttributeGroupAssociationss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogappregistryAttributeGroupAssociations,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

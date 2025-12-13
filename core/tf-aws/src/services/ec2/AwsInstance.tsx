@@ -4,6 +4,7 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
@@ -11,12 +12,19 @@ import z from 'zod'
 import { EC2_INSTANCE_CONTENTS } from '@dinghy/diagrams/containersAwsGroups'
 import { ANDROID } from '@dinghy/diagrams/entitiesAws17Sdk'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/instance
-
 export const InputSchema = z.object({
   ami: resolvableValue(z.string().optional()),
   associate_public_ip_address: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
+  capacity_reservation_specification: resolvableValue(
+    z.object({
+      capacity_reservation_preference: z.string().optional(),
+      capacity_reservation_target: z.object({
+        capacity_reservation_id: z.string().optional(),
+        capacity_reservation_resource_group_arn: z.string().optional(),
+      }).optional(),
+    }).optional(),
+  ),
   cpu_options: resolvableValue(
     z.object({
       amd_sev_snp: z.string().optional(),
@@ -71,6 +79,12 @@ export const InputSchema = z.object({
   instance_market_options: resolvableValue(
     z.object({
       market_type: z.string().optional(),
+      spot_options: z.object({
+        instance_interruption_behavior: z.string().optional(),
+        max_price: z.string().optional(),
+        spot_instance_type: z.string().optional(),
+        valid_until: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   instance_type: resolvableValue(z.string().optional()),
@@ -159,12 +173,16 @@ export const InputSchema = z.object({
   user_data_replace_on_change: resolvableValue(z.boolean().optional()),
   volume_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   capacity_reservation_specification: z.object({
     capacity_reservation_preference: z.string().optional(),
+    capacity_reservation_target: z.object({
+      capacity_reservation_id: z.string().optional(),
+      capacity_reservation_resource_group_arn: z.string().optional(),
+    }).optional(),
   }).optional().optional(),
   id: z.string().optional(),
   instance_lifecycle: z.string().optional(),
@@ -193,6 +211,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/instance
 
 export function AwsInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -213,8 +234,8 @@ export function AwsInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsInstance, node, id)
+export const useAwsInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsInstance, idFilter, baseNode)
 
-export const useAwsInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsInstance, node, id)
+export const useAwsInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsInstance, idFilter, baseNode)

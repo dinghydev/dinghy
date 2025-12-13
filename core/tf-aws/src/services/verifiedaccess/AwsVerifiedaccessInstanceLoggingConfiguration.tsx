@@ -3,22 +3,35 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance_logging_configuration
-
 export const InputSchema = z.object({
-  verifiedaccess_instance_id: resolvableValue(z.string()),
   access_logs: resolvableValue(z.object({
     include_trust_context: z.boolean().optional(),
     log_version: z.string().optional(),
+    cloudwatch_logs: z.object({
+      enabled: z.boolean(),
+      log_group: z.string().optional(),
+    }).optional(),
+    kinesis_data_firehose: z.object({
+      delivery_stream: z.string().optional(),
+      enabled: z.boolean(),
+    }).optional(),
+    s3: z.object({
+      bucket_name: z.string().optional(),
+      bucket_owner: z.string().optional(),
+      enabled: z.boolean(),
+      prefix: z.string().optional(),
+    }).optional(),
   })),
+  verifiedaccess_instance_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance_logging_configuration
 
 export function AwsVerifiedaccessInstanceLoggingConfiguration(
   props: Partial<InputProps>,
@@ -50,21 +66,21 @@ export function AwsVerifiedaccessInstanceLoggingConfiguration(
 }
 
 export const useAwsVerifiedaccessInstanceLoggingConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedaccessInstanceLoggingConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsVerifiedaccessInstanceLoggingConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedaccessInstanceLoggingConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

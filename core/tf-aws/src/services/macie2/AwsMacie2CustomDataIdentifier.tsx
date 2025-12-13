@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_custom_data_identifier
 
 export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_custom_data_identifier
 
 export function AwsMacie2CustomDataIdentifier(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,14 @@ export function AwsMacie2CustomDataIdentifier(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2CustomDataIdentifier = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMacie2CustomDataIdentifier, node, id)
+export const useAwsMacie2CustomDataIdentifier = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsMacie2CustomDataIdentifier, idFilter, baseNode)
 
-export const useAwsMacie2CustomDataIdentifiers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMacie2CustomDataIdentifier, node, id)
+export const useAwsMacie2CustomDataIdentifiers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsMacie2CustomDataIdentifier, idFilter, baseNode)

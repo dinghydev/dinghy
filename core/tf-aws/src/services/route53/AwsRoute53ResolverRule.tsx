@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_resolver_rule
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -56,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_resolver_rule
 
 export function AwsRoute53ResolverRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,8 @@ export function AwsRoute53ResolverRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53ResolverRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53ResolverRule, node, id)
+export const useAwsRoute53ResolverRule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRoute53ResolverRule, idFilter, baseNode)
 
-export const useAwsRoute53ResolverRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53ResolverRule, node, id)
+export const useAwsRoute53ResolverRules = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRoute53ResolverRule, idFilter, baseNode)

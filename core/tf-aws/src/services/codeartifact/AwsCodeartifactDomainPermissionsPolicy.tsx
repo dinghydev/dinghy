@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeartifact_domain_permissions_policy
 
 export const InputSchema = z.object({
   domain: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   policy_document: resolvableValue(z.string().optional()),
   policy_revision: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeartifact_domain_permissions_policy
 
 export function AwsCodeartifactDomainPermissionsPolicy(
   props: Partial<InputProps>,
@@ -57,12 +59,21 @@ export function AwsCodeartifactDomainPermissionsPolicy(
 }
 
 export const useAwsCodeartifactDomainPermissionsPolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsCodeartifactDomainPermissionsPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodeartifactDomainPermissionsPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCodeartifactDomainPermissionsPolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodeartifactDomainPermissionsPolicy, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCodeartifactDomainPermissionsPolicy,
+    idFilter,
+    baseNode,
+  )

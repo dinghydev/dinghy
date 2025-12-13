@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_instance_request
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -22,13 +21,16 @@ export const InputSchema = z.object({
     }).array(),
   ),
   primary_network_interface_id: resolvableValue(z.string()),
-  spot_request_state: resolvableValue(z.string()),
   ami: resolvableValue(z.string().optional()),
   associate_public_ip_address: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
   capacity_reservation_specification: resolvableValue(
     z.object({
       capacity_reservation_preference: z.string().optional(),
+      capacity_reservation_target: z.object({
+        capacity_reservation_id: z.string().optional(),
+        capacity_reservation_resource_group_arn: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   cpu_options: resolvableValue(
@@ -167,7 +169,7 @@ export const InputSchema = z.object({
   volume_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
   wait_for_fulfillment: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -177,6 +179,7 @@ export const OutputSchema = z.object({
   public_ip: z.string().optional(),
   spot_bid_status: z.string().optional(),
   spot_instance_id: z.string().optional(),
+  spot_request_state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -187,6 +190,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_instance_request
 
 export function AwsSpotInstanceRequest(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -205,8 +211,8 @@ export function AwsSpotInstanceRequest(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSpotInstanceRequest = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSpotInstanceRequest, node, id)
+export const useAwsSpotInstanceRequest = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSpotInstanceRequest, idFilter, baseNode)
 
-export const useAwsSpotInstanceRequests = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSpotInstanceRequest, node, id)
+export const useAwsSpotInstanceRequests = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSpotInstanceRequest, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_environment_profile
 
 export const InputSchema = z.object({
   aws_account_region: resolvableValue(z.string()),
@@ -23,9 +22,9 @@ export const InputSchema = z.object({
     z.object({
       name: z.string().optional(),
       value: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_environment_profile
 
 export function AwsDatazoneEnvironmentProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,14 @@ export function AwsDatazoneEnvironmentProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneEnvironmentProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneEnvironmentProfile, node, id)
+export const useAwsDatazoneEnvironmentProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsDatazoneEnvironmentProfile, idFilter, baseNode)
 
-export const useAwsDatazoneEnvironmentProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneEnvironmentProfile, node, id)
+export const useAwsDatazoneEnvironmentProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsDatazoneEnvironmentProfile, idFilter, baseNode)

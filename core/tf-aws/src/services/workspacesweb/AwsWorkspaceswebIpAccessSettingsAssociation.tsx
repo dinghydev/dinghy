@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_ip_access_settings_association
-
 export const InputSchema = z.object({
   ip_access_settings_arn: resolvableValue(z.string()),
   portal_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_ip_access_settings_association
 
 export function AwsWorkspaceswebIpAccessSettingsAssociation(
   props: Partial<InputProps>,
@@ -46,21 +48,21 @@ export function AwsWorkspaceswebIpAccessSettingsAssociation(
 }
 
 export const useAwsWorkspaceswebIpAccessSettingsAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebIpAccessSettingsAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsWorkspaceswebIpAccessSettingsAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebIpAccessSettingsAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

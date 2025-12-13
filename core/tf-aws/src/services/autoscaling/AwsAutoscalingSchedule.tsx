@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_schedule
 
 export const InputSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   start_time: resolvableValue(z.string().optional()),
   time_zone: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_schedule
 
 export function AwsAutoscalingSchedule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsAutoscalingSchedule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingSchedule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingSchedule, node, id)
+export const useAwsAutoscalingSchedule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAutoscalingSchedule, idFilter, baseNode)
 
-export const useAwsAutoscalingSchedules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingSchedule, node, id)
+export const useAwsAutoscalingSchedules = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAutoscalingSchedule, idFilter, baseNode)

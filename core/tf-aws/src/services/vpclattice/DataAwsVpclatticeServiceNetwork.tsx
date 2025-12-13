@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpclatticeServiceNetwork } from './AwsVpclatticeServiceNetwork.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpclattice_service_network
-
 export const InputSchema = z.object({
   service_network_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpclattice_service_network
 
 export function DataAwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,18 @@ export function DataAwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpclatticeServiceNetwork = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpclatticeServiceNetwork, node, id)
+export const useDataAwsVpclatticeServiceNetwork = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsVpclatticeServiceNetwork, idFilter, baseNode)
 
-export const useDataAwsVpclatticeServiceNetworks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpclatticeServiceNetwork, node, id)
+export const useDataAwsVpclatticeServiceNetworks = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsVpclatticeServiceNetwork,
+    idFilter,
+    baseNode,
+  )

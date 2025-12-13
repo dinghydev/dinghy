@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dataexchange_data_set
 
 export const InputSchema = z.object({
   asset_type: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dataexchange_data_set
 
 export function AwsDataexchangeDataSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsDataexchangeDataSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDataexchangeDataSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDataexchangeDataSet, node, id)
+export const useAwsDataexchangeDataSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDataexchangeDataSet, idFilter, baseNode)
 
-export const useAwsDataexchangeDataSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDataexchangeDataSet, node, id)
+export const useAwsDataexchangeDataSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDataexchangeDataSet, idFilter, baseNode)

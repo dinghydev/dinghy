@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/gamelift_script
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   version: resolvableValue(z.string().optional()),
   zip_file: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/gamelift_script
 
 export function AwsGameliftScript(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function AwsGameliftScript(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGameliftScript = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGameliftScript, node, id)
+export const useAwsGameliftScript = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGameliftScript, idFilter, baseNode)
 
-export const useAwsGameliftScripts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGameliftScript, node, id)
+export const useAwsGameliftScripts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGameliftScript, idFilter, baseNode)

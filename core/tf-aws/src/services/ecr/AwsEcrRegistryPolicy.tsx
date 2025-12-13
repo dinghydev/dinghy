@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_registry_policy
-
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_registry_policy
 
 export function AwsEcrRegistryPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function AwsEcrRegistryPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRegistryPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrRegistryPolicy, node, id)
+export const useAwsEcrRegistryPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcrRegistryPolicy, idFilter, baseNode)
 
-export const useAwsEcrRegistryPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrRegistryPolicy, node, id)
+export const useAwsEcrRegistryPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcrRegistryPolicy, idFilter, baseNode)

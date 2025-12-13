@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppmeshGatewayRoute } from './AwsAppmeshGatewayRoute.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_gateway_route
 
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   mesh_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,7 +60,7 @@ export const OutputSchema = z.object({
         }).array(),
       }).array(),
       match: z.object({
-        header: z.object({
+        header: z.set(z.object({
           invert: z.boolean(),
           match: z.object({
             exact: z.string(),
@@ -74,7 +73,7 @@ export const OutputSchema = z.object({
             suffix: z.string(),
           }).array(),
           name: z.string(),
-        }).array(),
+        })),
         hostname: z.object({
           exact: z.string(),
           suffix: z.string(),
@@ -85,12 +84,12 @@ export const OutputSchema = z.object({
         }).array(),
         port: z.number(),
         prefix: z.string(),
-        query_parameter: z.object({
+        query_parameter: z.set(z.object({
           match: z.object({
             exact: z.string(),
           }).array(),
           name: z.string(),
-        }).array(),
+        })),
       }).array(),
     }).array(),
     http_route: z.object({
@@ -115,7 +114,7 @@ export const OutputSchema = z.object({
         }).array(),
       }).array(),
       match: z.object({
-        header: z.object({
+        header: z.set(z.object({
           invert: z.boolean(),
           match: z.object({
             exact: z.string(),
@@ -128,7 +127,7 @@ export const OutputSchema = z.object({
             suffix: z.string(),
           }).array(),
           name: z.string(),
-        }).array(),
+        })),
         hostname: z.object({
           exact: z.string(),
           suffix: z.string(),
@@ -139,12 +138,12 @@ export const OutputSchema = z.object({
         }).array(),
         port: z.number(),
         prefix: z.string(),
-        query_parameter: z.object({
+        query_parameter: z.set(z.object({
           match: z.object({
             exact: z.string(),
           }).array(),
           name: z.string(),
-        }).array(),
+        })),
       }).array(),
     }).array(),
     priority: z.number(),
@@ -159,6 +158,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_gateway_route
 
 export function DataAwsAppmeshGatewayRoute(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -177,8 +179,12 @@ export function DataAwsAppmeshGatewayRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshGatewayRoute = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshGatewayRoute, node, id)
+export const useDataAwsAppmeshGatewayRoute = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppmeshGatewayRoute, idFilter, baseNode)
 
-export const useDataAwsAppmeshGatewayRoutes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshGatewayRoute, node, id)
+export const useDataAwsAppmeshGatewayRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAppmeshGatewayRoute, idFilter, baseNode)

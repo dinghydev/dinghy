@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_task_execution
 
 export const InputSchema = z.object({
   cluster: resolvableValue(z.string()),
@@ -39,6 +38,21 @@ export const InputSchema = z.object({
       execution_role_arn: z.string().optional(),
       memory: z.string().optional(),
       task_role_arn: z.string().optional(),
+      container_overrides: z.object({
+        command: z.string().array().optional(),
+        cpu: z.number().optional(),
+        memory: z.number().optional(),
+        memory_reservation: z.number().optional(),
+        name: z.string(),
+        environment: z.object({
+          key: z.string(),
+          value: z.string(),
+        }).array().optional(),
+        resource_requirements: z.object({
+          type: z.string(),
+          value: z.string(),
+        }).array().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   placement_constraints: resolvableValue(
@@ -51,7 +65,7 @@ export const InputSchema = z.object({
     z.object({
       field: z.string().optional(),
       type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   platform_version: resolvableValue(z.string().optional()),
   propagate_tags: resolvableValue(z.string().optional()),
@@ -59,7 +73,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   started_by: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -73,6 +87,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_task_execution
 
 export function DataAwsEcsTaskExecution(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -91,8 +108,10 @@ export function DataAwsEcsTaskExecution(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsTaskExecution = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcsTaskExecution, node, id)
+export const useDataAwsEcsTaskExecution = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEcsTaskExecution, idFilter, baseNode)
 
-export const useDataAwsEcsTaskExecutions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcsTaskExecution, node, id)
+export const useDataAwsEcsTaskExecutions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEcsTaskExecution, idFilter, baseNode)

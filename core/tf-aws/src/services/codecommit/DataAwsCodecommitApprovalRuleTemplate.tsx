@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCodecommitApprovalRuleTemplate } from './AwsCodecommitApprovalRuleTemplate.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecommit_approval_rule_template
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   approval_rule_template_id: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecommit_approval_rule_template
 
 export function DataAwsCodecommitApprovalRuleTemplate(
   props: Partial<InputProps>,
@@ -54,11 +56,21 @@ export function DataAwsCodecommitApprovalRuleTemplate(
 }
 
 export const useDataAwsCodecommitApprovalRuleTemplate = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsCodecommitApprovalRuleTemplate, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCodecommitApprovalRuleTemplate,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCodecommitApprovalRuleTemplates = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsCodecommitApprovalRuleTemplate, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCodecommitApprovalRuleTemplate,
+    idFilter,
+    baseNode,
+  )

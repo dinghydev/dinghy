@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_file_cache
 
 export const InputSchema = z.object({
   file_cache_type: resolvableValue(z.string()),
@@ -31,6 +30,10 @@ export const InputSchema = z.object({
       imported_file_chunk_size: z.number(),
       resource_arn: z.string(),
       tags: z.record(z.string(), z.string()).optional(),
+      nfs: z.object({
+        dns_ips: z.string().array().optional(),
+        version: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
   kms_key_id: resolvableValue(z.string().optional()),
@@ -44,6 +47,9 @@ export const InputSchema = z.object({
       mount_name: z.string(),
       per_unit_storage_throughput: z.number(),
       weekly_maintenance_start_time: z.string().optional(),
+      metadata_configuration: z.object({
+        storage_capacity: z.number(),
+      }).array(),
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -57,15 +63,15 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  data_repository_association_ids: z.string().array().optional(),
+  data_repository_association_ids: z.set(z.string()).optional(),
   dns_name: z.string().optional(),
   file_cache_id: z.string().optional(),
   id: z.string().optional(),
-  network_interface_ids: z.string().array().optional(),
+  network_interface_ids: z.set(z.string()).optional(),
   vpc_id: z.string().optional(),
 })
 
@@ -76,6 +82,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_file_cache
 
 export function AwsFsxFileCache(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -94,8 +103,8 @@ export function AwsFsxFileCache(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxFileCache = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxFileCache, node, id)
+export const useAwsFsxFileCache = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFsxFileCache, idFilter, baseNode)
 
-export const useAwsFsxFileCaches = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxFileCache, node, id)
+export const useAwsFsxFileCaches = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFsxFileCache, idFilter, baseNode)

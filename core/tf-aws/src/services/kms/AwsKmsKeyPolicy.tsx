@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_key_policy
 
 export const InputSchema = z.object({
   key_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   bypass_policy_lockout_safety_check: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_key_policy
 
 export function AwsKmsKeyPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function AwsKmsKeyPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsKeyPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKmsKeyPolicy, node, id)
+export const useAwsKmsKeyPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKmsKeyPolicy, idFilter, baseNode)
 
-export const useAwsKmsKeyPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKmsKeyPolicy, node, id)
+export const useAwsKmsKeyPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKmsKeyPolicy, idFilter, baseNode)

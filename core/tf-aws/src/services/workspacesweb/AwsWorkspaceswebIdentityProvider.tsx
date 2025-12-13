@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_identity_provider
 
 export const InputSchema = z.object({
   identity_provider_details: resolvableValue(z.record(z.string(), z.string())),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   portal_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   identity_provider_arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_identity_provider
 
 export function AwsWorkspaceswebIdentityProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,22 @@ export function AwsWorkspaceswebIdentityProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspaceswebIdentityProvider = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebIdentityProvider, node, id)
+export const useAwsWorkspaceswebIdentityProvider = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebIdentityProvider,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsWorkspaceswebIdentityProviders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebIdentityProvider, node, id)
+export const useAwsWorkspaceswebIdentityProviders = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebIdentityProvider,
+    idFilter,
+    baseNode,
+  )

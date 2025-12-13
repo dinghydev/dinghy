@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_db_server
-
 export const InputSchema = z.object({
   cloud_exadata_infrastructure_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   autonomous_virtual_machine_ids: z.string().array().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_db_server
 
 export function DataAwsOdbDbServer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,8 @@ export function DataAwsOdbDbServer(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbDbServer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOdbDbServer, node, id)
+export const useDataAwsOdbDbServer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOdbDbServer, idFilter, baseNode)
 
-export const useDataAwsOdbDbServers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOdbDbServer, node, id)
+export const useDataAwsOdbDbServers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOdbDbServer, idFilter, baseNode)

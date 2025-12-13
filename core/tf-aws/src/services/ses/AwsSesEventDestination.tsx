@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_event_destination
 
 export const InputSchema = z.object({
   configuration_set_name: resolvableValue(z.string()),
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
       topic_arn: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ses_event_destination
 
 export function AwsSesEventDestination(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,8 @@ export function AwsSesEventDestination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesEventDestination = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesEventDestination, node, id)
+export const useAwsSesEventDestination = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSesEventDestination, idFilter, baseNode)
 
-export const useAwsSesEventDestinations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesEventDestination, node, id)
+export const useAwsSesEventDestinations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSesEventDestination, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_inference_profile
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
   model_source: resolvableValue(
     z.object({
       copy_from: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_inference_profile
 
 export function AwsBedrockInferenceProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,12 @@ export function AwsBedrockInferenceProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockInferenceProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockInferenceProfile, node, id)
+export const useAwsBedrockInferenceProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsBedrockInferenceProfile, idFilter, baseNode)
 
-export const useAwsBedrockInferenceProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockInferenceProfile, node, id)
+export const useAwsBedrockInferenceProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBedrockInferenceProfile, idFilter, baseNode)

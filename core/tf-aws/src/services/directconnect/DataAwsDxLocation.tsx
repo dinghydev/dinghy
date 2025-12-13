@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_location
-
 export const InputSchema = z.object({
   location_code: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   available_macsec_port_speeds: z.string().array().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_location
 
 export function DataAwsDxLocation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function DataAwsDxLocation(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDxLocation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDxLocation, node, id)
+export const useDataAwsDxLocation = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsDxLocation, idFilter, baseNode)
 
-export const useDataAwsDxLocations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDxLocation, node, id)
+export const useDataAwsDxLocations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDxLocation, idFilter, baseNode)

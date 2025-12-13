@@ -3,28 +3,27 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devopsguru_resource_collection
 
 export const InputSchema = z.object({
   type: resolvableValue(z.string()),
   cloudformation: resolvableValue(
     z.object({
       stack_names: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(
     z.object({
       app_boundary_key: z.string(),
       tag_values: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devopsguru_resource_collection
 
 export function AwsDevopsguruResourceCollection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,18 @@ export function AwsDevopsguruResourceCollection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevopsguruResourceCollection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDevopsguruResourceCollection, node, id)
+export const useAwsDevopsguruResourceCollection = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsDevopsguruResourceCollection, idFilter, baseNode)
 
-export const useAwsDevopsguruResourceCollections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDevopsguruResourceCollection, node, id)
+export const useAwsDevopsguruResourceCollections = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDevopsguruResourceCollection,
+    idFilter,
+    baseNode,
+  )

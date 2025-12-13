@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dynamodb_tables
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   names: z.string().array().optional(),
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dynamodb_tables
 
 export function DataAwsDynamodbTables(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -42,5 +44,5 @@ export function DataAwsDynamodbTables(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDynamodbTabless = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDynamodbTables, node, id)
+export const useDataAwsDynamodbTabless = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDynamodbTables, idFilter, baseNode)

@@ -3,45 +3,155 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  role_arn: resolvableValue(z.string()),
   artifact_store: resolvableValue(
     z.object({
       location: z.string(),
       region: z.string().optional(),
       type: z.string(),
+      encryption_key: z.object({
+        id: z.string(),
+        type: z.string(),
+      }).optional(),
     }).array(),
   ),
+  name: resolvableValue(z.string()),
+  role_arn: resolvableValue(z.string()),
   execution_mode: resolvableValue(z.string().optional()),
   pipeline_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   stage: resolvableValue(
     z.object({
       name: z.string(),
-    }).optional(),
+      action: z.object({
+        category: z.string(),
+        configuration: z.record(z.string(), z.string()).optional(),
+        input_artifacts: z.string().array().optional(),
+        name: z.string(),
+        namespace: z.string().optional(),
+        output_artifacts: z.string().array().optional(),
+        owner: z.string(),
+        provider: z.string(),
+        region: z.string().optional(),
+        role_arn: z.string().optional(),
+        run_order: z.number().optional(),
+        timeout_in_minutes: z.number().optional(),
+        version: z.string(),
+      }).array(),
+      before_entry: z.object({
+        condition: z.object({
+          result: z.string().optional(),
+          rule: z.object({
+            commands: z.string().array().optional(),
+            configuration: z.record(z.string(), z.string()).optional(),
+            input_artifacts: z.string().array().optional(),
+            name: z.string(),
+            region: z.string().optional(),
+            role_arn: z.string().optional(),
+            timeout_in_minutes: z.number().optional(),
+            rule_type_id: z.object({
+              category: z.string(),
+              owner: z.string().optional(),
+              provider: z.string(),
+              version: z.string().optional(),
+            }),
+          }).array(),
+        }),
+      }).optional(),
+      on_failure: z.object({
+        result: z.string().optional(),
+        condition: z.object({
+          result: z.string().optional(),
+          rule: z.object({
+            commands: z.string().array().optional(),
+            configuration: z.record(z.string(), z.string()).optional(),
+            input_artifacts: z.string().array().optional(),
+            name: z.string(),
+            region: z.string().optional(),
+            role_arn: z.string().optional(),
+            timeout_in_minutes: z.number().optional(),
+            rule_type_id: z.object({
+              category: z.string(),
+              owner: z.string().optional(),
+              provider: z.string(),
+              version: z.string().optional(),
+            }),
+          }).array(),
+        }).optional(),
+        retry_configuration: z.object({
+          retry_mode: z.string().optional(),
+        }).optional(),
+      }).optional(),
+      on_success: z.object({
+        condition: z.object({
+          result: z.string().optional(),
+          rule: z.object({
+            commands: z.string().array().optional(),
+            configuration: z.record(z.string(), z.string()).optional(),
+            input_artifacts: z.string().array().optional(),
+            name: z.string(),
+            region: z.string().optional(),
+            role_arn: z.string().optional(),
+            timeout_in_minutes: z.number().optional(),
+            rule_type_id: z.object({
+              category: z.string(),
+              owner: z.string().optional(),
+              provider: z.string(),
+              version: z.string().optional(),
+            }),
+          }).array(),
+        }),
+      }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   trigger: resolvableValue(
     z.object({
       provider_type: z.string(),
-    }).optional(),
+      git_configuration: z.object({
+        source_action_name: z.string(),
+        pull_request: z.object({
+          events: z.string().array().optional(),
+          branches: z.object({
+            excludes: z.string().array().optional(),
+            includes: z.string().array().optional(),
+          }).optional(),
+          file_paths: z.object({
+            excludes: z.string().array().optional(),
+            includes: z.string().array().optional(),
+          }).optional(),
+        }).array().optional(),
+        push: z.object({
+          branches: z.object({
+            excludes: z.string().array().optional(),
+            includes: z.string().array().optional(),
+          }).optional(),
+          file_paths: z.object({
+            excludes: z.string().array().optional(),
+            includes: z.string().array().optional(),
+          }).optional(),
+          tags: z.object({
+            excludes: z.string().array().optional(),
+            includes: z.string().array().optional(),
+          }).optional(),
+        }).array().optional(),
+      }),
+    }).array().optional(),
   ),
   variable: resolvableValue(
     z.object({
       default_value: z.string().optional(),
       description: z.string().optional(),
       name: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -87,6 +197,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline
 
 export function AwsCodepipeline(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -105,8 +218,8 @@ export function AwsCodepipeline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodepipeline = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodepipeline, node, id)
+export const useAwsCodepipeline = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodepipeline, idFilter, baseNode)
 
-export const useAwsCodepipelines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodepipeline, node, id)
+export const useAwsCodepipelines = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodepipeline, idFilter, baseNode)

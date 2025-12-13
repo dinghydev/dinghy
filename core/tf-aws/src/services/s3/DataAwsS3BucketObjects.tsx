@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_objects
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   start_after: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   common_prefixes: z.string().array().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_objects
 
 export function DataAwsS3BucketObjects(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,5 +54,5 @@ export function DataAwsS3BucketObjects(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsS3BucketObjectss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsS3BucketObjects, node, id)
+export const useDataAwsS3BucketObjectss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsS3BucketObjects, idFilter, baseNode)

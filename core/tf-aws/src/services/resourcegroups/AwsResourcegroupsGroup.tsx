@@ -3,18 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/resourcegroups_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   configuration: resolvableValue(
     z.object({
       type: z.string(),
+      parameters: z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
     }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
@@ -33,7 +36,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/resourcegroups_group
 
 export function AwsResourcegroupsGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +71,8 @@ export function AwsResourcegroupsGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsResourcegroupsGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsResourcegroupsGroup, node, id)
+export const useAwsResourcegroupsGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsResourcegroupsGroup, idFilter, baseNode)
 
-export const useAwsResourcegroupsGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsResourcegroupsGroup, node, id)
+export const useAwsResourcegroupsGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsResourcegroupsGroup, idFilter, baseNode)

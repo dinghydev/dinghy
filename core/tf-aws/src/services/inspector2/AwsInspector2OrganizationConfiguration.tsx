@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_organization_configuration
 
 export const InputSchema = z.object({
   auto_enable: resolvableValue(z.object({
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   max_account_limit_reached: z.boolean().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/inspector2_organization_configuration
 
 export function AwsInspector2OrganizationConfiguration(
   props: Partial<InputProps>,
@@ -61,12 +63,21 @@ export function AwsInspector2OrganizationConfiguration(
 }
 
 export const useAwsInspector2OrganizationConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsInspector2OrganizationConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInspector2OrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsInspector2OrganizationConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsInspector2OrganizationConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsInspector2OrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )

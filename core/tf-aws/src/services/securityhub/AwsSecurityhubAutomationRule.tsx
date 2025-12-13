@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_automation_rule
 
 export const InputSchema = z.object({
   description: resolvableValue(z.string()),
@@ -18,6 +17,28 @@ export const InputSchema = z.object({
   actions: resolvableValue(
     z.object({
       type: z.string().optional(),
+      finding_fields_update: z.object({
+        confidence: z.number().optional(),
+        criticality: z.number().optional(),
+        types: z.string().array().optional(),
+        user_defined_fields: z.record(z.string(), z.string()).optional(),
+        verification_state: z.string().optional(),
+        note: z.object({
+          text: z.string(),
+          updated_by: z.string(),
+        }).array().optional(),
+        related_findings: z.object({
+          id: z.string(),
+          product_arn: z.string(),
+        }).array().optional(),
+        severity: z.object({
+          label: z.string().optional(),
+          product: z.number().optional(),
+        }).array().optional(),
+        workflow: z.object({
+          status: z.string().optional(),
+        }).array().optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   criteria: resolvableValue(
@@ -56,6 +77,10 @@ export const InputSchema = z.object({
       created_at: z.object({
         end: z.string().optional(),
         start: z.string().optional(),
+        date_range: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }).array().optional(),
       }).array().optional(),
       criticality: z.object({
         eq: z.number().optional(),
@@ -71,6 +96,10 @@ export const InputSchema = z.object({
       first_observed_at: z.object({
         end: z.string().optional(),
         start: z.string().optional(),
+        date_range: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }).array().optional(),
       }).array().optional(),
       generator_id: z.object({
         comparison: z.string(),
@@ -83,6 +112,10 @@ export const InputSchema = z.object({
       last_observed_at: z.object({
         end: z.string().optional(),
         start: z.string().optional(),
+        date_range: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }).array().optional(),
       }).array().optional(),
       note_text: z.object({
         comparison: z.string(),
@@ -91,6 +124,10 @@ export const InputSchema = z.object({
       note_updated_at: z.object({
         end: z.string().optional(),
         start: z.string().optional(),
+        date_range: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }).array().optional(),
       }).array().optional(),
       note_updated_by: z.object({
         comparison: z.string(),
@@ -169,6 +206,10 @@ export const InputSchema = z.object({
       updated_at: z.object({
         end: z.string().optional(),
         start: z.string().optional(),
+        date_range: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }).array().optional(),
       }).array().optional(),
       user_defined_fields: z.object({
         comparison: z.string(),
@@ -183,13 +224,13 @@ export const InputSchema = z.object({
         comparison: z.string(),
         value: z.string(),
       }).array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   is_terminal: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   rule_status: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -208,6 +249,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_automation_rule
 
 export function AwsSecurityhubAutomationRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -227,8 +271,13 @@ export function AwsSecurityhubAutomationRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubAutomationRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubAutomationRule, node, id)
+export const useAwsSecurityhubAutomationRule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSecurityhubAutomationRule, idFilter, baseNode)
 
-export const useAwsSecurityhubAutomationRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubAutomationRule, node, id)
+export const useAwsSecurityhubAutomationRules = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSecurityhubAutomationRule, idFilter, baseNode)

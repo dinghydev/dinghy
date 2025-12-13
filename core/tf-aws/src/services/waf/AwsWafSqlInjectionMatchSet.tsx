@@ -3,21 +3,24 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_sql_injection_match_set
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   sql_injection_match_tuples: resolvableValue(
     z.object({
       text_transformation: z.string(),
+      field_to_match: z.object({
+        data: z.string().optional(),
+        type: z.string(),
+      }),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_sql_injection_match_set
 
 export function AwsWafSqlInjectionMatchSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +55,12 @@ export function AwsWafSqlInjectionMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafSqlInjectionMatchSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafSqlInjectionMatchSet, node, id)
+export const useAwsWafSqlInjectionMatchSet = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsWafSqlInjectionMatchSet, idFilter, baseNode)
 
-export const useAwsWafSqlInjectionMatchSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafSqlInjectionMatchSet, node, id)
+export const useAwsWafSqlInjectionMatchSets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsWafSqlInjectionMatchSet, idFilter, baseNode)

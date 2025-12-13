@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_website_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -43,10 +42,10 @@ export const InputSchema = z.object({
         replace_key_prefix_with: z.string().optional(),
         replace_key_with: z.string().optional(),
       }),
-    }).optional(),
+    }).array().optional(),
   ),
   routing_rules: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -69,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_website_configuration
 
 export function AwsS3BucketWebsiteConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -88,8 +90,18 @@ export function AwsS3BucketWebsiteConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketWebsiteConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketWebsiteConfiguration, node, id)
+export const useAwsS3BucketWebsiteConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsS3BucketWebsiteConfiguration, idFilter, baseNode)
 
-export const useAwsS3BucketWebsiteConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketWebsiteConfiguration, node, id)
+export const useAwsS3BucketWebsiteConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3BucketWebsiteConfiguration,
+    idFilter,
+    baseNode,
+  )

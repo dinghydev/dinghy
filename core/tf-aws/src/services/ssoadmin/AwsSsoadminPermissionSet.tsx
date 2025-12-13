@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_permission_set
 
 export const InputSchema = z.object({
   instance_arn: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssoadmin_permission_set
 
 export function AwsSsoadminPermissionSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsSsoadminPermissionSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsoadminPermissionSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsoadminPermissionSet, node, id)
+export const useAwsSsoadminPermissionSet = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSsoadminPermissionSet, idFilter, baseNode)
 
-export const useAwsSsoadminPermissionSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsoadminPermissionSet, node, id)
+export const useAwsSsoadminPermissionSets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSsoadminPermissionSet, idFilter, baseNode)

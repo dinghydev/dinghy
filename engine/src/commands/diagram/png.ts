@@ -121,16 +121,12 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       }
     })
   if (failed) {
-    if (hasSuccess) {
-      console.log(
-        chalk.yellow(
-          `Likely due to large diagram: https://issues.chromium.org/issues/383356871 .`,
-          // Use locally installed draw.io to generate png as workaround e.g.:
-          // DIAGRAM_PNG_DRAWIO_BIN=/Applications/draw.io.app/Contents/MacOS/draw.io
-          // `,
-        ),
-      )
-    }
+    console.log(
+      chalk.yellow(
+        `Likely due to large diagram: https://issues.chromium.org/issues/383356871 .
+          \nYou may open the drawio file in desktop drawio app and export manually.`,
+      ),
+    )
     throw new Error('Failed to generate png')
   }
 }

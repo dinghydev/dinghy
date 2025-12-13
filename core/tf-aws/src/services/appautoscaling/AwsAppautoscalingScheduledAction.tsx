@@ -3,29 +3,28 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appautoscaling_scheduled_action
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   scalable_dimension: resolvableValue(z.string()),
+  scalable_target_action: resolvableValue(z.object({
+    max_capacity: z.string().optional(),
+    min_capacity: z.string().optional(),
+  })),
   schedule: resolvableValue(z.string()),
   service_namespace: resolvableValue(z.string()),
   end_time: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-  scalable_target_action: resolvableValue(z.object({
-    max_capacity: z.string().optional(),
-    min_capacity: z.string().optional(),
-  })),
   start_time: resolvableValue(z.string().optional()),
   timezone: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appautoscaling_scheduled_action
 
 export function AwsAppautoscalingScheduledAction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,22 @@ export function AwsAppautoscalingScheduledAction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppautoscalingScheduledAction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppautoscalingScheduledAction, node, id)
+export const useAwsAppautoscalingScheduledAction = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppautoscalingScheduledAction,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsAppautoscalingScheduledActions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppautoscalingScheduledAction, node, id)
+export const useAwsAppautoscalingScheduledActions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppautoscalingScheduledAction,
+    idFilter,
+    baseNode,
+  )

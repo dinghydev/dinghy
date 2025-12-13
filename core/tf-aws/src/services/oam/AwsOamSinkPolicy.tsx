@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/oam_sink_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/oam_sink_policy
 
 export function AwsOamSinkPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsOamSinkPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOamSinkPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOamSinkPolicy, node, id)
+export const useAwsOamSinkPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode)
 
-export const useAwsOamSinkPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOamSinkPolicy, node, id)
+export const useAwsOamSinkPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode)

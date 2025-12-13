@@ -3,16 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/signer_signing_profile
-
 export const InputSchema = z.object({
   platform_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   signature_validity_period: resolvableValue(
@@ -30,7 +30,7 @@ export const InputSchema = z.object({
     z.record(z.string(), z.string()).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/signer_signing_profile
 
 export function AwsSignerSigningProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -72,8 +75,10 @@ export function AwsSignerSigningProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSignerSigningProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSignerSigningProfile, node, id)
+export const useAwsSignerSigningProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSignerSigningProfile, idFilter, baseNode)
 
-export const useAwsSignerSigningProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSignerSigningProfile, node, id)
+export const useAwsSignerSigningProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSignerSigningProfile, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_custom_routing_listener
 
 export const InputSchema = z.object({
   accelerator_arn: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_custom_routing_listener
 
 export function AwsGlobalacceleratorCustomRoutingListener(
   props: Partial<InputProps>,
@@ -66,17 +68,21 @@ export function AwsGlobalacceleratorCustomRoutingListener(
 }
 
 export const useAwsGlobalacceleratorCustomRoutingListener = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsGlobalacceleratorCustomRoutingListener, node, id)
+  useTypedNode<OutputProps>(
+    AwsGlobalacceleratorCustomRoutingListener,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsGlobalacceleratorCustomRoutingListeners = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorCustomRoutingListener,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,16 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policy
-
 export const InputSchema = z.object({
+  group: resolvableValue(z.string()),
+  policy: resolvableValue(z.string()),
+  name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   group: z.string().optional(),
@@ -28,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_group_policy
 
 export function AwsIamGroupPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +51,8 @@ export function AwsIamGroupPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamGroupPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamGroupPolicy, node, id)
+export const useAwsIamGroupPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamGroupPolicy, idFilter, baseNode)
 
-export const useAwsIamGroupPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamGroupPolicy, node, id)
+export const useAwsIamGroupPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamGroupPolicy, idFilter, baseNode)

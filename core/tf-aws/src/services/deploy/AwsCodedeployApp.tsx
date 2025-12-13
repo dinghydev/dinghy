@@ -3,18 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codedeploy_app
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   compute_platform: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_id: z.string().optional(),
@@ -33,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codedeploy_app
 
 export function AwsCodedeployApp(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +54,8 @@ export function AwsCodedeployApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodedeployApp = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodedeployApp, node, id)
+export const useAwsCodedeployApp = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodedeployApp, idFilter, baseNode)
 
-export const useAwsCodedeployApps = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodedeployApp, node, id)
+export const useAwsCodedeployApps = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodedeployApp, idFilter, baseNode)

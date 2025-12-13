@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/subnet
 
 export const InputSchema = z.object({
   vpc_id: resolvableValue(z.string()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -63,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/subnet
 
 export function AwsSubnet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -82,8 +84,8 @@ export function AwsSubnet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSubnet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSubnet, node, id)
+export const useAwsSubnet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSubnet, idFilter, baseNode)
 
-export const useAwsSubnets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSubnet, node, id)
+export const useAwsSubnets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSubnet, idFilter, baseNode)

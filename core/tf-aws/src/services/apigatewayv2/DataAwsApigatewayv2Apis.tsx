@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/apigatewayv2_apis
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
@@ -15,10 +14,10 @@ export const InputSchema = z.object({
   protocol_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  ids: z.string().array().optional(),
+  ids: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/apigatewayv2_apis
 
 export function DataAwsApigatewayv2Apis(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,5 +48,7 @@ export function DataAwsApigatewayv2Apis(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApigatewayv2Apiss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApigatewayv2Apis, node, id)
+export const useDataAwsApigatewayv2Apiss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsApigatewayv2Apis, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection_association
 
 export const InputSchema = z.object({
   connection_id: resolvableValue(z.string()),
   lag_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_connection_association
 
 export function AwsDxConnectionAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,12 @@ export function AwsDxConnectionAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxConnectionAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxConnectionAssociation, node, id)
+export const useAwsDxConnectionAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDxConnectionAssociation, idFilter, baseNode)
 
-export const useAwsDxConnectionAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxConnectionAssociation, node, id)
+export const useAwsDxConnectionAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDxConnectionAssociation, idFilter, baseNode)

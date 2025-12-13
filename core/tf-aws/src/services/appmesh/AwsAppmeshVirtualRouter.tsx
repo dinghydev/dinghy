@@ -3,28 +3,27 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_router
-
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  mesh_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   spec: resolvableValue(z.object({
     listener: z.object({
       port_mapping: z.object({
         port: z.number(),
         protocol: z.string(),
       }),
-    }).optional(),
+    }).array().optional(),
   })),
+  mesh_owner: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_router
 
 export function AwsAppmeshVirtualRouter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,10 @@ export function AwsAppmeshVirtualRouter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshVirtualRouter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualRouter, node, id)
+export const useAwsAppmeshVirtualRouter = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppmeshVirtualRouter, idFilter, baseNode)
 
-export const useAwsAppmeshVirtualRouters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppmeshVirtualRouter, node, id)
+export const useAwsAppmeshVirtualRouters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppmeshVirtualRouter, idFilter, baseNode)

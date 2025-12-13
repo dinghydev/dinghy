@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rum_app_monitor
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -35,7 +34,7 @@ export const InputSchema = z.object({
   domain_list: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   app_monitor_id: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rum_app_monitor
 
 export function AwsRumAppMonitor(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +72,8 @@ export function AwsRumAppMonitor(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRumAppMonitor = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRumAppMonitor, node, id)
+export const useAwsRumAppMonitor = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRumAppMonitor, idFilter, baseNode)
 
-export const useAwsRumAppMonitors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRumAppMonitor, node, id)
+export const useAwsRumAppMonitors = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRumAppMonitor, idFilter, baseNode)

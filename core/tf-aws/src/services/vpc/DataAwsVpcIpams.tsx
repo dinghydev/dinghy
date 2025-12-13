@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipams
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   ),
   ipam_ids: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ipams: z.object({
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipams
 
 export function DataAwsVpcIpams(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,5 +71,5 @@ export function DataAwsVpcIpams(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcIpamss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpcIpams, node, id)
+export const useDataAwsVpcIpamss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsVpcIpams, idFilter, baseNode)

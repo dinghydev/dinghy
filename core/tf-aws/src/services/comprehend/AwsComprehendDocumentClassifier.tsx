@@ -3,24 +3,31 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/comprehend_document_classifier
-
 export const InputSchema = z.object({
   data_access_role_arn: resolvableValue(z.string()),
-  language_code: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
   input_data_config: resolvableValue(z.object({
     data_format: z.string().optional(),
     label_delimiter: z.string().optional(),
     s3_uri: z.string().optional(),
     test_s3_uri: z.string().optional(),
+    augmented_manifests: z.object({
+      annotation_data_s3_uri: z.string().optional(),
+      attribute_names: z.string().array(),
+      document_type: z.string().optional(),
+      s3_uri: z.string(),
+      source_documents_s3_uri: z.string().optional(),
+      split: z.string().optional(),
+    }).array().optional(),
   })),
+  language_code: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
   mode: resolvableValue(z.string().optional()),
   model_kms_key_id: resolvableValue(z.string().optional()),
   output_data_config: resolvableValue(
@@ -48,7 +55,7 @@ export const InputSchema = z.object({
       subnets: z.string().array(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -67,6 +74,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/comprehend_document_classifier
 
 export function AwsComprehendDocumentClassifier(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -86,8 +96,18 @@ export function AwsComprehendDocumentClassifier(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsComprehendDocumentClassifier = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsComprehendDocumentClassifier, node, id)
+export const useAwsComprehendDocumentClassifier = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsComprehendDocumentClassifier, idFilter, baseNode)
 
-export const useAwsComprehendDocumentClassifiers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsComprehendDocumentClassifier, node, id)
+export const useAwsComprehendDocumentClassifiers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsComprehendDocumentClassifier,
+    idFilter,
+    baseNode,
+  )

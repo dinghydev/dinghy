@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptune_subnet_group
 
 export const InputSchema = z.object({
   subnet_ids: resolvableValue(z.string().array()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptune_subnet_group
 
 export function AwsNeptuneSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsNeptuneSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNeptuneSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNeptuneSubnetGroup, node, id)
+export const useAwsNeptuneSubnetGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsNeptuneSubnetGroup, idFilter, baseNode)
 
-export const useAwsNeptuneSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNeptuneSubnetGroup, node, id)
+export const useAwsNeptuneSubnetGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsNeptuneSubnetGroup, idFilter, baseNode)

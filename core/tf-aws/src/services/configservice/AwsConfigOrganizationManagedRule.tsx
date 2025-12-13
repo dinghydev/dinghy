@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_organization_managed_rule
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_organization_managed_rule
 
 export function AwsConfigOrganizationManagedRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,22 @@ export function AwsConfigOrganizationManagedRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigOrganizationManagedRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigOrganizationManagedRule, node, id)
+export const useAwsConfigOrganizationManagedRule = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConfigOrganizationManagedRule,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsConfigOrganizationManagedRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConfigOrganizationManagedRule, node, id)
+export const useAwsConfigOrganizationManagedRules = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigOrganizationManagedRule,
+    idFilter,
+    baseNode,
+  )

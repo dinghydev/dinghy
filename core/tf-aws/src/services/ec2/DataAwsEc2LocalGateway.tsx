@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -19,13 +18,14 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  state: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   outpost_arn: z.string().optional(),
@@ -40,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_local_gateway
 
 export function DataAwsEc2LocalGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +61,8 @@ export function DataAwsEc2LocalGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2LocalGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2LocalGateway, node, id)
+export const useDataAwsEc2LocalGateway = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEc2LocalGateway, idFilter, baseNode)
 
-export const useDataAwsEc2LocalGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2LocalGateway, node, id)
+export const useDataAwsEc2LocalGateways = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEc2LocalGateway, idFilter, baseNode)

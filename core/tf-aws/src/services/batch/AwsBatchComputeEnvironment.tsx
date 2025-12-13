@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_compute_environment
 
 export const InputSchema = z.object({
   type: resolvableValue(z.string()),
@@ -29,6 +28,16 @@ export const InputSchema = z.object({
       subnets: z.string().array(),
       tags: z.record(z.string(), z.string()).optional(),
       type: z.string(),
+      ec2_configuration: z.object({
+        image_id_override: z.string().optional(),
+        image_kubernetes_version: z.string().optional(),
+        image_type: z.string().optional(),
+      }).array().optional(),
+      launch_template: z.object({
+        launch_template_id: z.string().optional(),
+        launch_template_name: z.string().optional(),
+        version: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   eks_configuration: resolvableValue(
@@ -50,7 +59,7 @@ export const InputSchema = z.object({
       terminate_jobs_on_update: z.boolean().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -67,6 +76,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_compute_environment
 
 export function AwsBatchComputeEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -85,8 +97,12 @@ export function AwsBatchComputeEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBatchComputeEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBatchComputeEnvironment, node, id)
+export const useAwsBatchComputeEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsBatchComputeEnvironment, idFilter, baseNode)
 
-export const useAwsBatchComputeEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBatchComputeEnvironment, node, id)
+export const useAwsBatchComputeEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBatchComputeEnvironment, idFilter, baseNode)

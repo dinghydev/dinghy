@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_access_key
-
 export const InputSchema = z.object({
   user: resolvableValue(z.string()),
   pgp_key: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   create_date: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_access_key
 
 export function AwsIamAccessKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsIamAccessKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamAccessKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamAccessKey, node, id)
+export const useAwsIamAccessKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamAccessKey, idFilter, baseNode)
 
-export const useAwsIamAccessKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamAccessKey, node, id)
+export const useAwsIamAccessKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamAccessKey, idFilter, baseNode)

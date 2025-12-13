@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policies_exclusive
-
 export const InputSchema = z.object({
   policy_names: resolvableValue(z.string().array()),
   role_name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policies_exclusive
 
 export function AwsIamRolePoliciesExclusive(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -42,8 +44,12 @@ export function AwsIamRolePoliciesExclusive(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamRolePoliciesExclusive = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamRolePoliciesExclusive, node, id)
+export const useAwsIamRolePoliciesExclusive = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIamRolePoliciesExclusive, idFilter, baseNode)
 
-export const useAwsIamRolePoliciesExclusives = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamRolePoliciesExclusive, node, id)
+export const useAwsIamRolePoliciesExclusives = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIamRolePoliciesExclusive, idFilter, baseNode)

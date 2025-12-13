@@ -3,37 +3,33 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_data_quality_job_definition
-
 export const InputSchema = z.object({
-  role_arn: resolvableValue(z.string()),
   data_quality_app_specification: resolvableValue(z.object({
     environment: z.record(z.string(), z.string()).optional(),
     image_uri: z.string(),
     post_analytics_processor_source_uri: z.string().optional(),
     record_preprocessor_source_uri: z.string().optional(),
   })),
-  data_quality_baseline_config: resolvableValue(
-    z.object({
-      constraints_resource: z.object({
-        s3_uri: z.string().optional(),
-      }).optional(),
-      statistics_resource: z.object({
-        s3_uri: z.string().optional(),
-      }).optional(),
-    }).optional(),
-  ),
   data_quality_job_input: resolvableValue(z.object({
     batch_transform_input: z.object({
       data_captured_destination_s3_uri: z.string(),
       local_path: z.string().optional(),
       s3_data_distribution_type: z.string().optional(),
       s3_input_mode: z.string().optional(),
+      dataset_format: z.object({
+        csv: z.object({
+          header: z.boolean().optional(),
+        }).optional(),
+        json: z.object({
+          line: z.boolean().optional(),
+        }).optional(),
+      }),
     }).optional(),
     endpoint_input: z.object({
       endpoint_name: z.string(),
@@ -44,8 +40,14 @@ export const InputSchema = z.object({
   })),
   data_quality_job_output_config: resolvableValue(z.object({
     kms_key_id: z.string().optional(),
+    monitoring_outputs: z.object({
+      s3_output: z.object({
+        local_path: z.string().optional(),
+        s3_upload_mode: z.string().optional(),
+        s3_uri: z.string(),
+      }),
+    }),
   })),
-  id: resolvableValue(z.string().optional()),
   job_resources: resolvableValue(z.object({
     cluster_config: z.object({
       instance_count: z.number(),
@@ -54,10 +56,27 @@ export const InputSchema = z.object({
       volume_size_in_gb: z.number(),
     }),
   })),
+  role_arn: resolvableValue(z.string()),
+  data_quality_baseline_config: resolvableValue(
+    z.object({
+      constraints_resource: z.object({
+        s3_uri: z.string().optional(),
+      }).optional(),
+      statistics_resource: z.object({
+        s3_uri: z.string().optional(),
+      }).optional(),
+    }).optional(),
+  ),
+  id: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   network_config: resolvableValue(
     z.object({
       enable_inter_container_traffic_encryption: z.boolean().optional(),
       enable_network_isolation: z.boolean().optional(),
+      vpc_config: z.object({
+        security_group_ids: z.string().array(),
+        subnets: z.string().array(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -67,7 +86,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -82,6 +101,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_data_quality_job_definition
 
 export function AwsSagemakerDataQualityJobDefinition(
   props: Partial<InputProps>,
@@ -103,11 +125,21 @@ export function AwsSagemakerDataQualityJobDefinition(
 }
 
 export const useAwsSagemakerDataQualityJobDefinition = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsSagemakerDataQualityJobDefinition, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerDataQualityJobDefinition,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSagemakerDataQualityJobDefinitions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSagemakerDataQualityJobDefinition, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerDataQualityJobDefinition,
+    idFilter,
+    baseNode,
+  )

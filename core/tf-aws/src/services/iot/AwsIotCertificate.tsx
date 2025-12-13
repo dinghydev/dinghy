@@ -3,19 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_certificate
-
 export const InputSchema = z.object({
   active: resolvableValue(z.boolean()),
   ca_pem: resolvableValue(z.string().optional()),
+  certificate_pem: resolvableValue(z.string().optional()),
   csr: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_certificate
 
 export function AwsIotCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +54,8 @@ export function AwsIotCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotCertificate, node, id)
+export const useAwsIotCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotCertificate, idFilter, baseNode)
 
-export const useAwsIotCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotCertificate, node, id)
+export const useAwsIotCertificates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIotCertificate, idFilter, baseNode)

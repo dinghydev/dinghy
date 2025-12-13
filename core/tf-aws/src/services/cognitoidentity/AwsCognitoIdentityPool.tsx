@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool
 
 export const InputSchema = z.object({
   identity_pool_name: resolvableValue(z.string()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
     z.record(z.string(), z.string()).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool
 
 export function AwsCognitoIdentityPool(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function AwsCognitoIdentityPool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoIdentityPool = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCognitoIdentityPool, node, id)
+export const useAwsCognitoIdentityPool = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCognitoIdentityPool, idFilter, baseNode)
 
-export const useAwsCognitoIdentityPools = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCognitoIdentityPool, node, id)
+export const useAwsCognitoIdentityPools = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCognitoIdentityPool, idFilter, baseNode)

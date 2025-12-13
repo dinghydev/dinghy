@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOdbCloudVmCluster } from './AwsOdbCloudVmCluster.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_vm_cluster
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -78,6 +77,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_vm_cluster
 
 export function DataAwsOdbCloudVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -96,8 +98,12 @@ export function DataAwsOdbCloudVmCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbCloudVmCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOdbCloudVmCluster, node, id)
+export const useDataAwsOdbCloudVmCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsOdbCloudVmCluster, idFilter, baseNode)
 
-export const useDataAwsOdbCloudVmClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOdbCloudVmCluster, node, id)
+export const useDataAwsOdbCloudVmClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsOdbCloudVmCluster, idFilter, baseNode)

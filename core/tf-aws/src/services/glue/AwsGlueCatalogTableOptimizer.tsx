@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_catalog_table_optimizer
 
 export const InputSchema = z.object({
   catalog_id: resolvableValue(z.string()),
@@ -19,10 +18,25 @@ export const InputSchema = z.object({
     z.object({
       enabled: z.boolean(),
       role_arn: z.string(),
-    }).optional(),
+      orphan_file_deletion_configuration: z.object({
+        iceberg_configuration: z.object({
+          location: z.string().optional(),
+          orphan_file_retention_period_in_days: z.number().optional(),
+          run_rate_in_hours: z.number().optional(),
+        }).array().optional(),
+      }).array().optional(),
+      retention_configuration: z.object({
+        iceberg_configuration: z.object({
+          clean_expired_files: z.boolean().optional(),
+          number_of_snapshots_to_retain: z.number().optional(),
+          run_rate_in_hours: z.number().optional(),
+          snapshot_retention_period_in_days: z.number().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_catalog_table_optimizer
 
 export function AwsGlueCatalogTableOptimizer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +68,13 @@ export function AwsGlueCatalogTableOptimizer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueCatalogTableOptimizer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueCatalogTableOptimizer, node, id)
+export const useAwsGlueCatalogTableOptimizer = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsGlueCatalogTableOptimizer, idFilter, baseNode)
 
-export const useAwsGlueCatalogTableOptimizers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueCatalogTableOptimizer, node, id)
+export const useAwsGlueCatalogTableOptimizers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsGlueCatalogTableOptimizer, idFilter, baseNode)

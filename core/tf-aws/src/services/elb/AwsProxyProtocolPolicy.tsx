@@ -3,17 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/proxy_protocol_policy
-
 export const InputSchema = z.object({
   instance_ports: resolvableValue(z.string().array()),
+  load_balancer: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/proxy_protocol_policy
 
 export function AwsProxyProtocolPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +48,8 @@ export function AwsProxyProtocolPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsProxyProtocolPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsProxyProtocolPolicy, node, id)
+export const useAwsProxyProtocolPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsProxyProtocolPolicy, idFilter, baseNode)
 
-export const useAwsProxyProtocolPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsProxyProtocolPolicy, node, id)
+export const useAwsProxyProtocolPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsProxyProtocolPolicy, idFilter, baseNode)

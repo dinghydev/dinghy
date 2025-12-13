@@ -248,6 +248,7 @@
     "./ssoadmin": "./src/ssoadmin/index.ts",
 
     "./foundation": "./src/foundation/index.ts",
+    "./cloudfrontSites": "./src/composites/cloudfront-sites/index.ts",
     ".": "./src/index.ts"
   }
 }

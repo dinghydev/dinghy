@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_reserved_cache_node
 
 export const InputSchema = z.object({
   reserved_cache_nodes_offering_id: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -49,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_reserved_cache_node
 
 export function AwsElasticacheReservedCacheNode(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +69,18 @@ export function AwsElasticacheReservedCacheNode(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticacheReservedCacheNode = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElasticacheReservedCacheNode, node, id)
+export const useAwsElasticacheReservedCacheNode = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsElasticacheReservedCacheNode, idFilter, baseNode)
 
-export const useAwsElasticacheReservedCacheNodes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElasticacheReservedCacheNode, node, id)
+export const useAwsElasticacheReservedCacheNodes = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElasticacheReservedCacheNode,
+    idFilter,
+    baseNode,
+  )

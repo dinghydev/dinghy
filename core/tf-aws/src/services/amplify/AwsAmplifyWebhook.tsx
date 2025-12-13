@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/amplify_webhook
 
 export const InputSchema = z.object({
   app_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/amplify_webhook
 
 export function AwsAmplifyWebhook(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsAmplifyWebhook(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmplifyWebhook = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAmplifyWebhook, node, id)
+export const useAwsAmplifyWebhook = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAmplifyWebhook, idFilter, baseNode)
 
-export const useAwsAmplifyWebhooks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAmplifyWebhook, node, id)
+export const useAwsAmplifyWebhooks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAmplifyWebhook, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_upload_buffer
 
 export const InputSchema = z.object({
   gateway_arn: resolvableValue(z.string()),
   disk_id: resolvableValue(z.string().optional()),
   disk_path: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_upload_buffer
 
 export function AwsStoragegatewayUploadBuffer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,14 @@ export function AwsStoragegatewayUploadBuffer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsStoragegatewayUploadBuffer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsStoragegatewayUploadBuffer, node, id)
+export const useAwsStoragegatewayUploadBuffer = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsStoragegatewayUploadBuffer, idFilter, baseNode)
 
-export const useAwsStoragegatewayUploadBuffers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayUploadBuffer, node, id)
+export const useAwsStoragegatewayUploadBuffers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsStoragegatewayUploadBuffer, idFilter, baseNode)

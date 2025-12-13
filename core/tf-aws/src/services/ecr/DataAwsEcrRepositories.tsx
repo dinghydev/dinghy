@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repositories
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
-  names: z.string().array().optional(),
+  names: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repositories
 
 export function DataAwsEcrRepositories(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -43,5 +45,5 @@ export function DataAwsEcrRepositories(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcrRepositoriess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcrRepositories, node, id)
+export const useDataAwsEcrRepositoriess = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEcrRepositories, idFilter, baseNode)

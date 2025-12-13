@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/schemas_discoverer
 
 export const InputSchema = z.object({
   source_arn: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/schemas_discoverer
 
 export function AwsSchemasDiscoverer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsSchemasDiscoverer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSchemasDiscoverer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSchemasDiscoverer, node, id)
+export const useAwsSchemasDiscoverer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSchemasDiscoverer, idFilter, baseNode)
 
-export const useAwsSchemasDiscoverers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSchemasDiscoverer, node, id)
+export const useAwsSchemasDiscoverers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSchemasDiscoverer, idFilter, baseNode)

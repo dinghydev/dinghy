@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/polly_voices
 
 export const InputSchema = z.object({
   engine: resolvableValue(z.string().optional()),
   include_additional_language_codes: resolvableValue(z.boolean().optional()),
   language_code: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,7 +25,7 @@ export const OutputSchema = z.object({
     language_name: z.string(),
     name: z.string(),
     supported_engines: z.string().array(),
-  }).optional().optional(),
+  }).array().optional().optional(),
 })
 
 export type InputProps =
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/polly_voices
 
 export function DataAwsPollyVoices(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,5 +56,5 @@ export function DataAwsPollyVoices(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPollyVoicess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsPollyVoices, node, id)
+export const useDataAwsPollyVoicess = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsPollyVoices, idFilter, baseNode)

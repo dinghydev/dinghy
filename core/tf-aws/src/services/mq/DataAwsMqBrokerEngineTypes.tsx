@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/mq_broker_engine_types
 
 export const InputSchema = z.object({
   engine_type: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   broker_engine_types: z.object({
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/mq_broker_engine_types
 
 export function DataAwsMqBrokerEngineTypes(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,5 +51,7 @@ export function DataAwsMqBrokerEngineTypes(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMqBrokerEngineTypess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsMqBrokerEngineTypes, node, id)
+export const useDataAwsMqBrokerEngineTypess = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsMqBrokerEngineTypes, idFilter, baseNode)

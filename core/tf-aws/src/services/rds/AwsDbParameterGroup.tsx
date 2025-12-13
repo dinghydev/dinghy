@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_parameter_group
 
 export const InputSchema = z.object({
   family: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_parameter_group
 
 export function AwsDbParameterGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsDbParameterGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbParameterGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbParameterGroup, node, id)
+export const useAwsDbParameterGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDbParameterGroup, idFilter, baseNode)
 
-export const useAwsDbParameterGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbParameterGroup, node, id)
+export const useAwsDbParameterGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDbParameterGroup, idFilter, baseNode)

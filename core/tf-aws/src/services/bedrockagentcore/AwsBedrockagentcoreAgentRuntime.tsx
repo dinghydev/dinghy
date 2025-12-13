@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_agent_runtime
 
 export const InputSchema = z.object({
   agent_runtime_name: resolvableValue(z.string()),
@@ -18,11 +17,18 @@ export const InputSchema = z.object({
       code_configuration: z.object({
         entry_point: z.string().array(),
         runtime: z.string(),
-      }).optional(),
+        code: z.object({
+          s3: z.object({
+            bucket: z.string(),
+            prefix: z.string(),
+            version_id: z.string().optional(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
       container_configuration: z.object({
         container_uri: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   authorizer_configuration: resolvableValue(
     z.object({
@@ -30,8 +36,8 @@ export const InputSchema = z.object({
         allowed_audience: z.string().array().optional(),
         allowed_clients: z.string().array().optional(),
         discovery_url: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   environment_variables: resolvableValue(
@@ -46,18 +52,22 @@ export const InputSchema = z.object({
   network_configuration: resolvableValue(
     z.object({
       network_mode: z.string(),
-    }).optional(),
+      network_mode_config: z.object({
+        security_groups: z.string().array(),
+        subnets: z.string().array(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   protocol_configuration: resolvableValue(
     z.object({
       server_protocol: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   request_header_configuration: resolvableValue(
     z.object({
       request_header_allowlist: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -67,7 +77,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   agent_runtime_arn: z.string().optional(),
@@ -86,6 +96,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_agent_runtime
 
 export function AwsBedrockagentcoreAgentRuntime(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -104,8 +117,18 @@ export function AwsBedrockagentcoreAgentRuntime(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentcoreAgentRuntime = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentcoreAgentRuntime, node, id)
+export const useAwsBedrockagentcoreAgentRuntime = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsBedrockagentcoreAgentRuntime, idFilter, baseNode)
 
-export const useAwsBedrockagentcoreAgentRuntimes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentcoreAgentRuntime, node, id)
+export const useAwsBedrockagentcoreAgentRuntimes = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreAgentRuntime,
+    idFilter,
+    baseNode,
+  )

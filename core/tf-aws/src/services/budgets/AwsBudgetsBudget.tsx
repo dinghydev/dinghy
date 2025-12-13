@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/budgets_budget
 
 export const InputSchema = z.object({
   budget_type: resolvableValue(z.string()),
@@ -18,6 +17,10 @@ export const InputSchema = z.object({
     z.object({
       auto_adjust_type: z.string(),
       last_auto_adjust_time: z.string(),
+      historical_options: z.object({
+        budget_adjustment_period: z.number(),
+        lookback_available_periods: z.number(),
+      }).optional(),
     }).optional(),
   ),
   billing_view_arn: resolvableValue(z.string().optional()),
@@ -66,7 +69,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   time_period_end: resolvableValue(z.string().optional()),
   time_period_start: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -81,6 +84,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/budgets_budget
 
 export function AwsBudgetsBudget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -99,8 +105,8 @@ export function AwsBudgetsBudget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBudgetsBudget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBudgetsBudget, node, id)
+export const useAwsBudgetsBudget = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBudgetsBudget, idFilter, baseNode)
 
-export const useAwsBudgetsBudgets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBudgetsBudget, node, id)
+export const useAwsBudgetsBudgets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBudgetsBudget, idFilter, baseNode)

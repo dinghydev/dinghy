@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service
 
 export const InputSchema = z.object({
   partition: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   reverse_dns_name: resolvableValue(z.string().optional()),
   reverse_dns_prefix: resolvableValue(z.string().optional()),
   service_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   supported: z.boolean().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service
 
 export function DataAwsService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function DataAwsService(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsService, node, id)
+export const useDataAwsService = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsService, idFilter, baseNode)
 
-export const useDataAwsServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsService, node, id)
+export const useDataAwsServices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsService, idFilter, baseNode)

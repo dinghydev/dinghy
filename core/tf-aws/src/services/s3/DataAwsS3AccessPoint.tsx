@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsS3AccessPoint } from './AwsS3AccessPoint.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_access_point
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_access_point
 
 export function DataAwsS3AccessPoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function DataAwsS3AccessPoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsS3AccessPoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsS3AccessPoint, node, id)
+export const useDataAwsS3AccessPoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsS3AccessPoint, idFilter, baseNode)
 
-export const useDataAwsS3AccessPoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsS3AccessPoint, node, id)
+export const useDataAwsS3AccessPoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsS3AccessPoint, idFilter, baseNode)

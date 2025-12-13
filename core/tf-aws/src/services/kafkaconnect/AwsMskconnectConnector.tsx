@@ -3,19 +3,45 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_connector
-
 export const InputSchema = z.object({
+  capacity: resolvableValue(z.object({
+    autoscaling: z.object({
+      max_worker_count: z.number(),
+      mcu_count: z.number().optional(),
+      min_worker_count: z.number(),
+      scale_in_policy: z.object({
+        cpu_utilization_percentage: z.number().optional(),
+      }).optional(),
+      scale_out_policy: z.object({
+        cpu_utilization_percentage: z.number().optional(),
+      }).optional(),
+    }).optional(),
+    provisioned_capacity: z.object({
+      mcu_count: z.number().optional(),
+      worker_count: z.number(),
+    }).optional(),
+  })),
   connector_configuration: resolvableValue(z.record(z.string(), z.string())),
   kafka_cluster: resolvableValue(z.object({
     apache_kafka_cluster: z.object({
       bootstrap_servers: z.string(),
+      vpc: z.object({
+        security_groups: z.string().array(),
+        subnets: z.string().array(),
+      }),
     }),
+  })),
+  kafka_cluster_client_authentication: resolvableValue(z.object({
+    authentication_type: z.string().optional(),
+  })),
+  kafka_cluster_encryption_in_transit: resolvableValue(z.object({
+    encryption_type: z.string().optional(),
   })),
   kafkaconnect_version: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -28,25 +54,8 @@ export const InputSchema = z.object({
     }).array(),
   ),
   service_execution_role_arn: resolvableValue(z.string()),
-  capacity: resolvableValue(z.object({
-    autoscaling: z.object({
-      max_worker_count: z.number(),
-      mcu_count: z.number().optional(),
-      min_worker_count: z.number(),
-    }).optional(),
-    provisioned_capacity: z.object({
-      mcu_count: z.number().optional(),
-      worker_count: z.number(),
-    }).optional(),
-  })),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
-  kafka_cluster_client_authentication: resolvableValue(z.object({
-    authentication_type: z.string().optional(),
-  })),
-  kafka_cluster_encryption_in_transit: resolvableValue(z.object({
-    encryption_type: z.string().optional(),
-  })),
   log_delivery: resolvableValue(
     z.object({
       worker_log_delivery: z.object({
@@ -81,7 +90,7 @@ export const InputSchema = z.object({
       revision: z.number(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -96,6 +105,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_connector
 
 export function AwsMskconnectConnector(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -114,8 +126,8 @@ export function AwsMskconnectConnector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskconnectConnector = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskconnectConnector, node, id)
+export const useAwsMskconnectConnector = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMskconnectConnector, idFilter, baseNode)
 
-export const useAwsMskconnectConnectors = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskconnectConnector, node, id)
+export const useAwsMskconnectConnectors = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMskconnectConnector, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53profiles_association
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53profiles_association
 
 export function AwsRoute53profilesAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,14 @@ export function AwsRoute53profilesAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53profilesAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53profilesAssociation, node, id)
+export const useAwsRoute53profilesAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRoute53profilesAssociation, idFilter, baseNode)
 
-export const useAwsRoute53profilesAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53profilesAssociation, node, id)
+export const useAwsRoute53profilesAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsRoute53profilesAssociation, idFilter, baseNode)

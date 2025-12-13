@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivs_channel
 
 export const InputSchema = z.object({
   authorized: resolvableValue(z.boolean().optional()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivs_channel
 
 export function AwsIvsChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,8 @@ export function AwsIvsChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvsChannel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIvsChannel, node, id)
+export const useAwsIvsChannel = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIvsChannel, idFilter, baseNode)
 
-export const useAwsIvsChannels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIvsChannel, node, id)
+export const useAwsIvsChannels = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIvsChannel, idFilter, baseNode)

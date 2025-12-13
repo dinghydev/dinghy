@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_workspace
 
 export const InputSchema = z.object({
   bundle_id: resolvableValue(z.string()),
@@ -35,7 +34,7 @@ export const InputSchema = z.object({
       user_volume_size_gib: z.number().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   computer_name: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_workspace
 
 export function AwsWorkspacesWorkspace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +72,8 @@ export function AwsWorkspacesWorkspace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesWorkspace = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWorkspacesWorkspace, node, id)
+export const useAwsWorkspacesWorkspace = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWorkspacesWorkspace, idFilter, baseNode)
 
-export const useAwsWorkspacesWorkspaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesWorkspace, node, id)
+export const useAwsWorkspacesWorkspaces = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWorkspacesWorkspace, idFilter, baseNode)

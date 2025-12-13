@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/internet_gateway_attachment
 
 export const InputSchema = z.object({
   internet_gateway_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/internet_gateway_attachment
 
 export function AwsInternetGatewayAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,13 @@ export function AwsInternetGatewayAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInternetGatewayAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsInternetGatewayAttachment, node, id)
+export const useAwsInternetGatewayAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsInternetGatewayAttachment, idFilter, baseNode)
 
-export const useAwsInternetGatewayAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsInternetGatewayAttachment, node, id)
+export const useAwsInternetGatewayAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsInternetGatewayAttachment, idFilter, baseNode)

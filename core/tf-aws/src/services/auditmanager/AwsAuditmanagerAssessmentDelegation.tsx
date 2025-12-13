@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment_delegation
 
 export const InputSchema = z.object({
   assessment_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   role_type: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   delegation_id: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment_delegation
 
 export function AwsAuditmanagerAssessmentDelegation(
   props: Partial<InputProps>,
@@ -53,11 +55,21 @@ export function AwsAuditmanagerAssessmentDelegation(
 }
 
 export const useAwsAuditmanagerAssessmentDelegation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsAuditmanagerAssessmentDelegation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAuditmanagerAssessmentDelegation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsAuditmanagerAssessmentDelegations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsAuditmanagerAssessmentDelegation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAuditmanagerAssessmentDelegation,
+    idFilter,
+    baseNode,
+  )

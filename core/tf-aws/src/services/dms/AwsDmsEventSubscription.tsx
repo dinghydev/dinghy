@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_event_subscription
 
 export const InputSchema = z.object({
   event_categories: resolvableValue(z.string().array()),
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_event_subscription
 
 export function AwsDmsEventSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,10 @@ export function AwsDmsEventSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsEventSubscription = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsEventSubscription, node, id)
+export const useAwsDmsEventSubscription = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDmsEventSubscription, idFilter, baseNode)
 
-export const useAwsDmsEventSubscriptions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsEventSubscription, node, id)
+export const useAwsDmsEventSubscriptions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDmsEventSubscription, idFilter, baseNode)

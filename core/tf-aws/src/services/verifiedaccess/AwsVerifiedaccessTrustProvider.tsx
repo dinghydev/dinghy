@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_trust_provider
 
 export const InputSchema = z.object({
   policy_reference_name: resolvableValue(z.string()),
@@ -60,7 +59,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   user_trust_provider_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -73,6 +72,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_trust_provider
 
 export function AwsVerifiedaccessTrustProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -91,8 +93,14 @@ export function AwsVerifiedaccessTrustProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedaccessTrustProvider = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVerifiedaccessTrustProvider, node, id)
+export const useAwsVerifiedaccessTrustProvider = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsVerifiedaccessTrustProvider, idFilter, baseNode)
 
-export const useAwsVerifiedaccessTrustProviders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVerifiedaccessTrustProvider, node, id)
+export const useAwsVerifiedaccessTrustProviders = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsVerifiedaccessTrustProvider, idFilter, baseNode)

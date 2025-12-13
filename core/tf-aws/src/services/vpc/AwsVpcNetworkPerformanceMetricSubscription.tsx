@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_network_performance_metric_subscription
 
 export const InputSchema = z.object({
   destination: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   metric: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   statistic: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   period: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_network_performance_metric_subscription
 
 export function AwsVpcNetworkPerformanceMetricSubscription(
   props: Partial<InputProps>,
@@ -51,21 +53,21 @@ export function AwsVpcNetworkPerformanceMetricSubscription(
 }
 
 export const useAwsVpcNetworkPerformanceMetricSubscription = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcNetworkPerformanceMetricSubscription,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsVpcNetworkPerformanceMetricSubscriptions = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcNetworkPerformanceMetricSubscription,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

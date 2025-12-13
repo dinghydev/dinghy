@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glacier_vault_lock
 
 export const InputSchema = z.object({
   complete_lock: resolvableValue(z.boolean()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   vault_name: resolvableValue(z.string()),
   ignore_deletion_error: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glacier_vault_lock
 
 export function AwsGlacierVaultLock(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsGlacierVaultLock(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlacierVaultLock = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlacierVaultLock, node, id)
+export const useAwsGlacierVaultLock = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlacierVaultLock, idFilter, baseNode)
 
-export const useAwsGlacierVaultLocks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlacierVaultLock, node, id)
+export const useAwsGlacierVaultLocks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlacierVaultLock, idFilter, baseNode)

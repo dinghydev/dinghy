@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_connection
 
 export const InputSchema = z.object({
   bandwidth: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   owner_account_id: resolvableValue(z.string()),
   vlan: resolvableValue(z.number()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   aws_device: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_connection
 
 export function AwsDxHostedConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsDxHostedConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxHostedConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxHostedConnection, node, id)
+export const useAwsDxHostedConnection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDxHostedConnection, idFilter, baseNode)
 
-export const useAwsDxHostedConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxHostedConnection, node, id)
+export const useAwsDxHostedConnections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDxHostedConnection, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3outposts_endpoint
 
 export const InputSchema = z.object({
   outpost_id: resolvableValue(z.string()),
@@ -17,16 +16,16 @@ export const InputSchema = z.object({
   access_type: resolvableValue(z.string().optional()),
   customer_owned_ipv4_pool: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   cidr_block: z.string().optional(),
   creation_time: z.string().optional(),
   id: z.string().optional(),
-  network_interfaces: z.object({
+  network_interfaces: z.set(z.object({
     network_interface_id: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3outposts_endpoint
 
 export function AwsS3outpostsEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsS3outpostsEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3outpostsEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3outpostsEndpoint, node, id)
+export const useAwsS3outpostsEndpoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsS3outpostsEndpoint, idFilter, baseNode)
 
-export const useAwsS3outpostsEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3outpostsEndpoint, node, id)
+export const useAwsS3outpostsEndpoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsS3outpostsEndpoint, idFilter, baseNode)

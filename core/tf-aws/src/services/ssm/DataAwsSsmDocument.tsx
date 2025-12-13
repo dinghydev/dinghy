@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsmDocument } from './AwsSsmDocument.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_document
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   document_version: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssm_document
 
 export function DataAwsSsmDocument(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function DataAwsSsmDocument(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmDocument = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmDocument, node, id)
+export const useDataAwsSsmDocument = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSsmDocument, idFilter, baseNode)
 
-export const useDataAwsSsmDocuments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsmDocument, node, id)
+export const useDataAwsSsmDocuments = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsSsmDocument, idFilter, baseNode)

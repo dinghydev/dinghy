@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_image_block_public_access
 
 export const InputSchema = z.object({
   state: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_image_block_public_access
 
 export function AwsEc2ImageBlockPublicAccess(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,5 +49,8 @@ export function AwsEc2ImageBlockPublicAccess(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2ImageBlockPublicAccesss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2ImageBlockPublicAccess, node, id)
+export const useAwsEc2ImageBlockPublicAccesss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2ImageBlockPublicAccess, idFilter, baseNode)

@@ -3,23 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_token_vault_cmk
 
 export const InputSchema = z.object({
   kms_configuration: resolvableValue(
     z.object({
       key_type: z.string(),
       kms_key_arn: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   token_vault_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_token_vault_cmk
 
 export function AwsBedrockagentcoreTokenVaultCmk(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,22 @@ export function AwsBedrockagentcoreTokenVaultCmk(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentcoreTokenVaultCmk = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentcoreTokenVaultCmk, node, id)
+export const useAwsBedrockagentcoreTokenVaultCmk = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreTokenVaultCmk,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsBedrockagentcoreTokenVaultCmks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentcoreTokenVaultCmk, node, id)
+export const useAwsBedrockagentcoreTokenVaultCmks = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreTokenVaultCmk,
+    idFilter,
+    baseNode,
+  )

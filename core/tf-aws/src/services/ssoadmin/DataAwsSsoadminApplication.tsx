@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsoadminApplication } from './AwsSsoadminApplication.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssoadmin_application
-
 export const InputSchema = z.object({
   application_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_account: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssoadmin_application
 
 export function DataAwsSsoadminApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function DataAwsSsoadminApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsoadminApplication = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsoadminApplication, node, id)
+export const useDataAwsSsoadminApplication = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsSsoadminApplication, idFilter, baseNode)
 
-export const useDataAwsSsoadminApplications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsoadminApplication, node, id)
+export const useDataAwsSsoadminApplications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSsoadminApplication, idFilter, baseNode)

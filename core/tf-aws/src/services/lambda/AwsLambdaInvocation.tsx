@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_invocation
 
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   terraform_key: resolvableValue(z.string().optional()),
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   result: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_invocation
 
 export function AwsLambdaInvocation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsLambdaInvocation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaInvocation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaInvocation, node, id)
+export const useAwsLambdaInvocation = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLambdaInvocation, idFilter, baseNode)
 
-export const useAwsLambdaInvocations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaInvocation, node, id)
+export const useAwsLambdaInvocations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLambdaInvocation, idFilter, baseNode)

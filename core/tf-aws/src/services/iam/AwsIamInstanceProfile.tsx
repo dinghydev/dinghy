@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_instance_profile
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   path: resolvableValue(z.string().optional()),
   role: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_instance_profile
 
 export function AwsIamInstanceProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsIamInstanceProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamInstanceProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamInstanceProfile, node, id)
+export const useAwsIamInstanceProfile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamInstanceProfile, idFilter, baseNode)
 
-export const useAwsIamInstanceProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamInstanceProfile, node, id)
+export const useAwsIamInstanceProfiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamInstanceProfile, idFilter, baseNode)

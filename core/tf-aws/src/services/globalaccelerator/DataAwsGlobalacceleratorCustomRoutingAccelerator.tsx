@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsGlobalacceleratorCustomRoutingAccelerator } from './AwsGlobalacceleratorCustomRoutingAccelerator.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/globalaccelerator_custom_routing_accelerator
 
 export const InputSchema = z.object({
   attributes: resolvableValue(
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/globalaccelerator_custom_routing_accelerator
 
 export function DataAwsGlobalacceleratorCustomRoutingAccelerator(
   props: Partial<InputProps>,
@@ -64,21 +66,21 @@ export function DataAwsGlobalacceleratorCustomRoutingAccelerator(
 }
 
 export const useDataAwsGlobalacceleratorCustomRoutingAccelerator = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsGlobalacceleratorCustomRoutingAccelerator,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsGlobalacceleratorCustomRoutingAccelerators = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsGlobalacceleratorCustomRoutingAccelerator,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

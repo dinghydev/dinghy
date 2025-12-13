@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_managed_scaling_policy
 
 export const InputSchema = z.object({
   cluster_id: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   scaling_strategy: resolvableValue(z.string().optional()),
   utilization_performance_index: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_managed_scaling_policy
 
 export function AwsEmrManagedScalingPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function AwsEmrManagedScalingPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrManagedScalingPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrManagedScalingPolicy, node, id)
+export const useAwsEmrManagedScalingPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEmrManagedScalingPolicy, idFilter, baseNode)
 
-export const useAwsEmrManagedScalingPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrManagedScalingPolicy, node, id)
+export const useAwsEmrManagedScalingPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEmrManagedScalingPolicy, idFilter, baseNode)

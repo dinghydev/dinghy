@@ -25,7 +25,7 @@ const collectTfElements = (
   _props: NodeProps,
 ) => {
   if (
-    _props._inputSchema &&
+    _props._category &&
     (_props._stackResource ||
       isStageMatch(renderOptions.stage, (_props as any)._stage))
   ) {

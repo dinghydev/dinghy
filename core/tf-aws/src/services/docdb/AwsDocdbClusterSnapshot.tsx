@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdb_cluster_snapshot
 
 export const InputSchema = z.object({
   db_cluster_identifier: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zones: z.string().array().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdb_cluster_snapshot
 
 export function AwsDocdbClusterSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,10 @@ export function AwsDocdbClusterSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbClusterSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDocdbClusterSnapshot, node, id)
+export const useAwsDocdbClusterSnapshot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDocdbClusterSnapshot, idFilter, baseNode)
 
-export const useAwsDocdbClusterSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDocdbClusterSnapshot, node, id)
+export const useAwsDocdbClusterSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDocdbClusterSnapshot, idFilter, baseNode)

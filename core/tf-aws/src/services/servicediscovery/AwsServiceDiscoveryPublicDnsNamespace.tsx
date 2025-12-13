@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/service_discovery_public_dns_namespace
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/service_discovery_public_dns_namespace
 
 export function AwsServiceDiscoveryPublicDnsNamespace(
   props: Partial<InputProps>,
@@ -52,11 +54,21 @@ export function AwsServiceDiscoveryPublicDnsNamespace(
 }
 
 export const useAwsServiceDiscoveryPublicDnsNamespace = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsServiceDiscoveryPublicDnsNamespace, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServiceDiscoveryPublicDnsNamespace,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsServiceDiscoveryPublicDnsNamespaces = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsServiceDiscoveryPublicDnsNamespace, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServiceDiscoveryPublicDnsNamespace,
+    idFilter,
+    baseNode,
+  )

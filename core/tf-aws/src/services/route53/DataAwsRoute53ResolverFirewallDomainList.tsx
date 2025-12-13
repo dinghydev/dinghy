@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53ResolverFirewallDomainList } from './AwsRoute53ResolverFirewallDomainList.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_domain_list
-
 export const InputSchema = z.object({
   firewall_domain_list_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_domain_list
 
 export function DataAwsRoute53ResolverFirewallDomainList(
   props: Partial<InputProps>,
@@ -56,13 +58,21 @@ export function DataAwsRoute53ResolverFirewallDomainList(
 }
 
 export const useDataAwsRoute53ResolverFirewallDomainList = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(DataAwsRoute53ResolverFirewallDomainList, node, id)
+  useTypedNode<OutputProps>(
+    DataAwsRoute53ResolverFirewallDomainList,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsRoute53ResolverFirewallDomainLists = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53ResolverFirewallDomainList, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53ResolverFirewallDomainList,
+    idFilter,
+    baseNode,
+  )

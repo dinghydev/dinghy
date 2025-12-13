@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   secret_arn: resolvableValue(z.string()),
   block_public_policy: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_policy
 
 export function AwsSecretsmanagerSecretPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,14 @@ export function AwsSecretsmanagerSecretPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecretsmanagerSecretPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecretPolicy, node, id)
+export const useAwsSecretsmanagerSecretPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSecretsmanagerSecretPolicy, idFilter, baseNode)
 
-export const useAwsSecretsmanagerSecretPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretPolicy, node, id)
+export const useAwsSecretsmanagerSecretPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretPolicy, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_s3_endpoint
 
 export const InputSchema = z.object({
   bucket_name: resolvableValue(z.string()),
@@ -71,7 +70,7 @@ export const InputSchema = z.object({
   use_task_start_time_for_full_load_timestamp: resolvableValue(
     z.boolean().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   endpoint_arn: z.string().optional(),
@@ -88,6 +87,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dms_s3_endpoint
 
 export function AwsDmsS3Endpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -106,8 +108,8 @@ export function AwsDmsS3Endpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsS3Endpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDmsS3Endpoint, node, id)
+export const useAwsDmsS3Endpoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode)
 
-export const useAwsDmsS3Endpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDmsS3Endpoint, node, id)
+export const useAwsDmsS3Endpoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode)

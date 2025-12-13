@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsGlueCatalogTable } from './AwsGlueCatalogTable.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/glue_catalog_table
 
 export const InputSchema = z.object({
   database_name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   query_as_of_time: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   transaction_id: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -95,6 +94,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/glue_catalog_table
 
 export function DataAwsGlueCatalogTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -113,8 +115,10 @@ export function DataAwsGlueCatalogTable(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGlueCatalogTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsGlueCatalogTable, node, id)
+export const useDataAwsGlueCatalogTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsGlueCatalogTable, idFilter, baseNode)
 
-export const useDataAwsGlueCatalogTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsGlueCatalogTable, node, id)
+export const useDataAwsGlueCatalogTables = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsGlueCatalogTable, idFilter, baseNode)

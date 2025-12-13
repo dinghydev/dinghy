@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_metric_alarm
 
 export const InputSchema = z.object({
   alarm_name: resolvableValue(z.string()),
@@ -31,6 +30,14 @@ export const InputSchema = z.object({
       label: z.string().optional(),
       period: z.number().optional(),
       return_data: z.boolean().optional(),
+      metric: z.object({
+        dimensions: z.record(z.string(), z.string()).optional(),
+        metric_name: z.string(),
+        namespace: z.string().optional(),
+        period: z.number(),
+        stat: z.string(),
+        unit: z.string().optional(),
+      }).optional(),
     }).array().optional(),
   ),
   namespace: resolvableValue(z.string().optional()),
@@ -43,7 +50,7 @@ export const InputSchema = z.object({
   threshold_metric_id: resolvableValue(z.string().optional()),
   treat_missing_data: resolvableValue(z.string().optional()),
   unit: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -65,6 +72,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_metric_alarm
 
 export function AwsCloudwatchMetricAlarm(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +94,12 @@ export function AwsCloudwatchMetricAlarm(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchMetricAlarm = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchMetricAlarm, node, id)
+export const useAwsCloudwatchMetricAlarm = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchMetricAlarm, idFilter, baseNode)
 
-export const useAwsCloudwatchMetricAlarms = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchMetricAlarm, node, id)
+export const useAwsCloudwatchMetricAlarms = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudwatchMetricAlarm, idFilter, baseNode)

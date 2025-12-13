@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_contact_list
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       topic_name: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_timestamp: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_contact_list
 
 export function AwsSesv2ContactList(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsSesv2ContactList(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2ContactList = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesv2ContactList, node, id)
+export const useAwsSesv2ContactList = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSesv2ContactList, idFilter, baseNode)
 
-export const useAwsSesv2ContactLists = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesv2ContactList, node, id)
+export const useAwsSesv2ContactLists = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSesv2ContactList, idFilter, baseNode)

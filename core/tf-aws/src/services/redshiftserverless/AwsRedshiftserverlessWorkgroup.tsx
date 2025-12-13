@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_workgroup
 
 export const InputSchema = z.object({
   namespace_name: resolvableValue(z.string()),
@@ -42,7 +41,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   track_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -72,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_workgroup
 
 export function AwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -90,8 +92,14 @@ export function AwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftserverlessWorkgroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftserverlessWorkgroup, node, id)
+export const useAwsRedshiftserverlessWorkgroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRedshiftserverlessWorkgroup, idFilter, baseNode)
 
-export const useAwsRedshiftserverlessWorkgroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftserverlessWorkgroup, node, id)
+export const useAwsRedshiftserverlessWorkgroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsRedshiftserverlessWorkgroup, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53ResolverEndpoint } from './AwsRoute53ResolverEndpoint.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_endpoint
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -21,13 +20,13 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resolver_endpoint_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   direction: z.string().optional(),
-  ip_addresses: z.string().array().optional(),
-  protocols: z.string().array().optional(),
+  ip_addresses: z.set(z.string()).optional(),
+  protocols: z.set(z.string()).optional(),
   resolver_endpoint_type: z.string().optional(),
   status: z.string().optional(),
   vpc_id: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_endpoint
 
 export function DataAwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,14 @@ export function DataAwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute53ResolverEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRoute53ResolverEndpoint, node, id)
+export const useDataAwsRoute53ResolverEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsRoute53ResolverEndpoint, idFilter, baseNode)
 
-export const useDataAwsRoute53ResolverEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53ResolverEndpoint, node, id)
+export const useDataAwsRoute53ResolverEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsRoute53ResolverEndpoint, idFilter, baseNode)

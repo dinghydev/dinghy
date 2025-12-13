@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_group
 
 export function AwsChimeVoiceConnectorGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsChimeVoiceConnectorGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsChimeVoiceConnectorGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsChimeVoiceConnectorGroup, node, id)
+export const useAwsChimeVoiceConnectorGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsChimeVoiceConnectorGroup, idFilter, baseNode)
 
-export const useAwsChimeVoiceConnectorGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsChimeVoiceConnectorGroup, node, id)
+export const useAwsChimeVoiceConnectorGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsChimeVoiceConnectorGroup, idFilter, baseNode)

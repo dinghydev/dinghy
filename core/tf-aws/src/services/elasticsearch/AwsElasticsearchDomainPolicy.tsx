@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_domain_policy
 
 export const InputSchema = z.object({
   access_policies: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_domain_policy
 
 export function AwsElasticsearchDomainPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,13 @@ export function AwsElasticsearchDomainPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticsearchDomainPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElasticsearchDomainPolicy, node, id)
+export const useAwsElasticsearchDomainPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsElasticsearchDomainPolicy, idFilter, baseNode)
 
-export const useAwsElasticsearchDomainPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElasticsearchDomainPolicy, node, id)
+export const useAwsElasticsearchDomainPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsElasticsearchDomainPolicy, idFilter, baseNode)

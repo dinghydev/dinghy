@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCodecatalystDevEnvironment } from './AwsCodecatalystDevEnvironment.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecatalyst_dev_environment
 
 export const InputSchema = z.object({
   env_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -35,7 +34,7 @@ export const OutputSchema = z.object({
   repositories: z.object({
     branch_name: z.string(),
     repository_name: z.string(),
-  }).optional().optional(),
+  }).array().optional().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),
 })
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecatalyst_dev_environment
 
 export function DataAwsCodecatalystDevEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,10 +67,22 @@ export function DataAwsCodecatalystDevEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCodecatalystDevEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCodecatalystDevEnvironment, node, id)
+export const useDataAwsCodecatalystDevEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCodecatalystDevEnvironment,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCodecatalystDevEnvironments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsCodecatalystDevEnvironment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCodecatalystDevEnvironment,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/m2_environment
 
 export const InputSchema = z.object({
   engine_type: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   high_availability_config: resolvableValue(
     z.object({
       desired_capacity: z.number(),
-    }).optional(),
+    }).array().optional(),
   ),
   kms_key_id: resolvableValue(z.string().optional()),
   preferred_maintenance_window: resolvableValue(z.string().optional()),
@@ -36,12 +35,12 @@ export const InputSchema = z.object({
       efs: z.object({
         file_system_id: z.string(),
         mount_point: z.string(),
-      }).optional(),
+      }).array().optional(),
       fsx: z.object({
         file_system_id: z.string(),
         mount_point: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   subnet_ids: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -52,7 +51,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -68,6 +67,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/m2_environment
 
 export function AwsM2Environment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -86,8 +88,8 @@ export function AwsM2Environment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsM2Environment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsM2Environment, node, id)
+export const useAwsM2Environment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsM2Environment, idFilter, baseNode)
 
-export const useAwsM2Environments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsM2Environment, node, id)
+export const useAwsM2Environments = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsM2Environment, idFilter, baseNode)

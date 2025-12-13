@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEcsCluster } from './AwsEcsCluster.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_cluster
-
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -24,10 +23,10 @@ export const OutputSchema = z.object({
   service_connect_defaults: z.object({
     namespace: z.string(),
   }).array().optional(),
-  setting: z.object({
+  setting: z.set(z.object({
     name: z.string(),
     value: z.string(),
-  }).array().optional(),
+  })).optional(),
   status: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_cluster
 
 export function DataAwsEcsCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function DataAwsEcsCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcsCluster, node, id)
+export const useDataAwsEcsCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEcsCluster, idFilter, baseNode)
 
-export const useDataAwsEcsClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcsCluster, node, id)
+export const useDataAwsEcsClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEcsCluster, idFilter, baseNode)

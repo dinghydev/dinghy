@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_fleet_request
 
 export const InputSchema = z.object({
   client_token: resolvableValue(z.string()),
@@ -39,6 +38,30 @@ export const InputSchema = z.object({
       user_data: z.string().optional(),
       vpc_security_group_ids: z.string().array().optional(),
       weighted_capacity: z.string().optional(),
+      ebs_block_device: z.object({
+        delete_on_termination: z.boolean().optional(),
+        device_name: z.string(),
+        encrypted: z.boolean().optional(),
+        iops: z.number().optional(),
+        kms_key_id: z.string().optional(),
+        snapshot_id: z.string().optional(),
+        throughput: z.number().optional(),
+        volume_size: z.number().optional(),
+        volume_type: z.string().optional(),
+      }).array().optional(),
+      ephemeral_block_device: z.object({
+        device_name: z.string(),
+        virtual_name: z.string(),
+      }).array().optional(),
+      root_block_device: z.object({
+        delete_on_termination: z.boolean().optional(),
+        encrypted: z.boolean().optional(),
+        iops: z.number().optional(),
+        kms_key_id: z.string().optional(),
+        throughput: z.number().optional(),
+        volume_size: z.number().optional(),
+        volume_type: z.string().optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   launch_template_config: resolvableValue(
@@ -55,6 +78,59 @@ export const InputSchema = z.object({
         spot_price: z.string().optional(),
         subnet_id: z.string().optional(),
         weighted_capacity: z.number().optional(),
+        instance_requirements: z.object({
+          accelerator_manufacturers: z.string().array().optional(),
+          accelerator_names: z.string().array().optional(),
+          accelerator_types: z.string().array().optional(),
+          allowed_instance_types: z.string().array().optional(),
+          bare_metal: z.string().optional(),
+          burstable_performance: z.string().optional(),
+          cpu_manufacturers: z.string().array().optional(),
+          excluded_instance_types: z.string().array().optional(),
+          instance_generations: z.string().array().optional(),
+          local_storage: z.string().optional(),
+          local_storage_types: z.string().array().optional(),
+          on_demand_max_price_percentage_over_lowest_price: z.number()
+            .optional(),
+          require_hibernate_support: z.boolean().optional(),
+          spot_max_price_percentage_over_lowest_price: z.number().optional(),
+          accelerator_count: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          accelerator_total_memory_mib: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          baseline_ebs_bandwidth_mbps: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          memory_gib_per_vcpu: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          memory_mib: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          network_bandwidth_gbps: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          network_interface_count: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          total_local_storage_gb: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+          vcpu_count: z.object({
+            max: z.number().optional(),
+            min: z.number().optional(),
+          }).optional(),
+        }).optional(),
       }).array().optional(),
     }).array().optional(),
   ),
@@ -87,7 +163,7 @@ export const InputSchema = z.object({
   valid_from: resolvableValue(z.string().optional()),
   valid_until: resolvableValue(z.string().optional()),
   wait_for_fulfillment: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -102,6 +178,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/spot_fleet_request
 
 export function AwsSpotFleetRequest(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -120,8 +199,8 @@ export function AwsSpotFleetRequest(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSpotFleetRequest = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSpotFleetRequest, node, id)
+export const useAwsSpotFleetRequest = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode)
 
-export const useAwsSpotFleetRequests = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSpotFleetRequest, node, id)
+export const useAwsSpotFleetRequests = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode)

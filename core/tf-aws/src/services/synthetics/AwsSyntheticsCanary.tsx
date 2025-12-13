@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/synthetics_canary
 
 export const InputSchema = z.object({
   artifact_s3_location: resolvableValue(z.string()),
@@ -16,6 +15,13 @@ export const InputSchema = z.object({
   handler: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   runtime_version: resolvableValue(z.string()),
+  schedule: resolvableValue(z.object({
+    duration_in_seconds: z.number().optional(),
+    expression: z.string(),
+    retry_config: z.object({
+      max_retries: z.number(),
+    }).optional(),
+  })),
   artifact_config: resolvableValue(
     z.object({
       s3_encryption: z.object({
@@ -39,10 +45,6 @@ export const InputSchema = z.object({
   s3_bucket: resolvableValue(z.string().optional()),
   s3_key: resolvableValue(z.string().optional()),
   s3_version: resolvableValue(z.string().optional()),
-  schedule: resolvableValue(z.object({
-    duration_in_seconds: z.number().optional(),
-    expression: z.string(),
-  })),
   start_canary: resolvableValue(z.boolean().optional()),
   success_retention_period: resolvableValue(z.number().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -55,7 +57,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   zip_file: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -79,6 +81,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/synthetics_canary
 
 export function AwsSyntheticsCanary(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -97,8 +102,8 @@ export function AwsSyntheticsCanary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSyntheticsCanary = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSyntheticsCanary, node, id)
+export const useAwsSyntheticsCanary = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSyntheticsCanary, idFilter, baseNode)
 
-export const useAwsSyntheticsCanarys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSyntheticsCanary, node, id)
+export const useAwsSyntheticsCanarys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSyntheticsCanary, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/detective_member
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   disable_email_notification: resolvableValue(z.boolean().optional()),
   message: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   administrator_id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/detective_member
 
 export function AwsDetectiveMember(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsDetectiveMember(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDetectiveMember = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDetectiveMember, node, id)
+export const useAwsDetectiveMember = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDetectiveMember, idFilter, baseNode)
 
-export const useAwsDetectiveMembers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDetectiveMember, node, id)
+export const useAwsDetectiveMembers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDetectiveMember, idFilter, baseNode)

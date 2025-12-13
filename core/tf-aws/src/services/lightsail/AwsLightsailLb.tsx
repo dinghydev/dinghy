@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb
 
 export const InputSchema = z.object({
   instance_port: resolvableValue(z.number()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   ip_address_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb
 
 export function AwsLightsailLb(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,8 @@ export function AwsLightsailLb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailLb = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailLb, node, id)
+export const useAwsLightsailLb = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLightsailLb, idFilter, baseNode)
 
-export const useAwsLightsailLbs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailLb, node, id)
+export const useAwsLightsailLbs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLightsailLb, idFilter, baseNode)

@@ -3,19 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/network_interface_attachment
-
 export const InputSchema = z.object({
   device_index: resolvableValue(z.number()),
+  instance_id: resolvableValue(z.string()),
+  network_interface_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   network_card_index: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   attachment_id: z.string().optional(),
@@ -31,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/network_interface_attachment
 
 export function AwsNetworkInterfaceAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +53,14 @@ export function AwsNetworkInterfaceAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkInterfaceAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkInterfaceAttachment, node, id)
+export const useAwsNetworkInterfaceAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsNetworkInterfaceAttachment, idFilter, baseNode)
 
-export const useAwsNetworkInterfaceAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterfaceAttachment, node, id)
+export const useAwsNetworkInterfaceAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsNetworkInterfaceAttachment, idFilter, baseNode)

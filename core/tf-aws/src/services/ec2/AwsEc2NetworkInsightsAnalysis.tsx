@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_network_insights_analysis
 
 export const InputSchema = z.object({
   network_insights_path_id: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   wait_for_completion: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alternate_path_hints: z.object({
@@ -476,6 +475,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_network_insights_analysis
 
 export function AwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -494,5 +496,8 @@ export function AwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2NetworkInsightsAnalysiss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2NetworkInsightsAnalysis, node, id)
+export const useAwsEc2NetworkInsightsAnalysiss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2NetworkInsightsAnalysis, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_permissions
 
 export const InputSchema = z.object({
   permissions: resolvableValue(z.string().array()),
@@ -46,6 +45,10 @@ export const InputSchema = z.object({
     z.object({
       catalog_id: z.string().optional(),
       resource_type: z.string(),
+      expression: z.object({
+        key: z.string(),
+        values: z.string().array(),
+      }).array(),
     }).optional(),
   ),
   permissions_with_grant_option: resolvableValue(z.string().array().optional()),
@@ -68,7 +71,7 @@ export const InputSchema = z.object({
       wildcard: z.boolean().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -79,6 +82,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_permissions
 
 export function AwsLakeformationPermissions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -97,5 +103,7 @@ export function AwsLakeformationPermissions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationPermissionss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLakeformationPermissions, node, id)
+export const useAwsLakeformationPermissionss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLakeformationPermissions, idFilter, baseNode)

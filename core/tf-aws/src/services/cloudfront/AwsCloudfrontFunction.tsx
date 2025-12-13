@@ -1,14 +1,15 @@
 import {
   camelCaseToWords,
+  extendStyle,
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_function
+import { CLOUDFRONT_FUNCTIONS } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
 export const InputSchema = z.object({
   code: resolvableValue(z.string()),
@@ -18,7 +19,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   key_value_store_associations: resolvableValue(z.string().array().optional()),
   publish: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_function
 
 export function AwsCloudfrontFunction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,12 +52,13 @@ export function AwsCloudfrontFunction(props: Partial<InputProps>) {
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
       {...props}
+      _style={extendStyle(props, CLOUDFRONT_FUNCTIONS)}
     />
   )
 }
 
-export const useAwsCloudfrontFunction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudfrontFunction, node, id)
+export const useAwsCloudfrontFunction = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudfrontFunction, idFilter, baseNode)
 
-export const useAwsCloudfrontFunctions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontFunction, node, id)
+export const useAwsCloudfrontFunctions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudfrontFunction, idFilter, baseNode)

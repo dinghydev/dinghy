@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_directory_config
 
 export const InputSchema = z.object({
   directory_name: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_time: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_directory_config
 
 export function AwsAppstreamDirectoryConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,12 @@ export function AwsAppstreamDirectoryConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamDirectoryConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppstreamDirectoryConfig, node, id)
+export const useAwsAppstreamDirectoryConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppstreamDirectoryConfig, idFilter, baseNode)
 
-export const useAwsAppstreamDirectoryConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppstreamDirectoryConfig, node, id)
+export const useAwsAppstreamDirectoryConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppstreamDirectoryConfig, idFilter, baseNode)

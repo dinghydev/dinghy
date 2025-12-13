@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret
 
 export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
@@ -19,8 +18,17 @@ export const InputSchema = z.object({
   policy: resolvableValue(z.string().optional()),
   recovery_window_in_days: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
+  replica: resolvableValue(
+    z.object({
+      kms_key_id: z.string().optional(),
+      last_accessed_date: z.string(),
+      region: z.string(),
+      status: z.string(),
+      status_message: z.string(),
+    }).array().optional(),
+  ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret
 
 export function AwsSecretsmanagerSecret(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +77,10 @@ export function AwsSecretsmanagerSecret(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecretsmanagerSecret = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecret, node, id)
+export const useAwsSecretsmanagerSecret = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSecretsmanagerSecret, idFilter, baseNode)
 
-export const useAwsSecretsmanagerSecrets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerSecret, node, id)
+export const useAwsSecretsmanagerSecrets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSecretsmanagerSecret, idFilter, baseNode)

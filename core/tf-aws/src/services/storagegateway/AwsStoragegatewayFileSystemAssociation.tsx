@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_file_system_association
 
 export const InputSchema = z.object({
   gateway_arn: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/storagegateway_file_system_association
 
 export function AwsStoragegatewayFileSystemAssociation(
   props: Partial<InputProps>,
@@ -66,12 +68,21 @@ export function AwsStoragegatewayFileSystemAssociation(
 }
 
 export const useAwsStoragegatewayFileSystemAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsStoragegatewayFileSystemAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsStoragegatewayFileSystemAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsStoragegatewayFileSystemAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayFileSystemAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayFileSystemAssociation,
+    idFilter,
+    baseNode,
+  )

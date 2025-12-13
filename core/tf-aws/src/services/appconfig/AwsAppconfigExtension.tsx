@@ -3,17 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_extension
-
 export const InputSchema = z.object({
   action_point: resolvableValue(
     z.object({
       point: z.string(),
+      action: z.object({
+        description: z.string().optional(),
+        name: z.string(),
+        role_arn: z.string().optional(),
+        uri: z.string(),
+      }).array(),
     }).array(),
   ),
   name: resolvableValue(z.string()),
@@ -28,7 +33,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_extension
 
 export function AwsAppconfigExtension(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +69,8 @@ export function AwsAppconfigExtension(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppconfigExtension = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppconfigExtension, node, id)
+export const useAwsAppconfigExtension = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppconfigExtension, idFilter, baseNode)
 
-export const useAwsAppconfigExtensions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppconfigExtension, node, id)
+export const useAwsAppconfigExtensions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppconfigExtension, idFilter, baseNode)

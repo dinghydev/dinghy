@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEksNodeGroup } from './AwsEksNodeGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_node_group
-
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   node_group_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ami_type: z.string().optional(),
@@ -33,7 +32,7 @@ export const OutputSchema = z.object({
   release_version: z.string().optional(),
   remote_access: z.object({
     ec2_ssh_key: z.string(),
-    source_security_group_ids: z.string().array(),
+    source_security_group_ids: z.set(z.string()),
   }).array().optional(),
   resources: z.object({
     autoscaling_groups: z.object({
@@ -47,7 +46,7 @@ export const OutputSchema = z.object({
     min_size: z.number(),
   }).array().optional(),
   status: z.string().optional(),
-  subnet_ids: z.string().array().optional(),
+  subnet_ids: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   taints: z.object({
     effect: z.string(),
@@ -64,6 +63,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_node_group
 
 export function DataAwsEksNodeGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -82,8 +84,8 @@ export function DataAwsEksNodeGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksNodeGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEksNodeGroup, node, id)
+export const useDataAwsEksNodeGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEksNodeGroup, idFilter, baseNode)
 
-export const useDataAwsEksNodeGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEksNodeGroup, node, id)
+export const useDataAwsEksNodeGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEksNodeGroup, idFilter, baseNode)

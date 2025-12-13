@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_api_cache
 
 export const InputSchema = z.object({
   api_caching_behavior: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   at_rest_encryption_enabled: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   transit_encryption_enabled: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_api_cache
 
 export function AwsAppsyncApiCache(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsAppsyncApiCache(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncApiCache = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncApiCache, node, id)
+export const useAwsAppsyncApiCache = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode)
 
-export const useAwsAppsyncApiCaches = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncApiCache, node, id)
+export const useAwsAppsyncApiCaches = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode)

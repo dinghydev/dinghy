@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpointsmsvoicev2_phone_number
 
 export const InputSchema = z.object({
   iso_country_code: resolvableValue(z.string()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
   two_way_channel_arn: resolvableValue(z.string().optional()),
   two_way_channel_enabled: resolvableValue(z.boolean().optional()),
   two_way_channel_role: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpointsmsvoicev2_phone_number
 
 export function AwsPinpointsmsvoicev2PhoneNumber(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,22 @@ export function AwsPinpointsmsvoicev2PhoneNumber(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointsmsvoicev2PhoneNumber = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointsmsvoicev2PhoneNumber, node, id)
+export const useAwsPinpointsmsvoicev2PhoneNumber = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointsmsvoicev2PhoneNumber,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsPinpointsmsvoicev2PhoneNumbers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointsmsvoicev2PhoneNumber, node, id)
+export const useAwsPinpointsmsvoicev2PhoneNumbers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointsmsvoicev2PhoneNumber,
+    idFilter,
+    baseNode,
+  )

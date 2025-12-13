@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_autonomous_vm_clusters
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cloud_autonomous_vm_clusters: z.object({
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_autonomous_vm_clusters
 
 export function DataAwsOdbCloudAutonomousVmClusters(
   props: Partial<InputProps>,
@@ -54,6 +56,11 @@ export function DataAwsOdbCloudAutonomousVmClusters(
 }
 
 export const useDataAwsOdbCloudAutonomousVmClusterss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOdbCloudAutonomousVmClusters, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOdbCloudAutonomousVmClusters,
+    idFilter,
+    baseNode,
+  )

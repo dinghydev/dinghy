@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamSamlProvider } from './AwsIamSamlProvider.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_saml_provider
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   create_date: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_saml_provider
 
 export function DataAwsIamSamlProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function DataAwsIamSamlProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamSamlProvider = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamSamlProvider, node, id)
+export const useDataAwsIamSamlProvider = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsIamSamlProvider, idFilter, baseNode)
 
-export const useDataAwsIamSamlProviders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamSamlProvider, node, id)
+export const useDataAwsIamSamlProviders = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamSamlProvider, idFilter, baseNode)

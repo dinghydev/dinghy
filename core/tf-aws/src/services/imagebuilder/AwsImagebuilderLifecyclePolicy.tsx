@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_lifecycle_policy
 
 export const InputSchema = z.object({
   execution_role: resolvableValue(z.string()),
@@ -19,26 +18,45 @@ export const InputSchema = z.object({
     z.object({
       action: z.object({
         type: z.string(),
-      }).optional(),
+        include_resources: z.object({
+          amis: z.boolean().optional(),
+          containers: z.boolean().optional(),
+          snapshots: z.boolean().optional(),
+        }).array().optional(),
+      }).array().optional(),
       exclusion_rules: z.object({
         tag_map: z.record(z.string(), z.string()).optional(),
-      }).optional(),
+        amis: z.object({
+          is_public: z.boolean().optional(),
+          regions: z.string().array().optional(),
+          shared_accounts: z.string().array().optional(),
+          tag_map: z.record(z.string(), z.string()).optional(),
+          last_launched: z.object({
+            unit: z.string(),
+            value: z.number(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
       filter: z.object({
         retain_at_least: z.number().optional(),
         type: z.string(),
         unit: z.string().optional(),
         value: z.number(),
-      }).optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   resource_selection: resolvableValue(
     z.object({
       tag_map: z.record(z.string(), z.string()).optional(),
-    }).optional(),
+      recipe: z.object({
+        name: z.string(),
+        semantic_version: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +77,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_lifecycle_policy
 
 export function AwsImagebuilderLifecyclePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +99,14 @@ export function AwsImagebuilderLifecyclePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsImagebuilderLifecyclePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsImagebuilderLifecyclePolicy, node, id)
+export const useAwsImagebuilderLifecyclePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsImagebuilderLifecyclePolicy, idFilter, baseNode)
 
-export const useAwsImagebuilderLifecyclePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderLifecyclePolicy, node, id)
+export const useAwsImagebuilderLifecyclePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsImagebuilderLifecyclePolicy, idFilter, baseNode)

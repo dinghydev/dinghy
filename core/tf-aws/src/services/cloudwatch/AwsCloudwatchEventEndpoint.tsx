@@ -3,29 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_endpoint
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  event_bus: resolvableValue(
-    z.object({
-      event_bus_arn: z.string(),
-    }).optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  replication_config: resolvableValue(
-    z.object({
-      state: z.string().optional(),
-    }).optional(),
-  ),
-  role_arn: resolvableValue(z.string().optional()),
   routing_config: resolvableValue(z.object({
     failover_config: z.object({
       primary: z.object({
@@ -36,7 +21,21 @@ export const InputSchema = z.object({
       }),
     }),
   })),
-})
+  description: resolvableValue(z.string().optional()),
+  event_bus: resolvableValue(
+    z.object({
+      event_bus_arn: z.string(),
+    }).array().optional(),
+  ),
+  id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+  replication_config: resolvableValue(
+    z.object({
+      state: z.string().optional(),
+    }).optional(),
+  ),
+  role_arn: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_endpoint
 
 export function AwsCloudwatchEventEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,12 @@ export function AwsCloudwatchEventEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchEventEndpoint, node, id)
+export const useAwsCloudwatchEventEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchEventEndpoint, idFilter, baseNode)
 
-export const useAwsCloudwatchEventEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventEndpoint, node, id)
+export const useAwsCloudwatchEventEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudwatchEventEndpoint, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/identitystore_group_membership
 
 export const InputSchema = z.object({
   group_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   member_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   membership_id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/identitystore_group_membership
 
 export function AwsIdentitystoreGroupMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,18 @@ export function AwsIdentitystoreGroupMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIdentitystoreGroupMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIdentitystoreGroupMembership, node, id)
+export const useAwsIdentitystoreGroupMembership = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsIdentitystoreGroupMembership, idFilter, baseNode)
 
-export const useAwsIdentitystoreGroupMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIdentitystoreGroupMembership, node, id)
+export const useAwsIdentitystoreGroupMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIdentitystoreGroupMembership,
+    idFilter,
+    baseNode,
+  )

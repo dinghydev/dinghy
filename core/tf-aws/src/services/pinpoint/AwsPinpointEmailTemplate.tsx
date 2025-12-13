@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_email_template
 
 export const InputSchema = z.object({
   tags_all: resolvableValue(z.record(z.string(), z.string())),
@@ -21,11 +20,15 @@ export const InputSchema = z.object({
       recommender_id: z.string().optional(),
       subject: z.string().optional(),
       text_part: z.string().optional(),
-    }).optional(),
+      header: z.object({
+        name: z.string().optional(),
+        value: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_email_template
 
 export function AwsPinpointEmailTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +62,12 @@ export function AwsPinpointEmailTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointEmailTemplate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointEmailTemplate, node, id)
+export const useAwsPinpointEmailTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsPinpointEmailTemplate, idFilter, baseNode)
 
-export const useAwsPinpointEmailTemplates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointEmailTemplate, node, id)
+export const useAwsPinpointEmailTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsPinpointEmailTemplate, idFilter, baseNode)

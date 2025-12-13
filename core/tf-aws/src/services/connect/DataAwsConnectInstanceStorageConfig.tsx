@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectInstanceStorageConfig } from './AwsConnectInstanceStorageConfig.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_instance_storage_config
-
 export const InputSchema = z.object({
   association_id: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
   resource_type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -53,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_instance_storage_config
 
 export function DataAwsConnectInstanceStorageConfig(
   props: Partial<InputProps>,
@@ -74,11 +76,21 @@ export function DataAwsConnectInstanceStorageConfig(
 }
 
 export const useDataAwsConnectInstanceStorageConfig = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsConnectInstanceStorageConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectInstanceStorageConfig,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsConnectInstanceStorageConfigs = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsConnectInstanceStorageConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsConnectInstanceStorageConfig,
+    idFilter,
+    baseNode,
+  )

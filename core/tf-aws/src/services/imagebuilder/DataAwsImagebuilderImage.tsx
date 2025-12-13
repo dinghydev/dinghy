@@ -2,18 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsImagebuilderImage } from './AwsImagebuilderImage.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_image
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+  region: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   build_version_arn: z.string().optional(),
@@ -24,7 +24,7 @@ export const OutputSchema = z.object({
   image_recipe_arn: z.string().optional(),
   image_scanning_configuration: z.object({
     ecr_configuration: z.object({
-      container_tags: z.string().array(),
+      container_tags: z.set(z.string()),
       repository_name: z.string(),
     }).array(),
     image_scanning_enabled: z.boolean(),
@@ -37,17 +37,17 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
   os_version: z.string().optional(),
   output_resources: z.object({
-    amis: z.object({
+    amis: z.set(z.object({
       account_id: z.string(),
       description: z.string(),
       image: z.string(),
       name: z.string(),
       region: z.string(),
-    }).array(),
-    containers: z.object({
-      image_uris: z.string().array(),
+    })),
+    containers: z.set(z.object({
+      image_uris: z.set(z.string()),
       region: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
   platform: z.string().optional(),
   region: z.string().optional(),
@@ -62,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_image
 
 export function DataAwsImagebuilderImage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -80,8 +83,12 @@ export function DataAwsImagebuilderImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsImagebuilderImage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsImagebuilderImage, node, id)
+export const useDataAwsImagebuilderImage = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsImagebuilderImage, idFilter, baseNode)
 
-export const useDataAwsImagebuilderImages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsImagebuilderImage, node, id)
+export const useDataAwsImagebuilderImages = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsImagebuilderImage, idFilter, baseNode)

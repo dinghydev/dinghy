@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_ipset
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
       value: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_ipset
 
 export function AwsWafIpset(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsWafIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafIpset = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafIpset, node, id)
+export const useAwsWafIpset = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafIpset, idFilter, baseNode)
 
-export const useAwsWafIpsets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafIpset, node, id)
+export const useAwsWafIpsets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafIpset, idFilter, baseNode)

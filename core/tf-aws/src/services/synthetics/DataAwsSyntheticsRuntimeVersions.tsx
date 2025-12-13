@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/synthetics_runtime_versions
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/synthetics_runtime_versions
 
 export function DataAwsSyntheticsRuntimeVersions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,5 +50,12 @@ export function DataAwsSyntheticsRuntimeVersions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSyntheticsRuntimeVersionss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSyntheticsRuntimeVersions, node, id)
+export const useDataAwsSyntheticsRuntimeVersionss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSyntheticsRuntimeVersions,
+    idFilter,
+    baseNode,
+  )

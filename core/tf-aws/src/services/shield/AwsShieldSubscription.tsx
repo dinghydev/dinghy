@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_subscription
-
 export const InputSchema = z.object({
   auto_renew: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_subscription
 
 export function AwsShieldSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,8 @@ export function AwsShieldSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsShieldSubscription = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsShieldSubscription, node, id)
+export const useAwsShieldSubscription = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsShieldSubscription, idFilter, baseNode)
 
-export const useAwsShieldSubscriptions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsShieldSubscription, node, id)
+export const useAwsShieldSubscriptions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsShieldSubscription, idFilter, baseNode)

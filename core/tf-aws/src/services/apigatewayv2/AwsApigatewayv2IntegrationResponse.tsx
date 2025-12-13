@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apigatewayv2_integration_response
 
 export const InputSchema = z.object({
   api_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
     z.record(z.string(), z.string()).optional(),
   ),
   template_selection_expression: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apigatewayv2_integration_response
 
 export function AwsApigatewayv2IntegrationResponse(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,11 +54,21 @@ export function AwsApigatewayv2IntegrationResponse(props: Partial<InputProps>) {
 }
 
 export const useAwsApigatewayv2IntegrationResponse = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsApigatewayv2IntegrationResponse, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApigatewayv2IntegrationResponse,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsApigatewayv2IntegrationResponses = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsApigatewayv2IntegrationResponse, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApigatewayv2IntegrationResponse,
+    idFilter,
+    baseNode,
+  )

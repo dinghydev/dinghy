@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDatazoneDomain } from './AwsDatazoneDomain.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/datazone_domain
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/datazone_domain
 
 export function DataAwsDatazoneDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function DataAwsDatazoneDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDatazoneDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDatazoneDomain, node, id)
+export const useDataAwsDatazoneDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsDatazoneDomain, idFilter, baseNode)
 
-export const useDataAwsDatazoneDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDatazoneDomain, node, id)
+export const useDataAwsDatazoneDomains = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDatazoneDomain, idFilter, baseNode)

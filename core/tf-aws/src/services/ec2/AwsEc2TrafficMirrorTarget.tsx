@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_target
 
 export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   network_load_balancer_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_target
 
 export function AwsEc2TrafficMirrorTarget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function AwsEc2TrafficMirrorTarget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2TrafficMirrorTarget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2TrafficMirrorTarget, node, id)
+export const useAwsEc2TrafficMirrorTarget = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEc2TrafficMirrorTarget, idFilter, baseNode)
 
-export const useAwsEc2TrafficMirrorTargets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2TrafficMirrorTarget, node, id)
+export const useAwsEc2TrafficMirrorTargets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEc2TrafficMirrorTarget, idFilter, baseNode)

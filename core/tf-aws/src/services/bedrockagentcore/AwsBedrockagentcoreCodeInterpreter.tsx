@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_code_interpreter
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,7 +16,11 @@ export const InputSchema = z.object({
   network_configuration: resolvableValue(
     z.object({
       network_mode: z.string(),
-    }).optional(),
+      vpc_config: z.object({
+        security_groups: z.string().array(),
+        subnets: z.string().array(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -27,7 +30,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   code_interpreter_arn: z.string().optional(),
@@ -42,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_code_interpreter
 
 export function AwsBedrockagentcoreCodeInterpreter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,11 +67,21 @@ export function AwsBedrockagentcoreCodeInterpreter(props: Partial<InputProps>) {
 }
 
 export const useAwsBedrockagentcoreCodeInterpreter = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsBedrockagentcoreCodeInterpreter, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreCodeInterpreter,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsBedrockagentcoreCodeInterpreters = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsBedrockagentcoreCodeInterpreter, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreCodeInterpreter,
+    idFilter,
+    baseNode,
+  )

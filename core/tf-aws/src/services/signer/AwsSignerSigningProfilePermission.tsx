@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/signer_signing_profile_permission
 
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   statement_id: resolvableValue(z.string().optional()),
   statement_id_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/signer_signing_profile_permission
 
 export function AwsSignerSigningProfilePermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,10 +50,22 @@ export function AwsSignerSigningProfilePermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSignerSigningProfilePermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSignerSigningProfilePermission, node, id)
+export const useAwsSignerSigningProfilePermission = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSignerSigningProfilePermission,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSignerSigningProfilePermissions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSignerSigningProfilePermission, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSignerSigningProfilePermission,
+    idFilter,
+    baseNode,
+  )

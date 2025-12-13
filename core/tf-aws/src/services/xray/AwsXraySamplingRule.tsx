@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/xray_sampling_rule
 
 export const InputSchema = z.object({
   fixed_rate: resolvableValue(z.number()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   rule_name: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/xray_sampling_rule
 
 export function AwsXraySamplingRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsXraySamplingRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsXraySamplingRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsXraySamplingRule, node, id)
+export const useAwsXraySamplingRule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsXraySamplingRule, idFilter, baseNode)
 
-export const useAwsXraySamplingRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsXraySamplingRule, node, id)
+export const useAwsXraySamplingRules = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsXraySamplingRule, idFilter, baseNode)

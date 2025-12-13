@@ -3,25 +3,26 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_target
-
 export const InputSchema = z.object({
   resource_type: resolvableValue(z.string()),
-  targets: resolvableValue(z.object({
-    key: z.string(),
-    values: z.string().array(),
-  })),
+  targets: resolvableValue(
+    z.object({
+      key: z.string(),
+      values: z.string().array(),
+    }).array(),
+  ),
   window_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   owner_information: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -42,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_maintenance_window_target
 
 export function AwsSsmMaintenanceWindowTarget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +65,14 @@ export function AwsSsmMaintenanceWindowTarget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmMaintenanceWindowTarget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSsmMaintenanceWindowTarget, node, id)
+export const useAwsSsmMaintenanceWindowTarget = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSsmMaintenanceWindowTarget, idFilter, baseNode)
 
-export const useAwsSsmMaintenanceWindowTargets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSsmMaintenanceWindowTarget, node, id)
+export const useAwsSsmMaintenanceWindowTargets = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSsmMaintenanceWindowTarget, idFilter, baseNode)

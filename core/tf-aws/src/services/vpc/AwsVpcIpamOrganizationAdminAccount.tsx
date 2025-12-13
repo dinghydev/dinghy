@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_organization_admin_account
-
 export const InputSchema = z.object({
   delegated_admin_account_id: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_organization_admin_account
 
 export function AwsVpcIpamOrganizationAdminAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,11 +50,21 @@ export function AwsVpcIpamOrganizationAdminAccount(props: Partial<InputProps>) {
 }
 
 export const useAwsVpcIpamOrganizationAdminAccount = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpcIpamOrganizationAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcIpamOrganizationAdminAccount,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpcIpamOrganizationAdminAccounts = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsVpcIpamOrganizationAdminAccount, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcIpamOrganizationAdminAccount,
+    idFilter,
+    baseNode,
+  )

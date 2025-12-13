@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2TransitGatewayRouteTable } from './AwsEc2TransitGatewayRouteTable.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_table
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -17,13 +16,14 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_route_table
 
 export function DataAwsEc2TransitGatewayRouteTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,11 +63,21 @@ export function DataAwsEc2TransitGatewayRouteTable(props: Partial<InputProps>) {
 }
 
 export const useDataAwsEc2TransitGatewayRouteTable = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsEc2TransitGatewayRouteTable, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEc2TransitGatewayRouteTable,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsEc2TransitGatewayRouteTables = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsEc2TransitGatewayRouteTable, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2TransitGatewayRouteTable,
+    idFilter,
+    baseNode,
+  )

@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_bucket_resource_access
 
 export const InputSchema = z.object({
   bucket_name: resolvableValue(z.string()),
   resource_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_bucket_resource_access
 
 export function AwsLightsailBucketResourceAccess(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,5 +46,12 @@ export function AwsLightsailBucketResourceAccess(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailBucketResourceAccesss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailBucketResourceAccess, node, id)
+export const useAwsLightsailBucketResourceAccesss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailBucketResourceAccess,
+    idFilter,
+    baseNode,
+  )

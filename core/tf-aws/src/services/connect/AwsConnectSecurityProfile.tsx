@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_security_profile
 
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   permissions: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_security_profile
 
 export function AwsConnectSecurityProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsConnectSecurityProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectSecurityProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConnectSecurityProfile, node, id)
+export const useAwsConnectSecurityProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsConnectSecurityProfile, idFilter, baseNode)
 
-export const useAwsConnectSecurityProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConnectSecurityProfile, node, id)
+export const useAwsConnectSecurityProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsConnectSecurityProfile, idFilter, baseNode)

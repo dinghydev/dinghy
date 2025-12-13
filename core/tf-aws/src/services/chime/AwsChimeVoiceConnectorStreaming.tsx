@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_streaming
 
 export const InputSchema = z.object({
   data_retention: resolvableValue(z.number()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   streaming_notification_targets: resolvableValue(
     z.string().array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_streaming
 
 export function AwsChimeVoiceConnectorStreaming(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,18 @@ export function AwsChimeVoiceConnectorStreaming(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsChimeVoiceConnectorStreaming = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsChimeVoiceConnectorStreaming, node, id)
+export const useAwsChimeVoiceConnectorStreaming = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsChimeVoiceConnectorStreaming, idFilter, baseNode)
 
-export const useAwsChimeVoiceConnectorStreamings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsChimeVoiceConnectorStreaming, node, id)
+export const useAwsChimeVoiceConnectorStreamings = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChimeVoiceConnectorStreaming,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_mlflow_tracking_server
 
 export const InputSchema = z.object({
   artifact_store_uri: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tracking_server_size: resolvableValue(z.string().optional()),
   weekly_maintenance_window_start: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_mlflow_tracking_server
 
 export function AwsSagemakerMlflowTrackingServer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,22 @@ export function AwsSagemakerMlflowTrackingServer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerMlflowTrackingServer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerMlflowTrackingServer, node, id)
+export const useAwsSagemakerMlflowTrackingServer = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerMlflowTrackingServer,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsSagemakerMlflowTrackingServers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerMlflowTrackingServer, node, id)
+export const useAwsSagemakerMlflowTrackingServers = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerMlflowTrackingServer,
+    idFilter,
+    baseNode,
+  )

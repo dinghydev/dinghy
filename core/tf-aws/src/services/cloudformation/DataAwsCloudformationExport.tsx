@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudformation_export
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   exporting_stack_id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudformation_export
 
 export function DataAwsCloudformationExport(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,12 @@ export function DataAwsCloudformationExport(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCloudformationExport = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCloudformationExport, node, id)
+export const useDataAwsCloudformationExport = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsCloudformationExport, idFilter, baseNode)
 
-export const useDataAwsCloudformationExports = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCloudformationExport, node, id)
+export const useDataAwsCloudformationExports = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsCloudformationExport, idFilter, baseNode)

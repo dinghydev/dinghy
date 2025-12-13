@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_container_definition
 
 export const InputSchema = z.object({
   container_name: resolvableValue(z.string()),
   task_definition: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cpu: z.number().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_container_definition
 
 export function DataAwsEcsContainerDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function DataAwsEcsContainerDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsContainerDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcsContainerDefinition, node, id)
+export const useDataAwsEcsContainerDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsEcsContainerDefinition, idFilter, baseNode)
 
-export const useDataAwsEcsContainerDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcsContainerDefinition, node, id)
+export const useDataAwsEcsContainerDefinitions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEcsContainerDefinition, idFilter, baseNode)

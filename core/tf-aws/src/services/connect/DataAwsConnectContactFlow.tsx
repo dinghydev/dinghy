@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectContactFlow } from './AwsConnectContactFlow.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_contact_flow
 
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_contact_flow
 
 export function DataAwsConnectContactFlow(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function DataAwsConnectContactFlow(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectContactFlow = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsConnectContactFlow, node, id)
+export const useDataAwsConnectContactFlow = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsConnectContactFlow, idFilter, baseNode)
 
-export const useDataAwsConnectContactFlows = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsConnectContactFlow, node, id)
+export const useDataAwsConnectContactFlows = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsConnectContactFlow, idFilter, baseNode)

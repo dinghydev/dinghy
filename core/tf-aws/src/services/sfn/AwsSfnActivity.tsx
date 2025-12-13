@@ -3,14 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sfn_activity
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   encryption_configuration: resolvableValue(
     z.object({
       kms_data_key_reuse_period_seconds: z.number().optional(),
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sfn_activity
 
 export function AwsSfnActivity(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +64,8 @@ export function AwsSfnActivity(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSfnActivity = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSfnActivity, node, id)
+export const useAwsSfnActivity = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSfnActivity, idFilter, baseNode)
 
-export const useAwsSfnActivitys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSfnActivity, node, id)
+export const useAwsSfnActivitys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSfnActivity, idFilter, baseNode)

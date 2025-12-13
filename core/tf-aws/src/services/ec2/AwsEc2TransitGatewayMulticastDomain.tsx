@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_domain
 
 export const InputSchema = z.object({
   transit_gateway_id: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_domain
 
 export function AwsEc2TransitGatewayMulticastDomain(
   props: Partial<InputProps>,
@@ -60,11 +62,21 @@ export function AwsEc2TransitGatewayMulticastDomain(
 }
 
 export const useAwsEc2TransitGatewayMulticastDomain = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsEc2TransitGatewayMulticastDomain, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayMulticastDomain,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsEc2TransitGatewayMulticastDomains = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsEc2TransitGatewayMulticastDomain, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2TransitGatewayMulticastDomain,
+    idFilter,
+    baseNode,
+  )

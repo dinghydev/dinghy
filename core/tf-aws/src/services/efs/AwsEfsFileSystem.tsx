@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_file_system
 
 export const InputSchema = z.object({
   availability_zone_name: resolvableValue(z.string().optional()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       transition_to_archive: z.string().optional(),
       transition_to_ia: z.string().optional(),
       transition_to_primary_storage_class: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   performance_mode: resolvableValue(z.string().optional()),
   protection: resolvableValue(
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   throughput_mode: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_file_system
 
 export function AwsEfsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,8 @@ export function AwsEfsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsFileSystem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEfsFileSystem, node, id)
+export const useAwsEfsFileSystem = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEfsFileSystem, idFilter, baseNode)
 
-export const useAwsEfsFileSystems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEfsFileSystem, node, id)
+export const useAwsEfsFileSystems = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEfsFileSystem, idFilter, baseNode)

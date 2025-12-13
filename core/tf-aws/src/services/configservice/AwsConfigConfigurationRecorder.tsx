@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_configuration_recorder
 
 export const InputSchema = z.object({
   role_arn: resolvableValue(z.string()),
@@ -18,15 +17,26 @@ export const InputSchema = z.object({
       all_supported: z.boolean().optional(),
       include_global_resource_types: z.boolean().optional(),
       resource_types: z.string().array().optional(),
+      exclusion_by_resource_types: z.object({
+        resource_types: z.string().array().optional(),
+      }).array().optional(),
+      recording_strategy: z.object({
+        use_only: z.string().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   recording_mode: resolvableValue(
     z.object({
       recording_frequency: z.string().optional(),
+      recording_mode_override: z.object({
+        description: z.string().optional(),
+        recording_frequency: z.string(),
+        resource_types: z.string().array(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -39,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_configuration_recorder
 
 export function AwsConfigConfigurationRecorder(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +70,14 @@ export function AwsConfigConfigurationRecorder(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigConfigurationRecorder = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigConfigurationRecorder, node, id)
+export const useAwsConfigConfigurationRecorder = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsConfigConfigurationRecorder, idFilter, baseNode)
 
-export const useAwsConfigConfigurationRecorders = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConfigConfigurationRecorder, node, id)
+export const useAwsConfigConfigurationRecorders = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsConfigConfigurationRecorder, idFilter, baseNode)

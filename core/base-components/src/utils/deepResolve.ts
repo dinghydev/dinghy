@@ -1,15 +1,11 @@
-import type { NodeTree } from '../types/index.ts'
-import type { Props } from '../cli-shared/index.ts'
-
 export const deepResolve = (
-  node: NodeTree,
-  props: Props,
+  props: any,
   key?: string,
 ): any => {
   let value = key ? props[key] : props
   if (typeof value === 'function') {
-    value = value(node)
-    value = deepResolve(node, value as Props)
+    value = value(undefined)
+    value = deepResolve(value)
     if (key) {
       props[key] = value
     }
@@ -17,14 +13,14 @@ export const deepResolve = (
   }
   if (Array.isArray(value)) {
     for (let i = 0; i < value.length; i++) {
-      value[i] = deepResolve(node, value[i])
+      value[i] = deepResolve(value[i])
     }
     return value
   }
   if (typeof value === 'object') {
-    const object = value as Props
+    const object = value
     for (const key of Object.keys(object)) {
-      deepResolve(node, object, key)
+      deepResolve(object, key)
     }
     return object
   }

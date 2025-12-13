@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sagemaker_prebuilt_ecr_image
 
 export const InputSchema = z.object({
   repository_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   image_tag: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sagemaker_prebuilt_ecr_image
 
 export function DataAwsSagemakerPrebuiltEcrImage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,22 @@ export function DataAwsSagemakerPrebuiltEcrImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSagemakerPrebuiltEcrImage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSagemakerPrebuiltEcrImage, node, id)
+export const useDataAwsSagemakerPrebuiltEcrImage = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSagemakerPrebuiltEcrImage,
+    idFilter,
+    baseNode,
+  )
 
-export const useDataAwsSagemakerPrebuiltEcrImages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSagemakerPrebuiltEcrImage, node, id)
+export const useDataAwsSagemakerPrebuiltEcrImages = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSagemakerPrebuiltEcrImage,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fms_admin_account
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string().optional()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fms_admin_account
 
 export function AwsFmsAdminAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsFmsAdminAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFmsAdminAccount = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFmsAdminAccount, node, id)
+export const useAwsFmsAdminAccount = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFmsAdminAccount, idFilter, baseNode)
 
-export const useAwsFmsAdminAccounts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFmsAdminAccount, node, id)
+export const useAwsFmsAdminAccounts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFmsAdminAccount, idFilter, baseNode)

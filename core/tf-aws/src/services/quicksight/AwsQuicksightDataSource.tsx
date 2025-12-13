@@ -3,25 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_data_source
-
 export const InputSchema = z.object({
   data_source_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  aws_account_id: resolvableValue(z.string().optional()),
-  credentials: resolvableValue(
-    z.object({
-      copy_source_arn: z.string().optional(),
-      secret_arn: z.string().optional(),
-    }).optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
   parameters: resolvableValue(z.object({
     amazon_elasticsearch: z.object({
       domain: z.string(),
@@ -87,6 +77,10 @@ export const InputSchema = z.object({
     }).optional(),
     s3: z.object({
       role_arn: z.string().optional(),
+      manifest_file_location: z.object({
+        bucket: z.string(),
+        key: z.string(),
+      }),
     }).optional(),
     service_now: z.object({
       site_base_url: z.string(),
@@ -115,6 +109,19 @@ export const InputSchema = z.object({
       query: z.string(),
     }).optional(),
   })),
+  type: resolvableValue(z.string()),
+  aws_account_id: resolvableValue(z.string().optional()),
+  credentials: resolvableValue(
+    z.object({
+      copy_source_arn: z.string().optional(),
+      secret_arn: z.string().optional(),
+      credential_pair: z.object({
+        password: z.string(),
+        username: z.string(),
+      }).optional(),
+    }).optional(),
+  ),
+  id: resolvableValue(z.string().optional()),
   permission: resolvableValue(
     z.object({
       actions: z.string().array(),
@@ -133,7 +140,7 @@ export const InputSchema = z.object({
       vpc_connection_arn: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -147,6 +154,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_data_source
 
 export function AwsQuicksightDataSource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -165,8 +175,10 @@ export function AwsQuicksightDataSource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightDataSource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightDataSource, node, id)
+export const useAwsQuicksightDataSource = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsQuicksightDataSource, idFilter, baseNode)
 
-export const useAwsQuicksightDataSources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightDataSource, node, id)
+export const useAwsQuicksightDataSources = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsQuicksightDataSource, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_provisioned_concurrency_config
 
 export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_provisioned_concurrency_config
 
 export function AwsLambdaProvisionedConcurrencyConfig(
   props: Partial<InputProps>,
@@ -56,11 +58,21 @@ export function AwsLambdaProvisionedConcurrencyConfig(
 }
 
 export const useAwsLambdaProvisionedConcurrencyConfig = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsLambdaProvisionedConcurrencyConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLambdaProvisionedConcurrencyConfig,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsLambdaProvisionedConcurrencyConfigs = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsLambdaProvisionedConcurrencyConfig, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLambdaProvisionedConcurrencyConfig,
+    idFilter,
+    baseNode,
+  )

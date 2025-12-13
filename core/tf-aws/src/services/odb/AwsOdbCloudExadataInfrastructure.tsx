@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_cloud_exadata_infrastructure
 
 export const InputSchema = z.object({
   availability_zone_id: resolvableValue(z.string()),
@@ -40,7 +39,7 @@ export const InputSchema = z.object({
       patching_mode: z.string(),
       preference: z.string(),
       weeks_of_month: z.number().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   storage_count: resolvableValue(z.number().optional()),
@@ -53,7 +52,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   activated_storage_count: z.number().optional(),
@@ -91,6 +90,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_cloud_exadata_infrastructure
 
 export function AwsOdbCloudExadataInfrastructure(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -109,8 +111,22 @@ export function AwsOdbCloudExadataInfrastructure(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOdbCloudExadataInfrastructure = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOdbCloudExadataInfrastructure, node, id)
+export const useAwsOdbCloudExadataInfrastructure = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOdbCloudExadataInfrastructure,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsOdbCloudExadataInfrastructures = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOdbCloudExadataInfrastructure, node, id)
+export const useAwsOdbCloudExadataInfrastructures = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOdbCloudExadataInfrastructure,
+    idFilter,
+    baseNode,
+  )

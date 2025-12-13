@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_byte_match_set
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,9 +16,13 @@ export const InputSchema = z.object({
       positional_constraint: z.string(),
       target_string: z.string().optional(),
       text_transformation: z.string(),
+      field_to_match: z.object({
+        data: z.string().optional(),
+        type: z.string(),
+      }),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_byte_match_set
 
 export function AwsWafByteMatchSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +57,8 @@ export function AwsWafByteMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafByteMatchSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafByteMatchSet, node, id)
+export const useAwsWafByteMatchSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafByteMatchSet, idFilter, baseNode)
 
-export const useAwsWafByteMatchSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafByteMatchSet, node, id)
+export const useAwsWafByteMatchSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafByteMatchSet, idFilter, baseNode)

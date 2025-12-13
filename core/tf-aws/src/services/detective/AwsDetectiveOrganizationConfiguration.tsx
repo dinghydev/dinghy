@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/detective_organization_configuration
-
 export const InputSchema = z.object({
   auto_enable: resolvableValue(z.boolean()),
   graph_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/detective_organization_configuration
 
 export function AwsDetectiveOrganizationConfiguration(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsDetectiveOrganizationConfiguration(
 }
 
 export const useAwsDetectiveOrganizationConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsDetectiveOrganizationConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDetectiveOrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDetectiveOrganizationConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsDetectiveOrganizationConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDetectiveOrganizationConfiguration,
+    idFilter,
+    baseNode,
+  )

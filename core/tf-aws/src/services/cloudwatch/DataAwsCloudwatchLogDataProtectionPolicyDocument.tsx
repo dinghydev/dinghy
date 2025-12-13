@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_log_data_protection_policy_document
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
       custom_data_identifier: z.object({
         name: z.string(),
         regex: z.string(),
-      }).optional(),
+      }).array().optional(),
     }).optional(),
   ),
   description: resolvableValue(z.string().optional()),
@@ -26,10 +25,28 @@ export const InputSchema = z.object({
     z.object({
       data_identifiers: z.string().array(),
       sid: z.string().optional(),
-    }).optional(),
+      operation: z.object({
+        audit: z.object({
+          findings_destination: z.object({
+            cloudwatch_logs: z.object({
+              log_group: z.string(),
+            }).optional(),
+            firehose: z.object({
+              delivery_stream: z.string(),
+            }).optional(),
+            s3: z.object({
+              bucket: z.string(),
+            }).optional(),
+          }),
+        }).optional(),
+        deidentify: z.object({
+          mask_config: z.object({}),
+        }).optional(),
+      }),
+    }).array().optional(),
   ),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   json: z.string().optional(),
@@ -42,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_log_data_protection_policy_document
 
 export function DataAwsCloudwatchLogDataProtectionPolicyDocument(
   props: Partial<InputProps>,
@@ -63,21 +83,21 @@ export function DataAwsCloudwatchLogDataProtectionPolicyDocument(
 }
 
 export const useDataAwsCloudwatchLogDataProtectionPolicyDocument = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudwatchLogDataProtectionPolicyDocument,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsCloudwatchLogDataProtectionPolicyDocuments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudwatchLogDataProtectionPolicyDocument,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

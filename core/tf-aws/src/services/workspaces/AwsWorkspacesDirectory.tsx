@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_directory
 
 export const InputSchema = z.object({
   active_directory_config: resolvableValue(
@@ -24,6 +23,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   directory_id: resolvableValue(z.string().optional()),
+  ip_group_ids: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   saml_properties: resolvableValue(
     z.object({
@@ -68,17 +68,17 @@ export const InputSchema = z.object({
   workspace_directory_description: resolvableValue(z.string().optional()),
   workspace_directory_name: resolvableValue(z.string().optional()),
   workspace_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
   customer_user_name: z.string().optional(),
   directory_name: z.string().optional(),
   directory_type: z.string().optional(),
-  dns_ip_addresses: z.string().array().optional(),
+  dns_ip_addresses: z.set(z.string()).optional(),
   iam_role_id: z.string().optional(),
   id: z.string().optional(),
-  ip_group_ids: z.string().array().optional(),
+  ip_group_ids: z.set(z.string()).optional(),
   registration_code: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   workspace_security_group_id: z.string().optional(),
@@ -91,6 +91,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_directory
 
 export function AwsWorkspacesDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -109,8 +112,8 @@ export function AwsWorkspacesDirectory(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesDirectory = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWorkspacesDirectory, node, id)
+export const useAwsWorkspacesDirectory = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWorkspacesDirectory, idFilter, baseNode)
 
-export const useAwsWorkspacesDirectorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesDirectory, node, id)
+export const useAwsWorkspacesDirectorys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWorkspacesDirectory, idFilter, baseNode)

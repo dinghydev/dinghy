@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedpermissions_schema
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -16,13 +15,13 @@ export const InputSchema = z.object({
   definition: resolvableValue(
     z.object({
       value: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  namespaces: z.string().array().optional(),
+  namespaces: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedpermissions_schema
 
 export function AwsVerifiedpermissionsSchema(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,13 @@ export function AwsVerifiedpermissionsSchema(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedpermissionsSchema = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVerifiedpermissionsSchema, node, id)
+export const useAwsVerifiedpermissionsSchema = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVerifiedpermissionsSchema, idFilter, baseNode)
 
-export const useAwsVerifiedpermissionsSchemas = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVerifiedpermissionsSchema, node, id)
+export const useAwsVerifiedpermissionsSchemas = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsVerifiedpermissionsSchema, idFilter, baseNode)

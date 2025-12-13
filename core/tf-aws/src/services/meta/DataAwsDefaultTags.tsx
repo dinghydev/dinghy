@@ -3,15 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/default_tags
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/default_tags
 
 export function DataAwsDefaultTags(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -42,5 +44,5 @@ export function DataAwsDefaultTags(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDefaultTagss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDefaultTags, node, id)
+export const useDataAwsDefaultTagss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDefaultTags, idFilter, baseNode)

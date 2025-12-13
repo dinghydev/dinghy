@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_session_context
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   issuer_arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_session_context
 
 export function DataAwsIamSessionContext(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function DataAwsIamSessionContext(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamSessionContext = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamSessionContext, node, id)
+export const useDataAwsIamSessionContext = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsIamSessionContext, idFilter, baseNode)
 
-export const useDataAwsIamSessionContexts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamSessionContext, node, id)
+export const useDataAwsIamSessionContexts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsIamSessionContext, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dax_subnet_group
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   subnet_ids: resolvableValue(z.string().array()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dax_subnet_group
 
 export function AwsDaxSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsDaxSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDaxSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDaxSubnetGroup, node, id)
+export const useAwsDaxSubnetGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDaxSubnetGroup, idFilter, baseNode)
 
-export const useAwsDaxSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDaxSubnetGroup, node, id)
+export const useAwsDaxSubnetGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDaxSubnetGroup, idFilter, baseNode)

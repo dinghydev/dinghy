@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_records_exclusive
 
 export const InputSchema = z.object({
   zone_id: resolvableValue(z.string()),
@@ -24,6 +23,32 @@ export const InputSchema = z.object({
       ttl: z.number().optional(),
       type: z.string().optional(),
       weight: z.number().optional(),
+      alias_target: z.object({
+        dns_name: z.string(),
+        evaluate_target_health: z.boolean(),
+        hosted_zone_id: z.string(),
+      }).array().optional(),
+      cidr_routing_config: z.object({
+        collection_id: z.string(),
+        location_name: z.string(),
+      }).array().optional(),
+      geolocation: z.object({
+        continent_code: z.string().optional(),
+        country_code: z.string().optional(),
+        subdivision_code: z.string().optional(),
+      }).array().optional(),
+      geoproximity_location: z.object({
+        aws_region: z.string().optional(),
+        bias: z.number().optional(),
+        local_zone_group: z.string().optional(),
+        coordinates: z.object({
+          latitude: z.string(),
+          longitude: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+      resource_records: z.object({
+        value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
   timeouts: resolvableValue(
@@ -32,7 +57,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -43,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_records_exclusive
 
 export function AwsRoute53RecordsExclusive(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +89,12 @@ export function AwsRoute53RecordsExclusive(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53RecordsExclusive = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53RecordsExclusive, node, id)
+export const useAwsRoute53RecordsExclusive = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRoute53RecordsExclusive, idFilter, baseNode)
 
-export const useAwsRoute53RecordsExclusives = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53RecordsExclusive, node, id)
+export const useAwsRoute53RecordsExclusives = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRoute53RecordsExclusive, idFilter, baseNode)

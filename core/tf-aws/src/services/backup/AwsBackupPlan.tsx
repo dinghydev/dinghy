@@ -3,22 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_plan
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-  advanced_backup_setting: resolvableValue(
-    z.object({
-      backup_options: z.record(z.string(), z.string()),
-      resource_type: z.string(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
   rule: resolvableValue(
     z.object({
       completion_window: z.number().optional(),
@@ -29,10 +21,30 @@ export const InputSchema = z.object({
       schedule_expression_timezone: z.string().optional(),
       start_window: z.number().optional(),
       target_vault_name: z.string(),
+      copy_action: z.object({
+        destination_vault_arn: z.string(),
+        lifecycle: z.object({
+          cold_storage_after: z.number().optional(),
+          delete_after: z.number().optional(),
+          opt_in_to_archive_for_supported_resources: z.boolean().optional(),
+        }).optional(),
+      }).array().optional(),
+      lifecycle: z.object({
+        cold_storage_after: z.number().optional(),
+        delete_after: z.number().optional(),
+        opt_in_to_archive_for_supported_resources: z.boolean().optional(),
+      }).optional(),
     }).array(),
   ),
+  advanced_backup_setting: resolvableValue(
+    z.object({
+      backup_options: z.record(z.string(), z.string()),
+      resource_type: z.string(),
+    }).array().optional(),
+  ),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_plan
 
 export function AwsBackupPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +81,8 @@ export function AwsBackupPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupPlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupPlan, node, id)
+export const useAwsBackupPlan = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBackupPlan, idFilter, baseNode)
 
-export const useAwsBackupPlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupPlan, node, id)
+export const useAwsBackupPlans = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBackupPlan, idFilter, baseNode)

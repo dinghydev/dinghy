@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policy
 
 export function AwsIamRolePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsIamRolePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamRolePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIamRolePolicy, node, id)
+export const useAwsIamRolePolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIamRolePolicy, idFilter, baseNode)
 
-export const useAwsIamRolePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIamRolePolicy, node, id)
+export const useAwsIamRolePolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIamRolePolicy, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWorkspacesDirectory } from './AwsWorkspacesDirectory.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/workspaces_directory
 
 export const InputSchema = z.object({
   certificate_based_auth_properties: resolvableValue(
@@ -26,21 +25,21 @@ export const InputSchema = z.object({
     }).array(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  active_directory_config: z.object({
+  active_directory_config: z.set(z.object({
     domain_name: z.string(),
     service_account_secret_arn: z.string(),
-  }).array().optional(),
+  })).optional(),
   alias: z.string().optional(),
   customer_user_name: z.string().optional(),
   directory_name: z.string().optional(),
   directory_type: z.string().optional(),
-  dns_ip_addresses: z.string().array().optional(),
+  dns_ip_addresses: z.set(z.string()).optional(),
   iam_role_id: z.string().optional(),
   id: z.string().optional(),
-  ip_group_ids: z.string().array().optional(),
+  ip_group_ids: z.set(z.string()).optional(),
   registration_code: z.string().optional(),
   self_service_permissions: z.object({
     change_compute_type: z.boolean(),
@@ -49,7 +48,7 @@ export const OutputSchema = z.object({
     restart_workspace: z.boolean(),
     switch_running_mode: z.boolean(),
   }).array().optional(),
-  subnet_ids: z.string().array().optional(),
+  subnet_ids: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   user_identity_type: z.string().optional(),
   workspace_access_properties: z.object({
@@ -82,6 +81,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/workspaces_directory
 
 export function DataAwsWorkspacesDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -100,8 +102,12 @@ export function DataAwsWorkspacesDirectory(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWorkspacesDirectory = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWorkspacesDirectory, node, id)
+export const useDataAwsWorkspacesDirectory = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsWorkspacesDirectory, idFilter, baseNode)
 
-export const useDataAwsWorkspacesDirectorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWorkspacesDirectory, node, id)
+export const useDataAwsWorkspacesDirectorys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsWorkspacesDirectory, idFilter, baseNode)

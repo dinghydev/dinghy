@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_selection
 
 export const InputSchema = z.object({
   iam_role_arn: resolvableValue(z.string()),
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
       value: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_selection
 
 export function AwsBackupSelection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,8 @@ export function AwsBackupSelection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupSelection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupSelection, node, id)
+export const useAwsBackupSelection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBackupSelection, idFilter, baseNode)
 
-export const useAwsBackupSelections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupSelection, node, id)
+export const useAwsBackupSelections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBackupSelection, idFilter, baseNode)

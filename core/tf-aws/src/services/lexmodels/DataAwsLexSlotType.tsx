@@ -2,27 +2,28 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLexSlotType } from './AwsLexSlotType.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lex_slot_type
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+  version: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   checksum: z.string().optional(),
   created_date: z.string().optional(),
   description: z.string().optional(),
-  enumeration_value: z.object({
+  enumeration_value: z.set(z.object({
     synonyms: z.string().array(),
     value: z.string(),
-  }).array().optional(),
+  })).optional(),
   last_updated_date: z.string().optional(),
   name: z.string().optional(),
   value_selection_strategy: z.string().optional(),
@@ -36,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lex_slot_type
 
 export function DataAwsLexSlotType(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +58,8 @@ export function DataAwsLexSlotType(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLexSlotType = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLexSlotType, node, id)
+export const useDataAwsLexSlotType = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLexSlotType, idFilter, baseNode)
 
-export const useDataAwsLexSlotTypes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLexSlotType, node, id)
+export const useDataAwsLexSlotTypes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLexSlotType, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_vpc_endpoint_association
 
 export const InputSchema = z.object({
   firewall_arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     z.object({
       ip_address_type: z.string().optional(),
       subnet_id: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -28,14 +27,14 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
   vpc_endpoint_association_arn: z.string().optional(),
   vpc_endpoint_association_id: z.string().optional(),
   vpc_endpoint_association_status: z.object({
-    association_sync_state: z.object({
+    association_sync_state: z.set(z.object({
       attachment: z.object({
         endpoint_id: z.string(),
         status: z.string(),
@@ -43,7 +42,7 @@ export const OutputSchema = z.object({
         subnet_id: z.string(),
       }).array(),
       availability_zone: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
 })
 
@@ -54,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_vpc_endpoint_association
 
 export function AwsNetworkfirewallVpcEndpointAssociation(
   props: Partial<InputProps>,
@@ -75,13 +77,21 @@ export function AwsNetworkfirewallVpcEndpointAssociation(
 }
 
 export const useAwsNetworkfirewallVpcEndpointAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkfirewallVpcEndpointAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsNetworkfirewallVpcEndpointAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkfirewallVpcEndpointAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkfirewallVpcEndpointAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsNetworkfirewallVpcEndpointAssociation,
+    idFilter,
+    baseNode,
+  )

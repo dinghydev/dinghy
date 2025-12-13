@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSesEmailIdentity } from './AwsSesEmailIdentity.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ses_email_identity
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ses_email_identity
 
 export function DataAwsSesEmailIdentity(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,10 @@ export function DataAwsSesEmailIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSesEmailIdentity = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSesEmailIdentity, node, id)
+export const useDataAwsSesEmailIdentity = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSesEmailIdentity, idFilter, baseNode)
 
-export const useDataAwsSesEmailIdentitys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSesEmailIdentity, node, id)
+export const useDataAwsSesEmailIdentitys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSesEmailIdentity, idFilter, baseNode)

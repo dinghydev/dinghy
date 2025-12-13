@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2Host } from './AwsEc2Host.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_host
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_host
 
 export function DataAwsEc2Host(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +70,8 @@ export function DataAwsEc2Host(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2Host = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEc2Host, node, id)
+export const useDataAwsEc2Host = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEc2Host, idFilter, baseNode)
 
-export const useDataAwsEc2Hosts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2Host, node, id)
+export const useDataAwsEc2Hosts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEc2Host, idFilter, baseNode)

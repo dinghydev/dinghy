@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_directory_buckets
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arns: z.string().array().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_directory_buckets
 
 export function DataAwsS3DirectoryBuckets(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,5 +46,7 @@ export function DataAwsS3DirectoryBuckets(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsS3DirectoryBucketss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsS3DirectoryBuckets, node, id)
+export const useDataAwsS3DirectoryBucketss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsS3DirectoryBuckets, idFilter, baseNode)

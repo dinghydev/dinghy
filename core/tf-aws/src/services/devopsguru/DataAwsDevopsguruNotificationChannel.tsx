@@ -2,27 +2,26 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDevopsguruNotificationChannel } from './AwsDevopsguruNotificationChannel.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/devopsguru_notification_channel
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   filters: z.object({
     message_types: z.string().array(),
     severities: z.string().array(),
-  }).optional().optional(),
+  }).array().optional().optional(),
   sns: z.object({
     topic_arn: z.string(),
-  }).optional().optional(),
+  }).array().optional().optional(),
 })
 
 export type InputProps =
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/devopsguru_notification_channel
 
 export function DataAwsDevopsguruNotificationChannel(
   props: Partial<InputProps>,
@@ -53,11 +55,21 @@ export function DataAwsDevopsguruNotificationChannel(
 }
 
 export const useDataAwsDevopsguruNotificationChannel = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsDevopsguruNotificationChannel, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDevopsguruNotificationChannel,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsDevopsguruNotificationChannels = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsDevopsguruNotificationChannel, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDevopsguruNotificationChannel,
+    idFilter,
+    baseNode,
+  )

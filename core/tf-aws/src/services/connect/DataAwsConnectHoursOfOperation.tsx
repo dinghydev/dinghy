@@ -2,22 +2,24 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectHoursOfOperation } from './AwsConnectHoursOfOperation.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_hours_of_operation
-
 export const InputSchema = z.object({
+  instance_id: resolvableValue(z.string()),
+  hours_of_operation_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  config: z.object({
+  config: z.set(z.object({
     day: z.string(),
     end_time: z.object({
       hours: z.number(),
@@ -27,7 +29,7 @@ export const OutputSchema = z.object({
       hours: z.number(),
       minutes: z.number(),
     }).array(),
-  }).array().optional(),
+  })).optional(),
   description: z.string().optional(),
   hours_of_operation_id: z.string().optional(),
   instance_id: z.string().optional(),
@@ -43,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_hours_of_operation
 
 export function DataAwsConnectHoursOfOperation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +66,14 @@ export function DataAwsConnectHoursOfOperation(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectHoursOfOperation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsConnectHoursOfOperation, node, id)
+export const useDataAwsConnectHoursOfOperation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsConnectHoursOfOperation, idFilter, baseNode)
 
-export const useDataAwsConnectHoursOfOperations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsConnectHoursOfOperation, node, id)
+export const useDataAwsConnectHoursOfOperations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsConnectHoursOfOperation, idFilter, baseNode)

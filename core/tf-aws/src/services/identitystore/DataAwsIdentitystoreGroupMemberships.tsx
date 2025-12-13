@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_group_memberships
 
 export const InputSchema = z.object({
   group_id: resolvableValue(z.string()),
   identity_store_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   group_memberships: z.object({
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_group_memberships
 
 export function DataAwsIdentitystoreGroupMemberships(
   props: Partial<InputProps>,
@@ -54,6 +56,11 @@ export function DataAwsIdentitystoreGroupMemberships(
 }
 
 export const useDataAwsIdentitystoreGroupMembershipss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsIdentitystoreGroupMemberships, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIdentitystoreGroupMemberships,
+    idFilter,
+    baseNode,
+  )

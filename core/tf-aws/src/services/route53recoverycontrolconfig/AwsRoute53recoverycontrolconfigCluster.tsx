@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoverycontrolconfig_cluster
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   network_type: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoverycontrolconfig_cluster
 
 export function AwsRoute53recoverycontrolconfigCluster(
   props: Partial<InputProps>,
@@ -55,12 +57,21 @@ export function AwsRoute53recoverycontrolconfigCluster(
 }
 
 export const useAwsRoute53recoverycontrolconfigCluster = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsRoute53recoverycontrolconfigCluster, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53recoverycontrolconfigCluster,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRoute53recoverycontrolconfigClusters = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsRoute53recoverycontrolconfigCluster, node, id)
+  useTypedNodes<OutputProps>(
+    AwsRoute53recoverycontrolconfigCluster,
+    idFilter,
+    baseNode,
+  )

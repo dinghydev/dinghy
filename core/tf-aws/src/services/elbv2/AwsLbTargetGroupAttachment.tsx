@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_target_group_attachment
 
 export const InputSchema = z.object({
   target_group_arn: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   availability_zone: resolvableValue(z.string().optional()),
   port: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_target_group_attachment
 
 export function AwsLbTargetGroupAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function AwsLbTargetGroupAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbTargetGroupAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLbTargetGroupAttachment, node, id)
+export const useAwsLbTargetGroupAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLbTargetGroupAttachment, idFilter, baseNode)
 
-export const useAwsLbTargetGroupAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLbTargetGroupAttachment, node, id)
+export const useAwsLbTargetGroupAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLbTargetGroupAttachment, idFilter, baseNode)

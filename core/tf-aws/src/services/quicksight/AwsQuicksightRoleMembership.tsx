@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_role_membership
 
 export const InputSchema = z.object({
   member_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   aws_account_id: resolvableValue(z.string().optional()),
   namespace: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_role_membership
 
 export function AwsQuicksightRoleMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsQuicksightRoleMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightRoleMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightRoleMembership, node, id)
+export const useAwsQuicksightRoleMembership = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsQuicksightRoleMembership, idFilter, baseNode)
 
-export const useAwsQuicksightRoleMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightRoleMembership, node, id)
+export const useAwsQuicksightRoleMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsQuicksightRoleMembership, idFilter, baseNode)

@@ -2,25 +2,25 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsFsxWindowsFileSystem } from './AwsFsxWindowsFileSystem.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_windows_file_system
-
 export const InputSchema = z.object({
   backup_id: resolvableValue(z.string()),
+  id: resolvableValue(z.string()),
   network_interface_ids: resolvableValue(z.string().array()),
   security_group_ids: resolvableValue(z.string().array()),
   skip_final_backup: resolvableValue(z.boolean()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   active_directory_id: z.string().optional(),
-  aliases: z.string().array().optional(),
+  aliases: z.set(z.string()).optional(),
   arn: z.string().optional(),
   audit_log_configuration: z.object({
     audit_log_destination: z.string(),
@@ -43,7 +43,7 @@ export const OutputSchema = z.object({
   preferred_subnet_id: z.string().optional(),
   storage_capacity: z.number().optional(),
   storage_type: z.string().optional(),
-  subnet_ids: z.string().array().optional(),
+  subnet_ids: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   throughput_capacity: z.number().optional(),
   vpc_id: z.string().optional(),
@@ -57,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/fsx_windows_file_system
 
 export function DataAwsFsxWindowsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +78,12 @@ export function DataAwsFsxWindowsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsFsxWindowsFileSystem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsFsxWindowsFileSystem, node, id)
+export const useDataAwsFsxWindowsFileSystem = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsFsxWindowsFileSystem, idFilter, baseNode)
 
-export const useDataAwsFsxWindowsFileSystems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsFsxWindowsFileSystem, node, id)
+export const useDataAwsFsxWindowsFileSystems = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsFsxWindowsFileSystem, idFilter, baseNode)

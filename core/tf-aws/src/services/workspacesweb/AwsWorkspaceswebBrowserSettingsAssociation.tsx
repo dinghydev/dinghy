@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_browser_settings_association
-
 export const InputSchema = z.object({
   browser_settings_arn: resolvableValue(z.string()),
   portal_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspacesweb_browser_settings_association
 
 export function AwsWorkspaceswebBrowserSettingsAssociation(
   props: Partial<InputProps>,
@@ -46,21 +48,21 @@ export function AwsWorkspaceswebBrowserSettingsAssociation(
 }
 
 export const useAwsWorkspaceswebBrowserSettingsAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebBrowserSettingsAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsWorkspaceswebBrowserSettingsAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebBrowserSettingsAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

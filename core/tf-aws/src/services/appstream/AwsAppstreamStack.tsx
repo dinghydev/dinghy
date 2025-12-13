@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_stack
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -50,7 +49,7 @@ export const InputSchema = z.object({
       permission: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -65,6 +64,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_stack
 
 export function AwsAppstreamStack(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -83,8 +85,8 @@ export function AwsAppstreamStack(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamStack = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppstreamStack, node, id)
+export const useAwsAppstreamStack = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppstreamStack, idFilter, baseNode)
 
-export const useAwsAppstreamStacks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppstreamStack, node, id)
+export const useAwsAppstreamStacks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppstreamStack, idFilter, baseNode)

@@ -76,6 +76,12 @@ const expandDimension = (
           } else {
             child._props._diagram.state.moveableBottom += diff
           }
+        } else {
+          if (dimension === 'width') {
+            ;(child._props as any)._diagram.geometry.x += expanded
+          } else {
+            ;(child._props as any)._diagram.geometry.y += expanded
+          }
         }
       } else {
         if (dimension === 'width') {
@@ -173,7 +179,7 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
     node._props._diagram.geometry.width = width
     node._props._diagram.state.moveableRight = 0
   } else {
-    deepResolve(node, (node._props as any)._diagram.geometry, 'width')
+    deepResolve((node._props as any)._diagram.geometry, 'width')
     const diff = (node._props as any)._diagram.geometry.width - width
     node._props._diagram.geometry.width = width
     expandDimension(node, 'width', diff)
@@ -183,7 +189,7 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
     node._props._diagram.geometry.height = height
     node._props._diagram.state.moveableBottom = 0
   } else {
-    deepResolve(node, (node._props as any)._diagram.geometry, 'height')
+    deepResolve((node._props as any)._diagram.geometry, 'height')
     const diff = (node._props as any)._diagram.geometry.height - height
     node._props._diagram.geometry.height = height
     expandDimension(node, 'height', diff)

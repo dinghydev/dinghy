@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/costoptimizationhub_preferences
-
 export const InputSchema = z.object({
   member_account_discount_visibility: resolvableValue(z.string().optional()),
   savings_estimation_mode: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/costoptimizationhub_preferences
 
 export function AwsCostoptimizationhubPreferences(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,6 +46,11 @@ export function AwsCostoptimizationhubPreferences(props: Partial<InputProps>) {
 }
 
 export const useAwsCostoptimizationhubPreferencess = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsCostoptimizationhubPreferences, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCostoptimizationhubPreferences,
+    idFilter,
+    baseNode,
+  )

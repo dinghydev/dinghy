@@ -3,17 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/load_balancer_backend_server_policy
-
 export const InputSchema = z.object({
+  instance_port: resolvableValue(z.number()),
+  load_balancer_name: resolvableValue(z.string()),
   policy_names: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/load_balancer_backend_server_policy
 
 export function AwsLoadBalancerBackendServerPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,11 +51,21 @@ export function AwsLoadBalancerBackendServerPolicy(props: Partial<InputProps>) {
 }
 
 export const useAwsLoadBalancerBackendServerPolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsLoadBalancerBackendServerPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLoadBalancerBackendServerPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsLoadBalancerBackendServerPolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsLoadBalancerBackendServerPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLoadBalancerBackendServerPolicy,
+    idFilter,
+    baseNode,
+  )

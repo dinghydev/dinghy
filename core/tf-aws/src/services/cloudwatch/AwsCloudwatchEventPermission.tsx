@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_permission
 
 export const InputSchema = z.object({
   principal: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   ),
   event_bus_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_permission
 
 export function AwsCloudwatchEventPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,13 @@ export function AwsCloudwatchEventPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventPermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchEventPermission, node, id)
+export const useAwsCloudwatchEventPermission = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchEventPermission, idFilter, baseNode)
 
-export const useAwsCloudwatchEventPermissions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventPermission, node, id)
+export const useAwsCloudwatchEventPermissions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudwatchEventPermission, idFilter, baseNode)

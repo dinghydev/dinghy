@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_version
 
 export const InputSchema = z.object({
   has_secret_string_wo: resolvableValue(z.boolean()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   secret_string_wo: resolvableValue(z.string().optional()),
   secret_string_wo_version: resolvableValue(z.number().optional()),
   version_stages: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_version
 
 export function AwsSecretsmanagerSecretVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,14 @@ export function AwsSecretsmanagerSecretVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecretsmanagerSecretVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecretVersion, node, id)
+export const useAwsSecretsmanagerSecretVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSecretsmanagerSecretVersion, idFilter, baseNode)
 
-export const useAwsSecretsmanagerSecretVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretVersion, node, id)
+export const useAwsSecretsmanagerSecretVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretVersion, idFilter, baseNode)

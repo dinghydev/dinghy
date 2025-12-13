@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_export_task
 
 export const InputSchema = z.object({
   export_task_identifier: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   failure_cause: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_export_task
 
 export function AwsRdsExportTask(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function AwsRdsExportTask(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsExportTask = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRdsExportTask, node, id)
+export const useAwsRdsExportTask = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRdsExportTask, idFilter, baseNode)
 
-export const useAwsRdsExportTasks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRdsExportTask, node, id)
+export const useAwsRdsExportTasks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRdsExportTask, idFilter, baseNode)

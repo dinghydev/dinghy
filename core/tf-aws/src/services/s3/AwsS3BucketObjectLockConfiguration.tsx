@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_object_lock_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   token: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_object_lock_configuration
 
 export function AwsS3BucketObjectLockConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,11 +59,21 @@ export function AwsS3BucketObjectLockConfiguration(props: Partial<InputProps>) {
 }
 
 export const useAwsS3BucketObjectLockConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsS3BucketObjectLockConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketObjectLockConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3BucketObjectLockConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsS3BucketObjectLockConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3BucketObjectLockConfiguration,
+    idFilter,
+    baseNode,
+  )

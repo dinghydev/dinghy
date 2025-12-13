@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsS3BucketPolicy } from './AwsS3BucketPolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_policy
-
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   policy: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_policy
 
 export function DataAwsS3BucketPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function DataAwsS3BucketPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsS3BucketPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsS3BucketPolicy, node, id)
+export const useDataAwsS3BucketPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsS3BucketPolicy, idFilter, baseNode)
 
-export const useDataAwsS3BucketPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsS3BucketPolicy, node, id)
+export const useDataAwsS3BucketPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsS3BucketPolicy, idFilter, baseNode)

@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSnsTopic } from './AwsSnsTopic.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sns_topic
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sns_topic
 
 export function DataAwsSnsTopic(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function DataAwsSnsTopic(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSnsTopic = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSnsTopic, node, id)
+export const useDataAwsSnsTopic = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSnsTopic, idFilter, baseNode)
 
-export const useDataAwsSnsTopics = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSnsTopic, node, id)
+export const useDataAwsSnsTopics = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsSnsTopic, idFilter, baseNode)

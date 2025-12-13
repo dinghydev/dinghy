@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway_association_proposal
 
 export const InputSchema = z.object({
   associated_gateway_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   dx_gateway_owner_account_id: resolvableValue(z.string()),
   allowed_prefixes: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   associated_gateway_owner_account_id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway_association_proposal
 
 export function AwsDxGatewayAssociationProposal(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,18 @@ export function AwsDxGatewayAssociationProposal(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxGatewayAssociationProposal = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxGatewayAssociationProposal, node, id)
+export const useAwsDxGatewayAssociationProposal = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsDxGatewayAssociationProposal, idFilter, baseNode)
 
-export const useAwsDxGatewayAssociationProposals = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxGatewayAssociationProposal, node, id)
+export const useAwsDxGatewayAssociationProposals = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDxGatewayAssociationProposal,
+    idFilter,
+    baseNode,
+  )

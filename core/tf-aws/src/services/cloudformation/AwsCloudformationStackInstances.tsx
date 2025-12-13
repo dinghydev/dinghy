@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudformation_stack_instances
 
 export const InputSchema = z.object({
   stack_set_name: resolvableValue(z.string()),
@@ -46,7 +45,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   stack_instance_summaries: z.object({
@@ -70,6 +69,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudformation_stack_instances
 
 export function AwsCloudformationStackInstances(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -88,5 +90,12 @@ export function AwsCloudformationStackInstances(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudformationStackInstancess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudformationStackInstances, node, id)
+export const useAwsCloudformationStackInstancess = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudformationStackInstances,
+    idFilter,
+    baseNode,
+  )

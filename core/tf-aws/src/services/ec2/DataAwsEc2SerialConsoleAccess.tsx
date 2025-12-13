@@ -2,12 +2,11 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2SerialConsoleAccess } from './AwsEc2SerialConsoleAccess.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_serial_console_access
 
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   enabled: z.boolean().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_serial_console_access
 
 export function DataAwsEc2SerialConsoleAccess(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,5 +50,8 @@ export function DataAwsEc2SerialConsoleAccess(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2SerialConsoleAccesss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEc2SerialConsoleAccess, node, id)
+export const useDataAwsEc2SerialConsoleAccesss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEc2SerialConsoleAccess, idFilter, baseNode)

@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCloudwatchLogGroup } from './AwsCloudwatchLogGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_log_group
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_log_group
 
 export function DataAwsCloudwatchLogGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function DataAwsCloudwatchLogGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCloudwatchLogGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCloudwatchLogGroup, node, id)
+export const useDataAwsCloudwatchLogGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsCloudwatchLogGroup, idFilter, baseNode)
 
-export const useDataAwsCloudwatchLogGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCloudwatchLogGroup, node, id)
+export const useDataAwsCloudwatchLogGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsCloudwatchLogGroup, idFilter, baseNode)

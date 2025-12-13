@@ -3,18 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_container_service
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   power: resolvableValue(z.string()),
   scale: resolvableValue(z.number()),
   is_disabled: resolvableValue(z.boolean().optional()),
+  private_registry_access: resolvableValue(
+    z.object({
+      ecr_image_puller_role: z.object({
+        is_active: z.boolean().optional(),
+        principal_arn: z.string(),
+      }).optional(),
+    }).optional(),
+  ),
   public_domain_names: resolvableValue(
     z.object({
       certificate: z.object({
@@ -32,7 +39,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,6 +68,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_container_service
 
 export function AwsLightsailContainerService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +89,13 @@ export function AwsLightsailContainerService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailContainerService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailContainerService, node, id)
+export const useAwsLightsailContainerService = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLightsailContainerService, idFilter, baseNode)
 
-export const useAwsLightsailContainerServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailContainerService, node, id)
+export const useAwsLightsailContainerServices = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailContainerService, idFilter, baseNode)

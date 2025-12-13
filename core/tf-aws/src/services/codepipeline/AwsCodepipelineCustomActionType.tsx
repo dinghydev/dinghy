@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline_custom_action_type
 
 export const InputSchema = z.object({
   category: resolvableValue(z.string()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
       required: z.boolean(),
       secret: z.boolean(),
       type: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   settings: resolvableValue(
@@ -43,7 +42,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codepipeline_custom_action_type
 
 export function AwsCodepipelineCustomActionType(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,18 @@ export function AwsCodepipelineCustomActionType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodepipelineCustomActionType = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodepipelineCustomActionType, node, id)
+export const useAwsCodepipelineCustomActionType = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCodepipelineCustomActionType, idFilter, baseNode)
 
-export const useAwsCodepipelineCustomActionTypes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodepipelineCustomActionType, node, id)
+export const useAwsCodepipelineCustomActionTypes = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodepipelineCustomActionType,
+    idFilter,
+    baseNode,
+  )

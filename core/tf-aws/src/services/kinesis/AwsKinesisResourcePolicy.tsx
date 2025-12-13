@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesis_resource_policy
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesis_resource_policy
 
 export function AwsKinesisResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsKinesisResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKinesisResourcePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKinesisResourcePolicy, node, id)
+export const useAwsKinesisResourcePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsKinesisResourcePolicy, idFilter, baseNode)
 
-export const useAwsKinesisResourcePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKinesisResourcePolicy, node, id)
+export const useAwsKinesisResourcePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsKinesisResourcePolicy, idFilter, baseNode)

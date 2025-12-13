@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot_version
 
 export const InputSchema = z.object({
   bot_id: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   bot_version: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot_version
 
 export function AwsLexv2modelsBotVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsLexv2modelsBotVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsBotVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsBotVersion, node, id)
+export const useAwsLexv2modelsBotVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLexv2modelsBotVersion, idFilter, baseNode)
 
-export const useAwsLexv2modelsBotVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsBotVersion, node, id)
+export const useAwsLexv2modelsBotVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLexv2modelsBotVersion, idFilter, baseNode)

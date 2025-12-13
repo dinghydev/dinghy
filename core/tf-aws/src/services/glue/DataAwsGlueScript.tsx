@@ -3,27 +3,35 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/glue_script
-
 export const InputSchema = z.object({
-  dag_edge: resolvableValue(z.object({
-    source: z.string(),
-    target: z.string(),
-    target_parameter: z.string().optional(),
-  })),
-  dag_node: resolvableValue(z.object({
-    id: z.string(),
-    line_number: z.number().optional(),
-    node_type: z.string(),
-  })),
+  dag_edge: resolvableValue(
+    z.object({
+      source: z.string(),
+      target: z.string(),
+      target_parameter: z.string().optional(),
+    }).array(),
+  ),
+  dag_node: resolvableValue(
+    z.object({
+      id: z.string(),
+      line_number: z.number().optional(),
+      node_type: z.string(),
+      args: z.object({
+        name: z.string(),
+        param: z.boolean().optional(),
+        value: z.string(),
+      }).array(),
+    }).array(),
+  ),
   language: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -38,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/glue_script
 
 export function DataAwsGlueScript(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +67,8 @@ export function DataAwsGlueScript(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGlueScript = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsGlueScript, node, id)
+export const useDataAwsGlueScript = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsGlueScript, idFilter, baseNode)
 
-export const useDataAwsGlueScripts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsGlueScript, node, id)
+export const useDataAwsGlueScripts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsGlueScript, idFilter, baseNode)

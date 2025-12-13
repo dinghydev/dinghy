@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLambdaLayerVersion } from './AwsLambdaLayerVersion.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_layer_version
 
 export const InputSchema = z.object({
   layer_name: resolvableValue(z.string()),
@@ -16,13 +15,14 @@ export const InputSchema = z.object({
   compatible_runtime: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+  version: resolvableValue(z.number().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   code_sha256: z.string().optional(),
-  compatible_architectures: z.string().array().optional(),
-  compatible_runtimes: z.string().array().optional(),
+  compatible_architectures: z.set(z.string()).optional(),
+  compatible_runtimes: z.set(z.string()).optional(),
   created_date: z.string().optional(),
   description: z.string().optional(),
   layer_arn: z.string().optional(),
@@ -41,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_layer_version
 
 export function DataAwsLambdaLayerVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +62,12 @@ export function DataAwsLambdaLayerVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaLayerVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLambdaLayerVersion, node, id)
+export const useDataAwsLambdaLayerVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsLambdaLayerVersion, idFilter, baseNode)
 
-export const useDataAwsLambdaLayerVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaLayerVersion, node, id)
+export const useDataAwsLambdaLayerVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsLambdaLayerVersion, idFilter, baseNode)

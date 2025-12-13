@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_ciphertext
 
 export const InputSchema = z.object({
   key_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   context: resolvableValue(z.record(z.string(), z.string()).optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   ciphertext_blob: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_ciphertext
 
 export function AwsKmsCiphertext(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsKmsCiphertext(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsCiphertext = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsKmsCiphertext, node, id)
+export const useAwsKmsCiphertext = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsKmsCiphertext, idFilter, baseNode)
 
-export const useAwsKmsCiphertexts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsKmsCiphertext, node, id)
+export const useAwsKmsCiphertexts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsKmsCiphertext, idFilter, baseNode)

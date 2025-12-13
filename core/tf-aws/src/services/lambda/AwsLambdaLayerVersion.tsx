@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_layer_version
 
 export const InputSchema = z.object({
   layer_name: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   s3_object_version: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
   source_code_hash: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_layer_version
 
 export function AwsLambdaLayerVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function AwsLambdaLayerVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaLayerVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaLayerVersion, node, id)
+export const useAwsLambdaLayerVersion = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLambdaLayerVersion, idFilter, baseNode)
 
-export const useAwsLambdaLayerVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaLayerVersion, node, id)
+export const useAwsLambdaLayerVersions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLambdaLayerVersion, idFilter, baseNode)

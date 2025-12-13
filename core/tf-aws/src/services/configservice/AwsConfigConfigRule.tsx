@@ -3,15 +3,28 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_config_rule
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
+  source: resolvableValue(z.object({
+    owner: z.string(),
+    source_identifier: z.string().optional(),
+    custom_policy_details: z.object({
+      enable_debug_log_delivery: z.boolean().optional(),
+      policy_runtime: z.string(),
+      policy_text: z.string(),
+    }).optional(),
+    source_detail: z.object({
+      event_source: z.string().optional(),
+      maximum_execution_frequency: z.string().optional(),
+      message_type: z.string().optional(),
+    }).array().optional(),
+  })),
   description: resolvableValue(z.string().optional()),
   evaluation_mode: resolvableValue(
     z.object({
@@ -30,12 +43,8 @@ export const InputSchema = z.object({
       tag_value: z.string().optional(),
     }).optional(),
   ),
-  source: resolvableValue(z.object({
-    owner: z.string(),
-    source_identifier: z.string().optional(),
-  })),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_config_rule
 
 export function AwsConfigConfigRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,8 +80,8 @@ export function AwsConfigConfigRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigConfigRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigConfigRule, node, id)
+export const useAwsConfigConfigRule = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsConfigConfigRule, idFilter, baseNode)
 
-export const useAwsConfigConfigRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConfigConfigRule, node, id)
+export const useAwsConfigConfigRules = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsConfigConfigRule, idFilter, baseNode)

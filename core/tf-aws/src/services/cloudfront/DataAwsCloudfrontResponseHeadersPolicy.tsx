@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCloudfrontResponseHeadersPolicy } from './AwsCloudfrontResponseHeadersPolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_response_headers_policy
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -21,32 +20,32 @@ export const OutputSchema = z.object({
   cors_config: z.object({
     access_control_allow_credentials: z.boolean(),
     access_control_allow_headers: z.object({
-      items: z.string().array(),
+      items: z.set(z.string()),
     }).array(),
     access_control_allow_methods: z.object({
-      items: z.string().array(),
+      items: z.set(z.string()),
     }).array(),
     access_control_allow_origins: z.object({
-      items: z.string().array(),
+      items: z.set(z.string()),
     }).array(),
     access_control_expose_headers: z.object({
-      items: z.string().array(),
+      items: z.set(z.string()),
     }).array(),
     access_control_max_age_sec: z.number(),
     origin_override: z.boolean(),
   }).array().optional(),
   custom_headers_config: z.object({
-    items: z.object({
+    items: z.set(z.object({
       header: z.string(),
       override: z.boolean(),
       value: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
   etag: z.string().optional(),
   remove_headers_config: z.object({
-    items: z.object({
+    items: z.set(z.object({
       header: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
   security_headers_config: z.object({
     content_security_policy: z.object({
@@ -90,6 +89,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_response_headers_policy
 
 export function DataAwsCloudfrontResponseHeadersPolicy(
   props: Partial<InputProps>,
@@ -111,12 +113,21 @@ export function DataAwsCloudfrontResponseHeadersPolicy(
 }
 
 export const useDataAwsCloudfrontResponseHeadersPolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsCloudfrontResponseHeadersPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudfrontResponseHeadersPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCloudfrontResponseHeadersPolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsCloudfrontResponseHeadersPolicy, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsCloudfrontResponseHeadersPolicy,
+    idFilter,
+    baseNode,
+  )

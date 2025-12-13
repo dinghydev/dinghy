@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_configuration_set
 
 export const InputSchema = z.object({
   configuration_set_name: resolvableValue(z.string()),
@@ -21,6 +20,12 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  reputation_options: resolvableValue(
+    z.object({
+      last_fresh_start: z.string(),
+      reputation_metrics_enabled: z.boolean().optional(),
+    }).optional(),
+  ),
   sending_options: resolvableValue(
     z.object({
       sending_enabled: z.boolean().optional(),
@@ -49,7 +54,7 @@ export const InputSchema = z.object({
       }).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -66,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_configuration_set
 
 export function AwsSesv2ConfigurationSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +92,12 @@ export function AwsSesv2ConfigurationSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2ConfigurationSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesv2ConfigurationSet, node, id)
+export const useAwsSesv2ConfigurationSet = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSesv2ConfigurationSet, idFilter, baseNode)
 
-export const useAwsSesv2ConfigurationSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesv2ConfigurationSet, node, id)
+export const useAwsSesv2ConfigurationSets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSesv2ConfigurationSet, idFilter, baseNode)

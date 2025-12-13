@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_network_profile
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   uplink_delay_ms: resolvableValue(z.number().optional()),
   uplink_jitter_ms: resolvableValue(z.number().optional()),
   uplink_loss_percent: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_network_profile
 
 export function AwsDevicefarmNetworkProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,12 @@ export function AwsDevicefarmNetworkProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevicefarmNetworkProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDevicefarmNetworkProfile, node, id)
+export const useAwsDevicefarmNetworkProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDevicefarmNetworkProfile, idFilter, baseNode)
 
-export const useAwsDevicefarmNetworkProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmNetworkProfile, node, id)
+export const useAwsDevicefarmNetworkProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDevicefarmNetworkProfile, idFilter, baseNode)

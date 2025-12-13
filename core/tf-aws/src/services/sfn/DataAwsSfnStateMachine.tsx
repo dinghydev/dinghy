@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSfnStateMachine } from './AwsSfnStateMachine.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sfn_state_machine
-
 export const InputSchema = z.object({
   description: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sfn_state_machine
 
 export function DataAwsSfnStateMachine(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function DataAwsSfnStateMachine(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSfnStateMachine = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSfnStateMachine, node, id)
+export const useDataAwsSfnStateMachine = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsSfnStateMachine, idFilter, baseNode)
 
-export const useDataAwsSfnStateMachines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSfnStateMachine, node, id)
+export const useDataAwsSfnStateMachines = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsSfnStateMachine, idFilter, baseNode)

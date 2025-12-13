@@ -3,16 +3,26 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_multi_region_access_point
-
 export const InputSchema = z.object({
   details: resolvableValue(z.object({
     name: z.string(),
+    public_access_block: z.object({
+      block_public_acls: z.boolean().optional(),
+      block_public_policy: z.boolean().optional(),
+      ignore_public_acls: z.boolean().optional(),
+      restrict_public_buckets: z.boolean().optional(),
+    }).optional(),
+    region: z.object({
+      bucket: z.string(),
+      bucket_account_id: z.string().optional(),
+      region: z.string(),
+    }).array(),
   })),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -22,7 +32,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -39,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_multi_region_access_point
 
 export function AwsS3controlMultiRegionAccessPoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,11 +71,21 @@ export function AwsS3controlMultiRegionAccessPoint(props: Partial<InputProps>) {
 }
 
 export const useAwsS3controlMultiRegionAccessPoint = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsS3controlMultiRegionAccessPoint, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3controlMultiRegionAccessPoint,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3controlMultiRegionAccessPoints = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsS3controlMultiRegionAccessPoint, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3controlMultiRegionAccessPoint,
+    idFilter,
+    baseNode,
+  )

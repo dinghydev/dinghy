@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_model_package_group_policy
-
 export const InputSchema = z.object({
   model_package_group_name: resolvableValue(z.string()),
   resource_policy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_model_package_group_policy
 
 export function AwsSagemakerModelPackageGroupPolicy(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsSagemakerModelPackageGroupPolicy(
 }
 
 export const useAwsSagemakerModelPackageGroupPolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsSagemakerModelPackageGroupPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerModelPackageGroupPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSagemakerModelPackageGroupPolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSagemakerModelPackageGroupPolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerModelPackageGroupPolicy,
+    idFilter,
+    baseNode,
+  )

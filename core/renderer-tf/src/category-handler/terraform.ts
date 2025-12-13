@@ -16,7 +16,7 @@ export const terraform = (
   const tfElement = node._props._terraform
     ? node._props._terraform
     : requiredSchema(node, '_inputSchema').parse(node._props)
-  deepResolve(node, tfElement)
+  deepResolve(tfElement)
 
   const terraformRoot: any = tfRoot[category] ??= {}
   deepMerge(terraformRoot, tfElement)

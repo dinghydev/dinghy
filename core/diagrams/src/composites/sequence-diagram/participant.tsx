@@ -1,5 +1,4 @@
 import { type NodeProps, Rows, Shape } from '@dinghy/base-components'
-import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 
 type ParticipantProps = {
   _width: number
@@ -25,7 +24,7 @@ export function Participant(
   const Icon = icon || Shape
   const dashedLineHeight = hasIcon
     ? lifelineHeight
-    : lifelineHeight + defaultDiagramOptions.dimension.textHeight + paddingY / 2
+    : lifelineHeight + 20 + paddingY / 2
   return (
     <Rows>
       <Icon

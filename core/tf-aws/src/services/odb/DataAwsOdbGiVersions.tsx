@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_gi_versions
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   shape: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   gi_versions: z.object({
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_gi_versions
 
 export function DataAwsOdbGiVersions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,5 +47,5 @@ export function DataAwsOdbGiVersions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbGiVersionss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOdbGiVersions, node, id)
+export const useDataAwsOdbGiVersionss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOdbGiVersions, idFilter, baseNode)

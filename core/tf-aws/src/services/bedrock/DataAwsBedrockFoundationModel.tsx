@@ -3,26 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_foundation_model
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   model_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  customizations_supported: z.string().array().optional(),
-  inference_types_supported: z.string().array().optional(),
-  input_modalities: z.string().array().optional(),
+  customizations_supported: z.set(z.string()).optional(),
+  inference_types_supported: z.set(z.string()).optional(),
+  input_modalities: z.set(z.string()).optional(),
   model_arn: z.string().optional(),
   model_name: z.string().optional(),
-  output_modalities: z.string().array().optional(),
+  output_modalities: z.set(z.string()).optional(),
   provider_name: z.string().optional(),
   response_streaming_supported: z.boolean().optional(),
 })
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_foundation_model
 
 export function DataAwsBedrockFoundationModel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,14 @@ export function DataAwsBedrockFoundationModel(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBedrockFoundationModel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBedrockFoundationModel, node, id)
+export const useDataAwsBedrockFoundationModel = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsBedrockFoundationModel, idFilter, baseNode)
 
-export const useDataAwsBedrockFoundationModels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockFoundationModel, node, id)
+export const useDataAwsBedrockFoundationModels = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsBedrockFoundationModel, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_domain_name_access_association
 
 export const InputSchema = z.object({
   access_association_source: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   domain_name_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_domain_name_access_association
 
 export function AwsApiGatewayDomainNameAccessAssociation(
   props: Partial<InputProps>,
@@ -58,13 +60,21 @@ export function AwsApiGatewayDomainNameAccessAssociation(
 }
 
 export const useAwsApiGatewayDomainNameAccessAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayDomainNameAccessAssociation, node, id)
+  useTypedNode<OutputProps>(
+    AwsApiGatewayDomainNameAccessAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsApiGatewayDomainNameAccessAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayDomainNameAccessAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayDomainNameAccessAssociation,
+    idFilter,
+    baseNode,
+  )

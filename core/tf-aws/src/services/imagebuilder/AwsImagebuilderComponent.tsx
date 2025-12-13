@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_component
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   supported_os_versions: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   uri: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_component
 
 export function AwsImagebuilderComponent(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,12 @@ export function AwsImagebuilderComponent(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsImagebuilderComponent = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsImagebuilderComponent, node, id)
+export const useAwsImagebuilderComponent = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsImagebuilderComponent, idFilter, baseNode)
 
-export const useAwsImagebuilderComponents = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderComponent, node, id)
+export const useAwsImagebuilderComponents = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsImagebuilderComponent, idFilter, baseNode)

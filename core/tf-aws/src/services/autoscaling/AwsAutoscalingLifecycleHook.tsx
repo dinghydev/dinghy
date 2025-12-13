@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_lifecycle_hook
 
 export const InputSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   notification_target_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscaling_lifecycle_hook
 
 export function AwsAutoscalingLifecycleHook(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsAutoscalingLifecycleHook(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingLifecycleHook = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAutoscalingLifecycleHook, node, id)
+export const useAwsAutoscalingLifecycleHook = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAutoscalingLifecycleHook, idFilter, baseNode)
 
-export const useAwsAutoscalingLifecycleHooks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingLifecycleHook, node, id)
+export const useAwsAutoscalingLifecycleHooks = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAutoscalingLifecycleHook, idFilter, baseNode)

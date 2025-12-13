@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_network_insights_path
 
 export const InputSchema = z.object({
   protocol: resolvableValue(z.string()),
@@ -20,18 +19,34 @@ export const InputSchema = z.object({
     z.object({
       destination_address: z.string().optional(),
       source_address: z.string().optional(),
+      destination_port_range: z.object({
+        from_port: z.number().optional(),
+        to_port: z.number().optional(),
+      }).optional(),
+      source_port_range: z.object({
+        from_port: z.number().optional(),
+        to_port: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   filter_at_source: resolvableValue(
     z.object({
       destination_address: z.string().optional(),
       source_address: z.string().optional(),
+      destination_port_range: z.object({
+        from_port: z.number().optional(),
+        to_port: z.number().optional(),
+      }).optional(),
+      source_port_range: z.object({
+        from_port: z.number().optional(),
+        to_port: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
   source_ip: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +63,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_network_insights_path
 
 export function AwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +84,12 @@ export function AwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2NetworkInsightsPath = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2NetworkInsightsPath, node, id)
+export const useAwsEc2NetworkInsightsPath = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsEc2NetworkInsightsPath, idFilter, baseNode)
 
-export const useAwsEc2NetworkInsightsPaths = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2NetworkInsightsPath, node, id)
+export const useAwsEc2NetworkInsightsPaths = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsEc2NetworkInsightsPath, idFilter, baseNode)

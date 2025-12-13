@@ -2,18 +2,21 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53Zone } from './AwsRoute53Zone.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_zone
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
+  name: resolvableValue(z.string().optional()),
+  private_zone: resolvableValue(z.boolean().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_id: resolvableValue(z.string().optional()),
-})
+  zone_id: resolvableValue(z.string().optional()),
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_zone
 
 export function DataAwsRoute53Zone(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +61,8 @@ export function DataAwsRoute53Zone(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute53Zone = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRoute53Zone, node, id)
+export const useDataAwsRoute53Zone = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsRoute53Zone, idFilter, baseNode)
 
-export const useDataAwsRoute53Zones = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53Zone, node, id)
+export const useDataAwsRoute53Zones = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsRoute53Zone, idFilter, baseNode)

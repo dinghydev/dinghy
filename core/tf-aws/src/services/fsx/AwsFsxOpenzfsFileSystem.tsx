@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_openzfs_file_system
 
 export const InputSchema = z.object({
   deployment_type: resolvableValue(z.string()),
@@ -39,6 +38,17 @@ export const InputSchema = z.object({
       data_compression_type: z.string().optional(),
       read_only: z.boolean().optional(),
       record_size_kib: z.number().optional(),
+      nfs_exports: z.object({
+        client_configurations: z.object({
+          clients: z.string(),
+          options: z.string().array(),
+        }).array(),
+      }).optional(),
+      user_and_group_quotas: z.object({
+        id: z.number(),
+        storage_capacity_quota_gib: z.number(),
+        type: z.string(),
+      }).array().optional(),
     }).optional(),
   ),
   route_table_ids: resolvableValue(z.string().array().optional()),
@@ -55,7 +65,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   weekly_maintenance_start_time: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -76,6 +86,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_openzfs_file_system
 
 export function AwsFsxOpenzfsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -94,8 +107,10 @@ export function AwsFsxOpenzfsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxOpenzfsFileSystem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxOpenzfsFileSystem, node, id)
+export const useAwsFsxOpenzfsFileSystem = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFsxOpenzfsFileSystem, idFilter, baseNode)
 
-export const useAwsFsxOpenzfsFileSystems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxOpenzfsFileSystem, node, id)
+export const useAwsFsxOpenzfsFileSystems = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsFsxOpenzfsFileSystem, idFilter, baseNode)

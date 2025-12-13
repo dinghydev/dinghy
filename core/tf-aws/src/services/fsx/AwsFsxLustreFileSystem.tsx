@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_lustre_file_system
 
 export const InputSchema = z.object({
   subnet_ids: resolvableValue(z.string().array()),
@@ -69,7 +68,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   weekly_maintenance_start_time: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -89,6 +88,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_lustre_file_system
 
 export function AwsFsxLustreFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -107,8 +109,8 @@ export function AwsFsxLustreFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxLustreFileSystem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxLustreFileSystem, node, id)
+export const useAwsFsxLustreFileSystem = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFsxLustreFileSystem, idFilter, baseNode)
 
-export const useAwsFsxLustreFileSystems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxLustreFileSystem, node, id)
+export const useAwsFsxLustreFileSystems = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFsxLustreFileSystem, idFilter, baseNode)

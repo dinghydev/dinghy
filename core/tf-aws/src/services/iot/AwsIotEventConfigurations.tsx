@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_event_configurations
 
 export const InputSchema = z.object({
   event_configurations: resolvableValue(z.record(z.string(), z.boolean())),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -24,6 +23,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_event_configurations
 
 export function AwsIotEventConfigurations(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -42,5 +44,7 @@ export function AwsIotEventConfigurations(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotEventConfigurationss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotEventConfigurations, node, id)
+export const useAwsIotEventConfigurationss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIotEventConfigurations, idFilter, baseNode)

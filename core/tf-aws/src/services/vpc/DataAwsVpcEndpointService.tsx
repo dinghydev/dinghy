@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpcEndpointService } from './AwsVpcEndpointService.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_endpoint_service
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -22,26 +21,27 @@ export const InputSchema = z.object({
   service_name: resolvableValue(z.string().optional()),
   service_regions: resolvableValue(z.string().array().optional()),
   service_type: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   acceptance_required: z.boolean().optional(),
   arn: z.string().optional(),
-  availability_zones: z.string().array().optional(),
-  base_endpoint_dns_names: z.string().array().optional(),
+  availability_zones: z.set(z.string()).optional(),
+  base_endpoint_dns_names: z.set(z.string()).optional(),
   manages_vpc_endpoints: z.boolean().optional(),
   owner: z.string().optional(),
   private_dns_name: z.string().optional(),
-  private_dns_names: z.string().array().optional(),
+  private_dns_names: z.set(z.string()).optional(),
   region: z.string().optional(),
   service_id: z.string().optional(),
   service_region: z.string().optional(),
-  supported_ip_address_types: z.string().array().optional(),
+  supported_ip_address_types: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   vpc_endpoint_policy_supported: z.boolean().optional(),
 })
@@ -53,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_endpoint_service
 
 export function DataAwsVpcEndpointService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +74,12 @@ export function DataAwsVpcEndpointService(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcEndpointService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpcEndpointService, node, id)
+export const useDataAwsVpcEndpointService = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsVpcEndpointService, idFilter, baseNode)
 
-export const useDataAwsVpcEndpointServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpcEndpointService, node, id)
+export const useDataAwsVpcEndpointServices = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsVpcEndpointService, idFilter, baseNode)

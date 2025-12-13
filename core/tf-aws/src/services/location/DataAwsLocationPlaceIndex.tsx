@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLocationPlaceIndex } from './AwsLocationPlaceIndex.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_place_index
-
 export const InputSchema = z.object({
   index_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   create_time: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/location_place_index
 
 export function DataAwsLocationPlaceIndex(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,12 @@ export function DataAwsLocationPlaceIndex(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLocationPlaceIndex = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLocationPlaceIndex, node, id)
+export const useDataAwsLocationPlaceIndex = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsLocationPlaceIndex, idFilter, baseNode)
 
-export const useDataAwsLocationPlaceIndexs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLocationPlaceIndex, node, id)
+export const useDataAwsLocationPlaceIndexs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsLocationPlaceIndex, idFilter, baseNode)

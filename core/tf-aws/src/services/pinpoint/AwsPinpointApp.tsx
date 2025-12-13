@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_app
 
 export const InputSchema = z.object({
   campaign_hook: resolvableValue(
@@ -37,7 +36,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   application_id: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_app
 
 export function AwsPinpointApp(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +72,8 @@ export function AwsPinpointApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointApp = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsPinpointApp, node, id)
+export const useAwsPinpointApp = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsPinpointApp, idFilter, baseNode)
 
-export const useAwsPinpointApps = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsPinpointApp, node, id)
+export const useAwsPinpointApps = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsPinpointApp, idFilter, baseNode)

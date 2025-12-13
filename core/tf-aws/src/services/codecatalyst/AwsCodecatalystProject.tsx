@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codecatalyst_project
 
 export const InputSchema = z.object({
   display_name: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codecatalyst_project
 
 export function AwsCodecatalystProject(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,8 @@ export function AwsCodecatalystProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodecatalystProject = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodecatalystProject, node, id)
+export const useAwsCodecatalystProject = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodecatalystProject, idFilter, baseNode)
 
-export const useAwsCodecatalystProjects = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodecatalystProject, node, id)
+export const useAwsCodecatalystProjects = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodecatalystProject, idFilter, baseNode)

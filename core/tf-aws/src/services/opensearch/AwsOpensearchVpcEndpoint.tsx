@@ -3,15 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_vpc_endpoint
-
 export const InputSchema = z.object({
   domain_arn: resolvableValue(z.string()),
+  vpc_options: resolvableValue(z.object({
+    availability_zones: z.string().array(),
+    security_group_ids: z.string().array().optional(),
+    subnet_ids: z.string().array(),
+    vpc_id: z.string(),
+  })),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -20,13 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-  vpc_options: resolvableValue(z.object({
-    availability_zones: z.string().array(),
-    security_group_ids: z.string().array().optional(),
-    subnet_ids: z.string().array(),
-    vpc_id: z.string(),
-  })),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   endpoint: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_vpc_endpoint
 
 export function AwsOpensearchVpcEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsOpensearchVpcEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchVpcEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOpensearchVpcEndpoint, node, id)
+export const useAwsOpensearchVpcEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsOpensearchVpcEndpoint, idFilter, baseNode)
 
-export const useAwsOpensearchVpcEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOpensearchVpcEndpoint, node, id)
+export const useAwsOpensearchVpcEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsOpensearchVpcEndpoint, idFilter, baseNode)

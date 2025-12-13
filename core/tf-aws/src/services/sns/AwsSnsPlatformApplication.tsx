@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_platform_application
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   success_feedback_role_arn: resolvableValue(z.string().optional()),
   success_feedback_sample_rate: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_platform_application
 
 export function AwsSnsPlatformApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsSnsPlatformApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSnsPlatformApplication = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSnsPlatformApplication, node, id)
+export const useAwsSnsPlatformApplication = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSnsPlatformApplication, idFilter, baseNode)
 
-export const useAwsSnsPlatformApplications = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSnsPlatformApplication, node, id)
+export const useAwsSnsPlatformApplications = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSnsPlatformApplication, idFilter, baseNode)

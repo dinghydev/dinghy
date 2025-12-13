@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_option_group
 
 export const InputSchema = z.object({
   engine_name: resolvableValue(z.string()),
@@ -22,6 +21,10 @@ export const InputSchema = z.object({
       port: z.number().optional(),
       version: z.string().optional(),
       vpc_security_group_memberships: z.string().array().optional(),
+      option_settings: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
   option_group_description: resolvableValue(z.string().optional()),
@@ -33,7 +36,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_option_group
 
 export function AwsDbOptionGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +72,8 @@ export function AwsDbOptionGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbOptionGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbOptionGroup, node, id)
+export const useAwsDbOptionGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDbOptionGroup, idFilter, baseNode)
 
-export const useAwsDbOptionGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbOptionGroup, node, id)
+export const useAwsDbOptionGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDbOptionGroup, idFilter, baseNode)

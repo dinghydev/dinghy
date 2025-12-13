@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_hub
 
 export const InputSchema = z.object({
   hub_description: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_hub
 
 export function AwsSagemakerHub(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,8 @@ export function AwsSagemakerHub(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerHub = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerHub, node, id)
+export const useAwsSagemakerHub = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerHub, idFilter, baseNode)
 
-export const useAwsSagemakerHubs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerHub, node, id)
+export const useAwsSagemakerHubs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSagemakerHub, idFilter, baseNode)

@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_origin_access_control
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_origin_access_control
 
 export function DataAwsCloudfrontOriginAccessControl(
   props: Partial<InputProps>,
@@ -52,11 +54,21 @@ export function DataAwsCloudfrontOriginAccessControl(
 }
 
 export const useDataAwsCloudfrontOriginAccessControl = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsCloudfrontOriginAccessControl, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudfrontOriginAccessControl,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsCloudfrontOriginAccessControls = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsCloudfrontOriginAccessControl, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudfrontOriginAccessControl,
+    idFilter,
+    baseNode,
+  )

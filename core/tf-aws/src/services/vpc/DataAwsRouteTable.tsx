@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRouteTable } from './AwsRouteTable.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route_table
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -18,7 +17,6 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   gateway_id: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   route_table_id: resolvableValue(z.string().optional()),
   subnet_id: resolvableValue(z.string().optional()),
@@ -29,7 +27,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +38,7 @@ export const OutputSchema = z.object({
     route_table_id: z.string(),
     subnet_id: z.string(),
   }).array().optional(),
+  id: z.string().optional(),
   owner_id: z.string().optional(),
   routes: z.object({
     carrier_gateway_id: z.string(),
@@ -66,6 +65,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route_table
 
 export function DataAwsRouteTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +86,8 @@ export function DataAwsRouteTable(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRouteTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRouteTable, node, id)
+export const useDataAwsRouteTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsRouteTable, idFilter, baseNode)
 
-export const useDataAwsRouteTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRouteTable, node, id)
+export const useDataAwsRouteTables = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsRouteTable, idFilter, baseNode)

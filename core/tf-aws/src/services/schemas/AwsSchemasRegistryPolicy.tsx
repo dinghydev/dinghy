@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/schemas_registry_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   registry_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/schemas_registry_policy
 
 export function AwsSchemasRegistryPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,12 @@ export function AwsSchemasRegistryPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSchemasRegistryPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSchemasRegistryPolicy, node, id)
+export const useAwsSchemasRegistryPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsSchemasRegistryPolicy, idFilter, baseNode)
 
-export const useAwsSchemasRegistryPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSchemasRegistryPolicy, node, id)
+export const useAwsSchemasRegistryPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSchemasRegistryPolicy, idFilter, baseNode)

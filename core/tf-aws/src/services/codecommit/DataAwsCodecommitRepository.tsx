@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsCodecommitRepository } from './AwsCodecommitRepository.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecommit_repository
-
 export const InputSchema = z.object({
   repository_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecommit_repository
 
 export function DataAwsCodecommitRepository(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,12 @@ export function DataAwsCodecommitRepository(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCodecommitRepository = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsCodecommitRepository, node, id)
+export const useDataAwsCodecommitRepository = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsCodecommitRepository, idFilter, baseNode)
 
-export const useDataAwsCodecommitRepositorys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCodecommitRepository, node, id)
+export const useDataAwsCodecommitRepositorys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsCodecommitRepository, idFilter, baseNode)

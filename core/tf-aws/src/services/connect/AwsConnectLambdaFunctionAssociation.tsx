@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_lambda_function_association
-
 export const InputSchema = z.object({
   function_arn: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_lambda_function_association
 
 export function AwsConnectLambdaFunctionAssociation(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsConnectLambdaFunctionAssociation(
 }
 
 export const useAwsConnectLambdaFunctionAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsConnectLambdaFunctionAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectLambdaFunctionAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsConnectLambdaFunctionAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsConnectLambdaFunctionAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectLambdaFunctionAssociation,
+    idFilter,
+    baseNode,
+  )

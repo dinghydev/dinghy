@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_value_store
 
 export const InputSchema = z.object({
   last_modified_time: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_value_store
 
 export function AwsCloudfrontKeyValueStore(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,12 @@ export function AwsCloudfrontKeyValueStore(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontKeyValueStore = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudfrontKeyValueStore, node, id)
+export const useAwsCloudfrontKeyValueStore = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudfrontKeyValueStore, idFilter, baseNode)
 
-export const useAwsCloudfrontKeyValueStores = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontKeyValueStore, node, id)
+export const useAwsCloudfrontKeyValueStores = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudfrontKeyValueStore, idFilter, baseNode)

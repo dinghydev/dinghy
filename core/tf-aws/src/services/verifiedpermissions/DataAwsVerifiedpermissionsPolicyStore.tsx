@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVerifiedpermissionsPolicyStore } from './AwsVerifiedpermissionsPolicyStore.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/verifiedpermissions_policy_store
-
 export const InputSchema = z.object({
   description: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/verifiedpermissions_policy_store
 
 export function DataAwsVerifiedpermissionsPolicyStore(
   props: Partial<InputProps>,
@@ -55,11 +57,21 @@ export function DataAwsVerifiedpermissionsPolicyStore(
 }
 
 export const useDataAwsVerifiedpermissionsPolicyStore = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsVerifiedpermissionsPolicyStore, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsVerifiedpermissionsPolicyStore,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsVerifiedpermissionsPolicyStores = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsVerifiedpermissionsPolicyStore, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsVerifiedpermissionsPolicyStore,
+    idFilter,
+    baseNode,
+  )

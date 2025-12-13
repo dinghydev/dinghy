@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/main_route_table_association
 
 export const InputSchema = z.object({
   route_table_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/main_route_table_association
 
 export function AwsMainRouteTableAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,13 @@ export function AwsMainRouteTableAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMainRouteTableAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMainRouteTableAssociation, node, id)
+export const useAwsMainRouteTableAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsMainRouteTableAssociation, idFilter, baseNode)
 
-export const useAwsMainRouteTableAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMainRouteTableAssociation, node, id)
+export const useAwsMainRouteTableAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsMainRouteTableAssociation, idFilter, baseNode)

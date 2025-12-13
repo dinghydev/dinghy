@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsServicecatalogappregistryAttributeGroup } from './AwsServicecatalogappregistryAttributeGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalogappregistry_attribute_group
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   attributes: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalogappregistry_attribute_group
 
 export function DataAwsServicecatalogappregistryAttributeGroup(
   props: Partial<InputProps>,
@@ -51,21 +53,21 @@ export function DataAwsServicecatalogappregistryAttributeGroup(
 }
 
 export const useDataAwsServicecatalogappregistryAttributeGroup = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsServicecatalogappregistryAttributeGroup,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useDataAwsServicecatalogappregistryAttributeGroups = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogappregistryAttributeGroup,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

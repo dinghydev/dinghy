@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudcontrolapi_resource
 
 export const InputSchema = z.object({
   desired_state: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   type_version_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   properties: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudcontrolapi_resource
 
 export function AwsCloudcontrolapiResource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,12 @@ export function AwsCloudcontrolapiResource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudcontrolapiResource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudcontrolapiResource, node, id)
+export const useAwsCloudcontrolapiResource = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudcontrolapiResource, idFilter, baseNode)
 
-export const useAwsCloudcontrolapiResources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudcontrolapiResource, node, id)
+export const useAwsCloudcontrolapiResources = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsCloudcontrolapiResource, idFilter, baseNode)

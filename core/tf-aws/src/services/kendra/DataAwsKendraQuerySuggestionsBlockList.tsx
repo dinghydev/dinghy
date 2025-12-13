@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKendraQuerySuggestionsBlockList } from './AwsKendraQuerySuggestionsBlockList.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kendra_query_suggestions_block_list
-
 export const InputSchema = z.object({
   index_id: resolvableValue(z.string()),
   query_suggestions_block_list_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kendra_query_suggestions_block_list
 
 export function DataAwsKendraQuerySuggestionsBlockList(
   props: Partial<InputProps>,
@@ -63,12 +65,21 @@ export function DataAwsKendraQuerySuggestionsBlockList(
 }
 
 export const useDataAwsKendraQuerySuggestionsBlockList = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsKendraQuerySuggestionsBlockList, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsKendraQuerySuggestionsBlockList,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsKendraQuerySuggestionsBlockLists = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsKendraQuerySuggestionsBlockList, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsKendraQuerySuggestionsBlockList,
+    idFilter,
+    baseNode,
+  )

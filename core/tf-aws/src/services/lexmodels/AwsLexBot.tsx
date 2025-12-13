@@ -3,14 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_bot
-
 export const InputSchema = z.object({
+  abort_statement: resolvableValue(z.object({
+    response_card: z.string().optional(),
+    message: z.object({
+      content: z.string(),
+      content_type: z.string(),
+      group_number: z.number().optional(),
+    }).array(),
+  })),
   arn: resolvableValue(z.string()),
   child_directed: resolvableValue(z.boolean()),
   intent: resolvableValue(
@@ -20,13 +27,15 @@ export const InputSchema = z.object({
     }).array(),
   ),
   name: resolvableValue(z.string()),
-  abort_statement: resolvableValue(z.object({
-    response_card: z.string().optional(),
-  })),
   clarification_prompt: resolvableValue(
     z.object({
       max_attempts: z.number(),
       response_card: z.string().optional(),
+      message: z.object({
+        content: z.string(),
+        content_type: z.string(),
+        group_number: z.number().optional(),
+      }).array(),
     }).optional(),
   ),
   create_version: resolvableValue(z.boolean().optional()),
@@ -47,7 +56,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   voice_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   checksum: z.string().optional(),
@@ -65,6 +74,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_bot
 
 export function AwsLexBot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -83,8 +95,8 @@ export function AwsLexBot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexBot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLexBot, node, id)
+export const useAwsLexBot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLexBot, idFilter, baseNode)
 
-export const useAwsLexBots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexBot, node, id)
+export const useAwsLexBots = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLexBot, idFilter, baseNode)

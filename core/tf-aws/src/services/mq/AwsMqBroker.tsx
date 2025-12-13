@@ -3,18 +3,26 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mq_broker
 
 export const InputSchema = z.object({
   broker_name: resolvableValue(z.string()),
   engine_type: resolvableValue(z.string()),
   engine_version: resolvableValue(z.string()),
   host_instance_type: resolvableValue(z.string()),
+  user: resolvableValue(
+    z.object({
+      console_access: z.boolean().optional(),
+      groups: z.string().array().optional(),
+      password: z.string(),
+      replication_user: z.boolean().optional(),
+      username: z.string(),
+    }).array(),
+  ),
   apply_immediately: resolvableValue(z.boolean().optional()),
   authentication_strategy: resolvableValue(z.string().optional()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
@@ -74,16 +82,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-  user: resolvableValue(
-    z.object({
-      console_access: z.boolean().optional(),
-      groups: z.string().array().optional(),
-      password: z.string(),
-      replication_user: z.boolean().optional(),
-      username: z.string(),
-    }).array(),
-  ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -104,6 +103,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mq_broker
 
 export function AwsMqBroker(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -122,8 +124,8 @@ export function AwsMqBroker(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMqBroker = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMqBroker, node, id)
+export const useAwsMqBroker = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMqBroker, idFilter, baseNode)
 
-export const useAwsMqBrokers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMqBroker, node, id)
+export const useAwsMqBrokers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMqBroker, idFilter, baseNode)

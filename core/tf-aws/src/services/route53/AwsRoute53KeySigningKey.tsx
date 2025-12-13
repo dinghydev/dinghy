@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_key_signing_key
 
 export const InputSchema = z.object({
   hosted_zone_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   digest_algorithm_mnemonic: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_key_signing_key
 
 export function AwsRoute53KeySigningKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +65,10 @@ export function AwsRoute53KeySigningKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53KeySigningKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53KeySigningKey, node, id)
+export const useAwsRoute53KeySigningKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRoute53KeySigningKey, idFilter, baseNode)
 
-export const useAwsRoute53KeySigningKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53KeySigningKey, node, id)
+export const useAwsRoute53KeySigningKeys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRoute53KeySigningKey, idFilter, baseNode)

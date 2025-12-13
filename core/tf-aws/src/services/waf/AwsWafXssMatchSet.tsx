@@ -3,21 +3,24 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_xss_match_set
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   xss_match_tuples: resolvableValue(
     z.object({
       text_transformation: z.string(),
+      field_to_match: z.object({
+        data: z.string().optional(),
+        type: z.string(),
+      }),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/waf_xss_match_set
 
 export function AwsWafXssMatchSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +55,8 @@ export function AwsWafXssMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafXssMatchSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafXssMatchSet, node, id)
+export const useAwsWafXssMatchSet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode)
 
-export const useAwsWafXssMatchSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafXssMatchSet, node, id)
+export const useAwsWafXssMatchSets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain_policy
 
 export const InputSchema = z.object({
   access_policies: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain_policy
 
 export function AwsOpensearchDomainPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsOpensearchDomainPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchDomainPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOpensearchDomainPolicy, node, id)
+export const useAwsOpensearchDomainPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsOpensearchDomainPolicy, idFilter, baseNode)
 
-export const useAwsOpensearchDomainPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOpensearchDomainPolicy, node, id)
+export const useAwsOpensearchDomainPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsOpensearchDomainPolicy, idFilter, baseNode)

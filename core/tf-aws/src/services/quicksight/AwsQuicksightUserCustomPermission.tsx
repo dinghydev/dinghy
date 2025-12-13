@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_user_custom_permission
 
 export const InputSchema = z.object({
   custom_permissions_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   aws_account_id: resolvableValue(z.string().optional()),
   namespace: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_user_custom_permission
 
 export function AwsQuicksightUserCustomPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,10 +47,22 @@ export function AwsQuicksightUserCustomPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightUserCustomPermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightUserCustomPermission, node, id)
+export const useAwsQuicksightUserCustomPermission = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightUserCustomPermission,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsQuicksightUserCustomPermissions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsQuicksightUserCustomPermission, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightUserCustomPermission,
+    idFilter,
+    baseNode,
+  )

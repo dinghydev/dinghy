@@ -3,14 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_fleet
-
 export const InputSchema = z.object({
+  compute_capacity: resolvableValue(z.object({
+    available: z.number(),
+    desired_instances: z.number().optional(),
+    desired_sessions: z.number().optional(),
+    in_use: z.number(),
+    running: z.number(),
+  })),
   instance_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -40,7 +46,7 @@ export const InputSchema = z.object({
       subnet_ids: z.string().array().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -63,6 +69,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appstream_fleet
 
 export function AwsAppstreamFleet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -81,8 +90,8 @@ export function AwsAppstreamFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamFleet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppstreamFleet, node, id)
+export const useAwsAppstreamFleet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppstreamFleet, idFilter, baseNode)
 
-export const useAwsAppstreamFleets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppstreamFleet, node, id)
+export const useAwsAppstreamFleets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppstreamFleet, idFilter, baseNode)

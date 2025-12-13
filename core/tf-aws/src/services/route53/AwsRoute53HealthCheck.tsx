@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_health_check
 
 export const InputSchema = z.object({
   type: resolvableValue(z.string()),
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
   search_string: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_health_check
 
 export function AwsRoute53HealthCheck(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,8 @@ export function AwsRoute53HealthCheck(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53HealthCheck = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53HealthCheck, node, id)
+export const useAwsRoute53HealthCheck = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRoute53HealthCheck, idFilter, baseNode)
 
-export const useAwsRoute53HealthChecks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53HealthCheck, node, id)
+export const useAwsRoute53HealthChecks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRoute53HealthCheck, idFilter, baseNode)

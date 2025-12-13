@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_user_group_association
 
 export const InputSchema = z.object({
   user_group_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_user_group_association
 
 export function AwsElasticacheUserGroupAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,11 +53,21 @@ export function AwsElasticacheUserGroupAssociation(props: Partial<InputProps>) {
 }
 
 export const useAwsElasticacheUserGroupAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsElasticacheUserGroupAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElasticacheUserGroupAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsElasticacheUserGroupAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsElasticacheUserGroupAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElasticacheUserGroupAssociation,
+    idFilter,
+    baseNode,
+  )

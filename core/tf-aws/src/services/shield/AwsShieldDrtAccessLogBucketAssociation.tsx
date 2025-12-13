@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_drt_access_log_bucket_association
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_drt_access_log_bucket_association
 
 export function AwsShieldDrtAccessLogBucketAssociation(
   props: Partial<InputProps>,
@@ -52,12 +54,21 @@ export function AwsShieldDrtAccessLogBucketAssociation(
 }
 
 export const useAwsShieldDrtAccessLogBucketAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsShieldDrtAccessLogBucketAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsShieldDrtAccessLogBucketAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsShieldDrtAccessLogBucketAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsShieldDrtAccessLogBucketAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsShieldDrtAccessLogBucketAssociation,
+    idFilter,
+    baseNode,
+  )

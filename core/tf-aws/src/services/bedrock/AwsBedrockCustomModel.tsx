@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_custom_model
 
 export const InputSchema = z.object({
   base_model_identifier: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   output_data_config: resolvableValue(
     z.object({
       s3_uri: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -35,22 +34,22 @@ export const InputSchema = z.object({
   training_data_config: resolvableValue(
     z.object({
       s3_uri: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   validation_data_config: resolvableValue(
     z.object({
       validator: z.object({
         s3_uri: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   vpc_config: resolvableValue(
     z.object({
       security_group_ids: z.string().array(),
       subnet_ids: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   custom_model_arn: z.string().optional(),
@@ -77,6 +76,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_custom_model
 
 export function AwsBedrockCustomModel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -96,8 +98,8 @@ export function AwsBedrockCustomModel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockCustomModel = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockCustomModel, node, id)
+export const useAwsBedrockCustomModel = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBedrockCustomModel, idFilter, baseNode)
 
-export const useAwsBedrockCustomModels = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockCustomModel, node, id)
+export const useAwsBedrockCustomModels = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBedrockCustomModel, idFilter, baseNode)

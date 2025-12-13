@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivs_playback_key_pair
 
 export const InputSchema = z.object({
   public_key: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivs_playback_key_pair
 
 export function AwsIvsPlaybackKeyPair(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,8 @@ export function AwsIvsPlaybackKeyPair(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvsPlaybackKeyPair = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIvsPlaybackKeyPair, node, id)
+export const useAwsIvsPlaybackKeyPair = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIvsPlaybackKeyPair, idFilter, baseNode)
 
-export const useAwsIvsPlaybackKeyPairs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIvsPlaybackKeyPair, node, id)
+export const useAwsIvsPlaybackKeyPairs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIvsPlaybackKeyPair, idFilter, baseNode)

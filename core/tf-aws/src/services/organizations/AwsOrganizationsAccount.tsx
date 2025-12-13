@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_account
 
 export const InputSchema = z.object({
   email: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_account
 
 export function AwsOrganizationsAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +73,10 @@ export function AwsOrganizationsAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOrganizationsAccount = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOrganizationsAccount, node, id)
+export const useAwsOrganizationsAccount = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsOrganizationsAccount, idFilter, baseNode)
 
-export const useAwsOrganizationsAccounts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOrganizationsAccount, node, id)
+export const useAwsOrganizationsAccounts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsOrganizationsAccount, idFilter, baseNode)

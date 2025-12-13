@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppmeshVirtualService } from './AwsAppmeshVirtualService.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_service
 
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   mesh_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_virtual_service
 
 export function DataAwsAppmeshVirtualService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,13 @@ export function DataAwsAppmeshVirtualService(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshVirtualService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshVirtualService, node, id)
+export const useDataAwsAppmeshVirtualService = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppmeshVirtualService, idFilter, baseNode)
 
-export const useDataAwsAppmeshVirtualServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualService, node, id)
+export const useDataAwsAppmeshVirtualServices = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualService, idFilter, baseNode)

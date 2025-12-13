@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpnGateway } from './AwsVpnGateway.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_gateway
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_gateway
 
 export function DataAwsVpnGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,8 @@ export function DataAwsVpnGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpnGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpnGateway, node, id)
+export const useDataAwsVpnGateway = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsVpnGateway, idFilter, baseNode)
 
-export const useDataAwsVpnGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpnGateway, node, id)
+export const useDataAwsVpnGateways = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsVpnGateway, idFilter, baseNode)

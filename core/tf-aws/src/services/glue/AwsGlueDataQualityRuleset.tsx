@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_data_quality_ruleset
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       table_name: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_data_quality_ruleset
 
 export function AwsGlueDataQualityRuleset(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,12 @@ export function AwsGlueDataQualityRuleset(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueDataQualityRuleset = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueDataQualityRuleset, node, id)
+export const useAwsGlueDataQualityRuleset = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsGlueDataQualityRuleset, idFilter, baseNode)
 
-export const useAwsGlueDataQualityRulesets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueDataQualityRuleset, node, id)
+export const useAwsGlueDataQualityRulesets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsGlueDataQualityRuleset, idFilter, baseNode)

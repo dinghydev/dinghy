@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_service
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -38,6 +37,20 @@ export const InputSchema = z.object({
     z.object({
       bake_time_in_minutes: z.string().optional(),
       strategy: z.string().optional(),
+      canary_configuration: z.object({
+        canary_bake_time_in_minutes: z.string().optional(),
+        canary_percent: z.number().optional(),
+      }).optional(),
+      lifecycle_hook: z.object({
+        hook_details: z.string().optional(),
+        hook_target_arn: z.string(),
+        lifecycle_stages: z.string().array(),
+        role_arn: z.string(),
+      }).array().optional(),
+      linear_configuration: z.object({
+        step_bake_time_in_minutes: z.string().optional(),
+        step_percent: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   deployment_controller: resolvableValue(
@@ -62,6 +75,12 @@ export const InputSchema = z.object({
       container_port: z.number(),
       elb_name: z.string().optional(),
       target_group_arn: z.string().optional(),
+      advanced_configuration: z.object({
+        alternate_target_group_arn: z.string(),
+        production_listener_rule: z.string(),
+        role_arn: z.string(),
+        test_listener_rule: z.string().optional(),
+      }).optional(),
     }).array().optional(),
   ),
   network_configuration: resolvableValue(
@@ -75,7 +94,7 @@ export const InputSchema = z.object({
     z.object({
       field: z.string().optional(),
       type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   placement_constraints: resolvableValue(
     z.object({
@@ -91,6 +110,42 @@ export const InputSchema = z.object({
     z.object({
       enabled: z.boolean(),
       namespace: z.string().optional(),
+      log_configuration: z.object({
+        log_driver: z.string(),
+        options: z.record(z.string(), z.string()).optional(),
+        secret_option: z.object({
+          name: z.string(),
+          value_from: z.string(),
+        }).array().optional(),
+      }).optional(),
+      service: z.object({
+        discovery_name: z.string().optional(),
+        ingress_port_override: z.number().optional(),
+        port_name: z.string(),
+        client_alias: z.object({
+          dns_name: z.string().optional(),
+          port: z.number(),
+          test_traffic_rules: z.object({
+            header: z.object({
+              name: z.string(),
+              value: z.object({
+                exact: z.string(),
+              }),
+            }).optional(),
+          }).array().optional(),
+        }).optional(),
+        timeout: z.object({
+          idle_timeout_seconds: z.number().optional(),
+          per_request_timeout_seconds: z.number().optional(),
+        }).optional(),
+        tls: z.object({
+          kms_key: z.string().optional(),
+          role_arn: z.string().optional(),
+          issuer_cert_authority: z.object({
+            aws_pca_authority_arn: z.string(),
+          }),
+        }).optional(),
+      }).array().optional(),
     }).optional(),
   ),
   service_registries: resolvableValue(
@@ -115,6 +170,23 @@ export const InputSchema = z.object({
   volume_configuration: resolvableValue(
     z.object({
       name: z.string(),
+      managed_ebs_volume: z.object({
+        encrypted: z.boolean().optional(),
+        file_system_type: z.string().optional(),
+        iops: z.number().optional(),
+        kms_key_id: z.string().optional(),
+        role_arn: z.string(),
+        size_in_gb: z.number().optional(),
+        snapshot_id: z.string().optional(),
+        throughput: z.number().optional(),
+        volume_initialization_rate: z.number().optional(),
+        volume_type: z.string().optional(),
+        tag_specifications: z.object({
+          propagate_tags: z.string().optional(),
+          resource_type: z.string(),
+          tags: z.record(z.string(), z.string()).optional(),
+        }).array().optional(),
+      }),
     }).optional(),
   ),
   vpc_lattice_configurations: resolvableValue(
@@ -125,7 +197,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   wait_for_steady_state: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -139,6 +211,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_service
 
 export function AwsEcsService(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -157,8 +232,8 @@ export function AwsEcsService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsService = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcsService, node, id)
+export const useAwsEcsService = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEcsService, idFilter, baseNode)
 
-export const useAwsEcsServices = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcsService, node, id)
+export const useAwsEcsServices = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEcsService, idFilter, baseNode)

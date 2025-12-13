@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_scope
 
 export const InputSchema = z.object({
   ipam_id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_scope
 
 export function AwsVpcIpamScope(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,8 @@ export function AwsVpcIpamScope(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcIpamScope = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcIpamScope, node, id)
+export const useAwsVpcIpamScope = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpcIpamScope, idFilter, baseNode)
 
-export const useAwsVpcIpamScopes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamScope, node, id)
+export const useAwsVpcIpamScopes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVpcIpamScope, idFilter, baseNode)

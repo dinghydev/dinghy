@@ -2,23 +2,22 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLambdaCodeSigningConfig } from './AwsLambdaCodeSigningConfig.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_code_signing_config
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allowed_publishers: z.object({
-    signing_profile_version_arns: z.string().array(),
+    signing_profile_version_arns: z.set(z.string()),
   }).array().optional(),
   config_id: z.string().optional(),
   description: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_code_signing_config
 
 export function DataAwsLambdaCodeSigningConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,14 @@ export function DataAwsLambdaCodeSigningConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaCodeSigningConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLambdaCodeSigningConfig, node, id)
+export const useDataAwsLambdaCodeSigningConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsLambdaCodeSigningConfig, idFilter, baseNode)
 
-export const useDataAwsLambdaCodeSigningConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaCodeSigningConfig, node, id)
+export const useDataAwsLambdaCodeSigningConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsLambdaCodeSigningConfig, idFilter, baseNode)

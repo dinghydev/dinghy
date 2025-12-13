@@ -3,24 +3,48 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_gateway
-
 export const InputSchema = z.object({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  mesh_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   spec: resolvableValue(z.object({
     backend_defaults: z.object({
       client_policy: z.object({
         tls: z.object({
           enforce: z.boolean().optional(),
           ports: z.number().array().optional(),
+          certificate: z.object({
+            file: z.object({
+              certificate_chain: z.string(),
+              private_key: z.string(),
+            }).optional(),
+            sds: z.object({
+              secret_name: z.string(),
+            }).optional(),
+          }).optional(),
+          validation: z.object({
+            subject_alternative_names: z.object({
+              match: z.object({
+                exact: z.string().array(),
+              }),
+            }).optional(),
+            trust: z.object({
+              acm: z.object({
+                certificate_authority_arns: z.string().array(),
+              }).optional(),
+              file: z.object({
+                certificate_chain: z.string(),
+              }).optional(),
+              sds: z.object({
+                secret_name: z.string(),
+              }).optional(),
+            }),
+          }),
         }).optional(),
       }).optional(),
     }).optional(),
@@ -52,18 +76,54 @@ export const InputSchema = z.object({
       }),
       tls: z.object({
         mode: z.string(),
+        certificate: z.object({
+          acm: z.object({
+            certificate_arn: z.string(),
+          }).optional(),
+          file: z.object({
+            certificate_chain: z.string(),
+            private_key: z.string(),
+          }).optional(),
+          sds: z.object({
+            secret_name: z.string(),
+          }).optional(),
+        }),
+        validation: z.object({
+          subject_alternative_names: z.object({
+            match: z.object({
+              exact: z.string().array(),
+            }),
+          }).optional(),
+          trust: z.object({
+            file: z.object({
+              certificate_chain: z.string(),
+            }).optional(),
+            sds: z.object({
+              secret_name: z.string(),
+            }).optional(),
+          }),
+        }).optional(),
       }).optional(),
-    }),
+    }).array(),
     logging: z.object({
       access_log: z.object({
         file: z.object({
           path: z.string(),
+          format: z.object({
+            text: z.string().optional(),
+            json: z.object({
+              key: z.string(),
+              value: z.string(),
+            }).array().optional(),
+          }).optional(),
         }).optional(),
       }).optional(),
     }).optional(),
   })),
+  mesh_owner: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -81,6 +141,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appmesh_virtual_gateway
 
 export function AwsAppmeshVirtualGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -99,8 +162,12 @@ export function AwsAppmeshVirtualGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshVirtualGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualGateway, node, id)
+export const useAwsAppmeshVirtualGateway = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppmeshVirtualGateway, idFilter, baseNode)
 
-export const useAwsAppmeshVirtualGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppmeshVirtualGateway, node, id)
+export const useAwsAppmeshVirtualGateways = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAppmeshVirtualGateway, idFilter, baseNode)

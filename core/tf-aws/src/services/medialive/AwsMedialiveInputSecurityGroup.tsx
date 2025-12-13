@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/medialive_input_security_group
 
 export const InputSchema = z.object({
   whitelist_rules: resolvableValue(
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/medialive_input_security_group
 
 export function AwsMedialiveInputSecurityGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,14 @@ export function AwsMedialiveInputSecurityGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMedialiveInputSecurityGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMedialiveInputSecurityGroup, node, id)
+export const useAwsMedialiveInputSecurityGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsMedialiveInputSecurityGroup, idFilter, baseNode)
 
-export const useAwsMedialiveInputSecurityGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMedialiveInputSecurityGroup, node, id)
+export const useAwsMedialiveInputSecurityGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsMedialiveInputSecurityGroup, idFilter, baseNode)

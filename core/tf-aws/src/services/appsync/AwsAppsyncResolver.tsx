@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_resolver
 
 export const InputSchema = z.object({
   api_id: resolvableValue(z.string()),
@@ -43,9 +42,12 @@ export const InputSchema = z.object({
     z.object({
       conflict_detection: z.string().optional(),
       conflict_handler: z.string().optional(),
+      lambda_conflict_handler_config: z.object({
+        lambda_conflict_handler_arn: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appsync_resolver
 
 export function AwsAppsyncResolver(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +81,8 @@ export function AwsAppsyncResolver(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncResolver = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppsyncResolver, node, id)
+export const useAwsAppsyncResolver = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAppsyncResolver, idFilter, baseNode)
 
-export const useAwsAppsyncResolvers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppsyncResolver, node, id)
+export const useAwsAppsyncResolvers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAppsyncResolver, idFilter, baseNode)

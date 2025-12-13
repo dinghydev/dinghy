@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSsmcontactsRotation } from './AwsSsmcontactsRotation.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssmcontacts_rotation
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   contact_ids: z.string().array().optional(),
@@ -66,6 +65,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ssmcontacts_rotation
 
 export function DataAwsSsmcontactsRotation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +86,12 @@ export function DataAwsSsmcontactsRotation(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmcontactsRotation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSsmcontactsRotation, node, id)
+export const useDataAwsSsmcontactsRotation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsSsmcontactsRotation, idFilter, baseNode)
 
-export const useDataAwsSsmcontactsRotations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSsmcontactsRotation, node, id)
+export const useDataAwsSsmcontactsRotations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsSsmcontactsRotation, idFilter, baseNode)

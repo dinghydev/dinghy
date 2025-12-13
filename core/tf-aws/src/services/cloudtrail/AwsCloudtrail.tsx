@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,16 @@ export const InputSchema = z.object({
   advanced_event_selector: resolvableValue(
     z.object({
       name: z.string().optional(),
-    }).optional(),
+      field_selector: z.object({
+        ends_with: z.string().array().optional(),
+        equals: z.string().array().optional(),
+        field: z.string(),
+        not_ends_with: z.string().array().optional(),
+        not_equals: z.string().array().optional(),
+        not_starts_with: z.string().array().optional(),
+        starts_with: z.string().array().optional(),
+      }).array(),
+    }).array().optional(),
   ),
   cloud_watch_logs_group_arn: resolvableValue(z.string().optional()),
   cloud_watch_logs_role_arn: resolvableValue(z.string().optional()),
@@ -27,7 +35,11 @@ export const InputSchema = z.object({
       exclude_management_event_sources: z.string().array().optional(),
       include_management_events: z.boolean().optional(),
       read_write_type: z.string().optional(),
-    }).optional(),
+      data_resource: z.object({
+        type: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   include_global_service_events: resolvableValue(z.boolean().optional()),
   insight_selector: resolvableValue(
@@ -42,7 +54,7 @@ export const InputSchema = z.object({
   s3_key_prefix: resolvableValue(z.string().optional()),
   sns_topic_name: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -64,6 +76,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail
 
 export function AwsCloudtrail(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -83,8 +98,8 @@ export function AwsCloudtrail(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudtrail = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudtrail, node, id)
+export const useAwsCloudtrail = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCloudtrail, idFilter, baseNode)
 
-export const useAwsCloudtrails = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudtrail, node, id)
+export const useAwsCloudtrails = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCloudtrail, idFilter, baseNode)

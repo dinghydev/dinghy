@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpcPeeringConnection } from './AwsVpcPeeringConnection.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_peering_connection
 
 export const InputSchema = z.object({
   cidr_block: resolvableValue(z.string().optional()),
@@ -31,7 +30,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   accepter: z.record(z.string(), z.boolean()).optional(),
@@ -60,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_peering_connection
 
 export function DataAwsVpcPeeringConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +80,12 @@ export function DataAwsVpcPeeringConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcPeeringConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpcPeeringConnection, node, id)
+export const useDataAwsVpcPeeringConnection = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsVpcPeeringConnection, idFilter, baseNode)
 
-export const useDataAwsVpcPeeringConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpcPeeringConnection, node, id)
+export const useDataAwsVpcPeeringConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsVpcPeeringConnection, idFilter, baseNode)

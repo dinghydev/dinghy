@@ -2,24 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElasticsearchDomain } from './AwsElasticsearchDomain.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticsearch_domain
-
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
-  snapshot_options: resolvableValue(
-    z.object({
-      automated_snapshot_start_hour: z.number(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_policies: z.string().optional(),
@@ -31,14 +25,14 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   auto_tune_options: z.object({
     desired_state: z.string(),
-    maintenance_schedule: z.object({
+    maintenance_schedule: z.set(z.object({
       cron_expression_for_recurrence: z.string(),
       duration: z.object({
         unit: z.string(),
         value: z.number(),
       }).array(),
       start_at: z.string(),
-    }).array(),
+    })),
     rollback_on_disable: z.string(),
   }).array().optional(),
   cluster_config: z.object({
@@ -81,20 +75,23 @@ export const OutputSchema = z.object({
   }).array().optional(),
   endpoint: z.string().optional(),
   kibana_endpoint: z.string().optional(),
-  log_publishing_options: z.object({
+  log_publishing_options: z.set(z.object({
     cloudwatch_log_group_arn: z.string(),
     enabled: z.boolean(),
     log_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   node_to_node_encryption: z.object({
     enabled: z.boolean(),
   }).array().optional(),
   processing: z.boolean().optional(),
+  snapshot_options: z.object({
+    automated_snapshot_start_hour: z.number(),
+  }).array().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   vpc_options: z.object({
-    availability_zones: z.string().array(),
-    security_group_ids: z.string().array(),
-    subnet_ids: z.string().array(),
+    availability_zones: z.set(z.string()),
+    security_group_ids: z.set(z.string()),
+    subnet_ids: z.set(z.string()),
     vpc_id: z.string(),
   }).array().optional(),
 })
@@ -106,6 +103,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticsearch_domain
 
 export function DataAwsElasticsearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -124,8 +124,12 @@ export function DataAwsElasticsearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElasticsearchDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElasticsearchDomain, node, id)
+export const useDataAwsElasticsearchDomain = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsElasticsearchDomain, idFilter, baseNode)
 
-export const useDataAwsElasticsearchDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsElasticsearchDomain, node, id)
+export const useDataAwsElasticsearchDomains = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsElasticsearchDomain, idFilter, baseNode)

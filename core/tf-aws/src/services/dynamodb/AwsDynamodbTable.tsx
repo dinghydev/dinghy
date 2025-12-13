@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_table
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -29,6 +28,14 @@ export const InputSchema = z.object({
       range_key: z.string().optional(),
       read_capacity: z.number().optional(),
       write_capacity: z.number().optional(),
+      on_demand_throughput: z.object({
+        max_read_request_units: z.number().optional(),
+        max_write_request_units: z.number().optional(),
+      }).optional(),
+      warm_throughput: z.object({
+        read_units_per_second: z.number().optional(),
+        write_units_per_second: z.number().optional(),
+      }).optional(),
     }).array().optional(),
   ),
   global_table_witness: resolvableValue(
@@ -41,6 +48,17 @@ export const InputSchema = z.object({
     z.object({
       input_compression_type: z.string().optional(),
       input_format: z.string(),
+      input_format_options: z.object({
+        csv: z.object({
+          delimiter: z.string().optional(),
+          header_list: z.string().array().optional(),
+        }).optional(),
+      }).optional(),
+      s3_bucket_source: z.object({
+        bucket: z.string(),
+        bucket_owner: z.string().optional(),
+        key_prefix: z.string().optional(),
+      }),
     }).optional(),
   ),
   local_secondary_index: resolvableValue(
@@ -113,7 +131,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   write_capacity: resolvableValue(z.number().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -130,6 +148,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_table
 
 export function AwsDynamodbTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -148,8 +169,8 @@ export function AwsDynamodbTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDynamodbTable, node, id)
+export const useAwsDynamodbTable = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDynamodbTable, idFilter, baseNode)
 
-export const useAwsDynamodbTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTable, node, id)
+export const useAwsDynamodbTables = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDynamodbTable, idFilter, baseNode)

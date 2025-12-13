@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_custom_log_source
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -17,17 +16,17 @@ export const InputSchema = z.object({
     z.object({
       crawler_configuration: z.object({
         role_arn: z.string(),
-      }).optional(),
+      }).array().optional(),
       provider_identity: z.object({
         external_id: z.string(),
         principal: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   event_classes: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   source_version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   attributes: z.object({
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securitylake_custom_log_source
 
 export function AwsSecuritylakeCustomLogSource(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,14 @@ export function AwsSecuritylakeCustomLogSource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecuritylakeCustomLogSource = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecuritylakeCustomLogSource, node, id)
+export const useAwsSecuritylakeCustomLogSource = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsSecuritylakeCustomLogSource, idFilter, baseNode)
 
-export const useAwsSecuritylakeCustomLogSources = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecuritylakeCustomLogSource, node, id)
+export const useAwsSecuritylakeCustomLogSources = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsSecuritylakeCustomLogSource, idFilter, baseNode)

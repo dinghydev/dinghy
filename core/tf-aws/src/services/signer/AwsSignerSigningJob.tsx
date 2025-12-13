@@ -3,14 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/signer_signing_job
-
 export const InputSchema = z.object({
+  destination: resolvableValue(z.object({
+    s3: z.object({
+      bucket: z.string(),
+      prefix: z.string().optional(),
+    }),
+  })),
   profile_name: resolvableValue(z.string()),
   source: resolvableValue(z.object({
     s3: z.object({
@@ -19,16 +24,10 @@ export const InputSchema = z.object({
       version: z.string(),
     }),
   })),
-  destination: resolvableValue(z.object({
-    s3: z.object({
-      bucket: z.string(),
-      prefix: z.string().optional(),
-    }),
-  })),
   id: resolvableValue(z.string().optional()),
   ignore_signing_job_failure: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   completed_at: z.string().optional(),
@@ -63,6 +62,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/signer_signing_job
 
 export function AwsSignerSigningJob(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -81,8 +83,8 @@ export function AwsSignerSigningJob(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSignerSigningJob = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSignerSigningJob, node, id)
+export const useAwsSignerSigningJob = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSignerSigningJob, idFilter, baseNode)
 
-export const useAwsSignerSigningJobs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSignerSigningJob, node, id)
+export const useAwsSignerSigningJobs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSignerSigningJob, idFilter, baseNode)

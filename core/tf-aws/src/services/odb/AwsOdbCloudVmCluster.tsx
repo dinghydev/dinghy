@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_cloud_vm_cluster
 
 export const InputSchema = z.object({
   cpu_core_count: resolvableValue(z.number()),
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       is_diagnostics_events_enabled: z.boolean(),
       is_health_monitoring_enabled: z.boolean(),
       is_incident_logs_enabled: z.boolean(),
-    }).optional(),
+    }).array().optional(),
   ),
   db_node_storage_size_in_gbs: resolvableValue(z.number().optional()),
   is_local_backup_enabled: resolvableValue(z.boolean().optional()),
@@ -47,7 +46,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   timezone: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -93,6 +92,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_cloud_vm_cluster
 
 export function AwsOdbCloudVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -111,8 +113,8 @@ export function AwsOdbCloudVmCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOdbCloudVmCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOdbCloudVmCluster, node, id)
+export const useAwsOdbCloudVmCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode)
 
-export const useAwsOdbCloudVmClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOdbCloudVmCluster, node, id)
+export const useAwsOdbCloudVmClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode)

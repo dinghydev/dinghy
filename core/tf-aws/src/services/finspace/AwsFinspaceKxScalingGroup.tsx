@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_scaling_group
 
 export const InputSchema = z.object({
   availability_zone_id: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_scaling_group
 
 export function AwsFinspaceKxScalingGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,12 @@ export function AwsFinspaceKxScalingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxScalingGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxScalingGroup, node, id)
+export const useAwsFinspaceKxScalingGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsFinspaceKxScalingGroup, idFilter, baseNode)
 
-export const useAwsFinspaceKxScalingGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxScalingGroup, node, id)
+export const useAwsFinspaceKxScalingGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsFinspaceKxScalingGroup, idFilter, baseNode)

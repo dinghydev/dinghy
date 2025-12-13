@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsServicecatalogPortfolio } from './AwsServicecatalogPortfolio.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalog_portfolio
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalog_portfolio
 
 export function DataAwsServicecatalogPortfolio(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,14 @@ export function DataAwsServicecatalogPortfolio(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsServicecatalogPortfolio = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsServicecatalogPortfolio, node, id)
+export const useDataAwsServicecatalogPortfolio = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsServicecatalogPortfolio, idFilter, baseNode)
 
-export const useDataAwsServicecatalogPortfolios = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsServicecatalogPortfolio, node, id)
+export const useDataAwsServicecatalogPortfolios = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsServicecatalogPortfolio, idFilter, baseNode)

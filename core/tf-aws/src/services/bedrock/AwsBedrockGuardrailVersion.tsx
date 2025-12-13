@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_guardrail_version
 
 export const InputSchema = z.object({
   guardrail_arn: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   version: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_guardrail_version
 
 export function AwsBedrockGuardrailVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsBedrockGuardrailVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockGuardrailVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockGuardrailVersion, node, id)
+export const useAwsBedrockGuardrailVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsBedrockGuardrailVersion, idFilter, baseNode)
 
-export const useAwsBedrockGuardrailVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockGuardrailVersion, node, id)
+export const useAwsBedrockGuardrailVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBedrockGuardrailVersion, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_conditional_forwarder
 
 export const InputSchema = z.object({
   directory_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   remote_domain_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_conditional_forwarder
 
 export function AwsDirectoryServiceConditionalForwarder(
   props: Partial<InputProps>,
@@ -48,13 +50,21 @@ export function AwsDirectoryServiceConditionalForwarder(
 }
 
 export const useAwsDirectoryServiceConditionalForwarder = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsDirectoryServiceConditionalForwarder, node, id)
+  useTypedNode<OutputProps>(
+    AwsDirectoryServiceConditionalForwarder,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsDirectoryServiceConditionalForwarders = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsDirectoryServiceConditionalForwarder, node, id)
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceConditionalForwarder,
+    idFilter,
+    baseNode,
+  )

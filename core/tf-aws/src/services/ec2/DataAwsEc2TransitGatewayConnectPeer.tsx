@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2TransitGatewayConnectPeer } from './AwsEc2TransitGatewayConnectPeer.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_connect_peer
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -25,13 +24,13 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   transit_gateway_connect_peer_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   bgp_asn: z.string().optional(),
   bgp_peer_address: z.string().optional(),
-  bgp_transit_gateway_addresses: z.string().array().optional(),
+  bgp_transit_gateway_addresses: z.set(z.string()).optional(),
   inside_cidr_blocks: z.string().array().optional(),
   peer_address: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway_connect_peer
 
 export function DataAwsEc2TransitGatewayConnectPeer(
   props: Partial<InputProps>,
@@ -67,11 +69,21 @@ export function DataAwsEc2TransitGatewayConnectPeer(
 }
 
 export const useDataAwsEc2TransitGatewayConnectPeer = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsEc2TransitGatewayConnectPeer, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEc2TransitGatewayConnectPeer,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsEc2TransitGatewayConnectPeers = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsEc2TransitGatewayConnectPeer, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2TransitGatewayConnectPeer,
+    idFilter,
+    baseNode,
+  )

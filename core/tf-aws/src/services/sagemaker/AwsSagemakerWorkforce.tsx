@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_workforce
 
 export const InputSchema = z.object({
   workforce_name: resolvableValue(z.string()),
@@ -47,7 +46,7 @@ export const InputSchema = z.object({
       vpc_id: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -62,6 +61,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_workforce
 
 export function AwsSagemakerWorkforce(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -80,8 +82,8 @@ export function AwsSagemakerWorkforce(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerWorkforce = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerWorkforce, node, id)
+export const useAwsSagemakerWorkforce = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerWorkforce, idFilter, baseNode)
 
-export const useAwsSagemakerWorkforces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerWorkforce, node, id)
+export const useAwsSagemakerWorkforces = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSagemakerWorkforce, idFilter, baseNode)

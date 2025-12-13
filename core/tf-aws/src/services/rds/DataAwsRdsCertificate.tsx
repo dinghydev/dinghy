@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRdsCertificate } from './AwsRdsCertificate.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_certificate
-
 export const InputSchema = z.object({
   default_for_new_launches: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   latest_valid_till: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_certificate
 
 export function DataAwsRdsCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function DataAwsRdsCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRdsCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRdsCertificate, node, id)
+export const useDataAwsRdsCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsRdsCertificate, idFilter, baseNode)
 
-export const useDataAwsRdsCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRdsCertificate, node, id)
+export const useDataAwsRdsCertificates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsRdsCertificate, idFilter, baseNode)

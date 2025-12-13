@@ -3,15 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_replication_configuration
-
 export const InputSchema = z.object({
-  source_file_system_id: resolvableValue(z.string()),
   destination: resolvableValue(z.object({
     availability_zone_name: z.string().optional(),
     file_system_id: z.string().optional(),
@@ -19,6 +17,7 @@ export const InputSchema = z.object({
     region: z.string().optional(),
     status: z.string(),
   })),
+  source_file_system_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   creation_time: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_replication_configuration
 
 export function AwsEfsReplicationConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,14 @@ export function AwsEfsReplicationConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsReplicationConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEfsReplicationConfiguration, node, id)
+export const useAwsEfsReplicationConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsEfsReplicationConfiguration, idFilter, baseNode)
 
-export const useAwsEfsReplicationConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEfsReplicationConfiguration, node, id)
+export const useAwsEfsReplicationConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEfsReplicationConfiguration, idFilter, baseNode)

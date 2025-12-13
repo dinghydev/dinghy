@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_member
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   administrator_account_id: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_member
 
 export function AwsMacie2Member(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsMacie2Member(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2Member = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMacie2Member, node, id)
+export const useAwsMacie2Member = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMacie2Member, idFilter, baseNode)
 
-export const useAwsMacie2Members = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMacie2Member, node, id)
+export const useAwsMacie2Members = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMacie2Member, idFilter, baseNode)

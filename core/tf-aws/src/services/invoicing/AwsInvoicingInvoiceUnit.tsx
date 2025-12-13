@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/invoicing_invoice_unit
 
 export const InputSchema = z.object({
   invoice_receiver: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   rule: resolvableValue(
     z.object({
       linked_accounts: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tax_inheritance_disabled: resolvableValue(z.boolean().optional()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/invoicing_invoice_unit
 
 export function AwsInvoicingInvoiceUnit(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,10 @@ export function AwsInvoicingInvoiceUnit(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInvoicingInvoiceUnit = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsInvoicingInvoiceUnit, node, id)
+export const useAwsInvoicingInvoiceUnit = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsInvoicingInvoiceUnit, idFilter, baseNode)
 
-export const useAwsInvoicingInvoiceUnits = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsInvoicingInvoiceUnit, node, id)
+export const useAwsInvoicingInvoiceUnits = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsInvoicingInvoiceUnit, idFilter, baseNode)

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_access
 
 export const InputSchema = z.object({
   external_id: resolvableValue(z.string()),
@@ -17,10 +16,9 @@ export const InputSchema = z.object({
     z.object({
       entry: z.string(),
       target: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   home_directory_type: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   policy: resolvableValue(z.string().optional()),
   posix_profile: resolvableValue(
     z.object({
@@ -31,9 +29,11 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   role: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>
@@ -42,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_access
 
 export function AwsTransferAccess(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,5 +63,5 @@ export function AwsTransferAccess(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferAccesss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferAccess, node, id)
+export const useAwsTransferAccesss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferAccess, idFilter, baseNode)

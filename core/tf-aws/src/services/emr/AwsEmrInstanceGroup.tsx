@@ -3,18 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_instance_group
-
 export const InputSchema = z.object({
   cluster_id: resolvableValue(z.string()),
   instance_type: resolvableValue(z.string()),
-  running_instance_count: resolvableValue(z.number()),
-  status: resolvableValue(z.string()),
   autoscaling_policy: resolvableValue(z.string().optional()),
   bid_price: resolvableValue(z.string().optional()),
   configurations_json: resolvableValue(z.string().optional()),
@@ -30,10 +27,12 @@ export const InputSchema = z.object({
   instance_count: resolvableValue(z.number().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
+  running_instance_count: z.number().optional(),
+  status: z.string().optional(),
 })
 
 export type InputProps =
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/emr_instance_group
 
 export function AwsEmrInstanceGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,8 @@ export function AwsEmrInstanceGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrInstanceGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEmrInstanceGroup, node, id)
+export const useAwsEmrInstanceGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEmrInstanceGroup, idFilter, baseNode)
 
-export const useAwsEmrInstanceGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEmrInstanceGroup, node, id)
+export const useAwsEmrInstanceGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEmrInstanceGroup, idFilter, baseNode)

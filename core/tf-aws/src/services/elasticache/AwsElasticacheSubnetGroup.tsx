@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_subnet_group
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_subnet_group
 
 export function AwsElasticacheSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function AwsElasticacheSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticacheSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElasticacheSubnetGroup, node, id)
+export const useAwsElasticacheSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsElasticacheSubnetGroup, idFilter, baseNode)
 
-export const useAwsElasticacheSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElasticacheSubnetGroup, node, id)
+export const useAwsElasticacheSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsElasticacheSubnetGroup, idFilter, baseNode)

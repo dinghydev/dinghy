@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshift_orderable_cluster
 
 export const InputSchema = z.object({
   cluster_type: resolvableValue(z.string().optional()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   node_type: resolvableValue(z.string().optional()),
   preferred_node_types: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zones: z.string().array().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/redshift_orderable_cluster
 
 export function DataAwsRedshiftOrderableCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,18 @@ export function DataAwsRedshiftOrderableCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRedshiftOrderableCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRedshiftOrderableCluster, node, id)
+export const useDataAwsRedshiftOrderableCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsRedshiftOrderableCluster, idFilter, baseNode)
 
-export const useDataAwsRedshiftOrderableClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRedshiftOrderableCluster, node, id)
+export const useDataAwsRedshiftOrderableClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftOrderableCluster,
+    idFilter,
+    baseNode,
+  )

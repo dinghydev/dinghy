@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy_attachment
 
 export const InputSchema = z.object({
   policy_id: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy_attachment
 
 export function AwsOrganizationsPolicyAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,22 @@ export function AwsOrganizationsPolicyAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOrganizationsPolicyAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOrganizationsPolicyAttachment, node, id)
+export const useAwsOrganizationsPolicyAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOrganizationsPolicyAttachment,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsOrganizationsPolicyAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOrganizationsPolicyAttachment, node, id)
+export const useAwsOrganizationsPolicyAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOrganizationsPolicyAttachment,
+    idFilter,
+    baseNode,
+  )

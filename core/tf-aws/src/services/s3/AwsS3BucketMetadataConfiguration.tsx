@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_metadata_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -20,7 +19,28 @@ export const InputSchema = z.object({
         table_bucket_type: z.string(),
         table_namespace: z.string(),
       }).array(),
-    }).optional(),
+      inventory_table_configuration: z.object({
+        configuration_state: z.string(),
+        table_arn: z.string(),
+        table_name: z.string(),
+        encryption_configuration: z.object({
+          kms_key_arn: z.string().optional(),
+          sse_algorithm: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+      journal_table_configuration: z.object({
+        table_arn: z.string(),
+        table_name: z.string(),
+        encryption_configuration: z.object({
+          kms_key_arn: z.string().optional(),
+          sse_algorithm: z.string(),
+        }).array().optional(),
+        record_expiration: z.object({
+          days: z.number().optional(),
+          expiration: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -28,7 +48,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -39,6 +59,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_metadata_configuration
 
 export function AwsS3BucketMetadataConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +80,22 @@ export function AwsS3BucketMetadataConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketMetadataConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketMetadataConfiguration, node, id)
+export const useAwsS3BucketMetadataConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketMetadataConfiguration,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsS3BucketMetadataConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3BucketMetadataConfiguration, node, id)
+export const useAwsS3BucketMetadataConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3BucketMetadataConfiguration,
+    idFilter,
+    baseNode,
+  )

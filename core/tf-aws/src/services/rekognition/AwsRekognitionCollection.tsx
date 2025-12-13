@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rekognition_collection
 
 export const InputSchema = z.object({
   collection_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rekognition_collection
 
 export function AwsRekognitionCollection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,12 @@ export function AwsRekognitionCollection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRekognitionCollection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRekognitionCollection, node, id)
+export const useAwsRekognitionCollection = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRekognitionCollection, idFilter, baseNode)
 
-export const useAwsRekognitionCollections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRekognitionCollection, node, id)
+export const useAwsRekognitionCollections = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRekognitionCollection, idFilter, baseNode)

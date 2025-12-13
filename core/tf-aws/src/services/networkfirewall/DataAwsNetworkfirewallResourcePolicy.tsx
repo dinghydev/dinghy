@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsNetworkfirewallResourcePolicy } from './AwsNetworkfirewallResourcePolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkfirewall_resource_policy
-
 export const InputSchema = z.object({
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkfirewall_resource_policy
 
 export function DataAwsNetworkfirewallResourcePolicy(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function DataAwsNetworkfirewallResourcePolicy(
 }
 
 export const useDataAwsNetworkfirewallResourcePolicy = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsNetworkfirewallResourcePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsNetworkfirewallResourcePolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsNetworkfirewallResourcePolicys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsNetworkfirewallResourcePolicy, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkfirewallResourcePolicy,
+    idFilter,
+    baseNode,
+  )

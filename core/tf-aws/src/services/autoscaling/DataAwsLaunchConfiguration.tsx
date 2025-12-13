@@ -2,22 +2,22 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLaunchConfiguration } from './AwsLaunchConfiguration.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/launch_configuration
-
 export const InputSchema = z.object({
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   associate_public_ip_address: z.boolean().optional(),
-  ebs_block_device: z.object({
+  ebs_block_device: z.set(z.object({
     delete_on_termination: z.boolean(),
     device_name: z.string(),
     encrypted: z.boolean(),
@@ -27,13 +27,13 @@ export const OutputSchema = z.object({
     throughput: z.number(),
     volume_size: z.number(),
     volume_type: z.string(),
-  }).array().optional(),
+  })).optional(),
   ebs_optimized: z.boolean().optional(),
   enable_monitoring: z.boolean().optional(),
-  ephemeral_block_device: z.object({
+  ephemeral_block_device: z.set(z.object({
     device_name: z.string(),
     virtual_name: z.string(),
-  }).array().optional(),
+  })).optional(),
   iam_instance_profile: z.string().optional(),
   id: z.string().optional(),
   image_id: z.string().optional(),
@@ -54,7 +54,7 @@ export const OutputSchema = z.object({
     volume_size: z.number(),
     volume_type: z.string(),
   }).array().optional(),
-  security_groups: z.string().array().optional(),
+  security_groups: z.set(z.string()).optional(),
   spot_price: z.string().optional(),
   user_data: z.string().optional(),
 })
@@ -66,6 +66,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/launch_configuration
 
 export function DataAwsLaunchConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -84,8 +87,12 @@ export function DataAwsLaunchConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLaunchConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLaunchConfiguration, node, id)
+export const useDataAwsLaunchConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsLaunchConfiguration, idFilter, baseNode)
 
-export const useDataAwsLaunchConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLaunchConfiguration, node, id)
+export const useDataAwsLaunchConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsLaunchConfiguration, idFilter, baseNode)

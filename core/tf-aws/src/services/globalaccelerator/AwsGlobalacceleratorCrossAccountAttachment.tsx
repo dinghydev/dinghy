@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_cross_account_attachment
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/globalaccelerator_cross_account_attachment
 
 export function AwsGlobalacceleratorCrossAccountAttachment(
   props: Partial<InputProps>,
@@ -65,21 +67,21 @@ export function AwsGlobalacceleratorCrossAccountAttachment(
 }
 
 export const useAwsGlobalacceleratorCrossAccountAttachment = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsGlobalacceleratorCrossAccountAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsGlobalacceleratorCrossAccountAttachments = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorCrossAccountAttachment,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

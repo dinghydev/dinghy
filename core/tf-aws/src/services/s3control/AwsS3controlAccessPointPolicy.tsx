@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_access_point_policy
-
 export const InputSchema = z.object({
   access_point_arn: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   has_public_access_policy: z.boolean().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_access_point_policy
 
 export function AwsS3controlAccessPointPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,14 @@ export function AwsS3controlAccessPointPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3controlAccessPointPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3controlAccessPointPolicy, node, id)
+export const useAwsS3controlAccessPointPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsS3controlAccessPointPolicy, idFilter, baseNode)
 
-export const useAwsS3controlAccessPointPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3controlAccessPointPolicy, node, id)
+export const useAwsS3controlAccessPointPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsS3controlAccessPointPolicy, idFilter, baseNode)

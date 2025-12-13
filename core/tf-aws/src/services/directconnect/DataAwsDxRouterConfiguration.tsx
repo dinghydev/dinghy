@@ -3,19 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_router_configuration
-
 export const InputSchema = z.object({
+  router_type_identifier: resolvableValue(z.string()),
   virtual_interface_id: resolvableValue(z.string()),
   virtual_interface_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   customer_router_config: z.string().optional(),
@@ -37,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_router_configuration
 
 export function DataAwsDxRouterConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +58,13 @@ export function DataAwsDxRouterConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDxRouterConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDxRouterConfiguration, node, id)
+export const useDataAwsDxRouterConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsDxRouterConfiguration, idFilter, baseNode)
 
-export const useDataAwsDxRouterConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDxRouterConfiguration, node, id)
+export const useDataAwsDxRouterConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDxRouterConfiguration, idFilter, baseNode)

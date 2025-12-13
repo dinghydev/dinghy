@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_capacity_block_reservation
 
 export const InputSchema = z.object({
   capacity_block_offering_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_capacity_block_reservation
 
 export function AwsEc2CapacityBlockReservation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,14 @@ export function AwsEc2CapacityBlockReservation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2CapacityBlockReservation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2CapacityBlockReservation, node, id)
+export const useAwsEc2CapacityBlockReservation = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsEc2CapacityBlockReservation, idFilter, baseNode)
 
-export const useAwsEc2CapacityBlockReservations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2CapacityBlockReservation, node, id)
+export const useAwsEc2CapacityBlockReservations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2CapacityBlockReservation, idFilter, baseNode)

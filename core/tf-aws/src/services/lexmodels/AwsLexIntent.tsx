@@ -3,27 +3,40 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_intent
-
 export const InputSchema = z.object({
   fulfillment_activity: resolvableValue(z.object({
     type: z.string(),
+    code_hook: z.object({
+      message_version: z.string(),
+      uri: z.string(),
+    }).optional(),
   })),
   name: resolvableValue(z.string()),
   conclusion_statement: resolvableValue(
     z.object({
       response_card: z.string().optional(),
+      message: z.object({
+        content: z.string(),
+        content_type: z.string(),
+        group_number: z.number().optional(),
+      }).array(),
     }).optional(),
   ),
   confirmation_prompt: resolvableValue(
     z.object({
       max_attempts: z.number(),
       response_card: z.string().optional(),
+      message: z.object({
+        content: z.string(),
+        content_type: z.string(),
+        group_number: z.number().optional(),
+      }).array(),
     }).optional(),
   ),
   create_version: resolvableValue(z.boolean().optional()),
@@ -39,9 +52,19 @@ export const InputSchema = z.object({
       prompt: z.object({
         max_attempts: z.number(),
         response_card: z.string().optional(),
+        message: z.object({
+          content: z.string(),
+          content_type: z.string(),
+          group_number: z.number().optional(),
+        }).array(),
       }),
       rejection_statement: z.object({
         response_card: z.string().optional(),
+        message: z.object({
+          content: z.string(),
+          content_type: z.string(),
+          group_number: z.number().optional(),
+        }).array(),
       }),
     }).optional(),
   ),
@@ -51,6 +74,11 @@ export const InputSchema = z.object({
   rejection_statement: resolvableValue(
     z.object({
       response_card: z.string().optional(),
+      message: z.object({
+        content: z.string(),
+        content_type: z.string(),
+        group_number: z.number().optional(),
+      }).array(),
     }).optional(),
   ),
   sample_utterances: resolvableValue(z.string().array().optional()),
@@ -64,6 +92,15 @@ export const InputSchema = z.object({
       slot_constraint: z.string(),
       slot_type: z.string(),
       slot_type_version: z.string().optional(),
+      value_elicitation_prompt: z.object({
+        max_attempts: z.number(),
+        response_card: z.string().optional(),
+        message: z.object({
+          content: z.string(),
+          content_type: z.string(),
+          group_number: z.number().optional(),
+        }).array(),
+      }).optional(),
     }).array().optional(),
   ),
   timeouts: resolvableValue(
@@ -73,7 +110,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -90,6 +127,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_intent
 
 export function AwsLexIntent(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -108,8 +148,8 @@ export function AwsLexIntent(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexIntent = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLexIntent, node, id)
+export const useAwsLexIntent = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLexIntent, idFilter, baseNode)
 
-export const useAwsLexIntents = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexIntent, node, id)
+export const useAwsLexIntents = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLexIntent, idFilter, baseNode)

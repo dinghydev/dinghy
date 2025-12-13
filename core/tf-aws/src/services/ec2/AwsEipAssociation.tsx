@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip_association
 
 export const InputSchema = z.object({
   allocation_id: resolvableValue(z.string().optional()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   private_ip_address: resolvableValue(z.string().optional()),
   public_ip: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eip_association
 
 export function AwsEipAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsEipAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEipAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEipAssociation, node, id)
+export const useAwsEipAssociation = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEipAssociation, idFilter, baseNode)
 
-export const useAwsEipAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEipAssociation, node, id)
+export const useAwsEipAssociations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEipAssociation, idFilter, baseNode)

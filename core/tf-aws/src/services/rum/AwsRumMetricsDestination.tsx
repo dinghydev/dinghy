@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rum_metrics_destination
 
 export const InputSchema = z.object({
   app_monitor_name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   destination_arn: resolvableValue(z.string().optional()),
   iam_role_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rum_metrics_destination
 
 export function AwsRumMetricsDestination(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function AwsRumMetricsDestination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRumMetricsDestination = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRumMetricsDestination, node, id)
+export const useAwsRumMetricsDestination = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRumMetricsDestination, idFilter, baseNode)
 
-export const useAwsRumMetricsDestinations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRumMetricsDestination, node, id)
+export const useAwsRumMetricsDestinations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRumMetricsDestination, idFilter, baseNode)

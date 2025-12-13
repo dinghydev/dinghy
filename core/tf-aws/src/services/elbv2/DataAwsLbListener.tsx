@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLbListener } from './AwsLbListener.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb_listener
 
 export const InputSchema = z.object({
   alpn_policy: resolvableValue(z.string()),
@@ -96,7 +95,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -107,6 +106,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb_listener
 
 export function DataAwsLbListener(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -125,8 +127,8 @@ export function DataAwsLbListener(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbListener = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLbListener, node, id)
+export const useDataAwsLbListener = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLbListener, idFilter, baseNode)
 
-export const useDataAwsLbListeners = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLbListener, node, id)
+export const useDataAwsLbListeners = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLbListener, idFilter, baseNode)

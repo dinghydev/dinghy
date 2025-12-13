@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/flow_log
 
 export const InputSchema = z.object({
   deliver_cross_account_role: resolvableValue(z.string().optional()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
   transit_gateway_attachment_id: resolvableValue(z.string().optional()),
   transit_gateway_id: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/flow_log
 
 export function AwsFlowLog(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsFlowLog(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFlowLog = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFlowLog, node, id)
+export const useAwsFlowLog = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFlowLog, idFilter, baseNode)
 
-export const useAwsFlowLogs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFlowLog, node, id)
+export const useAwsFlowLogs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFlowLog, idFilter, baseNode)

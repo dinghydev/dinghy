@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_environment_blueprint_configuration
 
 export const InputSchema = z.object({
   domain_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   regional_parameters: resolvableValue(
     z.record(z.string(), z.record(z.string(), z.string())).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_environment_blueprint_configuration
 
 export function AwsDatazoneEnvironmentBlueprintConfiguration(
   props: Partial<InputProps>,
@@ -52,21 +54,21 @@ export function AwsDatazoneEnvironmentBlueprintConfiguration(
 }
 
 export const useAwsDatazoneEnvironmentBlueprintConfiguration = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatazoneEnvironmentBlueprintConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsDatazoneEnvironmentBlueprintConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatazoneEnvironmentBlueprintConfiguration,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

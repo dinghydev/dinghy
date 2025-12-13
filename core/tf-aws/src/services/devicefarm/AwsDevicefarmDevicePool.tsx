@@ -3,21 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_device_pool
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   project_arn: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  max_devices: resolvableValue(z.number().optional()),
-  region: resolvableValue(z.string().optional()),
   rule: resolvableValue(
     z.object({
       attribute: z.string().optional(),
@@ -25,8 +19,13 @@ export const InputSchema = z.object({
       value: z.string().optional(),
     }).array(),
   ),
+  type: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
+  id: resolvableValue(z.string().optional()),
+  max_devices: resolvableValue(z.number().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/devicefarm_device_pool
 
 export function AwsDevicefarmDevicePool(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,10 @@ export function AwsDevicefarmDevicePool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevicefarmDevicePool = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDevicefarmDevicePool, node, id)
+export const useAwsDevicefarmDevicePool = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDevicefarmDevicePool, idFilter, baseNode)
 
-export const useAwsDevicefarmDevicePools = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmDevicePool, node, id)
+export const useAwsDevicefarmDevicePools = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDevicefarmDevicePool, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsBatchJobDefinition } from './AwsBatchJobDefinition.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/batch_job_definition
 
 export const InputSchema = z.object({
   arn_prefix: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   revision: resolvableValue(z.number().optional()),
   status: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   container_orchestration_type: z.string().optional(),
@@ -220,6 +219,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/batch_job_definition
 
 export function DataAwsBatchJobDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -238,8 +240,12 @@ export function DataAwsBatchJobDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBatchJobDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBatchJobDefinition, node, id)
+export const useDataAwsBatchJobDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsBatchJobDefinition, idFilter, baseNode)
 
-export const useDataAwsBatchJobDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBatchJobDefinition, node, id)
+export const useDataAwsBatchJobDefinitions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsBatchJobDefinition, idFilter, baseNode)

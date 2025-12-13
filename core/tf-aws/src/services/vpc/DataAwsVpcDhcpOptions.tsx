@@ -2,14 +2,14 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpcDhcpOptions } from './AwsVpcDhcpOptions.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_dhcp_options
-
 export const InputSchema = z.object({
+  dhcp_options_id: resolvableValue(z.string().optional()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -22,7 +22,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_dhcp_options
 
 export function DataAwsVpcDhcpOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,5 +66,5 @@ export function DataAwsVpcDhcpOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcDhcpOptions = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsVpcDhcpOptions, node, id)
+export const useDataAwsVpcDhcpOptions = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsVpcDhcpOptions, idFilter, baseNode)

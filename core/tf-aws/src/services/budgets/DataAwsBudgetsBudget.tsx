@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsBudgetsBudget } from './AwsBudgetsBudget.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/budgets_budget
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   account_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   auto_adjust_data: z.object({
@@ -40,10 +39,10 @@ export const OutputSchema = z.object({
       unit: z.string(),
     }).array(),
   }).array().optional(),
-  cost_filter: z.object({
+  cost_filter: z.set(z.object({
     name: z.string(),
     values: z.string().array(),
-  }).array().optional(),
+  })).optional(),
   cost_types: z.object({
     include_credit: z.boolean(),
     include_discount: z.boolean(),
@@ -57,19 +56,19 @@ export const OutputSchema = z.object({
     use_amortized: z.boolean(),
     use_blended: z.boolean(),
   }).array().optional(),
-  notification: z.object({
+  notification: z.set(z.object({
     comparison_operator: z.string(),
     notification_type: z.string(),
-    subscriber_email_addresses: z.string().array(),
-    subscriber_sns_topic_arns: z.string().array(),
+    subscriber_email_addresses: z.set(z.string()),
+    subscriber_sns_topic_arns: z.set(z.string()),
     threshold: z.number(),
     threshold_type: z.string(),
-  }).array().optional(),
-  planned_limit: z.object({
+  })).optional(),
+  planned_limit: z.set(z.object({
     amount: z.string(),
     start_time: z.string(),
     unit: z.string(),
-  }).array().optional(),
+  })).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   time_period_end: z.string().optional(),
   time_period_start: z.string().optional(),
@@ -83,6 +82,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/budgets_budget
 
 export function DataAwsBudgetsBudget(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -101,8 +103,8 @@ export function DataAwsBudgetsBudget(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBudgetsBudget = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBudgetsBudget, node, id)
+export const useDataAwsBudgetsBudget = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsBudgetsBudget, idFilter, baseNode)
 
-export const useDataAwsBudgetsBudgets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBudgetsBudget, node, id)
+export const useDataAwsBudgetsBudgets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsBudgetsBudget, idFilter, baseNode)

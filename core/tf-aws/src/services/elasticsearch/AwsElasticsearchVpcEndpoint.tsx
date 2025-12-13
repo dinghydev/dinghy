@@ -3,15 +3,20 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_vpc_endpoint
-
 export const InputSchema = z.object({
   domain_arn: resolvableValue(z.string()),
+  vpc_options: resolvableValue(z.object({
+    availability_zones: z.string().array(),
+    security_group_ids: z.string().array().optional(),
+    subnet_ids: z.string().array(),
+    vpc_id: z.string(),
+  })),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -20,13 +25,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-  vpc_options: resolvableValue(z.object({
-    availability_zones: z.string().array(),
-    security_group_ids: z.string().array().optional(),
-    subnet_ids: z.string().array(),
-    vpc_id: z.string(),
-  })),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   endpoint: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_vpc_endpoint
 
 export function AwsElasticsearchVpcEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,12 @@ export function AwsElasticsearchVpcEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticsearchVpcEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElasticsearchVpcEndpoint, node, id)
+export const useAwsElasticsearchVpcEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsElasticsearchVpcEndpoint, idFilter, baseNode)
 
-export const useAwsElasticsearchVpcEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElasticsearchVpcEndpoint, node, id)
+export const useAwsElasticsearchVpcEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsElasticsearchVpcEndpoint, idFilter, baseNode)

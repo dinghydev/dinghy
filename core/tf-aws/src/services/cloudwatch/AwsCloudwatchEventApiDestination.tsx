@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_api_destination
 
 export const InputSchema = z.object({
   connection_arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   invocation_rate_limit_per_second: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_event_api_destination
 
 export function AwsCloudwatchEventApiDestination(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,22 @@ export function AwsCloudwatchEventApiDestination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventApiDestination = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchEventApiDestination, node, id)
+export const useAwsCloudwatchEventApiDestination = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchEventApiDestination,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsCloudwatchEventApiDestinations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventApiDestination, node, id)
+export const useAwsCloudwatchEventApiDestinations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventApiDestination,
+    idFilter,
+    baseNode,
+  )

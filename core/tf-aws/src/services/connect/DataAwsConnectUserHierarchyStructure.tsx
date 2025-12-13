@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectUserHierarchyStructure } from './AwsConnectUserHierarchyStructure.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_user_hierarchy_structure
-
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   hierarchy_structure: z.object({
@@ -53,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_user_hierarchy_structure
 
 export function DataAwsConnectUserHierarchyStructure(
   props: Partial<InputProps>,
@@ -74,11 +76,21 @@ export function DataAwsConnectUserHierarchyStructure(
 }
 
 export const useDataAwsConnectUserHierarchyStructure = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsConnectUserHierarchyStructure, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectUserHierarchyStructure,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsConnectUserHierarchyStructures = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsConnectUserHierarchyStructure, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsConnectUserHierarchyStructure,
+    idFilter,
+    baseNode,
+  )

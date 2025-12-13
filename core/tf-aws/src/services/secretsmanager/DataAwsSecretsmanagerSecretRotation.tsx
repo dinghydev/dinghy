@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSecretsmanagerSecretRotation } from './AwsSecretsmanagerSecretRotation.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_secret_rotation
-
 export const InputSchema = z.object({
   secret_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   rotation_enabled: z.boolean().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_secret_rotation
 
 export function DataAwsSecretsmanagerSecretRotation(
   props: Partial<InputProps>,
@@ -54,11 +56,21 @@ export function DataAwsSecretsmanagerSecretRotation(
 }
 
 export const useDataAwsSecretsmanagerSecretRotation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsSecretsmanagerSecretRotation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSecretsmanagerSecretRotation,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsSecretsmanagerSecretRotations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsSecretsmanagerSecretRotation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSecretsmanagerSecretRotation,
+    idFilter,
+    baseNode,
+  )

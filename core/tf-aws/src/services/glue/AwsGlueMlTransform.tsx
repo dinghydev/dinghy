@@ -3,27 +3,34 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_ml_transform
-
 export const InputSchema = z.object({
+  input_record_tables: resolvableValue(
+    z.object({
+      catalog_id: z.string().optional(),
+      connection_name: z.string().optional(),
+      database_name: z.string(),
+      table_name: z.string(),
+    }).array(),
+  ),
   name: resolvableValue(z.string()),
   parameters: resolvableValue(z.object({
     transform_type: z.string(),
+    find_matches_parameters: z.object({
+      accuracy_cost_trade_off: z.number().optional(),
+      enforce_provided_labels: z.boolean().optional(),
+      precision_recall_trade_off: z.number().optional(),
+      primary_key_column_name: z.string().optional(),
+    }),
   })),
   role_arn: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   glue_version: resolvableValue(z.string().optional()),
-  input_record_tables: resolvableValue(z.object({
-    catalog_id: z.string().optional(),
-    connection_name: z.string().optional(),
-    database_name: z.string(),
-    table_name: z.string(),
-  })),
   max_capacity: resolvableValue(z.number().optional()),
   max_retries: resolvableValue(z.number().optional()),
   number_of_workers: resolvableValue(z.number().optional()),
@@ -31,7 +38,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeout: resolvableValue(z.number().optional()),
   worker_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -51,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_ml_transform
 
 export function AwsGlueMlTransform(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +79,8 @@ export function AwsGlueMlTransform(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueMlTransform = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueMlTransform, node, id)
+export const useAwsGlueMlTransform = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueMlTransform, idFilter, baseNode)
 
-export const useAwsGlueMlTransforms = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueMlTransform, node, id)
+export const useAwsGlueMlTransforms = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueMlTransform, idFilter, baseNode)

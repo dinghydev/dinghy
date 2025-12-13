@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEcsTaskDefinition } from './AwsEcsTaskDefinition.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_task_definition
-
 export const InputSchema = z.object({
   task_definition: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,16 +30,16 @@ export const OutputSchema = z.object({
   memory: z.string().optional(),
   network_mode: z.string().optional(),
   pid_mode: z.string().optional(),
-  placement_constraints: z.object({
+  placement_constraints: z.set(z.object({
     expression: z.string(),
     type: z.string(),
-  }).array().optional(),
+  })).optional(),
   proxy_configuration: z.object({
     container_name: z.string(),
     properties: z.record(z.string(), z.string()),
     type: z.string(),
   }).array().optional(),
-  requires_compatibilities: z.string().array().optional(),
+  requires_compatibilities: z.set(z.string()).optional(),
   revision: z.number().optional(),
   runtime_platform: z.object({
     cpu_architecture: z.string(),
@@ -48,7 +47,7 @@ export const OutputSchema = z.object({
   }).array().optional(),
   status: z.string().optional(),
   task_role_arn: z.string().optional(),
-  volume: z.object({
+  volume: z.set(z.object({
     configure_at_launch: z.boolean(),
     docker_volume_configuration: z.object({
       autoprovision: z.boolean(),
@@ -77,7 +76,7 @@ export const OutputSchema = z.object({
     }).array(),
     host_path: z.string(),
     name: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -87,6 +86,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_task_definition
 
 export function DataAwsEcsTaskDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -105,8 +107,12 @@ export function DataAwsEcsTaskDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsTaskDefinition = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEcsTaskDefinition, node, id)
+export const useDataAwsEcsTaskDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsEcsTaskDefinition, idFilter, baseNode)
 
-export const useDataAwsEcsTaskDefinitions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEcsTaskDefinition, node, id)
+export const useDataAwsEcsTaskDefinitions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsEcsTaskDefinition, idFilter, baseNode)

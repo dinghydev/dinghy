@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_api_key
 
 export const InputSchema = z.object({
   api_key: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   token_domains: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_api_key
 
 export function AwsWafv2ApiKey(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,8 @@ export function AwsWafv2ApiKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2ApiKey = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsWafv2ApiKey, node, id)
+export const useAwsWafv2ApiKey = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode)
 
-export const useAwsWafv2ApiKeys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsWafv2ApiKey, node, id)
+export const useAwsWafv2ApiKeys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode)

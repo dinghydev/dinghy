@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDbInstance } from './AwsDbInstance.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_instance
-
 export const InputSchema = z.object({
   db_instance_identifier: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   address: z.string().optional(),
@@ -72,6 +71,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_instance
 
 export function DataAwsDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -90,8 +92,8 @@ export function DataAwsDbInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDbInstance, node, id)
+export const useDataAwsDbInstance = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsDbInstance, idFilter, baseNode)
 
-export const useDataAwsDbInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDbInstance, node, id)
+export const useDataAwsDbInstances = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDbInstance, idFilter, baseNode)

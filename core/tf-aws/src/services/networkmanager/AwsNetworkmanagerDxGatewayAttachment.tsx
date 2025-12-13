@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_dx_gateway_attachment
 
 export const InputSchema = z.object({
   core_network_id: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_dx_gateway_attachment
 
 export function AwsNetworkmanagerDxGatewayAttachment(
   props: Partial<InputProps>,
@@ -64,11 +66,21 @@ export function AwsNetworkmanagerDxGatewayAttachment(
 }
 
 export const useAwsNetworkmanagerDxGatewayAttachment = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsNetworkmanagerDxGatewayAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerDxGatewayAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkmanagerDxGatewayAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsNetworkmanagerDxGatewayAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerDxGatewayAttachment,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_account_policy
 
 export const InputSchema = z.object({
   policy_document: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   scope: resolvableValue(z.string().optional()),
   selection_criteria: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_account_policy
 
 export function AwsCloudwatchLogAccountPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,14 @@ export function AwsCloudwatchLogAccountPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchLogAccountPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogAccountPolicy, node, id)
+export const useAwsCloudwatchLogAccountPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCloudwatchLogAccountPolicy, idFilter, baseNode)
 
-export const useAwsCloudwatchLogAccountPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogAccountPolicy, node, id)
+export const useAwsCloudwatchLogAccountPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudwatchLogAccountPolicy, idFilter, baseNode)

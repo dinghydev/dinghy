@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_remediation_configuration
 
 export const InputSchema = z.object({
   config_rule_name: resolvableValue(z.string()),
@@ -31,13 +30,13 @@ export const InputSchema = z.object({
       resource_value: z.string().optional(),
       static_value: z.string().optional(),
       static_values: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   resource_type: resolvableValue(z.string().optional()),
   retry_attempt_seconds: resolvableValue(z.number().optional()),
   target_version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_remediation_configuration
 
 export function AwsConfigRemediationConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,10 +70,22 @@ export function AwsConfigRemediationConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigRemediationConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigRemediationConfiguration, node, id)
+export const useAwsConfigRemediationConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConfigRemediationConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsConfigRemediationConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsConfigRemediationConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigRemediationConfiguration,
+    idFilter,
+    baseNode,
+  )

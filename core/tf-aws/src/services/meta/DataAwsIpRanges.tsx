@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ip_ranges
 
 export const InputSchema = z.object({
   services: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
   regions: resolvableValue(z.string().array().optional()),
   url: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cidr_blocks: z.string().array().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ip_ranges
 
 export function DataAwsIpRanges(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,5 +50,5 @@ export function DataAwsIpRanges(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIpRangess = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIpRanges, node, id)
+export const useDataAwsIpRangess = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIpRanges, idFilter, baseNode)

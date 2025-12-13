@@ -3,26 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_device_fleet
-
 export const InputSchema = z.object({
   device_fleet_name: resolvableValue(z.string()),
   iot_role_alias: resolvableValue(z.string()),
-  role_arn: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  enable_iot_role_alias: resolvableValue(z.boolean().optional()),
   output_config: resolvableValue(z.object({
     kms_key_id: z.string().optional(),
     s3_output_location: z.string(),
   })),
+  role_arn: resolvableValue(z.string()),
+  description: resolvableValue(z.string().optional()),
+  enable_iot_role_alias: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_device_fleet
 
 export function AwsSagemakerDeviceFleet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,10 @@ export function AwsSagemakerDeviceFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerDeviceFleet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSagemakerDeviceFleet, node, id)
+export const useAwsSagemakerDeviceFleet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSagemakerDeviceFleet, idFilter, baseNode)
 
-export const useAwsSagemakerDeviceFleets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSagemakerDeviceFleet, node, id)
+export const useAwsSagemakerDeviceFleets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsSagemakerDeviceFleet, idFilter, baseNode)

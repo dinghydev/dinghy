@@ -3,21 +3,42 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_instance_storage_config
 
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
   resource_type: resolvableValue(z.string()),
   storage_config: resolvableValue(z.object({
     storage_type: z.string(),
+    kinesis_firehose_config: z.object({
+      firehose_arn: z.string(),
+    }).optional(),
+    kinesis_stream_config: z.object({
+      stream_arn: z.string(),
+    }).optional(),
+    kinesis_video_stream_config: z.object({
+      prefix: z.string(),
+      retention_period_hours: z.number(),
+      encryption_config: z.object({
+        encryption_type: z.string(),
+        key_id: z.string(),
+      }),
+    }).optional(),
+    s3_config: z.object({
+      bucket_name: z.string(),
+      bucket_prefix: z.string(),
+      encryption_config: z.object({
+        encryption_type: z.string(),
+        key_id: z.string(),
+      }).optional(),
+    }).optional(),
   })),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   association_id: z.string().optional(),
@@ -31,6 +52,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_instance_storage_config
 
 export function AwsConnectInstanceStorageConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +73,18 @@ export function AwsConnectInstanceStorageConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectInstanceStorageConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConnectInstanceStorageConfig, node, id)
+export const useAwsConnectInstanceStorageConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsConnectInstanceStorageConfig, idFilter, baseNode)
 
-export const useAwsConnectInstanceStorageConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConnectInstanceStorageConfig, node, id)
+export const useAwsConnectInstanceStorageConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectInstanceStorageConfig,
+    idFilter,
+    baseNode,
+  )

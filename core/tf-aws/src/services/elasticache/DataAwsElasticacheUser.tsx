@@ -2,27 +2,27 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsElasticacheUser } from './AwsElasticacheUser.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_user
-
 export const InputSchema = z.object({
+  user_id: resolvableValue(z.string()),
   authentication_mode: resolvableValue(
     z.object({
       password_count: z.number().optional(),
       type: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   engine: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   no_password_required: resolvableValue(z.boolean().optional()),
   passwords: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_string: z.string().optional(),
@@ -37,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_user
 
 export function DataAwsElasticacheUser(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +58,8 @@ export function DataAwsElasticacheUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElasticacheUser = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElasticacheUser, node, id)
+export const useDataAwsElasticacheUser = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsElasticacheUser, idFilter, baseNode)
 
-export const useDataAwsElasticacheUsers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsElasticacheUser, node, id)
+export const useDataAwsElasticacheUsers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsElasticacheUser, idFilter, baseNode)

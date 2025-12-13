@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_job_queue
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
     z.object({
       compute_environment: z.string(),
       order: z.number(),
-    }).optional(),
+    }).array().optional(),
   ),
   job_state_time_limit_action: resolvableValue(
     z.object({
@@ -27,7 +26,7 @@ export const InputSchema = z.object({
       max_time_seconds: z.number(),
       reason: z.string(),
       state: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   scheduling_policy_arn: resolvableValue(z.string().optional()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_job_queue
 
 export function AwsBatchJobQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,8 @@ export function AwsBatchJobQueue(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBatchJobQueue = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBatchJobQueue, node, id)
+export const useAwsBatchJobQueue = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBatchJobQueue, idFilter, baseNode)
 
-export const useAwsBatchJobQueues = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBatchJobQueue, node, id)
+export const useAwsBatchJobQueues = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBatchJobQueue, idFilter, baseNode)

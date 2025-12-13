@@ -3,22 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_account
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   cloudwatch_role_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   api_key_version: z.string().optional(),
-  features: z.string().array().optional(),
+  features: z.set(z.string()).optional(),
   throttle_settings: z.object({
     burst_limit: z.number(),
     rate_limit: z.number(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_account
 
 export function AwsApiGatewayAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function AwsApiGatewayAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayAccount = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayAccount, node, id)
+export const useAwsApiGatewayAccount = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApiGatewayAccount, idFilter, baseNode)
 
-export const useAwsApiGatewayAccounts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayAccount, node, id)
+export const useAwsApiGatewayAccounts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsApiGatewayAccount, idFilter, baseNode)

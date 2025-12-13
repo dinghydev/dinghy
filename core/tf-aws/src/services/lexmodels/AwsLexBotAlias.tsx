@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_bot_alias
 
 export const InputSchema = z.object({
   bot_name: resolvableValue(z.string()),
@@ -16,6 +15,13 @@ export const InputSchema = z.object({
   conversation_logs: resolvableValue(
     z.object({
       iam_role_arn: z.string(),
+      log_settings: z.object({
+        destination: z.string(),
+        kms_key_arn: z.string().optional(),
+        log_type: z.string(),
+        resource_arn: z.string(),
+        resource_prefix: z.string(),
+      }).array().optional(),
     }).optional(),
   ),
   description: resolvableValue(z.string().optional()),
@@ -28,7 +34,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lex_bot_alias
 
 export function AwsLexBotAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,5 +71,5 @@ export function AwsLexBotAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexBotAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexBotAlias, node, id)
+export const useAwsLexBotAliass = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLexBotAlias, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_cluster
 
 export const InputSchema = z.object({
   az_mode: resolvableValue(z.string()),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
     z.object({
       size: z.number(),
       type: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   capacity_configuration: resolvableValue(
     z.object({
@@ -62,7 +61,11 @@ export const InputSchema = z.object({
       changeset_id: z.string().optional(),
       database_name: z.string(),
       dataview_name: z.string().optional(),
-    }).optional(),
+      cache_configurations: z.object({
+        cache_type: z.string(),
+        db_paths: z.string().array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   execution_role: resolvableValue(z.string().optional()),
@@ -88,7 +91,7 @@ export const InputSchema = z.object({
   tickerplant_log_configuration: resolvableValue(
     z.object({
       tickerplant_log_volumes: z.string().array(),
-    }).optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
@@ -97,7 +100,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -114,6 +117,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/finspace_kx_cluster
 
 export function AwsFinspaceKxCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -132,8 +138,8 @@ export function AwsFinspaceKxCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxCluster, node, id)
+export const useAwsFinspaceKxCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxCluster, idFilter, baseNode)
 
-export const useAwsFinspaceKxClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxCluster, node, id)
+export const useAwsFinspaceKxClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFinspaceKxCluster, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_bgp_peer
 
 export const InputSchema = z.object({
   address_family: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   aws_device: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_bgp_peer
 
 export function AwsDxBgpPeer(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function AwsDxBgpPeer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxBgpPeer = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxBgpPeer, node, id)
+export const useAwsDxBgpPeer = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDxBgpPeer, idFilter, baseNode)
 
-export const useAwsDxBgpPeers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxBgpPeer, node, id)
+export const useAwsDxBgpPeers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDxBgpPeer, idFilter, baseNode)

@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_default_auto_scaling_configuration_version
-
 export const InputSchema = z.object({
   auto_scaling_configuration_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -25,6 +24,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_default_auto_scaling_configuration_version
 
 export function AwsApprunnerDefaultAutoScalingConfigurationVersion(
   props: Partial<InputProps>,
@@ -46,21 +48,21 @@ export function AwsApprunnerDefaultAutoScalingConfigurationVersion(
 }
 
 export const useAwsApprunnerDefaultAutoScalingConfigurationVersion = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsApprunnerDefaultAutoScalingConfigurationVersion,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsApprunnerDefaultAutoScalingConfigurationVersions = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApprunnerDefaultAutoScalingConfigurationVersion,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

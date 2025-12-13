@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamRole } from './AwsIamRole.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_role
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/iam_role
 
 export function DataAwsIamRole(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,8 @@ export function DataAwsIamRole(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamRole = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsIamRole, node, id)
+export const useDataAwsIamRole = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsIamRole, idFilter, baseNode)
 
-export const useDataAwsIamRoles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsIamRole, node, id)
+export const useDataAwsIamRoles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsIamRole, idFilter, baseNode)

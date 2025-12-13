@@ -3,16 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_insight
-
 export const InputSchema = z.object({
-  group_by_attribute: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
   filters: resolvableValue(z.object({
     aws_account_id: z.object({
       comparison: z.string(),
@@ -34,6 +31,10 @@ export const InputSchema = z.object({
     created_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     criticality: z.object({
       eq: z.string().optional(),
@@ -77,6 +78,10 @@ export const InputSchema = z.object({
     first_observed_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     generator_id: z.object({
       comparison: z.string(),
@@ -92,6 +97,10 @@ export const InputSchema = z.object({
     last_observed_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     malware_name: z.object({
       comparison: z.string(),
@@ -158,6 +167,10 @@ export const InputSchema = z.object({
     note_updated_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     note_updated_by: z.object({
       comparison: z.string(),
@@ -166,6 +179,10 @@ export const InputSchema = z.object({
     process_launched_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     process_name: z.object({
       comparison: z.string(),
@@ -188,6 +205,10 @@ export const InputSchema = z.object({
     process_terminated_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     product_arn: z.object({
       comparison: z.string(),
@@ -239,6 +260,10 @@ export const InputSchema = z.object({
     resource_aws_ec2_instance_launched_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     resource_aws_ec2_instance_subnet_id: z.object({
       comparison: z.string(),
@@ -255,6 +280,10 @@ export const InputSchema = z.object({
     resource_aws_iam_access_key_created_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     resource_aws_iam_access_key_status: z.object({
       comparison: z.string(),
@@ -283,6 +312,10 @@ export const InputSchema = z.object({
     resource_container_launched_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     resource_container_name: z.object({
       comparison: z.string(),
@@ -329,6 +362,10 @@ export const InputSchema = z.object({
     threat_intel_indicator_last_observed_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     threat_intel_indicator_source: z.object({
       comparison: z.string(),
@@ -357,6 +394,10 @@ export const InputSchema = z.object({
     updated_at: z.object({
       end: z.string().optional(),
       start: z.string().optional(),
+      date_range: z.object({
+        unit: z.string(),
+        value: z.number(),
+      }).optional(),
     }).array().optional(),
     user_defined_values: z.object({
       comparison: z.string(),
@@ -372,8 +413,10 @@ export const InputSchema = z.object({
       value: z.string(),
     }).array().optional(),
   })),
+  group_by_attribute: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -387,6 +430,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_insight
 
 export function AwsSecurityhubInsight(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -405,8 +451,8 @@ export function AwsSecurityhubInsight(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubInsight = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubInsight, node, id)
+export const useAwsSecurityhubInsight = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSecurityhubInsight, idFilter, baseNode)
 
-export const useAwsSecurityhubInsights = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubInsight, node, id)
+export const useAwsSecurityhubInsights = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSecurityhubInsight, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_configuration_policy_association
 
 export const InputSchema = z.object({
   policy_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_configuration_policy_association
 
 export function AwsSecurityhubConfigurationPolicyAssociation(
   props: Partial<InputProps>,
@@ -54,21 +56,21 @@ export function AwsSecurityhubConfigurationPolicyAssociation(
 }
 
 export const useAwsSecurityhubConfigurationPolicyAssociation = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubConfigurationPolicyAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsSecurityhubConfigurationPolicyAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubConfigurationPolicyAssociation,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

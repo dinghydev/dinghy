@@ -2,12 +2,11 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEc2NetworkInsightsAnalysis } from './AwsEc2NetworkInsightsAnalysis.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_network_insights_analysis
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   network_insights_analysis_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alternate_path_hints: z.object({
@@ -481,6 +480,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_network_insights_analysis
 
 export function DataAwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -500,6 +502,11 @@ export function DataAwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
 }
 
 export const useDataAwsEc2NetworkInsightsAnalysiss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsEc2NetworkInsightsAnalysis, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2NetworkInsightsAnalysis,
+    idFilter,
+    baseNode,
+  )

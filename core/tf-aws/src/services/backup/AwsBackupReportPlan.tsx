@@ -3,17 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_report_plan
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
   report_delivery_channel: resolvableValue(z.object({
     formats: z.string().array().optional(),
     s3_bucket_name: z.string(),
@@ -27,8 +24,10 @@ export const InputSchema = z.object({
     regions: z.string().array().optional(),
     report_template: z.string(),
   })),
+  description: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_report_plan
 
 export function AwsBackupReportPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +65,8 @@ export function AwsBackupReportPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupReportPlan = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupReportPlan, node, id)
+export const useAwsBackupReportPlan = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBackupReportPlan, idFilter, baseNode)
 
-export const useAwsBackupReportPlans = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupReportPlan, node, id)
+export const useAwsBackupReportPlans = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBackupReportPlan, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLaunchTemplate } from './AwsLaunchTemplate.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/launch_template
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -234,6 +233,7 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
+  id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -242,7 +242,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -255,6 +255,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/launch_template
 
 export function DataAwsLaunchTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -273,8 +276,8 @@ export function DataAwsLaunchTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLaunchTemplate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsLaunchTemplate, node, id)
+export const useDataAwsLaunchTemplate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsLaunchTemplate, idFilter, baseNode)
 
-export const useDataAwsLaunchTemplates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsLaunchTemplate, node, id)
+export const useDataAwsLaunchTemplates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsLaunchTemplate, idFilter, baseNode)

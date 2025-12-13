@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_analytics_configuration
 
 export const InputSchema = z.object({
   bucket: resolvableValue(z.string()),
@@ -25,10 +24,18 @@ export const InputSchema = z.object({
     z.object({
       data_export: z.object({
         output_schema_version: z.string().optional(),
+        destination: z.object({
+          s3_bucket_destination: z.object({
+            bucket_account_id: z.string().optional(),
+            bucket_arn: z.string(),
+            format: z.string().optional(),
+            prefix: z.string().optional(),
+          }),
+        }),
       }),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -39,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_analytics_configuration
 
 export function AwsS3BucketAnalyticsConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,10 +67,22 @@ export function AwsS3BucketAnalyticsConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketAnalyticsConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3BucketAnalyticsConfiguration, node, id)
+export const useAwsS3BucketAnalyticsConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketAnalyticsConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsS3BucketAnalyticsConfigurations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsS3BucketAnalyticsConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3BucketAnalyticsConfiguration,
+    idFilter,
+    baseNode,
+  )

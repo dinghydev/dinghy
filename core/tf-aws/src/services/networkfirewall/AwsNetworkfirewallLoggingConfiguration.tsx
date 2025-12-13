@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_logging_configuration
 
 export const InputSchema = z.object({
   firewall_arn: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   })),
   enable_monitoring_dashboard: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_logging_configuration
 
 export function AwsNetworkfirewallLoggingConfiguration(
   props: Partial<InputProps>,
@@ -55,12 +57,21 @@ export function AwsNetworkfirewallLoggingConfiguration(
 }
 
 export const useAwsNetworkfirewallLoggingConfiguration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsNetworkfirewallLoggingConfiguration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkfirewallLoggingConfiguration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkfirewallLoggingConfigurations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkfirewallLoggingConfiguration, node, id)
+  useTypedNodes<OutputProps>(
+    AwsNetworkfirewallLoggingConfiguration,
+    idFilter,
+    baseNode,
+  )

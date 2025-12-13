@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_folder_membership
 
 export const InputSchema = z.object({
   folder_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   member_type: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_folder_membership
 
 export function AwsQuicksightFolderMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,14 @@ export function AwsQuicksightFolderMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightFolderMembership = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightFolderMembership, node, id)
+export const useAwsQuicksightFolderMembership = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsQuicksightFolderMembership, idFilter, baseNode)
 
-export const useAwsQuicksightFolderMemberships = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightFolderMembership, node, id)
+export const useAwsQuicksightFolderMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightFolderMembership, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_policy_attachment
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   target: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_policy_attachment
 
 export function AwsIotPolicyAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,8 @@ export function AwsIotPolicyAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotPolicyAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotPolicyAttachment, node, id)
+export const useAwsIotPolicyAttachment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIotPolicyAttachment, idFilter, baseNode)
 
-export const useAwsIotPolicyAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotPolicyAttachment, node, id)
+export const useAwsIotPolicyAttachments = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIotPolicyAttachment, idFilter, baseNode)

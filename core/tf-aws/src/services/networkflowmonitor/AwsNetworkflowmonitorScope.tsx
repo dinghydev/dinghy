@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkflowmonitor_scope
 
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
@@ -16,6 +15,12 @@ export const InputSchema = z.object({
   target: resolvableValue(
     z.object({
       region: z.string(),
+      target_identifier: z.object({
+        target_type: z.string(),
+        target_id: z.object({
+          account_id: z.string(),
+        }).array().optional(),
+      }).array().optional(),
     }).array().optional(),
   ),
   timeouts: resolvableValue(
@@ -25,7 +30,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   scope_arn: z.string().optional(),
@@ -40,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkflowmonitor_scope
 
 export function AwsNetworkflowmonitorScope(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +66,12 @@ export function AwsNetworkflowmonitorScope(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkflowmonitorScope = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkflowmonitorScope, node, id)
+export const useAwsNetworkflowmonitorScope = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNetworkflowmonitorScope, idFilter, baseNode)
 
-export const useAwsNetworkflowmonitorScopes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkflowmonitorScope, node, id)
+export const useAwsNetworkflowmonitorScopes = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsNetworkflowmonitorScope, idFilter, baseNode)

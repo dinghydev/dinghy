@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_attachment
-
 export const InputSchema = z.object({
   instance_name: resolvableValue(z.string()),
   lb_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_attachment
 
 export function AwsLightsailLbAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,12 @@ export function AwsLightsailLbAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailLbAttachment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailLbAttachment, node, id)
+export const useAwsLightsailLbAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLightsailLbAttachment, idFilter, baseNode)
 
-export const useAwsLightsailLbAttachments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailLbAttachment, node, id)
+export const useAwsLightsailLbAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLightsailLbAttachment, idFilter, baseNode)

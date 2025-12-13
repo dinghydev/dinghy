@@ -2,15 +2,15 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOdbNetwork } from './AwsOdbNetwork.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_network
-
 export const InputSchema = z.object({
+  id: resolvableValue(z.string()),
   oci_dns_forwarding_configs: resolvableValue(
     z.object({
       domain_name: z.string(),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   ),
   tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -60,7 +60,7 @@ export const OutputSchema = z.object({
   oci_resource_anchor_name: z.string().optional(),
   oci_vcn_id: z.string().optional(),
   oci_vcn_url: z.string().optional(),
-  peered_cidrs: z.string().array().optional(),
+  peered_cidrs: z.set(z.string()).optional(),
   percent_progress: z.number().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),
@@ -73,6 +73,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_network
 
 export function DataAwsOdbNetwork(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -91,8 +94,8 @@ export function DataAwsOdbNetwork(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbNetwork = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOdbNetwork, node, id)
+export const useDataAwsOdbNetwork = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOdbNetwork, idFilter, baseNode)
 
-export const useDataAwsOdbNetworks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOdbNetwork, node, id)
+export const useDataAwsOdbNetworks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOdbNetwork, idFilter, baseNode)

@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_administrators
-
 export const InputSchema = z.object({
   service_principal: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  delegated_administrators: z.object({
+  delegated_administrators: z.set(z.object({
     arn: z.string(),
     delegation_enabled_date: z.string(),
     email: z.string(),
@@ -23,7 +22,7 @@ export const OutputSchema = z.object({
     joined_timestamp: z.string(),
     name: z.string(),
     status: z.string(),
-  }).array().optional(),
+  })).optional(),
   id: z.string().optional(),
 })
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_administrators
 
 export function DataAwsOrganizationsDelegatedAdministrators(
   props: Partial<InputProps>,
@@ -55,11 +57,11 @@ export function DataAwsOrganizationsDelegatedAdministrators(
 }
 
 export const useDataAwsOrganizationsDelegatedAdministratorss = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsDelegatedAdministrators,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

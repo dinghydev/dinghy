@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_scheduling_policy
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,12 +15,16 @@ export const InputSchema = z.object({
     z.object({
       compute_reservation: z.number().optional(),
       share_decay_seconds: z.number().optional(),
+      share_distribution: z.object({
+        share_identifier: z.string(),
+        weight_factor: z.number().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -35,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_scheduling_policy
 
 export function AwsBatchSchedulingPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +59,12 @@ export function AwsBatchSchedulingPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBatchSchedulingPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBatchSchedulingPolicy, node, id)
+export const useAwsBatchSchedulingPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsBatchSchedulingPolicy, idFilter, baseNode)
 
-export const useAwsBatchSchedulingPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBatchSchedulingPolicy, node, id)
+export const useAwsBatchSchedulingPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsBatchSchedulingPolicy, idFilter, baseNode)

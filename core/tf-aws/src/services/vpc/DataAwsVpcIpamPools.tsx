@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipam_pools
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -18,10 +17,10 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  ipam_pools: z.object({
+  ipam_pools: z.set(z.object({
     address_family: z.string(),
     allocation_default_netmask_length: z.number(),
     allocation_max_netmask_length: z.number(),
@@ -40,7 +39,7 @@ export const OutputSchema = z.object({
     source_ipam_pool_id: z.string(),
     state: z.string(),
     tags: z.record(z.string(), z.string()),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipam_pools
 
 export function DataAwsVpcIpamPools(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,5 +70,5 @@ export function DataAwsVpcIpamPools(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcIpamPoolss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsVpcIpamPools, node, id)
+export const useDataAwsVpcIpamPoolss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsVpcIpamPools, idFilter, baseNode)

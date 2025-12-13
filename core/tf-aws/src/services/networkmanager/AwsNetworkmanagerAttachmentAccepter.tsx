@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_attachment_accepter
 
 export const InputSchema = z.object({
   attachment_id: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   attachment_policy_rule_number: z.number().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_attachment_accepter
 
 export function AwsNetworkmanagerAttachmentAccepter(
   props: Partial<InputProps>,
@@ -61,11 +63,21 @@ export function AwsNetworkmanagerAttachmentAccepter(
 }
 
 export const useAwsNetworkmanagerAttachmentAccepter = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsNetworkmanagerAttachmentAccepter, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerAttachmentAccepter,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsNetworkmanagerAttachmentAccepters = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsNetworkmanagerAttachmentAccepter, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerAttachmentAccepter,
+    idFilter,
+    baseNode,
+  )

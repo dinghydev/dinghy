@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_disk
 
 export const InputSchema = z.object({
   availability_zone: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   size_in_gb: resolvableValue(z.number()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_disk
 
 export function AwsLightsailDisk(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,8 @@ export function AwsLightsailDisk(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailDisk = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLightsailDisk, node, id)
+export const useAwsLightsailDisk = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLightsailDisk, idFilter, baseNode)
 
-export const useAwsLightsailDisks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLightsailDisk, node, id)
+export const useAwsLightsailDisks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLightsailDisk, idFilter, baseNode)

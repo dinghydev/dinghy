@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dsql_cluster_peering
 
 export const InputSchema = z.object({
   clusters: resolvableValue(z.string().array()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dsql_cluster_peering
 
 export function AwsDsqlClusterPeering(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsDsqlClusterPeering(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDsqlClusterPeering = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDsqlClusterPeering, node, id)
+export const useAwsDsqlClusterPeering = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDsqlClusterPeering, idFilter, baseNode)
 
-export const useAwsDsqlClusterPeerings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDsqlClusterPeering, node, id)
+export const useAwsDsqlClusterPeerings = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDsqlClusterPeering, idFilter, baseNode)

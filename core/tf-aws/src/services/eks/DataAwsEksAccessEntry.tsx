@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEksAccessEntry } from './AwsEksAccessEntry.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_access_entry
 
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
@@ -16,12 +15,12 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   access_entry_arn: z.string().optional(),
   created_at: z.string().optional(),
-  kubernetes_groups: z.string().array().optional(),
+  kubernetes_groups: z.set(z.string()).optional(),
   modified_at: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_access_entry
 
 export function DataAwsEksAccessEntry(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function DataAwsEksAccessEntry(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksAccessEntry = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEksAccessEntry, node, id)
+export const useDataAwsEksAccessEntry = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEksAccessEntry, idFilter, baseNode)
 
-export const useDataAwsEksAccessEntrys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEksAccessEntry, node, id)
+export const useDataAwsEksAccessEntrys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEksAccessEntry, idFilter, baseNode)

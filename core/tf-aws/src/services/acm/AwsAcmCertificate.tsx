@@ -1,19 +1,21 @@
 import {
   camelCaseToWords,
+  extendStyle,
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate
+import { CERTIFICATE } from '@dinghy/diagrams/entitiesAwsInternetOfThings'
 
 export const InputSchema = z.object({
   certificate_authority_arn: resolvableValue(z.string().optional()),
   certificate_body: resolvableValue(z.string().optional()),
   certificate_chain: resolvableValue(z.string().optional()),
+  domain_name: resolvableValue(z.string().optional()),
   early_renewal_duration: resolvableValue(z.string().optional()),
   key_algorithm: resolvableValue(z.string().optional()),
   options: resolvableValue(
@@ -33,17 +35,17 @@ export const InputSchema = z.object({
       validation_domain: z.string(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   domain_name: z.string().optional(),
-  domain_validation_options: z.object({
+  domain_validation_options: z.set(z.object({
     domain_name: z.string(),
     resource_record_name: z.string(),
     resource_record_type: z.string(),
     resource_record_value: z.string(),
-  }).array().optional(),
+  })).optional(),
   id: z.string().optional(),
   not_after: z.string().optional(),
   not_before: z.string().optional(),
@@ -72,6 +74,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acm_certificate
 
 export function AwsAcmCertificate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -87,12 +92,13 @@ export function AwsAcmCertificate(props: Partial<InputProps>) {
       _outputSchema={OutputSchema}
       _importSchema={ImportSchema}
       {...props}
+      _style={extendStyle(props, CERTIFICATE)}
     />
   )
 }
 
-export const useAwsAcmCertificate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAcmCertificate, node, id)
+export const useAwsAcmCertificate = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAcmCertificate, idFilter, baseNode)
 
-export const useAwsAcmCertificates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAcmCertificate, node, id)
+export const useAwsAcmCertificates = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAcmCertificate, idFilter, baseNode)

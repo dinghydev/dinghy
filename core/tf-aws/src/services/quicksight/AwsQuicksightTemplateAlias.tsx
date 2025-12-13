@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_template_alias
 
 export const InputSchema = z.object({
   alias_name: resolvableValue(z.string()),
@@ -15,7 +14,7 @@ export const InputSchema = z.object({
   template_version_number: resolvableValue(z.number()),
   aws_account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_template_alias
 
 export function AwsQuicksightTemplateAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,5 +49,7 @@ export function AwsQuicksightTemplateAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightTemplateAliass = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightTemplateAlias, node, id)
+export const useAwsQuicksightTemplateAliass = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsQuicksightTemplateAlias, idFilter, baseNode)

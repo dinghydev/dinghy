@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_ip_restriction
 
 export const InputSchema = z.object({
   enabled: resolvableValue(z.boolean()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   vpc_id_restriction_rule_map: resolvableValue(
     z.record(z.string(), z.string()).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_ip_restriction
 
 export function AwsQuicksightIpRestriction(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsQuicksightIpRestriction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightIpRestriction = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsQuicksightIpRestriction, node, id)
+export const useAwsQuicksightIpRestriction = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsQuicksightIpRestriction, idFilter, baseNode)
 
-export const useAwsQuicksightIpRestrictions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightIpRestriction, node, id)
+export const useAwsQuicksightIpRestrictions = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsQuicksightIpRestriction, idFilter, baseNode)

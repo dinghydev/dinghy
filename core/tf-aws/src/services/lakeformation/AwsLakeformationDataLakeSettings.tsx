@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_data_lake_settings
 
 export const InputSchema = z.object({
   admins: resolvableValue(z.string().array().optional()),
@@ -23,13 +22,13 @@ export const InputSchema = z.object({
     z.object({
       permissions: z.string().array().optional(),
       principal: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   create_table_default_permissions: resolvableValue(
     z.object({
       permissions: z.string().array().optional(),
       principal: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   external_data_filtering_allow_list: resolvableValue(
     z.string().array().optional(),
@@ -39,7 +38,7 @@ export const InputSchema = z.object({
   read_only_admins: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   trusted_resource_owners: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -50,6 +49,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_data_lake_settings
 
 export function AwsLakeformationDataLakeSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -68,5 +70,12 @@ export function AwsLakeformationDataLakeSettings(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationDataLakeSettingss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLakeformationDataLakeSettings, node, id)
+export const useAwsLakeformationDataLakeSettingss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLakeformationDataLakeSettings,
+    idFilter,
+    baseNode,
+  )

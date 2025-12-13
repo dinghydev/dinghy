@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoverycontrolconfig_routing_control
 
 export const InputSchema = z.object({
   cluster_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   control_panel_arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoverycontrolconfig_routing_control
 
 export function AwsRoute53recoverycontrolconfigRoutingControl(
   props: Partial<InputProps>,
@@ -50,21 +52,21 @@ export function AwsRoute53recoverycontrolconfigRoutingControl(
 }
 
 export const useAwsRoute53recoverycontrolconfigRoutingControl = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoverycontrolconfigRoutingControl,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsRoute53recoverycontrolconfigRoutingControls = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoverycontrolconfigRoutingControl,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

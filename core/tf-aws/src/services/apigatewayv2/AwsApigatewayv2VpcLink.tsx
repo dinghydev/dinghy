@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apigatewayv2_vpc_link
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   subnet_ids: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apigatewayv2_vpc_link
 
 export function AwsApigatewayv2VpcLink(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsApigatewayv2VpcLink(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApigatewayv2VpcLink = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApigatewayv2VpcLink, node, id)
+export const useAwsApigatewayv2VpcLink = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApigatewayv2VpcLink, idFilter, baseNode)
 
-export const useAwsApigatewayv2VpcLinks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApigatewayv2VpcLink, node, id)
+export const useAwsApigatewayv2VpcLinks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsApigatewayv2VpcLink, idFilter, baseNode)

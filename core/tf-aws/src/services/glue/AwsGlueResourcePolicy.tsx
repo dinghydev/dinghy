@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_resource_policy
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
   enable_hybrid: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_resource_policy
 
 export function AwsGlueResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,8 @@ export function AwsGlueResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueResourcePolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueResourcePolicy, node, id)
+export const useAwsGlueResourcePolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueResourcePolicy, idFilter, baseNode)
 
-export const useAwsGlueResourcePolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueResourcePolicy, node, id)
+export const useAwsGlueResourcePolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueResourcePolicy, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_glossary_term
 
 export const InputSchema = z.object({
   glossary_identifier: resolvableValue(z.string()),
@@ -22,14 +21,14 @@ export const InputSchema = z.object({
     z.object({
       classifies: z.string().array().optional(),
       is_a: z.string().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_glossary_term
 
 export function AwsDatazoneGlossaryTerm(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,10 @@ export function AwsDatazoneGlossaryTerm(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneGlossaryTerm = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDatazoneGlossaryTerm, node, id)
+export const useAwsDatazoneGlossaryTerm = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDatazoneGlossaryTerm, idFilter, baseNode)
 
-export const useAwsDatazoneGlossaryTerms = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDatazoneGlossaryTerm, node, id)
+export const useAwsDatazoneGlossaryTerms = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDatazoneGlossaryTerm, idFilter, baseNode)

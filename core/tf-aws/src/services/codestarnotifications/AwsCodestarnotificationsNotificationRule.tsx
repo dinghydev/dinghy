@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codestarnotifications_notification_rule
 
 export const InputSchema = z.object({
   detail_type: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       type: z.string().optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codestarnotifications_notification_rule
 
 export function AwsCodestarnotificationsNotificationRule(
   props: Partial<InputProps>,
@@ -67,13 +69,21 @@ export function AwsCodestarnotificationsNotificationRule(
 }
 
 export const useAwsCodestarnotificationsNotificationRule = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsCodestarnotificationsNotificationRule, node, id)
+  useTypedNode<OutputProps>(
+    AwsCodestarnotificationsNotificationRule,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsCodestarnotificationsNotificationRules = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodestarnotificationsNotificationRule, node, id)
+  useTypedNodes<OutputProps>(
+    AwsCodestarnotificationsNotificationRule,
+    idFilter,
+    baseNode,
+  )

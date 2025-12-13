@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_security_group_association
 
 export const InputSchema = z.object({
   security_group_id: resolvableValue(z.string()),
   vpc_endpoint_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   replace_default_association: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_security_group_association
 
 export function AwsVpcEndpointSecurityGroupAssociation(
   props: Partial<InputProps>,
@@ -49,12 +51,21 @@ export function AwsVpcEndpointSecurityGroupAssociation(
 }
 
 export const useAwsVpcEndpointSecurityGroupAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpcEndpointSecurityGroupAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcEndpointSecurityGroupAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpcEndpointSecurityGroupAssociations = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcEndpointSecurityGroupAssociation, node, id)
+  useTypedNodes<OutputProps>(
+    AwsVpcEndpointSecurityGroupAssociation,
+    idFilter,
+    baseNode,
+  )

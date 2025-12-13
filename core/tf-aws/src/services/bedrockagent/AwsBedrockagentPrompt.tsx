@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_prompt
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -23,9 +22,78 @@ export const InputSchema = z.object({
       model_id: z.string().optional(),
       name: z.string(),
       template_type: z.string(),
-    }).optional(),
+      gen_ai_resource: z.object({
+        agent: z.object({
+          agent_identifier: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+      inference_configuration: z.object({
+        text: z.object({
+          max_tokens: z.number().optional(),
+          stop_sequences: z.string().array().optional(),
+          temperature: z.number().optional(),
+          top_p: z.number().optional(),
+        }).array().optional(),
+      }).array().optional(),
+      metadata: z.object({
+        key: z.string(),
+        value: z.string(),
+      }).array().optional(),
+      template_configuration: z.object({
+        chat: z.object({
+          input_variable: z.object({
+            name: z.string(),
+          }).array().optional(),
+          message: z.object({
+            role: z.string(),
+            content: z.object({
+              text: z.string().optional(),
+              cache_point: z.object({
+                type: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+          system: z.object({
+            text: z.string().optional(),
+            cache_point: z.object({
+              type: z.string(),
+            }).array().optional(),
+          }).array().optional(),
+          tool_configuration: z.object({
+            tool: z.object({
+              cache_point: z.object({
+                type: z.string(),
+              }).array().optional(),
+              tool_spec: z.object({
+                description: z.string().optional(),
+                name: z.string(),
+                input_schema: z.object({
+                  json: z.string().optional(),
+                }).array().optional(),
+              }).array().optional(),
+            }).array().optional(),
+            tool_choice: z.object({
+              any: z.object({}).array().optional(),
+              auto: z.object({}).array().optional(),
+              tool: z.object({
+                name: z.string(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
+        text: z.object({
+          text: z.string(),
+          cache_point: z.object({
+            type: z.string(),
+          }).array().optional(),
+          input_variable: z.object({
+            name: z.string(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +111,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_prompt
 
 export function AwsBedrockagentPrompt(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +132,8 @@ export function AwsBedrockagentPrompt(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentPrompt = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentPrompt, node, id)
+export const useAwsBedrockagentPrompt = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBedrockagentPrompt, idFilter, baseNode)
 
-export const useAwsBedrockagentPrompts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentPrompt, node, id)
+export const useAwsBedrockagentPrompts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBedrockagentPrompt, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_file_system_policy
 
 export const InputSchema = z.object({
   file_system_id: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   bypass_policy_lockout_safety_check: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_file_system_policy
 
 export function AwsEfsFileSystemPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function AwsEfsFileSystemPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsFileSystemPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEfsFileSystemPolicy, node, id)
+export const useAwsEfsFileSystemPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEfsFileSystemPolicy, idFilter, baseNode)
 
-export const useAwsEfsFileSystemPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEfsFileSystemPolicy, node, id)
+export const useAwsEfsFileSystemPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEfsFileSystemPolicy, idFilter, baseNode)

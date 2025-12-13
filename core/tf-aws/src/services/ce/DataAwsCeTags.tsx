@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ce_tags
 
 export const InputSchema = z.object({
   time_period: resolvableValue(z.object({
@@ -89,14 +88,14 @@ export const InputSchema = z.object({
     z.object({
       key: z.string().optional(),
       sort_order: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   tag_key: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
-  tags: z.string().array().optional(),
+  tags: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -106,6 +105,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ce_tags
 
 export function DataAwsCeTags(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -124,5 +126,5 @@ export function DataAwsCeTags(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCeTagss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsCeTags, node, id)
+export const useDataAwsCeTagss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsCeTags, idFilter, baseNode)

@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOamLink } from './AwsOamLink.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/oam_link
-
 export const InputSchema = z.object({
   link_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,7 +29,7 @@ export const OutputSchema = z.object({
     }).array(),
   }).array().optional(),
   link_id: z.string().optional(),
-  resource_types: z.string().array().optional(),
+  resource_types: z.set(z.string()).optional(),
   sink_arn: z.string().optional(),
 })
 
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/oam_link
 
 export function DataAwsOamLink(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,8 @@ export function DataAwsOamLink(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOamLink = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsOamLink, node, id)
+export const useDataAwsOamLink = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsOamLink, idFilter, baseNode)
 
-export const useDataAwsOamLinks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsOamLink, node, id)
+export const useDataAwsOamLinks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsOamLink, idFilter, baseNode)

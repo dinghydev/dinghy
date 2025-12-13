@@ -3,21 +3,24 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_realtime_log_config
-
 export const InputSchema = z.object({
   endpoint: resolvableValue(z.object({
     stream_type: z.string(),
+    kinesis_stream_config: z.object({
+      role_arn: z.string(),
+      stream_arn: z.string(),
+    }),
   })),
   fields: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
   sampling_rate: resolvableValue(z.number()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -36,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_realtime_log_config
 
 export function AwsCloudfrontRealtimeLogConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +61,14 @@ export function AwsCloudfrontRealtimeLogConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontRealtimeLogConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudfrontRealtimeLogConfig, node, id)
+export const useAwsCloudfrontRealtimeLogConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsCloudfrontRealtimeLogConfig, idFilter, baseNode)
 
-export const useAwsCloudfrontRealtimeLogConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontRealtimeLogConfig, node, id)
+export const useAwsCloudfrontRealtimeLogConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudfrontRealtimeLogConfig, idFilter, baseNode)

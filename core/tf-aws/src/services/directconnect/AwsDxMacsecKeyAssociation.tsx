@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_macsec_key_association
 
 export const InputSchema = z.object({
   connection_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   ckn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   secret_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_macsec_key_association
 
 export function AwsDxMacsecKeyAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,12 @@ export function AwsDxMacsecKeyAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxMacsecKeyAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDxMacsecKeyAssociation, node, id)
+export const useAwsDxMacsecKeyAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsDxMacsecKeyAssociation, idFilter, baseNode)
 
-export const useAwsDxMacsecKeyAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDxMacsecKeyAssociation, node, id)
+export const useAwsDxMacsecKeyAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsDxMacsecKeyAssociation, idFilter, baseNode)

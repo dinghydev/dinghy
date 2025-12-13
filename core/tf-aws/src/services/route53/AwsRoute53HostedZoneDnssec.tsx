@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_hosted_zone_dnssec
 
 export const InputSchema = z.object({
   hosted_zone_id: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_hosted_zone_dnssec
 
 export function AwsRoute53HostedZoneDnssec(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function AwsRoute53HostedZoneDnssec(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53HostedZoneDnssec = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53HostedZoneDnssec, node, id)
+export const useAwsRoute53HostedZoneDnssec = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRoute53HostedZoneDnssec, idFilter, baseNode)
 
-export const useAwsRoute53HostedZoneDnssecs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53HostedZoneDnssec, node, id)
+export const useAwsRoute53HostedZoneDnssecs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRoute53HostedZoneDnssec, idFilter, baseNode)

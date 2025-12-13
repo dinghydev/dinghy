@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/evidently_project
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   active_experiment_count: z.number().optional(),
@@ -56,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/evidently_project
 
 export function AwsEvidentlyProject(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +76,8 @@ export function AwsEvidentlyProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEvidentlyProject = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEvidentlyProject, node, id)
+export const useAwsEvidentlyProject = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEvidentlyProject, idFilter, baseNode)
 
-export const useAwsEvidentlyProjects = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyProject, node, id)
+export const useAwsEvidentlyProjects = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEvidentlyProject, idFilter, baseNode)

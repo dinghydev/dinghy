@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_cloud_autonomous_vm_cluster
 
 export const InputSchema = z.object({
   autonomous_data_storage_size_in_tbs: resolvableValue(z.number()),
@@ -23,6 +22,7 @@ export const InputSchema = z.object({
   total_container_databases: resolvableValue(z.number()),
   description: resolvableValue(z.string().optional()),
   is_mtls_enabled_vm_cluster: resolvableValue(z.boolean().optional()),
+  license_model: resolvableValue(z.string().optional()),
   maintenance_window: resolvableValue(
     z.object({
       days_of_week: z.object({
@@ -35,10 +35,11 @@ export const InputSchema = z.object({
       }).array().optional(),
       preference: z.string(),
       weeks_of_month: z.number().array().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  time_zone: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
@@ -46,7 +47,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -95,6 +96,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_cloud_autonomous_vm_cluster
 
 export function AwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -113,8 +117,14 @@ export function AwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOdbCloudAutonomousVmCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOdbCloudAutonomousVmCluster, node, id)
+export const useAwsOdbCloudAutonomousVmCluster = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsOdbCloudAutonomousVmCluster, idFilter, baseNode)
 
-export const useAwsOdbCloudAutonomousVmClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOdbCloudAutonomousVmCluster, node, id)
+export const useAwsOdbCloudAutonomousVmClusters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsOdbCloudAutonomousVmCluster, idFilter, baseNode)

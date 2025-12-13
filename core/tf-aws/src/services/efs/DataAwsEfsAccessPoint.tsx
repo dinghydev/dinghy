@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsEfsAccessPoint } from './AwsEfsAccessPoint.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/efs_access_point
 
 export const InputSchema = z.object({
   access_point_id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
     }).array(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -33,7 +32,7 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   posix_user: z.object({
     gid: z.number(),
-    secondary_gids: z.number().array(),
+    secondary_gids: z.set(z.number()),
     uid: z.number(),
   }).array().optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/efs_access_point
 
 export function DataAwsEfsAccessPoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function DataAwsEfsAccessPoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEfsAccessPoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEfsAccessPoint, node, id)
+export const useDataAwsEfsAccessPoint = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEfsAccessPoint, idFilter, baseNode)
 
-export const useDataAwsEfsAccessPoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEfsAccessPoint, node, id)
+export const useDataAwsEfsAccessPoints = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEfsAccessPoint, idFilter, baseNode)

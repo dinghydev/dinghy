@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_authentication_profile
-
 export const InputSchema = z.object({
   authentication_profile_content: resolvableValue(z.string()),
   authentication_profile_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_authentication_profile
 
 export function AwsRedshiftAuthenticationProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,22 @@ export function AwsRedshiftAuthenticationProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftAuthenticationProfile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftAuthenticationProfile, node, id)
+export const useAwsRedshiftAuthenticationProfile = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftAuthenticationProfile,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsRedshiftAuthenticationProfiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftAuthenticationProfile, node, id)
+export const useAwsRedshiftAuthenticationProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftAuthenticationProfile,
+    idFilter,
+    baseNode,
+  )

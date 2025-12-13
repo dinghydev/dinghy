@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_provisioning_template
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -26,7 +25,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_provisioning_template
 
 export function AwsIotProvisioningTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,8 +61,12 @@ export function AwsIotProvisioningTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotProvisioningTemplate = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIotProvisioningTemplate, node, id)
+export const useAwsIotProvisioningTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsIotProvisioningTemplate, idFilter, baseNode)
 
-export const useAwsIotProvisioningTemplates = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIotProvisioningTemplate, node, id)
+export const useAwsIotProvisioningTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsIotProvisioningTemplate, idFilter, baseNode)

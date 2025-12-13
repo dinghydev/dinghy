@@ -2,19 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsConnectQueue } from './AwsConnectQueue.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_queue
-
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
+  queue_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_queue
 
 export function DataAwsConnectQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +60,8 @@ export function DataAwsConnectQueue(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectQueue = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsConnectQueue, node, id)
+export const useDataAwsConnectQueue = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsConnectQueue, idFilter, baseNode)
 
-export const useDataAwsConnectQueues = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsConnectQueue, node, id)
+export const useDataAwsConnectQueues = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsConnectQueue, idFilter, baseNode)

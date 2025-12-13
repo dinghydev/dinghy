@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_code_signing_config
 
 export const InputSchema = z.object({
   allowed_publishers: resolvableValue(z.object({
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_code_signing_config
 
 export function AwsLambdaCodeSigningConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,12 @@ export function AwsLambdaCodeSigningConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaCodeSigningConfig = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLambdaCodeSigningConfig, node, id)
+export const useAwsLambdaCodeSigningConfig = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsLambdaCodeSigningConfig, idFilter, baseNode)
 
-export const useAwsLambdaCodeSigningConfigs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLambdaCodeSigningConfig, node, id)
+export const useAwsLambdaCodeSigningConfigs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsLambdaCodeSigningConfig, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeconnections_host
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -30,9 +29,9 @@ export const InputSchema = z.object({
       subnet_ids: z.string().array(),
       tls_certificate: z.string().optional(),
       vpc_id: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codeconnections_host
 
 export function AwsCodeconnectionsHost(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -70,8 +72,8 @@ export function AwsCodeconnectionsHost(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodeconnectionsHost = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodeconnectionsHost, node, id)
+export const useAwsCodeconnectionsHost = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodeconnectionsHost, idFilter, baseNode)
 
-export const useAwsCodeconnectionsHosts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodeconnectionsHost, node, id)
+export const useAwsCodeconnectionsHosts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodeconnectionsHost, idFilter, baseNode)

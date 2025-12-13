@@ -34,7 +34,7 @@ export type AwsS3ObjectOutputProps =
 
 export function AwsS3Object(props: AwsS3ObjectInputProps) {
   const _importId = (node: any) =>
-    `${deepResolve(node, node._props, 'bucket')}/${node._props.__key}`
+    `${deepResolve(node._props, 'bucket')}/${node._props.__key}`
   return (
     <Bucket
       _importId={_importId}

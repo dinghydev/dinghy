@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codestarconnections_connection
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   provider_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codestarconnections_connection
 
 export function AwsCodestarconnectionsConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,22 @@ export function AwsCodestarconnectionsConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodestarconnectionsConnection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodestarconnectionsConnection, node, id)
+export const useAwsCodestarconnectionsConnection = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodestarconnectionsConnection,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsCodestarconnectionsConnections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodestarconnectionsConnection, node, id)
+export const useAwsCodestarconnectionsConnections = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodestarconnectionsConnection,
+    idFilter,
+    baseNode,
+  )

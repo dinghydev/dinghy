@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain_saml_options
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -20,6 +19,10 @@ export const InputSchema = z.object({
       roles_key: z.string().optional(),
       session_timeout_minutes: z.number().optional(),
       subject_key: z.string().optional(),
+      idp: z.object({
+        entity_id: z.string(),
+        metadata_content: z.string(),
+      }).optional(),
     }).optional(),
   ),
   timeouts: resolvableValue(
@@ -28,7 +31,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -41,6 +44,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain_saml_options
 
 export function AwsOpensearchDomainSamlOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -59,5 +65,8 @@ export function AwsOpensearchDomainSamlOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchDomainSamlOptions = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOpensearchDomainSamlOptions, node, id)
+export const useAwsOpensearchDomainSamlOptions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsOpensearchDomainSamlOptions, idFilter, baseNode)

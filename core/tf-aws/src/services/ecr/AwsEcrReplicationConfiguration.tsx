@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_replication_configuration
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
@@ -19,15 +18,15 @@ export const InputSchema = z.object({
         destination: z.object({
           region: z.string(),
           registry_id: z.string(),
-        }),
+        }).array(),
         repository_filter: z.object({
           filter: z.string(),
           filter_type: z.string(),
-        }).optional(),
-      }),
+        }).array().optional(),
+      }).array(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   registry_id: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_replication_configuration
 
 export function AwsEcrReplicationConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,14 @@ export function AwsEcrReplicationConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrReplicationConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEcrReplicationConfiguration, node, id)
+export const useAwsEcrReplicationConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsEcrReplicationConfiguration, idFilter, baseNode)
 
-export const useAwsEcrReplicationConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEcrReplicationConfiguration, node, id)
+export const useAwsEcrReplicationConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEcrReplicationConfiguration, idFilter, baseNode)

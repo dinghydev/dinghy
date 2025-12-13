@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot
 
 export const InputSchema = z.object({
   volume_id: resolvableValue(z.string()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot
 
 export function AwsEbsSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function AwsEbsSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEbsSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEbsSnapshot, node, id)
+export const useAwsEbsSnapshot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEbsSnapshot, idFilter, baseNode)
 
-export const useAwsEbsSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEbsSnapshot, node, id)
+export const useAwsEbsSnapshots = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEbsSnapshot, idFilter, baseNode)

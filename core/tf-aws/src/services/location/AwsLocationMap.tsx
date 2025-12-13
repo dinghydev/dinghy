@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/location_map
 
 export const InputSchema = z.object({
   configuration: resolvableValue(z.object({
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   create_time: z.string().optional(),
@@ -35,6 +34,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/location_map
 
 export function AwsLocationMap(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,8 +55,8 @@ export function AwsLocationMap(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLocationMap = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLocationMap, node, id)
+export const useAwsLocationMap = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLocationMap, idFilter, baseNode)
 
-export const useAwsLocationMaps = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLocationMap, node, id)
+export const useAwsLocationMaps = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLocationMap, idFilter, baseNode)

@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsApigatewayv2Api } from './AwsApigatewayv2Api.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/apigatewayv2_api
-
 export const InputSchema = z.object({
   api_id: resolvableValue(z.string()),
   ip_address_type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   api_endpoint: z.string().optional(),
@@ -23,10 +22,10 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   cors_configuration: z.object({
     allow_credentials: z.boolean(),
-    allow_headers: z.string().array(),
-    allow_methods: z.string().array(),
-    allow_origins: z.string().array(),
-    expose_headers: z.string().array(),
+    allow_headers: z.set(z.string()),
+    allow_methods: z.set(z.string()),
+    allow_origins: z.set(z.string()),
+    expose_headers: z.set(z.string()),
     max_age: z.number(),
   }).array().optional(),
   description: z.string().optional(),
@@ -46,6 +45,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/apigatewayv2_api
 
 export function DataAwsApigatewayv2Api(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -64,8 +66,8 @@ export function DataAwsApigatewayv2Api(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApigatewayv2Api = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsApigatewayv2Api, node, id)
+export const useDataAwsApigatewayv2Api = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsApigatewayv2Api, idFilter, baseNode)
 
-export const useDataAwsApigatewayv2Apis = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsApigatewayv2Api, node, id)
+export const useDataAwsApigatewayv2Apis = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsApigatewayv2Api, idFilter, baseNode)

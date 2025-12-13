@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_windows_file_system
 
 export const InputSchema = z.object({
   subnet_ids: resolvableValue(z.string().array()),
@@ -62,13 +61,13 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   weekly_maintenance_start_time: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
   id: z.string().optional(),
-  network_interface_ids: z.string().array().optional(),
+  network_interface_ids: z.set(z.string()).optional(),
   owner_id: z.string().optional(),
   preferred_file_server_ip: z.string().optional(),
   remote_administration_endpoint: z.string().optional(),
@@ -83,6 +82,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_windows_file_system
 
 export function AwsFsxWindowsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -101,8 +103,10 @@ export function AwsFsxWindowsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxWindowsFileSystem = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxWindowsFileSystem, node, id)
+export const useAwsFsxWindowsFileSystem = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFsxWindowsFileSystem, idFilter, baseNode)
 
-export const useAwsFsxWindowsFileSystems = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxWindowsFileSystem, node, id)
+export const useAwsFsxWindowsFileSystems = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsFsxWindowsFileSystem, idFilter, baseNode)

@@ -3,34 +3,45 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_trigger
-
 export const InputSchema = z.object({
+  actions: resolvableValue(
+    z.object({
+      arguments: z.record(z.string(), z.string()).optional(),
+      crawler_name: z.string().optional(),
+      job_name: z.string().optional(),
+      security_configuration: z.string().optional(),
+      timeout: z.number().optional(),
+      notification_property: z.object({
+        notify_delay_after: z.number().optional(),
+      }).optional(),
+    }).array(),
+  ),
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
-  actions: resolvableValue(z.object({
-    arguments: z.record(z.string(), z.string()).optional(),
-    crawler_name: z.string().optional(),
-    job_name: z.string().optional(),
-    security_configuration: z.string().optional(),
-    timeout: z.number().optional(),
-  })),
   description: resolvableValue(z.string().optional()),
   enabled: resolvableValue(z.boolean().optional()),
   event_batching_condition: resolvableValue(
     z.object({
       batch_size: z.number(),
       batch_window: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   predicate: resolvableValue(
     z.object({
       logical: z.string().optional(),
+      conditions: z.object({
+        crawl_state: z.string().optional(),
+        crawler_name: z.string().optional(),
+        job_name: z.string().optional(),
+        logical_operator: z.string().optional(),
+        state: z.string().optional(),
+      }).array(),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -45,7 +56,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   workflow_name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,6 +72,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_trigger
 
 export function AwsGlueTrigger(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +93,8 @@ export function AwsGlueTrigger(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueTrigger = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueTrigger, node, id)
+export const useAwsGlueTrigger = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueTrigger, idFilter, baseNode)
 
-export const useAwsGlueTriggers = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueTrigger, node, id)
+export const useAwsGlueTriggers = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueTrigger, idFilter, baseNode)

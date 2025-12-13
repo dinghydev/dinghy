@@ -2,25 +2,24 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsBackupSelection } from './AwsBackupSelection.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/backup_selection
-
 export const InputSchema = z.object({
   plan_id: resolvableValue(z.string()),
   selection_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   iam_role_arn: z.string().optional(),
   name: z.string().optional(),
-  resources: z.string().array().optional(),
+  resources: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/backup_selection
 
 export function DataAwsBackupSelection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function DataAwsBackupSelection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBackupSelection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsBackupSelection, node, id)
+export const useDataAwsBackupSelection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsBackupSelection, idFilter, baseNode)
 
-export const useDataAwsBackupSelections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBackupSelection, node, id)
+export const useDataAwsBackupSelections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsBackupSelection, idFilter, baseNode)

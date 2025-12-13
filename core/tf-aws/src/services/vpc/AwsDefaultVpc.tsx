@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_vpc
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cidr_block: z.string().optional(),
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_vpc
 
 export function AwsDefaultVpc(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,8 @@ export function AwsDefaultVpc(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDefaultVpc = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDefaultVpc, node, id)
+export const useAwsDefaultVpc = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDefaultVpc, idFilter, baseNode)
 
-export const useAwsDefaultVpcs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDefaultVpc, node, id)
+export const useAwsDefaultVpcs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDefaultVpc, idFilter, baseNode)

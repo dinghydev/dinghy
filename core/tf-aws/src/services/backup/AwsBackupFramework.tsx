@@ -3,17 +3,25 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_framework
-
 export const InputSchema = z.object({
   control: resolvableValue(
     z.object({
       name: z.string(),
+      input_parameter: z.object({
+        name: z.string().optional(),
+        value: z.string().optional(),
+      }).array().optional(),
+      scope: z.object({
+        compliance_resource_ids: z.string().array().optional(),
+        compliance_resource_types: z.string().array().optional(),
+        tags: z.record(z.string(), z.string()).optional(),
+      }).optional(),
     }).array(),
   ),
   name: resolvableValue(z.string()),
@@ -27,7 +35,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -45,6 +53,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_framework
 
 export function AwsBackupFramework(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -63,8 +74,8 @@ export function AwsBackupFramework(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupFramework = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBackupFramework, node, id)
+export const useAwsBackupFramework = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBackupFramework, idFilter, baseNode)
 
-export const useAwsBackupFrameworks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBackupFramework, node, id)
+export const useAwsBackupFrameworks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBackupFramework, idFilter, baseNode)

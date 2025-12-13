@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_connect_endpoint
 
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_connect_endpoint
 
 export function AwsEc2InstanceConnectEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,14 @@ export function AwsEc2InstanceConnectEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2InstanceConnectEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEc2InstanceConnectEndpoint, node, id)
+export const useAwsEc2InstanceConnectEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsEc2InstanceConnectEndpoint, idFilter, baseNode)
 
-export const useAwsEc2InstanceConnectEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEc2InstanceConnectEndpoint, node, id)
+export const useAwsEc2InstanceConnectEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2InstanceConnectEndpoint, idFilter, baseNode)

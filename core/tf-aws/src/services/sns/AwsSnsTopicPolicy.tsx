@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_topic_policy
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   owner: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_topic_policy
 
 export function AwsSnsTopicPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,8 @@ export function AwsSnsTopicPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSnsTopicPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSnsTopicPolicy, node, id)
+export const useAwsSnsTopicPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSnsTopicPolicy, idFilter, baseNode)
 
-export const useAwsSnsTopicPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSnsTopicPolicy, node, id)
+export const useAwsSnsTopicPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSnsTopicPolicy, idFilter, baseNode)

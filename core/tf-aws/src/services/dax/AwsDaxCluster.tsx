@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dax_cluster
 
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -61,6 +60,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dax_cluster
 
 export function AwsDaxCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -79,8 +81,8 @@ export function AwsDaxCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDaxCluster = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDaxCluster, node, id)
+export const useAwsDaxCluster = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDaxCluster, idFilter, baseNode)
 
-export const useAwsDaxClusters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDaxCluster, node, id)
+export const useAwsDaxClusters = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDaxCluster, idFilter, baseNode)

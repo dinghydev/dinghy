@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsGlobalacceleratorAccelerator } from './AwsGlobalacceleratorAccelerator.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/globalaccelerator_accelerator
 
 export const InputSchema = z.object({
   attributes: resolvableValue(
@@ -33,7 +32,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string())),
   arn: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/globalaccelerator_accelerator
 
 export function DataAwsGlobalacceleratorAccelerator(
   props: Partial<InputProps>,
@@ -65,11 +67,21 @@ export function DataAwsGlobalacceleratorAccelerator(
 }
 
 export const useDataAwsGlobalacceleratorAccelerator = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsGlobalacceleratorAccelerator, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsGlobalacceleratorAccelerator,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsGlobalacceleratorAccelerators = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsGlobalacceleratorAccelerator, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsGlobalacceleratorAccelerator,
+    idFilter,
+    baseNode,
+  )

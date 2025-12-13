@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fis_target_account_configuration
 
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fis_target_account_configuration
 
 export function AwsFisTargetAccountConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,22 @@ export function AwsFisTargetAccountConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFisTargetAccountConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFisTargetAccountConfiguration, node, id)
+export const useAwsFisTargetAccountConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFisTargetAccountConfiguration,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsFisTargetAccountConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFisTargetAccountConfiguration, node, id)
+export const useAwsFisTargetAccountConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFisTargetAccountConfiguration,
+    idFilter,
+    baseNode,
+  )

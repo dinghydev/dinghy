@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_product_subscription
-
 export const InputSchema = z.object({
   product_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/securityhub_product_subscription
 
 export function AwsSecurityhubProductSubscription(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,10 +47,22 @@ export function AwsSecurityhubProductSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubProductSubscription = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSecurityhubProductSubscription, node, id)
+export const useAwsSecurityhubProductSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecurityhubProductSubscription,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsSecurityhubProductSubscriptions = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsSecurityhubProductSubscription, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubProductSubscription,
+    idFilter,
+    baseNode,
+  )

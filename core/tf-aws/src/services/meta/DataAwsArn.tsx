@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/arn
-
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   account: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/arn
 
 export function DataAwsArn(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function DataAwsArn(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsArn = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsArn, node, id)
+export const useDataAwsArn = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsArn, idFilter, baseNode)
 
-export const useDataAwsArns = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsArn, node, id)
+export const useDataAwsArns = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsArn, idFilter, baseNode)

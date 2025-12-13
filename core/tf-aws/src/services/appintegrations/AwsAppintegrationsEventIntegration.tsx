@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appintegrations_event_integration
 
 export const InputSchema = z.object({
   event_filter: resolvableValue(z.object({
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appintegrations_event_integration
 
 export function AwsAppintegrationsEventIntegration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -53,11 +55,21 @@ export function AwsAppintegrationsEventIntegration(props: Partial<InputProps>) {
 }
 
 export const useAwsAppintegrationsEventIntegration = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsAppintegrationsEventIntegration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppintegrationsEventIntegration,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsAppintegrationsEventIntegrations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsAppintegrationsEventIntegration, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppintegrationsEventIntegration,
+    idFilter,
+    baseNode,
+  )

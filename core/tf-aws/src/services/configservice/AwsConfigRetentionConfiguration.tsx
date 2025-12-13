@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_retention_configuration
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   retention_period_in_days: resolvableValue(z.number()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   name: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_retention_configuration
 
 export function AwsConfigRetentionConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,18 @@ export function AwsConfigRetentionConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigRetentionConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConfigRetentionConfiguration, node, id)
+export const useAwsConfigRetentionConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsConfigRetentionConfiguration, idFilter, baseNode)
 
-export const useAwsConfigRetentionConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConfigRetentionConfiguration, node, id)
+export const useAwsConfigRetentionConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigRetentionConfiguration,
+    idFilter,
+    baseNode,
+  )

@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppmeshMesh } from './AwsAppmeshMesh.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_mesh
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   mesh_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appmesh_mesh
 
 export function DataAwsAppmeshMesh(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,8 +60,8 @@ export function DataAwsAppmeshMesh(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshMesh = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshMesh, node, id)
+export const useDataAwsAppmeshMesh = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsAppmeshMesh, idFilter, baseNode)
 
-export const useDataAwsAppmeshMeshs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshMesh, node, id)
+export const useDataAwsAppmeshMeshs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsAppmeshMesh, idFilter, baseNode)

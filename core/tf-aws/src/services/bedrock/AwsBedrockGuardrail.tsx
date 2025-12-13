@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_guardrail
 
 export const InputSchema = z.object({
   blocked_input_messaging: resolvableValue(z.string()),
@@ -20,20 +19,31 @@ export const InputSchema = z.object({
       tier_config: z.object({
         tier_name: z.string(),
       }).array().optional(),
-    }).optional(),
+      filters_config: z.object({
+        input_action: z.string().optional(),
+        input_enabled: z.boolean().optional(),
+        input_modalities: z.string().array().optional(),
+        input_strength: z.string(),
+        output_action: z.string().optional(),
+        output_enabled: z.boolean().optional(),
+        output_modalities: z.string().array().optional(),
+        output_strength: z.string(),
+        type: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   contextual_grounding_policy_config: resolvableValue(
     z.object({
       filters_config: z.object({
         threshold: z.number(),
         type: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   cross_region_config: resolvableValue(
     z.object({
       guardrail_profile_identifier: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   kms_key_arn: resolvableValue(z.string().optional()),
@@ -47,7 +57,7 @@ export const InputSchema = z.object({
         output_action: z.string().optional(),
         output_enabled: z.boolean().optional(),
         type: z.string(),
-      }).optional(),
+      }).array().optional(),
       regexes_config: z.object({
         action: z.string(),
         description: z.string().optional(),
@@ -57,8 +67,8 @@ export const InputSchema = z.object({
         output_action: z.string().optional(),
         output_enabled: z.boolean().optional(),
         pattern: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -73,7 +83,13 @@ export const InputSchema = z.object({
       tier_config: z.object({
         tier_name: z.string(),
       }).array().optional(),
-    }).optional(),
+      topics_config: z.object({
+        definition: z.string(),
+        examples: z.string().array().optional(),
+        name: z.string(),
+        type: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   word_policy_config: resolvableValue(
     z.object({
@@ -83,17 +99,17 @@ export const InputSchema = z.object({
         output_action: z.string().optional(),
         output_enabled: z.boolean().optional(),
         type: z.string(),
-      }).optional(),
+      }).array().optional(),
       words_config: z.object({
         input_action: z.string().optional(),
         input_enabled: z.boolean().optional(),
         output_action: z.string().optional(),
         output_enabled: z.boolean().optional(),
         text: z.string(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -110,6 +126,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_guardrail
 
 export function AwsBedrockGuardrail(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -128,8 +147,8 @@ export function AwsBedrockGuardrail(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockGuardrail = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockGuardrail, node, id)
+export const useAwsBedrockGuardrail = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode)
 
-export const useAwsBedrockGuardrails = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockGuardrail, node, id)
+export const useAwsBedrockGuardrails = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode)

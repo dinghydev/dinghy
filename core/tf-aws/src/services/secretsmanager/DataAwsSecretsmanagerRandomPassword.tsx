@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_random_password
 
 export const InputSchema = z.object({
   exclude_characters: resolvableValue(z.string().optional()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
   password_length: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   require_each_included_type: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   random_password: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_random_password
 
 export function DataAwsSecretsmanagerRandomPassword(
   props: Partial<InputProps>,
@@ -55,11 +57,21 @@ export function DataAwsSecretsmanagerRandomPassword(
 }
 
 export const useDataAwsSecretsmanagerRandomPassword = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsSecretsmanagerRandomPassword, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSecretsmanagerRandomPassword,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsSecretsmanagerRandomPasswords = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsSecretsmanagerRandomPassword, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSecretsmanagerRandomPassword,
+    idFilter,
+    baseNode,
+  )

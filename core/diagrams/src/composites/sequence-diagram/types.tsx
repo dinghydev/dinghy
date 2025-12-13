@@ -3,7 +3,6 @@ import { NodeProps } from '@dinghy/base-components'
 import { ActivationProps } from './activation.tsx'
 import { MessageProps } from './message.tsx'
 import { FrameProps } from './frame.tsx'
-import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 
 /**
 # Sequence diagram
@@ -55,7 +54,7 @@ export const InteractionSchema = z.object({
 })
 
 const sizeDefault = {
-  participant: defaultDiagramOptions.dimension.boxWidth,
+  participant: 60,
   timelinePadding: 15,
   participantsPadding: 100,
   activationWidth: 12,

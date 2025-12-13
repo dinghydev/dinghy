@@ -3,15 +3,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_container_service_deployment_version
-
 export const InputSchema = z.object({
-  service_name: resolvableValue(z.string()),
   container: resolvableValue(
     z.object({
       command: z.string().array().optional(),
@@ -21,10 +19,19 @@ export const InputSchema = z.object({
       ports: z.record(z.string(), z.string()).optional(),
     }).array(),
   ),
+  service_name: resolvableValue(z.string()),
   public_endpoint: resolvableValue(
     z.object({
       container_name: z.string(),
       container_port: z.number(),
+      health_check: z.object({
+        healthy_threshold: z.number().optional(),
+        interval_seconds: z.number().optional(),
+        path: z.string().optional(),
+        success_codes: z.string().optional(),
+        timeout_seconds: z.number().optional(),
+        unhealthy_threshold: z.number().optional(),
+      }),
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -33,7 +40,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
@@ -49,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_container_service_deployment_version
 
 export function AwsLightsailContainerServiceDeploymentVersion(
   props: Partial<InputProps>,
@@ -70,21 +80,21 @@ export function AwsLightsailContainerServiceDeploymentVersion(
 }
 
 export const useAwsLightsailContainerServiceDeploymentVersion = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsLightsailContainerServiceDeploymentVersion,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsLightsailContainerServiceDeploymentVersions = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLightsailContainerServiceDeploymentVersion,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_account_settings
 
 export const InputSchema = z.object({
   aws_account_id: resolvableValue(z.string().optional()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_account_settings
 
 export function AwsQuicksightAccountSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,5 +51,8 @@ export function AwsQuicksightAccountSettings(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightAccountSettingss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsQuicksightAccountSettings, node, id)
+export const useAwsQuicksightAccountSettingss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightAccountSettings, idFilter, baseNode)

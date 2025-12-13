@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent_action_group
 
 export const InputSchema = z.object({
   action_group_id: resolvableValue(z.string()),
@@ -20,13 +19,17 @@ export const InputSchema = z.object({
     z.object({
       custom_control: z.string().optional(),
       lambda: z.string().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   action_group_state: resolvableValue(z.string().optional()),
   api_schema: resolvableValue(
     z.object({
       payload: z.string().optional(),
-    }).optional(),
+      s3: z.object({
+        s3_bucket_name: z.string().optional(),
+        s3_object_key: z.string().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   function_schema: resolvableValue(
@@ -35,9 +38,15 @@ export const InputSchema = z.object({
         functions: z.object({
           description: z.string().optional(),
           name: z.string(),
-        }).optional(),
-      }).optional(),
-    }).optional(),
+          parameters: z.object({
+            description: z.string().optional(),
+            map_block_key: z.string(),
+            required: z.boolean().optional(),
+            type: z.string(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   parent_action_group_signature: resolvableValue(z.string().optional()),
   prepare_agent: resolvableValue(z.boolean().optional()),
@@ -49,7 +58,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -60,6 +69,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent_action_group
 
 export function AwsBedrockagentAgentActionGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +90,18 @@ export function AwsBedrockagentAgentActionGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentAgentActionGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsBedrockagentAgentActionGroup, node, id)
+export const useAwsBedrockagentAgentActionGroup = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsBedrockagentAgentActionGroup, idFilter, baseNode)
 
-export const useAwsBedrockagentAgentActionGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentAgentActionGroup, node, id)
+export const useAwsBedrockagentAgentActionGroups = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentAgentActionGroup,
+    idFilter,
+    baseNode,
+  )

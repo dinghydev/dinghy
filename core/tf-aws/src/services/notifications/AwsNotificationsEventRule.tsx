@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/notifications_event_rule
 
 export const InputSchema = z.object({
   event_type: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   regions: resolvableValue(z.string().array()),
   source: resolvableValue(z.string()),
   event_pattern: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/notifications_event_rule
 
 export function AwsNotificationsEventRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function AwsNotificationsEventRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNotificationsEventRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNotificationsEventRule, node, id)
+export const useAwsNotificationsEventRule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNotificationsEventRule, idFilter, baseNode)
 
-export const useAwsNotificationsEventRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNotificationsEventRule, node, id)
+export const useAwsNotificationsEventRules = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsNotificationsEventRule, idFilter, baseNode)

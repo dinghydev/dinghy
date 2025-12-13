@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOrganizationsOrganizationalUnit } from './AwsOrganizationsOrganizationalUnit.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   parent_id: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit
 
 export function DataAwsOrganizationsOrganizationalUnit(
   props: Partial<InputProps>,
@@ -48,12 +50,21 @@ export function DataAwsOrganizationsOrganizationalUnit(
 }
 
 export const useDataAwsOrganizationsOrganizationalUnit = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsOrganizationsOrganizationalUnit, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOrganizationsOrganizationalUnit,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOrganizationsOrganizationalUnits = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsOrganizationsOrganizationalUnit, node, id)
+  useTypedNodes<OutputProps>(
+    DataAwsOrganizationsOrganizationalUnit,
+    idFilter,
+    baseNode,
+  )

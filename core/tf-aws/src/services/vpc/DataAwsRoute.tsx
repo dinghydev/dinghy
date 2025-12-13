@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute } from './AwsRoute.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route
 
 export const InputSchema = z.object({
   route_table_id: resolvableValue(z.string()),
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
   ),
   transit_gateway_id: resolvableValue(z.string().optional()),
   vpc_peering_connection_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -43,6 +42,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route
 
 export function DataAwsRoute(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +63,8 @@ export function DataAwsRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRoute, node, id)
+export const useDataAwsRoute = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsRoute, idFilter, baseNode)
 
-export const useDataAwsRoutes = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRoute, node, id)
+export const useDataAwsRoutes = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsRoute, idFilter, baseNode)

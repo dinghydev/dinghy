@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_usage_limit
 
 export const InputSchema = z.object({
   amount: resolvableValue(z.number()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   breach_action: resolvableValue(z.string().optional()),
   period: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_usage_limit
 
 export function AwsRedshiftserverlessUsageLimit(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,18 @@ export function AwsRedshiftserverlessUsageLimit(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftserverlessUsageLimit = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftserverlessUsageLimit, node, id)
+export const useAwsRedshiftserverlessUsageLimit = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRedshiftserverlessUsageLimit, idFilter, baseNode)
 
-export const useAwsRedshiftserverlessUsageLimits = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftserverlessUsageLimit, node, id)
+export const useAwsRedshiftserverlessUsageLimits = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftserverlessUsageLimit,
+    idFilter,
+    baseNode,
+  )

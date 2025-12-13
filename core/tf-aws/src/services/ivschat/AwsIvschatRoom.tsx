@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivschat_room
 
 export const InputSchema = z.object({
   logging_configuration_identifiers: resolvableValue(
@@ -32,7 +31,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ivschat_room
 
 export function AwsIvschatRoom(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +73,8 @@ export function AwsIvschatRoom(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvschatRoom = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsIvschatRoom, node, id)
+export const useAwsIvschatRoom = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsIvschatRoom, idFilter, baseNode)
 
-export const useAwsIvschatRooms = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsIvschatRoom, node, id)
+export const useAwsIvschatRooms = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsIvschatRoom, idFilter, baseNode)

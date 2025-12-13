@@ -1,14 +1,15 @@
 import {
   camelCaseToWords,
+  extendStyle,
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_zone
+import { ROUTE_53 } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -30,7 +31,7 @@ export const InputSchema = z.object({
       vpc_region: z.string().optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_zone
 
 export function AwsRoute53Zone(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,12 +65,13 @@ export function AwsRoute53Zone(props: Partial<InputProps>) {
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
       {...props}
+      _style={extendStyle(props, ROUTE_53)}
     />
   )
 }
 
-export const useAwsRoute53Zone = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53Zone, node, id)
+export const useAwsRoute53Zone = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRoute53Zone, idFilter, baseNode)
 
-export const useAwsRoute53Zones = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53Zone, node, id)
+export const useAwsRoute53Zones = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRoute53Zone, idFilter, baseNode)

@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAuditmanagerControl } from './AwsAuditmanagerControl.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/auditmanager_control
 
 export const InputSchema = z.object({
   action_plan_instructions: resolvableValue(z.string()),
@@ -36,7 +35,7 @@ export const InputSchema = z.object({
   testing_information: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({})
 
@@ -47,6 +46,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/auditmanager_control
 
 export function DataAwsAuditmanagerControl(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,8 +67,12 @@ export function DataAwsAuditmanagerControl(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAuditmanagerControl = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAuditmanagerControl, node, id)
+export const useDataAwsAuditmanagerControl = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAuditmanagerControl, idFilter, baseNode)
 
-export const useDataAwsAuditmanagerControls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAuditmanagerControl, node, id)
+export const useDataAwsAuditmanagerControls = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAuditmanagerControl, idFilter, baseNode)

@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb_service_account
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -26,6 +25,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb_service_account
 
 export function DataAwsElbServiceAccount(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -44,8 +46,12 @@ export function DataAwsElbServiceAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsElbServiceAccount = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsElbServiceAccount, node, id)
+export const useDataAwsElbServiceAccount = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsElbServiceAccount, idFilter, baseNode)
 
-export const useDataAwsElbServiceAccounts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsElbServiceAccount, node, id)
+export const useDataAwsElbServiceAccounts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsElbServiceAccount, idFilter, baseNode)

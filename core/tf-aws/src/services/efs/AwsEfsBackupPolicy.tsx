@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_backup_policy
 
 export const InputSchema = z.object({
   backup_policy: resolvableValue(z.object({
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   })),
   file_system_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/efs_backup_policy
 
 export function AwsEfsBackupPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsEfsBackupPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsBackupPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEfsBackupPolicy, node, id)
+export const useAwsEfsBackupPolicy = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEfsBackupPolicy, idFilter, baseNode)
 
-export const useAwsEfsBackupPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEfsBackupPolicy, node, id)
+export const useAwsEfsBackupPolicys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEfsBackupPolicy, idFilter, baseNode)

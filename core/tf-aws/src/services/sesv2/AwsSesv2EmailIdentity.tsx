@@ -3,20 +3,31 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity
-
 export const InputSchema = z.object({
   email_identity: resolvableValue(z.string()),
   configuration_set_name: resolvableValue(z.string().optional()),
+  dkim_signing_attributes: resolvableValue(
+    z.object({
+      current_signing_key_length: z.string(),
+      domain_signing_private_key: z.string().optional(),
+      domain_signing_selector: z.string().optional(),
+      last_key_generation_timestamp: z.string(),
+      next_signing_key_length: z.string().optional(),
+      signing_attributes_origin: z.string(),
+      status: z.string(),
+      tokens: z.string().array(),
+    }).optional(),
+  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -43,6 +54,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity
 
 export function AwsSesv2EmailIdentity(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -61,8 +75,8 @@ export function AwsSesv2EmailIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2EmailIdentity = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSesv2EmailIdentity, node, id)
+export const useAwsSesv2EmailIdentity = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSesv2EmailIdentity, idFilter, baseNode)
 
-export const useAwsSesv2EmailIdentitys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSesv2EmailIdentity, node, id)
+export const useAwsSesv2EmailIdentitys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSesv2EmailIdentity, idFilter, baseNode)

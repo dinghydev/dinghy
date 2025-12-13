@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_certificate_attachment
-
 export const InputSchema = z.object({
   certificate_name: resolvableValue(z.string()),
   lb_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_certificate_attachment
 
 export function AwsLightsailLbCertificateAttachment(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsLightsailLbCertificateAttachment(
 }
 
 export const useAwsLightsailLbCertificateAttachment = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsLightsailLbCertificateAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailLbCertificateAttachment,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsLightsailLbCertificateAttachments = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsLightsailLbCertificateAttachment, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailLbCertificateAttachment,
+    idFilter,
+    baseNode,
+  )

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_domain_name
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
   regional_certificate_name: resolvableValue(z.string().optional()),
   security_policy: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -59,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_domain_name
 
 export function AwsApiGatewayDomainName(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -77,8 +79,10 @@ export function AwsApiGatewayDomainName(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayDomainName = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsApiGatewayDomainName, node, id)
+export const useAwsApiGatewayDomainName = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsApiGatewayDomainName, idFilter, baseNode)
 
-export const useAwsApiGatewayDomainNames = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayDomainName, node, id)
+export const useAwsApiGatewayDomainNames = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsApiGatewayDomainName, idFilter, baseNode)

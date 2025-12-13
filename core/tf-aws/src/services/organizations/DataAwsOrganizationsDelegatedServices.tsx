@@ -3,22 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_services
-
 export const InputSchema = z.object({
   account_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  delegated_services: z.object({
+  delegated_services: z.set(z.object({
     delegation_enabled_date: z.string(),
     service_principal: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_services
 
 export function DataAwsOrganizationsDelegatedServices(
   props: Partial<InputProps>,
@@ -49,6 +51,11 @@ export function DataAwsOrganizationsDelegatedServices(
 }
 
 export const useDataAwsOrganizationsDelegatedServicess = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsOrganizationsDelegatedServices, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOrganizationsDelegatedServices,
+    idFilter,
+    baseNode,
+  )

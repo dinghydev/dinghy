@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptune_cluster_endpoint
 
 export const InputSchema = z.object({
   cluster_endpoint_identifier: resolvableValue(z.string()),
@@ -18,7 +17,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   static_members: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/neptune_cluster_endpoint
 
 export function AwsNeptuneClusterEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsNeptuneClusterEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNeptuneClusterEndpoint = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNeptuneClusterEndpoint, node, id)
+export const useAwsNeptuneClusterEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNeptuneClusterEndpoint, idFilter, baseNode)
 
-export const useAwsNeptuneClusterEndpoints = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNeptuneClusterEndpoint, node, id)
+export const useAwsNeptuneClusterEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsNeptuneClusterEndpoint, idFilter, baseNode)

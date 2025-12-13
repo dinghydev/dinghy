@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_configured_table
 
 export const InputSchema = z.object({
   allowed_columns: resolvableValue(z.string().array()),
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,6 +51,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_configured_table
 
 export function AwsCleanroomsConfiguredTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -71,8 +73,13 @@ export function AwsCleanroomsConfiguredTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCleanroomsConfiguredTable = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCleanroomsConfiguredTable, node, id)
+export const useAwsCleanroomsConfiguredTable = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCleanroomsConfiguredTable, idFilter, baseNode)
 
-export const useAwsCleanroomsConfiguredTables = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCleanroomsConfiguredTable, node, id)
+export const useAwsCleanroomsConfiguredTables = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCleanroomsConfiguredTable, idFilter, baseNode)

@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_preview_next_cidr
 
 export const InputSchema = z.object({
   ipam_pool_id: resolvableValue(z.string()),
   disallowed_cidrs: resolvableValue(z.string().array().optional()),
   netmask_length: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cidr: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_preview_next_cidr
 
 export function AwsVpcIpamPreviewNextCidr(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,12 @@ export function AwsVpcIpamPreviewNextCidr(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcIpamPreviewNextCidr = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpcIpamPreviewNextCidr, node, id)
+export const useAwsVpcIpamPreviewNextCidr = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsVpcIpamPreviewNextCidr, idFilter, baseNode)
 
-export const useAwsVpcIpamPreviewNextCidrs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamPreviewNextCidr, node, id)
+export const useAwsVpcIpamPreviewNextCidrs = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsVpcIpamPreviewNextCidr, idFilter, baseNode)

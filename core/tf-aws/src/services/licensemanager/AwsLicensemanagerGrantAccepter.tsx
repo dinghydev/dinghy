@@ -3,20 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/licensemanager_grant_accepter
-
 export const InputSchema = z.object({
   grant_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  allowed_operations: z.string().array().optional(),
+  allowed_operations: z.set(z.string()).optional(),
   home_region: z.string().optional(),
   id: z.string().optional(),
   license_arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/licensemanager_grant_accepter
 
 export function AwsLicensemanagerGrantAccepter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,14 @@ export function AwsLicensemanagerGrantAccepter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLicensemanagerGrantAccepter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLicensemanagerGrantAccepter, node, id)
+export const useAwsLicensemanagerGrantAccepter = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsLicensemanagerGrantAccepter, idFilter, baseNode)
 
-export const useAwsLicensemanagerGrantAccepters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLicensemanagerGrantAccepter, node, id)
+export const useAwsLicensemanagerGrantAccepters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsLicensemanagerGrantAccepter, idFilter, baseNode)

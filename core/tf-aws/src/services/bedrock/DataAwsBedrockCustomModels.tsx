@@ -3,16 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_custom_models
-
 export const InputSchema = z.object({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   model_summaries: z.object({
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/bedrock_custom_models
 
 export function DataAwsBedrockCustomModels(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,5 +49,7 @@ export function DataAwsBedrockCustomModels(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBedrockCustomModelss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockCustomModels, node, id)
+export const useDataAwsBedrockCustomModelss = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsBedrockCustomModels, idFilter, baseNode)

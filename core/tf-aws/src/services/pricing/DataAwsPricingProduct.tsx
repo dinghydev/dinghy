@@ -3,21 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/pricing_product
-
 export const InputSchema = z.object({
-  filters: resolvableValue(z.object({
-    field: z.string(),
-    value: z.string(),
-  })),
+  filters: resolvableValue(
+    z.object({
+      field: z.string(),
+      value: z.string(),
+    }).array(),
+  ),
   service_code: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   result: z.string().optional(),
@@ -30,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/pricing_product
 
 export function DataAwsPricingProduct(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +52,8 @@ export function DataAwsPricingProduct(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPricingProduct = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsPricingProduct, node, id)
+export const useDataAwsPricingProduct = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsPricingProduct, idFilter, baseNode)
 
-export const useDataAwsPricingProducts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsPricingProduct, node, id)
+export const useDataAwsPricingProducts = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsPricingProduct, idFilter, baseNode)

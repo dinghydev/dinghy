@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDmsReplicationInstance } from './AwsDmsReplicationInstance.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dms_replication_instance
-
 export const InputSchema = z.object({
   replication_instance_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocated_storage: z.number().optional(),
@@ -32,7 +31,7 @@ export const OutputSchema = z.object({
   replication_instance_private_ips: z.string().array().optional(),
   replication_instance_public_ips: z.string().array().optional(),
   replication_subnet_group_id: z.string().optional(),
-  vpc_security_group_ids: z.string().array().optional(),
+  vpc_security_group_ids: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -42,6 +41,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dms_replication_instance
 
 export function DataAwsDmsReplicationInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -60,8 +62,14 @@ export function DataAwsDmsReplicationInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDmsReplicationInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDmsReplicationInstance, node, id)
+export const useDataAwsDmsReplicationInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsDmsReplicationInstance, idFilter, baseNode)
 
-export const useDataAwsDmsReplicationInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDmsReplicationInstance, node, id)
+export const useDataAwsDmsReplicationInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDmsReplicationInstance, idFilter, baseNode)

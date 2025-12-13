@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalog_launch_paths
 
 export const InputSchema = z.object({
   product_id: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   summaries: z.object({
@@ -40,6 +39,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/servicecatalog_launch_paths
 
 export function DataAwsServicecatalogLaunchPaths(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -58,5 +60,12 @@ export function DataAwsServicecatalogLaunchPaths(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsServicecatalogLaunchPathss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsServicecatalogLaunchPaths, node, id)
+export const useDataAwsServicecatalogLaunchPathss = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsServicecatalogLaunchPaths,
+    idFilter,
+    baseNode,
+  )

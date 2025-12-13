@@ -3,19 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/synthetics_runtime_version
 
 export const InputSchema = z.object({
   prefix: resolvableValue(z.string()),
   latest: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   deprecation_date: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/synthetics_runtime_version
 
 export function DataAwsSyntheticsRuntimeVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,18 @@ export function DataAwsSyntheticsRuntimeVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSyntheticsRuntimeVersion = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsSyntheticsRuntimeVersion, node, id)
+export const useDataAwsSyntheticsRuntimeVersion = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(DataAwsSyntheticsRuntimeVersion, idFilter, baseNode)
 
-export const useDataAwsSyntheticsRuntimeVersions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsSyntheticsRuntimeVersion, node, id)
+export const useDataAwsSyntheticsRuntimeVersions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSyntheticsRuntimeVersion,
+    idFilter,
+    baseNode,
+  )

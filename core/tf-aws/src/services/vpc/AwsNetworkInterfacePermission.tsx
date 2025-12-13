@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/network_interface_permission
 
 export const InputSchema = z.object({
   aws_account_id: resolvableValue(z.string()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   network_interface_permission_id: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/network_interface_permission
 
 export function AwsNetworkInterfacePermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,14 @@ export function AwsNetworkInterfacePermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkInterfacePermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkInterfacePermission, node, id)
+export const useAwsNetworkInterfacePermission = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsNetworkInterfacePermission, idFilter, baseNode)
 
-export const useAwsNetworkInterfacePermissions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterfacePermission, node, id)
+export const useAwsNetworkInterfacePermissions = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsNetworkInterfacePermission, idFilter, baseNode)

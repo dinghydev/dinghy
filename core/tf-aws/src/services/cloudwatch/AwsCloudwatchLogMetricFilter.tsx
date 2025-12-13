@@ -3,18 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_metric_filter
-
 export const InputSchema = z.object({
   log_group_name: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  pattern: resolvableValue(z.string()),
-  apply_on_transformed_logs: resolvableValue(z.boolean().optional()),
   metric_transformation: resolvableValue(z.object({
     default_value: z.string().optional(),
     dimensions: z.record(z.string(), z.string()).optional(),
@@ -23,8 +19,11 @@ export const InputSchema = z.object({
     unit: z.string().optional(),
     value: z.string(),
   })),
+  name: resolvableValue(z.string()),
+  pattern: resolvableValue(z.string()),
+  apply_on_transformed_logs: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -37,6 +36,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_metric_filter
 
 export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -55,8 +57,13 @@ export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchLogMetricFilter = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogMetricFilter, node, id)
+export const useAwsCloudwatchLogMetricFilter = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsCloudwatchLogMetricFilter, idFilter, baseNode)
 
-export const useAwsCloudwatchLogMetricFilters = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogMetricFilter, node, id)
+export const useAwsCloudwatchLogMetricFilters = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudwatchLogMetricFilter, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_workload_identity
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
     z.string().array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   workload_identity_arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_workload_identity
 
 export function AwsBedrockagentcoreWorkloadIdentity(
   props: Partial<InputProps>,
@@ -50,11 +52,21 @@ export function AwsBedrockagentcoreWorkloadIdentity(
 }
 
 export const useAwsBedrockagentcoreWorkloadIdentity = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsBedrockagentcoreWorkloadIdentity, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreWorkloadIdentity,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsBedrockagentcoreWorkloadIdentitys = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsBedrockagentcoreWorkloadIdentity, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreWorkloadIdentity,
+    idFilter,
+    baseNode,
+  )

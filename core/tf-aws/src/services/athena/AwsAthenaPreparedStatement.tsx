@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_prepared_statement
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -23,7 +22,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_prepared_statement
 
 export function AwsAthenaPreparedStatement(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function AwsAthenaPreparedStatement(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaPreparedStatement = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAthenaPreparedStatement, node, id)
+export const useAwsAthenaPreparedStatement = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAthenaPreparedStatement, idFilter, baseNode)
 
-export const useAwsAthenaPreparedStatements = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAthenaPreparedStatement, node, id)
+export const useAwsAthenaPreparedStatements = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsAthenaPreparedStatement, idFilter, baseNode)

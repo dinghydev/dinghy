@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_domain
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -27,7 +26,11 @@ export const InputSchema = z.object({
       phone_number: z.string().optional(),
       state: z.string().optional(),
       zip_code: z.string().optional(),
-    }).optional(),
+      extra_param: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   admin_privacy: resolvableValue(z.boolean().optional()),
   auto_renew: resolvableValue(z.boolean().optional()),
@@ -75,7 +78,11 @@ export const InputSchema = z.object({
       phone_number: z.string().optional(),
       state: z.string().optional(),
       zip_code: z.string().optional(),
-    }).optional(),
+      extra_param: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   registrant_privacy: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -94,7 +101,11 @@ export const InputSchema = z.object({
       phone_number: z.string().optional(),
       state: z.string().optional(),
       zip_code: z.string().optional(),
-    }).optional(),
+      extra_param: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   tech_privacy: resolvableValue(z.boolean().optional()),
   timeouts: resolvableValue(
@@ -105,7 +116,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   transfer_lock: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   abuse_contact_email: z.string().optional(),
@@ -128,6 +139,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_domain
 
 export function AwsRoute53domainsDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -146,8 +160,10 @@ export function AwsRoute53domainsDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53domainsDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53domainsDomain, node, id)
+export const useAwsRoute53domainsDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRoute53domainsDomain, idFilter, baseNode)
 
-export const useAwsRoute53domainsDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53domainsDomain, node, id)
+export const useAwsRoute53domainsDomains = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRoute53domainsDomain, idFilter, baseNode)

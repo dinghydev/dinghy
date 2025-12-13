@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_connection_notification
 
 export const InputSchema = z.object({
   connection_events: resolvableValue(z.string().array()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   vpc_endpoint_id: resolvableValue(z.string().optional()),
   vpc_endpoint_service_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_connection_notification
 
 export function AwsVpcEndpointConnectionNotification(
   props: Partial<InputProps>,
@@ -52,11 +54,21 @@ export function AwsVpcEndpointConnectionNotification(
 }
 
 export const useAwsVpcEndpointConnectionNotification = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsVpcEndpointConnectionNotification, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcEndpointConnectionNotification,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsVpcEndpointConnectionNotifications = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsVpcEndpointConnectionNotification, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcEndpointConnectionNotification,
+    idFilter,
+    baseNode,
+  )

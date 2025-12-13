@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_backup
 
 export const InputSchema = z.object({
   file_system_id: resolvableValue(z.string().optional()),
@@ -21,7 +20,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   volume_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_backup
 
 export function AwsFsxBackup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -57,8 +59,8 @@ export function AwsFsxBackup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxBackup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsFsxBackup, node, id)
+export const useAwsFsxBackup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsFsxBackup, idFilter, baseNode)
 
-export const useAwsFsxBackups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsFsxBackup, node, id)
+export const useAwsFsxBackups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsFsxBackup, idFilter, baseNode)

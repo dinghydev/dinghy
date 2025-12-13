@@ -3,18 +3,18 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreamwrite_database
-
 export const InputSchema = z.object({
   database_name: resolvableValue(z.string()),
+  kms_key_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/timestreamwrite_database
 
 export function AwsTimestreamwriteDatabase(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +52,12 @@ export function AwsTimestreamwriteDatabase(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTimestreamwriteDatabase = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTimestreamwriteDatabase, node, id)
+export const useAwsTimestreamwriteDatabase = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsTimestreamwriteDatabase, idFilter, baseNode)
 
-export const useAwsTimestreamwriteDatabases = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTimestreamwriteDatabase, node, id)
+export const useAwsTimestreamwriteDatabases = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsTimestreamwriteDatabase, idFilter, baseNode)

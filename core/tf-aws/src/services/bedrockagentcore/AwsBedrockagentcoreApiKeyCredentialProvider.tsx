@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_api_key_credential_provider
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   api_key_wo: resolvableValue(z.string().optional()),
   api_key_wo_version: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   api_key_secret_arn: z.object({
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_api_key_credential_provider
 
 export function AwsBedrockagentcoreApiKeyCredentialProvider(
   props: Partial<InputProps>,
@@ -53,21 +55,21 @@ export function AwsBedrockagentcoreApiKeyCredentialProvider(
 }
 
 export const useAwsBedrockagentcoreApiKeyCredentialProvider = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreApiKeyCredentialProvider,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )
 
 export const useAwsBedrockagentcoreApiKeyCredentialProviders = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreApiKeyCredentialProvider,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

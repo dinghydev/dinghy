@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mwaa_environment
 
 export const InputSchema = z.object({
   dag_s3_path: resolvableValue(z.string()),
@@ -89,7 +88,7 @@ export const InputSchema = z.object({
   webserver_access_mode: resolvableValue(z.string().optional()),
   weekly_maintenance_window_start: resolvableValue(z.string().optional()),
   worker_replacement_strategy: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -109,6 +108,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mwaa_environment
 
 export function AwsMwaaEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -127,8 +129,8 @@ export function AwsMwaaEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMwaaEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMwaaEnvironment, node, id)
+export const useAwsMwaaEnvironment = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode)
 
-export const useAwsMwaaEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMwaaEnvironment, node, id)
+export const useAwsMwaaEnvironments = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode)

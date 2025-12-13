@@ -2,28 +2,27 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAppconfigEnvironment } from './AwsAppconfigEnvironment.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appconfig_environment
-
 export const InputSchema = z.object({
   application_id: resolvableValue(z.string()),
   environment_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
-  monitor: z.object({
+  monitor: z.set(z.object({
     alarm_arn: z.string(),
     alarm_role_arn: z.string(),
-  }).array().optional(),
+  })).optional(),
   name: z.string().optional(),
   state: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/appconfig_environment
 
 export function DataAwsAppconfigEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,12 @@ export function DataAwsAppconfigEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppconfigEnvironment = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsAppconfigEnvironment, node, id)
+export const useDataAwsAppconfigEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsAppconfigEnvironment, idFilter, baseNode)
 
-export const useDataAwsAppconfigEnvironments = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsAppconfigEnvironment, node, id)
+export const useDataAwsAppconfigEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsAppconfigEnvironment, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_domain
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string()),
@@ -20,12 +19,25 @@ export const InputSchema = z.object({
     z.object({
       enabled: z.boolean(),
       internal_user_database_enabled: z.boolean().optional(),
+      master_user_options: z.object({
+        master_user_arn: z.string().optional(),
+        master_user_name: z.string().optional(),
+        master_user_password: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   auto_tune_options: resolvableValue(
     z.object({
       desired_state: z.string(),
       rollback_on_disable: z.string().optional(),
+      maintenance_schedule: z.object({
+        cron_expression_for_recurrence: z.string(),
+        start_at: z.string(),
+        duration: z.object({
+          unit: z.string(),
+          value: z.number(),
+        }),
+      }).array().optional(),
     }).optional(),
   ),
   cluster_config: resolvableValue(
@@ -39,6 +51,12 @@ export const InputSchema = z.object({
       warm_enabled: z.boolean().optional(),
       warm_type: z.string().optional(),
       zone_awareness_enabled: z.boolean().optional(),
+      cold_storage_options: z.object({
+        enabled: z.boolean().optional(),
+      }).optional(),
+      zone_awareness_config: z.object({
+        availability_zone_count: z.number().optional(),
+      }).optional(),
     }).optional(),
   ),
   cognito_options: resolvableValue(
@@ -109,7 +127,7 @@ export const InputSchema = z.object({
       vpc_id: z.string(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -126,6 +144,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_domain
 
 export function AwsElasticsearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -144,8 +165,8 @@ export function AwsElasticsearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticsearchDomain = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsElasticsearchDomain, node, id)
+export const useAwsElasticsearchDomain = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsElasticsearchDomain, idFilter, baseNode)
 
-export const useAwsElasticsearchDomains = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsElasticsearchDomain, node, id)
+export const useAwsElasticsearchDomains = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsElasticsearchDomain, idFilter, baseNode)

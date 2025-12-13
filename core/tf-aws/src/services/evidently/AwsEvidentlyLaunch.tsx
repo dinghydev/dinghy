@@ -3,23 +3,24 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/evidently_launch
-
 export const InputSchema = z.object({
+  groups: resolvableValue(
+    z.object({
+      description: z.string().optional(),
+      feature: z.string(),
+      name: z.string(),
+      variation: z.string(),
+    }).array(),
+  ),
   name: resolvableValue(z.string()),
   project: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
-  groups: resolvableValue(z.object({
-    description: z.string().optional(),
-    feature: z.string(),
-    name: z.string(),
-    variation: z.string(),
-  })),
   metric_monitors: resolvableValue(
     z.object({
       metric_definition: z.object({
@@ -29,7 +30,7 @@ export const InputSchema = z.object({
         unit_label: z.string().optional(),
         value_key: z.string(),
       }),
-    }).optional(),
+    }).array().optional(),
   ),
   randomization_salt: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -38,7 +39,12 @@ export const InputSchema = z.object({
       steps: z.object({
         group_weights: z.record(z.string(), z.number()),
         start_time: z.string(),
-      }),
+        segment_overrides: z.object({
+          evaluation_order: z.number(),
+          segment: z.string(),
+          weights: z.record(z.string(), z.number()),
+        }).array().optional(),
+      }).array(),
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -49,7 +55,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -73,6 +79,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/evidently_launch
 
 export function AwsEvidentlyLaunch(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -91,8 +100,8 @@ export function AwsEvidentlyLaunch(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEvidentlyLaunch = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEvidentlyLaunch, node, id)
+export const useAwsEvidentlyLaunch = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode)
 
-export const useAwsEvidentlyLaunchs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyLaunch, node, id)
+export const useAwsEvidentlyLaunchs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_logging
 
 export const InputSchema = z.object({
   cluster_identifier: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   log_exports: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   s3_key_prefix: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_logging
 
 export function AwsRedshiftLogging(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsRedshiftLogging(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftLogging = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftLogging, node, id)
+export const useAwsRedshiftLogging = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsRedshiftLogging, idFilter, baseNode)
 
-export const useAwsRedshiftLoggings = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftLogging, node, id)
+export const useAwsRedshiftLoggings = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsRedshiftLogging, idFilter, baseNode)

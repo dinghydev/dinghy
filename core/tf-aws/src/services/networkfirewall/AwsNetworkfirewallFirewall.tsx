@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_firewall
 
 export const InputSchema = z.object({
   firewall_policy_arn: resolvableValue(z.string()),
@@ -47,18 +46,18 @@ export const InputSchema = z.object({
   ),
   transit_gateway_id: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   firewall_status: z.object({
-    sync_states: z.object({
+    sync_states: z.set(z.object({
       attachment: z.object({
         endpoint_id: z.string(),
         subnet_id: z.string(),
       }).array(),
       availability_zone: z.string(),
-    }).array(),
+    })),
     transit_gateway_attachment_sync_states: z.object({
       attachment_id: z.string(),
     }).array(),
@@ -76,6 +75,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_firewall
 
 export function AwsNetworkfirewallFirewall(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -94,8 +96,12 @@ export function AwsNetworkfirewallFirewall(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkfirewallFirewall = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsNetworkfirewallFirewall, node, id)
+export const useAwsNetworkfirewallFirewall = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsNetworkfirewallFirewall, idFilter, baseNode)
 
-export const useAwsNetworkfirewallFirewalls = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsNetworkfirewallFirewall, node, id)
+export const useAwsNetworkfirewallFirewalls = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsNetworkfirewallFirewall, idFilter, baseNode)

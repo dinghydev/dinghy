@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_bot_association
 
 export const InputSchema = z.object({
   instance_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
     name: z.string(),
   })),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_bot_association
 
 export function AwsConnectBotAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,12 @@ export function AwsConnectBotAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectBotAssociation = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsConnectBotAssociation, node, id)
+export const useAwsConnectBotAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsConnectBotAssociation, idFilter, baseNode)
 
-export const useAwsConnectBotAssociations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsConnectBotAssociation, node, id)
+export const useAwsConnectBotAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsConnectBotAssociation, idFilter, baseNode)

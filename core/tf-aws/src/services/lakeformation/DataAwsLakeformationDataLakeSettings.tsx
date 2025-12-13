@@ -2,35 +2,34 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsLakeformationDataLakeSettings } from './AwsLakeformationDataLakeSettings.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lakeformation_data_lake_settings
-
 export const InputSchema = z.object({
   catalog_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
-  admins: z.string().array().optional(),
+  admins: z.set(z.string()).optional(),
   allow_external_data_filtering: z.boolean().optional(),
   allow_full_table_external_data_access: z.boolean().optional(),
   authorized_session_tag_value_list: z.string().array().optional(),
   create_database_default_permissions: z.object({
-    permissions: z.string().array(),
+    permissions: z.set(z.string()),
     principal: z.string(),
   }).array().optional(),
   create_table_default_permissions: z.object({
-    permissions: z.string().array(),
+    permissions: z.set(z.string()),
     principal: z.string(),
   }).array().optional(),
-  external_data_filtering_allow_list: z.string().array().optional(),
+  external_data_filtering_allow_list: z.set(z.string()).optional(),
   parameters: z.record(z.string(), z.string()).optional(),
-  read_only_admins: z.string().array().optional(),
+  read_only_admins: z.set(z.string()).optional(),
   trusted_resource_owners: z.string().array().optional(),
 })
 
@@ -41,6 +40,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lakeformation_data_lake_settings
 
 export function DataAwsLakeformationDataLakeSettings(
   props: Partial<InputProps>,
@@ -62,6 +64,11 @@ export function DataAwsLakeformationDataLakeSettings(
 }
 
 export const useDataAwsLakeformationDataLakeSettingss = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsLakeformationDataLakeSettings, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLakeformationDataLakeSettings,
+    idFilter,
+    baseNode,
+  )

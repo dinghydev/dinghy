@@ -2,27 +2,26 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsWafv2RegexPatternSet } from './AwsWafv2RegexPatternSet.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafv2_regex_pattern_set
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
-  regular_expression: z.object({
+  regular_expression: z.set(z.object({
     regex_string: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafv2_regex_pattern_set
 
 export function DataAwsWafv2RegexPatternSet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,12 @@ export function DataAwsWafv2RegexPatternSet(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafv2RegexPatternSet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsWafv2RegexPatternSet, node, id)
+export const useDataAwsWafv2RegexPatternSet = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsWafv2RegexPatternSet, idFilter, baseNode)
 
-export const useDataAwsWafv2RegexPatternSets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsWafv2RegexPatternSet, node, id)
+export const useDataAwsWafv2RegexPatternSets = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsWafv2RegexPatternSet, idFilter, baseNode)

@@ -3,18 +3,17 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_protection
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -29,6 +28,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_protection
 
 export function AwsShieldProtection(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +49,8 @@ export function AwsShieldProtection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsShieldProtection = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsShieldProtection, node, id)
+export const useAwsShieldProtection = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsShieldProtection, idFilter, baseNode)
 
-export const useAwsShieldProtections = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsShieldProtection, node, id)
+export const useAwsShieldProtections = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsShieldProtection, idFilter, baseNode)

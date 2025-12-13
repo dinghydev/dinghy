@@ -3,11 +3,10 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/regions
 
 export const InputSchema = z.object({
   all_regions: resolvableValue(z.boolean().optional()),
@@ -17,11 +16,11 @@ export const InputSchema = z.object({
       values: z.string().array(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
-  names: z.string().array().optional(),
+  names: z.set(z.string()).optional(),
 })
 
 export type InputProps =
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/regions
 
 export function DataAwsRegions(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,5 +51,5 @@ export function DataAwsRegions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRegionss = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRegions, node, id)
+export const useDataAwsRegionss = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsRegions, idFilter, baseNode)

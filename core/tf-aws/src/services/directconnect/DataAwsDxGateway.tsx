@@ -2,17 +2,16 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDxGateway } from './AwsDxGateway.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_gateway
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   amazon_side_asn: z.string().optional(),
@@ -28,6 +27,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_gateway
 
 export function DataAwsDxGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -46,8 +48,8 @@ export function DataAwsDxGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDxGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDxGateway, node, id)
+export const useDataAwsDxGateway = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsDxGateway, idFilter, baseNode)
 
-export const useDataAwsDxGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDxGateway, node, id)
+export const useDataAwsDxGateways = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDxGateway, idFilter, baseNode)

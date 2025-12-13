@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsNatGateway } from './AwsNatGateway.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/nat_gateway
 
 export const InputSchema = z.object({
   filter: resolvableValue(
@@ -28,7 +27,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocation_id: z.string().optional(),
@@ -49,6 +48,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/nat_gateway
 
 export function DataAwsNatGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -67,8 +69,8 @@ export function DataAwsNatGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNatGateway = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsNatGateway, node, id)
+export const useDataAwsNatGateway = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsNatGateway, idFilter, baseNode)
 
-export const useDataAwsNatGateways = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsNatGateway, node, id)
+export const useDataAwsNatGateways = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsNatGateway, idFilter, baseNode)

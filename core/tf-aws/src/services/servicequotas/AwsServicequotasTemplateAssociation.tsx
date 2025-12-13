@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicequotas_template_association
-
 export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicequotas_template_association
 
 export function AwsServicequotasTemplateAssociation(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function AwsServicequotasTemplateAssociation(
 }
 
 export const useAwsServicequotasTemplateAssociation = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(AwsServicequotasTemplateAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServicequotasTemplateAssociation,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsServicequotasTemplateAssociations = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(AwsServicequotasTemplateAssociation, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServicequotasTemplateAssociation,
+    idFilter,
+    baseNode,
+  )

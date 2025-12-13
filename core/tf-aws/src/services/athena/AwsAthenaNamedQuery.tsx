@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_named_query
 
 export const InputSchema = z.object({
   database: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   workgroup: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/athena_named_query
 
 export function AwsAthenaNamedQuery(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsAthenaNamedQuery(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaNamedQuery = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAthenaNamedQuery, node, id)
+export const useAwsAthenaNamedQuery = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAthenaNamedQuery, idFilter, baseNode)
 
-export const useAwsAthenaNamedQuerys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAthenaNamedQuery, node, id)
+export const useAwsAthenaNamedQuerys = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAthenaNamedQuery, idFilter, baseNode)

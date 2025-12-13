@@ -3,16 +3,19 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/app_cookie_stickiness_policy
-
 export const InputSchema = z.object({
+  cookie_name: resolvableValue(z.string()),
+  lb_port: resolvableValue(z.number()),
+  load_balancer: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cookie_name: z.string().optional(),
@@ -29,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/app_cookie_stickiness_policy
 
 export function AwsAppCookieStickinessPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,8 +53,13 @@ export function AwsAppCookieStickinessPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppCookieStickinessPolicy = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAppCookieStickinessPolicy, node, id)
+export const useAwsAppCookieStickinessPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAppCookieStickinessPolicy, idFilter, baseNode)
 
-export const useAwsAppCookieStickinessPolicys = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAppCookieStickinessPolicy, node, id)
+export const useAwsAppCookieStickinessPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAppCookieStickinessPolicy, idFilter, baseNode)

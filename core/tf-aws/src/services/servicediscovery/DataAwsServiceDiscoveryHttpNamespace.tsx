@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsServiceDiscoveryHttpNamespace } from './AwsServiceDiscoveryHttpNamespace.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_discovery_http_namespace
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/service_discovery_http_namespace
 
 export function DataAwsServiceDiscoveryHttpNamespace(
   props: Partial<InputProps>,
@@ -51,11 +53,21 @@ export function DataAwsServiceDiscoveryHttpNamespace(
 }
 
 export const useDataAwsServiceDiscoveryHttpNamespace = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsServiceDiscoveryHttpNamespace, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsServiceDiscoveryHttpNamespace,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsServiceDiscoveryHttpNamespaces = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsServiceDiscoveryHttpNamespace, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsServiceDiscoveryHttpNamespace,
+    idFilter,
+    baseNode,
+  )

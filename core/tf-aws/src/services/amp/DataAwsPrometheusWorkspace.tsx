@@ -2,19 +2,18 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsPrometheusWorkspace } from './AwsPrometheusWorkspace.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/prometheus_workspace
-
 export const InputSchema = z.object({
   workspace_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/prometheus_workspace
 
 export function DataAwsPrometheusWorkspace(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,12 @@ export function DataAwsPrometheusWorkspace(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPrometheusWorkspace = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsPrometheusWorkspace, node, id)
+export const useDataAwsPrometheusWorkspace = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsPrometheusWorkspace, idFilter, baseNode)
 
-export const useDataAwsPrometheusWorkspaces = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsPrometheusWorkspace, node, id)
+export const useDataAwsPrometheusWorkspaces = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsPrometheusWorkspace, idFilter, baseNode)

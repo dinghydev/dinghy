@@ -3,17 +3,16 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster_auth
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster_auth
 
 export function DataAwsEksClusterAuth(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -45,8 +47,8 @@ export function DataAwsEksClusterAuth(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksClusterAuth = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsEksClusterAuth, node, id)
+export const useDataAwsEksClusterAuth = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsEksClusterAuth, idFilter, baseNode)
 
-export const useDataAwsEksClusterAuths = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsEksClusterAuth, node, id)
+export const useDataAwsEksClusterAuths = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsEksClusterAuth, idFilter, baseNode)

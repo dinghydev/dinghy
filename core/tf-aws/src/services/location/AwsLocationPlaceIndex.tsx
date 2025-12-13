@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/location_place_index
 
 export const InputSchema = z.object({
   data_source: resolvableValue(z.string()),
@@ -22,7 +21,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   create_time: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/location_place_index
 
 export function AwsLocationPlaceIndex(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,8 @@ export function AwsLocationPlaceIndex(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLocationPlaceIndex = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLocationPlaceIndex, node, id)
+export const useAwsLocationPlaceIndex = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLocationPlaceIndex, idFilter, baseNode)
 
-export const useAwsLocationPlaceIndexs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLocationPlaceIndex, node, id)
+export const useAwsLocationPlaceIndexs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLocationPlaceIndex, idFilter, baseNode)

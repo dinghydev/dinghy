@@ -2,13 +2,12 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsRoute53ResolverRule } from './AwsRoute53ResolverRule.tsx'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_rule
 
 export const InputSchema = z.object({
   domain_name: resolvableValue(z.string().optional()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   resolver_endpoint_id: resolvableValue(z.string().optional()),
   resolver_rule_id: resolvableValue(z.string().optional()),
   rule_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_rule
 
 export function DataAwsRoute53ResolverRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function DataAwsRoute53ResolverRule(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute53ResolverRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsRoute53ResolverRule, node, id)
+export const useDataAwsRoute53ResolverRule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsRoute53ResolverRule, idFilter, baseNode)
 
-export const useDataAwsRoute53ResolverRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53ResolverRule, node, id)
+export const useDataAwsRoute53ResolverRules = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsRoute53ResolverRule, idFilter, baseNode)

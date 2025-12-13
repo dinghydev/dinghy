@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_launch_permission
 
 export const InputSchema = z.object({
   image_id: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   organization_arn: resolvableValue(z.string().optional()),
   organizational_unit_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ami_launch_permission
 
 export function AwsAmiLaunchPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,8 @@ export function AwsAmiLaunchPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmiLaunchPermission = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAmiLaunchPermission, node, id)
+export const useAwsAmiLaunchPermission = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsAmiLaunchPermission, idFilter, baseNode)
 
-export const useAwsAmiLaunchPermissions = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAmiLaunchPermission, node, id)
+export const useAwsAmiLaunchPermissions = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsAmiLaunchPermission, idFilter, baseNode)

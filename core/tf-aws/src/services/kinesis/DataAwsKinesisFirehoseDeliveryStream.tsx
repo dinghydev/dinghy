@@ -2,18 +2,17 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsKinesisFirehoseDeliveryStream } from './AwsKinesisFirehoseDeliveryStream.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kinesis_firehose_delivery_stream
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -27,6 +26,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kinesis_firehose_delivery_stream
 
 export function DataAwsKinesisFirehoseDeliveryStream(
   props: Partial<InputProps>,
@@ -48,11 +50,21 @@ export function DataAwsKinesisFirehoseDeliveryStream(
 }
 
 export const useDataAwsKinesisFirehoseDeliveryStream = (
-  node?: any,
-  id?: string,
-) => useTypedNode<OutputProps>(DataAwsKinesisFirehoseDeliveryStream, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsKinesisFirehoseDeliveryStream,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsKinesisFirehoseDeliveryStreams = (
-  node?: any,
-  id?: string,
-) => useTypedNodes<OutputProps>(DataAwsKinesisFirehoseDeliveryStream, node, id)
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsKinesisFirehoseDeliveryStream,
+    idFilter,
+    baseNode,
+  )

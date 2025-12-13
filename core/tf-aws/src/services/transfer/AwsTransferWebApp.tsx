@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_web_app
 
 export const InputSchema = z.object({
   tags_all: resolvableValue(z.record(z.string(), z.string())),
@@ -19,8 +18,8 @@ export const InputSchema = z.object({
         application_arn: z.string(),
         instance_arn: z.string().optional(),
         role: z.string().optional(),
-      }).optional(),
-    }).optional(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -30,7 +29,7 @@ export const InputSchema = z.object({
       provisioned: z.number(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,6 +43,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_web_app
 
 export function AwsTransferWebApp(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -62,8 +64,8 @@ export function AwsTransferWebApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferWebApp = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsTransferWebApp, node, id)
+export const useAwsTransferWebApp = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsTransferWebApp, idFilter, baseNode)
 
-export const useAwsTransferWebApps = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsTransferWebApp, node, id)
+export const useAwsTransferWebApps = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsTransferWebApp, idFilter, baseNode)

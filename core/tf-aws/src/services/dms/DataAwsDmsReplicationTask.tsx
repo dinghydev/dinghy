@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDmsReplicationTask } from './AwsDmsReplicationTask.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dms_replication_task
-
 export const InputSchema = z.object({
   replication_task_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   cdc_start_position: z.string().optional(),
@@ -38,6 +37,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dms_replication_task
 
 export function DataAwsDmsReplicationTask(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -56,8 +58,12 @@ export function DataAwsDmsReplicationTask(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDmsReplicationTask = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDmsReplicationTask, node, id)
+export const useDataAwsDmsReplicationTask = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(DataAwsDmsReplicationTask, idFilter, baseNode)
 
-export const useDataAwsDmsReplicationTasks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDmsReplicationTask, node, id)
+export const useDataAwsDmsReplicationTasks = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(DataAwsDmsReplicationTask, idFilter, baseNode)

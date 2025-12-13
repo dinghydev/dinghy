@@ -2,26 +2,25 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsDbSubnetGroup } from './AwsDbSubnetGroup.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_subnet_group
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   status: z.string().optional(),
-  subnet_ids: z.string().array().optional(),
-  supported_network_types: z.string().array().optional(),
+  subnet_ids: z.set(z.string()).optional(),
+  supported_network_types: z.set(z.string()).optional(),
   vpc_id: z.string().optional(),
 })
 
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_subnet_group
 
 export function DataAwsDbSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,8 +52,8 @@ export function DataAwsDbSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbSubnetGroup = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataAwsDbSubnetGroup, node, id)
+export const useDataAwsDbSubnetGroup = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataAwsDbSubnetGroup, idFilter, baseNode)
 
-export const useDataAwsDbSubnetGroups = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataAwsDbSubnetGroup, node, id)
+export const useDataAwsDbSubnetGroups = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataAwsDbSubnetGroup, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_cluster_snapshot
 
 export const InputSchema = z.object({
   db_cluster_identifier: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allocated_storage: z.number().optional(),
@@ -48,6 +47,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_cluster_snapshot
 
 export function AwsDbClusterSnapshot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,8 +68,8 @@ export function AwsDbClusterSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbClusterSnapshot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDbClusterSnapshot, node, id)
+export const useAwsDbClusterSnapshot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDbClusterSnapshot, idFilter, baseNode)
 
-export const useAwsDbClusterSnapshots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDbClusterSnapshot, node, id)
+export const useAwsDbClusterSnapshots = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDbClusterSnapshot, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_endpoint_authorization
 
 export const InputSchema = z.object({
   account: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   force_delete: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   vpc_ids: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   allowed_all_vpcs: z.boolean().optional(),
@@ -33,6 +32,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_endpoint_authorization
 
 export function AwsRedshiftEndpointAuthorization(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,8 +53,22 @@ export function AwsRedshiftEndpointAuthorization(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftEndpointAuthorization = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftEndpointAuthorization, node, id)
+export const useAwsRedshiftEndpointAuthorization = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftEndpointAuthorization,
+    idFilter,
+    baseNode,
+  )
 
-export const useAwsRedshiftEndpointAuthorizations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftEndpointAuthorization, node, id)
+export const useAwsRedshiftEndpointAuthorizations = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftEndpointAuthorization,
+    idFilter,
+    baseNode,
+  )

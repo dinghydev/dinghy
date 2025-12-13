@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_fleet
 
 export const InputSchema = z.object({
   base_capacity: resolvableValue(z.number()),
@@ -33,6 +32,10 @@ export const InputSchema = z.object({
       desired_capacity: z.number(),
       max_capacity: z.number().optional(),
       scaling_type: z.string().optional(),
+      target_tracking_scaling_configs: z.object({
+        metric_type: z.string().optional(),
+        target_value: z.number().optional(),
+      }).array().optional(),
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -42,20 +45,20 @@ export const InputSchema = z.object({
       security_group_ids: z.string().array(),
       subnets: z.string().array(),
       vpc_id: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   created: z.string().optional(),
   id: z.string().optional(),
   last_modified: z.string().optional(),
-  status: z.object({
+  status: z.set(z.object({
     context: z.string(),
     message: z.string(),
     status_code: z.string(),
-  }).array().optional(),
+  })).optional(),
 })
 
 export const ImportSchema = z.object({
@@ -70,6 +73,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_fleet
 
 export function AwsCodebuildFleet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -89,8 +95,8 @@ export function AwsCodebuildFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildFleet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsCodebuildFleet, node, id)
+export const useAwsCodebuildFleet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsCodebuildFleet, idFilter, baseNode)
 
-export const useAwsCodebuildFleets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsCodebuildFleet, node, id)
+export const useAwsCodebuildFleets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsCodebuildFleet, idFilter, baseNode)

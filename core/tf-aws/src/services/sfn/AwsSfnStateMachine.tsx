@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sfn_state_machine
 
 export const InputSchema = z.object({
   definition: resolvableValue(z.string()),
@@ -48,7 +47,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -71,6 +70,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sfn_state_machine
 
 export function AwsSfnStateMachine(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -90,8 +92,8 @@ export function AwsSfnStateMachine(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSfnStateMachine = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsSfnStateMachine, node, id)
+export const useAwsSfnStateMachine = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsSfnStateMachine, idFilter, baseNode)
 
-export const useAwsSfnStateMachines = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsSfnStateMachine, node, id)
+export const useAwsSfnStateMachines = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsSfnStateMachine, idFilter, baseNode)

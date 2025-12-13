@@ -3,20 +3,15 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_product
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   owner: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  accept_language: resolvableValue(z.string().optional()),
-  description: resolvableValue(z.string().optional()),
-  distributor: resolvableValue(z.string().optional()),
   provisioning_artifact_parameters: resolvableValue(z.object({
     description: z.string().optional(),
     disable_template_validation: z.boolean().optional(),
@@ -25,6 +20,10 @@ export const InputSchema = z.object({
     template_url: z.string().optional(),
     type: z.string().optional(),
   })),
+  type: resolvableValue(z.string()),
+  accept_language: resolvableValue(z.string().optional()),
+  description: resolvableValue(z.string().optional()),
+  distributor: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   support_description: resolvableValue(z.string().optional()),
   support_email: resolvableValue(z.string().optional()),
@@ -38,7 +37,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -56,6 +55,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_product
 
 export function AwsServicecatalogProduct(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -74,8 +76,12 @@ export function AwsServicecatalogProduct(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsServicecatalogProduct = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsServicecatalogProduct, node, id)
+export const useAwsServicecatalogProduct = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsServicecatalogProduct, idFilter, baseNode)
 
-export const useAwsServicecatalogProducts = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsServicecatalogProduct, node, id)
+export const useAwsServicecatalogProducts = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsServicecatalogProduct, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_subnet
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -43,7 +42,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   availability_zone_id: z.string().optional(),
@@ -58,6 +57,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/default_subnet
 
 export function AwsDefaultSubnet(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -76,8 +78,8 @@ export function AwsDefaultSubnet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDefaultSubnet = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsDefaultSubnet, node, id)
+export const useAwsDefaultSubnet = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsDefaultSubnet, idFilter, baseNode)
 
-export const useAwsDefaultSubnets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsDefaultSubnet, node, id)
+export const useAwsDefaultSubnets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsDefaultSubnet, idFilter, baseNode)

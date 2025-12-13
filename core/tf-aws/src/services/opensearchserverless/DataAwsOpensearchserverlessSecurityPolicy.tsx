@@ -2,20 +2,19 @@ import {
   camelCaseToWords,
   type NodeProps,
   resolvableValue,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsOpensearchserverlessSecurityPolicy } from './AwsOpensearchserverlessSecurityPolicy.tsx'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearchserverless_security_policy
-
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   created_date: z.string().optional(),
@@ -32,6 +31,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/opensearchserverless_security_policy
 
 export function DataAwsOpensearchserverlessSecurityPolicy(
   props: Partial<InputProps>,
@@ -53,17 +55,21 @@ export function DataAwsOpensearchserverlessSecurityPolicy(
 }
 
 export const useDataAwsOpensearchserverlessSecurityPolicy = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(DataAwsOpensearchserverlessSecurityPolicy, node, id)
+  useTypedNode<OutputProps>(
+    DataAwsOpensearchserverlessSecurityPolicy,
+    idFilter,
+    baseNode,
+  )
 
 export const useDataAwsOpensearchserverlessSecurityPolicys = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOpensearchserverlessSecurityPolicy,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

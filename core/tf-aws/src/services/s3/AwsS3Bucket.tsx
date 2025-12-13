@@ -4,14 +4,13 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 import { BUCKET } from '@dinghy/diagrams/entitiesAwsStorage'
 import { AWS_ACCOUNT } from '@dinghy/diagrams/containersAwsGroups'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket
 
 export const InputSchema = z.object({
   acceleration_status: resolvableValue(z.string().optional()),
@@ -25,7 +24,7 @@ export const InputSchema = z.object({
       allowed_origins: z.string().array(),
       expose_headers: z.string().array().optional(),
       max_age_seconds: z.number().optional(),
-    }).optional(),
+    }).array().optional(),
   ),
   force_destroy: resolvableValue(z.boolean().optional()),
   grant: resolvableValue(
@@ -43,7 +42,24 @@ export const InputSchema = z.object({
       id: z.string().optional(),
       prefix: z.string().optional(),
       tags: z.record(z.string(), z.string()).optional(),
-    }).optional(),
+      expiration: z.object({
+        date: z.string().optional(),
+        days: z.number().optional(),
+        expired_object_delete_marker: z.boolean().optional(),
+      }).optional(),
+      noncurrent_version_expiration: z.object({
+        days: z.number().optional(),
+      }).optional(),
+      noncurrent_version_transition: z.object({
+        days: z.number().optional(),
+        storage_class: z.string(),
+      }).array().optional(),
+      transition: z.object({
+        date: z.string().optional(),
+        days: z.number().optional(),
+        storage_class: z.string(),
+      }).array().optional(),
+    }).array().optional(),
   ),
   logging: resolvableValue(
     z.object({
@@ -54,6 +70,13 @@ export const InputSchema = z.object({
   object_lock_configuration: resolvableValue(
     z.object({
       object_lock_enabled: z.string().optional(),
+      rule: z.object({
+        default_retention: z.object({
+          days: z.number().optional(),
+          mode: z.string(),
+          years: z.number().optional(),
+        }),
+      }).optional(),
     }).optional(),
   ),
   object_lock_enabled: resolvableValue(z.boolean().optional()),
@@ -62,6 +85,39 @@ export const InputSchema = z.object({
   replication_configuration: resolvableValue(
     z.object({
       role: z.string(),
+      rules: z.object({
+        delete_marker_replication_status: z.string().optional(),
+        id: z.string().optional(),
+        prefix: z.string().optional(),
+        priority: z.number().optional(),
+        status: z.string(),
+        destination: z.object({
+          account_id: z.string().optional(),
+          bucket: z.string(),
+          replica_kms_key_id: z.string().optional(),
+          storage_class: z.string().optional(),
+          access_control_translation: z.object({
+            owner: z.string(),
+          }).optional(),
+          metrics: z.object({
+            minutes: z.number().optional(),
+            status: z.string().optional(),
+          }).optional(),
+          replication_time: z.object({
+            minutes: z.number().optional(),
+            status: z.string().optional(),
+          }).optional(),
+        }),
+        filter: z.object({
+          prefix: z.string().optional(),
+          tags: z.record(z.string(), z.string()).optional(),
+        }).optional(),
+        source_selection_criteria: z.object({
+          sse_kms_encrypted_objects: z.object({
+            enabled: z.boolean(),
+          }).optional(),
+        }).optional(),
+      }).array(),
     }).optional(),
   ),
   request_payer: resolvableValue(z.string().optional()),
@@ -69,6 +125,10 @@ export const InputSchema = z.object({
     z.object({
       rule: z.object({
         bucket_key_enabled: z.boolean().optional(),
+        apply_server_side_encryption_by_default: z.object({
+          kms_master_key_id: z.string().optional(),
+          sse_algorithm: z.string(),
+        }),
       }),
     }).optional(),
   ),
@@ -95,7 +155,7 @@ export const InputSchema = z.object({
       routing_rules: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -123,6 +183,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket
 
 export function AwsS3Bucket(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -143,8 +206,8 @@ export function AwsS3Bucket(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3Bucket = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsS3Bucket, node, id)
+export const useAwsS3Bucket = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsS3Bucket, idFilter, baseNode)
 
-export const useAwsS3Buckets = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsS3Bucket, node, id)
+export const useAwsS3Buckets = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsS3Bucket, idFilter, baseNode)

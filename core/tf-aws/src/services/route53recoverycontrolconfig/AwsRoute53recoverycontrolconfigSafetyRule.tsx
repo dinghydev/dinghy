@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoverycontrolconfig_safety_rule
 
 export const InputSchema = z.object({
   control_panel_arn: resolvableValue(z.string()),
@@ -24,7 +23,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   target_controls: resolvableValue(z.string().array().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -39,6 +38,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoverycontrolconfig_safety_rule
 
 export function AwsRoute53recoverycontrolconfigSafetyRule(
   props: Partial<InputProps>,
@@ -60,17 +62,21 @@ export function AwsRoute53recoverycontrolconfigSafetyRule(
 }
 
 export const useAwsRoute53recoverycontrolconfigSafetyRule = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53recoverycontrolconfigSafetyRule, node, id)
+  useTypedNode<OutputProps>(
+    AwsRoute53recoverycontrolconfigSafetyRule,
+    idFilter,
+    baseNode,
+  )
 
 export const useAwsRoute53recoverycontrolconfigSafetyRules = (
-  node?: any,
-  id?: string,
+  idFilter?: string,
+  baseNode?: any,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoverycontrolconfigSafetyRule,
-    node,
-    id,
+    idFilter,
+    baseNode,
   )

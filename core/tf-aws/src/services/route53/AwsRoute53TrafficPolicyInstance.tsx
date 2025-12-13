@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_traffic_policy_instance
 
 export const InputSchema = z.object({
   hosted_zone_id: resolvableValue(z.string()),
@@ -16,7 +15,7 @@ export const InputSchema = z.object({
   traffic_policy_id: resolvableValue(z.string()),
   traffic_policy_version: resolvableValue(z.number()),
   ttl: resolvableValue(z.number()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -30,6 +29,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_traffic_policy_instance
 
 export function AwsRoute53TrafficPolicyInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -48,8 +50,18 @@ export function AwsRoute53TrafficPolicyInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53TrafficPolicyInstance = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRoute53TrafficPolicyInstance, node, id)
+export const useAwsRoute53TrafficPolicyInstance = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNode<OutputProps>(AwsRoute53TrafficPolicyInstance, idFilter, baseNode)
 
-export const useAwsRoute53TrafficPolicyInstances = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRoute53TrafficPolicyInstance, node, id)
+export const useAwsRoute53TrafficPolicyInstances = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53TrafficPolicyInstance,
+    idFilter,
+    baseNode,
+  )

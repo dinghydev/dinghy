@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_hsm_configuration
 
 export const InputSchema = z.object({
   description: resolvableValue(z.string()),
@@ -20,7 +19,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -34,6 +33,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_hsm_configuration
 
 export function AwsRedshiftHsmConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,8 +54,12 @@ export function AwsRedshiftHsmConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftHsmConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsRedshiftHsmConfiguration, node, id)
+export const useAwsRedshiftHsmConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsRedshiftHsmConfiguration, idFilter, baseNode)
 
-export const useAwsRedshiftHsmConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsRedshiftHsmConfiguration, node, id)
+export const useAwsRedshiftHsmConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNodes<OutputProps>(AwsRedshiftHsmConfiguration, idFilter, baseNode)

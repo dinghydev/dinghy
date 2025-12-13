@@ -78,7 +78,7 @@ export function S3Backend(props: S3BackendInputProps) {
     (() => `${(stack as any)._name()}-${bucketName}`)) as any
   const lockTable = (props.lockTable ||
     (() => `${(stack as any)._name()}-${lockName}`)) as any
-  const { renderOptions: { stage } } = useRenderOptions()
+  const { dinghyConfig: { stage } } = useRenderOptions()
   const stateRemoteFile = props.stateFile ||
     (() => `${stateFilePrefix}${stage!.id}${stateFileExt}`)
 

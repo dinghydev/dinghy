@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_configuration
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
@@ -17,7 +16,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   kafka_versions: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -31,6 +30,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_configuration
 
 export function AwsMskConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -49,8 +51,8 @@ export function AwsMskConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskConfiguration = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsMskConfiguration, node, id)
+export const useAwsMskConfiguration = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsMskConfiguration, idFilter, baseNode)
 
-export const useAwsMskConfigurations = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsMskConfiguration, node, id)
+export const useAwsMskConfigurations = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsMskConfiguration, idFilter, baseNode)

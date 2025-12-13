@@ -3,14 +3,22 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot_import
-
 export const InputSchema = z.object({
+  disk_container: resolvableValue(z.object({
+    description: z.string().optional(),
+    format: z.string(),
+    url: z.string().optional(),
+    user_bucket: z.object({
+      s3_bucket: z.string(),
+      s3_key: z.string(),
+    }).optional(),
+  })),
   outpost_arn: resolvableValue(z.string()),
   volume_id: resolvableValue(z.string()),
   client_data: resolvableValue(
@@ -22,11 +30,6 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   description: resolvableValue(z.string().optional()),
-  disk_container: resolvableValue(z.object({
-    description: z.string().optional(),
-    format: z.string(),
-    url: z.string().optional(),
-  })),
   encrypted: resolvableValue(z.boolean().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
   permanent_restore: resolvableValue(z.boolean().optional()),
@@ -41,7 +44,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -60,6 +63,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_snapshot_import
 
 export function AwsEbsSnapshotImport(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -78,8 +84,8 @@ export function AwsEbsSnapshotImport(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEbsSnapshotImport = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsEbsSnapshotImport, node, id)
+export const useAwsEbsSnapshotImport = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsEbsSnapshotImport, idFilter, baseNode)
 
-export const useAwsEbsSnapshotImports = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsEbsSnapshotImport, node, id)
+export const useAwsEbsSnapshotImports = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsEbsSnapshotImport, idFilter, baseNode)

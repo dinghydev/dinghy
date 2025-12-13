@@ -3,24 +3,28 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc
-
 export const InputSchema = z.object({
   assign_generated_ipv6_cidr_block: resolvableValue(z.boolean().optional()),
   cidr_block: resolvableValue(z.string().optional()),
+  enable_dns_hostnames: resolvableValue(z.boolean().optional()),
+  enable_dns_support: resolvableValue(z.boolean().optional()),
+  enable_network_address_usage_metrics: resolvableValue(z.boolean().optional()),
+  instance_tenancy: resolvableValue(z.string().optional()),
   ipv4_ipam_pool_id: resolvableValue(z.string().optional()),
   ipv4_netmask_length: resolvableValue(z.number().optional()),
   ipv6_cidr_block: resolvableValue(z.string().optional()),
+  ipv6_cidr_block_network_border_group: resolvableValue(z.string().optional()),
   ipv6_ipam_pool_id: resolvableValue(z.string().optional()),
   ipv6_netmask_length: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -54,6 +58,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc
 
 export function AwsVpc(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -73,8 +80,8 @@ export function AwsVpc(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpc = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsVpc, node, id)
+export const useAwsVpc = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsVpc, idFilter, baseNode)
 
-export const useAwsVpcs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsVpc, node, id)
+export const useAwsVpcs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsVpc, idFilter, baseNode)

@@ -3,16 +3,14 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/accessanalyzer_archive_rule
-
 export const InputSchema = z.object({
   analyzer_name: resolvableValue(z.string()),
-  rule_name: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       contains: z.string().array().optional(),
@@ -22,8 +20,9 @@ export const InputSchema = z.object({
       neq: z.string().array().optional(),
     }).array(),
   ),
+  rule_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -36,6 +35,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/accessanalyzer_archive_rule
 
 export function AwsAccessanalyzerArchiveRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -54,8 +56,13 @@ export function AwsAccessanalyzerArchiveRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAccessanalyzerArchiveRule = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsAccessanalyzerArchiveRule, node, id)
+export const useAwsAccessanalyzerArchiveRule = (
+  idFilter?: string,
+  baseNode?: any,
+) => useTypedNode<OutputProps>(AwsAccessanalyzerArchiveRule, idFilter, baseNode)
 
-export const useAwsAccessanalyzerArchiveRules = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsAccessanalyzerArchiveRule, node, id)
+export const useAwsAccessanalyzerArchiveRules = (
+  idFilter?: string,
+  baseNode?: any,
+) =>
+  useTypedNodes<OutputProps>(AwsAccessanalyzerArchiveRule, idFilter, baseNode)

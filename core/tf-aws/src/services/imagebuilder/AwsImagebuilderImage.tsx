@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_image
 
 export const InputSchema = z.object({
   infrastructure_configuration_arn: resolvableValue(z.string()),
@@ -21,6 +20,10 @@ export const InputSchema = z.object({
   image_scanning_configuration: resolvableValue(
     z.object({
       image_scanning_enabled: z.boolean().optional(),
+      ecr_configuration: z.object({
+        container_tags: z.string().array().optional(),
+        repository_name: z.string().optional(),
+      }).optional(),
     }).optional(),
   ),
   image_tests_configuration: resolvableValue(
@@ -29,6 +32,7 @@ export const InputSchema = z.object({
       timeout_minutes: z.number().optional(),
     }).optional(),
   ),
+  region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -40,9 +44,13 @@ export const InputSchema = z.object({
       on_failure: z.string().optional(),
       parallel_group: z.string().optional(),
       workflow_arn: z.string(),
+      parameter: z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
     }).array().optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -50,17 +58,17 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
   os_version: z.string().optional(),
   output_resources: z.object({
-    amis: z.object({
+    amis: z.set(z.object({
       account_id: z.string(),
       description: z.string(),
       image: z.string(),
       name: z.string(),
       region: z.string(),
-    }).array(),
-    containers: z.object({
-      image_uris: z.string().array(),
+    })),
+    containers: z.set(z.object({
+      image_uris: z.set(z.string()),
       region: z.string(),
-    }).array(),
+    })),
   }).array().optional(),
   platform: z.string().optional(),
   region: z.string().optional(),
@@ -80,6 +88,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_image
 
 export function AwsImagebuilderImage(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -99,8 +110,8 @@ export function AwsImagebuilderImage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsImagebuilderImage = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsImagebuilderImage, node, id)
+export const useAwsImagebuilderImage = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsImagebuilderImage, idFilter, baseNode)
 
-export const useAwsImagebuilderImages = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderImage, node, id)
+export const useAwsImagebuilderImages = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsImagebuilderImage, idFilter, baseNode)

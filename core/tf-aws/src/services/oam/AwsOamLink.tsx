@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/oam_link
 
 export const InputSchema = z.object({
   label_template: resolvableValue(z.string()),
@@ -34,7 +33,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -51,6 +50,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/oam_link
 
 export function AwsOamLink(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -69,8 +71,8 @@ export function AwsOamLink(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOamLink = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsOamLink, node, id)
+export const useAwsOamLink = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsOamLink, idFilter, baseNode)
 
-export const useAwsOamLinks = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsOamLink, node, id)
+export const useAwsOamLinks = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsOamLink, idFilter, baseNode)

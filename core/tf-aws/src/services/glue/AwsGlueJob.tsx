@@ -3,22 +3,21 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_job
-
 export const InputSchema = z.object({
-  name: resolvableValue(z.string()),
-  role_arn: resolvableValue(z.string()),
   command: resolvableValue(z.object({
     name: z.string().optional(),
     python_version: z.string().optional(),
     runtime: z.string().optional(),
     script_location: z.string(),
   })),
+  name: resolvableValue(z.string()),
+  role_arn: resolvableValue(z.string()),
   connections: resolvableValue(z.string().array().optional()),
   default_arguments: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -62,7 +61,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeout: resolvableValue(z.number().optional()),
   worker_type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -77,6 +76,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_job
 
 export function AwsGlueJob(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -95,8 +97,8 @@ export function AwsGlueJob(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueJob = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsGlueJob, node, id)
+export const useAwsGlueJob = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsGlueJob, idFilter, baseNode)
 
-export const useAwsGlueJobs = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsGlueJob, node, id)
+export const useAwsGlueJobs = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsGlueJob, idFilter, baseNode)

@@ -3,12 +3,11 @@ import {
   type NodeProps,
   resolvableValue,
   Shape,
+  TfMetaSchema,
   useTypedNode,
   useTypedNodes,
 } from '@dinghy/base-components'
 import z from 'zod'
-
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot
 
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
@@ -19,7 +18,7 @@ export const InputSchema = z.object({
   data_privacy: resolvableValue(
     z.object({
       child_directed: z.boolean(),
-    }).optional(),
+    }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
   members: resolvableValue(
@@ -29,7 +28,7 @@ export const InputSchema = z.object({
       id: z.string(),
       name: z.string(),
       version: z.string(),
-    }).optional(),
+    }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -44,7 +43,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   type: resolvableValue(z.string().optional()),
-})
+}).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
@@ -57,6 +56,9 @@ export type InputProps =
 export type OutputProps =
   & z.output<typeof OutputSchema>
   & z.output<typeof InputSchema>
+  & NodeProps
+
+// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot
 
 export function AwsLexv2modelsBot(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -75,8 +77,8 @@ export function AwsLexv2modelsBot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsBot = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsBot, node, id)
+export const useAwsLexv2modelsBot = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode)
 
-export const useAwsLexv2modelsBots = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsBot, node, id)
+export const useAwsLexv2modelsBots = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode)
