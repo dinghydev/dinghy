@@ -58,8 +58,8 @@ export function DataArchiveFile(props: Partial<InputProps>) {
   )
 }
 
-export const useDataArchiveFile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(DataArchiveFile, node, id)
+export const useDataArchiveFile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(DataArchiveFile, idFilter, baseNode)
 
-export const useDataArchiveFiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(DataArchiveFile, node, id)
+export const useDataArchiveFiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(DataArchiveFile, idFilter, baseNode)

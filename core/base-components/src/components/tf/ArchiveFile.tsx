@@ -59,8 +59,8 @@ export function ArchiveFile(props: Partial<InputProps>) {
   )
 }
 
-export const useArchiveFile = (node?: any, id?: string) =>
-  useTypedNode<OutputProps>(ArchiveFile, node, id)
+export const useArchiveFile = (idFilter?: string, baseNode?: any) =>
+  useTypedNode<OutputProps>(ArchiveFile, idFilter, baseNode)
 
-export const useArchiveFiles = (node?: any, id?: string) =>
-  useTypedNodes<OutputProps>(ArchiveFile, node, id)
+export const useArchiveFiles = (idFilter?: string, baseNode?: any) =>
+  useTypedNodes<OutputProps>(ArchiveFile, idFilter, baseNode)

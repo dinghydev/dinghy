@@ -238,15 +238,6 @@
     "./serviceWorkspacesweb": "./src/services/workspacesweb/index.ts",
     "./serviceXray": "./src/services/xray/index.ts",
 
-    "./s3": "./src/s3/index.ts",
-    "./vpc": "./src/vpc/index.ts",
-    "./iam": "./src/iam/index.ts",
-    "./cloudfront": "./src/cloudfront/index.ts",
-    "./secretsmanager": "./src/secretsmanager/index.ts",
-    "./dynamodb": "./src/dynamodb/index.ts",
-    "./ec2": "./src/ec2/index.ts",
-    "./ssoadmin": "./src/ssoadmin/index.ts",
-
     "./foundation": "./src/foundation/index.ts",
     "./cloudfrontSites": "./src/composites/cloudfront-sites/index.ts",
     ".": "./src/index.ts"
