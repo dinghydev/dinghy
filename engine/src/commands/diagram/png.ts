@@ -83,7 +83,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
   const results = {}
   let failed = false
-  let hasSuccess = false
   const drawioImage = configGetImage('drawio')
   for (const file of files) {
     const pngFile = file.replace('.drawio', '.png')
@@ -102,7 +101,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       results[file] = 'FAILED'
       failed = true
     } else {
-      hasSuccess = true
       debug(`generated -> ${pngFile}`)
       results[file] = pngFile
       if (args['delete-drawio-file-after-render']) {

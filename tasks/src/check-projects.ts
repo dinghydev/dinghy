@@ -60,7 +60,7 @@ if (import.meta.main) {
           .filter((entry) => entry.isDirectory)
           .map((entry) => entry.name)
         for (const folder of folders) {
-          if (['diagrams'].includes(folder)) {
+          if (['tf-aws'].includes(folder) && cmd === 'check') {
             continue
           }
           await runDenoCmd(`${project}/${folder}`, cmd)
