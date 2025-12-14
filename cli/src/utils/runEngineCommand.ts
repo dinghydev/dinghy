@@ -1,6 +1,6 @@
 import { type CommandContext, HANDLED_ERROR_EXIT_CODE } from '../types.ts'
 import Debug from 'debug'
-import { hostAppHome } from './loadConfig.ts'
+import { hostAppHome } from '../shared/home.ts'
 import { runDockerCmd } from './dockerUtils.ts'
 import { configGetEngineImage } from './dockerConfig.ts'
 import { projectVersionRelease } from './projectVersions.ts'

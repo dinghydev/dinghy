@@ -1,0 +1,409 @@
+{
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.22.0"
+      }
+    },
+    "backend": {
+      "s3": {
+        "bucket": "cloudfront-tf-state",
+        "key": "tfstates/cloudfront-sites.tfstate",
+        "region": "eu-west-1"
+      }
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "eu-west-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "example.com website",
+            "iac:stack-name": "cloudfront"
+          }
+        }
+      }
+    ]
+  },
+  "resource": {
+    "aws_cloudfront_distribution": {
+      "examplecom_site": {
+        "default_cache_behavior": {
+          "allowed_methods": [
+            "GET",
+            "HEAD"
+          ],
+          "cached_methods": [
+            "GET",
+            "HEAD"
+          ],
+          "target_origin_id": "root",
+          "viewer_protocol_policy": "redirect-to-https",
+          "cache_policy_id": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+          "function_association": []
+        },
+        "enabled": true,
+        "origin": [
+          {
+            "origin_id": "root",
+            "domain_name": "${aws_s3_bucket.examplecom_root_bucket.bucket_regional_domain_name}",
+            "origin_path": "/www",
+            "origin_access_control_id": "${aws_cloudfront_origin_access_control.examplecom_originaccesscontrol.id}"
+          },
+          {
+            "origin_id": "subsite",
+            "domain_name": "${aws_s3_bucket.examplecom_subsite_bucket.bucket_regional_domain_name}",
+            "origin_path": "",
+            "origin_access_control_id": "${aws_cloudfront_origin_access_control.examplecom_originaccesscontrol.id}"
+          }
+        ],
+        "restrictions": {
+          "geo_restriction": {
+            "restriction_type": "none"
+          }
+        },
+        "viewer_certificate": {
+          "acm_certificate_arn": "${aws_acm_certificate.examplecom_site_1_certificate.arn}",
+          "minimum_protocol_version": "TLSv1.2_2021",
+          "ssl_support_method": "sni-only"
+        },
+        "aliases": [
+          "example.com"
+        ],
+        "comment": "example.com",
+        "default_root_object": "index.html",
+        "logging_config": {
+          "bucket": "${aws_s3_bucket.awss3bucket_globallogbucket.bucket_domain_name}",
+          "prefix": "cloudfront-accesslog/examplecom_site/"
+        },
+        "ordered_cache_behavior": [
+          {
+            "path_pattern": "/old/*",
+            "allowed_methods": [
+              "GET",
+              "HEAD"
+            ],
+            "cached_methods": [
+              "GET",
+              "HEAD"
+            ],
+            "target_origin_id": "root",
+            "viewer_protocol_policy": "redirect-to-https",
+            "cache_policy_id": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "function_association": [
+              {
+                "event_type": "viewer-request",
+                "function_arn": "${aws_cloudfront_function.examplecom_old_redirect_redirect_function.arn}"
+              }
+            ]
+          },
+          {
+            "path_pattern": "/subsite/*",
+            "allowed_methods": [
+              "GET",
+              "HEAD"
+            ],
+            "cached_methods": [
+              "GET",
+              "HEAD"
+            ],
+            "target_origin_id": "subsite",
+            "viewer_protocol_policy": "redirect-to-https",
+            "cache_policy_id": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "function_association": []
+          }
+        ],
+        "tags": {
+          "Name": "Distribution: example.com",
+          "iac:id": "examplecom_site"
+        }
+      },
+      "examplecom_redirect": {
+        "default_cache_behavior": {
+          "allowed_methods": [
+            "GET",
+            "HEAD"
+          ],
+          "cached_methods": [
+            "GET",
+            "HEAD"
+          ],
+          "target_origin_id": "root",
+          "viewer_protocol_policy": "redirect-to-https",
+          "cache_policy_id": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+          "function_association": [
+            {
+              "event_type": "viewer-request",
+              "function_arn": "${aws_cloudfront_function.examplecom_redirect_function.arn}"
+            }
+          ]
+        },
+        "enabled": true,
+        "origin": [
+          {
+            "origin_id": "root",
+            "domain_name": "${aws_s3_bucket.examplecom_root_bucket.bucket_regional_domain_name}",
+            "origin_path": "/www",
+            "origin_access_control_id": "${aws_cloudfront_origin_access_control.examplecom_originaccesscontrol.id}"
+          }
+        ],
+        "restrictions": {
+          "geo_restriction": {
+            "restriction_type": "none"
+          }
+        },
+        "viewer_certificate": {
+          "acm_certificate_arn": "${aws_acm_certificate.examplecom_redirect_1_certificate.arn}",
+          "minimum_protocol_version": "TLSv1.2_2021",
+          "ssl_support_method": "sni-only"
+        },
+        "aliases": [
+          "*.example.com"
+        ],
+        "comment": "Redirect to example.com",
+        "default_root_object": "index.html",
+        "logging_config": {
+          "bucket": "${aws_s3_bucket.awss3bucket_globallogbucket.bucket_domain_name}",
+          "prefix": "cloudfront-accesslog/examplecom_redirect/"
+        },
+        "tags": {
+          "Name": "Distribution: Redirect to example.com",
+          "iac:id": "examplecom_redirect"
+        }
+      }
+    },
+    "aws_route53_record": {
+      "examplecom_arecord": {
+        "name": "example.com",
+        "type": "A",
+        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "alias": {
+          "name": "${aws_cloudfront_distribution.examplecom_site.domain_name}",
+          "zone_id": "${aws_cloudfront_distribution.examplecom_site.hosted_zone_id}",
+          "evaluate_target_health": false
+        }
+      },
+      "examplecom_validation_cname": {
+        "name": "${one([\n  for dvo in aws_acm_certificate.examplecom_site_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"example.com\"\n]).resource_record_name}",
+        "type": "CNAME",
+        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "allow_overwrite": true,
+        "records": [
+          "${one([\n  for dvo in aws_acm_certificate.examplecom_site_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"example.com\"\n]).resource_record_value}"
+        ],
+        "ttl": 60
+      },
+      "star_examplecom_arecord": {
+        "name": "*.example.com",
+        "type": "A",
+        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "alias": {
+          "name": "${aws_cloudfront_distribution.examplecom_redirect.domain_name}",
+          "zone_id": "${aws_cloudfront_distribution.examplecom_redirect.hosted_zone_id}",
+          "evaluate_target_health": false
+        }
+      },
+      "star_examplecom_validation_cname": {
+        "name": "${one([\n  for dvo in aws_acm_certificate.examplecom_redirect_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.example.com\"\n]).resource_record_name}",
+        "type": "CNAME",
+        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "allow_overwrite": true,
+        "records": [
+          "${one([\n  for dvo in aws_acm_certificate.examplecom_redirect_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.example.com\"\n]).resource_record_value}"
+        ],
+        "ttl": 60
+      }
+    },
+    "aws_s3_bucket": {
+      "examplecom_root_bucket": {
+        "bucket": "example-com-website",
+        "tags": {
+          "Name": "Origin Bucket: example.com root",
+          "iac:id": "examplecom_root_bucket"
+        }
+      },
+      "examplecom_subsite_bucket": {
+        "bucket": "example-com-subsite",
+        "tags": {
+          "Name": "Origin Bucket: example.com subsite",
+          "iac:id": "examplecom_subsite_bucket"
+        }
+      },
+      "awss3bucket_cloudfronttfstate": {
+        "bucket": "cloudfront-tf-state",
+        "object_lock_enabled": true,
+        "tags": {
+          "Name": "cloudfront-tf-state",
+          "iac:id": "awss3bucket_cloudfronttfstate"
+        }
+      },
+      "awss3bucket_regionallogbucket": {
+        "bucket": "cloudfront-logs-eu-west-1",
+        "tags": {
+          "Name": "Regional LogBucket",
+          "iac:id": "awss3bucket_regionallogbucket"
+        }
+      },
+      "awss3bucket_globallogbucket": {
+        "bucket": "cloudfront-logs-global",
+        "region": "us-east-1",
+        "tags": {
+          "Name": "Global LogBucket",
+          "iac:id": "awss3bucket_globallogbucket"
+        }
+      }
+    },
+    "aws_s3_bucket_logging": {
+      "examplecom_root_bucketlogging": {
+        "bucket": "example-com-website",
+        "target_bucket": "cloudfront-logs-eu-west-1",
+        "target_prefix": "s3-access-log/example-com-website/"
+      },
+      "examplecom_subsite_bucketlogging": {
+        "bucket": "example-com-subsite",
+        "target_bucket": "cloudfront-logs-eu-west-1",
+        "target_prefix": "s3-access-log/example-com-subsite/"
+      },
+      "awss3bucket_cloudfronttfstate_logging": {
+        "bucket": "cloudfront-tf-state",
+        "target_bucket": "cloudfront-logs-eu-west-1",
+        "target_prefix": "s3-access-log/cloudfront-tf-state/",
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_cloudfronttfstate"
+        ]
+      },
+      "awss3bucket_regionallogbucket_logging": {
+        "bucket": "cloudfront-logs-eu-west-1",
+        "target_bucket": "cloudfront-logs-eu-west-1",
+        "target_prefix": "s3-access-log/cloudfront-logs-eu-west-1/",
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_regionallogbucket"
+        ]
+      },
+      "awss3bucket_globallogbucket_logging": {
+        "bucket": "cloudfront-logs-global",
+        "target_bucket": "cloudfront-logs-global",
+        "target_prefix": "s3-access-log/cloudfront-logs-global/",
+        "region": "us-east-1",
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_globallogbucket"
+        ]
+      }
+    },
+    "aws_s3_bucket_policy": {
+      "examplecom_root_bucketpolicy": {
+        "bucket": "example-com-website",
+        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-website/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}"
+      },
+      "examplecom_subsite_bucketpolicy": {
+        "bucket": "example-com-subsite",
+        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-subsite/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}"
+      },
+      "awss3bucket_regionallogbucket_policy": {
+        "bucket": "cloudfront-logs-eu-west-1",
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::cloudfront-logs-eu-west-1/*\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:GetBucketAcl\",\"Resource\":\"arn:aws:s3:::cloudfront-logs-eu-west-1\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::cloudfront-logs-eu-west-1/*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"${data.aws_caller_identity.caller_identity.account_id}\"}}}]}"
+      }
+    },
+    "aws_cloudfront_function": {
+      "examplecom_old_redirect_redirect_function": {
+        "code": "\n              function handler(event) {\n                var request = event.request;\n                var path = request.uri.substring(5);\n                var newUrl = 'https://new.example.com/{PATH}#from-old'.replace('{PATH}',path);\n                var response = {\n                  statusCode: 301,\n                  statusDescription: 'Moved Permanently',\n                  headers: {\n                    'location': { value: newUrl }\n                  }\n                };\n                return response;\n              }",
+        "name": "examplecom_old_redirect_redirect_function",
+        "runtime": "cloudfront-js-2.0",
+        "publish": true,
+        "lifecycle": {
+          "ignore_changes": [
+            "name"
+          ]
+        }
+      },
+      "examplecom_redirect_function": {
+        "code": "\n              function handler(event) {\n                var request = event.request;\n                \n                var newUrl = 'https://example.com';\n                var response = {\n                  statusCode: 301,\n                  statusDescription: 'Moved Permanently',\n                  headers: {\n                    'location': { value: newUrl }\n                  }\n                };\n                return response;\n              }",
+        "name": "examplecom_redirect_function",
+        "runtime": "cloudfront-js-2.0",
+        "publish": true,
+        "lifecycle": {
+          "ignore_changes": [
+            "name"
+          ]
+        }
+      }
+    },
+    "aws_acm_certificate": {
+      "examplecom_site_1_certificate": {
+        "domain_name": "example.com",
+        "region": "us-east-1",
+        "subject_alternative_names": [],
+        "tags": {
+          "iac:id": "examplecom_site_1_certificate",
+          "Name": "v1"
+        },
+        "validation_method": "DNS",
+        "lifecycle": {
+          "ignore_changes": [
+            "subject_alternative_names",
+            "domain_name"
+          ]
+        }
+      },
+      "examplecom_redirect_1_certificate": {
+        "domain_name": "*.example.com",
+        "region": "us-east-1",
+        "subject_alternative_names": [],
+        "tags": {
+          "iac:id": "examplecom_redirect_1_certificate",
+          "Name": "v1"
+        },
+        "validation_method": "DNS",
+        "lifecycle": {
+          "ignore_changes": [
+            "subject_alternative_names",
+            "domain_name"
+          ]
+        }
+      }
+    },
+    "aws_cloudfront_origin_access_control": {
+      "examplecom_originaccesscontrol": {
+        "name": "oac-examplecom",
+        "origin_access_control_origin_type": "s3",
+        "signing_behavior": "always",
+        "signing_protocol": "sigv4"
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_cloudfronttfstate_versioning": {
+        "bucket": "cloudfront-tf-state",
+        "versioning_configuration": {
+          "status": "Enabled"
+        },
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_cloudfronttfstate"
+        ]
+      }
+    },
+    "aws_s3_bucket_ownership_controls": {
+      "awss3bucket_globallogbucket_ownership_controls": {
+        "bucket": "cloudfront-logs-global",
+        "rule": {
+          "object_ownership": "BucketOwnerPreferred"
+        },
+        "region": "us-east-1",
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_globallogbucket"
+        ]
+      }
+    }
+  },
+  "data": {
+    "aws_route53_zone": {
+      "examplecom_zone": {
+        "name": "example.com"
+      }
+    },
+    "aws_caller_identity": {
+      "caller_identity": {}
+    }
+  }
+}

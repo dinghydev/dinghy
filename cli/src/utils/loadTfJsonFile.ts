@@ -1,5 +1,5 @@
 import { existsSync } from '@std/fs/exists'
-import { hostAppHome } from './loadConfig.ts'
+import { hostAppHome } from '../shared/home.ts'
 
 export function loadTfJsonFile(args: any) {
   const jsonFile = args['json-file']

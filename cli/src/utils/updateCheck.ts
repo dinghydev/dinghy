@@ -3,7 +3,7 @@ import Debug from 'debug'
 import chalk from 'chalk'
 import { walk } from 'jsr:@std/fs/walk'
 import { upgradeToVersion } from '../commands/upgrade.ts'
-import { dinghyHome } from './loadConfig.ts'
+import { dinghyHome } from '../shared/home.ts'
 import { execa } from 'execa'
 import { projectVersionRelease } from './projectVersions.ts'
 const debug = Debug('updateCheck')

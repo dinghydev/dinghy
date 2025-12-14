@@ -1,12 +1,12 @@
 import { existsSync } from '@std/fs/exists'
 import { dirname, resolve } from 'jsr:@std/path'
+import { dinghyRc } from './loadConfig.ts'
 import {
   appHomeMount,
   containerAppHome,
-  dinghyRc,
   hostAppHome,
   isInsideContainer,
-} from './loadConfig.ts'
+} from '../shared/home.ts'
 import { streamCmd } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'

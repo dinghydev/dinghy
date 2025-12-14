@@ -5,7 +5,7 @@
       "name": "render",
       "args": [
         "render",
-        // "platform-staging",
+        // "move-to-here",
         // "--format",
         // "all",
         // "tf"
@@ -13,16 +13,17 @@
         // "--diagram-save-view",
         // "--stage",
         // "main",
-        // "--view",
+        "--view",
+        "all",
         // "overview",
-        // "all",
         // "--format",
         // "diagram",
+        // "--app",
         // "tf",
         // "--output",
         // ".",
         // "--watch",
-        "--debug",
+        // "--debug",
         // "-h",
       ],
       "program": "src/index.ts",
@@ -41,15 +42,12 @@
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/basic"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/community",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/basic",
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/layout",
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/tf-aws/composites",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-3-draw-io"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-4-iac"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
-        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
-        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },
       "type": "node",
       "request": "launch",
@@ -75,9 +73,6 @@
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
       },
       "type": "node",
       "request": "launch",
@@ -102,9 +97,6 @@
         "DEBUG": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
       },
       "type": "node",
       "request": "launch",
@@ -132,9 +124,6 @@
       ],
       "program": "src/index.ts",
       "env": {
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"§
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
       },
       "type": "node",
@@ -160,9 +149,6 @@
       ],
       "program": "src/index.ts",
       "env": {
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
       },
       "type": "node",
@@ -182,18 +168,7 @@
         "normalise",
         "--exclude-identifier",
         "--json-file",
-        // "${env:HOME}/andopen/src/devops/cdktf-ecs/cdktf.out/stacks/platform-staging/andopen-devops-cdktf-ecs-platform-staging.json",
-        // "${env:HOME}/andopen/src/devops/cdktf-ecs/cdktf.out/stacks/platform-staging/cdk.tf.json",
-        // "${env:HOME}/andopen/src/devops/iac-ecs/output/platform-staging/platform-staging.tf.json",
-        "${env:HOME}/andopen/src/devops/iac-ecs/output/platform-staging/platform-staging.json",
-        // "${env:HOME}/andopen/src/devops/iac-cicd/output/production/production.tf.json",
-        // "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/production/cdk.tf.json",
-        // "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
-        // "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/development/cdk.tf.json",
-        // "${env:HOME}/andopen/src/devops/iac-cicd/output/development/development.tf.json",
-        // "${env:HOME}/andopen/src/devops/iac-cicd/output/development/state-old.json",
         "--output-folder",
-        "${env:HOME}/andopen/src/devops/iac-ecs/output/platform-staging",
         // "-h",
         "--debug"
       ],

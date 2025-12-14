@@ -7,7 +7,7 @@ import type {
 } from '../../types.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import { isCi } from '../../utils/gitUtils.ts'
-import { hostAppHome } from '../../utils/loadConfig.ts'
+import { hostAppHome } from '../../shared/home.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
 import { execaSync } from 'execa'
 import chalk from 'chalk'

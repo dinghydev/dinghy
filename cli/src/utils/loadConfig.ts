@@ -1,27 +1,10 @@
 import * as fs from '@std/fs'
-import { basename, resolve } from 'jsr:@std/path@1.0.8'
 import { walkSync } from '@std/fs'
 import * as yaml from '@std/yaml'
-import { parseArgs } from '@std/cli'
 import Debug from 'debug'
+import { containerAppHome, dinghyHome, hostAppHome } from '../shared/home.ts'
 const debug = Debug('loadConfig')
-
-const resolveHome = () => {
-  const appHome = Deno.env.get('APP_HOME') || parseArgs(Deno.args)['app-home']
-  if (appHome) {
-    return resolve(appHome)
-  } else {
-    return Deno.cwd()
-  }
-}
-
 export const dinghyRc: Record<string, string> = {}
-export const isInsideContainer = Deno.env.get('HOST_USER_HOME') !== undefined
-export const hostAppHome = Deno.env.get('HOST_APP_HOME') || resolveHome()
-export const appHomeMount = `/dinghy/engine/workspace/${basename(hostAppHome)}`
-export const containerAppHome = isInsideContainer ? appHomeMount : resolveHome()
-export const dinghyHome = Deno.env.get('DINGHY_HOME') ||
-  `${Deno.env.get('HOME')}/.dinghy`
 
 export const dinghyAppConfig: any = {}
 export const dinghyRcFiles: string[] = [

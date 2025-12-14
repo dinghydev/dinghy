@@ -30,7 +30,7 @@ export function AwsGlobalLogBucket(
   const defaults = InputSchema.parse(props)
   const bucket = (defaults.bucket ||
     (() =>
-      `${deepResolve(stack._name)}-${defaults.bucketSurfix}-global2`)) as any
+      `${deepResolve(stack._name)}-${defaults.bucketSurfix}-global`)) as any
 
   const OwnershipControls = () => {
     const { s3Bucket } = useAwsS3Bucket()

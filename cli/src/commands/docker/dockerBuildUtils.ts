@@ -1,7 +1,7 @@
 import Debug from 'debug'
 import { DinghyError } from '../../types.ts'
 import { configGetEngineImage } from '../../utils/dockerConfig.ts'
-import { hostAppHome } from '../../utils/loadConfig.ts'
+import { hostAppHome } from '../../shared/home.ts'
 import { execaSync } from 'execa'
 import { existsSync } from '@std/fs/exists'
 import { walk } from '@std/fs/walk'

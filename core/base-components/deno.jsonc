@@ -18,6 +18,8 @@
   "imports": {
     "debug": "npm:debug@4.4.0",
     "react": "npm:react@19.1.0",
+    "@std/cli": "jsr:@std/cli@1.0.14",
+    "@std/path": "jsr:@std/path@1.0.8",
     "zod": "npm:zod@4.1.12"
   }
 }

@@ -1,8 +1,7 @@
-import type { NodeProps, NodeTree } from '../types/index.ts'
+import type { NodeProps } from '../types/index.ts'
 import { Shape } from './Shape.tsx'
 import { useTypedNode } from '../contexts/useTypedNode.tsx'
 import { useRenderOptions } from '../contexts/useRenderOptions.tsx'
-import { camelCaseToWords } from '../utils/stringUtils.ts'
 
 export function Stack(props: NodeProps) {
   const { renderOptions } = useRenderOptions()
@@ -10,29 +9,11 @@ export function Stack(props: NodeProps) {
     ;(props as any).onRender(renderOptions)
   }
   const { stack, stage } = renderOptions
-  let appendEnvToTitle = {}
-  if (stack?.env) {
-    const _title = (node: NodeTree) => {
-      let title = stack?.title ||
-        props._title ||
-        props.title ||
-        camelCaseToWords((node._props._tags as any)[1])
-      if (typeof title === 'function') {
-        title = (title as any)(node)
-      }
-      return `${title}: ${stack.env}`
-    }
-    appendEnvToTitle = {
-      title: _title,
-      _title,
-    }
-  }
 
   const stackProps = {
     ...stack,
     stage: stage,
     ...props,
-    ...appendEnvToTitle,
   }
   return <Shape {...(stackProps as any)} />
 }

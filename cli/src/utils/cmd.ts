@@ -1,6 +1,6 @@
 import { execa } from 'execa'
 import Debug from 'debug'
-import { containerAppHome } from './loadConfig.ts'
+import { containerAppHome } from '../shared/home.ts'
 Debug.formatters.a = (v) => {
   return `[${v.join(' ')}]`
 }

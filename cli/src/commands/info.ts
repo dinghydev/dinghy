@@ -10,11 +10,8 @@ import { execa } from 'execa'
 import chalk from 'chalk'
 import { versionDetails } from '../utils/projectVersions.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
-import {
-  dinghyConfigFile,
-  dinghyHome,
-  dinghyRcFiles,
-} from '../utils/loadConfig.ts'
+import { dinghyConfigFile, dinghyRcFiles } from '../utils/loadConfig.ts'
+import { dinghyHome } from '../shared/home.ts'
 
 const options: CommandOptions = {
   description: {},

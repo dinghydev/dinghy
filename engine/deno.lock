@@ -11,6 +11,7 @@
     "jsr:@std/fs@1.0.15": "1.0.15",
     "jsr:@std/fs@1.0.5": "1.0.5",
     "jsr:@std/io@0.225.0": "0.225.0",
+    "jsr:@std/media-types@1.1.0": "1.1.0",
     "jsr:@std/path@*": "1.0.8",
     "jsr:@std/path@1.0.8": "1.0.8",
     "jsr:@std/path@^1.0.7": "1.0.8",
@@ -77,6 +78,9 @@
       "dependencies": [
         "jsr:@std/bytes"
       ]
+    },
+    "@std/media-types@1.1.0": {
+      "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
@@ -1462,6 +1466,8 @@
     "links": {
       "jsr:@dinghy/base-components@0.0.1": {
         "dependencies": [
+          "jsr:@std/cli@1.0.14",
+          "jsr:@std/path@1.0.8",
           "npm:debug@4.4.0",
           "npm:react@19.1.0",
           "npm:zod@4.1.12"

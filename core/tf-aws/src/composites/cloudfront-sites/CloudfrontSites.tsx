@@ -1,5 +1,14 @@
 import { OriginType, useCloudfrontSites } from './useCloudfrontSites.ts'
-import { deepResolve, NodeProps, Shape, toId } from '@dinghy/base-components'
+import { existsSync } from '@std/fs/exists'
+import { walkSync } from '@std/fs/walk'
+import { contentType } from '@std/media-types'
+import {
+  deepResolve,
+  hostAppHome,
+  NodeProps,
+  Shape,
+  toId,
+} from '@dinghy/base-components'
 import {
   AwsRoute53Record,
   DataAwsRoute53Zone,
@@ -29,6 +38,12 @@ import {
   useAwsAcmCertificate,
 } from '@dinghy/tf-aws/serviceAcm'
 import { Text } from '@dinghy/diagrams/entitiesGeneral'
+import { AwsS3Object } from '../../services/s3/AwsS3Object.tsx'
+
+function getContentType(filePath: string): string {
+  const extension = filePath.split('.').pop()?.toLowerCase() || ''
+  return contentType(`.${extension}`) || 'application/octet-stream'
+}
 
 export function CloudfrontSites(
   { _components, _configs, ...props }: NodeProps,
@@ -112,7 +127,7 @@ export function CloudfrontSites(
               _width={aliases.map((alias) => alias.length).reduce(
                 (max, length) => Math.max(max, length),
                 0,
-              ) * 8}
+              ) * 9}
               _height={aliases.length * 15 + 40}
               _margin={{ top: 1, bottom: 1 }}
             />
@@ -297,6 +312,36 @@ export function CloudfrontSites(
         }</table>`
 
         const S3Origin = ({ origin }: { origin: OriginType }) => {
+          const originFiles = `${hostAppHome}/s3-files/${origin.targetHost}`
+          const originFilesExists = existsSync(originFiles)
+          const Files = () => {
+            const files = []
+            for (
+              const entry of walkSync(originFiles, { includeDirs: false })
+            ) {
+              files.push({
+                source: entry.path,
+                target: entry.path.replace(originFiles, ''),
+                contentType: getContentType(entry.path),
+              })
+            }
+            return (
+              <Shape _direction='vertical'>
+                {files.map((file) => (
+                  <AwsS3Object
+                    _id={toId(`${site.title}_${origin.name}_${file.target}`)}
+                    _title={file.target}
+                    bucket={origin.targetHost}
+                    key={file.target}
+                    __key={file.target}
+                    cache_control={origin.fileCacheControl}
+                    content_type={file.contentType}
+                    source={file.source}
+                  />
+                ))}
+              </Shape>
+            )
+          }
           const { cloudfrontDistribution } = useAwsCloudfrontDistribution()
           const S3OriginComponent =
             _components?.s3Origin as typeof AwsS3Bucket || AwsS3Bucket
@@ -312,6 +357,7 @@ export function CloudfrontSites(
               _title={`Origin Bucket: ${site.title} ${origin.name}`}
               bucket={origin.targetHost}
               _display='none'
+              _direction='vertical'
               _distributed
             >
               <S3OriginLoggingComponent
@@ -346,6 +392,7 @@ export function CloudfrontSites(
                     ],
                   }))}
               />
+              {originFilesExists && <Files />}
             </S3OriginComponent>
           )
         }
@@ -402,7 +449,7 @@ export function CloudfrontSites(
         origin_id: origin.name,
         domain_name: origin.targetProtocol == 's3'
           ? s3Origins.find((o) => o.name === origin.name)!.data.s3Bucket
-            .bucket_domain_name
+            .bucket_regional_domain_name
           : undefined,
         origin_path: origin.targetPath,
         origin_access_control_id: origin.targetProtocol == 's3'

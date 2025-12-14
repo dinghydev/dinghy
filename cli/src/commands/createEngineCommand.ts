@@ -5,11 +5,10 @@ import { OPTIONS_SYMBOL, REQUIRE_ENGINE_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import {
   configGetEngineImage,
   configIsEngineRepoDefault,
-  dinghyHome,
 } from '../utils/index.ts'
 import { runEngineCommand } from '../utils/runEngineCommand.ts'
 import cache from './docker/cache.ts'
-
+import { dinghyHome } from '../shared/home.ts'
 const populateCacheIfNeeded = async (
   context: CommandContext,
   args: CommandArgs,

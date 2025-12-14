@@ -12,7 +12,7 @@ export default function App() {
                 <Shape>Source three by function</Shape>
                 <Shape>None matched</Shape>
             </Shape>
-            <Shape _title="Moved To Here">
+            <Shape _title="Moved To Here From Sources">
                 <MoveToHere includes="Source1" excludes="excluded">
                     Two sources moved to here
                 </MoveToHere>

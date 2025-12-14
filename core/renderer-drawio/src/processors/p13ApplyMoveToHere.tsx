@@ -108,6 +108,10 @@ function scanForMoveToHere(
 
 export const p13ApplyMoveToHere = ({
   rootNode,
+  renderOptions,
 }: DrawioContext) => {
-  scanForMoveToHere(rootNode, rootNode)
+  const selectedView = (renderOptions as any).view?.name
+  if (selectedView !== 'all') {
+    scanForMoveToHere(rootNode, rootNode)
+  }
 }
