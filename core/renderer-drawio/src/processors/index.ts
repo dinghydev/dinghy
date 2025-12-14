@@ -6,6 +6,7 @@ import type {
   Processor,
 } from '../types.ts'
 import { p10ApplyViewAttributes } from './p10ApplyViewAttributes.tsx'
+import { p13ApplyMoveToHere } from './p13ApplyMoveToHere.tsx'
 import { p15ResolveAttrDiagram } from './p15ResolveAttrDiagram.tsx'
 import { p16CollectDependencies } from './p16CollectDependencies.ts'
 import { p22FilterView } from './p22FilterView.ts'
@@ -25,6 +26,7 @@ import type { HostContainer } from '@dinghy/base-renderer'
 import { p63CollectDependencyAttributes } from './p63CollectDepdencyAttributes.ts'
 const processors: Processor[] = [
   p10ApplyViewAttributes,
+  p13ApplyMoveToHere,
   p15ResolveAttrDiagram,
   p16CollectDependencies,
   p21ResolveFlagIsEntity,

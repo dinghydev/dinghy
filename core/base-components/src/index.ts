@@ -1,5 +1,6 @@
 export { Shape } from './components/Shape.tsx'
 export { Rows } from './components/Rows.tsx'
+export { MoveToHere } from './components/MoveToHere.tsx'
 export { Columns } from './components/Columns.tsx'
 export { Dependency } from './components/Dependency.tsx'
 export { Stack, useStack } from './components/Stack.tsx'
