@@ -1,10 +1,10 @@
-name: release-sites
+name: release-www
 
 on:
   push:
     branches: [main]
     paths:
-      - '.github/**'
+      - 'sites/www/**'
   workflow_dispatch:
 
 permissions:
@@ -12,9 +12,8 @@ permissions:
     contents: read    # This is required for actions/checkout
 
 jobs:
-  release-sites:
+  release-www:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release-sites]')}}
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2

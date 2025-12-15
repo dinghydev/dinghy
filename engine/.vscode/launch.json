@@ -117,7 +117,7 @@
         // "platform-staging",
         // "production",
         // "development",
-        // "--tf-generate-import",
+        "--tf-generate-import",
         // "true",
         // "-h",
         "--debug"

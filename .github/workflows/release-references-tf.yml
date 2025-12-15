@@ -1,0 +1,67 @@
+name: release-references-tf
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites/references-tf-aws-services/**'
+  workflow_dispatch:
+
+permissions:
+    id-token: write   # This is required for requesting the JWT
+    contents: read    # This is required for actions/checkout
+
+jobs:
+  release-references-tf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.4.5
+          cache: true
+      - name: commit-rev-count
+        run: |
+          gh api graphql -f query='query CommitRevCount{
+              repository(owner:"${{ github.repository_owner }}",name:"${{ github.event.repository.name }}") {
+                name
+                object(oid: "${{ github.sha }}"){
+                  ... on Commit {
+                    message
+                    id
+                    history(first: 0) {
+                      totalCount
+                    }
+                  }
+                }
+              }
+            }' > commit_rev_count_data.json
+          COMMIT_REV_COUNT="$(jq -r '.data.repository.object.history.totalCount' commit_rev_count_data.json)"
+          echo "COMMIT_REV_COUNT=$COMMIT_REV_COUNT" >> $GITHUB_ENV
+          echo "COMMIT_REV_COUNT=$COMMIT_REV_COUNT"
+          rm commit_rev_count_data.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
+      - name: publish sites
+        run: |
+          cd tasks
+
+          echo "::group::Prepare Build"
+          deno task prepare-build
+          echo "::endgroup::"
+
+          cd ../cli
+          echo "::group::Generate Versions File"
+          deno task run docker build --dryrun  --app-home ../
+          echo "::endgroup::"
+          
+
+          cd ../tasks
+          echo "::group::Release Site References TF AWS Services"
+          deno task release-site references-tf-aws-services
+          echo "::endgroup::"

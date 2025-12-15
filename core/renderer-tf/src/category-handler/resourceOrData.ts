@@ -42,6 +42,7 @@ export const resourceOrData = (
     }
     if (identity && Object.keys(identity).length > 0) {
       deepResolve(identity)
+      removeDoubleUnderscorePrefix(identity)
       const imports = (tfRoot.import ??= []) as any[]
       const to = `${node._props._type}.${id}`
       const existingIndex = imports.findIndex((imp) => imp.to === to)
