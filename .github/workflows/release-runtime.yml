@@ -1,4 +1,4 @@
-name: release
+name: release-runtime
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
     contents: read    # This is required for actions/checkout
 
 jobs:
-  release:
+  release-runtime:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]')}}
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}

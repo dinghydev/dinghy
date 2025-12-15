@@ -37,14 +37,18 @@ it can never be changed. Any change will result a different release.
 
 ## Release workflow
 
-<a href='https://github.com/dinghydev/dinghy/actions/workflows/release.yml'><img width='117' height='20' src='https://github.com/dinghydev/dinghy/actions/workflows/release.yml/badge.svg'/></a>
+<a href='https://github.com/dinghydev/dinghy/actions/workflows/release-runtime.yml'><img width='117' height='20' src='https://github.com/dinghydev/dinghy/actions/workflows/release-runtime.yml/badge.svg'/></a>
 
 The github
-[release](https://github.com/dinghydev/dinghy/actions/workflows/release.yml)
-action based workflow to perform the release. The release will be triggered:
+[release-runtime](https://github.com/dinghydev/dinghy/actions/workflows/release-runtime.yml)
+action based workflow to perform the release of runtime. The release will be
+triggered:
 
 1. automatically when last commit has `[release]` keyword
 2. or manually on demand
+
+This documentation site is automatically released whenever changes are made in
+the `sites` directory.
 
 ## Static code analysis
 
