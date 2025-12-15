@@ -21,6 +21,7 @@ const OriginSchema = z.object({
   customHeaders: z.record(z.string(), z.string()).optional(),
   pathPattern: z.string().default('*'),
   cacheBehavior: z.record(z.string(), z.any()).optional(),
+  contentTypes: z.record(z.string(), z.string()).default({}),
   fileCacheControl: z.string().default('max-age=3600, public, must-revalidate'),
 })
 
@@ -46,6 +47,7 @@ const CloudfrontSiteSchema = z.object({
   ) => value as string[]),
   certVersions: z.string().array().default(['1']),
   defaultRootObject: z.string().default('index.html'),
+  loggingV1Enabled: z.boolean().default(true),
 }).loose()
 
 const CloudfrontSitesSchema = z.record(z.string(), CloudfrontSiteSchema)

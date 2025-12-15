@@ -41,7 +41,6 @@ export const IacNodeSchema = z.object({
   _provider: RecordSchema.optional(),
   _category: z.union([IacCategorySchema, resolvable(z.string())]).optional(),
   _components: RecordSchema.optional(),
-  _configs: RecordSchema.optional(),
 })
 
 export const TfMetaSchema = z.object({

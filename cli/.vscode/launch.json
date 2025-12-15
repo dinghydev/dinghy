@@ -14,7 +14,7 @@
         "AWS_PROFILE": "default",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../../dinghy-sites"
       },

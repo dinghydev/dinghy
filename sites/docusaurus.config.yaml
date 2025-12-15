@@ -1,6 +1,7 @@
 site:
   deploy:
-    s3Url: s3://dinghy-website-play-v1
+    s3Url: s3://dinghy-dev-site-www
+    s3Region: eu-west-1
 title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
 url: https://dinghy.dev

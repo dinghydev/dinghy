@@ -7,6 +7,8 @@
         "render",
         // "development",
         // "production",
+        // "--view",
+        // "all",
         // "--tf-generate-import",
         // "--watch",
         // "-h",

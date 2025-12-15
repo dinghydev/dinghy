@@ -46,7 +46,7 @@ function getContentType(filePath: string): string {
 }
 
 export function CloudfrontSites(
-  { _components, _configs, ...props }: NodeProps,
+  { _components, ...props }: NodeProps,
 ) {
   const sites = useCloudfrontSites(props.sites)
 
@@ -96,8 +96,11 @@ export function CloudfrontSites(
           const { cloudfrontDistribution } = useAwsCloudfrontDistribution(
             toId(`${site.title}_${type}`),
           )
+          const AliasesRecordComponent =
+            _components?.aliasesRecord as typeof AwsRoute53Record ||
+            AwsRoute53Record
           return (
-            <AwsRoute53Record
+            <AliasesRecordComponent
               _id={toId(
                 `${alias.replace('*', 'star_')}_arecord`,
               )}
@@ -113,12 +116,18 @@ export function CloudfrontSites(
             />
           )
         }
+        const AliasesRecordsComponent =
+          _components?.aliasesRecords as typeof Shape || Shape
+        const AliasesRecordsListComponent =
+          _components?.aliasesRecordsList as typeof Text || Text
+        const AliasesRecordsDefinationsComponent =
+          _components?.aliasesRecordsDefinations as typeof Shape || Shape
         return (
-          <Shape
+          <AliasesRecordsComponent
             _direction='vertical'
             _padding={{ left: 1, right: 1, bottom: 1 }}
           >
-            <Text
+            <AliasesRecordsListComponent
               _direction='vertical'
               _display='entity'
               _title={`<table>${
@@ -131,7 +140,7 @@ export function CloudfrontSites(
               _height={aliases.length * 15 + 40}
               _margin={{ top: 1, bottom: 1 }}
             />
-            <Shape
+            <AliasesRecordsDefinationsComponent
               _title='Records Definations'
               _display='none'
               _direction='vertical'
@@ -142,8 +151,8 @@ export function CloudfrontSites(
                   alias={alias}
                 />
               ))}
-            </Shape>
-          </Shape>
+            </AliasesRecordsDefinationsComponent>
+          </AliasesRecordsComponent>
         )
       }
 
@@ -164,8 +173,11 @@ export function CloudfrontSites(
             const consolidatedId = toId(
               `${alias.replace('*', 'star_')}_validation_cname`,
             )
+            const ValidationCnameComponent =
+              _components?.validationCname as typeof AwsRoute53Record ||
+              AwsRoute53Record
             return (
-              <AwsRoute53Record
+              <ValidationCnameComponent
                 _id={toId(
                   `${site.title}_${type}_${version}_${consolidatedId}`,
                 )}
@@ -184,19 +196,25 @@ export function CloudfrontSites(
             )
           }
           const ValidationCnames = () => {
+            const ValidationCnamesComponent =
+              _components?.validationCnames as typeof Shape || Shape
             return (
-              <Shape _direction='vertical'>
+              <ValidationCnamesComponent _direction='vertical'>
                 {aliases.map((alias) => (
                   <ValidateCname
                     key={alias}
                     alias={alias}
                   />
                 ))}
-              </Shape>
+              </ValidationCnamesComponent>
             )
           }
+
+          const AcmCertificateComponent =
+            _components?.acmCertificate as typeof AwsAcmCertificate ||
+            AwsAcmCertificate
           return (
-            <AwsAcmCertificate
+            <AcmCertificateComponent
               _id={toId(`${site.title}_${type}_${version}_certificate`)}
               _title={`v${version}`}
               _display='entity'
@@ -214,7 +232,7 @@ export function CloudfrontSites(
               }}
             >
               <ValidationCnames />
-            </AwsAcmCertificate>
+            </AcmCertificateComponent>
           )
         }
 
@@ -239,8 +257,11 @@ export function CloudfrontSites(
           pathPattern?: string
         },
       ) => {
+        const CloudfrontFunctionComponent =
+          _components?.cloudfrontFunction as typeof AwsCloudfrontFunction ||
+          AwsCloudfrontFunction
         return (
-          <AwsCloudfrontFunction
+          <CloudfrontFunctionComponent
             _id={id}
             name={id}
             _display='none'
@@ -296,20 +317,7 @@ export function CloudfrontSites(
         )
 
       const Origins = () => {
-        const OriginsComponent = _components?.origins as typeof Shape || Shape
-        const OriginTableComponent = _components?.originTable as typeof Text ||
-          Text
         const origins = site.origins
-        const _width = Math.max(
-          ...Object.values(origins).map((origin) =>
-            (origin.pathPattern.length + origin.target.length) * 7
-          ),
-        )
-        const table = `<table>${
-          Object.values(origins).map((origin) =>
-            `<tr><td>${origin.pathPattern}</td><td>➙ ${origin.target}</td></tr>`
-          ).join('')
-        }</table>`
 
         const S3Origin = ({ origin }: { origin: OriginType }) => {
           const originFiles = `${hostAppHome}/s3-files/${origin.targetHost}`
@@ -319,16 +327,24 @@ export function CloudfrontSites(
             for (
               const entry of walkSync(originFiles, { includeDirs: false })
             ) {
+              const target = entry.path.replace(originFiles, '')
               files.push({
                 source: entry.path,
-                target: entry.path.replace(originFiles, ''),
-                contentType: getContentType(entry.path),
+                target,
+                contentType: origin.contentTypes[target] ||
+                  getContentType(target),
               })
             }
+
+            const { s3Bucket } = useAwsS3Bucket()
+            const S3FilesComponent = _components?.s3Files as typeof Shape ||
+              Shape
+            const S3ObjectComponent =
+              _components?.s3Object as typeof AwsS3Object || AwsS3Object
             return (
-              <Shape _direction='vertical'>
+              <S3FilesComponent _direction='vertical'>
                 {files.map((file) => (
-                  <AwsS3Object
+                  <S3ObjectComponent
                     _id={toId(`${site.title}_${origin.name}_${file.target}`)}
                     _title={file.target}
                     bucket={origin.targetHost}
@@ -337,11 +353,13 @@ export function CloudfrontSites(
                     cache_control={origin.fileCacheControl}
                     content_type={file.contentType}
                     source={file.source}
+                    depends_on={() => [s3Bucket._terraformId]}
                   />
                 ))}
-              </Shape>
+              </S3FilesComponent>
             )
           }
+
           const { cloudfrontDistribution } = useAwsCloudfrontDistribution()
           const S3OriginComponent =
             _components?.s3Origin as typeof AwsS3Bucket || AwsS3Bucket
@@ -397,6 +415,19 @@ export function CloudfrontSites(
           )
         }
 
+        const OriginsComponent = _components?.origins as typeof Shape || Shape
+        const OriginTableComponent = _components?.originTable as typeof Text ||
+          Text
+        const _width = Math.max(
+          ...Object.values(origins).map((origin) =>
+            (origin.pathPattern.length + origin.target.length) * 8
+          ),
+        )
+        const table = `<table>${
+          Object.values(origins).map((origin) =>
+            `<tr><td>${origin.pathPattern}</td><td>➙ ${origin.target}</td></tr>`
+          ).join('')
+        }</table>`
         return (
           <OriginsComponent
             _padding={{ left: 1, right: 1, bottom: 1 }}
@@ -516,6 +547,9 @@ export function CloudfrontSites(
         _components?.distributionCol1 as typeof Shape || Shape
       const DistributionCol2Component =
         _components?.distributionCol2 as typeof Shape || Shape
+      const OriginAccessControlComponent = _components
+        ?.originAccessControl as typeof AwsCloudfrontOriginAccessControl ||
+        AwsCloudfrontOriginAccessControl
       return (
         <DistributionComponent
           _id={toId(`${site.title}_${type}`)}
@@ -536,12 +570,13 @@ export function CloudfrontSites(
             minimum_protocol_version: 'TLSv1.2_2021', // recommended by AWS as of 2025-12-09
             ssl_support_method: 'sni-only',
           })}
-          logging_config={() => ({
-            bucket: globalLogBucket.bucket_domain_name,
-            prefix: `cloudfront-accesslog/${toId(site.title)}_${type}/`,
-          })}
+          logging_config={site.loggingV1Enabled
+            ? () => ({
+              bucket: globalLogBucket.bucket_domain_name,
+              prefix: `cloudfront-accesslog/${toId(site.title)}_${type}/`,
+            })
+            : undefined}
           {...site}
-          {...(_configs?.distribution || {})}
         >
           <DistributionCol1Component _display='invisible' _direction='vertical'>
             <AliasesRecords />
@@ -554,7 +589,7 @@ export function CloudfrontSites(
               Object.values(site.origins).find((o) =>
                 o.targetProtocol === 's3'
               ) && (
-              <AwsCloudfrontOriginAccessControl
+              <OriginAccessControlComponent
                 _id={toId(`${site.title}_originaccesscontrol`)}
                 _display='none'
                 name={`oac-${toId(`${site.title}`)}`}
@@ -584,7 +619,6 @@ export function CloudfrontSites(
         _site={site}
         _title={site.title}
         _direction='vertical'
-        {...(_configs?.site || {})}
       >
         <Distributions />
         <Zones />
@@ -599,7 +633,6 @@ export function CloudfrontSites(
       _direction='vertical'
       _display={Object.keys(sites).length === 1 ? 'invisible' : undefined}
       {...props}
-      {...(_configs?.sites || {})}
     >
       {Object.values(sites).map((site) => (
         <CloudfrontSite

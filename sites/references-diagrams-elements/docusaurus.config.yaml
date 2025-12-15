@@ -1,6 +1,6 @@
 site:
   deploy:
-    s3Url: s3://dinghy-website-play-v1
+    s3Url: s3://dinghy-dev-site-www
   volumes:
     - ../www/static:static
     - ../www/src/components:src/components

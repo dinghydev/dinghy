@@ -243,7 +243,7 @@
         "bucket": "dinghy-website-www-v1"
       },
       "aws_s3_bucket_playv1_v1": {
-        "bucket": "dinghy-website-play-v1"
+        "bucket": "dinghy-dev-site-www"
       },
       "aws_s3_bucket_cdnv1_v1": {
         "bucket": "dinghy-website-cdn-v1"
@@ -262,9 +262,9 @@
         "target_prefix": "log-sink/s3/dinghy-website-www-v1/"
       },
       "aws_s3_bucket_logging_playv1_v1": {
-        "bucket": "dinghy-website-play-v1",
+        "bucket": "dinghy-dev-site-www",
         "target_bucket": "dinghy-website-logs",
-        "target_prefix": "log-sink/s3/dinghy-website-play-v1/"
+        "target_prefix": "log-sink/s3/dinghy-dev-site-www/"
       },
       "aws_s3_bucket_logging_cdnv1_v1": {
         "bucket": "dinghy-website-cdn-v1",
@@ -283,7 +283,7 @@
         "policy": "${data.aws_iam_policy_document.aws_iam_policy_document_wwwv1_v1.json}"
       },
       "aws_s3_bucket_policy_playv1_v1": {
-        "bucket": "dinghy-website-play-v1",
+        "bucket": "dinghy-dev-site-www",
         "policy": "${data.aws_iam_policy_document.aws_iam_policy_document_playv1_v1.json}"
       },
       "aws_s3_bucket_policy_cdnv1_v1": {
@@ -353,7 +353,7 @@
             "s3:GetObject"
           ],
           "resources": [
-            "arn:aws:s3:::dinghy-website-play-v1/*"
+            "arn:aws:s3:::dinghy-dev-site-www/*"
           ],
           "condition": {
             "test": "StringEquals",

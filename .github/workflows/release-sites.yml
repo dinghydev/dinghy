@@ -3,6 +3,8 @@ name: release-sites
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/**'
   workflow_dispatch:
 
 permissions:

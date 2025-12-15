@@ -3,7 +3,7 @@ import { commitVersion } from '../../cli/src/utils/commitVersion.ts'
 import { createUpdateCheckFile } from '../../cli/src/utils/updateCheck.ts'
 
 import { execa } from 'execa'
-import { dinghyHome } from '../../cli/src/utils/loadConfig.ts'
+import { dinghyHome } from '../../cli/src/shared/home.ts'
 
 const updateLocalLatestVersion = () => {
   const version = commitVersion(projectRoot)
