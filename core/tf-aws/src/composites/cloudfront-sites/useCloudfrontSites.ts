@@ -22,7 +22,10 @@ const OriginSchema = z.object({
   pathPattern: z.string().default('*'),
   cacheBehavior: z.record(z.string(), z.any()).optional(),
   contentTypes: z.record(z.string(), z.string()).default({}),
-  fileCacheControl: z.string().default('max-age=3600, public, must-revalidate'),
+  cacheControls: z.record(z.string(), z.string()).default({}),
+  cacheControlDefault: z.string().default(
+    'max-age=3600, public, must-revalidate',
+  ),
 })
 
 const CloudfrontSiteSchema = z.object({

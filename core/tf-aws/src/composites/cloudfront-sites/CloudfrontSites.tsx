@@ -350,7 +350,8 @@ export function CloudfrontSites(
                     bucket={origin.targetHost}
                     key={file.target}
                     __key={file.target}
-                    cache_control={origin.fileCacheControl}
+                    cache_control={origin.cacheControls[file.target] ||
+                      origin.cacheControlDefault}
                     content_type={file.contentType}
                     source={file.source}
                     depends_on={() => [s3Bucket._terraformId]}

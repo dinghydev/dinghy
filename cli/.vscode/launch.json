@@ -11,7 +11,6 @@
       "env": {
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "DINGHY_ENGINE_VERSION": "latest",
-        "AWS_PROFILE": "default",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"

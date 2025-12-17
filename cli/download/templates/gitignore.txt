@@ -1,9 +1,10 @@
-Dinghy
+#Dinghy
 .dinghyrc.local
 **/.terraform
 **/.terraform.lock.hcl
 #**/*.tf.json
 **/*.plan
+**/stack-info.json
 **/*.plan.json
 **/*.plan.txt
 **/*.tfstate
