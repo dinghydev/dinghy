@@ -190,11 +190,11 @@ export const attachChangeToMR = async (changes: any[]) => {
       changes.length > 1 ? 's' : ''
     }`,
   ]
-  for (const stageChange of changes) {
+  for (const stackChange of changes) {
     lines.push(
-      `${stageChange.id}: ${stageChange.plan.summary}`,
+      `${stackChange.id}: ${stackChange.plan.summary}`,
       '```',
-      ...stageChange.plan.changes,
+      ...stackChange.plan.changes,
       '```',
     )
   }

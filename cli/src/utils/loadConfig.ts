@@ -137,7 +137,6 @@ export function requireStacksConfig() {
 
   debug('loading stacks config')
   loadFiles([`${hostAppHome}/config/`])
-  loadFiles([`${hostAppHome}/data/`])
   loadApps()
   debug('loaded stacks config')
   loadedStacksConfig = true

@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_dependencyexample" 
+          id="stack" 
           parent="root" 
           value="Dependency example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_a" 
-          parent="shape_dependencyexample" 
+          parent="stack" 
           value="A" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_b" 
-          parent="shape_dependencyexample" 
+          parent="stack" 
           value="B" 
           vertex="1"
           >
@@ -77,7 +77,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_c" 
-          parent="shape_dependencyexample" 
+          parent="stack" 
           value="C" 
           vertex="1"
           >

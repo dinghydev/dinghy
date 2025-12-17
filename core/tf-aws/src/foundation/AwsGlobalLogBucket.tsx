@@ -1,8 +1,8 @@
 import {
   deepResolve,
+  getRenderOptions,
   type NodeProps,
   ResolvableStringSchema,
-  useStack,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
@@ -24,13 +24,12 @@ export type InputProps =
   & NodeProps
 
 export function AwsGlobalLogBucket(
-  { _components, _configs, ...props }: Partial<InputProps>,
+  { _components, ...props }: Partial<InputProps>,
 ) {
-  const { stack } = useStack()
+  const { stack } = getRenderOptions()
   const defaults = InputSchema.parse(props)
   const bucket = (defaults.bucket ||
-    (() =>
-      `${deepResolve(stack._name)}-${defaults.bucketSurfix}-global`)) as any
+    (() => `${stack.name}-${defaults.bucketSurfix}-global`)) as any
 
   const OwnershipControls = () => {
     const { s3Bucket } = useAwsS3Bucket()
@@ -44,7 +43,6 @@ export function AwsGlobalLogBucket(
         region='us-east-1'
         rule={{ object_ownership: 'BucketOwnerPreferred' }}
         depends_on={() => [s3Bucket._terraformId]}
-        {...(_configs?.bucketOwnershipControls || {})}
       />
     )
   }
@@ -62,7 +60,6 @@ export function AwsGlobalLogBucket(
         _id={() => `${deepResolve(s3Bucket._id)}_logging`}
         region='us-east-1'
         depends_on={() => [s3Bucket._terraformId]}
-        {...(_configs?.bucketLogging || {})}
       />
     )
   }
@@ -76,7 +73,6 @@ export function AwsGlobalLogBucket(
       _display='entity'
       region='us-east-1'
       {...props}
-      {...(_configs?.bucket || {})}
     >
       <OwnershipControls />
       <BucketLogging />

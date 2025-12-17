@@ -11,8 +11,6 @@
         // "tf"
         // "--tf-generate-import",
         // "--diagram-save-view",
-        // "--stage",
-        // "main",
         // "--view",
         // "all",
         // "overview",
@@ -23,7 +21,7 @@
         // "--output",
         // ".",
         // "--watch",
-        // "--debug",
+        "--debug",
         // "-h",
       ],
       "program": "src/index.ts",

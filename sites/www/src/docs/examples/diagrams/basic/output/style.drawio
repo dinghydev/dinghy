@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_styleexample" 
+          id="stack" 
           parent="root" 
           value="Style Example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;fillColor=#ff0000;fontColor=#00ff00;strokeColor=#0000ff;" 
           id="shape_styleasobject" 
-          parent="shape_styleexample" 
+          parent="stack" 
           value="Style as object" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;fillColor=#ff0000;fontColor=#00ff00;strokeColor=#0000ff;" 
           id="shape_styleasstring" 
-          parent="shape_styleexample" 
+          parent="stack" 
           value="Style as string" 
           vertex="1"
           >
@@ -77,7 +77,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;fontColor=blue;" 
           id="shape_stylefordifferentshape" 
-          parent="shape_styleexample" 
+          parent="stack" 
           value="Style for different shape" 
           vertex="1"
           >

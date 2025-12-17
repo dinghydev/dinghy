@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react'
 import type {
-  Item,
   NodeProps,
   NodeTree,
   Props,
@@ -13,7 +12,6 @@ export type TfRenderOptions = {
     provider?: 'terraform' | 'opentofu'
   }
   stack: StackType
-  stage: Item
 }
 
 export type ElementProps = {

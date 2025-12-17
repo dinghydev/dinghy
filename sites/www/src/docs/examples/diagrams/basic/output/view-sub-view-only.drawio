@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_multipleviewsexample" 
+          id="stack" 
           parent="root" 
           value="Sub View Only" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_subviewonlyshape1" 
-          parent="shape_multipleviewsexample" 
+          parent="stack" 
           value="Sub View Only Shape 1" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_subviewonlyshape2" 
-          parent="shape_multipleviewsexample" 
+          parent="stack" 
           value="Sub View Only Shape 2" 
           vertex="1"
           >

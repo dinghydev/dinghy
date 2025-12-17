@@ -21,10 +21,7 @@ import render from '../render/index.ts'
 
 const options: CommandOptions = {
   boolean: ['debug'],
-  collect: ['stage'],
-  description: {
-    stage: 'Stages to work with',
-  },
+  description: {},
   arguments: {
     stack: {
       description: 'Stack name',
@@ -113,26 +110,19 @@ export const createCombinedTfCmds = (
     }
 
     const changedStacks: any[] = []
-    const changedStages: any[] = []
     for (const stackId of activedStackIds) {
       const stackInfoFile =
-        `${hostAppHome}/${args.output}/${stackId}-stack-info.json`
+        `${hostAppHome}/${args.output}/${stackId}/stack-info.json`
       const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile))
-      for (const stage of Object.values(stackInfo.stages)) {
-        if ((stage as any).plan?.changesCount) {
-          changedStages.push(stage)
-          const { stack } = stacksOptions[stackId]
-          if (!changedStacks.includes(stack)) {
-            changedStacks.push(stack)
-          }
-        }
+      if ((stackInfo as any).plan?.changesCount) {
+        changedStacks.push(stackInfo.stack)
       }
     }
     if (changedStacks.length) {
       const isApply = cmds.includes('apply')
       if (isCi()) {
         const changeAction = isMr() ? attachChangeToMR : notifyChanges
-        await changeAction(changedStages)
+        await changeAction(changedStacks)
         if (!isApply) {
           await triggerAutoDeployJobs(changedStacks, args)
         }

@@ -10,6 +10,7 @@ import { renderOptions, requireStacksConfig } from '@dinghy/cli'
 import { execa } from 'execa'
 import Debug from 'debug'
 import { existsSync } from 'node:fs'
+import { loadUrlData } from '../../utils/loadUrlData.ts'
 const debug = Debug('render')
 
 const WATCH_FILE_TYPES = ['ts', 'tsx', 'yaml']
@@ -101,7 +102,12 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       )
     }
     if (app.renderOptions) {
-      deepMerge(renderOptions, app.renderOptions)
+      if (typeof app.renderOptions === 'function') {
+        deepMerge(renderOptions, app.renderOptions(renderOptions))
+      } else {
+        deepMerge(renderOptions, app.renderOptions)
+      }
+
       debug('applied app render options: %O', app.renderOptions)
     }
     return app.default
@@ -119,6 +125,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     args.stack,
     async (stackRenderOptions: any) => {
       const app = await loadApp(stackRenderOptions)
+      await loadStackConfigUrls(stackRenderOptions)
       for (const formatString of args.format || ['default']) {
         const renderers =
           rendererMapping[formatString as keyof typeof rendererMapping]
@@ -147,3 +154,12 @@ const commands: Commands = {
 }
 
 export default commands
+
+async function loadStackConfigUrls(stackRenderOptions: any) {
+  if (stackRenderOptions.stack.configUrls) {
+    for (const configUrl of stackRenderOptions.stack.configUrls) {
+      const config = await loadUrlData(configUrl)
+      deepMerge(stackRenderOptions, config)
+    }
+  }
+}

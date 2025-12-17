@@ -6,12 +6,7 @@ import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
 import { hostAppHome } from '@dinghy/cli'
-import {
-  createStage,
-  createView,
-  deepMerge,
-  toTitle,
-} from '@dinghy/base-components'
+import { createView, deepMerge, toTitle } from '@dinghy/base-components'
 import { runCommand } from '@dinghy/cli'
 import png from '../diagram/png.ts'
 import { OPTIONS_SYMBOL } from '@dinghy/cli'
@@ -41,7 +36,7 @@ const json = async (app: any, options: any, args: any) => {
 }
 
 const saveStackInfo = async (options: any, args: any, stackInfo: any) => {
-  const outputPath = `${args.output}/${options.stack.id}-stack-info.json`
+  const outputPath = `${args.output}/${options.stack.id}/stack-info.json`
   const outputFile = `${hostAppHome}/${outputPath}`
   if (existsSync(outputFile)) {
     const stackInfoText = await Deno.readTextFile(outputFile)
@@ -161,45 +156,14 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
 }
 
 const tf = async (app: any, options: any, args: any) => {
-  const availableStages = options.stack.stages
-  let selectedStages = args.stage
-  const stackInfo: any = {
-    stages: {},
-  }
-  const renderedStages: string[] = []
-  if (!selectedStages) {
-    selectedStages = Object.keys(availableStages)
-  }
-  const renderStage = async (stageString: string) => {
-    let stage = availableStages[stageString]
-    if (!stage) {
-      stage = createStage(options.stack, stageString)
-    }
-    if (stage.disabled) {
-      debug('skip diabled stage %s', stageString)
-      return
-    }
-    options.stage = stage
-    const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
-    debug('rendering tf to %s/%s', hostAppHome, outputPath)
-    const result = await renderTf(app, options)
-    if (result.result !== '{}\n') {
-      await writeFile(outputPath, result.result)
-      renderedStages.push(stageString)
-      stackInfo.stages[stage.id] = stage
-      if (!args.stage) {
-        for (const stageString of result.stages) {
-          if (!renderedStages.includes(stageString)) {
-            await renderStage(stageString)
-          }
-        }
-      }
-    }
-  }
-  for (const stageString of selectedStages) {
-    await renderStage(stageString)
-  }
-  if (Object.values(stackInfo.stages).length) {
+  const stackInfo: any = {}
+  const outputPath =
+    `${args.output}/${options.stack.id}/${options.stack.id}.tf.json`
+  debug('rendering tf to %s/%s', hostAppHome, outputPath)
+  const result = await renderTf(app, options)
+  if (result.result !== '{}\n') {
+    await writeFile(outputPath, result.result)
+    stackInfo['stack'] = { id: options.stack.id }
     await saveStackInfo(options, args, stackInfo)
   }
 }

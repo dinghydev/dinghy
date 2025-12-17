@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_displayexample" 
+          id="stack" 
           parent="root" 
           value="Display Example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;noLabel=1;opacity=0;" 
           id="shape_invisibleshape" 
-          parent="shape_displayexample" 
+          parent="stack" 
           value="Invisible shape" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="shape_invisibleparent" 
-          parent="shape_displayexample" 
+          parent="stack" 
           value="Invisible parent" 
           vertex="1"
           >
@@ -92,7 +92,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;dashed=1;" 
           id="shape_inactiveshape" 
-          parent="shape_displayexample" 
+          parent="stack" 
           value="Inactive shape" 
           vertex="1"
           >
@@ -107,7 +107,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;dashed=1;" 
           id="shape_inactiveparent" 
-          parent="shape_displayexample" 
+          parent="stack" 
           value="Inactive parent" 
           vertex="1"
           >
@@ -137,7 +137,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_showparentasentity" 
-          parent="shape_displayexample" 
+          parent="stack" 
           value="Show parent as entity" 
           vertex="1"
           >

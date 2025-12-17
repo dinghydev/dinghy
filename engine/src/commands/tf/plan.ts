@@ -14,7 +14,7 @@ const options: any = createTfOptions({
 })
 
 const CHANGE_LINE_PREFIX = new Set(['~ ', '+ ', '- ', 'id'])
-function collectStageChange(outputFile: string, maxLines: number) {
+function collectStackChange(outputFile: string, maxLines: number) {
   const planTxt = Deno.readTextFileSync(outputFile).trim()
   let changesCount = 0
   let summary: string | undefined
@@ -61,69 +61,67 @@ function collectStageChange(outputFile: string, maxLines: number) {
 const run = async (_context: CommandContext, args: CommandArgs) => {
   const tfCmd = terraformCommandName(args)
   await requireStacksConfig()
-  const changedStages: any[] = []
+  const changedStacks: any[] = []
   await doWithTfStacks(args, async (tfOptions) => {
-    const { stack, stackInfo, stages } = tfOptions
+    const { stack, stackInfo } = tfOptions
     const maxLines = Number.parseInt(args['diff-changes-max-lines'])
-    for (const stage of stages) {
-      const stagePath = `${args.output}/${stage.id}`
-      debug('Running terraform plan from %s', stagePath)
+    const stackPath = `${args.output}/${stack.id}`
+    debug('Running terraform plan from %s', stackPath)
+    await runTfImageCmd(
+      stackPath,
+      args,
+      [
+        tfCmd,
+        'plan',
+        `-lock=${args.lock}`,
+        `-out=${args['plan-file']}`,
+      ],
+    )
+    for (const format of ['json', 'txt']) {
+      const planOutputFile = `${hostAppHome}/${stackPath}/${
+        args['plan-file']
+      }.${format}`
+      debug('Formatting plan file to %s', planOutputFile)
       await runTfImageCmd(
-        stagePath,
+        stackPath,
         args,
         [
           tfCmd,
-          'plan',
-          `-lock=${args.lock}`,
-          `-out=${args['plan-file']}`,
+          'show',
+          format === 'json' ? '-json' : '-no-color',
+          args['plan-file'],
+          '>',
+          planOutputFile,
         ],
       )
-      for (const format of ['json', 'txt']) {
-        const planOutputFile = `${hostAppHome}/${stagePath}/${
-          args['plan-file']
-        }.${format}`
-        debug('Formatting plan file to %s', planOutputFile)
-        await runTfImageCmd(
-          stagePath,
-          args,
-          [
-            tfCmd,
-            'show',
-            format === 'json' ? '-json' : '-no-color',
-            args['plan-file'],
-            '>',
-            planOutputFile,
-          ],
-        )
-        console.log('Formated plan ', planOutputFile)
-        if (format === 'txt') {
-          const changes = collectStageChange(planOutputFile, maxLines)
-          stackInfo.stages[stage.id].plan = changes
-          if (changes?.changesCount) {
-            changedStages.push(stackInfo.stages[stage.id])
-          }
+      console.log('Formated plan ', planOutputFile)
+      if (format === 'txt') {
+        const changes = collectStackChange(planOutputFile, maxLines)
+        stackInfo['stack'].plan = changes
+        if (changes?.changesCount) {
+          changedStacks.push(stackInfo['stack'])
         }
       }
     }
     const stackInfoFile =
-      `${hostAppHome}/${args.output}/${stack.id}-stack-info.json`
+      `${hostAppHome}/${args.output}/${stack.id}/stack-info.json`
     Deno.writeTextFileSync(stackInfoFile, JSON.stringify(stackInfo, null, 2))
     debug('Update stack info %s', stackInfoFile)
   })
-  if (changedStages.length) {
-    changedStages.map((change) => {
+  if (changedStacks.length) {
+    changedStacks.map((change) => {
       console.log(
         chalk.red(`${change.id} changes: ${change.plan.summary}`),
       )
     })
     console.log(
-      chalk.red(`Changes found in ${changedStages.length} stages`),
+      chalk.red(`Changes found in ${changedStacks.length} stacks`),
     )
   } else {
     console.log(
       chalk.green(
         `No changes found ${
-          args.stack ? `in ${args.stack} stack` : 'in any stage'
+          args.stack ? `in ${args.stack} stack` : 'in any stack'
         }`,
       ),
     )

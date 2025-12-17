@@ -1,8 +1,8 @@
 import {
   deepResolve,
+  getRenderOptions,
   type NodeProps,
   ResolvableStringSchema,
-  useStack,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
@@ -30,16 +30,14 @@ export type InputProps =
   & NodeProps
 
 export function AwsRegionalLogBucket(
-  { _components, _configs, ...props }: Partial<InputProps>,
+  { _components, ...props }: Partial<InputProps>,
 ) {
-  const { stack } = useStack()
+  const { stack } = getRenderOptions()
   const { awsCloud } = useAwsCloud()
   const defaults = InputSchema.parse(props)
   const bucket = defaults.bucket ||
     (() =>
-      `${deepResolve(stack._name)}-${defaults.bucketSurfix}-${
-        deepResolve(awsCloud.region)
-      }`)
+      `${stack.name}-${defaults.bucketSurfix}-${deepResolve(awsCloud.region)}`)
 
   const BucketLogging = () => {
     const { s3Bucket } = useAwsS3Bucket()
@@ -53,7 +51,6 @@ export function AwsRegionalLogBucket(
         target_prefix={() => `s3-access-log/${deepResolve(bucket)}/`}
         _id={() => `${deepResolve(s3Bucket._id)}_logging`}
         depends_on={() => [s3Bucket._terraformId]}
-        {...(_configs?.bucketLogging || {})}
       />
     )
   }
@@ -115,7 +112,6 @@ export function AwsRegionalLogBucket(
       _title='Regional LogBucket'
       _display='entity'
       {...props}
-      {...(_configs?.bucketLogging || {})}
     >
       <BucketLogging />
       <BucketPolicy />

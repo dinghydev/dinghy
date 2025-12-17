@@ -13,7 +13,6 @@ export function renderNode<T, P>(
 ) {
   debug('renderNode container options %O', container.renderOptions)
   ;(container as any).views ??= []
-  ;(container as any).stages ??= []
   return new Promise<Output<T>>((resolve, reject) => {
     const fiberRootNode: any = nodeReconciler.createContainer(
       container as any,

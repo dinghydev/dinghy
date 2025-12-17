@@ -1,9 +1,9 @@
 import {
   extendStyle,
+  getRenderOptions,
   NodeProps,
   resolvableValue,
   Shape,
-  useStack,
   useTypedNode,
 } from '@dinghy/base-components'
 
@@ -11,18 +11,7 @@ import z from 'zod'
 import { AWS_CLOUD } from '@dinghy/diagrams/containersAwsGroups'
 
 export const InputSchema = z.object({
-  required_providers: z.record(
-    z.string(),
-    z.object({
-      source: z.string().default('aws'),
-      version: z.string(),
-    }),
-  ).default({
-    aws: {
-      source: 'aws',
-      version: '6.22.0',
-    },
-  }),
+  providerId: z.string(),
   alias: z.string().optional(),
   access_key: resolvableValue(z.string().optional()),
   allowed_account_ids: resolvableValue(z.string().array().optional()),
@@ -403,23 +392,31 @@ export type InputProps =
   & NodeProps
 
 export function AwsCloud(props: Partial<InputProps>) {
-  const { stack } = useStack()
+  const { stack } = getRenderOptions()
   const default_tags = () =>
     props.default_tags || {
       tags: {
-        'iac:stack-title': stack._title,
-        'iac:stack-name': stack._name,
+        'iac:stack-title': stack.title,
+        'iac:stack-name': stack.name,
       },
     }
   const _title = (node: any) => props._title || node._props.region || `Cloud`
   return (
     <Shape
-      _category='provider'
+      _category={['provider', 'terraform']}
+      _terraform={{
+        required_providers: {
+          aws: {
+            source: 'aws',
+            version: '6.22.0',
+          },
+        },
+      }}
       _inputSchema={InputSchema}
-      _stackResource
       _direction='vertical'
       {...props}
       _title={_title}
+      providerId='aws'
       default_tags={default_tags}
       _style={extendStyle(props, AWS_CLOUD)}
     />

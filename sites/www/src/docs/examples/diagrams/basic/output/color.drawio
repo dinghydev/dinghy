@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_colorexample" 
+          id="stack" 
           parent="root" 
           value="Color Example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;strokeColor=blue;fontColor=blue;" 
           id="shape_coloredshape" 
-          parent="shape_colorexample" 
+          parent="stack" 
           value="Colored Shape" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=green;fontColor=green;" 
           id="shape_coloronparentonly" 
-          parent="shape_colorexample" 
+          parent="stack" 
           value="Color on parent only" 
           vertex="1"
           >
@@ -92,7 +92,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;fillColor=lightgrey;" 
           id="shape_backgroundforparent" 
-          parent="shape_colorexample" 
+          parent="stack" 
           value="Background for parent" 
           vertex="1"
           >
@@ -122,7 +122,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;fillColor=lightgrey;" 
           id="shape_backgroundforchildren" 
-          parent="shape_colorexample" 
+          parent="stack" 
           value="Background for children" 
           vertex="1"
           >

@@ -24,31 +24,29 @@ const changeSummaryWording = (summary: any) => {
 const run = async (_context: CommandContext, args: CommandArgs) => {
   const tfCmd = terraformCommandName(args)
   await requireStacksConfig()
-  const changedStages: any[] = []
+  const changedStacks: any[] = []
   // deno-lint-ignore require-await
   await doWithTfStacks(args, async (tfOptions) => {
     const { stackInfo } = tfOptions
-    for (const stage of Object.values(stackInfo.stages)) {
-      if ((stage as any).plan?.changesCount) {
-        changedStages.push(stage)
-      }
+    if ((stackInfo.stack as any).plan?.changesCount) {
+      changedStacks.push(stackInfo.stack)
     }
   })
-  if (changedStages.length) {
+  if (changedStacks.length) {
     try {
-      for (const stage of changedStages) {
-        const stagePath = `${args.output}/${stage.id}`
+      for (const stack of changedStacks) {
+        const stackPath = `${args.output}/${stack.id}`
         await runTfImageCmd(
-          stagePath,
+          stackPath,
           args,
           [tfCmd, 'apply', args['plan-file']],
         )
       }
       if (isCi()) {
-        await notifyChanges(changedStages)
+        await notifyChanges(changedStacks)
       } else {
         console.log('Ignore notification in non-CI environment')
-        changedStages.map((change) => {
+        changedStacks.map((change) => {
           console.log(
             chalk.red(
               `${change.id} changes: ${
@@ -60,12 +58,12 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
           )
         })
         console.log(
-          chalk.green(`Changes applied in ${changedStages.length} stages`),
+          chalk.green(`Changes applied in ${changedStacks.length} stacks`),
         )
       }
     } catch (error) {
       if (isCi()) {
-        await notifyChanges(changedStages, error as string)
+        await notifyChanges(changedStacks, error as string)
       } else {
         console.log(chalk.red('Failed to applying changes'))
       }

@@ -18,10 +18,6 @@ export const tfOptions: CommandOptions = {
       description: 'Stack name',
       required: false,
     },
-    stage: {
-      description: 'Stage name',
-      required: false,
-    },
   },
 }
 
@@ -47,38 +43,15 @@ export const parseTfOptions = (args: CommandArgs, stackOptions: any) => {
   const stack = stackOptions.stack
 
   const stackInfoPath =
-    `${hostAppHome}/${args.output}/${stack.id}-stack-info.json`
+    `${hostAppHome}/${args.output}/${stack.id}/stack-info.json`
   if (!existsSync(stackInfoPath)) {
     debug(`Stack info file not found: ${stackInfoPath}`)
     return null
   }
   const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoPath))
-  const stages: any[] = []
-  if (args.stage) {
-    let stage: any = Object.values(stack.stages || {}).find(
-      (s: any) => s.name === args.stage,
-    )
-    if (!stage) {
-      stage = {
-        id: `${stack.id}-${args.stage}`,
-        name: args.stage,
-      }
-      console.warn(`Stage not found, creating ondemand stage ${stage.id}`)
-    }
-    stages.push(stage)
-  } else {
-    Object.values(stack.stages || {}).map((stage: any) => {
-      if (stage.disabled) {
-        debug(`skip diabled stage ${stage.id} is disabled, skipping`)
-        return
-      }
-      stages.push(stage)
-    })
-  }
 
   return {
     stack,
     stackInfo,
-    stages,
   }
 }

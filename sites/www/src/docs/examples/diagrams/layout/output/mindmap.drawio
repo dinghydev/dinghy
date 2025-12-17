@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="mindmap" 
+          id="stack" 
           parent="root" 
           value="Mindmap" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="row_top" 
-          parent="mindmap" 
+          parent="stack" 
           value="Top" 
           vertex="1"
           >
@@ -107,7 +107,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="row" 
-          parent="mindmap" 
+          parent="stack" 
           value="Row" 
           vertex="1"
           >
@@ -287,7 +287,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="row_bottom" 
-          parent="mindmap" 
+          parent="stack" 
           value="Bottom" 
           vertex="1"
           >

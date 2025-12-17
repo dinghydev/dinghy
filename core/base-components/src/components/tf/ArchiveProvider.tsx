@@ -26,7 +26,6 @@ export function ArchiveProvider(props: Partial<InputProps>) {
     <Shape
       _category='provider'
       _inputSchema={InputSchema}
-      _stackResource
       {...props}
     />
   )

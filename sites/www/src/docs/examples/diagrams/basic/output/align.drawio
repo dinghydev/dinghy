@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_alignexample" 
+          id="stack" 
           parent="root" 
           value="Align Example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_entity" 
-          parent="shape_alignexample" 
+          parent="stack" 
           value="Entity" 
           vertex="1"
           >
@@ -107,7 +107,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_container" 
-          parent="shape_alignexample" 
+          parent="stack" 
           value="Container" 
           vertex="1"
           >

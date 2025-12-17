@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_tagsexample" 
+          id="stack" 
           parent="root" 
           value="Tags example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="taglevel2" 
-          parent="shape_tagsexample" 
+          parent="stack" 
           value="Tag Level2" 
           vertex="1"
           >

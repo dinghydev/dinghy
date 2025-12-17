@@ -1,11 +1,10 @@
 import {
   deepResolve,
+  getRenderOptions,
   type NodeProps,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
   Shape,
-  useRenderOptions,
-  useStack,
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
@@ -54,14 +53,13 @@ export type InputProps =
 export function AwsS3Backend(
   { _components, _configs, ...props }: Partial<InputProps>,
 ) {
-  const { stack } = useStack()
+  const { stack } = getRenderOptions()
   const { awsCloud } = useAwsCloud()
   const defaults = InputSchema.parse(props)
   const bucket = (defaults.bucket ||
-    (() => `${(stack as any)._name()}-${defaults.bucketSurfix}`)) as any
-  const { renderOptions: { stage } } = useRenderOptions()
+    (() => `${stack.name}-${defaults.bucketSurfix}`)) as any
   const stateRemoteFile = defaults.stateFile ||
-    (() => `${defaults.stateFilePrefix}${stage!.id}${defaults.stateFileExt}`)
+    (() => `${defaults.stateFilePrefix}${stack!.id}${defaults.stateFileExt}`)
   const { logBucket } = useAwsRegionalLogBucket()
 
   const BucketVersioning = () => {
@@ -92,7 +90,6 @@ export function AwsS3Backend(
     <AwsBackend
       region={awsCloud.region}
       _display='none'
-      _stackResource
       {...props}
       bucket={bucket}
       stateFile={stateRemoteFile}

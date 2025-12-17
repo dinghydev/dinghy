@@ -2,7 +2,7 @@ import { type NodeTree } from '../types/index.ts'
 import type { Props } from '../cli-shared/index.ts'
 import { useNodeContext } from './NodeContext.tsx'
 import { renderKey } from '../utils/stringUtils.ts'
-import { getRootNode } from '../utils/nodeUtils.ts'
+import { getRootNode } from './getRenderOptions.tsx'
 import { capitalise, decapitalise } from '../utils/stringUtils.ts'
 
 function proxyNodeProps({ _props }: NodeTree) {

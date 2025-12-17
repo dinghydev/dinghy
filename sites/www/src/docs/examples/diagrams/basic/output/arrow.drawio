@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_arrowsexample" 
+          id="stack" 
           parent="root" 
           value="Arrows Example" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_default" 
-          parent="shape_arrowsexample" 
+          parent="stack" 
           value="Default" 
           vertex="1"
           >
@@ -92,7 +92,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_start" 
-          parent="shape_arrowsexample" 
+          parent="stack" 
           value="Start" 
           vertex="1"
           >
@@ -137,7 +137,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_both" 
-          parent="shape_arrowsexample" 
+          parent="stack" 
           value="Both" 
           vertex="1"
           >
@@ -182,7 +182,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_end" 
-          parent="shape_arrowsexample" 
+          parent="stack" 
           value="End" 
           vertex="1"
           >
@@ -227,7 +227,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_inactivedependency" 
-          parent="shape_arrowsexample" 
+          parent="stack" 
           value="Inactive Dependency" 
           vertex="1"
           >

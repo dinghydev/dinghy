@@ -14,12 +14,10 @@ export type Item = z.output<typeof ItemSchema>
 export const StackSchema = z.object({
   id: z.string(),
   name: z.string().optional(),
-  env: z.string().optional(),
   title: z.string().optional(),
   app: z.string().optional(),
   sequence: z.number().optional(),
-  stages: z.record(z.string(), ItemSchema.passthrough()).optional(),
-  views: z.record(z.string(), ItemSchema.passthrough()).optional(),
+  views: z.record(z.string(), ItemSchema.loose()).optional(),
   override: z.record(z.string(), z.any()).optional(),
   mrAutoDiff: z.boolean().default(true),
   mrAutoDeploy: z.boolean().default(false),
@@ -29,10 +27,9 @@ export const StackSchema = z.object({
 
 export type StackType = z.output<typeof StackSchema>
 
-export const StacksSchema = z.record(z.string(), StackSchema.passthrough())
+export const StacksSchema = z.record(z.string(), StackSchema.loose())
 
 export type Stacks = z.output<typeof StacksSchema>
 
 export const DEFAULT_APP = 'app'
-export const DEFAULT_STAGE = 'main'
 export const DEFAULT_VIEW = 'overview'

@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="sequencediagram_sequencediagramfromdata" 
+          id="stack" 
           parent="root" 
           value="Sequence diagram from data" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="rows" 
-          parent="sequencediagram_sequencediagramfromdata" 
+          parent="stack" 
           value="Rows" 
           vertex="1"
           >
@@ -227,7 +227,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="rows_3" 
-          parent="sequencediagram_sequencediagramfromdata" 
+          parent="stack" 
           value="Rows" 
           vertex="1"
           >
@@ -422,7 +422,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
           id="rows_5" 
-          parent="sequencediagram_sequencediagramfromdata" 
+          parent="stack" 
           value="Rows" 
           vertex="1"
           >

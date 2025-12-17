@@ -1,28 +1,15 @@
 import Debug from 'debug'
 import {
   DEFAULT_APP,
-  DEFAULT_STAGE,
   DEFAULT_VIEW,
   Item,
   Props,
   Stacks,
-  StackSchema,
   StacksSchema,
   StackType,
 } from './types.ts'
 import { deepMerge } from './deepMerge.ts'
 const debug = Debug('stackUtils')
-
-const parseStackFromId = (stackId: string): StackType => {
-  const segments = stackId.split('-')
-  const split = Math.floor(segments.length / 2)
-  const name = segments.slice(0, split).join('-')
-  return StackSchema.parse({
-    id: stackId,
-    name: name || undefined,
-    env: stackId === DEFAULT_APP ? undefined : segments.slice(split).join('-'),
-  })
-}
 
 const populateNamedItems = (
   stack: Props,
@@ -53,7 +40,6 @@ const populateNamedItems = (
 }
 
 const populateStackDefaultItems = (stack: Props, renderOptions: any) => {
-  populateNamedItems(stack, 'stages', DEFAULT_STAGE)
   populateNamedItems(stack, 'views', DEFAULT_VIEW)
   if (!stack.app) {
     stack.app = renderOptions.apps[stack.id as string] ||
@@ -61,13 +47,6 @@ const populateStackDefaultItems = (stack: Props, renderOptions: any) => {
       Object.values(renderOptions.apps)[0]
   }
   return stack
-}
-
-export const createStage = (
-  stack: StackType,
-  name: string,
-) => {
-  return createDefaultItem(stack, name, DEFAULT_STAGE)
 }
 
 export const createView = (
@@ -115,12 +94,12 @@ export const parseStacks = (
     Object.entries(renderOptions.stacks).map(([stackId, stackOptions]) => {
       if (stackOptions) {
         stacks[stackId] = populateStackDefaultItems({
-          ...parseStackFromId(stackId),
+          id: stackId,
           ...stackOptions,
         }, renderOptions)
       } else {
         stacks[stackId] = populateStackDefaultItems(
-          parseStackFromId(stackId),
+          { id: stackId },
           renderOptions,
         )
       }
@@ -137,7 +116,7 @@ export const parseStacks = (
         return
       }
       stacks[appId] = populateStackDefaultItems(
-        parseStackFromId(appId),
+        { id: appId },
         renderOptions,
       )
     }
@@ -157,8 +136,6 @@ export const loadStackConfig = (
   stackOptions: any,
 ) => {
   const settings =
-    loadFilesData(stackOptions, 'data/stacks', stackOptions.stack.id) ||
-    loadFilesData(stackOptions, 'data', stackOptions.stack.id) ||
     loadFilesData(stackOptions, 'config/settings', stackOptions.stack.id) ||
     loadFilesData(stackOptions, 'config', stackOptions.stack.id)
   if (settings) {
@@ -263,7 +240,7 @@ export const mergeStackOptions = (
       stack,
       stack[`${field}s` as keyof StackType],
       input,
-      field === 'stage' ? DEFAULT_STAGE : DEFAULT_VIEW,
+      DEFAULT_VIEW,
     ),
   ) as Item[]
 }

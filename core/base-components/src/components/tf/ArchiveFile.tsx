@@ -51,7 +51,15 @@ export function ArchiveFile(props: Partial<InputProps>) {
   return (
     <Shape
       _type='archive_file'
-      _category='resource'
+      _category={['resource', 'terraform']}
+      _terraform={{
+        required_providers: {
+          archive: {
+            source: 'archive',
+            version: '2.7.1',
+          },
+        },
+      }}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
       {...props}

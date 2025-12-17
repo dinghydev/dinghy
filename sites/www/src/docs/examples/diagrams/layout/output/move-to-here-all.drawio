@@ -31,14 +31,14 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="stack" 
+          id="shape_movetohereexample" 
           parent="root" 
           value="Move To Here Example" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="600" 
+            width="840" 
             height="390" 
             x="0" 
             y="0"
@@ -47,88 +47,28 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_sources" 
-          parent="stack" 
+          parent="shape_movetohereexample" 
           value="Sources" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="540" 
-            height="120" 
-            x="30" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="source1_source1excluded" 
-          parent="shape_sources" 
-          value="Source 1 excluded" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="70" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="shape_source2excluded" 
-          parent="shape_sources" 
-          value="Source2 excluded" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="240" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="shape_nonematched" 
-          parent="shape_sources" 
-          value="None matched" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="410" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
-          id="shape_movedtoherefromsources" 
-          parent="stack" 
-          value="Moved To Here From Sources" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="540" 
+            width="780" 
             height="180" 
             x="30" 
-            y="180"
+            y="30"
             />
           </mxCell>
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="source1" 
-          parent="shape_movedtoherefromsources" 
+          parent="shape_sources" 
           value="Source 1" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="210" 
+            width="120" 
             height="120" 
             x="30" 
             y="30"
@@ -150,9 +90,24 @@
             />
           </mxCell>
         <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="source1_source1againandonlychildkept" 
+          parent="shape_sources" 
+          value="Source 1 again and only child kept" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="120" 
+            height="120" 
+            x="180" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_source1secondchild" 
-          parent="source1" 
+          parent="source1_source1againandonlychildkept" 
           value="Source 1 second child" 
           vertex="1"
           >
@@ -160,14 +115,29 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="120" 
+            x="30" 
             y="30"
             />
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="source1_source1excluded" 
+          parent="shape_sources" 
+          value="Source 1 excluded" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="330" 
+            y="60"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_source2included" 
-          parent="shape_movedtoherefromsources" 
+          parent="shape_sources" 
           value="Source2 included" 
           vertex="1"
           >
@@ -175,8 +145,98 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="270" 
+            x="420" 
             y="60"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="shape_source2excluded" 
+          parent="shape_sources" 
+          value="Source2 excluded" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="510" 
+            y="60"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="shape_source3byfunction" 
+          parent="shape_sources" 
+          value="Source 3 by function" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="600" 
+            y="60"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="shape_nonematched" 
+          parent="shape_sources" 
+          value="None matched" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="690" 
+            y="60"
+            />
+          </mxCell>
+        <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="shape_movedtoherefromsources" 
+          parent="shape_movetohereexample" 
+          value="Moved To Here From Sources" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="780" 
+            height="120" 
+            x="30" 
+            y="240"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="movetohere_twosourcesmovedtohere" 
+          parent="shape_movedtoherefromsources" 
+          value="Two sources moved to here" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="78.75" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="movetohere_source2matchbyid" 
+          parent="shape_movedtoherefromsources" 
+          value="Source 2 match by id" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="266.25" 
+            y="30"
             />
           </mxCell>
         <mxCell
@@ -190,23 +250,23 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="360" 
-            y="60"
+            x="453.75" 
+            y="30"
             />
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="shape_source3byfunction" 
+          id="movetohere_source3matchbyfunction" 
           parent="shape_movedtoherefromsources" 
-          value="Source 3 by function" 
+          value="Source 3 match by Function" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="60" 
             height="60" 
-            x="450" 
-            y="60"
+            x="641.25" 
+            y="30"
             />
           </mxCell>
         </root>

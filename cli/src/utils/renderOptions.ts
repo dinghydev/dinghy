@@ -1,5 +1,5 @@
 export const renderOptions = {
-  collect: ['format', 'view', 'stage'],
+  collect: ['format', 'view'],
   boolean: [
     'tf-generate-import',
     'diagram-png',
@@ -14,7 +14,6 @@ export const renderOptions = {
     output: 'Output folder',
     format: 'Formats to render',
     view: 'Views to render',
-    stage: 'Stages to render',
     'tf-generate-import': 'Generate import statements for tf',
     'diagram-png': 'Generate png file for diagram',
     'diagram-create-md': 'Create markdown file for diagram',

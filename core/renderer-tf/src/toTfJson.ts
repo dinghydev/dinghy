@@ -1,34 +1,18 @@
 import {
-  type Item,
   type NodeProps,
   type NodeTree,
   type Props,
 } from '@dinghy/base-components'
-import { handleCategory } from './category-handler/index.ts'
+import { handleCategory } from './handleCategory.ts'
 import type { HostContainer, Output } from '@dinghy/base-renderer'
 import type { TfRenderOptions } from './types.ts'
-
-const isStageMatch = (stage: Item, currentStage?: any): boolean => {
-  const stageName = currentStage || 'main'
-  if (Array.isArray(stageName)) {
-    return stageName.some((s) => isStageMatch(stage, s))
-  }
-  if (stageName.startsWith('!')) {
-    return stage?.name === stageName.slice(1)
-  }
-  return stage?.name === stageName
-}
 
 const collectTfElements = (
   renderOptions: TfRenderOptions,
   tfRoot: Props,
   _props: NodeProps,
 ) => {
-  if (
-    _props._category &&
-    (_props._stackResource ||
-      isStageMatch(renderOptions.stage, (_props as any)._stage))
-  ) {
+  if (_props._category) {
     handleCategory(renderOptions, tfRoot, _props._node!)
   }
   _props._node!._children.map((c: NodeTree) =>

@@ -1,4 +1,4 @@
-import { extendStyle, Stack } from "@dinghy/base-components";
+import { extendStyle, Shape } from "@dinghy/base-components";
 import * as awsGeneralResources from "@dinghy/diagrams/entitiesAwsGeneralResources";
 import {
     PRIVATE_SUBNET,
@@ -45,7 +45,7 @@ const Postgres = (props: any) => (
     />
 );
 
-const WebApp = (props: any) => <Stack {...props} />;
+const WebApp = (props: any) => <Shape {...props} />;
 
 const Client = (props: any) => (
     <awsGeneralResources.Client _dependsOn="Load Balancer" {...props} />

@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_webapp" 
+          id="stack" 
           parent="root" 
           value="Web App" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_client" 
-          parent="shape_webapp" 
+          parent="stack" 
           value="Client" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="shape_cloud" 
-          parent="shape_webapp" 
+          parent="stack" 
           value="Cloud" 
           vertex="1"
           >

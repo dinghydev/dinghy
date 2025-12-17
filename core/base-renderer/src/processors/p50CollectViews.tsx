@@ -1,16 +1,12 @@
 import type { NodeTree } from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
-export const p50CollectViewsAndStages = (
+export const p50CollectViews = (
   container: HostContainer<unknown, unknown>,
 ) => {
   const addIfNotExist = (field: string, value: string) => {
     if (value === '*') {
-      if (field === 'views') {
-        value = 'all'
-      } else {
-        return
-      }
+      value = 'all'
     }
     if (value?.startsWith('!')) {
       value = value.slice(1)
@@ -41,7 +37,6 @@ export const p50CollectViewsAndStages = (
 
   const collectModelsFromElement = (node: NodeTree) => {
     handleField('views', (node._props as any)._view || 'overview')
-    handleField('stages', (node._props as any)._stage || 'main')
     addAllView(node)
     node._children.map((child: any) => collectModelsFromElement(child))
   }

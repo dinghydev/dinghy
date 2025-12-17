@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="shape_simplediagramascode" 
+          id="stack" 
           parent="root" 
           value="Simple diagram as code" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_a" 
-          parent="shape_simplediagramascode" 
+          parent="stack" 
           value="A" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="shape_b" 
-          parent="shape_simplediagramascode" 
+          parent="stack" 
           value="B" 
           vertex="1"
           >

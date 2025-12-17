@@ -1,4 +1,4 @@
-import { MoveToHere, Shape, Stack } from "@dinghy/base-components";
+import { MoveToHere, Shape } from "@dinghy/base-components";
 import {
     AwsCloud,
     AwsGlobalLogBucket,
@@ -40,7 +40,7 @@ export default function App() {
 }
 
 const ExampleCom = (props: any) => (
-    <Stack _title="example.com website" {...props} />
+    <Shape _title="example.com website" {...props} />
 );
 
 const Infrastructure = (props: any) => {

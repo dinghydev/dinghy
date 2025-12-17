@@ -17,13 +17,13 @@ const options: any = createTfOptions({
 })
 
 const createBackend = async (
-  stagePath: string,
+  stackPath: string,
   args: CommandArgs,
   tfModel: any,
   backendResource: any,
   userConfirmed: boolean,
 ) => {
-  const workingDir = `${hostAppHome}/${stagePath}/.terraform/backend`
+  const workingDir = `${hostAppHome}/${stackPath}/.terraform/backend`
   Deno.mkdirSync(workingDir, { recursive: true })
   const { backend, ...terraform } = tfModel.terraform
   const backendTfJson = {
@@ -87,17 +87,17 @@ const createBackend = async (
   )
 
   await runTfInit(
-    stagePath,
+    stackPath,
     args,
   )
 }
 
 const runTfInit = (
-  stagePath: string,
+  stackPath: string,
   args: CommandArgs,
 ) => {
   return runTfImageCmd(
-    stagePath,
+    stackPath,
     args,
     ['tf-init'],
     false,
@@ -107,57 +107,55 @@ const runTfInit = (
 const run = async (_context: CommandContext, args: CommandArgs) => {
   await requireStacksConfig()
   await doWithTfStacks(args, async (tfOptions) => {
-    const { stages } = tfOptions
-    for (const stage of stages) {
-      const stagePath = `${args.output}/${stage.id}`
-      console.log(
-        `Initializing ${
-          chalk.green(`${hostAppHome}/${stagePath}/${stage.id}.tf.json`)
-        } ...`,
-      )
-      const result = await runTfInit(
-        stagePath,
-        args,
-      )
+    const { stack } = tfOptions
+    const stackPath = `${args.output}/${stack.id}`
+    console.log(
+      `Initializing ${
+        chalk.green(`${hostAppHome}/${stackPath}/${stack.id}.tf.json`)
+      } ...`,
+    )
+    const result = await runTfInit(
+      stackPath,
+      args,
+    )
 
-      if (result.exitCode !== 0) {
-        if (result.stdout?.includes('StatusCode: 404')) {
-          const tfModel = JSON.parse(
-            Deno.readTextFileSync(
-              `${hostAppHome}/${stagePath}/${stage.id}.tf.json`,
-            ),
+    if (result.exitCode !== 0) {
+      if (result.stdout?.includes('StatusCode: 404')) {
+        const tfModel = JSON.parse(
+          Deno.readTextFileSync(
+            `${hostAppHome}/${stackPath}/${stack.id}.tf.json`,
+          ),
+        )
+        const backendBucket = tfModel.terraform?.backend?.s3?.bucket
+        const backendResource = Object.entries(
+          tfModel.resource?.aws_s3_bucket || {},
+        ).find(([_k, v]) => (v as any).bucket === backendBucket)
+        if (backendResource) {
+          console.error(
+            `backend bucket ${backendBucket} not created yet, you may use --auto-create-backend flag or TF_INIT_AUTO_CREATE_BACKEND environment variable to create it automatically`,
           )
-          const backendBucket = tfModel.terraform?.backend?.s3?.bucket
-          const backendResource = Object.entries(
-            tfModel.resource?.aws_s3_bucket || {},
-          ).find(([_k, v]) => (v as any).bucket === backendBucket)
-          if (backendResource) {
-            console.error(
-              `backend bucket ${backendBucket} not created yet, you may use --auto-create-backend flag or TF_INIT_AUTO_CREATE_BACKEND environment variable to create it automatically`,
+          let createOnDemand = args['auto-create-backend']
+          let userConfirmed = false
+          if (!createOnDemand && process.stdout.isTTY) {
+            createOnDemand = await confirm({
+              message: 'Do you want to create it now?',
+              default: true,
+            })
+            userConfirmed = true
+          }
+          console.log('createOnDemand', createOnDemand)
+          if (createOnDemand) {
+            return createBackend(
+              stackPath,
+              args,
+              tfModel,
+              backendResource,
+              userConfirmed,
             )
-            let createOnDemand = args['auto-create-backend']
-            let userConfirmed = false
-            if (!createOnDemand && process.stdout.isTTY) {
-              createOnDemand = await confirm({
-                message: 'Do you want to create it now?',
-                default: true,
-              })
-              userConfirmed = true
-            }
-            console.log('createOnDemand', createOnDemand)
-            if (createOnDemand) {
-              return createBackend(
-                stagePath,
-                args,
-                tfModel,
-                backendResource,
-                userConfirmed,
-              )
-            }
           }
         }
-        throw new Error('failed to init')
       }
+      throw new Error('failed to init')
     }
   })
 }

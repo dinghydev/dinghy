@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="stack_ecsarchitecturediagram" 
+          id="stack" 
           parent="root" 
           value="ECS architecture diagram" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;" 
           id="user" 
-          parent="stack_ecsarchitecturediagram" 
+          parent="stack" 
           value="User" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;fontColor=#232F3E;dashed=0;" 
           id="cloud" 
-          parent="stack_ecsarchitecturediagram" 
+          parent="stack" 
           value="Cloud" 
           vertex="1"
           >

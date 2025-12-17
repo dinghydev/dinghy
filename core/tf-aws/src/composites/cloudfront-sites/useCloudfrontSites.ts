@@ -1,4 +1,4 @@
-import { useRenderOptions } from '@dinghy/base-components'
+import { getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
 
 const OriginSchema = z.object({
@@ -59,7 +59,7 @@ export function useCloudfrontSites(
   sites?: any,
 ): Record<string, CloudfrontSiteType> {
   const cloudfrontSites = sites ||
-    useRenderOptions().renderOptions.cloudfrontSites
+    getRenderOptions().cloudfrontSites
   if (!cloudfrontSites) {
     throw new Error('Cloudfront sites not configured')
   }

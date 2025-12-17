@@ -6,12 +6,13 @@ export const p30BindData = (
   container: HostContainer<unknown, unknown>,
 ) => {
   const { bindings } = container.renderOptions as { bindings: any }
-  if (bindings) {
-    const keys = Object.keys(bindings)
+  const keys = bindings ? Object.keys(bindings) : []
 
-    const bindAttributes = (element: ReactElement) => {
-      const _node = (element as any).props._node as NodeTree
-      const _props = _node._props as any
+  const bindAttributes = (element: ReactElement) => {
+    const _node = (element as any).props._node as NodeTree
+    const _props = _node._props as any
+
+    if (bindings) {
       const targetKeys = [_props._id, ..._props._tags]
       for (let i = targetKeys.length - 1; i >= 0; i--) {
         const key = targetKeys[i]
@@ -19,18 +20,18 @@ export const p30BindData = (
           Object.assign(_props, bindings[key])
         }
       }
-      if (_props._afterDataBind) {
-        _props._afterDataBind(_node)
-      }
     }
-
-    const bindData = (element: ReactElement) => {
-      bindAttributes(element)
-      ;(element.props as any).children?.map((c: ReactElement) => {
-        bindData(c)
-      })
+    if (_props._afterDataBind) {
+      _props._afterDataBind(_node)
     }
-
-    bindData(container.rootElement as ReactElement)
   }
+
+  const bindData = (element: ReactElement) => {
+    bindAttributes(element)
+    ;(element.props as any).children?.map((c: ReactElement) => {
+      bindData(c)
+    })
+  }
+
+  bindData(container.rootElement as ReactElement)
 }

@@ -1,4 +1,17 @@
 {
+  "provider": {
+    "aws": [
+      {
+        "region": "eu-west-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "example.com website",
+            "iac:stack-name": "examplecom-website"
+          }
+        }
+      }
+    ]
+  },
   "terraform": {
     "required_providers": {
       "aws": {
@@ -8,24 +21,11 @@
     },
     "backend": {
       "s3": {
-        "bucket": "cloudfront-tf-state",
+        "bucket": "examplecom-website-tf-state",
         "key": "tfstates/cloudfront-sites.tfstate",
         "region": "eu-west-1"
       }
     }
-  },
-  "provider": {
-    "aws": [
-      {
-        "region": "eu-west-1",
-        "default_tags": {
-          "tags": {
-            "iac:stack-title": "example.com website",
-            "iac:stack-name": "cloudfront"
-          }
-        }
-      }
-    ]
   },
   "resource": {
     "aws_cloudfront_distribution": {
@@ -231,23 +231,23 @@
           "iac:id": "examplecom_subsite_bucket"
         }
       },
-      "awss3bucket_cloudfronttfstate": {
-        "bucket": "cloudfront-tf-state",
+      "awss3bucket_examplecomwebsitetfstate": {
+        "bucket": "examplecom-website-tf-state",
         "object_lock_enabled": true,
         "tags": {
-          "Name": "cloudfront-tf-state",
-          "iac:id": "awss3bucket_cloudfronttfstate"
+          "Name": "examplecom-website-tf-state",
+          "iac:id": "awss3bucket_examplecomwebsitetfstate"
         }
       },
       "awss3bucket_regionallogbucket": {
-        "bucket": "cloudfront-logs-eu-west-1",
+        "bucket": "examplecom-website-logs-eu-west-1",
         "tags": {
           "Name": "Regional LogBucket",
           "iac:id": "awss3bucket_regionallogbucket"
         }
       },
       "awss3bucket_globallogbucket": {
-        "bucket": "cloudfront-logs-global",
+        "bucket": "examplecom-website-logs-global",
         "region": "us-east-1",
         "tags": {
           "Name": "Global LogBucket",
@@ -258,34 +258,34 @@
     "aws_s3_bucket_logging": {
       "examplecom_root_bucketlogging": {
         "bucket": "example-com-website",
-        "target_bucket": "cloudfront-logs-eu-west-1",
+        "target_bucket": "examplecom-website-logs-eu-west-1",
         "target_prefix": "s3-access-log/example-com-website/"
       },
       "examplecom_subsite_bucketlogging": {
         "bucket": "example-com-subsite",
-        "target_bucket": "cloudfront-logs-eu-west-1",
+        "target_bucket": "examplecom-website-logs-eu-west-1",
         "target_prefix": "s3-access-log/example-com-subsite/"
       },
-      "awss3bucket_cloudfronttfstate_logging": {
-        "bucket": "cloudfront-tf-state",
-        "target_bucket": "cloudfront-logs-eu-west-1",
-        "target_prefix": "s3-access-log/cloudfront-tf-state/",
+      "awss3bucket_examplecomwebsitetfstate_logging": {
+        "bucket": "examplecom-website-tf-state",
+        "target_bucket": "examplecom-website-logs-eu-west-1",
+        "target_prefix": "s3-access-log/examplecom-website-tf-state/",
         "depends_on": [
-          "aws_s3_bucket.awss3bucket_cloudfronttfstate"
+          "aws_s3_bucket.awss3bucket_examplecomwebsitetfstate"
         ]
       },
       "awss3bucket_regionallogbucket_logging": {
-        "bucket": "cloudfront-logs-eu-west-1",
-        "target_bucket": "cloudfront-logs-eu-west-1",
-        "target_prefix": "s3-access-log/cloudfront-logs-eu-west-1/",
+        "bucket": "examplecom-website-logs-eu-west-1",
+        "target_bucket": "examplecom-website-logs-eu-west-1",
+        "target_prefix": "s3-access-log/examplecom-website-logs-eu-west-1/",
         "depends_on": [
           "aws_s3_bucket.awss3bucket_regionallogbucket"
         ]
       },
       "awss3bucket_globallogbucket_logging": {
-        "bucket": "cloudfront-logs-global",
-        "target_bucket": "cloudfront-logs-global",
-        "target_prefix": "s3-access-log/cloudfront-logs-global/",
+        "bucket": "examplecom-website-logs-global",
+        "target_bucket": "examplecom-website-logs-global",
+        "target_prefix": "s3-access-log/examplecom-website-logs-global/",
         "region": "us-east-1",
         "depends_on": [
           "aws_s3_bucket.awss3bucket_globallogbucket"
@@ -302,8 +302,8 @@
         "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-subsite/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}"
       },
       "awss3bucket_regionallogbucket_policy": {
-        "bucket": "cloudfront-logs-eu-west-1",
-        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::cloudfront-logs-eu-west-1/*\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:GetBucketAcl\",\"Resource\":\"arn:aws:s3:::cloudfront-logs-eu-west-1\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::cloudfront-logs-eu-west-1/*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"${data.aws_caller_identity.caller_identity.account_id}\"}}}]}"
+        "bucket": "examplecom-website-logs-eu-west-1",
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::examplecom-website-logs-eu-west-1/*\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:GetBucketAcl\",\"Resource\":\"arn:aws:s3:::examplecom-website-logs-eu-west-1\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::examplecom-website-logs-eu-west-1/*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"${data.aws_caller_identity.caller_identity.account_id}\"}}}]}"
       }
     },
     "aws_cloudfront_function": {
@@ -373,19 +373,19 @@
       }
     },
     "aws_s3_bucket_versioning": {
-      "awss3bucket_cloudfronttfstate_versioning": {
-        "bucket": "cloudfront-tf-state",
+      "awss3bucket_examplecomwebsitetfstate_versioning": {
+        "bucket": "examplecom-website-tf-state",
         "versioning_configuration": {
           "status": "Enabled"
         },
         "depends_on": [
-          "aws_s3_bucket.awss3bucket_cloudfronttfstate"
+          "aws_s3_bucket.awss3bucket_examplecomwebsitetfstate"
         ]
       }
     },
     "aws_s3_bucket_ownership_controls": {
       "awss3bucket_globallogbucket_ownership_controls": {
-        "bucket": "cloudfront-logs-global",
+        "bucket": "examplecom-website-logs-global",
         "rule": {
           "object_ownership": "BucketOwnerPreferred"
         },
