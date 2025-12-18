@@ -29,6 +29,7 @@
     "./renderer-drawio",
     "./renderer-tf",
     "./diagrams",
+    "./tf-common",
     "./tf-aws"
   ],
   "fmt": {

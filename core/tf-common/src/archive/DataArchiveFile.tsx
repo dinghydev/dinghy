@@ -50,7 +50,7 @@ export type OutputProps =
 export function DataArchiveFile(props: Partial<InputProps>) {
   return (
     <ArchiveFile
-      _category='data'
+      _category={['data', 'terraform']}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
       {...props}

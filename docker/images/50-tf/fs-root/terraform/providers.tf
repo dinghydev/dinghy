@@ -1,8 +1,12 @@
 terraform {
     required_providers {
-        mycloud = {
+        aws = {
             source  = "aws"
             version = "6.22.0"
+        }
+        archive = {
+            source  = "archive"
+            version = "2.7.1"
         }
     }
 }

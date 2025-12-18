@@ -1,8 +1,0 @@
-{
-  "stages": {
-    "cloudfront-sites": {
-      "id": "cloudfront-sites",
-      "name": "main"
-    }
-  }
-}

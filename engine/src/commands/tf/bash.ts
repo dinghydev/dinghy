@@ -19,7 +19,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   await doWithTfStacks(args, async (tfOptions) => {
     const { stackInfo } = tfOptions
     if (!firstStack) {
-      firstStack = stackInfo
+      firstStack = stackInfo.stack
     }
   })
   if (!firstStack) {

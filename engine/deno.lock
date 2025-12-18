@@ -1511,7 +1511,8 @@
           "npm:debug@4.4.0"
         ]
       },
-      "jsr:@dinghy/tf-aws": {}
+      "jsr:@dinghy/tf-aws": {},
+      "jsr:@dinghy/tf-common": {}
     }
   }
 }

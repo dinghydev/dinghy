@@ -1,0 +1,6 @@
+{
+  "name": "@dinghy/tf-common",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
