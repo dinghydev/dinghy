@@ -14,7 +14,7 @@ import { getDockerEnvs, getDockerMounts } from '../utils/dockerUtils.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
 import Debug from 'debug'
 import { configGet } from '../utils/loadConfig.ts'
-const debug = Debug('init')
+const debug = Debug('devcontainer')
 
 const options: CommandOptions = {
   collect: ['volumns'],
@@ -73,7 +73,7 @@ function prepareConfig(args: CommandArgs): any {
   }
 
   const configFile = `${hostAppHome}/.devcontainer.json`
-  const config: any = configGet(['devcontainer', 'json']) || {}
+  const config: any = configGet(['dinghy', 'devcontainer', 'json']) || {}
   config.name ??= hostAppHome.split('/').pop() as string
   config.runArgs ??= ['--name', config.name]
   if (!config.build) {
@@ -128,8 +128,7 @@ function prepareConfig(args: CommandArgs): any {
       },
     },
   }
-
-  let extensions: any = configGet(['devcontainer', 'extensions'])
+  let extensions: any = configGet(['dinghy', 'devcontainer', 'extensions'])
   if (extensions) {
     if (typeof extensions === 'string') {
       extensions = extensions.split(',')
