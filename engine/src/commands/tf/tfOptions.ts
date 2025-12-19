@@ -6,12 +6,10 @@ import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'
 const debug = Debug('tfOptions')
 export const tfOptions: CommandOptions = {
-  boolean: ['debug', 'enable-additional-providers'],
+  boolean: ['debug'],
   collect: ['tf-options'],
   description: {
     'tf-options': 'Additional tf options',
-    'enable-additional-providers':
-      'Enable additional providers which not installed by default',
   },
   arguments: {
     stack: {

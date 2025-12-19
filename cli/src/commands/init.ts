@@ -29,7 +29,7 @@ const options: CommandOptions = {
   default: {
     git: true,
   },
-  cmdDescription: 'Create a new Dinghy project',
+  cmdDescription: 'Create a new Dinghy project with recommended files',
   cmdAlias: ['create-project'],
 }
 

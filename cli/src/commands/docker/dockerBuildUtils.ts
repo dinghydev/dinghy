@@ -3,8 +3,8 @@ import { DinghyError } from '../../types.ts'
 import { configGetEngineImage } from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { execaSync } from 'execa'
-import { existsSync } from '@std/fs/exists'
-import { walk } from '@std/fs/walk'
+import { dinghyAppConfig } from '@dinghy/cli'
+import chalk from 'chalk'
 const debug = Debug('init')
 
 const ondemandImages = {
@@ -84,7 +84,7 @@ export function dockerManifestCreate(
   dockerCommand(['manifest', 'push', image])
 }
 
-async function extractDockerSourceFiles() {
+function extractDockerSourceFiles() {
   const workingDir = Deno.makeTempDirSync({
     dir: hostAppHome,
     prefix: '.tmp-dinghy-docker-build-',
@@ -107,34 +107,42 @@ async function extractDockerSourceFiles() {
     hostAppHome,
   )
 
-  const overrideDir = `${hostAppHome}/.dinghy_file_override/docker/images`
-  if (existsSync(overrideDir)) {
-    debug('Copying override files from %s to %s ...', overrideDir, workingDir)
-    // copy all files from overrideDir to workingDir
-    for await (const entry of walk(overrideDir, { includeDirs: false })) {
-      const source = entry.path
-      const target = entry.path.replace(
-        overrideDir,
-        `${workingDir}/docker/images`,
-      )
-      debug('Copying override file: %s => %s', source, target)
-      Deno.copyFileSync(source, target)
-    }
-  }
-
   return workingDir
 }
 
-export async function buildOndemandImage(image: string, buildArch?: string) {
+const customTfImage = (baseDir: string) => {
+  if (dinghyAppConfig.docker?.images?.tf?.providers) {
+    const providersTfJsonPath = `${baseDir}/fs-root/terraform/providers.tf.json`
+    const allProviders = JSON.parse(
+      Deno.readTextFileSync(providersTfJsonPath),
+    )
+    Object.entries(dinghyAppConfig.docker.images.tf.providers).forEach(
+      ([name, provider]: [string, unknown]) => {
+        allProviders.terraform.required_providers[name] = provider
+      },
+    )
+    Deno.writeTextFileSync(
+      providersTfJsonPath,
+      JSON.stringify(allProviders, null, 2),
+    )
+    console.log(`Updated ${chalk.grey(providersTfJsonPath)}`)
+  }
+}
+
+export function buildOndemandImage(image: string, buildArch?: string) {
   if (!buildArch) {
     buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
   }
-  const imageFolder = ondemandImages[image.split(':')[1].split('-')[0]]
+  const imageName = image.split(':')[1].split('-')[0]
+  const imageFolder = ondemandImages[imageName]
   if (!imageFolder) {
     throw new Error(`Image ${image} not found`)
   }
 
-  const workingDir = await extractDockerSourceFiles()
+  const workingDir = extractDockerSourceFiles()
+  if (imageName === 'tf') {
+    customTfImage(`${workingDir}/${imageFolder}`)
+  }
   console.log(`Building ondemand docker image ${image}...`)
   execaSync({
     stderr: 'inherit',
@@ -145,15 +153,18 @@ export async function buildOndemandImage(image: string, buildArch?: string) {
   Deno.removeSync(workingDir, { recursive: true })
 }
 
-export async function prepareOndemandImage(image: string) {
-  if (isImageExistLocally(image)) {
+export function prepareOndemandImage(
+  image: string,
+  ignoreLocalCache = false,
+) {
+  if (!ignoreLocalCache && isImageExistLocally(image)) {
     return
   }
   if (dockerPull(image)) {
     return
   }
 
-  await buildOndemandImage(image)
+  buildOndemandImage(image)
 }
 
 export const supportedArchs =

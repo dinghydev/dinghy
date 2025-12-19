@@ -23,6 +23,7 @@ const populateCacheIfNeeded = async (
       console.log(
         'Populating docker image cache to from custom registry to avoid permission issues later ...',
       )
+      args['ignore-local-cache'] = false
       await cache[RUN_SYMBOL](context, args)
       Deno.mkdirSync(`${dinghyHome}/states`, { recursive: true })
       Deno.writeTextFileSync(cacheMarkerFile, new Date().toISOString())

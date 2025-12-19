@@ -16,7 +16,7 @@ export const runTfImageCmd = async (
     ? workingDir
     : `${hostAppHome}/${workingDir}`
   const image = configGetImage('tf')
-  await prepareOndemandImage(image)
+  prepareOndemandImage(image)
 
   return await runDockerCmd(
     containerWorkingDir,

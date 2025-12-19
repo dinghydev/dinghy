@@ -8,7 +8,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import { showHelp } from '../../utils/showHelp.ts'
 import build from './build.ts'
 import cache from './cache.ts'
-import clone from './clone.ts'
+import republish from './republish.ts'
 
 const options: CommandOptions = {
   description: {},
@@ -22,7 +22,7 @@ const run = (context: CommandContext, _args: CommandArgs) => {
 const commands: Commands = {
   build,
   cache,
-  clone,
+  republish,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 }

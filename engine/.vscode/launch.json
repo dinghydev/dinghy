@@ -111,7 +111,6 @@
       "args": [
         "tf",
         "diff",
-        // "--enable-additional-providers",
         // "platform-staging",
         // "production",
         // "development",
@@ -139,7 +138,6 @@
       "args": [
         "tf",
         "apply",
-        // "--enable-additional-providers",
         // "--tf-generate-import",
         // "true",
         // "-h",

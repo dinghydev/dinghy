@@ -88,8 +88,8 @@ ${context.options.cmdDescription}
         const isEngineCommands = name === 'Engine Commands'
         for (const row of rows) {
           mdx.push(
-            `- [${context.prefix.join(' ')} ${row.name}](./${
-              isEngineCommands ? '../engine' : ''
+            `- [${context.prefix.join(' ')} ${row.name}](${
+              isEngineCommands ? '../engine' : '.'
             }/${row.name}/README.mdx)`,
           )
         }

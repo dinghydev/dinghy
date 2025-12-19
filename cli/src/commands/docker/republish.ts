@@ -1,0 +1,156 @@
+import type {
+  Command,
+  CommandArgs,
+  CommandContext,
+  CommandOptions,
+} from '../../types.ts'
+import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
+import { dinghyAppConfig } from '../../utils/loadConfig.ts'
+import chalk from 'chalk'
+import {
+  buildOndemandImage,
+  dockerManifestCreate,
+  dockerPull,
+  dockerPush,
+  dockerTag,
+  isOndemandImage,
+  multiArch,
+  supportedArchs,
+} from './dockerBuildUtils.ts'
+import { consumerImages } from './consumerImages.ts'
+import { hostAppHome } from '../../shared/home.ts'
+import { existsSync } from '@std/fs/exists'
+import Debug from 'debug'
+import { execaSync } from 'execa'
+
+const debug = Debug('docker:republish')
+const options: CommandOptions = {
+  boolean: ['push'],
+  string: ['target-repo'],
+  negatable: ['push'],
+  default: {
+    push: true,
+  },
+  description: {
+    'push':
+      'Push the images to the target registry, otherwise the image will only be built and can be used locally',
+    'target-repo':
+      'Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`.',
+  },
+  cmdDescription:
+    `Republish all related docker images from official registry to target docker registry.\n\n
+     You have options to override files as \`.dinghy_file_override/docker/images/NAME_OF_IMAGE/fs-root\` or
+     execute additional docker run commands \`docker.images.NAME_OF_IMAGE.republishRuns\` during the build process.`,
+}
+
+const rebuildOrTagImage = (
+  name: string,
+  source: string,
+  target: string,
+  buildArch?: string,
+) => {
+  if (!buildArch) {
+    buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
+  }
+  const republishRuns = dinghyAppConfig.docker?.images?.[name]?.republishRuns
+  const overrideFsRootDir =
+    `.dinghy_file_override/docker/images/${name}/fs-root`
+  const hasOverrideFsRoot = existsSync(`${hostAppHome}/${overrideFsRootDir}`)
+  if (republishRuns || hasOverrideFsRoot) {
+    const workingDir = Deno.makeTempDirSync({
+      dir: hostAppHome,
+      prefix: `.tmp-dinghy-docker-republish-${name}-${buildArch}`,
+    })
+    const dockerFile = `${workingDir}/Dockerfile`
+    const dockerFileContent = [`FROM ${source}`]
+    const dockerIgnoreContent = [`# Ignore everything\n**`]
+    if (hasOverrideFsRoot) {
+      dockerFileContent.push(`COPY ${overrideFsRootDir} /`)
+      dockerIgnoreContent.push(
+        `# Allow files and directories\n!/${overrideFsRootDir}/**\n`,
+      )
+    }
+    Deno.writeTextFileSync(
+      `${dockerFile}.dockerignore`,
+      dockerIgnoreContent.join('\n'),
+    )
+    if (republishRuns) {
+      republishRuns.map((cmd: string) => {
+        dockerFileContent.push(`RUN ${cmd}`)
+      })
+    }
+    Deno.writeTextFileSync(dockerFile, dockerFileContent.join('\n'))
+
+    console.log(`Building docker image ${target}...`)
+    execaSync({
+      stderr: 'inherit',
+      stdout: 'inherit',
+    })`docker buildx build --provenance false --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${target} -f ${dockerFile} .`
+
+    debug('Removing temporary folder %s ...', workingDir)
+    Deno.removeSync(workingDir, { recursive: true })
+  } else {
+    dockerTag(source, target)
+  }
+}
+
+function run(_context: CommandContext, args: CommandArgs) {
+  const images = consumerImages()
+
+  const targetRepo = args['target-repo'] || dinghyAppConfig.engine?.repo
+  if (!targetRepo) {
+    throw new DinghyError(
+      `Target registry is not provided, please provide --target-repo or set it in Dinghy Config file`,
+    )
+  }
+  for (const image of images) {
+    const name = image.split(':')[1].split('-')[0]
+    const ondemand = isOndemandImage(name)
+    const targetTag = `${targetRepo}:${image.split(':')[1]}`
+    if (multiArch) {
+      const targetArchTags: string[] = []
+      for (const arch of supportedArchs) {
+        const srcArchTag = `${image}-linux-${arch}`
+        const targetArchTag = `${targetTag}-linux-${arch}`
+        if (ondemand) {
+          buildOndemandImage(srcArchTag, arch)
+        } else {
+          dockerPull(srcArchTag, true)
+        }
+        rebuildOrTagImage(name, srcArchTag, targetArchTag, arch)
+        if (args['push']) {
+          dockerPush(targetArchTag)
+        } else {
+          console.log(`Skip pushing image ${chalk.grey(targetArchTag)}`)
+        }
+        targetArchTags.push(targetArchTag)
+      }
+      if (args['push']) {
+        dockerManifestCreate(targetTag, targetArchTags)
+      } else {
+        const buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
+        const srcArchTag = `${image}-linux-${buildArch}`
+        dockerTag(srcArchTag, targetTag)
+        console.log(`Skip pushing manifest image ${chalk.grey(targetTag)}`)
+      }
+    } else {
+      if (ondemand) {
+        buildOndemandImage(image)
+      } else {
+        dockerPull(image, true)
+      }
+      rebuildOrTagImage(name, image, targetTag)
+      if (args['push']) {
+        dockerPush(targetTag)
+      } else {
+        console.log(`Skip pushing image ${chalk.grey(targetTag)}`)
+      }
+    }
+    console.log(`Image ${chalk.green(targetTag)} is ready`)
+  }
+}
+
+export default {
+  [OPTIONS_SYMBOL]: options,
+  [RUN_SYMBOL]: run,
+} as Command

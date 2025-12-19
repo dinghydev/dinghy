@@ -21,6 +21,7 @@ export const updateProjectVersion = (version: string, createConfig = false) => {
 
   const yamlText = Deno.readTextFileSync(dinghyConfigFile)
   let updatedConfig
+  let previousVersion = null
   const config = yaml.parse(yamlText) as any
   if (config.engine) {
     if (config.engine.version) {
@@ -32,6 +33,7 @@ export const updateProjectVersion = (version: string, createConfig = false) => {
         )
         return
       }
+      previousVersion = config.engine.version
       updatedConfig = yamlText.replaceAll(config.engine.version, version)
     } else {
       config.engine.version = version
@@ -47,6 +49,6 @@ export const updateProjectVersion = (version: string, createConfig = false) => {
   console.log(
     `Updated ${chalk.gray(dinghyConfigFile)} with engine.version: ${
       chalk.green(version)
-    }`,
+    }${previousVersion ? ` (from: ${chalk.gray(previousVersion)})` : ''}`,
   )
 }

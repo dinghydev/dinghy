@@ -1,0 +1,20 @@
+---
+edit_url: none
+---
+# docker republish
+
+Republish all related docker images from official registry to target docker registry.
+
+
+     You have options to override files as `.dinghy_file_override/docker/images/NAME_OF_IMAGE/fs-root` or
+     execute additional docker run commands `docker.images.NAME_OF_IMAGE.republishRuns` during the build process.
+
+## Usage
+```sh
+$ dinghy docker republish [options]
+```
+## Options
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `--[no]-push` | Push the images to the target registry, otherwise the image will only be built and can be used locally | `true`  |
+| `--target-repo` | Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`. |   |
