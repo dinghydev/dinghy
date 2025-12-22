@@ -69,7 +69,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       stackPath,
       args,
       [
-        'terraform',
+        'tf',
         'plan',
         `-lock=${args.lock}`,
         `-out=${args['plan-file']}`,
@@ -84,7 +84,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         stackPath,
         args,
         [
-          'terraform',
+          'tf',
           'show',
           format === 'json' ? '-json' : '-no-color',
           args['plan-file'],

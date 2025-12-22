@@ -6,7 +6,7 @@ import type {
 } from '../../types.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import chalk from 'chalk'
-import { prepareOndemandImage } from './dockerBuildUtils.ts'
+import { getTfImageTag, prepareOndemandImage } from './dockerBuildUtils.ts'
 import { consumerImages } from './consumerImages.ts'
 
 const options: CommandOptions = {
@@ -15,16 +15,19 @@ const options: CommandOptions = {
   default: {
     'ignore-local-cache': true,
   },
-  description: {},
+  description: {
+    'ignore-local-cache': 'Ignore local cache and force repopulate',
+  },
   cmdAlias: ['populate-local-cache'],
-  hidden: true, // primarily for internal use for custom private registries
-  cmdDescription:
-    'Cache all related docker images locally so they can be used offline',
+  cmdDescription: 'Cache all related docker images locally',
 }
 
 function run(_context: CommandContext, args: CommandArgs) {
-  for (const image of consumerImages()) {
+  for (let image of consumerImages()) {
     console.log(`Preparing image ${chalk.grey(image)}...`)
+    if (image.includes(':tf-')) {
+      image = getTfImageTag()
+    }
     prepareOndemandImage(image, args['ignore-local-cache'])
     console.log(`Image ${chalk.green(image)} is ready`)
   }

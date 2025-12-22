@@ -18,7 +18,7 @@ export default function Hero() {
         <div className={styles.indexCtas}>
           <Link
             className={styles.getStartedButton}
-            to={"/get-started"}
+            to={"/guides/get-started"}
           >
             Get Started
           </Link>

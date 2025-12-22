@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 export default function DiagramAsCode() {
   return (
     <TwoColumn
-      title={<a href="/get-started/diagram-as-code">Diagram as Code</a>}
+      title={<a href="/guides/get-started/diagram-as-code">Diagram as Code</a>}
       subTitle={
         <div>
           <div className={styles.poweredBy}>

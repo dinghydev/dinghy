@@ -1,8 +1,7 @@
 import {
   type CommandArgs,
-  configGetImage,
   hostAppHome,
-  prepareOndemandImage,
+  prepareTfImage,
   runDockerCmd,
 } from '@dinghy/cli'
 
@@ -15,8 +14,7 @@ export const runTfImageCmd = async (
   const containerWorkingDir = workingDir.startsWith('/')
     ? workingDir
     : `${hostAppHome}/${workingDir}`
-  const image = configGetImage('tf')
-  prepareOndemandImage(image)
+  const image = prepareTfImage()
 
   return await runDockerCmd(
     containerWorkingDir,

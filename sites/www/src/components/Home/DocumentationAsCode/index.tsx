@@ -5,7 +5,9 @@ export default function DocumentationAsCode() {
   return (
     <TwoColumn
       title={
-        <a href="/get-started/documentation-as-code">Documentation as Code</a>
+        <a href="/guides/get-started/documentation-as-code">
+          Documentation as Code
+        </a>
       }
       subTitle={
         <div className={styles.site}>

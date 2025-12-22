@@ -1,15 +1,23 @@
 import Debug from 'debug'
 import { DinghyError } from '../../types.ts'
-import { configGetEngineImage } from '../../utils/dockerConfig.ts'
+import {
+  configGetEngineImage,
+  configGetImage,
+} from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { execaSync } from 'execa'
-import { dinghyAppConfig } from '@dinghy/cli'
-import chalk from 'chalk'
+import { customTfImage, tfVendorConfig } from './tfBuildUtils.ts'
+import { createHash } from 'node:crypto'
 const debug = Debug('init')
 
 const ondemandImages = {
   tf: 'docker/images/50-tf',
 }
+
+export const md5Hash = (str: string) =>
+  createHash('md5')
+    .update(str)
+    .digest('hex')
 
 export const isOndemandImage = (name: string) =>
   ondemandImages[name] !== undefined
@@ -110,25 +118,6 @@ function extractDockerSourceFiles() {
   return workingDir
 }
 
-const customTfImage = (baseDir: string) => {
-  if (dinghyAppConfig.docker?.images?.tf?.providers) {
-    const providersTfJsonPath = `${baseDir}/fs-root/terraform/providers.tf.json`
-    const allProviders = JSON.parse(
-      Deno.readTextFileSync(providersTfJsonPath),
-    )
-    Object.entries(dinghyAppConfig.docker.images.tf.providers).forEach(
-      ([name, provider]: [string, unknown]) => {
-        allProviders.terraform.required_providers[name] = provider
-      },
-    )
-    Deno.writeTextFileSync(
-      providersTfJsonPath,
-      JSON.stringify(allProviders, null, 2),
-    )
-    console.log(`Updated ${chalk.grey(providersTfJsonPath)}`)
-  }
-}
-
 export function buildOndemandImage(image: string, buildArch?: string) {
   if (!buildArch) {
     buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
@@ -165,6 +154,20 @@ export function prepareOndemandImage(
   }
 
   buildOndemandImage(image)
+}
+
+let tfImage: string | undefined
+export function getTfImageTag() {
+  const tfBaseImage = configGetImage('tf')
+  const tfConfig = tfVendorConfig()
+  return `${tfBaseImage}-${md5Hash(JSON.stringify(tfConfig))}`
+}
+export function prepareTfImage(ignoreLocalCache = false) {
+  if (!tfImage) {
+    tfImage = getTfImageTag()
+    prepareOndemandImage(tfImage, ignoreLocalCache)
+  }
+  return tfImage!
 }
 
 export const supportedArchs =

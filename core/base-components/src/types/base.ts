@@ -94,7 +94,7 @@ SCHEMA_ATTIBUTES
 ### Base Attributes Example
 
 import CodeBlock from "@theme/CodeBlock";
-import TagsTsx from "!!raw-loader!../../../get-started/diagram-as-code/tags.tsx";
+import TagsTsx from "!!raw-loader!../../../guides/get-started/diagram-as-code/tags.tsx";
 
 Given example below,
 

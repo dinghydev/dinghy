@@ -7,6 +7,7 @@ export default function App() {
       <CoreModules>
         <StandardComponents>
           <Module>diagrams</Module>
+          <Module>tf-common</Module>
           <Module>tf-aws</Module>
         </StandardComponents>
         <Base _distributed>

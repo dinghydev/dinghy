@@ -1,0 +1,147 @@
+---
+sidebar_position: 30
+---
+
+# Configuration
+
+We strive to offer zero configuration out of box to get started. So all options
+optimimised with sensible default values. When you want more control, we do
+offer flexible configuration options.
+
+## Run control files
+
+Dinghy Cli/Engine will load key value pairs (KEY=VALUE) into process
+envivironment variables if not already defined from following files in order:
+
+1. `.dinghyrc.local`
+1. `.dinghyrc`
+1. `~/.dinghyrc`
+
+The loaded environment variable can be used by Cli/Engine or redner stage.
+
+## Cli Config
+
+We take the global option `--engine-version` as an example to illustrate the
+format and location you can provide config for Cli, the smaller number has
+higher priority:
+
+1. Command line options: `--engine-version 1`
+1. Environment variables: `export DINGHY_ENGINE_VERSION=2`
+1. `.dinghyrc.local`: `DINGHY_ENGINE_VERSION=3`
+1. `.dinghyrc`: `DINGHY_ENGINE_VERSION=4`
+1. `~/.dinghyrc`: `DINGHY_ENGINE_VERSION=5`
+1. `dinghy.config.yaml`: `engine.version: 6`
+
+### dinghy.config.yaml
+
+The primary configuration file for Dinghy is the YAML-based
+`dinghy.config.yaml`. This is typically the first place you will customize how
+Dinghy behaves to suit your project's needs.
+
+Different parts of the Dinghy application access this file at various stages.
+While the configuration format is flexible and allows free-form data, most
+settings are validated against defined schemas before they are used.
+
+### Homes
+
+There are several "home" variables defined in
+[home.ts](https://github.com/dinghydev/dinghy/blob/main/core/base-components/src/cli-shared/home.ts)
+you can access programmatically:
+
+```typescript
+import {
+    containerAppHome, // the application home directory inside Engine docker container
+    dinghyHome, // dinghy installation home directory
+    hostAppHome, // the application home directory on the host OS
+} from "@dinghy/base-components";
+```
+
+### Lock engine.version
+
+The Dinghy Cli will use Engine from same release as the Cli by default.
+
+It's recommended to lock Engine version once development settled to have stable
+operation for long term maintainance.
+
+Once the version been locked, the Cli will alway use the same Engine always. So
+you can expect nothing will change by running the same command even with
+different Cli version.
+
+## Stack Config
+
+In addition to [Cli Config](#cli-config) above, Engine has options to load
+additional stack based configuration from `config` folder to support
+larger/complex project while keep top level `dinghy.config.yaml` managable.
+
+### Stack Discovery
+
+There are two way to define a stack:
+
+1. Define your avaiable stacks as top level object in `dinghy.config.yaml`.
+1. Create `STACK_NAME`.tsx in app home directory
+
+Once defined, you may provide addtional configurations for the stack with guide
+below.
+
+### Stack Config Files
+
+A `stack` in Dinghy represents a logical grouping of resources or configurations
+that you want to manage as a unit. Stacks allow you to organize infrastructure
+for different environments (such as `dev`, `staging`, or `prod`), services, or
+any separation needed by your project's architecture (such as layers of
+`network`, `stroage`,`applications`).
+
+Whenever stack is activated, dinghy will load configurations from
+`config/stacks`, if not found, will fall back to `config` folder as stack
+configuration folder.
+
+Stacks are exposed at top level of dinghy config as `stacks`. The active stack
+are accessable at top level as `stack`.
+
+The active stack has configuration loaded based on stack name. e.g. for stack
+name `foo-bar-baz`, it will has following ordered priority configurable files to
+load from:
+
+1. foo-bar-baz.yaml
+1. bar-baz.yaml
+1. foo-bar.yaml
+1. baz.yaml
+1. bar.yaml
+1. foo.yaml
+1. default.yaml
+
+### Stack override
+
+The contents of `stack.override` for the currently active stack will be merged
+into the root configuration object. This provides a simple way to override any
+configuration values at the stack level.
+
+## Render Options
+
+The dinghy config with active stack are made available during react app
+rendering.
+
+```typescript
+import { getRenderOptions } from "@dinghy/base-components";
+
+// access the stack from render options
+const { stack } = getRenderOptions();
+```
+
+### renderOptions export
+
+In your application root tsx file, you may provide data as a constant:
+
+```typescript
+export const renderOptions = { foo: "bar" };
+```
+
+or function to update/generate based on existing configurations:
+
+```typescript
+import { type RenderOptions } from "@dinghy/base-components";
+
+export const renderOptions = (options: RenderOptions){
+    options.stack.title=`Enviroment: ${options.stack.id}`
+}
+```

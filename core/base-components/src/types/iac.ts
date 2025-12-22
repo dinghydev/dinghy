@@ -18,6 +18,8 @@ Type of category for the IaC node
 export const IacCategorySchema = z.enum([
   'resource',
   'data',
+  'ephemeral',
+  'output',
   'terraform',
   'provider',
 ])

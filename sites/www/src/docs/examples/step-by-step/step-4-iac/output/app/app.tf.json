@@ -28,7 +28,7 @@
   "resource": {
     "aws_subnet": {
       "awssubnet_publicsubnet": {
-        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
+        "vpc_id": "${dataaws_vpc.awsvpc_vpc.id}",
         "cidr_block": "10.0.0.0/16",
         "tags": {
           "Name": "Public Subnet",
@@ -36,7 +36,7 @@
         }
       },
       "awssubnet_privatesubnet": {
-        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
+        "vpc_id": "${dataaws_vpc.awsvpc_vpc.id}",
         "cidr_block": "10.10.0.0/16",
         "tags": {
           "Name": "Private Subnet",
@@ -46,7 +46,7 @@
     },
     "aws_lb": {
       "awslb_loadbalancer": {
-        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
+        "vpc_id": "${dataaws_vpc.awsvpc_vpc.id}",
         "subnets": [
           "${aws_subnet.awssubnet_publicsubnet.id}"
         ],

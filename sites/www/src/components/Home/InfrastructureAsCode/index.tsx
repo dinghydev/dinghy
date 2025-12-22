@@ -11,7 +11,9 @@ export default function InfrastructureAsCode() {
   return (
     <TwoColumn
       title={
-        <a href="/get-started/infrastructure-as-code">Infrastructure as Code</a>
+        <a href="/guides/get-started/infrastructure-as-code">
+          Infrastructure as Code
+        </a>
       }
       subTitle={
         <div>

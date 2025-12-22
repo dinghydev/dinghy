@@ -13,6 +13,7 @@ import {
   dockerPull,
   dockerPush,
   dockerTag,
+  getTfImageTag,
   isOndemandImage,
   multiArch,
   supportedArchs,
@@ -26,7 +27,7 @@ import { execaSync } from 'execa'
 const debug = Debug('docker:republish')
 const options: CommandOptions = {
   boolean: ['push'],
-  string: ['target-repo'],
+  string: ['target-repo', 'image-name'],
   negatable: ['push'],
   default: {
     push: true,
@@ -36,11 +37,11 @@ const options: CommandOptions = {
       'Push the images to the target registry, otherwise the image will only be built and can be used locally',
     'target-repo':
       'Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`.',
+    'image-name':
+      'Name of the image to republish. If not provided, all images will be republished.',
   },
   cmdDescription:
-    `Republish all related docker images from official registry to target docker registry.\n\n
-     You have options to override files as \`.dinghy_file_override/docker/images/NAME_OF_IMAGE/fs-root\` or
-     execute additional docker run commands \`docker.images.NAME_OF_IMAGE.republishRuns\` during the build process.`,
+    `Republish all related docker images from official registry to target docker registry.`,
 }
 
 const rebuildOrTagImage = (
@@ -103,8 +104,14 @@ function run(_context: CommandContext, args: CommandArgs) {
       `Target registry is not provided, please provide --target-repo or set it in Dinghy Config file`,
     )
   }
-  for (const image of images) {
+  for (let image of images) {
+    if (image.includes(':tf-')) {
+      image = getTfImageTag()
+    }
     const name = image.split(':')[1].split('-')[0]
+    if (args['image-name'] && name !== args['image-name']) {
+      continue
+    }
     const ondemand = isOndemandImage(name)
     const targetTag = `${targetRepo}:${image.split(':')[1]}`
     if (multiArch) {

@@ -21,4 +21,4 @@ fi
 # push init to arguments
 args=("init" "$@")
 
-terraform $args
+tf $args

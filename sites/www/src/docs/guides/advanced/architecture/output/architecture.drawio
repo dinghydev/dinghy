@@ -85,7 +85,22 @@
             width="130" 
             as="geometry" 
             height="60" 
-            x="70" 
+            x="30" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;shape=module;spacingLeft=20;html=1;" 
+          id="module_tfcommon" 
+          parent="standardcomponents" 
+          value="tf-common" 
+          vertex="1"
+          >
+          <mxGeometry
+            width="130" 
+            as="geometry" 
+            height="60" 
+            x="190" 
             y="30"
             />
           </mxCell>
@@ -100,7 +115,7 @@
             width="130" 
             as="geometry" 
             height="60" 
-            x="310" 
+            x="350" 
             y="30"
             />
           </mxCell>

@@ -3,8 +3,8 @@ docs:
 themeConfig:
   navbar:
     items:
-      - to: /get-started
-        label: Get Started
+      - to: /guides
+        label: Guides
         position: left
       - to: /examples
         label: Examples

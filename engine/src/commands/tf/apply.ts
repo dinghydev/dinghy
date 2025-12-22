@@ -37,7 +37,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         await runTfImageCmd(
           stackPath,
           args,
-          ['terraform', 'apply', args['plan-file']],
+          ['tf', 'apply', args['plan-file']],
         )
       }
       if (isCi()) {

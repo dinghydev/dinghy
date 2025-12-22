@@ -9,9 +9,11 @@ function proxyNodeProps({ _props }: NodeTree) {
   return new Proxy(_props, {
     get: (_target: Props, key: string) => {
       const terraformId = () => {
-        return `${(_props as any)._category === 'data' ? 'data.' : ''}${
-          (_props as any)._type
-        }.${_props._consolidatedId || _props._id}`
+        return `${
+          (_props as any)._category === 'resource'
+            ? ''
+            : `${(_props as any)._category}.`
+        }${(_props as any)._type}.${_props._consolidatedId || _props._id}`
       }
       if (key === '_terraformId') {
         return terraformId()

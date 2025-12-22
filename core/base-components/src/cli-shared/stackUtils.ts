@@ -136,7 +136,7 @@ export const loadStackConfig = (
   stackOptions: any,
 ) => {
   const settings =
-    loadFilesData(stackOptions, 'config/settings', stackOptions.stack.id) ||
+    loadFilesData(stackOptions, 'config/stacks', stackOptions.stack.id) ||
     loadFilesData(stackOptions, 'config', stackOptions.stack.id)
   if (settings) {
     deepMerge(stackOptions, settings)

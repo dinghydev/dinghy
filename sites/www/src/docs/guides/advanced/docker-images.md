@@ -1,0 +1,150 @@
+---
+sidebar_position: 40
+---
+
+# Docker Images
+
+Dinghy offers several Docker images, each optimized for different scenarios.
+Image tags are generated from their input files, ensuring immutability. For
+non-engine images, tags are derived from a hash of the input file contents,
+maximizing Docker layer reuse and improving build efficiency.
+
+## Intermediate Images
+
+Intermediate images serve as robust starting points for constructing custom
+Docker images. They are not intended for direct use by end users. Instead, these
+images come pre-installed with essential tools and dependencies to streamline
+further image development.
+
+### Base Image
+
+The
+[base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/10-base/Dockerfile.ejs)
+with `FROM denoland/deno:debian-<%= VERSION_DENO %>` install useful system level
+tools.
+
+All other dinghy images are based on this so have a solid working environments
+across all docker containers.
+
+### Release Base Image
+
+[release-base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/61-release-base/Dockerfile.ejs)
+contains docker cli for engine to perform docker operations.
+
+Also contains small numbers rarely change files which will be used by engine.
+
+### Release Dependencies Image
+
+[release-dependencies Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/65-release-dependencies/Dockerfile.ejs)
+install dinghy npm/jsr dependencies.
+
+At runtime, applications can only access dependencies that have been
+preinstalled in the image.
+
+## Distribution Images
+
+Distribution images package Dinghy along with all necessary tools, runtime
+environments, and dependencies for specific use cases. These images are ready to
+be used directly and are designed to provide a consistent, reliable execution
+environment for your Dinghy workflows—whether for local development, continuous
+integration, or production deployments. Below, we outline the available
+distribution images and their intended uses.
+
+### Engine Image
+
+Based on the [Release Dependencies Image](#release-dependencies-image), the
+Engine Image includes the complete Dinghy codebase required to execute all core
+functionalities.
+
+### Tf Image
+
+The
+[tf Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/Dockerfile.ejs)
+is an ondemand image which build by end user on demand due to license concerns.
+
+By default, several commonly used
+[official Terraform providers](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/fs-root/terraform/providers.tf.json)
+already installed. If you need additional providers, you can easily add them by
+specifying them in your `dinghy.config.yaml` file e.g.
+
+```yaml
+docker:
+    images:
+        tf:
+            providers:
+                local:
+                    source: local
+                    version: 2.6.1
+```
+
+### Drawio Image
+
+:::warning
+
+Because of a known
+[Chromium issue](https://issues.chromium.org/issues/383356871), generating PNG
+images may fail for diagrams with a large canvas size.
+
+As a workaround, you can manually open the `.drawio` file using your locally
+installed Draw.io desktop application and export the image from there.
+
+:::
+
+The
+[drawio Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/30-drawio/Dockerfile.ejs)
+provides an environment for converting `.drawio` files to PNG image. It
+leverages drawio-desktop in headless mode to automate PNG export from diagram
+source files.
+
+### Site Image
+
+The
+[site Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/Dockerfile.ejs)
+bundles [docusaurus.io](https://docusaurus.io/), providing everything needed to
+build and serve static documentation sites like this one.
+
+### Awscli Image
+
+The
+[awscli Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/45-awscli/Dockerfile.ejs)
+provides a standalone environment with the
+[official AWS CLI](https://docs.aws.amazon.com/cli/latest/) installed. This
+image is intended for running AWS commands and managing AWS resources outside of
+Terraform.
+
+## Private Registry
+
+Dinghy docker images are published at official docker hub as
+[dinghydev/dinghy](https://hub.docker.com/r/dinghydev/dinghy/tags).
+
+To efficiently and reliably use Dinghy images from your own private Docker
+registry, you can run the
+[docker republish](/references/commands/cli/docker/republish) command. This will
+push all required Dinghy images to your chosen registry for easier access and
+better performance.
+
+When using the republish command, you can customize the image by adding or
+overriding files, or by specifying commands to perform further customization
+during the image republish process.
+
+### Override files while republish
+
+Any files placed in `.dinghy_file_override/docker/images/NAME_OF_IMAGE/fs-root`
+will be copied into the image before any additional `RUN` commands are executed
+during the republish process.
+
+The Engine image name is `release`.
+
+### Run additional docker build commands
+
+You can specify a list of shell commands in the `republishRuns` array under
+`docker.images.NAME_OF_IMAGE` in your `dinghy.config.yaml` file. These commands
+will be executed as additional build steps when the image is republished.
+
+### Runtime architecture
+
+Dinghy supports both `arm64` and `amd64` architectures.
+
+If you want to disable multi-architecture support, set the environment variable
+`DINGHYT_DOCKER_SUPPORTED_ARCHS=false`. With multi-architecture disabled, images
+will be published without the architecture included in the image tag.

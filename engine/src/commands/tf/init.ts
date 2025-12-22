@@ -52,7 +52,7 @@ const createBackend = async (
   await runTfImageCmd(
     workingDir,
     args,
-    ['terraform', 'plan', '-out=tf.plan'],
+    ['tf', 'plan', '-out=tf.plan'],
   )
   if (userConfirmed) {
     const confirmResult = await confirm({
@@ -83,7 +83,7 @@ const createBackend = async (
   await runTfImageCmd(
     workingDir,
     args,
-    ['terraform', 'init', '-force-copy', '-migrate-state'],
+    ['tf', 'init', '-force-copy', '-migrate-state'],
   )
 
   await runTfInit(

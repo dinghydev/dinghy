@@ -16,8 +16,8 @@ themeConfig:
       href: https://dinghy.dev/
       target: _self
     items:
-      - href: https://dinghy.dev/get-started
-        html: Get Started
+      - href: https://dinghy.dev/guides
+        html: Guides
         target: _self
         position: left
       - href: https://dinghy.dev/examples

@@ -15,12 +15,12 @@ import Debug from 'debug'
 import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
-import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import {
   dockerManifestCreate,
   dockerPush,
   isOndemandImage,
+  md5Hash,
   multiArch,
 } from './dockerBuildUtils.ts'
 import { supportedArchs } from './dockerBuildUtils.ts'
@@ -174,9 +174,7 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
         })
       }
     }
-    return createHash('md5')
-      .update(content)
-      .digest('hex')
+    return md5Hash(content)
   }
 
   const imageKey = image.name.toUpperCase().split('-').join('_')
