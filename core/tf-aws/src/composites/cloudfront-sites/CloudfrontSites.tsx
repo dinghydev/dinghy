@@ -21,10 +21,7 @@ import {
   AwsS3BucketPolicy,
   useAwsS3Bucket,
 } from '@dinghy/tf-aws/serviceS3'
-import {
-  useGlobalLogBucket,
-  useRegionalLogBucket,
-} from '@dinghy/tf-aws/foundation'
+import { useGlobalLogBucket, useRegionalLogBucket } from '@dinghy/tf-aws'
 import {
   AwsCloudfrontDistribution,
   AwsCloudfrontFunction,

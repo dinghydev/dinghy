@@ -4,7 +4,7 @@ import {
   GlobalLogBucket,
   RegionalLogBucket,
   S3Backend,
-} from '@dinghy/tf-aws/foundation'
+} from '@dinghy/tf-aws'
 import { CloudfrontSites } from '@dinghy/tf-aws/cloudfrontSites'
 
 export default function App() {

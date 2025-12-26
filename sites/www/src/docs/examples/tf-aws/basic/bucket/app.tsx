@@ -1,5 +1,5 @@
 import { deepResolve, Shape } from '@dinghy/base-components'
-import { AwsProvider, S3Backend } from '@dinghy/tf-aws/foundation'
+import { AwsProvider, S3Backend } from '@dinghy/tf-aws'
 import {
   AwsS3Bucket,
   AwsS3BucketVersioning,

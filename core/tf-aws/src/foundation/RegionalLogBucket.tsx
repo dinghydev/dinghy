@@ -18,7 +18,7 @@ import {
   useDataAwsCallerIdentity,
 } from '@dinghy/tf-aws/serviceSts'
 
-import { useAwsProvider } from '@dinghy/tf-aws/foundation'
+import { useAwsProvider } from '@dinghy/tf-aws'
 
 export const InputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),

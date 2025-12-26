@@ -62,7 +62,7 @@ infrastructure code. For AWS, you can use the
 component like this:
 
 ```typescript
-import { AwsProvider } from '@dinghy/tf-aws/foundation'
+import { AwsProvider } from '@dinghy/tf-aws'
 
 <AwsProvider region='eu-west-1'>
 ```
@@ -75,7 +75,7 @@ For AWS, you can use the
 component like this:
 
 ```typescript
-import { S3Backend } from '@dinghy/tf-aws/foundation'
+import { S3Backend } from '@dinghy/tf-aws'
 
 <S3Backend />
 ```

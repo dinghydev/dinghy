@@ -1,5 +1,5 @@
 import { Shape } from '@dinghy/base-components'
-import { AwsProvider, S3Backend } from '@dinghy/tf-aws/foundation'
+import { AwsProvider, S3Backend } from '@dinghy/tf-aws'
 import { S3Bucket } from '@dinghy/tf-aws/s3Bucket'
 
 export default function App() {

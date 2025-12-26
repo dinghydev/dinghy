@@ -7,7 +7,7 @@ import {
 import { Waf } from '@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance'
 import { POSTGRE_SQL_INSTANCE } from '@dinghy/diagrams/entitiesAwsDatabase'
 
-import { AwsProvider } from '@dinghy/tf-aws/foundation'
+import { AwsProvider } from '@dinghy/tf-aws'
 import { AwsLb } from '@dinghy/tf-aws/serviceElbv2'
 import {
   AwsSubnet,
