@@ -54,5 +54,8 @@ export function AwsGameliftAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGameliftAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGameliftAlias, idFilter, baseNode)
+export const useAwsGameliftAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGameliftAlias, idFilter, baseNode, optional)

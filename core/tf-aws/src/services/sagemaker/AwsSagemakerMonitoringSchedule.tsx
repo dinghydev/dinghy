@@ -60,11 +60,23 @@ export function AwsSagemakerMonitoringSchedule(props: Partial<InputProps>) {
 export const useAwsSagemakerMonitoringSchedule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerMonitoringSchedule, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSagemakerMonitoringSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerMonitoringSchedules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerMonitoringSchedule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSagemakerMonitoringSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )

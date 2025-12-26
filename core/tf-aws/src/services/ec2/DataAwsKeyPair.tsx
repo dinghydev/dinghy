@@ -65,8 +65,14 @@ export function DataAwsKeyPair(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKeyPair = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsKeyPair, idFilter, baseNode)
+export const useDataAwsKeyPair = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsKeyPair, idFilter, baseNode, optional)
 
-export const useDataAwsKeyPairs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKeyPair, idFilter, baseNode)
+export const useDataAwsKeyPairs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsKeyPair, idFilter, baseNode, optional)

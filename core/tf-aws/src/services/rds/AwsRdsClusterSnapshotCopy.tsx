@@ -74,9 +74,23 @@ export function AwsRdsClusterSnapshotCopy(props: Partial<InputProps>) {
 export const useAwsRdsClusterSnapshotCopy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRdsClusterSnapshotCopy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRdsClusterSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsClusterSnapshotCopys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRdsClusterSnapshotCopy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRdsClusterSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )

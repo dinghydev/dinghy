@@ -55,8 +55,14 @@ export function AwsWafv2IpSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2IpSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafv2IpSet, idFilter, baseNode)
+export const useAwsWafv2IpSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafv2IpSet, idFilter, baseNode, optional)
 
-export const useAwsWafv2IpSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafv2IpSet, idFilter, baseNode)
+export const useAwsWafv2IpSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafv2IpSet, idFilter, baseNode, optional)

@@ -56,19 +56,23 @@ export function AwsShieldDrtAccessRoleArnAssociation(
 export const useAwsShieldDrtAccessRoleArnAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsShieldDrtAccessRoleArnAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsShieldDrtAccessRoleArnAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsShieldDrtAccessRoleArnAssociation,
     idFilter,
     baseNode,
+    optional,
   )

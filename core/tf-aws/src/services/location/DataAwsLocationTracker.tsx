@@ -53,8 +53,26 @@ export function DataAwsLocationTracker(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLocationTracker = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLocationTracker, idFilter, baseNode)
+export const useDataAwsLocationTracker = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLocationTracker,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsLocationTrackers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLocationTracker, idFilter, baseNode)
+export const useDataAwsLocationTrackers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLocationTracker,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -140,9 +140,23 @@ export function AwsEmrserverlessApplication(props: Partial<InputProps>) {
 export const useAwsEmrserverlessApplication = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEmrserverlessApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEmrserverlessApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrserverlessApplications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEmrserverlessApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEmrserverlessApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

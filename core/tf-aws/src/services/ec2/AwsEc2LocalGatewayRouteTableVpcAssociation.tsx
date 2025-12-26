@@ -55,19 +55,23 @@ export function AwsEc2LocalGatewayRouteTableVpcAssociation(
 export const useAwsEc2LocalGatewayRouteTableVpcAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2LocalGatewayRouteTableVpcAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2LocalGatewayRouteTableVpcAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2LocalGatewayRouteTableVpcAssociation,
     idFilter,
     baseNode,
+    optional,
   )

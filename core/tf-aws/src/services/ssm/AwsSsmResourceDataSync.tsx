@@ -52,8 +52,26 @@ export function AwsSsmResourceDataSync(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmResourceDataSync = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmResourceDataSync, idFilter, baseNode)
+export const useAwsSsmResourceDataSync = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsmResourceDataSync,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsSsmResourceDataSyncs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmResourceDataSync, idFilter, baseNode)
+export const useAwsSsmResourceDataSyncs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsmResourceDataSync,
+    idFilter,
+    baseNode,
+    optional,
+  )

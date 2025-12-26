@@ -51,4 +51,11 @@ export function DataAwsPrometheusWorkspaces(props: Partial<InputProps>) {
 export const useDataAwsPrometheusWorkspacess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsPrometheusWorkspaces, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsPrometheusWorkspaces,
+    idFilter,
+    baseNode,
+    optional,
+  )

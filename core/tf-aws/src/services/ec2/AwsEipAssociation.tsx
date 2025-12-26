@@ -51,8 +51,14 @@ export function AwsEipAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEipAssociation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEipAssociation, idFilter, baseNode)
+export const useAwsEipAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEipAssociation, idFilter, baseNode, optional)
 
-export const useAwsEipAssociations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEipAssociation, idFilter, baseNode)
+export const useAwsEipAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEipAssociation, idFilter, baseNode, optional)

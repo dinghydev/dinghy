@@ -55,9 +55,11 @@ export function AwsWorkspaceswebBrowserSettings(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebBrowserSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebBrowserSettings,
     idFilter,
     baseNode,
+    optional,
   )

@@ -67,10 +67,23 @@ export function DataAwsServicecatalogProduct(props: Partial<InputProps>) {
 export const useDataAwsServicecatalogProduct = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsServicecatalogProduct, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsServicecatalogProduct,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsServicecatalogProducts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsServicecatalogProduct, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsServicecatalogProduct,
+    idFilter,
+    baseNode,
+    optional,
+  )

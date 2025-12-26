@@ -50,9 +50,23 @@ export function AwsEc2AvailabilityZoneGroup(props: Partial<InputProps>) {
 export const useAwsEc2AvailabilityZoneGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2AvailabilityZoneGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2AvailabilityZoneGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2AvailabilityZoneGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2AvailabilityZoneGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2AvailabilityZoneGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

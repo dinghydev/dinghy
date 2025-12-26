@@ -65,9 +65,23 @@ export function AwsPinpointEmailTemplate(props: Partial<InputProps>) {
 export const useAwsPinpointEmailTemplate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsPinpointEmailTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointEmailTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPinpointEmailTemplates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsPinpointEmailTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointEmailTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -49,19 +49,23 @@ export function AwsIamRolePolicyAttachmentsExclusive(
 export const useAwsIamRolePolicyAttachmentsExclusive = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsIamRolePolicyAttachmentsExclusive,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsIamRolePolicyAttachmentsExclusives = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsIamRolePolicyAttachmentsExclusive,
     idFilter,
     baseNode,
+    optional,
   )

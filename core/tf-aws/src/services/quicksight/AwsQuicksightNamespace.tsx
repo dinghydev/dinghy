@@ -59,8 +59,26 @@ export function AwsQuicksightNamespace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightNamespace = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightNamespace, idFilter, baseNode)
+export const useAwsQuicksightNamespace = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsQuicksightNamespaces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightNamespace, idFilter, baseNode)
+export const useAwsQuicksightNamespaces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )

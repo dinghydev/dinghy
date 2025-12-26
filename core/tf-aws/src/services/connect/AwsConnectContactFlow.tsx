@@ -56,8 +56,21 @@ export function AwsConnectContactFlow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectContactFlow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectContactFlow, idFilter, baseNode)
+export const useAwsConnectContactFlow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsConnectContactFlow, idFilter, baseNode, optional)
 
-export const useAwsConnectContactFlows = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectContactFlow, idFilter, baseNode)
+export const useAwsConnectContactFlows = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectContactFlow,
+    idFilter,
+    baseNode,
+    optional,
+  )

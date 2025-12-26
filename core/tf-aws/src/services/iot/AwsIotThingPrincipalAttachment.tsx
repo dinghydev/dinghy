@@ -50,11 +50,23 @@ export function AwsIotThingPrincipalAttachment(props: Partial<InputProps>) {
 export const useAwsIotThingPrincipalAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIotThingPrincipalAttachment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsIotThingPrincipalAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotThingPrincipalAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsIotThingPrincipalAttachment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsIotThingPrincipalAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

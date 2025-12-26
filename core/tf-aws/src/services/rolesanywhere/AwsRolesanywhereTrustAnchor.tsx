@@ -68,9 +68,23 @@ export function AwsRolesanywhereTrustAnchor(props: Partial<InputProps>) {
 export const useAwsRolesanywhereTrustAnchor = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRolesanywhereTrustAnchor, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRolesanywhereTrustAnchor,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRolesanywhereTrustAnchors = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRolesanywhereTrustAnchor, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRolesanywhereTrustAnchor,
+    idFilter,
+    baseNode,
+    optional,
+  )

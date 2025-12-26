@@ -58,19 +58,23 @@ export function AwsDatasyncLocationFsxLustreFileSystem(
 export const useAwsDatasyncLocationFsxLustreFileSystem = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatasyncLocationFsxLustreFileSystem,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatasyncLocationFsxLustreFileSystems = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatasyncLocationFsxLustreFileSystem,
     idFilter,
     baseNode,
+    optional,
   )

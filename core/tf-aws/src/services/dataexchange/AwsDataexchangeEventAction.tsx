@@ -72,9 +72,23 @@ export function AwsDataexchangeEventAction(props: Partial<InputProps>) {
 export const useAwsDataexchangeEventAction = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDataexchangeEventAction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDataexchangeEventAction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDataexchangeEventActions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDataexchangeEventAction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDataexchangeEventAction,
+    idFilter,
+    baseNode,
+    optional,
+  )

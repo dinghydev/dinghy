@@ -56,19 +56,23 @@ export function AwsDatazoneEnvironmentBlueprintConfiguration(
 export const useAwsDatazoneEnvironmentBlueprintConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatazoneEnvironmentBlueprintConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatazoneEnvironmentBlueprintConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatazoneEnvironmentBlueprintConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

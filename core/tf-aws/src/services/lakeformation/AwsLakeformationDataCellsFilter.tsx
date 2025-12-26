@@ -70,15 +70,23 @@ export function AwsLakeformationDataCellsFilter(props: Partial<InputProps>) {
 export const useAwsLakeformationDataCellsFilter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLakeformationDataCellsFilter, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLakeformationDataCellsFilter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLakeformationDataCellsFilters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLakeformationDataCellsFilter,
     idFilter,
     baseNode,
+    optional,
   )

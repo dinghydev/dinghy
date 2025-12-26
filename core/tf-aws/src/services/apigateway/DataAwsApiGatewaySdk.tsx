@@ -52,8 +52,16 @@ export function DataAwsApiGatewaySdk(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApiGatewaySdk = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsApiGatewaySdk, idFilter, baseNode)
+export const useDataAwsApiGatewaySdk = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsApiGatewaySdk, idFilter, baseNode, optional)
 
-export const useDataAwsApiGatewaySdks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsApiGatewaySdk, idFilter, baseNode)
+export const useDataAwsApiGatewaySdks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsApiGatewaySdk, idFilter, baseNode, optional)

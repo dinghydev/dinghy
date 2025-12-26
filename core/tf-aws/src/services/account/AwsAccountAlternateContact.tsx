@@ -59,9 +59,23 @@ export function AwsAccountAlternateContact(props: Partial<InputProps>) {
 export const useAwsAccountAlternateContact = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAccountAlternateContact, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAccountAlternateContact,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAccountAlternateContacts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAccountAlternateContact, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAccountAlternateContact,
+    idFilter,
+    baseNode,
+    optional,
+  )

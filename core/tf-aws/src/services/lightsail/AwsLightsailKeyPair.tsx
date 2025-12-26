@@ -57,8 +57,16 @@ export function AwsLightsailKeyPair(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailKeyPair = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailKeyPair, idFilter, baseNode)
+export const useAwsLightsailKeyPair = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLightsailKeyPair, idFilter, baseNode, optional)
 
-export const useAwsLightsailKeyPairs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailKeyPair, idFilter, baseNode)
+export const useAwsLightsailKeyPairs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailKeyPair, idFilter, baseNode, optional)

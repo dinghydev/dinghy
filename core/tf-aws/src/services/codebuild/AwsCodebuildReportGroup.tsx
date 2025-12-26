@@ -68,10 +68,26 @@ export function AwsCodebuildReportGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildReportGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodebuildReportGroup, idFilter, baseNode)
+export const useAwsCodebuildReportGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodebuildReportGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodebuildReportGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCodebuildReportGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodebuildReportGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

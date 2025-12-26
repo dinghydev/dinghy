@@ -98,19 +98,23 @@ export function DataAwsNetworkfirewallFirewallPolicy(
 export const useDataAwsNetworkfirewallFirewallPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsNetworkfirewallFirewallPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsNetworkfirewallFirewallPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNetworkfirewallFirewallPolicy,
     idFilter,
     baseNode,
+    optional,
   )

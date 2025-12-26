@@ -99,15 +99,23 @@ export function AwsComprehendDocumentClassifier(props: Partial<InputProps>) {
 export const useAwsComprehendDocumentClassifier = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsComprehendDocumentClassifier, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsComprehendDocumentClassifier,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsComprehendDocumentClassifiers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsComprehendDocumentClassifier,
     idFilter,
     baseNode,
+    optional,
   )

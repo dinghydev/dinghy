@@ -82,19 +82,23 @@ export function AwsDrsReplicationConfigurationTemplate(
 export const useAwsDrsReplicationConfigurationTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDrsReplicationConfigurationTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDrsReplicationConfigurationTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDrsReplicationConfigurationTemplate,
     idFilter,
     baseNode,
+    optional,
   )

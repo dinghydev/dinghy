@@ -50,19 +50,23 @@ export function AwsRedshiftAuthenticationProfile(props: Partial<InputProps>) {
 export const useAwsRedshiftAuthenticationProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftAuthenticationProfile,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftAuthenticationProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftAuthenticationProfile,
     idFilter,
     baseNode,
+    optional,
   )

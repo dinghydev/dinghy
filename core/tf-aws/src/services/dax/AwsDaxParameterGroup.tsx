@@ -53,8 +53,16 @@ export function AwsDaxParameterGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDaxParameterGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDaxParameterGroup, idFilter, baseNode)
+export const useAwsDaxParameterGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDaxParameterGroup, idFilter, baseNode, optional)
 
-export const useAwsDaxParameterGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDaxParameterGroup, idFilter, baseNode)
+export const useAwsDaxParameterGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDaxParameterGroup, idFilter, baseNode, optional)

@@ -86,15 +86,23 @@ export function DataAwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
 export const useDataAwsSsmincidentsResponsePlan = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsSsmincidentsResponsePlan, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsSsmincidentsResponsePlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSsmincidentsResponsePlans = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSsmincidentsResponsePlan,
     idFilter,
     baseNode,
+    optional,
   )

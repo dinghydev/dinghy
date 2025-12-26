@@ -98,8 +98,14 @@ export function AwsElb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElb = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsElb, idFilter, baseNode)
+export const useAwsElb = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsElb, idFilter, baseNode, optional)
 
-export const useAwsElbs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsElb, idFilter, baseNode)
+export const useAwsElbs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsElb, idFilter, baseNode, optional)

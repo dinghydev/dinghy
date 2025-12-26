@@ -74,8 +74,15 @@ export function DataAwsVpcIpamPool(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcIpamPool = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsVpcIpamPool, idFilter, baseNode)
+export const useDataAwsVpcIpamPool = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsVpcIpamPool, idFilter, baseNode, optional)
 
-export const useDataAwsVpcIpamPools = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsVpcIpamPool, idFilter, baseNode)
+export const useDataAwsVpcIpamPools = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsVpcIpamPool, idFilter, baseNode, optional)

@@ -54,19 +54,23 @@ export function AwsS3controlObjectLambdaAccessPointPolicy(
 export const useAwsS3controlObjectLambdaAccessPointPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlObjectLambdaAccessPointPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3controlObjectLambdaAccessPointPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlObjectLambdaAccessPointPolicy,
     idFilter,
     baseNode,
+    optional,
   )

@@ -53,9 +53,11 @@ export function DataAwsOrganizationsDelegatedServices(
 export const useDataAwsOrganizationsDelegatedServicess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsDelegatedServices,
     idFilter,
     baseNode,
+    optional,
   )

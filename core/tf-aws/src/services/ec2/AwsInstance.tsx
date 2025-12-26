@@ -234,8 +234,14 @@ export function AwsInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsInstance, idFilter, baseNode)
+export const useAwsInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsInstance, idFilter, baseNode, optional)
 
-export const useAwsInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsInstance, idFilter, baseNode)
+export const useAwsInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsInstance, idFilter, baseNode, optional)

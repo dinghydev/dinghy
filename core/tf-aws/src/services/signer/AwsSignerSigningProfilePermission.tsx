@@ -53,19 +53,23 @@ export function AwsSignerSigningProfilePermission(props: Partial<InputProps>) {
 export const useAwsSignerSigningProfilePermission = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSignerSigningProfilePermission,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSignerSigningProfilePermissions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSignerSigningProfilePermission,
     idFilter,
     baseNode,
+    optional,
   )

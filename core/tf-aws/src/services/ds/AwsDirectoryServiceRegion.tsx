@@ -64,9 +64,23 @@ export function AwsDirectoryServiceRegion(props: Partial<InputProps>) {
 export const useAwsDirectoryServiceRegion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDirectoryServiceRegion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDirectoryServiceRegion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDirectoryServiceRegions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDirectoryServiceRegion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceRegion,
+    idFilter,
+    baseNode,
+    optional,
+  )

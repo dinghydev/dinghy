@@ -58,19 +58,23 @@ export function DataAwsCloudfrontRealtimeLogConfig(props: Partial<InputProps>) {
 export const useDataAwsCloudfrontRealtimeLogConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudfrontRealtimeLogConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudfrontRealtimeLogConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudfrontRealtimeLogConfig,
     idFilter,
     baseNode,
+    optional,
   )

@@ -60,19 +60,23 @@ export function AwsQuicksightIamPolicyAssignment(props: Partial<InputProps>) {
 export const useAwsQuicksightIamPolicyAssignment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsQuicksightIamPolicyAssignment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsQuicksightIamPolicyAssignments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsQuicksightIamPolicyAssignment,
     idFilter,
     baseNode,
+    optional,
   )

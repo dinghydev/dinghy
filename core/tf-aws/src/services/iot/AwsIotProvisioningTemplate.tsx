@@ -64,9 +64,23 @@ export function AwsIotProvisioningTemplate(props: Partial<InputProps>) {
 export const useAwsIotProvisioningTemplate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIotProvisioningTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIotProvisioningTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotProvisioningTemplates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIotProvisioningTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotProvisioningTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

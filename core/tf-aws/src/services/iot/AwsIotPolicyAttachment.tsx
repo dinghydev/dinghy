@@ -46,8 +46,26 @@ export function AwsIotPolicyAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotPolicyAttachment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotPolicyAttachment, idFilter, baseNode)
+export const useAwsIotPolicyAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIotPolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsIotPolicyAttachments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotPolicyAttachment, idFilter, baseNode)
+export const useAwsIotPolicyAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotPolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

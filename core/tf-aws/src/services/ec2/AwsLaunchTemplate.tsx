@@ -274,8 +274,14 @@ export function AwsLaunchTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLaunchTemplate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLaunchTemplate, idFilter, baseNode)
+export const useAwsLaunchTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLaunchTemplate, idFilter, baseNode, optional)
 
-export const useAwsLaunchTemplates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLaunchTemplate, idFilter, baseNode)
+export const useAwsLaunchTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLaunchTemplate, idFilter, baseNode, optional)

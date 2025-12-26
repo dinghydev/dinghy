@@ -90,9 +90,23 @@ export function DataAwsLaunchConfiguration(props: Partial<InputProps>) {
 export const useDataAwsLaunchConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsLaunchConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLaunchConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLaunchConfigurations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsLaunchConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLaunchConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

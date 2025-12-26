@@ -97,9 +97,23 @@ export function AwsCloudwatchMetricAlarm(props: Partial<InputProps>) {
 export const useAwsCloudwatchMetricAlarm = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchMetricAlarm, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchMetricAlarm,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchMetricAlarms = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchMetricAlarm, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchMetricAlarm,
+    idFilter,
+    baseNode,
+    optional,
+  )

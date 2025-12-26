@@ -47,5 +47,8 @@ export function DataAwsIamRoles(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamRoless = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamRoles, idFilter, baseNode)
+export const useDataAwsIamRoless = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsIamRoles, idFilter, baseNode, optional)

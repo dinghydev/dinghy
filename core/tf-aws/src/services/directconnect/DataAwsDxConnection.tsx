@@ -56,8 +56,16 @@ export function DataAwsDxConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDxConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsDxConnection, idFilter, baseNode)
+export const useDataAwsDxConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsDxConnection, idFilter, baseNode, optional)
 
-export const useDataAwsDxConnections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDxConnection, idFilter, baseNode)
+export const useDataAwsDxConnections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDxConnection, idFilter, baseNode, optional)

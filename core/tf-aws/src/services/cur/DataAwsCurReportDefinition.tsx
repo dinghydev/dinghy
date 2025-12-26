@@ -59,9 +59,23 @@ export function DataAwsCurReportDefinition(props: Partial<InputProps>) {
 export const useDataAwsCurReportDefinition = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCurReportDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCurReportDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCurReportDefinitions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCurReportDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCurReportDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,9 +50,11 @@ export function AwsConfigConfigurationRecorderStatus(
 export const useAwsConfigConfigurationRecorderStatuss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigConfigurationRecorderStatus,
     idFilter,
     baseNode,
+    optional,
   )

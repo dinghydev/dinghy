@@ -98,19 +98,23 @@ export function DataAwsLicensemanagerReceivedLicense(
 export const useDataAwsLicensemanagerReceivedLicense = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsLicensemanagerReceivedLicense,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsLicensemanagerReceivedLicenses = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsLicensemanagerReceivedLicense,
     idFilter,
     baseNode,
+    optional,
   )

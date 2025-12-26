@@ -53,10 +53,23 @@ export function AwsRedshiftSnapshotCopyGrant(props: Partial<InputProps>) {
 export const useAwsRedshiftSnapshotCopyGrant = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftSnapshotCopyGrant, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftSnapshotCopyGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftSnapshotCopyGrants = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRedshiftSnapshotCopyGrant, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRedshiftSnapshotCopyGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )

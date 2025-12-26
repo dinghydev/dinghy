@@ -59,19 +59,23 @@ export function AwsNetworkfirewallLoggingConfiguration(
 export const useAwsNetworkfirewallLoggingConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkfirewallLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkfirewallLoggingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkfirewallLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

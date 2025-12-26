@@ -69,8 +69,21 @@ export function AwsAppconfigExtension(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppconfigExtension = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppconfigExtension, idFilter, baseNode)
+export const useAwsAppconfigExtension = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAppconfigExtension, idFilter, baseNode, optional)
 
-export const useAwsAppconfigExtensions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppconfigExtension, idFilter, baseNode)
+export const useAwsAppconfigExtensions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppconfigExtension,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -46,8 +46,21 @@ export function DataAwsLbHostedZoneId(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbHostedZoneId = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLbHostedZoneId, idFilter, baseNode)
+export const useDataAwsLbHostedZoneId = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsLbHostedZoneId, idFilter, baseNode, optional)
 
-export const useDataAwsLbHostedZoneIds = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLbHostedZoneId, idFilter, baseNode)
+export const useDataAwsLbHostedZoneIds = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLbHostedZoneId,
+    idFilter,
+    baseNode,
+    optional,
+  )

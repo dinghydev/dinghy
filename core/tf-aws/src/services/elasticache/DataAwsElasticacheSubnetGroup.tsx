@@ -54,11 +54,23 @@ export function DataAwsElasticacheSubnetGroup(props: Partial<InputProps>) {
 export const useDataAwsElasticacheSubnetGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsElasticacheSubnetGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsElasticacheSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsElasticacheSubnetGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsElasticacheSubnetGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsElasticacheSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -43,8 +43,26 @@ export function DataAwsCanonicalUserId(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCanonicalUserId = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsCanonicalUserId, idFilter, baseNode)
+export const useDataAwsCanonicalUserId = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCanonicalUserId,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsCanonicalUserIds = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsCanonicalUserId, idFilter, baseNode)
+export const useDataAwsCanonicalUserIds = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCanonicalUserId,
+    idFilter,
+    baseNode,
+    optional,
+  )

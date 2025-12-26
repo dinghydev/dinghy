@@ -69,11 +69,23 @@ export function DataAwsConnectHoursOfOperation(props: Partial<InputProps>) {
 export const useDataAwsConnectHoursOfOperation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsConnectHoursOfOperation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsConnectHoursOfOperation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectHoursOfOperations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsConnectHoursOfOperation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsConnectHoursOfOperation,
+    idFilter,
+    baseNode,
+    optional,
+  )

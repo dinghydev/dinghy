@@ -56,8 +56,15 @@ export function AwsDetectiveMember(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDetectiveMember = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDetectiveMember, idFilter, baseNode)
+export const useAwsDetectiveMember = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDetectiveMember, idFilter, baseNode, optional)
 
-export const useAwsDetectiveMembers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDetectiveMember, idFilter, baseNode)
+export const useAwsDetectiveMembers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDetectiveMember, idFilter, baseNode, optional)

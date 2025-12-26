@@ -54,9 +54,23 @@ export function DataAwsKmsCustomKeyStore(props: Partial<InputProps>) {
 export const useDataAwsKmsCustomKeyStore = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsKmsCustomKeyStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsKmsCustomKeyStore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKmsCustomKeyStores = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsKmsCustomKeyStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsKmsCustomKeyStore,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -59,8 +59,14 @@ export function AwsIotPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotPolicy, idFilter, baseNode)
+export const useAwsIotPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIotPolicy, idFilter, baseNode, optional)
 
-export const useAwsIotPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotPolicy, idFilter, baseNode)
+export const useAwsIotPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIotPolicy, idFilter, baseNode, optional)

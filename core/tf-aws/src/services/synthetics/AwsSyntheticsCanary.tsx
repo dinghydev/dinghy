@@ -102,8 +102,16 @@ export function AwsSyntheticsCanary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSyntheticsCanary = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSyntheticsCanary, idFilter, baseNode)
+export const useAwsSyntheticsCanary = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSyntheticsCanary, idFilter, baseNode, optional)
 
-export const useAwsSyntheticsCanarys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSyntheticsCanary, idFilter, baseNode)
+export const useAwsSyntheticsCanarys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSyntheticsCanary, idFilter, baseNode, optional)

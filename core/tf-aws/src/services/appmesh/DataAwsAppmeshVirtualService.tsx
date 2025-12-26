@@ -66,10 +66,23 @@ export function DataAwsAppmeshVirtualService(props: Partial<InputProps>) {
 export const useDataAwsAppmeshVirtualService = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAppmeshVirtualService, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAppmeshVirtualService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAppmeshVirtualServices = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshVirtualService, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsAppmeshVirtualService,
+    idFilter,
+    baseNode,
+    optional,
+  )

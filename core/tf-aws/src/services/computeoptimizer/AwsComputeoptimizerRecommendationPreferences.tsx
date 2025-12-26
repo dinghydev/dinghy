@@ -80,9 +80,11 @@ export function AwsComputeoptimizerRecommendationPreferences(
 export const useAwsComputeoptimizerRecommendationPreferencess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsComputeoptimizerRecommendationPreferences,
     idFilter,
     baseNode,
+    optional,
   )

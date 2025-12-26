@@ -65,15 +65,23 @@ export function AwsDevopsguruServiceIntegration(props: Partial<InputProps>) {
 export const useAwsDevopsguruServiceIntegration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDevopsguruServiceIntegration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsDevopsguruServiceIntegration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevopsguruServiceIntegrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDevopsguruServiceIntegration,
     idFilter,
     baseNode,
+    optional,
   )

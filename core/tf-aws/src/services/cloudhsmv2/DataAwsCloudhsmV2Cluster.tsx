@@ -60,9 +60,23 @@ export function DataAwsCloudhsmV2Cluster(props: Partial<InputProps>) {
 export const useDataAwsCloudhsmV2Cluster = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCloudhsmV2Cluster, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudhsmV2Cluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudhsmV2Clusters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCloudhsmV2Cluster, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudhsmV2Cluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

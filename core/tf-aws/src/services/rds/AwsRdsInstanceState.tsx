@@ -51,8 +51,16 @@ export function AwsRdsInstanceState(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsInstanceState = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsInstanceState, idFilter, baseNode)
+export const useAwsRdsInstanceState = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsRdsInstanceState, idFilter, baseNode, optional)
 
-export const useAwsRdsInstanceStates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsInstanceState, idFilter, baseNode)
+export const useAwsRdsInstanceStates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsRdsInstanceState, idFilter, baseNode, optional)

@@ -57,19 +57,23 @@ export function AwsCloudsearchDomainServiceAccessPolicy(
 export const useAwsCloudsearchDomainServiceAccessPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudsearchDomainServiceAccessPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudsearchDomainServiceAccessPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudsearchDomainServiceAccessPolicy,
     idFilter,
     baseNode,
+    optional,
   )

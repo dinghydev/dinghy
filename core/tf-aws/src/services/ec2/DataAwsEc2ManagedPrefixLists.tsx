@@ -55,5 +55,11 @@ export function DataAwsEc2ManagedPrefixLists(props: Partial<InputProps>) {
 export const useDataAwsEc2ManagedPrefixListss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEc2ManagedPrefixLists, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsEc2ManagedPrefixLists,
+    idFilter,
+    baseNode,
+    optional,
+  )

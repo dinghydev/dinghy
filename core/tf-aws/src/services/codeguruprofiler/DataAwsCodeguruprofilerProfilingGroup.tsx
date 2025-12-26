@@ -67,19 +67,23 @@ export function DataAwsCodeguruprofilerProfilingGroup(
 export const useDataAwsCodeguruprofilerProfilingGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCodeguruprofilerProfilingGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCodeguruprofilerProfilingGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCodeguruprofilerProfilingGroup,
     idFilter,
     baseNode,
+    optional,
   )

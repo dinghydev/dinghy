@@ -102,11 +102,23 @@ export function AwsImagebuilderLifecyclePolicy(props: Partial<InputProps>) {
 export const useAwsImagebuilderLifecyclePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsImagebuilderLifecyclePolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsImagebuilderLifecyclePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsImagebuilderLifecyclePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderLifecyclePolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsImagebuilderLifecyclePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

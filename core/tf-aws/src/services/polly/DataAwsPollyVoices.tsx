@@ -56,5 +56,9 @@ export function DataAwsPollyVoices(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPollyVoicess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsPollyVoices, idFilter, baseNode)
+export const useDataAwsPollyVoicess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsPollyVoices, idFilter, baseNode, optional)

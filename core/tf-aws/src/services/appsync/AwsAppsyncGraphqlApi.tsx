@@ -117,8 +117,16 @@ export function AwsAppsyncGraphqlApi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncGraphqlApi = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode)
+export const useAwsAppsyncGraphqlApi = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode, optional)
 
-export const useAwsAppsyncGraphqlApis = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode)
+export const useAwsAppsyncGraphqlApis = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode, optional)

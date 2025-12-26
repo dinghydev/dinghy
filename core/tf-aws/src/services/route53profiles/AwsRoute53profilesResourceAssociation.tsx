@@ -66,19 +66,23 @@ export function AwsRoute53profilesResourceAssociation(
 export const useAwsRoute53profilesResourceAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53profilesResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53profilesResourceAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53profilesResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -59,8 +59,21 @@ export function DataAwsGlueConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGlueConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsGlueConnection, idFilter, baseNode)
+export const useDataAwsGlueConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsGlueConnection, idFilter, baseNode, optional)
 
-export const useDataAwsGlueConnections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsGlueConnection, idFilter, baseNode)
+export const useDataAwsGlueConnections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsGlueConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

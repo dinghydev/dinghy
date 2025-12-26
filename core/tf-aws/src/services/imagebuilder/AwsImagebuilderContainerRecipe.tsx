@@ -104,11 +104,23 @@ export function AwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
 export const useAwsImagebuilderContainerRecipe = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsImagebuilderContainerRecipe, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsImagebuilderContainerRecipe,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsImagebuilderContainerRecipes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderContainerRecipe, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsImagebuilderContainerRecipe,
+    idFilter,
+    baseNode,
+    optional,
+  )

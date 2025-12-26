@@ -58,8 +58,14 @@ export function AwsKmsReplicaKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsReplicaKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKmsReplicaKey, idFilter, baseNode)
+export const useAwsKmsReplicaKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKmsReplicaKey, idFilter, baseNode, optional)
 
-export const useAwsKmsReplicaKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsReplicaKey, idFilter, baseNode)
+export const useAwsKmsReplicaKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKmsReplicaKey, idFilter, baseNode, optional)

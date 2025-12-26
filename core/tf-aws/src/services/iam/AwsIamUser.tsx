@@ -53,8 +53,14 @@ export function AwsIamUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamUser, idFilter, baseNode)
+export const useAwsIamUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIamUser, idFilter, baseNode, optional)
 
-export const useAwsIamUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamUser, idFilter, baseNode)
+export const useAwsIamUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIamUser, idFilter, baseNode, optional)

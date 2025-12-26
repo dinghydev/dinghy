@@ -64,4 +64,11 @@ export function DataAwsEksClusterVersions(props: Partial<InputProps>) {
 export const useDataAwsEksClusterVersionss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEksClusterVersions, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEksClusterVersions,
+    idFilter,
+    baseNode,
+    optional,
+  )

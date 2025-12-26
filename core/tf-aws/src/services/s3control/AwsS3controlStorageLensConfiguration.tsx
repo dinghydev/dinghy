@@ -125,19 +125,23 @@ export function AwsS3controlStorageLensConfiguration(
 export const useAwsS3controlStorageLensConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlStorageLensConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3controlStorageLensConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlStorageLensConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

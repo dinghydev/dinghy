@@ -55,8 +55,14 @@ export function DataAwsLexIntent(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLexIntent = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLexIntent, idFilter, baseNode)
+export const useDataAwsLexIntent = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsLexIntent, idFilter, baseNode, optional)
 
-export const useDataAwsLexIntents = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLexIntent, idFilter, baseNode)
+export const useDataAwsLexIntents = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsLexIntent, idFilter, baseNode, optional)

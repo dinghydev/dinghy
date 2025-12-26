@@ -74,19 +74,23 @@ export function AwsDatasyncLocationFsxOntapFileSystem(
 export const useAwsDatasyncLocationFsxOntapFileSystem = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatasyncLocationFsxOntapFileSystem,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatasyncLocationFsxOntapFileSystems = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatasyncLocationFsxOntapFileSystem,
     idFilter,
     baseNode,
+    optional,
   )

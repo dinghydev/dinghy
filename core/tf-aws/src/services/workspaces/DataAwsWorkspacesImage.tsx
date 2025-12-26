@@ -51,8 +51,26 @@ export function DataAwsWorkspacesImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWorkspacesImage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWorkspacesImage, idFilter, baseNode)
+export const useDataAwsWorkspacesImage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWorkspacesImage,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsWorkspacesImages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsWorkspacesImage, idFilter, baseNode)
+export const useDataAwsWorkspacesImages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWorkspacesImage,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -51,10 +51,23 @@ export function AwsEcrpublicRepositoryPolicy(props: Partial<InputProps>) {
 export const useAwsEcrpublicRepositoryPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEcrpublicRepositoryPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcrpublicRepositoryPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcrpublicRepositoryPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEcrpublicRepositoryPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEcrpublicRepositoryPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

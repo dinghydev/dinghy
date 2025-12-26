@@ -50,8 +50,15 @@ export function AwsSchemasRegistry(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSchemasRegistry = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSchemasRegistry, idFilter, baseNode)
+export const useAwsSchemasRegistry = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSchemasRegistry, idFilter, baseNode, optional)
 
-export const useAwsSchemasRegistrys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSchemasRegistry, idFilter, baseNode)
+export const useAwsSchemasRegistrys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSchemasRegistry, idFilter, baseNode, optional)

@@ -65,9 +65,23 @@ export function AwsLbSslNegotiationPolicy(props: Partial<InputProps>) {
 export const useAwsLbSslNegotiationPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLbSslNegotiationPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLbSslNegotiationPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbSslNegotiationPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLbSslNegotiationPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLbSslNegotiationPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

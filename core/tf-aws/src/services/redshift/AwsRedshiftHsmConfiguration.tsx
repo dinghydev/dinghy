@@ -57,9 +57,23 @@ export function AwsRedshiftHsmConfiguration(props: Partial<InputProps>) {
 export const useAwsRedshiftHsmConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftHsmConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftHsmConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftHsmConfigurations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftHsmConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftHsmConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -66,8 +66,26 @@ export function AwsConnectQuickConnect(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectQuickConnect = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectQuickConnect, idFilter, baseNode)
+export const useAwsConnectQuickConnect = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectQuickConnect,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsConnectQuickConnects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectQuickConnect, idFilter, baseNode)
+export const useAwsConnectQuickConnects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectQuickConnect,
+    idFilter,
+    baseNode,
+    optional,
+  )

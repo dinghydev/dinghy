@@ -53,9 +53,23 @@ export function AwsLightsailBucketAccessKey(props: Partial<InputProps>) {
 export const useAwsLightsailBucketAccessKey = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLightsailBucketAccessKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailBucketAccessKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailBucketAccessKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLightsailBucketAccessKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailBucketAccessKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

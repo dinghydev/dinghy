@@ -60,10 +60,26 @@ export function AwsDynamodbTableReplica(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTableReplica = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDynamodbTableReplica, idFilter, baseNode)
+export const useAwsDynamodbTableReplica = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDynamodbTableReplica,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDynamodbTableReplicas = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDynamodbTableReplica, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDynamodbTableReplica,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -48,9 +48,11 @@ export function AwsCostoptimizationhubPreferences(props: Partial<InputProps>) {
 export const useAwsCostoptimizationhubPreferencess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCostoptimizationhubPreferences,
     idFilter,
     baseNode,
+    optional,
   )

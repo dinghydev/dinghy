@@ -79,8 +79,14 @@ export function DataAwsSubnet(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSubnet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSubnet, idFilter, baseNode)
+export const useDataAwsSubnet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsSubnet, idFilter, baseNode, optional)
 
-export const useDataAwsSubnets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSubnet, idFilter, baseNode)
+export const useDataAwsSubnets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsSubnet, idFilter, baseNode, optional)

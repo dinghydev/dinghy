@@ -50,8 +50,15 @@ export function AwsRedshiftLogging(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftLogging = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRedshiftLogging, idFilter, baseNode)
+export const useAwsRedshiftLogging = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRedshiftLogging, idFilter, baseNode, optional)
 
-export const useAwsRedshiftLoggings = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRedshiftLogging, idFilter, baseNode)
+export const useAwsRedshiftLoggings = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsRedshiftLogging, idFilter, baseNode, optional)

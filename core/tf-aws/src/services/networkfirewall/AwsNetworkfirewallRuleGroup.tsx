@@ -154,9 +154,23 @@ export function AwsNetworkfirewallRuleGroup(props: Partial<InputProps>) {
 export const useAwsNetworkfirewallRuleGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNetworkfirewallRuleGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkfirewallRuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkfirewallRuleGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNetworkfirewallRuleGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkfirewallRuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

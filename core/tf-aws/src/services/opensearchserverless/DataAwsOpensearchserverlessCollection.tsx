@@ -63,19 +63,23 @@ export function DataAwsOpensearchserverlessCollection(
 export const useDataAwsOpensearchserverlessCollection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOpensearchserverlessCollection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOpensearchserverlessCollections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOpensearchserverlessCollection,
     idFilter,
     baseNode,
+    optional,
   )

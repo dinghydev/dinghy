@@ -126,5 +126,8 @@ export function DataAwsCeTags(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCeTagss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsCeTags, idFilter, baseNode)
+export const useDataAwsCeTagss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsCeTags, idFilter, baseNode, optional)

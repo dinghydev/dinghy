@@ -56,10 +56,26 @@ export function AwsChimesdkvoiceSipRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsChimesdkvoiceSipRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsChimesdkvoiceSipRule, idFilter, baseNode)
+export const useAwsChimesdkvoiceSipRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChimesdkvoiceSipRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsChimesdkvoiceSipRules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsChimesdkvoiceSipRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChimesdkvoiceSipRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

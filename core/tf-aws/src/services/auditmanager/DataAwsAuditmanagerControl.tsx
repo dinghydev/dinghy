@@ -70,9 +70,23 @@ export function DataAwsAuditmanagerControl(props: Partial<InputProps>) {
 export const useDataAwsAuditmanagerControl = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAuditmanagerControl, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAuditmanagerControl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAuditmanagerControls = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAuditmanagerControl, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAuditmanagerControl,
+    idFilter,
+    baseNode,
+    optional,
+  )

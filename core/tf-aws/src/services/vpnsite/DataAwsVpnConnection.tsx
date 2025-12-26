@@ -75,8 +75,16 @@ export function DataAwsVpnConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpnConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsVpnConnection, idFilter, baseNode)
+export const useDataAwsVpnConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsVpnConnection, idFilter, baseNode, optional)
 
-export const useDataAwsVpnConnections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsVpnConnection, idFilter, baseNode)
+export const useDataAwsVpnConnections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsVpnConnection, idFilter, baseNode, optional)

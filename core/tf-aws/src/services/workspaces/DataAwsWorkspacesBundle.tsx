@@ -61,10 +61,26 @@ export function DataAwsWorkspacesBundle(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWorkspacesBundle = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWorkspacesBundle, idFilter, baseNode)
+export const useDataAwsWorkspacesBundle = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWorkspacesBundle,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWorkspacesBundles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsWorkspacesBundle, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWorkspacesBundle,
+    idFilter,
+    baseNode,
+    optional,
+  )

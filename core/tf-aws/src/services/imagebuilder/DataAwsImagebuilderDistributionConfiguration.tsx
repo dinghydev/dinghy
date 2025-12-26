@@ -111,19 +111,23 @@ export function DataAwsImagebuilderDistributionConfiguration(
 export const useDataAwsImagebuilderDistributionConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsImagebuilderDistributionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsImagebuilderDistributionConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderDistributionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

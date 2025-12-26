@@ -64,10 +64,26 @@ export function AwsInvoicingInvoiceUnit(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInvoicingInvoiceUnit = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsInvoicingInvoiceUnit, idFilter, baseNode)
+export const useAwsInvoicingInvoiceUnit = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInvoicingInvoiceUnit,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInvoicingInvoiceUnits = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsInvoicingInvoiceUnit, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsInvoicingInvoiceUnit,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -60,8 +60,16 @@ export function AwsXraySamplingRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsXraySamplingRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsXraySamplingRule, idFilter, baseNode)
+export const useAwsXraySamplingRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsXraySamplingRule, idFilter, baseNode, optional)
 
-export const useAwsXraySamplingRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsXraySamplingRule, idFilter, baseNode)
+export const useAwsXraySamplingRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsXraySamplingRule, idFilter, baseNode, optional)

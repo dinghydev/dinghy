@@ -49,9 +49,23 @@ export function DataAwsElbServiceAccount(props: Partial<InputProps>) {
 export const useDataAwsElbServiceAccount = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsElbServiceAccount, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElbServiceAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsElbServiceAccounts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsElbServiceAccount, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElbServiceAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )

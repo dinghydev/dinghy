@@ -49,9 +49,23 @@ export function DataAwsIotRegistrationCode(props: Partial<InputProps>) {
 export const useDataAwsIotRegistrationCode = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsIotRegistrationCode, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsIotRegistrationCode,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIotRegistrationCodes = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsIotRegistrationCode, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIotRegistrationCode,
+    idFilter,
+    baseNode,
+    optional,
+  )

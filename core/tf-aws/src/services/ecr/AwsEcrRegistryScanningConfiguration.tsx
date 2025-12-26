@@ -61,19 +61,23 @@ export function AwsEcrRegistryScanningConfiguration(
 export const useAwsEcrRegistryScanningConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEcrRegistryScanningConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEcrRegistryScanningConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEcrRegistryScanningConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

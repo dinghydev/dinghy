@@ -195,19 +195,23 @@ export function AwsTimestreamqueryScheduledQuery(props: Partial<InputProps>) {
 export const useAwsTimestreamqueryScheduledQuery = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsTimestreamqueryScheduledQuery,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsTimestreamqueryScheduledQuerys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsTimestreamqueryScheduledQuery,
     idFilter,
     baseNode,
+    optional,
   )

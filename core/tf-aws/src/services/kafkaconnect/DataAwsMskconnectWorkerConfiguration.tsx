@@ -56,19 +56,23 @@ export function DataAwsMskconnectWorkerConfiguration(
 export const useDataAwsMskconnectWorkerConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsMskconnectWorkerConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsMskconnectWorkerConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsMskconnectWorkerConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

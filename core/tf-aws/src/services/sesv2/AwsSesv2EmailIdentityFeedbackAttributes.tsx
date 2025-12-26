@@ -50,9 +50,11 @@ export function AwsSesv2EmailIdentityFeedbackAttributes(
 export const useAwsSesv2EmailIdentityFeedbackAttributess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSesv2EmailIdentityFeedbackAttributes,
     idFilter,
     baseNode,
+    optional,
   )

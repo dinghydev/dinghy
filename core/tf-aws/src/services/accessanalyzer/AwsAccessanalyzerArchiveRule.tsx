@@ -59,10 +59,23 @@ export function AwsAccessanalyzerArchiveRule(props: Partial<InputProps>) {
 export const useAwsAccessanalyzerArchiveRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAccessanalyzerArchiveRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAccessanalyzerArchiveRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAccessanalyzerArchiveRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAccessanalyzerArchiveRule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAccessanalyzerArchiveRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

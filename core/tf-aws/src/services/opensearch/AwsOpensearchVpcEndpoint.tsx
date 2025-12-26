@@ -63,9 +63,23 @@ export function AwsOpensearchVpcEndpoint(props: Partial<InputProps>) {
 export const useAwsOpensearchVpcEndpoint = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsOpensearchVpcEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOpensearchVpcEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOpensearchVpcEndpoints = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsOpensearchVpcEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOpensearchVpcEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -63,8 +63,21 @@ export function AwsNetworkmanagerLink(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmanagerLink = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerLink, idFilter, baseNode)
+export const useAwsNetworkmanagerLink = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsNetworkmanagerLink, idFilter, baseNode, optional)
 
-export const useAwsNetworkmanagerLinks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerLink, idFilter, baseNode)
+export const useAwsNetworkmanagerLinks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerLink,
+    idFilter,
+    baseNode,
+    optional,
+  )

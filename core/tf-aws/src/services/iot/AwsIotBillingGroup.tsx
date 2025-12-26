@@ -60,8 +60,15 @@ export function AwsIotBillingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotBillingGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotBillingGroup, idFilter, baseNode)
+export const useAwsIotBillingGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIotBillingGroup, idFilter, baseNode, optional)
 
-export const useAwsIotBillingGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotBillingGroup, idFilter, baseNode)
+export const useAwsIotBillingGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsIotBillingGroup, idFilter, baseNode, optional)

@@ -68,19 +68,23 @@ export function AwsApprunnerAutoScalingConfigurationVersion(
 export const useAwsApprunnerAutoScalingConfigurationVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApprunnerAutoScalingConfigurationVersion,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApprunnerAutoScalingConfigurationVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApprunnerAutoScalingConfigurationVersion,
     idFilter,
     baseNode,
+    optional,
   )

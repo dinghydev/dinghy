@@ -55,9 +55,23 @@ export function AwsKinesisResourcePolicy(props: Partial<InputProps>) {
 export const useAwsKinesisResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsKinesisResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsKinesisResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKinesisResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsKinesisResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsKinesisResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

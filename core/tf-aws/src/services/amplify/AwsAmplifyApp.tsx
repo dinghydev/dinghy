@@ -106,8 +106,14 @@ export function AwsAmplifyApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmplifyApp = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAmplifyApp, idFilter, baseNode)
+export const useAwsAmplifyApp = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAmplifyApp, idFilter, baseNode, optional)
 
-export const useAwsAmplifyApps = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAmplifyApp, idFilter, baseNode)
+export const useAwsAmplifyApps = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAmplifyApp, idFilter, baseNode, optional)

@@ -55,19 +55,23 @@ export function AwsElasticacheUserGroupAssociation(props: Partial<InputProps>) {
 export const useAwsElasticacheUserGroupAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsElasticacheUserGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsElasticacheUserGroupAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsElasticacheUserGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )

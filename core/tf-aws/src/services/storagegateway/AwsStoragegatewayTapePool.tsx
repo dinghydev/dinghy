@@ -55,9 +55,23 @@ export function AwsStoragegatewayTapePool(props: Partial<InputProps>) {
 export const useAwsStoragegatewayTapePool = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsStoragegatewayTapePool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsStoragegatewayTapePool,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsStoragegatewayTapePools = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsStoragegatewayTapePool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayTapePool,
+    idFilter,
+    baseNode,
+    optional,
+  )

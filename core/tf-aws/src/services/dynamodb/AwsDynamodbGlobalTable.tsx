@@ -59,8 +59,26 @@ export function AwsDynamodbGlobalTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbGlobalTable = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDynamodbGlobalTable, idFilter, baseNode)
+export const useAwsDynamodbGlobalTable = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDynamodbGlobalTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDynamodbGlobalTables = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDynamodbGlobalTable, idFilter, baseNode)
+export const useAwsDynamodbGlobalTables = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDynamodbGlobalTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

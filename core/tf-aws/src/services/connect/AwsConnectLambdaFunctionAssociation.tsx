@@ -52,19 +52,23 @@ export function AwsConnectLambdaFunctionAssociation(
 export const useAwsConnectLambdaFunctionAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConnectLambdaFunctionAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConnectLambdaFunctionAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConnectLambdaFunctionAssociation,
     idFilter,
     baseNode,
+    optional,
   )

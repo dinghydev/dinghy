@@ -57,11 +57,23 @@ export function DataAwsBedrockFoundationModel(props: Partial<InputProps>) {
 export const useDataAwsBedrockFoundationModel = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsBedrockFoundationModel, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsBedrockFoundationModel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBedrockFoundationModels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockFoundationModel, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsBedrockFoundationModel,
+    idFilter,
+    baseNode,
+    optional,
+  )

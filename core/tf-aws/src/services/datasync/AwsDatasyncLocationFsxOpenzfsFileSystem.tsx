@@ -65,19 +65,23 @@ export function AwsDatasyncLocationFsxOpenzfsFileSystem(
 export const useAwsDatasyncLocationFsxOpenzfsFileSystem = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatasyncLocationFsxOpenzfsFileSystem,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatasyncLocationFsxOpenzfsFileSystems = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatasyncLocationFsxOpenzfsFileSystem,
     idFilter,
     baseNode,
+    optional,
   )

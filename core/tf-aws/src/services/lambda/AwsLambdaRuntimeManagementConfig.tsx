@@ -52,19 +52,23 @@ export function AwsLambdaRuntimeManagementConfig(props: Partial<InputProps>) {
 export const useAwsLambdaRuntimeManagementConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLambdaRuntimeManagementConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLambdaRuntimeManagementConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLambdaRuntimeManagementConfig,
     idFilter,
     baseNode,
+    optional,
   )

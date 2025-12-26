@@ -171,8 +171,16 @@ export function AwsKendraDataSource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKendraDataSource = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKendraDataSource, idFilter, baseNode)
+export const useAwsKendraDataSource = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsKendraDataSource, idFilter, baseNode, optional)
 
-export const useAwsKendraDataSources = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKendraDataSource, idFilter, baseNode)
+export const useAwsKendraDataSources = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsKendraDataSource, idFilter, baseNode, optional)

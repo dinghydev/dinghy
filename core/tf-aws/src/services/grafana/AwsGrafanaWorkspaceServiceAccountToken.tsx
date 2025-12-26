@@ -58,19 +58,23 @@ export function AwsGrafanaWorkspaceServiceAccountToken(
 export const useAwsGrafanaWorkspaceServiceAccountToken = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGrafanaWorkspaceServiceAccountToken,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGrafanaWorkspaceServiceAccountTokens = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGrafanaWorkspaceServiceAccountToken,
     idFilter,
     baseNode,
+    optional,
   )

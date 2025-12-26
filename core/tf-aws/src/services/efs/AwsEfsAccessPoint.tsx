@@ -68,8 +68,14 @@ export function AwsEfsAccessPoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsAccessPoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEfsAccessPoint, idFilter, baseNode)
+export const useAwsEfsAccessPoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEfsAccessPoint, idFilter, baseNode, optional)
 
-export const useAwsEfsAccessPoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEfsAccessPoint, idFilter, baseNode)
+export const useAwsEfsAccessPoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEfsAccessPoint, idFilter, baseNode, optional)

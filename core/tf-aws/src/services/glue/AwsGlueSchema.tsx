@@ -64,8 +64,14 @@ export function AwsGlueSchema(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueSchema = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueSchema, idFilter, baseNode)
+export const useAwsGlueSchema = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueSchema, idFilter, baseNode, optional)
 
-export const useAwsGlueSchemas = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueSchema, idFilter, baseNode)
+export const useAwsGlueSchemas = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueSchema, idFilter, baseNode, optional)

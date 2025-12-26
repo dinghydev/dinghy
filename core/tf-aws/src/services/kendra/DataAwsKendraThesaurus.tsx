@@ -62,5 +62,14 @@ export function DataAwsKendraThesaurus(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKendraThesauruss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKendraThesaurus, idFilter, baseNode)
+export const useDataAwsKendraThesauruss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsKendraThesaurus,
+    idFilter,
+    baseNode,
+    optional,
+  )

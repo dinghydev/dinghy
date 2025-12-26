@@ -58,11 +58,23 @@ export function AwsVpcIpv4CidrBlockAssociation(props: Partial<InputProps>) {
 export const useAwsVpcIpv4CidrBlockAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcIpv4CidrBlockAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpcIpv4CidrBlockAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpv4CidrBlockAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcIpv4CidrBlockAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpcIpv4CidrBlockAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

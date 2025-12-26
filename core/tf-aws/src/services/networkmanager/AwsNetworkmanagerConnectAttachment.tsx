@@ -70,19 +70,23 @@ export function AwsNetworkmanagerConnectAttachment(props: Partial<InputProps>) {
 export const useAwsNetworkmanagerConnectAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerConnectAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerConnectAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerConnectAttachment,
     idFilter,
     baseNode,
+    optional,
   )

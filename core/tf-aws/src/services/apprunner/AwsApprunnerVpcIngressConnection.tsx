@@ -65,19 +65,23 @@ export function AwsApprunnerVpcIngressConnection(props: Partial<InputProps>) {
 export const useAwsApprunnerVpcIngressConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApprunnerVpcIngressConnection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApprunnerVpcIngressConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApprunnerVpcIngressConnection,
     idFilter,
     baseNode,
+    optional,
   )

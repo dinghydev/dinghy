@@ -66,8 +66,14 @@ export function AwsNatGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNatGateway = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNatGateway, idFilter, baseNode)
+export const useAwsNatGateway = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsNatGateway, idFilter, baseNode, optional)
 
-export const useAwsNatGateways = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNatGateway, idFilter, baseNode)
+export const useAwsNatGateways = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsNatGateway, idFilter, baseNode, optional)

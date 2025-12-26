@@ -53,8 +53,26 @@ export function AwsIamVirtualMfaDevice(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamVirtualMfaDevice = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamVirtualMfaDevice, idFilter, baseNode)
+export const useAwsIamVirtualMfaDevice = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamVirtualMfaDevice,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsIamVirtualMfaDevices = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamVirtualMfaDevice, idFilter, baseNode)
+export const useAwsIamVirtualMfaDevices = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamVirtualMfaDevice,
+    idFilter,
+    baseNode,
+    optional,
+  )

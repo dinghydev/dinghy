@@ -53,10 +53,26 @@ export function AwsPinpointEmailChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointEmailChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointEmailChannel, idFilter, baseNode)
+export const useAwsPinpointEmailChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointEmailChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPinpointEmailChannels = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsPinpointEmailChannel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointEmailChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

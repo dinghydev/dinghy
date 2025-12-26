@@ -52,8 +52,14 @@ export function AwsMemorydbAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbAcl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMemorydbAcl, idFilter, baseNode)
+export const useAwsMemorydbAcl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMemorydbAcl, idFilter, baseNode, optional)
 
-export const useAwsMemorydbAcls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMemorydbAcl, idFilter, baseNode)
+export const useAwsMemorydbAcls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMemorydbAcl, idFilter, baseNode, optional)

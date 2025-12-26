@@ -59,10 +59,26 @@ export function AwsLightsailCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailCertificate, idFilter, baseNode)
+export const useAwsLightsailCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailCertificates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLightsailCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

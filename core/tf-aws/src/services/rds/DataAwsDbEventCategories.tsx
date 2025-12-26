@@ -49,4 +49,11 @@ export function DataAwsDbEventCategories(props: Partial<InputProps>) {
 export const useDataAwsDbEventCategoriess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsDbEventCategories, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDbEventCategories,
+    idFilter,
+    baseNode,
+    optional,
+  )

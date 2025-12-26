@@ -54,8 +54,14 @@ export function AwsCodedeployApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodedeployApp = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodedeployApp, idFilter, baseNode)
+export const useAwsCodedeployApp = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsCodedeployApp, idFilter, baseNode, optional)
 
-export const useAwsCodedeployApps = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodedeployApp, idFilter, baseNode)
+export const useAwsCodedeployApps = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsCodedeployApp, idFilter, baseNode, optional)

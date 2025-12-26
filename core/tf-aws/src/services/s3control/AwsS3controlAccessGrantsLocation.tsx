@@ -55,19 +55,23 @@ export function AwsS3controlAccessGrantsLocation(props: Partial<InputProps>) {
 export const useAwsS3controlAccessGrantsLocation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlAccessGrantsLocation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3controlAccessGrantsLocations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlAccessGrantsLocation,
     idFilter,
     baseNode,
+    optional,
   )

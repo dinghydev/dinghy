@@ -96,19 +96,23 @@ export function DataAwsFsxOntapStorageVirtualMachine(
 export const useDataAwsFsxOntapStorageVirtualMachine = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsFsxOntapStorageVirtualMachine,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsFsxOntapStorageVirtualMachines = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsFsxOntapStorageVirtualMachine,
     idFilter,
     baseNode,
+    optional,
   )

@@ -51,19 +51,23 @@ export function AwsRedshiftSnapshotScheduleAssociation(
 export const useAwsRedshiftSnapshotScheduleAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftSnapshotScheduleAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftSnapshotScheduleAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftSnapshotScheduleAssociation,
     idFilter,
     baseNode,
+    optional,
   )

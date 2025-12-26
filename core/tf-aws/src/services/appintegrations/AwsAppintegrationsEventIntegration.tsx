@@ -57,19 +57,23 @@ export function AwsAppintegrationsEventIntegration(props: Partial<InputProps>) {
 export const useAwsAppintegrationsEventIntegration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppintegrationsEventIntegrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,
+    optional,
   )

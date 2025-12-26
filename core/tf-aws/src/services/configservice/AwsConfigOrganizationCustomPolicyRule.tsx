@@ -71,19 +71,23 @@ export function AwsConfigOrganizationCustomPolicyRule(
 export const useAwsConfigOrganizationCustomPolicyRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConfigOrganizationCustomPolicyRule,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConfigOrganizationCustomPolicyRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigOrganizationCustomPolicyRule,
     idFilter,
     baseNode,
+    optional,
   )

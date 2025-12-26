@@ -63,8 +63,14 @@ export function AwsConnectQueue(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectQueue = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectQueue, idFilter, baseNode)
+export const useAwsConnectQueue = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsConnectQueue, idFilter, baseNode, optional)
 
-export const useAwsConnectQueues = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectQueue, idFilter, baseNode)
+export const useAwsConnectQueues = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsConnectQueue, idFilter, baseNode, optional)

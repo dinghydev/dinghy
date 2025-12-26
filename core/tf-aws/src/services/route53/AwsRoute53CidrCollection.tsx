@@ -50,9 +50,23 @@ export function AwsRoute53CidrCollection(props: Partial<InputProps>) {
 export const useAwsRoute53CidrCollection = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRoute53CidrCollection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53CidrCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53CidrCollections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53CidrCollection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53CidrCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )

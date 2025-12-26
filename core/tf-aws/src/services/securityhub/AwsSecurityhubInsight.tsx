@@ -451,8 +451,21 @@ export function AwsSecurityhubInsight(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubInsight = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSecurityhubInsight, idFilter, baseNode)
+export const useAwsSecurityhubInsight = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSecurityhubInsight, idFilter, baseNode, optional)
 
-export const useAwsSecurityhubInsights = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubInsight, idFilter, baseNode)
+export const useAwsSecurityhubInsights = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubInsight,
+    idFilter,
+    baseNode,
+    optional,
+  )

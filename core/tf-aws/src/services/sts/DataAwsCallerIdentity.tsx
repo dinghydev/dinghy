@@ -45,8 +45,21 @@ export function DataAwsCallerIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCallerIdentity = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsCallerIdentity, idFilter, baseNode)
+export const useDataAwsCallerIdentity = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsCallerIdentity, idFilter, baseNode, optional)
 
-export const useDataAwsCallerIdentitys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsCallerIdentity, idFilter, baseNode)
+export const useDataAwsCallerIdentitys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCallerIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )

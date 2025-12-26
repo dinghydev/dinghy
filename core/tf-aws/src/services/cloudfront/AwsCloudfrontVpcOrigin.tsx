@@ -68,8 +68,26 @@ export function AwsCloudfrontVpcOrigin(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontVpcOrigin = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudfrontVpcOrigin, idFilter, baseNode)
+export const useAwsCloudfrontVpcOrigin = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontVpcOrigin,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCloudfrontVpcOrigins = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontVpcOrigin, idFilter, baseNode)
+export const useAwsCloudfrontVpcOrigins = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontVpcOrigin,
+    idFilter,
+    baseNode,
+    optional,
+  )

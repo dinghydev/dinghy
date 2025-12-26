@@ -57,19 +57,23 @@ export function DataAwsCodestarconnectionsConnection(
 export const useDataAwsCodestarconnectionsConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCodestarconnectionsConnection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCodestarconnectionsConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCodestarconnectionsConnection,
     idFilter,
     baseNode,
+    optional,
   )

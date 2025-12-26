@@ -57,9 +57,23 @@ export function DataAwsSecretsmanagerSecret(props: Partial<InputProps>) {
 export const useDataAwsSecretsmanagerSecret = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSecretsmanagerSecret, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSecretsmanagerSecret,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSecretsmanagerSecrets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSecretsmanagerSecret, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSecretsmanagerSecret,
+    idFilter,
+    baseNode,
+    optional,
+  )

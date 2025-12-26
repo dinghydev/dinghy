@@ -75,8 +75,14 @@ export function AwsDbProxy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbProxy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDbProxy, idFilter, baseNode)
+export const useAwsDbProxy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDbProxy, idFilter, baseNode, optional)
 
-export const useAwsDbProxys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDbProxy, idFilter, baseNode)
+export const useAwsDbProxys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDbProxy, idFilter, baseNode, optional)

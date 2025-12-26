@@ -47,9 +47,23 @@ export function AwsIamRolePoliciesExclusive(props: Partial<InputProps>) {
 export const useAwsIamRolePoliciesExclusive = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamRolePoliciesExclusive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamRolePoliciesExclusive,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamRolePoliciesExclusives = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamRolePoliciesExclusive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamRolePoliciesExclusive,
+    idFilter,
+    baseNode,
+    optional,
+  )

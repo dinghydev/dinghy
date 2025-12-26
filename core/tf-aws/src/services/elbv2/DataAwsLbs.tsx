@@ -46,5 +46,8 @@ export function DataAwsLbs(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLbs, idFilter, baseNode)
+export const useDataAwsLbss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsLbs, idFilter, baseNode, optional)

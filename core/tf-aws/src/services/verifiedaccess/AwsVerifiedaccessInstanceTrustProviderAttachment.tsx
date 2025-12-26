@@ -52,19 +52,23 @@ export function AwsVerifiedaccessInstanceTrustProviderAttachment(
 export const useAwsVerifiedaccessInstanceTrustProviderAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedaccessInstanceTrustProviderAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVerifiedaccessInstanceTrustProviderAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedaccessInstanceTrustProviderAttachment,
     idFilter,
     baseNode,
+    optional,
   )

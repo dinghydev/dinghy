@@ -229,8 +229,16 @@ export function AwsBedrockagentFlow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentFlow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBedrockagentFlow, idFilter, baseNode)
+export const useAwsBedrockagentFlow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsBedrockagentFlow, idFilter, baseNode, optional)
 
-export const useAwsBedrockagentFlows = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentFlow, idFilter, baseNode)
+export const useAwsBedrockagentFlows = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsBedrockagentFlow, idFilter, baseNode, optional)

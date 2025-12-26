@@ -107,19 +107,23 @@ export function AwsCodegurureviewerRepositoryAssociation(
 export const useAwsCodegurureviewerRepositoryAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodegurureviewerRepositoryAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodegurureviewerRepositoryAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodegurureviewerRepositoryAssociation,
     idFilter,
     baseNode,
+    optional,
   )

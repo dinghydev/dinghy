@@ -47,8 +47,21 @@ export function AwsCognitoUserInGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoUserInGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCognitoUserInGroup, idFilter, baseNode)
+export const useAwsCognitoUserInGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCognitoUserInGroup, idFilter, baseNode, optional)
 
-export const useAwsCognitoUserInGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCognitoUserInGroup, idFilter, baseNode)
+export const useAwsCognitoUserInGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoUserInGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

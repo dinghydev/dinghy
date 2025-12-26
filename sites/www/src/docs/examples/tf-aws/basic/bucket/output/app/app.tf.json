@@ -1,0 +1,69 @@
+{
+  "provider": {
+    "aws": [
+      {
+        "region": "eu-west-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "S3 Bucket Service Components Example",
+            "iac:stack-name": "s3-bucket-service-components-example"
+          }
+        }
+      }
+    ]
+  },
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.22.0"
+      }
+    },
+    "backend": {
+      "s3": {
+        "bucket": "s3-bucket-service-components-example-backend",
+        "key": "tfstates/app.tfstate",
+        "region": "eu-west-1"
+      }
+    }
+  },
+  "resource": {
+    "aws_s3_bucket": {
+      "awss3bucket_backend": {
+        "bucket": "s3-bucket-service-components-example-backend",
+        "object_lock_enabled": true,
+        "tags": {
+          "Name": "s3-bucket-service-components-example-backend",
+          "iac:id": "awss3bucket_backend"
+        }
+      },
+      "awss3bucket_mydemobucketwithversioning": {
+        "bucket": "my-demo-bucket-with-versioning",
+        "tags": {
+          "Name": "my-demo-bucket-with-versioning",
+          "iac:id": "awss3bucket_mydemobucketwithversioning"
+        }
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_backend_versioning": {
+        "bucket": "s3-bucket-service-components-example-backend",
+        "versioning_configuration": {
+          "status": "Enabled"
+        },
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ]
+      },
+      "awss3bucket_mydemobucketwithversioning_versioning": {
+        "bucket": "my-demo-bucket-with-versioning",
+        "versioning_configuration": {
+          "status": "Enabled"
+        },
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_mydemobucketwithversioning"
+        ]
+      }
+    }
+  }
+}

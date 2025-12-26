@@ -55,9 +55,11 @@ export function DataAwsRedshiftserverlessCredentials(
 export const useDataAwsRedshiftserverlessCredentialss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRedshiftserverlessCredentials,
     idFilter,
     baseNode,
+    optional,
   )

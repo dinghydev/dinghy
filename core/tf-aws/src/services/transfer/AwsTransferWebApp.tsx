@@ -64,8 +64,14 @@ export function AwsTransferWebApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferWebApp = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferWebApp, idFilter, baseNode)
+export const useAwsTransferWebApp = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferWebApp, idFilter, baseNode, optional)
 
-export const useAwsTransferWebApps = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferWebApp, idFilter, baseNode)
+export const useAwsTransferWebApps = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsTransferWebApp, idFilter, baseNode, optional)

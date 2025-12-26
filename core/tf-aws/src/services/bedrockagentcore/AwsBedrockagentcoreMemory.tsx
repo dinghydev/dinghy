@@ -62,9 +62,23 @@ export function AwsBedrockagentcoreMemory(props: Partial<InputProps>) {
 export const useAwsBedrockagentcoreMemory = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBedrockagentcoreMemory, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreMemory,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentcoreMemorys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBedrockagentcoreMemory, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreMemory,
+    idFilter,
+    baseNode,
+    optional,
+  )

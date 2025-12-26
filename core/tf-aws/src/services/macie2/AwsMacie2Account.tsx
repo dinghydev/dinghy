@@ -50,8 +50,14 @@ export function AwsMacie2Account(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2Account = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMacie2Account, idFilter, baseNode)
+export const useAwsMacie2Account = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMacie2Account, idFilter, baseNode, optional)
 
-export const useAwsMacie2Accounts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMacie2Account, idFilter, baseNode)
+export const useAwsMacie2Accounts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMacie2Account, idFilter, baseNode, optional)

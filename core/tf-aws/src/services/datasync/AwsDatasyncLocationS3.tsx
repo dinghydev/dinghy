@@ -62,8 +62,21 @@ export function AwsDatasyncLocationS3(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationS3 = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationS3, idFilter, baseNode)
+export const useAwsDatasyncLocationS3 = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDatasyncLocationS3, idFilter, baseNode, optional)
 
-export const useAwsDatasyncLocationS3s = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationS3, idFilter, baseNode)
+export const useAwsDatasyncLocationS3s = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationS3,
+    idFilter,
+    baseNode,
+    optional,
+  )

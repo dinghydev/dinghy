@@ -61,19 +61,23 @@ export function AwsBedrockagentAgentKnowledgeBaseAssociation(
 export const useAwsBedrockagentAgentKnowledgeBaseAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentAgentKnowledgeBaseAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentAgentKnowledgeBaseAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentAgentKnowledgeBaseAssociation,
     idFilter,
     baseNode,
+    optional,
   )

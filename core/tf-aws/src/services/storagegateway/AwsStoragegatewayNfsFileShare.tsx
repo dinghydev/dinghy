@@ -90,11 +90,23 @@ export function AwsStoragegatewayNfsFileShare(props: Partial<InputProps>) {
 export const useAwsStoragegatewayNfsFileShare = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsStoragegatewayNfsFileShare, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsStoragegatewayNfsFileShare,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsStoragegatewayNfsFileShares = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayNfsFileShare, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayNfsFileShare,
+    idFilter,
+    baseNode,
+    optional,
+  )

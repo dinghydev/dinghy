@@ -1,0 +1,73 @@
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.awss3bucket_demobucketwithversioningxxxxx will be destroyed
+  # (because aws_s3_bucket.awss3bucket_demobucketwithversioningxxxxx is not in configuration)
+  - resource "aws_s3_bucket" "awss3bucket_demobucketwithversioningxxxxx" {
+      - arn                         = "arn:aws:s3:::demo-bucket-with-versioningxxxxx" -> null
+      - bucket                      = "demo-bucket-with-versioningxxxxx" -> null
+      - bucket_domain_name          = "demo-bucket-with-versioningxxxxx.s3.amazonaws.com" -> null
+      - bucket_region               = "eu-west-1" -> null
+      - bucket_regional_domain_name = "demo-bucket-with-versioningxxxxx.s3.eu-west-1.amazonaws.com" -> null
+      - force_destroy               = false -> null
+      - hosted_zone_id              = "Z1BKCTXD74EZPE" -> null
+      - id                          = "demo-bucket-with-versioningxxxxx" -> null
+      - object_lock_enabled         = false -> null
+      - region                      = "eu-west-1" -> null
+      - request_payer               = "BucketOwner" -> null
+      - tags                        = {
+          - "Name"   = "demo-bucket-with-versioningxxxxx"
+          - "iac:id" = "awss3bucket_demobucketwithversioningxxxxx"
+        } -> null
+      - tags_all                    = {
+          - "Name"            = "demo-bucket-with-versioningxxxxx"
+          - "iac:id"          = "awss3bucket_demobucketwithversioningxxxxx"
+          - "iac:stack-name"  = "core-components-example"
+          - "iac:stack-title" = "Core Components Example"
+        } -> null
+        # (3 unchanged attributes hidden)
+
+      - grant {
+          - id          = "e257dbc7fab7bb026f942fbb9851ef444c82bf340c65eeb07705b5fdb541617e" -> null
+          - permissions = [
+              - "FULL_CONTROL",
+            ] -> null
+          - type        = "CanonicalUser" -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - server_side_encryption_configuration {
+          - rule {
+              - bucket_key_enabled = false -> null
+
+              - apply_server_side_encryption_by_default {
+                  - sse_algorithm     = "AES256" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+        }
+
+      - versioning {
+          - enabled    = true -> null
+          - mfa_delete = false -> null
+        }
+    }
+
+  # aws_s3_bucket_versioning.awss3bucket_demobucketwithversioningxxxxx_versioning will be destroyed
+  # (because aws_s3_bucket_versioning.awss3bucket_demobucketwithversioningxxxxx_versioning is not in configuration)
+  - resource "aws_s3_bucket_versioning" "awss3bucket_demobucketwithversioningxxxxx_versioning" {
+      - bucket                = "demo-bucket-with-versioningxxxxx" -> null
+      - id                    = "demo-bucket-with-versioningxxxxx" -> null
+      - region                = "eu-west-1" -> null
+        # (1 unchanged attribute hidden)
+
+      - versioning_configuration {
+          - status     = "Enabled" -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+Plan: 0 to add, 0 to change, 2 to destroy.

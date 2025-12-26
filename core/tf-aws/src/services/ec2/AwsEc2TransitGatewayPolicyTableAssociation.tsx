@@ -54,19 +54,23 @@ export function AwsEc2TransitGatewayPolicyTableAssociation(
 export const useAwsEc2TransitGatewayPolicyTableAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayPolicyTableAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayPolicyTableAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayPolicyTableAssociation,
     idFilter,
     baseNode,
+    optional,
   )

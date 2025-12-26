@@ -55,10 +55,23 @@ export function AwsVerifiedpermissionsSchema(props: Partial<InputProps>) {
 export const useAwsVerifiedpermissionsSchema = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVerifiedpermissionsSchema, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVerifiedpermissionsSchema,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVerifiedpermissionsSchemas = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVerifiedpermissionsSchema, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVerifiedpermissionsSchema,
+    idFilter,
+    baseNode,
+    optional,
+  )

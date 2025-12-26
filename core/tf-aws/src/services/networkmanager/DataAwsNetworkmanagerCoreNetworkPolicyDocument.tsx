@@ -126,19 +126,23 @@ export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
 export const useDataAwsNetworkmanagerCoreNetworkPolicyDocument = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsNetworkmanagerCoreNetworkPolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsNetworkmanagerCoreNetworkPolicyDocuments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNetworkmanagerCoreNetworkPolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )

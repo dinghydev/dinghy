@@ -76,15 +76,23 @@ export function AwsConnectInstanceStorageConfig(props: Partial<InputProps>) {
 export const useAwsConnectInstanceStorageConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConnectInstanceStorageConfig, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsConnectInstanceStorageConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectInstanceStorageConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConnectInstanceStorageConfig,
     idFilter,
     baseNode,
+    optional,
   )

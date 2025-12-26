@@ -66,8 +66,14 @@ export function AwsEbsSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEbsSnapshot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEbsSnapshot, idFilter, baseNode)
+export const useAwsEbsSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEbsSnapshot, idFilter, baseNode, optional)
 
-export const useAwsEbsSnapshots = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEbsSnapshot, idFilter, baseNode)
+export const useAwsEbsSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEbsSnapshot, idFilter, baseNode, optional)

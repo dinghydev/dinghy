@@ -344,8 +344,15 @@ export function AwsSagemakerDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerDomain, idFilter, baseNode)
+export const useAwsSagemakerDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSagemakerDomain, idFilter, baseNode, optional)
 
-export const useAwsSagemakerDomains = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerDomain, idFilter, baseNode)
+export const useAwsSagemakerDomains = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSagemakerDomain, idFilter, baseNode, optional)

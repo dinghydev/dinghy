@@ -83,19 +83,23 @@ export function DataAwsEc2TransitGatewayMulticastDomain(
 export const useDataAwsEc2TransitGatewayMulticastDomain = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2TransitGatewayMulticastDomain,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2TransitGatewayMulticastDomains = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayMulticastDomain,
     idFilter,
     baseNode,
+    optional,
   )

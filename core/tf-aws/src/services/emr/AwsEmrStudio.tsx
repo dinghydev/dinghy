@@ -62,8 +62,14 @@ export function AwsEmrStudio(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrStudio = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEmrStudio, idFilter, baseNode)
+export const useAwsEmrStudio = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEmrStudio, idFilter, baseNode, optional)
 
-export const useAwsEmrStudios = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEmrStudio, idFilter, baseNode)
+export const useAwsEmrStudios = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEmrStudio, idFilter, baseNode, optional)

@@ -63,8 +63,21 @@ export function AwsIvsPlaybackKeyPair(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvsPlaybackKeyPair = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIvsPlaybackKeyPair, idFilter, baseNode)
+export const useAwsIvsPlaybackKeyPair = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsIvsPlaybackKeyPair, idFilter, baseNode, optional)
 
-export const useAwsIvsPlaybackKeyPairs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIvsPlaybackKeyPair, idFilter, baseNode)
+export const useAwsIvsPlaybackKeyPairs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIvsPlaybackKeyPair,
+    idFilter,
+    baseNode,
+    optional,
+  )

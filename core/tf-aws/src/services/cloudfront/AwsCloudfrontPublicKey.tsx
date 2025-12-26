@@ -50,8 +50,26 @@ export function AwsCloudfrontPublicKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontPublicKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudfrontPublicKey, idFilter, baseNode)
+export const useAwsCloudfrontPublicKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontPublicKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCloudfrontPublicKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontPublicKey, idFilter, baseNode)
+export const useAwsCloudfrontPublicKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontPublicKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

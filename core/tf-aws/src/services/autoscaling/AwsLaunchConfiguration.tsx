@@ -98,8 +98,26 @@ export function AwsLaunchConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLaunchConfiguration = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLaunchConfiguration, idFilter, baseNode)
+export const useAwsLaunchConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLaunchConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsLaunchConfigurations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLaunchConfiguration, idFilter, baseNode)
+export const useAwsLaunchConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLaunchConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

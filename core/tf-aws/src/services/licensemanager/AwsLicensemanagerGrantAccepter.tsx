@@ -57,11 +57,23 @@ export function AwsLicensemanagerGrantAccepter(props: Partial<InputProps>) {
 export const useAwsLicensemanagerGrantAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLicensemanagerGrantAccepter, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLicensemanagerGrantAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLicensemanagerGrantAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLicensemanagerGrantAccepter, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLicensemanagerGrantAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )

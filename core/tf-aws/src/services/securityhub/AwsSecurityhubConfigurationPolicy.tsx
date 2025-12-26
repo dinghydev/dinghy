@@ -90,19 +90,23 @@ export function AwsSecurityhubConfigurationPolicy(props: Partial<InputProps>) {
 export const useAwsSecurityhubConfigurationPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubConfigurationPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecurityhubConfigurationPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubConfigurationPolicy,
     idFilter,
     baseNode,
+    optional,
   )

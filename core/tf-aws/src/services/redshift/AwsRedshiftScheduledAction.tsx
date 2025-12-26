@@ -70,9 +70,23 @@ export function AwsRedshiftScheduledAction(props: Partial<InputProps>) {
 export const useAwsRedshiftScheduledAction = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftScheduledAction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftScheduledAction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftScheduledActions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftScheduledAction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftScheduledAction,
+    idFilter,
+    baseNode,
+    optional,
+  )

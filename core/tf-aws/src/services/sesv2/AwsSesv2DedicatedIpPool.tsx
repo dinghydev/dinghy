@@ -50,10 +50,26 @@ export function AwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2DedicatedIpPool = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesv2DedicatedIpPool, idFilter, baseNode)
+export const useAwsSesv2DedicatedIpPool = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSesv2DedicatedIpPool,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesv2DedicatedIpPools = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSesv2DedicatedIpPool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSesv2DedicatedIpPool,
+    idFilter,
+    baseNode,
+    optional,
+  )

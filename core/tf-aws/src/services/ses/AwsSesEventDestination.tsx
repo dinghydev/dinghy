@@ -68,8 +68,26 @@ export function AwsSesEventDestination(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesEventDestination = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesEventDestination, idFilter, baseNode)
+export const useAwsSesEventDestination = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSesEventDestination,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsSesEventDestinations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesEventDestination, idFilter, baseNode)
+export const useAwsSesEventDestinations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSesEventDestination,
+    idFilter,
+    baseNode,
+    optional,
+  )

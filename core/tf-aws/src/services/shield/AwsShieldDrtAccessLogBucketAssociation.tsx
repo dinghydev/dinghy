@@ -56,19 +56,23 @@ export function AwsShieldDrtAccessLogBucketAssociation(
 export const useAwsShieldDrtAccessLogBucketAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsShieldDrtAccessLogBucketAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsShieldDrtAccessLogBucketAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsShieldDrtAccessLogBucketAssociation,
     idFilter,
     baseNode,
+    optional,
   )

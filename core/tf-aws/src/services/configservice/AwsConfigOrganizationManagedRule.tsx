@@ -66,19 +66,23 @@ export function AwsConfigOrganizationManagedRule(props: Partial<InputProps>) {
 export const useAwsConfigOrganizationManagedRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConfigOrganizationManagedRule,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConfigOrganizationManagedRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigOrganizationManagedRule,
     idFilter,
     baseNode,
+    optional,
   )

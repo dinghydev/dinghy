@@ -58,9 +58,23 @@ export function AwsLbTrustStoreRevocation(props: Partial<InputProps>) {
 export const useAwsLbTrustStoreRevocation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLbTrustStoreRevocation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLbTrustStoreRevocation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbTrustStoreRevocations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLbTrustStoreRevocation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLbTrustStoreRevocation,
+    idFilter,
+    baseNode,
+    optional,
+  )

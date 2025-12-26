@@ -55,19 +55,23 @@ export function DataAwsServiceDiscoveryHttpNamespace(
 export const useDataAwsServiceDiscoveryHttpNamespace = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsServiceDiscoveryHttpNamespace,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsServiceDiscoveryHttpNamespaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServiceDiscoveryHttpNamespace,
     idFilter,
     baseNode,
+    optional,
   )

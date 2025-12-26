@@ -58,8 +58,16 @@ export function AwsS3DirectoryBucket(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3DirectoryBucket = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3DirectoryBucket, idFilter, baseNode)
+export const useAwsS3DirectoryBucket = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsS3DirectoryBucket, idFilter, baseNode, optional)
 
-export const useAwsS3DirectoryBuckets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3DirectoryBucket, idFilter, baseNode)
+export const useAwsS3DirectoryBuckets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsS3DirectoryBucket, idFilter, baseNode, optional)

@@ -73,9 +73,23 @@ export function AwsCloudwatchEventEndpoint(props: Partial<InputProps>) {
 export const useAwsCloudwatchEventEndpoint = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchEventEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchEventEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchEventEndpoints = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchEventEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -74,8 +74,14 @@ export function AwsKmsKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKmsKey, idFilter, baseNode)
+export const useAwsKmsKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKmsKey, idFilter, baseNode, optional)
 
-export const useAwsKmsKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsKey, idFilter, baseNode)
+export const useAwsKmsKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKmsKey, idFilter, baseNode, optional)

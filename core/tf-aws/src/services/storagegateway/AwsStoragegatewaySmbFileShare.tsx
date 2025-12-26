@@ -88,11 +88,23 @@ export function AwsStoragegatewaySmbFileShare(props: Partial<InputProps>) {
 export const useAwsStoragegatewaySmbFileShare = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsStoragegatewaySmbFileShare, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsStoragegatewaySmbFileShare,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsStoragegatewaySmbFileShares = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewaySmbFileShare, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewaySmbFileShare,
+    idFilter,
+    baseNode,
+    optional,
+  )

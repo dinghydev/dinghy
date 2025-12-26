@@ -63,5 +63,8 @@ export function AwsTransferAccess(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferAccesss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferAccess, idFilter, baseNode)
+export const useAwsTransferAccesss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsTransferAccess, idFilter, baseNode, optional)

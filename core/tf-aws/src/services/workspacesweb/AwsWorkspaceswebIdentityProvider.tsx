@@ -54,19 +54,23 @@ export function AwsWorkspaceswebIdentityProvider(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebIdentityProvider = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebIdentityProvider,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebIdentityProviders = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebIdentityProvider,
     idFilter,
     baseNode,
+    optional,
   )

@@ -51,19 +51,23 @@ export function AwsS3controlAccessGrantsInstanceResourcePolicy(
 export const useAwsS3controlAccessGrantsInstanceResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlAccessGrantsInstanceResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3controlAccessGrantsInstanceResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlAccessGrantsInstanceResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )

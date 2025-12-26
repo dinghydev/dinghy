@@ -67,11 +67,23 @@ export function DataAwsResourceexplorer2Search(props: Partial<InputProps>) {
 export const useDataAwsResourceexplorer2Search = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsResourceexplorer2Search, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsResourceexplorer2Search,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsResourceexplorer2Searchs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsResourceexplorer2Search, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsResourceexplorer2Search,
+    idFilter,
+    baseNode,
+    optional,
+  )

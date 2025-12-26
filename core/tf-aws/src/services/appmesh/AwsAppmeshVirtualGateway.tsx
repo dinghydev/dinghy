@@ -165,9 +165,23 @@ export function AwsAppmeshVirtualGateway(props: Partial<InputProps>) {
 export const useAwsAppmeshVirtualGateway = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppmeshVirtualGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppmeshVirtualGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppmeshVirtualGateways = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppmeshVirtualGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppmeshVirtualGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

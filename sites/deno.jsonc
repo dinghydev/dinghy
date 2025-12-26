@@ -1,0 +1,21 @@
+{
+  // this file is used to format code in the sites folder
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
+    "exclude": [
+      "deno.jsonc"
+    ]
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "exclude": [
+        "no-explicit-any",
+        "no-unversioned-import"
+      ]
+    }
+  }
+}

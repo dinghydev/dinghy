@@ -62,10 +62,26 @@ export function AwsAppmeshVirtualRouter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshVirtualRouter = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualRouter, idFilter, baseNode)
+export const useAwsAppmeshVirtualRouter = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppmeshVirtualRouter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppmeshVirtualRouters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppmeshVirtualRouter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppmeshVirtualRouter,
+    idFilter,
+    baseNode,
+    optional,
+  )

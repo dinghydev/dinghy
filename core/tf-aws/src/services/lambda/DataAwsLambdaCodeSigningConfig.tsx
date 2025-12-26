@@ -58,11 +58,23 @@ export function DataAwsLambdaCodeSigningConfig(props: Partial<InputProps>) {
 export const useDataAwsLambdaCodeSigningConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsLambdaCodeSigningConfig, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsLambdaCodeSigningConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLambdaCodeSigningConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaCodeSigningConfig, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsLambdaCodeSigningConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

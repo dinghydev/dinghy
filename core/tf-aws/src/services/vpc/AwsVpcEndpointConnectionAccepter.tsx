@@ -51,19 +51,23 @@ export function AwsVpcEndpointConnectionAccepter(props: Partial<InputProps>) {
 export const useAwsVpcEndpointConnectionAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointConnectionAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcEndpointConnectionAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointConnectionAccepter,
     idFilter,
     baseNode,
+    optional,
   )

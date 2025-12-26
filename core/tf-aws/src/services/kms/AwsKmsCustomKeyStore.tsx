@@ -67,8 +67,16 @@ export function AwsKmsCustomKeyStore(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsCustomKeyStore = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKmsCustomKeyStore, idFilter, baseNode)
+export const useAwsKmsCustomKeyStore = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsKmsCustomKeyStore, idFilter, baseNode, optional)
 
-export const useAwsKmsCustomKeyStores = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsCustomKeyStore, idFilter, baseNode)
+export const useAwsKmsCustomKeyStores = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsKmsCustomKeyStore, idFilter, baseNode, optional)

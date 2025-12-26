@@ -57,19 +57,23 @@ export function DataAwsDevopsguruNotificationChannel(
 export const useDataAwsDevopsguruNotificationChannel = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsDevopsguruNotificationChannel,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsDevopsguruNotificationChannels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsDevopsguruNotificationChannel,
     idFilter,
     baseNode,
+    optional,
   )

@@ -124,8 +124,14 @@ export function AwsMqBroker(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMqBroker = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMqBroker, idFilter, baseNode)
+export const useAwsMqBroker = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMqBroker, idFilter, baseNode, optional)
 
-export const useAwsMqBrokers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMqBroker, idFilter, baseNode)
+export const useAwsMqBrokers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMqBroker, idFilter, baseNode, optional)

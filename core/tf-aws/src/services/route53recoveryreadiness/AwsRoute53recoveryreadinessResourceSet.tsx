@@ -81,19 +81,23 @@ export function AwsRoute53recoveryreadinessResourceSet(
 export const useAwsRoute53recoveryreadinessResourceSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoveryreadinessResourceSet,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoveryreadinessResourceSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoveryreadinessResourceSet,
     idFilter,
     baseNode,
+    optional,
   )

@@ -58,19 +58,23 @@ export function AwsChimesdkvoiceSipMediaApplication(
 export const useAwsChimesdkvoiceSipMediaApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsChimesdkvoiceSipMediaApplication,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsChimesdkvoiceSipMediaApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChimesdkvoiceSipMediaApplication,
     idFilter,
     baseNode,
+    optional,
   )

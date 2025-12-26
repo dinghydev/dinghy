@@ -50,11 +50,23 @@ export function AwsTransferWebAppCustomization(props: Partial<InputProps>) {
 export const useAwsTransferWebAppCustomization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsTransferWebAppCustomization, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsTransferWebAppCustomization,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferWebAppCustomizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsTransferWebAppCustomization, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsTransferWebAppCustomization,
+    idFilter,
+    baseNode,
+    optional,
+  )

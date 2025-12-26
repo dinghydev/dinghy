@@ -49,5 +49,11 @@ export function AwsChimesdkvoiceGlobalSettings(props: Partial<InputProps>) {
 export const useAwsChimesdkvoiceGlobalSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsChimesdkvoiceGlobalSettings, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsChimesdkvoiceGlobalSettings,
+    idFilter,
+    baseNode,
+    optional,
+  )

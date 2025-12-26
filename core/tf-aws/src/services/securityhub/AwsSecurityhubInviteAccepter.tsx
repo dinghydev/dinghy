@@ -50,10 +50,23 @@ export function AwsSecurityhubInviteAccepter(props: Partial<InputProps>) {
 export const useAwsSecurityhubInviteAccepter = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSecurityhubInviteAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecurityhubInviteAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubInviteAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubInviteAccepter, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubInviteAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -63,19 +63,23 @@ export function AwsS3controlMultiRegionAccessPointPolicy(
 export const useAwsS3controlMultiRegionAccessPointPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlMultiRegionAccessPointPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3controlMultiRegionAccessPointPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlMultiRegionAccessPointPolicy,
     idFilter,
     baseNode,
+    optional,
   )

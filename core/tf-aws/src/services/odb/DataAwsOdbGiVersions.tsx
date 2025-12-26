@@ -47,5 +47,9 @@ export function DataAwsOdbGiVersions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbGiVersionss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOdbGiVersions, idFilter, baseNode)
+export const useDataAwsOdbGiVersionss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsOdbGiVersions, idFilter, baseNode, optional)

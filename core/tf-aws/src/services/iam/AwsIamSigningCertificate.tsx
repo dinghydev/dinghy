@@ -51,9 +51,23 @@ export function AwsIamSigningCertificate(props: Partial<InputProps>) {
 export const useAwsIamSigningCertificate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamSigningCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamSigningCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamSigningCertificates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamSigningCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamSigningCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

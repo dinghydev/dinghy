@@ -120,9 +120,23 @@ export function AwsVerifiedaccessEndpoint(props: Partial<InputProps>) {
 export const useAwsVerifiedaccessEndpoint = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVerifiedaccessEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVerifiedaccessEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVerifiedaccessEndpoints = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVerifiedaccessEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVerifiedaccessEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

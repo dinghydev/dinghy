@@ -71,4 +71,11 @@ export function DataAwsOdbDbSystemShapes(props: Partial<InputProps>) {
 export const useDataAwsOdbDbSystemShapess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsOdbDbSystemShapes, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOdbDbSystemShapes,
+    idFilter,
+    baseNode,
+    optional,
+  )

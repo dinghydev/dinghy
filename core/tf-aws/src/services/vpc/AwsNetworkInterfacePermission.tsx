@@ -57,11 +57,23 @@ export function AwsNetworkInterfacePermission(props: Partial<InputProps>) {
 export const useAwsNetworkInterfacePermission = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkInterfacePermission, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNetworkInterfacePermission,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkInterfacePermissions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterfacePermission, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsNetworkInterfacePermission,
+    idFilter,
+    baseNode,
+    optional,
+  )

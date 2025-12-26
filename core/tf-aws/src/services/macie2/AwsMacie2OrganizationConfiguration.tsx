@@ -47,19 +47,23 @@ export function AwsMacie2OrganizationConfiguration(props: Partial<InputProps>) {
 export const useAwsMacie2OrganizationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsMacie2OrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsMacie2OrganizationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsMacie2OrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

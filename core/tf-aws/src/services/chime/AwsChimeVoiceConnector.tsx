@@ -52,8 +52,26 @@ export function AwsChimeVoiceConnector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsChimeVoiceConnector = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsChimeVoiceConnector, idFilter, baseNode)
+export const useAwsChimeVoiceConnector = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsChimeVoiceConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsChimeVoiceConnectors = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsChimeVoiceConnector, idFilter, baseNode)
+export const useAwsChimeVoiceConnectors = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsChimeVoiceConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )

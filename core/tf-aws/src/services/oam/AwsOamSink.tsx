@@ -57,8 +57,14 @@ export function AwsOamSink(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOamSink = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOamSink, idFilter, baseNode)
+export const useAwsOamSink = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsOamSink, idFilter, baseNode, optional)
 
-export const useAwsOamSinks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOamSink, idFilter, baseNode)
+export const useAwsOamSinks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsOamSink, idFilter, baseNode, optional)

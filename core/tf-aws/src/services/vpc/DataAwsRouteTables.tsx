@@ -58,5 +58,9 @@ export function DataAwsRouteTables(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRouteTabless = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsRouteTables, idFilter, baseNode)
+export const useDataAwsRouteTabless = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsRouteTables, idFilter, baseNode, optional)

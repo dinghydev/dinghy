@@ -57,19 +57,23 @@ export function AwsEc2TransitGatewayPeeringAttachmentAccepter(
 export const useAwsEc2TransitGatewayPeeringAttachmentAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayPeeringAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayPeeringAttachmentAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayPeeringAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )

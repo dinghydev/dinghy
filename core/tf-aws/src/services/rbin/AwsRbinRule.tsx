@@ -84,8 +84,14 @@ export function AwsRbinRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRbinRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRbinRule, idFilter, baseNode)
+export const useAwsRbinRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRbinRule, idFilter, baseNode, optional)
 
-export const useAwsRbinRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRbinRule, idFilter, baseNode)
+export const useAwsRbinRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRbinRule, idFilter, baseNode, optional)

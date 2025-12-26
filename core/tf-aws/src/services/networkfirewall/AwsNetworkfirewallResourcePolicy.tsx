@@ -50,19 +50,23 @@ export function AwsNetworkfirewallResourcePolicy(props: Partial<InputProps>) {
 export const useAwsNetworkfirewallResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkfirewallResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkfirewallResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkfirewallResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )

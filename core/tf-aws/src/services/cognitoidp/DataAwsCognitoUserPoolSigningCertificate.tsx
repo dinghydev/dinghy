@@ -52,19 +52,23 @@ export function DataAwsCognitoUserPoolSigningCertificate(
 export const useDataAwsCognitoUserPoolSigningCertificate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCognitoUserPoolSigningCertificate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCognitoUserPoolSigningCertificates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCognitoUserPoolSigningCertificate,
     idFilter,
     baseNode,
+    optional,
   )

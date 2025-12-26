@@ -504,9 +504,11 @@ export function DataAwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
 export const useDataAwsEc2NetworkInsightsAnalysiss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2NetworkInsightsAnalysis,
     idFilter,
     baseNode,
+    optional,
   )

@@ -62,11 +62,23 @@ export function AwsDocdbClusterParameterGroup(props: Partial<InputProps>) {
 export const useAwsDocdbClusterParameterGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDocdbClusterParameterGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsDocdbClusterParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbClusterParameterGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDocdbClusterParameterGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDocdbClusterParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

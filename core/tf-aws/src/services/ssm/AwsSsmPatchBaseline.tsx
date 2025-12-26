@@ -93,8 +93,16 @@ export function AwsSsmPatchBaseline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmPatchBaseline = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmPatchBaseline, idFilter, baseNode)
+export const useAwsSsmPatchBaseline = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSsmPatchBaseline, idFilter, baseNode, optional)
 
-export const useAwsSsmPatchBaselines = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmPatchBaseline, idFilter, baseNode)
+export const useAwsSsmPatchBaselines = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSsmPatchBaseline, idFilter, baseNode, optional)

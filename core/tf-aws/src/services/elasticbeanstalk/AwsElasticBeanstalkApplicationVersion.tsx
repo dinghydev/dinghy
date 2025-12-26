@@ -60,19 +60,23 @@ export function AwsElasticBeanstalkApplicationVersion(
 export const useAwsElasticBeanstalkApplicationVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsElasticBeanstalkApplicationVersion,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsElasticBeanstalkApplicationVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsElasticBeanstalkApplicationVersion,
     idFilter,
     baseNode,
+    optional,
   )

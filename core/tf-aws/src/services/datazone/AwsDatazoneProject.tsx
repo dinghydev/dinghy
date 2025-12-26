@@ -67,8 +67,15 @@ export function AwsDatazoneProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneProject, idFilter, baseNode)
+export const useAwsDatazoneProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDatazoneProject, idFilter, baseNode, optional)
 
-export const useAwsDatazoneProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneProject, idFilter, baseNode)
+export const useAwsDatazoneProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDatazoneProject, idFilter, baseNode, optional)

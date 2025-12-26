@@ -59,8 +59,26 @@ export function DataAwsSsmcontactsPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmcontactsPlan = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSsmcontactsPlan, idFilter, baseNode)
+export const useDataAwsSsmcontactsPlan = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSsmcontactsPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsSsmcontactsPlans = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSsmcontactsPlan, idFilter, baseNode)
+export const useDataAwsSsmcontactsPlans = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsmcontactsPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )

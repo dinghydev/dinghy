@@ -64,10 +64,26 @@ export function DataAwsBackupReportPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBackupReportPlan = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsBackupReportPlan, idFilter, baseNode)
+export const useDataAwsBackupReportPlan = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsBackupReportPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBackupReportPlans = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsBackupReportPlan, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsBackupReportPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -127,19 +127,23 @@ export function AwsSagemakerDataQualityJobDefinition(
 export const useAwsSagemakerDataQualityJobDefinition = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSagemakerDataQualityJobDefinition,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSagemakerDataQualityJobDefinitions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerDataQualityJobDefinition,
     idFilter,
     baseNode,
+    optional,
   )

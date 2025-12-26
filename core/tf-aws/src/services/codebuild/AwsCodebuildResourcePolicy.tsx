@@ -56,9 +56,23 @@ export function AwsCodebuildResourcePolicy(props: Partial<InputProps>) {
 export const useAwsCodebuildResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCodebuildResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodebuildResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodebuildResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCodebuildResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodebuildResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

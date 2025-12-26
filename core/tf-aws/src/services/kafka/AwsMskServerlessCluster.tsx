@@ -70,10 +70,26 @@ export function AwsMskServerlessCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskServerlessCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMskServerlessCluster, idFilter, baseNode)
+export const useAwsMskServerlessCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMskServerlessCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMskServerlessClusters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsMskServerlessCluster, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMskServerlessCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -73,8 +73,26 @@ export function AwsRdsReservedInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsReservedInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsReservedInstance, idFilter, baseNode)
+export const useAwsRdsReservedInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRdsReservedInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsRdsReservedInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsReservedInstance, idFilter, baseNode)
+export const useAwsRdsReservedInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRdsReservedInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

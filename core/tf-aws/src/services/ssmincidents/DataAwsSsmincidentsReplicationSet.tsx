@@ -65,19 +65,23 @@ export function DataAwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
 export const useDataAwsSsmincidentsReplicationSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsSsmincidentsReplicationSet,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsSsmincidentsReplicationSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSsmincidentsReplicationSet,
     idFilter,
     baseNode,
+    optional,
   )

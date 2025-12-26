@@ -66,8 +66,14 @@ export function AwsLexSlotType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexSlotType = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLexSlotType, idFilter, baseNode)
+export const useAwsLexSlotType = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLexSlotType, idFilter, baseNode, optional)
 
-export const useAwsLexSlotTypes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLexSlotType, idFilter, baseNode)
+export const useAwsLexSlotTypes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLexSlotType, idFilter, baseNode, optional)

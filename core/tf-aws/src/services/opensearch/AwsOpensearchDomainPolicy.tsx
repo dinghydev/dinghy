@@ -55,9 +55,23 @@ export function AwsOpensearchDomainPolicy(props: Partial<InputProps>) {
 export const useAwsOpensearchDomainPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsOpensearchDomainPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOpensearchDomainPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOpensearchDomainPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsOpensearchDomainPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOpensearchDomainPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

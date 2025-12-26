@@ -53,11 +53,23 @@ export function DataAwsCloudcontrolapiResource(props: Partial<InputProps>) {
 export const useDataAwsCloudcontrolapiResource = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsCloudcontrolapiResource, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsCloudcontrolapiResource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudcontrolapiResources = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsCloudcontrolapiResource, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsCloudcontrolapiResource,
+    idFilter,
+    baseNode,
+    optional,
+  )

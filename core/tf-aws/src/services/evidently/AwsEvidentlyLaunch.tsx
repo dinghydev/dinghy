@@ -100,8 +100,15 @@ export function AwsEvidentlyLaunch(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEvidentlyLaunch = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode)
+export const useAwsEvidentlyLaunch = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode, optional)
 
-export const useAwsEvidentlyLaunchs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode)
+export const useAwsEvidentlyLaunchs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode, optional)

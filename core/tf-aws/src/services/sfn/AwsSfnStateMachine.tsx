@@ -92,8 +92,15 @@ export function AwsSfnStateMachine(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSfnStateMachine = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSfnStateMachine, idFilter, baseNode)
+export const useAwsSfnStateMachine = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSfnStateMachine, idFilter, baseNode, optional)
 
-export const useAwsSfnStateMachines = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSfnStateMachine, idFilter, baseNode)
+export const useAwsSfnStateMachines = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSfnStateMachine, idFilter, baseNode, optional)

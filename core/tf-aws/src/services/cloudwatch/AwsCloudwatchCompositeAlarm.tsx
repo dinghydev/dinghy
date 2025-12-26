@@ -65,9 +65,23 @@ export function AwsCloudwatchCompositeAlarm(props: Partial<InputProps>) {
 export const useAwsCloudwatchCompositeAlarm = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchCompositeAlarm, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchCompositeAlarm,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchCompositeAlarms = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchCompositeAlarm, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchCompositeAlarm,
+    idFilter,
+    baseNode,
+    optional,
+  )

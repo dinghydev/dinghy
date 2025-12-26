@@ -53,19 +53,23 @@ export function AwsS3BucketRequestPaymentConfiguration(
 export const useAwsS3BucketRequestPaymentConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketRequestPaymentConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketRequestPaymentConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketRequestPaymentConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

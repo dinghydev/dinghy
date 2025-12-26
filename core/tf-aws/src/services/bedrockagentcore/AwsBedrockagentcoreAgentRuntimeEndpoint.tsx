@@ -64,19 +64,23 @@ export function AwsBedrockagentcoreAgentRuntimeEndpoint(
 export const useAwsBedrockagentcoreAgentRuntimeEndpoint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreAgentRuntimeEndpoint,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentcoreAgentRuntimeEndpoints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreAgentRuntimeEndpoint,
     idFilter,
     baseNode,
+    optional,
   )

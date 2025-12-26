@@ -61,9 +61,23 @@ export function AwsMemorydbParameterGroup(props: Partial<InputProps>) {
 export const useAwsMemorydbParameterGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsMemorydbParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMemorydbParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMemorydbParameterGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsMemorydbParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMemorydbParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

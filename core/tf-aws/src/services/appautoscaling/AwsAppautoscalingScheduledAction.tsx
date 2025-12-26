@@ -61,19 +61,23 @@ export function AwsAppautoscalingScheduledAction(props: Partial<InputProps>) {
 export const useAwsAppautoscalingScheduledAction = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppautoscalingScheduledAction,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppautoscalingScheduledActions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppautoscalingScheduledAction,
     idFilter,
     baseNode,
+    optional,
   )

@@ -82,9 +82,23 @@ export function AwsNeptuneClusterInstance(props: Partial<InputProps>) {
 export const useAwsNeptuneClusterInstance = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNeptuneClusterInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNeptuneClusterInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNeptuneClusterInstances = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNeptuneClusterInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNeptuneClusterInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

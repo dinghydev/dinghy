@@ -70,8 +70,16 @@ export function AwsQuicksightFolder(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightFolder = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightFolder, idFilter, baseNode)
+export const useAwsQuicksightFolder = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsQuicksightFolder, idFilter, baseNode, optional)
 
-export const useAwsQuicksightFolders = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightFolder, idFilter, baseNode)
+export const useAwsQuicksightFolders = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightFolder, idFilter, baseNode, optional)

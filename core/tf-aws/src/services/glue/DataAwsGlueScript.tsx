@@ -67,8 +67,14 @@ export function DataAwsGlueScript(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGlueScript = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsGlueScript, idFilter, baseNode)
+export const useDataAwsGlueScript = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsGlueScript, idFilter, baseNode, optional)
 
-export const useDataAwsGlueScripts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsGlueScript, idFilter, baseNode)
+export const useDataAwsGlueScripts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsGlueScript, idFilter, baseNode, optional)

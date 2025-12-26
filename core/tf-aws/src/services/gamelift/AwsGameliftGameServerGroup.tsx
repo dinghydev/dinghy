@@ -84,9 +84,23 @@ export function AwsGameliftGameServerGroup(props: Partial<InputProps>) {
 export const useAwsGameliftGameServerGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGameliftGameServerGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGameliftGameServerGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGameliftGameServerGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGameliftGameServerGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGameliftGameServerGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

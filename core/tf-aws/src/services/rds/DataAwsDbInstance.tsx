@@ -92,8 +92,14 @@ export function DataAwsDbInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsDbInstance, idFilter, baseNode)
+export const useDataAwsDbInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsDbInstance, idFilter, baseNode, optional)
 
-export const useDataAwsDbInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDbInstance, idFilter, baseNode)
+export const useDataAwsDbInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsDbInstance, idFilter, baseNode, optional)

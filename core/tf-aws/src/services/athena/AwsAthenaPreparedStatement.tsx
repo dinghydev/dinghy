@@ -59,9 +59,23 @@ export function AwsAthenaPreparedStatement(props: Partial<InputProps>) {
 export const useAwsAthenaPreparedStatement = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAthenaPreparedStatement, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAthenaPreparedStatement,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAthenaPreparedStatements = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAthenaPreparedStatement, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAthenaPreparedStatement,
+    idFilter,
+    baseNode,
+    optional,
+  )

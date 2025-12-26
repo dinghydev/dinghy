@@ -74,8 +74,26 @@ export function AwsGlueCatalogDatabase(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueCatalogDatabase = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueCatalogDatabase, idFilter, baseNode)
+export const useAwsGlueCatalogDatabase = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlueCatalogDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsGlueCatalogDatabases = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueCatalogDatabase, idFilter, baseNode)
+export const useAwsGlueCatalogDatabases = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGlueCatalogDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )

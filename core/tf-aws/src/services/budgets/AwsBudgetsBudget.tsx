@@ -105,8 +105,14 @@ export function AwsBudgetsBudget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBudgetsBudget = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBudgetsBudget, idFilter, baseNode)
+export const useAwsBudgetsBudget = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsBudgetsBudget, idFilter, baseNode, optional)
 
-export const useAwsBudgetsBudgets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBudgetsBudget, idFilter, baseNode)
+export const useAwsBudgetsBudgets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsBudgetsBudget, idFilter, baseNode, optional)

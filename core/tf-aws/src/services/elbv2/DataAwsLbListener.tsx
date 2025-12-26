@@ -127,8 +127,14 @@ export function DataAwsLbListener(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbListener = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLbListener, idFilter, baseNode)
+export const useDataAwsLbListener = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsLbListener, idFilter, baseNode, optional)
 
-export const useDataAwsLbListeners = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLbListener, idFilter, baseNode)
+export const useDataAwsLbListeners = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsLbListener, idFilter, baseNode, optional)

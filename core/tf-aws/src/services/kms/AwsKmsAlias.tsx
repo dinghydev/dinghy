@@ -57,5 +57,8 @@ export function AwsKmsAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsAlias, idFilter, baseNode)
+export const useAwsKmsAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKmsAlias, idFilter, baseNode, optional)

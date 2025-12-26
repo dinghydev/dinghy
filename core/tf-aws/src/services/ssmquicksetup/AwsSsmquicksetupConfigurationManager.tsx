@@ -76,19 +76,23 @@ export function AwsSsmquicksetupConfigurationManager(
 export const useAwsSsmquicksetupConfigurationManager = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsmquicksetupConfigurationManager,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSsmquicksetupConfigurationManagers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsmquicksetupConfigurationManager,
     idFilter,
     baseNode,
+    optional,
   )

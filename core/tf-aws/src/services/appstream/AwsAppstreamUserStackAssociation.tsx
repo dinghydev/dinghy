@@ -52,19 +52,23 @@ export function AwsAppstreamUserStackAssociation(props: Partial<InputProps>) {
 export const useAwsAppstreamUserStackAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppstreamUserStackAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppstreamUserStackAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppstreamUserStackAssociation,
     idFilter,
     baseNode,
+    optional,
   )

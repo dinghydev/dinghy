@@ -100,9 +100,23 @@ export function AwsBatchComputeEnvironment(props: Partial<InputProps>) {
 export const useAwsBatchComputeEnvironment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBatchComputeEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBatchComputeEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBatchComputeEnvironments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBatchComputeEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBatchComputeEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

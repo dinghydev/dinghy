@@ -73,8 +73,14 @@ export function AwsIvschatRoom(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvschatRoom = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIvschatRoom, idFilter, baseNode)
+export const useAwsIvschatRoom = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIvschatRoom, idFilter, baseNode, optional)
 
-export const useAwsIvschatRooms = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIvschatRoom, idFilter, baseNode)
+export const useAwsIvschatRooms = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIvschatRoom, idFilter, baseNode, optional)

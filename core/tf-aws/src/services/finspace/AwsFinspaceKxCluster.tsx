@@ -138,8 +138,16 @@ export function AwsFinspaceKxCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxCluster, idFilter, baseNode)
+export const useAwsFinspaceKxCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxCluster, idFilter, baseNode, optional)
 
-export const useAwsFinspaceKxClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxCluster, idFilter, baseNode)
+export const useAwsFinspaceKxClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsFinspaceKxCluster, idFilter, baseNode, optional)

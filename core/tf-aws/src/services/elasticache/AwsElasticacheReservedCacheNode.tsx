@@ -72,15 +72,23 @@ export function AwsElasticacheReservedCacheNode(props: Partial<InputProps>) {
 export const useAwsElasticacheReservedCacheNode = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsElasticacheReservedCacheNode, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsElasticacheReservedCacheNode,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticacheReservedCacheNodes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsElasticacheReservedCacheNode,
     idFilter,
     baseNode,
+    optional,
   )

@@ -72,8 +72,14 @@ export function AwsPinpointApp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointApp = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointApp, idFilter, baseNode)
+export const useAwsPinpointApp = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsPinpointApp, idFilter, baseNode, optional)
 
-export const useAwsPinpointApps = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPinpointApp, idFilter, baseNode)
+export const useAwsPinpointApps = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsPinpointApp, idFilter, baseNode, optional)

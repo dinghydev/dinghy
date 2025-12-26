@@ -60,8 +60,14 @@ export function DataAwsPrefixList(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPrefixList = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsPrefixList, idFilter, baseNode)
+export const useDataAwsPrefixList = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsPrefixList, idFilter, baseNode, optional)
 
-export const useDataAwsPrefixLists = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsPrefixList, idFilter, baseNode)
+export const useDataAwsPrefixLists = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsPrefixList, idFilter, baseNode, optional)

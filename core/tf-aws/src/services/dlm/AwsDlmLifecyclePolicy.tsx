@@ -161,8 +161,21 @@ export function AwsDlmLifecyclePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDlmLifecyclePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDlmLifecyclePolicy, idFilter, baseNode)
+export const useAwsDlmLifecyclePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDlmLifecyclePolicy, idFilter, baseNode, optional)
 
-export const useAwsDlmLifecyclePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDlmLifecyclePolicy, idFilter, baseNode)
+export const useAwsDlmLifecyclePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDlmLifecyclePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

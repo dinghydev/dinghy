@@ -110,8 +110,16 @@ export function AwsImagebuilderImage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsImagebuilderImage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsImagebuilderImage, idFilter, baseNode)
+export const useAwsImagebuilderImage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsImagebuilderImage, idFilter, baseNode, optional)
 
-export const useAwsImagebuilderImages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderImage, idFilter, baseNode)
+export const useAwsImagebuilderImages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsImagebuilderImage, idFilter, baseNode, optional)

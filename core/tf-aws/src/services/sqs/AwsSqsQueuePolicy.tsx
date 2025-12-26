@@ -52,8 +52,14 @@ export function AwsSqsQueuePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSqsQueuePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSqsQueuePolicy, idFilter, baseNode)
+export const useAwsSqsQueuePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSqsQueuePolicy, idFilter, baseNode, optional)
 
-export const useAwsSqsQueuePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSqsQueuePolicy, idFilter, baseNode)
+export const useAwsSqsQueuePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSqsQueuePolicy, idFilter, baseNode, optional)

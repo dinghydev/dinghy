@@ -50,4 +50,11 @@ export function DataAwsCloudwatchLogGroups(props: Partial<InputProps>) {
 export const useDataAwsCloudwatchLogGroupss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCloudwatchLogGroups, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudwatchLogGroups,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -64,5 +64,11 @@ export function DataAwsVpcEndpointAssociations(props: Partial<InputProps>) {
 export const useDataAwsVpcEndpointAssociationss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsVpcEndpointAssociations, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsVpcEndpointAssociations,
+    idFilter,
+    baseNode,
+    optional,
+  )

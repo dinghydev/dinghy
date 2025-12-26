@@ -67,8 +67,14 @@ export function AwsDefaultVpc(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDefaultVpc = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDefaultVpc, idFilter, baseNode)
+export const useAwsDefaultVpc = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDefaultVpc, idFilter, baseNode, optional)
 
-export const useAwsDefaultVpcs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDefaultVpc, idFilter, baseNode)
+export const useAwsDefaultVpcs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDefaultVpc, idFilter, baseNode, optional)

@@ -81,19 +81,23 @@ export function DataAwsElasticacheReplicationGroup(props: Partial<InputProps>) {
 export const useDataAwsElasticacheReplicationGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsElasticacheReplicationGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsElasticacheReplicationGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsElasticacheReplicationGroup,
     idFilter,
     baseNode,
+    optional,
   )

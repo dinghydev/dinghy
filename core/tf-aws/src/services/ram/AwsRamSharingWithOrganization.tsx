@@ -45,11 +45,23 @@ export function AwsRamSharingWithOrganization(props: Partial<InputProps>) {
 export const useAwsRamSharingWithOrganization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRamSharingWithOrganization, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRamSharingWithOrganization,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRamSharingWithOrganizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRamSharingWithOrganization, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRamSharingWithOrganization,
+    idFilter,
+    baseNode,
+    optional,
+  )

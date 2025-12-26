@@ -57,19 +57,23 @@ export function DataAwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
 export const useDataAwsRedshiftserverlessNamespace = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsRedshiftserverlessNamespace,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsRedshiftserverlessNamespaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRedshiftserverlessNamespace,
     idFilter,
     baseNode,
+    optional,
   )

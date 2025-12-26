@@ -93,15 +93,23 @@ export function AwsS3BucketWebsiteConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketWebsiteConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsS3BucketWebsiteConfiguration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsS3BucketWebsiteConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketWebsiteConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketWebsiteConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

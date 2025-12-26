@@ -50,9 +50,11 @@ export function AwsCostoptimizationhubEnrollmentStatus(
 export const useAwsCostoptimizationhubEnrollmentStatuss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCostoptimizationhubEnrollmentStatus,
     idFilter,
     baseNode,
+    optional,
   )

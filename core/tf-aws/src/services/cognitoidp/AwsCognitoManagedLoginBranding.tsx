@@ -62,11 +62,23 @@ export function AwsCognitoManagedLoginBranding(props: Partial<InputProps>) {
 export const useAwsCognitoManagedLoginBranding = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCognitoManagedLoginBranding, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCognitoManagedLoginBranding,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoManagedLoginBrandings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCognitoManagedLoginBranding, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCognitoManagedLoginBranding,
+    idFilter,
+    baseNode,
+    optional,
+  )

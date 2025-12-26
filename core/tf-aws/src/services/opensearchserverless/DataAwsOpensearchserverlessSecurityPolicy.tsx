@@ -57,19 +57,23 @@ export function DataAwsOpensearchserverlessSecurityPolicy(
 export const useDataAwsOpensearchserverlessSecurityPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOpensearchserverlessSecurityPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOpensearchserverlessSecurityPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOpensearchserverlessSecurityPolicy,
     idFilter,
     baseNode,
+    optional,
   )

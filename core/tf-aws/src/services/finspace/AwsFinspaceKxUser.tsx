@@ -58,8 +58,14 @@ export function AwsFinspaceKxUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxUser, idFilter, baseNode)
+export const useAwsFinspaceKxUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFinspaceKxUser, idFilter, baseNode, optional)
 
-export const useAwsFinspaceKxUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxUser, idFilter, baseNode)
+export const useAwsFinspaceKxUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFinspaceKxUser, idFilter, baseNode, optional)

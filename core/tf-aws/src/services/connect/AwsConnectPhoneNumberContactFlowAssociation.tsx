@@ -51,19 +51,23 @@ export function AwsConnectPhoneNumberContactFlowAssociation(
 export const useAwsConnectPhoneNumberContactFlowAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConnectPhoneNumberContactFlowAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConnectPhoneNumberContactFlowAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConnectPhoneNumberContactFlowAssociation,
     idFilter,
     baseNode,
+    optional,
   )

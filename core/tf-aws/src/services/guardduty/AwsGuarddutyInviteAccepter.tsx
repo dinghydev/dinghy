@@ -54,9 +54,23 @@ export function AwsGuarddutyInviteAccepter(props: Partial<InputProps>) {
 export const useAwsGuarddutyInviteAccepter = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGuarddutyInviteAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGuarddutyInviteAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGuarddutyInviteAccepters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGuarddutyInviteAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGuarddutyInviteAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )

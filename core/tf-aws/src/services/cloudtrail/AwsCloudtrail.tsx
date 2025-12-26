@@ -98,8 +98,14 @@ export function AwsCloudtrail(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudtrail = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudtrail, idFilter, baseNode)
+export const useAwsCloudtrail = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsCloudtrail, idFilter, baseNode, optional)
 
-export const useAwsCloudtrails = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudtrail, idFilter, baseNode)
+export const useAwsCloudtrails = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsCloudtrail, idFilter, baseNode, optional)

@@ -60,8 +60,21 @@ export function AwsDmsReplicationTask(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsReplicationTask = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDmsReplicationTask, idFilter, baseNode)
+export const useAwsDmsReplicationTask = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDmsReplicationTask, idFilter, baseNode, optional)
 
-export const useAwsDmsReplicationTasks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDmsReplicationTask, idFilter, baseNode)
+export const useAwsDmsReplicationTasks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDmsReplicationTask,
+    idFilter,
+    baseNode,
+    optional,
+  )

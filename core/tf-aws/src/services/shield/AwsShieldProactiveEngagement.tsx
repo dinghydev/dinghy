@@ -54,10 +54,23 @@ export function AwsShieldProactiveEngagement(props: Partial<InputProps>) {
 export const useAwsShieldProactiveEngagement = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsShieldProactiveEngagement, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsShieldProactiveEngagement,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsShieldProactiveEngagements = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsShieldProactiveEngagement, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsShieldProactiveEngagement,
+    idFilter,
+    baseNode,
+    optional,
+  )

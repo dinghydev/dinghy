@@ -69,10 +69,23 @@ export function AwsEksIdentityProviderConfig(props: Partial<InputProps>) {
 export const useAwsEksIdentityProviderConfig = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEksIdentityProviderConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEksIdentityProviderConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksIdentityProviderConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEksIdentityProviderConfig, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEksIdentityProviderConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -66,19 +66,23 @@ export function AwsNetworkmanagerTransitGatewayPeering(
 export const useAwsNetworkmanagerTransitGatewayPeering = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerTransitGatewayPeering,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerTransitGatewayPeerings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerTransitGatewayPeering,
     idFilter,
     baseNode,
+    optional,
   )

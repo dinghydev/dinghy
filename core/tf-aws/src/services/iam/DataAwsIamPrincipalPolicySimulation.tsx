@@ -80,19 +80,23 @@ export function DataAwsIamPrincipalPolicySimulation(
 export const useDataAwsIamPrincipalPolicySimulation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsIamPrincipalPolicySimulation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsIamPrincipalPolicySimulations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsIamPrincipalPolicySimulation,
     idFilter,
     baseNode,
+    optional,
   )

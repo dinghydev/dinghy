@@ -51,8 +51,16 @@ export function AwsApiGatewayVpcLink(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayVpcLink = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApiGatewayVpcLink, idFilter, baseNode)
+export const useAwsApiGatewayVpcLink = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsApiGatewayVpcLink, idFilter, baseNode, optional)
 
-export const useAwsApiGatewayVpcLinks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayVpcLink, idFilter, baseNode)
+export const useAwsApiGatewayVpcLinks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsApiGatewayVpcLink, idFilter, baseNode, optional)

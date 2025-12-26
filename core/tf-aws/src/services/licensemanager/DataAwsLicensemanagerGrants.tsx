@@ -54,4 +54,11 @@ export function DataAwsLicensemanagerGrants(props: Partial<InputProps>) {
 export const useDataAwsLicensemanagerGrantss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsLicensemanagerGrants, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLicensemanagerGrants,
+    idFilter,
+    baseNode,
+    optional,
+  )

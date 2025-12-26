@@ -55,8 +55,16 @@ export function AwsOpensearchPackage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchPackage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOpensearchPackage, idFilter, baseNode)
+export const useAwsOpensearchPackage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsOpensearchPackage, idFilter, baseNode, optional)
 
-export const useAwsOpensearchPackages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOpensearchPackage, idFilter, baseNode)
+export const useAwsOpensearchPackages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsOpensearchPackage, idFilter, baseNode, optional)

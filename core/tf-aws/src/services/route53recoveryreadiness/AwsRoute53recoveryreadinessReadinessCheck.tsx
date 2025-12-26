@@ -59,19 +59,23 @@ export function AwsRoute53recoveryreadinessReadinessCheck(
 export const useAwsRoute53recoveryreadinessReadinessCheck = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoveryreadinessReadinessCheck,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoveryreadinessReadinessChecks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoveryreadinessReadinessCheck,
     idFilter,
     baseNode,
+    optional,
   )

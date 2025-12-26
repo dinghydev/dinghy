@@ -252,8 +252,14 @@ export function AwsEmrCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEmrCluster, idFilter, baseNode)
+export const useAwsEmrCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEmrCluster, idFilter, baseNode, optional)
 
-export const useAwsEmrClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEmrCluster, idFilter, baseNode)
+export const useAwsEmrClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEmrCluster, idFilter, baseNode, optional)

@@ -58,9 +58,23 @@ export function DataAwsLocationPlaceIndex(props: Partial<InputProps>) {
 export const useDataAwsLocationPlaceIndex = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsLocationPlaceIndex, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLocationPlaceIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLocationPlaceIndexs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsLocationPlaceIndex, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLocationPlaceIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )

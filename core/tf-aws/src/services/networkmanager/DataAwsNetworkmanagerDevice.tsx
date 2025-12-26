@@ -66,9 +66,23 @@ export function DataAwsNetworkmanagerDevice(props: Partial<InputProps>) {
 export const useDataAwsNetworkmanagerDevice = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsNetworkmanagerDevice, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsNetworkmanagerDevice,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsNetworkmanagerDevices = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsNetworkmanagerDevice, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkmanagerDevice,
+    idFilter,
+    baseNode,
+    optional,
+  )

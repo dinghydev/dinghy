@@ -1,0 +1,23 @@
+{
+  "stack": {
+    "id": "app",
+    "plan": {
+      "changesCount": 2,
+      "summary": " 2 to destroy",
+      "changes": [
+        "- resource \"aws_s3_bucket\" \"awss3bucket_demobucketwithversioningxxxxx\" {",
+        "    - arn                         = \"arn:aws:s3:::demo-bucket-with-versioningxxxxx\" -> null",
+        "    - bucket                      = \"demo-bucket-with-versioningxxxxx\" -> null",
+        "    - bucket_domain_name          = \"demo-bucket-with-versioningxxxxx.s3.amazonaws.com\" -> null",
+        "    - bucket_region               = \"eu-west-1\" -> null",
+        "    - bucket_regional_domain_name = \"demo-bucket-with-versioningxxxxx.s3.eu-west-1.amazonaws.com\" -> null",
+        "    - force_destroy               = false -> null",
+        "    - hosted_zone_id              = \"Z1BKCTXD74EZPE\" -> null",
+        "    - id                          = \"demo-bucket-with-versioningxxxxx\" -> null",
+        "    - object_lock_enabled         = false -> null",
+        "Ignored more output lines:",
+        "............................."
+      ]
+    }
+  }
+}

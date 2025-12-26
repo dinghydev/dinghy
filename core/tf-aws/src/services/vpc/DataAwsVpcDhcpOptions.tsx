@@ -66,5 +66,9 @@ export function DataAwsVpcDhcpOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcDhcpOptions = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsVpcDhcpOptions, idFilter, baseNode)
+export const useDataAwsVpcDhcpOptions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsVpcDhcpOptions, idFilter, baseNode, optional)

@@ -80,8 +80,26 @@ export function AwsDynamodbTableExport(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTableExport = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDynamodbTableExport, idFilter, baseNode)
+export const useAwsDynamodbTableExport = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDynamodbTableExport,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDynamodbTableExports = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTableExport, idFilter, baseNode)
+export const useAwsDynamodbTableExports = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDynamodbTableExport,
+    idFilter,
+    baseNode,
+    optional,
+  )

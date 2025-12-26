@@ -55,8 +55,26 @@ export function AwsAutoscalingSchedule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingSchedule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAutoscalingSchedule, idFilter, baseNode)
+export const useAwsAutoscalingSchedule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAutoscalingSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsAutoscalingSchedules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingSchedule, idFilter, baseNode)
+export const useAwsAutoscalingSchedules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAutoscalingSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )

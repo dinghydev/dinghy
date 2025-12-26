@@ -52,8 +52,14 @@ export function AwsSagemakerImage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerImage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerImage, idFilter, baseNode)
+export const useAwsSagemakerImage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSagemakerImage, idFilter, baseNode, optional)
 
-export const useAwsSagemakerImages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerImage, idFilter, baseNode)
+export const useAwsSagemakerImages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSagemakerImage, idFilter, baseNode, optional)

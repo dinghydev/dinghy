@@ -57,8 +57,16 @@ export function AwsCeAnomalyMonitor(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCeAnomalyMonitor = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCeAnomalyMonitor, idFilter, baseNode)
+export const useAwsCeAnomalyMonitor = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCeAnomalyMonitor, idFilter, baseNode, optional)
 
-export const useAwsCeAnomalyMonitors = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCeAnomalyMonitor, idFilter, baseNode)
+export const useAwsCeAnomalyMonitors = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCeAnomalyMonitor, idFilter, baseNode, optional)

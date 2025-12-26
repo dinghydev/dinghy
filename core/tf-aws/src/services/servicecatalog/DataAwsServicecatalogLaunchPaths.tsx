@@ -63,9 +63,11 @@ export function DataAwsServicecatalogLaunchPaths(props: Partial<InputProps>) {
 export const useDataAwsServicecatalogLaunchPathss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogLaunchPaths,
     idFilter,
     baseNode,
+    optional,
   )

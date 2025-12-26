@@ -76,15 +76,23 @@ export function AwsOpensearchOutboundConnection(props: Partial<InputProps>) {
 export const useAwsOpensearchOutboundConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOpensearchOutboundConnection, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsOpensearchOutboundConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOpensearchOutboundConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchOutboundConnection,
     idFilter,
     baseNode,
+    optional,
   )

@@ -61,8 +61,15 @@ export function DataAwsEc2CoipPool(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2CoipPool = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEc2CoipPool, idFilter, baseNode)
+export const useDataAwsEc2CoipPool = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsEc2CoipPool, idFilter, baseNode, optional)
 
-export const useDataAwsEc2CoipPools = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEc2CoipPool, idFilter, baseNode)
+export const useDataAwsEc2CoipPools = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEc2CoipPool, idFilter, baseNode, optional)

@@ -63,5 +63,14 @@ export function AwsDatasyncLocationEfs(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationEfss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationEfs, idFilter, baseNode)
+export const useAwsDatasyncLocationEfss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationEfs,
+    idFilter,
+    baseNode,
+    optional,
+  )

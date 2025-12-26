@@ -71,8 +71,16 @@ export function AwsRdsGlobalCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsGlobalCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsGlobalCluster, idFilter, baseNode)
+export const useAwsRdsGlobalCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsRdsGlobalCluster, idFilter, baseNode, optional)
 
-export const useAwsRdsGlobalClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsGlobalCluster, idFilter, baseNode)
+export const useAwsRdsGlobalClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsRdsGlobalCluster, idFilter, baseNode, optional)

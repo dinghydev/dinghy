@@ -57,9 +57,23 @@ export function DataAwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
 export const useDataAwsSesv2DedicatedIpPool = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSesv2DedicatedIpPool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSesv2DedicatedIpPool,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSesv2DedicatedIpPools = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSesv2DedicatedIpPool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSesv2DedicatedIpPool,
+    idFilter,
+    baseNode,
+    optional,
+  )

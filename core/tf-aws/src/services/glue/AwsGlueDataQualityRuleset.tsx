@@ -64,9 +64,23 @@ export function AwsGlueDataQualityRuleset(props: Partial<InputProps>) {
 export const useAwsGlueDataQualityRuleset = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGlueDataQualityRuleset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlueDataQualityRuleset,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueDataQualityRulesets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGlueDataQualityRuleset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGlueDataQualityRuleset,
+    idFilter,
+    baseNode,
+    optional,
+  )

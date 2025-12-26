@@ -57,15 +57,23 @@ export function AwsLambdaLayerVersionPermission(props: Partial<InputProps>) {
 export const useAwsLambdaLayerVersionPermission = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLambdaLayerVersionPermission, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLambdaLayerVersionPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaLayerVersionPermissions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLambdaLayerVersionPermission,
     idFilter,
     baseNode,
+    optional,
   )

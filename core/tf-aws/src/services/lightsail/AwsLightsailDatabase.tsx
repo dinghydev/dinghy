@@ -73,8 +73,16 @@ export function AwsLightsailDatabase(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailDatabase = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailDatabase, idFilter, baseNode)
+export const useAwsLightsailDatabase = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLightsailDatabase, idFilter, baseNode, optional)
 
-export const useAwsLightsailDatabases = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailDatabase, idFilter, baseNode)
+export const useAwsLightsailDatabases = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailDatabase, idFilter, baseNode, optional)

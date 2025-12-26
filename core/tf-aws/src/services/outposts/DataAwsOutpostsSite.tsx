@@ -48,8 +48,16 @@ export function DataAwsOutpostsSite(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOutpostsSite = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsOutpostsSite, idFilter, baseNode)
+export const useDataAwsOutpostsSite = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsOutpostsSite, idFilter, baseNode, optional)
 
-export const useDataAwsOutpostsSites = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOutpostsSite, idFilter, baseNode)
+export const useDataAwsOutpostsSites = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsOutpostsSite, idFilter, baseNode, optional)

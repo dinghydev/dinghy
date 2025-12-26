@@ -48,8 +48,21 @@ export function AwsCloudfrontKeyGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontKeyGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudfrontKeyGroup, idFilter, baseNode)
+export const useAwsCloudfrontKeyGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCloudfrontKeyGroup, idFilter, baseNode, optional)
 
-export const useAwsCloudfrontKeyGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontKeyGroup, idFilter, baseNode)
+export const useAwsCloudfrontKeyGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontKeyGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

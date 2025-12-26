@@ -75,19 +75,23 @@ export function AwsDatapipelinePipelineDefinition(props: Partial<InputProps>) {
 export const useAwsDatapipelinePipelineDefinition = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatapipelinePipelineDefinition,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatapipelinePipelineDefinitions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatapipelinePipelineDefinition,
     idFilter,
     baseNode,
+    optional,
   )

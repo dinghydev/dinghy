@@ -70,10 +70,23 @@ export function DataAwsConnectRoutingProfile(props: Partial<InputProps>) {
 export const useDataAwsConnectRoutingProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsConnectRoutingProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectRoutingProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectRoutingProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsConnectRoutingProfile, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsConnectRoutingProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -63,9 +63,23 @@ export function AwsElasticsearchVpcEndpoint(props: Partial<InputProps>) {
 export const useAwsElasticsearchVpcEndpoint = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsElasticsearchVpcEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElasticsearchVpcEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticsearchVpcEndpoints = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsElasticsearchVpcEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElasticsearchVpcEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

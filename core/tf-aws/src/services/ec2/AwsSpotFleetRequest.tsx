@@ -199,8 +199,16 @@ export function AwsSpotFleetRequest(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSpotFleetRequest = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode)
+export const useAwsSpotFleetRequest = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode, optional)
 
-export const useAwsSpotFleetRequests = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode)
+export const useAwsSpotFleetRequests = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode, optional)

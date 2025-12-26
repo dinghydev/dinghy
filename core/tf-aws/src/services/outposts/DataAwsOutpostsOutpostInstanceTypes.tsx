@@ -51,9 +51,11 @@ export function DataAwsOutpostsOutpostInstanceTypes(
 export const useDataAwsOutpostsOutpostInstanceTypess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOutpostsOutpostInstanceTypes,
     idFilter,
     baseNode,
+    optional,
   )

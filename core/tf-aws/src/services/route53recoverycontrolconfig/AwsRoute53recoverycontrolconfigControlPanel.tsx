@@ -57,19 +57,23 @@ export function AwsRoute53recoverycontrolconfigControlPanel(
 export const useAwsRoute53recoverycontrolconfigControlPanel = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoverycontrolconfigControlPanel,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoverycontrolconfigControlPanels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoverycontrolconfigControlPanel,
     idFilter,
     baseNode,
+    optional,
   )

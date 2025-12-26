@@ -57,15 +57,23 @@ export function DataAwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
 export const useDataAwsVpclatticeServiceNetwork = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsVpclatticeServiceNetwork, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsVpclatticeServiceNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsVpclatticeServiceNetworks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsVpclatticeServiceNetwork,
     idFilter,
     baseNode,
+    optional,
   )

@@ -61,9 +61,11 @@ export function DataAwsEmrSupportedInstanceTypes(props: Partial<InputProps>) {
 export const useDataAwsEmrSupportedInstanceTypess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEmrSupportedInstanceTypes,
     idFilter,
     baseNode,
+    optional,
   )

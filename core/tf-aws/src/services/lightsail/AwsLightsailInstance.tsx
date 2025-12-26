@@ -70,8 +70,16 @@ export function AwsLightsailInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailInstance, idFilter, baseNode)
+export const useAwsLightsailInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLightsailInstance, idFilter, baseNode, optional)
 
-export const useAwsLightsailInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailInstance, idFilter, baseNode)
+export const useAwsLightsailInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailInstance, idFilter, baseNode, optional)

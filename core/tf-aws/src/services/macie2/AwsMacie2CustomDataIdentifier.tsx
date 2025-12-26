@@ -64,11 +64,23 @@ export function AwsMacie2CustomDataIdentifier(props: Partial<InputProps>) {
 export const useAwsMacie2CustomDataIdentifier = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMacie2CustomDataIdentifier, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsMacie2CustomDataIdentifier,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMacie2CustomDataIdentifiers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMacie2CustomDataIdentifier, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMacie2CustomDataIdentifier,
+    idFilter,
+    baseNode,
+    optional,
+  )

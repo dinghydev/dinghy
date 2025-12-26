@@ -57,8 +57,14 @@ export function AwsM2Deployment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsM2Deployment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsM2Deployment, idFilter, baseNode)
+export const useAwsM2Deployment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsM2Deployment, idFilter, baseNode, optional)
 
-export const useAwsM2Deployments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsM2Deployment, idFilter, baseNode)
+export const useAwsM2Deployments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsM2Deployment, idFilter, baseNode, optional)

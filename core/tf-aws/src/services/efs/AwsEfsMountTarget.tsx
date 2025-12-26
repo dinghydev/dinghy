@@ -64,8 +64,14 @@ export function AwsEfsMountTarget(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsMountTarget = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEfsMountTarget, idFilter, baseNode)
+export const useAwsEfsMountTarget = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEfsMountTarget, idFilter, baseNode, optional)
 
-export const useAwsEfsMountTargets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEfsMountTarget, idFilter, baseNode)
+export const useAwsEfsMountTargets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEfsMountTarget, idFilter, baseNode, optional)

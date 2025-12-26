@@ -50,8 +50,16 @@ export function AwsSecurityhubMember(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubMember = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSecurityhubMember, idFilter, baseNode)
+export const useAwsSecurityhubMember = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSecurityhubMember, idFilter, baseNode, optional)
 
-export const useAwsSecurityhubMembers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubMember, idFilter, baseNode)
+export const useAwsSecurityhubMembers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSecurityhubMember, idFilter, baseNode, optional)

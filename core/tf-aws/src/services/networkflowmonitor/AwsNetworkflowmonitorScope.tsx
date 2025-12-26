@@ -69,9 +69,23 @@ export function AwsNetworkflowmonitorScope(props: Partial<InputProps>) {
 export const useAwsNetworkflowmonitorScope = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNetworkflowmonitorScope, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkflowmonitorScope,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkflowmonitorScopes = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNetworkflowmonitorScope, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkflowmonitorScope,
+    idFilter,
+    baseNode,
+    optional,
+  )

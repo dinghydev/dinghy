@@ -55,11 +55,23 @@ export function DataAwsLocationRouteCalculator(props: Partial<InputProps>) {
 export const useDataAwsLocationRouteCalculator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsLocationRouteCalculator, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsLocationRouteCalculator,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLocationRouteCalculators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsLocationRouteCalculator, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsLocationRouteCalculator,
+    idFilter,
+    baseNode,
+    optional,
+  )

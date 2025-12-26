@@ -64,19 +64,23 @@ export function AwsRoute53domainsDelegationSignerRecord(
 export const useAwsRoute53domainsDelegationSignerRecord = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53domainsDelegationSignerRecord,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53domainsDelegationSignerRecords = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53domainsDelegationSignerRecord,
     idFilter,
     baseNode,
+    optional,
   )

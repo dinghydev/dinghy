@@ -66,8 +66,14 @@ export function AwsFmsResourceSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFmsResourceSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFmsResourceSet, idFilter, baseNode)
+export const useAwsFmsResourceSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFmsResourceSet, idFilter, baseNode, optional)
 
-export const useAwsFmsResourceSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFmsResourceSet, idFilter, baseNode)
+export const useAwsFmsResourceSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFmsResourceSet, idFilter, baseNode, optional)

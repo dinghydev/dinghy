@@ -70,10 +70,26 @@ export function AwsQbusinessApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQbusinessApplication = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQbusinessApplication, idFilter, baseNode)
+export const useAwsQbusinessApplication = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQbusinessApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQbusinessApplications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsQbusinessApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQbusinessApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

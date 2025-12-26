@@ -157,10 +157,26 @@ export function DataAwsOpensearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOpensearchDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsOpensearchDomain, idFilter, baseNode)
+export const useDataAwsOpensearchDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOpensearchDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsOpensearchDomains = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsOpensearchDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOpensearchDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

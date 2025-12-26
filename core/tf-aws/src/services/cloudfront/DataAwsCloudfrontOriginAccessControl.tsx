@@ -56,19 +56,23 @@ export function DataAwsCloudfrontOriginAccessControl(
 export const useDataAwsCloudfrontOriginAccessControl = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudfrontOriginAccessControl,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudfrontOriginAccessControls = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudfrontOriginAccessControl,
     idFilter,
     baseNode,
+    optional,
   )

@@ -53,9 +53,23 @@ export function AwsConnectBotAssociation(props: Partial<InputProps>) {
 export const useAwsConnectBotAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConnectBotAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectBotAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectBotAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsConnectBotAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectBotAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

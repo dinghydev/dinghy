@@ -77,19 +77,23 @@ export function AwsWafv2WebAclLoggingConfiguration(props: Partial<InputProps>) {
 export const useAwsWafv2WebAclLoggingConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWafv2WebAclLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWafv2WebAclLoggingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWafv2WebAclLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

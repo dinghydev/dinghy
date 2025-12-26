@@ -92,9 +92,23 @@ export function AwsRoute53RecordsExclusive(props: Partial<InputProps>) {
 export const useAwsRoute53RecordsExclusive = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRoute53RecordsExclusive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53RecordsExclusive,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53RecordsExclusives = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53RecordsExclusive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53RecordsExclusive,
+    idFilter,
+    baseNode,
+    optional,
+  )

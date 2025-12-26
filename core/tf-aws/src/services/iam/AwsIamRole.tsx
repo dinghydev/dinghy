@@ -72,8 +72,14 @@ export function AwsIamRole(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamRole = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamRole, idFilter, baseNode)
+export const useAwsIamRole = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIamRole, idFilter, baseNode, optional)
 
-export const useAwsIamRoles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamRole, idFilter, baseNode)
+export const useAwsIamRoles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIamRole, idFilter, baseNode, optional)

@@ -69,11 +69,23 @@ export function AwsVpcSecurityGroupIngressRule(props: Partial<InputProps>) {
 export const useAwsVpcSecurityGroupIngressRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcSecurityGroupIngressRule, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpcSecurityGroupIngressRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcSecurityGroupIngressRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcSecurityGroupIngressRule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpcSecurityGroupIngressRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

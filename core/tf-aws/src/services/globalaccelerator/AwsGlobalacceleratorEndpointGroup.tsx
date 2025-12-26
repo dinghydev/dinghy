@@ -83,19 +83,23 @@ export function AwsGlobalacceleratorEndpointGroup(props: Partial<InputProps>) {
 export const useAwsGlobalacceleratorEndpointGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGlobalacceleratorEndpointGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGlobalacceleratorEndpointGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorEndpointGroup,
     idFilter,
     baseNode,
+    optional,
   )

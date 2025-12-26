@@ -96,8 +96,14 @@ export function AwsMskReplicator(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskReplicator = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMskReplicator, idFilter, baseNode)
+export const useAwsMskReplicator = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMskReplicator, idFilter, baseNode, optional)
 
-export const useAwsMskReplicators = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMskReplicator, idFilter, baseNode)
+export const useAwsMskReplicators = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMskReplicator, idFilter, baseNode, optional)

@@ -52,9 +52,23 @@ export function DataAwsDatapipelinePipeline(props: Partial<InputProps>) {
 export const useDataAwsDatapipelinePipeline = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsDatapipelinePipeline, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDatapipelinePipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDatapipelinePipelines = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsDatapipelinePipeline, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDatapipelinePipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -65,19 +65,23 @@ export function AwsServerlessapplicationrepositoryCloudformationStack(
 export const useAwsServerlessapplicationrepositoryCloudformationStack = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServerlessapplicationrepositoryCloudformationStack,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServerlessapplicationrepositoryCloudformationStacks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServerlessapplicationrepositoryCloudformationStack,
     idFilter,
     baseNode,
+    optional,
   )

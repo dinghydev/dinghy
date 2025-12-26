@@ -69,19 +69,23 @@ export function AwsBedrockagentcoreCodeInterpreter(props: Partial<InputProps>) {
 export const useAwsBedrockagentcoreCodeInterpreter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreCodeInterpreter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentcoreCodeInterpreters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreCodeInterpreter,
     idFilter,
     baseNode,
+    optional,
   )

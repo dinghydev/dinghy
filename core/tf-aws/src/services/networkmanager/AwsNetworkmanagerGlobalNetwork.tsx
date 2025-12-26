@@ -58,11 +58,23 @@ export function AwsNetworkmanagerGlobalNetwork(props: Partial<InputProps>) {
 export const useAwsNetworkmanagerGlobalNetwork = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerGlobalNetwork, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerGlobalNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkmanagerGlobalNetworks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerGlobalNetwork, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerGlobalNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )

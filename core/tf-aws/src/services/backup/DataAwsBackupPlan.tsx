@@ -73,8 +73,14 @@ export function DataAwsBackupPlan(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBackupPlan = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsBackupPlan, idFilter, baseNode)
+export const useDataAwsBackupPlan = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsBackupPlan, idFilter, baseNode, optional)
 
-export const useDataAwsBackupPlans = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsBackupPlan, idFilter, baseNode)
+export const useDataAwsBackupPlans = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsBackupPlan, idFilter, baseNode, optional)

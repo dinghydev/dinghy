@@ -69,10 +69,23 @@ export function AwsServicequotasServiceQuota(props: Partial<InputProps>) {
 export const useAwsServicequotasServiceQuota = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsServicequotasServiceQuota, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServicequotasServiceQuota,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServicequotasServiceQuotas = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsServicequotasServiceQuota, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsServicequotasServiceQuota,
+    idFilter,
+    baseNode,
+    optional,
+  )

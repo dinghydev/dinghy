@@ -50,5 +50,11 @@ export function DataAwsNetworkmanagerDevices(props: Partial<InputProps>) {
 export const useDataAwsNetworkmanagerDevicess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsNetworkmanagerDevices, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkmanagerDevices,
+    idFilter,
+    baseNode,
+    optional,
+  )

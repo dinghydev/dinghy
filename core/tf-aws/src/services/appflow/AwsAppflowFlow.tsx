@@ -321,8 +321,14 @@ export function AwsAppflowFlow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppflowFlow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppflowFlow, idFilter, baseNode)
+export const useAwsAppflowFlow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppflowFlow, idFilter, baseNode, optional)
 
-export const useAwsAppflowFlows = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppflowFlow, idFilter, baseNode)
+export const useAwsAppflowFlows = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAppflowFlow, idFilter, baseNode, optional)

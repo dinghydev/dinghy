@@ -58,9 +58,23 @@ export function AwsCognitoResourceServer(props: Partial<InputProps>) {
 export const useAwsCognitoResourceServer = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCognitoResourceServer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCognitoResourceServer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoResourceServers = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCognitoResourceServer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoResourceServer,
+    idFilter,
+    baseNode,
+    optional,
+  )

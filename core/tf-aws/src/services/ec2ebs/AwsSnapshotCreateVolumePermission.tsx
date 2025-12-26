@@ -56,19 +56,23 @@ export function AwsSnapshotCreateVolumePermission(props: Partial<InputProps>) {
 export const useAwsSnapshotCreateVolumePermission = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSnapshotCreateVolumePermission,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSnapshotCreateVolumePermissions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSnapshotCreateVolumePermission,
     idFilter,
     baseNode,
+    optional,
   )

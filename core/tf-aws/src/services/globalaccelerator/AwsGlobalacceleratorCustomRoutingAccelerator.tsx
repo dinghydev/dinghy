@@ -82,19 +82,23 @@ export function AwsGlobalacceleratorCustomRoutingAccelerator(
 export const useAwsGlobalacceleratorCustomRoutingAccelerator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGlobalacceleratorCustomRoutingAccelerator,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGlobalacceleratorCustomRoutingAccelerators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorCustomRoutingAccelerator,
     idFilter,
     baseNode,
+    optional,
   )

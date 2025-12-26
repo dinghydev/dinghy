@@ -66,10 +66,26 @@ export function AwsSsmMaintenanceWindow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmMaintenanceWindow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmMaintenanceWindow, idFilter, baseNode)
+export const useAwsSsmMaintenanceWindow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsmMaintenanceWindow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmMaintenanceWindows = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSsmMaintenanceWindow, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsmMaintenanceWindow,
+    idFilter,
+    baseNode,
+    optional,
+  )

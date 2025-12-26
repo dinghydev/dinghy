@@ -54,10 +54,26 @@ export function AwsRolesanywhereProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRolesanywhereProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRolesanywhereProfile, idFilter, baseNode)
+export const useAwsRolesanywhereProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRolesanywhereProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRolesanywhereProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRolesanywhereProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRolesanywhereProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

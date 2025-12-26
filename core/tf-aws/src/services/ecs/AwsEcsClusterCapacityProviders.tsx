@@ -56,5 +56,11 @@ export function AwsEcsClusterCapacityProviders(props: Partial<InputProps>) {
 export const useAwsEcsClusterCapacityProviderss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEcsClusterCapacityProviders, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEcsClusterCapacityProviders,
+    idFilter,
+    baseNode,
+    optional,
+  )

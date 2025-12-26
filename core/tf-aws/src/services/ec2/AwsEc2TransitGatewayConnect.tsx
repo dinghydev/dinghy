@@ -66,9 +66,23 @@ export function AwsEc2TransitGatewayConnect(props: Partial<InputProps>) {
 export const useAwsEc2TransitGatewayConnect = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2TransitGatewayConnect, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayConnect,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2TransitGatewayConnects = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2TransitGatewayConnect, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2TransitGatewayConnect,
+    idFilter,
+    baseNode,
+    optional,
+  )

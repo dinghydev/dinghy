@@ -57,8 +57,14 @@ export function AwsDxLag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxLag = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDxLag, idFilter, baseNode)
+export const useAwsDxLag = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDxLag, idFilter, baseNode, optional)
 
-export const useAwsDxLags = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDxLag, idFilter, baseNode)
+export const useAwsDxLags = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDxLag, idFilter, baseNode, optional)

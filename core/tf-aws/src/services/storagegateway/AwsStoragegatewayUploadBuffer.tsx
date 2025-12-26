@@ -51,11 +51,23 @@ export function AwsStoragegatewayUploadBuffer(props: Partial<InputProps>) {
 export const useAwsStoragegatewayUploadBuffer = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsStoragegatewayUploadBuffer, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsStoragegatewayUploadBuffer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsStoragegatewayUploadBuffers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayUploadBuffer, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayUploadBuffer,
+    idFilter,
+    baseNode,
+    optional,
+  )

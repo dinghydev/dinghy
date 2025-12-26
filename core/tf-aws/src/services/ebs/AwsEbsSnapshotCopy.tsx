@@ -69,8 +69,15 @@ export function AwsEbsSnapshotCopy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEbsSnapshotCopy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEbsSnapshotCopy, idFilter, baseNode)
+export const useAwsEbsSnapshotCopy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEbsSnapshotCopy, idFilter, baseNode, optional)
 
-export const useAwsEbsSnapshotCopys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEbsSnapshotCopy, idFilter, baseNode)
+export const useAwsEbsSnapshotCopys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEbsSnapshotCopy, idFilter, baseNode, optional)

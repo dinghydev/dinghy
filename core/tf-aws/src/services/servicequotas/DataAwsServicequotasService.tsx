@@ -50,9 +50,23 @@ export function DataAwsServicequotasService(props: Partial<InputProps>) {
 export const useDataAwsServicequotasService = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsServicequotasService, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsServicequotasService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsServicequotasServices = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsServicequotasService, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsServicequotasService,
+    idFilter,
+    baseNode,
+    optional,
+  )

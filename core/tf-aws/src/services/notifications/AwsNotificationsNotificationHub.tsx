@@ -52,15 +52,23 @@ export function AwsNotificationsNotificationHub(props: Partial<InputProps>) {
 export const useAwsNotificationsNotificationHub = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNotificationsNotificationHub, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNotificationsNotificationHub,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNotificationsNotificationHubs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNotificationsNotificationHub,
     idFilter,
     baseNode,
+    optional,
   )

@@ -32,11 +32,6 @@ const CloudfrontSiteSchema = z.object({
   title: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
-  s3Origin: z.object({
-    bucket: z.string(),
-    region: z.string().optional(),
-    prefix: z.string().optional(),
-  }).loose().optional(),
   origins: z.record(z.string(), OriginSchema),
   alternativeNames: z.string().array().optional().transform((
     value: string[] | undefined,

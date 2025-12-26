@@ -59,9 +59,23 @@ export function AwsEc2TrafficMirrorSession(props: Partial<InputProps>) {
 export const useAwsEc2TrafficMirrorSession = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2TrafficMirrorSession, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2TrafficMirrorSession,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2TrafficMirrorSessions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2TrafficMirrorSession, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2TrafficMirrorSession,
+    idFilter,
+    baseNode,
+    optional,
+  )

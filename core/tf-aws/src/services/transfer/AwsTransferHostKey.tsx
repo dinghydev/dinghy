@@ -53,8 +53,15 @@ export function AwsTransferHostKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferHostKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferHostKey, idFilter, baseNode)
+export const useAwsTransferHostKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferHostKey, idFilter, baseNode, optional)
 
-export const useAwsTransferHostKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferHostKey, idFilter, baseNode)
+export const useAwsTransferHostKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsTransferHostKey, idFilter, baseNode, optional)

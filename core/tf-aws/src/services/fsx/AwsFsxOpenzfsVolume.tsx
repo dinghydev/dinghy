@@ -86,8 +86,16 @@ export function AwsFsxOpenzfsVolume(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxOpenzfsVolume = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxOpenzfsVolume, idFilter, baseNode)
+export const useAwsFsxOpenzfsVolume = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsFsxOpenzfsVolume, idFilter, baseNode, optional)
 
-export const useAwsFsxOpenzfsVolumes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFsxOpenzfsVolume, idFilter, baseNode)
+export const useAwsFsxOpenzfsVolumes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsFsxOpenzfsVolume, idFilter, baseNode, optional)

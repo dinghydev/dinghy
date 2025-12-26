@@ -57,8 +57,21 @@ export function AwsRekognitionProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRekognitionProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRekognitionProject, idFilter, baseNode)
+export const useAwsRekognitionProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsRekognitionProject, idFilter, baseNode, optional)
 
-export const useAwsRekognitionProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRekognitionProject, idFilter, baseNode)
+export const useAwsRekognitionProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRekognitionProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

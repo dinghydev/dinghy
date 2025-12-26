@@ -60,8 +60,14 @@ export function AwsKmsGrant(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsGrant = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKmsGrant, idFilter, baseNode)
+export const useAwsKmsGrant = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKmsGrant, idFilter, baseNode, optional)
 
-export const useAwsKmsGrants = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsGrant, idFilter, baseNode)
+export const useAwsKmsGrants = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKmsGrant, idFilter, baseNode, optional)

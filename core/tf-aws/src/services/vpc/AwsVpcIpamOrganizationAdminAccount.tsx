@@ -52,19 +52,23 @@ export function AwsVpcIpamOrganizationAdminAccount(props: Partial<InputProps>) {
 export const useAwsVpcIpamOrganizationAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcIpamOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcIpamOrganizationAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcIpamOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

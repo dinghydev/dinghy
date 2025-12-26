@@ -61,8 +61,14 @@ export function AwsDxGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxGateway = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDxGateway, idFilter, baseNode)
+export const useAwsDxGateway = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDxGateway, idFilter, baseNode, optional)
 
-export const useAwsDxGateways = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDxGateway, idFilter, baseNode)
+export const useAwsDxGateways = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDxGateway, idFilter, baseNode, optional)

@@ -60,8 +60,21 @@ export function AwsDxHostedConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxHostedConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDxHostedConnection, idFilter, baseNode)
+export const useAwsDxHostedConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDxHostedConnection, idFilter, baseNode, optional)
 
-export const useAwsDxHostedConnections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDxHostedConnection, idFilter, baseNode)
+export const useAwsDxHostedConnections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDxHostedConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

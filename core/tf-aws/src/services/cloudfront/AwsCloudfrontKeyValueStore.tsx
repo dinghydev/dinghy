@@ -64,9 +64,23 @@ export function AwsCloudfrontKeyValueStore(props: Partial<InputProps>) {
 export const useAwsCloudfrontKeyValueStore = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudfrontKeyValueStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontKeyValueStore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudfrontKeyValueStores = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudfrontKeyValueStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontKeyValueStore,
+    idFilter,
+    baseNode,
+    optional,
+  )

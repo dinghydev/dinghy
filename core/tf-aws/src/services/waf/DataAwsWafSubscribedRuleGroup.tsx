@@ -49,11 +49,23 @@ export function DataAwsWafSubscribedRuleGroup(props: Partial<InputProps>) {
 export const useDataAwsWafSubscribedRuleGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsWafSubscribedRuleGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsWafSubscribedRuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWafSubscribedRuleGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsWafSubscribedRuleGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsWafSubscribedRuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -58,8 +58,14 @@ export function DataAwsIamRole(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamRole = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIamRole, idFilter, baseNode)
+export const useDataAwsIamRole = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsIamRole, idFilter, baseNode, optional)
 
-export const useDataAwsIamRoles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamRole, idFilter, baseNode)
+export const useDataAwsIamRoles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsIamRole, idFilter, baseNode, optional)

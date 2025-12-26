@@ -107,8 +107,14 @@ export function AwsKeyspacesTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKeyspacesTable = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKeyspacesTable, idFilter, baseNode)
+export const useAwsKeyspacesTable = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKeyspacesTable, idFilter, baseNode, optional)
 
-export const useAwsKeyspacesTables = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKeyspacesTable, idFilter, baseNode)
+export const useAwsKeyspacesTables = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKeyspacesTable, idFilter, baseNode, optional)

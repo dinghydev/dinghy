@@ -57,8 +57,14 @@ export function AwsSagemakerHub(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerHub = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerHub, idFilter, baseNode)
+export const useAwsSagemakerHub = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSagemakerHub, idFilter, baseNode, optional)
 
-export const useAwsSagemakerHubs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerHub, idFilter, baseNode)
+export const useAwsSagemakerHubs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSagemakerHub, idFilter, baseNode, optional)

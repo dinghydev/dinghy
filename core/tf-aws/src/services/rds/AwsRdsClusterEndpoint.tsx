@@ -54,8 +54,21 @@ export function AwsRdsClusterEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsClusterEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsClusterEndpoint, idFilter, baseNode)
+export const useAwsRdsClusterEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsRdsClusterEndpoint, idFilter, baseNode, optional)
 
-export const useAwsRdsClusterEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsClusterEndpoint, idFilter, baseNode)
+export const useAwsRdsClusterEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRdsClusterEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

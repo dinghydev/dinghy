@@ -55,9 +55,11 @@ export function DataAwsRedshiftClusterCredentials(props: Partial<InputProps>) {
 export const useDataAwsRedshiftClusterCredentialss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRedshiftClusterCredentials,
     idFilter,
     baseNode,
+    optional,
   )

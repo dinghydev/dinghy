@@ -73,8 +73,21 @@ export function AwsConnectPhoneNumber(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectPhoneNumber = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectPhoneNumber, idFilter, baseNode)
+export const useAwsConnectPhoneNumber = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsConnectPhoneNumber, idFilter, baseNode, optional)
 
-export const useAwsConnectPhoneNumbers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectPhoneNumber, idFilter, baseNode)
+export const useAwsConnectPhoneNumbers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectPhoneNumber,
+    idFilter,
+    baseNode,
+    optional,
+  )

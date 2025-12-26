@@ -50,19 +50,23 @@ export function AwsApiGatewayDocumentationVersion(props: Partial<InputProps>) {
 export const useAwsApiGatewayDocumentationVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApiGatewayDocumentationVersion,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApiGatewayDocumentationVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApiGatewayDocumentationVersion,
     idFilter,
     baseNode,
+    optional,
   )

@@ -54,19 +54,23 @@ export function AwsChimeVoiceConnectorTermination(props: Partial<InputProps>) {
 export const useAwsChimeVoiceConnectorTermination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsChimeVoiceConnectorTermination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsChimeVoiceConnectorTerminations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChimeVoiceConnectorTermination,
     idFilter,
     baseNode,
+    optional,
   )

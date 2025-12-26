@@ -50,9 +50,23 @@ export function AwsRamResourceAssociation(props: Partial<InputProps>) {
 export const useAwsRamResourceAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRamResourceAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRamResourceAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRamResourceAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRamResourceAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRamResourceAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

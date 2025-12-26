@@ -62,9 +62,23 @@ export function DataAwsFsxOpenzfsSnapshot(props: Partial<InputProps>) {
 export const useDataAwsFsxOpenzfsSnapshot = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsFsxOpenzfsSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsFsxOpenzfsSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsFsxOpenzfsSnapshots = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsFsxOpenzfsSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsFsxOpenzfsSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

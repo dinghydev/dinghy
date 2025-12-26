@@ -59,9 +59,23 @@ export function DataAwsConnectVocabulary(props: Partial<InputProps>) {
 export const useDataAwsConnectVocabulary = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsConnectVocabulary, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectVocabulary,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectVocabularys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsConnectVocabulary, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsConnectVocabulary,
+    idFilter,
+    baseNode,
+    optional,
+  )

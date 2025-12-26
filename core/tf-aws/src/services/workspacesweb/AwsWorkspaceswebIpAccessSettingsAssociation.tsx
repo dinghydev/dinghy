@@ -50,19 +50,23 @@ export function AwsWorkspaceswebIpAccessSettingsAssociation(
 export const useAwsWorkspaceswebIpAccessSettingsAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebIpAccessSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebIpAccessSettingsAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebIpAccessSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )

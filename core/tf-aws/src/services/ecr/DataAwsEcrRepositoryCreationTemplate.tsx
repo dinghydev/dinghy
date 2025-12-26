@@ -67,19 +67,23 @@ export function DataAwsEcrRepositoryCreationTemplate(
 export const useDataAwsEcrRepositoryCreationTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEcrRepositoryCreationTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEcrRepositoryCreationTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEcrRepositoryCreationTemplate,
     idFilter,
     baseNode,
+    optional,
   )

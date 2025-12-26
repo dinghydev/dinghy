@@ -51,9 +51,23 @@ export function DataAwsVpclatticeAuthPolicy(props: Partial<InputProps>) {
 export const useDataAwsVpclatticeAuthPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsVpclatticeAuthPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsVpclatticeAuthPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsVpclatticeAuthPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsVpclatticeAuthPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsVpclatticeAuthPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

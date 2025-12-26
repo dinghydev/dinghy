@@ -62,9 +62,11 @@ export function AwsWorkspaceswebIpAccessSettings(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebIpAccessSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebIpAccessSettings,
     idFilter,
     baseNode,
+    optional,
   )

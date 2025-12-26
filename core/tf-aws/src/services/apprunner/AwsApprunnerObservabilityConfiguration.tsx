@@ -68,19 +68,23 @@ export function AwsApprunnerObservabilityConfiguration(
 export const useAwsApprunnerObservabilityConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApprunnerObservabilityConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApprunnerObservabilityConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApprunnerObservabilityConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

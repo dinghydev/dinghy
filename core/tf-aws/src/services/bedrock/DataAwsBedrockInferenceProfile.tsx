@@ -59,11 +59,23 @@ export function DataAwsBedrockInferenceProfile(props: Partial<InputProps>) {
 export const useDataAwsBedrockInferenceProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsBedrockInferenceProfile, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsBedrockInferenceProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBedrockInferenceProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockInferenceProfile, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsBedrockInferenceProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -95,9 +95,23 @@ export function AwsSagemakerAppImageConfig(props: Partial<InputProps>) {
 export const useAwsSagemakerAppImageConfig = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSagemakerAppImageConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerAppImageConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerAppImageConfigs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerAppImageConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerAppImageConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -51,10 +51,23 @@ export function AwsEc2ManagedPrefixListEntry(props: Partial<InputProps>) {
 export const useAwsEc2ManagedPrefixListEntry = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2ManagedPrefixListEntry, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2ManagedPrefixListEntry,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2ManagedPrefixListEntrys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2ManagedPrefixListEntry, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEc2ManagedPrefixListEntry,
+    idFilter,
+    baseNode,
+    optional,
+  )

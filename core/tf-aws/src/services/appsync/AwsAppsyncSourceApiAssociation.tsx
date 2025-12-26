@@ -67,11 +67,23 @@ export function AwsAppsyncSourceApiAssociation(props: Partial<InputProps>) {
 export const useAwsAppsyncSourceApiAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAppsyncSourceApiAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsAppsyncSourceApiAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncSourceApiAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppsyncSourceApiAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAppsyncSourceApiAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

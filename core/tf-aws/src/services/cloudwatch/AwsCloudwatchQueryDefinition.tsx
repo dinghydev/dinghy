@@ -52,10 +52,23 @@ export function AwsCloudwatchQueryDefinition(props: Partial<InputProps>) {
 export const useAwsCloudwatchQueryDefinition = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchQueryDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchQueryDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchQueryDefinitions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchQueryDefinition, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchQueryDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

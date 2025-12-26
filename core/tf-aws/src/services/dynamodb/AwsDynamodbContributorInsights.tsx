@@ -55,5 +55,11 @@ export function AwsDynamodbContributorInsights(props: Partial<InputProps>) {
 export const useAwsDynamodbContributorInsightss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDynamodbContributorInsights, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDynamodbContributorInsights,
+    idFilter,
+    baseNode,
+    optional,
+  )

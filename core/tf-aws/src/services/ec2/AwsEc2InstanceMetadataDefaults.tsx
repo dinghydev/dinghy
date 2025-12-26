@@ -50,5 +50,11 @@ export function AwsEc2InstanceMetadataDefaults(props: Partial<InputProps>) {
 export const useAwsEc2InstanceMetadataDefaultss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2InstanceMetadataDefaults, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEc2InstanceMetadataDefaults,
+    idFilter,
+    baseNode,
+    optional,
+  )

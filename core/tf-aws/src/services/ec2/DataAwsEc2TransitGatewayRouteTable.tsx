@@ -65,19 +65,23 @@ export function DataAwsEc2TransitGatewayRouteTable(props: Partial<InputProps>) {
 export const useDataAwsEc2TransitGatewayRouteTable = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2TransitGatewayRouteTable,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2TransitGatewayRouteTables = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayRouteTable,
     idFilter,
     baseNode,
+    optional,
   )

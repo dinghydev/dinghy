@@ -55,9 +55,23 @@ export function DataAwsDynamodbTableItem(props: Partial<InputProps>) {
 export const useDataAwsDynamodbTableItem = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsDynamodbTableItem, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDynamodbTableItem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDynamodbTableItems = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsDynamodbTableItem, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDynamodbTableItem,
+    idFilter,
+    baseNode,
+    optional,
+  )

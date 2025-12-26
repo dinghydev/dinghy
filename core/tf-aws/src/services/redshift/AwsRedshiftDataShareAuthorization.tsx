@@ -53,19 +53,23 @@ export function AwsRedshiftDataShareAuthorization(props: Partial<InputProps>) {
 export const useAwsRedshiftDataShareAuthorization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftDataShareAuthorization,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftDataShareAuthorizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftDataShareAuthorization,
     idFilter,
     baseNode,
+    optional,
   )

@@ -50,19 +50,23 @@ export function AwsFisTargetAccountConfiguration(props: Partial<InputProps>) {
 export const useAwsFisTargetAccountConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsFisTargetAccountConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsFisTargetAccountConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsFisTargetAccountConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

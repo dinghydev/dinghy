@@ -72,8 +72,14 @@ export function AwsRumAppMonitor(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRumAppMonitor = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRumAppMonitor, idFilter, baseNode)
+export const useAwsRumAppMonitor = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRumAppMonitor, idFilter, baseNode, optional)
 
-export const useAwsRumAppMonitors = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRumAppMonitor, idFilter, baseNode)
+export const useAwsRumAppMonitors = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRumAppMonitor, idFilter, baseNode, optional)

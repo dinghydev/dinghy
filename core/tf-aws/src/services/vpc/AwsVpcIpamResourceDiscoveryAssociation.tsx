@@ -67,19 +67,23 @@ export function AwsVpcIpamResourceDiscoveryAssociation(
 export const useAwsVpcIpamResourceDiscoveryAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcIpamResourceDiscoveryAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcIpamResourceDiscoveryAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcIpamResourceDiscoveryAssociation,
     idFilter,
     baseNode,
+    optional,
   )

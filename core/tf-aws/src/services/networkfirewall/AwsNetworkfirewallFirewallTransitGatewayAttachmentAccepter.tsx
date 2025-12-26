@@ -55,19 +55,23 @@ export function AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter(
 export const useAwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkfirewallFirewallTransitGatewayAttachmentAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )

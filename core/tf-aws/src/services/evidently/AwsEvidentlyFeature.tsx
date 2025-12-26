@@ -82,8 +82,16 @@ export function AwsEvidentlyFeature(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEvidentlyFeature = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEvidentlyFeature, idFilter, baseNode)
+export const useAwsEvidentlyFeature = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEvidentlyFeature, idFilter, baseNode, optional)
 
-export const useAwsEvidentlyFeatures = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyFeature, idFilter, baseNode)
+export const useAwsEvidentlyFeatures = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEvidentlyFeature, idFilter, baseNode, optional)

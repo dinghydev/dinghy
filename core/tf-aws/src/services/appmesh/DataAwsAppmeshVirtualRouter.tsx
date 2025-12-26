@@ -64,9 +64,23 @@ export function DataAwsAppmeshVirtualRouter(props: Partial<InputProps>) {
 export const useDataAwsAppmeshVirtualRouter = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAppmeshVirtualRouter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAppmeshVirtualRouter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAppmeshVirtualRouters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAppmeshVirtualRouter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAppmeshVirtualRouter,
+    idFilter,
+    baseNode,
+    optional,
+  )

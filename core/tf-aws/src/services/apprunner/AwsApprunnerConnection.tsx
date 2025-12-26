@@ -51,8 +51,26 @@ export function AwsApprunnerConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApprunnerConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApprunnerConnection, idFilter, baseNode)
+export const useAwsApprunnerConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApprunnerConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsApprunnerConnections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsApprunnerConnection, idFilter, baseNode)
+export const useAwsApprunnerConnections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApprunnerConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -49,10 +49,26 @@ export function DataAwsLambdaInvocation(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaInvocation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLambdaInvocation, idFilter, baseNode)
+export const useDataAwsLambdaInvocation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLambdaInvocation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLambdaInvocations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsLambdaInvocation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLambdaInvocation,
+    idFilter,
+    baseNode,
+    optional,
+  )

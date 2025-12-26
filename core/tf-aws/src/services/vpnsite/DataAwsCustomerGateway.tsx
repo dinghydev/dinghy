@@ -64,8 +64,26 @@ export function DataAwsCustomerGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCustomerGateway = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsCustomerGateway, idFilter, baseNode)
+export const useDataAwsCustomerGateway = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCustomerGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsCustomerGateways = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsCustomerGateway, idFilter, baseNode)
+export const useDataAwsCustomerGateways = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCustomerGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

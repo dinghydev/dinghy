@@ -75,8 +75,21 @@ export function AwsSesv2EmailIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2EmailIdentity = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesv2EmailIdentity, idFilter, baseNode)
+export const useAwsSesv2EmailIdentity = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesv2EmailIdentity, idFilter, baseNode, optional)
 
-export const useAwsSesv2EmailIdentitys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesv2EmailIdentity, idFilter, baseNode)
+export const useAwsSesv2EmailIdentitys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSesv2EmailIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )

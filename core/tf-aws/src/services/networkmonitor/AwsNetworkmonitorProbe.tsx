@@ -56,8 +56,26 @@ export function AwsNetworkmonitorProbe(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmonitorProbe = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNetworkmonitorProbe, idFilter, baseNode)
+export const useAwsNetworkmonitorProbe = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmonitorProbe,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsNetworkmonitorProbes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNetworkmonitorProbe, idFilter, baseNode)
+export const useAwsNetworkmonitorProbes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmonitorProbe,
+    idFilter,
+    baseNode,
+    optional,
+  )

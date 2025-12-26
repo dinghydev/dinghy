@@ -23,7 +23,7 @@ export type InputProps =
   & z.input<typeof InputSchema>
   & NodeProps
 
-export function AwsGlobalLogBucket(
+export function GlobalLogBucket(
   { _components, ...props }: Partial<InputProps>,
 ) {
   const { stack } = getRenderOptions()
@@ -80,8 +80,8 @@ export function AwsGlobalLogBucket(
   )
 }
 
-export const useAwsGlobalLogBucket = (
+export const useGlobalLogBucket = (
   idFilter?: string,
   node?: any,
   optional?: boolean,
-) => useTypedNode<InputProps>(AwsGlobalLogBucket, idFilter, node, optional)
+) => useTypedNode<InputProps>(GlobalLogBucket, idFilter, node, optional)

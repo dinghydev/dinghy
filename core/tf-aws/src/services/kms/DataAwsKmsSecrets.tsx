@@ -55,5 +55,8 @@ export function DataAwsKmsSecrets(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKmsSecretss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKmsSecrets, idFilter, baseNode)
+export const useDataAwsKmsSecretss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsKmsSecrets, idFilter, baseNode, optional)

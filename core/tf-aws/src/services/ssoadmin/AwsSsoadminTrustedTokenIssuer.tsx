@@ -72,11 +72,23 @@ export function AwsSsoadminTrustedTokenIssuer(props: Partial<InputProps>) {
 export const useAwsSsoadminTrustedTokenIssuer = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSsoadminTrustedTokenIssuer, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSsoadminTrustedTokenIssuer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsoadminTrustedTokenIssuers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSsoadminTrustedTokenIssuer, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSsoadminTrustedTokenIssuer,
+    idFilter,
+    baseNode,
+    optional,
+  )

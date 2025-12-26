@@ -65,8 +65,16 @@ export function AwsSagemakerPipeline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerPipeline = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerPipeline, idFilter, baseNode)
+export const useAwsSagemakerPipeline = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSagemakerPipeline, idFilter, baseNode, optional)
 
-export const useAwsSagemakerPipelines = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerPipeline, idFilter, baseNode)
+export const useAwsSagemakerPipelines = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSagemakerPipeline, idFilter, baseNode, optional)

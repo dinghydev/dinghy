@@ -74,8 +74,16 @@ export function AwsCodebuildWebhook(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildWebhook = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode)
+export const useAwsCodebuildWebhook = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode, optional)
 
-export const useAwsCodebuildWebhooks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode)
+export const useAwsCodebuildWebhooks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode, optional)

@@ -92,9 +92,23 @@ export function AwsFinspaceKxEnvironment(props: Partial<InputProps>) {
 export const useAwsFinspaceKxEnvironment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsFinspaceKxEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFinspaceKxEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFinspaceKxEnvironments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsFinspaceKxEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFinspaceKxEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -51,11 +51,23 @@ export function AwsS3controlAccessPointPolicy(props: Partial<InputProps>) {
 export const useAwsS3controlAccessPointPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsS3controlAccessPointPolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsS3controlAccessPointPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3controlAccessPointPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3controlAccessPointPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsS3controlAccessPointPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

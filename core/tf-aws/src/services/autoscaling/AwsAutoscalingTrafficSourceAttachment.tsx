@@ -62,19 +62,23 @@ export function AwsAutoscalingTrafficSourceAttachment(
 export const useAwsAutoscalingTrafficSourceAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAutoscalingTrafficSourceAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAutoscalingTrafficSourceAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAutoscalingTrafficSourceAttachment,
     idFilter,
     baseNode,
+    optional,
   )

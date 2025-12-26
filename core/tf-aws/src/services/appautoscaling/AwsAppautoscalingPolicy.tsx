@@ -190,10 +190,26 @@ export function AwsAppautoscalingPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppautoscalingPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppautoscalingPolicy, idFilter, baseNode)
+export const useAwsAppautoscalingPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppautoscalingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppautoscalingPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppautoscalingPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppautoscalingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -64,9 +64,23 @@ export function AwsControltowerLandingZone(props: Partial<InputProps>) {
 export const useAwsControltowerLandingZone = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsControltowerLandingZone, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsControltowerLandingZone,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsControltowerLandingZones = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsControltowerLandingZone, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsControltowerLandingZone,
+    idFilter,
+    baseNode,
+    optional,
+  )

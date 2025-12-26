@@ -145,8 +145,14 @@ export function AwsSagemakerModel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerModel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerModel, idFilter, baseNode)
+export const useAwsSagemakerModel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSagemakerModel, idFilter, baseNode, optional)
 
-export const useAwsSagemakerModels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerModel, idFilter, baseNode)
+export const useAwsSagemakerModels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSagemakerModel, idFilter, baseNode, optional)

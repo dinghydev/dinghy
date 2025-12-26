@@ -55,11 +55,23 @@ export function AwsVpnGatewayRoutePropagation(props: Partial<InputProps>) {
 export const useAwsVpnGatewayRoutePropagation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpnGatewayRoutePropagation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpnGatewayRoutePropagation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpnGatewayRoutePropagations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpnGatewayRoutePropagation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpnGatewayRoutePropagation,
+    idFilter,
+    baseNode,
+    optional,
+  )

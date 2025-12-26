@@ -57,8 +57,14 @@ export function AwsS3BucketPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3BucketPolicy, idFilter, baseNode)
+export const useAwsS3BucketPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsS3BucketPolicy, idFilter, baseNode, optional)
 
-export const useAwsS3BucketPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3BucketPolicy, idFilter, baseNode)
+export const useAwsS3BucketPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsS3BucketPolicy, idFilter, baseNode, optional)

@@ -163,19 +163,23 @@ export function AwsWafv2WebAclRuleGroupAssociation(props: Partial<InputProps>) {
 export const useAwsWafv2WebAclRuleGroupAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWafv2WebAclRuleGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWafv2WebAclRuleGroupAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWafv2WebAclRuleGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )

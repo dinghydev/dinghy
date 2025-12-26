@@ -81,9 +81,11 @@ export function AwsWorkspaceswebDataProtectionSettings(
 export const useAwsWorkspaceswebDataProtectionSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebDataProtectionSettings,
     idFilter,
     baseNode,
+    optional,
   )

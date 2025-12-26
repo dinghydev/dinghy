@@ -45,5 +45,8 @@ export function DataAwsOamSinks(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOamSinkss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOamSinks, idFilter, baseNode)
+export const useDataAwsOamSinkss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsOamSinks, idFilter, baseNode, optional)

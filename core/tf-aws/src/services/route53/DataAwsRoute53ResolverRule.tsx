@@ -57,9 +57,23 @@ export function DataAwsRoute53ResolverRule(props: Partial<InputProps>) {
 export const useDataAwsRoute53ResolverRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsRoute53ResolverRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRoute53ResolverRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRoute53ResolverRules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsRoute53ResolverRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53ResolverRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

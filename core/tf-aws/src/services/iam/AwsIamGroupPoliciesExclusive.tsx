@@ -47,10 +47,23 @@ export function AwsIamGroupPoliciesExclusive(props: Partial<InputProps>) {
 export const useAwsIamGroupPoliciesExclusive = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamGroupPoliciesExclusive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamGroupPoliciesExclusive,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamGroupPoliciesExclusives = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsIamGroupPoliciesExclusive, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsIamGroupPoliciesExclusive,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -123,19 +123,23 @@ export function AwsCloudfrontResponseHeadersPolicy(props: Partial<InputProps>) {
 export const useAwsCloudfrontResponseHeadersPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontResponseHeadersPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,
+    optional,
   )

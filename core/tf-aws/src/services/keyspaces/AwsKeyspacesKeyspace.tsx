@@ -61,8 +61,16 @@ export function AwsKeyspacesKeyspace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKeyspacesKeyspace = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKeyspacesKeyspace, idFilter, baseNode)
+export const useAwsKeyspacesKeyspace = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsKeyspacesKeyspace, idFilter, baseNode, optional)
 
-export const useAwsKeyspacesKeyspaces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKeyspacesKeyspace, idFilter, baseNode)
+export const useAwsKeyspacesKeyspaces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsKeyspacesKeyspace, idFilter, baseNode, optional)

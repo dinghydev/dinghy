@@ -49,8 +49,16 @@ export function DataAwsIvsStreamKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIvsStreamKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode)
+export const useDataAwsIvsStreamKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode, optional)
 
-export const useDataAwsIvsStreamKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode)
+export const useDataAwsIvsStreamKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode, optional)

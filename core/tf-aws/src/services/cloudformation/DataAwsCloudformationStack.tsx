@@ -59,9 +59,23 @@ export function DataAwsCloudformationStack(props: Partial<InputProps>) {
 export const useDataAwsCloudformationStack = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCloudformationStack, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudformationStack,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudformationStacks = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCloudformationStack, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudformationStack,
+    idFilter,
+    baseNode,
+    optional,
+  )

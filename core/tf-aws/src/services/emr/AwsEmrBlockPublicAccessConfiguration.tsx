@@ -56,19 +56,23 @@ export function AwsEmrBlockPublicAccessConfiguration(
 export const useAwsEmrBlockPublicAccessConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEmrBlockPublicAccessConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEmrBlockPublicAccessConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEmrBlockPublicAccessConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

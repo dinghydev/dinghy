@@ -55,19 +55,23 @@ export function DataAwsServicecatalogappregistryAttributeGroup(
 export const useDataAwsServicecatalogappregistryAttributeGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsServicecatalogappregistryAttributeGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsServicecatalogappregistryAttributeGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogappregistryAttributeGroup,
     idFilter,
     baseNode,
+    optional,
   )

@@ -53,19 +53,23 @@ export function AwsCognitoIdentityPoolProviderPrincipalTag(
 export const useAwsCognitoIdentityPoolProviderPrincipalTag = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCognitoIdentityPoolProviderPrincipalTag,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCognitoIdentityPoolProviderPrincipalTags = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCognitoIdentityPoolProviderPrincipalTag,
     idFilter,
     baseNode,
+    optional,
   )

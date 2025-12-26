@@ -51,8 +51,14 @@ export function AwsIamGroupPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamGroupPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamGroupPolicy, idFilter, baseNode)
+export const useAwsIamGroupPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIamGroupPolicy, idFilter, baseNode, optional)
 
-export const useAwsIamGroupPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamGroupPolicy, idFilter, baseNode)
+export const useAwsIamGroupPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIamGroupPolicy, idFilter, baseNode, optional)

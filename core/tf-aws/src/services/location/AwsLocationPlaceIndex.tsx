@@ -58,8 +58,21 @@ export function AwsLocationPlaceIndex(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLocationPlaceIndex = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLocationPlaceIndex, idFilter, baseNode)
+export const useAwsLocationPlaceIndex = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLocationPlaceIndex, idFilter, baseNode, optional)
 
-export const useAwsLocationPlaceIndexs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLocationPlaceIndex, idFilter, baseNode)
+export const useAwsLocationPlaceIndexs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLocationPlaceIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )

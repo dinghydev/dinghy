@@ -77,11 +77,23 @@ export function AwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
 export const useAwsSsmincidentsReplicationSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSsmincidentsReplicationSet, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSsmincidentsReplicationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmincidentsReplicationSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSsmincidentsReplicationSet, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSsmincidentsReplicationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

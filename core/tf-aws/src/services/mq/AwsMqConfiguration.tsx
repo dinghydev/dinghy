@@ -55,8 +55,15 @@ export function AwsMqConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMqConfiguration = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMqConfiguration, idFilter, baseNode)
+export const useAwsMqConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMqConfiguration, idFilter, baseNode, optional)
 
-export const useAwsMqConfigurations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMqConfiguration, idFilter, baseNode)
+export const useAwsMqConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMqConfiguration, idFilter, baseNode, optional)

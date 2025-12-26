@@ -65,9 +65,23 @@ export function AwsDirectoryServiceTrust(props: Partial<InputProps>) {
 export const useAwsDirectoryServiceTrust = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDirectoryServiceTrust, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDirectoryServiceTrust,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDirectoryServiceTrusts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDirectoryServiceTrust, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceTrust,
+    idFilter,
+    baseNode,
+    optional,
+  )

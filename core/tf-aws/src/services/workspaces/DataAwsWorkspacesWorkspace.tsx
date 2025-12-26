@@ -66,9 +66,23 @@ export function DataAwsWorkspacesWorkspace(props: Partial<InputProps>) {
 export const useDataAwsWorkspacesWorkspace = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsWorkspacesWorkspace, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWorkspacesWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWorkspacesWorkspaces = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsWorkspacesWorkspace, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWorkspacesWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )

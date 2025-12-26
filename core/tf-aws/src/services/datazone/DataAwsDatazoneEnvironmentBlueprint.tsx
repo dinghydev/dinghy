@@ -55,19 +55,23 @@ export function DataAwsDatazoneEnvironmentBlueprint(
 export const useDataAwsDatazoneEnvironmentBlueprint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsDatazoneEnvironmentBlueprint,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsDatazoneEnvironmentBlueprints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsDatazoneEnvironmentBlueprint,
     idFilter,
     baseNode,
+    optional,
   )

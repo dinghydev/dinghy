@@ -60,11 +60,23 @@ export function DataAwsCloudfrontDistribution(props: Partial<InputProps>) {
 export const useDataAwsCloudfrontDistribution = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsCloudfrontDistribution, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsCloudfrontDistribution,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudfrontDistributions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsCloudfrontDistribution, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsCloudfrontDistribution,
+    idFilter,
+    baseNode,
+    optional,
+  )

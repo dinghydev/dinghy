@@ -48,5 +48,11 @@ export function AwsPaymentcryptographyKeyAlias(props: Partial<InputProps>) {
 export const useAwsPaymentcryptographyKeyAliass = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsPaymentcryptographyKeyAlias, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsPaymentcryptographyKeyAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

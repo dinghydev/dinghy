@@ -55,19 +55,23 @@ export function AwsEc2TransitGatewayRouteTableAssociation(
 export const useAwsEc2TransitGatewayRouteTableAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayRouteTableAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayRouteTableAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayRouteTableAssociation,
     idFilter,
     baseNode,
+    optional,
   )

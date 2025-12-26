@@ -56,8 +56,14 @@ export function AwsWafRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafRule, idFilter, baseNode)
+export const useAwsWafRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafRule, idFilter, baseNode, optional)
 
-export const useAwsWafRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafRule, idFilter, baseNode)
+export const useAwsWafRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafRule, idFilter, baseNode, optional)

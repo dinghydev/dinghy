@@ -56,8 +56,14 @@ export function AwsOamSinkPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOamSinkPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode)
+export const useAwsOamSinkPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode, optional)
 
-export const useAwsOamSinkPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode)
+export const useAwsOamSinkPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode, optional)

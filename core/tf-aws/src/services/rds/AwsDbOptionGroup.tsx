@@ -72,8 +72,14 @@ export function AwsDbOptionGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbOptionGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDbOptionGroup, idFilter, baseNode)
+export const useAwsDbOptionGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDbOptionGroup, idFilter, baseNode, optional)
 
-export const useAwsDbOptionGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDbOptionGroup, idFilter, baseNode)
+export const useAwsDbOptionGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDbOptionGroup, idFilter, baseNode, optional)

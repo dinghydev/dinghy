@@ -69,9 +69,23 @@ export function AwsDevicefarmNetworkProfile(props: Partial<InputProps>) {
 export const useAwsDevicefarmNetworkProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDevicefarmNetworkProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDevicefarmNetworkProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevicefarmNetworkProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDevicefarmNetworkProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDevicefarmNetworkProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

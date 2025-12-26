@@ -70,19 +70,23 @@ export function AwsS3BucketAnalyticsConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketAnalyticsConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketAnalyticsConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketAnalyticsConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketAnalyticsConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

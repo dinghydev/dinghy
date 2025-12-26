@@ -61,9 +61,23 @@ export function AwsCloudcontrolapiResource(props: Partial<InputProps>) {
 export const useAwsCloudcontrolapiResource = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudcontrolapiResource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudcontrolapiResource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudcontrolapiResources = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudcontrolapiResource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudcontrolapiResource,
+    idFilter,
+    baseNode,
+    optional,
+  )

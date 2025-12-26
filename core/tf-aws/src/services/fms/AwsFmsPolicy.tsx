@@ -120,8 +120,14 @@ export function AwsFmsPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFmsPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFmsPolicy, idFilter, baseNode)
+export const useAwsFmsPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFmsPolicy, idFilter, baseNode, optional)
 
-export const useAwsFmsPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFmsPolicy, idFilter, baseNode)
+export const useAwsFmsPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFmsPolicy, idFilter, baseNode, optional)

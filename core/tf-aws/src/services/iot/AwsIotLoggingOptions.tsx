@@ -46,5 +46,9 @@ export function AwsIotLoggingOptions(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotLoggingOptions = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotLoggingOptions, idFilter, baseNode)
+export const useAwsIotLoggingOptions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsIotLoggingOptions, idFilter, baseNode, optional)

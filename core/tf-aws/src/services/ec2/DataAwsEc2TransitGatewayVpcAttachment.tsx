@@ -72,19 +72,23 @@ export function DataAwsEc2TransitGatewayVpcAttachment(
 export const useDataAwsEc2TransitGatewayVpcAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2TransitGatewayVpcAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2TransitGatewayVpcAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayVpcAttachment,
     idFilter,
     baseNode,
+    optional,
   )

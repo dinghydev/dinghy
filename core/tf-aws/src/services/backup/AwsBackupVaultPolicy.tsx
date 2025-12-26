@@ -48,8 +48,16 @@ export function AwsBackupVaultPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupVaultPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBackupVaultPolicy, idFilter, baseNode)
+export const useAwsBackupVaultPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsBackupVaultPolicy, idFilter, baseNode, optional)
 
-export const useAwsBackupVaultPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBackupVaultPolicy, idFilter, baseNode)
+export const useAwsBackupVaultPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsBackupVaultPolicy, idFilter, baseNode, optional)

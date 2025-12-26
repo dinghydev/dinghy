@@ -169,8 +169,14 @@ export function AwsDynamodbTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTable = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDynamodbTable, idFilter, baseNode)
+export const useAwsDynamodbTable = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDynamodbTable, idFilter, baseNode, optional)
 
-export const useAwsDynamodbTables = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTable, idFilter, baseNode)
+export const useAwsDynamodbTables = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDynamodbTable, idFilter, baseNode, optional)

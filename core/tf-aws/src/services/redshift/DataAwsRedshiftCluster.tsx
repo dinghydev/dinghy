@@ -90,8 +90,26 @@ export function DataAwsRedshiftCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRedshiftCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsRedshiftCluster, idFilter, baseNode)
+export const useDataAwsRedshiftCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRedshiftCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsRedshiftClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsRedshiftCluster, idFilter, baseNode)
+export const useDataAwsRedshiftClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

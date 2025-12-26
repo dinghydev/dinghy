@@ -81,8 +81,14 @@ export function AwsRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute, idFilter, baseNode)
+export const useAwsRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRoute, idFilter, baseNode, optional)
 
-export const useAwsRoutes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRoute, idFilter, baseNode)
+export const useAwsRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRoute, idFilter, baseNode, optional)

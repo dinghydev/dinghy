@@ -101,8 +101,14 @@ export function AwsTransferServer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferServer = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferServer, idFilter, baseNode)
+export const useAwsTransferServer = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferServer, idFilter, baseNode, optional)
 
-export const useAwsTransferServers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferServer, idFilter, baseNode)
+export const useAwsTransferServers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsTransferServer, idFilter, baseNode, optional)

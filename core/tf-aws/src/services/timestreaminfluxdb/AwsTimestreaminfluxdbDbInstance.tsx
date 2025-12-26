@@ -85,15 +85,23 @@ export function AwsTimestreaminfluxdbDbInstance(props: Partial<InputProps>) {
 export const useAwsTimestreaminfluxdbDbInstance = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsTimestreaminfluxdbDbInstance, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsTimestreaminfluxdbDbInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTimestreaminfluxdbDbInstances = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsTimestreaminfluxdbDbInstance,
     idFilter,
     baseNode,
+    optional,
   )

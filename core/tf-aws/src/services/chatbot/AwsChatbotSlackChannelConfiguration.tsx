@@ -69,19 +69,23 @@ export function AwsChatbotSlackChannelConfiguration(
 export const useAwsChatbotSlackChannelConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsChatbotSlackChannelConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsChatbotSlackChannelConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChatbotSlackChannelConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

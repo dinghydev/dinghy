@@ -90,8 +90,14 @@ export function AwsAppstreamFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamFleet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppstreamFleet, idFilter, baseNode)
+export const useAwsAppstreamFleet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppstreamFleet, idFilter, baseNode, optional)
 
-export const useAwsAppstreamFleets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppstreamFleet, idFilter, baseNode)
+export const useAwsAppstreamFleets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAppstreamFleet, idFilter, baseNode, optional)

@@ -57,9 +57,23 @@ export function DataAwsIamServerCertificate(props: Partial<InputProps>) {
 export const useDataAwsIamServerCertificate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsIamServerCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsIamServerCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIamServerCertificates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsIamServerCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIamServerCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

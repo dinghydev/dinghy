@@ -29643,4 +29643,11 @@ export function DataAwsQuicksightAnalysis(props: Partial<InputProps>) {
 export const useDataAwsQuicksightAnalysiss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsQuicksightAnalysis, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsQuicksightAnalysis,
+    idFilter,
+    baseNode,
+    optional,
+  )

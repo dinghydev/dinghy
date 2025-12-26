@@ -70,19 +70,23 @@ export function AwsServicecatalogProvisioningArtifact(
 export const useAwsServicecatalogProvisioningArtifact = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogProvisioningArtifact,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogProvisioningArtifacts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogProvisioningArtifact,
     idFilter,
     baseNode,
+    optional,
   )

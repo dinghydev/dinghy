@@ -67,19 +67,23 @@ export function AwsBackupRestoreTestingSelection(props: Partial<InputProps>) {
 export const useAwsBackupRestoreTestingSelection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBackupRestoreTestingSelection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBackupRestoreTestingSelections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBackupRestoreTestingSelection,
     idFilter,
     baseNode,
+    optional,
   )

@@ -66,11 +66,23 @@ export function AwsServicecatalogServiceAction(props: Partial<InputProps>) {
 export const useAwsServicecatalogServiceAction = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsServicecatalogServiceAction, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsServicecatalogServiceAction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServicecatalogServiceActions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsServicecatalogServiceAction, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsServicecatalogServiceAction,
+    idFilter,
+    baseNode,
+    optional,
+  )

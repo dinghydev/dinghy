@@ -50,9 +50,23 @@ export function AwsRedshiftResourcePolicy(props: Partial<InputProps>) {
 export const useAwsRedshiftResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

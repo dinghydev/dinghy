@@ -66,9 +66,23 @@ export function AwsNeptuneEventSubscription(props: Partial<InputProps>) {
 export const useAwsNeptuneEventSubscription = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNeptuneEventSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNeptuneEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNeptuneEventSubscriptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNeptuneEventSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNeptuneEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

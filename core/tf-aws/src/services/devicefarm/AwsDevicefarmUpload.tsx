@@ -59,8 +59,16 @@ export function AwsDevicefarmUpload(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevicefarmUpload = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode)
+export const useAwsDevicefarmUpload = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode, optional)
 
-export const useAwsDevicefarmUploads = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode)
+export const useAwsDevicefarmUploads = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode, optional)

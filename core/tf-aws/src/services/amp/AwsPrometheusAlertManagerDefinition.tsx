@@ -51,19 +51,23 @@ export function AwsPrometheusAlertManagerDefinition(
 export const useAwsPrometheusAlertManagerDefinition = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsPrometheusAlertManagerDefinition,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsPrometheusAlertManagerDefinitions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPrometheusAlertManagerDefinition,
     idFilter,
     baseNode,
+    optional,
   )

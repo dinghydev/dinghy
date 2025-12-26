@@ -160,8 +160,14 @@ export function DataAwsEcsService(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsService = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEcsService, idFilter, baseNode)
+export const useDataAwsEcsService = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsEcsService, idFilter, baseNode, optional)
 
-export const useDataAwsEcsServices = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEcsService, idFilter, baseNode)
+export const useDataAwsEcsServices = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsEcsService, idFilter, baseNode, optional)

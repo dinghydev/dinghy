@@ -55,8 +55,15 @@ export function AwsLightsailBucket(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailBucket = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailBucket, idFilter, baseNode)
+export const useAwsLightsailBucket = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLightsailBucket, idFilter, baseNode, optional)
 
-export const useAwsLightsailBuckets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailBucket, idFilter, baseNode)
+export const useAwsLightsailBuckets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailBucket, idFilter, baseNode, optional)

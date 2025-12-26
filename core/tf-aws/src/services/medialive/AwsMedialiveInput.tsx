@@ -91,8 +91,14 @@ export function AwsMedialiveInput(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMedialiveInput = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMedialiveInput, idFilter, baseNode)
+export const useAwsMedialiveInput = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMedialiveInput, idFilter, baseNode, optional)
 
-export const useAwsMedialiveInputs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMedialiveInput, idFilter, baseNode)
+export const useAwsMedialiveInputs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMedialiveInput, idFilter, baseNode, optional)

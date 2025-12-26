@@ -58,19 +58,23 @@ export function AwsEc2ClientVpnNetworkAssociation(props: Partial<InputProps>) {
 export const useAwsEc2ClientVpnNetworkAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2ClientVpnNetworkAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2ClientVpnNetworkAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2ClientVpnNetworkAssociation,
     idFilter,
     baseNode,
+    optional,
   )

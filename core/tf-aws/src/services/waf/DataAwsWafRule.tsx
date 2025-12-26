@@ -45,8 +45,14 @@ export function DataAwsWafRule(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWafRule, idFilter, baseNode)
+export const useDataAwsWafRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsWafRule, idFilter, baseNode, optional)
 
-export const useDataAwsWafRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsWafRule, idFilter, baseNode)
+export const useDataAwsWafRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsWafRule, idFilter, baseNode, optional)

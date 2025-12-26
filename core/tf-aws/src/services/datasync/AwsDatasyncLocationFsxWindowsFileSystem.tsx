@@ -61,19 +61,23 @@ export function AwsDatasyncLocationFsxWindowsFileSystem(
 export const useAwsDatasyncLocationFsxWindowsFileSystem = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatasyncLocationFsxWindowsFileSystem,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatasyncLocationFsxWindowsFileSystems = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatasyncLocationFsxWindowsFileSystem,
     idFilter,
     baseNode,
+    optional,
   )

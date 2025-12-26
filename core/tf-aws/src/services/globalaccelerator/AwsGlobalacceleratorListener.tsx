@@ -70,10 +70,23 @@ export function AwsGlobalacceleratorListener(props: Partial<InputProps>) {
 export const useAwsGlobalacceleratorListener = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGlobalacceleratorListener, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlobalacceleratorListener,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlobalacceleratorListeners = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGlobalacceleratorListener, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsGlobalacceleratorListener,
+    idFilter,
+    baseNode,
+    optional,
+  )

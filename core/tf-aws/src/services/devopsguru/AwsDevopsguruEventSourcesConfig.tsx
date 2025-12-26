@@ -55,15 +55,23 @@ export function AwsDevopsguruEventSourcesConfig(props: Partial<InputProps>) {
 export const useAwsDevopsguruEventSourcesConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDevopsguruEventSourcesConfig, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsDevopsguruEventSourcesConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevopsguruEventSourcesConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDevopsguruEventSourcesConfig,
     idFilter,
     baseNode,
+    optional,
   )

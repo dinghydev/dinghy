@@ -59,8 +59,14 @@ export function AwsFsxBackup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxBackup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxBackup, idFilter, baseNode)
+export const useAwsFsxBackup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFsxBackup, idFilter, baseNode, optional)
 
-export const useAwsFsxBackups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFsxBackup, idFilter, baseNode)
+export const useAwsFsxBackups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFsxBackup, idFilter, baseNode, optional)

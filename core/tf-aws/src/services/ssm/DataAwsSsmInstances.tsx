@@ -51,5 +51,9 @@ export function DataAwsSsmInstances(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmInstancess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSsmInstances, idFilter, baseNode)
+export const useDataAwsSsmInstancess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsSsmInstances, idFilter, baseNode, optional)

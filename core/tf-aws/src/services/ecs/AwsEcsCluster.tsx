@@ -79,8 +79,14 @@ export function AwsEcsCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcsCluster, idFilter, baseNode)
+export const useAwsEcsCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEcsCluster, idFilter, baseNode, optional)
 
-export const useAwsEcsClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcsCluster, idFilter, baseNode)
+export const useAwsEcsClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEcsCluster, idFilter, baseNode, optional)

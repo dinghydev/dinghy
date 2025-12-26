@@ -59,9 +59,23 @@ export function AwsEmrManagedScalingPolicy(props: Partial<InputProps>) {
 export const useAwsEmrManagedScalingPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEmrManagedScalingPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEmrManagedScalingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrManagedScalingPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEmrManagedScalingPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEmrManagedScalingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

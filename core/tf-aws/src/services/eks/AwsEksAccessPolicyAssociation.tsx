@@ -62,11 +62,23 @@ export function AwsEksAccessPolicyAssociation(props: Partial<InputProps>) {
 export const useAwsEksAccessPolicyAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEksAccessPolicyAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEksAccessPolicyAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksAccessPolicyAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEksAccessPolicyAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEksAccessPolicyAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

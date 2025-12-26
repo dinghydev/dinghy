@@ -63,11 +63,23 @@ export function AwsLocationGeofenceCollection(props: Partial<InputProps>) {
 export const useAwsLocationGeofenceCollection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLocationGeofenceCollection, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLocationGeofenceCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLocationGeofenceCollections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLocationGeofenceCollection, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLocationGeofenceCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )

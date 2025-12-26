@@ -62,9 +62,23 @@ export function AwsBatchSchedulingPolicy(props: Partial<InputProps>) {
 export const useAwsBatchSchedulingPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBatchSchedulingPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBatchSchedulingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBatchSchedulingPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBatchSchedulingPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBatchSchedulingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

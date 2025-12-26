@@ -69,11 +69,23 @@ export function DataAwsServiceDiscoveryService(props: Partial<InputProps>) {
 export const useDataAwsServiceDiscoveryService = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsServiceDiscoveryService, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsServiceDiscoveryService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsServiceDiscoveryServices = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsServiceDiscoveryService, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsServiceDiscoveryService,
+    idFilter,
+    baseNode,
+    optional,
+  )

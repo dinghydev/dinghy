@@ -61,10 +61,23 @@ export function DataAwsBatchSchedulingPolicy(props: Partial<InputProps>) {
 export const useDataAwsBatchSchedulingPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsBatchSchedulingPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsBatchSchedulingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBatchSchedulingPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBatchSchedulingPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsBatchSchedulingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

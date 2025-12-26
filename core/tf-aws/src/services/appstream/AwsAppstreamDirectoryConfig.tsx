@@ -61,9 +61,23 @@ export function AwsAppstreamDirectoryConfig(props: Partial<InputProps>) {
 export const useAwsAppstreamDirectoryConfig = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppstreamDirectoryConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppstreamDirectoryConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppstreamDirectoryConfigs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppstreamDirectoryConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppstreamDirectoryConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

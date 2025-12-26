@@ -59,19 +59,23 @@ export function AwsRoute53recoveryreadinessRecoveryGroup(
 export const useAwsRoute53recoveryreadinessRecoveryGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoveryreadinessRecoveryGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoveryreadinessRecoveryGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoveryreadinessRecoveryGroup,
     idFilter,
     baseNode,
+    optional,
   )

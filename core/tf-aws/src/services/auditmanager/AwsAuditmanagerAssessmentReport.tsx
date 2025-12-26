@@ -53,15 +53,23 @@ export function AwsAuditmanagerAssessmentReport(props: Partial<InputProps>) {
 export const useAwsAuditmanagerAssessmentReport = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAuditmanagerAssessmentReport, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsAuditmanagerAssessmentReport,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAuditmanagerAssessmentReports = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAuditmanagerAssessmentReport,
     idFilter,
     baseNode,
+    optional,
   )

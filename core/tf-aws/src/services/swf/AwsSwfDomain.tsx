@@ -52,8 +52,14 @@ export function AwsSwfDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSwfDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSwfDomain, idFilter, baseNode)
+export const useAwsSwfDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSwfDomain, idFilter, baseNode, optional)
 
-export const useAwsSwfDomains = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSwfDomain, idFilter, baseNode)
+export const useAwsSwfDomains = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSwfDomain, idFilter, baseNode, optional)

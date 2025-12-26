@@ -55,19 +55,23 @@ export function DataAwsCodeartifactRepositoryEndpoint(
 export const useDataAwsCodeartifactRepositoryEndpoint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCodeartifactRepositoryEndpoint,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCodeartifactRepositoryEndpoints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCodeartifactRepositoryEndpoint,
     idFilter,
     baseNode,
+    optional,
   )

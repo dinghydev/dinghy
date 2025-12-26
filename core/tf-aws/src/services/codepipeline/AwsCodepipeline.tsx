@@ -218,8 +218,14 @@ export function AwsCodepipeline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodepipeline = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodepipeline, idFilter, baseNode)
+export const useAwsCodepipeline = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsCodepipeline, idFilter, baseNode, optional)
 
-export const useAwsCodepipelines = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodepipeline, idFilter, baseNode)
+export const useAwsCodepipelines = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsCodepipeline, idFilter, baseNode, optional)

@@ -66,10 +66,23 @@ export function AwsDbProxyDefaultTargetGroup(props: Partial<InputProps>) {
 export const useAwsDbProxyDefaultTargetGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDbProxyDefaultTargetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDbProxyDefaultTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDbProxyDefaultTargetGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDbProxyDefaultTargetGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDbProxyDefaultTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

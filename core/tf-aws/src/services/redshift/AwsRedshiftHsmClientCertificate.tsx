@@ -53,15 +53,23 @@ export function AwsRedshiftHsmClientCertificate(props: Partial<InputProps>) {
 export const useAwsRedshiftHsmClientCertificate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRedshiftHsmClientCertificate, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRedshiftHsmClientCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftHsmClientCertificates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftHsmClientCertificate,
     idFilter,
     baseNode,
+    optional,
   )

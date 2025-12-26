@@ -56,19 +56,23 @@ export function AwsCloudwatchContributorManagedInsightRule(
 export const useAwsCloudwatchContributorManagedInsightRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudwatchContributorManagedInsightRule,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudwatchContributorManagedInsightRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudwatchContributorManagedInsightRule,
     idFilter,
     baseNode,
+    optional,
   )

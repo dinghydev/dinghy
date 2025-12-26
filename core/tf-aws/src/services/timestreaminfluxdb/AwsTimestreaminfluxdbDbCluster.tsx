@@ -86,11 +86,23 @@ export function AwsTimestreaminfluxdbDbCluster(props: Partial<InputProps>) {
 export const useAwsTimestreaminfluxdbDbCluster = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsTimestreaminfluxdbDbCluster, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsTimestreaminfluxdbDbCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTimestreaminfluxdbDbClusters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsTimestreaminfluxdbDbCluster, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsTimestreaminfluxdbDbCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -64,19 +64,23 @@ export function AwsPrometheusWorkspaceConfiguration(
 export const useAwsPrometheusWorkspaceConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsPrometheusWorkspaceConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsPrometheusWorkspaceConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPrometheusWorkspaceConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

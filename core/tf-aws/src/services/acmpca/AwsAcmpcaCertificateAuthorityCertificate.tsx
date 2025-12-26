@@ -58,19 +58,23 @@ export function AwsAcmpcaCertificateAuthorityCertificate(
 export const useAwsAcmpcaCertificateAuthorityCertificate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAcmpcaCertificateAuthorityCertificate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAcmpcaCertificateAuthorityCertificates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAcmpcaCertificateAuthorityCertificate,
     idFilter,
     baseNode,
+    optional,
   )

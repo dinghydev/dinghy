@@ -49,9 +49,11 @@ export function DataAwsOdbNetworkPeeringConnections(
 export const useDataAwsOdbNetworkPeeringConnectionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOdbNetworkPeeringConnections,
     idFilter,
     baseNode,
+    optional,
   )

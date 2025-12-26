@@ -29719,8 +29719,26 @@ export function AwsQuicksightDashboard(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightDashboard = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightDashboard, idFilter, baseNode)
+export const useAwsQuicksightDashboard = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightDashboard,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsQuicksightDashboards = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightDashboard, idFilter, baseNode)
+export const useAwsQuicksightDashboards = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightDashboard,
+    idFilter,
+    baseNode,
+    optional,
+  )

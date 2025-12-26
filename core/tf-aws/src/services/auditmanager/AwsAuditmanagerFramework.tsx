@@ -64,9 +64,23 @@ export function AwsAuditmanagerFramework(props: Partial<InputProps>) {
 export const useAwsAuditmanagerFramework = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAuditmanagerFramework, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAuditmanagerFramework,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAuditmanagerFrameworks = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAuditmanagerFramework, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAuditmanagerFramework,
+    idFilter,
+    baseNode,
+    optional,
+  )

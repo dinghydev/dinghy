@@ -50,8 +50,16 @@ export function AwsAcmpcaPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmpcaPermission = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAcmpcaPermission, idFilter, baseNode)
+export const useAwsAcmpcaPermission = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAcmpcaPermission, idFilter, baseNode, optional)
 
-export const useAwsAcmpcaPermissions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAcmpcaPermission, idFilter, baseNode)
+export const useAwsAcmpcaPermissions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAcmpcaPermission, idFilter, baseNode, optional)

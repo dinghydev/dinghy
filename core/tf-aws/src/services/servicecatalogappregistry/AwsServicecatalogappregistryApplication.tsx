@@ -56,19 +56,23 @@ export function AwsServicecatalogappregistryApplication(
 export const useAwsServicecatalogappregistryApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogappregistryApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,
+    optional,
   )

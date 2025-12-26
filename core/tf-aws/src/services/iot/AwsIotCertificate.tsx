@@ -54,8 +54,14 @@ export function AwsIotCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotCertificate, idFilter, baseNode)
+export const useAwsIotCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIotCertificate, idFilter, baseNode, optional)
 
-export const useAwsIotCertificates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotCertificate, idFilter, baseNode)
+export const useAwsIotCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIotCertificate, idFilter, baseNode, optional)

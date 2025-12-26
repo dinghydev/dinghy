@@ -56,8 +56,16 @@ export function AwsWafRegexMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafRegexMatchSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafRegexMatchSet, idFilter, baseNode)
+export const useAwsWafRegexMatchSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsWafRegexMatchSet, idFilter, baseNode, optional)
 
-export const useAwsWafRegexMatchSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafRegexMatchSet, idFilter, baseNode)
+export const useAwsWafRegexMatchSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsWafRegexMatchSet, idFilter, baseNode, optional)

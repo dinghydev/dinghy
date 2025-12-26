@@ -100,8 +100,21 @@ export function AwsElasticacheCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticacheCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsElasticacheCluster, idFilter, baseNode)
+export const useAwsElasticacheCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsElasticacheCluster, idFilter, baseNode, optional)
 
-export const useAwsElasticacheClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsElasticacheCluster, idFilter, baseNode)
+export const useAwsElasticacheClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElasticacheCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

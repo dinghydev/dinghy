@@ -52,19 +52,23 @@ export function DataAwsEcrpublicAuthorizationToken(props: Partial<InputProps>) {
 export const useDataAwsEcrpublicAuthorizationToken = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEcrpublicAuthorizationToken,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEcrpublicAuthorizationTokens = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEcrpublicAuthorizationToken,
     idFilter,
     baseNode,
+    optional,
   )

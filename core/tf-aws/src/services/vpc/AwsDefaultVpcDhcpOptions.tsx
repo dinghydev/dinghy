@@ -57,4 +57,11 @@ export function AwsDefaultVpcDhcpOptions(props: Partial<InputProps>) {
 export const useAwsDefaultVpcDhcpOptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDefaultVpcDhcpOptions, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDefaultVpcDhcpOptions,
+    idFilter,
+    baseNode,
+    optional,
+  )

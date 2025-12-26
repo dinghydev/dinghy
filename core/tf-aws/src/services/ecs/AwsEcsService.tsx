@@ -232,8 +232,14 @@ export function AwsEcsService(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsService = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcsService, idFilter, baseNode)
+export const useAwsEcsService = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEcsService, idFilter, baseNode, optional)
 
-export const useAwsEcsServices = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcsService, idFilter, baseNode)
+export const useAwsEcsServices = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEcsService, idFilter, baseNode, optional)

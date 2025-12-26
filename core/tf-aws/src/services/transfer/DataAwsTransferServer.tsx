@@ -59,8 +59,21 @@ export function DataAwsTransferServer(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsTransferServer = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsTransferServer, idFilter, baseNode)
+export const useDataAwsTransferServer = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsTransferServer, idFilter, baseNode, optional)
 
-export const useDataAwsTransferServers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsTransferServer, idFilter, baseNode)
+export const useDataAwsTransferServers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsTransferServer,
+    idFilter,
+    baseNode,
+    optional,
+  )

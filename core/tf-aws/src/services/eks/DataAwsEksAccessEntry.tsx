@@ -55,8 +55,21 @@ export function DataAwsEksAccessEntry(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksAccessEntry = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEksAccessEntry, idFilter, baseNode)
+export const useDataAwsEksAccessEntry = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsEksAccessEntry, idFilter, baseNode, optional)
 
-export const useDataAwsEksAccessEntrys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEksAccessEntry, idFilter, baseNode)
+export const useDataAwsEksAccessEntrys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEksAccessEntry,
+    idFilter,
+    baseNode,
+    optional,
+  )

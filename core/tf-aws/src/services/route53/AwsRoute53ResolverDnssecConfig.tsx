@@ -52,11 +52,23 @@ export function AwsRoute53ResolverDnssecConfig(props: Partial<InputProps>) {
 export const useAwsRoute53ResolverDnssecConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53ResolverDnssecConfig, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRoute53ResolverDnssecConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53ResolverDnssecConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRoute53ResolverDnssecConfig, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRoute53ResolverDnssecConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

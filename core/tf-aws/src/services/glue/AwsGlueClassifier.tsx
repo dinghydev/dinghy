@@ -77,8 +77,14 @@ export function AwsGlueClassifier(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueClassifier = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueClassifier, idFilter, baseNode)
+export const useAwsGlueClassifier = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueClassifier, idFilter, baseNode, optional)
 
-export const useAwsGlueClassifiers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueClassifier, idFilter, baseNode)
+export const useAwsGlueClassifiers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueClassifier, idFilter, baseNode, optional)

@@ -103,11 +103,23 @@ export function AwsComprehendEntityRecognizer(props: Partial<InputProps>) {
 export const useAwsComprehendEntityRecognizer = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsComprehendEntityRecognizer, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsComprehendEntityRecognizer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsComprehendEntityRecognizers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsComprehendEntityRecognizer, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsComprehendEntityRecognizer,
+    idFilter,
+    baseNode,
+    optional,
+  )

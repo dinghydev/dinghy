@@ -58,19 +58,23 @@ export function AwsGuarddutyOrganizationConfigurationFeature(
 export const useAwsGuarddutyOrganizationConfigurationFeature = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGuarddutyOrganizationConfigurationFeature,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGuarddutyOrganizationConfigurationFeatures = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGuarddutyOrganizationConfigurationFeature,
     idFilter,
     baseNode,
+    optional,
   )

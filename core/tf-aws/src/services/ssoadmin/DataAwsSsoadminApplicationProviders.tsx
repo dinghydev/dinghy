@@ -58,9 +58,11 @@ export function DataAwsSsoadminApplicationProviders(
 export const useDataAwsSsoadminApplicationProviderss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSsoadminApplicationProviders,
     idFilter,
     baseNode,
+    optional,
   )

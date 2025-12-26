@@ -57,19 +57,23 @@ export function DataAwsServerlessapplicationrepositoryApplication(
 export const useDataAwsServerlessapplicationrepositoryApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsServerlessapplicationrepositoryApplication,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsServerlessapplicationrepositoryApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServerlessapplicationrepositoryApplication,
     idFilter,
     baseNode,
+    optional,
   )

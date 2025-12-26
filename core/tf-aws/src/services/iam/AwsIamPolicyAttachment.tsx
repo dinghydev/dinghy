@@ -50,8 +50,26 @@ export function AwsIamPolicyAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamPolicyAttachment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamPolicyAttachment, idFilter, baseNode)
+export const useAwsIamPolicyAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamPolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsIamPolicyAttachments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamPolicyAttachment, idFilter, baseNode)
+export const useAwsIamPolicyAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamPolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -71,9 +71,23 @@ export function AwsIotDomainConfiguration(props: Partial<InputProps>) {
 export const useAwsIotDomainConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIotDomainConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIotDomainConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotDomainConfigurations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIotDomainConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotDomainConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

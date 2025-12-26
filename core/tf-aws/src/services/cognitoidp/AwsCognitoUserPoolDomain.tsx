@@ -58,9 +58,23 @@ export function AwsCognitoUserPoolDomain(props: Partial<InputProps>) {
 export const useAwsCognitoUserPoolDomain = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCognitoUserPoolDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCognitoUserPoolDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoUserPoolDomains = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCognitoUserPoolDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoUserPoolDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

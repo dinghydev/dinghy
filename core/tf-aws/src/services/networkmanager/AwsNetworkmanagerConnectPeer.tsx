@@ -83,10 +83,23 @@ export function AwsNetworkmanagerConnectPeer(props: Partial<InputProps>) {
 export const useAwsNetworkmanagerConnectPeer = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNetworkmanagerConnectPeer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerConnectPeer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkmanagerConnectPeers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerConnectPeer, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerConnectPeer,
+    idFilter,
+    baseNode,
+    optional,
+  )

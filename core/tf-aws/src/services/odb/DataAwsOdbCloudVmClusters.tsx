@@ -56,4 +56,11 @@ export function DataAwsOdbCloudVmClusters(props: Partial<InputProps>) {
 export const useDataAwsOdbCloudVmClusterss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsOdbCloudVmClusters, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOdbCloudVmClusters,
+    idFilter,
+    baseNode,
+    optional,
+  )

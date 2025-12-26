@@ -63,8 +63,14 @@ export function DataAwsRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsRoute, idFilter, baseNode)
+export const useDataAwsRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsRoute, idFilter, baseNode, optional)
 
-export const useDataAwsRoutes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsRoute, idFilter, baseNode)
+export const useDataAwsRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsRoute, idFilter, baseNode, optional)

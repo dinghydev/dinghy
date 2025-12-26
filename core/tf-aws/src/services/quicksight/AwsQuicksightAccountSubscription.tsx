@@ -75,19 +75,23 @@ export function AwsQuicksightAccountSubscription(props: Partial<InputProps>) {
 export const useAwsQuicksightAccountSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsQuicksightAccountSubscription,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsQuicksightAccountSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsQuicksightAccountSubscription,
     idFilter,
     baseNode,
+    optional,
   )

@@ -53,10 +53,23 @@ export function AwsQuicksightKeyRegistration(props: Partial<InputProps>) {
 export const useAwsQuicksightKeyRegistration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsQuicksightKeyRegistration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightKeyRegistration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightKeyRegistrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightKeyRegistration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsQuicksightKeyRegistration,
+    idFilter,
+    baseNode,
+    optional,
+  )

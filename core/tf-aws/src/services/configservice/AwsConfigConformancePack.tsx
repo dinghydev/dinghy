@@ -60,9 +60,23 @@ export function AwsConfigConformancePack(props: Partial<InputProps>) {
 export const useAwsConfigConformancePack = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConfigConformancePack, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConfigConformancePack,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigConformancePacks = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsConfigConformancePack, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigConformancePack,
+    idFilter,
+    baseNode,
+    optional,
+  )

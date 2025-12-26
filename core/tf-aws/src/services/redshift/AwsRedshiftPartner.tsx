@@ -51,8 +51,15 @@ export function AwsRedshiftPartner(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftPartner = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRedshiftPartner, idFilter, baseNode)
+export const useAwsRedshiftPartner = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRedshiftPartner, idFilter, baseNode, optional)
 
-export const useAwsRedshiftPartners = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRedshiftPartner, idFilter, baseNode)
+export const useAwsRedshiftPartners = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsRedshiftPartner, idFilter, baseNode, optional)

@@ -54,9 +54,23 @@ export function AwsDxMacsecKeyAssociation(props: Partial<InputProps>) {
 export const useAwsDxMacsecKeyAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDxMacsecKeyAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDxMacsecKeyAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxMacsecKeyAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDxMacsecKeyAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDxMacsecKeyAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

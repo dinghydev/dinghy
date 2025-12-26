@@ -45,8 +45,14 @@ export function DataAwsWafIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafIpset = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWafIpset, idFilter, baseNode)
+export const useDataAwsWafIpset = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsWafIpset, idFilter, baseNode, optional)
 
-export const useDataAwsWafIpsets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsWafIpset, idFilter, baseNode)
+export const useDataAwsWafIpsets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsWafIpset, idFilter, baseNode, optional)

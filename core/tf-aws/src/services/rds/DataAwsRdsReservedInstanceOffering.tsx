@@ -56,19 +56,23 @@ export function DataAwsRdsReservedInstanceOffering(props: Partial<InputProps>) {
 export const useDataAwsRdsReservedInstanceOffering = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsRdsReservedInstanceOffering,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsRdsReservedInstanceOfferings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRdsReservedInstanceOffering,
     idFilter,
     baseNode,
+    optional,
   )

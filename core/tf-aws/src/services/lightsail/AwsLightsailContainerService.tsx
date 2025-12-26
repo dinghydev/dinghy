@@ -92,10 +92,23 @@ export function AwsLightsailContainerService(props: Partial<InputProps>) {
 export const useAwsLightsailContainerService = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLightsailContainerService, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailContainerService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailContainerServices = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailContainerService, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLightsailContainerService,
+    idFilter,
+    baseNode,
+    optional,
+  )

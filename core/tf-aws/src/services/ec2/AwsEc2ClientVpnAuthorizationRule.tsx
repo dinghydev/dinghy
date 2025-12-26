@@ -58,19 +58,23 @@ export function AwsEc2ClientVpnAuthorizationRule(props: Partial<InputProps>) {
 export const useAwsEc2ClientVpnAuthorizationRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2ClientVpnAuthorizationRule,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2ClientVpnAuthorizationRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2ClientVpnAuthorizationRule,
     idFilter,
     baseNode,
+    optional,
   )

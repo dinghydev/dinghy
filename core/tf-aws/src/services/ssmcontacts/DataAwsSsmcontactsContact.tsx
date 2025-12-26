@@ -53,9 +53,23 @@ export function DataAwsSsmcontactsContact(props: Partial<InputProps>) {
 export const useDataAwsSsmcontactsContact = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSsmcontactsContact, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSsmcontactsContact,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSsmcontactsContacts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSsmcontactsContact, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsmcontactsContact,
+    idFilter,
+    baseNode,
+    optional,
+  )

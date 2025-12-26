@@ -100,9 +100,23 @@ export function AwsStoragegatewayGateway(props: Partial<InputProps>) {
 export const useAwsStoragegatewayGateway = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsStoragegatewayGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsStoragegatewayGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsStoragegatewayGateways = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsStoragegatewayGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

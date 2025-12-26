@@ -55,8 +55,14 @@ export function AwsWafXssMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafXssMatchSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode)
+export const useAwsWafXssMatchSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode, optional)
 
-export const useAwsWafXssMatchSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode)
+export const useAwsWafXssMatchSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode, optional)

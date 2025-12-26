@@ -164,8 +164,14 @@ export function AwsLbListenerRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbListenerRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLbListenerRule, idFilter, baseNode)
+export const useAwsLbListenerRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLbListenerRule, idFilter, baseNode, optional)
 
-export const useAwsLbListenerRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLbListenerRule, idFilter, baseNode)
+export const useAwsLbListenerRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLbListenerRule, idFilter, baseNode, optional)

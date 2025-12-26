@@ -81,4 +81,11 @@ export function AwsDatasyncLocationHdfs(props: Partial<InputProps>) {
 export const useAwsDatasyncLocationHdfss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDatasyncLocationHdfs, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationHdfs,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -68,9 +68,11 @@ export function AwsElasticsearchDomainSamlOptions(props: Partial<InputProps>) {
 export const useAwsElasticsearchDomainSamlOptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsElasticsearchDomainSamlOptions,
     idFilter,
     baseNode,
+    optional,
   )

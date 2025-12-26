@@ -71,10 +71,23 @@ export function AwsSagemakerNotebookInstance(props: Partial<InputProps>) {
 export const useAwsSagemakerNotebookInstance = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSagemakerNotebookInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerNotebookInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerNotebookInstances = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerNotebookInstance, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSagemakerNotebookInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

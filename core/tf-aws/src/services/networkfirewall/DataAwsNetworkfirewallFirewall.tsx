@@ -101,11 +101,23 @@ export function DataAwsNetworkfirewallFirewall(props: Partial<InputProps>) {
 export const useDataAwsNetworkfirewallFirewall = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsNetworkfirewallFirewall, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsNetworkfirewallFirewall,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsNetworkfirewallFirewalls = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsNetworkfirewallFirewall, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkfirewallFirewall,
+    idFilter,
+    baseNode,
+    optional,
+  )

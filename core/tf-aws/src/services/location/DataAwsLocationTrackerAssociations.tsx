@@ -49,9 +49,11 @@ export function DataAwsLocationTrackerAssociations(props: Partial<InputProps>) {
 export const useDataAwsLocationTrackerAssociationss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsLocationTrackerAssociations,
     idFilter,
     baseNode,
+    optional,
   )

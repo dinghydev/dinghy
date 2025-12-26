@@ -45,8 +45,16 @@ export function AwsEcrAccountSetting(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrAccountSetting = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcrAccountSetting, idFilter, baseNode)
+export const useAwsEcrAccountSetting = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEcrAccountSetting, idFilter, baseNode, optional)
 
-export const useAwsEcrAccountSettings = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcrAccountSetting, idFilter, baseNode)
+export const useAwsEcrAccountSettings = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEcrAccountSetting, idFilter, baseNode, optional)

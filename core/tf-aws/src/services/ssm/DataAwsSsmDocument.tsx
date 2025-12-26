@@ -51,8 +51,15 @@ export function DataAwsSsmDocument(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmDocument = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSsmDocument, idFilter, baseNode)
+export const useDataAwsSsmDocument = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsSsmDocument, idFilter, baseNode, optional)
 
-export const useDataAwsSsmDocuments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSsmDocument, idFilter, baseNode)
+export const useDataAwsSsmDocuments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsSsmDocument, idFilter, baseNode, optional)

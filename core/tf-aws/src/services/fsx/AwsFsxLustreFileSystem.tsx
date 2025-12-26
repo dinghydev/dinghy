@@ -109,8 +109,26 @@ export function AwsFsxLustreFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxLustreFileSystem = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxLustreFileSystem, idFilter, baseNode)
+export const useAwsFsxLustreFileSystem = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFsxLustreFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsFsxLustreFileSystems = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFsxLustreFileSystem, idFilter, baseNode)
+export const useAwsFsxLustreFileSystems = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFsxLustreFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )

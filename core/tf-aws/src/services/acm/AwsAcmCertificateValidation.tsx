@@ -55,9 +55,23 @@ export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
 export const useAwsAcmCertificateValidation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAcmCertificateValidation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAcmCertificateValidation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAcmCertificateValidations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAcmCertificateValidation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAcmCertificateValidation,
+    idFilter,
+    baseNode,
+    optional,
+  )

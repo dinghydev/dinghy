@@ -60,8 +60,15 @@ export function DataAwsAppmeshMesh(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshMesh = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshMesh, idFilter, baseNode)
+export const useDataAwsAppmeshMesh = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsAppmeshMesh, idFilter, baseNode, optional)
 
-export const useDataAwsAppmeshMeshs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshMesh, idFilter, baseNode)
+export const useDataAwsAppmeshMeshs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsAppmeshMesh, idFilter, baseNode, optional)

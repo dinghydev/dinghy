@@ -61,11 +61,23 @@ export function DataAwsBatchComputeEnvironment(props: Partial<InputProps>) {
 export const useDataAwsBatchComputeEnvironment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsBatchComputeEnvironment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsBatchComputeEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBatchComputeEnvironments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBatchComputeEnvironment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsBatchComputeEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

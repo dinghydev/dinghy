@@ -56,19 +56,23 @@ export function AwsPinpointsmsvoicev2ConfigurationSet(
 export const useAwsPinpointsmsvoicev2ConfigurationSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsPinpointsmsvoicev2ConfigurationSet,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsPinpointsmsvoicev2ConfigurationSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPinpointsmsvoicev2ConfigurationSet,
     idFilter,
     baseNode,
+    optional,
   )

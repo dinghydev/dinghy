@@ -137,8 +137,14 @@ export function AwsSagemakerSpace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerSpace = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerSpace, idFilter, baseNode)
+export const useAwsSagemakerSpace = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSagemakerSpace, idFilter, baseNode, optional)
 
-export const useAwsSagemakerSpaces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerSpace, idFilter, baseNode)
+export const useAwsSagemakerSpaces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSagemakerSpace, idFilter, baseNode, optional)

@@ -52,5 +52,9 @@ export function DataAwsRdsClusters(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRdsClusterss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsRdsClusters, idFilter, baseNode)
+export const useDataAwsRdsClusterss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsRdsClusters, idFilter, baseNode, optional)

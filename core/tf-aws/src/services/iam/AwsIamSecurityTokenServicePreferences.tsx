@@ -49,9 +49,11 @@ export function AwsIamSecurityTokenServicePreferences(
 export const useAwsIamSecurityTokenServicePreferencess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsIamSecurityTokenServicePreferences,
     idFilter,
     baseNode,
+    optional,
   )

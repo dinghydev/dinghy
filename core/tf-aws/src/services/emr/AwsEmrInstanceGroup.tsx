@@ -63,8 +63,16 @@ export function AwsEmrInstanceGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrInstanceGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEmrInstanceGroup, idFilter, baseNode)
+export const useAwsEmrInstanceGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEmrInstanceGroup, idFilter, baseNode, optional)
 
-export const useAwsEmrInstanceGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEmrInstanceGroup, idFilter, baseNode)
+export const useAwsEmrInstanceGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEmrInstanceGroup, idFilter, baseNode, optional)

@@ -215,8 +215,15 @@ export function DataAwsDmsEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDmsEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsDmsEndpoint, idFilter, baseNode)
+export const useDataAwsDmsEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsDmsEndpoint, idFilter, baseNode, optional)
 
-export const useDataAwsDmsEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDmsEndpoint, idFilter, baseNode)
+export const useDataAwsDmsEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDmsEndpoint, idFilter, baseNode, optional)

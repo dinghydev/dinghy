@@ -48,10 +48,26 @@ export function AwsPinpointBaiduChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointBaiduChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointBaiduChannel, idFilter, baseNode)
+export const useAwsPinpointBaiduChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointBaiduChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPinpointBaiduChannels = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsPinpointBaiduChannel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointBaiduChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

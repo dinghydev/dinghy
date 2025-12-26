@@ -70,19 +70,23 @@ export function AwsStoragegatewayFileSystemAssociation(
 export const useAwsStoragegatewayFileSystemAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsStoragegatewayFileSystemAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsStoragegatewayFileSystemAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsStoragegatewayFileSystemAssociation,
     idFilter,
     baseNode,
+    optional,
   )

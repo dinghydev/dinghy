@@ -50,15 +50,23 @@ export function DataAwsVpclatticeResourcePolicy(props: Partial<InputProps>) {
 export const useDataAwsVpclatticeResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsVpclatticeResourcePolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsVpclatticeResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsVpclatticeResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsVpclatticeResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )

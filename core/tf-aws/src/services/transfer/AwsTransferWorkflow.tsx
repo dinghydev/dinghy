@@ -157,8 +157,16 @@ export function AwsTransferWorkflow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferWorkflow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferWorkflow, idFilter, baseNode)
+export const useAwsTransferWorkflow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsTransferWorkflow, idFilter, baseNode, optional)
 
-export const useAwsTransferWorkflows = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferWorkflow, idFilter, baseNode)
+export const useAwsTransferWorkflows = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsTransferWorkflow, idFilter, baseNode, optional)

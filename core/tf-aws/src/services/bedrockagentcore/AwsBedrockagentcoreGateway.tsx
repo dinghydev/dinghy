@@ -87,9 +87,23 @@ export function AwsBedrockagentcoreGateway(props: Partial<InputProps>) {
 export const useAwsBedrockagentcoreGateway = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBedrockagentcoreGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentcoreGateways = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBedrockagentcoreGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

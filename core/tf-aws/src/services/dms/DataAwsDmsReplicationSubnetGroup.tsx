@@ -55,19 +55,23 @@ export function DataAwsDmsReplicationSubnetGroup(props: Partial<InputProps>) {
 export const useDataAwsDmsReplicationSubnetGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsDmsReplicationSubnetGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsDmsReplicationSubnetGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsDmsReplicationSubnetGroup,
     idFilter,
     baseNode,
+    optional,
   )

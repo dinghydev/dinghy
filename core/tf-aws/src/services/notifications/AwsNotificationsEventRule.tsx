@@ -52,9 +52,23 @@ export function AwsNotificationsEventRule(props: Partial<InputProps>) {
 export const useAwsNotificationsEventRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNotificationsEventRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNotificationsEventRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNotificationsEventRules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNotificationsEventRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNotificationsEventRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

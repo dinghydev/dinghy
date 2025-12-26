@@ -67,19 +67,23 @@ export function DataAwsKendraQuerySuggestionsBlockList(
 export const useDataAwsKendraQuerySuggestionsBlockList = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsKendraQuerySuggestionsBlockList,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsKendraQuerySuggestionsBlockLists = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsKendraQuerySuggestionsBlockList,
     idFilter,
     baseNode,
+    optional,
   )

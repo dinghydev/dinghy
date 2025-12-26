@@ -97,8 +97,14 @@ export function AwsAcmCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAcmCertificate, idFilter, baseNode)
+export const useAwsAcmCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAcmCertificate, idFilter, baseNode, optional)
 
-export const useAwsAcmCertificates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAcmCertificate, idFilter, baseNode)
+export const useAwsAcmCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAcmCertificate, idFilter, baseNode, optional)

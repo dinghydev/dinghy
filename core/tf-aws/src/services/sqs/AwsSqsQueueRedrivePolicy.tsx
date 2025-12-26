@@ -55,9 +55,23 @@ export function AwsSqsQueueRedrivePolicy(props: Partial<InputProps>) {
 export const useAwsSqsQueueRedrivePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSqsQueueRedrivePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSqsQueueRedrivePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSqsQueueRedrivePolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSqsQueueRedrivePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSqsQueueRedrivePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

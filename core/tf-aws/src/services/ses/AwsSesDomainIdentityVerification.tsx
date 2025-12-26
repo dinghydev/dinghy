@@ -55,19 +55,23 @@ export function AwsSesDomainIdentityVerification(props: Partial<InputProps>) {
 export const useAwsSesDomainIdentityVerification = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSesDomainIdentityVerification,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSesDomainIdentityVerifications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSesDomainIdentityVerification,
     idFilter,
     baseNode,
+    optional,
   )

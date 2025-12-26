@@ -84,8 +84,16 @@ export function DataAwsEksNodeGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksNodeGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEksNodeGroup, idFilter, baseNode)
+export const useDataAwsEksNodeGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsEksNodeGroup, idFilter, baseNode, optional)
 
-export const useDataAwsEksNodeGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEksNodeGroup, idFilter, baseNode)
+export const useDataAwsEksNodeGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEksNodeGroup, idFilter, baseNode, optional)

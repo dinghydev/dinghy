@@ -52,19 +52,23 @@ export function AwsCodecommitApprovalRuleTemplateAssociation(
 export const useAwsCodecommitApprovalRuleTemplateAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodecommitApprovalRuleTemplateAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodecommitApprovalRuleTemplateAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodecommitApprovalRuleTemplateAssociation,
     idFilter,
     baseNode,
+    optional,
   )

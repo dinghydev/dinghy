@@ -16,12 +16,11 @@ Type of category for the IaC node
 
  */
 export const IacCategorySchema = z.enum([
+  'terraform',
+  'provider',
   'resource',
   'data',
   'ephemeral',
-  'output',
-  'terraform',
-  'provider',
 ])
 
 export const IacNodeSchema = z.object({
@@ -30,10 +29,6 @@ export const IacNodeSchema = z.object({
   _importSchema: z.instanceof(z.ZodType).optional(),
   _inputSchema: z.instanceof(z.ZodType).optional(),
   _outputSchema: z.instanceof(z.ZodType).optional(),
-  _resource: RecordSchema.optional(),
-  _data: RecordSchema.optional(),
-  _terraform: RecordSchema.optional(),
-  _provider: RecordSchema.optional(),
   _category: z.union([IacCategorySchema, IacCategorySchema.array()]).optional(),
   _components: RecordSchema.optional(),
 })

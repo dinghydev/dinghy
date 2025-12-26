@@ -51,9 +51,23 @@ export function DataAwsSesDomainIdentity(props: Partial<InputProps>) {
 export const useDataAwsSesDomainIdentity = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSesDomainIdentity, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSesDomainIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSesDomainIdentitys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSesDomainIdentity, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSesDomainIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -69,10 +69,26 @@ export function DataAwsKendraExperience(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKendraExperience = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsKendraExperience, idFilter, baseNode)
+export const useDataAwsKendraExperience = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsKendraExperience,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKendraExperiences = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsKendraExperience, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsKendraExperience,
+    idFilter,
+    baseNode,
+    optional,
+  )

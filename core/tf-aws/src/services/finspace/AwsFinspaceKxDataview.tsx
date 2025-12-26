@@ -74,8 +74,21 @@ export function AwsFinspaceKxDataview(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxDataview = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxDataview, idFilter, baseNode)
+export const useAwsFinspaceKxDataview = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxDataview, idFilter, baseNode, optional)
 
-export const useAwsFinspaceKxDataviews = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxDataview, idFilter, baseNode)
+export const useAwsFinspaceKxDataviews = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFinspaceKxDataview,
+    idFilter,
+    baseNode,
+    optional,
+  )

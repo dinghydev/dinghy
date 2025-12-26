@@ -185,8 +185,14 @@ export function AwsLbListener(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbListener = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLbListener, idFilter, baseNode)
+export const useAwsLbListener = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLbListener, idFilter, baseNode, optional)
 
-export const useAwsLbListeners = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLbListener, idFilter, baseNode)
+export const useAwsLbListeners = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLbListener, idFilter, baseNode, optional)

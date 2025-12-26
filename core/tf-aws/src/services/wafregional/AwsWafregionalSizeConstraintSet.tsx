@@ -61,15 +61,23 @@ export function AwsWafregionalSizeConstraintSet(props: Partial<InputProps>) {
 export const useAwsWafregionalSizeConstraintSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsWafregionalSizeConstraintSet, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsWafregionalSizeConstraintSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalSizeConstraintSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWafregionalSizeConstraintSet,
     idFilter,
     baseNode,
+    optional,
   )

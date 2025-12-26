@@ -240,8 +240,16 @@ export function DataAwsAppmeshRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppmeshRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAppmeshRoute, idFilter, baseNode)
+export const useDataAwsAppmeshRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsAppmeshRoute, idFilter, baseNode, optional)
 
-export const useDataAwsAppmeshRoutes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsAppmeshRoute, idFilter, baseNode)
+export const useDataAwsAppmeshRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsAppmeshRoute, idFilter, baseNode, optional)

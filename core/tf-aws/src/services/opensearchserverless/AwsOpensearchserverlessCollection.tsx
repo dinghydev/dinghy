@@ -64,19 +64,23 @@ export function AwsOpensearchserverlessCollection(props: Partial<InputProps>) {
 export const useAwsOpensearchserverlessCollection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOpensearchserverlessCollection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOpensearchserverlessCollections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchserverlessCollection,
     idFilter,
     baseNode,
+    optional,
   )

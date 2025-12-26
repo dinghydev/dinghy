@@ -48,8 +48,21 @@ export function AwsPinpointAdmChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointAdmChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointAdmChannel, idFilter, baseNode)
+export const useAwsPinpointAdmChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsPinpointAdmChannel, idFilter, baseNode, optional)
 
-export const useAwsPinpointAdmChannels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPinpointAdmChannel, idFilter, baseNode)
+export const useAwsPinpointAdmChannels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointAdmChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

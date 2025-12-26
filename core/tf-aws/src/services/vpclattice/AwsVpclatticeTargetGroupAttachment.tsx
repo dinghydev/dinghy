@@ -58,19 +58,23 @@ export function AwsVpclatticeTargetGroupAttachment(props: Partial<InputProps>) {
 export const useAwsVpclatticeTargetGroupAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpclatticeTargetGroupAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpclatticeTargetGroupAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeTargetGroupAttachment,
     idFilter,
     baseNode,
+    optional,
   )

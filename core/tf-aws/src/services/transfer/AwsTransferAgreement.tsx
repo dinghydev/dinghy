@@ -56,8 +56,16 @@ export function AwsTransferAgreement(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferAgreement = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferAgreement, idFilter, baseNode)
+export const useAwsTransferAgreement = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsTransferAgreement, idFilter, baseNode, optional)
 
-export const useAwsTransferAgreements = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferAgreement, idFilter, baseNode)
+export const useAwsTransferAgreements = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsTransferAgreement, idFilter, baseNode, optional)

@@ -50,9 +50,23 @@ export function DataAwsRoute53DelegationSet(props: Partial<InputProps>) {
 export const useDataAwsRoute53DelegationSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsRoute53DelegationSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRoute53DelegationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRoute53DelegationSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsRoute53DelegationSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53DelegationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

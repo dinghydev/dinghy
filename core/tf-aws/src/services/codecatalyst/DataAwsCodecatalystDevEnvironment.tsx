@@ -70,19 +70,23 @@ export function DataAwsCodecatalystDevEnvironment(props: Partial<InputProps>) {
 export const useDataAwsCodecatalystDevEnvironment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCodecatalystDevEnvironment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCodecatalystDevEnvironments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCodecatalystDevEnvironment,
     idFilter,
     baseNode,
+    optional,
   )

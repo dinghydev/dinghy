@@ -53,11 +53,23 @@ export function AwsSyntheticsGroupAssociation(props: Partial<InputProps>) {
 export const useAwsSyntheticsGroupAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSyntheticsGroupAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSyntheticsGroupAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSyntheticsGroupAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSyntheticsGroupAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSyntheticsGroupAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -62,9 +62,23 @@ export function AwsNeptuneParameterGroup(props: Partial<InputProps>) {
 export const useAwsNeptuneParameterGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNeptuneParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNeptuneParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNeptuneParameterGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNeptuneParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNeptuneParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

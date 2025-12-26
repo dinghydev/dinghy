@@ -68,8 +68,26 @@ export function AwsRedshiftIntegration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftIntegration = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRedshiftIntegration, idFilter, baseNode)
+export const useAwsRedshiftIntegration = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftIntegration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsRedshiftIntegrations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRedshiftIntegration, idFilter, baseNode)
+export const useAwsRedshiftIntegrations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftIntegration,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -62,10 +62,23 @@ export function DataAwsAuditmanagerFramework(props: Partial<InputProps>) {
 export const useDataAwsAuditmanagerFramework = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAuditmanagerFramework, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAuditmanagerFramework,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAuditmanagerFrameworks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsAuditmanagerFramework, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsAuditmanagerFramework,
+    idFilter,
+    baseNode,
+    optional,
+  )

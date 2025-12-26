@@ -56,15 +56,23 @@ export function AwsVpcEndpointSubnetAssociation(props: Partial<InputProps>) {
 export const useAwsVpcEndpointSubnetAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcEndpointSubnetAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpcEndpointSubnetAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcEndpointSubnetAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointSubnetAssociation,
     idFilter,
     baseNode,
+    optional,
   )

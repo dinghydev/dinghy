@@ -57,10 +57,26 @@ export function AwsSagemakerDeviceFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerDeviceFleet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerDeviceFleet, idFilter, baseNode)
+export const useAwsSagemakerDeviceFleet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerDeviceFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerDeviceFleets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerDeviceFleet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerDeviceFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )

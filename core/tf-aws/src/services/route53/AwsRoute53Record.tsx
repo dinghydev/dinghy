@@ -118,8 +118,14 @@ export function AwsRoute53Record(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53Record = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53Record, idFilter, baseNode)
+export const useAwsRoute53Record = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRoute53Record, idFilter, baseNode, optional)
 
-export const useAwsRoute53Records = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRoute53Record, idFilter, baseNode)
+export const useAwsRoute53Records = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRoute53Record, idFilter, baseNode, optional)

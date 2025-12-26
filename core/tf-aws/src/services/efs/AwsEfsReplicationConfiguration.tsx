@@ -66,11 +66,23 @@ export function AwsEfsReplicationConfiguration(props: Partial<InputProps>) {
 export const useAwsEfsReplicationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEfsReplicationConfiguration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEfsReplicationConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEfsReplicationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEfsReplicationConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEfsReplicationConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

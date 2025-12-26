@@ -49,8 +49,16 @@ export function AwsSesReceiptFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesReceiptFilter = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesReceiptFilter, idFilter, baseNode)
+export const useAwsSesReceiptFilter = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesReceiptFilter, idFilter, baseNode, optional)
 
-export const useAwsSesReceiptFilters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesReceiptFilter, idFilter, baseNode)
+export const useAwsSesReceiptFilters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSesReceiptFilter, idFilter, baseNode, optional)

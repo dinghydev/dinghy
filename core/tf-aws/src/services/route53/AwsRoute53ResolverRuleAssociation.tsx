@@ -65,19 +65,23 @@ export function AwsRoute53ResolverRuleAssociation(props: Partial<InputProps>) {
 export const useAwsRoute53ResolverRuleAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53ResolverRuleAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53ResolverRuleAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53ResolverRuleAssociation,
     idFilter,
     baseNode,
+    optional,
   )

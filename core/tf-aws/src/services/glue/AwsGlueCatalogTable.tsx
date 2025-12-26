@@ -130,8 +130,16 @@ export function AwsGlueCatalogTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueCatalogTable = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode)
+export const useAwsGlueCatalogTable = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode, optional)
 
-export const useAwsGlueCatalogTables = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode)
+export const useAwsGlueCatalogTables = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode, optional)

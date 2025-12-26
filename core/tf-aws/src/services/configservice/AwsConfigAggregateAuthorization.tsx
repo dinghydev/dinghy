@@ -53,15 +53,23 @@ export function AwsConfigAggregateAuthorization(props: Partial<InputProps>) {
 export const useAwsConfigAggregateAuthorization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConfigAggregateAuthorization, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsConfigAggregateAuthorization,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigAggregateAuthorizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigAggregateAuthorization,
     idFilter,
     baseNode,
+    optional,
   )

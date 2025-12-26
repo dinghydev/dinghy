@@ -499,5 +499,11 @@ export function AwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
 export const useAwsEc2NetworkInsightsAnalysiss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2NetworkInsightsAnalysis, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEc2NetworkInsightsAnalysis,
+    idFilter,
+    baseNode,
+    optional,
+  )

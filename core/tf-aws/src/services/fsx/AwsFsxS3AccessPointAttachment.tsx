@@ -78,11 +78,23 @@ export function AwsFsxS3AccessPointAttachment(props: Partial<InputProps>) {
 export const useAwsFsxS3AccessPointAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsFsxS3AccessPointAttachment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsFsxS3AccessPointAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxS3AccessPointAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsFsxS3AccessPointAttachment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsFsxS3AccessPointAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

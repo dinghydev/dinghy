@@ -63,19 +63,23 @@ export function AwsShieldApplicationLayerAutomaticResponse(
 export const useAwsShieldApplicationLayerAutomaticResponse = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsShieldApplicationLayerAutomaticResponse,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsShieldApplicationLayerAutomaticResponses = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsShieldApplicationLayerAutomaticResponse,
     idFilter,
     baseNode,
+    optional,
   )

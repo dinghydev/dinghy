@@ -53,19 +53,23 @@ export function DataAwsCloudwatchEventConnection(props: Partial<InputProps>) {
 export const useDataAwsCloudwatchEventConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudwatchEventConnection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudwatchEventConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudwatchEventConnection,
     idFilter,
     baseNode,
+    optional,
   )

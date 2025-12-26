@@ -62,8 +62,16 @@ export function AwsConnectVocabulary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectVocabulary = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectVocabulary, idFilter, baseNode)
+export const useAwsConnectVocabulary = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsConnectVocabulary, idFilter, baseNode, optional)
 
-export const useAwsConnectVocabularys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectVocabulary, idFilter, baseNode)
+export const useAwsConnectVocabularys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsConnectVocabulary, idFilter, baseNode, optional)

@@ -215,8 +215,16 @@ export function AwsOpensearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOpensearchDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOpensearchDomain, idFilter, baseNode)
+export const useAwsOpensearchDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsOpensearchDomain, idFilter, baseNode, optional)
 
-export const useAwsOpensearchDomains = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOpensearchDomain, idFilter, baseNode)
+export const useAwsOpensearchDomains = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsOpensearchDomain, idFilter, baseNode, optional)

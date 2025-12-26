@@ -71,19 +71,23 @@ export function DataAwsCloudfrontOriginRequestPolicy(
 export const useDataAwsCloudfrontOriginRequestPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudfrontOriginRequestPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudfrontOriginRequestPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudfrontOriginRequestPolicy,
     idFilter,
     baseNode,
+    optional,
   )

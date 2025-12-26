@@ -56,9 +56,23 @@ export function AwsIamRolePolicyAttachment(props: Partial<InputProps>) {
 export const useAwsIamRolePolicyAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamRolePolicyAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamRolePolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamRolePolicyAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamRolePolicyAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamRolePolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

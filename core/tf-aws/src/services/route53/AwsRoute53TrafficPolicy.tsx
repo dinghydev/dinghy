@@ -50,10 +50,26 @@ export function AwsRoute53TrafficPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53TrafficPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53TrafficPolicy, idFilter, baseNode)
+export const useAwsRoute53TrafficPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53TrafficPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53TrafficPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53TrafficPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53TrafficPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -83,10 +83,26 @@ export function DataAwsRdsEngineVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRdsEngineVersion = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsRdsEngineVersion, idFilter, baseNode)
+export const useDataAwsRdsEngineVersion = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRdsEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRdsEngineVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsRdsEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRdsEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

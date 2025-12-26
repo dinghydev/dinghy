@@ -53,19 +53,23 @@ export function AwsNotificationscontactsEmailContact(
 export const useAwsNotificationscontactsEmailContact = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNotificationscontactsEmailContact,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNotificationscontactsEmailContacts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNotificationscontactsEmailContact,
     idFilter,
     baseNode,
+    optional,
   )

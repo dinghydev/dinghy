@@ -53,11 +53,23 @@ export function AwsSagemakerModelPackageGroup(props: Partial<InputProps>) {
 export const useAwsSagemakerModelPackageGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerModelPackageGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSagemakerModelPackageGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerModelPackageGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerModelPackageGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSagemakerModelPackageGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

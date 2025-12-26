@@ -58,11 +58,23 @@ export function AwsApiGatewayDocumentationPart(props: Partial<InputProps>) {
 export const useAwsApiGatewayDocumentationPart = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayDocumentationPart, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsApiGatewayDocumentationPart,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayDocumentationParts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayDocumentationPart, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayDocumentationPart,
+    idFilter,
+    baseNode,
+    optional,
+  )

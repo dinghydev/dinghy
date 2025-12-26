@@ -52,19 +52,23 @@ export function DataAwsNetworkfirewallResourcePolicy(
 export const useDataAwsNetworkfirewallResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsNetworkfirewallResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsNetworkfirewallResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNetworkfirewallResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )

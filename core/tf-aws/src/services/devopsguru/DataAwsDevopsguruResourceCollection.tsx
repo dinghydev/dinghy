@@ -58,19 +58,23 @@ export function DataAwsDevopsguruResourceCollection(
 export const useDataAwsDevopsguruResourceCollection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsDevopsguruResourceCollection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsDevopsguruResourceCollections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsDevopsguruResourceCollection,
     idFilter,
     baseNode,
+    optional,
   )

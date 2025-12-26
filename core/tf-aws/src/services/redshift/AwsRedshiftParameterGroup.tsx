@@ -60,9 +60,23 @@ export function AwsRedshiftParameterGroup(props: Partial<InputProps>) {
 export const useAwsRedshiftParameterGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftParameterGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

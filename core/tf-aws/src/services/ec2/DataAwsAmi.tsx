@@ -104,8 +104,14 @@ export function DataAwsAmi(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAmi = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAmi, idFilter, baseNode)
+export const useDataAwsAmi = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsAmi, idFilter, baseNode, optional)
 
-export const useDataAwsAmis = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsAmi, idFilter, baseNode)
+export const useDataAwsAmis = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsAmi, idFilter, baseNode, optional)

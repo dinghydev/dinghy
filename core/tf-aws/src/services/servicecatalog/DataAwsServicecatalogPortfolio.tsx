@@ -60,11 +60,23 @@ export function DataAwsServicecatalogPortfolio(props: Partial<InputProps>) {
 export const useDataAwsServicecatalogPortfolio = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsServicecatalogPortfolio, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsServicecatalogPortfolio,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsServicecatalogPortfolios = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsServicecatalogPortfolio, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsServicecatalogPortfolio,
+    idFilter,
+    baseNode,
+    optional,
+  )

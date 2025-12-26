@@ -81,11 +81,23 @@ export function AwsCodedeployDeploymentConfig(props: Partial<InputProps>) {
 export const useAwsCodedeployDeploymentConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodedeployDeploymentConfig, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCodedeployDeploymentConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodedeployDeploymentConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodedeployDeploymentConfig, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCodedeployDeploymentConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

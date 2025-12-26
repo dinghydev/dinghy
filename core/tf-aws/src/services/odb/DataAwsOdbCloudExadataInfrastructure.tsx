@@ -107,19 +107,23 @@ export function DataAwsOdbCloudExadataInfrastructure(
 export const useDataAwsOdbCloudExadataInfrastructure = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOdbCloudExadataInfrastructure,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOdbCloudExadataInfrastructures = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOdbCloudExadataInfrastructure,
     idFilter,
     baseNode,
+    optional,
   )

@@ -59,10 +59,23 @@ export function AwsCodebuildSourceCredential(props: Partial<InputProps>) {
 export const useAwsCodebuildSourceCredential = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCodebuildSourceCredential, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodebuildSourceCredential,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodebuildSourceCredentials = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodebuildSourceCredential, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCodebuildSourceCredential,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,8 +50,14 @@ export function DataAwsArn(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsArn = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsArn, idFilter, baseNode)
+export const useDataAwsArn = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsArn, idFilter, baseNode, optional)
 
-export const useDataAwsArns = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsArn, idFilter, baseNode)
+export const useDataAwsArns = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsArn, idFilter, baseNode, optional)

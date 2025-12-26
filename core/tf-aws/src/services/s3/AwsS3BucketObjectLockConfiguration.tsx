@@ -61,19 +61,23 @@ export function AwsS3BucketObjectLockConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketObjectLockConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketObjectLockConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketObjectLockConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketObjectLockConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

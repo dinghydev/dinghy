@@ -86,9 +86,23 @@ export function AwsSagemakerFlowDefinition(props: Partial<InputProps>) {
 export const useAwsSagemakerFlowDefinition = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSagemakerFlowDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerFlowDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerFlowDefinitions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerFlowDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerFlowDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

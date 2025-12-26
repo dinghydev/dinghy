@@ -59,19 +59,23 @@ export function DataAwsSecretsmanagerRandomPassword(
 export const useDataAwsSecretsmanagerRandomPassword = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsSecretsmanagerRandomPassword,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsSecretsmanagerRandomPasswords = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSecretsmanagerRandomPassword,
     idFilter,
     baseNode,
+    optional,
   )

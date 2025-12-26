@@ -241,8 +241,14 @@ export function AwsAppmeshRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppmeshRoute, idFilter, baseNode)
+export const useAwsAppmeshRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppmeshRoute, idFilter, baseNode, optional)
 
-export const useAwsAppmeshRoutes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppmeshRoute, idFilter, baseNode)
+export const useAwsAppmeshRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAppmeshRoute, idFilter, baseNode, optional)

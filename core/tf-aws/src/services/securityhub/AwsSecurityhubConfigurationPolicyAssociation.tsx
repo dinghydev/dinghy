@@ -58,19 +58,23 @@ export function AwsSecurityhubConfigurationPolicyAssociation(
 export const useAwsSecurityhubConfigurationPolicyAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubConfigurationPolicyAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecurityhubConfigurationPolicyAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubConfigurationPolicyAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -50,11 +50,23 @@ export function DataAwsSesActiveReceiptRuleSet(props: Partial<InputProps>) {
 export const useDataAwsSesActiveReceiptRuleSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsSesActiveReceiptRuleSet, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsSesActiveReceiptRuleSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSesActiveReceiptRuleSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSesActiveReceiptRuleSet, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsSesActiveReceiptRuleSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

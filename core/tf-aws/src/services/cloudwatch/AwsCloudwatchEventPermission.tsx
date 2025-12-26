@@ -59,10 +59,23 @@ export function AwsCloudwatchEventPermission(props: Partial<InputProps>) {
 export const useAwsCloudwatchEventPermission = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchEventPermission, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchEventPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchEventPermissions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventPermission, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )

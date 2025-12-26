@@ -60,8 +60,21 @@ export function AwsFinspaceKxDatabase(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxDatabase = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxDatabase, idFilter, baseNode)
+export const useAwsFinspaceKxDatabase = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxDatabase, idFilter, baseNode, optional)
 
-export const useAwsFinspaceKxDatabases = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxDatabase, idFilter, baseNode)
+export const useAwsFinspaceKxDatabases = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFinspaceKxDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )

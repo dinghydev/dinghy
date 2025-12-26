@@ -221,19 +221,23 @@ export function AwsKinesisanalyticsv2Application(props: Partial<InputProps>) {
 export const useAwsKinesisanalyticsv2Application = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsKinesisanalyticsv2Application,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsKinesisanalyticsv2Applications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsKinesisanalyticsv2Application,
     idFilter,
     baseNode,
+    optional,
   )

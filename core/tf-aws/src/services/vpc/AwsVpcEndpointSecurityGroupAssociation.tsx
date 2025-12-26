@@ -53,19 +53,23 @@ export function AwsVpcEndpointSecurityGroupAssociation(
 export const useAwsVpcEndpointSecurityGroupAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointSecurityGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcEndpointSecurityGroupAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointSecurityGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )

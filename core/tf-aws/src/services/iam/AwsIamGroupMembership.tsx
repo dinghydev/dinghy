@@ -50,8 +50,21 @@ export function AwsIamGroupMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamGroupMembership = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamGroupMembership, idFilter, baseNode)
+export const useAwsIamGroupMembership = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsIamGroupMembership, idFilter, baseNode, optional)
 
-export const useAwsIamGroupMemberships = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamGroupMembership, idFilter, baseNode)
+export const useAwsIamGroupMemberships = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

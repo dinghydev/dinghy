@@ -64,10 +64,26 @@ export function AwsControltowerBaseline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsControltowerBaseline = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsControltowerBaseline, idFilter, baseNode)
+export const useAwsControltowerBaseline = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsControltowerBaseline,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsControltowerBaselines = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsControltowerBaseline, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsControltowerBaseline,
+    idFilter,
+    baseNode,
+    optional,
+  )

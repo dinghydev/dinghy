@@ -89,8 +89,16 @@ export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbTargetGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode)
+export const useDataAwsLbTargetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode, optional)
 
-export const useDataAwsLbTargetGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode)
+export const useDataAwsLbTargetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode, optional)

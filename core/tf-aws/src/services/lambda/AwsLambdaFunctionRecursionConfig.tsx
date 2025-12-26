@@ -48,19 +48,23 @@ export function AwsLambdaFunctionRecursionConfig(props: Partial<InputProps>) {
 export const useAwsLambdaFunctionRecursionConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLambdaFunctionRecursionConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLambdaFunctionRecursionConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLambdaFunctionRecursionConfig,
     idFilter,
     baseNode,
+    optional,
   )

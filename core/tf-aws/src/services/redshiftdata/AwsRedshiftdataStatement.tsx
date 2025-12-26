@@ -67,9 +67,23 @@ export function AwsRedshiftdataStatement(props: Partial<InputProps>) {
 export const useAwsRedshiftdataStatement = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftdataStatement, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftdataStatement,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftdataStatements = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftdataStatement, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftdataStatement,
+    idFilter,
+    baseNode,
+    optional,
+  )

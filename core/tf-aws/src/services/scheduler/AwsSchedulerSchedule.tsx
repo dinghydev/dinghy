@@ -119,8 +119,16 @@ export function AwsSchedulerSchedule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSchedulerSchedule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSchedulerSchedule, idFilter, baseNode)
+export const useAwsSchedulerSchedule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSchedulerSchedule, idFilter, baseNode, optional)
 
-export const useAwsSchedulerSchedules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSchedulerSchedule, idFilter, baseNode)
+export const useAwsSchedulerSchedules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSchedulerSchedule, idFilter, baseNode, optional)

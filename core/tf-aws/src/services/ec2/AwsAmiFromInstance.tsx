@@ -102,8 +102,15 @@ export function AwsAmiFromInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmiFromInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAmiFromInstance, idFilter, baseNode)
+export const useAwsAmiFromInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAmiFromInstance, idFilter, baseNode, optional)
 
-export const useAwsAmiFromInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAmiFromInstance, idFilter, baseNode)
+export const useAwsAmiFromInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAmiFromInstance, idFilter, baseNode, optional)

@@ -79,19 +79,23 @@ export function AwsNetworkfirewallVpcEndpointAssociation(
 export const useAwsNetworkfirewallVpcEndpointAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkfirewallVpcEndpointAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkfirewallVpcEndpointAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkfirewallVpcEndpointAssociation,
     idFilter,
     baseNode,
+    optional,
   )

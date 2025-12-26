@@ -55,19 +55,23 @@ export function DataAwsCodeartifactAuthorizationToken(
 export const useDataAwsCodeartifactAuthorizationToken = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCodeartifactAuthorizationToken,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCodeartifactAuthorizationTokens = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCodeartifactAuthorizationToken,
     idFilter,
     baseNode,
+    optional,
   )

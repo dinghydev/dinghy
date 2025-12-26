@@ -55,11 +55,23 @@ export function AwsLocationTrackerAssociation(props: Partial<InputProps>) {
 export const useAwsLocationTrackerAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLocationTrackerAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLocationTrackerAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLocationTrackerAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLocationTrackerAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLocationTrackerAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

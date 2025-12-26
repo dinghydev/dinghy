@@ -57,9 +57,23 @@ export function AwsPrometheusResourcePolicy(props: Partial<InputProps>) {
 export const useAwsPrometheusResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsPrometheusResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPrometheusResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPrometheusResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsPrometheusResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPrometheusResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

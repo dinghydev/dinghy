@@ -47,4 +47,11 @@ export function AwsEc2SerialConsoleAccess(props: Partial<InputProps>) {
 export const useAwsEc2SerialConsoleAccesss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2SerialConsoleAccess, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2SerialConsoleAccess,
+    idFilter,
+    baseNode,
+    optional,
+  )

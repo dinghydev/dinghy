@@ -114,19 +114,23 @@ export function AwsOdbCloudExadataInfrastructure(props: Partial<InputProps>) {
 export const useAwsOdbCloudExadataInfrastructure = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOdbCloudExadataInfrastructure,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOdbCloudExadataInfrastructures = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOdbCloudExadataInfrastructure,
     idFilter,
     baseNode,
+    optional,
   )

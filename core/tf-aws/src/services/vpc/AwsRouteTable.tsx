@@ -83,8 +83,14 @@ export function AwsRouteTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRouteTable = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRouteTable, idFilter, baseNode)
+export const useAwsRouteTable = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRouteTable, idFilter, baseNode, optional)
 
-export const useAwsRouteTables = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRouteTable, idFilter, baseNode)
+export const useAwsRouteTables = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRouteTable, idFilter, baseNode, optional)

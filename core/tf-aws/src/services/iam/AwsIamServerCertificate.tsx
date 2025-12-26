@@ -60,10 +60,26 @@ export function AwsIamServerCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamServerCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamServerCertificate, idFilter, baseNode)
+export const useAwsIamServerCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamServerCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamServerCertificates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamServerCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamServerCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

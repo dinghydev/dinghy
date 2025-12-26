@@ -85,8 +85,16 @@ export function AwsCloudsearchDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudsearchDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudsearchDomain, idFilter, baseNode)
+export const useAwsCloudsearchDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCloudsearchDomain, idFilter, baseNode, optional)
 
-export const useAwsCloudsearchDomains = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudsearchDomain, idFilter, baseNode)
+export const useAwsCloudsearchDomains = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudsearchDomain, idFilter, baseNode, optional)

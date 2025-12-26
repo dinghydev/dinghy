@@ -89,19 +89,23 @@ export function DataAwsDirectoryServiceDirectory(props: Partial<InputProps>) {
 export const useDataAwsDirectoryServiceDirectory = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsDirectoryServiceDirectory,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsDirectoryServiceDirectorys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsDirectoryServiceDirectory,
     idFilter,
     baseNode,
+    optional,
   )

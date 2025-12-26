@@ -47,8 +47,16 @@ export function AwsEcrRegistryPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRegistryPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcrRegistryPolicy, idFilter, baseNode)
+export const useAwsEcrRegistryPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEcrRegistryPolicy, idFilter, baseNode, optional)
 
-export const useAwsEcrRegistryPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcrRegistryPolicy, idFilter, baseNode)
+export const useAwsEcrRegistryPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEcrRegistryPolicy, idFilter, baseNode, optional)

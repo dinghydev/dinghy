@@ -56,9 +56,11 @@ export function DataAwsImagebuilderImageRecipes(props: Partial<InputProps>) {
 export const useDataAwsImagebuilderImageRecipess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderImageRecipes,
     idFilter,
     baseNode,
+    optional,
   )

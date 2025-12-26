@@ -51,9 +51,23 @@ export function DataAwsCloudformationExport(props: Partial<InputProps>) {
 export const useDataAwsCloudformationExport = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCloudformationExport, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudformationExport,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudformationExports = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCloudformationExport, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudformationExport,
+    idFilter,
+    baseNode,
+    optional,
+  )

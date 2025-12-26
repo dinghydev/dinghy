@@ -51,10 +51,26 @@ export function DataAwsEbsDefaultKmsKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEbsDefaultKmsKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEbsDefaultKmsKey, idFilter, baseNode)
+export const useDataAwsEbsDefaultKmsKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEbsDefaultKmsKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEbsDefaultKmsKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEbsDefaultKmsKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEbsDefaultKmsKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

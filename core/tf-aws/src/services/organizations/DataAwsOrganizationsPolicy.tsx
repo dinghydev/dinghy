@@ -54,9 +54,23 @@ export function DataAwsOrganizationsPolicy(props: Partial<InputProps>) {
 export const useDataAwsOrganizationsPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsOrganizationsPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsOrganizationsPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsOrganizationsPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsOrganizationsPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsOrganizationsPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

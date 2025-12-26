@@ -52,9 +52,23 @@ export function AwsEc2TransitGatewayRoute(props: Partial<InputProps>) {
 export const useAwsEc2TransitGatewayRoute = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2TransitGatewayRoute, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2TransitGatewayRoutes = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2TransitGatewayRoute, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2TransitGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

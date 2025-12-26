@@ -65,19 +65,23 @@ export function AwsInspector2OrganizationConfiguration(
 export const useAwsInspector2OrganizationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsInspector2OrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsInspector2OrganizationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsInspector2OrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

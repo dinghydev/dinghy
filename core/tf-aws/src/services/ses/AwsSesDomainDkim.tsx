@@ -47,8 +47,14 @@ export function AwsSesDomainDkim(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesDomainDkim = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesDomainDkim, idFilter, baseNode)
+export const useAwsSesDomainDkim = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSesDomainDkim, idFilter, baseNode, optional)
 
-export const useAwsSesDomainDkims = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesDomainDkim, idFilter, baseNode)
+export const useAwsSesDomainDkims = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSesDomainDkim, idFilter, baseNode, optional)

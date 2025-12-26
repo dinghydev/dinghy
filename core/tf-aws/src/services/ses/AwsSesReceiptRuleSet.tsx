@@ -47,8 +47,16 @@ export function AwsSesReceiptRuleSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesReceiptRuleSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesReceiptRuleSet, idFilter, baseNode)
+export const useAwsSesReceiptRuleSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesReceiptRuleSet, idFilter, baseNode, optional)
 
-export const useAwsSesReceiptRuleSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesReceiptRuleSet, idFilter, baseNode)
+export const useAwsSesReceiptRuleSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSesReceiptRuleSet, idFilter, baseNode, optional)

@@ -55,15 +55,23 @@ export function DataAwsDocdbOrderableDbInstance(props: Partial<InputProps>) {
 export const useDataAwsDocdbOrderableDbInstance = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsDocdbOrderableDbInstance, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsDocdbOrderableDbInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDocdbOrderableDbInstances = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsDocdbOrderableDbInstance,
     idFilter,
     baseNode,
+    optional,
   )

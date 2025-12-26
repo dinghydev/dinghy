@@ -68,19 +68,23 @@ export function AwsAppfabricAppAuthorizationConnection(
 export const useAwsAppfabricAppAuthorizationConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppfabricAppAuthorizationConnection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppfabricAppAuthorizationConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppfabricAppAuthorizationConnection,
     idFilter,
     baseNode,
+    optional,
   )

@@ -79,8 +79,16 @@ export function AwsNetworkInterface(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkInterface = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNetworkInterface, idFilter, baseNode)
+export const useAwsNetworkInterface = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsNetworkInterface, idFilter, baseNode, optional)
 
-export const useAwsNetworkInterfaces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterface, idFilter, baseNode)
+export const useAwsNetworkInterfaces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsNetworkInterface, idFilter, baseNode, optional)

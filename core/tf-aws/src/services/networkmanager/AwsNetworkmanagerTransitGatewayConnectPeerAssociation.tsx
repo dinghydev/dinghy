@@ -58,19 +58,23 @@ export function AwsNetworkmanagerTransitGatewayConnectPeerAssociation(
 export const useAwsNetworkmanagerTransitGatewayConnectPeerAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerTransitGatewayConnectPeerAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerTransitGatewayConnectPeerAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerTransitGatewayConnectPeerAssociation,
     idFilter,
     baseNode,
+    optional,
   )

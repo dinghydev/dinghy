@@ -50,19 +50,23 @@ export function AwsGuarddutyOrganizationAdminAccount(
 export const useAwsGuarddutyOrganizationAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGuarddutyOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGuarddutyOrganizationAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGuarddutyOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

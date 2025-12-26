@@ -53,19 +53,23 @@ export function AwsSecurityhubStandardsControlAssociation(
 export const useAwsSecurityhubStandardsControlAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubStandardsControlAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecurityhubStandardsControlAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubStandardsControlAssociation,
     idFilter,
     baseNode,
+    optional,
   )

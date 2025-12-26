@@ -64,11 +64,23 @@ export function AwsMedialiveInputSecurityGroup(props: Partial<InputProps>) {
 export const useAwsMedialiveInputSecurityGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMedialiveInputSecurityGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsMedialiveInputSecurityGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMedialiveInputSecurityGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMedialiveInputSecurityGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMedialiveInputSecurityGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

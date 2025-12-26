@@ -57,19 +57,23 @@ export function AwsBedrockagentcoreApiKeyCredentialProvider(
 export const useAwsBedrockagentcoreApiKeyCredentialProvider = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreApiKeyCredentialProvider,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentcoreApiKeyCredentialProviders = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreApiKeyCredentialProvider,
     idFilter,
     baseNode,
+    optional,
   )

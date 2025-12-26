@@ -56,19 +56,23 @@ export function AwsVpcEndpointConnectionNotification(
 export const useAwsVpcEndpointConnectionNotification = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointConnectionNotification,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcEndpointConnectionNotifications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointConnectionNotification,
     idFilter,
     baseNode,
+    optional,
   )

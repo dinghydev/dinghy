@@ -71,9 +71,23 @@ export function AwsInternetmonitorMonitor(props: Partial<InputProps>) {
 export const useAwsInternetmonitorMonitor = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsInternetmonitorMonitor, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInternetmonitorMonitor,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInternetmonitorMonitors = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsInternetmonitorMonitor, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsInternetmonitorMonitor,
+    idFilter,
+    baseNode,
+    optional,
+  )

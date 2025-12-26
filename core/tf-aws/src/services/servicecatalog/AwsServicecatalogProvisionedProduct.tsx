@@ -103,19 +103,23 @@ export function AwsServicecatalogProvisionedProduct(
 export const useAwsServicecatalogProvisionedProduct = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogProvisionedProduct,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogProvisionedProducts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogProvisionedProduct,
     idFilter,
     baseNode,
+    optional,
   )

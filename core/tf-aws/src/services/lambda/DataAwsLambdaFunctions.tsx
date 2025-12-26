@@ -46,5 +46,14 @@ export function DataAwsLambdaFunctions(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaFunctionss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaFunctions, idFilter, baseNode)
+export const useDataAwsLambdaFunctionss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLambdaFunctions,
+    idFilter,
+    baseNode,
+    optional,
+  )

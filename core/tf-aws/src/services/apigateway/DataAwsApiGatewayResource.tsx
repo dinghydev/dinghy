@@ -52,9 +52,23 @@ export function DataAwsApiGatewayResource(props: Partial<InputProps>) {
 export const useDataAwsApiGatewayResource = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsApiGatewayResource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsApiGatewayResource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsApiGatewayResources = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsApiGatewayResource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsApiGatewayResource,
+    idFilter,
+    baseNode,
+    optional,
+  )

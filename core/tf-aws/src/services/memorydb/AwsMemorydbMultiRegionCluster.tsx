@@ -68,11 +68,23 @@ export function AwsMemorydbMultiRegionCluster(props: Partial<InputProps>) {
 export const useAwsMemorydbMultiRegionCluster = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMemorydbMultiRegionCluster, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsMemorydbMultiRegionCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMemorydbMultiRegionClusters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMemorydbMultiRegionCluster, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMemorydbMultiRegionCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

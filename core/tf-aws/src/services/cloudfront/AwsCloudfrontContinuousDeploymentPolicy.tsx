@@ -75,19 +75,23 @@ export function AwsCloudfrontContinuousDeploymentPolicy(
 export const useAwsCloudfrontContinuousDeploymentPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontContinuousDeploymentPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontContinuousDeploymentPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontContinuousDeploymentPolicy,
     idFilter,
     baseNode,
+    optional,
   )

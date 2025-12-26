@@ -103,19 +103,23 @@ export function AwsConnectUserHierarchyStructure(props: Partial<InputProps>) {
 export const useAwsConnectUserHierarchyStructure = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConnectUserHierarchyStructure,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConnectUserHierarchyStructures = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConnectUserHierarchyStructure,
     idFilter,
     baseNode,
+    optional,
   )

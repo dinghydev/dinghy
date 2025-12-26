@@ -59,9 +59,23 @@ export function AwsIamOpenidConnectProvider(props: Partial<InputProps>) {
 export const useAwsIamOpenidConnectProvider = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamOpenidConnectProvider, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamOpenidConnectProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamOpenidConnectProviders = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamOpenidConnectProvider, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamOpenidConnectProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )

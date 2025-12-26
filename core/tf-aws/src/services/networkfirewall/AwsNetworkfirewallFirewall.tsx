@@ -99,9 +99,23 @@ export function AwsNetworkfirewallFirewall(props: Partial<InputProps>) {
 export const useAwsNetworkfirewallFirewall = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNetworkfirewallFirewall, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkfirewallFirewall,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkfirewallFirewalls = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNetworkfirewallFirewall, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkfirewallFirewall,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -153,9 +153,23 @@ export function AwsLambdaEventSourceMapping(props: Partial<InputProps>) {
 export const useAwsLambdaEventSourceMapping = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLambdaEventSourceMapping, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLambdaEventSourceMapping,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaEventSourceMappings = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLambdaEventSourceMapping, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLambdaEventSourceMapping,
+    idFilter,
+    baseNode,
+    optional,
+  )

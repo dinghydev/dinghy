@@ -180,8 +180,26 @@ export function AwsAppmeshGatewayRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshGatewayRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppmeshGatewayRoute, idFilter, baseNode)
+export const useAwsAppmeshGatewayRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppmeshGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsAppmeshGatewayRoutes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppmeshGatewayRoute, idFilter, baseNode)
+export const useAwsAppmeshGatewayRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppmeshGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

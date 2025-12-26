@@ -55,9 +55,23 @@ export function AwsElasticacheSubnetGroup(props: Partial<InputProps>) {
 export const useAwsElasticacheSubnetGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsElasticacheSubnetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElasticacheSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticacheSubnetGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsElasticacheSubnetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElasticacheSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

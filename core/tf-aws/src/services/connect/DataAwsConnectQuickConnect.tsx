@@ -69,9 +69,23 @@ export function DataAwsConnectQuickConnect(props: Partial<InputProps>) {
 export const useDataAwsConnectQuickConnect = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsConnectQuickConnect, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectQuickConnect,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectQuickConnects = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsConnectQuickConnect, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsConnectQuickConnect,
+    idFilter,
+    baseNode,
+    optional,
+  )

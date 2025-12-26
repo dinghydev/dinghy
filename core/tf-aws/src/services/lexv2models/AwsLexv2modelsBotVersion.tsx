@@ -63,9 +63,23 @@ export function AwsLexv2modelsBotVersion(props: Partial<InputProps>) {
 export const useAwsLexv2modelsBotVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLexv2modelsBotVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLexv2modelsBotVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLexv2modelsBotVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLexv2modelsBotVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLexv2modelsBotVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

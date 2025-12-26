@@ -76,9 +76,23 @@ export function AwsRdsCustomDbEngineVersion(props: Partial<InputProps>) {
 export const useAwsRdsCustomDbEngineVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRdsCustomDbEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRdsCustomDbEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsCustomDbEngineVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRdsCustomDbEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRdsCustomDbEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

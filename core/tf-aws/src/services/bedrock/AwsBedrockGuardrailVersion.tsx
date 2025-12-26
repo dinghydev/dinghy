@@ -57,9 +57,23 @@ export function AwsBedrockGuardrailVersion(props: Partial<InputProps>) {
 export const useAwsBedrockGuardrailVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBedrockGuardrailVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockGuardrailVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockGuardrailVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBedrockGuardrailVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockGuardrailVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

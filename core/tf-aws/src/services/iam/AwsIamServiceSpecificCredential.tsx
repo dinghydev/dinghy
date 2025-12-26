@@ -57,15 +57,23 @@ export function AwsIamServiceSpecificCredential(props: Partial<InputProps>) {
 export const useAwsIamServiceSpecificCredential = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIamServiceSpecificCredential, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsIamServiceSpecificCredential,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamServiceSpecificCredentials = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsIamServiceSpecificCredential,
     idFilter,
     baseNode,
+    optional,
   )

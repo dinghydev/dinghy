@@ -50,8 +50,15 @@ export function DataAwsWafv2WebAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafv2WebAcl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWafv2WebAcl, idFilter, baseNode)
+export const useDataAwsWafv2WebAcl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsWafv2WebAcl, idFilter, baseNode, optional)
 
-export const useDataAwsWafv2WebAcls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsWafv2WebAcl, idFilter, baseNode)
+export const useDataAwsWafv2WebAcls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsWafv2WebAcl, idFilter, baseNode, optional)

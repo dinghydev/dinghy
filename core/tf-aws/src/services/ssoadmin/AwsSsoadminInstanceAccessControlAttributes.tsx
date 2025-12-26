@@ -60,9 +60,11 @@ export function AwsSsoadminInstanceAccessControlAttributes(
 export const useAwsSsoadminInstanceAccessControlAttributess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminInstanceAccessControlAttributes,
     idFilter,
     baseNode,
+    optional,
   )

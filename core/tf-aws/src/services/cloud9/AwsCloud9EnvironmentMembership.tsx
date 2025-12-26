@@ -52,11 +52,23 @@ export function AwsCloud9EnvironmentMembership(props: Partial<InputProps>) {
 export const useAwsCloud9EnvironmentMembership = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloud9EnvironmentMembership, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCloud9EnvironmentMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloud9EnvironmentMemberships = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloud9EnvironmentMembership, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloud9EnvironmentMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

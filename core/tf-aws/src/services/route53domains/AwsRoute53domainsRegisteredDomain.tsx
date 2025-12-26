@@ -150,19 +150,23 @@ export function AwsRoute53domainsRegisteredDomain(props: Partial<InputProps>) {
 export const useAwsRoute53domainsRegisteredDomain = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53domainsRegisteredDomain,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53domainsRegisteredDomains = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53domainsRegisteredDomain,
     idFilter,
     baseNode,
+    optional,
   )

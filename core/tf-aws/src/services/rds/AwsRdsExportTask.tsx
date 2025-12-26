@@ -66,8 +66,14 @@ export function AwsRdsExportTask(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsExportTask = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsExportTask, idFilter, baseNode)
+export const useAwsRdsExportTask = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRdsExportTask, idFilter, baseNode, optional)
 
-export const useAwsRdsExportTasks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsExportTask, idFilter, baseNode)
+export const useAwsRdsExportTasks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRdsExportTask, idFilter, baseNode, optional)

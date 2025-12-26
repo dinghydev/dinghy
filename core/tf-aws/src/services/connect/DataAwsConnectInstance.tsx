@@ -60,8 +60,26 @@ export function DataAwsConnectInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsConnectInstance, idFilter, baseNode)
+export const useDataAwsConnectInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsConnectInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsConnectInstance, idFilter, baseNode)
+export const useDataAwsConnectInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsConnectInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

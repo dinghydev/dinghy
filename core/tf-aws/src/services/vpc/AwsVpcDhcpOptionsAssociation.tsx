@@ -50,10 +50,23 @@ export function AwsVpcDhcpOptionsAssociation(props: Partial<InputProps>) {
 export const useAwsVpcDhcpOptionsAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpcDhcpOptionsAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcDhcpOptionsAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcDhcpOptionsAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcDhcpOptionsAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpcDhcpOptionsAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

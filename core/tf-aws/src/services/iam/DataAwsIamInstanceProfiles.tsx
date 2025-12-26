@@ -50,4 +50,11 @@ export function DataAwsIamInstanceProfiles(props: Partial<InputProps>) {
 export const useDataAwsIamInstanceProfiless = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsIamInstanceProfiles, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIamInstanceProfiles,
+    idFilter,
+    baseNode,
+    optional,
+  )

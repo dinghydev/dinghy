@@ -65,9 +65,11 @@ export function DataAwsServicecatalogProvisioningArtifacts(
 export const useDataAwsServicecatalogProvisioningArtifactss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogProvisioningArtifacts,
     idFilter,
     baseNode,
+    optional,
   )

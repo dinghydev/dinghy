@@ -63,9 +63,23 @@ export function AwsKmsReplicaExternalKey(props: Partial<InputProps>) {
 export const useAwsKmsReplicaExternalKey = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsKmsReplicaExternalKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsKmsReplicaExternalKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKmsReplicaExternalKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsKmsReplicaExternalKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsKmsReplicaExternalKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

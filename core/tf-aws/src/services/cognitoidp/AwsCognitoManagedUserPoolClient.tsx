@@ -94,15 +94,23 @@ export function AwsCognitoManagedUserPoolClient(props: Partial<InputProps>) {
 export const useAwsCognitoManagedUserPoolClient = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCognitoManagedUserPoolClient, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCognitoManagedUserPoolClient,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoManagedUserPoolClients = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCognitoManagedUserPoolClient,
     idFilter,
     baseNode,
+    optional,
   )

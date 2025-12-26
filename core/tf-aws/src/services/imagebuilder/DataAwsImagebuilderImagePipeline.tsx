@@ -80,19 +80,23 @@ export function DataAwsImagebuilderImagePipeline(props: Partial<InputProps>) {
 export const useDataAwsImagebuilderImagePipeline = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsImagebuilderImagePipeline,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsImagebuilderImagePipelines = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderImagePipeline,
     idFilter,
     baseNode,
+    optional,
   )

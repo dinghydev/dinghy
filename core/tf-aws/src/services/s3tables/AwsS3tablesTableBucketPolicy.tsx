@@ -54,10 +54,23 @@ export function AwsS3tablesTableBucketPolicy(props: Partial<InputProps>) {
 export const useAwsS3tablesTableBucketPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsS3tablesTableBucketPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3tablesTableBucketPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3tablesTableBucketPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3tablesTableBucketPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsS3tablesTableBucketPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

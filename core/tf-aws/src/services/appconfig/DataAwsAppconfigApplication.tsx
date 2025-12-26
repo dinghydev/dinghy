@@ -51,9 +51,23 @@ export function DataAwsAppconfigApplication(props: Partial<InputProps>) {
 export const useDataAwsAppconfigApplication = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAppconfigApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAppconfigApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAppconfigApplications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAppconfigApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAppconfigApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

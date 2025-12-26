@@ -62,19 +62,23 @@ export function AwsOpensearchserverlessSecurityConfig(
 export const useAwsOpensearchserverlessSecurityConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOpensearchserverlessSecurityConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOpensearchserverlessSecurityConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchserverlessSecurityConfig,
     idFilter,
     baseNode,
+    optional,
   )

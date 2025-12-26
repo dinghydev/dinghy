@@ -166,8 +166,21 @@ export function AwsBatchJobDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBatchJobDefinition = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBatchJobDefinition, idFilter, baseNode)
+export const useAwsBatchJobDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsBatchJobDefinition, idFilter, baseNode, optional)
 
-export const useAwsBatchJobDefinitions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBatchJobDefinition, idFilter, baseNode)
+export const useAwsBatchJobDefinitions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBatchJobDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

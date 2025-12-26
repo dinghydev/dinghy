@@ -52,19 +52,23 @@ export function DataAwsWafregionalSubscribedRuleGroup(
 export const useDataAwsWafregionalSubscribedRuleGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsWafregionalSubscribedRuleGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsWafregionalSubscribedRuleGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsWafregionalSubscribedRuleGroup,
     idFilter,
     baseNode,
+    optional,
   )

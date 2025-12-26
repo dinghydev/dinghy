@@ -47,5 +47,8 @@ export function DataAwsIamUsers(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamUserss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamUsers, idFilter, baseNode)
+export const useDataAwsIamUserss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsIamUsers, idFilter, baseNode, optional)

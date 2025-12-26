@@ -54,11 +54,23 @@ export function DataAwsEbsEncryptionByDefault(props: Partial<InputProps>) {
 export const useDataAwsEbsEncryptionByDefault = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsEbsEncryptionByDefault, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsEbsEncryptionByDefault,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEbsEncryptionByDefaults = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEbsEncryptionByDefault, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsEbsEncryptionByDefault,
+    idFilter,
+    baseNode,
+    optional,
+  )

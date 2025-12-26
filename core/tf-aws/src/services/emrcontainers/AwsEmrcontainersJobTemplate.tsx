@@ -94,9 +94,23 @@ export function AwsEmrcontainersJobTemplate(props: Partial<InputProps>) {
 export const useAwsEmrcontainersJobTemplate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEmrcontainersJobTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEmrcontainersJobTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrcontainersJobTemplates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEmrcontainersJobTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEmrcontainersJobTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

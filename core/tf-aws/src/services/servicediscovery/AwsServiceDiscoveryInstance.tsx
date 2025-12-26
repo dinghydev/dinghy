@@ -51,9 +51,23 @@ export function AwsServiceDiscoveryInstance(props: Partial<InputProps>) {
 export const useAwsServiceDiscoveryInstance = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsServiceDiscoveryInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServiceDiscoveryInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServiceDiscoveryInstances = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsServiceDiscoveryInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServiceDiscoveryInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

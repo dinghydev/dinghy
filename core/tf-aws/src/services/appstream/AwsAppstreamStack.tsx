@@ -85,8 +85,14 @@ export function AwsAppstreamStack(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppstreamStack = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppstreamStack, idFilter, baseNode)
+export const useAwsAppstreamStack = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppstreamStack, idFilter, baseNode, optional)
 
-export const useAwsAppstreamStacks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppstreamStack, idFilter, baseNode)
+export const useAwsAppstreamStacks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAppstreamStack, idFilter, baseNode, optional)

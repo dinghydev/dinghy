@@ -55,10 +55,26 @@ export function AwsCodecommitRepository(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodecommitRepository = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodecommitRepository, idFilter, baseNode)
+export const useAwsCodecommitRepository = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodecommitRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodecommitRepositorys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCodecommitRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodecommitRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )

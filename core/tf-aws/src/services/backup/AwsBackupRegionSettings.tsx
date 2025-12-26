@@ -53,4 +53,11 @@ export function AwsBackupRegionSettings(props: Partial<InputProps>) {
 export const useAwsBackupRegionSettingss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBackupRegionSettings, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBackupRegionSettings,
+    idFilter,
+    baseNode,
+    optional,
+  )

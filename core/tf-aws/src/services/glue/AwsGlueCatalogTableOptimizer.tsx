@@ -71,10 +71,23 @@ export function AwsGlueCatalogTableOptimizer(props: Partial<InputProps>) {
 export const useAwsGlueCatalogTableOptimizer = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGlueCatalogTableOptimizer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlueCatalogTableOptimizer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueCatalogTableOptimizers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGlueCatalogTableOptimizer, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsGlueCatalogTableOptimizer,
+    idFilter,
+    baseNode,
+    optional,
+  )

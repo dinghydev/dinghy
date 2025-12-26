@@ -70,10 +70,26 @@ export function AwsVpcPeeringConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcPeeringConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpcPeeringConnection, idFilter, baseNode)
+export const useAwsVpcPeeringConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcPeeringConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcPeeringConnections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpcPeeringConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcPeeringConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

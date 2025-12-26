@@ -62,8 +62,26 @@ export function AwsVerifiedaccessGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVerifiedaccessGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVerifiedaccessGroup, idFilter, baseNode)
+export const useAwsVerifiedaccessGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVerifiedaccessGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsVerifiedaccessGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVerifiedaccessGroup, idFilter, baseNode)
+export const useAwsVerifiedaccessGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVerifiedaccessGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

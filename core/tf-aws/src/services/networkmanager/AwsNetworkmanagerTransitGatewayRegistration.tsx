@@ -56,19 +56,23 @@ export function AwsNetworkmanagerTransitGatewayRegistration(
 export const useAwsNetworkmanagerTransitGatewayRegistration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerTransitGatewayRegistration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerTransitGatewayRegistrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerTransitGatewayRegistration,
     idFilter,
     baseNode,
+    optional,
   )

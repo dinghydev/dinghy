@@ -50,9 +50,11 @@ export function DataAwsNetworkmanagerConnections(props: Partial<InputProps>) {
 export const useDataAwsNetworkmanagerConnectionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNetworkmanagerConnections,
     idFilter,
     baseNode,
+    optional,
   )

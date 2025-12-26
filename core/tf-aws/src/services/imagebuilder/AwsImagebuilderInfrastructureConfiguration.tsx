@@ -93,19 +93,23 @@ export function AwsImagebuilderInfrastructureConfiguration(
 export const useAwsImagebuilderInfrastructureConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsImagebuilderInfrastructureConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsImagebuilderInfrastructureConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsImagebuilderInfrastructureConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

@@ -57,8 +57,26 @@ export function AwsMediaPackageChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMediaPackageChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMediaPackageChannel, idFilter, baseNode)
+export const useAwsMediaPackageChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMediaPackageChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsMediaPackageChannels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMediaPackageChannel, idFilter, baseNode)
+export const useAwsMediaPackageChannels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMediaPackageChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -62,19 +62,23 @@ export function AwsElasticBeanstalkConfigurationTemplate(
 export const useAwsElasticBeanstalkConfigurationTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsElasticBeanstalkConfigurationTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsElasticBeanstalkConfigurationTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsElasticBeanstalkConfigurationTemplate,
     idFilter,
     baseNode,
+    optional,
   )

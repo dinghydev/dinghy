@@ -88,9 +88,23 @@ export function AwsCloudwatchMetricStream(props: Partial<InputProps>) {
 export const useAwsCloudwatchMetricStream = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchMetricStream, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchMetricStream,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchMetricStreams = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchMetricStream, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchMetricStream,
+    idFilter,
+    baseNode,
+    optional,
+  )

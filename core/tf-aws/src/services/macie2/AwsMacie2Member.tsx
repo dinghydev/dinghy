@@ -67,8 +67,14 @@ export function AwsMacie2Member(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2Member = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMacie2Member, idFilter, baseNode)
+export const useAwsMacie2Member = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMacie2Member, idFilter, baseNode, optional)
 
-export const useAwsMacie2Members = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMacie2Member, idFilter, baseNode)
+export const useAwsMacie2Members = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMacie2Member, idFilter, baseNode, optional)

@@ -56,10 +56,23 @@ export function DataAwsSsoadminPermissionSet(props: Partial<InputProps>) {
 export const useDataAwsSsoadminPermissionSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSsoadminPermissionSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSsoadminPermissionSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSsoadminPermissionSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSsoadminPermissionSet, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsSsoadminPermissionSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

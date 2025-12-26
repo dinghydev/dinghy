@@ -57,9 +57,23 @@ export function AwsConnectSecurityProfile(props: Partial<InputProps>) {
 export const useAwsConnectSecurityProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConnectSecurityProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectSecurityProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectSecurityProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsConnectSecurityProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectSecurityProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

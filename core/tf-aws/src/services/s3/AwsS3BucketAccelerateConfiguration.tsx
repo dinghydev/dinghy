@@ -51,19 +51,23 @@ export function AwsS3BucketAccelerateConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketAccelerateConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketAccelerateConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketAccelerateConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketAccelerateConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

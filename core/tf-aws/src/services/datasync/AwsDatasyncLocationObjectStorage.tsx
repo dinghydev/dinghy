@@ -67,19 +67,23 @@ export function AwsDatasyncLocationObjectStorage(props: Partial<InputProps>) {
 export const useAwsDatasyncLocationObjectStorage = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDatasyncLocationObjectStorage,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDatasyncLocationObjectStorages = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDatasyncLocationObjectStorage,
     idFilter,
     baseNode,
+    optional,
   )

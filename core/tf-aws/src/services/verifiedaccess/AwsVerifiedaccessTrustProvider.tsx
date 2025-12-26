@@ -96,11 +96,23 @@ export function AwsVerifiedaccessTrustProvider(props: Partial<InputProps>) {
 export const useAwsVerifiedaccessTrustProvider = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVerifiedaccessTrustProvider, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVerifiedaccessTrustProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVerifiedaccessTrustProviders = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVerifiedaccessTrustProvider, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVerifiedaccessTrustProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )

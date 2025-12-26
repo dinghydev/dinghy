@@ -57,15 +57,23 @@ export function AwsVpclatticeDomainVerification(props: Partial<InputProps>) {
 export const useAwsVpclatticeDomainVerification = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpclatticeDomainVerification, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpclatticeDomainVerification,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpclatticeDomainVerifications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeDomainVerification,
     idFilter,
     baseNode,
+    optional,
   )

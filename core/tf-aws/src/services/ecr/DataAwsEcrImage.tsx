@@ -54,8 +54,14 @@ export function DataAwsEcrImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcrImage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEcrImage, idFilter, baseNode)
+export const useDataAwsEcrImage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsEcrImage, idFilter, baseNode, optional)
 
-export const useDataAwsEcrImages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEcrImage, idFilter, baseNode)
+export const useDataAwsEcrImages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsEcrImage, idFilter, baseNode, optional)

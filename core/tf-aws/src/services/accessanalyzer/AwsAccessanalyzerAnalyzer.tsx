@@ -75,9 +75,23 @@ export function AwsAccessanalyzerAnalyzer(props: Partial<InputProps>) {
 export const useAwsAccessanalyzerAnalyzer = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAccessanalyzerAnalyzer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAccessanalyzerAnalyzer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAccessanalyzerAnalyzers = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAccessanalyzerAnalyzer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAccessanalyzerAnalyzer,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -78,10 +78,26 @@ export function AwsTimestreamwriteTable(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTimestreamwriteTable = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTimestreamwriteTable, idFilter, baseNode)
+export const useAwsTimestreamwriteTable = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsTimestreamwriteTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTimestreamwriteTables = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsTimestreamwriteTable, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsTimestreamwriteTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -57,19 +57,23 @@ export function AwsNetworkmanagerCoreNetworkPolicyAttachment(
 export const useAwsNetworkmanagerCoreNetworkPolicyAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerCoreNetworkPolicyAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerCoreNetworkPolicyAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerCoreNetworkPolicyAttachment,
     idFilter,
     baseNode,
+    optional,
   )

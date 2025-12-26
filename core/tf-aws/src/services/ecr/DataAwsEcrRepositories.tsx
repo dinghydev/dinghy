@@ -45,5 +45,14 @@ export function DataAwsEcrRepositories(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcrRepositoriess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEcrRepositories, idFilter, baseNode)
+export const useDataAwsEcrRepositoriess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEcrRepositories,
+    idFilter,
+    baseNode,
+    optional,
+  )

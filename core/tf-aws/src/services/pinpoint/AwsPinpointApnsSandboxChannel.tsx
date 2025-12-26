@@ -56,11 +56,23 @@ export function AwsPinpointApnsSandboxChannel(props: Partial<InputProps>) {
 export const useAwsPinpointApnsSandboxChannel = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsPinpointApnsSandboxChannel, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsPinpointApnsSandboxChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPinpointApnsSandboxChannels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsPinpointApnsSandboxChannel, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsPinpointApnsSandboxChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

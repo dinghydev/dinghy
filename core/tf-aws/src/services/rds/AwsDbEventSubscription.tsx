@@ -63,8 +63,26 @@ export function AwsDbEventSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbEventSubscription = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDbEventSubscription, idFilter, baseNode)
+export const useAwsDbEventSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDbEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDbEventSubscriptions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDbEventSubscription, idFilter, baseNode)
+export const useAwsDbEventSubscriptions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDbEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

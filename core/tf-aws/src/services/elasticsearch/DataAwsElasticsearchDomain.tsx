@@ -127,9 +127,23 @@ export function DataAwsElasticsearchDomain(props: Partial<InputProps>) {
 export const useDataAwsElasticsearchDomain = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsElasticsearchDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsElasticsearchDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsElasticsearchDomains = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsElasticsearchDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsElasticsearchDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

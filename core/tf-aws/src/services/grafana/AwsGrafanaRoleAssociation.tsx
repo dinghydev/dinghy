@@ -57,9 +57,23 @@ export function AwsGrafanaRoleAssociation(props: Partial<InputProps>) {
 export const useAwsGrafanaRoleAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGrafanaRoleAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGrafanaRoleAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGrafanaRoleAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGrafanaRoleAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGrafanaRoleAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

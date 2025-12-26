@@ -65,19 +65,23 @@ export function AwsNetworkmanagerAttachmentAccepter(
 export const useAwsNetworkmanagerAttachmentAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerAttachmentAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )

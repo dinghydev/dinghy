@@ -57,19 +57,23 @@ export function AwsRedshiftDataShareConsumerAssociation(
 export const useAwsRedshiftDataShareConsumerAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftDataShareConsumerAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftDataShareConsumerAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftDataShareConsumerAssociation,
     idFilter,
     baseNode,
+    optional,
   )

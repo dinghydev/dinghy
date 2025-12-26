@@ -50,5 +50,9 @@ export function DataAwsBillingViews(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBillingViewss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsBillingViews, idFilter, baseNode)
+export const useDataAwsBillingViewss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsBillingViews, idFilter, baseNode, optional)

@@ -62,8 +62,21 @@ export function AwsKinesisVideoStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKinesisVideoStream = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKinesisVideoStream, idFilter, baseNode)
+export const useAwsKinesisVideoStream = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsKinesisVideoStream, idFilter, baseNode, optional)
 
-export const useAwsKinesisVideoStreams = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKinesisVideoStream, idFilter, baseNode)
+export const useAwsKinesisVideoStreams = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsKinesisVideoStream,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -70,19 +70,23 @@ export function AwsCognitoLogDeliveryConfiguration(props: Partial<InputProps>) {
 export const useAwsCognitoLogDeliveryConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCognitoLogDeliveryConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCognitoLogDeliveryConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCognitoLogDeliveryConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

@@ -69,19 +69,23 @@ export function AwsEcrRepositoryCreationTemplate(props: Partial<InputProps>) {
 export const useAwsEcrRepositoryCreationTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEcrRepositoryCreationTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEcrRepositoryCreationTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEcrRepositoryCreationTemplate,
     idFilter,
     baseNode,
+    optional,
   )

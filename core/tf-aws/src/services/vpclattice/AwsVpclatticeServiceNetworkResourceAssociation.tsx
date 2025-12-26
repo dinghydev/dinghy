@@ -65,19 +65,23 @@ export function AwsVpclatticeServiceNetworkResourceAssociation(
 export const useAwsVpclatticeServiceNetworkResourceAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpclatticeServiceNetworkResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpclatticeServiceNetworkResourceAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeServiceNetworkResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )

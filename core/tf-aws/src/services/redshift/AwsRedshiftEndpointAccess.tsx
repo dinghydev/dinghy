@@ -64,4 +64,11 @@ export function AwsRedshiftEndpointAccess(props: Partial<InputProps>) {
 export const useAwsRedshiftEndpointAccesss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftEndpointAccess, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftEndpointAccess,
+    idFilter,
+    baseNode,
+    optional,
+  )

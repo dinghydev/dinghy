@@ -289,8 +289,21 @@ export function DataAwsCeCostCategory(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsCeCostCategory = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsCeCostCategory, idFilter, baseNode)
+export const useDataAwsCeCostCategory = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsCeCostCategory, idFilter, baseNode, optional)
 
-export const useDataAwsCeCostCategorys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsCeCostCategory, idFilter, baseNode)
+export const useDataAwsCeCostCategorys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCeCostCategory,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -70,19 +70,23 @@ export function AwsBedrockModelInvocationLoggingConfiguration(
 export const useAwsBedrockModelInvocationLoggingConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockModelInvocationLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockModelInvocationLoggingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockModelInvocationLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

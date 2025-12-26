@@ -52,8 +52,14 @@ export function AwsWafGeoMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafGeoMatchSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafGeoMatchSet, idFilter, baseNode)
+export const useAwsWafGeoMatchSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafGeoMatchSet, idFilter, baseNode, optional)
 
-export const useAwsWafGeoMatchSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafGeoMatchSet, idFilter, baseNode)
+export const useAwsWafGeoMatchSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafGeoMatchSet, idFilter, baseNode, optional)

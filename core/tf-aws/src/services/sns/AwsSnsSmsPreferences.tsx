@@ -49,5 +49,9 @@ export function AwsSnsSmsPreferences(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSnsSmsPreferencess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSnsSmsPreferences, idFilter, baseNode)
+export const useAwsSnsSmsPreferencess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSnsSmsPreferences, idFilter, baseNode, optional)

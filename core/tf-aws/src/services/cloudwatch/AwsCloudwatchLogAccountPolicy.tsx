@@ -52,11 +52,23 @@ export function AwsCloudwatchLogAccountPolicy(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogAccountPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogAccountPolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogAccountPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchLogAccountPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogAccountPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogAccountPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

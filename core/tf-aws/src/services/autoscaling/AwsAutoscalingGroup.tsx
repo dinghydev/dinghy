@@ -248,8 +248,16 @@ export function AwsAutoscalingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode)
+export const useAwsAutoscalingGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode, optional)
 
-export const useAwsAutoscalingGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode)
+export const useAwsAutoscalingGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode, optional)

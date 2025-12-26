@@ -81,8 +81,15 @@ export function DataAwsVpcEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsVpcEndpoint, idFilter, baseNode)
+export const useDataAwsVpcEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsVpcEndpoint, idFilter, baseNode, optional)
 
-export const useDataAwsVpcEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsVpcEndpoint, idFilter, baseNode)
+export const useDataAwsVpcEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsVpcEndpoint, idFilter, baseNode, optional)

@@ -26666,8 +26666,14 @@ export function AwsWafv2WebAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2WebAcl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafv2WebAcl, idFilter, baseNode)
+export const useAwsWafv2WebAcl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafv2WebAcl, idFilter, baseNode, optional)
 
-export const useAwsWafv2WebAcls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafv2WebAcl, idFilter, baseNode)
+export const useAwsWafv2WebAcls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafv2WebAcl, idFilter, baseNode, optional)

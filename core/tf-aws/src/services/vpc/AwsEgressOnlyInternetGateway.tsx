@@ -51,10 +51,23 @@ export function AwsEgressOnlyInternetGateway(props: Partial<InputProps>) {
 export const useAwsEgressOnlyInternetGateway = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEgressOnlyInternetGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEgressOnlyInternetGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEgressOnlyInternetGateways = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEgressOnlyInternetGateway, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEgressOnlyInternetGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

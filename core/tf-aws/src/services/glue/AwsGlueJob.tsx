@@ -97,8 +97,14 @@ export function AwsGlueJob(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueJob = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueJob, idFilter, baseNode)
+export const useAwsGlueJob = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueJob, idFilter, baseNode, optional)
 
-export const useAwsGlueJobs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueJob, idFilter, baseNode)
+export const useAwsGlueJobs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueJob, idFilter, baseNode, optional)

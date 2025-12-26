@@ -279,9 +279,23 @@ export function AwsAppflowConnectorProfile(props: Partial<InputProps>) {
 export const useAwsAppflowConnectorProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppflowConnectorProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppflowConnectorProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppflowConnectorProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppflowConnectorProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppflowConnectorProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

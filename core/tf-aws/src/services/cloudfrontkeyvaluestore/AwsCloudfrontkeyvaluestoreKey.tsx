@@ -59,11 +59,23 @@ export function AwsCloudfrontkeyvaluestoreKey(props: Partial<InputProps>) {
 export const useAwsCloudfrontkeyvaluestoreKey = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudfrontkeyvaluestoreKey, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCloudfrontkeyvaluestoreKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudfrontkeyvaluestoreKeys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontkeyvaluestoreKey, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontkeyvaluestoreKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

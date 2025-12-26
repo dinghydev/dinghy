@@ -62,9 +62,23 @@ export function AwsVpcRouteServerEndpoint(props: Partial<InputProps>) {
 export const useAwsVpcRouteServerEndpoint = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpcRouteServerEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcRouteServerEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcRouteServerEndpoints = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpcRouteServerEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcRouteServerEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

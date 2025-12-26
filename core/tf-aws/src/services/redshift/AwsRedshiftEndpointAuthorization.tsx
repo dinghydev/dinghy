@@ -56,19 +56,23 @@ export function AwsRedshiftEndpointAuthorization(props: Partial<InputProps>) {
 export const useAwsRedshiftEndpointAuthorization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftEndpointAuthorization,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftEndpointAuthorizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftEndpointAuthorization,
     idFilter,
     baseNode,
+    optional,
   )

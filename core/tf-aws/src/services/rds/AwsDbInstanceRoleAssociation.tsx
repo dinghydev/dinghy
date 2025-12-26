@@ -57,10 +57,23 @@ export function AwsDbInstanceRoleAssociation(props: Partial<InputProps>) {
 export const useAwsDbInstanceRoleAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDbInstanceRoleAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDbInstanceRoleAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDbInstanceRoleAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDbInstanceRoleAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDbInstanceRoleAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

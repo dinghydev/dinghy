@@ -48,10 +48,26 @@ export function DataAwsServicePrincipal(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsServicePrincipal = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsServicePrincipal, idFilter, baseNode)
+export const useDataAwsServicePrincipal = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsServicePrincipal,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsServicePrincipals = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsServicePrincipal, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsServicePrincipal,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -57,10 +57,23 @@ export function AwsRdsClusterRoleAssociation(props: Partial<InputProps>) {
 export const useAwsRdsClusterRoleAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRdsClusterRoleAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRdsClusterRoleAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsClusterRoleAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRdsClusterRoleAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRdsClusterRoleAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

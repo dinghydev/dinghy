@@ -44,5 +44,9 @@ export function DataAwsDefaultTags(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDefaultTagss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDefaultTags, idFilter, baseNode)
+export const useDataAwsDefaultTagss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDefaultTags, idFilter, baseNode, optional)

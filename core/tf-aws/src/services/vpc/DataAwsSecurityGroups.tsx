@@ -59,5 +59,14 @@ export function DataAwsSecurityGroups(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSecurityGroupss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSecurityGroups, idFilter, baseNode)
+export const useDataAwsSecurityGroupss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSecurityGroups,
+    idFilter,
+    baseNode,
+    optional,
+  )

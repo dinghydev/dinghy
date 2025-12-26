@@ -58,19 +58,23 @@ export function AwsOpensearchInboundConnectionAccepter(
 export const useAwsOpensearchInboundConnectionAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOpensearchInboundConnectionAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOpensearchInboundConnectionAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchInboundConnectionAccepter,
     idFilter,
     baseNode,
+    optional,
   )

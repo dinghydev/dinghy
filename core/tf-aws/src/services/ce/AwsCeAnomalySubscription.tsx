@@ -136,9 +136,23 @@ export function AwsCeAnomalySubscription(props: Partial<InputProps>) {
 export const useAwsCeAnomalySubscription = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCeAnomalySubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCeAnomalySubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCeAnomalySubscriptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCeAnomalySubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCeAnomalySubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

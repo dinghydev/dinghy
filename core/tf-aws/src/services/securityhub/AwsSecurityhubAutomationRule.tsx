@@ -274,10 +274,23 @@ export function AwsSecurityhubAutomationRule(props: Partial<InputProps>) {
 export const useAwsSecurityhubAutomationRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSecurityhubAutomationRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecurityhubAutomationRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubAutomationRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubAutomationRule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubAutomationRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -49,9 +49,23 @@ export function AwsDxConnectionConfirmation(props: Partial<InputProps>) {
 export const useAwsDxConnectionConfirmation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDxConnectionConfirmation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDxConnectionConfirmation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxConnectionConfirmations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDxConnectionConfirmation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDxConnectionConfirmation,
+    idFilter,
+    baseNode,
+    optional,
+  )

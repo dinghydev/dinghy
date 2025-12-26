@@ -61,19 +61,23 @@ export function AwsServicecatalogPrincipalPortfolioAssociation(
 export const useAwsServicecatalogPrincipalPortfolioAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogPrincipalPortfolioAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogPrincipalPortfolioAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogPrincipalPortfolioAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -58,19 +58,23 @@ export function AwsNetworkmanagerCustomerGatewayAssociation(
 export const useAwsNetworkmanagerCustomerGatewayAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerCustomerGatewayAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerCustomerGatewayAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerCustomerGatewayAssociation,
     idFilter,
     baseNode,
+    optional,
   )

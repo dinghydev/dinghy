@@ -48,8 +48,26 @@ export function DataAwsMskKafkaVersion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskKafkaVersion = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsMskKafkaVersion, idFilter, baseNode)
+export const useDataAwsMskKafkaVersion = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsMskKafkaVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsMskKafkaVersions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsMskKafkaVersion, idFilter, baseNode)
+export const useDataAwsMskKafkaVersions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMskKafkaVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

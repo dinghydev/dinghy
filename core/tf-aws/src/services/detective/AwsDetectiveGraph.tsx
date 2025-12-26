@@ -49,8 +49,14 @@ export function AwsDetectiveGraph(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDetectiveGraph = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDetectiveGraph, idFilter, baseNode)
+export const useAwsDetectiveGraph = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDetectiveGraph, idFilter, baseNode, optional)
 
-export const useAwsDetectiveGraphs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDetectiveGraph, idFilter, baseNode)
+export const useAwsDetectiveGraphs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDetectiveGraph, idFilter, baseNode, optional)

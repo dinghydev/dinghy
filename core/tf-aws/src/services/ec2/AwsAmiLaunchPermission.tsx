@@ -50,8 +50,26 @@ export function AwsAmiLaunchPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmiLaunchPermission = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAmiLaunchPermission, idFilter, baseNode)
+export const useAwsAmiLaunchPermission = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAmiLaunchPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsAmiLaunchPermissions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAmiLaunchPermission, idFilter, baseNode)
+export const useAwsAmiLaunchPermissions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAmiLaunchPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )

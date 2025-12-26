@@ -52,9 +52,10 @@ export function DataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUn
 }
 
 export const useDataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUnitss =
-  (idFilter?: string, baseNode?: any) =>
+  (idFilter?: string, baseNode?: any, optional?: boolean) =>
     useTypedNodes<OutputProps>(
       DataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUnits,
       idFilter,
       baseNode,
+      optional,
     )

@@ -56,9 +56,23 @@ export function AwsServicequotasTemplate(props: Partial<InputProps>) {
 export const useAwsServicequotasTemplate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsServicequotasTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServicequotasTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServicequotasTemplates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsServicequotasTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServicequotasTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

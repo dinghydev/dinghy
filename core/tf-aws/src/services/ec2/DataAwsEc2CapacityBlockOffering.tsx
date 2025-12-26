@@ -57,15 +57,23 @@ export function DataAwsEc2CapacityBlockOffering(props: Partial<InputProps>) {
 export const useDataAwsEc2CapacityBlockOffering = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsEc2CapacityBlockOffering, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsEc2CapacityBlockOffering,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEc2CapacityBlockOfferings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2CapacityBlockOffering,
     idFilter,
     baseNode,
+    optional,
   )

@@ -66,8 +66,26 @@ export function AwsDatasyncLocationSmb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncLocationSmb = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatasyncLocationSmb, idFilter, baseNode)
+export const useAwsDatasyncLocationSmb = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDatasyncLocationSmb,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDatasyncLocationSmbs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationSmb, idFilter, baseNode)
+export const useAwsDatasyncLocationSmbs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationSmb,
+    idFilter,
+    baseNode,
+    optional,
+  )

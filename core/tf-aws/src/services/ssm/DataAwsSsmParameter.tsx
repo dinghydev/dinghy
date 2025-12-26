@@ -53,8 +53,16 @@ export function DataAwsSsmParameter(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSsmParameter = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSsmParameter, idFilter, baseNode)
+export const useDataAwsSsmParameter = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsSsmParameter, idFilter, baseNode, optional)
 
-export const useDataAwsSsmParameters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSsmParameter, idFilter, baseNode)
+export const useDataAwsSsmParameters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsSsmParameter, idFilter, baseNode, optional)

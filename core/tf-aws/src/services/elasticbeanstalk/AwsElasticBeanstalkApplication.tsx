@@ -61,11 +61,23 @@ export function AwsElasticBeanstalkApplication(props: Partial<InputProps>) {
 export const useAwsElasticBeanstalkApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsElasticBeanstalkApplication, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsElasticBeanstalkApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticBeanstalkApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElasticBeanstalkApplication, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElasticBeanstalkApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

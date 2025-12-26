@@ -69,19 +69,23 @@ export function AwsNetworkmanagerSiteToSiteVpnAttachment(
 export const useAwsNetworkmanagerSiteToSiteVpnAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerSiteToSiteVpnAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerSiteToSiteVpnAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerSiteToSiteVpnAttachment,
     idFilter,
     baseNode,
+    optional,
   )

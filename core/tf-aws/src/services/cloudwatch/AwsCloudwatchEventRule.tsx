@@ -66,8 +66,26 @@ export function AwsCloudwatchEventRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudwatchEventRule, idFilter, baseNode)
+export const useAwsCloudwatchEventRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchEventRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCloudwatchEventRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventRule, idFilter, baseNode)
+export const useAwsCloudwatchEventRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

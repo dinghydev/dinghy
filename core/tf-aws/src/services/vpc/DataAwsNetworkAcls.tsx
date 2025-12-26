@@ -58,5 +58,9 @@ export function DataAwsNetworkAcls(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNetworkAclss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsNetworkAcls, idFilter, baseNode)
+export const useDataAwsNetworkAclss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsNetworkAcls, idFilter, baseNode, optional)

@@ -65,9 +65,23 @@ export function DataAwsLambdaLayerVersion(props: Partial<InputProps>) {
 export const useDataAwsLambdaLayerVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsLambdaLayerVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLambdaLayerVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLambdaLayerVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsLambdaLayerVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLambdaLayerVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

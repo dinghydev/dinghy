@@ -114,10 +114,23 @@ export function AwsCloudwatchEventConnection(props: Partial<InputProps>) {
 export const useAwsCloudwatchEventConnection = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchEventConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchEventConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchEventConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventConnection, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -85,19 +85,23 @@ export function DataAwsCloudwatchLogDataProtectionPolicyDocument(
 export const useDataAwsCloudwatchLogDataProtectionPolicyDocument = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudwatchLogDataProtectionPolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudwatchLogDataProtectionPolicyDocuments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudwatchLogDataProtectionPolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )

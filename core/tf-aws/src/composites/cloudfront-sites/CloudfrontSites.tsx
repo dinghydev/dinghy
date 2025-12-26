@@ -22,8 +22,8 @@ import {
   useAwsS3Bucket,
 } from '@dinghy/tf-aws/serviceS3'
 import {
-  useAwsGlobalLogBucket,
-  useAwsRegionalLogBucket,
+  useGlobalLogBucket,
+  useRegionalLogBucket,
 } from '@dinghy/tf-aws/foundation'
 import {
   AwsCloudfrontDistribution,
@@ -51,7 +51,7 @@ export function CloudfrontSites(
   const sites = useCloudfrontSites(props.sites)
 
   function CloudfrontSite({ site }: { site: CloudfrontSiteType }) {
-    const { logBucket } = useAwsRegionalLogBucket()
+    const { logBucket } = useRegionalLogBucket()
     const redirectFunctionId = `${toId(`${site.title}_redirect_function`)}`
 
     const domainNameZone = (name: string) => {
@@ -462,7 +462,7 @@ export function CloudfrontSites(
         )
       }
 
-      const { logBucket: globalLogBucket } = useAwsGlobalLogBucket()
+      const { logBucket: globalLogBucket } = useGlobalLogBucket()
       const s3Origins = Object.values(site.origins)
         .filter((origin) => origin.targetProtocol === 's3')
         .map((origin) => ({

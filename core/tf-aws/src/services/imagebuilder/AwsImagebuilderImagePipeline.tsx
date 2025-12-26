@@ -104,10 +104,23 @@ export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
 export const useAwsImagebuilderImagePipeline = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsImagebuilderImagePipeline, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsImagebuilderImagePipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsImagebuilderImagePipelines = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsImagebuilderImagePipeline, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsImagebuilderImagePipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )

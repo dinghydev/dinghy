@@ -54,5 +54,11 @@ export function AwsQuicksightAccountSettings(props: Partial<InputProps>) {
 export const useAwsQuicksightAccountSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightAccountSettings, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsQuicksightAccountSettings,
+    idFilter,
+    baseNode,
+    optional,
+  )

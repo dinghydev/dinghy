@@ -91,19 +91,23 @@ export function DataAwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
 export const useDataAwsImagebuilderContainerRecipe = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsImagebuilderContainerRecipe,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsImagebuilderContainerRecipes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderContainerRecipe,
     idFilter,
     baseNode,
+    optional,
   )

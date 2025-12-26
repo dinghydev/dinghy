@@ -29678,8 +29678,21 @@ export function AwsQuicksightTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightTemplate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightTemplate, idFilter, baseNode)
+export const useAwsQuicksightTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsQuicksightTemplate, idFilter, baseNode, optional)
 
-export const useAwsQuicksightTemplates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightTemplate, idFilter, baseNode)
+export const useAwsQuicksightTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

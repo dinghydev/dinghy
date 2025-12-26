@@ -160,10 +160,26 @@ export function AwsRoute53domainsDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53domainsDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53domainsDomain, idFilter, baseNode)
+export const useAwsRoute53domainsDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53domainsDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53domainsDomains = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53domainsDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53domainsDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

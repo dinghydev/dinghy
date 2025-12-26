@@ -57,19 +57,23 @@ export function AwsOrganizationsPolicyAttachment(props: Partial<InputProps>) {
 export const useAwsOrganizationsPolicyAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOrganizationsPolicyAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOrganizationsPolicyAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOrganizationsPolicyAttachment,
     idFilter,
     baseNode,
+    optional,
   )

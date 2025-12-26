@@ -66,19 +66,23 @@ export function AwsConfigConfigurationAggregator(props: Partial<InputProps>) {
 export const useAwsConfigConfigurationAggregator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConfigConfigurationAggregator,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConfigConfigurationAggregators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigConfigurationAggregator,
     idFilter,
     baseNode,
+    optional,
   )

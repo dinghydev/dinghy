@@ -114,8 +114,14 @@ export function AwsFsxOntapVolume(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxOntapVolume = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode)
+export const useAwsFsxOntapVolume = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode, optional)
 
-export const useAwsFsxOntapVolumes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode)
+export const useAwsFsxOntapVolumes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode, optional)

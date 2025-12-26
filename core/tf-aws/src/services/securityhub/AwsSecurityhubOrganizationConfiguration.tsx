@@ -64,19 +64,23 @@ export function AwsSecurityhubOrganizationConfiguration(
 export const useAwsSecurityhubOrganizationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubOrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecurityhubOrganizationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubOrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

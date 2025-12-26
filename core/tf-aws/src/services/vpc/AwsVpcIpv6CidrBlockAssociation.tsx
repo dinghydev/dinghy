@@ -62,11 +62,23 @@ export function AwsVpcIpv6CidrBlockAssociation(props: Partial<InputProps>) {
 export const useAwsVpcIpv6CidrBlockAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcIpv6CidrBlockAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpcIpv6CidrBlockAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpv6CidrBlockAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcIpv6CidrBlockAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpcIpv6CidrBlockAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

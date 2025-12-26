@@ -54,19 +54,23 @@ export function AwsNotificationsNotificationConfiguration(
 export const useAwsNotificationsNotificationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNotificationsNotificationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNotificationsNotificationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNotificationsNotificationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

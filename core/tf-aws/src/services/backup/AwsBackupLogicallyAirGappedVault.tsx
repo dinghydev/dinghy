@@ -60,19 +60,23 @@ export function AwsBackupLogicallyAirGappedVault(props: Partial<InputProps>) {
 export const useAwsBackupLogicallyAirGappedVault = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBackupLogicallyAirGappedVault,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBackupLogicallyAirGappedVaults = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBackupLogicallyAirGappedVault,
     idFilter,
     baseNode,
+    optional,
   )

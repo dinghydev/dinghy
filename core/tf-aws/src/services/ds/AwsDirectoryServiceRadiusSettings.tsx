@@ -62,9 +62,11 @@ export function AwsDirectoryServiceRadiusSettings(props: Partial<InputProps>) {
 export const useAwsDirectoryServiceRadiusSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDirectoryServiceRadiusSettings,
     idFilter,
     baseNode,
+    optional,
   )

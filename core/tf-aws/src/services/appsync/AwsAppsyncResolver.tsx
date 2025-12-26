@@ -81,8 +81,15 @@ export function AwsAppsyncResolver(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncResolver = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppsyncResolver, idFilter, baseNode)
+export const useAwsAppsyncResolver = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppsyncResolver, idFilter, baseNode, optional)
 
-export const useAwsAppsyncResolvers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppsyncResolver, idFilter, baseNode)
+export const useAwsAppsyncResolvers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAppsyncResolver, idFilter, baseNode, optional)

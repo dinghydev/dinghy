@@ -63,8 +63,14 @@ export function DataAwsLexBot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLexBot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLexBot, idFilter, baseNode)
+export const useDataAwsLexBot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsLexBot, idFilter, baseNode, optional)
 
-export const useDataAwsLexBots = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLexBot, idFilter, baseNode)
+export const useDataAwsLexBots = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsLexBot, idFilter, baseNode, optional)

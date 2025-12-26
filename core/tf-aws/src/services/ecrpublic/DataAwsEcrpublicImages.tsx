@@ -63,5 +63,14 @@ export function DataAwsEcrpublicImages(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcrpublicImagess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEcrpublicImages, idFilter, baseNode)
+export const useDataAwsEcrpublicImagess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEcrpublicImages,
+    idFilter,
+    baseNode,
+    optional,
+  )

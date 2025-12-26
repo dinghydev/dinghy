@@ -70,10 +70,26 @@ export function AwsMacie2FindingsFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMacie2FindingsFilter = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMacie2FindingsFilter, idFilter, baseNode)
+export const useAwsMacie2FindingsFilter = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMacie2FindingsFilter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMacie2FindingsFilters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsMacie2FindingsFilter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMacie2FindingsFilter,
+    idFilter,
+    baseNode,
+    optional,
+  )

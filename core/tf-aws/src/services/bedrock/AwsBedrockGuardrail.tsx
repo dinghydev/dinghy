@@ -147,8 +147,16 @@ export function AwsBedrockGuardrail(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockGuardrail = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode)
+export const useAwsBedrockGuardrail = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode, optional)
 
-export const useAwsBedrockGuardrails = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode)
+export const useAwsBedrockGuardrails = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode, optional)

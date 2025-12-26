@@ -66,8 +66,26 @@ export function AwsDatazoneUserProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneUserProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneUserProfile, idFilter, baseNode)
+export const useAwsDatazoneUserProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDatazoneUserProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDatazoneUserProfiles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneUserProfile, idFilter, baseNode)
+export const useAwsDatazoneUserProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatazoneUserProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

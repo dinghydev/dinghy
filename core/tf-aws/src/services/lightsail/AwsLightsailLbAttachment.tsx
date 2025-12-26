@@ -50,9 +50,23 @@ export function AwsLightsailLbAttachment(props: Partial<InputProps>) {
 export const useAwsLightsailLbAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLightsailLbAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailLbAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailLbAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLightsailLbAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailLbAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

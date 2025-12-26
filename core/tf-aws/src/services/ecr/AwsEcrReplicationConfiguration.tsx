@@ -63,11 +63,23 @@ export function AwsEcrReplicationConfiguration(props: Partial<InputProps>) {
 export const useAwsEcrReplicationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEcrReplicationConfiguration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEcrReplicationConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcrReplicationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEcrReplicationConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEcrReplicationConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

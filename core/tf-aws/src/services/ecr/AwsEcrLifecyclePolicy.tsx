@@ -57,8 +57,21 @@ export function AwsEcrLifecyclePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrLifecyclePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcrLifecyclePolicy, idFilter, baseNode)
+export const useAwsEcrLifecyclePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEcrLifecyclePolicy, idFilter, baseNode, optional)
 
-export const useAwsEcrLifecyclePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcrLifecyclePolicy, idFilter, baseNode)
+export const useAwsEcrLifecyclePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcrLifecyclePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

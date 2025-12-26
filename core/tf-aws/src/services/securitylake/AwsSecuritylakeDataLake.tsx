@@ -84,10 +84,26 @@ export function AwsSecuritylakeDataLake(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecuritylakeDataLake = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSecuritylakeDataLake, idFilter, baseNode)
+export const useAwsSecuritylakeDataLake = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecuritylakeDataLake,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecuritylakeDataLakes = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSecuritylakeDataLake, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecuritylakeDataLake,
+    idFilter,
+    baseNode,
+    optional,
+  )

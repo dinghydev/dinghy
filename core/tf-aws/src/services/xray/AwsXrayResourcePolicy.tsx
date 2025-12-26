@@ -50,8 +50,21 @@ export function AwsXrayResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsXrayResourcePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsXrayResourcePolicy, idFilter, baseNode)
+export const useAwsXrayResourcePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsXrayResourcePolicy, idFilter, baseNode, optional)
 
-export const useAwsXrayResourcePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsXrayResourcePolicy, idFilter, baseNode)
+export const useAwsXrayResourcePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsXrayResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

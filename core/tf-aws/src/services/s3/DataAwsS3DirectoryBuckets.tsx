@@ -49,4 +49,11 @@ export function DataAwsS3DirectoryBuckets(props: Partial<InputProps>) {
 export const useDataAwsS3DirectoryBucketss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsS3DirectoryBuckets, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsS3DirectoryBuckets,
+    idFilter,
+    baseNode,
+    optional,
+  )

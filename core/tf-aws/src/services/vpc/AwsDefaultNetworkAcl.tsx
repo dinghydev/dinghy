@@ -78,8 +78,16 @@ export function AwsDefaultNetworkAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDefaultNetworkAcl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode)
+export const useAwsDefaultNetworkAcl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode, optional)
 
-export const useAwsDefaultNetworkAcls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode)
+export const useAwsDefaultNetworkAcls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode, optional)

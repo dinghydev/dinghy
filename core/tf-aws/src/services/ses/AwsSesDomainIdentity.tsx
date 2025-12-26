@@ -48,8 +48,16 @@ export function AwsSesDomainIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesDomainIdentity = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesDomainIdentity, idFilter, baseNode)
+export const useAwsSesDomainIdentity = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesDomainIdentity, idFilter, baseNode, optional)
 
-export const useAwsSesDomainIdentitys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesDomainIdentity, idFilter, baseNode)
+export const useAwsSesDomainIdentitys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSesDomainIdentity, idFilter, baseNode, optional)

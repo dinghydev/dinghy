@@ -73,10 +73,23 @@ export function AwsDxPrivateVirtualInterface(props: Partial<InputProps>) {
 export const useAwsDxPrivateVirtualInterface = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDxPrivateVirtualInterface, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDxPrivateVirtualInterface,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxPrivateVirtualInterfaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDxPrivateVirtualInterface, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDxPrivateVirtualInterface,
+    idFilter,
+    baseNode,
+    optional,
+  )

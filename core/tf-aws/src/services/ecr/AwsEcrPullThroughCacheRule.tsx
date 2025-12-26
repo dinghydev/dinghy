@@ -54,9 +54,23 @@ export function AwsEcrPullThroughCacheRule(props: Partial<InputProps>) {
 export const useAwsEcrPullThroughCacheRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEcrPullThroughCacheRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcrPullThroughCacheRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcrPullThroughCacheRules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEcrPullThroughCacheRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcrPullThroughCacheRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

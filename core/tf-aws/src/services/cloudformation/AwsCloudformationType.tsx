@@ -67,8 +67,21 @@ export function AwsCloudformationType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudformationType = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudformationType, idFilter, baseNode)
+export const useAwsCloudformationType = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCloudformationType, idFilter, baseNode, optional)
 
-export const useAwsCloudformationTypes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudformationType, idFilter, baseNode)
+export const useAwsCloudformationTypes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudformationType,
+    idFilter,
+    baseNode,
+    optional,
+  )

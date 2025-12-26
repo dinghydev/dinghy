@@ -74,9 +74,23 @@ export function AwsApigatewayv2DomainName(props: Partial<InputProps>) {
 export const useAwsApigatewayv2DomainName = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApigatewayv2DomainName, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApigatewayv2DomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2DomainNames = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApigatewayv2DomainName, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApigatewayv2DomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )

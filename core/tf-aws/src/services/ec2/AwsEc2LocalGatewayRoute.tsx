@@ -48,10 +48,26 @@ export function AwsEc2LocalGatewayRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2LocalGatewayRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEc2LocalGatewayRoute, idFilter, baseNode)
+export const useAwsEc2LocalGatewayRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2LocalGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2LocalGatewayRoutes = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2LocalGatewayRoute, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2LocalGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -61,9 +61,11 @@ export function DataAwsGlueDataCatalogEncryptionSettings(
 export const useDataAwsGlueDataCatalogEncryptionSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsGlueDataCatalogEncryptionSettings,
     idFilter,
     baseNode,
+    optional,
   )

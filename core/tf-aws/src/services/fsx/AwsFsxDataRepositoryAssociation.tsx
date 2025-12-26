@@ -75,15 +75,23 @@ export function AwsFsxDataRepositoryAssociation(props: Partial<InputProps>) {
 export const useAwsFsxDataRepositoryAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsFsxDataRepositoryAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsFsxDataRepositoryAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxDataRepositoryAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsFsxDataRepositoryAssociation,
     idFilter,
     baseNode,
+    optional,
   )

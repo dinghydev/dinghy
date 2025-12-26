@@ -50,10 +50,23 @@ export function AwsMskScramSecretAssociation(props: Partial<InputProps>) {
 export const useAwsMskScramSecretAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsMskScramSecretAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMskScramSecretAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMskScramSecretAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMskScramSecretAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMskScramSecretAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

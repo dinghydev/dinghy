@@ -82,19 +82,23 @@ export function AwsResiliencehubResiliencyPolicy(props: Partial<InputProps>) {
 export const useAwsResiliencehubResiliencyPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsResiliencehubResiliencyPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsResiliencehubResiliencyPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsResiliencehubResiliencyPolicy,
     idFilter,
     baseNode,
+    optional,
   )

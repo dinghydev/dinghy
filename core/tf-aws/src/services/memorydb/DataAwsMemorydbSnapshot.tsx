@@ -68,10 +68,26 @@ export function DataAwsMemorydbSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbSnapshot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbSnapshot, idFilter, baseNode)
+export const useDataAwsMemorydbSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsMemorydbSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsMemorydbSnapshots = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsMemorydbSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMemorydbSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

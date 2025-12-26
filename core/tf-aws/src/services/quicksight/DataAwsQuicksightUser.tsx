@@ -55,8 +55,21 @@ export function DataAwsQuicksightUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsQuicksightUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsQuicksightUser, idFilter, baseNode)
+export const useDataAwsQuicksightUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsQuicksightUser, idFilter, baseNode, optional)
 
-export const useDataAwsQuicksightUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsQuicksightUser, idFilter, baseNode)
+export const useDataAwsQuicksightUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsQuicksightUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

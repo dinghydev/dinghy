@@ -50,19 +50,23 @@ export function AwsQuicksightRoleCustomPermission(props: Partial<InputProps>) {
 export const useAwsQuicksightRoleCustomPermission = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsQuicksightRoleCustomPermission,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsQuicksightRoleCustomPermissions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsQuicksightRoleCustomPermission,
     idFilter,
     baseNode,
+    optional,
   )

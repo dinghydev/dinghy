@@ -52,10 +52,23 @@ export function AwsQuicksightGroupMembership(props: Partial<InputProps>) {
 export const useAwsQuicksightGroupMembership = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsQuicksightGroupMembership, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightGroupMemberships = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightGroupMembership, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsQuicksightGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

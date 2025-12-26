@@ -70,19 +70,23 @@ export function AwsGrafanaWorkspaceSamlConfiguration(
 export const useAwsGrafanaWorkspaceSamlConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGrafanaWorkspaceSamlConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGrafanaWorkspaceSamlConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGrafanaWorkspaceSamlConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

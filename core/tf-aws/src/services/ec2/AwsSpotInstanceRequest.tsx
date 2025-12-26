@@ -211,8 +211,26 @@ export function AwsSpotInstanceRequest(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSpotInstanceRequest = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSpotInstanceRequest, idFilter, baseNode)
+export const useAwsSpotInstanceRequest = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSpotInstanceRequest,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsSpotInstanceRequests = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSpotInstanceRequest, idFilter, baseNode)
+export const useAwsSpotInstanceRequests = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSpotInstanceRequest,
+    idFilter,
+    baseNode,
+    optional,
+  )

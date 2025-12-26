@@ -53,15 +53,23 @@ export function AwsEc2TransitGatewayPolicyTable(props: Partial<InputProps>) {
 export const useAwsEc2TransitGatewayPolicyTable = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2TransitGatewayPolicyTable, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayPolicyTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2TransitGatewayPolicyTables = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayPolicyTable,
     idFilter,
     baseNode,
+    optional,
   )

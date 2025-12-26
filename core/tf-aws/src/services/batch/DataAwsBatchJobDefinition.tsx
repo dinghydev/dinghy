@@ -243,9 +243,23 @@ export function DataAwsBatchJobDefinition(props: Partial<InputProps>) {
 export const useDataAwsBatchJobDefinition = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsBatchJobDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsBatchJobDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBatchJobDefinitions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsBatchJobDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsBatchJobDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

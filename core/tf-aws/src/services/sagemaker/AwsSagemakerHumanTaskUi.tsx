@@ -59,10 +59,26 @@ export function AwsSagemakerHumanTaskUi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerHumanTaskUi = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerHumanTaskUi, idFilter, baseNode)
+export const useAwsSagemakerHumanTaskUi = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerHumanTaskUi,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerHumanTaskUis = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerHumanTaskUi, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerHumanTaskUi,
+    idFilter,
+    baseNode,
+    optional,
+  )

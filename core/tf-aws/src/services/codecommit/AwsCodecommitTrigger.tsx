@@ -56,8 +56,16 @@ export function AwsCodecommitTrigger(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodecommitTrigger = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode)
+export const useAwsCodecommitTrigger = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode, optional)
 
-export const useAwsCodecommitTriggers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode)
+export const useAwsCodecommitTriggers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode, optional)

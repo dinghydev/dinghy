@@ -52,19 +52,23 @@ export function AwsDetectiveOrganizationConfiguration(
 export const useAwsDetectiveOrganizationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDetectiveOrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDetectiveOrganizationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDetectiveOrganizationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

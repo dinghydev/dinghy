@@ -77,10 +77,23 @@ export function AwsIvsRecordingConfiguration(props: Partial<InputProps>) {
 export const useAwsIvsRecordingConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIvsRecordingConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIvsRecordingConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIvsRecordingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsIvsRecordingConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsIvsRecordingConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

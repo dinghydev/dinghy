@@ -47,8 +47,21 @@ export function DataAwsEksClusterAuth(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksClusterAuth = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEksClusterAuth, idFilter, baseNode)
+export const useDataAwsEksClusterAuth = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsEksClusterAuth, idFilter, baseNode, optional)
 
-export const useDataAwsEksClusterAuths = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEksClusterAuth, idFilter, baseNode)
+export const useDataAwsEksClusterAuths = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEksClusterAuth,
+    idFilter,
+    baseNode,
+    optional,
+  )

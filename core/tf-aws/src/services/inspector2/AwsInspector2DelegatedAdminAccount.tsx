@@ -56,19 +56,23 @@ export function AwsInspector2DelegatedAdminAccount(props: Partial<InputProps>) {
 export const useAwsInspector2DelegatedAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsInspector2DelegatedAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsInspector2DelegatedAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsInspector2DelegatedAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

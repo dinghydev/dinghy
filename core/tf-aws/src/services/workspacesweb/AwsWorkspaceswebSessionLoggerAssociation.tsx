@@ -50,19 +50,23 @@ export function AwsWorkspaceswebSessionLoggerAssociation(
 export const useAwsWorkspaceswebSessionLoggerAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebSessionLoggerAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebSessionLoggerAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebSessionLoggerAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -54,9 +54,23 @@ export function AwsEmrSecurityConfiguration(props: Partial<InputProps>) {
 export const useAwsEmrSecurityConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEmrSecurityConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEmrSecurityConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrSecurityConfigurations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEmrSecurityConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEmrSecurityConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -54,19 +54,23 @@ export function AwsEc2DefaultCreditSpecification(props: Partial<InputProps>) {
 export const useAwsEc2DefaultCreditSpecification = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2DefaultCreditSpecification,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2DefaultCreditSpecifications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2DefaultCreditSpecification,
     idFilter,
     baseNode,
+    optional,
   )

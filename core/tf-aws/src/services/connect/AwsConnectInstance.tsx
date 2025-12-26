@@ -75,8 +75,15 @@ export function AwsConnectInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectInstance, idFilter, baseNode)
+export const useAwsConnectInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsConnectInstance, idFilter, baseNode, optional)
 
-export const useAwsConnectInstances = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectInstance, idFilter, baseNode)
+export const useAwsConnectInstances = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsConnectInstance, idFilter, baseNode, optional)

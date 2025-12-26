@@ -95,8 +95,26 @@ export function AwsSsmcontactsRotation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmcontactsRotation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmcontactsRotation, idFilter, baseNode)
+export const useAwsSsmcontactsRotation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsmcontactsRotation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsSsmcontactsRotations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmcontactsRotation, idFilter, baseNode)
+export const useAwsSsmcontactsRotations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsmcontactsRotation,
+    idFilter,
+    baseNode,
+    optional,
+  )

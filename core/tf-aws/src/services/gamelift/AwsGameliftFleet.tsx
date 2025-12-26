@@ -97,8 +97,14 @@ export function AwsGameliftFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGameliftFleet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGameliftFleet, idFilter, baseNode)
+export const useAwsGameliftFleet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGameliftFleet, idFilter, baseNode, optional)
 
-export const useAwsGameliftFleets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGameliftFleet, idFilter, baseNode)
+export const useAwsGameliftFleets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGameliftFleet, idFilter, baseNode, optional)

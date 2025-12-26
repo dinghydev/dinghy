@@ -56,8 +56,21 @@ export function AwsS3outpostsEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3outpostsEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3outpostsEndpoint, idFilter, baseNode)
+export const useAwsS3outpostsEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsS3outpostsEndpoint, idFilter, baseNode, optional)
 
-export const useAwsS3outpostsEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3outpostsEndpoint, idFilter, baseNode)
+export const useAwsS3outpostsEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3outpostsEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

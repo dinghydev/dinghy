@@ -79,9 +79,23 @@ export function AwsIotIndexingConfiguration(props: Partial<InputProps>) {
 export const useAwsIotIndexingConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIotIndexingConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIotIndexingConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotIndexingConfigurations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIotIndexingConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotIndexingConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

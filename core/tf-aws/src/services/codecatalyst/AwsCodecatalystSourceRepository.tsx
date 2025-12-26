@@ -59,15 +59,23 @@ export function AwsCodecatalystSourceRepository(props: Partial<InputProps>) {
 export const useAwsCodecatalystSourceRepository = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodecatalystSourceRepository, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCodecatalystSourceRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodecatalystSourceRepositorys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodecatalystSourceRepository,
     idFilter,
     baseNode,
+    optional,
   )

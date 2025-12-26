@@ -72,10 +72,23 @@ export function AwsDxTransitVirtualInterface(props: Partial<InputProps>) {
 export const useAwsDxTransitVirtualInterface = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDxTransitVirtualInterface, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDxTransitVirtualInterface,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxTransitVirtualInterfaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDxTransitVirtualInterface, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDxTransitVirtualInterface,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -81,10 +81,26 @@ export function AwsS3BucketNotification(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketNotification = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3BucketNotification, idFilter, baseNode)
+export const useAwsS3BucketNotification = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketNotification,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketNotifications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsS3BucketNotification, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3BucketNotification,
+    idFilter,
+    baseNode,
+    optional,
+  )

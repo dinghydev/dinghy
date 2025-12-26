@@ -52,9 +52,11 @@ export function DataAwsSesv2EmailIdentityMailFromAttributes(
 export const useDataAwsSesv2EmailIdentityMailFromAttributess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSesv2EmailIdentityMailFromAttributes,
     idFilter,
     baseNode,
+    optional,
   )

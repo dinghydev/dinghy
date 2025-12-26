@@ -132,8 +132,21 @@ export function AwsBedrockagentPrompt(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockagentPrompt = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBedrockagentPrompt, idFilter, baseNode)
+export const useAwsBedrockagentPrompt = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsBedrockagentPrompt, idFilter, baseNode, optional)
 
-export const useAwsBedrockagentPrompts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentPrompt, idFilter, baseNode)
+export const useAwsBedrockagentPrompts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentPrompt,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -48,9 +48,23 @@ export function AwsCloudwatchLogIndexPolicy(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogIndexPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchLogIndexPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogIndexPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchLogIndexPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchLogIndexPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogIndexPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

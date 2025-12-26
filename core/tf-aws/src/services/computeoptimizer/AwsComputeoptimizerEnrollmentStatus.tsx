@@ -58,9 +58,11 @@ export function AwsComputeoptimizerEnrollmentStatus(
 export const useAwsComputeoptimizerEnrollmentStatuss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsComputeoptimizerEnrollmentStatus,
     idFilter,
     baseNode,
+    optional,
   )

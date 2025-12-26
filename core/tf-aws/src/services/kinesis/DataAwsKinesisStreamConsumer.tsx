@@ -54,10 +54,23 @@ export function DataAwsKinesisStreamConsumer(props: Partial<InputProps>) {
 export const useDataAwsKinesisStreamConsumer = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsKinesisStreamConsumer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsKinesisStreamConsumer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKinesisStreamConsumers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsKinesisStreamConsumer, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsKinesisStreamConsumer,
+    idFilter,
+    baseNode,
+    optional,
+  )

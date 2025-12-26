@@ -62,19 +62,23 @@ export function AwsSsoadminCustomerManagedPolicyAttachment(
 export const useAwsSsoadminCustomerManagedPolicyAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsoadminCustomerManagedPolicyAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSsoadminCustomerManagedPolicyAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminCustomerManagedPolicyAttachment,
     idFilter,
     baseNode,
+    optional,
   )

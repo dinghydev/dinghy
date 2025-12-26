@@ -60,8 +60,16 @@ export function AwsSesv2ContactList(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesv2ContactList = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesv2ContactList, idFilter, baseNode)
+export const useAwsSesv2ContactList = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesv2ContactList, idFilter, baseNode, optional)
 
-export const useAwsSesv2ContactLists = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesv2ContactList, idFilter, baseNode)
+export const useAwsSesv2ContactLists = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSesv2ContactList, idFilter, baseNode, optional)

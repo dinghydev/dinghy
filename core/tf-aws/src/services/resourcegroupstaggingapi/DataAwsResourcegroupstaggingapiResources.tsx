@@ -68,9 +68,11 @@ export function DataAwsResourcegroupstaggingapiResources(
 export const useDataAwsResourcegroupstaggingapiResourcess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsResourcegroupstaggingapiResources,
     idFilter,
     baseNode,
+    optional,
   )

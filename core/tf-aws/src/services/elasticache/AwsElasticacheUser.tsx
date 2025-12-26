@@ -69,8 +69,15 @@ export function AwsElasticacheUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElasticacheUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsElasticacheUser, idFilter, baseNode)
+export const useAwsElasticacheUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsElasticacheUser, idFilter, baseNode, optional)
 
-export const useAwsElasticacheUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsElasticacheUser, idFilter, baseNode)
+export const useAwsElasticacheUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsElasticacheUser, idFilter, baseNode, optional)

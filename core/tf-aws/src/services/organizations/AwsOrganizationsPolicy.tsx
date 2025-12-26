@@ -59,8 +59,26 @@ export function AwsOrganizationsPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOrganizationsPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOrganizationsPolicy, idFilter, baseNode)
+export const useAwsOrganizationsPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOrganizationsPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsOrganizationsPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOrganizationsPolicy, idFilter, baseNode)
+export const useAwsOrganizationsPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOrganizationsPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

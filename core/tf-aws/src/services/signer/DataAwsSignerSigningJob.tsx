@@ -76,10 +76,26 @@ export function DataAwsSignerSigningJob(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSignerSigningJob = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSignerSigningJob, idFilter, baseNode)
+export const useDataAwsSignerSigningJob = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSignerSigningJob,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSignerSigningJobs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSignerSigningJob, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSignerSigningJob,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -926,8 +926,16 @@ export function AwsMedialiveChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMedialiveChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMedialiveChannel, idFilter, baseNode)
+export const useAwsMedialiveChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsMedialiveChannel, idFilter, baseNode, optional)
 
-export const useAwsMedialiveChannels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMedialiveChannel, idFilter, baseNode)
+export const useAwsMedialiveChannels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMedialiveChannel, idFilter, baseNode, optional)

@@ -52,10 +52,23 @@ export function AwsApiGatewayBasePathMapping(props: Partial<InputProps>) {
 export const useAwsApiGatewayBasePathMapping = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApiGatewayBasePathMapping, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApiGatewayBasePathMapping,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayBasePathMappings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayBasePathMapping, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayBasePathMapping,
+    idFilter,
+    baseNode,
+    optional,
+  )

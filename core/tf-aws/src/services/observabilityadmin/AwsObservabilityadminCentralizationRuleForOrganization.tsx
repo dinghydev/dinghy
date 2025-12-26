@@ -86,19 +86,23 @@ export function AwsObservabilityadminCentralizationRuleForOrganization(
 export const useAwsObservabilityadminCentralizationRuleForOrganization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsObservabilityadminCentralizationRuleForOrganization,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsObservabilityadminCentralizationRuleForOrganizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsObservabilityadminCentralizationRuleForOrganization,
     idFilter,
     baseNode,
+    optional,
   )

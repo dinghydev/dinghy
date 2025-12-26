@@ -70,8 +70,14 @@ export function AwsRoute53Zone(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53Zone = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53Zone, idFilter, baseNode)
+export const useAwsRoute53Zone = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRoute53Zone, idFilter, baseNode, optional)
 
-export const useAwsRoute53Zones = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRoute53Zone, idFilter, baseNode)
+export const useAwsRoute53Zones = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRoute53Zone, idFilter, baseNode, optional)

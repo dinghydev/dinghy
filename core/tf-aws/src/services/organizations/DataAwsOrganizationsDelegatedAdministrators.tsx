@@ -59,9 +59,11 @@ export function DataAwsOrganizationsDelegatedAdministrators(
 export const useDataAwsOrganizationsDelegatedAdministratorss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsDelegatedAdministrators,
     idFilter,
     baseNode,
+    optional,
   )

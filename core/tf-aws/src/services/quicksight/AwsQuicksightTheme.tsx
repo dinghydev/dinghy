@@ -117,8 +117,15 @@ export function AwsQuicksightTheme(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightTheme = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightTheme, idFilter, baseNode)
+export const useAwsQuicksightTheme = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsQuicksightTheme, idFilter, baseNode, optional)
 
-export const useAwsQuicksightThemes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightTheme, idFilter, baseNode)
+export const useAwsQuicksightThemes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightTheme, idFilter, baseNode, optional)

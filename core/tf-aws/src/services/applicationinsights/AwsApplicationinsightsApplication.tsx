@@ -58,19 +58,23 @@ export function AwsApplicationinsightsApplication(props: Partial<InputProps>) {
 export const useAwsApplicationinsightsApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApplicationinsightsApplication,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApplicationinsightsApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApplicationinsightsApplication,
     idFilter,
     baseNode,
+    optional,
   )

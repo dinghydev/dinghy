@@ -53,8 +53,14 @@ export function AwsLightsailDisk(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailDisk = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailDisk, idFilter, baseNode)
+export const useAwsLightsailDisk = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLightsailDisk, idFilter, baseNode, optional)
 
-export const useAwsLightsailDisks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailDisk, idFilter, baseNode)
+export const useAwsLightsailDisks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLightsailDisk, idFilter, baseNode, optional)

@@ -60,9 +60,23 @@ export function AwsServicecatalogTagOption(props: Partial<InputProps>) {
 export const useAwsServicecatalogTagOption = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsServicecatalogTagOption, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServicecatalogTagOption,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServicecatalogTagOptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsServicecatalogTagOption, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServicecatalogTagOption,
+    idFilter,
+    baseNode,
+    optional,
+  )

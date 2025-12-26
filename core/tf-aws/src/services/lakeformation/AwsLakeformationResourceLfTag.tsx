@@ -86,11 +86,23 @@ export function AwsLakeformationResourceLfTag(props: Partial<InputProps>) {
 export const useAwsLakeformationResourceLfTag = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLakeformationResourceLfTag, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLakeformationResourceLfTag,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLakeformationResourceLfTags = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLakeformationResourceLfTag, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLakeformationResourceLfTag,
+    idFilter,
+    baseNode,
+    optional,
+  )

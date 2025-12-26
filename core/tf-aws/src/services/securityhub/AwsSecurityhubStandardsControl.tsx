@@ -58,11 +58,23 @@ export function AwsSecurityhubStandardsControl(props: Partial<InputProps>) {
 export const useAwsSecurityhubStandardsControl = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecurityhubStandardsControl, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSecurityhubStandardsControl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubStandardsControls = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubStandardsControl, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubStandardsControl,
+    idFilter,
+    baseNode,
+    optional,
+  )

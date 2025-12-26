@@ -61,10 +61,26 @@ export function AwsDmsEventSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsEventSubscription = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDmsEventSubscription, idFilter, baseNode)
+export const useAwsDmsEventSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDmsEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDmsEventSubscriptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDmsEventSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDmsEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

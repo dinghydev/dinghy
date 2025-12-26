@@ -51,8 +51,26 @@ export function AwsQuicksightIngestion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightIngestion = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightIngestion, idFilter, baseNode)
+export const useAwsQuicksightIngestion = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightIngestion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsQuicksightIngestions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightIngestion, idFilter, baseNode)
+export const useAwsQuicksightIngestions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightIngestion,
+    idFilter,
+    baseNode,
+    optional,
+  )

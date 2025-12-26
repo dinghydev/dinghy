@@ -65,19 +65,23 @@ export function AwsCognitoIdentityPoolRolesAttachment(
 export const useAwsCognitoIdentityPoolRolesAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCognitoIdentityPoolRolesAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCognitoIdentityPoolRolesAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCognitoIdentityPoolRolesAttachment,
     idFilter,
     baseNode,
+    optional,
   )

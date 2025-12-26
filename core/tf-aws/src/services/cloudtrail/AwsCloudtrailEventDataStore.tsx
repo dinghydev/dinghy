@@ -85,9 +85,23 @@ export function AwsCloudtrailEventDataStore(props: Partial<InputProps>) {
 export const useAwsCloudtrailEventDataStore = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudtrailEventDataStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudtrailEventDataStore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudtrailEventDataStores = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudtrailEventDataStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudtrailEventDataStore,
+    idFilter,
+    baseNode,
+    optional,
+  )

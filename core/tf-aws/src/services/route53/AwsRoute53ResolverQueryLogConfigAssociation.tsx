@@ -52,19 +52,23 @@ export function AwsRoute53ResolverQueryLogConfigAssociation(
 export const useAwsRoute53ResolverQueryLogConfigAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53ResolverQueryLogConfigAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53ResolverQueryLogConfigAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53ResolverQueryLogConfigAssociation,
     idFilter,
     baseNode,
+    optional,
   )

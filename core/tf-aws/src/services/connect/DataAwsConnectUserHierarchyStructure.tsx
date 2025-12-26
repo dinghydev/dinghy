@@ -78,19 +78,23 @@ export function DataAwsConnectUserHierarchyStructure(
 export const useDataAwsConnectUserHierarchyStructure = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsConnectUserHierarchyStructure,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsConnectUserHierarchyStructures = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsConnectUserHierarchyStructure,
     idFilter,
     baseNode,
+    optional,
   )

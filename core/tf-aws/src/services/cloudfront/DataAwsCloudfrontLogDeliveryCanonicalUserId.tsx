@@ -50,19 +50,23 @@ export function DataAwsCloudfrontLogDeliveryCanonicalUserId(
 export const useDataAwsCloudfrontLogDeliveryCanonicalUserId = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudfrontLogDeliveryCanonicalUserId,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudfrontLogDeliveryCanonicalUserIds = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudfrontLogDeliveryCanonicalUserId,
     idFilter,
     baseNode,
+    optional,
   )

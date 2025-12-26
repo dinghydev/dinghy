@@ -61,19 +61,23 @@ export function AwsApprunnerCustomDomainAssociation(
 export const useAwsApprunnerCustomDomainAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApprunnerCustomDomainAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApprunnerCustomDomainAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApprunnerCustomDomainAssociation,
     idFilter,
     baseNode,
+    optional,
   )

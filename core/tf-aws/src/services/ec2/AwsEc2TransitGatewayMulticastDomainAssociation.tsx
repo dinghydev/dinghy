@@ -59,19 +59,23 @@ export function AwsEc2TransitGatewayMulticastDomainAssociation(
 export const useAwsEc2TransitGatewayMulticastDomainAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayMulticastDomainAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayMulticastDomainAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayMulticastDomainAssociation,
     idFilter,
     baseNode,
+    optional,
   )

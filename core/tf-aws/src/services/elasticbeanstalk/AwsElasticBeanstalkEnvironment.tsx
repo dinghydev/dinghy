@@ -94,11 +94,23 @@ export function AwsElasticBeanstalkEnvironment(props: Partial<InputProps>) {
 export const useAwsElasticBeanstalkEnvironment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsElasticBeanstalkEnvironment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsElasticBeanstalkEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticBeanstalkEnvironments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElasticBeanstalkEnvironment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElasticBeanstalkEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

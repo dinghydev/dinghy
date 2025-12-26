@@ -50,5 +50,8 @@ export function DataAwsIpRanges(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIpRangess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIpRanges, idFilter, baseNode)
+export const useDataAwsIpRangess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsIpRanges, idFilter, baseNode, optional)

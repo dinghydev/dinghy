@@ -49,8 +49,14 @@ export function AwsKmsCiphertext(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsCiphertext = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKmsCiphertext, idFilter, baseNode)
+export const useAwsKmsCiphertext = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKmsCiphertext, idFilter, baseNode, optional)
 
-export const useAwsKmsCiphertexts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsCiphertext, idFilter, baseNode)
+export const useAwsKmsCiphertexts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKmsCiphertext, idFilter, baseNode, optional)

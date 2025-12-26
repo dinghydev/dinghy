@@ -55,9 +55,23 @@ export function AwsSecuritylakeAwsLogSource(props: Partial<InputProps>) {
 export const useAwsSecuritylakeAwsLogSource = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSecuritylakeAwsLogSource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecuritylakeAwsLogSource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecuritylakeAwsLogSources = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSecuritylakeAwsLogSource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecuritylakeAwsLogSource,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -78,10 +78,26 @@ export function AwsCleanroomsMembership(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCleanroomsMembership = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCleanroomsMembership, idFilter, baseNode)
+export const useAwsCleanroomsMembership = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCleanroomsMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCleanroomsMemberships = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCleanroomsMembership, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCleanroomsMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

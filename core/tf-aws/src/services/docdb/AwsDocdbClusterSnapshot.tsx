@@ -63,10 +63,26 @@ export function AwsDocdbClusterSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbClusterSnapshot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDocdbClusterSnapshot, idFilter, baseNode)
+export const useAwsDocdbClusterSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDocdbClusterSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbClusterSnapshots = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDocdbClusterSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDocdbClusterSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

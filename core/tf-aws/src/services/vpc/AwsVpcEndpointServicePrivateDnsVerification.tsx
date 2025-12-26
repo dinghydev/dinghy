@@ -55,19 +55,23 @@ export function AwsVpcEndpointServicePrivateDnsVerification(
 export const useAwsVpcEndpointServicePrivateDnsVerification = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointServicePrivateDnsVerification,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcEndpointServicePrivateDnsVerifications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointServicePrivateDnsVerification,
     idFilter,
     baseNode,
+    optional,
   )

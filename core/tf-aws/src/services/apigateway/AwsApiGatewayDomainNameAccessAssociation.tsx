@@ -62,19 +62,23 @@ export function AwsApiGatewayDomainNameAccessAssociation(
 export const useAwsApiGatewayDomainNameAccessAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApiGatewayDomainNameAccessAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApiGatewayDomainNameAccessAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApiGatewayDomainNameAccessAssociation,
     idFilter,
     baseNode,
+    optional,
   )

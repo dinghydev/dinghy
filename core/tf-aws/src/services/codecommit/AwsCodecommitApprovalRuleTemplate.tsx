@@ -56,19 +56,23 @@ export function AwsCodecommitApprovalRuleTemplate(props: Partial<InputProps>) {
 export const useAwsCodecommitApprovalRuleTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodecommitApprovalRuleTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,
+    optional,
   )

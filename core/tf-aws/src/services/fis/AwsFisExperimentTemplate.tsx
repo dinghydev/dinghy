@@ -133,9 +133,23 @@ export function AwsFisExperimentTemplate(props: Partial<InputProps>) {
 export const useAwsFisExperimentTemplate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsFisExperimentTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFisExperimentTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFisExperimentTemplates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsFisExperimentTemplate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFisExperimentTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

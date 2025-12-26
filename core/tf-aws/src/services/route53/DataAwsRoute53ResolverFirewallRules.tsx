@@ -66,9 +66,11 @@ export function DataAwsRoute53ResolverFirewallRules(
 export const useDataAwsRoute53ResolverFirewallRuless = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRoute53ResolverFirewallRules,
     idFilter,
     baseNode,
+    optional,
   )

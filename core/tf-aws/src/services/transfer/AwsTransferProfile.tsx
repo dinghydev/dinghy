@@ -52,8 +52,15 @@ export function AwsTransferProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferProfile, idFilter, baseNode)
+export const useAwsTransferProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferProfile, idFilter, baseNode, optional)
 
-export const useAwsTransferProfiles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferProfile, idFilter, baseNode)
+export const useAwsTransferProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsTransferProfile, idFilter, baseNode, optional)

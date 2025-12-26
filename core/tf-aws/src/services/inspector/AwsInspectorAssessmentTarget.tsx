@@ -57,10 +57,23 @@ export function AwsInspectorAssessmentTarget(props: Partial<InputProps>) {
 export const useAwsInspectorAssessmentTarget = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsInspectorAssessmentTarget, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInspectorAssessmentTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInspectorAssessmentTargets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsInspectorAssessmentTarget, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsInspectorAssessmentTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )

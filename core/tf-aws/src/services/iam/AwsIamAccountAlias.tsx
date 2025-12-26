@@ -43,5 +43,9 @@ export function AwsIamAccountAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamAccountAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamAccountAlias, idFilter, baseNode)
+export const useAwsIamAccountAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsIamAccountAlias, idFilter, baseNode, optional)

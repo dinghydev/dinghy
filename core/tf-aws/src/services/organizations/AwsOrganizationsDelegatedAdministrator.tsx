@@ -66,19 +66,23 @@ export function AwsOrganizationsDelegatedAdministrator(
 export const useAwsOrganizationsDelegatedAdministrator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOrganizationsDelegatedAdministrator,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOrganizationsDelegatedAdministrators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOrganizationsDelegatedAdministrator,
     idFilter,
     baseNode,
+    optional,
   )

@@ -51,9 +51,23 @@ export function AwsLightsailDiskAttachment(props: Partial<InputProps>) {
 export const useAwsLightsailDiskAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLightsailDiskAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailDiskAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailDiskAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLightsailDiskAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailDiskAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

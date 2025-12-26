@@ -55,8 +55,16 @@ export function AwsEc2InstanceState(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2InstanceState = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEc2InstanceState, idFilter, baseNode)
+export const useAwsEc2InstanceState = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEc2InstanceState, idFilter, baseNode, optional)
 
-export const useAwsEc2InstanceStates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEc2InstanceState, idFilter, baseNode)
+export const useAwsEc2InstanceStates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2InstanceState, idFilter, baseNode, optional)

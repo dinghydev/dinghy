@@ -60,8 +60,14 @@ export function AwsSsmActivation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmActivation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmActivation, idFilter, baseNode)
+export const useAwsSsmActivation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSsmActivation, idFilter, baseNode, optional)
 
-export const useAwsSsmActivations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmActivation, idFilter, baseNode)
+export const useAwsSsmActivations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSsmActivation, idFilter, baseNode, optional)

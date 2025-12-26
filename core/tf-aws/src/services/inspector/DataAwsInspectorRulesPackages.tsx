@@ -48,5 +48,11 @@ export function DataAwsInspectorRulesPackages(props: Partial<InputProps>) {
 export const useDataAwsInspectorRulesPackagess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsInspectorRulesPackages, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsInspectorRulesPackages,
+    idFilter,
+    baseNode,
+    optional,
+  )

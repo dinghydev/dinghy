@@ -52,11 +52,23 @@ export function AwsQuicksightFolderMembership(props: Partial<InputProps>) {
 export const useAwsQuicksightFolderMembership = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsQuicksightFolderMembership, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsQuicksightFolderMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightFolderMemberships = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightFolderMembership, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsQuicksightFolderMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

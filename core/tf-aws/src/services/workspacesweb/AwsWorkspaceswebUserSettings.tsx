@@ -84,5 +84,11 @@ export function AwsWorkspaceswebUserSettings(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebUserSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebUserSettings, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebUserSettings,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -49,19 +49,23 @@ export function AwsDirectoryServiceLogSubscription(props: Partial<InputProps>) {
 export const useAwsDirectoryServiceLogSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDirectoryServiceLogSubscription,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDirectoryServiceLogSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDirectoryServiceLogSubscription,
     idFilter,
     baseNode,
+    optional,
   )

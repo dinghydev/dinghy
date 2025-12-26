@@ -57,8 +57,16 @@ export function AwsApiGatewayMethod(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayMethod = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApiGatewayMethod, idFilter, baseNode)
+export const useAwsApiGatewayMethod = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsApiGatewayMethod, idFilter, baseNode, optional)
 
-export const useAwsApiGatewayMethods = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayMethod, idFilter, baseNode)
+export const useAwsApiGatewayMethods = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsApiGatewayMethod, idFilter, baseNode, optional)

@@ -52,8 +52,16 @@ export function AwsDocdbSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbSubnetGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDocdbSubnetGroup, idFilter, baseNode)
+export const useAwsDocdbSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDocdbSubnetGroup, idFilter, baseNode, optional)
 
-export const useAwsDocdbSubnetGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDocdbSubnetGroup, idFilter, baseNode)
+export const useAwsDocdbSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDocdbSubnetGroup, idFilter, baseNode, optional)

@@ -89,8 +89,26 @@ export function AwsDatazoneEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneEnvironment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneEnvironment, idFilter, baseNode)
+export const useAwsDatazoneEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDatazoneEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDatazoneEnvironments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneEnvironment, idFilter, baseNode)
+export const useAwsDatazoneEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDatazoneEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

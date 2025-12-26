@@ -48,8 +48,14 @@ export function DataAwsRegion(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRegion = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsRegion, idFilter, baseNode)
+export const useDataAwsRegion = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsRegion, idFilter, baseNode, optional)
 
-export const useDataAwsRegions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsRegion, idFilter, baseNode)
+export const useDataAwsRegions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsRegion, idFilter, baseNode, optional)

@@ -58,19 +58,23 @@ export function AwsRoute53ResolverFirewallRuleGroupAssociation(
 export const useAwsRoute53ResolverFirewallRuleGroupAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53ResolverFirewallRuleGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53ResolverFirewallRuleGroupAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53ResolverFirewallRuleGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )

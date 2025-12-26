@@ -51,11 +51,23 @@ export function AwsLightsailLbStickinessPolicy(props: Partial<InputProps>) {
 export const useAwsLightsailLbStickinessPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLightsailLbStickinessPolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLightsailLbStickinessPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailLbStickinessPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailLbStickinessPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLightsailLbStickinessPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

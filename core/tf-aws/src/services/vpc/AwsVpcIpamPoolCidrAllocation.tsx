@@ -57,10 +57,23 @@ export function AwsVpcIpamPoolCidrAllocation(props: Partial<InputProps>) {
 export const useAwsVpcIpamPoolCidrAllocation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpcIpamPoolCidrAllocation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcIpamPoolCidrAllocation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpamPoolCidrAllocations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamPoolCidrAllocation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpcIpamPoolCidrAllocation,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -66,9 +66,23 @@ export function AwsQuicksightVpcConnection(props: Partial<InputProps>) {
 export const useAwsQuicksightVpcConnection = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsQuicksightVpcConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightVpcConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightVpcConnections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsQuicksightVpcConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightVpcConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

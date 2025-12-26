@@ -44,5 +44,14 @@ export function DataAwsDynamodbTables(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDynamodbTabless = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDynamodbTables, idFilter, baseNode)
+export const useDataAwsDynamodbTabless = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDynamodbTables,
+    idFilter,
+    baseNode,
+    optional,
+  )

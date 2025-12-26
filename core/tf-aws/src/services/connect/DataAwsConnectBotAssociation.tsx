@@ -52,10 +52,23 @@ export function DataAwsConnectBotAssociation(props: Partial<InputProps>) {
 export const useDataAwsConnectBotAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsConnectBotAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsConnectBotAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectBotAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsConnectBotAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsConnectBotAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

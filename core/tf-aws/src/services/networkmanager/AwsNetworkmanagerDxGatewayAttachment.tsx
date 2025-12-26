@@ -68,19 +68,23 @@ export function AwsNetworkmanagerDxGatewayAttachment(
 export const useAwsNetworkmanagerDxGatewayAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerDxGatewayAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerDxGatewayAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerDxGatewayAttachment,
     idFilter,
     baseNode,
+    optional,
   )

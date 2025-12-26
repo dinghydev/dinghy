@@ -52,9 +52,23 @@ export function DataAwsIamSessionContext(props: Partial<InputProps>) {
 export const useDataAwsIamSessionContext = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsIamSessionContext, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsIamSessionContext,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIamSessionContexts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsIamSessionContext, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIamSessionContext,
+    idFilter,
+    baseNode,
+    optional,
+  )

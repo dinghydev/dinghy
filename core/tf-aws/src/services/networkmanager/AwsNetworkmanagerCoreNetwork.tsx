@@ -74,10 +74,23 @@ export function AwsNetworkmanagerCoreNetwork(props: Partial<InputProps>) {
 export const useAwsNetworkmanagerCoreNetwork = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNetworkmanagerCoreNetwork, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerCoreNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkmanagerCoreNetworks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerCoreNetwork, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerCoreNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )

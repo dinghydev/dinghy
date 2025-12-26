@@ -21,8 +21,8 @@
     },
     "backend": {
       "s3": {
-        "bucket": "examplecom-website-tf-state",
-        "key": "tfstates/cloudfront-sites.tfstate",
+        "bucket": "examplecom-website-backend",
+        "key": "tfstates/app.tfstate",
         "region": "eu-west-1"
       }
     }
@@ -231,12 +231,12 @@
           "iac:id": "examplecom_subsite_bucket"
         }
       },
-      "awss3bucket_examplecomwebsitetfstate": {
-        "bucket": "examplecom-website-tf-state",
+      "awss3bucket_backend": {
+        "bucket": "examplecom-website-backend",
         "object_lock_enabled": true,
         "tags": {
-          "Name": "examplecom-website-tf-state",
-          "iac:id": "awss3bucket_examplecomwebsitetfstate"
+          "Name": "examplecom-website-backend",
+          "iac:id": "awss3bucket_backend"
         }
       },
       "awss3bucket_regionallogbucket": {
@@ -265,14 +265,6 @@
         "bucket": "example-com-subsite",
         "target_bucket": "examplecom-website-logs-eu-west-1",
         "target_prefix": "s3-access-log/example-com-subsite/"
-      },
-      "awss3bucket_examplecomwebsitetfstate_logging": {
-        "bucket": "examplecom-website-tf-state",
-        "target_bucket": "examplecom-website-logs-eu-west-1",
-        "target_prefix": "s3-access-log/examplecom-website-tf-state/",
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_examplecomwebsitetfstate"
-        ]
       },
       "awss3bucket_regionallogbucket_logging": {
         "bucket": "examplecom-website-logs-eu-west-1",
@@ -373,13 +365,13 @@
       }
     },
     "aws_s3_bucket_versioning": {
-      "awss3bucket_examplecomwebsitetfstate_versioning": {
-        "bucket": "examplecom-website-tf-state",
+      "awss3bucket_backend_versioning": {
+        "bucket": "examplecom-website-backend",
         "versioning_configuration": {
           "status": "Enabled"
         },
         "depends_on": [
-          "aws_s3_bucket.awss3bucket_examplecomwebsitetfstate"
+          "aws_s3_bucket.awss3bucket_backend"
         ]
       }
     },

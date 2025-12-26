@@ -59,19 +59,23 @@ export function AwsSagemakerMlflowTrackingServer(props: Partial<InputProps>) {
 export const useAwsSagemakerMlflowTrackingServer = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSagemakerMlflowTrackingServer,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSagemakerMlflowTrackingServers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerMlflowTrackingServer,
     idFilter,
     baseNode,
+    optional,
   )

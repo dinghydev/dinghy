@@ -54,9 +54,23 @@ export function DataAwsMemorydbSubnetGroup(props: Partial<InputProps>) {
 export const useDataAwsMemorydbSubnetGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsMemorydbSubnetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsMemorydbSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsMemorydbSubnetGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsMemorydbSubnetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMemorydbSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

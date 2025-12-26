@@ -67,10 +67,23 @@ export function AwsQuicksightRefreshSchedule(props: Partial<InputProps>) {
 export const useAwsQuicksightRefreshSchedule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsQuicksightRefreshSchedule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightRefreshSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightRefreshSchedules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightRefreshSchedule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsQuicksightRefreshSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -64,19 +64,23 @@ export function AwsRoute53recoverycontrolconfigSafetyRule(
 export const useAwsRoute53recoverycontrolconfigSafetyRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoverycontrolconfigSafetyRule,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoverycontrolconfigSafetyRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoverycontrolconfigSafetyRule,
     idFilter,
     baseNode,
+    optional,
   )

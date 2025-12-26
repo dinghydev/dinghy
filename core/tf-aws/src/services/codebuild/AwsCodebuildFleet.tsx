@@ -95,8 +95,14 @@ export function AwsCodebuildFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildFleet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodebuildFleet, idFilter, baseNode)
+export const useAwsCodebuildFleet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsCodebuildFleet, idFilter, baseNode, optional)
 
-export const useAwsCodebuildFleets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodebuildFleet, idFilter, baseNode)
+export const useAwsCodebuildFleets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsCodebuildFleet, idFilter, baseNode, optional)

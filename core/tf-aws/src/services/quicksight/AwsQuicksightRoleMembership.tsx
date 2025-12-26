@@ -50,9 +50,23 @@ export function AwsQuicksightRoleMembership(props: Partial<InputProps>) {
 export const useAwsQuicksightRoleMembership = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsQuicksightRoleMembership, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightRoleMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightRoleMemberships = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsQuicksightRoleMembership, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightRoleMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

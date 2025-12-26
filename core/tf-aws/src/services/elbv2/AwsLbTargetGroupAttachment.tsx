@@ -52,9 +52,23 @@ export function AwsLbTargetGroupAttachment(props: Partial<InputProps>) {
 export const useAwsLbTargetGroupAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLbTargetGroupAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLbTargetGroupAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbTargetGroupAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLbTargetGroupAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLbTargetGroupAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

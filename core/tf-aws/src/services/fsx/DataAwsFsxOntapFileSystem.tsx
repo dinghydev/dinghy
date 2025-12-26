@@ -83,9 +83,23 @@ export function DataAwsFsxOntapFileSystem(props: Partial<InputProps>) {
 export const useDataAwsFsxOntapFileSystem = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsFsxOntapFileSystem, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsFsxOntapFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsFsxOntapFileSystems = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsFsxOntapFileSystem, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsFsxOntapFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )

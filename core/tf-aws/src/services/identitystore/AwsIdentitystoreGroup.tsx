@@ -54,8 +54,21 @@ export function AwsIdentitystoreGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIdentitystoreGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIdentitystoreGroup, idFilter, baseNode)
+export const useAwsIdentitystoreGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsIdentitystoreGroup, idFilter, baseNode, optional)
 
-export const useAwsIdentitystoreGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIdentitystoreGroup, idFilter, baseNode)
+export const useAwsIdentitystoreGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIdentitystoreGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -67,19 +67,23 @@ export function AwsEc2TransitGatewayVpcAttachmentAccepter(
 export const useAwsEc2TransitGatewayVpcAttachmentAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayVpcAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayVpcAttachmentAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayVpcAttachmentAccepter,
     idFilter,
     baseNode,
+    optional,
   )

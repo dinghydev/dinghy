@@ -52,5 +52,11 @@ export function AwsEc2ImageBlockPublicAccess(props: Partial<InputProps>) {
 export const useAwsEc2ImageBlockPublicAccesss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2ImageBlockPublicAccess, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEc2ImageBlockPublicAccess,
+    idFilter,
+    baseNode,
+    optional,
+  )

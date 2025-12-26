@@ -93,9 +93,11 @@ export function AwsCloudformationStackInstances(props: Partial<InputProps>) {
 export const useAwsCloudformationStackInstancess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudformationStackInstances,
     idFilter,
     baseNode,
+    optional,
   )

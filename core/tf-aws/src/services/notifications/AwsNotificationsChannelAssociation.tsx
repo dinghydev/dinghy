@@ -47,19 +47,23 @@ export function AwsNotificationsChannelAssociation(props: Partial<InputProps>) {
 export const useAwsNotificationsChannelAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNotificationsChannelAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNotificationsChannelAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNotificationsChannelAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -62,10 +62,23 @@ export function AwsS3BucketPublicAccessBlock(props: Partial<InputProps>) {
 export const useAwsS3BucketPublicAccessBlock = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsS3BucketPublicAccessBlock, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketPublicAccessBlock,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketPublicAccessBlocks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3BucketPublicAccessBlock, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsS3BucketPublicAccessBlock,
+    idFilter,
+    baseNode,
+    optional,
+  )

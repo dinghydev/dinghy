@@ -605,19 +605,23 @@ export function AwsKinesisFirehoseDeliveryStream(props: Partial<InputProps>) {
 export const useAwsKinesisFirehoseDeliveryStream = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsKinesisFirehoseDeliveryStream,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsKinesisFirehoseDeliveryStreams = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsKinesisFirehoseDeliveryStream,
     idFilter,
     baseNode,
+    optional,
   )

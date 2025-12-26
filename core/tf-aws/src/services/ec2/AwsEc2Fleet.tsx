@@ -180,8 +180,14 @@ export function AwsEc2Fleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2Fleet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEc2Fleet, idFilter, baseNode)
+export const useAwsEc2Fleet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEc2Fleet, idFilter, baseNode, optional)
 
-export const useAwsEc2Fleets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEc2Fleet, idFilter, baseNode)
+export const useAwsEc2Fleets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEc2Fleet, idFilter, baseNode, optional)

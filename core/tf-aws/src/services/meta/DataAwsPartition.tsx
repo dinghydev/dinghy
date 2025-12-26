@@ -45,8 +45,14 @@ export function DataAwsPartition(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsPartition = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsPartition, idFilter, baseNode)
+export const useDataAwsPartition = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsPartition, idFilter, baseNode, optional)
 
-export const useDataAwsPartitions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsPartition, idFilter, baseNode)
+export const useDataAwsPartitions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsPartition, idFilter, baseNode, optional)

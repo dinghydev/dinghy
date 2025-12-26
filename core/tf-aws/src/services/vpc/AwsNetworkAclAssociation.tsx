@@ -50,9 +50,23 @@ export function AwsNetworkAclAssociation(props: Partial<InputProps>) {
 export const useAwsNetworkAclAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNetworkAclAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkAclAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkAclAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNetworkAclAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkAclAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

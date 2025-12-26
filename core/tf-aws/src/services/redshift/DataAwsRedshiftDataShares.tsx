@@ -52,4 +52,11 @@ export function DataAwsRedshiftDataShares(props: Partial<InputProps>) {
 export const useDataAwsRedshiftDataSharess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsRedshiftDataShares, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRedshiftDataShares,
+    idFilter,
+    baseNode,
+    optional,
+  )

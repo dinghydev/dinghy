@@ -60,8 +60,16 @@ export function AwsMediaConvertQueue(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMediaConvertQueue = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMediaConvertQueue, idFilter, baseNode)
+export const useAwsMediaConvertQueue = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsMediaConvertQueue, idFilter, baseNode, optional)
 
-export const useAwsMediaConvertQueues = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMediaConvertQueue, idFilter, baseNode)
+export const useAwsMediaConvertQueues = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMediaConvertQueue, idFilter, baseNode, optional)

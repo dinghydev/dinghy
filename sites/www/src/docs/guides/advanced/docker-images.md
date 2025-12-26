@@ -41,9 +41,9 @@ install dinghy npm/jsr dependencies.
 At runtime, applications can only access dependencies that have been
 preinstalled in the image.
 
-## Distribution Images
+## Distributed Images
 
-Distribution images package Dinghy along with all necessary tools, runtime
+Distributed images are prebuilt docker images with all necessary tools, runtime
 environments, and dependencies for specific use cases. These images are ready to
 be used directly and are designed to provide a consistent, reliable execution
 environment for your Dinghy workflows—whether for local development, continuous
@@ -55,27 +55,6 @@ distribution images and their intended uses.
 Based on the [Release Dependencies Image](#release-dependencies-image), the
 Engine Image includes the complete Dinghy codebase required to execute all core
 functionalities.
-
-### Tf Image
-
-The
-[tf Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/Dockerfile.ejs)
-is an ondemand image which build by end user on demand due to license concerns.
-
-By default, several commonly used
-[official Terraform providers](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/fs-root/terraform/providers.tf.json)
-already installed. If you need additional providers, you can easily add them by
-specifying them in your `dinghy.config.yaml` file e.g.
-
-```yaml
-docker:
-    images:
-        tf:
-            providers:
-                local:
-                    source: local
-                    version: 2.6.1
-```
 
 ### Drawio Image
 
@@ -111,6 +90,59 @@ provides a standalone environment with the
 [official AWS CLI](https://docs.aws.amazon.com/cli/latest/) installed. This
 image is intended for running AWS commands and managing AWS resources outside of
 Terraform.
+
+## Tf Image
+
+The
+[tf Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/Dockerfile.ejs)
+image is built on demand, customized by each user based on their project's
+`dinghy.config.yaml`. This allows users to control Terraform (tf) runtime
+details such as the vendor (Terraform or OpenTofu), the version, and required
+providers.
+
+### Customise tf providers
+
+By default, several commonly used
+[official Terraform providers](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/fs-root/terraform/providers.tf.json)
+already installed.
+
+If you need additional providers or change provider version, you can easily add
+them by specifying them in your `dinghy.config.yaml` file e.g.
+
+```yaml
+docker:
+    images:
+        tf:
+            providers:
+                local:
+                    source: local
+                    version: 2.6.1
+```
+
+### Customise tf vendor and version
+
+By default, Dinghy use Hashicorp
+[terraform](https://developer.hashicorp.com/terraform) as the tf runtime. You
+may change to [opentoufu](https://opentofu.org/) or update runtime version with
+example below:
+
+```yaml
+docker:
+    images:
+        tf:
+            vendoer: opentofu
+            version: 1.11.2
+```
+
+### Dinghy known compatability issue with OpenTofu
+
+1. [render options](/references/commands/engine/render#options)
+   `--tf-generate-import` not supported as of
+   [OpenTofu v1.11.2](https://github.com/opentofu/opentofu/releases/tag/v1.11.2)
+   release as OpenTofu doesn't support
+   [import by identity](https://github.com/hashicorp/terraform/pull/36703) which
+   introduced in
+   [terraform v1.12.0](https://github.com/hashicorp/terraform/releases/tag/v1.12.0).
 
 ## Private Registry
 

@@ -153,8 +153,14 @@ export function AwsLambdaFunction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaFunction = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLambdaFunction, idFilter, baseNode)
+export const useAwsLambdaFunction = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLambdaFunction, idFilter, baseNode, optional)
 
-export const useAwsLambdaFunctions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLambdaFunction, idFilter, baseNode)
+export const useAwsLambdaFunctions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLambdaFunction, idFilter, baseNode, optional)

@@ -54,8 +54,14 @@ export function DataAwsIamGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIamGroup, idFilter, baseNode)
+export const useDataAwsIamGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsIamGroup, idFilter, baseNode, optional)
 
-export const useDataAwsIamGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamGroup, idFilter, baseNode)
+export const useDataAwsIamGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsIamGroup, idFilter, baseNode, optional)

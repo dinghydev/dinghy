@@ -52,19 +52,23 @@ export function AwsGrafanaWorkspaceServiceAccount(props: Partial<InputProps>) {
 export const useAwsGrafanaWorkspaceServiceAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGrafanaWorkspaceServiceAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGrafanaWorkspaceServiceAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGrafanaWorkspaceServiceAccount,
     idFilter,
     baseNode,
+    optional,
   )

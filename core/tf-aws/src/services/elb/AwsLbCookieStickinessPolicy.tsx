@@ -56,9 +56,23 @@ export function AwsLbCookieStickinessPolicy(props: Partial<InputProps>) {
 export const useAwsLbCookieStickinessPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLbCookieStickinessPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLbCookieStickinessPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbCookieStickinessPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLbCookieStickinessPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLbCookieStickinessPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

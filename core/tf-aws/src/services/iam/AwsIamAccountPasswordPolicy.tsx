@@ -57,9 +57,23 @@ export function AwsIamAccountPasswordPolicy(props: Partial<InputProps>) {
 export const useAwsIamAccountPasswordPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamAccountPasswordPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamAccountPasswordPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamAccountPasswordPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamAccountPasswordPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamAccountPasswordPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

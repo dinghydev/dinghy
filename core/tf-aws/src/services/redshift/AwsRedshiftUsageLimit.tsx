@@ -54,8 +54,21 @@ export function AwsRedshiftUsageLimit(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftUsageLimit = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRedshiftUsageLimit, idFilter, baseNode)
+export const useAwsRedshiftUsageLimit = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsRedshiftUsageLimit, idFilter, baseNode, optional)
 
-export const useAwsRedshiftUsageLimits = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRedshiftUsageLimit, idFilter, baseNode)
+export const useAwsRedshiftUsageLimits = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftUsageLimit,
+    idFilter,
+    baseNode,
+    optional,
+  )

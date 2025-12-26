@@ -57,9 +57,11 @@ export function DataAwsSsoadminPrincipalApplicationAssignments(
 export const useDataAwsSsoadminPrincipalApplicationAssignmentss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSsoadminPrincipalApplicationAssignments,
     idFilter,
     baseNode,
+    optional,
   )

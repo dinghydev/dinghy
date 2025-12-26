@@ -60,8 +60,14 @@ export function AwsKmsExternalKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKmsExternalKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKmsExternalKey, idFilter, baseNode)
+export const useAwsKmsExternalKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKmsExternalKey, idFilter, baseNode, optional)
 
-export const useAwsKmsExternalKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKmsExternalKey, idFilter, baseNode)
+export const useAwsKmsExternalKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKmsExternalKey, idFilter, baseNode, optional)

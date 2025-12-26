@@ -51,8 +51,16 @@ export function AwsMskConfiguration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskConfiguration = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMskConfiguration, idFilter, baseNode)
+export const useAwsMskConfiguration = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsMskConfiguration, idFilter, baseNode, optional)
 
-export const useAwsMskConfigurations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMskConfiguration, idFilter, baseNode)
+export const useAwsMskConfigurations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMskConfiguration, idFilter, baseNode, optional)

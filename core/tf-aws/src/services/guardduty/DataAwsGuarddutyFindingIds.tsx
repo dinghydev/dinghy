@@ -50,4 +50,11 @@ export function DataAwsGuarddutyFindingIds(props: Partial<InputProps>) {
 export const useDataAwsGuarddutyFindingIdss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsGuarddutyFindingIds, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsGuarddutyFindingIds,
+    idFilter,
+    baseNode,
+    optional,
+  )

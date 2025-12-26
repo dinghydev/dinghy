@@ -72,8 +72,26 @@ export function AwsCodeconnectionsHost(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodeconnectionsHost = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodeconnectionsHost, idFilter, baseNode)
+export const useAwsCodeconnectionsHost = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodeconnectionsHost,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCodeconnectionsHosts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodeconnectionsHost, idFilter, baseNode)
+export const useAwsCodeconnectionsHosts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodeconnectionsHost,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -52,9 +52,23 @@ export function AwsEmrStudioSessionMapping(props: Partial<InputProps>) {
 export const useAwsEmrStudioSessionMapping = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEmrStudioSessionMapping, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEmrStudioSessionMapping,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrStudioSessionMappings = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEmrStudioSessionMapping, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEmrStudioSessionMapping,
+    idFilter,
+    baseNode,
+    optional,
+  )

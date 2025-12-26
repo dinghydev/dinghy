@@ -57,8 +57,14 @@ export function AwsLightsailLb(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailLb = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailLb, idFilter, baseNode)
+export const useAwsLightsailLb = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLightsailLb, idFilter, baseNode, optional)
 
-export const useAwsLightsailLbs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailLb, idFilter, baseNode)
+export const useAwsLightsailLbs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLightsailLb, idFilter, baseNode, optional)

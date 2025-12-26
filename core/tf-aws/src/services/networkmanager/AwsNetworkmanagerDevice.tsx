@@ -74,10 +74,26 @@ export function AwsNetworkmanagerDevice(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkmanagerDevice = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerDevice, idFilter, baseNode)
+export const useAwsNetworkmanagerDevice = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerDevice,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkmanagerDevices = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNetworkmanagerDevice, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerDevice,
+    idFilter,
+    baseNode,
+    optional,
+  )

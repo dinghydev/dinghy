@@ -55,8 +55,16 @@ export function AwsWorkspacesIpGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesIpGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode)
+export const useAwsWorkspacesIpGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode, optional)
 
-export const useAwsWorkspacesIpGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode)
+export const useAwsWorkspacesIpGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode, optional)

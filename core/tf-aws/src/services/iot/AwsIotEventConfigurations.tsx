@@ -47,4 +47,11 @@ export function AwsIotEventConfigurations(props: Partial<InputProps>) {
 export const useAwsIotEventConfigurationss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIotEventConfigurations, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotEventConfigurations,
+    idFilter,
+    baseNode,
+    optional,
+  )

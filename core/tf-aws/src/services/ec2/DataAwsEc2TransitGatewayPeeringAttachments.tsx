@@ -61,9 +61,11 @@ export function DataAwsEc2TransitGatewayPeeringAttachments(
 export const useDataAwsEc2TransitGatewayPeeringAttachmentss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayPeeringAttachments,
     idFilter,
     baseNode,
+    optional,
   )

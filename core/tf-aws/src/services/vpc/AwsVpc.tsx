@@ -80,8 +80,14 @@ export function AwsVpc(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpc = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpc, idFilter, baseNode)
+export const useAwsVpc = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsVpc, idFilter, baseNode, optional)
 
-export const useAwsVpcs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVpc, idFilter, baseNode)
+export const useAwsVpcs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsVpc, idFilter, baseNode, optional)

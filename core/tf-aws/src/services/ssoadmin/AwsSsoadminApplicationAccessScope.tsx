@@ -51,19 +51,23 @@ export function AwsSsoadminApplicationAccessScope(props: Partial<InputProps>) {
 export const useAwsSsoadminApplicationAccessScope = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsoadminApplicationAccessScope,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSsoadminApplicationAccessScopes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminApplicationAccessScope,
     idFilter,
     baseNode,
+    optional,
   )

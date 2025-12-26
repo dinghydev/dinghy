@@ -83,19 +83,23 @@ export function AwsAppfabricIngestionDestination(props: Partial<InputProps>) {
 export const useAwsAppfabricIngestionDestination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppfabricIngestionDestination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppfabricIngestionDestinations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppfabricIngestionDestination,
     idFilter,
     baseNode,
+    optional,
   )

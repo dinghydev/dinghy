@@ -82,8 +82,16 @@ export function AwsApigatewayv2Stage(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApigatewayv2Stage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApigatewayv2Stage, idFilter, baseNode)
+export const useAwsApigatewayv2Stage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsApigatewayv2Stage, idFilter, baseNode, optional)
 
-export const useAwsApigatewayv2Stages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsApigatewayv2Stage, idFilter, baseNode)
+export const useAwsApigatewayv2Stages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsApigatewayv2Stage, idFilter, baseNode, optional)

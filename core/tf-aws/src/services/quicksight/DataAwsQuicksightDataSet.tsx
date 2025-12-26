@@ -204,9 +204,23 @@ export function DataAwsQuicksightDataSet(props: Partial<InputProps>) {
 export const useDataAwsQuicksightDataSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsQuicksightDataSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsQuicksightDataSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsQuicksightDataSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsQuicksightDataSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsQuicksightDataSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

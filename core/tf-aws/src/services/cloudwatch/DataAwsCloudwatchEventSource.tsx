@@ -53,10 +53,23 @@ export function DataAwsCloudwatchEventSource(props: Partial<InputProps>) {
 export const useDataAwsCloudwatchEventSource = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCloudwatchEventSource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudwatchEventSource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudwatchEventSources = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsCloudwatchEventSource, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsCloudwatchEventSource,
+    idFilter,
+    baseNode,
+    optional,
+  )

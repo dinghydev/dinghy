@@ -80,9 +80,23 @@ export function AwsApigatewayv2Integration(props: Partial<InputProps>) {
 export const useAwsApigatewayv2Integration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApigatewayv2Integration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApigatewayv2Integration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2Integrations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApigatewayv2Integration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApigatewayv2Integration,
+    idFilter,
+    baseNode,
+    optional,
+  )

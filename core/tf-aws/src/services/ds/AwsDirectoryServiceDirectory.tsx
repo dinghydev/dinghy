@@ -87,10 +87,23 @@ export function AwsDirectoryServiceDirectory(props: Partial<InputProps>) {
 export const useAwsDirectoryServiceDirectory = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDirectoryServiceDirectory, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDirectoryServiceDirectory,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDirectoryServiceDirectorys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDirectoryServiceDirectory, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDirectoryServiceDirectory,
+    idFilter,
+    baseNode,
+    optional,
+  )

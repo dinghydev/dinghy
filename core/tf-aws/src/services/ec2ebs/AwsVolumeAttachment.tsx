@@ -60,8 +60,16 @@ export function AwsVolumeAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVolumeAttachment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVolumeAttachment, idFilter, baseNode)
+export const useAwsVolumeAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsVolumeAttachment, idFilter, baseNode, optional)
 
-export const useAwsVolumeAttachments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVolumeAttachment, idFilter, baseNode)
+export const useAwsVolumeAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsVolumeAttachment, idFilter, baseNode, optional)

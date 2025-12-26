@@ -71,9 +71,23 @@ export function AwsEc2CapacityReservation(props: Partial<InputProps>) {
 export const useAwsEc2CapacityReservation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2CapacityReservation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2CapacityReservation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2CapacityReservations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2CapacityReservation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2CapacityReservation,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -67,5 +67,8 @@ export function AwsSfnAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSfnAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSfnAlias, idFilter, baseNode)
+export const useAwsSfnAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSfnAlias, idFilter, baseNode, optional)

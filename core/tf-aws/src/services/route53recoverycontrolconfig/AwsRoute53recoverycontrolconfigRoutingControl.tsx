@@ -54,19 +54,23 @@ export function AwsRoute53recoverycontrolconfigRoutingControl(
 export const useAwsRoute53recoverycontrolconfigRoutingControl = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoverycontrolconfigRoutingControl,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoverycontrolconfigRoutingControls = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoverycontrolconfigRoutingControl,
     idFilter,
     baseNode,
+    optional,
   )

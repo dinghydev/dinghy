@@ -118,8 +118,14 @@ export function AwsDatasyncTask(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncTask = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatasyncTask, idFilter, baseNode)
+export const useAwsDatasyncTask = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDatasyncTask, idFilter, baseNode, optional)
 
-export const useAwsDatasyncTasks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatasyncTask, idFilter, baseNode)
+export const useAwsDatasyncTasks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDatasyncTask, idFilter, baseNode, optional)

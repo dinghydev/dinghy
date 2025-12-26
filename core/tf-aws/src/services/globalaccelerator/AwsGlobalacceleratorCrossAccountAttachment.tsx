@@ -69,19 +69,23 @@ export function AwsGlobalacceleratorCrossAccountAttachment(
 export const useAwsGlobalacceleratorCrossAccountAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGlobalacceleratorCrossAccountAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGlobalacceleratorCrossAccountAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorCrossAccountAttachment,
     idFilter,
     baseNode,
+    optional,
   )

@@ -51,8 +51,16 @@ export function AwsAthenaDataCatalog(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaDataCatalog = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode)
+export const useAwsAthenaDataCatalog = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode, optional)
 
-export const useAwsAthenaDataCatalogs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode)
+export const useAwsAthenaDataCatalogs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode, optional)

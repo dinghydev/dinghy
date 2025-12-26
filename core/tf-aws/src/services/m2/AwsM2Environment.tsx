@@ -88,8 +88,14 @@ export function AwsM2Environment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsM2Environment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsM2Environment, idFilter, baseNode)
+export const useAwsM2Environment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsM2Environment, idFilter, baseNode, optional)
 
-export const useAwsM2Environments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsM2Environment, idFilter, baseNode)
+export const useAwsM2Environments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsM2Environment, idFilter, baseNode, optional)

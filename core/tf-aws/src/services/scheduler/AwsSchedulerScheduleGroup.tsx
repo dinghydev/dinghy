@@ -62,9 +62,23 @@ export function AwsSchedulerScheduleGroup(props: Partial<InputProps>) {
 export const useAwsSchedulerScheduleGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSchedulerScheduleGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSchedulerScheduleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSchedulerScheduleGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSchedulerScheduleGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSchedulerScheduleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

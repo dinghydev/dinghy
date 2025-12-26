@@ -48,10 +48,23 @@ export function DataAwsApprunnerHostedZoneId(props: Partial<InputProps>) {
 export const useDataAwsApprunnerHostedZoneId = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsApprunnerHostedZoneId, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsApprunnerHostedZoneId,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsApprunnerHostedZoneIds = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsApprunnerHostedZoneId, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsApprunnerHostedZoneId,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -94,9 +94,23 @@ export function AwsSecuritylakeSubscriber(props: Partial<InputProps>) {
 export const useAwsSecuritylakeSubscriber = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSecuritylakeSubscriber, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecuritylakeSubscriber,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecuritylakeSubscribers = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSecuritylakeSubscriber, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecuritylakeSubscriber,
+    idFilter,
+    baseNode,
+    optional,
+  )

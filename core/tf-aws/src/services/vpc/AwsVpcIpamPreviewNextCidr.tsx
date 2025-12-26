@@ -52,9 +52,23 @@ export function AwsVpcIpamPreviewNextCidr(props: Partial<InputProps>) {
 export const useAwsVpcIpamPreviewNextCidr = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpcIpamPreviewNextCidr, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcIpamPreviewNextCidr,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpamPreviewNextCidrs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpcIpamPreviewNextCidr, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcIpamPreviewNextCidr,
+    idFilter,
+    baseNode,
+    optional,
+  )

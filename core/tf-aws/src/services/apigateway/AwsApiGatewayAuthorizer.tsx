@@ -55,10 +55,26 @@ export function AwsApiGatewayAuthorizer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayAuthorizer = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApiGatewayAuthorizer, idFilter, baseNode)
+export const useAwsApiGatewayAuthorizer = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApiGatewayAuthorizer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayAuthorizers = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApiGatewayAuthorizer, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayAuthorizer,
+    idFilter,
+    baseNode,
+    optional,
+  )

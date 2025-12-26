@@ -81,10 +81,26 @@ export function AwsDmsReplicationConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsReplicationConfig = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDmsReplicationConfig, idFilter, baseNode)
+export const useAwsDmsReplicationConfig = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDmsReplicationConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDmsReplicationConfigs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDmsReplicationConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDmsReplicationConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

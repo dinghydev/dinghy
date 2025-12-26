@@ -69,19 +69,23 @@ export function DataAwsGlobalacceleratorAccelerator(
 export const useDataAwsGlobalacceleratorAccelerator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsGlobalacceleratorAccelerators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,
+    optional,
   )

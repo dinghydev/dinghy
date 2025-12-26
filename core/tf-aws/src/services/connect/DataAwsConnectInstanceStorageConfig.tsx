@@ -78,19 +78,23 @@ export function DataAwsConnectInstanceStorageConfig(
 export const useDataAwsConnectInstanceStorageConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsConnectInstanceStorageConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsConnectInstanceStorageConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsConnectInstanceStorageConfig,
     idFilter,
     baseNode,
+    optional,
   )

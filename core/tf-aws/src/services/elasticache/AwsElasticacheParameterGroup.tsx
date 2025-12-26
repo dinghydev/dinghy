@@ -60,10 +60,23 @@ export function AwsElasticacheParameterGroup(props: Partial<InputProps>) {
 export const useAwsElasticacheParameterGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsElasticacheParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElasticacheParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticacheParameterGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElasticacheParameterGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElasticacheParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

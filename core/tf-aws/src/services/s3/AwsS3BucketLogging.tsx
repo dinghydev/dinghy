@@ -81,8 +81,15 @@ export function AwsS3BucketLogging(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketLogging = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3BucketLogging, idFilter, baseNode)
+export const useAwsS3BucketLogging = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsS3BucketLogging, idFilter, baseNode, optional)
 
-export const useAwsS3BucketLoggings = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3BucketLogging, idFilter, baseNode)
+export const useAwsS3BucketLoggings = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsS3BucketLogging, idFilter, baseNode, optional)

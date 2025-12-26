@@ -144,8 +144,14 @@ export function AwsGlueCrawler(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueCrawler = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueCrawler, idFilter, baseNode)
+export const useAwsGlueCrawler = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueCrawler, idFilter, baseNode, optional)
 
-export const useAwsGlueCrawlers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueCrawler, idFilter, baseNode)
+export const useAwsGlueCrawlers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueCrawler, idFilter, baseNode, optional)

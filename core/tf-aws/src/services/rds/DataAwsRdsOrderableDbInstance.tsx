@@ -80,11 +80,23 @@ export function DataAwsRdsOrderableDbInstance(props: Partial<InputProps>) {
 export const useDataAwsRdsOrderableDbInstance = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsRdsOrderableDbInstance, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsRdsOrderableDbInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRdsOrderableDbInstances = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsRdsOrderableDbInstance, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsRdsOrderableDbInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

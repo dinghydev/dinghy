@@ -55,9 +55,23 @@ export function DataAwsApigatewayv2Export(props: Partial<InputProps>) {
 export const useDataAwsApigatewayv2Export = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsApigatewayv2Export, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsApigatewayv2Export,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsApigatewayv2Exports = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsApigatewayv2Export, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsApigatewayv2Export,
+    idFilter,
+    baseNode,
+    optional,
+  )

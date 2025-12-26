@@ -83,19 +83,23 @@ export function AwsS3BucketMetadataConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketMetadataConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketMetadataConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketMetadataConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketMetadataConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

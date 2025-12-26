@@ -64,9 +64,23 @@ export function AwsTranscribeLanguageModel(props: Partial<InputProps>) {
 export const useAwsTranscribeLanguageModel = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsTranscribeLanguageModel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsTranscribeLanguageModel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTranscribeLanguageModels = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsTranscribeLanguageModel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsTranscribeLanguageModel,
+    idFilter,
+    baseNode,
+    optional,
+  )

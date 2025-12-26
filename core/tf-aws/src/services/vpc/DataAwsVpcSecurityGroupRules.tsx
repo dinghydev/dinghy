@@ -55,5 +55,11 @@ export function DataAwsVpcSecurityGroupRules(props: Partial<InputProps>) {
 export const useDataAwsVpcSecurityGroupRuless = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsVpcSecurityGroupRules, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsVpcSecurityGroupRules,
+    idFilter,
+    baseNode,
+    optional,
+  )

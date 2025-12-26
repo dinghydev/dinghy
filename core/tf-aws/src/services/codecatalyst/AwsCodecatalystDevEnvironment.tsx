@@ -73,11 +73,23 @@ export function AwsCodecatalystDevEnvironment(props: Partial<InputProps>) {
 export const useAwsCodecatalystDevEnvironment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodecatalystDevEnvironment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCodecatalystDevEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodecatalystDevEnvironments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodecatalystDevEnvironment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCodecatalystDevEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

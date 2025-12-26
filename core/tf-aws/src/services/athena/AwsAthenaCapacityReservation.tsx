@@ -61,10 +61,23 @@ export function AwsAthenaCapacityReservation(props: Partial<InputProps>) {
 export const useAwsAthenaCapacityReservation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAthenaCapacityReservation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAthenaCapacityReservation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAthenaCapacityReservations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAthenaCapacityReservation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAthenaCapacityReservation,
+    idFilter,
+    baseNode,
+    optional,
+  )

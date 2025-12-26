@@ -1,0 +1,13 @@
+cloudfrontSites:
+  example.com:
+    origins:
+      root:
+        target: s3://example-com-website/www
+      old_redirect:
+        target: https://new.example.com/{PATH}#from-old
+        pathPattern: '/old/*'
+      subsite:
+        target: s3://example-com-subsite
+        pathPattern: '/subsite/*'
+    redirectFromNames:
+      - '*.example.com'

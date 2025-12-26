@@ -55,8 +55,21 @@ export function AwsAppfabricAppBundle(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppfabricAppBundle = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppfabricAppBundle, idFilter, baseNode)
+export const useAwsAppfabricAppBundle = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAppfabricAppBundle, idFilter, baseNode, optional)
 
-export const useAwsAppfabricAppBundles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppfabricAppBundle, idFilter, baseNode)
+export const useAwsAppfabricAppBundles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppfabricAppBundle,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -55,9 +55,23 @@ export function AwsCloudwatchEventArchive(props: Partial<InputProps>) {
 export const useAwsCloudwatchEventArchive = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchEventArchive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchEventArchive,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchEventArchives = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchEventArchive, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventArchive,
+    idFilter,
+    baseNode,
+    optional,
+  )

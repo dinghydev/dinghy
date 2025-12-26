@@ -63,9 +63,23 @@ export function AwsLocationRouteCalculator(props: Partial<InputProps>) {
 export const useAwsLocationRouteCalculator = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLocationRouteCalculator, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLocationRouteCalculator,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLocationRouteCalculators = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLocationRouteCalculator, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLocationRouteCalculator,
+    idFilter,
+    baseNode,
+    optional,
+  )

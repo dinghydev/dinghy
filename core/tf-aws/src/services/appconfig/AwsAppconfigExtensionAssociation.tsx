@@ -53,19 +53,23 @@ export function AwsAppconfigExtensionAssociation(props: Partial<InputProps>) {
 export const useAwsAppconfigExtensionAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppconfigExtensionAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppconfigExtensionAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppconfigExtensionAssociation,
     idFilter,
     baseNode,
+    optional,
   )

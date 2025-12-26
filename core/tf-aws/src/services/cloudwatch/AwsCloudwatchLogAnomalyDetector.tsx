@@ -57,15 +57,23 @@ export function AwsCloudwatchLogAnomalyDetector(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogAnomalyDetector = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogAnomalyDetector, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogAnomalyDetector,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchLogAnomalyDetectors = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudwatchLogAnomalyDetector,
     idFilter,
     baseNode,
+    optional,
   )

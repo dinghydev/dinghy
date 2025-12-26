@@ -80,8 +80,14 @@ export function AwsBillingView(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBillingView = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBillingView, idFilter, baseNode)
+export const useAwsBillingView = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsBillingView, idFilter, baseNode, optional)
 
-export const useAwsBillingViews = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBillingView, idFilter, baseNode)
+export const useAwsBillingViews = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsBillingView, idFilter, baseNode, optional)

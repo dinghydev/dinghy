@@ -83,9 +83,23 @@ export function DataAwsVpcPeeringConnection(props: Partial<InputProps>) {
 export const useDataAwsVpcPeeringConnection = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsVpcPeeringConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsVpcPeeringConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsVpcPeeringConnections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsVpcPeeringConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsVpcPeeringConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

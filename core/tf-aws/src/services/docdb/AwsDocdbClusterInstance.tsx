@@ -79,10 +79,26 @@ export function AwsDocdbClusterInstance(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbClusterInstance = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDocdbClusterInstance, idFilter, baseNode)
+export const useAwsDocdbClusterInstance = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDocdbClusterInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbClusterInstances = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDocdbClusterInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDocdbClusterInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

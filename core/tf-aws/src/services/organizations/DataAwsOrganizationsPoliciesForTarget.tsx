@@ -52,19 +52,23 @@ export function DataAwsOrganizationsPoliciesForTarget(
 export const useDataAwsOrganizationsPoliciesForTarget = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOrganizationsPoliciesForTarget,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOrganizationsPoliciesForTargets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsPoliciesForTarget,
     idFilter,
     baseNode,
+    optional,
   )

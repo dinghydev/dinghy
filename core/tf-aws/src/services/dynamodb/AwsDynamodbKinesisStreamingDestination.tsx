@@ -55,19 +55,23 @@ export function AwsDynamodbKinesisStreamingDestination(
 export const useAwsDynamodbKinesisStreamingDestination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDynamodbKinesisStreamingDestination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDynamodbKinesisStreamingDestinations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDynamodbKinesisStreamingDestination,
     idFilter,
     baseNode,
+    optional,
   )

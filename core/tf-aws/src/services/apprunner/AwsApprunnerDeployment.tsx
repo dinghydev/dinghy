@@ -53,8 +53,26 @@ export function AwsApprunnerDeployment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApprunnerDeployment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApprunnerDeployment, idFilter, baseNode)
+export const useAwsApprunnerDeployment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApprunnerDeployment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsApprunnerDeployments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsApprunnerDeployment, idFilter, baseNode)
+export const useAwsApprunnerDeployments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApprunnerDeployment,
+    idFilter,
+    baseNode,
+    optional,
+  )

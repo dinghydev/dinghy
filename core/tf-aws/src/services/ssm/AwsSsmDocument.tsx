@@ -87,8 +87,14 @@ export function AwsSsmDocument(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmDocument = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmDocument, idFilter, baseNode)
+export const useAwsSsmDocument = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSsmDocument, idFilter, baseNode, optional)
 
-export const useAwsSsmDocuments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmDocument, idFilter, baseNode)
+export const useAwsSsmDocuments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSsmDocument, idFilter, baseNode, optional)

@@ -48,5 +48,11 @@ export function DataAwsFisExperimentTemplates(props: Partial<InputProps>) {
 export const useDataAwsFisExperimentTemplatess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsFisExperimentTemplates, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsFisExperimentTemplates,
+    idFilter,
+    baseNode,
+    optional,
+  )

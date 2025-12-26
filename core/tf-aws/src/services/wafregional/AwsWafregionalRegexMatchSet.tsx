@@ -59,9 +59,23 @@ export function AwsWafregionalRegexMatchSet(props: Partial<InputProps>) {
 export const useAwsWafregionalRegexMatchSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWafregionalRegexMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafregionalRegexMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalRegexMatchSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafregionalRegexMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafregionalRegexMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

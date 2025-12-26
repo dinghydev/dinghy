@@ -1,0 +1,44 @@
+---
+sidebar_position: 30
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./app.tsx";
+import DinghyConfigYaml from "!!raw-loader!./dinghy.config.yaml";
+import TfJson from "!!raw-loader!./output/app/app.tf.json";
+
+# Cloudfront Sites
+
+A componsite [component](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/cloudfront-sites/CloudfrontSites.tsx) ([schema](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/cloudfront-sites/useCloudfrontSites.ts)) to build CloudFront sites. It only require the referenced domain zone existing in Route53. It will handling:
+
+1. log buckets creation
+1. s3 origin creation with logging and policy
+1. cloudfront distribution creation with logging and access policy
+1. ssl certification creation with options to rotate
+1. domain redirect to the main site with seperate ssl cert 
+1. sub path redirect
+1. sub site with different origin
+
+Only s3 origin supported at the moment.
+
+<Tabs>
+  <TabItem value="app.tsx">
+    <CodeBlock language="tsx">
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="dinghy.config.yaml">
+    <CodeBlock language="yaml">
+      {DinghyConfigYaml}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram" default>
+    ![](./output/app.png#drawio-w-100)
+  </TabItem>
+  <TabItem value="Terraform">
+    <CodeBlock language="json" title="tf.json">
+      {TfJson}
+    </CodeBlock>
+  </TabItem>
+</Tabs>

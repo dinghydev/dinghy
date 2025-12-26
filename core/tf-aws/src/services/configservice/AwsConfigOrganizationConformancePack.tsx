@@ -70,19 +70,23 @@ export function AwsConfigOrganizationConformancePack(
 export const useAwsConfigOrganizationConformancePack = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConfigOrganizationConformancePack,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConfigOrganizationConformancePacks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigOrganizationConformancePack,
     idFilter,
     baseNode,
+    optional,
   )

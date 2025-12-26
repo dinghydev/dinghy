@@ -71,9 +71,23 @@ export function DataAwsNeptuneEngineVersion(props: Partial<InputProps>) {
 export const useDataAwsNeptuneEngineVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsNeptuneEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsNeptuneEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsNeptuneEngineVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsNeptuneEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsNeptuneEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

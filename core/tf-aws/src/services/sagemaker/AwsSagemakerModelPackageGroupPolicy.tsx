@@ -52,19 +52,23 @@ export function AwsSagemakerModelPackageGroupPolicy(
 export const useAwsSagemakerModelPackageGroupPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSagemakerModelPackageGroupPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSagemakerModelPackageGroupPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerModelPackageGroupPolicy,
     idFilter,
     baseNode,
+    optional,
   )

@@ -62,9 +62,23 @@ export function AwsSagemakerImageVersion(props: Partial<InputProps>) {
 export const useAwsSagemakerImageVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSagemakerImageVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerImageVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerImageVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerImageVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerImageVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

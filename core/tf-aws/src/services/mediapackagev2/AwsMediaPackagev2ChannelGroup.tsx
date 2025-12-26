@@ -54,11 +54,23 @@ export function AwsMediaPackagev2ChannelGroup(props: Partial<InputProps>) {
 export const useAwsMediaPackagev2ChannelGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMediaPackagev2ChannelGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsMediaPackagev2ChannelGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMediaPackagev2ChannelGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMediaPackagev2ChannelGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMediaPackagev2ChannelGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -62,8 +62,14 @@ export function AwsRdsShardGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsShardGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsShardGroup, idFilter, baseNode)
+export const useAwsRdsShardGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRdsShardGroup, idFilter, baseNode, optional)
 
-export const useAwsRdsShardGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsShardGroup, idFilter, baseNode)
+export const useAwsRdsShardGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRdsShardGroup, idFilter, baseNode, optional)

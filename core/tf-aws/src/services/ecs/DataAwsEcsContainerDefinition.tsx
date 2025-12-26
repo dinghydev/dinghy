@@ -58,11 +58,23 @@ export function DataAwsEcsContainerDefinition(props: Partial<InputProps>) {
 export const useDataAwsEcsContainerDefinition = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsEcsContainerDefinition, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsEcsContainerDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEcsContainerDefinitions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEcsContainerDefinition, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsEcsContainerDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

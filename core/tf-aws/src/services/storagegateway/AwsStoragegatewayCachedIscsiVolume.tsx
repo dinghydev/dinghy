@@ -65,19 +65,23 @@ export function AwsStoragegatewayCachedIscsiVolume(props: Partial<InputProps>) {
 export const useAwsStoragegatewayCachedIscsiVolume = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsStoragegatewayCachedIscsiVolume,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsStoragegatewayCachedIscsiVolumes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsStoragegatewayCachedIscsiVolume,
     idFilter,
     baseNode,
+    optional,
   )

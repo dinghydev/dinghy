@@ -57,9 +57,23 @@ export function AwsQuicksightIpRestriction(props: Partial<InputProps>) {
 export const useAwsQuicksightIpRestriction = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsQuicksightIpRestriction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightIpRestriction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightIpRestrictions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsQuicksightIpRestriction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightIpRestriction,
+    idFilter,
+    baseNode,
+    optional,
+  )

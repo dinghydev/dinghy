@@ -66,9 +66,11 @@ export function DataAwsLakeformationDataLakeSettings(
 export const useDataAwsLakeformationDataLakeSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsLakeformationDataLakeSettings,
     idFilter,
     baseNode,
+    optional,
   )

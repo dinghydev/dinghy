@@ -69,10 +69,23 @@ export function AwsS3BucketCorsConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketCorsConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsS3BucketCorsConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3BucketCorsConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketCorsConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3BucketCorsConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsS3BucketCorsConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -55,9 +55,23 @@ export function AwsNatGatewayEipAssociation(props: Partial<InputProps>) {
 export const useAwsNatGatewayEipAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNatGatewayEipAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNatGatewayEipAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNatGatewayEipAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNatGatewayEipAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNatGatewayEipAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

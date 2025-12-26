@@ -106,8 +106,15 @@ export function AwsAthenaWorkgroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaWorkgroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAthenaWorkgroup, idFilter, baseNode)
+export const useAwsAthenaWorkgroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAthenaWorkgroup, idFilter, baseNode, optional)
 
-export const useAwsAthenaWorkgroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAthenaWorkgroup, idFilter, baseNode)
+export const useAwsAthenaWorkgroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAthenaWorkgroup, idFilter, baseNode, optional)

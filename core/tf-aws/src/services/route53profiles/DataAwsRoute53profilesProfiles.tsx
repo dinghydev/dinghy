@@ -52,5 +52,11 @@ export function DataAwsRoute53profilesProfiles(props: Partial<InputProps>) {
 export const useDataAwsRoute53profilesProfiless = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53profilesProfiles, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsRoute53profilesProfiles,
+    idFilter,
+    baseNode,
+    optional,
+  )

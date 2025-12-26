@@ -46,8 +46,21 @@ export function AwsGlueResourcePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueResourcePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueResourcePolicy, idFilter, baseNode)
+export const useAwsGlueResourcePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsGlueResourcePolicy, idFilter, baseNode, optional)
 
-export const useAwsGlueResourcePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueResourcePolicy, idFilter, baseNode)
+export const useAwsGlueResourcePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGlueResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -63,19 +63,23 @@ export function DataAwsEc2LocalGatewayRouteTable(props: Partial<InputProps>) {
 export const useDataAwsEc2LocalGatewayRouteTable = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2LocalGatewayRouteTable,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2LocalGatewayRouteTables = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2LocalGatewayRouteTable,
     idFilter,
     baseNode,
+    optional,
   )

@@ -58,4 +58,11 @@ export function DataAwsMskBootstrapBrokers(props: Partial<InputProps>) {
 export const useDataAwsMskBootstrapBrokerss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsMskBootstrapBrokers, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMskBootstrapBrokers,
+    idFilter,
+    baseNode,
+    optional,
+  )

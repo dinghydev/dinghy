@@ -48,10 +48,26 @@ export function DataAwsShieldProtection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsShieldProtection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsShieldProtection, idFilter, baseNode)
+export const useDataAwsShieldProtection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsShieldProtection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsShieldProtections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsShieldProtection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsShieldProtection,
+    idFilter,
+    baseNode,
+    optional,
+  )

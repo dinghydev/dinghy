@@ -71,19 +71,23 @@ export function DataAwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
 export const useDataAwsRedshiftserverlessWorkgroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsRedshiftserverlessWorkgroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsRedshiftserverlessWorkgroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRedshiftserverlessWorkgroup,
     idFilter,
     baseNode,
+    optional,
   )

@@ -54,19 +54,23 @@ export function AwsRedshiftserverlessCustomDomainAssociation(
 export const useAwsRedshiftserverlessCustomDomainAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftserverlessCustomDomainAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftserverlessCustomDomainAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftserverlessCustomDomainAssociation,
     idFilter,
     baseNode,
+    optional,
   )

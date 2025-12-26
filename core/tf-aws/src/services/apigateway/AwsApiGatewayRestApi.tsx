@@ -69,8 +69,16 @@ export function AwsApiGatewayRestApi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsApiGatewayRestApi = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsApiGatewayRestApi, idFilter, baseNode)
+export const useAwsApiGatewayRestApi = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsApiGatewayRestApi, idFilter, baseNode, optional)
 
-export const useAwsApiGatewayRestApis = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayRestApi, idFilter, baseNode)
+export const useAwsApiGatewayRestApis = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsApiGatewayRestApi, idFilter, baseNode, optional)

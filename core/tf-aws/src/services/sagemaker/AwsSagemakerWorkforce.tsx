@@ -82,8 +82,21 @@ export function AwsSagemakerWorkforce(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerWorkforce = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerWorkforce, idFilter, baseNode)
+export const useAwsSagemakerWorkforce = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSagemakerWorkforce, idFilter, baseNode, optional)
 
-export const useAwsSagemakerWorkforces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerWorkforce, idFilter, baseNode)
+export const useAwsSagemakerWorkforces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerWorkforce,
+    idFilter,
+    baseNode,
+    optional,
+  )

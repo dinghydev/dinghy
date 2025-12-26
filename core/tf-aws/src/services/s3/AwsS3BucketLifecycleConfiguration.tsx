@@ -103,19 +103,23 @@ export function AwsS3BucketLifecycleConfiguration(props: Partial<InputProps>) {
 export const useAwsS3BucketLifecycleConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketLifecycleConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketLifecycleConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketLifecycleConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

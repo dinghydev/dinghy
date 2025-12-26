@@ -65,19 +65,23 @@ export function AwsSsoadminPermissionsBoundaryAttachment(
 export const useAwsSsoadminPermissionsBoundaryAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsoadminPermissionsBoundaryAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSsoadminPermissionsBoundaryAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminPermissionsBoundaryAttachment,
     idFilter,
     baseNode,
+    optional,
   )

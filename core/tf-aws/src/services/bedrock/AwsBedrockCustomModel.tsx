@@ -98,8 +98,21 @@ export function AwsBedrockCustomModel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBedrockCustomModel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBedrockCustomModel, idFilter, baseNode)
+export const useAwsBedrockCustomModel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsBedrockCustomModel, idFilter, baseNode, optional)
 
-export const useAwsBedrockCustomModels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBedrockCustomModel, idFilter, baseNode)
+export const useAwsBedrockCustomModels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockCustomModel,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -61,15 +61,23 @@ export function DataAwsServicecatalogConstraint(props: Partial<InputProps>) {
 export const useDataAwsServicecatalogConstraint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsServicecatalogConstraint, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsServicecatalogConstraint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsServicecatalogConstraints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogConstraint,
     idFilter,
     baseNode,
+    optional,
   )

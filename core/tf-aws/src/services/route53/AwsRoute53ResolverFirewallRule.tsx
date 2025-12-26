@@ -59,11 +59,23 @@ export function AwsRoute53ResolverFirewallRule(props: Partial<InputProps>) {
 export const useAwsRoute53ResolverFirewallRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53ResolverFirewallRule, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRoute53ResolverFirewallRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53ResolverFirewallRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRoute53ResolverFirewallRule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRoute53ResolverFirewallRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -64,10 +64,23 @@ export function AwsDevicefarmInstanceProfile(props: Partial<InputProps>) {
 export const useAwsDevicefarmInstanceProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDevicefarmInstanceProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDevicefarmInstanceProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevicefarmInstanceProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmInstanceProfile, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDevicefarmInstanceProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,10 +50,26 @@ export function AwsRedshiftSnapshotCopy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftSnapshotCopy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRedshiftSnapshotCopy, idFilter, baseNode)
+export const useAwsRedshiftSnapshotCopy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftSnapshotCopys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftSnapshotCopy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -51,10 +51,26 @@ export function AwsDataexchangeRevision(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDataexchangeRevision = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDataexchangeRevision, idFilter, baseNode)
+export const useAwsDataexchangeRevision = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDataexchangeRevision,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDataexchangeRevisions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDataexchangeRevision, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDataexchangeRevision,
+    idFilter,
+    baseNode,
+    optional,
+  )

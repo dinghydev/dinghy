@@ -59,9 +59,23 @@ export function DataAwsAppconfigEnvironment(props: Partial<InputProps>) {
 export const useDataAwsAppconfigEnvironment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAppconfigEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAppconfigEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAppconfigEnvironments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAppconfigEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAppconfigEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

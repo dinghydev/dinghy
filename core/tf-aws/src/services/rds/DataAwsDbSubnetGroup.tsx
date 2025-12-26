@@ -52,8 +52,16 @@ export function DataAwsDbSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbSubnetGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsDbSubnetGroup, idFilter, baseNode)
+export const useDataAwsDbSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsDbSubnetGroup, idFilter, baseNode, optional)
 
-export const useDataAwsDbSubnetGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDbSubnetGroup, idFilter, baseNode)
+export const useDataAwsDbSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDbSubnetGroup, idFilter, baseNode, optional)

@@ -63,5 +63,14 @@ export function AwsCloudwatchEventBus(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchEventBuss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchEventBus, idFilter, baseNode)
+export const useAwsCloudwatchEventBuss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchEventBus,
+    idFilter,
+    baseNode,
+    optional,
+  )

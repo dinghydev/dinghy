@@ -49,5 +49,11 @@ export function DataAwsSfnStateMachineVersions(props: Partial<InputProps>) {
 export const useDataAwsSfnStateMachineVersionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSfnStateMachineVersions, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsSfnStateMachineVersions,
+    idFilter,
+    baseNode,
+    optional,
+  )

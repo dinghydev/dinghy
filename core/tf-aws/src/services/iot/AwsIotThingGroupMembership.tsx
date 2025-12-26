@@ -51,9 +51,23 @@ export function AwsIotThingGroupMembership(props: Partial<InputProps>) {
 export const useAwsIotThingGroupMembership = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIotThingGroupMembership, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIotThingGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotThingGroupMemberships = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIotThingGroupMembership, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotThingGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )

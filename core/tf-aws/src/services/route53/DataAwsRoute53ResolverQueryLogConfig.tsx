@@ -63,19 +63,23 @@ export function DataAwsRoute53ResolverQueryLogConfig(
 export const useDataAwsRoute53ResolverQueryLogConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsRoute53ResolverQueryLogConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsRoute53ResolverQueryLogConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRoute53ResolverQueryLogConfig,
     idFilter,
     baseNode,
+    optional,
   )

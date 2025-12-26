@@ -62,9 +62,23 @@ export function DataAwsEc2PublicIpv4Pool(props: Partial<InputProps>) {
 export const useDataAwsEc2PublicIpv4Pool = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsEc2PublicIpv4Pool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEc2PublicIpv4Pool,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEc2PublicIpv4Pools = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEc2PublicIpv4Pool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2PublicIpv4Pool,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -56,9 +56,23 @@ export function AwsInspectorResourceGroup(props: Partial<InputProps>) {
 export const useAwsInspectorResourceGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsInspectorResourceGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInspectorResourceGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInspectorResourceGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsInspectorResourceGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsInspectorResourceGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -73,11 +73,23 @@ export function AwsConfigConfigurationRecorder(props: Partial<InputProps>) {
 export const useAwsConfigConfigurationRecorder = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConfigConfigurationRecorder, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsConfigConfigurationRecorder,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigConfigurationRecorders = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsConfigConfigurationRecorder, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsConfigConfigurationRecorder,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -68,8 +68,14 @@ export function AwsM2Application(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsM2Application = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsM2Application, idFilter, baseNode)
+export const useAwsM2Application = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsM2Application, idFilter, baseNode, optional)
 
-export const useAwsM2Applications = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsM2Application, idFilter, baseNode)
+export const useAwsM2Applications = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsM2Application, idFilter, baseNode, optional)

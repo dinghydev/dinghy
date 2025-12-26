@@ -132,10 +132,23 @@ export function AwsBedrockagentKnowledgeBase(props: Partial<InputProps>) {
 export const useAwsBedrockagentKnowledgeBase = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBedrockagentKnowledgeBase, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentKnowledgeBase,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentKnowledgeBases = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentKnowledgeBase, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentKnowledgeBase,
+    idFilter,
+    baseNode,
+    optional,
+  )

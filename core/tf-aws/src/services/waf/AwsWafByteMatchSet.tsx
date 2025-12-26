@@ -57,8 +57,15 @@ export function AwsWafByteMatchSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafByteMatchSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafByteMatchSet, idFilter, baseNode)
+export const useAwsWafByteMatchSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafByteMatchSet, idFilter, baseNode, optional)
 
-export const useAwsWafByteMatchSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafByteMatchSet, idFilter, baseNode)
+export const useAwsWafByteMatchSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsWafByteMatchSet, idFilter, baseNode, optional)

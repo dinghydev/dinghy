@@ -59,9 +59,23 @@ export function DataAwsNetworkmanagerLink(props: Partial<InputProps>) {
 export const useDataAwsNetworkmanagerLink = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsNetworkmanagerLink, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsNetworkmanagerLink,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsNetworkmanagerLinks = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsNetworkmanagerLink, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkmanagerLink,
+    idFilter,
+    baseNode,
+    optional,
+  )

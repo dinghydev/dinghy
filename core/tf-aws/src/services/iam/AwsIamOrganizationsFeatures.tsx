@@ -47,4 +47,11 @@ export function AwsIamOrganizationsFeatures(props: Partial<InputProps>) {
 export const useAwsIamOrganizationsFeaturess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamOrganizationsFeatures, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamOrganizationsFeatures,
+    idFilter,
+    baseNode,
+    optional,
+  )

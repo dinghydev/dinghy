@@ -110,9 +110,23 @@ export function DataAwsEcsTaskDefinition(props: Partial<InputProps>) {
 export const useDataAwsEcsTaskDefinition = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsEcsTaskDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEcsTaskDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEcsTaskDefinitions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEcsTaskDefinition, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEcsTaskDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

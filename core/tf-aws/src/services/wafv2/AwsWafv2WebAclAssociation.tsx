@@ -54,9 +54,23 @@ export function AwsWafv2WebAclAssociation(props: Partial<InputProps>) {
 export const useAwsWafv2WebAclAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWafv2WebAclAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafv2WebAclAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2WebAclAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafv2WebAclAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafv2WebAclAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -66,8 +66,21 @@ export function AwsDocdbGlobalCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbGlobalCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDocdbGlobalCluster, idFilter, baseNode)
+export const useAwsDocdbGlobalCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDocdbGlobalCluster, idFilter, baseNode, optional)
 
-export const useAwsDocdbGlobalClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDocdbGlobalCluster, idFilter, baseNode)
+export const useAwsDocdbGlobalClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDocdbGlobalCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -56,5 +56,11 @@ export function DataAwsImagebuilderComponents(props: Partial<InputProps>) {
 export const useDataAwsImagebuilderComponentss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsImagebuilderComponents, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsImagebuilderComponents,
+    idFilter,
+    baseNode,
+    optional,
+  )

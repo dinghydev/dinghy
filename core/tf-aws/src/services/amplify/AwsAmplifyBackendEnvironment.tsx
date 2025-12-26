@@ -53,10 +53,23 @@ export function AwsAmplifyBackendEnvironment(props: Partial<InputProps>) {
 export const useAwsAmplifyBackendEnvironment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAmplifyBackendEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAmplifyBackendEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAmplifyBackendEnvironments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAmplifyBackendEnvironment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAmplifyBackendEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

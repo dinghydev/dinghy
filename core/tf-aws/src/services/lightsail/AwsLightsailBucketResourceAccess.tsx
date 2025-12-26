@@ -49,9 +49,11 @@ export function AwsLightsailBucketResourceAccess(props: Partial<InputProps>) {
 export const useAwsLightsailBucketResourceAccesss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLightsailBucketResourceAccess,
     idFilter,
     baseNode,
+    optional,
   )

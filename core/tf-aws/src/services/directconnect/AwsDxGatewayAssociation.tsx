@@ -61,10 +61,26 @@ export function AwsDxGatewayAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDxGatewayAssociation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDxGatewayAssociation, idFilter, baseNode)
+export const useAwsDxGatewayAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDxGatewayAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxGatewayAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDxGatewayAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDxGatewayAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -69,9 +69,23 @@ export function AwsConnectHoursOfOperation(props: Partial<InputProps>) {
 export const useAwsConnectHoursOfOperation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConnectHoursOfOperation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectHoursOfOperation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectHoursOfOperations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsConnectHoursOfOperation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectHoursOfOperation,
+    idFilter,
+    baseNode,
+    optional,
+  )

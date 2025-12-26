@@ -54,8 +54,16 @@ export function DataAwsKmsPublicKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKmsPublicKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsKmsPublicKey, idFilter, baseNode)
+export const useDataAwsKmsPublicKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsKmsPublicKey, idFilter, baseNode, optional)
 
-export const useDataAwsKmsPublicKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKmsPublicKey, idFilter, baseNode)
+export const useDataAwsKmsPublicKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsKmsPublicKey, idFilter, baseNode, optional)

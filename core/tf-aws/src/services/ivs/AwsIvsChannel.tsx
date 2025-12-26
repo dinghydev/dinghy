@@ -68,8 +68,14 @@ export function AwsIvsChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIvsChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIvsChannel, idFilter, baseNode)
+export const useAwsIvsChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIvsChannel, idFilter, baseNode, optional)
 
-export const useAwsIvsChannels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIvsChannel, idFilter, baseNode)
+export const useAwsIvsChannels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIvsChannel, idFilter, baseNode, optional)

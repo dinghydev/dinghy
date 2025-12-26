@@ -55,15 +55,23 @@ export function DataAwsSyntheticsRuntimeVersion(props: Partial<InputProps>) {
 export const useDataAwsSyntheticsRuntimeVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsSyntheticsRuntimeVersion, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsSyntheticsRuntimeVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSyntheticsRuntimeVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSyntheticsRuntimeVersion,
     idFilter,
     baseNode,
+    optional,
   )

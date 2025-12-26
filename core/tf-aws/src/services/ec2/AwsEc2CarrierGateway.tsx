@@ -50,8 +50,16 @@ export function AwsEc2CarrierGateway(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2CarrierGateway = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEc2CarrierGateway, idFilter, baseNode)
+export const useAwsEc2CarrierGateway = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEc2CarrierGateway, idFilter, baseNode, optional)
 
-export const useAwsEc2CarrierGateways = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEc2CarrierGateway, idFilter, baseNode)
+export const useAwsEc2CarrierGateways = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEc2CarrierGateway, idFilter, baseNode, optional)

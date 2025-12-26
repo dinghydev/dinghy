@@ -58,19 +58,23 @@ export function AwsCodeguruprofilerProfilingGroup(props: Partial<InputProps>) {
 export const useAwsCodeguruprofilerProfilingGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodeguruprofilerProfilingGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodeguruprofilerProfilingGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodeguruprofilerProfilingGroup,
     idFilter,
     baseNode,
+    optional,
   )

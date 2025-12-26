@@ -52,11 +52,23 @@ export function AwsApiGatewayRequestValidator(props: Partial<InputProps>) {
 export const useAwsApiGatewayRequestValidator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayRequestValidator, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsApiGatewayRequestValidator,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayRequestValidators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayRequestValidator, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayRequestValidator,
+    idFilter,
+    baseNode,
+    optional,
+  )

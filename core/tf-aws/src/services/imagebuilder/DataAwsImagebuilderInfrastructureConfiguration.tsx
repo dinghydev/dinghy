@@ -80,19 +80,23 @@ export function DataAwsImagebuilderInfrastructureConfiguration(
 export const useDataAwsImagebuilderInfrastructureConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsImagebuilderInfrastructureConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsImagebuilderInfrastructureConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsImagebuilderInfrastructureConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

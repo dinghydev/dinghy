@@ -53,8 +53,26 @@ export function AwsPinpointApnsChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointApnsChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointApnsChannel, idFilter, baseNode)
+export const useAwsPinpointApnsChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointApnsChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsPinpointApnsChannels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPinpointApnsChannel, idFilter, baseNode)
+export const useAwsPinpointApnsChannels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointApnsChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

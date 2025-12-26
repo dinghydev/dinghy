@@ -60,8 +60,16 @@ export function DataAwsEc2SpotPrice(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2SpotPrice = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEc2SpotPrice, idFilter, baseNode)
+export const useDataAwsEc2SpotPrice = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsEc2SpotPrice, idFilter, baseNode, optional)
 
-export const useDataAwsEc2SpotPrices = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEc2SpotPrice, idFilter, baseNode)
+export const useDataAwsEc2SpotPrices = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEc2SpotPrice, idFilter, baseNode, optional)

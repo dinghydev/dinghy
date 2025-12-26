@@ -53,19 +53,23 @@ export function DataAwsElasticBeanstalkSolutionStack(
 export const useDataAwsElasticBeanstalkSolutionStack = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsElasticBeanstalkSolutionStack,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsElasticBeanstalkSolutionStacks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsElasticBeanstalkSolutionStack,
     idFilter,
     baseNode,
+    optional,
   )

@@ -115,11 +115,23 @@ export function AwsRekognitionStreamProcessor(props: Partial<InputProps>) {
 export const useAwsRekognitionStreamProcessor = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRekognitionStreamProcessor, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRekognitionStreamProcessor,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRekognitionStreamProcessors = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRekognitionStreamProcessor, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRekognitionStreamProcessor,
+    idFilter,
+    baseNode,
+    optional,
+  )

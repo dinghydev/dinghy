@@ -108,8 +108,14 @@ export function DataAwsLb(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLb = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLb, idFilter, baseNode)
+export const useDataAwsLb = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsLb, idFilter, baseNode, optional)
 
-export const useDataAwsLbs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLb, idFilter, baseNode)
+export const useDataAwsLbs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsLb, idFilter, baseNode, optional)

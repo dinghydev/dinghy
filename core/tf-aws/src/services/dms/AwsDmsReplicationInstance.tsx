@@ -83,9 +83,23 @@ export function AwsDmsReplicationInstance(props: Partial<InputProps>) {
 export const useAwsDmsReplicationInstance = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDmsReplicationInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDmsReplicationInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDmsReplicationInstances = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDmsReplicationInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDmsReplicationInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

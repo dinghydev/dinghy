@@ -73,10 +73,26 @@ export function AwsOrganizationsAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOrganizationsAccount = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOrganizationsAccount, idFilter, baseNode)
+export const useAwsOrganizationsAccount = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOrganizationsAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOrganizationsAccounts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsOrganizationsAccount, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsOrganizationsAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )

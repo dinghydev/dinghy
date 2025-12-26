@@ -50,11 +50,23 @@ export function AwsCloudwatchLogResourcePolicy(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogResourcePolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchLogResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogResourcePolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

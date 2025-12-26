@@ -64,19 +64,23 @@ export function DataAwsAppconfigConfigurationProfile(
 export const useDataAwsAppconfigConfigurationProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsAppconfigConfigurationProfile,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsAppconfigConfigurationProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsAppconfigConfigurationProfile,
     idFilter,
     baseNode,
+    optional,
   )

@@ -58,19 +58,23 @@ export function DataAwsOdbNetworkPeeringConnection(props: Partial<InputProps>) {
 export const useDataAwsOdbNetworkPeeringConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOdbNetworkPeeringConnection,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOdbNetworkPeeringConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOdbNetworkPeeringConnection,
     idFilter,
     baseNode,
+    optional,
   )

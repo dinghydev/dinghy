@@ -50,8 +50,15 @@ export function AwsSyntheticsGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSyntheticsGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSyntheticsGroup, idFilter, baseNode)
+export const useAwsSyntheticsGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSyntheticsGroup, idFilter, baseNode, optional)
 
-export const useAwsSyntheticsGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSyntheticsGroup, idFilter, baseNode)
+export const useAwsSyntheticsGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSyntheticsGroup, idFilter, baseNode, optional)

@@ -46,8 +46,14 @@ export function AwsElbAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsElbAttachment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsElbAttachment, idFilter, baseNode)
+export const useAwsElbAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsElbAttachment, idFilter, baseNode, optional)
 
-export const useAwsElbAttachments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsElbAttachment, idFilter, baseNode)
+export const useAwsElbAttachments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsElbAttachment, idFilter, baseNode, optional)

@@ -54,19 +54,23 @@ export function AwsServiceDiscoveryHttpNamespace(props: Partial<InputProps>) {
 export const useAwsServiceDiscoveryHttpNamespace = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServiceDiscoveryHttpNamespace,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServiceDiscoveryHttpNamespaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServiceDiscoveryHttpNamespace,
     idFilter,
     baseNode,
+    optional,
   )

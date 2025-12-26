@@ -100,9 +100,23 @@ export function DataAwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
 export const useDataAwsEc2ClientVpnEndpoint = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsEc2ClientVpnEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsEc2ClientVpnEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEc2ClientVpnEndpoints = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEc2ClientVpnEndpoint, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2ClientVpnEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

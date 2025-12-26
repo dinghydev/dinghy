@@ -65,10 +65,26 @@ export function DataAwsGrafanaWorkspace(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsGrafanaWorkspace = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsGrafanaWorkspace, idFilter, baseNode)
+export const useDataAwsGrafanaWorkspace = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsGrafanaWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsGrafanaWorkspaces = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsGrafanaWorkspace, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsGrafanaWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )

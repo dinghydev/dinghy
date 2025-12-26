@@ -67,10 +67,23 @@ export function AwsRedshiftEventSubscription(props: Partial<InputProps>) {
 export const useAwsRedshiftEventSubscription = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftEventSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftEventSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRedshiftEventSubscription, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRedshiftEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

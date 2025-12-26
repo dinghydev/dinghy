@@ -60,10 +60,23 @@ export function AwsSsoadminAccountAssignment(props: Partial<InputProps>) {
 export const useAwsSsoadminAccountAssignment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSsoadminAccountAssignment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsoadminAccountAssignment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsoadminAccountAssignments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSsoadminAccountAssignment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSsoadminAccountAssignment,
+    idFilter,
+    baseNode,
+    optional,
+  )

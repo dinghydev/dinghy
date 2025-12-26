@@ -67,9 +67,23 @@ export function AwsAppmeshVirtualService(props: Partial<InputProps>) {
 export const useAwsAppmeshVirtualService = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppmeshVirtualService, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppmeshVirtualService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppmeshVirtualServices = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppmeshVirtualService, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppmeshVirtualService,
+    idFilter,
+    baseNode,
+    optional,
+  )

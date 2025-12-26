@@ -53,19 +53,23 @@ export function AwsSagemakerStudioLifecycleConfig(props: Partial<InputProps>) {
 export const useAwsSagemakerStudioLifecycleConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSagemakerStudioLifecycleConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSagemakerStudioLifecycleConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerStudioLifecycleConfig,
     idFilter,
     baseNode,
+    optional,
   )

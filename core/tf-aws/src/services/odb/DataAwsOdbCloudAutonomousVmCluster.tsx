@@ -108,19 +108,23 @@ export function DataAwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
 export const useDataAwsOdbCloudAutonomousVmCluster = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOdbCloudAutonomousVmCluster,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOdbCloudAutonomousVmClusters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOdbCloudAutonomousVmCluster,
     idFilter,
     baseNode,
+    optional,
   )

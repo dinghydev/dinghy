@@ -70,8 +70,14 @@ export function DataAwsEc2Host(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEc2Host = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEc2Host, idFilter, baseNode)
+export const useDataAwsEc2Host = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsEc2Host, idFilter, baseNode, optional)
 
-export const useDataAwsEc2Hosts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEc2Host, idFilter, baseNode)
+export const useDataAwsEc2Hosts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsEc2Host, idFilter, baseNode, optional)

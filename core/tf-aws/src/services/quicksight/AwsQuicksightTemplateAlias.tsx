@@ -52,4 +52,11 @@ export function AwsQuicksightTemplateAlias(props: Partial<InputProps>) {
 export const useAwsQuicksightTemplateAliass = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsQuicksightTemplateAlias, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightTemplateAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

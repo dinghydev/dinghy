@@ -66,10 +66,23 @@ export function AwsDevicefarmTestGridProject(props: Partial<InputProps>) {
 export const useAwsDevicefarmTestGridProject = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDevicefarmTestGridProject, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDevicefarmTestGridProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevicefarmTestGridProjects = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmTestGridProject, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDevicefarmTestGridProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,8 +50,16 @@ export function DataAwsIamUserSshKey(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamUserSshKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIamUserSshKey, idFilter, baseNode)
+export const useDataAwsIamUserSshKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsIamUserSshKey, idFilter, baseNode, optional)
 
-export const useDataAwsIamUserSshKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamUserSshKey, idFilter, baseNode)
+export const useDataAwsIamUserSshKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsIamUserSshKey, idFilter, baseNode, optional)

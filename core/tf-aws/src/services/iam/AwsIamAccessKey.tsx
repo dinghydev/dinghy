@@ -53,8 +53,14 @@ export function AwsIamAccessKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamAccessKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamAccessKey, idFilter, baseNode)
+export const useAwsIamAccessKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIamAccessKey, idFilter, baseNode, optional)
 
-export const useAwsIamAccessKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamAccessKey, idFilter, baseNode)
+export const useAwsIamAccessKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIamAccessKey, idFilter, baseNode, optional)

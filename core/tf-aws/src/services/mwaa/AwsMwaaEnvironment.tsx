@@ -129,8 +129,15 @@ export function AwsMwaaEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMwaaEnvironment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode)
+export const useAwsMwaaEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode, optional)
 
-export const useAwsMwaaEnvironments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode)
+export const useAwsMwaaEnvironments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode, optional)

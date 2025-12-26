@@ -54,8 +54,14 @@ export function AwsGlueWorkflow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueWorkflow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueWorkflow, idFilter, baseNode)
+export const useAwsGlueWorkflow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueWorkflow, idFilter, baseNode, optional)
 
-export const useAwsGlueWorkflows = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueWorkflow, idFilter, baseNode)
+export const useAwsGlueWorkflows = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueWorkflow, idFilter, baseNode, optional)

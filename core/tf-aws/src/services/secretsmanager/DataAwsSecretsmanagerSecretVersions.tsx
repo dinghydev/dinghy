@@ -58,9 +58,11 @@ export function DataAwsSecretsmanagerSecretVersions(
 export const useDataAwsSecretsmanagerSecretVersionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSecretsmanagerSecretVersions,
     idFilter,
     baseNode,
+    optional,
   )

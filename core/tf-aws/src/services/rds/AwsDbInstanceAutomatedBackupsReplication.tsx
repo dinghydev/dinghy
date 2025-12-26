@@ -60,19 +60,23 @@ export function AwsDbInstanceAutomatedBackupsReplication(
 export const useAwsDbInstanceAutomatedBackupsReplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDbInstanceAutomatedBackupsReplication,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDbInstanceAutomatedBackupsReplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDbInstanceAutomatedBackupsReplication,
     idFilter,
     baseNode,
+    optional,
   )

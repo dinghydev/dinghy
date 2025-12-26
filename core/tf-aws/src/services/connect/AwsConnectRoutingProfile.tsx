@@ -83,9 +83,23 @@ export function AwsConnectRoutingProfile(props: Partial<InputProps>) {
 export const useAwsConnectRoutingProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConnectRoutingProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectRoutingProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectRoutingProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsConnectRoutingProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConnectRoutingProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

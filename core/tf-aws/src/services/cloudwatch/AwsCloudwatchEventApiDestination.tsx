@@ -55,19 +55,23 @@ export function AwsCloudwatchEventApiDestination(props: Partial<InputProps>) {
 export const useAwsCloudwatchEventApiDestination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudwatchEventApiDestination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudwatchEventApiDestinations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudwatchEventApiDestination,
     idFilter,
     baseNode,
+    optional,
   )

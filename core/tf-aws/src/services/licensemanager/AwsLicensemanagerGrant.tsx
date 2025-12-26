@@ -54,8 +54,26 @@ export function AwsLicensemanagerGrant(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLicensemanagerGrant = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLicensemanagerGrant, idFilter, baseNode)
+export const useAwsLicensemanagerGrant = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLicensemanagerGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsLicensemanagerGrants = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLicensemanagerGrant, idFilter, baseNode)
+export const useAwsLicensemanagerGrants = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLicensemanagerGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )

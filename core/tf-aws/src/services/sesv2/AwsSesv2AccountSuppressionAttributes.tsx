@@ -49,9 +49,11 @@ export function AwsSesv2AccountSuppressionAttributes(
 export const useAwsSesv2AccountSuppressionAttributess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSesv2AccountSuppressionAttributes,
     idFilter,
     baseNode,
+    optional,
   )

@@ -92,8 +92,21 @@ export function DataAwsAppstreamImage(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAppstreamImage = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAppstreamImage, idFilter, baseNode)
+export const useDataAwsAppstreamImage = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsAppstreamImage, idFilter, baseNode, optional)
 
-export const useDataAwsAppstreamImages = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsAppstreamImage, idFilter, baseNode)
+export const useDataAwsAppstreamImages = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAppstreamImage,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -56,8 +56,26 @@ export function AwsTransferCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferCertificate, idFilter, baseNode)
+export const useAwsTransferCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsTransferCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsTransferCertificates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferCertificate, idFilter, baseNode)
+export const useAwsTransferCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsTransferCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

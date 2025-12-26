@@ -67,9 +67,23 @@ export function DataAwsApiGatewayDomainName(props: Partial<InputProps>) {
 export const useDataAwsApiGatewayDomainName = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsApiGatewayDomainName, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsApiGatewayDomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsApiGatewayDomainNames = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsApiGatewayDomainName, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsApiGatewayDomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -61,8 +61,14 @@ export function AwsMemorydbUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMemorydbUser, idFilter, baseNode)
+export const useAwsMemorydbUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMemorydbUser, idFilter, baseNode, optional)
 
-export const useAwsMemorydbUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMemorydbUser, idFilter, baseNode)
+export const useAwsMemorydbUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsMemorydbUser, idFilter, baseNode, optional)

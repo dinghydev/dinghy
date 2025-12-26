@@ -61,8 +61,21 @@ export function AwsS3BucketVersioning(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketVersioning = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3BucketVersioning, idFilter, baseNode)
+export const useAwsS3BucketVersioning = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsS3BucketVersioning, idFilter, baseNode, optional)
 
-export const useAwsS3BucketVersionings = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3BucketVersioning, idFilter, baseNode)
+export const useAwsS3BucketVersionings = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3BucketVersioning,
+    idFilter,
+    baseNode,
+    optional,
+  )

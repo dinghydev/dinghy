@@ -68,19 +68,23 @@ export function DataAwsS3controlMultiRegionAccessPoint(
 export const useDataAwsS3controlMultiRegionAccessPoint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsS3controlMultiRegionAccessPoint,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsS3controlMultiRegionAccessPoints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsS3controlMultiRegionAccessPoint,
     idFilter,
     baseNode,
+    optional,
   )

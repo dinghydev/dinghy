@@ -69,19 +69,23 @@ export function AwsCloudfrontOriginRequestPolicy(props: Partial<InputProps>) {
 export const useAwsCloudfrontOriginRequestPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontOriginRequestPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontOriginRequestPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontOriginRequestPolicy,
     idFilter,
     baseNode,
+    optional,
   )

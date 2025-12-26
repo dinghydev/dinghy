@@ -58,4 +58,11 @@ export function DataAwsCloudwatchEventBus(props: Partial<InputProps>) {
 export const useDataAwsCloudwatchEventBuss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCloudwatchEventBus, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudwatchEventBus,
+    idFilter,
+    baseNode,
+    optional,
+  )

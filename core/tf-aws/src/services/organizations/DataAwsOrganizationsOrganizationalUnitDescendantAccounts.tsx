@@ -59,9 +59,11 @@ export function DataAwsOrganizationsOrganizationalUnitDescendantAccounts(
 export const useDataAwsOrganizationsOrganizationalUnitDescendantAccountss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsOrganizationalUnitDescendantAccounts,
     idFilter,
     baseNode,
+    optional,
   )

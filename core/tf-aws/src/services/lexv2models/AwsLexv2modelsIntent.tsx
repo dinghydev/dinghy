@@ -3103,8 +3103,16 @@ export function AwsLexv2modelsIntent(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsIntent = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsIntent, idFilter, baseNode)
+export const useAwsLexv2modelsIntent = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLexv2modelsIntent, idFilter, baseNode, optional)
 
-export const useAwsLexv2modelsIntents = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsIntent, idFilter, baseNode)
+export const useAwsLexv2modelsIntents = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLexv2modelsIntent, idFilter, baseNode, optional)

@@ -109,19 +109,23 @@ export function AwsS3BucketReplicationConfiguration(
 export const useAwsS3BucketReplicationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketReplicationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketReplicationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketReplicationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

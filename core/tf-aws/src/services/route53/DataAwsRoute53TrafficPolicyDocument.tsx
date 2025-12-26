@@ -111,19 +111,23 @@ export function DataAwsRoute53TrafficPolicyDocument(
 export const useDataAwsRoute53TrafficPolicyDocument = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsRoute53TrafficPolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsRoute53TrafficPolicyDocuments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRoute53TrafficPolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )

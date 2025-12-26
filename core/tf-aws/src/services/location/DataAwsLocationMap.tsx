@@ -54,8 +54,15 @@ export function DataAwsLocationMap(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLocationMap = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLocationMap, idFilter, baseNode)
+export const useDataAwsLocationMap = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsLocationMap, idFilter, baseNode, optional)
 
-export const useDataAwsLocationMaps = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLocationMap, idFilter, baseNode)
+export const useDataAwsLocationMaps = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsLocationMap, idFilter, baseNode, optional)

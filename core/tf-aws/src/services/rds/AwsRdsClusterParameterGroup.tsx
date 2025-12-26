@@ -62,9 +62,23 @@ export function AwsRdsClusterParameterGroup(props: Partial<InputProps>) {
 export const useAwsRdsClusterParameterGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRdsClusterParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRdsClusterParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsClusterParameterGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRdsClusterParameterGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRdsClusterParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

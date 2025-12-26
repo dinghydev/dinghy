@@ -210,8 +210,15 @@ export function AwsCognitoUserPool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCognitoUserPool = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCognitoUserPool, idFilter, baseNode)
+export const useAwsCognitoUserPool = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsCognitoUserPool, idFilter, baseNode, optional)
 
-export const useAwsCognitoUserPools = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCognitoUserPool, idFilter, baseNode)
+export const useAwsCognitoUserPools = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCognitoUserPool, idFilter, baseNode, optional)

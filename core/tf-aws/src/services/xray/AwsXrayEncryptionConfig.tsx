@@ -47,10 +47,26 @@ export function AwsXrayEncryptionConfig(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsXrayEncryptionConfig = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsXrayEncryptionConfig, idFilter, baseNode)
+export const useAwsXrayEncryptionConfig = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsXrayEncryptionConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsXrayEncryptionConfigs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsXrayEncryptionConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsXrayEncryptionConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

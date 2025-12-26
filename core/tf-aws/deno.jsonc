@@ -241,6 +241,7 @@
 
     "./foundation": "./src/foundation/index.ts",
     "./cloudfrontSites": "./src/composites/cloudfront-sites/index.ts",
+    "./s3Bucket": "./src/composites/s3-bucket/index.ts",
     ".": "./src/index.ts"
   }
 }

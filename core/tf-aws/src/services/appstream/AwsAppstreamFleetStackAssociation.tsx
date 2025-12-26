@@ -50,19 +50,23 @@ export function AwsAppstreamFleetStackAssociation(props: Partial<InputProps>) {
 export const useAwsAppstreamFleetStackAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppstreamFleetStackAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppstreamFleetStackAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppstreamFleetStackAssociation,
     idFilter,
     baseNode,
+    optional,
   )

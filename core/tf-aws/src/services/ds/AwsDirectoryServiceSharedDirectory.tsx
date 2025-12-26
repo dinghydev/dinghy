@@ -61,19 +61,23 @@ export function AwsDirectoryServiceSharedDirectory(props: Partial<InputProps>) {
 export const useAwsDirectoryServiceSharedDirectory = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDirectoryServiceSharedDirectory,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDirectoryServiceSharedDirectorys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDirectoryServiceSharedDirectory,
     idFilter,
     baseNode,
+    optional,
   )

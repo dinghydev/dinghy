@@ -49,10 +49,26 @@ export function AwsVpnGatewayAttachment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpnGatewayAttachment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpnGatewayAttachment, idFilter, baseNode)
+export const useAwsVpnGatewayAttachment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpnGatewayAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpnGatewayAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpnGatewayAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpnGatewayAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

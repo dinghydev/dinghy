@@ -63,19 +63,23 @@ export function AwsChimesdkvoiceVoiceProfileDomain(props: Partial<InputProps>) {
 export const useAwsChimesdkvoiceVoiceProfileDomain = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsChimesdkvoiceVoiceProfileDomain,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsChimesdkvoiceVoiceProfileDomains = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChimesdkvoiceVoiceProfileDomain,
     idFilter,
     baseNode,
+    optional,
   )

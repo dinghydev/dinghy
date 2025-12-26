@@ -53,19 +53,23 @@ export function AwsLoadBalancerBackendServerPolicy(props: Partial<InputProps>) {
 export const useAwsLoadBalancerBackendServerPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLoadBalancerBackendServerPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLoadBalancerBackendServerPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLoadBalancerBackendServerPolicy,
     idFilter,
     baseNode,
+    optional,
   )

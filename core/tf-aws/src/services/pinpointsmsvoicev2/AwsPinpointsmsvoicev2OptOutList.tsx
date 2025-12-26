@@ -52,15 +52,23 @@ export function AwsPinpointsmsvoicev2OptOutList(props: Partial<InputProps>) {
 export const useAwsPinpointsmsvoicev2OptOutList = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsPinpointsmsvoicev2OptOutList, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsPinpointsmsvoicev2OptOutList,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPinpointsmsvoicev2OptOutLists = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPinpointsmsvoicev2OptOutList,
     idFilter,
     baseNode,
+    optional,
   )

@@ -80,19 +80,23 @@ export function AwsVerifiedpermissionsIdentitySource(
 export const useAwsVerifiedpermissionsIdentitySource = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedpermissionsIdentitySource,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVerifiedpermissionsIdentitySources = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedpermissionsIdentitySource,
     idFilter,
     baseNode,
+    optional,
   )

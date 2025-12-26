@@ -58,9 +58,23 @@ export function AwsRouteTableAssociation(props: Partial<InputProps>) {
 export const useAwsRouteTableAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRouteTableAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRouteTableAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRouteTableAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRouteTableAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRouteTableAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

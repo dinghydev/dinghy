@@ -52,8 +52,14 @@ export function AwsAcmpcaPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAcmpcaPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode)
+export const useAwsAcmpcaPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode, optional)
 
-export const useAwsAcmpcaPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode)
+export const useAwsAcmpcaPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode, optional)

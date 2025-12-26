@@ -52,8 +52,21 @@ export function AwsNeptuneSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNeptuneSubnetGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNeptuneSubnetGroup, idFilter, baseNode)
+export const useAwsNeptuneSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsNeptuneSubnetGroup, idFilter, baseNode, optional)
 
-export const useAwsNeptuneSubnetGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNeptuneSubnetGroup, idFilter, baseNode)
+export const useAwsNeptuneSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNeptuneSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

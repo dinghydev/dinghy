@@ -51,4 +51,11 @@ export function AwsBackupVaultNotifications(props: Partial<InputProps>) {
 export const useAwsBackupVaultNotificationss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBackupVaultNotifications, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBackupVaultNotifications,
+    idFilter,
+    baseNode,
+    optional,
+  )

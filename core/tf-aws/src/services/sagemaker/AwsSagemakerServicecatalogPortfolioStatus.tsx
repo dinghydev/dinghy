@@ -50,9 +50,11 @@ export function AwsSagemakerServicecatalogPortfolioStatus(
 export const useAwsSagemakerServicecatalogPortfolioStatuss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerServicecatalogPortfolioStatus,
     idFilter,
     baseNode,
+    optional,
   )

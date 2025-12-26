@@ -79,8 +79,16 @@ export function AwsSagemakerWorkteam(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerWorkteam = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerWorkteam, idFilter, baseNode)
+export const useAwsSagemakerWorkteam = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSagemakerWorkteam, idFilter, baseNode, optional)
 
-export const useAwsSagemakerWorkteams = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerWorkteam, idFilter, baseNode)
+export const useAwsSagemakerWorkteams = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSagemakerWorkteam, idFilter, baseNode, optional)

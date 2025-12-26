@@ -105,8 +105,21 @@ export function AwsLakeformationOptIn(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLakeformationOptIn = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLakeformationOptIn, idFilter, baseNode)
+export const useAwsLakeformationOptIn = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLakeformationOptIn, idFilter, baseNode, optional)
 
-export const useAwsLakeformationOptIns = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLakeformationOptIn, idFilter, baseNode)
+export const useAwsLakeformationOptIns = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLakeformationOptIn,
+    idFilter,
+    baseNode,
+    optional,
+  )

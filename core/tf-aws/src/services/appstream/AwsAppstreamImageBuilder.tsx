@@ -80,9 +80,23 @@ export function AwsAppstreamImageBuilder(props: Partial<InputProps>) {
 export const useAwsAppstreamImageBuilder = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppstreamImageBuilder, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppstreamImageBuilder,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppstreamImageBuilders = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppstreamImageBuilder, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppstreamImageBuilder,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -47,8 +47,15 @@ export function DataAwsIotEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIotEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIotEndpoint, idFilter, baseNode)
+export const useDataAwsIotEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsIotEndpoint, idFilter, baseNode, optional)
 
-export const useDataAwsIotEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIotEndpoint, idFilter, baseNode)
+export const useDataAwsIotEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsIotEndpoint, idFilter, baseNode, optional)

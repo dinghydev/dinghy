@@ -58,10 +58,26 @@ export function AwsWafv2RegexPatternSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2RegexPatternSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafv2RegexPatternSet, idFilter, baseNode)
+export const useAwsWafv2RegexPatternSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafv2RegexPatternSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2RegexPatternSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafv2RegexPatternSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafv2RegexPatternSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

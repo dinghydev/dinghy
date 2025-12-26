@@ -78,10 +78,23 @@ export function DataAwsSesv2ConfigurationSet(props: Partial<InputProps>) {
 export const useDataAwsSesv2ConfigurationSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSesv2ConfigurationSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSesv2ConfigurationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSesv2ConfigurationSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSesv2ConfigurationSet, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsSesv2ConfigurationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

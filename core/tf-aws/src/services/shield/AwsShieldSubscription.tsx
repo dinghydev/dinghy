@@ -46,8 +46,21 @@ export function AwsShieldSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsShieldSubscription = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsShieldSubscription, idFilter, baseNode)
+export const useAwsShieldSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsShieldSubscription, idFilter, baseNode, optional)
 
-export const useAwsShieldSubscriptions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsShieldSubscription, idFilter, baseNode)
+export const useAwsShieldSubscriptions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsShieldSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

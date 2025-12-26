@@ -89,8 +89,14 @@ export function AwsAppsyncApi(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncApi = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppsyncApi, idFilter, baseNode)
+export const useAwsAppsyncApi = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppsyncApi, idFilter, baseNode, optional)
 
-export const useAwsAppsyncApis = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppsyncApi, idFilter, baseNode)
+export const useAwsAppsyncApis = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAppsyncApi, idFilter, baseNode, optional)

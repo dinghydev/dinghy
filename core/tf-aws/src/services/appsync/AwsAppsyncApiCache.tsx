@@ -51,8 +51,15 @@ export function AwsAppsyncApiCache(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppsyncApiCache = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode)
+export const useAwsAppsyncApiCache = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode, optional)
 
-export const useAwsAppsyncApiCaches = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode)
+export const useAwsAppsyncApiCaches = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode, optional)

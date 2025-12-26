@@ -74,8 +74,14 @@ export function DataAwsOdbDbNode(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbDbNode = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsOdbDbNode, idFilter, baseNode)
+export const useDataAwsOdbDbNode = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsOdbDbNode, idFilter, baseNode, optional)
 
-export const useDataAwsOdbDbNodes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOdbDbNode, idFilter, baseNode)
+export const useDataAwsOdbDbNodes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsOdbDbNode, idFilter, baseNode, optional)

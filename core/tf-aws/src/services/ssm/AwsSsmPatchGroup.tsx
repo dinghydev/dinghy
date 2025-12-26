@@ -47,8 +47,14 @@ export function AwsSsmPatchGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmPatchGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmPatchGroup, idFilter, baseNode)
+export const useAwsSsmPatchGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSsmPatchGroup, idFilter, baseNode, optional)
 
-export const useAwsSsmPatchGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmPatchGroup, idFilter, baseNode)
+export const useAwsSsmPatchGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSsmPatchGroup, idFilter, baseNode, optional)

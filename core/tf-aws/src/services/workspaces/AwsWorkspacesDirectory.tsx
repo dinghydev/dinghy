@@ -112,8 +112,26 @@ export function AwsWorkspacesDirectory(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesDirectory = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWorkspacesDirectory, idFilter, baseNode)
+export const useAwsWorkspacesDirectory = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWorkspacesDirectory,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsWorkspacesDirectorys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesDirectory, idFilter, baseNode)
+export const useAwsWorkspacesDirectorys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspacesDirectory,
+    idFilter,
+    baseNode,
+    optional,
+  )

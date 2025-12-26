@@ -49,4 +49,11 @@ export function DataAwsControltowerControls(props: Partial<InputProps>) {
 export const useDataAwsControltowerControlss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsControltowerControls, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsControltowerControls,
+    idFilter,
+    baseNode,
+    optional,
+  )

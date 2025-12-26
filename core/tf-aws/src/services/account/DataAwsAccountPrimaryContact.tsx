@@ -59,10 +59,23 @@ export function DataAwsAccountPrimaryContact(props: Partial<InputProps>) {
 export const useDataAwsAccountPrimaryContact = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAccountPrimaryContact, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAccountPrimaryContact,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAccountPrimaryContacts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsAccountPrimaryContact, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsAccountPrimaryContact,
+    idFilter,
+    baseNode,
+    optional,
+  )

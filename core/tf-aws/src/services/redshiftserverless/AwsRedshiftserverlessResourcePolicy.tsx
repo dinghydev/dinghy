@@ -52,19 +52,23 @@ export function AwsRedshiftserverlessResourcePolicy(
 export const useAwsRedshiftserverlessResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRedshiftserverlessResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRedshiftserverlessResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftserverlessResourcePolicy,
     idFilter,
     baseNode,
+    optional,
   )

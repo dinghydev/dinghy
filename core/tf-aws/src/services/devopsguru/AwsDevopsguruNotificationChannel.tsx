@@ -59,19 +59,23 @@ export function AwsDevopsguruNotificationChannel(props: Partial<InputProps>) {
 export const useAwsDevopsguruNotificationChannel = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDevopsguruNotificationChannel,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDevopsguruNotificationChannels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDevopsguruNotificationChannel,
     idFilter,
     baseNode,
+    optional,
   )

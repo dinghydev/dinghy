@@ -68,8 +68,14 @@ export function AwsDatazoneDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneDomain, idFilter, baseNode)
+export const useAwsDatazoneDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDatazoneDomain, idFilter, baseNode, optional)
 
-export const useAwsDatazoneDomains = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneDomain, idFilter, baseNode)
+export const useAwsDatazoneDomains = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDatazoneDomain, idFilter, baseNode, optional)

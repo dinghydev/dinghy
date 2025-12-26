@@ -77,8 +77,14 @@ export function AwsLexv2modelsBot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsBot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode)
+export const useAwsLexv2modelsBot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode, optional)
 
-export const useAwsLexv2modelsBots = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode)
+export const useAwsLexv2modelsBots = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode, optional)

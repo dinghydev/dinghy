@@ -58,8 +58,15 @@ export function AwsS3controlBucket(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3controlBucket = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3controlBucket, idFilter, baseNode)
+export const useAwsS3controlBucket = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsS3controlBucket, idFilter, baseNode, optional)
 
-export const useAwsS3controlBuckets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3controlBucket, idFilter, baseNode)
+export const useAwsS3controlBuckets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsS3controlBucket, idFilter, baseNode, optional)

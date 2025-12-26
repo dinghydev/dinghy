@@ -54,9 +54,11 @@ export function AwsOpensearchAuthorizeVpcEndpointAccess(
 export const useAwsOpensearchAuthorizeVpcEndpointAccesss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchAuthorizeVpcEndpointAccess,
     idFilter,
     baseNode,
+    optional,
   )

@@ -147,19 +147,23 @@ export function AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration(
 export const useAwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsChimesdkmediapipelinesMediaInsightsPipelineConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

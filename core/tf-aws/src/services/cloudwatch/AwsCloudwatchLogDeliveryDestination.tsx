@@ -60,19 +60,23 @@ export function AwsCloudwatchLogDeliveryDestination(
 export const useAwsCloudwatchLogDeliveryDestination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudwatchLogDeliveryDestination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudwatchLogDeliveryDestinations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudwatchLogDeliveryDestination,
     idFilter,
     baseNode,
+    optional,
   )

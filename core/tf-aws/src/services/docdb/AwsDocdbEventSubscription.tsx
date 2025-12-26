@@ -66,9 +66,23 @@ export function AwsDocdbEventSubscription(props: Partial<InputProps>) {
 export const useAwsDocdbEventSubscription = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDocdbEventSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDocdbEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbEventSubscriptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDocdbEventSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDocdbEventSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

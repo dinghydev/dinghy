@@ -55,19 +55,23 @@ export function AwsVpclatticeAccessLogSubscription(props: Partial<InputProps>) {
 export const useAwsVpclatticeAccessLogSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpclatticeAccessLogSubscription,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpclatticeAccessLogSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeAccessLogSubscription,
     idFilter,
     baseNode,
+    optional,
   )

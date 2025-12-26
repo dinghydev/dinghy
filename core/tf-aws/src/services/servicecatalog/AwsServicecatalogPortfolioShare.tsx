@@ -64,15 +64,23 @@ export function AwsServicecatalogPortfolioShare(props: Partial<InputProps>) {
 export const useAwsServicecatalogPortfolioShare = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsServicecatalogPortfolioShare, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsServicecatalogPortfolioShare,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServicecatalogPortfolioShares = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogPortfolioShare,
     idFilter,
     baseNode,
+    optional,
   )

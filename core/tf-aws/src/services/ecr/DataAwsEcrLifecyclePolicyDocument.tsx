@@ -64,19 +64,23 @@ export function DataAwsEcrLifecyclePolicyDocument(props: Partial<InputProps>) {
 export const useDataAwsEcrLifecyclePolicyDocument = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEcrLifecyclePolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEcrLifecyclePolicyDocuments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEcrLifecyclePolicyDocument,
     idFilter,
     baseNode,
+    optional,
   )

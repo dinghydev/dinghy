@@ -49,9 +49,23 @@ export function DataAwsWafregionalWebAcl(props: Partial<InputProps>) {
 export const useDataAwsWafregionalWebAcl = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsWafregionalWebAcl, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWafregionalWebAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWafregionalWebAcls = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsWafregionalWebAcl, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWafregionalWebAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )

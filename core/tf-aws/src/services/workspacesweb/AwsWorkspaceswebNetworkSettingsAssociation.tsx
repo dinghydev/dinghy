@@ -50,19 +50,23 @@ export function AwsWorkspaceswebNetworkSettingsAssociation(
 export const useAwsWorkspaceswebNetworkSettingsAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebNetworkSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebNetworkSettingsAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebNetworkSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )

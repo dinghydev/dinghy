@@ -69,11 +69,23 @@ export function AwsEc2TrafficMirrorFilterRule(props: Partial<InputProps>) {
 export const useAwsEc2TrafficMirrorFilterRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2TrafficMirrorFilterRule, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEc2TrafficMirrorFilterRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2TrafficMirrorFilterRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2TrafficMirrorFilterRule, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEc2TrafficMirrorFilterRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

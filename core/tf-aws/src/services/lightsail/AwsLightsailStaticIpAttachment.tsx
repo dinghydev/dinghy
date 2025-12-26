@@ -51,11 +51,23 @@ export function AwsLightsailStaticIpAttachment(props: Partial<InputProps>) {
 export const useAwsLightsailStaticIpAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLightsailStaticIpAttachment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLightsailStaticIpAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailStaticIpAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailStaticIpAttachment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLightsailStaticIpAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

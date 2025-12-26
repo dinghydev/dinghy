@@ -54,9 +54,11 @@ export function AwsServicecatalogOrganizationsAccess(
 export const useAwsServicecatalogOrganizationsAccesss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogOrganizationsAccess,
     idFilter,
     baseNode,
+    optional,
   )

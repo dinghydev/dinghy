@@ -50,8 +50,16 @@ export function AwsDatazoneGlossary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneGlossary = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneGlossary, idFilter, baseNode)
+export const useAwsDatazoneGlossary = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDatazoneGlossary, idFilter, baseNode, optional)
 
-export const useAwsDatazoneGlossarys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneGlossary, idFilter, baseNode)
+export const useAwsDatazoneGlossarys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDatazoneGlossary, idFilter, baseNode, optional)

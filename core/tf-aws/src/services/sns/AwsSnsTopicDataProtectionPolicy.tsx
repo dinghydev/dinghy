@@ -55,15 +55,23 @@ export function AwsSnsTopicDataProtectionPolicy(props: Partial<InputProps>) {
 export const useAwsSnsTopicDataProtectionPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSnsTopicDataProtectionPolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSnsTopicDataProtectionPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSnsTopicDataProtectionPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSnsTopicDataProtectionPolicy,
     idFilter,
     baseNode,
+    optional,
   )

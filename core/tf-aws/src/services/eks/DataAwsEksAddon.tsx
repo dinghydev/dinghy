@@ -58,8 +58,14 @@ export function DataAwsEksAddon(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEksAddon = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEksAddon, idFilter, baseNode)
+export const useDataAwsEksAddon = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsEksAddon, idFilter, baseNode, optional)
 
-export const useDataAwsEksAddons = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEksAddon, idFilter, baseNode)
+export const useDataAwsEksAddons = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsEksAddon, idFilter, baseNode, optional)

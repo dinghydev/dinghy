@@ -54,11 +54,23 @@ export function DataAwsMskconnectCustomPlugin(props: Partial<InputProps>) {
 export const useDataAwsMskconnectCustomPlugin = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsMskconnectCustomPlugin, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsMskconnectCustomPlugin,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsMskconnectCustomPlugins = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsMskconnectCustomPlugin, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsMskconnectCustomPlugin,
+    idFilter,
+    baseNode,
+    optional,
+  )

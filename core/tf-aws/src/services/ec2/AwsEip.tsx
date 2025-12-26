@@ -73,8 +73,14 @@ export function AwsEip(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEip = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEip, idFilter, baseNode)
+export const useAwsEip = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEip, idFilter, baseNode, optional)
 
-export const useAwsEips = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEip, idFilter, baseNode)
+export const useAwsEips = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEip, idFilter, baseNode, optional)

@@ -53,19 +53,23 @@ export function AwsEc2TransitGatewayMulticastGroupMember(
 export const useAwsEc2TransitGatewayMulticastGroupMember = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayMulticastGroupMember,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayMulticastGroupMembers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayMulticastGroupMember,
     idFilter,
     baseNode,
+    optional,
   )

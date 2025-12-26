@@ -45,8 +45,14 @@ export function AwsRdsCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsCertificate, idFilter, baseNode)
+export const useAwsRdsCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRdsCertificate, idFilter, baseNode, optional)
 
-export const useAwsRdsCertificates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsCertificate, idFilter, baseNode)
+export const useAwsRdsCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRdsCertificate, idFilter, baseNode, optional)

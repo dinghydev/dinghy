@@ -116,9 +116,23 @@ export function AwsElastictranscoderPreset(props: Partial<InputProps>) {
 export const useAwsElastictranscoderPreset = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsElastictranscoderPreset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElastictranscoderPreset,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElastictranscoderPresets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsElastictranscoderPreset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsElastictranscoderPreset,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -78,9 +78,23 @@ export function AwsBedrockagentcoreBrowser(props: Partial<InputProps>) {
 export const useAwsBedrockagentcoreBrowser = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsBedrockagentcoreBrowser, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreBrowser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentcoreBrowsers = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBedrockagentcoreBrowser, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBedrockagentcoreBrowser,
+    idFilter,
+    baseNode,
+    optional,
+  )

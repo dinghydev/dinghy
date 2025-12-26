@@ -45,5 +45,9 @@ export function DataAwsDxLocations(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDxLocationss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDxLocations, idFilter, baseNode)
+export const useDataAwsDxLocationss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDxLocations, idFilter, baseNode, optional)

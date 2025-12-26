@@ -49,5 +49,11 @@ export function DataAwsApiGatewayAuthorizers(props: Partial<InputProps>) {
 export const useDataAwsApiGatewayAuthorizerss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsApiGatewayAuthorizers, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsApiGatewayAuthorizers,
+    idFilter,
+    baseNode,
+    optional,
+  )

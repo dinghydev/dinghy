@@ -83,8 +83,14 @@ export function AwsEcrRepository(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRepository = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcrRepository, idFilter, baseNode)
+export const useAwsEcrRepository = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEcrRepository, idFilter, baseNode, optional)
 
-export const useAwsEcrRepositorys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcrRepository, idFilter, baseNode)
+export const useAwsEcrRepositorys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEcrRepository, idFilter, baseNode, optional)

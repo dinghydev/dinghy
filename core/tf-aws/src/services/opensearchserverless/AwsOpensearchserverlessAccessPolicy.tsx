@@ -55,19 +55,23 @@ export function AwsOpensearchserverlessAccessPolicy(
 export const useAwsOpensearchserverlessAccessPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOpensearchserverlessAccessPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOpensearchserverlessAccessPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchserverlessAccessPolicy,
     idFilter,
     baseNode,
+    optional,
   )

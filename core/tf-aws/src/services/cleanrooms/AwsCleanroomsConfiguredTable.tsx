@@ -76,10 +76,23 @@ export function AwsCleanroomsConfiguredTable(props: Partial<InputProps>) {
 export const useAwsCleanroomsConfiguredTable = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCleanroomsConfiguredTable, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCleanroomsConfiguredTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCleanroomsConfiguredTables = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCleanroomsConfiguredTable, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCleanroomsConfiguredTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -69,15 +69,23 @@ export function AwsVpcPeeringConnectionAccepter(props: Partial<InputProps>) {
 export const useAwsVpcPeeringConnectionAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcPeeringConnectionAccepter, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpcPeeringConnectionAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcPeeringConnectionAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcPeeringConnectionAccepter,
     idFilter,
     baseNode,
+    optional,
   )

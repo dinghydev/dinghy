@@ -62,9 +62,11 @@ export function DataAwsMqBrokerInstanceTypeOfferings(
 export const useDataAwsMqBrokerInstanceTypeOfferingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsMqBrokerInstanceTypeOfferings,
     idFilter,
     baseNode,
+    optional,
   )

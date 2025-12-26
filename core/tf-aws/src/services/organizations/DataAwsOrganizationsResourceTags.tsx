@@ -48,9 +48,11 @@ export function DataAwsOrganizationsResourceTags(props: Partial<InputProps>) {
 export const useDataAwsOrganizationsResourceTagss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsResourceTags,
     idFilter,
     baseNode,
+    optional,
   )

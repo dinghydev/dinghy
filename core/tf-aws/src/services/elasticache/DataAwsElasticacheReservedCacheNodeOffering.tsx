@@ -55,19 +55,23 @@ export function DataAwsElasticacheReservedCacheNodeOffering(
 export const useDataAwsElasticacheReservedCacheNodeOffering = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsElasticacheReservedCacheNodeOffering,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsElasticacheReservedCacheNodeOfferings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsElasticacheReservedCacheNodeOffering,
     idFilter,
     baseNode,
+    optional,
   )

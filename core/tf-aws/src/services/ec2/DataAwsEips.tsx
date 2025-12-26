@@ -58,5 +58,8 @@ export function DataAwsEips(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEipss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEips, idFilter, baseNode)
+export const useDataAwsEipss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsEips, idFilter, baseNode, optional)

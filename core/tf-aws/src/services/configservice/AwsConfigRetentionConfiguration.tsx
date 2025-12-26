@@ -50,15 +50,23 @@ export function AwsConfigRetentionConfiguration(props: Partial<InputProps>) {
 export const useAwsConfigRetentionConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConfigRetentionConfiguration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsConfigRetentionConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigRetentionConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigRetentionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

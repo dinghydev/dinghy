@@ -50,19 +50,23 @@ export function AwsAppsyncDomainNameApiAssociation(props: Partial<InputProps>) {
 export const useAwsAppsyncDomainNameApiAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppsyncDomainNameApiAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppsyncDomainNameApiAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppsyncDomainNameApiAssociation,
     idFilter,
     baseNode,
+    optional,
   )

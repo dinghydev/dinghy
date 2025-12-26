@@ -47,8 +47,26 @@ export function AwsRoute53CidrLocation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53CidrLocation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53CidrLocation, idFilter, baseNode)
+export const useAwsRoute53CidrLocation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53CidrLocation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsRoute53CidrLocations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRoute53CidrLocation, idFilter, baseNode)
+export const useAwsRoute53CidrLocations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53CidrLocation,
+    idFilter,
+    baseNode,
+    optional,
+  )

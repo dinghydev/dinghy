@@ -56,11 +56,23 @@ export function AwsSesv2DedicatedIpAssignment(props: Partial<InputProps>) {
 export const useAwsSesv2DedicatedIpAssignment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSesv2DedicatedIpAssignment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSesv2DedicatedIpAssignment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesv2DedicatedIpAssignments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesv2DedicatedIpAssignment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSesv2DedicatedIpAssignment,
+    idFilter,
+    baseNode,
+    optional,
+  )

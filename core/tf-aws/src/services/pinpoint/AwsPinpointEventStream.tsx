@@ -47,8 +47,26 @@ export function AwsPinpointEventStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointEventStream = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointEventStream, idFilter, baseNode)
+export const useAwsPinpointEventStream = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPinpointEventStream,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsPinpointEventStreams = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPinpointEventStream, idFilter, baseNode)
+export const useAwsPinpointEventStreams = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointEventStream,
+    idFilter,
+    baseNode,
+    optional,
+  )

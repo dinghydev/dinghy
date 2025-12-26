@@ -350,8 +350,14 @@ export function AwsIotTopicRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotTopicRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotTopicRule, idFilter, baseNode)
+export const useAwsIotTopicRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIotTopicRule, idFilter, baseNode, optional)
 
-export const useAwsIotTopicRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotTopicRule, idFilter, baseNode)
+export const useAwsIotTopicRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIotTopicRule, idFilter, baseNode, optional)

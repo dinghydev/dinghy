@@ -49,15 +49,23 @@ export function DataAwsCloudtrailServiceAccount(props: Partial<InputProps>) {
 export const useDataAwsCloudtrailServiceAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsCloudtrailServiceAccount, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsCloudtrailServiceAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudtrailServiceAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudtrailServiceAccount,
     idFilter,
     baseNode,
+    optional,
   )

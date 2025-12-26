@@ -55,19 +55,23 @@ export function AwsMacie2ClassificationExportConfiguration(
 export const useAwsMacie2ClassificationExportConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsMacie2ClassificationExportConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsMacie2ClassificationExportConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsMacie2ClassificationExportConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

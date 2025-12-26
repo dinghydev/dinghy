@@ -65,8 +65,16 @@ export function AwsEksFargateProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEksFargateProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEksFargateProfile, idFilter, baseNode)
+export const useAwsEksFargateProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEksFargateProfile, idFilter, baseNode, optional)
 
-export const useAwsEksFargateProfiles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEksFargateProfile, idFilter, baseNode)
+export const useAwsEksFargateProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEksFargateProfile, idFilter, baseNode, optional)

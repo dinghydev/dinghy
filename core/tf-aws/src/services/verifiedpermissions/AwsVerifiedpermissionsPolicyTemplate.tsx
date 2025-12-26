@@ -55,19 +55,23 @@ export function AwsVerifiedpermissionsPolicyTemplate(
 export const useAwsVerifiedpermissionsPolicyTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedpermissionsPolicyTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVerifiedpermissionsPolicyTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedpermissionsPolicyTemplate,
     idFilter,
     baseNode,
+    optional,
   )

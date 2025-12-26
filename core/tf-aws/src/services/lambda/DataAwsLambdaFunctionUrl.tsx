@@ -65,9 +65,23 @@ export function DataAwsLambdaFunctionUrl(props: Partial<InputProps>) {
 export const useDataAwsLambdaFunctionUrl = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsLambdaFunctionUrl, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLambdaFunctionUrl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLambdaFunctionUrls = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsLambdaFunctionUrl, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLambdaFunctionUrl,
+    idFilter,
+    baseNode,
+    optional,
+  )

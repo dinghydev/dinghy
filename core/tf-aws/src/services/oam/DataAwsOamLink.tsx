@@ -61,8 +61,14 @@ export function DataAwsOamLink(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOamLink = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsOamLink, idFilter, baseNode)
+export const useDataAwsOamLink = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsOamLink, idFilter, baseNode, optional)
 
-export const useDataAwsOamLinks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOamLink, idFilter, baseNode)
+export const useDataAwsOamLinks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsOamLink, idFilter, baseNode, optional)

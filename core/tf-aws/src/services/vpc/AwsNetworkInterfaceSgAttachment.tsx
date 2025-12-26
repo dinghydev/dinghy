@@ -56,15 +56,23 @@ export function AwsNetworkInterfaceSgAttachment(props: Partial<InputProps>) {
 export const useAwsNetworkInterfaceSgAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkInterfaceSgAttachment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNetworkInterfaceSgAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkInterfaceSgAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkInterfaceSgAttachment,
     idFilter,
     baseNode,
+    optional,
   )

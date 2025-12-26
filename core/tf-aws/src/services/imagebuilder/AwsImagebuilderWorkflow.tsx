@@ -64,10 +64,26 @@ export function AwsImagebuilderWorkflow(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsImagebuilderWorkflow = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsImagebuilderWorkflow, idFilter, baseNode)
+export const useAwsImagebuilderWorkflow = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsImagebuilderWorkflow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsImagebuilderWorkflows = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsImagebuilderWorkflow, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsImagebuilderWorkflow,
+    idFilter,
+    baseNode,
+    optional,
+  )

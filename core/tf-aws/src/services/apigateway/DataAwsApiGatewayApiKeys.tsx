@@ -61,4 +61,11 @@ export function DataAwsApiGatewayApiKeys(props: Partial<InputProps>) {
 export const useDataAwsApiGatewayApiKeyss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsApiGatewayApiKeys, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsApiGatewayApiKeys,
+    idFilter,
+    baseNode,
+    optional,
+  )

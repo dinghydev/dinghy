@@ -51,8 +51,21 @@ export function AwsPinpointSmsChannel(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPinpointSmsChannel = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPinpointSmsChannel, idFilter, baseNode)
+export const useAwsPinpointSmsChannel = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsPinpointSmsChannel, idFilter, baseNode, optional)
 
-export const useAwsPinpointSmsChannels = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPinpointSmsChannel, idFilter, baseNode)
+export const useAwsPinpointSmsChannels = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPinpointSmsChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

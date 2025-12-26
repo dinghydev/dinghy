@@ -69,19 +69,23 @@ export function DataAwsNeptuneOrderableDbInstance(props: Partial<InputProps>) {
 export const useDataAwsNeptuneOrderableDbInstance = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsNeptuneOrderableDbInstance,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsNeptuneOrderableDbInstances = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNeptuneOrderableDbInstance,
     idFilter,
     baseNode,
+    optional,
   )

@@ -61,10 +61,23 @@ export function AwsSsmcontactsContactChannel(props: Partial<InputProps>) {
 export const useAwsSsmcontactsContactChannel = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSsmcontactsContactChannel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsmcontactsContactChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmcontactsContactChannels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSsmcontactsContactChannel, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSsmcontactsContactChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -60,8 +60,16 @@ export function AwsDbParameterGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbParameterGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDbParameterGroup, idFilter, baseNode)
+export const useAwsDbParameterGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDbParameterGroup, idFilter, baseNode, optional)
 
-export const useAwsDbParameterGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDbParameterGroup, idFilter, baseNode)
+export const useAwsDbParameterGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDbParameterGroup, idFilter, baseNode, optional)

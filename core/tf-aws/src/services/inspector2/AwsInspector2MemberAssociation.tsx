@@ -58,11 +58,23 @@ export function AwsInspector2MemberAssociation(props: Partial<InputProps>) {
 export const useAwsInspector2MemberAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsInspector2MemberAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsInspector2MemberAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInspector2MemberAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsInspector2MemberAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsInspector2MemberAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

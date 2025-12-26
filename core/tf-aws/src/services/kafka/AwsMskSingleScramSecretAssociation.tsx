@@ -49,19 +49,23 @@ export function AwsMskSingleScramSecretAssociation(props: Partial<InputProps>) {
 export const useAwsMskSingleScramSecretAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsMskSingleScramSecretAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsMskSingleScramSecretAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsMskSingleScramSecretAssociation,
     idFilter,
     baseNode,
+    optional,
   )

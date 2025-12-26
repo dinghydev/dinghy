@@ -57,10 +57,26 @@ export function AwsCloud9EnvironmentEc2(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloud9EnvironmentEc2 = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloud9EnvironmentEc2, idFilter, baseNode)
+export const useAwsCloud9EnvironmentEc2 = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloud9EnvironmentEc2,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloud9EnvironmentEc2s = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloud9EnvironmentEc2, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloud9EnvironmentEc2,
+    idFilter,
+    baseNode,
+    optional,
+  )

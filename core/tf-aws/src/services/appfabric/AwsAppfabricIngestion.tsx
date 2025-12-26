@@ -52,8 +52,21 @@ export function AwsAppfabricIngestion(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppfabricIngestion = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppfabricIngestion, idFilter, baseNode)
+export const useAwsAppfabricIngestion = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAppfabricIngestion, idFilter, baseNode, optional)
 
-export const useAwsAppfabricIngestions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppfabricIngestion, idFilter, baseNode)
+export const useAwsAppfabricIngestions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppfabricIngestion,
+    idFilter,
+    baseNode,
+    optional,
+  )

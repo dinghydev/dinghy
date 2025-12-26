@@ -62,19 +62,23 @@ export function AwsLambdaFunctionEventInvokeConfig(props: Partial<InputProps>) {
 export const useAwsLambdaFunctionEventInvokeConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLambdaFunctionEventInvokeConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLambdaFunctionEventInvokeConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLambdaFunctionEventInvokeConfig,
     idFilter,
     baseNode,
+    optional,
   )

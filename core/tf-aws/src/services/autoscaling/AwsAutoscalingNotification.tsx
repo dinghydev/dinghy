@@ -50,9 +50,23 @@ export function AwsAutoscalingNotification(props: Partial<InputProps>) {
 export const useAwsAutoscalingNotification = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAutoscalingNotification, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAutoscalingNotification,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAutoscalingNotifications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAutoscalingNotification, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAutoscalingNotification,
+    idFilter,
+    baseNode,
+    optional,
+  )

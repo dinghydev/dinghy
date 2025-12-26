@@ -58,5 +58,14 @@ export function DataAwsEbsSnapshotIds(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEbsSnapshotIdss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEbsSnapshotIds, idFilter, baseNode)
+export const useDataAwsEbsSnapshotIdss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEbsSnapshotIds,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -53,9 +53,11 @@ export function AwsWorkspaceswebNetworkSettings(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebNetworkSettingss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebNetworkSettings,
     idFilter,
     baseNode,
+    optional,
   )

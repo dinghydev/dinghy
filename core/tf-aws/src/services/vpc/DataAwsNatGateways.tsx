@@ -58,5 +58,9 @@ export function DataAwsNatGateways(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsNatGatewayss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsNatGateways, idFilter, baseNode)
+export const useDataAwsNatGatewayss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsNatGateways, idFilter, baseNode, optional)

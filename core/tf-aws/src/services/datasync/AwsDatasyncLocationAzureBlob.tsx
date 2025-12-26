@@ -69,10 +69,23 @@ export function AwsDatasyncLocationAzureBlob(props: Partial<InputProps>) {
 export const useAwsDatasyncLocationAzureBlob = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDatasyncLocationAzureBlob, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDatasyncLocationAzureBlob,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatasyncLocationAzureBlobs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatasyncLocationAzureBlob, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDatasyncLocationAzureBlob,
+    idFilter,
+    baseNode,
+    optional,
+  )

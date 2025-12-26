@@ -60,8 +60,26 @@ export function AwsSesConfigurationSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesConfigurationSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesConfigurationSet, idFilter, baseNode)
+export const useAwsSesConfigurationSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSesConfigurationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsSesConfigurationSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesConfigurationSet, idFilter, baseNode)
+export const useAwsSesConfigurationSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSesConfigurationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

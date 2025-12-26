@@ -175,10 +175,26 @@ export function DataAwsAutoscalingGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAutoscalingGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAutoscalingGroup, idFilter, baseNode)
+export const useDataAwsAutoscalingGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAutoscalingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAutoscalingGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAutoscalingGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAutoscalingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

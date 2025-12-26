@@ -57,8 +57,21 @@ export function AwsCloudfrontFunction(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudfrontFunction = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudfrontFunction, idFilter, baseNode)
+export const useAwsCloudfrontFunction = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCloudfrontFunction, idFilter, baseNode, optional)
 
-export const useAwsCloudfrontFunctions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudfrontFunction, idFilter, baseNode)
+export const useAwsCloudfrontFunctions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -59,19 +59,23 @@ export function AwsApiGatewayIntegrationResponse(props: Partial<InputProps>) {
 export const useAwsApiGatewayIntegrationResponse = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsApiGatewayIntegrationResponse,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsApiGatewayIntegrationResponses = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsApiGatewayIntegrationResponse,
     idFilter,
     baseNode,
+    optional,
   )

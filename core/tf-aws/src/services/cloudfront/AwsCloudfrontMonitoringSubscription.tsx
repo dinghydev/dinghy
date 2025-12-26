@@ -55,19 +55,23 @@ export function AwsCloudfrontMonitoringSubscription(
 export const useAwsCloudfrontMonitoringSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontMonitoringSubscription,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontMonitoringSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontMonitoringSubscription,
     idFilter,
     baseNode,
+    optional,
   )

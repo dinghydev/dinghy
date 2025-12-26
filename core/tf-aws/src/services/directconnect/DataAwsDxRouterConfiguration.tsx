@@ -61,10 +61,23 @@ export function DataAwsDxRouterConfiguration(props: Partial<InputProps>) {
 export const useDataAwsDxRouterConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsDxRouterConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDxRouterConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDxRouterConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsDxRouterConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsDxRouterConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -57,8 +57,26 @@ export function AwsEcrRepositoryPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcrRepositoryPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcrRepositoryPolicy, idFilter, baseNode)
+export const useAwsEcrRepositoryPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcrRepositoryPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsEcrRepositoryPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcrRepositoryPolicy, idFilter, baseNode)
+export const useAwsEcrRepositoryPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcrRepositoryPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -58,9 +58,23 @@ export function AwsWafregionalXssMatchSet(props: Partial<InputProps>) {
 export const useAwsWafregionalXssMatchSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWafregionalXssMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafregionalXssMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalXssMatchSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafregionalXssMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafregionalXssMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

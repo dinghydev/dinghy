@@ -54,15 +54,23 @@ export function AwsVpcRouteServerVpcAssociation(props: Partial<InputProps>) {
 export const useAwsVpcRouteServerVpcAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcRouteServerVpcAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsVpcRouteServerVpcAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcRouteServerVpcAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcRouteServerVpcAssociation,
     idFilter,
     baseNode,
+    optional,
   )

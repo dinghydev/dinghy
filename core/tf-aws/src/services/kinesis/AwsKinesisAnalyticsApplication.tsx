@@ -165,11 +165,23 @@ export function AwsKinesisAnalyticsApplication(props: Partial<InputProps>) {
 export const useAwsKinesisAnalyticsApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsKinesisAnalyticsApplication, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsKinesisAnalyticsApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKinesisAnalyticsApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsKinesisAnalyticsApplication, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsKinesisAnalyticsApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

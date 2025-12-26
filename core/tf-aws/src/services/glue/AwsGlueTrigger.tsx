@@ -93,8 +93,14 @@ export function AwsGlueTrigger(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueTrigger = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueTrigger, idFilter, baseNode)
+export const useAwsGlueTrigger = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueTrigger, idFilter, baseNode, optional)
 
-export const useAwsGlueTriggers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueTrigger, idFilter, baseNode)
+export const useAwsGlueTriggers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueTrigger, idFilter, baseNode, optional)

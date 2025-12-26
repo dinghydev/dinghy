@@ -60,19 +60,23 @@ export function AwsKinesisanalyticsv2ApplicationSnapshot(
 export const useAwsKinesisanalyticsv2ApplicationSnapshot = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsKinesisanalyticsv2ApplicationSnapshot,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsKinesisanalyticsv2ApplicationSnapshots = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsKinesisanalyticsv2ApplicationSnapshot,
     idFilter,
     baseNode,
+    optional,
   )

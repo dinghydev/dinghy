@@ -49,8 +49,16 @@ export function AwsS3tablesNamespace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3tablesNamespace = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3tablesNamespace, idFilter, baseNode)
+export const useAwsS3tablesNamespace = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsS3tablesNamespace, idFilter, baseNode, optional)
 
-export const useAwsS3tablesNamespaces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3tablesNamespace, idFilter, baseNode)
+export const useAwsS3tablesNamespaces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsS3tablesNamespace, idFilter, baseNode, optional)

@@ -47,9 +47,11 @@ export function AwsEbsSnapshotBlockPublicAccess(props: Partial<InputProps>) {
 export const useAwsEbsSnapshotBlockPublicAccesss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEbsSnapshotBlockPublicAccess,
     idFilter,
     baseNode,
+    optional,
   )

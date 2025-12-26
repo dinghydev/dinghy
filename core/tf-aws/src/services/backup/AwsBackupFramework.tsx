@@ -74,8 +74,15 @@ export function AwsBackupFramework(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupFramework = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBackupFramework, idFilter, baseNode)
+export const useAwsBackupFramework = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsBackupFramework, idFilter, baseNode, optional)
 
-export const useAwsBackupFrameworks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBackupFramework, idFilter, baseNode)
+export const useAwsBackupFrameworks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsBackupFramework, idFilter, baseNode, optional)

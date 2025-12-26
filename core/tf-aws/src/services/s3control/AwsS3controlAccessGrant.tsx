@@ -65,10 +65,26 @@ export function AwsS3controlAccessGrant(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3controlAccessGrant = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3controlAccessGrant, idFilter, baseNode)
+export const useAwsS3controlAccessGrant = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3controlAccessGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3controlAccessGrants = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsS3controlAccessGrant, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3controlAccessGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )

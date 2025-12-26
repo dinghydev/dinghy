@@ -73,11 +73,23 @@ export function AwsWorkspaceswebSessionLogger(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebSessionLogger = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebSessionLogger, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebSessionLogger,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWorkspaceswebSessionLoggers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebSessionLogger, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebSessionLogger,
+    idFilter,
+    baseNode,
+    optional,
+  )

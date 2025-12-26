@@ -52,11 +52,23 @@ export function DataAwsStoragegatewayLocalDisk(props: Partial<InputProps>) {
 export const useDataAwsStoragegatewayLocalDisk = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsStoragegatewayLocalDisk, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsStoragegatewayLocalDisk,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsStoragegatewayLocalDisks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsStoragegatewayLocalDisk, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsStoragegatewayLocalDisk,
+    idFilter,
+    baseNode,
+    optional,
+  )

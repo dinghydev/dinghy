@@ -44,5 +44,9 @@ export function DataAwsRoute53Zones(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRoute53Zoness = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53Zones, idFilter, baseNode)
+export const useDataAwsRoute53Zoness = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsRoute53Zones, idFilter, baseNode, optional)

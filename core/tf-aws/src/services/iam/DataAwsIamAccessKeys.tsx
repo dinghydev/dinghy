@@ -49,5 +49,9 @@ export function DataAwsIamAccessKeys(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamAccessKeyss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamAccessKeys, idFilter, baseNode)
+export const useDataAwsIamAccessKeyss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsIamAccessKeys, idFilter, baseNode, optional)

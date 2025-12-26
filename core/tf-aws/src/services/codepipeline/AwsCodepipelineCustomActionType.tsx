@@ -82,15 +82,23 @@ export function AwsCodepipelineCustomActionType(props: Partial<InputProps>) {
 export const useAwsCodepipelineCustomActionType = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodepipelineCustomActionType, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsCodepipelineCustomActionType,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodepipelineCustomActionTypes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodepipelineCustomActionType,
     idFilter,
     baseNode,
+    optional,
   )

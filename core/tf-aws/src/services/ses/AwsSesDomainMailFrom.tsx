@@ -48,8 +48,16 @@ export function AwsSesDomainMailFrom(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesDomainMailFrom = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesDomainMailFrom, idFilter, baseNode)
+export const useAwsSesDomainMailFrom = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesDomainMailFrom, idFilter, baseNode, optional)
 
-export const useAwsSesDomainMailFroms = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesDomainMailFrom, idFilter, baseNode)
+export const useAwsSesDomainMailFroms = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSesDomainMailFrom, idFilter, baseNode, optional)

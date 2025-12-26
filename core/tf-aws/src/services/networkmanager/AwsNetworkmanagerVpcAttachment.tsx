@@ -76,11 +76,23 @@ export function AwsNetworkmanagerVpcAttachment(props: Partial<InputProps>) {
 export const useAwsNetworkmanagerVpcAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkmanagerVpcAttachment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNetworkmanagerVpcAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkmanagerVpcAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkmanagerVpcAttachment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsNetworkmanagerVpcAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

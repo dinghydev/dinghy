@@ -51,9 +51,23 @@ export function AwsRoute53ResolverConfig(props: Partial<InputProps>) {
 export const useAwsRoute53ResolverConfig = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRoute53ResolverConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53ResolverConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53ResolverConfigs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53ResolverConfig, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53ResolverConfig,
+    idFilter,
+    baseNode,
+    optional,
+  )

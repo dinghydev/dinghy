@@ -56,19 +56,23 @@ export function AwsS3controlDirectoryBucketAccessPointScope(
 export const useAwsS3controlDirectoryBucketAccessPointScope = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3controlDirectoryBucketAccessPointScope,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3controlDirectoryBucketAccessPointScopes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3controlDirectoryBucketAccessPointScope,
     idFilter,
     baseNode,
+    optional,
   )

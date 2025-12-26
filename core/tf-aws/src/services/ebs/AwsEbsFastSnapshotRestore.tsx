@@ -57,9 +57,23 @@ export function AwsEbsFastSnapshotRestore(props: Partial<InputProps>) {
 export const useAwsEbsFastSnapshotRestore = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEbsFastSnapshotRestore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEbsFastSnapshotRestore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEbsFastSnapshotRestores = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEbsFastSnapshotRestore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEbsFastSnapshotRestore,
+    idFilter,
+    baseNode,
+    optional,
+  )

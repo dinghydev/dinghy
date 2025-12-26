@@ -107,9 +107,11 @@ export function DataAwsLakeformationPermissions(props: Partial<InputProps>) {
 export const useDataAwsLakeformationPermissionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsLakeformationPermissions,
     idFilter,
     baseNode,
+    optional,
   )

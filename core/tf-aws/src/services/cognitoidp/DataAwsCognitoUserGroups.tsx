@@ -54,4 +54,11 @@ export function DataAwsCognitoUserGroups(props: Partial<InputProps>) {
 export const useDataAwsCognitoUserGroupss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCognitoUserGroups, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCognitoUserGroups,
+    idFilter,
+    baseNode,
+    optional,
+  )

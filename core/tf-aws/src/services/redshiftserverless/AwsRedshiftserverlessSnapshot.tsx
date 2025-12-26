@@ -58,11 +58,23 @@ export function AwsRedshiftserverlessSnapshot(props: Partial<InputProps>) {
 export const useAwsRedshiftserverlessSnapshot = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRedshiftserverlessSnapshot, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRedshiftserverlessSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftserverlessSnapshots = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRedshiftserverlessSnapshot, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRedshiftserverlessSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

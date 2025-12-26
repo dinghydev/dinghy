@@ -58,9 +58,23 @@ export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
 export const useAwsConfigDeliveryChannel = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConfigDeliveryChannel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConfigDeliveryChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigDeliveryChannels = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsConfigDeliveryChannel, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsConfigDeliveryChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

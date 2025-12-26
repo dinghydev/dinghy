@@ -62,8 +62,16 @@ export function AwsSecurityGroupRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityGroupRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSecurityGroupRule, idFilter, baseNode)
+export const useAwsSecurityGroupRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSecurityGroupRule, idFilter, baseNode, optional)
 
-export const useAwsSecurityGroupRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSecurityGroupRule, idFilter, baseNode)
+export const useAwsSecurityGroupRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSecurityGroupRule, idFilter, baseNode, optional)

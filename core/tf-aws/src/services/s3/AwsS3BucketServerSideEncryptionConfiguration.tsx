@@ -71,19 +71,23 @@ export function AwsS3BucketServerSideEncryptionConfiguration(
 export const useAwsS3BucketServerSideEncryptionConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketServerSideEncryptionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketServerSideEncryptionConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketServerSideEncryptionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

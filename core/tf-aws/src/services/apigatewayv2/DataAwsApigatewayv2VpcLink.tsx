@@ -54,9 +54,23 @@ export function DataAwsApigatewayv2VpcLink(props: Partial<InputProps>) {
 export const useDataAwsApigatewayv2VpcLink = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsApigatewayv2VpcLink, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsApigatewayv2VpcLink,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsApigatewayv2VpcLinks = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsApigatewayv2VpcLink, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsApigatewayv2VpcLink,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -69,8 +69,16 @@ export function AwsCloudhsmV2Cluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudhsmV2Cluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode)
+export const useAwsCloudhsmV2Cluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode, optional)
 
-export const useAwsCloudhsmV2Clusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode)
+export const useAwsCloudhsmV2Clusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode, optional)

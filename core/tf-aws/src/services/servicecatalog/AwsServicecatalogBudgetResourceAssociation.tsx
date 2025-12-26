@@ -59,19 +59,23 @@ export function AwsServicecatalogBudgetResourceAssociation(
 export const useAwsServicecatalogBudgetResourceAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogBudgetResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogBudgetResourceAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogBudgetResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )

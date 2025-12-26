@@ -81,8 +81,14 @@ export function AwsDaxCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDaxCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDaxCluster, idFilter, baseNode)
+export const useAwsDaxCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDaxCluster, idFilter, baseNode, optional)
 
-export const useAwsDaxClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDaxCluster, idFilter, baseNode)
+export const useAwsDaxClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDaxCluster, idFilter, baseNode, optional)

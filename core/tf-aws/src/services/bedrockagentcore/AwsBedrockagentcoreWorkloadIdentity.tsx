@@ -54,19 +54,23 @@ export function AwsBedrockagentcoreWorkloadIdentity(
 export const useAwsBedrockagentcoreWorkloadIdentity = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreWorkloadIdentity,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentcoreWorkloadIdentitys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreWorkloadIdentity,
     idFilter,
     baseNode,
+    optional,
   )

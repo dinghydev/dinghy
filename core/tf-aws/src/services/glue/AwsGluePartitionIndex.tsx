@@ -59,8 +59,21 @@ export function AwsGluePartitionIndex(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGluePartitionIndex = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGluePartitionIndex, idFilter, baseNode)
+export const useAwsGluePartitionIndex = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsGluePartitionIndex, idFilter, baseNode, optional)
 
-export const useAwsGluePartitionIndexs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGluePartitionIndex, idFilter, baseNode)
+export const useAwsGluePartitionIndexs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGluePartitionIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )

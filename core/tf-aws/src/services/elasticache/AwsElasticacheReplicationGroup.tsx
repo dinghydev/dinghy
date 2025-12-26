@@ -120,11 +120,23 @@ export function AwsElasticacheReplicationGroup(props: Partial<InputProps>) {
 export const useAwsElasticacheReplicationGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsElasticacheReplicationGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsElasticacheReplicationGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticacheReplicationGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElasticacheReplicationGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElasticacheReplicationGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

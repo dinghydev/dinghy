@@ -56,11 +56,23 @@ export function AwsNetworkInterfaceAttachment(props: Partial<InputProps>) {
 export const useAwsNetworkInterfaceAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkInterfaceAttachment, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNetworkInterfaceAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkInterfaceAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterfaceAttachment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsNetworkInterfaceAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

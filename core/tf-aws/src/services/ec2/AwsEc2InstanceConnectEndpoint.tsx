@@ -67,11 +67,23 @@ export function AwsEc2InstanceConnectEndpoint(props: Partial<InputProps>) {
 export const useAwsEc2InstanceConnectEndpoint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2InstanceConnectEndpoint, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEc2InstanceConnectEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2InstanceConnectEndpoints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2InstanceConnectEndpoint, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEc2InstanceConnectEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

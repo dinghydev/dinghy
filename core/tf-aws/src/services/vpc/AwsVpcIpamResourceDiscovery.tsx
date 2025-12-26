@@ -67,9 +67,23 @@ export function AwsVpcIpamResourceDiscovery(props: Partial<InputProps>) {
 export const useAwsVpcIpamResourceDiscovery = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpcIpamResourceDiscovery, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpcIpamResourceDiscovery,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpamResourceDiscoverys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpcIpamResourceDiscovery, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcIpamResourceDiscovery,
+    idFilter,
+    baseNode,
+    optional,
+  )

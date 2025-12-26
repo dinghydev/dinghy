@@ -57,19 +57,23 @@ export function AwsAuditmanagerAssessmentDelegation(
 export const useAwsAuditmanagerAssessmentDelegation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAuditmanagerAssessmentDelegation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAuditmanagerAssessmentDelegations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAuditmanagerAssessmentDelegation,
     idFilter,
     baseNode,
+    optional,
   )

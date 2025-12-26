@@ -70,8 +70,14 @@ export function AwsConnectUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConnectUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConnectUser, idFilter, baseNode)
+export const useAwsConnectUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsConnectUser, idFilter, baseNode, optional)
 
-export const useAwsConnectUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConnectUser, idFilter, baseNode)
+export const useAwsConnectUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsConnectUser, idFilter, baseNode, optional)

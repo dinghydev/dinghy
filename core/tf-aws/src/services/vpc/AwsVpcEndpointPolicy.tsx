@@ -53,8 +53,16 @@ export function AwsVpcEndpointPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcEndpointPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpcEndpointPolicy, idFilter, baseNode)
+export const useAwsVpcEndpointPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsVpcEndpointPolicy, idFilter, baseNode, optional)
 
-export const useAwsVpcEndpointPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVpcEndpointPolicy, idFilter, baseNode)
+export const useAwsVpcEndpointPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsVpcEndpointPolicy, idFilter, baseNode, optional)

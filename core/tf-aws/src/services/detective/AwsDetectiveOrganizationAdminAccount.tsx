@@ -51,19 +51,23 @@ export function AwsDetectiveOrganizationAdminAccount(
 export const useAwsDetectiveOrganizationAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDetectiveOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDetectiveOrganizationAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDetectiveOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

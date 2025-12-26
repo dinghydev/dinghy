@@ -70,9 +70,23 @@ export function AwsResourceexplorer2View(props: Partial<InputProps>) {
 export const useAwsResourceexplorer2View = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsResourceexplorer2View, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsResourceexplorer2View,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsResourceexplorer2Views = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsResourceexplorer2View, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsResourceexplorer2View,
+    idFilter,
+    baseNode,
+    optional,
+  )

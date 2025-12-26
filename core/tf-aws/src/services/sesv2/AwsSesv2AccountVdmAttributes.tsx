@@ -57,5 +57,11 @@ export function AwsSesv2AccountVdmAttributes(props: Partial<InputProps>) {
 export const useAwsSesv2AccountVdmAttributess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesv2AccountVdmAttributes, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSesv2AccountVdmAttributes,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -54,5 +54,9 @@ export function DataAwsLexBotAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLexBotAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLexBotAlias, idFilter, baseNode)
+export const useDataAwsLexBotAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsLexBotAlias, idFilter, baseNode, optional)

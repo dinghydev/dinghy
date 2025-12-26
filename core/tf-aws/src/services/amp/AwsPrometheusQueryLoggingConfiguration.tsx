@@ -66,19 +66,23 @@ export function AwsPrometheusQueryLoggingConfiguration(
 export const useAwsPrometheusQueryLoggingConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsPrometheusQueryLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsPrometheusQueryLoggingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPrometheusQueryLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

@@ -53,8 +53,21 @@ export function AwsIamInstanceProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamInstanceProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamInstanceProfile, idFilter, baseNode)
+export const useAwsIamInstanceProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsIamInstanceProfile, idFilter, baseNode, optional)
 
-export const useAwsIamInstanceProfiles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamInstanceProfile, idFilter, baseNode)
+export const useAwsIamInstanceProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamInstanceProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

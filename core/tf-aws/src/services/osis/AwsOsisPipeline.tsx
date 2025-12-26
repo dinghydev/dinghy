@@ -85,8 +85,14 @@ export function AwsOsisPipeline(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOsisPipeline = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOsisPipeline, idFilter, baseNode)
+export const useAwsOsisPipeline = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsOsisPipeline, idFilter, baseNode, optional)
 
-export const useAwsOsisPipelines = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOsisPipeline, idFilter, baseNode)
+export const useAwsOsisPipelines = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsOsisPipeline, idFilter, baseNode, optional)

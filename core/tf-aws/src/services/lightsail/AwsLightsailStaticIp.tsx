@@ -49,8 +49,16 @@ export function AwsLightsailStaticIp(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLightsailStaticIp = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode)
+export const useAwsLightsailStaticIp = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode, optional)
 
-export const useAwsLightsailStaticIps = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode)
+export const useAwsLightsailStaticIps = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode, optional)

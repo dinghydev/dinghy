@@ -79,11 +79,23 @@ export function AwsIvschatLoggingConfiguration(props: Partial<InputProps>) {
 export const useAwsIvschatLoggingConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIvschatLoggingConfiguration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsIvschatLoggingConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIvschatLoggingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsIvschatLoggingConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsIvschatLoggingConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

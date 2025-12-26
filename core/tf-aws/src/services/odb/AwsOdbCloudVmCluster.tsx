@@ -113,8 +113,16 @@ export function AwsOdbCloudVmCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOdbCloudVmCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode)
+export const useAwsOdbCloudVmCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode, optional)
 
-export const useAwsOdbCloudVmClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode)
+export const useAwsOdbCloudVmClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode, optional)

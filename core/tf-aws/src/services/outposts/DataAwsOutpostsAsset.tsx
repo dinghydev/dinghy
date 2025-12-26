@@ -51,8 +51,16 @@ export function DataAwsOutpostsAsset(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOutpostsAsset = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsOutpostsAsset, idFilter, baseNode)
+export const useDataAwsOutpostsAsset = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsOutpostsAsset, idFilter, baseNode, optional)
 
-export const useDataAwsOutpostsAssets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOutpostsAsset, idFilter, baseNode)
+export const useDataAwsOutpostsAssets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsOutpostsAsset, idFilter, baseNode, optional)

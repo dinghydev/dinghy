@@ -73,19 +73,23 @@ export function AwsConfigRemediationConfiguration(props: Partial<InputProps>) {
 export const useAwsConfigRemediationConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsConfigRemediationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsConfigRemediationConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigRemediationConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

@@ -56,9 +56,23 @@ export function AwsRedshiftClusterSnapshot(props: Partial<InputProps>) {
 export const useAwsRedshiftClusterSnapshot = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftClusterSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftClusterSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftClusterSnapshots = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftClusterSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftClusterSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

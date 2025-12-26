@@ -64,8 +64,15 @@ export function AwsGuarddutyFilter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyFilter = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGuarddutyFilter, idFilter, baseNode)
+export const useAwsGuarddutyFilter = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGuarddutyFilter, idFilter, baseNode, optional)
 
-export const useAwsGuarddutyFilters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyFilter, idFilter, baseNode)
+export const useAwsGuarddutyFilters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsGuarddutyFilter, idFilter, baseNode, optional)

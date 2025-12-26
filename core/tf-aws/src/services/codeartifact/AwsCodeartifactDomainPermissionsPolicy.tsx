@@ -61,19 +61,23 @@ export function AwsCodeartifactDomainPermissionsPolicy(
 export const useAwsCodeartifactDomainPermissionsPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodeartifactDomainPermissionsPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodeartifactDomainPermissionsPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodeartifactDomainPermissionsPolicy,
     idFilter,
     baseNode,
+    optional,
   )

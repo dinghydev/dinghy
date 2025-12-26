@@ -84,8 +84,14 @@ export function AwsSsmAssociation(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmAssociation = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmAssociation, idFilter, baseNode)
+export const useAwsSsmAssociation = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSsmAssociation, idFilter, baseNode, optional)
 
-export const useAwsSsmAssociations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmAssociation, idFilter, baseNode)
+export const useAwsSsmAssociations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSsmAssociation, idFilter, baseNode, optional)

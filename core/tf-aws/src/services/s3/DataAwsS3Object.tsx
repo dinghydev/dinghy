@@ -78,8 +78,14 @@ export function DataAwsS3Object(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsS3Object = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsS3Object, idFilter, baseNode)
+export const useDataAwsS3Object = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsS3Object, idFilter, baseNode, optional)
 
-export const useDataAwsS3Objects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsS3Object, idFilter, baseNode)
+export const useDataAwsS3Objects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsS3Object, idFilter, baseNode, optional)

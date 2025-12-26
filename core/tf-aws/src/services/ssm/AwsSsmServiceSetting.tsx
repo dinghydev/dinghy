@@ -49,8 +49,16 @@ export function AwsSsmServiceSetting(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmServiceSetting = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmServiceSetting, idFilter, baseNode)
+export const useAwsSsmServiceSetting = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSsmServiceSetting, idFilter, baseNode, optional)
 
-export const useAwsSsmServiceSettings = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmServiceSetting, idFilter, baseNode)
+export const useAwsSsmServiceSettings = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSsmServiceSetting, idFilter, baseNode, optional)

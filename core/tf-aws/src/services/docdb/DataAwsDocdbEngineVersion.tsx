@@ -57,9 +57,23 @@ export function DataAwsDocdbEngineVersion(props: Partial<InputProps>) {
 export const useDataAwsDocdbEngineVersion = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsDocdbEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsDocdbEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDocdbEngineVersions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsDocdbEngineVersion, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsDocdbEngineVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

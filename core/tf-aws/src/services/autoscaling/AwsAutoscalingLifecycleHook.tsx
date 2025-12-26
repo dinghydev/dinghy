@@ -55,9 +55,23 @@ export function AwsAutoscalingLifecycleHook(props: Partial<InputProps>) {
 export const useAwsAutoscalingLifecycleHook = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAutoscalingLifecycleHook, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAutoscalingLifecycleHook,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAutoscalingLifecycleHooks = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAutoscalingLifecycleHook, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAutoscalingLifecycleHook,
+    idFilter,
+    baseNode,
+    optional,
+  )

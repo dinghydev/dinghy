@@ -58,9 +58,11 @@ export function DataAwsIdentitystoreGroupMemberships(
 export const useDataAwsIdentitystoreGroupMembershipss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsIdentitystoreGroupMemberships,
     idFilter,
     baseNode,
+    optional,
   )

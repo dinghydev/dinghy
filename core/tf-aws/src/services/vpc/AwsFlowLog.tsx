@@ -67,8 +67,14 @@ export function AwsFlowLog(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFlowLog = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFlowLog, idFilter, baseNode)
+export const useAwsFlowLog = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFlowLog, idFilter, baseNode, optional)
 
-export const useAwsFlowLogs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFlowLog, idFilter, baseNode)
+export const useAwsFlowLogs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFlowLog, idFilter, baseNode, optional)

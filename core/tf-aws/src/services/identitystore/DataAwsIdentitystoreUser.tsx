@@ -104,9 +104,23 @@ export function DataAwsIdentitystoreUser(props: Partial<InputProps>) {
 export const useDataAwsIdentitystoreUser = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsIdentitystoreUser, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsIdentitystoreUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIdentitystoreUsers = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsIdentitystoreUser, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIdentitystoreUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

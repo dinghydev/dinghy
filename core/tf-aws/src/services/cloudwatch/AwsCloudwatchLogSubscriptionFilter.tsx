@@ -53,19 +53,23 @@ export function AwsCloudwatchLogSubscriptionFilter(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogSubscriptionFilter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudwatchLogSubscriptionFilter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudwatchLogSubscriptionFilters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudwatchLogSubscriptionFilter,
     idFilter,
     baseNode,
+    optional,
   )

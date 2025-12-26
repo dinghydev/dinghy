@@ -51,19 +51,23 @@ export function DataAwsNetworkmanagerGlobalNetwork(props: Partial<InputProps>) {
 export const useDataAwsNetworkmanagerGlobalNetwork = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsNetworkmanagerGlobalNetwork,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsNetworkmanagerGlobalNetworks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsNetworkmanagerGlobalNetwork,
     idFilter,
     baseNode,
+    optional,
   )

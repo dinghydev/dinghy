@@ -85,19 +85,23 @@ export function AwsVpclatticeResourceConfiguration(props: Partial<InputProps>) {
 export const useAwsVpclatticeResourceConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpclatticeResourceConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpclatticeResourceConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpclatticeResourceConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

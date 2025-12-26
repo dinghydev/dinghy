@@ -61,8 +61,14 @@ export function AwsVpcIpamScope(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcIpamScope = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpcIpamScope, idFilter, baseNode)
+export const useAwsVpcIpamScope = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsVpcIpamScope, idFilter, baseNode, optional)
 
-export const useAwsVpcIpamScopes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamScope, idFilter, baseNode)
+export const useAwsVpcIpamScopes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsVpcIpamScope, idFilter, baseNode, optional)

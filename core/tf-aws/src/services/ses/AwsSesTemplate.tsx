@@ -50,8 +50,14 @@ export function AwsSesTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesTemplate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesTemplate, idFilter, baseNode)
+export const useAwsSesTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSesTemplate, idFilter, baseNode, optional)
 
-export const useAwsSesTemplates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesTemplate, idFilter, baseNode)
+export const useAwsSesTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSesTemplate, idFilter, baseNode, optional)

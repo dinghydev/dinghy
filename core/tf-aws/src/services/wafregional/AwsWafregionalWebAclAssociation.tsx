@@ -55,15 +55,23 @@ export function AwsWafregionalWebAclAssociation(props: Partial<InputProps>) {
 export const useAwsWafregionalWebAclAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsWafregionalWebAclAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsWafregionalWebAclAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalWebAclAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWafregionalWebAclAssociation,
     idFilter,
     baseNode,
+    optional,
   )

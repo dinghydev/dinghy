@@ -89,8 +89,14 @@ export function DataAwsMskCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsMskCluster, idFilter, baseNode)
+export const useDataAwsMskCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsMskCluster, idFilter, baseNode, optional)
 
-export const useDataAwsMskClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsMskCluster, idFilter, baseNode)
+export const useDataAwsMskClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsMskCluster, idFilter, baseNode, optional)

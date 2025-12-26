@@ -53,15 +53,23 @@ export function DataAwsRedshiftOrderableCluster(props: Partial<InputProps>) {
 export const useDataAwsRedshiftOrderableCluster = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsRedshiftOrderableCluster, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsRedshiftOrderableCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRedshiftOrderableClusters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsRedshiftOrderableCluster,
     idFilter,
     baseNode,
+    optional,
   )

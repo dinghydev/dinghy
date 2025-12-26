@@ -54,8 +54,14 @@ export function DataAwsIamPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIamPolicy, idFilter, baseNode)
+export const useDataAwsIamPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsIamPolicy, idFilter, baseNode, optional)
 
-export const useDataAwsIamPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamPolicy, idFilter, baseNode)
+export const useDataAwsIamPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsIamPolicy, idFilter, baseNode, optional)

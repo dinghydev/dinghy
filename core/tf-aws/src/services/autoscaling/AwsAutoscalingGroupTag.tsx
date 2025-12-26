@@ -51,8 +51,26 @@ export function AwsAutoscalingGroupTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAutoscalingGroupTag = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAutoscalingGroupTag, idFilter, baseNode)
+export const useAwsAutoscalingGroupTag = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAutoscalingGroupTag,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsAutoscalingGroupTags = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingGroupTag, idFilter, baseNode)
+export const useAwsAutoscalingGroupTags = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAutoscalingGroupTag,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -68,5 +68,11 @@ export function AwsOpensearchDomainSamlOptions(props: Partial<InputProps>) {
 export const useAwsOpensearchDomainSamlOptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOpensearchDomainSamlOptions, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsOpensearchDomainSamlOptions,
+    idFilter,
+    baseNode,
+    optional,
+  )

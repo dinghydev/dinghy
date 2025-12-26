@@ -73,8 +73,14 @@ export function AwsDsqlCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDsqlCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDsqlCluster, idFilter, baseNode)
+export const useAwsDsqlCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDsqlCluster, idFilter, baseNode, optional)
 
-export const useAwsDsqlClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDsqlCluster, idFilter, baseNode)
+export const useAwsDsqlClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDsqlCluster, idFilter, baseNode, optional)

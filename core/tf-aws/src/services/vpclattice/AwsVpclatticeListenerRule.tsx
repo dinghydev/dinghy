@@ -95,9 +95,23 @@ export function AwsVpclatticeListenerRule(props: Partial<InputProps>) {
 export const useAwsVpclatticeListenerRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpclatticeListenerRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpclatticeListenerRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpclatticeListenerRules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpclatticeListenerRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpclatticeListenerRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

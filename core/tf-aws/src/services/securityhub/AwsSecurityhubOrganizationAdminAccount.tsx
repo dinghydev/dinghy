@@ -51,19 +51,23 @@ export function AwsSecurityhubOrganizationAdminAccount(
 export const useAwsSecurityhubOrganizationAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecurityhubOrganizationAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubOrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

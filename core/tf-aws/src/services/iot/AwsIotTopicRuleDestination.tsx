@@ -63,9 +63,23 @@ export function AwsIotTopicRuleDestination(props: Partial<InputProps>) {
 export const useAwsIotTopicRuleDestination = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIotTopicRuleDestination, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIotTopicRuleDestination,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotTopicRuleDestinations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIotTopicRuleDestination, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIotTopicRuleDestination,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,8 +50,15 @@ export function DataAwsBackupVault(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsBackupVault = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsBackupVault, idFilter, baseNode)
+export const useDataAwsBackupVault = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsBackupVault, idFilter, baseNode, optional)
 
-export const useDataAwsBackupVaults = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsBackupVault, idFilter, baseNode)
+export const useDataAwsBackupVaults = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsBackupVault, idFilter, baseNode, optional)

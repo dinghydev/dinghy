@@ -47,8 +47,26 @@ export function AwsCeCostAllocationTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCeCostAllocationTag = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCeCostAllocationTag, idFilter, baseNode)
+export const useAwsCeCostAllocationTag = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCeCostAllocationTag,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCeCostAllocationTags = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCeCostAllocationTag, idFilter, baseNode)
+export const useAwsCeCostAllocationTags = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCeCostAllocationTag,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -62,8 +62,14 @@ export function AwsXrayGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsXrayGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsXrayGroup, idFilter, baseNode)
+export const useAwsXrayGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsXrayGroup, idFilter, baseNode, optional)
 
-export const useAwsXrayGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsXrayGroup, idFilter, baseNode)
+export const useAwsXrayGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsXrayGroup, idFilter, baseNode, optional)

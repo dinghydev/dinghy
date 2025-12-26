@@ -103,10 +103,26 @@ export function AwsFsxWindowsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxWindowsFileSystem = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxWindowsFileSystem, idFilter, baseNode)
+export const useAwsFsxWindowsFileSystem = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFsxWindowsFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxWindowsFileSystems = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsFsxWindowsFileSystem, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFsxWindowsFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )

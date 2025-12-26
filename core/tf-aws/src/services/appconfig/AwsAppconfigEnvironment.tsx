@@ -59,10 +59,26 @@ export function AwsAppconfigEnvironment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppconfigEnvironment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppconfigEnvironment, idFilter, baseNode)
+export const useAwsAppconfigEnvironment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppconfigEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppconfigEnvironments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppconfigEnvironment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppconfigEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

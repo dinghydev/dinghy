@@ -55,19 +55,23 @@ export function AwsVpcNetworkPerformanceMetricSubscription(
 export const useAwsVpcNetworkPerformanceMetricSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcNetworkPerformanceMetricSubscription,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcNetworkPerformanceMetricSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcNetworkPerformanceMetricSubscription,
     idFilter,
     baseNode,
+    optional,
   )

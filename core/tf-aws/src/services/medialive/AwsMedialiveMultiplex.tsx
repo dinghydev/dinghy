@@ -66,8 +66,21 @@ export function AwsMedialiveMultiplex(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMedialiveMultiplex = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMedialiveMultiplex, idFilter, baseNode)
+export const useAwsMedialiveMultiplex = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsMedialiveMultiplex, idFilter, baseNode, optional)
 
-export const useAwsMedialiveMultiplexs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMedialiveMultiplex, idFilter, baseNode)
+export const useAwsMedialiveMultiplexs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMedialiveMultiplex,
+    idFilter,
+    baseNode,
+    optional,
+  )

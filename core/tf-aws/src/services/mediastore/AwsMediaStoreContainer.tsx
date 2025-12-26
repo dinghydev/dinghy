@@ -50,8 +50,26 @@ export function AwsMediaStoreContainer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMediaStoreContainer = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMediaStoreContainer, idFilter, baseNode)
+export const useAwsMediaStoreContainer = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMediaStoreContainer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsMediaStoreContainers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMediaStoreContainer, idFilter, baseNode)
+export const useAwsMediaStoreContainers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMediaStoreContainer,
+    idFilter,
+    baseNode,
+    optional,
+  )

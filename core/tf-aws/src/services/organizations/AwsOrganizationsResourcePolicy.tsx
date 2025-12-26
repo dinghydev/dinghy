@@ -58,11 +58,23 @@ export function AwsOrganizationsResourcePolicy(props: Partial<InputProps>) {
 export const useAwsOrganizationsResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOrganizationsResourcePolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsOrganizationsResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOrganizationsResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsOrganizationsResourcePolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsOrganizationsResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

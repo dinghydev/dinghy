@@ -50,11 +50,23 @@ export function AwsWafregionalRegexPatternSet(props: Partial<InputProps>) {
 export const useAwsWafregionalRegexPatternSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsWafregionalRegexPatternSet, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsWafregionalRegexPatternSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalRegexPatternSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWafregionalRegexPatternSet, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsWafregionalRegexPatternSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

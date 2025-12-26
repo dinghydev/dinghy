@@ -44,5 +44,9 @@ export function DataAwsEcsClusters(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEcsClusterss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEcsClusters, idFilter, baseNode)
+export const useDataAwsEcsClusterss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEcsClusters, idFilter, baseNode, optional)

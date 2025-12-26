@@ -73,19 +73,23 @@ export function DataAwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
 export const useDataAwsAcmpcaCertificateAuthority = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsAcmpcaCertificateAuthority,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsAcmpcaCertificateAuthoritys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsAcmpcaCertificateAuthority,
     idFilter,
     baseNode,
+    optional,
   )

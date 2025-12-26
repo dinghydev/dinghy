@@ -55,19 +55,23 @@ export function AwsOpensearchserverlessLifecyclePolicy(
 export const useAwsOpensearchserverlessLifecyclePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsOpensearchserverlessLifecyclePolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsOpensearchserverlessLifecyclePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchserverlessLifecyclePolicy,
     idFilter,
     baseNode,
+    optional,
   )

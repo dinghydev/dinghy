@@ -187,8 +187,14 @@ export function AwsDmsEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDmsEndpoint, idFilter, baseNode)
+export const useAwsDmsEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDmsEndpoint, idFilter, baseNode, optional)
 
-export const useAwsDmsEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDmsEndpoint, idFilter, baseNode)
+export const useAwsDmsEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDmsEndpoint, idFilter, baseNode, optional)

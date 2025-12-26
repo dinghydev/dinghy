@@ -63,19 +63,23 @@ export function AwsServicecatalogTagOptionResourceAssociation(
 export const useAwsServicecatalogTagOptionResourceAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogTagOptionResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogTagOptionResourceAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogTagOptionResourceAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -69,9 +69,23 @@ export function AwsAmplifyDomainAssociation(props: Partial<InputProps>) {
 export const useAwsAmplifyDomainAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAmplifyDomainAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAmplifyDomainAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAmplifyDomainAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAmplifyDomainAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAmplifyDomainAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

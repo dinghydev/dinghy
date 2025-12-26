@@ -55,9 +55,23 @@ export function AwsCognitoIdentityProvider(props: Partial<InputProps>) {
 export const useAwsCognitoIdentityProvider = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCognitoIdentityProvider, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCognitoIdentityProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoIdentityProviders = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCognitoIdentityProvider, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoIdentityProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )

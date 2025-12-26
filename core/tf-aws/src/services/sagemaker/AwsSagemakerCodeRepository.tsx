@@ -57,9 +57,23 @@ export function AwsSagemakerCodeRepository(props: Partial<InputProps>) {
 export const useAwsSagemakerCodeRepository = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSagemakerCodeRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerCodeRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerCodeRepositorys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerCodeRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerCodeRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )

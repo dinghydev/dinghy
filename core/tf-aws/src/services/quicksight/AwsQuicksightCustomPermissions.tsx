@@ -78,5 +78,11 @@ export function AwsQuicksightCustomPermissions(props: Partial<InputProps>) {
 export const useAwsQuicksightCustomPermissionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightCustomPermissions, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsQuicksightCustomPermissions,
+    idFilter,
+    baseNode,
+    optional,
+  )

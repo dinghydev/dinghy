@@ -63,9 +63,11 @@ export function DataAwsEc2TransitGatewayRouteTableRoutes(
 export const useDataAwsEc2TransitGatewayRouteTableRoutess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayRouteTableRoutes,
     idFilter,
     baseNode,
+    optional,
   )

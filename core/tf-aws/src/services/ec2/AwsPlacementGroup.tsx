@@ -53,8 +53,14 @@ export function AwsPlacementGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPlacementGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPlacementGroup, idFilter, baseNode)
+export const useAwsPlacementGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsPlacementGroup, idFilter, baseNode, optional)
 
-export const useAwsPlacementGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPlacementGroup, idFilter, baseNode)
+export const useAwsPlacementGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsPlacementGroup, idFilter, baseNode, optional)

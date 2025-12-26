@@ -58,9 +58,23 @@ export function AwsDynamodbResourcePolicy(props: Partial<InputProps>) {
 export const useAwsDynamodbResourcePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDynamodbResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDynamodbResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDynamodbResourcePolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDynamodbResourcePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDynamodbResourcePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

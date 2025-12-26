@@ -55,5 +55,8 @@ export function AwsLambdaAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLambdaAlias, idFilter, baseNode)
+export const useAwsLambdaAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLambdaAlias, idFilter, baseNode, optional)

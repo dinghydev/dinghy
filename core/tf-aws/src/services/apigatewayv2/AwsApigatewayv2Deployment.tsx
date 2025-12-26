@@ -52,9 +52,23 @@ export function AwsApigatewayv2Deployment(props: Partial<InputProps>) {
 export const useAwsApigatewayv2Deployment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApigatewayv2Deployment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApigatewayv2Deployment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2Deployments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApigatewayv2Deployment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApigatewayv2Deployment,
+    idFilter,
+    baseNode,
+    optional,
+  )

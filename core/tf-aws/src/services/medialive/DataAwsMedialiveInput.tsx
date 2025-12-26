@@ -78,8 +78,21 @@ export function DataAwsMedialiveInput(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMedialiveInput = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsMedialiveInput, idFilter, baseNode)
+export const useDataAwsMedialiveInput = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsMedialiveInput, idFilter, baseNode, optional)
 
-export const useDataAwsMedialiveInputs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsMedialiveInput, idFilter, baseNode)
+export const useDataAwsMedialiveInputs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMedialiveInput,
+    idFilter,
+    baseNode,
+    optional,
+  )

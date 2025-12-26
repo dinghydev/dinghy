@@ -53,8 +53,16 @@ export function AwsWafregionalIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafregionalIpset = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafregionalIpset, idFilter, baseNode)
+export const useAwsWafregionalIpset = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsWafregionalIpset, idFilter, baseNode, optional)
 
-export const useAwsWafregionalIpsets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafregionalIpset, idFilter, baseNode)
+export const useAwsWafregionalIpsets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsWafregionalIpset, idFilter, baseNode, optional)

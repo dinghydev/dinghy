@@ -50,8 +50,15 @@ export function DataAwsMemorydbAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMemorydbAcl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode)
+export const useDataAwsMemorydbAcl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode, optional)
 
-export const useDataAwsMemorydbAcls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode)
+export const useDataAwsMemorydbAcls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode, optional)

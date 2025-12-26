@@ -52,9 +52,23 @@ export function AwsGrafanaWorkspaceApiKey(props: Partial<InputProps>) {
 export const useAwsGrafanaWorkspaceApiKey = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGrafanaWorkspaceApiKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGrafanaWorkspaceApiKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGrafanaWorkspaceApiKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGrafanaWorkspaceApiKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGrafanaWorkspaceApiKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

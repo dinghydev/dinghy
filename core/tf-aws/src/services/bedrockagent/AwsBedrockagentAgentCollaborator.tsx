@@ -67,19 +67,23 @@ export function AwsBedrockagentAgentCollaborator(props: Partial<InputProps>) {
 export const useAwsBedrockagentAgentCollaborator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentAgentCollaborator,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentAgentCollaborators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentAgentCollaborator,
     idFilter,
     baseNode,
+    optional,
   )

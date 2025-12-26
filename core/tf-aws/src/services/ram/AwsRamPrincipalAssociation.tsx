@@ -50,9 +50,23 @@ export function AwsRamPrincipalAssociation(props: Partial<InputProps>) {
 export const useAwsRamPrincipalAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRamPrincipalAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRamPrincipalAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRamPrincipalAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRamPrincipalAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRamPrincipalAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

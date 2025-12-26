@@ -62,9 +62,23 @@ export function AwsSnsPlatformApplication(props: Partial<InputProps>) {
 export const useAwsSnsPlatformApplication = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSnsPlatformApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSnsPlatformApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSnsPlatformApplications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSnsPlatformApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSnsPlatformApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

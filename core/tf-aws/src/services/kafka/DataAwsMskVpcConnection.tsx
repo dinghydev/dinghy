@@ -52,10 +52,26 @@ export function DataAwsMskVpcConnection(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskVpcConnection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsMskVpcConnection, idFilter, baseNode)
+export const useDataAwsMskVpcConnection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsMskVpcConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsMskVpcConnections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsMskVpcConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMskVpcConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

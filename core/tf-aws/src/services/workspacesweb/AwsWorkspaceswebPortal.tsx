@@ -76,8 +76,26 @@ export function AwsWorkspaceswebPortal(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspaceswebPortal = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWorkspaceswebPortal, idFilter, baseNode)
+export const useAwsWorkspaceswebPortal = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebPortal,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsWorkspaceswebPortals = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWorkspaceswebPortal, idFilter, baseNode)
+export const useAwsWorkspaceswebPortals = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebPortal,
+    idFilter,
+    baseNode,
+    optional,
+  )

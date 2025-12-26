@@ -70,19 +70,23 @@ export function AwsGlobalacceleratorCustomRoutingListener(
 export const useAwsGlobalacceleratorCustomRoutingListener = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGlobalacceleratorCustomRoutingListener,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGlobalacceleratorCustomRoutingListeners = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorCustomRoutingListener,
     idFilter,
     baseNode,
+    optional,
   )

@@ -1,10 +1,7 @@
-export { AwsCloud, useAwsCloud } from './AwsCloud.tsx'
-export { AwsS3Backend, useAwsS3Backend } from './AwsS3Backend.tsx'
+export { AwsProvider, useAwsProvider } from './AwsProvider.tsx'
+export { S3Backend, useS3Backend } from './S3Backend.tsx'
 export {
-  AwsRegionalLogBucket,
-  useAwsRegionalLogBucket,
-} from './AwsRegionalLogBucket.tsx'
-export {
-  AwsGlobalLogBucket,
-  useAwsGlobalLogBucket,
-} from './AwsGlobalLogBucket.tsx'
+  RegionalLogBucket,
+  useRegionalLogBucket,
+} from './RegionalLogBucket.tsx'
+export { GlobalLogBucket, useGlobalLogBucket } from './GlobalLogBucket.tsx'

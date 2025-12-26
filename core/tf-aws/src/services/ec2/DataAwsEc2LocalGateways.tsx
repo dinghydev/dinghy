@@ -60,4 +60,11 @@ export function DataAwsEc2LocalGateways(props: Partial<InputProps>) {
 export const useDataAwsEc2LocalGatewayss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEc2LocalGateways, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2LocalGateways,
+    idFilter,
+    baseNode,
+    optional,
+  )

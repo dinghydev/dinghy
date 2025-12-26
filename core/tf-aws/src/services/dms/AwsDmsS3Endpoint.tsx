@@ -108,8 +108,14 @@ export function AwsDmsS3Endpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDmsS3Endpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode)
+export const useAwsDmsS3Endpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode, optional)
 
-export const useAwsDmsS3Endpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode)
+export const useAwsDmsS3Endpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode, optional)

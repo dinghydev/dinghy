@@ -66,8 +66,14 @@ export function AwsDatasyncAgent(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatasyncAgent = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatasyncAgent, idFilter, baseNode)
+export const useAwsDatasyncAgent = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDatasyncAgent, idFilter, baseNode, optional)
 
-export const useAwsDatasyncAgents = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatasyncAgent, idFilter, baseNode)
+export const useAwsDatasyncAgents = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDatasyncAgent, idFilter, baseNode, optional)

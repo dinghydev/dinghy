@@ -50,9 +50,23 @@ export function AwsApiGatewayRestApiPolicy(props: Partial<InputProps>) {
 export const useAwsApiGatewayRestApiPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApiGatewayRestApiPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApiGatewayRestApiPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayRestApiPolicys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApiGatewayRestApiPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayRestApiPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,19 +50,23 @@ export function AwsSecurityhubProductSubscription(props: Partial<InputProps>) {
 export const useAwsSecurityhubProductSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecurityhubProductSubscription,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecurityhubProductSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubProductSubscription,
     idFilter,
     baseNode,
+    optional,
   )

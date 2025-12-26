@@ -67,15 +67,23 @@ export function AwsConfigOrganizationCustomRule(props: Partial<InputProps>) {
 export const useAwsConfigOrganizationCustomRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConfigOrganizationCustomRule, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsConfigOrganizationCustomRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigOrganizationCustomRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsConfigOrganizationCustomRule,
     idFilter,
     baseNode,
+    optional,
   )

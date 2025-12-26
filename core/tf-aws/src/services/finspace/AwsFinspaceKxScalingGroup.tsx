@@ -67,9 +67,23 @@ export function AwsFinspaceKxScalingGroup(props: Partial<InputProps>) {
 export const useAwsFinspaceKxScalingGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsFinspaceKxScalingGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFinspaceKxScalingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFinspaceKxScalingGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsFinspaceKxScalingGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFinspaceKxScalingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

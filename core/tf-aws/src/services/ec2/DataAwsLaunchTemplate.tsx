@@ -276,8 +276,21 @@ export function DataAwsLaunchTemplate(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLaunchTemplate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLaunchTemplate, idFilter, baseNode)
+export const useDataAwsLaunchTemplate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsLaunchTemplate, idFilter, baseNode, optional)
 
-export const useDataAwsLaunchTemplates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLaunchTemplate, idFilter, baseNode)
+export const useDataAwsLaunchTemplates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsLaunchTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

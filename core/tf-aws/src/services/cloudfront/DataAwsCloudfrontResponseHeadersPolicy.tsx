@@ -115,19 +115,23 @@ export function DataAwsCloudfrontResponseHeadersPolicy(
 export const useDataAwsCloudfrontResponseHeadersPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCloudfrontResponseHeadersPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,
+    optional,
   )

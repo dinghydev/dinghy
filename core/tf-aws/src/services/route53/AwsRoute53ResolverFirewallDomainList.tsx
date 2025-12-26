@@ -55,19 +55,23 @@ export function AwsRoute53ResolverFirewallDomainList(
 export const useAwsRoute53ResolverFirewallDomainList = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53ResolverFirewallDomainList,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53ResolverFirewallDomainLists = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53ResolverFirewallDomainList,
     idFilter,
     baseNode,
+    optional,
   )

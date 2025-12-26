@@ -72,8 +72,26 @@ export function AwsWorkspacesWorkspace(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWorkspacesWorkspace = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWorkspacesWorkspace, idFilter, baseNode)
+export const useAwsWorkspacesWorkspace = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWorkspacesWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsWorkspacesWorkspaces = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesWorkspace, idFilter, baseNode)
+export const useAwsWorkspacesWorkspaces = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspacesWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -77,8 +77,15 @@ export function AwsBackupSelection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsBackupSelection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsBackupSelection, idFilter, baseNode)
+export const useAwsBackupSelection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsBackupSelection, idFilter, baseNode, optional)
 
-export const useAwsBackupSelections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsBackupSelection, idFilter, baseNode)
+export const useAwsBackupSelections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsBackupSelection, idFilter, baseNode, optional)

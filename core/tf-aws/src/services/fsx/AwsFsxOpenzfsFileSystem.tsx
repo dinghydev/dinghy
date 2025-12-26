@@ -107,10 +107,26 @@ export function AwsFsxOpenzfsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxOpenzfsFileSystem = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxOpenzfsFileSystem, idFilter, baseNode)
+export const useAwsFsxOpenzfsFileSystem = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsFsxOpenzfsFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxOpenzfsFileSystems = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsFsxOpenzfsFileSystem, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsFsxOpenzfsFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )

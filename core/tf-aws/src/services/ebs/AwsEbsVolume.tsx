@@ -68,8 +68,14 @@ export function AwsEbsVolume(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEbsVolume = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEbsVolume, idFilter, baseNode)
+export const useAwsEbsVolume = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEbsVolume, idFilter, baseNode, optional)
 
-export const useAwsEbsVolumes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEbsVolume, idFilter, baseNode)
+export const useAwsEbsVolumes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEbsVolume, idFilter, baseNode, optional)

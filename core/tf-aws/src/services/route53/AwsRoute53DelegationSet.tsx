@@ -47,10 +47,26 @@ export function AwsRoute53DelegationSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53DelegationSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53DelegationSet, idFilter, baseNode)
+export const useAwsRoute53DelegationSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53DelegationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53DelegationSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53DelegationSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53DelegationSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

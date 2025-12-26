@@ -53,8 +53,14 @@ export function AwsGuarddutyIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGuarddutyIpset = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGuarddutyIpset, idFilter, baseNode)
+export const useAwsGuarddutyIpset = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGuarddutyIpset, idFilter, baseNode, optional)
 
-export const useAwsGuarddutyIpsets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyIpset, idFilter, baseNode)
+export const useAwsGuarddutyIpsets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGuarddutyIpset, idFilter, baseNode, optional)

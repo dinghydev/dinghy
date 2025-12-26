@@ -53,9 +53,23 @@ export function AwsRdsClusterActivityStream(props: Partial<InputProps>) {
 export const useAwsRdsClusterActivityStream = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRdsClusterActivityStream, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRdsClusterActivityStream,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsClusterActivityStreams = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRdsClusterActivityStream, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRdsClusterActivityStream,
+    idFilter,
+    baseNode,
+    optional,
+  )

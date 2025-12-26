@@ -66,8 +66,26 @@ export function DataAwsApigatewayv2Api(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsApigatewayv2Api = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsApigatewayv2Api, idFilter, baseNode)
+export const useDataAwsApigatewayv2Api = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsApigatewayv2Api,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsApigatewayv2Apis = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsApigatewayv2Api, idFilter, baseNode)
+export const useDataAwsApigatewayv2Apis = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsApigatewayv2Api,
+    idFilter,
+    baseNode,
+    optional,
+  )

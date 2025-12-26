@@ -56,9 +56,23 @@ export function AwsRedshiftSnapshotSchedule(props: Partial<InputProps>) {
 export const useAwsRedshiftSnapshotSchedule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRedshiftSnapshotSchedule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftSnapshotSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftSnapshotSchedules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftSnapshotSchedule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftSnapshotSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )

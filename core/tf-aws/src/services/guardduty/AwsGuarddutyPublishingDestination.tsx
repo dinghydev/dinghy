@@ -51,19 +51,23 @@ export function AwsGuarddutyPublishingDestination(props: Partial<InputProps>) {
 export const useAwsGuarddutyPublishingDestination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsGuarddutyPublishingDestination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsGuarddutyPublishingDestinations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGuarddutyPublishingDestination,
     idFilter,
     baseNode,
+    optional,
   )

@@ -78,8 +78,16 @@ export function AwsFinspaceKxVolume(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFinspaceKxVolume = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode)
+export const useAwsFinspaceKxVolume = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode, optional)
 
-export const useAwsFinspaceKxVolumes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode)
+export const useAwsFinspaceKxVolumes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode, optional)

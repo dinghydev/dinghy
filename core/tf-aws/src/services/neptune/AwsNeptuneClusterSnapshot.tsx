@@ -68,9 +68,23 @@ export function AwsNeptuneClusterSnapshot(props: Partial<InputProps>) {
 export const useAwsNeptuneClusterSnapshot = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsNeptuneClusterSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsNeptuneClusterSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNeptuneClusterSnapshots = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsNeptuneClusterSnapshot, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsNeptuneClusterSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

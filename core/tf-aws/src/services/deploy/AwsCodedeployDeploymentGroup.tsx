@@ -151,10 +151,23 @@ export function AwsCodedeployDeploymentGroup(props: Partial<InputProps>) {
 export const useAwsCodedeployDeploymentGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCodedeployDeploymentGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodedeployDeploymentGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodedeployDeploymentGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodedeployDeploymentGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCodedeployDeploymentGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

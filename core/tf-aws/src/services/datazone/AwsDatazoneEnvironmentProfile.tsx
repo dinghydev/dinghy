@@ -64,11 +64,23 @@ export function AwsDatazoneEnvironmentProfile(props: Partial<InputProps>) {
 export const useAwsDatazoneEnvironmentProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDatazoneEnvironmentProfile, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsDatazoneEnvironmentProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatazoneEnvironmentProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatazoneEnvironmentProfile, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDatazoneEnvironmentProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

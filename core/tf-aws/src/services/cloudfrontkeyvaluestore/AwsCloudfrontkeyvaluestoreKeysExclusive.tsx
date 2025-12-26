@@ -57,19 +57,23 @@ export function AwsCloudfrontkeyvaluestoreKeysExclusive(
 export const useAwsCloudfrontkeyvaluestoreKeysExclusive = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontkeyvaluestoreKeysExclusive,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontkeyvaluestoreKeysExclusives = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontkeyvaluestoreKeysExclusive,
     idFilter,
     baseNode,
+    optional,
   )

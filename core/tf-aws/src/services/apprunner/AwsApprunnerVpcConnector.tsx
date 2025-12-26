@@ -62,9 +62,23 @@ export function AwsApprunnerVpcConnector(props: Partial<InputProps>) {
 export const useAwsApprunnerVpcConnector = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApprunnerVpcConnector, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApprunnerVpcConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApprunnerVpcConnectors = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApprunnerVpcConnector, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApprunnerVpcConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )

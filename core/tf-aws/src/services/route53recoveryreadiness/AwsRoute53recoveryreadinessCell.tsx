@@ -58,15 +58,23 @@ export function AwsRoute53recoveryreadinessCell(props: Partial<InputProps>) {
 export const useAwsRoute53recoveryreadinessCell = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53recoveryreadinessCell, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRoute53recoveryreadinessCell,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53recoveryreadinessCells = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoveryreadinessCell,
     idFilter,
     baseNode,
+    optional,
   )

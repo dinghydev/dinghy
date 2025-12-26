@@ -60,10 +60,26 @@ export function AwsWafregionalRuleGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafregionalRuleGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafregionalRuleGroup, idFilter, baseNode)
+export const useAwsWafregionalRuleGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafregionalRuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalRuleGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafregionalRuleGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafregionalRuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

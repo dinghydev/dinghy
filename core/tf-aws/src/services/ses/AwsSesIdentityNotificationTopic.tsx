@@ -51,15 +51,23 @@ export function AwsSesIdentityNotificationTopic(props: Partial<InputProps>) {
 export const useAwsSesIdentityNotificationTopic = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSesIdentityNotificationTopic, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSesIdentityNotificationTopic,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesIdentityNotificationTopics = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSesIdentityNotificationTopic,
     idFilter,
     baseNode,
+    optional,
   )

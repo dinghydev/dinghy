@@ -56,19 +56,23 @@ export function AwsSagemakerNotebookInstanceLifecycleConfiguration(
 export const useAwsSagemakerNotebookInstanceLifecycleConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSagemakerNotebookInstanceLifecycleConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSagemakerNotebookInstanceLifecycleConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSagemakerNotebookInstanceLifecycleConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

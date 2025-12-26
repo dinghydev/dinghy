@@ -59,19 +59,23 @@ export function AwsRoute53recoverycontrolconfigCluster(
 export const useAwsRoute53recoverycontrolconfigCluster = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53recoverycontrolconfigCluster,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53recoverycontrolconfigClusters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53recoverycontrolconfigCluster,
     idFilter,
     baseNode,
+    optional,
   )

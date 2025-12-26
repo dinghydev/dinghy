@@ -56,8 +56,21 @@ export function AwsSsmcontactsContact(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmcontactsContact = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmcontactsContact, idFilter, baseNode)
+export const useAwsSsmcontactsContact = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSsmcontactsContact, idFilter, baseNode, optional)
 
-export const useAwsSsmcontactsContacts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmcontactsContact, idFilter, baseNode)
+export const useAwsSsmcontactsContacts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsmcontactsContact,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -76,19 +76,23 @@ export function AwsSesv2ConfigurationSetEventDestination(
 export const useAwsSesv2ConfigurationSetEventDestination = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSesv2ConfigurationSetEventDestination,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSesv2ConfigurationSetEventDestinations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSesv2ConfigurationSetEventDestination,
     idFilter,
     baseNode,
+    optional,
   )

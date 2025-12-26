@@ -52,19 +52,23 @@ export function DataAwsKinesisFirehoseDeliveryStream(
 export const useDataAwsKinesisFirehoseDeliveryStream = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsKinesisFirehoseDeliveryStream,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsKinesisFirehoseDeliveryStreams = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsKinesisFirehoseDeliveryStream,
     idFilter,
     baseNode,
+    optional,
   )

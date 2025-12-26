@@ -50,10 +50,26 @@ export function DataAwsAthenaNamedQuery(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAthenaNamedQuery = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAthenaNamedQuery, idFilter, baseNode)
+export const useDataAwsAthenaNamedQuery = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAthenaNamedQuery,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAthenaNamedQuerys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAthenaNamedQuery, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAthenaNamedQuery,
+    idFilter,
+    baseNode,
+    optional,
+  )

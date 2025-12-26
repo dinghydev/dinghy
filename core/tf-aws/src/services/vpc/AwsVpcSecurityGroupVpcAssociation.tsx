@@ -65,19 +65,23 @@ export function AwsVpcSecurityGroupVpcAssociation(props: Partial<InputProps>) {
 export const useAwsVpcSecurityGroupVpcAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcSecurityGroupVpcAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcSecurityGroupVpcAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcSecurityGroupVpcAssociation,
     idFilter,
     baseNode,
+    optional,
   )

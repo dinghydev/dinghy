@@ -61,8 +61,26 @@ export function AwsControltowerControl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsControltowerControl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsControltowerControl, idFilter, baseNode)
+export const useAwsControltowerControl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsControltowerControl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsControltowerControls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsControltowerControl, idFilter, baseNode)
+export const useAwsControltowerControls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsControltowerControl,
+    idFilter,
+    baseNode,
+    optional,
+  )

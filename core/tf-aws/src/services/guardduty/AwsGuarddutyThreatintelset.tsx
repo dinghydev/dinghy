@@ -56,9 +56,23 @@ export function AwsGuarddutyThreatintelset(props: Partial<InputProps>) {
 export const useAwsGuarddutyThreatintelset = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGuarddutyThreatintelset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGuarddutyThreatintelset,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGuarddutyThreatintelsets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGuarddutyThreatintelset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGuarddutyThreatintelset,
+    idFilter,
+    baseNode,
+    optional,
+  )

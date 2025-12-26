@@ -47,10 +47,26 @@ export function DataAwsSesEmailIdentity(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSesEmailIdentity = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSesEmailIdentity, idFilter, baseNode)
+export const useDataAwsSesEmailIdentity = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSesEmailIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSesEmailIdentitys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSesEmailIdentity, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSesEmailIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )

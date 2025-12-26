@@ -50,19 +50,23 @@ export function DataAwsPrometheusDefaultScraperConfiguration(
 export const useDataAwsPrometheusDefaultScraperConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsPrometheusDefaultScraperConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsPrometheusDefaultScraperConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsPrometheusDefaultScraperConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

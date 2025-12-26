@@ -59,10 +59,23 @@ export function AwsEksPodIdentityAssociation(props: Partial<InputProps>) {
 export const useAwsEksPodIdentityAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEksPodIdentityAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEksPodIdentityAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksPodIdentityAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEksPodIdentityAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEksPodIdentityAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -48,8 +48,14 @@ export function AwsTransferTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferTag = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferTag, idFilter, baseNode)
+export const useAwsTransferTag = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferTag, idFilter, baseNode, optional)
 
-export const useAwsTransferTags = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferTag, idFilter, baseNode)
+export const useAwsTransferTags = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsTransferTag, idFilter, baseNode, optional)

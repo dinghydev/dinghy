@@ -54,15 +54,23 @@ export function AwsBackupVaultLockConfiguration(props: Partial<InputProps>) {
 export const useAwsBackupVaultLockConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBackupVaultLockConfiguration, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsBackupVaultLockConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBackupVaultLockConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBackupVaultLockConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

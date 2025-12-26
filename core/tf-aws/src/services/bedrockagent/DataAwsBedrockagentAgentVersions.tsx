@@ -59,9 +59,11 @@ export function DataAwsBedrockagentAgentVersions(props: Partial<InputProps>) {
 export const useDataAwsBedrockagentAgentVersionss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsBedrockagentAgentVersions,
     idFilter,
     baseNode,
+    optional,
   )

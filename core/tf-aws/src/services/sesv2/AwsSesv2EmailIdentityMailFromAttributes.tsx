@@ -51,9 +51,11 @@ export function AwsSesv2EmailIdentityMailFromAttributes(
 export const useAwsSesv2EmailIdentityMailFromAttributess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSesv2EmailIdentityMailFromAttributes,
     idFilter,
     baseNode,
+    optional,
   )

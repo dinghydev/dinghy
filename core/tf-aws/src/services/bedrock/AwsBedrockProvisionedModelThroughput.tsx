@@ -68,19 +68,23 @@ export function AwsBedrockProvisionedModelThroughput(
 export const useAwsBedrockProvisionedModelThroughput = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockProvisionedModelThroughput,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockProvisionedModelThroughputs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockProvisionedModelThroughput,
     idFilter,
     baseNode,
+    optional,
   )

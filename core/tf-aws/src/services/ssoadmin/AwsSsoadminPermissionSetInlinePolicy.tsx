@@ -59,19 +59,23 @@ export function AwsSsoadminPermissionSetInlinePolicy(
 export const useAwsSsoadminPermissionSetInlinePolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsoadminPermissionSetInlinePolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSsoadminPermissionSetInlinePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminPermissionSetInlinePolicy,
     idFilter,
     baseNode,
+    optional,
   )

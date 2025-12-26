@@ -46,5 +46,8 @@ export function DataAwsSqsQueues(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSqsQueuess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSqsQueues, idFilter, baseNode)
+export const useDataAwsSqsQueuess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsSqsQueues, idFilter, baseNode, optional)

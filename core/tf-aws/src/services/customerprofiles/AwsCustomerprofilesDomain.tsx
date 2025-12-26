@@ -108,9 +108,23 @@ export function AwsCustomerprofilesDomain(props: Partial<InputProps>) {
 export const useAwsCustomerprofilesDomain = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCustomerprofilesDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCustomerprofilesDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCustomerprofilesDomains = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCustomerprofilesDomain, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCustomerprofilesDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

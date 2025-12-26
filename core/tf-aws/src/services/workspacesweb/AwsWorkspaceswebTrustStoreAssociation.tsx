@@ -50,19 +50,23 @@ export function AwsWorkspaceswebTrustStoreAssociation(
 export const useAwsWorkspaceswebTrustStoreAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebTrustStoreAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebTrustStoreAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebTrustStoreAssociation,
     idFilter,
     baseNode,
+    optional,
   )

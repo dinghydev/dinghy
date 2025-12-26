@@ -64,15 +64,23 @@ export function AwsEc2TransitGatewayConnectPeer(props: Partial<InputProps>) {
 export const useAwsEc2TransitGatewayConnectPeer = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2TransitGatewayConnectPeer, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEc2TransitGatewayConnectPeer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2TransitGatewayConnectPeers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayConnectPeer,
     idFilter,
     baseNode,
+    optional,
   )

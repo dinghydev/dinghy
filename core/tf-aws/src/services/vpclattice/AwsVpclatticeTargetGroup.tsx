@@ -85,9 +85,23 @@ export function AwsVpclatticeTargetGroup(props: Partial<InputProps>) {
 export const useAwsVpclatticeTargetGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpclatticeTargetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpclatticeTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpclatticeTargetGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpclatticeTargetGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpclatticeTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

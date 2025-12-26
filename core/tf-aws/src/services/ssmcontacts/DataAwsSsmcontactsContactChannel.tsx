@@ -57,19 +57,23 @@ export function DataAwsSsmcontactsContactChannel(props: Partial<InputProps>) {
 export const useDataAwsSsmcontactsContactChannel = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsSsmcontactsContactChannel,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsSsmcontactsContactChannels = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSsmcontactsContactChannel,
     idFilter,
     baseNode,
+    optional,
   )

@@ -55,19 +55,23 @@ export function AwsEc2TransitGatewayPrefixListReference(
 export const useAwsEc2TransitGatewayPrefixListReference = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayPrefixListReference,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayPrefixListReferences = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayPrefixListReference,
     idFilter,
     baseNode,
+    optional,
   )

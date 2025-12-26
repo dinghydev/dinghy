@@ -67,10 +67,26 @@ export function AwsSnsTopicSubscription(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSnsTopicSubscription = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSnsTopicSubscription, idFilter, baseNode)
+export const useAwsSnsTopicSubscription = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSnsTopicSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSnsTopicSubscriptions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSnsTopicSubscription, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSnsTopicSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )

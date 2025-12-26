@@ -74,9 +74,23 @@ export function AwsCodeartifactRepository(props: Partial<InputProps>) {
 export const useAwsCodeartifactRepository = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCodeartifactRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodeartifactRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodeartifactRepositorys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCodeartifactRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodeartifactRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )

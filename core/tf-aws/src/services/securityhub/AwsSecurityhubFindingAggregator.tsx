@@ -49,15 +49,23 @@ export function AwsSecurityhubFindingAggregator(props: Partial<InputProps>) {
 export const useAwsSecurityhubFindingAggregator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecurityhubFindingAggregator, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSecurityhubFindingAggregator,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubFindingAggregators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecurityhubFindingAggregator,
     idFilter,
     baseNode,
+    optional,
   )

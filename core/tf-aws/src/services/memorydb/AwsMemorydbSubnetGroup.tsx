@@ -53,8 +53,26 @@ export function AwsMemorydbSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbSubnetGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMemorydbSubnetGroup, idFilter, baseNode)
+export const useAwsMemorydbSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMemorydbSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsMemorydbSubnetGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMemorydbSubnetGroup, idFilter, baseNode)
+export const useAwsMemorydbSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMemorydbSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

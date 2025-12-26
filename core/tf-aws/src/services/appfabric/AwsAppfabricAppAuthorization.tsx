@@ -82,10 +82,23 @@ export function AwsAppfabricAppAuthorization(props: Partial<InputProps>) {
 export const useAwsAppfabricAppAuthorization = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppfabricAppAuthorization, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppfabricAppAuthorization,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppfabricAppAuthorizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppfabricAppAuthorization, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAppfabricAppAuthorization,
+    idFilter,
+    baseNode,
+    optional,
+  )

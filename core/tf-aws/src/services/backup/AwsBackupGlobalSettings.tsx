@@ -47,4 +47,11 @@ export function AwsBackupGlobalSettings(props: Partial<InputProps>) {
 export const useAwsBackupGlobalSettingss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsBackupGlobalSettings, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsBackupGlobalSettings,
+    idFilter,
+    baseNode,
+    optional,
+  )

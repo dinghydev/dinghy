@@ -51,19 +51,23 @@ export function AwsShieldProtectionHealthCheckAssociation(
 export const useAwsShieldProtectionHealthCheckAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsShieldProtectionHealthCheckAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsShieldProtectionHealthCheckAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsShieldProtectionHealthCheckAssociation,
     idFilter,
     baseNode,
+    optional,
   )

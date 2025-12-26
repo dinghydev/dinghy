@@ -59,19 +59,23 @@ export function AwsRoute53VpcAssociationAuthorization(
 export const useAwsRoute53VpcAssociationAuthorization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsRoute53VpcAssociationAuthorization,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsRoute53VpcAssociationAuthorizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRoute53VpcAssociationAuthorization,
     idFilter,
     baseNode,
+    optional,
   )

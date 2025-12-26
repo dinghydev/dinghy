@@ -59,10 +59,23 @@ export function AwsGrafanaLicenseAssociation(props: Partial<InputProps>) {
 export const useAwsGrafanaLicenseAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGrafanaLicenseAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGrafanaLicenseAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGrafanaLicenseAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGrafanaLicenseAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsGrafanaLicenseAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

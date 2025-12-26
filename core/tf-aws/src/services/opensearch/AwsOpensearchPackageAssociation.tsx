@@ -57,15 +57,23 @@ export function AwsOpensearchPackageAssociation(props: Partial<InputProps>) {
 export const useAwsOpensearchPackageAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOpensearchPackageAssociation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsOpensearchPackageAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOpensearchPackageAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsOpensearchPackageAssociation,
     idFilter,
     baseNode,
+    optional,
   )

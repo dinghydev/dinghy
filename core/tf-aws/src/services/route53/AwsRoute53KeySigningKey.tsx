@@ -65,10 +65,26 @@ export function AwsRoute53KeySigningKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53KeySigningKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53KeySigningKey, idFilter, baseNode)
+export const useAwsRoute53KeySigningKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53KeySigningKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53KeySigningKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53KeySigningKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53KeySigningKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

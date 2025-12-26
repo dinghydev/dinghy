@@ -60,9 +60,23 @@ export function AwsWafregionalByteMatchSet(props: Partial<InputProps>) {
 export const useAwsWafregionalByteMatchSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWafregionalByteMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafregionalByteMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalByteMatchSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafregionalByteMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafregionalByteMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

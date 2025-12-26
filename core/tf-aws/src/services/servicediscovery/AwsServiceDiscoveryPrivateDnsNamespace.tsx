@@ -57,19 +57,23 @@ export function AwsServiceDiscoveryPrivateDnsNamespace(
 export const useAwsServiceDiscoveryPrivateDnsNamespace = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServiceDiscoveryPrivateDnsNamespace,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServiceDiscoveryPrivateDnsNamespaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServiceDiscoveryPrivateDnsNamespace,
     idFilter,
     baseNode,
+    optional,
   )

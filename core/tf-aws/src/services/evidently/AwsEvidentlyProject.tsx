@@ -76,8 +76,16 @@ export function AwsEvidentlyProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEvidentlyProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEvidentlyProject, idFilter, baseNode)
+export const useAwsEvidentlyProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEvidentlyProject, idFilter, baseNode, optional)
 
-export const useAwsEvidentlyProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyProject, idFilter, baseNode)
+export const useAwsEvidentlyProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEvidentlyProject, idFilter, baseNode, optional)

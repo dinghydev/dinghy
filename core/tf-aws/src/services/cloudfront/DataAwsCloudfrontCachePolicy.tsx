@@ -76,10 +76,23 @@ export function DataAwsCloudfrontCachePolicy(props: Partial<InputProps>) {
 export const useDataAwsCloudfrontCachePolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCloudfrontCachePolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudfrontCachePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudfrontCachePolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsCloudfrontCachePolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsCloudfrontCachePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

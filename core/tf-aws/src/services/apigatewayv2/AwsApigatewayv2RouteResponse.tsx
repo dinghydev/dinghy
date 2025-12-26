@@ -53,10 +53,23 @@ export function AwsApigatewayv2RouteResponse(props: Partial<InputProps>) {
 export const useAwsApigatewayv2RouteResponse = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApigatewayv2RouteResponse, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApigatewayv2RouteResponse,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2RouteResponses = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApigatewayv2RouteResponse, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsApigatewayv2RouteResponse,
+    idFilter,
+    baseNode,
+    optional,
+  )

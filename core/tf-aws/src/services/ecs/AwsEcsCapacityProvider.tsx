@@ -142,8 +142,26 @@ export function AwsEcsCapacityProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsCapacityProvider = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcsCapacityProvider, idFilter, baseNode)
+export const useAwsEcsCapacityProvider = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcsCapacityProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsEcsCapacityProviders = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcsCapacityProvider, idFilter, baseNode)
+export const useAwsEcsCapacityProviders = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcsCapacityProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )

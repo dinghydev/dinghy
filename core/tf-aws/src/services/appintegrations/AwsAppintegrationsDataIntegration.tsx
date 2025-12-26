@@ -60,19 +60,23 @@ export function AwsAppintegrationsDataIntegration(props: Partial<InputProps>) {
 export const useAwsAppintegrationsDataIntegration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppintegrationsDataIntegration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppintegrationsDataIntegrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppintegrationsDataIntegration,
     idFilter,
     baseNode,
+    optional,
   )

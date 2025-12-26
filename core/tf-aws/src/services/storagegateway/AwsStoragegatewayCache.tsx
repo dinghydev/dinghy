@@ -47,8 +47,26 @@ export function AwsStoragegatewayCache(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsStoragegatewayCache = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsStoragegatewayCache, idFilter, baseNode)
+export const useAwsStoragegatewayCache = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsStoragegatewayCache,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsStoragegatewayCaches = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsStoragegatewayCache, idFilter, baseNode)
+export const useAwsStoragegatewayCaches = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsStoragegatewayCache,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -57,9 +57,23 @@ export function DataAwsCloudfrontFunction(props: Partial<InputProps>) {
 export const useDataAwsCloudfrontFunction = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCloudfrontFunction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCloudfrontFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCloudfrontFunctions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCloudfrontFunction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCloudfrontFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )

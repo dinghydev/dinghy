@@ -62,9 +62,23 @@ export function AwsGameliftGameSessionQueue(props: Partial<InputProps>) {
 export const useAwsGameliftGameSessionQueue = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGameliftGameSessionQueue, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGameliftGameSessionQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGameliftGameSessionQueues = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGameliftGameSessionQueue, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGameliftGameSessionQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )

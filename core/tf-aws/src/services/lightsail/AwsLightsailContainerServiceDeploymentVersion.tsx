@@ -82,19 +82,23 @@ export function AwsLightsailContainerServiceDeploymentVersion(
 export const useAwsLightsailContainerServiceDeploymentVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLightsailContainerServiceDeploymentVersion,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLightsailContainerServiceDeploymentVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLightsailContainerServiceDeploymentVersion,
     idFilter,
     baseNode,
+    optional,
   )

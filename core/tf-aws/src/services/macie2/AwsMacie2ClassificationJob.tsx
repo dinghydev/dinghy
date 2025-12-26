@@ -157,9 +157,23 @@ export function AwsMacie2ClassificationJob(props: Partial<InputProps>) {
 export const useAwsMacie2ClassificationJob = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsMacie2ClassificationJob, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMacie2ClassificationJob,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMacie2ClassificationJobs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsMacie2ClassificationJob, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMacie2ClassificationJob,
+    idFilter,
+    baseNode,
+    optional,
+  )

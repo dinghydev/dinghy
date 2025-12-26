@@ -49,8 +49,21 @@ export function AwsSecurityhubAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSecurityhubAccount = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSecurityhubAccount, idFilter, baseNode)
+export const useAwsSecurityhubAccount = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSecurityhubAccount, idFilter, baseNode, optional)
 
-export const useAwsSecurityhubAccounts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubAccount, idFilter, baseNode)
+export const useAwsSecurityhubAccounts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )

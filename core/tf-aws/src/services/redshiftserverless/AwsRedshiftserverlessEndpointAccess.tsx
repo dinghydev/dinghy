@@ -67,9 +67,11 @@ export function AwsRedshiftserverlessEndpointAccess(
 export const useAwsRedshiftserverlessEndpointAccesss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsRedshiftserverlessEndpointAccess,
     idFilter,
     baseNode,
+    optional,
   )

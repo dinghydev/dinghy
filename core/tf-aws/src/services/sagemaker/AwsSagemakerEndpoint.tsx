@@ -88,8 +88,16 @@ export function AwsSagemakerEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerEndpoint, idFilter, baseNode)
+export const useAwsSagemakerEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSagemakerEndpoint, idFilter, baseNode, optional)
 
-export const useAwsSagemakerEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerEndpoint, idFilter, baseNode)
+export const useAwsSagemakerEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSagemakerEndpoint, idFilter, baseNode, optional)

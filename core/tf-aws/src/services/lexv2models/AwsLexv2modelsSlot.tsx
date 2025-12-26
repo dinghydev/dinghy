@@ -527,8 +527,15 @@ export function AwsLexv2modelsSlot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsSlot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsSlot, idFilter, baseNode)
+export const useAwsLexv2modelsSlot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLexv2modelsSlot, idFilter, baseNode, optional)
 
-export const useAwsLexv2modelsSlots = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsSlot, idFilter, baseNode)
+export const useAwsLexv2modelsSlots = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLexv2modelsSlot, idFilter, baseNode, optional)

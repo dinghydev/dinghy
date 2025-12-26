@@ -58,8 +58,16 @@ export function AwsWafRateBasedRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafRateBasedRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafRateBasedRule, idFilter, baseNode)
+export const useAwsWafRateBasedRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsWafRateBasedRule, idFilter, baseNode, optional)
 
-export const useAwsWafRateBasedRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafRateBasedRule, idFilter, baseNode)
+export const useAwsWafRateBasedRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsWafRateBasedRule, idFilter, baseNode, optional)

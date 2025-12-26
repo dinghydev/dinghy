@@ -48,8 +48,14 @@ export function AwsEc2Tag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEc2Tag = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEc2Tag, idFilter, baseNode)
+export const useAwsEc2Tag = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEc2Tag, idFilter, baseNode, optional)
 
-export const useAwsEc2Tags = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEc2Tag, idFilter, baseNode)
+export const useAwsEc2Tags = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEc2Tag, idFilter, baseNode, optional)

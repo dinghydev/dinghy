@@ -67,8 +67,15 @@ export function DataAwsConnectUser(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsConnectUser, idFilter, baseNode)
+export const useDataAwsConnectUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsConnectUser, idFilter, baseNode, optional)
 
-export const useDataAwsConnectUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsConnectUser, idFilter, baseNode)
+export const useDataAwsConnectUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsConnectUser, idFilter, baseNode, optional)

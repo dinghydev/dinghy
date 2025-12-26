@@ -56,9 +56,11 @@ export function AwsChimeVoiceConnectorTerminationCredentials(
 export const useAwsChimeVoiceConnectorTerminationCredentialss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChimeVoiceConnectorTerminationCredentials,
     idFilter,
     baseNode,
+    optional,
   )

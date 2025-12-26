@@ -52,11 +52,23 @@ export function AwsS3AccountPublicAccessBlock(props: Partial<InputProps>) {
 export const useAwsS3AccountPublicAccessBlock = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsS3AccountPublicAccessBlock, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsS3AccountPublicAccessBlock,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3AccountPublicAccessBlocks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3AccountPublicAccessBlock, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsS3AccountPublicAccessBlock,
+    idFilter,
+    baseNode,
+    optional,
+  )

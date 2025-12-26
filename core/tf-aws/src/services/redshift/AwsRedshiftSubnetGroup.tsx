@@ -51,8 +51,26 @@ export function AwsRedshiftSubnetGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRedshiftSubnetGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRedshiftSubnetGroup, idFilter, baseNode)
+export const useAwsRedshiftSubnetGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRedshiftSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsRedshiftSubnetGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRedshiftSubnetGroup, idFilter, baseNode)
+export const useAwsRedshiftSubnetGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

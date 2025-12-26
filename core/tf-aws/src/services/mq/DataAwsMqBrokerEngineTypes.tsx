@@ -54,4 +54,11 @@ export function DataAwsMqBrokerEngineTypes(props: Partial<InputProps>) {
 export const useDataAwsMqBrokerEngineTypess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsMqBrokerEngineTypes, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMqBrokerEngineTypes,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -51,8 +51,14 @@ export function AwsIotThing(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotThing = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIotThing, idFilter, baseNode)
+export const useAwsIotThing = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIotThing, idFilter, baseNode, optional)
 
-export const useAwsIotThings = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotThing, idFilter, baseNode)
+export const useAwsIotThings = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIotThing, idFilter, baseNode, optional)

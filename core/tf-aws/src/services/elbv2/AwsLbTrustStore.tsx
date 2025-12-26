@@ -69,8 +69,14 @@ export function AwsLbTrustStore(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLbTrustStore = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLbTrustStore, idFilter, baseNode)
+export const useAwsLbTrustStore = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsLbTrustStore, idFilter, baseNode, optional)
 
-export const useAwsLbTrustStores = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLbTrustStore, idFilter, baseNode)
+export const useAwsLbTrustStores = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsLbTrustStore, idFilter, baseNode, optional)

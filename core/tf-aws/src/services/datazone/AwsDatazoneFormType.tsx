@@ -70,8 +70,16 @@ export function AwsDatazoneFormType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneFormType = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneFormType, idFilter, baseNode)
+export const useAwsDatazoneFormType = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDatazoneFormType, idFilter, baseNode, optional)
 
-export const useAwsDatazoneFormTypes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneFormType, idFilter, baseNode)
+export const useAwsDatazoneFormTypes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDatazoneFormType, idFilter, baseNode, optional)

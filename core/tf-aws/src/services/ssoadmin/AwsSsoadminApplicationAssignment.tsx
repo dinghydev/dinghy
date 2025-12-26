@@ -51,19 +51,23 @@ export function AwsSsoadminApplicationAssignment(props: Partial<InputProps>) {
 export const useAwsSsoadminApplicationAssignment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSsoadminApplicationAssignment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSsoadminApplicationAssignments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSsoadminApplicationAssignment,
     idFilter,
     baseNode,
+    optional,
   )

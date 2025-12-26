@@ -103,8 +103,15 @@ export function AwsMemorydbCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMemorydbCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMemorydbCluster, idFilter, baseNode)
+export const useAwsMemorydbCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsMemorydbCluster, idFilter, baseNode, optional)
 
-export const useAwsMemorydbClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMemorydbCluster, idFilter, baseNode)
+export const useAwsMemorydbClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMemorydbCluster, idFilter, baseNode, optional)

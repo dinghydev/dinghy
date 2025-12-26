@@ -57,15 +57,23 @@ export function DataAwsConnectContactFlowModule(props: Partial<InputProps>) {
 export const useDataAwsConnectContactFlowModule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsConnectContactFlowModule, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsConnectContactFlowModule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectContactFlowModules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsConnectContactFlowModule,
     idFilter,
     baseNode,
+    optional,
   )

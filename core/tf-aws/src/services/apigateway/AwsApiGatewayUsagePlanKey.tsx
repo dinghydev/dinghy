@@ -56,9 +56,23 @@ export function AwsApiGatewayUsagePlanKey(props: Partial<InputProps>) {
 export const useAwsApiGatewayUsagePlanKey = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApiGatewayUsagePlanKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApiGatewayUsagePlanKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayUsagePlanKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApiGatewayUsagePlanKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayUsagePlanKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

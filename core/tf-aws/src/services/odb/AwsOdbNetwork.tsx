@@ -103,8 +103,14 @@ export function AwsOdbNetwork(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsOdbNetwork = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsOdbNetwork, idFilter, baseNode)
+export const useAwsOdbNetwork = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsOdbNetwork, idFilter, baseNode, optional)
 
-export const useAwsOdbNetworks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsOdbNetwork, idFilter, baseNode)
+export const useAwsOdbNetworks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsOdbNetwork, idFilter, baseNode, optional)

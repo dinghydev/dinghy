@@ -61,9 +61,23 @@ export function AwsGlueUserDefinedFunction(props: Partial<InputProps>) {
 export const useAwsGlueUserDefinedFunction = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGlueUserDefinedFunction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlueUserDefinedFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueUserDefinedFunctions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGlueUserDefinedFunction, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGlueUserDefinedFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )

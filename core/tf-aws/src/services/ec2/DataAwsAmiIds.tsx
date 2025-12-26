@@ -61,5 +61,8 @@ export function DataAwsAmiIds(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAmiIdss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsAmiIds, idFilter, baseNode)
+export const useDataAwsAmiIdss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsAmiIds, idFilter, baseNode, optional)

@@ -90,19 +90,23 @@ export function DataAwsOrganizationsOrganization(props: Partial<InputProps>) {
 export const useDataAwsOrganizationsOrganization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOrganizationsOrganization,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOrganizationsOrganizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsOrganization,
     idFilter,
     baseNode,
+    optional,
   )

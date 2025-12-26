@@ -65,8 +65,16 @@ export function AwsLambdaPermission(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLambdaPermission = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLambdaPermission, idFilter, baseNode)
+export const useAwsLambdaPermission = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsLambdaPermission, idFilter, baseNode, optional)
 
-export const useAwsLambdaPermissions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsLambdaPermission, idFilter, baseNode)
+export const useAwsLambdaPermissions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsLambdaPermission, idFilter, baseNode, optional)

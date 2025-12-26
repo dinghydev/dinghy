@@ -49,8 +49,16 @@ export function AwsGlacierVaultLock(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlacierVaultLock = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlacierVaultLock, idFilter, baseNode)
+export const useAwsGlacierVaultLock = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsGlacierVaultLock, idFilter, baseNode, optional)
 
-export const useAwsGlacierVaultLocks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlacierVaultLock, idFilter, baseNode)
+export const useAwsGlacierVaultLocks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsGlacierVaultLock, idFilter, baseNode, optional)

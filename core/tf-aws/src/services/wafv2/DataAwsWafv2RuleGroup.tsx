@@ -49,8 +49,21 @@ export function DataAwsWafv2RuleGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafv2RuleGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWafv2RuleGroup, idFilter, baseNode)
+export const useDataAwsWafv2RuleGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsWafv2RuleGroup, idFilter, baseNode, optional)
 
-export const useDataAwsWafv2RuleGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsWafv2RuleGroup, idFilter, baseNode)
+export const useDataAwsWafv2RuleGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWafv2RuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

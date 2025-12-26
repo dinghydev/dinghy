@@ -104,9 +104,23 @@ export function AwsSagemakerFeatureGroup(props: Partial<InputProps>) {
 export const useAwsSagemakerFeatureGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSagemakerFeatureGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerFeatureGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerFeatureGroups = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerFeatureGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerFeatureGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

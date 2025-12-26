@@ -87,9 +87,23 @@ export function AwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
 export const useAwsEc2NetworkInsightsPath = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2NetworkInsightsPath, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2NetworkInsightsPath,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2NetworkInsightsPaths = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2NetworkInsightsPath, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2NetworkInsightsPath,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -50,19 +50,23 @@ export function AwsWorkspaceswebBrowserSettingsAssociation(
 export const useAwsWorkspaceswebBrowserSettingsAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebBrowserSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebBrowserSettingsAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebBrowserSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )

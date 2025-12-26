@@ -50,10 +50,23 @@ export function AwsLicensemanagerAssociation(props: Partial<InputProps>) {
 export const useAwsLicensemanagerAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLicensemanagerAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLicensemanagerAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLicensemanagerAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLicensemanagerAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLicensemanagerAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

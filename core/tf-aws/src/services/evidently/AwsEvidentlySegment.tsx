@@ -55,8 +55,16 @@ export function AwsEvidentlySegment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEvidentlySegment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEvidentlySegment, idFilter, baseNode)
+export const useAwsEvidentlySegment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEvidentlySegment, idFilter, baseNode, optional)
 
-export const useAwsEvidentlySegments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEvidentlySegment, idFilter, baseNode)
+export const useAwsEvidentlySegments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEvidentlySegment, idFilter, baseNode, optional)

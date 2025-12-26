@@ -57,4 +57,11 @@ export function AwsRedshiftClusterIamRoles(props: Partial<InputProps>) {
 export const useAwsRedshiftClusterIamRoless = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRedshiftClusterIamRoles, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRedshiftClusterIamRoles,
+    idFilter,
+    baseNode,
+    optional,
+  )

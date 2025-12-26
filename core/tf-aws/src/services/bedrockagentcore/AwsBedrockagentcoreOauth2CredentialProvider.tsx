@@ -155,19 +155,23 @@ export function AwsBedrockagentcoreOauth2CredentialProvider(
 export const useAwsBedrockagentcoreOauth2CredentialProvider = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreOauth2CredentialProvider,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentcoreOauth2CredentialProviders = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreOauth2CredentialProvider,
     idFilter,
     baseNode,
+    optional,
   )

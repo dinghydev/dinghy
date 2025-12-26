@@ -91,10 +91,23 @@ export function AwsOrganizationsOrganization(props: Partial<InputProps>) {
 export const useAwsOrganizationsOrganization = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsOrganizationsOrganization, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsOrganizationsOrganization,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOrganizationsOrganizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsOrganizationsOrganization, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsOrganizationsOrganization,
+    idFilter,
+    baseNode,
+    optional,
+  )

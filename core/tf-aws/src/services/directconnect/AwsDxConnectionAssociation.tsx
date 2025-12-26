@@ -49,9 +49,23 @@ export function AwsDxConnectionAssociation(props: Partial<InputProps>) {
 export const useAwsDxConnectionAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsDxConnectionAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDxConnectionAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxConnectionAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDxConnectionAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDxConnectionAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

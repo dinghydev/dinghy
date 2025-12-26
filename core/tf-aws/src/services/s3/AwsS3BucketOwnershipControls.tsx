@@ -59,5 +59,11 @@ export function AwsS3BucketOwnershipControls(props: Partial<InputProps>) {
 export const useAwsS3BucketOwnershipControlss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3BucketOwnershipControls, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsS3BucketOwnershipControls,
+    idFilter,
+    baseNode,
+    optional,
+  )

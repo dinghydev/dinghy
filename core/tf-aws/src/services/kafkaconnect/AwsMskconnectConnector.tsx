@@ -126,8 +126,26 @@ export function AwsMskconnectConnector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskconnectConnector = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMskconnectConnector, idFilter, baseNode)
+export const useAwsMskconnectConnector = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMskconnectConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsMskconnectConnectors = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMskconnectConnector, idFilter, baseNode)
+export const useAwsMskconnectConnectors = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMskconnectConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )

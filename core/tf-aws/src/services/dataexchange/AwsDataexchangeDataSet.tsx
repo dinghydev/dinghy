@@ -51,8 +51,26 @@ export function AwsDataexchangeDataSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDataexchangeDataSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDataexchangeDataSet, idFilter, baseNode)
+export const useAwsDataexchangeDataSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDataexchangeDataSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDataexchangeDataSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDataexchangeDataSet, idFilter, baseNode)
+export const useAwsDataexchangeDataSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDataexchangeDataSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

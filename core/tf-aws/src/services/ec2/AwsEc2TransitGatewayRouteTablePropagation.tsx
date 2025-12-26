@@ -54,19 +54,23 @@ export function AwsEc2TransitGatewayRouteTablePropagation(
 export const useAwsEc2TransitGatewayRouteTablePropagation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayRouteTablePropagation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayRouteTablePropagations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayRouteTablePropagation,
     idFilter,
     baseNode,
+    optional,
   )

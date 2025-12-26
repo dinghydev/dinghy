@@ -52,15 +52,23 @@ export function AwsIdentitystoreGroupMembership(props: Partial<InputProps>) {
 export const useAwsIdentitystoreGroupMembership = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIdentitystoreGroupMembership, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsIdentitystoreGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIdentitystoreGroupMemberships = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsIdentitystoreGroupMembership,
     idFilter,
     baseNode,
+    optional,
   )

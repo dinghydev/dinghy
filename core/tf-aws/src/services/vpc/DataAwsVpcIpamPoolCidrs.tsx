@@ -63,4 +63,11 @@ export function DataAwsVpcIpamPoolCidrs(props: Partial<InputProps>) {
 export const useDataAwsVpcIpamPoolCidrss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsVpcIpamPoolCidrs, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsVpcIpamPoolCidrs,
+    idFilter,
+    baseNode,
+    optional,
+  )

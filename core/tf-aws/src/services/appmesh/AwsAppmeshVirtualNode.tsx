@@ -265,8 +265,21 @@ export function AwsAppmeshVirtualNode(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppmeshVirtualNode = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualNode, idFilter, baseNode)
+export const useAwsAppmeshVirtualNode = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsAppmeshVirtualNode, idFilter, baseNode, optional)
 
-export const useAwsAppmeshVirtualNodes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppmeshVirtualNode, idFilter, baseNode)
+export const useAwsAppmeshVirtualNodes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppmeshVirtualNode,
+    idFilter,
+    baseNode,
+    optional,
+  )

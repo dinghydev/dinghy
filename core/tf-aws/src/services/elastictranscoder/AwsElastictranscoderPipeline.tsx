@@ -88,10 +88,23 @@ export function AwsElastictranscoderPipeline(props: Partial<InputProps>) {
 export const useAwsElastictranscoderPipeline = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsElastictranscoderPipeline, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElastictranscoderPipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElastictranscoderPipelines = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElastictranscoderPipeline, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElastictranscoderPipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )

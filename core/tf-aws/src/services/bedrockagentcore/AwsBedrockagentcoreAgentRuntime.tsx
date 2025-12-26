@@ -120,15 +120,23 @@ export function AwsBedrockagentcoreAgentRuntime(props: Partial<InputProps>) {
 export const useAwsBedrockagentcoreAgentRuntime = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBedrockagentcoreAgentRuntime, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsBedrockagentcoreAgentRuntime,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentcoreAgentRuntimes = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreAgentRuntime,
     idFilter,
     baseNode,
+    optional,
   )

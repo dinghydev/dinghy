@@ -53,19 +53,23 @@ export function AwsBedrockagentcoreTokenVaultCmk(props: Partial<InputProps>) {
 export const useAwsBedrockagentcoreTokenVaultCmk = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsBedrockagentcoreTokenVaultCmk,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsBedrockagentcoreTokenVaultCmks = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentcoreTokenVaultCmk,
     idFilter,
     baseNode,
+    optional,
   )

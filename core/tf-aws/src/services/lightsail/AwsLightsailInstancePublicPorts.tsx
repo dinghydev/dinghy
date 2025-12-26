@@ -58,9 +58,11 @@ export function AwsLightsailInstancePublicPorts(props: Partial<InputProps>) {
 export const useAwsLightsailInstancePublicPortss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLightsailInstancePublicPorts,
     idFilter,
     baseNode,
+    optional,
   )

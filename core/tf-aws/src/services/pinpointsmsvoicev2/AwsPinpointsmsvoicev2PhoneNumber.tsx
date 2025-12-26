@@ -71,19 +71,23 @@ export function AwsPinpointsmsvoicev2PhoneNumber(props: Partial<InputProps>) {
 export const useAwsPinpointsmsvoicev2PhoneNumber = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsPinpointsmsvoicev2PhoneNumber,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsPinpointsmsvoicev2PhoneNumbers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPinpointsmsvoicev2PhoneNumber,
     idFilter,
     baseNode,
+    optional,
   )

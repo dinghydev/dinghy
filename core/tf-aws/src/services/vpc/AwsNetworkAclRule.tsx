@@ -56,8 +56,14 @@ export function AwsNetworkAclRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNetworkAclRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNetworkAclRule, idFilter, baseNode)
+export const useAwsNetworkAclRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsNetworkAclRule, idFilter, baseNode, optional)
 
-export const useAwsNetworkAclRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNetworkAclRule, idFilter, baseNode)
+export const useAwsNetworkAclRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsNetworkAclRule, idFilter, baseNode, optional)

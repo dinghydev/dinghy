@@ -72,8 +72,14 @@ export function AwsDbSnapshot(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDbSnapshot = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDbSnapshot, idFilter, baseNode)
+export const useAwsDbSnapshot = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDbSnapshot, idFilter, baseNode, optional)
 
-export const useAwsDbSnapshots = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDbSnapshot, idFilter, baseNode)
+export const useAwsDbSnapshots = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDbSnapshot, idFilter, baseNode, optional)

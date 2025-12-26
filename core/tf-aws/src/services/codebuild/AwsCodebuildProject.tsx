@@ -214,8 +214,16 @@ export function AwsCodebuildProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodebuildProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodebuildProject, idFilter, baseNode)
+export const useAwsCodebuildProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCodebuildProject, idFilter, baseNode, optional)
 
-export const useAwsCodebuildProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodebuildProject, idFilter, baseNode)
+export const useAwsCodebuildProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsCodebuildProject, idFilter, baseNode, optional)

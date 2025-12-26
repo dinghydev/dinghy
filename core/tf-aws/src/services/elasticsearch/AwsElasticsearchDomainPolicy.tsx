@@ -55,10 +55,23 @@ export function AwsElasticsearchDomainPolicy(props: Partial<InputProps>) {
 export const useAwsElasticsearchDomainPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsElasticsearchDomainPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsElasticsearchDomainPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticsearchDomainPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElasticsearchDomainPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElasticsearchDomainPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

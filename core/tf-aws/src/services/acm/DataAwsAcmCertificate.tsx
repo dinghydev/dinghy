@@ -56,8 +56,21 @@ export function DataAwsAcmCertificate(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsAcmCertificate = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsAcmCertificate, idFilter, baseNode)
+export const useDataAwsAcmCertificate = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsAcmCertificate, idFilter, baseNode, optional)
 
-export const useDataAwsAcmCertificates = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsAcmCertificate, idFilter, baseNode)
+export const useDataAwsAcmCertificates = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAcmCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

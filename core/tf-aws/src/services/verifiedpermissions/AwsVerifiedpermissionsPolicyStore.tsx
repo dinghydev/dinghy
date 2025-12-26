@@ -59,19 +59,23 @@ export function AwsVerifiedpermissionsPolicyStore(props: Partial<InputProps>) {
 export const useAwsVerifiedpermissionsPolicyStore = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVerifiedpermissionsPolicyStores = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,
+    optional,
   )

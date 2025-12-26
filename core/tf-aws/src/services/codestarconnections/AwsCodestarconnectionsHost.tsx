@@ -74,9 +74,23 @@ export function AwsCodestarconnectionsHost(props: Partial<InputProps>) {
 export const useAwsCodestarconnectionsHost = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCodestarconnectionsHost, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodestarconnectionsHost,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodestarconnectionsHosts = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCodestarconnectionsHost, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodestarconnectionsHost,
+    idFilter,
+    baseNode,
+    optional,
+  )

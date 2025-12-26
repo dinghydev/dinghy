@@ -62,9 +62,23 @@ export function AwsRamResourceShareAccepter(props: Partial<InputProps>) {
 export const useAwsRamResourceShareAccepter = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRamResourceShareAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRamResourceShareAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRamResourceShareAccepters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRamResourceShareAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRamResourceShareAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )

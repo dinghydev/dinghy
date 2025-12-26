@@ -46,8 +46,14 @@ export function AwsWafv2ApiKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2ApiKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode)
+export const useAwsWafv2ApiKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode, optional)
 
-export const useAwsWafv2ApiKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode)
+export const useAwsWafv2ApiKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode, optional)

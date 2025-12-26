@@ -52,19 +52,23 @@ export function AwsLightsailLbHttpsRedirectionPolicy(
 export const useAwsLightsailLbHttpsRedirectionPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLightsailLbHttpsRedirectionPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLightsailLbHttpsRedirectionPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLightsailLbHttpsRedirectionPolicy,
     idFilter,
     baseNode,
+    optional,
   )

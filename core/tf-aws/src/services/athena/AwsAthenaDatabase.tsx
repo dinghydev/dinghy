@@ -63,8 +63,14 @@ export function AwsAthenaDatabase(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAthenaDatabase = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAthenaDatabase, idFilter, baseNode)
+export const useAwsAthenaDatabase = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAthenaDatabase, idFilter, baseNode, optional)
 
-export const useAwsAthenaDatabases = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAthenaDatabase, idFilter, baseNode)
+export const useAwsAthenaDatabases = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAthenaDatabase, idFilter, baseNode, optional)

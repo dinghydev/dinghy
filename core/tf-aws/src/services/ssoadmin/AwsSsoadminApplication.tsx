@@ -72,8 +72,26 @@ export function AwsSsoadminApplication(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsoadminApplication = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsoadminApplication, idFilter, baseNode)
+export const useAwsSsoadminApplication = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSsoadminApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsSsoadminApplications = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsoadminApplication, idFilter, baseNode)
+export const useAwsSsoadminApplications = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSsoadminApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

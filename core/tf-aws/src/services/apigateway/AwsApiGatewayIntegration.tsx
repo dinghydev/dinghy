@@ -72,9 +72,23 @@ export function AwsApiGatewayIntegration(props: Partial<InputProps>) {
 export const useAwsApiGatewayIntegration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsApiGatewayIntegration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsApiGatewayIntegration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayIntegrations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsApiGatewayIntegration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayIntegration,
+    idFilter,
+    baseNode,
+    optional,
+  )

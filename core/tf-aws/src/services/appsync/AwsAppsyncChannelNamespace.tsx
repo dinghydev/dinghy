@@ -85,9 +85,23 @@ export function AwsAppsyncChannelNamespace(props: Partial<InputProps>) {
 export const useAwsAppsyncChannelNamespace = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppsyncChannelNamespace, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppsyncChannelNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncChannelNamespaces = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAppsyncChannelNamespace, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppsyncChannelNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )

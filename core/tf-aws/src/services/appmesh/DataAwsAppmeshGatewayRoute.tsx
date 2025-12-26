@@ -182,9 +182,23 @@ export function DataAwsAppmeshGatewayRoute(props: Partial<InputProps>) {
 export const useDataAwsAppmeshGatewayRoute = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsAppmeshGatewayRoute, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsAppmeshGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAppmeshGatewayRoutes = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAppmeshGatewayRoute, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAppmeshGatewayRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -316,8 +316,14 @@ export function AwsPipesPipe(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPipesPipe = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPipesPipe, idFilter, baseNode)
+export const useAwsPipesPipe = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsPipesPipe, idFilter, baseNode, optional)
 
-export const useAwsPipesPipes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPipesPipe, idFilter, baseNode)
+export const useAwsPipesPipes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsPipesPipe, idFilter, baseNode, optional)

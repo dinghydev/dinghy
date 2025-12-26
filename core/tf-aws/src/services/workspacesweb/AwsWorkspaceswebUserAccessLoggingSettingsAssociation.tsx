@@ -50,19 +50,23 @@ export function AwsWorkspaceswebUserAccessLoggingSettingsAssociation(
 export const useAwsWorkspaceswebUserAccessLoggingSettingsAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebUserAccessLoggingSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebUserAccessLoggingSettingsAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebUserAccessLoggingSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -46,8 +46,26 @@ export function DataAwsWafregionalRule(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafregionalRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWafregionalRule, idFilter, baseNode)
+export const useDataAwsWafregionalRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWafregionalRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsWafregionalRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsWafregionalRule, idFilter, baseNode)
+export const useDataAwsWafregionalRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWafregionalRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

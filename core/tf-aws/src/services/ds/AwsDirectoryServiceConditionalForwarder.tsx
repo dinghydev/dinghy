@@ -52,19 +52,23 @@ export function AwsDirectoryServiceConditionalForwarder(
 export const useAwsDirectoryServiceConditionalForwarder = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDirectoryServiceConditionalForwarder,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDirectoryServiceConditionalForwarders = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDirectoryServiceConditionalForwarder,
     idFilter,
     baseNode,
+    optional,
   )

@@ -55,4 +55,11 @@ export function DataAwsEc2PublicIpv4Pools(props: Partial<InputProps>) {
 export const useDataAwsEc2PublicIpv4Poolss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEc2PublicIpv4Pools, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2PublicIpv4Pools,
+    idFilter,
+    baseNode,
+    optional,
+  )

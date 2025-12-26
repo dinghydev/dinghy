@@ -95,19 +95,23 @@ export function AwsFsxOntapStorageVirtualMachine(props: Partial<InputProps>) {
 export const useAwsFsxOntapStorageVirtualMachine = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsFsxOntapStorageVirtualMachine,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsFsxOntapStorageVirtualMachines = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsFsxOntapStorageVirtualMachine,
     idFilter,
     baseNode,
+    optional,
   )

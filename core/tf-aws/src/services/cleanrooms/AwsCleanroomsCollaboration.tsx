@@ -82,9 +82,23 @@ export function AwsCleanroomsCollaboration(props: Partial<InputProps>) {
 export const useAwsCleanroomsCollaboration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCleanroomsCollaboration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCleanroomsCollaboration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCleanroomsCollaborations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCleanroomsCollaboration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCleanroomsCollaboration,
+    idFilter,
+    baseNode,
+    optional,
+  )

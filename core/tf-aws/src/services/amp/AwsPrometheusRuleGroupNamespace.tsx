@@ -60,15 +60,23 @@ export function AwsPrometheusRuleGroupNamespace(props: Partial<InputProps>) {
 export const useAwsPrometheusRuleGroupNamespace = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsPrometheusRuleGroupNamespace, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsPrometheusRuleGroupNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPrometheusRuleGroupNamespaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsPrometheusRuleGroupNamespace,
     idFilter,
     baseNode,
+    optional,
   )

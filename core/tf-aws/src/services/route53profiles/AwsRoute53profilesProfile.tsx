@@ -64,9 +64,23 @@ export function AwsRoute53profilesProfile(props: Partial<InputProps>) {
 export const useAwsRoute53profilesProfile = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRoute53profilesProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53profilesProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53profilesProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53profilesProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53profilesProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -80,8 +80,16 @@ export function AwsPrometheusScraper(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsPrometheusScraper = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsPrometheusScraper, idFilter, baseNode)
+export const useAwsPrometheusScraper = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsPrometheusScraper, idFilter, baseNode, optional)
 
-export const useAwsPrometheusScrapers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsPrometheusScraper, idFilter, baseNode)
+export const useAwsPrometheusScrapers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsPrometheusScraper, idFilter, baseNode, optional)

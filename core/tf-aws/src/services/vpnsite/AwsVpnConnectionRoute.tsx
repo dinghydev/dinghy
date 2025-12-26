@@ -49,8 +49,21 @@ export function AwsVpnConnectionRoute(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpnConnectionRoute = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpnConnectionRoute, idFilter, baseNode)
+export const useAwsVpnConnectionRoute = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsVpnConnectionRoute, idFilter, baseNode, optional)
 
-export const useAwsVpnConnectionRoutes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVpnConnectionRoute, idFilter, baseNode)
+export const useAwsVpnConnectionRoutes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpnConnectionRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

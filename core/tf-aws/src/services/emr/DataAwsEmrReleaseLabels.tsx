@@ -54,4 +54,11 @@ export function DataAwsEmrReleaseLabels(props: Partial<InputProps>) {
 export const useDataAwsEmrReleaseLabelss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEmrReleaseLabels, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEmrReleaseLabels,
+    idFilter,
+    baseNode,
+    optional,
+  )

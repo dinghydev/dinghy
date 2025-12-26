@@ -47,4 +47,11 @@ export function AwsVpcEndpointPrivateDns(props: Partial<InputProps>) {
 export const useAwsVpcEndpointPrivateDnss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVpcEndpointPrivateDns, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVpcEndpointPrivateDns,
+    idFilter,
+    baseNode,
+    optional,
+  )

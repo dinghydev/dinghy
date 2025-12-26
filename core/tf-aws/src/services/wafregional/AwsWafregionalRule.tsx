@@ -57,8 +57,15 @@ export function AwsWafregionalRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafregionalRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafregionalRule, idFilter, baseNode)
+export const useAwsWafregionalRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafregionalRule, idFilter, baseNode, optional)
 
-export const useAwsWafregionalRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafregionalRule, idFilter, baseNode)
+export const useAwsWafregionalRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsWafregionalRule, idFilter, baseNode, optional)

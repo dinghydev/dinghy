@@ -56,10 +56,23 @@ export function AwsInternetGatewayAttachment(props: Partial<InputProps>) {
 export const useAwsInternetGatewayAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsInternetGatewayAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsInternetGatewayAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInternetGatewayAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsInternetGatewayAttachment, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsInternetGatewayAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

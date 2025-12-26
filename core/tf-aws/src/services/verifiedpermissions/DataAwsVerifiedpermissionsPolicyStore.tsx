@@ -59,19 +59,23 @@ export function DataAwsVerifiedpermissionsPolicyStore(
 export const useDataAwsVerifiedpermissionsPolicyStore = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsVerifiedpermissionsPolicyStores = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,
+    optional,
   )

@@ -49,4 +49,11 @@ export function DataAwsSsoadminInstances(props: Partial<InputProps>) {
 export const useDataAwsSsoadminInstancess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSsoadminInstances, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsoadminInstances,
+    idFilter,
+    baseNode,
+    optional,
+  )

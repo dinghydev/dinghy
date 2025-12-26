@@ -69,19 +69,23 @@ export function DataAwsEc2LocalGatewayVirtualInterface(
 export const useDataAwsEc2LocalGatewayVirtualInterface = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2LocalGatewayVirtualInterface,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2LocalGatewayVirtualInterfaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2LocalGatewayVirtualInterface,
     idFilter,
     baseNode,
+    optional,
   )

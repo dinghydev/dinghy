@@ -63,10 +63,23 @@ export function AwsGlueSecurityConfiguration(props: Partial<InputProps>) {
 export const useAwsGlueSecurityConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGlueSecurityConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGlueSecurityConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueSecurityConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGlueSecurityConfiguration, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsGlueSecurityConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

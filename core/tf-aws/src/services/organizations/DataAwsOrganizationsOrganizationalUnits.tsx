@@ -54,9 +54,11 @@ export function DataAwsOrganizationsOrganizationalUnits(
 export const useDataAwsOrganizationsOrganizationalUnitss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOrganizationsOrganizationalUnits,
     idFilter,
     baseNode,
+    optional,
   )

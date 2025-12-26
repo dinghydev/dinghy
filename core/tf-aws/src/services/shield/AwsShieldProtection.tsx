@@ -49,8 +49,16 @@ export function AwsShieldProtection(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsShieldProtection = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsShieldProtection, idFilter, baseNode)
+export const useAwsShieldProtection = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsShieldProtection, idFilter, baseNode, optional)
 
-export const useAwsShieldProtections = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsShieldProtection, idFilter, baseNode)
+export const useAwsShieldProtections = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsShieldProtection, idFilter, baseNode, optional)

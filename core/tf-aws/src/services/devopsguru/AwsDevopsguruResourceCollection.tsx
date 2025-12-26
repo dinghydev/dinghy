@@ -60,15 +60,23 @@ export function AwsDevopsguruResourceCollection(props: Partial<InputProps>) {
 export const useAwsDevopsguruResourceCollection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDevopsguruResourceCollection, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsDevopsguruResourceCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevopsguruResourceCollections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDevopsguruResourceCollection,
     idFilter,
     baseNode,
+    optional,
   )

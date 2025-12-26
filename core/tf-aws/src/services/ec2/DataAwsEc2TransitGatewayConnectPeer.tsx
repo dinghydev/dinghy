@@ -71,19 +71,23 @@ export function DataAwsEc2TransitGatewayConnectPeer(
 export const useDataAwsEc2TransitGatewayConnectPeer = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2TransitGatewayConnectPeer,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2TransitGatewayConnectPeers = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayConnectPeer,
     idFilter,
     baseNode,
+    optional,
   )

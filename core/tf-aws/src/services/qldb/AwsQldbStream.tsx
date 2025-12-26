@@ -63,8 +63,14 @@ export function AwsQldbStream(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQldbStream = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQldbStream, idFilter, baseNode)
+export const useAwsQldbStream = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsQldbStream, idFilter, baseNode, optional)
 
-export const useAwsQldbStreams = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQldbStream, idFilter, baseNode)
+export const useAwsQldbStreams = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsQldbStream, idFilter, baseNode, optional)

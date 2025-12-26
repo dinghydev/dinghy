@@ -58,9 +58,23 @@ export function AwsRekognitionCollection(props: Partial<InputProps>) {
 export const useAwsRekognitionCollection = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRekognitionCollection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRekognitionCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRekognitionCollections = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRekognitionCollection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRekognitionCollection,
+    idFilter,
+    baseNode,
+    optional,
+  )

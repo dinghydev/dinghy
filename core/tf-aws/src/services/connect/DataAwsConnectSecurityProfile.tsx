@@ -56,11 +56,23 @@ export function DataAwsConnectSecurityProfile(props: Partial<InputProps>) {
 export const useDataAwsConnectSecurityProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsConnectSecurityProfile, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsConnectSecurityProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectSecurityProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsConnectSecurityProfile, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsConnectSecurityProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

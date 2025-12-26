@@ -67,8 +67,16 @@ export function AwsNeptunegraphGraph(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsNeptunegraphGraph = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode)
+export const useAwsNeptunegraphGraph = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode, optional)
 
-export const useAwsNeptunegraphGraphs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode)
+export const useAwsNeptunegraphGraphs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode, optional)

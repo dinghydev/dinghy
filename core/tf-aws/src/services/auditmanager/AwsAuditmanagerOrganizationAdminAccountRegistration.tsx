@@ -52,19 +52,23 @@ export function AwsAuditmanagerOrganizationAdminAccountRegistration(
 export const useAwsAuditmanagerOrganizationAdminAccountRegistration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAuditmanagerOrganizationAdminAccountRegistration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAuditmanagerOrganizationAdminAccountRegistrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAuditmanagerOrganizationAdminAccountRegistration,
     idFilter,
     baseNode,
+    optional,
   )

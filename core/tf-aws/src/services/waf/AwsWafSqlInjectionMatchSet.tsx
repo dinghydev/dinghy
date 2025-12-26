@@ -58,9 +58,23 @@ export function AwsWafSqlInjectionMatchSet(props: Partial<InputProps>) {
 export const useAwsWafSqlInjectionMatchSet = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWafSqlInjectionMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafSqlInjectionMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafSqlInjectionMatchSets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafSqlInjectionMatchSet, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafSqlInjectionMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

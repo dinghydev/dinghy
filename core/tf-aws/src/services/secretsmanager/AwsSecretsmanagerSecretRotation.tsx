@@ -63,15 +63,23 @@ export function AwsSecretsmanagerSecretRotation(props: Partial<InputProps>) {
 export const useAwsSecretsmanagerSecretRotation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecretRotation, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSecretsmanagerSecretRotation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecretsmanagerSecretRotations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecretsmanagerSecretRotation,
     idFilter,
     baseNode,
+    optional,
   )

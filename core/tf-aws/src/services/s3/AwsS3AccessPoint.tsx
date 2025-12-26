@@ -71,8 +71,14 @@ export function AwsS3AccessPoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3AccessPoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3AccessPoint, idFilter, baseNode)
+export const useAwsS3AccessPoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsS3AccessPoint, idFilter, baseNode, optional)
 
-export const useAwsS3AccessPoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3AccessPoint, idFilter, baseNode)
+export const useAwsS3AccessPoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsS3AccessPoint, idFilter, baseNode, optional)

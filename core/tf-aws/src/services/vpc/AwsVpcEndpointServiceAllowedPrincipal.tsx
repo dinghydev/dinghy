@@ -52,19 +52,23 @@ export function AwsVpcEndpointServiceAllowedPrincipal(
 export const useAwsVpcEndpointServiceAllowedPrincipal = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointServiceAllowedPrincipal,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcEndpointServiceAllowedPrincipals = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointServiceAllowedPrincipal,
     idFilter,
     baseNode,
+    optional,
   )

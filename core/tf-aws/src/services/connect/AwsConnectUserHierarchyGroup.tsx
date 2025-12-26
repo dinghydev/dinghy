@@ -84,10 +84,23 @@ export function AwsConnectUserHierarchyGroup(props: Partial<InputProps>) {
 export const useAwsConnectUserHierarchyGroup = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsConnectUserHierarchyGroup, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsConnectUserHierarchyGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectUserHierarchyGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsConnectUserHierarchyGroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsConnectUserHierarchyGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

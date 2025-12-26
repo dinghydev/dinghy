@@ -48,8 +48,26 @@ export function AwsCloudwatchDashboard(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchDashboard = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudwatchDashboard, idFilter, baseNode)
+export const useAwsCloudwatchDashboard = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchDashboard,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCloudwatchDashboards = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchDashboard, idFilter, baseNode)
+export const useAwsCloudwatchDashboards = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchDashboard,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -61,8 +61,15 @@ export function AwsVpcIpamPoolCidr(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcIpamPoolCidr = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpcIpamPoolCidr, idFilter, baseNode)
+export const useAwsVpcIpamPoolCidr = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsVpcIpamPoolCidr, idFilter, baseNode, optional)
 
-export const useAwsVpcIpamPoolCidrs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamPoolCidr, idFilter, baseNode)
+export const useAwsVpcIpamPoolCidrs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsVpcIpamPoolCidr, idFilter, baseNode, optional)

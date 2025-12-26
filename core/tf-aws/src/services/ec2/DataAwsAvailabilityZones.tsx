@@ -65,4 +65,11 @@ export function DataAwsAvailabilityZones(props: Partial<InputProps>) {
 export const useDataAwsAvailabilityZoness = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsAvailabilityZones, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsAvailabilityZones,
+    idFilter,
+    baseNode,
+    optional,
+  )

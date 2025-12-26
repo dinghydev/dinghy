@@ -391,7 +391,7 @@ export type InputProps =
   & z.input<typeof InputSchema>
   & NodeProps
 
-export function AwsCloud(props: Partial<InputProps>) {
+export function AwsProvider(props: Partial<InputProps>) {
   const { stack } = getRenderOptions()
   const default_tags = () =>
     props.default_tags || {
@@ -423,4 +423,4 @@ export function AwsCloud(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloud = () => useTypedNode<InputProps>(AwsCloud)
+export const useAwsProvider = () => useTypedNode<InputProps>(AwsProvider)

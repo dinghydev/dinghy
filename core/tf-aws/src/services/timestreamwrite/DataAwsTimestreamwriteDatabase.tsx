@@ -53,11 +53,23 @@ export function DataAwsTimestreamwriteDatabase(props: Partial<InputProps>) {
 export const useDataAwsTimestreamwriteDatabase = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsTimestreamwriteDatabase, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsTimestreamwriteDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsTimestreamwriteDatabases = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsTimestreamwriteDatabase, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsTimestreamwriteDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )

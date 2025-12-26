@@ -50,10 +50,10 @@ you can access programmatically:
 
 ```typescript
 import {
-    containerAppHome, // the application home directory inside Engine docker container
-    dinghyHome, // dinghy installation home directory
-    hostAppHome, // the application home directory on the host OS
-} from "@dinghy/base-components";
+  containerAppHome, // the application home directory inside Engine docker container
+  dinghyHome, // dinghy installation home directory
+  hostAppHome, // the application home directory on the host OS
+} from '@dinghy/base-components'
 ```
 
 ### Lock engine.version
@@ -113,8 +113,9 @@ load from:
 ### Stack override
 
 The contents of `stack.override` for the currently active stack will be merged
-into the root configuration object. This provides a simple way to override any
-configuration values at the stack level.
+into the root configuration object. This provides another simple way to override
+any configuration values at the stack level in addtion to
+[Stack Config Files](#stack-config-files).
 
 ## Render Options
 
@@ -122,10 +123,10 @@ The dinghy config with active stack are made available during react app
 rendering.
 
 ```typescript
-import { getRenderOptions } from "@dinghy/base-components";
+import { getRenderOptions } from '@dinghy/base-components'
 
 // access the stack from render options
-const { stack } = getRenderOptions();
+const { stack } = getRenderOptions()
 ```
 
 ### renderOptions export
@@ -133,7 +134,7 @@ const { stack } = getRenderOptions();
 In your application root tsx file, you may provide data as a constant:
 
 ```typescript
-export const renderOptions = { foo: "bar" };
+export const renderOptions = { foo: 'bar' }
 ```
 
 or function to update/generate based on existing configurations:
@@ -143,5 +144,23 @@ import { type RenderOptions } from "@dinghy/base-components";
 
 export const renderOptions = (options: RenderOptions){
     options.stack.title=`Enviroment: ${options.stack.id}`
+    if(options.stack.id==='application'){
+        options.stack.configUrls=['https://my-solution-network-backend.s3.us-east-1.amazonaws.com/output/stack.yaml']
+    }
 }
 ```
+
+### stack.configUrls
+
+1. Prior to rendering, if `stack.configUrls` is specified, each listed URL will
+   be loaded and merged into `renderOptions`.
+1. Supported URL protocols include `file`, `https`.
+1. For `https` URLs, you can embed authentication credentials directly (e.g.,
+   `https://username:password@example.com/myconfig.json`).
+1. S3 object URLs (e.g.,
+   `https://my-bucket.s3.us-west-2.amazonaws.com/my-folder/config.yaml`) can
+   also be provided. They will be fetched using AWS authentication via the AWS
+   S3 SDK.
+1. Both YAML and JSON configuration formats are accepted.
+1. This feature allows you to import and merge configuration data from other
+   stacks as needed.

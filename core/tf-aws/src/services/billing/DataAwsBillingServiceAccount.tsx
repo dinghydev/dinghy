@@ -46,10 +46,23 @@ export function DataAwsBillingServiceAccount(props: Partial<InputProps>) {
 export const useDataAwsBillingServiceAccount = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsBillingServiceAccount, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsBillingServiceAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBillingServiceAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBillingServiceAccount, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsBillingServiceAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )

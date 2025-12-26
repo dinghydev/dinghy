@@ -53,5 +53,8 @@ export function DataAwsSfnAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSfnAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSfnAlias, idFilter, baseNode)
+export const useDataAwsSfnAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsSfnAlias, idFilter, baseNode, optional)

@@ -120,19 +120,23 @@ export function AwsNetworkfirewallTlsInspectionConfiguration(
 export const useAwsNetworkfirewallTlsInspectionConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkfirewallTlsInspectionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkfirewallTlsInspectionConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkfirewallTlsInspectionConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

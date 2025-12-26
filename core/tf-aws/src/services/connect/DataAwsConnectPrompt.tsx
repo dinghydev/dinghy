@@ -49,8 +49,16 @@ export function DataAwsConnectPrompt(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsConnectPrompt = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsConnectPrompt, idFilter, baseNode)
+export const useDataAwsConnectPrompt = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsConnectPrompt, idFilter, baseNode, optional)
 
-export const useDataAwsConnectPrompts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsConnectPrompt, idFilter, baseNode)
+export const useDataAwsConnectPrompts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsConnectPrompt, idFilter, baseNode, optional)

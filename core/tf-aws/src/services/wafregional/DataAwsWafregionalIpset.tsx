@@ -46,10 +46,26 @@ export function DataAwsWafregionalIpset(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsWafregionalIpset = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsWafregionalIpset, idFilter, baseNode)
+export const useDataAwsWafregionalIpset = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWafregionalIpset,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWafregionalIpsets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsWafregionalIpset, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWafregionalIpset,
+    idFilter,
+    baseNode,
+    optional,
+  )

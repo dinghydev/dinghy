@@ -52,4 +52,11 @@ export function DataAwsBedrockCustomModels(props: Partial<InputProps>) {
 export const useDataAwsBedrockCustomModelss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsBedrockCustomModels, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsBedrockCustomModels,
+    idFilter,
+    baseNode,
+    optional,
+  )

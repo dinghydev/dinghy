@@ -95,11 +95,23 @@ export function AwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
 export const useAwsRedshiftserverlessWorkgroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRedshiftserverlessWorkgroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsRedshiftserverlessWorkgroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftserverlessWorkgroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRedshiftserverlessWorkgroup, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsRedshiftserverlessWorkgroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

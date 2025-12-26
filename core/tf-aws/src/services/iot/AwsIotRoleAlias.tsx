@@ -50,5 +50,8 @@ export function AwsIotRoleAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIotRoleAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIotRoleAlias, idFilter, baseNode)
+export const useAwsIotRoleAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIotRoleAlias, idFilter, baseNode, optional)

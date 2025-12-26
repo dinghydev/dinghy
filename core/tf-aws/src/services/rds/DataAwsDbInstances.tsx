@@ -53,5 +53,9 @@ export function DataAwsDbInstances(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsDbInstancess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsDbInstances, idFilter, baseNode)
+export const useDataAwsDbInstancess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsDbInstances, idFilter, baseNode, optional)

@@ -71,8 +71,16 @@ export function AwsTransferConnector(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferConnector = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferConnector, idFilter, baseNode)
+export const useAwsTransferConnector = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsTransferConnector, idFilter, baseNode, optional)
 
-export const useAwsTransferConnectors = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferConnector, idFilter, baseNode)
+export const useAwsTransferConnectors = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsTransferConnector, idFilter, baseNode, optional)

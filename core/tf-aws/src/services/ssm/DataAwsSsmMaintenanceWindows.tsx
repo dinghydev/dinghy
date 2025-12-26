@@ -54,5 +54,11 @@ export function DataAwsSsmMaintenanceWindows(props: Partial<InputProps>) {
 export const useDataAwsSsmMaintenanceWindowss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSsmMaintenanceWindows, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsSsmMaintenanceWindows,
+    idFilter,
+    baseNode,
+    optional,
+  )

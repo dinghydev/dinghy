@@ -69,19 +69,23 @@ export function AwsNetworkmanagerTransitGatewayRouteTableAttachment(
 export const useAwsNetworkmanagerTransitGatewayRouteTableAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerTransitGatewayRouteTableAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerTransitGatewayRouteTableAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerTransitGatewayRouteTableAttachment,
     idFilter,
     baseNode,
+    optional,
   )

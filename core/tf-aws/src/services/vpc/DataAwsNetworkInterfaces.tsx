@@ -60,4 +60,11 @@ export function DataAwsNetworkInterfaces(props: Partial<InputProps>) {
 export const useDataAwsNetworkInterfacess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsNetworkInterfaces, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkInterfaces,
+    idFilter,
+    baseNode,
+    optional,
+  )

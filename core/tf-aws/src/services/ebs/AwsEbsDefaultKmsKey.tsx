@@ -45,8 +45,16 @@ export function AwsEbsDefaultKmsKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEbsDefaultKmsKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEbsDefaultKmsKey, idFilter, baseNode)
+export const useAwsEbsDefaultKmsKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEbsDefaultKmsKey, idFilter, baseNode, optional)
 
-export const useAwsEbsDefaultKmsKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEbsDefaultKmsKey, idFilter, baseNode)
+export const useAwsEbsDefaultKmsKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEbsDefaultKmsKey, idFilter, baseNode, optional)

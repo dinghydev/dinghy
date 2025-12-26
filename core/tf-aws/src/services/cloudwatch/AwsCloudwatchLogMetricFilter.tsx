@@ -60,10 +60,23 @@ export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogMetricFilter = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchLogMetricFilter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogMetricFilter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchLogMetricFilters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogMetricFilter, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogMetricFilter,
+    idFilter,
+    baseNode,
+    optional,
+  )

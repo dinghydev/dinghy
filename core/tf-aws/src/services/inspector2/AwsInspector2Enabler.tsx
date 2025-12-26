@@ -53,8 +53,16 @@ export function AwsInspector2Enabler(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsInspector2Enabler = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsInspector2Enabler, idFilter, baseNode)
+export const useAwsInspector2Enabler = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsInspector2Enabler, idFilter, baseNode, optional)
 
-export const useAwsInspector2Enablers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsInspector2Enabler, idFilter, baseNode)
+export const useAwsInspector2Enablers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsInspector2Enabler, idFilter, baseNode, optional)

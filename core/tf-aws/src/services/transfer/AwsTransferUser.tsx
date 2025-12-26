@@ -72,8 +72,14 @@ export function AwsTransferUser(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferUser = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferUser, idFilter, baseNode)
+export const useAwsTransferUser = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferUser, idFilter, baseNode, optional)
 
-export const useAwsTransferUsers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferUser, idFilter, baseNode)
+export const useAwsTransferUsers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsTransferUser, idFilter, baseNode, optional)

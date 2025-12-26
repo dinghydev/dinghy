@@ -74,8 +74,26 @@ export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDocdbelasticCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDocdbelasticCluster, idFilter, baseNode)
+export const useAwsDocdbelasticCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDocdbelasticCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsDocdbelasticClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDocdbelasticCluster, idFilter, baseNode)
+export const useAwsDocdbelasticClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDocdbelasticCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

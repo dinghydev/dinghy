@@ -62,5 +62,11 @@ export function DataAwsBedrockFoundationModels(props: Partial<InputProps>) {
 export const useDataAwsBedrockFoundationModelss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBedrockFoundationModels, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsBedrockFoundationModels,
+    idFilter,
+    baseNode,
+    optional,
+  )

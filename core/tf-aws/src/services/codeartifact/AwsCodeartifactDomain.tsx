@@ -61,8 +61,21 @@ export function AwsCodeartifactDomain(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodeartifactDomain = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodeartifactDomain, idFilter, baseNode)
+export const useAwsCodeartifactDomain = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCodeartifactDomain, idFilter, baseNode, optional)
 
-export const useAwsCodeartifactDomains = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodeartifactDomain, idFilter, baseNode)
+export const useAwsCodeartifactDomains = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodeartifactDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -62,8 +62,21 @@ export function AwsCloudwatchLogGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudwatchLogGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudwatchLogGroup, idFilter, baseNode)
+export const useAwsCloudwatchLogGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsCloudwatchLogGroup, idFilter, baseNode, optional)
 
-export const useAwsCloudwatchLogGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudwatchLogGroup, idFilter, baseNode)
+export const useAwsCloudwatchLogGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

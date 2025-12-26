@@ -55,9 +55,23 @@ export function AwsMacie2InvitationAccepter(props: Partial<InputProps>) {
 export const useAwsMacie2InvitationAccepter = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsMacie2InvitationAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMacie2InvitationAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMacie2InvitationAccepters = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsMacie2InvitationAccepter, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsMacie2InvitationAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )

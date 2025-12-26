@@ -68,19 +68,23 @@ export function AwsVerifiedaccessInstanceLoggingConfiguration(
 export const useAwsVerifiedaccessInstanceLoggingConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVerifiedaccessInstanceLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVerifiedaccessInstanceLoggingConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVerifiedaccessInstanceLoggingConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

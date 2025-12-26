@@ -61,8 +61,16 @@ export function DataAwsKinesisStream(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKinesisStream = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsKinesisStream, idFilter, baseNode)
+export const useDataAwsKinesisStream = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsKinesisStream, idFilter, baseNode, optional)
 
-export const useDataAwsKinesisStreams = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKinesisStream, idFilter, baseNode)
+export const useDataAwsKinesisStreams = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsKinesisStream, idFilter, baseNode, optional)

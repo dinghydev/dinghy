@@ -58,19 +58,23 @@ export function DataAwsCodecommitApprovalRuleTemplate(
 export const useDataAwsCodecommitApprovalRuleTemplate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsCodecommitApprovalRuleTemplates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,
+    optional,
   )

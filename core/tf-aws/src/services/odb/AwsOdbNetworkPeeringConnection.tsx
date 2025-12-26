@@ -68,11 +68,23 @@ export function AwsOdbNetworkPeeringConnection(props: Partial<InputProps>) {
 export const useAwsOdbNetworkPeeringConnection = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOdbNetworkPeeringConnection, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsOdbNetworkPeeringConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOdbNetworkPeeringConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsOdbNetworkPeeringConnection, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsOdbNetworkPeeringConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -70,9 +70,23 @@ export function DataAwsTransferConnector(props: Partial<InputProps>) {
 export const useDataAwsTransferConnector = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsTransferConnector, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsTransferConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsTransferConnectors = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsTransferConnector, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsTransferConnector,
+    idFilter,
+    baseNode,
+    optional,
+  )

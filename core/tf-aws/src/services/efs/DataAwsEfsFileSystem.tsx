@@ -70,8 +70,16 @@ export function DataAwsEfsFileSystem(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsEfsFileSystem = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsEfsFileSystem, idFilter, baseNode)
+export const useDataAwsEfsFileSystem = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsEfsFileSystem, idFilter, baseNode, optional)
 
-export const useDataAwsEfsFileSystems = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsEfsFileSystem, idFilter, baseNode)
+export const useDataAwsEfsFileSystems = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsEfsFileSystem, idFilter, baseNode, optional)

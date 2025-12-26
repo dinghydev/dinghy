@@ -62,8 +62,14 @@ export function DataAwsKendraFaq(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKendraFaq = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsKendraFaq, idFilter, baseNode)
+export const useDataAwsKendraFaq = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsKendraFaq, idFilter, baseNode, optional)
 
-export const useDataAwsKendraFaqs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKendraFaq, idFilter, baseNode)
+export const useDataAwsKendraFaqs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsKendraFaq, idFilter, baseNode, optional)

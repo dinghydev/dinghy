@@ -52,19 +52,23 @@ export function AwsServicequotasTemplateAssociation(
 export const useAwsServicequotasTemplateAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicequotasTemplateAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicequotasTemplateAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicequotasTemplateAssociation,
     idFilter,
     baseNode,
+    optional,
   )

@@ -48,8 +48,26 @@ export function AwsEfsFileSystemPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsFileSystemPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEfsFileSystemPolicy, idFilter, baseNode)
+export const useAwsEfsFileSystemPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEfsFileSystemPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsEfsFileSystemPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEfsFileSystemPolicy, idFilter, baseNode)
+export const useAwsEfsFileSystemPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEfsFileSystemPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

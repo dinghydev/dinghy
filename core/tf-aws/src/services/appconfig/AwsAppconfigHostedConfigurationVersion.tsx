@@ -57,19 +57,23 @@ export function AwsAppconfigHostedConfigurationVersion(
 export const useAwsAppconfigHostedConfigurationVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppconfigHostedConfigurationVersion,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppconfigHostedConfigurationVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppconfigHostedConfigurationVersion,
     idFilter,
     baseNode,
+    optional,
   )

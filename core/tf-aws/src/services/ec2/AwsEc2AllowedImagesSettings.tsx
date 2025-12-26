@@ -59,4 +59,11 @@ export function AwsEc2AllowedImagesSettings(props: Partial<InputProps>) {
 export const useAwsEc2AllowedImagesSettingss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2AllowedImagesSettings, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2AllowedImagesSettings,
+    idFilter,
+    baseNode,
+    optional,
+  )

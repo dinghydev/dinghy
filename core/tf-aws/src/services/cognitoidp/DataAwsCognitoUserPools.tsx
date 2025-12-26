@@ -50,4 +50,11 @@ export function DataAwsCognitoUserPools(props: Partial<InputProps>) {
 export const useDataAwsCognitoUserPoolss = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCognitoUserPools, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCognitoUserPools,
+    idFilter,
+    baseNode,
+    optional,
+  )

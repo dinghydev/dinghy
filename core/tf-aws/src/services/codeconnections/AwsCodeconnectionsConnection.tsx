@@ -69,10 +69,23 @@ export function AwsCodeconnectionsConnection(props: Partial<InputProps>) {
 export const useAwsCodeconnectionsConnection = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCodeconnectionsConnection, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodeconnectionsConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodeconnectionsConnections = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodeconnectionsConnection, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsCodeconnectionsConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

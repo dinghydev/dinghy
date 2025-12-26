@@ -69,8 +69,26 @@ export function AwsAuditmanagerControl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAuditmanagerControl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAuditmanagerControl, idFilter, baseNode)
+export const useAwsAuditmanagerControl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAuditmanagerControl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsAuditmanagerControls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAuditmanagerControl, idFilter, baseNode)
+export const useAwsAuditmanagerControls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAuditmanagerControl,
+    idFilter,
+    baseNode,
+    optional,
+  )

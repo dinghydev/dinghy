@@ -53,19 +53,23 @@ export function AwsEc2TransitGatewayMulticastGroupSource(
 export const useAwsEc2TransitGatewayMulticastGroupSource = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsEc2TransitGatewayMulticastGroupSource,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsEc2TransitGatewayMulticastGroupSources = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsEc2TransitGatewayMulticastGroupSource,
     idFilter,
     baseNode,
+    optional,
   )

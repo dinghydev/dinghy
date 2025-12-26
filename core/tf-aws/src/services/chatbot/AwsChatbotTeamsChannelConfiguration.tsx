@@ -70,19 +70,23 @@ export function AwsChatbotTeamsChannelConfiguration(
 export const useAwsChatbotTeamsChannelConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsChatbotTeamsChannelConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsChatbotTeamsChannelConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsChatbotTeamsChannelConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

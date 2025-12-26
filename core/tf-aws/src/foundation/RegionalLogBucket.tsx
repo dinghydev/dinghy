@@ -18,7 +18,7 @@ import {
   useDataAwsCallerIdentity,
 } from '@dinghy/tf-aws/serviceSts'
 
-import { useAwsCloud } from '@dinghy/tf-aws/foundation'
+import { useAwsProvider } from '@dinghy/tf-aws/foundation'
 
 export const InputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
@@ -29,15 +29,17 @@ export type InputProps =
   & z.input<typeof InputSchema>
   & NodeProps
 
-export function AwsRegionalLogBucket(
+export function RegionalLogBucket(
   { _components, ...props }: Partial<InputProps>,
 ) {
   const { stack } = getRenderOptions()
-  const { awsCloud } = useAwsCloud()
+  const { awsProvider } = useAwsProvider()
   const defaults = InputSchema.parse(props)
   const bucket = defaults.bucket ||
     (() =>
-      `${stack.name}-${defaults.bucketSurfix}-${deepResolve(awsCloud.region)}`)
+      `${stack.name}-${defaults.bucketSurfix}-${
+        deepResolve(awsProvider.region)
+      }`)
 
   const BucketLogging = () => {
     const { s3Bucket } = useAwsS3Bucket()
@@ -120,8 +122,8 @@ export function AwsRegionalLogBucket(
   )
 }
 
-export const useAwsRegionalLogBucket = (
+export const useRegionalLogBucket = (
   idFilter?: string,
   node?: any,
   optional?: boolean,
-) => useTypedNode<InputProps>(AwsRegionalLogBucket, idFilter, node, optional)
+) => useTypedNode<InputProps>(RegionalLogBucket, idFilter, node, optional)

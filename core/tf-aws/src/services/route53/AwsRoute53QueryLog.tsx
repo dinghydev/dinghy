@@ -47,8 +47,15 @@ export function AwsRoute53QueryLog(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRoute53QueryLog = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRoute53QueryLog, idFilter, baseNode)
+export const useAwsRoute53QueryLog = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRoute53QueryLog, idFilter, baseNode, optional)
 
-export const useAwsRoute53QueryLogs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRoute53QueryLog, idFilter, baseNode)
+export const useAwsRoute53QueryLogs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsRoute53QueryLog, idFilter, baseNode, optional)

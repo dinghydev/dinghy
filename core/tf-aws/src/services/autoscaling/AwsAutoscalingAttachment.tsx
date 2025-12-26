@@ -50,9 +50,23 @@ export function AwsAutoscalingAttachment(props: Partial<InputProps>) {
 export const useAwsAutoscalingAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAutoscalingAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAutoscalingAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAutoscalingAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsAutoscalingAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAutoscalingAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

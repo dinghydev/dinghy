@@ -48,8 +48,16 @@ export function AwsMskClusterPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsMskClusterPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsMskClusterPolicy, idFilter, baseNode)
+export const useAwsMskClusterPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsMskClusterPolicy, idFilter, baseNode, optional)
 
-export const useAwsMskClusterPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsMskClusterPolicy, idFilter, baseNode)
+export const useAwsMskClusterPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsMskClusterPolicy, idFilter, baseNode, optional)

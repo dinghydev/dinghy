@@ -56,10 +56,23 @@ export function AwsAppCookieStickinessPolicy(props: Partial<InputProps>) {
 export const useAwsAppCookieStickinessPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsAppCookieStickinessPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppCookieStickinessPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppCookieStickinessPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppCookieStickinessPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAppCookieStickinessPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

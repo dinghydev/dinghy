@@ -80,8 +80,16 @@ export function AwsConfigConfigRule(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsConfigConfigRule = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsConfigConfigRule, idFilter, baseNode)
+export const useAwsConfigConfigRule = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsConfigConfigRule, idFilter, baseNode, optional)
 
-export const useAwsConfigConfigRules = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsConfigConfigRule, idFilter, baseNode)
+export const useAwsConfigConfigRules = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsConfigConfigRule, idFilter, baseNode, optional)

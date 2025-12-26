@@ -62,11 +62,23 @@ export function AwsTranscribeMedicalVocabulary(props: Partial<InputProps>) {
 export const useAwsTranscribeMedicalVocabulary = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsTranscribeMedicalVocabulary, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsTranscribeMedicalVocabulary,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTranscribeMedicalVocabularys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsTranscribeMedicalVocabulary, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsTranscribeMedicalVocabulary,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -110,9 +110,23 @@ export function AwsLightsailDistribution(props: Partial<InputProps>) {
 export const useAwsLightsailDistribution = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLightsailDistribution, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLightsailDistribution,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailDistributions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLightsailDistribution, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLightsailDistribution,
+    idFilter,
+    baseNode,
+    optional,
+  )

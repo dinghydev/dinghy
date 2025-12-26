@@ -70,8 +70,14 @@ export function AwsSsmParameter(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSsmParameter = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSsmParameter, idFilter, baseNode)
+export const useAwsSsmParameter = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSsmParameter, idFilter, baseNode, optional)
 
-export const useAwsSsmParameters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSsmParameter, idFilter, baseNode)
+export const useAwsSsmParameters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSsmParameter, idFilter, baseNode, optional)

@@ -50,19 +50,23 @@ export function AwsWorkspaceswebDataProtectionSettingsAssociation(
 export const useAwsWorkspaceswebDataProtectionSettingsAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWorkspaceswebDataProtectionSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWorkspaceswebDataProtectionSettingsAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWorkspaceswebDataProtectionSettingsAssociation,
     idFilter,
     baseNode,
+    optional,
   )

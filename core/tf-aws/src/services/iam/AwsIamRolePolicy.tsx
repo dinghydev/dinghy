@@ -55,8 +55,14 @@ export function AwsIamRolePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamRolePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamRolePolicy, idFilter, baseNode)
+export const useAwsIamRolePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsIamRolePolicy, idFilter, baseNode, optional)
 
-export const useAwsIamRolePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamRolePolicy, idFilter, baseNode)
+export const useAwsIamRolePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsIamRolePolicy, idFilter, baseNode, optional)

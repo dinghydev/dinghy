@@ -81,15 +81,23 @@ export function AwsGlobalacceleratorAccelerator(props: Partial<InputProps>) {
 export const useAwsGlobalacceleratorAccelerator = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsGlobalacceleratorAccelerator, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsGlobalacceleratorAccelerator,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlobalacceleratorAccelerators = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,
+    optional,
   )

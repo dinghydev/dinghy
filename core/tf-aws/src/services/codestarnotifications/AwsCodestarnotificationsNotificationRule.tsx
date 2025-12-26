@@ -71,19 +71,23 @@ export function AwsCodestarnotificationsNotificationRule(
 export const useAwsCodestarnotificationsNotificationRule = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodestarnotificationsNotificationRule,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodestarnotificationsNotificationRules = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodestarnotificationsNotificationRule,
     idFilter,
     baseNode,
+    optional,
   )

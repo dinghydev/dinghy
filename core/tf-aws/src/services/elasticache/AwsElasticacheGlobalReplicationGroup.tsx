@@ -77,19 +77,23 @@ export function AwsElasticacheGlobalReplicationGroup(
 export const useAwsElasticacheGlobalReplicationGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsElasticacheGlobalReplicationGroup,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsElasticacheGlobalReplicationGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsElasticacheGlobalReplicationGroup,
     idFilter,
     baseNode,
+    optional,
   )

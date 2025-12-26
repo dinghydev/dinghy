@@ -63,9 +63,23 @@ export function AwsServicecatalogPortfolio(props: Partial<InputProps>) {
 export const useAwsServicecatalogPortfolio = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsServicecatalogPortfolio, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsServicecatalogPortfolio,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsServicecatalogPortfolios = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsServicecatalogPortfolio, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsServicecatalogPortfolio,
+    idFilter,
+    baseNode,
+    optional,
+  )

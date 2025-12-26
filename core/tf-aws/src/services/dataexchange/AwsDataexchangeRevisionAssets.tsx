@@ -91,5 +91,11 @@ export function AwsDataexchangeRevisionAssets(props: Partial<InputProps>) {
 export const useAwsDataexchangeRevisionAssetss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDataexchangeRevisionAssets, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDataexchangeRevisionAssets,
+    idFilter,
+    baseNode,
+    optional,
+  )

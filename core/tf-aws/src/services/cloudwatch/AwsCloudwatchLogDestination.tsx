@@ -54,9 +54,23 @@ export function AwsCloudwatchLogDestination(props: Partial<InputProps>) {
 export const useAwsCloudwatchLogDestination = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudwatchLogDestination, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudwatchLogDestination,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudwatchLogDestinations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudwatchLogDestination, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudwatchLogDestination,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -58,8 +58,26 @@ export function AwsCurReportDefinition(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCurReportDefinition = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCurReportDefinition, idFilter, baseNode)
+export const useAwsCurReportDefinition = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCurReportDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCurReportDefinitions = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCurReportDefinition, idFilter, baseNode)
+export const useAwsCurReportDefinitions = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCurReportDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

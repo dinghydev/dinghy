@@ -82,8 +82,16 @@ export function AwsEmrInstanceFleet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEmrInstanceFleet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEmrInstanceFleet, idFilter, baseNode)
+export const useAwsEmrInstanceFleet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsEmrInstanceFleet, idFilter, baseNode, optional)
 
-export const useAwsEmrInstanceFleets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEmrInstanceFleet, idFilter, baseNode)
+export const useAwsEmrInstanceFleets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEmrInstanceFleet, idFilter, baseNode, optional)

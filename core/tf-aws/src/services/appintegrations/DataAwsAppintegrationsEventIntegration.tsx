@@ -58,19 +58,23 @@ export function DataAwsAppintegrationsEventIntegration(
 export const useDataAwsAppintegrationsEventIntegration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsAppintegrationsEventIntegrations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,
+    optional,
   )

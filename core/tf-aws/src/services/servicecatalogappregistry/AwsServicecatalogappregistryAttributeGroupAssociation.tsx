@@ -50,19 +50,23 @@ export function AwsServicecatalogappregistryAttributeGroupAssociation(
 export const useAwsServicecatalogappregistryAttributeGroupAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsServicecatalogappregistryAttributeGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsServicecatalogappregistryAttributeGroupAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsServicecatalogappregistryAttributeGroupAssociation,
     idFilter,
     baseNode,
+    optional,
   )

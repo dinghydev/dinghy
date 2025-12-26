@@ -65,9 +65,11 @@ export function DataAwsServicecatalogPortfolioConstraints(
 export const useDataAwsServicecatalogPortfolioConstraintss = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogPortfolioConstraints,
     idFilter,
     baseNode,
+    optional,
   )

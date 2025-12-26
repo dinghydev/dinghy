@@ -94,11 +94,23 @@ export function AwsElasticacheServerlessCache(props: Partial<InputProps>) {
 export const useAwsElasticacheServerlessCache = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsElasticacheServerlessCache, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsElasticacheServerlessCache,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticacheServerlessCaches = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsElasticacheServerlessCache, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsElasticacheServerlessCache,
+    idFilter,
+    baseNode,
+    optional,
+  )

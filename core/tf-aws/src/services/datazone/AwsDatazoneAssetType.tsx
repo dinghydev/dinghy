@@ -64,8 +64,16 @@ export function AwsDatazoneAssetType(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDatazoneAssetType = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode)
+export const useAwsDatazoneAssetType = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode, optional)
 
-export const useAwsDatazoneAssetTypes = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode)
+export const useAwsDatazoneAssetTypes = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode, optional)

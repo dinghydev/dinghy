@@ -75,8 +75,14 @@ export function DataAwsVpc(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpc = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsVpc, idFilter, baseNode)
+export const useDataAwsVpc = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsVpc, idFilter, baseNode, optional)
 
-export const useDataAwsVpcs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsVpc, idFilter, baseNode)
+export const useDataAwsVpcs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsVpc, idFilter, baseNode, optional)

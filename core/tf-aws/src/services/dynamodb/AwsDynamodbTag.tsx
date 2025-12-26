@@ -48,8 +48,14 @@ export function AwsDynamodbTag(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDynamodbTag = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDynamodbTag, idFilter, baseNode)
+export const useAwsDynamodbTag = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsDynamodbTag, idFilter, baseNode, optional)
 
-export const useAwsDynamodbTags = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTag, idFilter, baseNode)
+export const useAwsDynamodbTags = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsDynamodbTag, idFilter, baseNode, optional)

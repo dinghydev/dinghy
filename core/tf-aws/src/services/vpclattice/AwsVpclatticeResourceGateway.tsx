@@ -65,10 +65,23 @@ export function AwsVpclatticeResourceGateway(props: Partial<InputProps>) {
 export const useAwsVpclatticeResourceGateway = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVpclatticeResourceGateway, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVpclatticeResourceGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpclatticeResourceGateways = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpclatticeResourceGateway, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsVpclatticeResourceGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

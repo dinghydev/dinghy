@@ -66,11 +66,23 @@ export function AwsSecretsmanagerSecretVersion(props: Partial<InputProps>) {
 export const useAwsSecretsmanagerSecretVersion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecretVersion, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSecretsmanagerSecretVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecretsmanagerSecretVersions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretVersion, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSecretsmanagerSecretVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )

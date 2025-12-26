@@ -55,19 +55,23 @@ export function AwsNetworkmanagerLinkAssociation(props: Partial<InputProps>) {
 export const useAwsNetworkmanagerLinkAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsNetworkmanagerLinkAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsNetworkmanagerLinkAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNetworkmanagerLinkAssociation,
     idFilter,
     baseNode,
+    optional,
   )

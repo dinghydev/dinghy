@@ -65,9 +65,23 @@ export function AwsResourceexplorer2Index(props: Partial<InputProps>) {
 export const useAwsResourceexplorer2Index = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsResourceexplorer2Index, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsResourceexplorer2Index,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsResourceexplorer2Indexs = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsResourceexplorer2Index, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsResourceexplorer2Index,
+    idFilter,
+    baseNode,
+    optional,
+  )

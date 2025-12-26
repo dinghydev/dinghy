@@ -48,8 +48,14 @@ export function AwsTransferSshKey(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTransferSshKey = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTransferSshKey, idFilter, baseNode)
+export const useAwsTransferSshKey = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsTransferSshKey, idFilter, baseNode, optional)
 
-export const useAwsTransferSshKeys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsTransferSshKey, idFilter, baseNode)
+export const useAwsTransferSshKeys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsTransferSshKey, idFilter, baseNode, optional)

@@ -52,19 +52,23 @@ export function AwsLightsailLbCertificateAttachment(
 export const useAwsLightsailLbCertificateAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLightsailLbCertificateAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLightsailLbCertificateAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLightsailLbCertificateAttachment,
     idFilter,
     baseNode,
+    optional,
   )

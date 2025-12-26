@@ -52,19 +52,23 @@ export function AwsVpcEndpointRouteTableAssociation(
 export const useAwsVpcEndpointRouteTableAssociation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcEndpointRouteTableAssociation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcEndpointRouteTableAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcEndpointRouteTableAssociation,
     idFilter,
     baseNode,
+    optional,
   )

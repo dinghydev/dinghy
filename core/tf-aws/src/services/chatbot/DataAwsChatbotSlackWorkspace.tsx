@@ -49,10 +49,23 @@ export function DataAwsChatbotSlackWorkspace(props: Partial<InputProps>) {
 export const useDataAwsChatbotSlackWorkspace = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsChatbotSlackWorkspace, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsChatbotSlackWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsChatbotSlackWorkspaces = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsChatbotSlackWorkspace, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsChatbotSlackWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -66,11 +66,23 @@ export function AwsEmrcontainersVirtualCluster(props: Partial<InputProps>) {
 export const useAwsEmrcontainersVirtualCluster = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEmrcontainersVirtualCluster, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsEmrcontainersVirtualCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrcontainersVirtualClusters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEmrcontainersVirtualCluster, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsEmrcontainersVirtualCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

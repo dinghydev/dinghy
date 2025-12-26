@@ -68,8 +68,14 @@ export function AwsRdsIntegration(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsRdsIntegration = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsRdsIntegration, idFilter, baseNode)
+export const useAwsRdsIntegration = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsRdsIntegration, idFilter, baseNode, optional)
 
-export const useAwsRdsIntegrations = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsRdsIntegration, idFilter, baseNode)
+export const useAwsRdsIntegrations = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsRdsIntegration, idFilter, baseNode, optional)

@@ -47,8 +47,26 @@ export function AwsS3tablesTablePolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3tablesTablePolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3tablesTablePolicy, idFilter, baseNode)
+export const useAwsS3tablesTablePolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsS3tablesTablePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsS3tablesTablePolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3tablesTablePolicy, idFilter, baseNode)
+export const useAwsS3tablesTablePolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsS3tablesTablePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -46,8 +46,16 @@ export function DataAwsLbTrustStore(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLbTrustStore = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsLbTrustStore, idFilter, baseNode)
+export const useDataAwsLbTrustStore = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(DataAwsLbTrustStore, idFilter, baseNode, optional)
 
-export const useDataAwsLbTrustStores = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLbTrustStore, idFilter, baseNode)
+export const useDataAwsLbTrustStores = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsLbTrustStore, idFilter, baseNode, optional)

@@ -50,8 +50,26 @@ export function DataAwsIamSamlProvider(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsIamSamlProvider = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsIamSamlProvider, idFilter, baseNode)
+export const useDataAwsIamSamlProvider = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsIamSamlProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useDataAwsIamSamlProviders = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsIamSamlProvider, idFilter, baseNode)
+export const useDataAwsIamSamlProviders = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsIamSamlProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )

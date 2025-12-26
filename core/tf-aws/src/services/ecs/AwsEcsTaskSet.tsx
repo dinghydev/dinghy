@@ -96,8 +96,14 @@ export function AwsEcsTaskSet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEcsTaskSet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEcsTaskSet, idFilter, baseNode)
+export const useAwsEcsTaskSet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEcsTaskSet, idFilter, baseNode, optional)
 
-export const useAwsEcsTaskSets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEcsTaskSet, idFilter, baseNode)
+export const useAwsEcsTaskSets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEcsTaskSet, idFilter, baseNode, optional)

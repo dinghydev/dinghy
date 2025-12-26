@@ -71,8 +71,26 @@ export function AwsResourcegroupsGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsResourcegroupsGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsResourcegroupsGroup, idFilter, baseNode)
+export const useAwsResourcegroupsGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsResourcegroupsGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsResourcegroupsGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsResourcegroupsGroup, idFilter, baseNode)
+export const useAwsResourcegroupsGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsResourcegroupsGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

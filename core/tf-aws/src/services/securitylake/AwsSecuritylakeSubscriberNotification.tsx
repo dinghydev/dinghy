@@ -65,19 +65,23 @@ export function AwsSecuritylakeSubscriberNotification(
 export const useAwsSecuritylakeSubscriberNotification = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsSecuritylakeSubscriberNotification,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsSecuritylakeSubscriberNotifications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsSecuritylakeSubscriberNotification,
     idFilter,
     baseNode,
+    optional,
   )

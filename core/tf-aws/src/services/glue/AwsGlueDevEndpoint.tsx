@@ -71,8 +71,15 @@ export function AwsGlueDevEndpoint(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueDevEndpoint = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueDevEndpoint, idFilter, baseNode)
+export const useAwsGlueDevEndpoint = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueDevEndpoint, idFilter, baseNode, optional)
 
-export const useAwsGlueDevEndpoints = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueDevEndpoint, idFilter, baseNode)
+export const useAwsGlueDevEndpoints = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsGlueDevEndpoint, idFilter, baseNode, optional)

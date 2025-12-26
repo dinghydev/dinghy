@@ -48,8 +48,26 @@ export function AwsProxyProtocolPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsProxyProtocolPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsProxyProtocolPolicy, idFilter, baseNode)
+export const useAwsProxyProtocolPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsProxyProtocolPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsProxyProtocolPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsProxyProtocolPolicy, idFilter, baseNode)
+export const useAwsProxyProtocolPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsProxyProtocolPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

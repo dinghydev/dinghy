@@ -49,19 +49,23 @@ export function AwsMacie2OrganizationAdminAccount(props: Partial<InputProps>) {
 export const useAwsMacie2OrganizationAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsMacie2OrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsMacie2OrganizationAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsMacie2OrganizationAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

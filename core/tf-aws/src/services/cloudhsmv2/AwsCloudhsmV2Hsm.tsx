@@ -62,8 +62,14 @@ export function AwsCloudhsmV2Hsm(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCloudhsmV2Hsm = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode)
+export const useAwsCloudhsmV2Hsm = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode, optional)
 
-export const useAwsCloudhsmV2Hsms = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode)
+export const useAwsCloudhsmV2Hsms = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode, optional)

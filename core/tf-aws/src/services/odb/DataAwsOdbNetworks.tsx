@@ -51,5 +51,9 @@ export function DataAwsOdbNetworks(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsOdbNetworkss = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsOdbNetworks, idFilter, baseNode)
+export const useDataAwsOdbNetworkss = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsOdbNetworks, idFilter, baseNode, optional)

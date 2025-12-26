@@ -151,8 +151,14 @@ export function AwsEksCluster(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEksCluster = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEksCluster, idFilter, baseNode)
+export const useAwsEksCluster = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEksCluster, idFilter, baseNode, optional)
 
-export const useAwsEksClusters = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEksCluster, idFilter, baseNode)
+export const useAwsEksClusters = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsEksCluster, idFilter, baseNode, optional)

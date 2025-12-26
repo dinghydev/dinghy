@@ -58,10 +58,23 @@ export function AwsMainRouteTableAssociation(props: Partial<InputProps>) {
 export const useAwsMainRouteTableAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsMainRouteTableAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMainRouteTableAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMainRouteTableAssociations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMainRouteTableAssociation, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMainRouteTableAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

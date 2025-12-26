@@ -48,19 +48,23 @@ export function DataAwsElasticBeanstalkHostedZone(props: Partial<InputProps>) {
 export const useDataAwsElasticBeanstalkHostedZone = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsElasticBeanstalkHostedZone,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsElasticBeanstalkHostedZones = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsElasticBeanstalkHostedZone,
     idFilter,
     baseNode,
+    optional,
   )

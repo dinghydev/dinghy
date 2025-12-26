@@ -71,8 +71,26 @@ export function AwsCodepipelineWebhook(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodepipelineWebhook = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodepipelineWebhook, idFilter, baseNode)
+export const useAwsCodepipelineWebhook = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodepipelineWebhook,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCodepipelineWebhooks = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodepipelineWebhook, idFilter, baseNode)
+export const useAwsCodepipelineWebhooks = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodepipelineWebhook,
+    idFilter,
+    baseNode,
+    optional,
+  )

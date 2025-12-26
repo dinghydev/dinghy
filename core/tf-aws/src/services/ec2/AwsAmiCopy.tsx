@@ -105,8 +105,14 @@ export function AwsAmiCopy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAmiCopy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAmiCopy, idFilter, baseNode)
+export const useAwsAmiCopy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsAmiCopy, idFilter, baseNode, optional)
 
-export const useAwsAmiCopys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAmiCopy, idFilter, baseNode)
+export const useAwsAmiCopys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsAmiCopy, idFilter, baseNode, optional)

@@ -50,5 +50,9 @@ export function DataAwsLambdaAlias(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsLambdaAliass = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsLambdaAlias, idFilter, baseNode)
+export const useDataAwsLambdaAliass = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsLambdaAlias, idFilter, baseNode, optional)

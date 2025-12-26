@@ -50,9 +50,23 @@ export function AwsLbListenerCertificate(props: Partial<InputProps>) {
 export const useAwsLbListenerCertificate = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsLbListenerCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLbListenerCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbListenerCertificates = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLbListenerCertificate, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLbListenerCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -108,8 +108,15 @@ export function DataAwsKendraIndex(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsKendraIndex = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsKendraIndex, idFilter, baseNode)
+export const useDataAwsKendraIndex = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsKendraIndex, idFilter, baseNode, optional)
 
-export const useDataAwsKendraIndexs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsKendraIndex, idFilter, baseNode)
+export const useDataAwsKendraIndexs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsKendraIndex, idFilter, baseNode, optional)

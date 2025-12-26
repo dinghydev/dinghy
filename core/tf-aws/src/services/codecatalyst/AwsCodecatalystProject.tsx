@@ -56,8 +56,26 @@ export function AwsCodecatalystProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsCodecatalystProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsCodecatalystProject, idFilter, baseNode)
+export const useAwsCodecatalystProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCodecatalystProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsCodecatalystProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsCodecatalystProject, idFilter, baseNode)
+export const useAwsCodecatalystProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCodecatalystProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

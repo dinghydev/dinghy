@@ -54,9 +54,23 @@ export function DataAwsCodecommitRepository(props: Partial<InputProps>) {
 export const useDataAwsCodecommitRepository = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsCodecommitRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsCodecommitRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCodecommitRepositorys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsCodecommitRepository, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsCodecommitRepository,
+    idFilter,
+    baseNode,
+    optional,
+  )

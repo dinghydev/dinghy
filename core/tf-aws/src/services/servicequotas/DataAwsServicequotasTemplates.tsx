@@ -58,5 +58,11 @@ export function DataAwsServicequotasTemplates(props: Partial<InputProps>) {
 export const useDataAwsServicequotasTemplatess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsServicequotasTemplates, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsServicequotasTemplates,
+    idFilter,
+    baseNode,
+    optional,
+  )

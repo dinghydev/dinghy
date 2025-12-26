@@ -62,15 +62,23 @@ export function AwsNeptuneClusterParameterGroup(props: Partial<InputProps>) {
 export const useAwsNeptuneClusterParameterGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNeptuneClusterParameterGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsNeptuneClusterParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNeptuneClusterParameterGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsNeptuneClusterParameterGroup,
     idFilter,
     baseNode,
+    optional,
   )

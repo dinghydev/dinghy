@@ -54,10 +54,23 @@ export function DataAwsLakeformationResource(props: Partial<InputProps>) {
 export const useDataAwsLakeformationResource = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsLakeformationResource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsLakeformationResource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLakeformationResources = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsLakeformationResource, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    DataAwsLakeformationResource,
+    idFilter,
+    baseNode,
+    optional,
+  )

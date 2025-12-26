@@ -52,9 +52,11 @@ export function DataAwsCloudfrontOriginAccessIdentities(
 export const useDataAwsCloudfrontOriginAccessIdentitiess = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsCloudfrontOriginAccessIdentities,
     idFilter,
     baseNode,
+    optional,
   )

@@ -48,8 +48,14 @@ export function DataAwsSnsTopic(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSnsTopic = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSnsTopic, idFilter, baseNode)
+export const useDataAwsSnsTopic = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsSnsTopic, idFilter, baseNode, optional)
 
-export const useDataAwsSnsTopics = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSnsTopic, idFilter, baseNode)
+export const useDataAwsSnsTopics = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsSnsTopic, idFilter, baseNode, optional)

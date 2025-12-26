@@ -101,11 +101,23 @@ export function AwsAutoscalingplansScalingPlan(props: Partial<InputProps>) {
 export const useAwsAutoscalingplansScalingPlan = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAutoscalingplansScalingPlan, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsAutoscalingplansScalingPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAutoscalingplansScalingPlans = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingplansScalingPlan, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsAutoscalingplansScalingPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )

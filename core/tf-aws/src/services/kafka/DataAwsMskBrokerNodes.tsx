@@ -54,5 +54,14 @@ export function DataAwsMskBrokerNodes(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsMskBrokerNodess = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsMskBrokerNodes, idFilter, baseNode)
+export const useDataAwsMskBrokerNodess = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsMskBrokerNodes,
+    idFilter,
+    baseNode,
+    optional,
+  )

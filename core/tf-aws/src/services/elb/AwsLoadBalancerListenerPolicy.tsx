@@ -54,11 +54,23 @@ export function AwsLoadBalancerListenerPolicy(props: Partial<InputProps>) {
 export const useAwsLoadBalancerListenerPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLoadBalancerListenerPolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsLoadBalancerListenerPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLoadBalancerListenerPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLoadBalancerListenerPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsLoadBalancerListenerPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -49,10 +49,23 @@ export function AwsMediaStoreContainerPolicy(props: Partial<InputProps>) {
 export const useAwsMediaStoreContainerPolicy = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsMediaStoreContainerPolicy, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsMediaStoreContainerPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMediaStoreContainerPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMediaStoreContainerPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsMediaStoreContainerPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

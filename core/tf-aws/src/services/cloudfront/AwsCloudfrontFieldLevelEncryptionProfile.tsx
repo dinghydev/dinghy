@@ -63,19 +63,23 @@ export function AwsCloudfrontFieldLevelEncryptionProfile(
 export const useAwsCloudfrontFieldLevelEncryptionProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontFieldLevelEncryptionProfile,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontFieldLevelEncryptionProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontFieldLevelEncryptionProfile,
     idFilter,
     baseNode,
+    optional,
   )

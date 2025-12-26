@@ -59,4 +59,11 @@ export function DataAwsEc2InstanceTypes(props: Partial<InputProps>) {
 export const useDataAwsEc2InstanceTypess = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsEc2InstanceTypes, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsEc2InstanceTypes,
+    idFilter,
+    baseNode,
+    optional,
+  )

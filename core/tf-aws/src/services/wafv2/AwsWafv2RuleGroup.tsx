@@ -21224,8 +21224,14 @@ export function AwsWafv2RuleGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsWafv2RuleGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsWafv2RuleGroup, idFilter, baseNode)
+export const useAwsWafv2RuleGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsWafv2RuleGroup, idFilter, baseNode, optional)
 
-export const useAwsWafv2RuleGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsWafv2RuleGroup, idFilter, baseNode)
+export const useAwsWafv2RuleGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsWafv2RuleGroup, idFilter, baseNode, optional)

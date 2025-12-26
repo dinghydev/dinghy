@@ -50,8 +50,16 @@ export function AwsSchemasDiscoverer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSchemasDiscoverer = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSchemasDiscoverer, idFilter, baseNode)
+export const useAwsSchemasDiscoverer = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSchemasDiscoverer, idFilter, baseNode, optional)
 
-export const useAwsSchemasDiscoverers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSchemasDiscoverer, idFilter, baseNode)
+export const useAwsSchemasDiscoverers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSchemasDiscoverer, idFilter, baseNode, optional)

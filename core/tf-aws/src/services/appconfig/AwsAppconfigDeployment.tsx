@@ -58,8 +58,26 @@ export function AwsAppconfigDeployment(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsAppconfigDeployment = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsAppconfigDeployment, idFilter, baseNode)
+export const useAwsAppconfigDeployment = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsAppconfigDeployment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsAppconfigDeployments = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsAppconfigDeployment, idFilter, baseNode)
+export const useAwsAppconfigDeployments = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsAppconfigDeployment,
+    idFilter,
+    baseNode,
+    optional,
+  )

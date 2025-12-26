@@ -79,8 +79,15 @@ export function AwsGlueMlTransform(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueMlTransform = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueMlTransform, idFilter, baseNode)
+export const useAwsGlueMlTransform = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueMlTransform, idFilter, baseNode, optional)
 
-export const useAwsGlueMlTransforms = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueMlTransform, idFilter, baseNode)
+export const useAwsGlueMlTransforms = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsGlueMlTransform, idFilter, baseNode, optional)

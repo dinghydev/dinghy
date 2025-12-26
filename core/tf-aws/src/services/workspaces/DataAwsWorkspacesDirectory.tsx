@@ -105,9 +105,23 @@ export function DataAwsWorkspacesDirectory(props: Partial<InputProps>) {
 export const useDataAwsWorkspacesDirectory = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsWorkspacesDirectory, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsWorkspacesDirectory,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWorkspacesDirectorys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsWorkspacesDirectory, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsWorkspacesDirectory,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -61,19 +61,23 @@ export function AwsDxHostedTransitVirtualInterfaceAccepter(
 export const useAwsDxHostedTransitVirtualInterfaceAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsDxHostedTransitVirtualInterfaceAccepter,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsDxHostedTransitVirtualInterfaceAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsDxHostedTransitVirtualInterfaceAccepter,
     idFilter,
     baseNode,
+    optional,
   )

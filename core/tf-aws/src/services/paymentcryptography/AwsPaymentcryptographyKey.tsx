@@ -89,9 +89,23 @@ export function AwsPaymentcryptographyKey(props: Partial<InputProps>) {
 export const useAwsPaymentcryptographyKey = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsPaymentcryptographyKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsPaymentcryptographyKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPaymentcryptographyKeys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsPaymentcryptographyKey, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsPaymentcryptographyKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

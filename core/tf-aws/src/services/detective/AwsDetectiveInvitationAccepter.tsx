@@ -49,11 +49,23 @@ export function AwsDetectiveInvitationAccepter(props: Partial<InputProps>) {
 export const useAwsDetectiveInvitationAccepter = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDetectiveInvitationAccepter, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsDetectiveInvitationAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDetectiveInvitationAccepters = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDetectiveInvitationAccepter, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsDetectiveInvitationAccepter,
+    idFilter,
+    baseNode,
+    optional,
+  )

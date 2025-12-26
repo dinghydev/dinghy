@@ -60,10 +60,26 @@ export function AwsTranscribeVocabulary(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsTranscribeVocabulary = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsTranscribeVocabulary, idFilter, baseNode)
+export const useAwsTranscribeVocabulary = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsTranscribeVocabulary,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTranscribeVocabularys = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsTranscribeVocabulary, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsTranscribeVocabulary,
+    idFilter,
+    baseNode,
+    optional,
+  )

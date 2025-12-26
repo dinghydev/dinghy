@@ -61,19 +61,23 @@ export function AwsLakeformationIdentityCenterConfiguration(
 export const useAwsLakeformationIdentityCenterConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLakeformationIdentityCenterConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLakeformationIdentityCenterConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLakeformationIdentityCenterConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

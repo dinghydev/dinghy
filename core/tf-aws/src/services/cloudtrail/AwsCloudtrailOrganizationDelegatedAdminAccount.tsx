@@ -54,19 +54,23 @@ export function AwsCloudtrailOrganizationDelegatedAdminAccount(
 export const useAwsCloudtrailOrganizationDelegatedAdminAccount = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudtrailOrganizationDelegatedAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudtrailOrganizationDelegatedAdminAccounts = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudtrailOrganizationDelegatedAdminAccount,
     idFilter,
     baseNode,
+    optional,
   )

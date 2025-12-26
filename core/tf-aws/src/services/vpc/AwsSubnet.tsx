@@ -84,8 +84,14 @@ export function AwsSubnet(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSubnet = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSubnet, idFilter, baseNode)
+export const useAwsSubnet = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsSubnet, idFilter, baseNode, optional)
 
-export const useAwsSubnets = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSubnet, idFilter, baseNode)
+export const useAwsSubnets = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsSubnet, idFilter, baseNode, optional)

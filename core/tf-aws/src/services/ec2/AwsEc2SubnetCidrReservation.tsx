@@ -53,9 +53,23 @@ export function AwsEc2SubnetCidrReservation(props: Partial<InputProps>) {
 export const useAwsEc2SubnetCidrReservation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEc2SubnetCidrReservation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEc2SubnetCidrReservation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2SubnetCidrReservations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEc2SubnetCidrReservation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEc2SubnetCidrReservation,
+    idFilter,
+    baseNode,
+    optional,
+  )

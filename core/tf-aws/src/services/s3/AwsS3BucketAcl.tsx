@@ -76,8 +76,14 @@ export function AwsS3BucketAcl(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketAcl = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3BucketAcl, idFilter, baseNode)
+export const useAwsS3BucketAcl = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsS3BucketAcl, idFilter, baseNode, optional)
 
-export const useAwsS3BucketAcls = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3BucketAcl, idFilter, baseNode)
+export const useAwsS3BucketAcls = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsS3BucketAcl, idFilter, baseNode, optional)

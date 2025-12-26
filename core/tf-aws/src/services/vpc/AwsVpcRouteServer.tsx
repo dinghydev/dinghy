@@ -60,8 +60,14 @@ export function AwsVpcRouteServer(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsVpcRouteServer = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsVpcRouteServer, idFilter, baseNode)
+export const useAwsVpcRouteServer = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsVpcRouteServer, idFilter, baseNode, optional)
 
-export const useAwsVpcRouteServers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsVpcRouteServer, idFilter, baseNode)
+export const useAwsVpcRouteServers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsVpcRouteServer, idFilter, baseNode, optional)

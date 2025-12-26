@@ -60,19 +60,23 @@ export function AwsLambdaProvisionedConcurrencyConfig(
 export const useAwsLambdaProvisionedConcurrencyConfig = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLambdaProvisionedConcurrencyConfig,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLambdaProvisionedConcurrencyConfigs = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLambdaProvisionedConcurrencyConfig,
     idFilter,
     baseNode,
+    optional,
   )

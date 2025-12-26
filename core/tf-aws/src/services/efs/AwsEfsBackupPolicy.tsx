@@ -49,8 +49,15 @@ export function AwsEfsBackupPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsEfsBackupPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsEfsBackupPolicy, idFilter, baseNode)
+export const useAwsEfsBackupPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsEfsBackupPolicy, idFilter, baseNode, optional)
 
-export const useAwsEfsBackupPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsEfsBackupPolicy, idFilter, baseNode)
+export const useAwsEfsBackupPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsEfsBackupPolicy, idFilter, baseNode, optional)

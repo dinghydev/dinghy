@@ -56,8 +56,14 @@ export function AwsGlueRegistry(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsGlueRegistry = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsGlueRegistry, idFilter, baseNode)
+export const useAwsGlueRegistry = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsGlueRegistry, idFilter, baseNode, optional)
 
-export const useAwsGlueRegistrys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsGlueRegistry, idFilter, baseNode)
+export const useAwsGlueRegistrys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsGlueRegistry, idFilter, baseNode, optional)

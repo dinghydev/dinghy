@@ -65,19 +65,23 @@ export function AwsAppconfigConfigurationProfile(props: Partial<InputProps>) {
 export const useAwsAppconfigConfigurationProfile = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsAppconfigConfigurationProfile,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsAppconfigConfigurationProfiles = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsAppconfigConfigurationProfile,
     idFilter,
     baseNode,
+    optional,
   )

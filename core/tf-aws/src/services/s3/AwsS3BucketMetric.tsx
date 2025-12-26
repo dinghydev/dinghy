@@ -53,8 +53,14 @@ export function AwsS3BucketMetric(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsS3BucketMetric = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsS3BucketMetric, idFilter, baseNode)
+export const useAwsS3BucketMetric = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsS3BucketMetric, idFilter, baseNode, optional)
 
-export const useAwsS3BucketMetrics = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsS3BucketMetric, idFilter, baseNode)
+export const useAwsS3BucketMetrics = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsS3BucketMetric, idFilter, baseNode, optional)

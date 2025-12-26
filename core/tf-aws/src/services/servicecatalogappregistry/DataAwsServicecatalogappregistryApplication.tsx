@@ -55,19 +55,23 @@ export function DataAwsServicecatalogappregistryApplication(
 export const useDataAwsServicecatalogappregistryApplication = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsServicecatalogappregistryApplications = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,
+    optional,
   )

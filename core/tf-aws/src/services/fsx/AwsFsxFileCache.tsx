@@ -103,8 +103,14 @@ export function AwsFsxFileCache(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFsxFileCache = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFsxFileCache, idFilter, baseNode)
+export const useAwsFsxFileCache = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFsxFileCache, idFilter, baseNode, optional)
 
-export const useAwsFsxFileCaches = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFsxFileCache, idFilter, baseNode)
+export const useAwsFsxFileCaches = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsFsxFileCache, idFilter, baseNode, optional)

@@ -53,19 +53,23 @@ export function DataAwsSagemakerPrebuiltEcrImage(props: Partial<InputProps>) {
 export const useDataAwsSagemakerPrebuiltEcrImage = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsSagemakerPrebuiltEcrImage,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsSagemakerPrebuiltEcrImages = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSagemakerPrebuiltEcrImage,
     idFilter,
     baseNode,
+    optional,
   )

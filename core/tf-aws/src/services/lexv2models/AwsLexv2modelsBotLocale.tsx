@@ -64,10 +64,26 @@ export function AwsLexv2modelsBotLocale(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsLexv2modelsBotLocale = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsBotLocale, idFilter, baseNode)
+export const useAwsLexv2modelsBotLocale = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsLexv2modelsBotLocale,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLexv2modelsBotLocales = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsLexv2modelsBotLocale, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsLexv2modelsBotLocale,
+    idFilter,
+    baseNode,
+    optional,
+  )

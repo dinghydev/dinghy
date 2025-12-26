@@ -55,8 +55,14 @@ export function AwsKeyPair(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsKeyPair = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsKeyPair, idFilter, baseNode)
+export const useAwsKeyPair = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsKeyPair, idFilter, baseNode, optional)
 
-export const useAwsKeyPairs = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsKeyPair, idFilter, baseNode)
+export const useAwsKeyPairs = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(AwsKeyPair, idFilter, baseNode, optional)

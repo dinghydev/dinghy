@@ -61,19 +61,23 @@ export function AwsVpcBlockPublicAccessExclusion(props: Partial<InputProps>) {
 export const useAwsVpcBlockPublicAccessExclusion = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsVpcBlockPublicAccessExclusion,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsVpcBlockPublicAccessExclusions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsVpcBlockPublicAccessExclusion,
     idFilter,
     baseNode,
+    optional,
   )

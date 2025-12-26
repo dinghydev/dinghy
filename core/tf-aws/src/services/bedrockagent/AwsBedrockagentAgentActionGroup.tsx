@@ -93,15 +93,23 @@ export function AwsBedrockagentAgentActionGroup(props: Partial<InputProps>) {
 export const useAwsBedrockagentAgentActionGroup = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBedrockagentAgentActionGroup, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsBedrockagentAgentActionGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentAgentActionGroups = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsBedrockagentAgentActionGroup,
     idFilter,
     baseNode,
+    optional,
   )

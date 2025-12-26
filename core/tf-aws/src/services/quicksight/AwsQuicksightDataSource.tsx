@@ -175,10 +175,26 @@ export function AwsQuicksightDataSource(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightDataSource = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightDataSource, idFilter, baseNode)
+export const useAwsQuicksightDataSource = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsQuicksightDataSource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightDataSources = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsQuicksightDataSource, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsQuicksightDataSource,
+    idFilter,
+    baseNode,
+    optional,
+  )

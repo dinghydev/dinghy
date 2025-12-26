@@ -65,19 +65,23 @@ export function DataAwsEc2TransitGatewayAttachment(props: Partial<InputProps>) {
 export const useDataAwsEc2TransitGatewayAttachment = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsEc2TransitGatewayAttachment,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsEc2TransitGatewayAttachments = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsEc2TransitGatewayAttachment,
     idFilter,
     baseNode,
+    optional,
   )

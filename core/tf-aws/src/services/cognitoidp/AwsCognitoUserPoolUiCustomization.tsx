@@ -56,19 +56,23 @@ export function AwsCognitoUserPoolUiCustomization(props: Partial<InputProps>) {
 export const useAwsCognitoUserPoolUiCustomization = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCognitoUserPoolUiCustomization,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCognitoUserPoolUiCustomizations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCognitoUserPoolUiCustomization,
     idFilter,
     baseNode,
+    optional,
   )

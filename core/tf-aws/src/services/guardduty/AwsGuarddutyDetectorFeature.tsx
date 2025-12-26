@@ -56,9 +56,23 @@ export function AwsGuarddutyDetectorFeature(props: Partial<InputProps>) {
 export const useAwsGuarddutyDetectorFeature = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsGuarddutyDetectorFeature, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsGuarddutyDetectorFeature,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGuarddutyDetectorFeatures = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsGuarddutyDetectorFeature, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsGuarddutyDetectorFeature,
+    idFilter,
+    baseNode,
+    optional,
+  )

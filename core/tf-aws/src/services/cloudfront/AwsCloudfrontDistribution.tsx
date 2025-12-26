@@ -246,9 +246,23 @@ export function AwsCloudfrontDistribution(props: Partial<InputProps>) {
 export const useAwsCloudfrontDistribution = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCloudfrontDistribution, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCloudfrontDistribution,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudfrontDistributions = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCloudfrontDistribution, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCloudfrontDistribution,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -57,9 +57,23 @@ export function DataAwsNetworkmanagerSite(props: Partial<InputProps>) {
 export const useDataAwsNetworkmanagerSite = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsNetworkmanagerSite, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsNetworkmanagerSite,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsNetworkmanagerSites = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsNetworkmanagerSite, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsNetworkmanagerSite,
+    idFilter,
+    baseNode,
+    optional,
+  )

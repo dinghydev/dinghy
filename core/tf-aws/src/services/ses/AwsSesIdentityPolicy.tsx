@@ -47,8 +47,16 @@ export function AwsSesIdentityPolicy(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSesIdentityPolicy = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSesIdentityPolicy, idFilter, baseNode)
+export const useAwsSesIdentityPolicy = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSesIdentityPolicy, idFilter, baseNode, optional)
 
-export const useAwsSesIdentityPolicys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSesIdentityPolicy, idFilter, baseNode)
+export const useAwsSesIdentityPolicys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSesIdentityPolicy, idFilter, baseNode, optional)

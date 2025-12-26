@@ -49,15 +49,23 @@ export function DataAwsSpotDatafeedSubscription(props: Partial<InputProps>) {
 export const useDataAwsSpotDatafeedSubscription = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsSpotDatafeedSubscription, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    DataAwsSpotDatafeedSubscription,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSpotDatafeedSubscriptions = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSpotDatafeedSubscription,
     idFilter,
     baseNode,
+    optional,
   )

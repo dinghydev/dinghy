@@ -239,10 +239,26 @@ export function AwsSagemakerUserProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerUserProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerUserProfile, idFilter, baseNode)
+export const useAwsSagemakerUserProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSagemakerUserProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerUserProfiles = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSagemakerUserProfile, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSagemakerUserProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

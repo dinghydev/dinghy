@@ -58,5 +58,11 @@ export function AwsWorkspacesConnectionAlias(props: Partial<InputProps>) {
 export const useAwsWorkspacesConnectionAliass = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesConnectionAlias, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsWorkspacesConnectionAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

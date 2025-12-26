@@ -50,8 +50,15 @@ export function AwsQuicksightGroup(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsQuicksightGroup = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsQuicksightGroup, idFilter, baseNode)
+export const useAwsQuicksightGroup = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsQuicksightGroup, idFilter, baseNode, optional)
 
-export const useAwsQuicksightGroups = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsQuicksightGroup, idFilter, baseNode)
+export const useAwsQuicksightGroups = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsQuicksightGroup, idFilter, baseNode, optional)

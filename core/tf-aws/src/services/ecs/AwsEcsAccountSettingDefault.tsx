@@ -50,9 +50,23 @@ export function AwsEcsAccountSettingDefault(props: Partial<InputProps>) {
 export const useAwsEcsAccountSettingDefault = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsEcsAccountSettingDefault, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsEcsAccountSettingDefault,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcsAccountSettingDefaults = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsEcsAccountSettingDefault, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsEcsAccountSettingDefault,
+    idFilter,
+    baseNode,
+    optional,
+  )

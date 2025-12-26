@@ -57,9 +57,23 @@ export function AwsRoute53ZoneAssociation(props: Partial<InputProps>) {
 export const useAwsRoute53ZoneAssociation = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsRoute53ZoneAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsRoute53ZoneAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53ZoneAssociations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsRoute53ZoneAssociation, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsRoute53ZoneAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

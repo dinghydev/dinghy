@@ -102,9 +102,23 @@ export function AwsCognitoRiskConfiguration(props: Partial<InputProps>) {
 export const useAwsCognitoRiskConfiguration = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsCognitoRiskConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsCognitoRiskConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoRiskConfigurations = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsCognitoRiskConfiguration, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsCognitoRiskConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

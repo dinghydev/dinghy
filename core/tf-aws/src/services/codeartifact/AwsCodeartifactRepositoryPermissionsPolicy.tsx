@@ -62,19 +62,23 @@ export function AwsCodeartifactRepositoryPermissionsPolicy(
 export const useAwsCodeartifactRepositoryPermissionsPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCodeartifactRepositoryPermissionsPolicy,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCodeartifactRepositoryPermissionsPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCodeartifactRepositoryPermissionsPolicy,
     idFilter,
     baseNode,
+    optional,
   )

@@ -62,9 +62,23 @@ export function DataAwsSsoadminApplication(props: Partial<InputProps>) {
 export const useDataAwsSsoadminApplication = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(DataAwsSsoadminApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsSsoadminApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSsoadminApplications = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsSsoadminApplication, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsSsoadminApplication,
+    idFilter,
+    baseNode,
+    optional,
+  )

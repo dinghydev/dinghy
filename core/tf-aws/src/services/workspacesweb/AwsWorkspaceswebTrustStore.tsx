@@ -61,9 +61,23 @@ export function AwsWorkspaceswebTrustStore(props: Partial<InputProps>) {
 export const useAwsWorkspaceswebTrustStore = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWorkspaceswebTrustStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWorkspaceswebTrustStore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWorkspaceswebTrustStores = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWorkspaceswebTrustStore, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWorkspaceswebTrustStore,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -57,11 +57,23 @@ export function AwsSecretsmanagerSecretPolicy(props: Partial<InputProps>) {
 export const useAwsSecretsmanagerSecretPolicy = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerSecretPolicy, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsSecretsmanagerSecretPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecretsmanagerSecretPolicys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerSecretPolicy, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsSecretsmanagerSecretPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

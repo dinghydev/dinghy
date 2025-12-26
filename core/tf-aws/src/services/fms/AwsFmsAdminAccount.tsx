@@ -51,8 +51,15 @@ export function AwsFmsAdminAccount(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsFmsAdminAccount = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsFmsAdminAccount, idFilter, baseNode)
+export const useAwsFmsAdminAccount = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(AwsFmsAdminAccount, idFilter, baseNode, optional)
 
-export const useAwsFmsAdminAccounts = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsFmsAdminAccount, idFilter, baseNode)
+export const useAwsFmsAdminAccounts = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsFmsAdminAccount, idFilter, baseNode, optional)

@@ -58,19 +58,23 @@ export function AwsWafregionalSqlInjectionMatchSet(props: Partial<InputProps>) {
 export const useAwsWafregionalSqlInjectionMatchSet = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsWafregionalSqlInjectionMatchSet,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsWafregionalSqlInjectionMatchSets = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsWafregionalSqlInjectionMatchSet,
     idFilter,
     baseNode,
+    optional,
   )

@@ -51,11 +51,23 @@ export function AwsChimeVoiceConnectorLogging(props: Partial<InputProps>) {
 export const useAwsChimeVoiceConnectorLogging = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsChimeVoiceConnectorLogging, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsChimeVoiceConnectorLogging,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsChimeVoiceConnectorLoggings = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsChimeVoiceConnectorLogging, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsChimeVoiceConnectorLogging,
+    idFilter,
+    baseNode,
+    optional,
+  )

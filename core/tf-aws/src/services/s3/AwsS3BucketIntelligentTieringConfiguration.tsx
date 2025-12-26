@@ -64,19 +64,23 @@ export function AwsS3BucketIntelligentTieringConfiguration(
 export const useAwsS3BucketIntelligentTieringConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsS3BucketIntelligentTieringConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsS3BucketIntelligentTieringConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsS3BucketIntelligentTieringConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

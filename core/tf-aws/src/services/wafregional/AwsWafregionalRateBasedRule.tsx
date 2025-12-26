@@ -62,9 +62,23 @@ export function AwsWafregionalRateBasedRule(props: Partial<InputProps>) {
 export const useAwsWafregionalRateBasedRule = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsWafregionalRateBasedRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsWafregionalRateBasedRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafregionalRateBasedRules = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsWafregionalRateBasedRule, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsWafregionalRateBasedRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

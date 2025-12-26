@@ -52,9 +52,23 @@ export function AwsSecurityhubActionTarget(props: Partial<InputProps>) {
 export const useAwsSecurityhubActionTarget = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsSecurityhubActionTarget, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsSecurityhubActionTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubActionTargets = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsSecurityhubActionTarget, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsSecurityhubActionTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )

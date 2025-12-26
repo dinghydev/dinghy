@@ -48,9 +48,23 @@ export function AwsIamGroupPolicyAttachment(props: Partial<InputProps>) {
 export const useAwsIamGroupPolicyAttachment = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsIamGroupPolicyAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamGroupPolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamGroupPolicyAttachments = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsIamGroupPolicyAttachment, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamGroupPolicyAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -66,10 +66,26 @@ export function AwsDevicefarmDevicePool(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevicefarmDevicePool = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDevicefarmDevicePool, idFilter, baseNode)
+export const useAwsDevicefarmDevicePool = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsDevicefarmDevicePool,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevicefarmDevicePools = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsDevicefarmDevicePool, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsDevicefarmDevicePool,
+    idFilter,
+    baseNode,
+    optional,
+  )

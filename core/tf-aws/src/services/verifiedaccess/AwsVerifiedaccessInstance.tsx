@@ -63,9 +63,23 @@ export function AwsVerifiedaccessInstance(props: Partial<InputProps>) {
 export const useAwsVerifiedaccessInstance = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNode<OutputProps>(AwsVerifiedaccessInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsVerifiedaccessInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVerifiedaccessInstances = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(AwsVerifiedaccessInstance, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsVerifiedaccessInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

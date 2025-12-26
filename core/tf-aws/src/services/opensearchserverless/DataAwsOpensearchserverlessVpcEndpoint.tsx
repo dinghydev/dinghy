@@ -56,19 +56,23 @@ export function DataAwsOpensearchserverlessVpcEndpoint(
 export const useDataAwsOpensearchserverlessVpcEndpoint = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsOpensearchserverlessVpcEndpoint,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsOpensearchserverlessVpcEndpoints = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsOpensearchserverlessVpcEndpoint,
     idFilter,
     baseNode,
+    optional,
   )

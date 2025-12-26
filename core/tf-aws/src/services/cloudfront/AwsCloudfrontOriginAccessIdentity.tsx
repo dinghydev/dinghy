@@ -54,19 +54,23 @@ export function AwsCloudfrontOriginAccessIdentity(props: Partial<InputProps>) {
 export const useAwsCloudfrontOriginAccessIdentity = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsCloudfrontOriginAccessIdentity,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsCloudfrontOriginAccessIdentitys = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsCloudfrontOriginAccessIdentity,
     idFilter,
     baseNode,
+    optional,
   )

@@ -59,10 +59,26 @@ export function DataAwsRamResourceShare(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsRamResourceShare = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsRamResourceShare, idFilter, baseNode)
+export const useDataAwsRamResourceShare = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    DataAwsRamResourceShare,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRamResourceShares = (
   idFilter?: string,
   baseNode?: any,
-) => useTypedNodes<OutputProps>(DataAwsRamResourceShare, idFilter, baseNode)
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    DataAwsRamResourceShare,
+    idFilter,
+    baseNode,
+    optional,
+  )

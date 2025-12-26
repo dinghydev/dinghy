@@ -56,8 +56,16 @@ export function AwsDevicefarmProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsDevicefarmProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsDevicefarmProject, idFilter, baseNode)
+export const useAwsDevicefarmProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsDevicefarmProject, idFilter, baseNode, optional)
 
-export const useAwsDevicefarmProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmProject, idFilter, baseNode)
+export const useAwsDevicefarmProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsDevicefarmProject, idFilter, baseNode, optional)

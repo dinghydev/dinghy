@@ -51,8 +51,26 @@ export function AwsIamUserLoginProfile(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsIamUserLoginProfile = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsIamUserLoginProfile, idFilter, baseNode)
+export const useAwsIamUserLoginProfile = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(
+    AwsIamUserLoginProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
-export const useAwsIamUserLoginProfiles = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsIamUserLoginProfile, idFilter, baseNode)
+export const useAwsIamUserLoginProfiles = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(
+    AwsIamUserLoginProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

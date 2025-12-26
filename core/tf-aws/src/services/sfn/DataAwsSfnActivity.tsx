@@ -48,8 +48,15 @@ export function DataAwsSfnActivity(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsSfnActivity = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsSfnActivity, idFilter, baseNode)
+export const useDataAwsSfnActivity = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsSfnActivity, idFilter, baseNode, optional)
 
-export const useDataAwsSfnActivitys = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsSfnActivity, idFilter, baseNode)
+export const useDataAwsSfnActivitys = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(DataAwsSfnActivity, idFilter, baseNode, optional)

@@ -65,8 +65,14 @@ export function DataAwsVpcIpam(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsVpcIpam = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsVpcIpam, idFilter, baseNode)
+export const useDataAwsVpcIpam = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsVpcIpam, idFilter, baseNode, optional)
 
-export const useDataAwsVpcIpams = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsVpcIpam, idFilter, baseNode)
+export const useDataAwsVpcIpams = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsVpcIpam, idFilter, baseNode, optional)

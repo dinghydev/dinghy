@@ -60,19 +60,23 @@ export function AwsLicensemanagerLicenseConfiguration(
 export const useAwsLicensemanagerLicenseConfiguration = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     AwsLicensemanagerLicenseConfiguration,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useAwsLicensemanagerLicenseConfigurations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     AwsLicensemanagerLicenseConfiguration,
     idFilter,
     baseNode,
+    optional,
   )

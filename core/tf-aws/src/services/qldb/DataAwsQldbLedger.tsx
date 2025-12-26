@@ -50,8 +50,14 @@ export function DataAwsQldbLedger(props: Partial<InputProps>) {
   )
 }
 
-export const useDataAwsQldbLedger = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(DataAwsQldbLedger, idFilter, baseNode)
+export const useDataAwsQldbLedger = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNode<OutputProps>(DataAwsQldbLedger, idFilter, baseNode, optional)
 
-export const useDataAwsQldbLedgers = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(DataAwsQldbLedger, idFilter, baseNode)
+export const useDataAwsQldbLedgers = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) => useTypedNodes<OutputProps>(DataAwsQldbLedger, idFilter, baseNode, optional)

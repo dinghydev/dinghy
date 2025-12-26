@@ -60,8 +60,16 @@ export function AwsSagemakerProject(props: Partial<InputProps>) {
   )
 }
 
-export const useAwsSagemakerProject = (idFilter?: string, baseNode?: any) =>
-  useTypedNode<OutputProps>(AwsSagemakerProject, idFilter, baseNode)
+export const useAwsSagemakerProject = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNode<OutputProps>(AwsSagemakerProject, idFilter, baseNode, optional)
 
-export const useAwsSagemakerProjects = (idFilter?: string, baseNode?: any) =>
-  useTypedNodes<OutputProps>(AwsSagemakerProject, idFilter, baseNode)
+export const useAwsSagemakerProjects = (
+  idFilter?: string,
+  baseNode?: any,
+  optional?: boolean,
+) =>
+  useTypedNodes<OutputProps>(AwsSagemakerProject, idFilter, baseNode, optional)

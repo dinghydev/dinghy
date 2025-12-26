@@ -58,19 +58,23 @@ export function DataAwsSecretsmanagerSecretRotation(
 export const useDataAwsSecretsmanagerSecretRotation = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNode<OutputProps>(
     DataAwsSecretsmanagerSecretRotation,
     idFilter,
     baseNode,
+    optional,
   )
 
 export const useDataAwsSecretsmanagerSecretRotations = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
   useTypedNodes<OutputProps>(
     DataAwsSecretsmanagerSecretRotation,
     idFilter,
     baseNode,
+    optional,
   )

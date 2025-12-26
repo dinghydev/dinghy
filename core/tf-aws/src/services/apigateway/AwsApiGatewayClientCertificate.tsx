@@ -55,11 +55,23 @@ export function AwsApiGatewayClientCertificate(props: Partial<InputProps>) {
 export const useAwsApiGatewayClientCertificate = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayClientCertificate, idFilter, baseNode)
+  useTypedNode<OutputProps>(
+    AwsApiGatewayClientCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayClientCertificates = (
   idFilter?: string,
   baseNode?: any,
+  optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayClientCertificate, idFilter, baseNode)
+  useTypedNodes<OutputProps>(
+    AwsApiGatewayClientCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
