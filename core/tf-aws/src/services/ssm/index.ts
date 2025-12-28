@@ -69,6 +69,12 @@ export {
 } from './DataAwsSsmParameter.tsx'
 
 export {
+  EphemeralAwsSsmParameter,
+  useEphemeralAwsSsmParameter,
+  useEphemeralAwsSsmParameters,
+} from './EphemeralAwsSsmParameter.tsx'
+
+export {
   DataAwsSsmParametersByPath,
   useDataAwsSsmParametersByPath,
   useDataAwsSsmParametersByPaths,

@@ -8,7 +8,7 @@
 
 # Build
 /.versions.json
-build
+/build
 /output
 sites/*/output
 examples/site/output

@@ -49,6 +49,12 @@ export {
 } from './DataAwsEksClusterAuth.tsx'
 
 export {
+  EphemeralAwsEksClusterAuth,
+  useEphemeralAwsEksClusterAuth,
+  useEphemeralAwsEksClusterAuths,
+} from './EphemeralAwsEksClusterAuth.tsx'
+
+export {
   DataAwsEksClusters,
   useDataAwsEksClusterss,
 } from './DataAwsEksClusters.tsx'

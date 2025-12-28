@@ -77,6 +77,12 @@ export {
 } from './DataAwsLambdaInvocation.tsx'
 
 export {
+  EphemeralAwsLambdaInvocation,
+  useEphemeralAwsLambdaInvocation,
+  useEphemeralAwsLambdaInvocations,
+} from './EphemeralAwsLambdaInvocation.tsx'
+
+export {
   AwsLambdaLayerVersion,
   useAwsLambdaLayerVersion,
   useAwsLambdaLayerVersions,

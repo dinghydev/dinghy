@@ -129,7 +129,7 @@ export const DiagramNodeSchema = z.object({
     'Image URL or base64 encoded string for the entitiy. See [example](/examples/diagrams/basic/image)',
   ),
   _mxGraphModel: ResolvableStringSchema.optional().describe(
-    'To extract the style from mxGraphModel XML string which you can copy from drawio diagram for easy customization. See [example](/examples/diagrams/advanced/mx-graph-model)',
+    'To extract the style from mxGraphModel XML string which you can copy from drawio diagram for easy customization. See [example](/examples/diagrams/basic/mx-graph-model)',
   ),
   _view: StringOrArraySchema.optional().describe(
     `Nodes visibility will be decided by the activated view(s). Parent value are passed down to children automatically. See [example](/examples/diagrams/basic/view)`,

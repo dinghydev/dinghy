@@ -76,3 +76,8 @@ export {
   DataAwsKmsSecrets,
   useDataAwsKmsSecretss,
 } from './DataAwsKmsSecrets.tsx'
+
+export {
+  EphemeralAwsKmsSecrets,
+  useEphemeralAwsKmsSecretss,
+} from './EphemeralAwsKmsSecrets.tsx'

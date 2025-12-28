@@ -5,6 +5,12 @@ export {
 } from './DataAwsSecretsmanagerRandomPassword.tsx'
 
 export {
+  EphemeralAwsSecretsmanagerRandomPassword,
+  useEphemeralAwsSecretsmanagerRandomPassword,
+  useEphemeralAwsSecretsmanagerRandomPasswords,
+} from './EphemeralAwsSecretsmanagerRandomPassword.tsx'
+
+export {
   AwsSecretsmanagerSecret,
   useAwsSecretsmanagerSecret,
   useAwsSecretsmanagerSecrets,
@@ -50,6 +56,12 @@ export {
   useDataAwsSecretsmanagerSecretVersion,
   useDataAwsSecretsmanagerSecretVersions,
 } from './DataAwsSecretsmanagerSecretVersion.tsx'
+
+export {
+  EphemeralAwsSecretsmanagerSecretVersion,
+  useEphemeralAwsSecretsmanagerSecretVersion,
+  useEphemeralAwsSecretsmanagerSecretVersions,
+} from './EphemeralAwsSecretsmanagerSecretVersion.tsx'
 
 export {
   DataAwsSecretsmanagerSecretVersions,

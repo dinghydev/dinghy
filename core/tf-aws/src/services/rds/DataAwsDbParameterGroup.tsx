@@ -35,7 +35,7 @@ export type OutputProps =
 export function DataAwsDbParameterGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
-    return namedTag.replace(/^(Data )?Aws /, '')
+    return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
   }
   return (
     <AwsDbParameterGroup

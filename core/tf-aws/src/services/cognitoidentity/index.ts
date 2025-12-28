@@ -1,4 +1,10 @@
 export {
+  EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity,
+  useEphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity,
+  useEphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentitys,
+} from './EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity.tsx'
+
+export {
   AwsCognitoIdentityPool,
   useAwsCognitoIdentityPool,
   useAwsCognitoIdentityPools,

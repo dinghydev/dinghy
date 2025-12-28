@@ -48,7 +48,7 @@ const Postgres = (props: any) => (
 const WebApp = (props: any) => <Shape {...props} />
 
 const Client = (props: any) => (
-  <awsGeneralResources.Client _dependsOn='Load Balancer' {...props} />
+  <awsGeneralResources.Client _dependsOn='LoadBalancer' {...props} />
 )
 
 const Cloud = (props: any) => (

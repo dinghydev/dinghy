@@ -11,6 +11,12 @@ export {
 } from './DataAwsEcrAuthorizationToken.tsx'
 
 export {
+  EphemeralAwsEcrAuthorizationToken,
+  useEphemeralAwsEcrAuthorizationToken,
+  useEphemeralAwsEcrAuthorizationTokens,
+} from './EphemeralAwsEcrAuthorizationToken.tsx'
+
+export {
   DataAwsEcrImage,
   useDataAwsEcrImage,
   useDataAwsEcrImages,
