@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'sites/references-tf-aws-services/**'
+      - 'sites/references-tf-aws/**'
   workflow_dispatch:
 
 permissions:
@@ -62,6 +62,6 @@ jobs:
           
 
           cd ../tasks
-          echo "::group::Release Site References TF AWS Services"
-          deno task release-site references-tf-aws-services
+          echo "::group::Release Site References TF AWS"
+          deno task release-site references-tf-aws
           echo "::endgroup::"
