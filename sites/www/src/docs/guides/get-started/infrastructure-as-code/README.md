@@ -116,12 +116,17 @@ import { AwsS3Bucket } from '@dinghy/tf-aws/serviceS3'
 
 #### Limitation of generated terraform schema
 
-As the provider json data doesn't contains all the information necessary to
-precise define the Dinghy schema, some times it might not accurate generate
-desired terraform code.
+Because provider JSON data doesn't include all the details needed to accurately
+define the Dinghy schema, the generated Terraform code may occasionally be
+incomplete or not fully accurate.
 
-If this occurs, you can work around the issue by using a
-[raw category value](/guides/advanced/tf-components-definition#raw-category-value).
+Additionally, the generated code might lag behind updates to the latest provider
+versions you are using.
+
+If you encounter these limitations, don't worry—Dinghy offers flexible ways to
+handle them. You can resolve such issues by using the advanced
+[Tf Components Definition](/guides/advanced/tf-components-definition) techniques
+to define component from ground up or provider raw value.
 
 ## use* functions
 

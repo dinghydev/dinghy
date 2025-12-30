@@ -7,7 +7,7 @@ import { FrameProps } from './frame.tsx'
 /**
 # Sequence diagram
 
-A simple implementation of standard UML sequence diagram. See examples [here](/examples/diagrams/composites/sequence-diagram)
+A simple implementation of standard UML sequence diagram. See examples [here](https://dinghy.dev/examples/diagrams/composites/sequence-diagram)
 
 ## ParticipantSchema
 

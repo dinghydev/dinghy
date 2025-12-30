@@ -6,10 +6,10 @@ site:
     - ../www/src/components:src/components
     - ../www/src/css:src/css
     - ../www/src/theme:src/theme
-baseUrl: /references/diagrams/elements/
+baseUrl: /references/diagrams/
 docs:
   routeBasePath: /
-  editUrl: https://github.com/dinghydev/dinghy/blob/main/sites/references-diagrams-elements/
+  editUrl: https://github.com/dinghydev/dinghy/blob/main/sites/references-diagrams/
 themeConfig:
   navbar:
     logo:

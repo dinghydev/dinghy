@@ -52,7 +52,7 @@
       "name": "release site",
       "args": [
         "deno task release-site www"
-        // "deno task release-site references-diagrams-elements"
+        // "deno task release-site references-diagrams"
         // "deno task release-site references-tf-aws"
       ],
       "env": {

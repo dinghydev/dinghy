@@ -218,7 +218,7 @@ await renderDenoDoc(
 
 const jsDocs = {
   'core/diagrams/src/composites/sequence-diagram/types.tsx':
-    'sites/www/src/docs/references/diagrams/composites/sequence-diagram/README.mdx',
+    'sites/references-diagrams/docs/composites/sequence-diagram/README.mdx',
   'core/base-components/src/types/base.ts':
     'sites/www/src/docs/references/attributes/base/README.mdx',
   'core/base-components/src/types/diagrams.ts':

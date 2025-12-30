@@ -23,8 +23,8 @@ your project in devcontainer. The devcontainer is a full-featured development
 environment which has deno language server running which give you nice
 autocomplete developer experience.
 
-The devcontainer is where [Dinghy Engine](./architecture#engine) lives, so you
-can run engine command directly.
+The devcontainer is where [Dinghy Engine](/guides/advanced/architecture#engine)
+lives, so you can run engine command directly.
 
 ## Jetbrains IDEs
 

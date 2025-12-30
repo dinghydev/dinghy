@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'sites/references-diagrams-elements/**'
+      - 'sites/references-diagrams/**'
   workflow_dispatch:
 
 permissions:
@@ -62,6 +62,6 @@ jobs:
           
 
           cd ../tasks
-          echo "::group::Release Site References Diagrams Elements"
-          deno task release-site references-diagrams-elements
+          echo "::group::Release Site References Diagrams"
+          deno task release-site references-diagrams
           echo "::endgroup::"

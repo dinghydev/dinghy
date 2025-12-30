@@ -9,6 +9,6 @@ desired final output.
 
 :::
 
-- [Entities](./entities.md)
-- [Containers](./containers.md)
-- [Dependencies](./dependencies.md)
+- [Entities](./elements/entities/README.md)
+- [Containers](./elements/containers/README.md)
+- [Dependencies](./elements/dependencies/README.md)
