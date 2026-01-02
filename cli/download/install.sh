@@ -21,6 +21,22 @@ install_dinghy() {
 		esac
 	#fi
 
+	if [ -z "$DINGHY_VERSION" ]; then
+		if [ -f ".dinghyrc" ]; then
+			while IFS= read -r line || [ -n "$line" ]; do
+				case "$line" in
+					DINGHY_ENGINE_VERSION=*)
+						DINGHY_VERSION="${line#DINGHY_ENGINE_VERSION=}"
+						break
+						;;
+				esac
+			done < ".dinghyrc"
+			if [ -n "$DINGHY_VERSION" ]; then
+				export DINGHY_VERSION
+			fi
+		fi
+	fi
+
 	dinghy_version="${DINGHY_VERSION:-RELEASE_VERSION}"
 
 	dinghy_uri="https://get.dinghy.dev/versions/${dinghy_version}/dinghy-${target}.zip"
@@ -51,4 +67,4 @@ set +e
 $dinghy_home/bin/dinghy postinstall
 
 echo ""
-echo "Stuck? Email us at hello@dinghy.dev"
+echo "Need help? Visit https://dinghy.dev or email hello@dinghy.dev"

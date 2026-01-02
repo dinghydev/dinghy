@@ -1,53 +1,51 @@
 import { existsSync } from 'jsr:@std/fs'
 import Debug from 'debug'
-import * as yaml from '@std/yaml'
 import chalk from 'chalk'
-import { dinghyConfigFile } from './loadConfig.ts'
+import { hostAppHome } from '../shared/home.ts'
 const debug = Debug('runCommand')
 
 export const updateProjectVersion = (version: string, createConfig = false) => {
-  if (!existsSync(dinghyConfigFile)) {
+  const dinghyConfigRcFile = `${hostAppHome}/.dinghyrc`
+  const configLine = `DINGHY_ENGINE_VERSION=${version}`
+  if (!existsSync(dinghyConfigRcFile)) {
     if (!createConfig) {
       debug('dinghy config file not found, skipping update')
     } else {
       Deno.writeTextFileSync(
-        dinghyConfigFile,
-        yaml.stringify({ engine: { version } }),
+        dinghyConfigRcFile,
+        `${configLine}\n`,
       )
-      console.log('Dinghy Config file not found, created: ', dinghyConfigFile)
+      console.log('Dinghy Config file not found, created: ', dinghyConfigRcFile)
     }
     return
   }
 
-  const yamlText = Deno.readTextFileSync(dinghyConfigFile)
-  let updatedConfig
-  let previousVersion = null
-  const config = yaml.parse(yamlText) as any
-  if (config.engine) {
-    if (config.engine.version) {
-      if (config.engine.version === version) {
-        console.log(
-          `Dinghy Config ${chalk.gray(dinghyConfigFile)} already at version ${
-            chalk.green(version)
-          }`,
-        )
-        return
-      }
-      previousVersion = config.engine.version
-      updatedConfig = yamlText.replaceAll(config.engine.version, version)
+  const configRcText = Deno.readTextFileSync(dinghyConfigRcFile)
+  let updatedConfig = ''
+  let previousVersion: string | null = null
+  configRcText.split('\n').forEach((line) => {
+    if (line.startsWith('DINGHY_ENGINE_VERSION=')) {
+      previousVersion = line.split('=')[1].trim()
+      updatedConfig += configLine + '\n'
     } else {
-      config.engine.version = version
+      updatedConfig += line + '\n'
     }
-  } else {
-    config.engine = { version }
-  }
+  })
 
-  if (!updatedConfig) {
-    updatedConfig = yaml.stringify(config)
+  if (previousVersion === version) {
+    console.log(
+      `Dinghy Config ${chalk.gray(dinghyConfigRcFile)} already at version ${
+        chalk.green(version)
+      }`,
+    )
+    return
   }
-  Deno.writeTextFileSync(dinghyConfigFile, updatedConfig)
+  if (!updatedConfig.includes(configLine)) {
+    updatedConfig += configLine + '\n'
+  }
+  Deno.writeTextFileSync(dinghyConfigRcFile, updatedConfig)
   console.log(
-    `Updated ${chalk.gray(dinghyConfigFile)} with engine.version: ${
+    `Updated ${chalk.gray(dinghyConfigRcFile)} with DINGHY_ENGINE_VERSION=${
       chalk.green(version)
     }${previousVersion ? ` (from: ${chalk.gray(previousVersion)})` : ''}`,
   )

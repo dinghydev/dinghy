@@ -1,5 +1,10 @@
 import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import {
+  DinghyError,
+  hostAppHome,
+  OPTIONS_SYMBOL,
+  RUN_SYMBOL,
+} from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
@@ -25,7 +30,10 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   if (!firstStack) {
     throw new DinghyError('No stack found')
   }
-  const stackPath = `${args.output}/${firstStack.id}`
+  let stackPath = `${args.output}/${firstStack.id}`
+  if (!stackPath.startsWith('/')) {
+    stackPath = `${hostAppHome}/${stackPath}`
+  }
   if (!existsSync(stackPath)) {
     throw new DinghyError(
       `Stack folder ${stackPath} not exist. Run render or tf operation first`,

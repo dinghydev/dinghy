@@ -186,7 +186,7 @@ const generateOptionsSection = (
   const options: Options[] = []
   const flagsHidden = context.options.flagsHidden || []
   for (const optionType of OPTIONS_TYPES) {
-    for (const option of context.options[optionType] || []) {
+    for (const option of (context.options as any)[optionType] || []) {
       if (flagsHidden.includes(option)) {
         continue
       }

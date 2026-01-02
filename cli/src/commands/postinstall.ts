@@ -99,7 +99,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       refreshCommand,
     )
     console.log(
-      `Installed Dinghy Runner ${
+      `Installed Dinghy Cli ${
         chalk.dim(projectVersionRelease())
       } successfully.`,
     )

@@ -61,7 +61,7 @@ async function init(args: CommandArgs) {
     throw new Error(`Source folder ${args.sourceFolder} not exist`)
   }
   args.buildContext = Object.entries(Deno.env.toObject()).reduce(
-    (acc, [key, value]) => {
+    (acc: any, [key, value]: any) => {
       acc[key] = value
       return acc
     },
@@ -233,7 +233,7 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
     if (dockerPushEnabled(args)) {
       dockerManifestCreate(
         image.tag,
-        args.arch.map((arch) => `${image.tag}-linux-${arch}`),
+        args.arch.map((arch: string) => `${image.tag}-linux-${arch}`),
       )
     } else {
       await dockerCommand([

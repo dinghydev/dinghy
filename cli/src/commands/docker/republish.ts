@@ -23,6 +23,10 @@ import { hostAppHome } from '../../shared/home.ts'
 import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'
 import { execaSync } from 'execa'
+import {
+  configEngineRepoDefault,
+  configGetEngineRepo,
+} from '../../utils/dockerConfig.ts'
 
 const debug = Debug('docker:republish')
 const options: CommandOptions = {
@@ -98,8 +102,8 @@ const rebuildOrTagImage = (
 function run(_context: CommandContext, args: CommandArgs) {
   const images = consumerImages()
 
-  const targetRepo = args['target-repo'] || dinghyAppConfig.engine?.repo
-  if (!targetRepo) {
+  const targetRepo = args['target-repo'] || configGetEngineRepo()
+  if (targetRepo === configEngineRepoDefault) {
     throw new DinghyError(
       `Target registry is not provided, please provide --target-repo or set it in Dinghy Config file`,
     )
@@ -114,6 +118,10 @@ function run(_context: CommandContext, args: CommandArgs) {
     }
     const ondemand = isOndemandImage(name)
     const targetTag = `${targetRepo}:${image.split(':')[1]}`
+    if (dockerPull(targetTag)) {
+      console.log(`Image ${chalk.grey(image)} is already published`)
+      continue
+    }
     if (multiArch) {
       const targetArchTags: string[] = []
       for (const arch of supportedArchs) {
@@ -153,7 +161,7 @@ function run(_context: CommandContext, args: CommandArgs) {
         console.log(`Skip pushing image ${chalk.grey(targetTag)}`)
       }
     }
-    console.log(`Image ${chalk.green(targetTag)} is ready`)
+    console.log(`Republished image ${chalk.green(targetTag)}`)
   }
 }
 

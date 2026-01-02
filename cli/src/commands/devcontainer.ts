@@ -86,7 +86,7 @@ function prepareConfig(args: CommandArgs): any {
     config.image
 
   config.mounts ??= getDockerMounts([
-    ...(args.volumns || []).map((mount) => ({
+    ...(args.volumns || []).map((mount: string) => ({
       source: mount.split(':')[0],
       target: mount.split(':')[1],
     })),

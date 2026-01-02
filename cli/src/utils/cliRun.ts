@@ -57,6 +57,10 @@ export const cliRun = async (
         )
         Deno.exit(HANDLED_ERROR_EXIT_CODE)
       } else {
+        if (Deno.env.get('VSCODE_INSPECTOR_OPTIONS')) {
+          // debugger mode is enabled, so we need to print the error to the console as it will be hidden by the debugger
+          console.error(error)
+        }
         // deno-lint-ignore no-unsafe-finally
         throw error
       }

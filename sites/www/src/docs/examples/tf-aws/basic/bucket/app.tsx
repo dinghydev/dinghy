@@ -6,7 +6,7 @@ import {
   useAwsS3Bucket,
 } from '@dinghy/tf-aws/serviceS3'
 
-export default function App() {
+export default function Stack() {
   return (
     <Shape _title='S3 Bucket Service Components Example'>
       <AwsProvider region='eu-west-1'>

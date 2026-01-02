@@ -7,7 +7,7 @@ import {
 } from '@dinghy/tf-aws'
 import { CloudfrontSites } from '@dinghy/tf-aws/cloudfrontSites'
 
-export default function App() {
+export default function Stack() {
   return (
     <ExampleCom>
       <AwsCloud>

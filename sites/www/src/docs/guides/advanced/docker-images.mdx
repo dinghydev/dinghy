@@ -2,6 +2,8 @@
 sidebar_position: 40
 ---
 
+import CodeBlock from "@theme/CodeBlock";
+
 # Docker Images
 
 Dinghy offers several Docker images, each optimized for different scenarios.
@@ -111,12 +113,12 @@ them by specifying them in your `dinghy.config.yaml` file e.g.
 
 ```yaml
 docker:
-    images:
-        tf:
-            providers:
-                local:
-                    source: local
-                    version: 2.6.1
+  images:
+    tf:
+      providers:
+        local:
+          source: local
+          version: 2.6.1
 ```
 
 ### Customise tf vendor and version
@@ -128,10 +130,10 @@ example below:
 
 ```yaml
 docker:
-    images:
-        tf:
-            vendoer: opentofu
-            version: 1.11.2
+  images:
+    tf:
+      vendoer: opentofu
+      version: 1.11.2
 ```
 
 ### Dinghy known compatability issue with OpenTofu
@@ -180,3 +182,12 @@ Dinghy supports both `arm64` and `amd64` architectures.
 If you want to disable multi-architecture support, set the environment variable
 `DINGHYT_DOCKER_SUPPORTED_ARCHS=false`. With multi-architecture disabled, images
 will be published without the architecture included in the image tag.
+
+### Use Private Registry
+
+You can configure your project to use the private registry by adding the
+following setting:
+
+<CodeBlock language="tsx" title=".dinghyrc">
+DINGHY_ENGINE_REPO=repo.path
+</CodeBlock>

@@ -1,224 +1,224 @@
-import { SequenceDiagram } from "@dinghy/diagrams/sequenceDiagram";
+import { SequenceDiagram } from '@dinghy/diagrams/sequenceDiagram'
 
 import {
-    Client,
-    // Servers,
-    User,
-} from "@dinghy/diagrams/entitiesAwsGeneralResources";
+  Client,
+  // Servers,
+  User,
+} from '@dinghy/diagrams/entitiesAwsGeneralResources'
 
 const sequenceDiagram = {
-    title: "Sequence diagram from data",
-    participants: {
-        User: {
-            icon: User,
-        },
-        Client: {
-            icon: Client,
-        },
-        // Servers: {
-        //     icon: Servers,
-        // },
+  title: 'Sequence diagram from data',
+  participants: {
+    User: {
+      icon: User,
     },
-    messages: [
+    Client: {
+      icon: Client,
+    },
+    // Servers: {
+    //     icon: Servers,
+    // },
+  },
+  messages: [
+    {
+      from: 'User',
+      to: 'Servers',
+      message: 'M1',
+    },
+    {
+      from: 'Servers',
+      to: 'Client',
+      message: 'M2',
+    },
+    {
+      from: 'Client',
+      to: 'Servers',
+      message: 'M3',
+      return: true,
+    },
+    {
+      from: 'Servers',
+      to: 'User',
+      message: 'M4',
+      return: true,
+    },
+    {
+      from: 'User',
+      to: 'User',
+      message: 'self',
+    },
+    {
+      from: 'User',
+      to: 'Client',
+      message: 'M1',
+    },
+    {
+      from: 'Client',
+      to: 'Servers',
+      message: 'M2',
+    },
+    {
+      from: 'Servers',
+      to: 'Client',
+      return: true,
+    },
+    {
+      from: 'Client',
+      to: 'User',
+      return: true,
+    },
+    {
+      from: 'User',
+      to: 'Client',
+      message: 'M1',
+    },
+    {
+      from: 'Client',
+      to: 'Servers',
+      message: 'M2',
+    },
+    {
+      from: 'Servers',
+      to: 'Client',
+      return: true,
+    },
+    {
+      from: 'Client',
+      to: 'User',
+      return: true,
+    },
+    {
+      from: 'User',
+      to: 'User',
+      message: 'self',
+    },
+    {
+      from: 'User',
+      to: 'Client',
+      message: 'M1',
+    },
+    {
+      from: 'Client',
+      to: 'Servers',
+      message: 'M2',
+    },
+    {
+      from: 'Servers',
+      to: 'Client',
+      return: true,
+    },
+    {
+      from: 'Client',
+      to: 'Client',
+      message: 'self',
+    },
+    {
+      from: 'Client',
+      to: 'Servers',
+      message: 'M3',
+    },
+    {
+      from: 'Servers',
+      to: 'Client',
+      return: true,
+    },
+    {
+      from: 'Client',
+      to: 'User',
+      return: true,
+    },
+    {
+      from: 'User',
+      to: 'User',
+      message: 'self3',
+    },
+  ],
+  interactions: [
+    {
+      title: 'Interaction 1',
+      messages: [
         {
-            from: "User",
-            to: "Servers",
-            message: "M1",
+          from: 'User',
+          to: 'Client',
+          message: 'M1',
         },
         {
-            from: "Servers",
-            to: "Client",
-            message: "M2",
+          from: 'Client',
+          to: 'Servers',
+          message: 'M2',
+        },
+      ],
+    },
+    {
+      title: 'Interaction 2',
+      messages: [
+        {
+          from: 'User',
+          to: 'Client',
+          message: 'M1',
         },
         {
-            from: "Client",
-            to: "Servers",
-            message: "M3",
-            return: true,
+          from: 'Client',
+          to: 'Servers',
+          message: 'M2',
+        },
+      ],
+    },
+    {
+      messages: [
+        {
+          from: 'User',
+          to: 'Client',
+          message: 'M1',
         },
         {
-            from: "Servers",
-            to: "User",
-            message: "M4",
-            return: true,
+          from: 'Client',
+          to: 'Servers',
+          message: 'M2',
         },
         {
-            from: "User",
-            to: "User",
-            message: "self",
+          from: 'Servers',
+          to: 'Client',
+          message: 'M3',
+          return: true,
         },
         {
-            from: "User",
-            to: "Client",
-            message: "M1",
+          from: 'Client',
+          to: 'User',
+          message: 'M4',
+          return: true,
+        },
+      ],
+    },
+    {
+      messages: [
+        {
+          from: 'User',
+          to: 'Client',
+          message: 'M1',
         },
         {
-            from: "Client",
-            to: "Servers",
-            message: "M2",
+          from: 'Client',
+          to: 'Servers',
+          message: 'M2',
         },
         {
-            from: "Servers",
-            to: "Client",
-            return: true,
+          from: 'Servers',
+          to: 'Client',
+          message: 'M3',
+          return: true,
         },
         {
-            from: "Client",
-            to: "User",
-            return: true,
+          from: 'Client',
+          to: 'User',
+          message: 'M4',
+          return: true,
         },
-        {
-            from: "User",
-            to: "Client",
-            message: "M1",
-        },
-        {
-            from: "Client",
-            to: "Servers",
-            message: "M2",
-        },
-        {
-            from: "Servers",
-            to: "Client",
-            return: true,
-        },
-        {
-            from: "Client",
-            to: "User",
-            return: true,
-        },
-        {
-            from: "User",
-            to: "User",
-            message: "self",
-        },
-        {
-            from: "User",
-            to: "Client",
-            message: "M1",
-        },
-        {
-            from: "Client",
-            to: "Servers",
-            message: "M2",
-        },
-        {
-            from: "Servers",
-            to: "Client",
-            return: true,
-        },
-        {
-            from: "Client",
-            to: "Client",
-            message: "self",
-        },
-        {
-            from: "Client",
-            to: "Servers",
-            message: "M3",
-        },
-        {
-            from: "Servers",
-            to: "Client",
-            return: true,
-        },
-        {
-            from: "Client",
-            to: "User",
-            return: true,
-        },
-        {
-            from: "User",
-            to: "User",
-            message: "self3",
-        },
-    ],
-    interactions: [
-        {
-            title: "Interaction 1",
-            messages: [
-                {
-                    from: "User",
-                    to: "Client",
-                    message: "M1",
-                },
-                {
-                    from: "Client",
-                    to: "Servers",
-                    message: "M2",
-                },
-            ],
-        },
-        {
-            title: "Interaction 2",
-            messages: [
-                {
-                    from: "User",
-                    to: "Client",
-                    message: "M1",
-                },
-                {
-                    from: "Client",
-                    to: "Servers",
-                    message: "M2",
-                },
-            ],
-        },
-        {
-            messages: [
-                {
-                    from: "User",
-                    to: "Client",
-                    message: "M1",
-                },
-                {
-                    from: "Client",
-                    to: "Servers",
-                    message: "M2",
-                },
-                {
-                    from: "Servers",
-                    to: "Client",
-                    message: "M3",
-                    return: true,
-                },
-                {
-                    from: "Client",
-                    to: "User",
-                    message: "M4",
-                    return: true,
-                },
-            ],
-        },
-        {
-            messages: [
-                {
-                    from: "User",
-                    to: "Client",
-                    message: "M1",
-                },
-                {
-                    from: "Client",
-                    to: "Servers",
-                    message: "M2",
-                },
-                {
-                    from: "Servers",
-                    to: "Client",
-                    message: "M3",
-                    return: true,
-                },
-                {
-                    from: "Client",
-                    to: "User",
-                    message: "M4",
-                    return: true,
-                },
-            ],
-        },
-    ],
-};
+      ],
+    },
+  ],
+}
 
-export default function App() {
-    return <SequenceDiagram {...sequenceDiagram} />;
+export default function Stack() {
+  return <SequenceDiagram {...sequenceDiagram} />
 }

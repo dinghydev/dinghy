@@ -1,7 +1,7 @@
 import { execa } from 'execa'
 import Debug from 'debug'
 import { containerAppHome } from '../shared/home.ts'
-Debug.formatters.a = (v) => {
+Debug.formatters.a = (v: any) => {
   return `[${v.join(' ')}]`
 }
 const debug = Debug('cmd')

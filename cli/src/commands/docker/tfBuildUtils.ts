@@ -21,11 +21,16 @@ export const customTfImage = (baseDir: string) => {
 
     Object.entries(tfConfig.providers).forEach(
       ([source, version]) => {
-        allProviders.terraform
-          .required_providers[source.replace(/\W/g, '')] = {
-            source,
-            version,
-          }
+        const sourceId = source.replace(/\W/g, '')
+        if (version === 'disabled') {
+          delete allProviders.terraform.required_providers[sourceId]
+        } else {
+          allProviders.terraform
+            .required_providers[sourceId] = {
+              source,
+              version,
+            }
+        }
       },
     )
     Deno.writeTextFileSync(

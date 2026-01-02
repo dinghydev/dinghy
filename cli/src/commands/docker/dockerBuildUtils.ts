@@ -10,7 +10,7 @@ import { customTfImage, tfVendorConfig } from './tfBuildUtils.ts'
 import { createHash } from 'node:crypto'
 const debug = Debug('init')
 
-const ondemandImages = {
+const ondemandImages: any = {
   tf: 'docker/images/50-tf',
 }
 
@@ -171,6 +171,8 @@ export function prepareTfImage(ignoreLocalCache = false) {
 }
 
 export const supportedArchs =
-  Deno.env['DINGHYT_DOCKER_SUPPORTED_ARCHS']?.split(',') || ['arm64', 'amd64']
+  Deno.env.get('DINGHYT_DOCKER_SUPPORTED_ARCHS')?.split(',') ||
+  ['arm64', 'amd64']
 
-export const multiArch = Deno.env['DINGHYT_DOCKER_SUPPORTED_ARCHS'] !== 'false'
+export const multiArch =
+  Deno.env.get('DINGHYT_DOCKER_SUPPORTED_ARCHS') !== 'false'

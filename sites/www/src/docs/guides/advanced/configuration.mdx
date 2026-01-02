@@ -2,6 +2,8 @@
 sidebar_position: 30
 ---
 
+import CodeBlock from "@theme/CodeBlock";
+
 # Configuration
 
 We strive to offer zero configuration out of box to get started. So all options
@@ -61,7 +63,11 @@ import {
 The Dinghy Cli will use Engine from same release as the Cli by default.
 
 It's recommended to lock Engine version once development settled to have stable
-operation for long term maintainance.
+operation for long term maintainance:
+
+<CodeBlock language="tsx" title=".dinghyrc">
+DINGHY_ENGINE_VERSION=engine.version
+</CodeBlock>
 
 Once the version been locked, the Cli will alway use the same Engine always. So
 you can expect nothing will change by running the same command even with

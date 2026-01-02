@@ -1,6 +1,12 @@
-import * as base from '@dinghy/base-components'
+import { Shape } from '@dinghy/base-components'
+import { Android } from '@dinghy/diagrams/entitiesAws17Sdk'
+import * as awsGeneralResources from '@dinghy/diagrams/entitiesAwsGeneralResources'
+import * as awsGroups from '@dinghy/diagrams/containersAwsGroups'
+import { PostgreSqlInstance } from '@dinghy/diagrams/entitiesAwsDatabase'
+import { ApplicationLoadBalancer } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
+import { Waf } from '@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance'
 
-export function App() {
+export default function Stack() {
   return (
     <WebApp>
       <Client />
@@ -18,24 +24,47 @@ export function App() {
   )
 }
 
-const WebApp = (props: any) => <base.Shape {...props} />
+const Postgres = (props: any) => <PostgreSqlInstance {...props} />
 
-const Client = (props: any) => <base.Shape _dependsOn="Load Balancer" {...props} />
+const WebApp = (props: any) => <Shape {...props} _style={{ noLabel: 1 }} />
 
-const Cloud = (props: any) => <base.Shape {...props} />
+const Cloud = (props: any) => <awsGroups.AwsCloud {...props} />
 
-const Subnet = (props: any) => <base.Shape _direction="vertical" {...props} />
-
-const PublicSubnet = (props: any) => <Subnet {...props} />
-
-const PrivateSubnet = (props: any) => <Subnet {...props} />
-
-const LoadBalancer = (props: any) => (
-  <base.Shape _dependsOn={['Firewall', 'Application']} {...props} />
+const PublicSubnet = (props: any) => (
+  <awsGroups.PublicSubnet _direction='vertical' {...props} />
 )
 
-const Application = (props: any) => <base.Shape _dependsOn="Postgres" {...props} />
+const PrivateSubnet = (props: any) => (
+  <awsGroups.PrivateSubnet _direction='vertical' {...props} />
+)
 
-const Firewall = (props: any) => <base.Shape {...props} />
+const LoadBalancer = (props: any) => (
+  <ApplicationLoadBalancer
+    _dependsOn={['Firewall', 'Application']}
+    {...props}
+  />
+)
 
-const Postgres = (props: any) => <base.Shape {...props} />
+const Firewall = (props: any) => (
+  <Waf
+    _style={{
+      strokeColor: 'blue',
+      fillColor: 'transparent',
+    }}
+    {...props}
+  />
+)
+
+const Application = (props: any) => (
+  <Android
+    _dependsOn='Postgres'
+    {...props}
+  />
+)
+
+const Client = (props: any) => (
+  <awsGeneralResources.Client
+    _dependsOn='Load Balancer'
+    {...props}
+  />
+)

@@ -9,7 +9,6 @@
 **/*.plan.txt
 **/*.tfstate
 **/*.backup
-**/.*
 
 # IDE
 .idea

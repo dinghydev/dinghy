@@ -19,7 +19,7 @@ import {
 import { AwsInstance } from '@dinghy/tf-aws/serviceEc2'
 import { AwsDbInstance } from '@dinghy/tf-aws/serviceRds'
 
-export default function App() {
+export default function Stack() {
   return (
     <WebApp>
       <Client />

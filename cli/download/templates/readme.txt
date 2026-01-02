@@ -16,11 +16,7 @@ Need only once if not already done:
 
     dinghy render
 
-### To render drawio diagram and generate png
-
-    dinghy diagram
-
-### To perform tf actions
+### To perform basic tf actions
 
     dinghy tf init
     dinghy tf plan
@@ -35,3 +31,7 @@ Which does following:
 2. tf init
 3. tf plan
 4. Additional CICD notification and manual job triggering
+
+## Dinghy documentation
+
+For detailed documentation and usage examples, visit: https://dinghy.dev

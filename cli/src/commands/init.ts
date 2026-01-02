@@ -22,7 +22,7 @@ const options: CommandOptions = {
   arguments: {
     project: {
       description: 'The target folder of the project',
-      required: true,
+      required: false,
     },
   },
   negatable: ['git'],
@@ -61,14 +61,14 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!args.quiet) {
     console.log('Creating new Dinghy project ...')
   }
-  const projectHome = args.project as string
+  const projectHome = args.project || Deno.cwd()
 
   Deno.mkdirSync(projectHome, { recursive: true })
-  if (!args.quiet) {
+  if (!args.quiet && args.project) {
     console.log(chalk.grey(`  created folder ${projectHome}`))
   }
 
-  await generateFile(args, projectHome, 'iac.tsx', 'app.txt')
+  await generateFile(args, projectHome, 'app.tsx', 'app.txt')
   await generateFile(args, projectHome, 'README.md', 'readme.txt')
 
   if (args.github) {

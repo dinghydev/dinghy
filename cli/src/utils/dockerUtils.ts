@@ -50,7 +50,7 @@ export function getDockerEnvs(appEnvs: Env = {}) {
   deepMerge(envs, dinghyRc)
   const whiteListEnvs = Object.entries(envs).filter(([key]) =>
     !DOCKER_EXCLUDED_ENVS.includes(key)
-  ).reduce((acc, [key, value]) => {
+  ).reduce((acc: any, [key, value]: any) => {
     acc[key] = value
     return acc
   }, {})
