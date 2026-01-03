@@ -7,7 +7,7 @@ import {
   hostAppHome,
   isInsideContainer,
 } from '../shared/home.ts'
-import { streamCmd } from './cmd.ts'
+import { execCmd, streamCmd } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
@@ -137,6 +137,9 @@ export const runDockerCmd = async (
     } else {
       debug('not a tty')
     }
+  }
+  if (args[1] === 'check') {
+    dockerArgs.push('--user', await execCmd('echo $(id -u):$(id -g)'))
   }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome
   return await streamCmd(

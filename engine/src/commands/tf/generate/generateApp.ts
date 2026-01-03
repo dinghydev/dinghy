@@ -53,7 +53,10 @@ export function generateApp(_args: any, cloud: any) {
       return `${' '.repeat(indent)}<${element.tag} ${
         generateAttributes(element, indent)
       }>
-${element.children.map((child) => generateTag(child, indent + 2)).join('\n')}
+${
+        element.children.map((child: any) => generateTag(child, indent + 2))
+          .join('\n')
+      }
 ${' '.repeat(indent)}</${element.tag}>`
     }
     return `${' '.repeat(indent)}<${element.tag} ${

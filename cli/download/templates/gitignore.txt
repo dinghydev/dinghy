@@ -13,3 +13,6 @@
 # IDE
 .idea
 .devcontainer.json
+
+# OS
+**/.DS_Store

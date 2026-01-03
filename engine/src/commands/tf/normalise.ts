@@ -123,7 +123,7 @@ function extractPolicies(resources: any[]) {
       const attributes = resource.instances[0].attributes
       if (attributes.inline_policy) {
         policies.push(`\n\nIDENTIFIER_${attributes.arn}`)
-        attributes.inline_policy.sort((a, b) => {
+        attributes.inline_policy.sort((a: any, b: any) => {
           return a.name.localeCompare(b.name)
         }).map((p: any) => {
           collectPolicy(policies, attributes.arn, p)

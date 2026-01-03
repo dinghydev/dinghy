@@ -93,7 +93,7 @@ export const s3UploadFile = async (
   Bucket: string,
   Key: string,
   filePath: string,
-  options = {},
+  options: any = {},
 ) => {
   let Body: Uint8Array | string = Deno.readFileSync(filePath)
   if (options['ContentEncoding'] === 'gzip') {

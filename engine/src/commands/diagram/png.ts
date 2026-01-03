@@ -81,7 +81,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!files.length) {
     throw new Error('No drawio files found')
   }
-  const results = {}
+  const results: any = {}
   let failed = false
   const drawioImage = configGetImage('drawio')
   for (const file of files) {

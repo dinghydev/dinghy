@@ -95,7 +95,7 @@ const generatePng = async (
 }
 
 const diagram = async (app: any, options: any, args: any, context: any) => {
-  const views = {}
+  const views: any = {}
   const availableViews = options.stack.views
   let selectedViews = args.view
   const renderedViews: string[] = []

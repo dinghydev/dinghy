@@ -112,7 +112,7 @@ const renderDenoDoc = async (input: string, output: string) => {
     }
     if (enumValues) {
       attributes.push('\n**ENUM VALUES**')
-      const enumDescription = definition.meta()?.enumDescription || {}
+      const enumDescription: any = definition.meta()?.enumDescription || {}
       enumValues.forEach((v: any) => {
         attributes.push(`- \`${v}\` ${enumDescription[v] || ''}`)
       })
