@@ -3,8 +3,8 @@ import { existsSync } from '@std/fs/exists'
 import { walkSync } from '@std/fs/walk'
 import { contentType } from '@std/media-types'
 import {
+  containerAppHome,
   deepResolve,
-  hostAppHome,
   NodeProps,
   Shape,
   toId,
@@ -317,7 +317,8 @@ export function CloudfrontSites(
         const origins = site.origins
 
         const S3Origin = ({ origin }: { origin: OriginType }) => {
-          const originFiles = `${hostAppHome}/s3-files/${origin.targetHost}`
+          const originFiles =
+            `${containerAppHome}/s3-files/${origin.targetHost}`
           const originFilesExists = existsSync(originFiles)
           const Files = () => {
             const files = []
