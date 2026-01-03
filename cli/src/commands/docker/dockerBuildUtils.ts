@@ -102,12 +102,15 @@ function extractDockerSourceFiles() {
   dockerCommand(
     [
       'run',
+      '--user',
+      `${execaSync`id -u`.stdout}:${execaSync`id -g`.stdout}`,
       '-v',
       `${workingDir}:/output`,
       '--rm',
       '--entrypoint',
       'cp',
       configGetEngineImage(),
+      '--no-preserve=ownership',
       '-r',
       '/dinghy/docker',
       '/output/docker',

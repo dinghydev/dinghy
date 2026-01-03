@@ -158,7 +158,7 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
   const imageHash = () => {
     let content = args.buildContext.VERSION_BASE || ''
     for (const file of files.sort()) {
-      if (files.includes(`${file}.ejs`)) {
+      if (file.endsWith(`.ejs`)) {
         continue
       }
       const fileContent = Deno.readTextFileSync(file).trim()

@@ -108,18 +108,17 @@ function run(_context: CommandContext, args: CommandArgs) {
       `Target registry is not provided, please provide --target-repo or set it in Dinghy Config file`,
     )
   }
-  for (let image of images) {
-    if (image.includes(':tf-')) {
-      image = getTfImageTag()
+  for (const image of images) {
+    if (image.name === 'tf') {
+      image.image = getTfImageTag()
     }
-    const name = image.split(':')[1].split('-')[0]
-    if (args['image-name'] && name !== args['image-name']) {
+    if (args['image-name'] && image.name !== args['image-name']) {
       continue
     }
-    const ondemand = isOndemandImage(name)
-    const targetTag = `${targetRepo}:${image.split(':')[1]}`
+    const ondemand = isOndemandImage(image.name)
+    const targetTag = `${targetRepo}:${image.image.split(':')[1]}`
     if (dockerPull(targetTag)) {
-      console.log(`Image ${chalk.grey(image)} is already published`)
+      console.log(`Image ${chalk.grey(image.image)} is already published`)
       continue
     }
     if (multiArch) {
@@ -132,7 +131,7 @@ function run(_context: CommandContext, args: CommandArgs) {
         } else {
           dockerPull(srcArchTag, true)
         }
-        rebuildOrTagImage(name, srcArchTag, targetArchTag, arch)
+        rebuildOrTagImage(image.name, srcArchTag, targetArchTag, arch)
         if (args['push']) {
           dockerPush(targetArchTag)
         } else {
@@ -150,11 +149,11 @@ function run(_context: CommandContext, args: CommandArgs) {
       }
     } else {
       if (ondemand) {
-        buildOndemandImage(image)
+        buildOndemandImage(image.image)
       } else {
-        dockerPull(image, true)
+        dockerPull(image.image, true)
       }
-      rebuildOrTagImage(name, image, targetTag)
+      rebuildOrTagImage(image.name, image.image, targetTag)
       if (args['push']) {
         dockerPush(targetTag)
       } else {
