@@ -341,20 +341,22 @@ export function CloudfrontSites(
               _components?.s3Object as typeof AwsS3Object || AwsS3Object
             return (
               <S3FilesComponent _direction='vertical'>
-                {files.map((file) => (
-                  <S3ObjectComponent
-                    _id={toId(`${site.title}_${origin.name}_${file.target}`)}
-                    _title={file.target}
-                    bucket={origin.targetHost}
-                    key={file.target}
-                    __key={file.target}
-                    cache_control={origin.cacheControls[file.target] ||
-                      origin.cacheControlDefault}
-                    content_type={file.contentType}
-                    source={file.source}
-                    depends_on={() => [s3Bucket._terraformId]}
-                  />
-                ))}
+                {files
+                  .sort((a, b) => a.target.localeCompare(b.target))
+                  .map((file) => (
+                    <S3ObjectComponent
+                      _id={toId(`${site.title}_${origin.name}_${file.target}`)}
+                      _title={file.target}
+                      bucket={origin.targetHost}
+                      key={file.target}
+                      __key={file.target}
+                      cache_control={origin.cacheControls[file.target] ||
+                        origin.cacheControlDefault}
+                      content_type={file.contentType}
+                      source={file.source}
+                      depends_on={() => [s3Bucket._terraformId]}
+                    />
+                  ))}
               </S3FilesComponent>
             )
           }
