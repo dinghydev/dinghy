@@ -61,6 +61,9 @@ export const createCombinedTfCmds = (
     args: string[],
   ) => {
     for (const cmd of cmds) {
+      if (cmd === 'render') {
+        continue
+      }
       await runStackTfCommands(context, stack, cmd, args)
     }
   }
@@ -77,22 +80,24 @@ export const createCombinedTfCmds = (
       dinghyAppConfig,
       args.stack,
       async (stackOptions: any) => {
-        const renderArgs = [
-          'render',
-          stackOptions.stack.id,
-          '--format',
-          'tf',
-          ...noneStackArgs,
-        ]
-        await runCommand({
-          ...context,
-          prefix: [],
-          envPrefix: [],
-          args: renderArgs,
-          originalArgs: renderArgs,
-          commands: { render } as any,
-          options: render[OPTIONS_SYMBOL],
-        })
+        if (cmds.includes('render')) {
+          const renderArgs = [
+            'render',
+            stackOptions.stack.id,
+            '--format',
+            'tf',
+            ...noneStackArgs,
+          ]
+          await runCommand({
+            ...context,
+            prefix: [],
+            envPrefix: [],
+            args: renderArgs,
+            originalArgs: renderArgs,
+            commands: { render } as any,
+            options: render[OPTIONS_SYMBOL],
+          })
+        }
         stacksOptions[stackOptions.stack.id] = stackOptions
       },
     )

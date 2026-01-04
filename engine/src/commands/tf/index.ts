@@ -14,6 +14,7 @@ import diff from './diff.ts'
 import { showHelp } from '@dinghy/cli'
 import up from './up.ts'
 import bash from './bash.ts'
+import deploy from './deploy.ts'
 const options: CommandOptions = {
   description: {},
   cmdDescription: 'Terraform/OpenTofu related operations',
@@ -31,6 +32,7 @@ const commands: Commands = {
   // generate,
   normalise,
   diff,
+  deploy,
   up,
   bash,
 }
