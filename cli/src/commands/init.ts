@@ -91,17 +91,19 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     )
   }
 
-  if (args.git && !existsSync(`${projectHome}/.git`)) {
+  if (args.git) {
     await generateFile(
       args,
       projectHome,
       '.gitignore',
       'gitignore.txt',
     )
-    await execa('git', ['init', '--initial-branch=main'], {
-      cwd: projectHome,
-      stdio: 'inherit',
-    })
+    if (!existsSync(`${projectHome}/.git`)) {
+      await execa('git', ['init', '--initial-branch=main'], {
+        cwd: projectHome,
+        stdio: 'inherit',
+      })
+    }
   }
   if (!args.quiet) {
     console.log('\nYou may now run the following commands to get started:')

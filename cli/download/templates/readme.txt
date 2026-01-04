@@ -22,7 +22,7 @@ Need only once if not already done:
     dinghy tf plan
     dinghy tf apply
 
-### Combined tf action
+### tf diff
 
     dinghy tf diff
 
@@ -31,6 +31,15 @@ Which does following:
 2. tf init
 3. tf plan
 4. Additional CICD notification and manual job triggering
+
+### tf deploy
+
+    dinghy tf deploy
+
+Which does following:
+1. tf init
+2. tf apply
+3. Additional CICD notification
 
 ## Dinghy documentation
 

@@ -1,6 +1,8 @@
 import { execa } from 'execa'
-import { walk } from '@std/fs'
+import { existsSync, walk } from '@std/fs'
 import { projectRoot } from '../../cli/src/utils/projectRoot.ts'
+import { dirname } from '@std/path/dirname'
+import chalk from 'chalk'
 
 const folderWithExamples = [
   'sites/www',
@@ -33,10 +35,8 @@ const renderProject = async (projectPath: string) => {
     'src/index.ts',
     'render',
     `--app-home=${projectPath}`,
+    ...Deno.args,
   ]
-  if (!Deno.args.includes('--diagram-png')) {
-    args.push('--no-diagram-png')
-  }
   await execa('deno', args, {
     cwd: `${projectRoot}/engine`,
     stdio: 'inherit',
@@ -45,6 +45,17 @@ const renderProject = async (projectPath: string) => {
       NODE_OPTIONS: undefined, // VSCode pass this cause unnecessary png warning message
     },
   })
+  if (existsSync(`${projectPath}/s3-files`)) {
+    const replacePath = dirname(projectPath)
+    const tfJsonFile = `${projectPath}/output/app/app.tf.json`
+    const tfJsonText = Deno.readTextFileSync(tfJsonFile)
+    const updatedTfJsonText = tfJsonText.replaceAll(
+      replacePath,
+      '/dinghy/engine/workspace',
+    )
+    Deno.writeTextFileSync(tfJsonFile, updatedTfJsonText)
+    console.log(`Updated tf json file ${chalk.red(tfJsonFile)}`)
+  }
 }
 
 if (import.meta.main) {
