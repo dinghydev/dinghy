@@ -5,6 +5,9 @@ export function setupDebug() {
   if (Deno.args.includes('--debug')) {
     Debug.enable('*')
     debug('Debug enabled: *')
+  } else if (Deno.env.get('RUNNER_DEBUG')) {
+    Debug.enable('*')
+    debug('Debug enabled by RUNNER_DEBUG environment variable')
   } else {
     const envDebug = Deno.env.get('DEBUG')
     if (envDebug) {
