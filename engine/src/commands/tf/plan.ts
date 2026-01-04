@@ -4,7 +4,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
+import { createTfOptions, tfOptionsPlan } from './parseStackInfo.ts'
 import Debug from 'debug'
 const debug = Debug('tf:plan')
 const options: any = createTfOptions({
@@ -60,10 +60,9 @@ function collectStackChange(outputFile: string, maxLines: number) {
 const run = async (_context: CommandContext, args: CommandArgs) => {
   await requireStacksConfig()
   const changedStacks: any[] = []
-  await doWithTfStacks(args, async (tfOptions) => {
-    const { stack, stackInfo } = tfOptions
+  await doWithTfStacks(args, async (stackInfo) => {
     const maxLines = Number.parseInt(args['diff-changes-max-lines'])
-    const stackPath = `${args.output}/${stack.id}`
+    const stackPath = `${args.output}/${stackInfo.id}`
     debug('Running terraform plan from %s', stackPath)
     await runTfImageCmd(
       stackPath,
@@ -95,14 +94,14 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       console.log('Formated plan ', planOutputFile)
       if (format === 'txt') {
         const changes = collectStackChange(planOutputFile, maxLines)
-        stackInfo['stack'].plan = changes
+        stackInfo.plan = changes
         if (changes?.changesCount) {
-          changedStacks.push(stackInfo['stack'])
+          changedStacks.push(stackInfo)
         }
       }
     }
     const stackInfoFile =
-      `${hostAppHome}/${args.output}/${stack.id}/stack-info.json`
+      `${hostAppHome}/${args.output}/${stackInfo.id}/stack-info.json`
     Deno.writeTextFileSync(stackInfoFile, JSON.stringify(stackInfo, null, 2))
     debug('Update stack info %s', stackInfoFile)
   })

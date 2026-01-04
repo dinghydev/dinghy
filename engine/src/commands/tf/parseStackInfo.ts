@@ -37,8 +37,8 @@ export const createTfOptions = (options: any) => {
   return deepMerge(deepMerge({}, tfOptions), options) as CommandOptions
 }
 
-export const parseTfOptions = (args: CommandArgs, stackOptions: any) => {
-  const stack = stackOptions.stack
+export const parseStackInfo = (args: CommandArgs, renderOptions: any) => {
+  const stack = renderOptions.stack
 
   const stackInfoPath =
     `${hostAppHome}/${args.output}/${stack.id}/stack-info.json`
@@ -49,7 +49,7 @@ export const parseTfOptions = (args: CommandArgs, stackOptions: any) => {
   const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoPath))
 
   return {
-    stack,
-    stackInfo,
+    ...stack,
+    ...stackInfo,
   }
 }

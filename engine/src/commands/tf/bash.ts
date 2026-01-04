@@ -6,7 +6,7 @@ import {
   RUN_SYMBOL,
 } from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
+import { createTfOptions, tfOptionsPlan } from './parseStackInfo.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { requireStacksConfig } from '@dinghy/cli'
 import { subCommandArgs } from '../../utils/subCommandArgs.ts'
@@ -21,10 +21,9 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   await requireStacksConfig()
   let firstStack: any = null
   // deno-lint-ignore require-await
-  await doWithTfStacks(args, async (tfOptions) => {
-    const { stackInfo } = tfOptions
+  await doWithTfStacks(args, async (stackInfo) => {
     if (!firstStack) {
-      firstStack = stackInfo.stack
+      firstStack = stackInfo
     }
   })
   if (!firstStack) {

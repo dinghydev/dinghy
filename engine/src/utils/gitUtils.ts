@@ -228,6 +228,10 @@ export const attachChangeToMR = async (changes: any[]) => {
 }
 
 export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
+  if (!Deno.env.get('CI_PIPELINE_ID')) {
+    debug('no CI_PIPELINE_ID, skip trigger gitlab auto deploy jobs')
+    return
+  }
   const pipelineJobs = await gitlabPipelineJobs(
     Deno.env.get('CI_PIPELINE_ID')!,
   )

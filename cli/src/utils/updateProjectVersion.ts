@@ -23,7 +23,7 @@ export const updateProjectVersion = (version: string, createConfig = false) => {
   const configRcText = Deno.readTextFileSync(dinghyConfigRcFile)
   let updatedConfig = ''
   let previousVersion: string | null = null
-  configRcText.split('\n').forEach((line) => {
+  configRcText.trim().split('\n').forEach((line) => {
     if (line.startsWith('DINGHY_ENGINE_VERSION=')) {
       previousVersion = line.split('=')[1].trim()
       updatedConfig += configLine + '\n'

@@ -16,8 +16,11 @@ import {
 } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import chalk from 'chalk'
-import { parseTfOptions } from './tfOptions.ts'
+import { parseStackInfo } from './parseStackInfo.ts'
 import render from '../render/index.ts'
+import { githubOutputPath } from '@dinghy/cli'
+import Debug from 'debug'
+const debug = Debug('tf:tf-combined-cmds')
 
 const options: CommandOptions = {
   boolean: ['debug'],
@@ -63,6 +66,7 @@ export const createCombinedTfCmds = (
   }
 
   const run = async (context: CommandContext, args: CommandArgs) => {
+    debug('run combined tf commands')
     await requireStacksConfig()
     const remainArgs = context.originalArgs.slice(2)
     const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs
@@ -94,17 +98,16 @@ export const createCombinedTfCmds = (
     )
 
     for (const stackOptions of Object.values(stacksOptions)) {
-      const tfOptions = parseTfOptions(args, stackOptions)
-      if (tfOptions) {
-        const { stack } = tfOptions
+      const stackInfo = parseStackInfo(args, stackOptions)
+      if (stackInfo) {
         if (
           args.stack ||
           !isCi() ||
-          (isMr() && stack.mrAutoDiff) ||
-          (!isMr() && stack.mainAutoDiff)
+          (isMr() && stackInfo.mrAutoDiff) ||
+          (!isMr() && stackInfo.mainAutoDiff)
         ) {
-          activedStackIds.push(stack.id)
-          await runStackCommands(context, stack.id, noneStackArgs)
+          activedStackIds.push(stackInfo.id)
+          await runStackCommands(context, stackInfo.id, noneStackArgs)
         }
       }
     }
@@ -115,15 +118,24 @@ export const createCombinedTfCmds = (
         `${hostAppHome}/${args.output}/${stackId}/stack-info.json`
       const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile))
       if ((stackInfo as any).plan?.changesCount) {
-        changedStacks.push(stackInfo.stack)
+        changedStacks.push(stackInfo)
       }
     }
+
     if (changedStacks.length) {
       const isApply = cmds.includes('apply')
       if (isCi()) {
         const changeAction = isMr() ? attachChangeToMR : notifyChanges
         await changeAction(changedStacks)
         if (!isApply) {
+          const githubOutput = githubOutputPath()
+          if (githubOutput) {
+            const pendingChanges = 'pending_changes=true\n'
+            debug('append to %s with %s', githubOutput, pendingChanges)
+            Deno.writeTextFileSync(githubOutput, pendingChanges, {
+              append: true,
+            })
+          }
           await triggerAutoDeployJobs(changedStacks, args)
         }
       } else {

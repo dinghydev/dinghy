@@ -4,7 +4,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { isCi } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
+import { createTfOptions, tfOptionsPlan } from './parseStackInfo.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { requireStacksConfig } from '@dinghy/cli'
 
@@ -24,10 +24,9 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   await requireStacksConfig()
   const changedStacks: any[] = []
   // deno-lint-ignore require-await
-  await doWithTfStacks(args, async (tfOptions) => {
-    const { stackInfo } = tfOptions
-    if ((stackInfo.stack as any).plan?.changesCount) {
-      changedStacks.push(stackInfo.stack)
+  await doWithTfStacks(args, async (stackInfo) => {
+    if (stackInfo.plan?.changesCount) {
+      changedStacks.push(stackInfo)
     }
   })
   if (changedStacks.length) {

@@ -5,7 +5,7 @@ import { dirname, resolve } from 'jsr:@std/path@1.0.8'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
-import { hostAppHome } from '@dinghy/cli'
+import { hostAppHome, isCi } from '@dinghy/cli'
 import { createView, deepMerge, toTitle } from '@dinghy/base-components'
 import { runCommand } from '@dinghy/cli'
 import png from '../diagram/png.ts'
@@ -95,6 +95,9 @@ const generatePng = async (
 }
 
 const diagram = async (app: any, options: any, args: any, context: any) => {
+  const isDiagramPng = args['diagram-png']
+    ? args['diagram-png'] === 'true'
+    : !isCi()
   const views: any = {}
   const availableViews = options.stack.views
   let selectedViews = args.view
@@ -127,7 +130,7 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
     collectedViews = result.views
     if (
       args['diagram-save-view'] || args['diagram-create-md'] ||
-      args['diagram-png']
+      isDiagramPng
     ) {
       views[view.id] = view
     }
@@ -149,7 +152,7 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
     if (args['diagram-create-md']) {
       await saveStackMd(options, args, views)
     }
-    if (args['diagram-png']) {
+    if (isDiagramPng) {
       await generatePng(options, args, views, context)
     }
   }
@@ -163,7 +166,7 @@ const tf = async (app: any, options: any, args: any) => {
   const result = await renderTf(app, options)
   if (result.result !== '{}\n') {
     await writeFile(outputPath, result.result)
-    stackInfo['stack'] = { id: options.stack.id }
+    stackInfo.id = options.stack.id
     await saveStackInfo(options, args, stackInfo)
   }
 }

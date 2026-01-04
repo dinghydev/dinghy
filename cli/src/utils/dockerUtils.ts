@@ -12,6 +12,7 @@ import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
 import process from 'node:process'
+import { githubOutputPath } from './gitUtils.ts'
 const debug = Debug('dockerUtils')
 
 const HOST_USER_HOME = Deno.env.get('HOST_USER_HOME') ||
@@ -100,6 +101,13 @@ export function getDockerMounts(
     source: file,
     target: file,
   })))
+  const githubOutput = githubOutputPath()
+  if (githubOutput) {
+    mounts.push({
+      source: githubOutput,
+      target: githubOutput,
+    })
+  }
 
   return mounts.filter((mount) =>
     existsSync(mount.check || mount.source) || existsSync(mount.source)

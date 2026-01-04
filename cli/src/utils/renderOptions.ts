@@ -2,27 +2,25 @@ export const renderOptions = {
   collect: ['format', 'view'],
   boolean: [
     'tf-generate-import',
-    'diagram-png',
     'diagram-create-md',
     'diagram-save-view',
     'watch',
     'debug',
   ],
-  string: ['output'],
-  negatable: ['diagram-png'],
+  string: ['output', 'diagram-png'],
   description: {
     output: 'Output folder',
     format: 'Formats to render',
     view: 'Views to render',
     'tf-generate-import': 'Generate import statements for tf',
-    'diagram-png': 'Generate png file for diagram',
+    'diagram-png':
+      'Generate png file for diagram with `true` or `false`. If not specified, png will generated in none CI environment by default',
     'diagram-create-md': 'Create markdown file for diagram',
     'diagram-save-view': 'Save view to stack-info.json',
     watch: 'Re-render when changes of yaml/ts/tsx files detected',
   },
   default: {
     'diagram-create-md': false,
-    'diagram-png': true,
   },
   arguments: {
     stack: {
