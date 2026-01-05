@@ -30,9 +30,9 @@ export type InputProps =
 export function S3Backend(
   { _components, children, ...props }: Partial<InputProps>,
 ) {
-  const { stack } = getRenderOptions()
+  const { stack, s3Backend } = getRenderOptions()
   const backendConfig = InputSchema.parse(props)
-  const bucket = (backendConfig.bucket ||
+  const bucket = (backendConfig.bucket || (s3Backend as any)?.bucket ||
     (() => `${stack.name}-${backendConfig.bucketSurfix}`)) as any
 
   const BackendBucket = () => {
@@ -77,6 +77,7 @@ export function S3Backend(
         },
       }}
       _display='none'
+      {...(s3Backend || {})}
       {...props}
     >
       {backendConfig.createBackend && <BackendBucket />}

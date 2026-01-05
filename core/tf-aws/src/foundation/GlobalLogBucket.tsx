@@ -26,9 +26,9 @@ export type InputProps =
 export function GlobalLogBucket(
   { _components, ...props }: Partial<InputProps>,
 ) {
-  const { stack } = getRenderOptions()
+  const { stack, globalLogBucket } = getRenderOptions()
   const defaults = InputSchema.parse(props)
-  const bucket = (defaults.bucket ||
+  const bucket = (defaults.bucket || (globalLogBucket as any)?.bucket ||
     (() => `${stack.name}-${defaults.bucketSurfix}-global`)) as any
 
   const OwnershipControls = () => {
@@ -72,6 +72,7 @@ export function GlobalLogBucket(
       _title='Global LogBucket'
       _display='entity'
       region='us-east-1'
+      {...(globalLogBucket || {})}
       {...props}
     >
       <OwnershipControls />

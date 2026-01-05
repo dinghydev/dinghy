@@ -392,7 +392,7 @@ export type InputProps =
   & NodeProps
 
 export function AwsProvider(props: Partial<InputProps>) {
-  const { stack } = getRenderOptions()
+  const { stack, awsProvider } = getRenderOptions()
   const default_tags = () =>
     props.default_tags || {
       tags: {
@@ -414,6 +414,7 @@ export function AwsProvider(props: Partial<InputProps>) {
       }}
       _inputSchema={InputSchema}
       _direction='vertical'
+      {...(awsProvider || {})}
       {...props}
       _title={_title}
       providerId='aws'

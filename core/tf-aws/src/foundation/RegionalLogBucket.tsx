@@ -32,10 +32,10 @@ export type InputProps =
 export function RegionalLogBucket(
   { _components, ...props }: Partial<InputProps>,
 ) {
-  const { stack } = getRenderOptions()
+  const { stack, regionalLogBucket } = getRenderOptions()
   const { awsProvider } = useAwsProvider()
   const defaults = InputSchema.parse(props)
-  const bucket = defaults.bucket ||
+  const bucket = defaults.bucket || (regionalLogBucket as any)?.bucket ||
     (() =>
       `${stack.name}-${defaults.bucketSurfix}-${
         deepResolve(awsProvider.region)
@@ -113,6 +113,7 @@ export function RegionalLogBucket(
       bucket={bucket}
       _title='Regional LogBucket'
       _display='entity'
+      {...(regionalLogBucket || {})}
       {...props}
     >
       <BucketLogging />
