@@ -1,5 +1,6 @@
 import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import { onEvent } from '@dinghy/base-components'
 import { rendererMapping } from './renderMapping.ts'
 import { debounce } from '@std/async/debounce'
 
@@ -126,6 +127,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     async (stackRenderOptions: any) => {
       const app = await loadApp(stackRenderOptions)
       await loadStackConfigUrls(stackRenderOptions)
+      await onEvent('render.start', stackRenderOptions)
       for (const formatString of args.format || ['default']) {
         const renderers =
           rendererMapping[formatString as keyof typeof rendererMapping]
@@ -133,6 +135,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
           await renderer(app, stackRenderOptions, args, context)
         }
       }
+      await onEvent('render.finish', stackRenderOptions)
     },
   )
 

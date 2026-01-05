@@ -20,6 +20,7 @@ import { parseStackInfo } from './parseStackInfo.ts'
 import render from '../render/index.ts'
 import { githubOutputPath } from '@dinghy/cli'
 import Debug from 'debug'
+import { onEvent } from '@dinghy/base-components'
 const debug = Debug('tf:tf-combined-cmds')
 
 const options: CommandOptions = {
@@ -64,7 +65,14 @@ export const createCombinedTfCmds = (
       if (cmd === 'render') {
         continue
       }
-      await runStackTfCommands(context, stack, cmd, args)
+      await onEvent(`tf.stack.${cmd}.start`, stack)
+      try {
+        await runStackTfCommands(context, stack, cmd, args)
+        await onEvent(`tf.stack.${cmd}.finish`, stack)
+      } catch (e) {
+        await onEvent(`tf.stack.${cmd}.failed`, stack, e)
+        throw e
+      }
     }
   }
 
@@ -74,8 +82,11 @@ export const createCombinedTfCmds = (
     const remainArgs = context.originalArgs.slice(2)
     const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs
     const activedStackIds: string[] = []
+    const changedStacks: any[] = []
+    const isApply = cmds.includes('apply')
 
     const stacksOptions: any = {}
+    await onEvent(`tf.render.start`)
     await doWithStacks(
       dinghyAppConfig,
       args.stack,
@@ -101,7 +112,9 @@ export const createCombinedTfCmds = (
         stacksOptions[stackOptions.stack.id] = stackOptions
       },
     )
+    await onEvent(`tf.render.finish`, stacksOptions)
 
+    await onEvent(`tf.stacks.start`, stacksOptions)
     for (const stackOptions of Object.values(stacksOptions)) {
       const stackInfo = parseStackInfo(args, stackOptions)
       if (stackInfo) {
@@ -112,12 +125,25 @@ export const createCombinedTfCmds = (
           (!isMr() && stackInfo.mainAutoDiff)
         ) {
           activedStackIds.push(stackInfo.id)
+          await onEvent(`tf.stack.start`, stackOptions, stackInfo)
           await runStackCommands(context, stackInfo.id, noneStackArgs)
+
+          const stackInfoFile =
+            `${hostAppHome}/${args.output}/${stackInfo.id}/stack-info.json`
+          const updatedStackInfo = JSON.parse(
+            Deno.readTextFileSync(stackInfoFile),
+          )
+          if ((updatedStackInfo as any).plan?.changesCount) {
+            changedStacks.push(updatedStackInfo)
+            await onEvent(
+              `tf.stack.changes.${isApply ? 'applied' : 'detected'}`,
+              updatedStackInfo,
+            )
+          }
+          await onEvent(`tf.stack.finish`, stackOptions, stackInfo)
         }
       }
     }
-
-    const changedStacks: any[] = []
     for (const stackId of activedStackIds) {
       const stackInfoFile =
         `${hostAppHome}/${args.output}/${stackId}/stack-info.json`
@@ -128,7 +154,10 @@ export const createCombinedTfCmds = (
     }
 
     if (changedStacks.length) {
-      const isApply = cmds.includes('apply')
+      await onEvent(
+        `tf.stacks.changes.${isApply ? 'applied' : 'detected'}`,
+        changedStacks,
+      )
       if (isCi()) {
         const changeAction = isMr() ? attachChangeToMR : notifyChanges
         await changeAction(changedStacks)
@@ -153,6 +182,7 @@ export const createCombinedTfCmds = (
     } else if (Object.values(stacksOptions).length > 1) {
       console.log(chalk.green('No changes found in any stack'))
     }
+    await onEvent(`tf.stacks.finish`, stacksOptions)
   }
 
   return {

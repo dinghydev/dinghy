@@ -3,6 +3,7 @@ import {
   BaseAttributesSchema,
   DependsSchema,
   type NodeTree,
+  onEvent,
   type Props,
 } from '@dinghy/base-components'
 import type { JsonRenderOptions } from './types.ts'
@@ -55,11 +56,12 @@ export function getCircularReplacer() {
   }
 }
 
-export const toNodeJson = (
+export const toNodeJson = async (
   hostContainer: HostContainer<string, JsonRenderOptions>,
-): Output<string> => {
+): Promise<Output<string>> => {
   const json = showNodeAttributes(hostContainer.rootElement as ReactElement)
   hostContainer.model = json
+  await onEvent(`json.generated`, json, hostContainer.renderOptions)
   hostContainer.result = JSON.stringify(
     json,
     // getCircularReplacer(),

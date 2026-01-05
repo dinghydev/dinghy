@@ -2,6 +2,7 @@ import type { ReactElement } from 'react'
 import type { HostContainer, Output } from '@dinghy/base-renderer'
 import type { DrawioNodeTree, DrawioRenderOptions } from './types.ts'
 import { encode } from 'html-entities'
+import { onEvent } from '@dinghy/base-components'
 
 const renderValue = (value: unknown): unknown => {
   if (typeof value === 'object') {
@@ -64,10 +65,16 @@ const convertToXml = (element: ReactElement, padding: string): string => {
   return `\n${padding}<${tag}${propsString}/>`
 }
 
-export const toDrawioXml = (
+export const toDrawioXml = async (
   container: HostContainer<string, DrawioRenderOptions>,
-): Output<string> => {
+): Promise<Output<string>> => {
   //todo: to generate xml model first instead use string concatenation
+
+  await onEvent(
+    `drawio.generated`,
+    container.rootElement,
+    container.renderOptions,
+  )
   container.result = convertToXml(
     container.rootElement as ReactElement,
     '',

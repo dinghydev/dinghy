@@ -6,6 +6,7 @@ import type {
 } from '@dinghy/cli'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { runDocusaurusCmd } from './runDocusaurusCmd.ts'
+import { onEvent } from '@dinghy/base-components'
 
 export const createDocusaurusCommand = (
   cmdDescription: string,
@@ -33,7 +34,9 @@ export const createDocusaurusCommand = (
   }
 
   const run = async (context: CommandContext, args: CommandArgs) => {
+    await onEvent(`site.${cmd.slice(-1)[0]}.start`, context, args, cmd)
     await runDocusaurusCmd(context, args, cmd)
+    await onEvent(`site.${cmd.slice(-1)[0]}.finish`, context, args, cmd)
   }
   return {
     [OPTIONS_SYMBOL]: cmdOptions,

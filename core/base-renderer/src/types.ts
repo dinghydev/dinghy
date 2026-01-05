@@ -9,6 +9,6 @@ export type Output<T> = {
 export type HostContainer<T, P> = {
   renderOptions: P
   applyProcessors?: (hostContainer: HostContainer<T, P>) => ReactElement
-  callback?: (hostContainer: HostContainer<T, P>) => Output<T>
+  callback?: (hostContainer: HostContainer<T, P>) => Promise<Output<T>>
   rootElement?: ReactElement
 } & Output<T>
