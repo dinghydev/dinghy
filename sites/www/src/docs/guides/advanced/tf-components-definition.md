@@ -4,6 +4,13 @@ sidebar_position: 55
 
 # Tf components definition
 
+Terraform (Tf) components in Dinghy are simply standard React components that
+extend the `Shape` component from `@dinghy/base-components` with additional
+attributes specifically for Terraform integration. There is nothing inherently
+special or different about their definition compared to other Dinghy components;
+they use the same patterns and can leverage all standard features of React and
+Dinghy's component system.
+
 ## _category
 
 When rendering Infrastructure as Code (IaC), any component that defines a
