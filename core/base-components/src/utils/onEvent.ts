@@ -5,7 +5,7 @@ const debug = Debug('dinghy:event')
 
 export const onEvent = async (name: string, ...args: any[]) => {
   debug(`on ${name}`)
-  const eventFileName = `${containerAppHome}/events/${name}.ts`
+  const eventFileName = `${containerAppHome}/events/on.${name}.ts`
   if (existsSync(eventFileName)) {
     const eventModule = await import(eventFileName)
     if (!eventModule.default) {

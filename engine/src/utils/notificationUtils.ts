@@ -17,6 +17,10 @@ const threadInfo = async (thread: string) => {
 }
 
 export const notifyChanges = async (changes: any[], error?: string) => {
+  if (!Deno.env.get('SLACK_NOTIFICATION_CHANNEL')) {
+    debug('no SLACK_NOTIFICATION_CHANNEL, skip notify changes')
+    return
+  }
   const options: any = {}
   options.username = `${await projectName()} ${jobName()}`
   let text: string

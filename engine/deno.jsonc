@@ -48,6 +48,7 @@
     "debug": "npm:debug@4.4.0",
     "ejs": "npm:ejs@3.1.10",
     "execa": "npm:execa@9.5.2",
+    "@octokit/core": "npm:@octokit/core@7.0.6",
     "html-entities": "npm:html-entities@2.6.0",
     "react": "npm:react@19.1.0",
     "react-dom": "npm:react-dom@19.1.0",

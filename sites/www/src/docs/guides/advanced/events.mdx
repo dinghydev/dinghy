@@ -3,7 +3,7 @@ sidebar_position: 65
 ---
 
 import CodeBlock from '@theme/CodeBlock'; import RenderStartTs from
-'!!raw-loader!./render.start.ts';
+'!!raw-loader!./on.render.start.ts';
 
 # Events
 
@@ -13,14 +13,14 @@ tasks in response to these events as needed.
 
 ## Event Handler
 
-1. To handle events, create a file named `events/EVENT_NAME.ts` that exports a
-   default function.
+1. To handle events, create a file named `events/on.EVENT_NAME.ts` that exports
+   a default function.
 1. The function's name can be anything; only the file name and only its default
    export is required.
 1. The function can be asynchronous if your handler needs to perform async work.
 
 For example:
-<CodeBlock language="ts" title="events/render.start.ts">{RenderStartTs}</CodeBlock>
+<CodeBlock language="ts" title="events/on.render.start.ts">{RenderStartTs}</CodeBlock>
 
 ## Lifecyle Events
 
