@@ -8,19 +8,17 @@ import { doWithStacks, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import tf from './index.ts'
 import { runCommand } from '@dinghy/cli'
 import { dinghyAppConfig, hostAppHome, requireStacksConfig } from '@dinghy/cli'
-import {
-  attachChangeToMR,
-  isCi,
-  isMr,
-  triggerAutoDeployJobs,
-} from '../../utils/gitUtils.ts'
+import { attachChangeToMR, isCi, isMr } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import chalk from 'chalk'
 import { parseStackInfo } from './parseStackInfo.ts'
 import render from '../render/index.ts'
-import { githubOutputPath } from '@dinghy/cli'
 import Debug from 'debug'
 import { onEvent } from '@dinghy/base-components'
+import {
+  triggerCiChangesApplied,
+  triggerCiChangesDetected,
+} from '../../utils/ciUtils.ts'
 const debug = Debug('tf:tf-combined-cmds')
 
 const options: CommandOptions = {
@@ -81,7 +79,6 @@ export const createCombinedTfCmds = (
     await requireStacksConfig()
     const remainArgs = context.originalArgs.slice(2)
     const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs
-    const activedStackIds: string[] = []
     const changedStacks: any[] = []
     const isApply = cmds.includes('apply')
 
@@ -124,7 +121,6 @@ export const createCombinedTfCmds = (
           (isMr() && stackInfo.mrAutoDiff) ||
           (!isMr() && stackInfo.mainAutoDiff)
         ) {
-          activedStackIds.push(stackInfo.id)
           await onEvent(`tf.stack.start`, stackOptions, stackInfo)
           await runStackCommands(context, stackInfo.id, noneStackArgs)
 
@@ -144,14 +140,6 @@ export const createCombinedTfCmds = (
         }
       }
     }
-    for (const stackId of activedStackIds) {
-      const stackInfoFile =
-        `${hostAppHome}/${args.output}/${stackId}/stack-info.json`
-      const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile))
-      if ((stackInfo as any).plan?.changesCount) {
-        changedStacks.push(stackInfo)
-      }
-    }
 
     if (changedStacks.length) {
       await onEvent(
@@ -159,19 +147,11 @@ export const createCombinedTfCmds = (
         changedStacks,
       )
       if (isCi()) {
-        const changeAction = isMr() ? attachChangeToMR : notifyChanges
-        await changeAction(changedStacks)
-        if (!isApply) {
-          const githubOutput = githubOutputPath()
-          if (githubOutput) {
-            const pendingChanges = 'pending_changes=true\n'
-            debug('append to %s with %s', githubOutput, pendingChanges)
-            Deno.writeTextFileSync(githubOutput, pendingChanges, {
-              append: true,
-            })
-          }
-          await triggerAutoDeployJobs(changedStacks, args)
-        }
+        await (isMr() ? attachChangeToMR : notifyChanges)(changedStacks)
+        await (isApply ? triggerCiChangesApplied : triggerCiChangesDetected)(
+          changedStacks,
+          args,
+        )
       } else {
         console.log(
           `Ignore notification ${

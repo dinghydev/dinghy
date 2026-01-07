@@ -34,6 +34,7 @@
     "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
     "@std/async": "jsr:@std/async@1.0.14",
     "@deno-library/compress": "jsr:@deno-library/compress@0.5.6",
+    "@octokit/core": "npm:@octokit/core@7.0.6",
     // CLI AND CORE DEPENDENCIES
     "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
     "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",
@@ -48,7 +49,6 @@
     "debug": "npm:debug@4.4.0",
     "ejs": "npm:ejs@3.1.10",
     "execa": "npm:execa@9.5.2",
-    "@octokit/core": "npm:@octokit/core@7.0.6",
     "html-entities": "npm:html-entities@2.6.0",
     "react": "npm:react@19.1.0",
     "react-dom": "npm:react-dom@19.1.0",

@@ -183,6 +183,10 @@ const gitlabPlayJob = async (id: number) => {
 }
 
 export const attachChangeToMR = async (changes: any[]) => {
+  if (!Deno.env.get('CI_JOB_URL')) {
+    debug('no CI_JOB_URL, skip attach change to MR')
+    return
+  }
   const lines = [
     `## [${jobName()}](${
       Deno.env.get('CI_JOB_URL')
@@ -228,10 +232,6 @@ export const attachChangeToMR = async (changes: any[]) => {
 }
 
 export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
-  if (!Deno.env.get('CI_PIPELINE_ID')) {
-    debug('no CI_PIPELINE_ID, skip trigger gitlab auto deploy jobs')
-    return
-  }
   const pipelineJobs = await gitlabPipelineJobs(
     Deno.env.get('CI_PIPELINE_ID')!,
   )
