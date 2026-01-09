@@ -1,0 +1,19 @@
+title: Pending deployment created at <%= new Date().toISOString() %>
+#labels:
+#  - deployment
+body: |
+  The following changes have been detected from [<%= GITHUB_WORKFLOW %>](https://github.com/<%= GITHUB_REPOSITORY%>/actions/runs/<%= GITHUB_RUN_ID %>) in the infrastructure.
+
+  <% changedStacks.map(stack => { %>
+  <%= stack.plan.summary %><%= changedStacks.length > 1 ? ' for `' + stack.name + '`':'' %>
+  ```<% stack.plan.changes.map(change => { %>
+  <%= change %>
+  <% }).join('\n') %>
+  ```
+  <% }).join('\n') %>
+
+  Please review the changes and proceed with the deployment by adding `approved-deployment` label to the issue.
+
+  - SHA: <%=GITHUB_SHA%>
+  - Detected At: <%=new Date().toISOString()%>
+  - From Workflow Run: [<%= GITHUB_WORKFLOW %>](https://github.com/<%= GITHUB_REPOSITORY%>/actions/runs/<%= GITHUB_RUN_ID %>)

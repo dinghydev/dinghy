@@ -51,7 +51,7 @@ const run = (_context: CommandContext, _args: CommandArgs) => {
         'GITHUB_ENV',
         `GITHUB_ISSUE_NUMBER=${eventInfo.issue.number}`,
       )
-      const runId = eventInfo.issue.body.match(/\/actions\/workflows\/(\d+)/)
+      const runId = eventInfo.issue.body.match(/\/actions\/runs\/(\d+)/)
         ?.[1]
       if (runId) {
         appendToGithubFile(
