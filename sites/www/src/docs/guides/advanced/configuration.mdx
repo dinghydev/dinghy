@@ -151,14 +151,16 @@ import { type RenderOptions } from "@dinghy/base-components";
 export const renderOptions = (options: RenderOptions){
     options.stack.title=`Enviroment: ${options.stack.id}`
     if(options.stack.id==='application'){
-        options.stack.configUrls=['https://my-solution-network-backend.s3.us-east-1.amazonaws.com/output/stack.yaml']
+        options.stack.configUrls={
+          'inputs.mysolutionstack.output': 'https://my-solution-network-backend.s3.us-east-1.amazonaws.com/output/stack.yaml'
+        }
     }
 }
 ```
 
 ### stack.configUrls
 
-1. Prior to rendering, if `stack.configUrls` is specified, each listed URL will
+1. Prior to rendering, if `stack.configUrls` is specified, each values as URL will
    be loaded and merged into `renderOptions`.
 1. Supported URL protocols include `file`, `https`.
 1. For `https` URLs, you can embed authentication credentials directly (e.g.,
@@ -170,3 +172,4 @@ export const renderOptions = (options: RenderOptions){
 1. Both YAML and JSON configuration formats are accepted.
 1. This feature allows you to import and merge configuration data from other
    stacks as needed.
+1. The key for each entry specifies where in the `renderOptions` object the loaded configuration should be merged. To merge at the root level, use `.` as the key.

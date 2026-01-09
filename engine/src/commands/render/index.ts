@@ -160,8 +160,17 @@ export default commands
 
 async function loadStackConfigUrls(stackRenderOptions: any) {
   if (stackRenderOptions.stack.configUrls) {
-    for (const configUrl of stackRenderOptions.stack.configUrls) {
-      const config = await loadUrlData(configUrl)
+    for (
+      const [path, configUrl] of Object.entries(
+        stackRenderOptions.stack.configUrls,
+      )
+    ) {
+      let config = await loadUrlData(configUrl as string)
+      for (const key of path.split('.').reverse()) {
+        if (key !== '') {
+          config = { [key]: config }
+        }
+      }
       deepMerge(stackRenderOptions, config)
     }
   }

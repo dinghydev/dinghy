@@ -22,6 +22,7 @@ import check from './check.ts'
 import deno from './deno.ts'
 import bash from './bash.ts'
 import site from './site/index.ts'
+import gh from './gh/index.ts'
 const debug = Debug('dinghy:main')
 
 const options: CommandOptions = {
@@ -117,6 +118,7 @@ const commands: Commands = {
   diagram,
   site,
   tf,
+  gh,
   info: cliCommands.info,
   devcontainer: cliCommands.devcontainer,
   upgrade,

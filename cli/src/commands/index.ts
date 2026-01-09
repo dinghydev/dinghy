@@ -84,6 +84,7 @@ const commands: Commands = {
     'Diagram related operations, default is convert drawio files to png',
   ),
   tf: createEngineCommand('Terraform/OpenTofu related operations'),
+  gh: createEngineCommand('GitHub related operations'),
   site: createEngineCommand('Operation for docusaurus.io based site'),
   deno: createEngineCommand('Run deno with in the probject'),
   check: createEngineCommand('Run static code analysis'),
