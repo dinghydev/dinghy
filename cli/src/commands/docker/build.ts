@@ -19,7 +19,6 @@ import { readFileSync } from 'node:fs'
 import {
   dockerManifestCreate,
   dockerPush,
-  isOndemandImage,
   md5Hash,
   multiArch,
 } from './dockerBuildUtils.ts'
@@ -178,9 +177,6 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
   }
 
   const imageKey = image.name.toUpperCase().split('-').join('_')
-  // const imageArch = args.buildContext.TARGETARCH === args['default-arch']
-  //   ? ''
-  //   : `-linux-${args.buildContext.TARGETARCH}`
   let imageVersion
   const isReleaseImage = image.name === 'release'
   if (isReleaseImage) {
@@ -213,18 +209,10 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
     console.log(`Tag ${image.tag} already exists, skipping build`)
     return
   }
-  if (isOndemandImage(image.name)) {
-    console.log(
-      new Date().toISOString(),
-      `Skip build ondemand image ${image.tag}`,
-    )
-    return
-  } else {
-    console.log(
-      new Date().toISOString(),
-      `Image ${image.tag} does not exist, building...`,
-    )
-  }
+  console.log(
+    new Date().toISOString(),
+    `Image ${image.tag} does not exist, building...`,
+  )
 
   if (args['multi-arch']) {
     for (const arch of args.arch) {

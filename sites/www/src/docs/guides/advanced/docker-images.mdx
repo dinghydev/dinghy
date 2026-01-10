@@ -121,19 +121,34 @@ docker:
           version: 2.6.1
 ```
 
-### Customise tf vendor and version
+### Customise tf vendor
 
-By default, Dinghy use Hashicorp
-[terraform](https://developer.hashicorp.com/terraform) as the tf runtime. You
-may change to [opentoufu](https://opentofu.org/) or update runtime version with
+By default, Dinghy use [opentoufu](https://opentofu.org/) as the tf runtime. You
+may change to Hashicorp
+[terraform](https://developer.hashicorp.com/terraform) or update runtime version with
 example below:
 
 ```yaml
 docker:
   images:
     tf:
-      vendoer: opentofu
-      version: 1.11.2
+      vendor: terraform
+```
+### Customise tf version
+
+If you want to use a different tf version than the [default](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/versions.json), you can specify it in your configuration.
+
+To find the latest compatible versions, check:
+
+1. [OpenTofu releases](https://github.com/opentofu/opentofu/releases)
+2. [Terraform releases](https://github.com/hashicorp/terraform/releases)
+
+
+```yaml
+docker:
+  images:
+    tf:
+      version: RELEASE_VERSION
 ```
 
 ### Dinghy known compatability issue with OpenTofu

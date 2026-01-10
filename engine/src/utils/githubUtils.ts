@@ -12,6 +12,23 @@ const octokit = () =>
     auth: Deno.env.get('GH_TOKEN'),
   })
 
+export const appendToGithubFile = (name: string, text: string) => {
+  const githubPath = Deno.env.get(name) as string
+  if (githubPath) {
+    debug('appending to %s with text %s', githubPath, text)
+    Deno.writeTextFileSync(githubPath, `${text}\n`, {
+      append: true,
+    })
+    console.log(`Set ${text}`)
+  } else {
+    throw new Error(`${name} is not set`)
+  }
+}
+
+export const appendToGithubEnv = (text: string) => {
+  appendToGithubFile('GITHUB_ENV', text)
+}
+
 export const githubResolveIssue = async (
   githubIssueNumber: string,
 ) => {
@@ -69,13 +86,8 @@ export const githubHandlePendingChanges = async (
   changedStacks: any[],
   _args: any,
 ) => {
-  const githubOutput = Deno.env.get('GITHUB_OUTPUT')
-  if (githubOutput) {
-    const pendingChanges = 'pending_changes=true\n'
-    debug('append to %s with %s', githubOutput, pendingChanges)
-    Deno.writeTextFileSync(githubOutput, pendingChanges, {
-      append: true,
-    })
+  if (Deno.env.get('GITHUB_ENV')) {
+    appendToGithubEnv('DINGHY_TF_DIFF_PENDING_CHANGES=true')
     if (Deno.env.get('GITHUB_CREATE_DEPLOY_ISSUE') == 'true') {
       await githubCreateDeploymentIssue(changedStacks)
     }

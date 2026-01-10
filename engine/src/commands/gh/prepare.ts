@@ -6,25 +6,16 @@ import type {
 } from '@dinghy/cli'
 import { OPTIONS_SYMBOL, projectVersionRelease, RUN_SYMBOL } from '@dinghy/cli'
 import Debug from 'debug'
+import {
+  appendToGithubEnv,
+  appendToGithubFile,
+} from '../../utils/githubUtils.ts'
 const debug = Debug('gh:prepare')
 
 const options: CommandOptions = {
   description: {},
   cmdDescription: 'Prepare github workflow',
 }
-
-const appendToGithubFile = (name: string, text: string) => {
-  const githubPath = Deno.env.get(name) as string
-  if (githubPath) {
-    debug('appending to %s with text %s', githubPath, text)
-    Deno.writeTextFileSync(githubPath, `${text}\n`, {
-      append: true,
-    })
-  } else {
-    throw new Error(`${name} is not set`)
-  }
-}
-
 const run = (_context: CommandContext, _args: CommandArgs) => {
   if (debug.enabled) {
     debug('Environment variables:')
@@ -47,15 +38,13 @@ const run = (_context: CommandContext, _args: CommandArgs) => {
     )
     debug('eventInfo %O', eventInfo)
     if (eventInfo.issue?.number) {
-      appendToGithubFile(
-        'GITHUB_ENV',
+      appendToGithubEnv(
         `GITHUB_ISSUE_NUMBER=${eventInfo.issue.number}`,
       )
       const runId = eventInfo.issue.body.match(/\/actions\/runs\/(\d+)/)
         ?.[1]
       if (runId) {
-        appendToGithubFile(
-          'GITHUB_ENV',
+        appendToGithubEnv(
           `GITHUB_ISSUE_RUN_ID=${runId}`,
         )
       }

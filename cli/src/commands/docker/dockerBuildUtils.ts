@@ -6,7 +6,11 @@ import {
 } from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { execaSync } from 'execa'
-import { customTfImage, tfVendorConfig } from './tfBuildUtils.ts'
+import {
+  customTfImage,
+  tfContainsCustomization,
+  tfVendorConfig,
+} from './tfBuildUtils.ts'
 import { createHash } from 'node:crypto'
 const debug = Debug('init')
 
@@ -162,8 +166,13 @@ export function prepareOndemandImage(
 let tfImage: string | undefined
 export function getTfImageTag() {
   const tfBaseImage = configGetImage('tf')
-  const tfConfig = tfVendorConfig()
-  return `${tfBaseImage}-${md5Hash(JSON.stringify(tfConfig))}`
+  if (tfContainsCustomization()) {
+    const tfConfig = tfVendorConfig()
+    debug('parsed tfConfig %O', tfConfig)
+    return `${tfBaseImage}-${md5Hash(JSON.stringify(tfConfig))}`
+  } else {
+    return tfBaseImage
+  }
 }
 export function prepareTfImage(ignoreLocalCache = false) {
   if (!tfImage) {

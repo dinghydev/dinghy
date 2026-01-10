@@ -26,7 +26,7 @@ const options: CommandOptions = {
 }
 
 function run(_context: CommandContext, args: CommandArgs) {
-  for (const image of consumerImages()) {
+  for (const image of consumerImages().reverse()) {
     if (
       args['include-images'] &&
       !args['include-images'].split(',').includes(image.name)

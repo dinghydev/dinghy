@@ -8,6 +8,9 @@ const TfSchema = z.object({
   providers: z.record(z.string(), z.string()).optional(),
 })
 
+export const tfContainsCustomization = () =>
+  Boolean(dinghyAppConfig.docker?.images?.tf)
+
 export const tfVendorConfig = () =>
   TfSchema.parse(dinghyAppConfig.docker?.images?.tf || {})
 
@@ -48,7 +51,11 @@ export const customTfImage = (baseDir: string) => {
   }
 
   const dockerFile = `${baseDir}/Dockerfile`
-  const dockerFileContent = [Deno.readTextFileSync(dockerFile)]
+  const baseDockerFileContent = Deno
+    .readTextFileSync(dockerFile)
+    .split('\n')
+    .slice(0, 2)
+  const dockerFileContent = [...baseDockerFileContent]
 
   if (tfConfig.vendor === 'terraform') {
     // https://developer.hashicorp.com/terraform/install
@@ -59,7 +66,9 @@ RUN echo 'Install terraform' \
    && curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list \
     && apt-get update \
-    && apt-get -y install terraform=${tfConfig.version} \
+    && apt-get -y install terraform=${tfConfig.version}${
+      tfConfig.version!.includes('-') ? '' : '-1'
+    } \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*\
     && ln -s /usr/bin/terraform /usr/bin/tf`)
@@ -77,7 +86,7 @@ RUN echo 'Install opentofu' \
   }
 
   dockerFileContent.push(`COPY docker/images/50-tf/fs-root /    
-RUN echo 'Install terraform aws provider' \
+RUN echo 'Install aws provider' \
      && cd /terraform \
      && tf init
     `)
