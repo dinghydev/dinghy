@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudtrail_organization_delegated_admin_account
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudtrail_organization_delegated_admin_account
 
 export function AwsCloudtrailOrganizationDelegatedAdminAccount(
   props: Partial<InputProps>,

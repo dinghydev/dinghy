@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/identitystore_group_memberships
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/identitystore_group_memberships
 
 export function DataAwsIdentitystoreGroupMemberships(
   props: Partial<InputProps>,

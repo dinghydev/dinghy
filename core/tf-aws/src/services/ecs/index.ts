@@ -39,6 +39,12 @@ export {
 } from './DataAwsEcsContainerDefinition.tsx'
 
 export {
+  AwsEcsExpressGatewayService,
+  useAwsEcsExpressGatewayService,
+  useAwsEcsExpressGatewayServices,
+} from './AwsEcsExpressGatewayService.tsx'
+
+export {
   AwsEcsService,
   useAwsEcsService,
   useAwsEcsServices,

@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_model_package_group_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sagemaker_model_package_group_policy
 
 export function AwsSagemakerModelPackageGroupPolicy(
   props: Partial<InputProps>,

@@ -53,7 +53,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ebs_volume
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ebs_volume
 
 export function DataAwsEbsVolume(props: Partial<InputProps>) {
   const _title = (node: any) => {

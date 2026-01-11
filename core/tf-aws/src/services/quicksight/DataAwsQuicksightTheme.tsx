@@ -86,7 +86,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/quicksight_theme
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/quicksight_theme
 
 export function DataAwsQuicksightTheme(props: Partial<InputProps>) {
   const _title = (node: any) => {

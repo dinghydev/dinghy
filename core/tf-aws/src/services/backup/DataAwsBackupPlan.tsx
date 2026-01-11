@@ -36,10 +36,20 @@ export const OutputSchema = z.object({
     }).array(),
     recovery_point_tags: z.record(z.string(), z.string()),
     rule_name: z.string(),
+    scan_action: z.set(z.object({
+      malware_scanner: z.string(),
+      scan_mode: z.string(),
+    })),
     schedule: z.string(),
     schedule_expression_timezone: z.string(),
     start_window: z.number(),
+    target_logically_air_gapped_backup_vault_arn: z.string(),
     target_vault_name: z.string(),
+  })).optional(),
+  scan_setting: z.set(z.object({
+    malware_scanner: z.string(),
+    resource_types: z.set(z.string()),
+    scanner_role_arn: z.string(),
   })).optional(),
   tags: z.record(z.string(), z.string()).optional(),
   version: z.string().optional(),
@@ -54,7 +64,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/backup_plan
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/backup_plan
 
 export function DataAwsBackupPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {

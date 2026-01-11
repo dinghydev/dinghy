@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance_automated_backups_replication
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/db_instance_automated_backups_replication
 
 export function AwsDbInstanceAutomatedBackupsReplication(
   props: Partial<InputProps>,

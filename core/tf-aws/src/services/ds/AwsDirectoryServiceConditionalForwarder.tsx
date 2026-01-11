@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/directory_service_conditional_forwarder
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/directory_service_conditional_forwarder
 
 export function AwsDirectoryServiceConditionalForwarder(
   props: Partial<InputProps>,

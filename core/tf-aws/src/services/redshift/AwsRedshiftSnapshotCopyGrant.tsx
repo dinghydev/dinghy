@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshift_snapshot_copy_grant
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/redshift_snapshot_copy_grant
 
 export function AwsRedshiftSnapshotCopyGrant(props: Partial<InputProps>) {
   const _title = (node: any) => {

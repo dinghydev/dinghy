@@ -42,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lakeformation_data_lake_settings
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lakeformation_data_lake_settings
 
 export function DataAwsLakeformationDataLakeSettings(
   props: Partial<InputProps>,

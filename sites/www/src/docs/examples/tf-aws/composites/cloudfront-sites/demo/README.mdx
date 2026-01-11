@@ -2,7 +2,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import AppTsx from "!!raw-loader!./app.tsx";
-import DinghyConfigYaml from "!!raw-loader!./dinghy.config.yaml";
+import DinghyConfigYaml from "!!raw-loader!./dinghy.config.yml";
 import TfJson from "!!raw-loader!./output/app/app.tf.json";
 
 # Demo Site
@@ -18,7 +18,7 @@ A complete end-to-end demonstration of a Dinghy IaC project featuring CI/CD auto
   <TabItem value="app.tsx">
     <CodeBlock language="tsx">{AppTsx}</CodeBlock>
   </TabItem>
-  <TabItem value="dinghy.config.yaml">
+  <TabItem value="dinghy.config.yml">
     <CodeBlock language="yaml">{DinghyConfigYaml}</CodeBlock>
   </TabItem>
   <TabItem value="Overview" default>

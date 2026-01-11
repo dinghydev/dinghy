@@ -67,7 +67,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudformation_stack_set_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudformation_stack_set_instance
 
 export function AwsCloudformationStackSetInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

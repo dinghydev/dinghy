@@ -86,7 +86,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/budgets_budget
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/budgets_budget
 
 export function AwsBudgetsBudget(props: Partial<InputProps>) {
   const _title = (node: any) => {

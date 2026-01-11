@@ -61,6 +61,7 @@ export const OutputSchema = z.object({
   storage_throughput: z.number().optional(),
   storage_type: z.string().optional(),
   timezone: z.string().optional(),
+  upgrade_rollout_order: z.string().optional(),
   vpc_security_groups: z.string().array().optional(),
 })
 
@@ -73,7 +74,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/db_instance
 
 export function DataAwsDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -38,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ram_resource_share
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_resource_share
 
 export function AwsRamResourceShare(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -83,7 +83,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/synthetics_canary
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/synthetics_canary
 
 export function AwsSyntheticsCanary(props: Partial<InputProps>) {
   const _title = (node: any) => {

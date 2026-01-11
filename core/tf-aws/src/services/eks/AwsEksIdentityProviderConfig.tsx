@@ -47,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_identity_provider_config
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/eks_identity_provider_config
 
 export function AwsEksIdentityProviderConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {

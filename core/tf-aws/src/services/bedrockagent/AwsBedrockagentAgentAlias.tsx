@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent_alias
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagent_agent_alias
 
 export function AwsBedrockagentAgentAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {

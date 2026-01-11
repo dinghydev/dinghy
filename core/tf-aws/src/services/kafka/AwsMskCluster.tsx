@@ -102,6 +102,11 @@ export const InputSchema = z.object({
       }),
     }).optional(),
   ),
+  rebalancing: resolvableValue(
+    z.object({
+      status: z.string(),
+    }).optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   storage_mode: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -142,7 +147,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/msk_cluster
 
 export function AwsMskCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

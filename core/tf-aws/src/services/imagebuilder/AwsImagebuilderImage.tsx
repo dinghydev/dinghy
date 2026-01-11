@@ -32,6 +32,11 @@ export const InputSchema = z.object({
       timeout_minutes: z.number().optional(),
     }).optional(),
   ),
+  logging_configuration: resolvableValue(
+    z.object({
+      log_group_name: z.string(),
+    }).optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -90,7 +95,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_image
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/imagebuilder_image
 
 export function AwsImagebuilderImage(props: Partial<InputProps>) {
   const _title = (node: any) => {

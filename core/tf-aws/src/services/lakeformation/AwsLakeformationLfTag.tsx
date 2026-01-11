@@ -29,7 +29,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lakeformation_lf_tag
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lakeformation_lf_tag
 
 export function AwsLakeformationLfTag(props: Partial<InputProps>) {
   const _title = (node: any) => {

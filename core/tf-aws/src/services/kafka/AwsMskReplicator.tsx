@@ -77,7 +77,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/msk_replicator
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/msk_replicator
 
 export function AwsMskReplicator(props: Partial<InputProps>) {
   const _title = (node: any) => {

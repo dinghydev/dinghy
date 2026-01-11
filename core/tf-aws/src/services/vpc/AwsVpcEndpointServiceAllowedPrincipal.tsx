@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint_service_allowed_principal
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_endpoint_service_allowed_principal
 
 export function AwsVpcEndpointServiceAllowedPrincipal(
   props: Partial<InputProps>,

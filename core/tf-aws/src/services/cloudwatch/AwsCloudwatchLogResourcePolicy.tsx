@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_resource_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_resource_policy
 
 export function AwsCloudwatchLogResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

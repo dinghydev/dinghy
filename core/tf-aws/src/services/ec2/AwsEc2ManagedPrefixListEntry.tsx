@@ -29,7 +29,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_managed_prefix_list_entry
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_managed_prefix_list_entry
 
 export function AwsEc2ManagedPrefixListEntry(props: Partial<InputProps>) {
   const _title = (node: any) => {

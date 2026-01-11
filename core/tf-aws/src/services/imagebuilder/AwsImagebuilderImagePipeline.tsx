@@ -34,6 +34,12 @@ export const InputSchema = z.object({
       timeout_minutes: z.number().optional(),
     }).optional(),
   ),
+  logging_configuration: resolvableValue(
+    z.object({
+      image_log_group_name: z.string().optional(),
+      pipeline_log_group_name: z.string().optional(),
+    }).optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   schedule: resolvableValue(
     z.object({
@@ -81,7 +87,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/imagebuilder_image_pipeline
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/imagebuilder_image_pipeline
 
 export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
   const _title = (node: any) => {

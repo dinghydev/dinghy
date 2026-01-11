@@ -54,7 +54,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_instance_storage_config
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/connect_instance_storage_config
 
 export function AwsConnectInstanceStorageConfig(props: Partial<InputProps>) {
   const _title = (node: any) => {

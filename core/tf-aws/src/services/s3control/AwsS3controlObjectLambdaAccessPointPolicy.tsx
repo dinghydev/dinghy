@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_object_lambda_access_point_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3control_object_lambda_access_point_policy
 
 export function AwsS3controlObjectLambdaAccessPointPolicy(
   props: Partial<InputProps>,

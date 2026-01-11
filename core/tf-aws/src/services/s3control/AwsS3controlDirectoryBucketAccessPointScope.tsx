@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_directory_bucket_access_point_scope
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3control_directory_bucket_access_point_scope
 
 export function AwsS3controlDirectoryBucketAccessPointScope(
   props: Partial<InputProps>,

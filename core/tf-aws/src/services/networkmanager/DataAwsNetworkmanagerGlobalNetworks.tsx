@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_global_networks
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/networkmanager_global_networks
 
 export function DataAwsNetworkmanagerGlobalNetworks(
   props: Partial<InputProps>,

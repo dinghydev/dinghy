@@ -13,7 +13,7 @@ connection to AWS.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/canonical_user_id)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/canonical_user_id)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsCanonicalUserId.tsx)
 
 ```js
@@ -35,7 +35,7 @@ Manages an S3 Access Point.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_access_point)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_access_point)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3AccessPoint.tsx)
 
 ```js
@@ -48,7 +48,7 @@ import { AwsS3AccessPoint } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_access_point)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_access_point)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3AccessPoint.tsx)
 
 ```js
@@ -70,7 +70,7 @@ Manages S3 account-level Public Access Block Configuration
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_account_public_access_block)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_account_public_access_block)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3AccountPublicAccessBlock.tsx)
 
 ```js
@@ -83,7 +83,7 @@ import { AwsS3AccountPublicAccessBlock } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_account_public_access_block)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_account_public_access_block)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3AccountPublicAccessBlock.tsx)
 
 ```js
@@ -105,7 +105,7 @@ Provides a S3 bucket resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3Bucket.tsx)
 
 ```js
@@ -118,7 +118,7 @@ import { AwsS3Bucket } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_bucket)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3Bucket.tsx)
 
 ```js
@@ -131,12 +131,34 @@ import { DataAwsS3Bucket } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket#import)
 
 ```js
 <AwsS3Bucket
    bucket = {}
 />
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsS3BucketAbac
+
+Manages ABAC (Attribute Based Access Control) for an AWS S3 (Simple Storage) Bucket.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_abac)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketAbac.tsx)
+
+```js
+import { AwsS3BucketAbac } from "@dinghy/tf-aws/serviceS3"
+
+<AwsS3BucketAbac/>
 ```
 
   </TabItem>
@@ -152,7 +174,7 @@ Provides an S3 bucket accelerate configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_accelerate_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_accelerate_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketAccelerateConfiguration.tsx)
 
 ```js
@@ -174,7 +196,7 @@ Provides an S3 bucket ACL resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_acl)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_acl)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketAcl.tsx)
 
 ```js
@@ -187,7 +209,7 @@ import { AwsS3BucketAcl } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_acl#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_acl#import)
 
 ```js
 <AwsS3BucketAcl
@@ -208,7 +230,7 @@ Provides a S3 bucket analytics configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_analytics_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_analytics_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketAnalyticsConfiguration.tsx)
 
 ```js
@@ -230,7 +252,7 @@ Provides an S3 bucket CORS configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_cors_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_cors_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketCorsConfiguration.tsx)
 
 ```js
@@ -243,7 +265,7 @@ import { AwsS3BucketCorsConfiguration } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_cors_configuration#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_cors_configuration#import)
 
 ```js
 <AwsS3BucketCorsConfiguration
@@ -264,7 +286,7 @@ Provides an S3 Intelligent-Tiering configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_intelligent_tiering_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_intelligent_tiering_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketIntelligentTieringConfiguration.tsx)
 
 ```js
@@ -286,7 +308,7 @@ Provides a S3 bucket inventory configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_inventory)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_inventory)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketInventory.tsx)
 
 ```js
@@ -308,7 +330,7 @@ Provides a S3 bucket lifecycle configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_lifecycle_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_lifecycle_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketLifecycleConfiguration.tsx)
 
 ```js
@@ -330,7 +352,7 @@ Provides an S3 bucket (server access) logging resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_logging)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_logging)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketLogging.tsx)
 
 ```js
@@ -343,7 +365,7 @@ import { AwsS3BucketLogging } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_logging#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_logging#import)
 
 ```js
 <AwsS3BucketLogging
@@ -364,7 +386,7 @@ Manages Amazon S3 Metadata for a bucket.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_metadata_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_metadata_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketMetadataConfiguration.tsx)
 
 ```js
@@ -386,7 +408,7 @@ Provides a S3 bucket metrics configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_metric)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_metric)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketMetric.tsx)
 
 ```js
@@ -408,7 +430,7 @@ Manages a S3 Bucket Notification Configuration
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_notification)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_notification)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketNotification.tsx)
 
 ```js
@@ -421,7 +443,7 @@ import { AwsS3BucketNotification } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_notification#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_notification#import)
 
 ```js
 <AwsS3BucketNotification
@@ -442,7 +464,7 @@ Provides an S3 object resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_object)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_object)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketObject.tsx)
 
 ```js
@@ -455,7 +477,7 @@ import { AwsS3BucketObject } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_object)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_bucket_object)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3BucketObject.tsx)
 
 ```js
@@ -468,7 +490,7 @@ import { DataAwsS3BucketObject } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_object#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_object#import)
 
 ```js
 <AwsS3BucketObject
@@ -490,7 +512,7 @@ Provides an S3 bucket Object Lock configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_object_lock_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_object_lock_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketObjectLockConfiguration.tsx)
 
 ```js
@@ -512,7 +534,7 @@ Returns keys and metadata of S3 objects
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_objects)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_bucket_objects)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3BucketObjects.tsx)
 
 ```js
@@ -534,7 +556,7 @@ Manages S3 Bucket Ownership Controls.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_ownership_controls)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_ownership_controls)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketOwnershipControls.tsx)
 
 ```js
@@ -547,7 +569,7 @@ import { AwsS3BucketOwnershipControls } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_ownership_controls#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_ownership_controls#import)
 
 ```js
 <AwsS3BucketOwnershipControls
@@ -568,7 +590,7 @@ Attaches a policy to an S3 bucket resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketPolicy.tsx)
 
 ```js
@@ -581,7 +603,7 @@ import { AwsS3BucketPolicy } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_bucket_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_bucket_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3BucketPolicy.tsx)
 
 ```js
@@ -594,7 +616,7 @@ import { DataAwsS3BucketPolicy } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_policy#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_policy#import)
 
 ```js
 <AwsS3BucketPolicy
@@ -615,7 +637,7 @@ Manages S3 bucket-level Public Access Block Configuration
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_public_access_block)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_public_access_block)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketPublicAccessBlock.tsx)
 
 ```js
@@ -628,7 +650,7 @@ import { AwsS3BucketPublicAccessBlock } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_public_access_block#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_public_access_block#import)
 
 ```js
 <AwsS3BucketPublicAccessBlock
@@ -649,7 +671,7 @@ Provides a S3 bucket replication configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_replication_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_replication_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketReplicationConfiguration.tsx)
 
 ```js
@@ -671,7 +693,7 @@ Provides an S3 bucket request payment configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_request_payment_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_request_payment_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketRequestPaymentConfiguration.tsx)
 
 ```js
@@ -693,7 +715,7 @@ Provides a S3 bucket server-side encryption configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_server_side_encryption_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_server_side_encryption_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketServerSideEncryptionConfiguration.tsx)
 
 ```js
@@ -706,7 +728,7 @@ import { AwsS3BucketServerSideEncryptionConfiguration } from "@dinghy/tf-aws/ser
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_server_side_encryption_configuration#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_server_side_encryption_configuration#import)
 
 ```js
 <AwsS3BucketServerSideEncryptionConfiguration
@@ -727,7 +749,7 @@ Provides an S3 bucket versioning resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_versioning)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_versioning)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketVersioning.tsx)
 
 ```js
@@ -740,7 +762,7 @@ import { AwsS3BucketVersioning } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_versioning#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_versioning#import)
 
 ```js
 <AwsS3BucketVersioning
@@ -761,7 +783,7 @@ Provides an S3 bucket website configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_website_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_website_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3BucketWebsiteConfiguration.tsx)
 
 ```js
@@ -774,7 +796,7 @@ import { AwsS3BucketWebsiteConfiguration } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_website_configuration#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_website_configuration#import)
 
 ```js
 <AwsS3BucketWebsiteConfiguration
@@ -795,7 +817,7 @@ Provides an Amazon S3 Express directory bucket resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_directory_bucket)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_directory_bucket)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3DirectoryBucket.tsx)
 
 ```js
@@ -817,7 +839,7 @@ Lists Amazon S3 Express directory buckets.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_directory_buckets)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_directory_buckets)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3DirectoryBuckets.tsx)
 
 ```js
@@ -839,7 +861,7 @@ Provides an S3 object resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_object)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_object)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3Object.tsx)
 
 ```js
@@ -852,7 +874,7 @@ import { AwsS3Object } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_object)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_object)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3Object.tsx)
 
 ```js
@@ -865,7 +887,7 @@ import { DataAwsS3Object } from "@dinghy/tf-aws/serviceS3"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_object#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_object#import)
 
 ```js
 <AwsS3Object
@@ -887,7 +909,7 @@ Provides a resource for copying an S3 object.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_object_copy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_object_copy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/AwsS3ObjectCopy.tsx)
 
 ```js
@@ -909,7 +931,7 @@ Returns keys and metadata of S3 objects
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/s3_objects)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_objects)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/s3/DataAwsS3Objects.tsx)
 
 ```js

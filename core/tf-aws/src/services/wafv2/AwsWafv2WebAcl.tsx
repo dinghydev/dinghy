@@ -26647,7 +26647,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_web_acl
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/wafv2_web_acl
 
 export function AwsWafv2WebAcl(props: Partial<InputProps>) {
   const _title = (node: any) => {

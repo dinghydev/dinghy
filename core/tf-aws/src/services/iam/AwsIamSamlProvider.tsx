@@ -18,6 +18,7 @@ export const InputSchema = z.object({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  saml_provider_uuid: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   valid_until: z.string().optional(),
 })
@@ -36,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_saml_provider
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_saml_provider
 
 export function AwsIamSamlProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {

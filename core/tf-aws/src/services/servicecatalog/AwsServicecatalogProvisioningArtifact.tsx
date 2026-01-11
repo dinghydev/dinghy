@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/servicecatalog_provisioning_artifact
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/servicecatalog_provisioning_artifact
 
 export function AwsServicecatalogProvisioningArtifact(
   props: Partial<InputProps>,

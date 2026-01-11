@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/pinpoint_event_stream
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/pinpoint_event_stream
 
 export function AwsPinpointEventStream(props: Partial<InputProps>) {
   const _title = (node: any) => {

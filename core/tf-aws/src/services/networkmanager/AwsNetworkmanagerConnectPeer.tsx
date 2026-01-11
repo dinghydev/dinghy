@@ -14,7 +14,7 @@ export const InputSchema = z.object({
   peer_address: resolvableValue(z.string()),
   bgp_options: resolvableValue(
     z.object({
-      peer_asn: z.number().optional(),
+      peer_asn: z.string().optional(),
     }).optional(),
   ),
   core_network_address: resolvableValue(z.string().optional()),
@@ -37,7 +37,7 @@ export const OutputSchema = z.object({
       core_network_address: z.string(),
       core_network_asn: z.number(),
       peer_address: z.string(),
-      peer_asn: z.number(),
+      peer_asn: z.string(),
     }).array(),
     core_network_address: z.string(),
     inside_cidr_blocks: z.set(z.string()),
@@ -61,7 +61,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_connect_peer
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_connect_peer
 
 export function AwsNetworkmanagerConnectPeer(props: Partial<InputProps>) {
   const _title = (node: any) => {

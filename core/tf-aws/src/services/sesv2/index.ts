@@ -82,3 +82,9 @@ export {
   useAwsSesv2EmailIdentityPolicy,
   useAwsSesv2EmailIdentityPolicys,
 } from './AwsSesv2EmailIdentityPolicy.tsx'
+
+export {
+  AwsSesv2Tenant,
+  useAwsSesv2Tenant,
+  useAwsSesv2Tenants,
+} from './AwsSesv2Tenant.tsx'

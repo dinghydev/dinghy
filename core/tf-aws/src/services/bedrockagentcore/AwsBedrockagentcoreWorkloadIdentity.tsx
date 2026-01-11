@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_workload_identity
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_workload_identity
 
 export function AwsBedrockagentcoreWorkloadIdentity(
   props: Partial<InputProps>,

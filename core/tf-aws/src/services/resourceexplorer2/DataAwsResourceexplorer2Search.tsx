@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/resourceexplorer2_search
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/resourceexplorer2_search
 
 export function DataAwsResourceexplorer2Search(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -60,7 +60,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_workteam
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sagemaker_workteam
 
 export function AwsSagemakerWorkteam(props: Partial<InputProps>) {
   const _title = (node: any) => {

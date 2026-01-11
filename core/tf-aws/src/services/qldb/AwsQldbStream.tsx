@@ -44,7 +44,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/qldb_stream
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/qldb_stream
 
 export function AwsQldbStream(props: Partial<InputProps>) {
   const _title = (node: any) => {

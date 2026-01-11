@@ -16,6 +16,7 @@ export const InputSchema = z.object({
   lifecycle_scope: resolvableValue(z.string().optional()),
   qualifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  tenant_id: resolvableValue(z.string().optional()),
   terraform_key: resolvableValue(z.string().optional()),
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
 }).extend({ ...TfMetaSchema.shape })
@@ -33,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_invocation
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_invocation
 
 export function AwsLambdaInvocation(props: Partial<InputProps>) {
   const _title = (node: any) => {

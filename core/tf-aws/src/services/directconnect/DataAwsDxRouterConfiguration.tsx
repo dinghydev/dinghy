@@ -39,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_router_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dx_router_configuration
 
 export function DataAwsDxRouterConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {

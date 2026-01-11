@@ -37,6 +37,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   portal_url: z.string().optional(),
+  root_domain_unit_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -49,7 +50,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_domain
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/datazone_domain
 
 export function AwsDatazoneDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {

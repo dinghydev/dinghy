@@ -25,6 +25,7 @@ export const InputSchema = z.object({
   log_format: resolvableValue(z.string().optional()),
   max_aggregation_interval: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
+  regional_nat_gateway_id: resolvableValue(z.string().optional()),
   subnet_id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   traffic_type: resolvableValue(z.string().optional()),
@@ -48,7 +49,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/flow_log
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/flow_log
 
 export function AwsFlowLog(props: Partial<InputProps>) {
   const _title = (node: any) => {

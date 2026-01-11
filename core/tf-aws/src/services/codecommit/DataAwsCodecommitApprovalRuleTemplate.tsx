@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codecommit_approval_rule_template
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/codecommit_approval_rule_template
 
 export function DataAwsCodecommitApprovalRuleTemplate(
   props: Partial<InputProps>,

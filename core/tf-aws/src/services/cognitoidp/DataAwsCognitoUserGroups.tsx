@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cognito_user_groups
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cognito_user_groups
 
 export function DataAwsCognitoUserGroups(props: Partial<InputProps>) {
   const _title = (node: any) => {

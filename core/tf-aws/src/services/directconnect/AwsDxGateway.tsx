@@ -12,6 +12,7 @@ import z from 'zod'
 export const InputSchema = z.object({
   amazon_side_asn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
@@ -24,6 +25,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_account_id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export const ImportSchema = z.object({
@@ -41,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_gateway
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dx_gateway
 
 export function AwsDxGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {

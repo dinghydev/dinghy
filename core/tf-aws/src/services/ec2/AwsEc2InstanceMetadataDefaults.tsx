@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_instance_metadata_defaults
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_instance_metadata_defaults
 
 export function AwsEc2InstanceMetadataDefaults(props: Partial<InputProps>) {
   const _title = (node: any) => {

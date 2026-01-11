@@ -47,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/neptune_orderable_db_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/neptune_orderable_db_instance
 
 export function DataAwsNeptuneOrderableDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

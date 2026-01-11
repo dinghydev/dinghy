@@ -41,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_contact_list
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sesv2_contact_list
 
 export function AwsSesv2ContactList(props: Partial<InputProps>) {
   const _title = (node: any) => {

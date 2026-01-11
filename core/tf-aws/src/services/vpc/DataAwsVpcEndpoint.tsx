@@ -20,6 +20,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   service_name: resolvableValue(z.string().optional()),
+  service_region: resolvableValue(z.string().optional()),
   state: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -27,6 +28,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
+  vpc_endpoint_type: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -40,6 +42,8 @@ export const OutputSchema = z.object({
   dns_options: z.object({
     dns_record_ip_type: z.string(),
     private_dns_only_for_inbound_resolver_endpoint: z.boolean(),
+    private_dns_preference: z.string(),
+    private_dns_specified_domains: z.set(z.string()),
   }).array().optional(),
   network_interface_ids: z.set(z.string()).optional(),
   owner_id: z.string().optional(),
@@ -50,7 +54,6 @@ export const OutputSchema = z.object({
   route_table_ids: z.set(z.string()).optional(),
   security_group_ids: z.set(z.string()).optional(),
   subnet_ids: z.set(z.string()).optional(),
-  vpc_endpoint_type: z.string().optional(),
 })
 
 export type InputProps =
@@ -62,7 +65,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpc_endpoint
 
 export function DataAwsVpcEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

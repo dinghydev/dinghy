@@ -12,6 +12,7 @@ import z from 'zod'
 export const InputSchema = z.object({
   peering_id: resolvableValue(z.string()),
   transit_gateway_route_table_arn: resolvableValue(z.string()),
+  routing_policy_label: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -45,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_transit_gateway_route_table_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_transit_gateway_route_table_attachment
 
 export function AwsNetworkmanagerTransitGatewayRouteTableAttachment(
   props: Partial<InputProps>,

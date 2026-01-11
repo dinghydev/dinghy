@@ -12,7 +12,7 @@ Use the `aws_cloudfront_cache_policy` resource to manage cache policies for Clou
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_cache_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_cache_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontCachePolicy.tsx)
 
 ```js
@@ -25,13 +25,70 @@ import { AwsCloudfrontCachePolicy } from "@dinghy/tf-aws/serviceCloudfront"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_cache_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_cache_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontCachePolicy.tsx)
 
 ```js
 import { DataAwsCloudfrontCachePolicy } from "@dinghy/tf-aws/serviceCloudfront"
 
 <DataAwsCloudfrontCachePolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudfrontConnectionFunction
+
+Manages an AWS CloudFront Connection Function.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_connection_function)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontConnectionFunction.tsx)
+
+```js
+import { AwsCloudfrontConnectionFunction } from "@dinghy/tf-aws/serviceCloudfront"
+
+<AwsCloudfrontConnectionFunction/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudfrontConnectionGroup
+
+Provides a CloudFront connection group resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_connection_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontConnectionGroup.tsx)
+
+```js
+import { AwsCloudfrontConnectionGroup } from "@dinghy/tf-aws/serviceCloudfront"
+
+<AwsCloudfrontConnectionGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_connection_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontConnectionGroup.tsx)
+
+```js
+import { DataAwsCloudfrontConnectionGroup } from "@dinghy/tf-aws/serviceCloudfront"
+
+<DataAwsCloudfrontConnectionGroup/>
 ```
 
   </TabItem>
@@ -47,7 +104,7 @@ Terraform resource for managing an AWS CloudFront Continuous Deployment Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_continuous_deployment_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_continuous_deployment_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontContinuousDeploymentPolicy.tsx)
 
 ```js
@@ -69,7 +126,7 @@ Provides a CloudFront web distribution resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_distribution)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_distribution)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontDistribution.tsx)
 
 ```js
@@ -82,13 +139,48 @@ import { AwsCloudfrontDistribution } from "@dinghy/tf-aws/serviceCloudfront"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_distribution)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_distribution)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontDistribution.tsx)
 
 ```js
 import { DataAwsCloudfrontDistribution } from "@dinghy/tf-aws/serviceCloudfront"
 
 <DataAwsCloudfrontDistribution/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudfrontDistributionTenant
+
+Provides a CloudFront distribution tenant resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_distribution_tenant)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontDistributionTenant.tsx)
+
+```js
+import { AwsCloudfrontDistributionTenant } from "@dinghy/tf-aws/serviceCloudfront"
+
+<AwsCloudfrontDistributionTenant/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_distribution_tenant)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontDistributionTenant.tsx)
+
+```js
+import { DataAwsCloudfrontDistributionTenant } from "@dinghy/tf-aws/serviceCloudfront"
+
+<DataAwsCloudfrontDistributionTenant/>
 ```
 
   </TabItem>
@@ -104,7 +196,7 @@ Provides a CloudFront Field-level Encryption Config resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_field_level_encryption_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_field_level_encryption_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontFieldLevelEncryptionConfig.tsx)
 
 ```js
@@ -126,7 +218,7 @@ Provides a CloudFront Field-level Encryption Profile resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_field_level_encryption_profile)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_field_level_encryption_profile)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontFieldLevelEncryptionProfile.tsx)
 
 ```js
@@ -148,7 +240,7 @@ Provides a CloudFront Function resource. With CloudFront Functions in Amazon Clo
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_function)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_function)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontFunction.tsx)
 
 ```js
@@ -161,7 +253,7 @@ import { AwsCloudfrontFunction } from "@dinghy/tf-aws/serviceCloudfront"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_function)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_function)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontFunction.tsx)
 
 ```js
@@ -183,7 +275,7 @@ Provides a CloudFront key group.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_group)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_key_group)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontKeyGroup.tsx)
 
 ```js
@@ -205,7 +297,7 @@ Terraform resource for managing an AWS CloudFront Key Value Store.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_value_store)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_key_value_store)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontKeyValueStore.tsx)
 
 ```js
@@ -218,7 +310,7 @@ import { AwsCloudfrontKeyValueStore } from "@dinghy/tf-aws/serviceCloudfront"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_key_value_store#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_key_value_store#import)
 
 ```js
 <AwsCloudfrontKeyValueStore
@@ -239,7 +331,7 @@ Provides the canonical user ID of the AWS `awslogsdelivery` account for CloudFro
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_log_delivery_canonical_user_id)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_log_delivery_canonical_user_id)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontLogDeliveryCanonicalUserId.tsx)
 
 ```js
@@ -261,13 +353,35 @@ Provides a CloudFront monitoring subscription resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_monitoring_subscription)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_monitoring_subscription)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontMonitoringSubscription.tsx)
 
 ```js
 import { AwsCloudfrontMonitoringSubscription } from "@dinghy/tf-aws/serviceCloudfront"
 
 <AwsCloudfrontMonitoringSubscription/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudfrontMultitenantDistribution
+
+Provides a CloudFront multi-tenant distribution resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_multitenant_distribution)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontMultitenantDistribution.tsx)
+
+```js
+import { AwsCloudfrontMultitenantDistribution } from "@dinghy/tf-aws/serviceCloudfront"
+
+<AwsCloudfrontMultitenantDistribution/>
 ```
 
   </TabItem>
@@ -283,7 +397,7 @@ Terraform resource for managing an AWS CloudFront Origin Access Control.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_origin_access_control)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_origin_access_control)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontOriginAccessControl.tsx)
 
 ```js
@@ -296,7 +410,7 @@ import { AwsCloudfrontOriginAccessControl } from "@dinghy/tf-aws/serviceCloudfro
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_origin_access_control)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_origin_access_control)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontOriginAccessControl.tsx)
 
 ```js
@@ -318,7 +432,7 @@ Use this data source to retrieve information about a set of Amazon CloudFront or
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_origin_access_identities)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_origin_access_identities)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontOriginAccessIdentities.tsx)
 
 ```js
@@ -340,7 +454,7 @@ Provides a CloudFront origin access identity.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_origin_access_identity)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_origin_access_identity)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontOriginAccessIdentity.tsx)
 
 ```js
@@ -353,7 +467,7 @@ import { AwsCloudfrontOriginAccessIdentity } from "@dinghy/tf-aws/serviceCloudfr
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_origin_access_identity)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_origin_access_identity)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontOriginAccessIdentity.tsx)
 
 ```js
@@ -375,7 +489,7 @@ Determines the values that CloudFront includes in requests that it sends to the 
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_origin_request_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_origin_request_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontOriginRequestPolicy.tsx)
 
 ```js
@@ -388,7 +502,7 @@ import { AwsCloudfrontOriginRequestPolicy } from "@dinghy/tf-aws/serviceCloudfro
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_origin_request_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_origin_request_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontOriginRequestPolicy.tsx)
 
 ```js
@@ -410,7 +524,7 @@ Provides a CloudFront Public Key which you add to CloudFront to use with feature
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_public_key)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_public_key)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontPublicKey.tsx)
 
 ```js
@@ -432,7 +546,7 @@ Provides a CloudFront real-time log configuration resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_realtime_log_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_realtime_log_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontRealtimeLogConfig.tsx)
 
 ```js
@@ -445,7 +559,7 @@ import { AwsCloudfrontRealtimeLogConfig } from "@dinghy/tf-aws/serviceCloudfront
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_realtime_log_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_realtime_log_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontRealtimeLogConfig.tsx)
 
 ```js
@@ -458,7 +572,7 @@ import { DataAwsCloudfrontRealtimeLogConfig } from "@dinghy/tf-aws/serviceCloudf
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_realtime_log_config#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_realtime_log_config#import)
 
 ```js
 <AwsCloudfrontRealtimeLogConfig
@@ -479,7 +593,7 @@ Provides a CloudFront response headers policy resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_response_headers_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_response_headers_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontResponseHeadersPolicy.tsx)
 
 ```js
@@ -492,13 +606,35 @@ import { AwsCloudfrontResponseHeadersPolicy } from "@dinghy/tf-aws/serviceCloudf
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_response_headers_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_response_headers_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/DataAwsCloudfrontResponseHeadersPolicy.tsx)
 
 ```js
 import { DataAwsCloudfrontResponseHeadersPolicy } from "@dinghy/tf-aws/serviceCloudfront"
 
 <DataAwsCloudfrontResponseHeadersPolicy/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsCloudfrontTrustStore
+
+Manages an AWS CloudFront Trust Store.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_trust_store)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontTrustStore.tsx)
+
+```js
+import { AwsCloudfrontTrustStore } from "@dinghy/tf-aws/serviceCloudfront"
+
+<AwsCloudfrontTrustStore/>
 ```
 
   </TabItem>
@@ -514,7 +650,7 @@ Provides a CloudFront VPC Origin
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_vpc_origin)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_vpc_origin)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/cloudfront/AwsCloudfrontVpcOrigin.tsx)
 
 ```js

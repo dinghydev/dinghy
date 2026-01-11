@@ -48,7 +48,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_custom_key_store
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/kms_custom_key_store
 
 export function AwsKmsCustomKeyStore(props: Partial<InputProps>) {
   const _title = (node: any) => {

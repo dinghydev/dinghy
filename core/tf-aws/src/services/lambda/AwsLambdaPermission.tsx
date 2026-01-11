@@ -16,6 +16,7 @@ export const InputSchema = z.object({
   event_source_token: resolvableValue(z.string().optional()),
   function_url_auth_type: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
+  invoked_via_function_url: resolvableValue(z.boolean().optional()),
   principal_org_id: resolvableValue(z.string().optional()),
   qualifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -45,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_permission
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_permission
 
 export function AwsLambdaPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {

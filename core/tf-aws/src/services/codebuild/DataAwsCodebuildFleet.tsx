@@ -63,7 +63,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codebuild_fleet
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/codebuild_fleet
 
 export function DataAwsCodebuildFleet(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_managed_login_branding
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cognito_managed_login_branding
 
 export function AwsCognitoManagedLoginBranding(props: Partial<InputProps>) {
   const _title = (node: any) => {

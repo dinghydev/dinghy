@@ -20,6 +20,7 @@ export const InputSchema = z.object({
       schedule: z.string().optional(),
       schedule_expression_timezone: z.string().optional(),
       start_window: z.number().optional(),
+      target_logically_air_gapped_backup_vault_arn: z.string().optional(),
       target_vault_name: z.string(),
       copy_action: z.object({
         destination_vault_arn: z.string(),
@@ -34,6 +35,10 @@ export const InputSchema = z.object({
         delete_after: z.number().optional(),
         opt_in_to_archive_for_supported_resources: z.boolean().optional(),
       }).optional(),
+      scan_action: z.object({
+        malware_scanner: z.string(),
+        scan_mode: z.string(),
+      }).array().optional(),
     }).array(),
   ),
   advanced_backup_setting: resolvableValue(
@@ -43,6 +48,13 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
+  scan_setting: resolvableValue(
+    z.object({
+      malware_scanner: z.string(),
+      resource_types: z.string().array(),
+      scanner_role_arn: z.string(),
+    }).array().optional(),
+  ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -62,7 +74,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_plan
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/backup_plan
 
 export function AwsBackupPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_network_performance_metric_subscription
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_network_performance_metric_subscription
 
 export function AwsVpcNetworkPerformanceMetricSubscription(
   props: Partial<InputProps>,

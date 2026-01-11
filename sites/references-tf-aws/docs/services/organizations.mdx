@@ -12,7 +12,7 @@ Provides a resource to create a member account in the current AWS Organization.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_account)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_account)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsAccount.tsx)
 
 ```js
@@ -23,9 +23,22 @@ import { AwsOrganizationsAccount } from "@dinghy/tf-aws/serviceOrganizations"
 
   </TabItem>
   
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_account)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsAccount.tsx)
+
+```js
+import { DataAwsOrganizationsAccount } from "@dinghy/tf-aws/serviceOrganizations"
+
+<DataAwsOrganizationsAccount/>
+```
+
+  </TabItem>
+  
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_account#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_account#import)
 
 ```js
 <AwsOrganizationsAccount
@@ -46,7 +59,7 @@ Provides a resource to manage an AWS Organizations Delegated Administrator.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_delegated_administrator)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_delegated_administrator)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsDelegatedAdministrator.tsx)
 
 ```js
@@ -59,7 +72,7 @@ import { AwsOrganizationsDelegatedAdministrator } from "@dinghy/tf-aws/serviceOr
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_delegated_administrator#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_delegated_administrator#import)
 
 ```js
 <AwsOrganizationsDelegatedAdministrator
@@ -81,7 +94,7 @@ Get a list of AWS accounts that are designated as delegated administrators in th
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_administrators)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_delegated_administrators)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsDelegatedAdministrators.tsx)
 
 ```js
@@ -103,7 +116,7 @@ Get a list the AWS services for which the specified account is a delegated admin
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_delegated_services)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_delegated_services)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsDelegatedServices.tsx)
 
 ```js
@@ -125,7 +138,7 @@ Provides a resource to create an organization.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organization)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_organization)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsOrganization.tsx)
 
 ```js
@@ -138,7 +151,7 @@ import { AwsOrganizationsOrganization } from "@dinghy/tf-aws/serviceOrganization
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organization)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organization)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganization.tsx)
 
 ```js
@@ -151,7 +164,7 @@ import { DataAwsOrganizationsOrganization } from "@dinghy/tf-aws/serviceOrganiza
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organization#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_organization#import)
 
 ```js
 <AwsOrganizationsOrganization
@@ -172,7 +185,7 @@ Provides a resource to create an organizational unit.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organizational_unit)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_organizational_unit)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsOrganizationalUnit.tsx)
 
 ```js
@@ -185,7 +198,7 @@ import { AwsOrganizationsOrganizationalUnit } from "@dinghy/tf-aws/serviceOrgani
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organizational_unit)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnit.tsx)
 
 ```js
@@ -198,7 +211,7 @@ import { DataAwsOrganizationsOrganizationalUnit } from "@dinghy/tf-aws/serviceOr
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_organizational_unit#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_organizational_unit#import)
 
 ```js
 <AwsOrganizationsOrganizationalUnit
@@ -219,7 +232,7 @@ Get all direct child accounts under a parent organizational unit. This only prov
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_child_accounts)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organizational_unit_child_accounts)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnitChildAccounts.tsx)
 
 ```js
@@ -241,7 +254,7 @@ Get all child accounts under a parent organizational unit. This provides all chi
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_descendant_accounts)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organizational_unit_descendant_accounts)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnitDescendantAccounts.tsx)
 
 ```js
@@ -263,7 +276,7 @@ Get all direct child organizational units under a parent organizational unit. Th
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_descendant_organizational_units)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organizational_unit_descendant_organizational_units)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnitDescendantOrganizationalUnits.tsx)
 
 ```js
@@ -285,7 +298,7 @@ Get all direct child organizational units under a parent organizational unit. Th
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_units)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organizational_units)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsOrganizationalUnits.tsx)
 
 ```js
@@ -307,7 +320,7 @@ Terraform data source for managing an AWS Organizations Policies.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_policies)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsPolicies.tsx)
 
 ```js
@@ -329,7 +342,7 @@ Terraform data source for managing an AWS Organizations Policies For Target.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies_for_target)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_policies_for_target)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsPoliciesForTarget.tsx)
 
 ```js
@@ -351,7 +364,7 @@ Provides a resource to manage an AWS Organizations policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsPolicy.tsx)
 
 ```js
@@ -364,7 +377,7 @@ import { AwsOrganizationsPolicy } from "@dinghy/tf-aws/serviceOrganizations"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsPolicy.tsx)
 
 ```js
@@ -377,7 +390,7 @@ import { DataAwsOrganizationsPolicy } from "@dinghy/tf-aws/serviceOrganizations"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_policy#import)
 
 ```js
 <AwsOrganizationsPolicy
@@ -398,7 +411,7 @@ Provides a resource to attach an AWS Organizations policy to an organization acc
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy_attachment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_policy_attachment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsPolicyAttachment.tsx)
 
 ```js
@@ -411,7 +424,7 @@ import { AwsOrganizationsPolicyAttachment } from "@dinghy/tf-aws/serviceOrganiza
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy_attachment#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_policy_attachment#import)
 
 ```js
 <AwsOrganizationsPolicyAttachment
@@ -433,7 +446,7 @@ Provides a resource to manage an AWS Organizations resource policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_resource_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_resource_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsResourcePolicy.tsx)
 
 ```js
@@ -446,7 +459,7 @@ import { AwsOrganizationsResourcePolicy } from "@dinghy/tf-aws/serviceOrganizati
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_resource_policy#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_resource_policy#import)
 
 ```js
 <AwsOrganizationsResourcePolicy
@@ -467,13 +480,35 @@ Get tags attached to the specified AWS Organizations resource.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_resource_tags)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_resource_tags)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/DataAwsOrganizationsResourceTags.tsx)
 
 ```js
 import { DataAwsOrganizationsResourceTags } from "@dinghy/tf-aws/serviceOrganizations"
 
 <DataAwsOrganizationsResourceTags/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOrganizationsTag
+
+Manages an individual Organizations resource tag
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_tag)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/organizations/AwsOrganizationsTag.tsx)
+
+```js
+import { AwsOrganizationsTag } from "@dinghy/tf-aws/serviceOrganizations"
+
+<AwsOrganizationsTag/>
 ```
 
   </TabItem>

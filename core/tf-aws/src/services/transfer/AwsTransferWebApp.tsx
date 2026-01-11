@@ -12,6 +12,16 @@ import z from 'zod'
 export const InputSchema = z.object({
   tags_all: resolvableValue(z.record(z.string(), z.string())),
   access_endpoint: resolvableValue(z.string().optional()),
+  endpoint_details: resolvableValue(
+    z.object({
+      vpc: z.object({
+        security_group_ids: z.string().array().optional(),
+        subnet_ids: z.string().array(),
+        vpc_endpoint_id: z.string(),
+        vpc_id: z.string(),
+      }).array().optional(),
+    }).array().optional(),
+  ),
   identity_provider_details: resolvableValue(
     z.object({
       identity_center_config: z.object({
@@ -33,6 +43,14 @@ export const InputSchema = z.object({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  endpoint_details: z.object({
+    vpc: z.object({
+      security_group_ids: z.set(z.string()).optional(),
+      subnet_ids: z.set(z.string()),
+      vpc_endpoint_id: z.string(),
+      vpc_id: z.string(),
+    }).array().optional(),
+  }).array().optional().optional(),
   web_app_id: z.string().optional(),
 })
 
@@ -45,7 +63,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_web_app
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/transfer_web_app
 
 export function AwsTransferWebApp(props: Partial<InputProps>) {
   const _title = (node: any) => {

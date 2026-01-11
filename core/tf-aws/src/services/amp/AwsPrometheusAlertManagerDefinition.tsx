@@ -27,7 +27,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_alert_manager_definition
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/prometheus_alert_manager_definition
 
 export function AwsPrometheusAlertManagerDefinition(
   props: Partial<InputProps>,

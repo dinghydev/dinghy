@@ -210,6 +210,12 @@ export {
 } from './AwsCloudwatchLogSubscriptionFilter.tsx'
 
 export {
+  AwsCloudwatchLogTransformer,
+  useAwsCloudwatchLogTransformer,
+  useAwsCloudwatchLogTransformers,
+} from './AwsCloudwatchLogTransformer.tsx'
+
+export {
   AwsCloudwatchMetricAlarm,
   useAwsCloudwatchMetricAlarm,
   useAwsCloudwatchMetricAlarms,

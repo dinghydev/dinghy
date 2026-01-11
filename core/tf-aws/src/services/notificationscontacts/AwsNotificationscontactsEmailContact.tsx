@@ -29,7 +29,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/notificationscontacts_email_contact
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/notificationscontacts_email_contact
 
 export function AwsNotificationscontactsEmailContact(
   props: Partial<InputProps>,

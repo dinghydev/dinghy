@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_subnet_cidr_reservation
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_subnet_cidr_reservation
 
 export function AwsEc2SubnetCidrReservation(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -12,7 +12,7 @@ Manages an AWS Lambda Alias.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_alias)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_alias)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaAlias.tsx)
 
 ```js
@@ -25,13 +25,47 @@ import { AwsLambdaAlias } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_alias)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_alias)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaAlias.tsx)
 
 ```js
 import { DataAwsLambdaAlias } from "@dinghy/tf-aws/serviceLambda"
 
 <DataAwsLambdaAlias/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsLambdaCapacityProvider
+
+Manages an AWS Lambda Capacity Provider.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_capacity_provider)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaCapacityProvider.tsx)
+
+```js
+import { AwsLambdaCapacityProvider } from "@dinghy/tf-aws/serviceLambda"
+
+<AwsLambdaCapacityProvider/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_capacity_provider#import)
+
+```js
+<AwsLambdaCapacityProvider
+   name = {}
+/>
 ```
 
   </TabItem>
@@ -47,7 +81,7 @@ Manages an AWS Lambda Code Signing Config.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_code_signing_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_code_signing_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaCodeSigningConfig.tsx)
 
 ```js
@@ -60,7 +94,7 @@ import { AwsLambdaCodeSigningConfig } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_code_signing_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_code_signing_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaCodeSigningConfig.tsx)
 
 ```js
@@ -82,7 +116,7 @@ Manages an AWS Lambda Event Source Mapping.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_event_source_mapping)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_event_source_mapping)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaEventSourceMapping.tsx)
 
 ```js
@@ -104,7 +138,7 @@ Manages an AWS Lambda Function.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_function)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaFunction.tsx)
 
 ```js
@@ -117,7 +151,7 @@ import { AwsLambdaFunction } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_function)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_function)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaFunction.tsx)
 
 ```js
@@ -130,7 +164,7 @@ import { DataAwsLambdaFunction } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_function#import)
 
 ```js
 <AwsLambdaFunction
@@ -151,7 +185,7 @@ Manages an AWS Lambda Function Event Invoke Config.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function_event_invoke_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_function_event_invoke_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaFunctionEventInvokeConfig.tsx)
 
 ```js
@@ -173,7 +207,7 @@ Manages an AWS Lambda Function Recursion Config.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function_recursion_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_function_recursion_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaFunctionRecursionConfig.tsx)
 
 ```js
@@ -195,7 +229,7 @@ Provides a list of AWS Lambda Functions.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_functions)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_functions)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaFunctions.tsx)
 
 ```js
@@ -217,7 +251,7 @@ Manages a Lambda function URL.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function_url)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_function_url)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaFunctionUrl.tsx)
 
 ```js
@@ -230,7 +264,7 @@ import { AwsLambdaFunctionUrl } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_function_url)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_function_url)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaFunctionUrl.tsx)
 
 ```js
@@ -252,7 +286,7 @@ Manages an AWS Lambda Function invocation.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_invocation)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_invocation)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaInvocation.tsx)
 
 ```js
@@ -265,7 +299,7 @@ import { AwsLambdaInvocation } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_invocation)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_invocation)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaInvocation.tsx)
 
 ```js
@@ -278,7 +312,7 @@ import { DataAwsLambdaInvocation } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Ephemeral">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/ephemeral-resources/lambda_invocation)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/ephemeral-resources/lambda_invocation)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/EphemeralAwsLambdaInvocation.tsx)
 
 ```js
@@ -300,7 +334,7 @@ Manages an AWS Lambda Layer Version.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_layer_version)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_layer_version)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaLayerVersion.tsx)
 
 ```js
@@ -313,7 +347,7 @@ import { AwsLambdaLayerVersion } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_layer_version)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_layer_version)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/DataAwsLambdaLayerVersion.tsx)
 
 ```js
@@ -335,7 +369,7 @@ Manages an AWS Lambda Layer Version Permission.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_layer_version_permission)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_layer_version_permission)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaLayerVersionPermission.tsx)
 
 ```js
@@ -357,7 +391,7 @@ Manages an AWS Lambda permission.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_permission)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_permission)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaPermission.tsx)
 
 ```js
@@ -370,7 +404,7 @@ import { AwsLambdaPermission } from "@dinghy/tf-aws/serviceLambda"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_permission#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_permission#import)
 
 ```js
 <AwsLambdaPermission
@@ -392,7 +426,7 @@ Manages an AWS Lambda Provisioned Concurrency Configuration.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_provisioned_concurrency_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_provisioned_concurrency_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaProvisionedConcurrencyConfig.tsx)
 
 ```js
@@ -414,7 +448,7 @@ Manages an AWS Lambda Runtime Management Config.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_runtime_management_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_runtime_management_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/lambda/AwsLambdaRuntimeManagementConfig.tsx)
 
 ```js

@@ -50,7 +50,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iot_thing_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iot_thing_group
 
 export function AwsIotThingGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

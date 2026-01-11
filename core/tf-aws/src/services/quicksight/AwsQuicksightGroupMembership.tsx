@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_group_membership
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/quicksight_group_membership
 
 export function AwsQuicksightGroupMembership(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/secretsmanager_secret_rotation
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/secretsmanager_secret_rotation
 
 export function AwsSecretsmanagerSecretRotation(props: Partial<InputProps>) {
   const _title = (node: any) => {

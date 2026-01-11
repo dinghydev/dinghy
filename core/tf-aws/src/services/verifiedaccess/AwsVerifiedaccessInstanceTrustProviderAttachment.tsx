@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/verifiedaccess_instance_trust_provider_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/verifiedaccess_instance_trust_provider_attachment
 
 export function AwsVerifiedaccessInstanceTrustProviderAttachment(
   props: Partial<InputProps>,

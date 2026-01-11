@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_metric
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_metric
 
 export function AwsS3BucketMetric(props: Partial<InputProps>) {
   const _title = (node: any) => {

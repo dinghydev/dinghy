@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   access_role: resolvableValue(z.string()),
-  url: resolvableValue(z.string()),
   as2_config: resolvableValue(
     z.object({
       compression: z.string(),
@@ -22,6 +21,14 @@ export const InputSchema = z.object({
       message_subject: z.string().optional(),
       partner_profile_id: z.string(),
       signing_algorithm: z.string(),
+    }).optional(),
+  ),
+  egress_config: resolvableValue(
+    z.object({
+      vpc_lattice: z.object({
+        port_number: z.number().optional(),
+        resource_configuration_arn: z.string(),
+      }).optional(),
     }).optional(),
   ),
   id: resolvableValue(z.string().optional()),
@@ -36,6 +43,14 @@ export const InputSchema = z.object({
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
+  timeouts: resolvableValue(
+    z.object({
+      create: z.string().optional(),
+      delete: z.string().optional(),
+      update: z.string().optional(),
+    }).optional(),
+  ),
+  url: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
@@ -52,7 +67,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_connector
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/transfer_connector
 
 export function AwsTransferConnector(props: Partial<InputProps>) {
   const _title = (node: any) => {

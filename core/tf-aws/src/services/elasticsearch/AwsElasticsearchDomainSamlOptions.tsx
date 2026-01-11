@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticsearch_domain_saml_options
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/elasticsearch_domain_saml_options
 
 export function AwsElasticsearchDomainSamlOptions(props: Partial<InputProps>) {
   const _title = (node: any) => {

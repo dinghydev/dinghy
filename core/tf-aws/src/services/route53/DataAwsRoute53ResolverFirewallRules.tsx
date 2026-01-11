@@ -23,13 +23,18 @@ export const OutputSchema = z.object({
     block_override_domain: z.string(),
     block_override_ttl: z.number(),
     block_response: z.string(),
+    confidence_threshold: z.string(),
     creation_time: z.string(),
     creator_request_id: z.string(),
+    dns_threat_protection: z.string(),
     firewall_domain_list_id: z.string(),
+    firewall_domain_redirection_action: z.string(),
     firewall_rule_group_id: z.string(),
+    firewall_threat_protection_id: z.string(),
     modification_time: z.string(),
     name: z.string(),
     priority: z.number(),
+    q_type: z.string(),
   }).array().optional(),
 })
 
@@ -42,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_rules
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/route53_resolver_firewall_rules
 
 export function DataAwsRoute53ResolverFirewallRules(
   props: Partial<InputProps>,

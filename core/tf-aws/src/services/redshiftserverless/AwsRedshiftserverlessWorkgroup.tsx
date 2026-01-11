@@ -73,7 +73,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/redshiftserverless_workgroup
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/redshiftserverless_workgroup
 
 export function AwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

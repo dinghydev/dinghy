@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/secretsmanager_random_password
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/secretsmanager_random_password
 
 export function DataAwsSecretsmanagerRandomPassword(
   props: Partial<InputProps>,

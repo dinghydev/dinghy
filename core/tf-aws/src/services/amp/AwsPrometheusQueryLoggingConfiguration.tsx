@@ -42,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/prometheus_query_logging_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/prometheus_query_logging_configuration
 
 export function AwsPrometheusQueryLoggingConfiguration(
   props: Partial<InputProps>,

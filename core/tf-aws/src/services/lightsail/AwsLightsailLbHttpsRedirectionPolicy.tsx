@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_lb_https_redirection_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lightsail_lb_https_redirection_policy
 
 export function AwsLightsailLbHttpsRedirectionPolicy(
   props: Partial<InputProps>,

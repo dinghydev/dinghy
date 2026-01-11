@@ -60,7 +60,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appfabric_app_authorization
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/appfabric_app_authorization
 
 export function AwsAppfabricAppAuthorization(props: Partial<InputProps>) {
   const _title = (node: any) => {

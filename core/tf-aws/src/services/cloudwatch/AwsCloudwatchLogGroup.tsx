@@ -10,6 +10,7 @@ import {
 import z from 'zod'
 
 export const InputSchema = z.object({
+  deletion_protection_enabled: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
   log_group_class: resolvableValue(z.string().optional()),
@@ -42,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_group
 
 export function AwsCloudwatchLogGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

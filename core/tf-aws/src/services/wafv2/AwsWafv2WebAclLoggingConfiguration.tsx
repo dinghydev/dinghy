@@ -55,7 +55,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/wafv2_web_acl_logging_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/wafv2_web_acl_logging_configuration
 
 export function AwsWafv2WebAclLoggingConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {

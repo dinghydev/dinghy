@@ -107,7 +107,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/mskconnect_connector
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/mskconnect_connector
 
 export function AwsMskconnectConnector(props: Partial<InputProps>) {
   const _title = (node: any) => {

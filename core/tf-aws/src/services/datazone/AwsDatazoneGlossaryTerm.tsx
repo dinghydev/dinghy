@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datazone_glossary_term
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/datazone_glossary_term
 
 export function AwsDatazoneGlossaryTerm(props: Partial<InputProps>) {
   const _title = (node: any) => {

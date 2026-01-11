@@ -12,7 +12,7 @@ Provides a resource to manage AWS ECR Basic Scan Type
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_account_setting)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_account_setting)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrAccountSetting.tsx)
 
 ```js
@@ -34,7 +34,7 @@ Provides details about an ECR Authorization Token
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_authorization_token)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_authorization_token)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrAuthorizationToken.tsx)
 
 ```js
@@ -47,7 +47,7 @@ import { DataAwsEcrAuthorizationToken } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Ephemeral">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/ephemeral-resources/ecr_authorization_token)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/ephemeral-resources/ecr_authorization_token)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/EphemeralAwsEcrAuthorizationToken.tsx)
 
 ```js
@@ -69,7 +69,7 @@ Provides details about an ECR Image
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_image)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_image)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrImage.tsx)
 
 ```js
@@ -91,7 +91,7 @@ Provides a list of images for a specified ECR Repository
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_images)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_images)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrImages.tsx)
 
 ```js
@@ -113,7 +113,7 @@ Manages an ECR repository lifecycle policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_lifecycle_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_lifecycle_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrLifecyclePolicy.tsx)
 
 ```js
@@ -126,7 +126,7 @@ import { AwsEcrLifecyclePolicy } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_lifecycle_policy#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_lifecycle_policy#import)
 
 ```js
 <AwsEcrLifecyclePolicy
@@ -147,7 +147,7 @@ Generates an ECR lifecycle policy document in JSON format.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_lifecycle_policy_document)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_lifecycle_policy_document)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrLifecyclePolicyDocument.tsx)
 
 ```js
@@ -169,7 +169,7 @@ Provides an Elastic Container Registry Pull Through Cache Rule.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_pull_through_cache_rule)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_pull_through_cache_rule)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrPullThroughCacheRule.tsx)
 
 ```js
@@ -182,13 +182,35 @@ import { AwsEcrPullThroughCacheRule } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_pull_through_cache_rule)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_pull_through_cache_rule)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrPullThroughCacheRule.tsx)
 
 ```js
 import { DataAwsEcrPullThroughCacheRule } from "@dinghy/tf-aws/serviceEcr"
 
 <DataAwsEcrPullThroughCacheRule/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEcrPullTimeUpdateExclusion
+
+Manages an AWS ECR (Elastic Container Registry) Pull Time Update Exclusion.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_pull_time_update_exclusion)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrPullTimeUpdateExclusion.tsx)
+
+```js
+import { AwsEcrPullTimeUpdateExclusion } from "@dinghy/tf-aws/serviceEcr"
+
+<AwsEcrPullTimeUpdateExclusion/>
 ```
 
   </TabItem>
@@ -204,7 +226,7 @@ Provides an Elastic Container Registry Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_registry_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_registry_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrRegistryPolicy.tsx)
 
 ```js
@@ -226,7 +248,7 @@ Provides an Elastic Container Registry Scanning Configuration.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_registry_scanning_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_registry_scanning_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrRegistryScanningConfiguration.tsx)
 
 ```js
@@ -248,7 +270,7 @@ Provides an Elastic Container Registry Replication Configuration.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_replication_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_replication_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrReplicationConfiguration.tsx)
 
 ```js
@@ -270,7 +292,7 @@ Terraform data source for providing information on AWS ECR (Elastic Container Re
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repositories)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_repositories)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrRepositories.tsx)
 
 ```js
@@ -292,7 +314,7 @@ Provides an Elastic Container Registry Repository.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_repository)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrRepository.tsx)
 
 ```js
@@ -305,7 +327,7 @@ import { AwsEcrRepository } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repository)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_repository)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrRepository.tsx)
 
 ```js
@@ -318,7 +340,7 @@ import { DataAwsEcrRepository } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_repository#import)
 
 ```js
 <AwsEcrRepository
@@ -339,7 +361,7 @@ Provides an Elastic Container Registry Repository Creation Template.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_creation_template)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_repository_creation_template)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrRepositoryCreationTemplate.tsx)
 
 ```js
@@ -352,7 +374,7 @@ import { AwsEcrRepositoryCreationTemplate } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repository_creation_template)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_repository_creation_template)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/DataAwsEcrRepositoryCreationTemplate.tsx)
 
 ```js
@@ -374,7 +396,7 @@ Provides an Elastic Container Registry Repository Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_repository_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecr/AwsEcrRepositoryPolicy.tsx)
 
 ```js
@@ -387,7 +409,7 @@ import { AwsEcrRepositoryPolicy } from "@dinghy/tf-aws/serviceEcr"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_repository_policy#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_repository_policy#import)
 
 ```js
 <AwsEcrRepositoryPolicy

@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elastic_beanstalk_application_version
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/elastic_beanstalk_application_version
 
 export function AwsElasticBeanstalkApplicationVersion(
   props: Partial<InputProps>,

@@ -55,12 +55,48 @@ export const InputSchema = z.object({
       }).array(),
     }).array().optional(),
   ),
+  attachment_routing_policy_rules: resolvableValue(
+    z.object({
+      description: z.string().optional(),
+      edge_locations: z.string().array().optional(),
+      rule_number: z.number(),
+      action: z.object({
+        associate_routing_policies: z.string().array(),
+      }),
+      conditions: z.object({
+        type: z.string(),
+        value: z.string(),
+      }).array(),
+    }).array().optional(),
+  ),
   id: resolvableValue(z.string().optional()),
   network_function_groups: resolvableValue(
     z.object({
       description: z.string().optional(),
       name: z.string(),
       require_attachment_acceptance: z.boolean(),
+    }).array().optional(),
+  ),
+  routing_policies: resolvableValue(
+    z.object({
+      routing_policy_description: z.string().optional(),
+      routing_policy_direction: z.string(),
+      routing_policy_name: z.string(),
+      routing_policy_number: z.number(),
+      routing_policy_rules: z.object({
+        rule_number: z.number(),
+        rule_definition: z.object({
+          condition_logic: z.string().optional(),
+          action: z.object({
+            type: z.string(),
+            value: z.string().optional(),
+          }),
+          match_conditions: z.object({
+            type: z.string(),
+            value: z.string(),
+          }).array().optional(),
+        }),
+      }).array(),
     }).array().optional(),
   ),
   segment_actions: resolvableValue(
@@ -73,6 +109,11 @@ export const InputSchema = z.object({
       segment: z.string(),
       share_with: z.string().array().optional(),
       share_with_except: z.string().array().optional(),
+      edge_location_association: z.object({
+        edge_location: z.string(),
+        peer_edge_location: z.string(),
+        routing_policy_names: z.string().array(),
+      }).optional(),
       via: z.object({
         network_function_groups: z.string().array().optional(),
         with_edge_override: z.object({
@@ -102,7 +143,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_core_network_policy_document
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/networkmanager_core_network_policy_document
 
 export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
   props: Partial<InputProps>,

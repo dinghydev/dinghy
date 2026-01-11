@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_authorization_token
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_authorization_token
 
 export function DataAwsEcrAuthorizationToken(props: Partial<InputProps>) {
   const _title = (node: any) => {

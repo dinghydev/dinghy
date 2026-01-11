@@ -70,7 +70,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_container_service
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lightsail_container_service
 
 export function AwsLightsailContainerService(props: Partial<InputProps>) {
   const _title = (node: any) => {

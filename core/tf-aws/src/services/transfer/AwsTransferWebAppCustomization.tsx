@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/transfer_web_app_customization
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/transfer_web_app_customization
 
 export function AwsTransferWebAppCustomization(props: Partial<InputProps>) {
   const _title = (node: any) => {

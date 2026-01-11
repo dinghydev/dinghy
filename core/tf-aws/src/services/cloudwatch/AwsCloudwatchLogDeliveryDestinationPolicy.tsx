@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_delivery_destination_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_delivery_destination_policy
 
 export function AwsCloudwatchLogDeliveryDestinationPolicy(
   props: Partial<InputProps>,

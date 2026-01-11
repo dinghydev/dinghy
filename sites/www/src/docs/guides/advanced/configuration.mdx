@@ -32,12 +32,12 @@ higher priority:
 1. `.dinghyrc.local`: `DINGHY_ENGINE_VERSION=3`
 1. `.dinghyrc`: `DINGHY_ENGINE_VERSION=4`
 1. `~/.dinghyrc`: `DINGHY_ENGINE_VERSION=5`
-1. `dinghy.config.yaml`: `engine.version: 6`
+1. `dinghy.config.yml`: `engine.version: 6`
 
-### dinghy.config.yaml
+### dinghy.config.yml
 
 The primary configuration file for Dinghy is the YAML-based
-`dinghy.config.yaml`. This is typically the first place you will customize how
+`dinghy.config.yml`. This is typically the first place you will customize how
 Dinghy behaves to suit your project's needs.
 
 Different parts of the Dinghy application access this file at various stages.
@@ -77,13 +77,13 @@ different Cli version.
 
 In addition to [Cli Config](#cli-config) above, Engine has options to load
 additional stack based configuration from `config` folder to support
-larger/complex project while keep top level `dinghy.config.yaml` managable.
+larger/complex project while keep top level `dinghy.config.yml` managable.
 
 ### Stack Discovery
 
 There are two way to define a stack:
 
-1. Define your avaiable stacks as top level object in `dinghy.config.yaml`.
+1. Define your avaiable stacks as top level object in `dinghy.config.yml`.
 1. Create `STACK_NAME`.tsx in app home directory
 
 Once defined, you may provide addtional configurations for the stack with guide

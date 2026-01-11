@@ -22,6 +22,7 @@ export const InputSchema = z.object({
   credentials: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   integration_http_method: resolvableValue(z.string().optional()),
+  integration_target: resolvableValue(z.string().optional()),
   passthrough_behavior: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   request_parameters: resolvableValue(
@@ -30,6 +31,7 @@ export const InputSchema = z.object({
   request_templates: resolvableValue(
     z.record(z.string(), z.string()).optional(),
   ),
+  response_transfer_mode: resolvableValue(z.string().optional()),
   timeout_milliseconds: resolvableValue(z.number().optional()),
   tls_config: resolvableValue(
     z.object({
@@ -50,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_integration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/api_gateway_integration
 
 export function AwsApiGatewayIntegration(props: Partial<InputProps>) {
   const _title = (node: any) => {

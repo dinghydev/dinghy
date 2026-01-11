@@ -12,6 +12,7 @@ import z from 'zod'
 export const InputSchema = z.object({
   resource_configuration_identifier: resolvableValue(z.string()),
   service_network_identifier: resolvableValue(z.string()),
+  private_dns_enabled: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -41,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_resource_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpclattice_service_network_resource_association
 
 export function AwsVpclatticeServiceNetworkResourceAssociation(
   props: Partial<InputProps>,

@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecr_pull_through_cache_rule
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecr_pull_through_cache_rule
 
 export function AwsEcrPullThroughCacheRule(props: Partial<InputProps>) {
   const _title = (node: any) => {

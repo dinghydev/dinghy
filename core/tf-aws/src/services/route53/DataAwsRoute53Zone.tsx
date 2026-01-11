@@ -22,6 +22,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   caller_reference: z.string().optional(),
   comment: z.string().optional(),
+  enable_accelerated_recovery: z.boolean().optional(),
   linked_service_description: z.string().optional(),
   linked_service_principal: z.string().optional(),
   name: z.string().optional(),
@@ -42,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_zone
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/route53_zone
 
 export function DataAwsRoute53Zone(props: Partial<InputProps>) {
   const _title = (node: any) => {

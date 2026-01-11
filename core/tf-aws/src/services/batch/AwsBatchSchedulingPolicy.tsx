@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_scheduling_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/batch_scheduling_policy
 
 export function AwsBatchSchedulingPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

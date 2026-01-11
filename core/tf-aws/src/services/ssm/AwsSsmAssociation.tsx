@@ -14,6 +14,7 @@ export const InputSchema = z.object({
   apply_only_at_cron_interval: resolvableValue(z.boolean().optional()),
   association_name: resolvableValue(z.string().optional()),
   automation_target_parameter_name: resolvableValue(z.string().optional()),
+  calendar_names: resolvableValue(z.string().array().optional()),
   compliance_severity: resolvableValue(z.string().optional()),
   document_version: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -64,7 +65,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ssm_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssm_association
 
 export function AwsSsmAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {

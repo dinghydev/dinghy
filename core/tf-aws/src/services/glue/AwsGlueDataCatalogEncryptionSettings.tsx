@@ -37,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_data_catalog_encryption_settings
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/glue_data_catalog_encryption_settings
 
 export function AwsGlueDataCatalogEncryptionSettings(
   props: Partial<InputProps>,

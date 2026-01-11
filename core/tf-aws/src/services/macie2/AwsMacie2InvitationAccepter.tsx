@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_invitation_accepter
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/macie2_invitation_accepter
 
 export function AwsMacie2InvitationAccepter(props: Partial<InputProps>) {
   const _title = (node: any) => {

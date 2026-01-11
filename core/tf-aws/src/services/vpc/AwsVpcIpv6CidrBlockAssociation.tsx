@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipv6_cidr_block_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_ipv6_cidr_block_association
 
 export function AwsVpcIpv6CidrBlockAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {

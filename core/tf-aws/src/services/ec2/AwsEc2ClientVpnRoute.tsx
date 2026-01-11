@@ -38,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_client_vpn_route
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_client_vpn_route
 
 export function AwsEc2ClientVpnRoute(props: Partial<InputProps>) {
   const _title = (node: any) => {

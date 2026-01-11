@@ -37,6 +37,12 @@ export {
 } from './DataAwsS3Bucket.tsx'
 
 export {
+  AwsS3BucketAbac,
+  useAwsS3BucketAbac,
+  useAwsS3BucketAbacs,
+} from './AwsS3BucketAbac.tsx'
+
+export {
   AwsS3BucketAccelerateConfiguration,
   useAwsS3BucketAccelerateConfiguration,
   useAwsS3BucketAccelerateConfigurations,

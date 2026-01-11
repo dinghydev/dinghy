@@ -39,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_firewall_rule_group_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/route53_resolver_firewall_rule_group_association
 
 export function DataAwsRoute53ResolverFirewallRuleGroupAssociation(
   props: Partial<InputProps>,

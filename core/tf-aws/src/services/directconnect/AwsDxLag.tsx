@@ -38,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_lag
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dx_lag
 
 export function AwsDxLag(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -51,7 +51,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_multi_region_access_point
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3control_multi_region_access_point
 
 export function AwsS3controlMultiRegionAccessPoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -42,6 +42,7 @@ export const InputSchema = z.object({
   token_bucket_rate_limiter_capacity: resolvableValue(z.number().optional()),
   use_dualstack_endpoint: resolvableValue(z.boolean().optional()),
   use_fips_endpoint: resolvableValue(z.boolean().optional()),
+  user_agent: resolvableValue(z.string().array().optional()),
   assume_role: resolvableValue(
     z.object({
       duration: z.string().optional(),
@@ -97,6 +98,7 @@ export const InputSchema = z.object({
       appstream: z.string().optional(),
       appsync: z.string().optional(),
       arcregionswitch: z.string().optional(),
+      arczonalshift: z.string().optional(),
       athena: z.string().optional(),
       auditmanager: z.string().optional(),
       autoscaling: z.string().optional(),
@@ -253,7 +255,6 @@ export const InputSchema = z.object({
       location: z.string().optional(),
       locationservice: z.string().optional(),
       logs: z.string().optional(),
-      lookoutmetrics: z.string().optional(),
       m2: z.string().optional(),
       macie2: z.string().optional(),
       managedgrafana: z.string().optional(),
@@ -269,6 +270,7 @@ export const InputSchema = z.object({
       mq: z.string().optional(),
       msk: z.string().optional(),
       mwaa: z.string().optional(),
+      mwaaserverless: z.string().optional(),
       neptune: z.string().optional(),
       neptunegraph: z.string().optional(),
       networkfirewall: z.string().optional(),
@@ -303,6 +305,8 @@ export const InputSchema = z.object({
       ram: z.string().optional(),
       rbin: z.string().optional(),
       rds: z.string().optional(),
+      rdsdata: z.string().optional(),
+      rdsdataservice: z.string().optional(),
       recyclebin: z.string().optional(),
       redshift: z.string().optional(),
       redshiftdata: z.string().optional(),
@@ -408,7 +412,7 @@ export function AwsProvider(props: Partial<InputProps>) {
         required_providers: {
           aws: {
             source: 'aws',
-            version: '6.22.0',
+            version: '6.28.0',
           },
         },
       }}

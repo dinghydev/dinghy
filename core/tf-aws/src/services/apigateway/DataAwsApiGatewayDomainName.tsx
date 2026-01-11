@@ -23,6 +23,7 @@ export const OutputSchema = z.object({
   certificate_upload_date: z.string().optional(),
   cloudfront_domain_name: z.string().optional(),
   cloudfront_zone_id: z.string().optional(),
+  endpoint_access_mode: z.string().optional(),
   endpoint_configuration: z.object({
     ip_address_type: z.string(),
     types: z.string().array(),
@@ -45,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/api_gateway_domain_name
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/api_gateway_domain_name
 
 export function DataAwsApiGatewayDomainName(props: Partial<InputProps>) {
   const _title = (node: any) => {

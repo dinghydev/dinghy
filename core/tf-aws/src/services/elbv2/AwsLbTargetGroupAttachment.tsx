@@ -14,6 +14,7 @@ export const InputSchema = z.object({
   target_id: resolvableValue(z.string()),
   availability_zone: resolvableValue(z.string().optional()),
   port: resolvableValue(z.number().optional()),
+  quic_server_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -30,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_target_group_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lb_target_group_attachment
 
 export function AwsLbTargetGroupAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {

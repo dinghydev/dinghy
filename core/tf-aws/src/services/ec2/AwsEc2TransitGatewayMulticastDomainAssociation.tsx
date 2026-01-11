@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_transit_gateway_multicast_domain_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_transit_gateway_multicast_domain_association
 
 export function AwsEc2TransitGatewayMulticastDomainAssociation(
   props: Partial<InputProps>,

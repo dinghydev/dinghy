@@ -44,6 +44,7 @@ export const InputSchema = z.object({
       type: z.string(),
     }).array(),
   ),
+  target_control_port: resolvableValue(z.number()),
   target_type: resolvableValue(z.string()),
   vpc_id: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
@@ -70,7 +71,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lb_target_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lb_target_group
 
 export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

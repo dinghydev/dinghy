@@ -29,6 +29,9 @@ export const OutputSchema = z.object({
     node_pools: z.set(z.string()),
     node_role_arn: z.string(),
   }).array().optional(),
+  control_plane_scaling_config: z.object({
+    tier: z.string(),
+  }).array().optional(),
   created_at: z.string().optional(),
   deletion_protection: z.boolean().optional(),
   enabled_cluster_log_types: z.set(z.string()).optional(),
@@ -98,7 +101,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/eks_cluster
 
 export function DataAwsEksCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

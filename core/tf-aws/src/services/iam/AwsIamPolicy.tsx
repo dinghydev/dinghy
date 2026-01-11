@@ -11,6 +11,7 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   policy: resolvableValue(z.string()),
+  delay_after_policy_creation_in_ms: resolvableValue(z.number().optional()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
@@ -40,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_policy
 
 export function AwsIamPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53recoveryreadiness_recovery_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53recoveryreadiness_recovery_group
 
 export function AwsRoute53recoveryreadinessRecoveryGroup(
   props: Partial<InputProps>,

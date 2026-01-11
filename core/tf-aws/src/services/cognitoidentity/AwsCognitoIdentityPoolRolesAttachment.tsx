@@ -41,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_identity_pool_roles_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cognito_identity_pool_roles_attachment
 
 export function AwsCognitoIdentityPoolRolesAttachment(
   props: Partial<InputProps>,

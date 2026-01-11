@@ -33,6 +33,7 @@ export const InputSchema = z.object({
       }).array().optional(),
     }).array().optional(),
   ),
+  pipeline_role_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -66,7 +67,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/osis_pipeline
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/osis_pipeline
 
 export function AwsOsisPipeline(props: Partial<InputProps>) {
   const _title = (node: any) => {

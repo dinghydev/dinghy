@@ -42,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/controltower_landing_zone
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/controltower_landing_zone
 
 export function AwsControltowerLandingZone(props: Partial<InputProps>) {
   const _title = (node: any) => {

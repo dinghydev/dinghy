@@ -52,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpc_ipams
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpc_ipams
 
 export function DataAwsVpcIpams(props: Partial<InputProps>) {
   const _title = (node: any) => {

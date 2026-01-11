@@ -27,6 +27,9 @@ export const InputSchema = z.object({
   memory_configuration: resolvableValue(
     z.object({
       enabled_memory_types: z.string().array(),
+      session_summary_configuration: z.object({
+        max_recent_sessions: z.number(),
+      }).array(),
       storage_days: z.number(),
     }).array().optional(),
   ),
@@ -80,7 +83,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagent_agent
 
 export function AwsBedrockagentAgent(props: Partial<InputProps>) {
   const _title = (node: any) => {

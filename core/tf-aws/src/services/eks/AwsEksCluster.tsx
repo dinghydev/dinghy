@@ -35,6 +35,11 @@ export const InputSchema = z.object({
       node_role_arn: z.string().optional(),
     }).optional(),
   ),
+  control_plane_scaling_config: resolvableValue(
+    z.object({
+      tier: z.string().optional(),
+    }).optional(),
+  ),
   deletion_protection: resolvableValue(z.boolean().optional()),
   enabled_cluster_log_types: resolvableValue(z.string().array().optional()),
   encryption_config: resolvableValue(
@@ -132,7 +137,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/eks_cluster
 
 export function AwsEksCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

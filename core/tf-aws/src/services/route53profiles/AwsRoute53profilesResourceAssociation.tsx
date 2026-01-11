@@ -42,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53profiles_resource_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53profiles_resource_association
 
 export function AwsRoute53profilesResourceAssociation(
   props: Partial<InputProps>,

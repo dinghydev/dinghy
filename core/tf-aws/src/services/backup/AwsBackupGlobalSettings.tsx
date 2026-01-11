@@ -25,7 +25,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_global_settings
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/backup_global_settings
 
 export function AwsBackupGlobalSettings(props: Partial<InputProps>) {
   const _title = (node: any) => {

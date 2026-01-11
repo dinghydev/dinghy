@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudfront_log_delivery_canonical_user_id
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudfront_log_delivery_canonical_user_id
 
 export function DataAwsCloudfrontLogDeliveryCanonicalUserId(
   props: Partial<InputProps>,

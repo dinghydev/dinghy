@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_instance_public_ports
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lightsail_instance_public_ports
 
 export function AwsLightsailInstancePublicPorts(props: Partial<InputProps>) {
   const _title = (node: any) => {

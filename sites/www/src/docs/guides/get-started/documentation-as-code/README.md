@@ -138,7 +138,7 @@ not possbile by configure `docusaurus.config.yaml`.
 The `SITE_CONFIG_JSON` object is merged from the following sources, with later
 sources overriding earlier ones.
 
-1. `site` from `dinghy.config.yaml`
+1. `site` from `dinghy.config.yml`
 1. `../docusaurus.config.yaml` file if `--site` options was provided
 1. `docusaurus.config.yaml` file
 

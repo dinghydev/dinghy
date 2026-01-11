@@ -58,7 +58,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/drs_replication_configuration_template
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/drs_replication_configuration_template
 
 export function AwsDrsReplicationConfigurationTemplate(
   props: Partial<InputProps>,

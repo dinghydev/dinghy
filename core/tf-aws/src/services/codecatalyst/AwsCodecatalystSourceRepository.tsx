@@ -37,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codecatalyst_source_repository
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/codecatalyst_source_repository
 
 export function AwsCodecatalystSourceRepository(props: Partial<InputProps>) {
   const _title = (node: any) => {

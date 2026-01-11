@@ -18,6 +18,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_account_id: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =
@@ -29,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/dx_gateway
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dx_gateway
 
 export function DataAwsDxGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {

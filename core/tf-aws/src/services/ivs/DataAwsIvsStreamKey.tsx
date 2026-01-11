@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ivs_stream_key
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ivs_stream_key
 
 export function DataAwsIvsStreamKey(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -54,7 +54,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_outbound_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearch_outbound_connection
 
 export function AwsOpensearchOutboundConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

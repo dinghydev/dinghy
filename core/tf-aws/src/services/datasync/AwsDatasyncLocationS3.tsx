@@ -42,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/datasync_location_s3
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/datasync_location_s3
 
 export function AwsDatasyncLocationS3(props: Partial<InputProps>) {
   const _title = (node: any) => {

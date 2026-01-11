@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_gateway_response
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/api_gateway_gateway_response
 
 export function AwsApiGatewayGatewayResponse(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -11,6 +11,7 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   name: resolvableValue(z.string()),
+  accept_role_session_name: resolvableValue(z.boolean().optional()),
   duration_seconds: resolvableValue(z.number().optional()),
   enabled: resolvableValue(z.boolean().optional()),
   managed_policy_arns: resolvableValue(z.string().array().optional()),
@@ -35,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rolesanywhere_profile
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/rolesanywhere_profile
 
 export function AwsRolesanywhereProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {

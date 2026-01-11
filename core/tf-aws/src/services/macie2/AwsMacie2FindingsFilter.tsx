@@ -51,7 +51,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_findings_filter
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/macie2_findings_filter
 
 export function AwsMacie2FindingsFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {

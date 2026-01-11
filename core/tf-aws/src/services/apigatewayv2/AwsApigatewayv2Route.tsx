@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apigatewayv2_route
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/apigatewayv2_route
 
 export function AwsApigatewayv2Route(props: Partial<InputProps>) {
   const _title = (node: any) => {

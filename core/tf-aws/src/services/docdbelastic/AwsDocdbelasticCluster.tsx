@@ -54,7 +54,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdbelastic_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/docdbelastic_cluster
 
 export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

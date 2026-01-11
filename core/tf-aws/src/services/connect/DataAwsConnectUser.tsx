@@ -48,7 +48,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_user
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/connect_user
 
 export function DataAwsConnectUser(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/grafana_workspace_api_key
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/grafana_workspace_api_key
 
 export function AwsGrafanaWorkspaceApiKey(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -248,6 +248,12 @@ export {
 } from './AwsVpcDhcpOptionsAssociation.tsx'
 
 export {
+  AwsVpcEncryptionControl,
+  useAwsVpcEncryptionControl,
+  useAwsVpcEncryptionControls,
+} from './AwsVpcEncryptionControl.tsx'
+
+export {
   AwsVpcEndpoint,
   useAwsVpcEndpoint,
   useAwsVpcEndpoints,

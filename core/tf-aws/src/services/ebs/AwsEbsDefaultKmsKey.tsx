@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ebs_default_kms_key
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ebs_default_kms_key
 
 export function AwsEbsDefaultKmsKey(props: Partial<InputProps>) {
   const _title = (node: any) => {

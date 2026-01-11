@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_key_signing_key
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_key_signing_key
 
 export function AwsRoute53KeySigningKey(props: Partial<InputProps>) {
   const _title = (node: any) => {

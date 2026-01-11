@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_account_public_access_block
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_account_public_access_block
 
 export function AwsS3AccountPublicAccessBlock(props: Partial<InputProps>) {
   const _title = (node: any) => {

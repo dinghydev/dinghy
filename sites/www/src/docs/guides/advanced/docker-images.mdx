@@ -98,7 +98,7 @@ Terraform.
 The
 [tf Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/Dockerfile.ejs)
 image is built on demand, customized by each user based on their project's
-`dinghy.config.yaml`. This allows users to control Terraform (tf) runtime
+`dinghy.config.yml`. This allows users to control Terraform (tf) runtime
 details such as the vendor (Terraform or OpenTofu), the version, and required
 providers.
 
@@ -109,7 +109,7 @@ By default, several commonly used
 already installed.
 
 If you need additional providers or change provider version, you can easily add
-them by specifying them in your `dinghy.config.yaml` file e.g.
+them by specifying them in your `dinghy.config.yml` file e.g.
 
 ```yaml
 docker:
@@ -187,7 +187,7 @@ The Engine image name is `release`.
 ### Run additional docker build commands
 
 You can specify a list of shell commands in the `republishRuns` array under
-`docker.images.NAME_OF_IMAGE` in your `dinghy.config.yaml` file. These commands
+`docker.images.NAME_OF_IMAGE` in your `dinghy.config.yml` file. These commands
 will be executed as additional build steps when the image is republished.
 
 ### Runtime architecture

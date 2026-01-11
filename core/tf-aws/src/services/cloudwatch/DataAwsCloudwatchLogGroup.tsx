@@ -18,6 +18,7 @@ export const InputSchema = z.object({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.number().optional(),
+  deletion_protection_enabled: z.boolean().optional(),
   kms_key_id: z.string().optional(),
   log_group_class: z.string().optional(),
   retention_in_days: z.number().optional(),
@@ -33,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/cloudwatch_log_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/cloudwatch_log_group
 
 export function DataAwsCloudwatchLogGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

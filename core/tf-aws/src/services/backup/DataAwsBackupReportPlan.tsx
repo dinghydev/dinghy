@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/backup_report_plan
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/backup_report_plan
 
 export function DataAwsBackupReportPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {

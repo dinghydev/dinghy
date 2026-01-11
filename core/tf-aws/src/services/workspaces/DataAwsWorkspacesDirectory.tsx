@@ -24,6 +24,7 @@ export const InputSchema = z.object({
       user_access_url: z.string(),
     }).array(),
   ),
+  tenancy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -83,7 +84,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/workspaces_directory
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/workspaces_directory
 
 export function DataAwsWorkspacesDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {

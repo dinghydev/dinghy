@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elasticache_reserved_cache_node_offering
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/elasticache_reserved_cache_node_offering
 
 export function DataAwsElasticacheReservedCacheNodeOffering(
   props: Partial<InputProps>,

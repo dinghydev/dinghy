@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_organization_configuration_feature
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/guardduty_organization_configuration_feature
 
 export function AwsGuarddutyOrganizationConfigurationFeature(
   props: Partial<InputProps>,

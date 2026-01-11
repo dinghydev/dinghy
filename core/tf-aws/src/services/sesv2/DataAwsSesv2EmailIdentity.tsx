@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sesv2_email_identity
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/sesv2_email_identity
 
 export function DataAwsSesv2EmailIdentity(props: Partial<InputProps>) {
   const _title = (node: any) => {

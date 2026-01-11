@@ -44,6 +44,13 @@ export const InputSchema = z.object({
   enforce_security_group_inbound_rules_on_private_link_traffic: resolvableValue(
     z.string().optional(),
   ),
+  health_check_logs: resolvableValue(
+    z.object({
+      bucket: z.string(),
+      enabled: z.boolean().optional(),
+      prefix: z.string().optional(),
+    }).optional(),
+  ),
   id: resolvableValue(z.string().optional()),
   idle_timeout: resolvableValue(z.number().optional()),
   internal: resolvableValue(z.boolean().optional()),
@@ -110,7 +117,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lb
 
 export function AwsLb(props: Partial<InputProps>) {
   const _title = (node: any) => {

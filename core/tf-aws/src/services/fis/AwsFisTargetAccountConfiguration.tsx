@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fis_target_account_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/fis_target_account_configuration
 
 export function AwsFisTargetAccountConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -83,6 +83,7 @@ export const InputSchema = z.object({
   build_timeout: resolvableValue(z.number().optional()),
   cache: resolvableValue(
     z.object({
+      cache_namespace: z.string().optional(),
       location: z.string().optional(),
       modes: z.string().array().optional(),
       type: z.string().optional(),
@@ -194,7 +195,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/codebuild_project
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/codebuild_project
 
 export function AwsCodebuildProject(props: Partial<InputProps>) {
   const _title = (node: any) => {

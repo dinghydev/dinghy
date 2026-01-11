@@ -81,7 +81,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkfirewall_firewall_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkfirewall_firewall_policy
 
 export function AwsNetworkfirewallFirewallPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

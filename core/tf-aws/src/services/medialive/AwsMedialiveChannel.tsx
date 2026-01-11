@@ -907,7 +907,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/medialive_channel
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/medialive_channel
 
 export function AwsMedialiveChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {

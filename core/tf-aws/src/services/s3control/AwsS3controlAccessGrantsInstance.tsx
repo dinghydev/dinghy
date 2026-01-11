@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_access_grants_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3control_access_grants_instance
 
 export function AwsS3controlAccessGrantsInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

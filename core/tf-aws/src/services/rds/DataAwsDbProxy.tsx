@@ -28,10 +28,12 @@ export const OutputSchema = z.object({
   debug_logging: z.boolean().optional(),
   default_auth_scheme: z.string().optional(),
   endpoint: z.string().optional(),
+  endpoint_network_type: z.string().optional(),
   engine_family: z.string().optional(),
   idle_client_timeout: z.number().optional(),
   require_tls: z.boolean().optional(),
   role_arn: z.string().optional(),
+  target_connection_network_type: z.string().optional(),
   vpc_id: z.string().optional(),
   vpc_security_group_ids: z.set(z.string()).optional(),
   vpc_subnet_ids: z.set(z.string()).optional(),
@@ -46,7 +48,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/db_proxy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/db_proxy
 
 export function DataAwsDbProxy(props: Partial<InputProps>) {
   const _title = (node: any) => {

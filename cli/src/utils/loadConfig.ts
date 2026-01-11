@@ -12,7 +12,7 @@ export const dinghyRcFiles: string[] = [
   `${containerAppHome}/.dinghyrc`,
   `${dinghyHome}rc`,
 ]
-export const dinghyConfigFile = `${hostAppHome}/dinghy.config.yaml`
+export const dinghyConfigFile = `${hostAppHome}/dinghy.config.yml`
 
 export async function loadGlobalConfig() {
   debug('dinghy home %s', dinghyHome)
@@ -105,7 +105,7 @@ function loadEnvFromConfig() {
       const value = String(v)
       Deno.env.set(k, value)
       dinghyRc[k] = value
-      debug('loaded %s=* from dinghy.config.yaml', k)
+      debug('loaded %s=* from dinghy.config.yml', k)
     }
   }
 }

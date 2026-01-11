@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/media_packagev2_channel_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/media_packagev2_channel_group
 
 export function AwsMediaPackagev2ChannelGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

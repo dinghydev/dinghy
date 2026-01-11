@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_configuration_recorder_status
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/config_configuration_recorder_status
 
 export function AwsConfigConfigurationRecorderStatus(
   props: Partial<InputProps>,

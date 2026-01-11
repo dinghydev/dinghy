@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_traffic_policy_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_traffic_policy_instance
 
 export function AwsRoute53TrafficPolicyInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

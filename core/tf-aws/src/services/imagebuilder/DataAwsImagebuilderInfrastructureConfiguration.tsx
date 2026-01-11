@@ -56,7 +56,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_infrastructure_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/imagebuilder_infrastructure_configuration
 
 export function DataAwsImagebuilderInfrastructureConfiguration(
   props: Partial<InputProps>,

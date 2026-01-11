@@ -11,9 +11,11 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   key_id: resolvableValue(z.string()),
-  plaintext: resolvableValue(z.string()),
   context: resolvableValue(z.record(z.string(), z.string()).optional()),
   id: resolvableValue(z.string().optional()),
+  plaintext: resolvableValue(z.string().optional()),
+  plaintext_wo: resolvableValue(z.string().optional()),
+  plaintext_wo_version: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -30,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_ciphertext
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/kms_ciphertext
 
 export function AwsKmsCiphertext(props: Partial<InputProps>) {
   const _title = (node: any) => {

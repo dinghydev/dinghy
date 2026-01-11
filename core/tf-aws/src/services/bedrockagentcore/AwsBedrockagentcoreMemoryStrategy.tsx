@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   memory_id: resolvableValue(z.string()),
-  memory_strategy_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   namespaces: resolvableValue(z.string().array()),
   type: resolvableValue(z.string()),
@@ -40,7 +39,9 @@ export const InputSchema = z.object({
   ),
 }).extend({ ...TfMetaSchema.shape })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  memory_strategy_id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>
@@ -51,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_memory_strategy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_memory_strategy
 
 export function AwsBedrockagentcoreMemoryStrategy(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -37,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kms_alias
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/kms_alias
 
 export function AwsKmsAlias(props: Partial<InputProps>) {
   const _title = (node: any) => {

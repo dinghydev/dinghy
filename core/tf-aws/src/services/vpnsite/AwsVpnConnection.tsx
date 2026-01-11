@@ -39,6 +39,9 @@ export const InputSchema = z.object({
   tunnel1_log_options: resolvableValue(
     z.object({
       cloudwatch_log_options: z.object({
+        bgp_log_enabled: z.boolean().optional(),
+        bgp_log_group_arn: z.string().optional(),
+        bgp_log_output_format: z.string().optional(),
         log_enabled: z.boolean().optional(),
         log_group_arn: z.string().optional(),
         log_output_format: z.string().optional(),
@@ -81,6 +84,9 @@ export const InputSchema = z.object({
   tunnel2_log_options: resolvableValue(
     z.object({
       cloudwatch_log_options: z.object({
+        bgp_log_enabled: z.boolean().optional(),
+        bgp_log_group_arn: z.string().optional(),
+        bgp_log_output_format: z.string().optional(),
         log_enabled: z.boolean().optional(),
         log_group_arn: z.string().optional(),
         log_output_format: z.string().optional(),
@@ -112,6 +118,7 @@ export const InputSchema = z.object({
   tunnel2_rekey_margin_time_seconds: resolvableValue(z.number().optional()),
   tunnel2_replay_window_size: resolvableValue(z.number().optional()),
   tunnel2_startup_action: resolvableValue(z.string().optional()),
+  vpn_concentrator_id: resolvableValue(z.string().optional()),
   vpn_gateway_id: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -163,7 +170,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_connection
 
 export function AwsVpnConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

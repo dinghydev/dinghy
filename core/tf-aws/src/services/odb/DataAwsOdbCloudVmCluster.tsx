@@ -10,7 +10,9 @@ import z from 'zod'
 import { AwsOdbCloudVmCluster } from './AwsOdbCloudVmCluster.tsx'
 
 export const InputSchema = z.object({
+  cloud_exadata_infrastructure_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
+  odb_network_arn: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
@@ -79,7 +81,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/odb_cloud_vm_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/odb_cloud_vm_cluster
 
 export function DataAwsOdbCloudVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

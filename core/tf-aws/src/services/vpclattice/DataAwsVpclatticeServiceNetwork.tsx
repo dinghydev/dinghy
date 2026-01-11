@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpclattice_service_network
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpclattice_service_network
 
 export function DataAwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
   const _title = (node: any) => {

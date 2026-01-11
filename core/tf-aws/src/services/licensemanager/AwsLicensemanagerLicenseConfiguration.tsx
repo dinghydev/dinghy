@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/licensemanager_license_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/licensemanager_license_configuration
 
 export function AwsLicensemanagerLicenseConfiguration(
   props: Partial<InputProps>,

@@ -13,6 +13,16 @@ export const InputSchema = z.object({
   function_name: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   architectures: resolvableValue(z.string().array().optional()),
+  capacity_provider_config: resolvableValue(
+    z.object({
+      lambda_managed_instances_capacity_provider_config: z.object({
+        capacity_provider_arn: z.string(),
+        execution_environment_memory_gib_per_vcpu: z.number().optional(),
+        per_execution_environment_max_concurrency: z.number().optional(),
+      }),
+    }).optional(),
+  ),
+  code_sha256: resolvableValue(z.string().optional()),
   code_signing_config_arn: resolvableValue(z.string().optional()),
   dead_letter_config: resolvableValue(
     z.object({
@@ -20,6 +30,12 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   description: resolvableValue(z.string().optional()),
+  durable_config: resolvableValue(
+    z.object({
+      execution_timeout: z.number(),
+      retention_period: z.number().optional(),
+    }).optional(),
+  ),
   environment: resolvableValue(
     z.object({
       variables: z.record(z.string(), z.string()).optional(),
@@ -60,6 +76,7 @@ export const InputSchema = z.object({
   memory_size: resolvableValue(z.number().optional()),
   package_type: resolvableValue(z.string().optional()),
   publish: resolvableValue(z.boolean().optional()),
+  publish_to: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   replace_security_groups_on_destroy: resolvableValue(z.boolean().optional()),
   replacement_security_group_ids: resolvableValue(
@@ -80,6 +97,11 @@ export const InputSchema = z.object({
   source_code_hash: resolvableValue(z.string().optional()),
   source_kms_key_arn: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  tenancy_config: resolvableValue(
+    z.object({
+      tenant_isolation_mode: z.string(),
+    }).optional(),
+  ),
   timeout: resolvableValue(z.number().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -105,11 +127,11 @@ export const InputSchema = z.object({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  code_sha256: z.string().optional(),
   invoke_arn: z.string().optional(),
   last_modified: z.string().optional(),
   qualified_arn: z.string().optional(),
   qualified_invoke_arn: z.string().optional(),
+  response_streaming_invoke_arn: z.string().optional(),
   signing_job_arn: z.string().optional(),
   signing_profile_version_arn: z.string().optional(),
   source_code_size: z.number().optional(),
@@ -133,7 +155,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_function
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_function
 
 export function AwsLambdaFunction(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/chime_voice_connector_termination_credentials
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/chime_voice_connector_termination_credentials
 
 export function AwsChimeVoiceConnectorTerminationCredentials(
   props: Partial<InputProps>,

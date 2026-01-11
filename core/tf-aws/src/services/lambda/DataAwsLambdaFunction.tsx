@@ -19,12 +19,23 @@ export const InputSchema = z.object({
 export const OutputSchema = z.object({
   architectures: z.string().array().optional(),
   arn: z.string().optional(),
+  capacity_provider_config: z.object({
+    lambda_managed_instances_capacity_provider_config: z.object({
+      capacity_provider_arn: z.string(),
+      execution_environment_memory_gib_per_vcpu: z.number(),
+      per_execution_environment_max_concurrency: z.number(),
+    }).array(),
+  }).array().optional(),
   code_sha256: z.string().optional(),
   code_signing_config_arn: z.string().optional(),
   dead_letter_config: z.object({
     target_arn: z.string(),
   }).array().optional(),
   description: z.string().optional(),
+  durable_config: z.object({
+    execution_timeout: z.number(),
+    retention_period: z.number(),
+  }).array().optional(),
   environment: z.object({
     variables: z.record(z.string(), z.string()),
   }).array().optional(),
@@ -51,6 +62,7 @@ export const OutputSchema = z.object({
   qualified_arn: z.string().optional(),
   qualified_invoke_arn: z.string().optional(),
   reserved_concurrent_executions: z.number().optional(),
+  response_streaming_invoke_arn: z.string().optional(),
   role: z.string().optional(),
   runtime: z.string().optional(),
   signing_job_arn: z.string().optional(),
@@ -59,6 +71,9 @@ export const OutputSchema = z.object({
   source_code_size: z.number().optional(),
   source_kms_key_arn: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
+  tenancy_config: z.object({
+    tenant_isolation_mode: z.string(),
+  }).array().optional(),
   timeout: z.number().optional(),
   tracing_config: z.object({
     mode: z.string(),
@@ -81,7 +96,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lambda_function
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_function
 
 export function DataAwsLambdaFunction(props: Partial<InputProps>) {
   const _title = (node: any) => {

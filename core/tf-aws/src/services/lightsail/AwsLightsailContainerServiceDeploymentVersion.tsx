@@ -58,7 +58,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_container_service_deployment_version
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lightsail_container_service_deployment_version
 
 export function AwsLightsailContainerServiceDeploymentVersion(
   props: Partial<InputProps>,

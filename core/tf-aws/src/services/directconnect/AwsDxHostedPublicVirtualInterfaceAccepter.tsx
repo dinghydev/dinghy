@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dx_hosted_public_virtual_interface_accepter
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dx_hosted_public_virtual_interface_accepter
 
 export function AwsDxHostedPublicVirtualInterfaceAccepter(
   props: Partial<InputProps>,

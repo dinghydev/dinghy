@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/auditmanager_framework
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/auditmanager_framework
 
 export function DataAwsAuditmanagerFramework(props: Partial<InputProps>) {
   const _title = (node: any) => {

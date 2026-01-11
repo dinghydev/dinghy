@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/dynamodb_global_table
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_global_table
 
 export function AwsDynamodbGlobalTable(props: Partial<InputProps>) {
   const _title = (node: any) => {

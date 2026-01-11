@@ -11,6 +11,12 @@ export {
 } from './DataAwsCustomerGateway.tsx'
 
 export {
+  AwsVpnConcentrator,
+  useAwsVpnConcentrator,
+  useAwsVpnConcentrators,
+} from './AwsVpnConcentrator.tsx'
+
+export {
   AwsVpnConnection,
   useAwsVpnConnection,
   useAwsVpnConnections,

@@ -12,6 +12,13 @@ import { AwsEksNodeGroup } from './AwsEksNodeGroup.tsx'
 export const InputSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   node_group_name: resolvableValue(z.string()),
+  update_config: resolvableValue(
+    z.object({
+      max_unavailable: z.number(),
+      max_unavailable_percentage: z.number(),
+      update_strategy: z.string(),
+    }).array(),
+  ),
   region: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
@@ -65,7 +72,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/eks_node_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/eks_node_group
 
 export function DataAwsEksNodeGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

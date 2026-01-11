@@ -14,7 +14,9 @@ export const InputSchema = z.object({
   filter_pattern: resolvableValue(z.string()),
   log_group_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
+  apply_on_transformed_logs: resolvableValue(z.boolean().optional()),
   distribution: resolvableValue(z.string().optional()),
+  emit_system_fields: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
@@ -31,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudwatch_log_subscription_filter
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_subscription_filter
 
 export function AwsCloudwatchLogSubscriptionFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {

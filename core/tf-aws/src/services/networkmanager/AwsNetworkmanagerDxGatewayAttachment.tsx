@@ -13,6 +13,7 @@ export const InputSchema = z.object({
   core_network_id: resolvableValue(z.string()),
   direct_connect_gateway_arn: resolvableValue(z.string()),
   edge_locations: resolvableValue(z.string().array()),
+  routing_policy_label: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -44,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_dx_gateway_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_dx_gateway_attachment
 
 export function AwsNetworkmanagerDxGatewayAttachment(
   props: Partial<InputProps>,

@@ -41,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/connect_queue
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/connect_queue
 
 export function DataAwsConnectQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {

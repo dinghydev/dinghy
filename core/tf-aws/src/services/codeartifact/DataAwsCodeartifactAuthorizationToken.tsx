@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/codeartifact_authorization_token
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/codeartifact_authorization_token
 
 export function DataAwsCodeartifactAuthorizationToken(
   props: Partial<InputProps>,

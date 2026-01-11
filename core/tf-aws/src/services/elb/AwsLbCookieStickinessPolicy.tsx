@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_cookie_stickiness_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lb_cookie_stickiness_policy
 
 export function AwsLbCookieStickinessPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

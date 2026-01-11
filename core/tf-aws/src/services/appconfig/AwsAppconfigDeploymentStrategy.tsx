@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_deployment_strategy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/appconfig_deployment_strategy
 
 export function AwsAppconfigDeploymentStrategy(props: Partial<InputProps>) {
   const _title = (node: any) => {

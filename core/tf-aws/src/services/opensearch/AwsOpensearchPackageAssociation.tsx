@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_package_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearch_package_association
 
 export function AwsOpensearchPackageAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -48,6 +48,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  target_control_port: resolvableValue(z.number().optional()),
   target_failover: resolvableValue(
     z.object({
       on_deregistration: z.string(),
@@ -99,7 +100,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lb_target_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lb_target_group
 
 export function AwsLbTargetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

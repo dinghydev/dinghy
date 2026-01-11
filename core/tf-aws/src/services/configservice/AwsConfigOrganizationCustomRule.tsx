@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/config_organization_custom_rule
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/config_organization_custom_rule
 
 export function AwsConfigOrganizationCustomRule(props: Partial<InputProps>) {
   const _title = (node: any) => {

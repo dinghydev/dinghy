@@ -29700,7 +29700,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_dashboard
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/quicksight_dashboard
 
 export function AwsQuicksightDashboard(props: Partial<InputProps>) {
   const _title = (node: any) => {

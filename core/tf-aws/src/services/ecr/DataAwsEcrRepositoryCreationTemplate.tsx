@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_repository_creation_template
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_repository_creation_template
 
 export function DataAwsEcrRepositoryCreationTemplate(
   props: Partial<InputProps>,

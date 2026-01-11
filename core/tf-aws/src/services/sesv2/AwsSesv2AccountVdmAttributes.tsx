@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_account_vdm_attributes
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sesv2_account_vdm_attributes
 
 export function AwsSesv2AccountVdmAttributes(props: Partial<InputProps>) {
   const _title = (node: any) => {

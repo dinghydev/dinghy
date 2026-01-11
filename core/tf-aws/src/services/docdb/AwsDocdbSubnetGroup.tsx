@@ -21,6 +21,7 @@ export const InputSchema = z.object({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  supported_network_types: z.set(z.string()).optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -33,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdb_subnet_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/docdb_subnet_group
 
 export function AwsDocdbSubnetGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -4,6 +4,12 @@ export {
 } from './AwsDynamodbContributorInsights.tsx'
 
 export {
+  AwsDynamodbGlobalSecondaryIndex,
+  useAwsDynamodbGlobalSecondaryIndex,
+  useAwsDynamodbGlobalSecondaryIndexs,
+} from './AwsDynamodbGlobalSecondaryIndex.tsx'
+
+export {
   AwsDynamodbGlobalTable,
   useAwsDynamodbGlobalTable,
   useAwsDynamodbGlobalTables,

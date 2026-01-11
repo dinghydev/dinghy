@@ -79,6 +79,12 @@ export {
 } from './AwsRedshiftHsmConfiguration.tsx'
 
 export {
+  AwsRedshiftIdcApplication,
+  useAwsRedshiftIdcApplication,
+  useAwsRedshiftIdcApplications,
+} from './AwsRedshiftIdcApplication.tsx'
+
+export {
   AwsRedshiftIntegration,
   useAwsRedshiftIntegration,
   useAwsRedshiftIntegrations,

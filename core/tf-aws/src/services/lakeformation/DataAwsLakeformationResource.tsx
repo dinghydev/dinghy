@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/lakeformation_resource
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lakeformation_resource
 
 export function DataAwsLakeformationResource(props: Partial<InputProps>) {
   const _title = (node: any) => {

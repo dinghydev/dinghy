@@ -37,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagent_agent_knowledge_base_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagent_agent_knowledge_base_association
 
 export function AwsBedrockagentAgentKnowledgeBaseAssociation(
   props: Partial<InputProps>,

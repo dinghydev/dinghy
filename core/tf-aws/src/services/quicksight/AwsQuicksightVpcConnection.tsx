@@ -44,7 +44,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/quicksight_vpc_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/quicksight_vpc_connection
 
 export function AwsQuicksightVpcConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

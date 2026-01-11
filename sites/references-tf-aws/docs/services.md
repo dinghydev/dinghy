@@ -193,6 +193,7 @@
 - [S3 Control](./services/s3control.mdx)
 - [S3 on Outposts](./services/s3outposts.mdx)
 - [S3 Tables](./services/s3tables.mdx)
+- [S3 Vectors](./services/s3vectors.mdx)
 - [SageMaker AI](./services/sagemaker.mdx)
 - [EventBridge Scheduler](./services/scheduler.mdx)
 - [EventBridge Schemas](./services/schemas.mdx)

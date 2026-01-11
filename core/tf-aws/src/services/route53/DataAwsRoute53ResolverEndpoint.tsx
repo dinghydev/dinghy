@@ -28,7 +28,9 @@ export const OutputSchema = z.object({
   ip_addresses: z.set(z.string()).optional(),
   protocols: z.set(z.string()).optional(),
   resolver_endpoint_type: z.string().optional(),
+  rni_enhanced_metrics_enabled: z.boolean().optional(),
   status: z.string().optional(),
+  target_name_server_metrics_enabled: z.boolean().optional(),
   vpc_id: z.string().optional(),
 })
 
@@ -41,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/route53_resolver_endpoint
 
 export function DataAwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

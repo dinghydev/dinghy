@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/elb_hosted_zone_id
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/elb_hosted_zone_id
 
 export function DataAwsElbHostedZoneId(props: Partial<InputProps>) {
   const _title = (node: any) => {

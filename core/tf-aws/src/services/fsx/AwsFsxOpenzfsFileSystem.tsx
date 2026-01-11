@@ -31,6 +31,12 @@ export const InputSchema = z.object({
   ),
   kms_key_id: resolvableValue(z.string().optional()),
   preferred_subnet_id: resolvableValue(z.string().optional()),
+  read_cache_configuration: resolvableValue(
+    z.object({
+      size: z.number().optional(),
+      sizing_mode: z.string().optional(),
+    }).optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   root_volume_configuration: resolvableValue(
     z.object({
@@ -88,7 +94,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/fsx_openzfs_file_system
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/fsx_openzfs_file_system
 
 export function AwsFsxOpenzfsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {

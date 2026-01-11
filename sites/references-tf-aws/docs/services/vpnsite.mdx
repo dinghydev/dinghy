@@ -14,7 +14,7 @@ establish tunnels between your network and the VPC.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/customer_gateway)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/customer_gateway)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsCustomerGateway.tsx)
 
 ```js
@@ -27,13 +27,35 @@ import { AwsCustomerGateway } from "@dinghy/tf-aws/serviceVpnsite"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/customer_gateway)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/customer_gateway)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/DataAwsCustomerGateway.tsx)
 
 ```js
 import { DataAwsCustomerGateway } from "@dinghy/tf-aws/serviceVpnsite"
 
 <DataAwsCustomerGateway/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsVpnConcentrator
+
+Provides a resource to create a VPN Concentrator.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_concentrator)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnConcentrator.tsx)
+
+```js
+import { AwsVpnConcentrator } from "@dinghy/tf-aws/serviceVpnsite"
+
+<AwsVpnConcentrator/>
 ```
 
   </TabItem>
@@ -49,7 +71,7 @@ Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Inter
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_connection)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnConnection.tsx)
 
 ```js
@@ -62,7 +84,7 @@ import { AwsVpnConnection } from "@dinghy/tf-aws/serviceVpnsite"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_connection)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpn_connection)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/DataAwsVpnConnection.tsx)
 
 ```js
@@ -84,7 +106,7 @@ Provides a static route between a VPN connection and a customer gateway.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_connection_route)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_connection_route)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnConnectionRoute.tsx)
 
 ```js
@@ -106,7 +128,7 @@ Provides a resource to create a VPC VPN Gateway.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_gateway)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnGateway.tsx)
 
 ```js
@@ -119,7 +141,7 @@ import { AwsVpnGateway } from "@dinghy/tf-aws/serviceVpnsite"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_gateway)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpn_gateway)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/DataAwsVpnGateway.tsx)
 
 ```js
@@ -141,7 +163,7 @@ Provides a Virtual Private Gateway attachment resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway_attachment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_gateway_attachment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnGatewayAttachment.tsx)
 
 ```js
@@ -163,7 +185,7 @@ Requests automatic route propagation between a VPN gateway and a route table.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpn_gateway_route_propagation)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpn_gateway_route_propagation)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/vpnsite/AwsVpnGatewayRoutePropagation.tsx)
 
 ```js

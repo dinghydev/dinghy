@@ -25,7 +25,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_account_suppression_attributes
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sesv2_account_suppression_attributes
 
 export function AwsSesv2AccountSuppressionAttributes(
   props: Partial<InputProps>,

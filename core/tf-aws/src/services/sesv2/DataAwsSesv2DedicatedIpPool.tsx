@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sesv2_dedicated_ip_pool
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/sesv2_dedicated_ip_pool
 
 export function DataAwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -16,6 +16,7 @@ export const InputSchema = z.object({
   certificate_chain: resolvableValue(z.string().optional()),
   certificate_name: resolvableValue(z.string().optional()),
   certificate_private_key: resolvableValue(z.string().optional()),
+  endpoint_access_mode: resolvableValue(z.string().optional()),
   endpoint_configuration: resolvableValue(
     z.object({
       ip_address_type: z.string().optional(),
@@ -37,6 +38,12 @@ export const InputSchema = z.object({
   regional_certificate_name: resolvableValue(z.string().optional()),
   security_policy: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  timeouts: resolvableValue(
+    z.object({
+      create: z.string().optional(),
+      update: z.string().optional(),
+    }).optional(),
+  ),
 }).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
@@ -60,7 +67,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_domain_name
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/api_gateway_domain_name
 
 export function AwsApiGatewayDomainName(props: Partial<InputProps>) {
   const _title = (node: any) => {

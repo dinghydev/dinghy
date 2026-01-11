@@ -15,6 +15,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
   delegation_set_id: resolvableValue(z.string().optional()),
+  enable_accelerated_recovery: resolvableValue(z.boolean().optional()),
   force_destroy: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -50,7 +51,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_zone
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_zone
 
 export function AwsRoute53Zone(props: Partial<InputProps>) {
   const _title = (node: any) => {

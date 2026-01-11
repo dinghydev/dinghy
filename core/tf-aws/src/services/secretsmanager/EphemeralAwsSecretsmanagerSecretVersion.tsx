@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/ephemeral-resources/secretsmanager_secret_version
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/ephemeral-resources/secretsmanager_secret_version
 
 export function EphemeralAwsSecretsmanagerSecretVersion(
   props: Partial<InputProps>,

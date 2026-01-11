@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/glue_registry
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/glue_registry
 
 export function AwsGlueRegistry(props: Partial<InputProps>) {
   const _title = (node: any) => {

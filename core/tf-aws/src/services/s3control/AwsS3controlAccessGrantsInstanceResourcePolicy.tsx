@@ -27,7 +27,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3control_access_grants_instance_resource_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3control_access_grants_instance_resource_policy
 
 export function AwsS3controlAccessGrantsInstanceResourcePolicy(
   props: Partial<InputProps>,

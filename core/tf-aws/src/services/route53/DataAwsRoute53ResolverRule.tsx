@@ -24,6 +24,12 @@ export const OutputSchema = z.object({
   owner_id: z.string().optional(),
   share_status: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
+  target_ips: z.set(z.object({
+    ip: z.string(),
+    ipv6: z.string(),
+    port: z.number(),
+    protocol: z.string(),
+  })).optional(),
 })
 
 export type InputProps =
@@ -35,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/route53_resolver_rule
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/route53_resolver_rule
 
 export function DataAwsRoute53ResolverRule(props: Partial<InputProps>) {
   const _title = (node: any) => {

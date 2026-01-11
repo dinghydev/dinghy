@@ -75,6 +75,7 @@ export const InputSchema = z.object({
     z.object({
       max_unavailable: z.number().optional(),
       max_unavailable_percentage: z.number().optional(),
+      update_strategy: z.string().optional(),
     }).optional(),
   ),
   version: resolvableValue(z.string().optional()),
@@ -102,7 +103,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/eks_node_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/eks_node_group
 
 export function AwsEksNodeGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

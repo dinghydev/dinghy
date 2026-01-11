@@ -20,7 +20,9 @@ export const InputSchema = z.object({
       greater_than_or_equal: z.string().optional(),
       less_than: z.string().optional(),
       less_than_or_equal: z.string().optional(),
+      matches: z.string().array().optional(),
       not_equals: z.string().array().optional(),
+      not_matches: z.string().array().optional(),
     }).array(),
   })),
   name: resolvableValue(z.string()),
@@ -45,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/guardduty_filter
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/guardduty_filter
 
 export function AwsGuarddutyFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/msk_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/msk_configuration
 
 export function DataAwsMskConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {

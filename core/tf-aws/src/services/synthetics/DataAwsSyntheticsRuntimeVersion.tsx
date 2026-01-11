@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/synthetics_runtime_version
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/synthetics_runtime_version
 
 export function DataAwsSyntheticsRuntimeVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {

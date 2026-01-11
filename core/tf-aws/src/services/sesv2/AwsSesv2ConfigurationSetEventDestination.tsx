@@ -52,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_configuration_set_event_destination
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sesv2_configuration_set_event_destination
 
 export function AwsSesv2ConfigurationSetEventDestination(
   props: Partial<InputProps>,

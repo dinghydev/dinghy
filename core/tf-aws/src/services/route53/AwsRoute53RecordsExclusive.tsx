@@ -70,7 +70,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_records_exclusive
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_records_exclusive
 
 export function AwsRoute53RecordsExclusive(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -196,7 +196,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/opensearch_domain
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearch_domain
 
 export function AwsOpensearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -3084,7 +3084,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_intent
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lexv2models_intent
 
 export function AwsLexv2modelsIntent(props: Partial<InputProps>) {
   const _title = (node: any) => {

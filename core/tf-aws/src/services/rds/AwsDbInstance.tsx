@@ -154,6 +154,7 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
   storage_encrypted: z.boolean().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  upgrade_rollout_order: z.string().optional(),
   username: z.string().optional(),
 })
 
@@ -166,7 +167,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/db_instance
 
 export function AwsDbInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

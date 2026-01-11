@@ -41,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_connection
 
 export function AwsNetworkmanagerConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

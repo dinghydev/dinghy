@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/auditmanager_assessment_delegation
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/auditmanager_assessment_delegation
 
 export function AwsAuditmanagerAssessmentDelegation(
   props: Partial<InputProps>,

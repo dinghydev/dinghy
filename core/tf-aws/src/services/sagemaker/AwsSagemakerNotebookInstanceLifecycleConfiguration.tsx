@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sagemaker_notebook_instance_lifecycle_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sagemaker_notebook_instance_lifecycle_configuration
 
 export function AwsSagemakerNotebookInstanceLifecycleConfiguration(
   props: Partial<InputProps>,

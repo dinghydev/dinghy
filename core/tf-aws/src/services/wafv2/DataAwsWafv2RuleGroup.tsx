@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafv2_rule_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/wafv2_rule_group
 
 export function DataAwsWafv2RuleGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

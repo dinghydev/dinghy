@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_policies_for_target
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_policies_for_target
 
 export function DataAwsOrganizationsPoliciesForTarget(
   props: Partial<InputProps>,

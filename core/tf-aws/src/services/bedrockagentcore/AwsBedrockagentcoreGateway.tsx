@@ -25,6 +25,19 @@ export const InputSchema = z.object({
   ),
   description: resolvableValue(z.string().optional()),
   exception_level: resolvableValue(z.string().optional()),
+  interceptor_configuration: resolvableValue(
+    z.object({
+      interception_points: z.string().array(),
+      input_configuration: z.object({
+        pass_request_headers: z.boolean(),
+      }).array().optional(),
+      interceptor: z.object({
+        lambda: z.object({
+          arn: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
+  ),
   kms_key_arn: resolvableValue(z.string().optional()),
   protocol_configuration: resolvableValue(
     z.object({
@@ -65,7 +78,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_gateway
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_gateway
 
 export function AwsBedrockagentcoreGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -50,7 +50,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/appconfig_extension
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/appconfig_extension
 
 export function AwsAppconfigExtension(props: Partial<InputProps>) {
   const _title = (node: any) => {

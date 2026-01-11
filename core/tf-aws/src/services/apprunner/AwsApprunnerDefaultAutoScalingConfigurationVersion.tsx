@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/apprunner_default_auto_scaling_configuration_version
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/apprunner_default_auto_scaling_configuration_version
 
 export function AwsApprunnerDefaultAutoScalingConfigurationVersion(
   props: Partial<InputProps>,

@@ -26,10 +26,12 @@ export const InputSchema = z.object({
   ),
   debug_logging: resolvableValue(z.boolean().optional()),
   default_auth_scheme: resolvableValue(z.string().optional()),
+  endpoint_network_type: resolvableValue(z.string().optional()),
   idle_client_timeout: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   require_tls: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  target_connection_network_type: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
@@ -56,7 +58,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/db_proxy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/db_proxy
 
 export function AwsDbProxy(props: Partial<InputProps>) {
   const _title = (node: any) => {

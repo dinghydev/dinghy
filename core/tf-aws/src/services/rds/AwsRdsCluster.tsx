@@ -144,6 +144,7 @@ export const OutputSchema = z.object({
   replication_source_identifier: z.string().optional(),
   storage_encrypted: z.boolean().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  upgrade_rollout_order: z.string().optional(),
 })
 
 export type InputProps =
@@ -155,7 +156,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/rds_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/rds_cluster
 
 export function AwsRdsCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

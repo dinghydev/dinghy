@@ -80,7 +80,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_slot_type
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lexv2models_slot_type
 
 export function AwsLexv2modelsSlotType(props: Partial<InputProps>) {
   const _title = (node: any) => {

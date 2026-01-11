@@ -6,6 +6,12 @@ export {
 } from './DataAwsLambdaAlias.tsx'
 
 export {
+  AwsLambdaCapacityProvider,
+  useAwsLambdaCapacityProvider,
+  useAwsLambdaCapacityProviders,
+} from './AwsLambdaCapacityProvider.tsx'
+
+export {
   AwsLambdaCodeSigningConfig,
   useAwsLambdaCodeSigningConfig,
   useAwsLambdaCodeSigningConfigs,

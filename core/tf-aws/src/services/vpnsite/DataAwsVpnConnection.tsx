@@ -44,6 +44,7 @@ export const OutputSchema = z.object({
     status: z.string(),
     status_message: z.string(),
   }).array().optional(),
+  vpn_concentrator_id: z.string().optional(),
   vpn_gateway_id: z.string().optional(),
 })
 
@@ -56,7 +57,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/vpn_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpn_connection
 
 export function DataAwsVpnConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -5,6 +5,12 @@ export {
 } from './AwsOrganizationsAccount.tsx'
 
 export {
+  DataAwsOrganizationsAccount,
+  useDataAwsOrganizationsAccount,
+  useDataAwsOrganizationsAccounts,
+} from './DataAwsOrganizationsAccount.tsx'
+
+export {
   AwsOrganizationsDelegatedAdministrator,
   useAwsOrganizationsDelegatedAdministrator,
   useAwsOrganizationsDelegatedAdministrators,
@@ -103,3 +109,9 @@ export {
   DataAwsOrganizationsResourceTags,
   useDataAwsOrganizationsResourceTagss,
 } from './DataAwsOrganizationsResourceTags.tsx'
+
+export {
+  AwsOrganizationsTag,
+  useAwsOrganizationsTag,
+  useAwsOrganizationsTags,
+} from './AwsOrganizationsTag.tsx'

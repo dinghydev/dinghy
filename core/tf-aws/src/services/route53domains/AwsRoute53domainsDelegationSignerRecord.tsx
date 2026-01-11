@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53domains_delegation_signer_record
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53domains_delegation_signer_record
 
 export function AwsRoute53domainsDelegationSignerRecord(
   props: Partial<InputProps>,

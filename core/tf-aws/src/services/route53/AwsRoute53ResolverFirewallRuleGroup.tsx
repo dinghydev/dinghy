@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_resolver_firewall_rule_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_resolver_firewall_rule_group
 
 export function AwsRoute53ResolverFirewallRuleGroup(
   props: Partial<InputProps>,

@@ -31,6 +31,12 @@ export {
 } from './DataAwsEksAddonVersion.tsx'
 
 export {
+  AwsEksCapability,
+  useAwsEksCapability,
+  useAwsEksCapabilitys,
+} from './AwsEksCapability.tsx'
+
+export {
   AwsEksCluster,
   useAwsEksCluster,
   useAwsEksClusters,

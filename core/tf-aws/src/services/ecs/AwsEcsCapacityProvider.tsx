@@ -31,7 +31,11 @@ export const InputSchema = z.object({
     z.object({
       infrastructure_role_arn: z.string(),
       propagate_tags: z.string().optional(),
+      infrastructure_optimization: z.object({
+        scale_in_after: z.number().optional(),
+      }).optional(),
       instance_launch_template: z.object({
+        capacity_option_type: z.string().optional(),
         ec2_instance_profile_arn: z.string(),
         monitoring: z.string().optional(),
         instance_requirements: z.object({
@@ -122,7 +126,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_capacity_provider
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_capacity_provider
 
 export function AwsEcsCapacityProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {

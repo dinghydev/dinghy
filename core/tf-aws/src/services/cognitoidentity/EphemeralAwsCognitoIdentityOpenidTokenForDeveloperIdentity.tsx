@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/ephemeral-resources/cognito_identity_openid_token_for_developer_identity
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/ephemeral-resources/cognito_identity_openid_token_for_developer_identity
 
 export function EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity(
   props: Partial<InputProps>,

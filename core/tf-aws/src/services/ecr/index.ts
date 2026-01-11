@@ -49,6 +49,12 @@ export {
 } from './DataAwsEcrPullThroughCacheRule.tsx'
 
 export {
+  AwsEcrPullTimeUpdateExclusion,
+  useAwsEcrPullTimeUpdateExclusion,
+  useAwsEcrPullTimeUpdateExclusions,
+} from './AwsEcrPullTimeUpdateExclusion.tsx'
+
+export {
   AwsEcrRegistryPolicy,
   useAwsEcrRegistryPolicy,
   useAwsEcrRegistryPolicys,

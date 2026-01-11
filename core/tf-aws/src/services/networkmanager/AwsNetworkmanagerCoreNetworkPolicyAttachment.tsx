@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_core_network_policy_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_core_network_policy_attachment
 
 export function AwsNetworkmanagerCoreNetworkPolicyAttachment(
   props: Partial<InputProps>,

@@ -12,6 +12,13 @@ import z from 'zod'
 export const InputSchema = z.object({
   service_network_identifier: resolvableValue(z.string()),
   vpc_identifier: resolvableValue(z.string()),
+  dns_options: resolvableValue(
+    z.object({
+      private_dns_preference: z.string().optional(),
+      private_dns_specified_domains: z.string().array().optional(),
+    }).optional(),
+  ),
+  private_dns_enabled: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   security_group_ids: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -41,7 +48,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_vpc_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpclattice_service_network_vpc_association
 
 export function AwsVpclatticeServiceNetworkVpcAssociation(
   props: Partial<InputProps>,

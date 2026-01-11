@@ -39,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/organizations_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_policy
 
 export function AwsOrganizationsPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -27,7 +27,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/waf_subscribed_rule_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/waf_subscribed_rule_group
 
 export function DataAwsWafSubscribedRuleGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

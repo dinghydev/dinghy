@@ -50,6 +50,7 @@ export const InputSchema = z.object({
   reader_endpoint: resolvableValue(z.string()),
   replication_source_identifier: resolvableValue(z.string()),
   storage_encrypted: resolvableValue(z.boolean()),
+  upgrade_rollout_order: resolvableValue(z.string()),
   vpc_security_group_ids: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -68,7 +69,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/rds_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/rds_cluster
 
 export function DataAwsRdsCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

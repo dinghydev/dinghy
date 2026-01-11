@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_cidr_collection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_cidr_collection
 
 export function AwsRoute53CidrCollection(props: Partial<InputProps>) {
   const _title = (node: any) => {

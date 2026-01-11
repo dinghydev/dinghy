@@ -12,7 +12,7 @@ Provides an ECS Default account setting.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_account_setting_default)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_account_setting_default)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsAccountSettingDefault.tsx)
 
 ```js
@@ -34,7 +34,7 @@ Provides an ECS cluster capacity provider.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_capacity_provider)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_capacity_provider)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsCapacityProvider.tsx)
 
 ```js
@@ -47,7 +47,7 @@ import { AwsEcsCapacityProvider } from "@dinghy/tf-aws/serviceEcs"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_capacity_provider#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_capacity_provider#import)
 
 ```js
 <AwsEcsCapacityProvider
@@ -68,7 +68,7 @@ Provides an ECS cluster.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_cluster)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_cluster)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsCluster.tsx)
 
 ```js
@@ -81,7 +81,7 @@ import { AwsEcsCluster } from "@dinghy/tf-aws/serviceEcs"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_cluster)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_cluster)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/DataAwsEcsCluster.tsx)
 
 ```js
@@ -103,7 +103,7 @@ Provides an ECS cluster capacity providers resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_cluster_capacity_providers)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_cluster_capacity_providers)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsClusterCapacityProviders.tsx)
 
 ```js
@@ -125,7 +125,7 @@ Terraform data source for managing an AWS ECS (Elastic Container) Clusters.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_clusters)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_clusters)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/DataAwsEcsClusters.tsx)
 
 ```js
@@ -147,13 +147,35 @@ Provides details about a single container within an ecs task definition
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_container_definition)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_container_definition)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/DataAwsEcsContainerDefinition.tsx)
 
 ```js
 import { DataAwsEcsContainerDefinition } from "@dinghy/tf-aws/serviceEcs"
 
 <DataAwsEcsContainerDefinition/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsEcsExpressGatewayService
+
+Manages an ECS Express Gateway Service.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_express_gateway_service)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsExpressGatewayService.tsx)
+
+```js
+import { AwsEcsExpressGatewayService } from "@dinghy/tf-aws/serviceEcs"
+
+<AwsEcsExpressGatewayService/>
 ```
 
   </TabItem>
@@ -169,7 +191,7 @@ Provides an ECS service.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_service)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_service)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsService.tsx)
 
 ```js
@@ -182,7 +204,7 @@ import { AwsEcsService } from "@dinghy/tf-aws/serviceEcs"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_service)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_service)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/DataAwsEcsService.tsx)
 
 ```js
@@ -204,7 +226,7 @@ Manages an individual ECS resource tag
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_tag)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_tag)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsTag.tsx)
 
 ```js
@@ -226,7 +248,7 @@ Manages a revision of an ECS task definition.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_task_definition)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_task_definition)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsTaskDefinition.tsx)
 
 ```js
@@ -239,7 +261,7 @@ import { AwsEcsTaskDefinition } from "@dinghy/tf-aws/serviceEcs"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_task_definition)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_task_definition)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/DataAwsEcsTaskDefinition.tsx)
 
 ```js
@@ -261,7 +283,7 @@ Terraform data source for managing an AWS ECS (Elastic Container) Task Execution
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecs_task_execution)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_task_execution)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/DataAwsEcsTaskExecution.tsx)
 
 ```js
@@ -283,7 +305,7 @@ Provides an ECS task set.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ecs_task_set)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_task_set)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecs/AwsEcsTaskSet.tsx)
 
 ```js

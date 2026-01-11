@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpclattice_service_network_service_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpclattice_service_network_service_association
 
 export function AwsVpclatticeServiceNetworkServiceAssociation(
   props: Partial<InputProps>,

@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sns_topic_data_protection_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sns_topic_data_protection_policy
 
 export function AwsSnsTopicDataProtectionPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

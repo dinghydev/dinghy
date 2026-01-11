@@ -84,7 +84,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/acmpca_certificate_authority
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/acmpca_certificate_authority
 
 export function AwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   const _title = (node: any) => {

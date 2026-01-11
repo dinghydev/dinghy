@@ -67,3 +67,9 @@ export {
   DataAwsSecretsmanagerSecretVersions,
   useDataAwsSecretsmanagerSecretVersionss,
 } from './DataAwsSecretsmanagerSecretVersions.tsx'
+
+export {
+  AwsSecretsmanagerTag,
+  useAwsSecretsmanagerTag,
+  useAwsSecretsmanagerTags,
+} from './AwsSecretsmanagerTag.tsx'

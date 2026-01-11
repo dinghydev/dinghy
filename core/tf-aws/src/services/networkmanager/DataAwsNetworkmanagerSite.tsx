@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/networkmanager_site
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/networkmanager_site
 
 export function DataAwsNetworkmanagerSite(props: Partial<InputProps>) {
   const _title = (node: any) => {

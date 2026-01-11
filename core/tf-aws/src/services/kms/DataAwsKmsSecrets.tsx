@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kms_secrets
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/kms_secrets
 
 export function DataAwsKmsSecrets(props: Partial<InputProps>) {
   const _title = (node: any) => {

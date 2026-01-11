@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sagemaker_prebuilt_ecr_image
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/sagemaker_prebuilt_ecr_image
 
 export function DataAwsSagemakerPrebuiltEcrImage(props: Partial<InputProps>) {
   const _title = (node: any) => {

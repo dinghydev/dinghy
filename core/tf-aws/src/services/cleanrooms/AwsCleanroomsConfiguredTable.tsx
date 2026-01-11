@@ -53,7 +53,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cleanrooms_configured_table
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cleanrooms_configured_table
 
 export function AwsCleanroomsConfiguredTable(props: Partial<InputProps>) {
   const _title = (node: any) => {

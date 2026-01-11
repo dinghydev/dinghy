@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudsearch_domain_service_access_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudsearch_domain_service_access_policy
 
 export function AwsCloudsearchDomainServiceAccessPolicy(
   props: Partial<InputProps>,

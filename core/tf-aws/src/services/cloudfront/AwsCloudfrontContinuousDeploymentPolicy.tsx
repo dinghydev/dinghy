@@ -51,7 +51,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_continuous_deployment_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_continuous_deployment_policy
 
 export function AwsCloudfrontContinuousDeploymentPolicy(
   props: Partial<InputProps>,

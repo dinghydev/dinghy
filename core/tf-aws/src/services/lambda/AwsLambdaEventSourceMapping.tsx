@@ -68,6 +68,7 @@ export const InputSchema = z.object({
     z.object({
       maximum_pollers: z.number().optional(),
       minimum_pollers: z.number().optional(),
+      poller_group_name: z.string().optional(),
     }).optional(),
   ),
   queues: resolvableValue(z.string().array().optional()),
@@ -131,7 +132,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lambda_event_source_mapping
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_event_source_mapping
 
 export function AwsLambdaEventSourceMapping(props: Partial<InputProps>) {
   const _title = (node: any) => {

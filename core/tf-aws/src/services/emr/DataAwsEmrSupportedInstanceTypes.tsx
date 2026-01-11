@@ -39,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/emr_supported_instance_types
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/emr_supported_instance_types
 
 export function DataAwsEmrSupportedInstanceTypes(props: Partial<InputProps>) {
   const _title = (node: any) => {

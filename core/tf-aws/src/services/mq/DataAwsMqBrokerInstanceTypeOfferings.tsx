@@ -38,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/mq_broker_instance_type_offerings
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/mq_broker_instance_type_offerings
 
 export function DataAwsMqBrokerInstanceTypeOfferings(
   props: Partial<InputProps>,

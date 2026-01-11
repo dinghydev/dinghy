@@ -43,6 +43,7 @@ export const InputSchema = z.object({
   ),
   subnet_ids: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  tenancy: resolvableValue(z.string().optional()),
   user_identity_type: resolvableValue(z.string().optional()),
   workspace_access_properties: resolvableValue(
     z.object({
@@ -93,7 +94,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/workspaces_directory
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/workspaces_directory
 
 export function AwsWorkspacesDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {

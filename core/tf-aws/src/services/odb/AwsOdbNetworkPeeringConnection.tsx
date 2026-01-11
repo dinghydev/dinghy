@@ -12,8 +12,9 @@ import z from 'zod'
 export const InputSchema = z.object({
   arn: resolvableValue(z.string()),
   display_name: resolvableValue(z.string()),
-  odb_network_id: resolvableValue(z.string()),
   peer_network_id: resolvableValue(z.string()),
+  odb_network_arn: resolvableValue(z.string().optional()),
+  odb_network_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -28,7 +29,6 @@ export const InputSchema = z.object({
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
   id: z.string().optional(),
-  odb_network_arn: z.string().optional(),
   odb_peering_connection_type: z.string().optional(),
   peer_network_arn: z.string().optional(),
   percent_progress: z.number().optional(),
@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/odb_network_peering_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/odb_network_peering_connection
 
 export function AwsOdbNetworkPeeringConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

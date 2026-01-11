@@ -34,6 +34,7 @@ export const OutputSchema = z.object({
   default_route_table_propagation: z.string().optional(),
   description: z.string().optional(),
   dns_support: z.string().optional(),
+  encryption_support: z.string().optional(),
   id: z.string().optional(),
   multicast_support: z.string().optional(),
   owner_id: z.string().optional(),
@@ -53,7 +54,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ec2_transit_gateway
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ec2_transit_gateway
 
 export function DataAwsEc2TransitGateway(props: Partial<InputProps>) {
   const _title = (node: any) => {

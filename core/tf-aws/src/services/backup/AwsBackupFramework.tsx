@@ -55,7 +55,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/backup_framework
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/backup_framework
 
 export function AwsBackupFramework(props: Partial<InputProps>) {
   const _title = (node: any) => {

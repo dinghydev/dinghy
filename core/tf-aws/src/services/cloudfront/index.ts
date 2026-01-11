@@ -11,6 +11,24 @@ export {
 } from './DataAwsCloudfrontCachePolicy.tsx'
 
 export {
+  AwsCloudfrontConnectionFunction,
+  useAwsCloudfrontConnectionFunction,
+  useAwsCloudfrontConnectionFunctions,
+} from './AwsCloudfrontConnectionFunction.tsx'
+
+export {
+  AwsCloudfrontConnectionGroup,
+  useAwsCloudfrontConnectionGroup,
+  useAwsCloudfrontConnectionGroups,
+} from './AwsCloudfrontConnectionGroup.tsx'
+
+export {
+  DataAwsCloudfrontConnectionGroup,
+  useDataAwsCloudfrontConnectionGroup,
+  useDataAwsCloudfrontConnectionGroups,
+} from './DataAwsCloudfrontConnectionGroup.tsx'
+
+export {
   AwsCloudfrontContinuousDeploymentPolicy,
   useAwsCloudfrontContinuousDeploymentPolicy,
   useAwsCloudfrontContinuousDeploymentPolicys,
@@ -27,6 +45,18 @@ export {
   useDataAwsCloudfrontDistribution,
   useDataAwsCloudfrontDistributions,
 } from './DataAwsCloudfrontDistribution.tsx'
+
+export {
+  AwsCloudfrontDistributionTenant,
+  useAwsCloudfrontDistributionTenant,
+  useAwsCloudfrontDistributionTenants,
+} from './AwsCloudfrontDistributionTenant.tsx'
+
+export {
+  DataAwsCloudfrontDistributionTenant,
+  useDataAwsCloudfrontDistributionTenant,
+  useDataAwsCloudfrontDistributionTenants,
+} from './DataAwsCloudfrontDistributionTenant.tsx'
 
 export {
   AwsCloudfrontFieldLevelEncryptionConfig,
@@ -75,6 +105,12 @@ export {
   useAwsCloudfrontMonitoringSubscription,
   useAwsCloudfrontMonitoringSubscriptions,
 } from './AwsCloudfrontMonitoringSubscription.tsx'
+
+export {
+  AwsCloudfrontMultitenantDistribution,
+  useAwsCloudfrontMultitenantDistribution,
+  useAwsCloudfrontMultitenantDistributions,
+} from './AwsCloudfrontMultitenantDistribution.tsx'
 
 export {
   AwsCloudfrontOriginAccessControl,
@@ -146,6 +182,12 @@ export {
   useDataAwsCloudfrontResponseHeadersPolicy,
   useDataAwsCloudfrontResponseHeadersPolicys,
 } from './DataAwsCloudfrontResponseHeadersPolicy.tsx'
+
+export {
+  AwsCloudfrontTrustStore,
+  useAwsCloudfrontTrustStore,
+  useAwsCloudfrontTrustStores,
+} from './AwsCloudfrontTrustStore.tsx'
 
 export {
   AwsCloudfrontVpcOrigin,

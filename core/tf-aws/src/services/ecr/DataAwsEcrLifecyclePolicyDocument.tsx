@@ -15,12 +15,14 @@ export const InputSchema = z.object({
       description: z.string().optional(),
       priority: z.number(),
       action: z.object({
+        target_storage_class: z.string().optional(),
         type: z.string(),
       }).array().optional(),
       selection: z.object({
         count_number: z.number(),
         count_type: z.string(),
         count_unit: z.string().optional(),
+        storage_class: z.string().optional(),
         tag_pattern_list: z.string().array().optional(),
         tag_prefix_list: z.string().array().optional(),
         tag_status: z.string(),
@@ -42,7 +44,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/ecr_lifecycle_policy_document
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecr_lifecycle_policy_document
 
 export function DataAwsEcrLifecyclePolicyDocument(props: Partial<InputProps>) {
   const _title = (node: any) => {

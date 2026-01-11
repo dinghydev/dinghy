@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/kendra_query_suggestions_block_list
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/kendra_query_suggestions_block_list
 
 export function DataAwsKendraQuerySuggestionsBlockList(
   props: Partial<InputProps>,

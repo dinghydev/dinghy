@@ -69,7 +69,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/network_interface
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/network_interface
 
 export function DataAwsNetworkInterface(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -16,6 +16,8 @@ export const InputSchema = z.object({
     z.object({
       dns_record_ip_type: z.string().optional(),
       private_dns_only_for_inbound_resolver_endpoint: z.boolean().optional(),
+      private_dns_preference: z.string().optional(),
+      private_dns_specified_domains: z.string().array().optional(),
     }).optional(),
   ),
   ip_address_type: resolvableValue(z.string().optional()),
@@ -79,7 +81,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_endpoint
 
 export function AwsVpcEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -17,15 +17,15 @@ export const InputSchema = z.object({
       text_data_delivery_enabled: z.boolean().optional(),
       video_data_delivery_enabled: z.boolean().optional(),
       cloudwatch_config: z.object({
-        log_group_name: z.string().optional(),
-        role_arn: z.string().optional(),
+        log_group_name: z.string(),
+        role_arn: z.string(),
         large_data_delivery_s3_config: z.object({
-          bucket_name: z.string().optional(),
+          bucket_name: z.string(),
           key_prefix: z.string().optional(),
         }).array().optional(),
       }).array().optional(),
       s3_config: z.object({
-        bucket_name: z.string().optional(),
+        bucket_name: z.string(),
         key_prefix: z.string().optional(),
       }).array().optional(),
     }).array().optional(),
@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrock_model_invocation_logging_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrock_model_invocation_logging_configuration
 
 export function AwsBedrockModelInvocationLoggingConfiguration(
   props: Partial<InputProps>,

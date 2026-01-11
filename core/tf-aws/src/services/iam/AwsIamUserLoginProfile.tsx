@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_login_profile
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_user_login_profile
 
 export function AwsIamUserLoginProfile(props: Partial<InputProps>) {
   const _title = (node: any) => {

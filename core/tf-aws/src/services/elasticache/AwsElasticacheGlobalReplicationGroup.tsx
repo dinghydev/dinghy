@@ -53,7 +53,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/elasticache_global_replication_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/elasticache_global_replication_group
 
 export function AwsElasticacheGlobalReplicationGroup(
   props: Partial<InputProps>,

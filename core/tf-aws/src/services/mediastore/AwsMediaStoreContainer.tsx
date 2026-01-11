@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/media_store_container
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/media_store_container
 
 export function AwsMediaStoreContainer(props: Partial<InputProps>) {
   const _title = (node: any) => {

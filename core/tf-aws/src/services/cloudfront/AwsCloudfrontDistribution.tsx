@@ -85,6 +85,7 @@ export const InputSchema = z.object({
       vpc_origin_config: z.object({
         origin_keepalive_timeout: z.number().optional(),
         origin_read_timeout: z.number().optional(),
+        owner_account_id: z.string().optional(),
         vpc_origin_id: z.string(),
       }).optional(),
     }).array(),
@@ -105,6 +106,11 @@ export const InputSchema = z.object({
   aliases: resolvableValue(z.string().array().optional()),
   anycast_ip_list_id: resolvableValue(z.string().optional()),
   comment: resolvableValue(z.string().optional()),
+  connection_function_association: resolvableValue(
+    z.object({
+      id: z.string(),
+    }).optional(),
+  ),
   continuous_deployment_policy_id: resolvableValue(z.string().optional()),
   custom_error_response: resolvableValue(
     z.object({
@@ -181,6 +187,16 @@ export const InputSchema = z.object({
   retain_on_delete: resolvableValue(z.boolean().optional()),
   staging: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  viewer_mtls_config: resolvableValue(
+    z.object({
+      mode: z.string().optional(),
+      trust_store_config: z.object({
+        advertise_trust_store_ca_names: z.boolean().optional(),
+        ignore_certificate_expiry: z.boolean().optional(),
+        trust_store_id: z.string(),
+      }).optional(),
+    }).optional(),
+  ),
   wait_for_deployment: resolvableValue(z.boolean().optional()),
   web_acl_id: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
@@ -223,7 +239,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cloudfront_distribution
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_distribution
 
 export function AwsCloudfrontDistribution(props: Partial<InputProps>) {
   const _title = (node: any) => {

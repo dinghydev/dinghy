@@ -59,7 +59,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/batch_job_queue
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/batch_job_queue
 
 export function AwsBatchJobQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {

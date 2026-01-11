@@ -98,6 +98,12 @@ export {
 } from './AwsIamOrganizationsFeatures.tsx'
 
 export {
+  AwsIamOutboundWebIdentityFederation,
+  useAwsIamOutboundWebIdentityFederation,
+  useAwsIamOutboundWebIdentityFederations,
+} from './AwsIamOutboundWebIdentityFederation.tsx'
+
+export {
   AwsIamPolicy,
   useAwsIamPolicy,
   useAwsIamPolicys,

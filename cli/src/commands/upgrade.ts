@@ -16,7 +16,7 @@ const options: CommandOptions = {
   description: {
     version: 'The version to upgrade to',
     'update-project':
-      'By default, upgrade will also update your project engine version if `dinghy.config.yaml` exist in current folder. You may pass `--no-update-project` to skip it.',
+      'By default, upgrade will also update your project engine version if `dinghy.config.yml` exist in current folder. You may pass `--no-update-project` to skip it.',
   },
   boolean: ['update-project'],
   negatable: ['update-project'],

@@ -21,6 +21,7 @@ export const InputSchema = z.object({
       security_group_referencing_support: z.boolean().optional(),
     }).optional(),
   ),
+  routing_policy_label: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -54,7 +55,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/networkmanager_vpc_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_vpc_attachment
 
 export function AwsNetworkmanagerVpcAttachment(props: Partial<InputProps>) {
   const _title = (node: any) => {

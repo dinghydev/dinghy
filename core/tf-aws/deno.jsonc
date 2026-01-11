@@ -194,6 +194,7 @@
     "./serviceS3control": "./src/services/s3control/index.ts",
     "./serviceS3outposts": "./src/services/s3outposts/index.ts",
     "./serviceS3tables": "./src/services/s3tables/index.ts",
+    "./serviceS3vectors": "./src/services/s3vectors/index.ts",
     "./serviceSagemaker": "./src/services/sagemaker/index.ts",
     "./serviceScheduler": "./src/services/scheduler/index.ts",
     "./serviceSchemas": "./src/services/schemas/index.ts",

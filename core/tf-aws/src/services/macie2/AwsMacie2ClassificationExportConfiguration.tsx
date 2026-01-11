@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/macie2_classification_export_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/macie2_classification_export_configuration
 
 export function AwsMacie2ClassificationExportConfiguration(
   props: Partial<InputProps>,

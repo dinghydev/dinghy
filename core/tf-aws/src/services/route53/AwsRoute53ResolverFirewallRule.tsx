@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   action: resolvableValue(z.string()),
-  firewall_domain_list_id: resolvableValue(z.string()),
   firewall_rule_group_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   priority: resolvableValue(z.number()),
@@ -19,12 +18,16 @@ export const InputSchema = z.object({
   block_override_domain: resolvableValue(z.string().optional()),
   block_override_ttl: resolvableValue(z.number().optional()),
   block_response: resolvableValue(z.string().optional()),
+  confidence_threshold: resolvableValue(z.string().optional()),
+  dns_threat_protection: resolvableValue(z.string().optional()),
+  firewall_domain_list_id: resolvableValue(z.string().optional()),
   firewall_domain_redirection_action: resolvableValue(z.string().optional()),
   q_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 }).extend({ ...TfMetaSchema.shape })
 
 export const OutputSchema = z.object({
+  firewall_threat_protection_id: z.string().optional(),
   id: z.string().optional(),
 })
 
@@ -37,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_resolver_firewall_rule
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_resolver_firewall_rule
 
 export function AwsRoute53ResolverFirewallRule(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -39,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cur_report_definition
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cur_report_definition
 
 export function AwsCurReportDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {

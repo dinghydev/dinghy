@@ -28,7 +28,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/wafregional_subscribed_rule_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/wafregional_subscribed_rule_group
 
 export function DataAwsWafregionalSubscribedRuleGroup(
   props: Partial<InputProps>,

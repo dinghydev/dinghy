@@ -33,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_protection_group
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/shield_protection_group
 
 export function AwsShieldProtectionGroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

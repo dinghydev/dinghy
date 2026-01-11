@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = z.object({
   virtual_mfa_device_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
   path: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 }).extend({ ...TfMetaSchema.shape })
@@ -20,7 +19,9 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   base_32_string_seed: z.string().optional(),
   enable_date: z.string().optional(),
+  id: z.string().optional(),
   qr_code_png: z.string().optional(),
+  serial_number: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   user_name: z.string().optional(),
 })
@@ -34,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_virtual_mfa_device
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_virtual_mfa_device
 
 export function AwsIamVirtualMfaDevice(props: Partial<InputProps>) {
   const _title = (node: any) => {

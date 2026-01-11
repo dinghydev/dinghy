@@ -41,7 +41,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket_versioning
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_versioning
 
 export function AwsS3BucketVersioning(props: Partial<InputProps>) {
   const _title = (node: any) => {

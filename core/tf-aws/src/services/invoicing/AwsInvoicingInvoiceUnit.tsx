@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/invoicing_invoice_unit
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/invoicing_invoice_unit
 
 export function AwsInvoicingInvoiceUnit(props: Partial<InputProps>) {
   const _title = (node: any) => {

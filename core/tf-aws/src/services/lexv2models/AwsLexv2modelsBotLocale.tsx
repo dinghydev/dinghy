@@ -45,7 +45,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lexv2models_bot_locale
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lexv2models_bot_locale
 
 export function AwsLexv2modelsBotLocale(props: Partial<InputProps>) {
   const _title = (node: any) => {

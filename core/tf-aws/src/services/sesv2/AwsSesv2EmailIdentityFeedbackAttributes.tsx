@@ -26,7 +26,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/sesv2_email_identity_feedback_attributes
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sesv2_email_identity_feedback_attributes
 
 export function AwsSesv2EmailIdentityFeedbackAttributes(
   props: Partial<InputProps>,

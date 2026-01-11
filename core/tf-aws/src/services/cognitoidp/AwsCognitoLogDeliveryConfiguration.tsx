@@ -47,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/cognito_log_delivery_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cognito_log_delivery_configuration
 
 export function AwsCognitoLogDeliveryConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {

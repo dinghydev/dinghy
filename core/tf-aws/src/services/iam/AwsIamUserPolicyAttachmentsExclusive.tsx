@@ -25,7 +25,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_user_policy_attachments_exclusive
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_user_policy_attachments_exclusive
 
 export function AwsIamUserPolicyAttachmentsExclusive(
   props: Partial<InputProps>,

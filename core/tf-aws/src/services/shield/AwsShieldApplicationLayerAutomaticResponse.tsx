@@ -38,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/shield_application_layer_automatic_response
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/shield_application_layer_automatic_response
 
 export function AwsShieldApplicationLayerAutomaticResponse(
   props: Partial<InputProps>,

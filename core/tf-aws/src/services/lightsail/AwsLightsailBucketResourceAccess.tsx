@@ -27,7 +27,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/lightsail_bucket_resource_access
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lightsail_bucket_resource_access
 
 export function AwsLightsailBucketResourceAccess(props: Partial<InputProps>) {
   const _title = (node: any) => {

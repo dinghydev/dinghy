@@ -79,7 +79,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/autoscalingplans_scaling_plan
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/autoscalingplans_scaling_plan
 
 export function AwsAutoscalingplansScalingPlan(props: Partial<InputProps>) {
   const _title = (node: any) => {

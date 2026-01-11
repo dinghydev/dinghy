@@ -47,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/ec2_traffic_mirror_filter_rule
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_traffic_mirror_filter_rule
 
 export function AwsEc2TrafficMirrorFilterRule(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -30,7 +30,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/sqs_queue
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/sqs_queue
 
 export function DataAwsSqsQueue(props: Partial<InputProps>) {
   const _title = (node: any) => {

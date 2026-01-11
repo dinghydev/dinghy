@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/vpc_ipam_resource_discovery_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_ipam_resource_discovery_association
 
 export function AwsVpcIpamResourceDiscoveryAssociation(
   props: Partial<InputProps>,

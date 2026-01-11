@@ -37,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/api_gateway_domain_name_access_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/api_gateway_domain_name_access_association
 
 export function AwsApiGatewayDomainNameAccessAssociation(
   props: Partial<InputProps>,

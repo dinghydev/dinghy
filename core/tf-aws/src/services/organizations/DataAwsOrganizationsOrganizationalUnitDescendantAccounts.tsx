@@ -35,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/organizations_organizational_unit_descendant_accounts
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organizational_unit_descendant_accounts
 
 export function DataAwsOrganizationsOrganizationalUnitDescendantAccounts(
   props: Partial<InputProps>,

@@ -39,6 +39,7 @@ export const InputSchema = z.object({
   master_password_wo: resolvableValue(z.string().optional()),
   master_password_wo_version: resolvableValue(z.number().optional()),
   master_username: resolvableValue(z.string().optional()),
+  network_type: resolvableValue(z.string().optional()),
   port: resolvableValue(z.number().optional()),
   preferred_backup_window: resolvableValue(z.string().optional()),
   preferred_maintenance_window: resolvableValue(z.string().optional()),
@@ -92,7 +93,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/docdb_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/docdb_cluster
 
 export function AwsDocdbCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

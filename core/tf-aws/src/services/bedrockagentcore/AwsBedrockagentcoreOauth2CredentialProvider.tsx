@@ -131,7 +131,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/bedrockagentcore_oauth2_credential_provider
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_oauth2_credential_provider
 
 export function AwsBedrockagentcoreOauth2CredentialProvider(
   props: Partial<InputProps>,

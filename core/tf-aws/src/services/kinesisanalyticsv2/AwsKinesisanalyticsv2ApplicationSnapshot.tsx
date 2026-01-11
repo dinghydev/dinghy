@@ -36,7 +36,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/kinesisanalyticsv2_application_snapshot
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/kinesisanalyticsv2_application_snapshot
 
 export function AwsKinesisanalyticsv2ApplicationSnapshot(
   props: Partial<InputProps>,

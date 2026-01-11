@@ -25,7 +25,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/iam_role_policies_exclusive
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_role_policies_exclusive
 
 export function AwsIamRolePoliciesExclusive(props: Partial<InputProps>) {
   const _title = (node: any) => {

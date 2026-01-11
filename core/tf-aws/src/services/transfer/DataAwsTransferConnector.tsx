@@ -28,6 +28,12 @@ export const OutputSchema = z.object({
     partner_profile_id: z.string(),
     singing_algorithm: z.string(),
   }).array().optional(),
+  egress_config: z.object({
+    vpc_lattice: z.object({
+      port_number: z.number(),
+      resource_configuration_arn: z.string(),
+    }).array(),
+  }).array().optional(),
   logging_role: z.string().optional(),
   security_policy_name: z.string().optional(),
   service_managed_egress_ip_addresses: z.string().array().optional(),
@@ -48,7 +54,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/transfer_connector
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/transfer_connector
 
 export function DataAwsTransferConnector(props: Partial<InputProps>) {
   const _title = (node: any) => {

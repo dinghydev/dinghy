@@ -34,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/data-sources/imagebuilder_components
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/imagebuilder_components
 
 export function DataAwsImagebuilderComponents(props: Partial<InputProps>) {
   const _title = (node: any) => {

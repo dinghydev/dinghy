@@ -24,7 +24,9 @@ export const InputSchema = z.object({
   protocols: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   resolver_endpoint_type: resolvableValue(z.string().optional()),
+  rni_enhanced_metrics_enabled: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  target_name_server_metrics_enabled: resolvableValue(z.boolean().optional()),
   timeouts: resolvableValue(
     z.object({
       create: z.string().optional(),
@@ -50,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/route53_resolver_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_resolver_endpoint
 
 export function AwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

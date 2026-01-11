@@ -27,7 +27,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/connect_phone_number_contact_flow_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/connect_phone_number_contact_flow_association
 
 export function AwsConnectPhoneNumberContactFlowAssociation(
   props: Partial<InputProps>,
