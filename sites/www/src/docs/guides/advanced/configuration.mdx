@@ -108,13 +108,13 @@ The active stack has configuration loaded based on stack name. e.g. for stack
 name `foo-bar-baz`, it will has following ordered priority configurable files to
 load from:
 
-1. foo-bar-baz.yaml
-1. bar-baz.yaml
-1. foo-bar.yaml
-1. baz.yaml
-1. bar.yaml
-1. foo.yaml
-1. default.yaml
+1. foo-bar-baz.yml
+1. bar-baz.yml
+1. foo-bar.yml
+1. baz.yml
+1. bar.yml
+1. foo.yml
+1. default.yml
 
 ### Stack override
 
@@ -152,7 +152,7 @@ export const renderOptions = (options: RenderOptions){
     options.stack.title=`Enviroment: ${options.stack.id}`
     if(options.stack.id==='application'){
         options.stack.configUrls={
-          'inputs.mysolutionstack.output': 'https://my-solution-network-backend.s3.us-east-1.amazonaws.com/output/stack.yaml'
+          'inputs.mysolutionstack.output': 'https://my-solution-network-backend.s3.us-east-1.amazonaws.com/output/stack.yml'
         }
     }
 }
@@ -166,7 +166,7 @@ export const renderOptions = (options: RenderOptions){
 1. For `https` URLs, you can embed authentication credentials directly (e.g.,
    `https://username:password@example.com/myconfig.json`).
 1. S3 object URLs (e.g.,
-   `https://my-bucket.s3.us-west-2.amazonaws.com/my-folder/config.yaml`) can
+   `https://my-bucket.s3.us-west-2.amazonaws.com/my-folder/config.yml`) can
    also be provided. They will be fetched using AWS authentication via the AWS
    S3 SDK.
 1. Both YAML and JSON configuration formats are accepted.

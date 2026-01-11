@@ -44,8 +44,8 @@ const resolveOutputDir = (siteDir: string, args: CommandArgs) => {
 
 const resolveSiteConfig = (siteDir: string): any => {
   const configFiles = [
-    `${siteDir}/../docusaurus.config.yaml`,
-    `${siteDir}/docusaurus.config.yaml`,
+    `${siteDir}/../docusaurus.config.yml`,
+    `${siteDir}/docusaurus.config.yml`,
   ]
   const configs: any[] = []
   if (dinghyAppConfig.site) {
@@ -117,7 +117,7 @@ export const runDocusaurusCmd = async (
   }
   for await (const f of Deno.readDir(siteDir)) {
     if (
-      !['docusaurus.config.yaml', 'output', 'build'].includes(f.name)
+      !['docusaurus.config.yml', 'output', 'build'].includes(f.name)
     ) {
       dockerVolumnes.push({
         source: `${siteDir}/${f.name}`,

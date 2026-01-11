@@ -41,10 +41,10 @@ export async function loadUrlData(url: string): Promise<any> {
   } else if (fetchUrl.includes('.amazonaws.com/')) {
     // The following S3 URLs are supported and parsed:
     //
-    // 1. https://my-bucket.s3.us-west-2.amazonaws.com/my-folder/config.yaml
+    // 1. https://my-bucket.s3.us-west-2.amazonaws.com/my-folder/config.yml
     //      - bucket: my-bucket
     //      - region: us-west-2
-    //      - key: my-folder/config.yaml
+    //      - key: my-folder/config.yml
     // 2. https://s3.us-west-2.amazonaws.com/bucket/my-folder/config.json
     //      - bucket: bucket
     //      - region: us-west-2

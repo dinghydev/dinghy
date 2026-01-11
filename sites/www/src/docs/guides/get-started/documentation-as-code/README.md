@@ -106,9 +106,9 @@ Which is equivalent of `docusaurus swizzle --list`
 
 ## Configuration
 
-### docusaurus.config.yaml
+### docusaurus.config.yml
 
-It's recommended to use `docusaurus.config.yaml` to provide
+It's recommended to use `docusaurus.config.yml` to provide
 [docusaurus configuration](https://docusaurus.io/docs/api/docusaurus-config).
 
 You may provide override values with the simple yaml format where necessary.
@@ -131,7 +131,7 @@ please refer to the source code for details.
 You may provide your own
 [docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/opt/docusaurus/docusaurus.config.ts)
 in the root folder of site to override the default for advanced control which
-not possbile by configure `docusaurus.config.yaml`.
+not possbile by configure `docusaurus.config.yml`.
 
 ### site config sources
 
@@ -139,8 +139,8 @@ The `SITE_CONFIG_JSON` object is merged from the following sources, with later
 sources overriding earlier ones.
 
 1. `site` from `dinghy.config.yml`
-1. `../docusaurus.config.yaml` file if `--site` options was provided
-1. `docusaurus.config.yaml` file
+1. `../docusaurus.config.yml` file if `--site` options was provided
+1. `docusaurus.config.yml` file
 
 ## Pre-installed packages
 

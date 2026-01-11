@@ -44,7 +44,7 @@ function loadFiles(basePaths: string[]) {
         const filePath = dirEntry.path
         const fileText = Deno.readTextFileSync(filePath)
         debug('loading file %s', filePath)
-        const fileConfig = filePath.endsWith('.yaml')
+        const fileConfig = filePath.endsWith('.yml')
           ? yaml.parse(fileText)
           : fileText
         const objectPath = filePath.substring(hostAppHome.length + 1).split(

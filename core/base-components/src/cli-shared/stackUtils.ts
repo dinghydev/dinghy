@@ -178,7 +178,7 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
   if (!current) {
     if (!name) {
       const filePaths = path.split('/')
-      const fileName = `${filePaths.pop()}.yaml`
+      const fileName = `${filePaths.pop()}.yml`
       let current = options.files
       for (const path of filePaths) {
         if (!current || typeof current !== 'object') {
@@ -197,10 +197,10 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
   if (name) {
     const tags = nameTags(name)
     tags.map((tag) => {
-      const value = current[`${tag}.yaml`]
+      const value = current[`${tag}.yml`]
       if (value) {
         deepMerge(data, value)
-        debug('loaded file data %s %s/%s.yaml', name, path, tag)
+        debug('loaded file data %s %s/%s.yml', name, path, tag)
       }
     })
   } else {
