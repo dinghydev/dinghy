@@ -256,15 +256,21 @@
       }
     },
     "aws_s3_bucket_logging": {
-      "examplecom_root_bucketlogging": {
+      "examplecom_root_bucket_logging": {
         "bucket": "example-com-website",
         "target_bucket": "examplecom-website-logs-eu-west-1",
-        "target_prefix": "s3-access-log/example-com-website/"
+        "target_prefix": "s3-access-log/example-com-website/",
+        "depends_on": [
+          "aws_s3_bucket.examplecom_root_bucket"
+        ]
       },
-      "examplecom_subsite_bucketlogging": {
+      "examplecom_subsite_bucket_logging": {
         "bucket": "example-com-subsite",
         "target_bucket": "examplecom-website-logs-eu-west-1",
-        "target_prefix": "s3-access-log/example-com-subsite/"
+        "target_prefix": "s3-access-log/example-com-subsite/",
+        "depends_on": [
+          "aws_s3_bucket.examplecom_subsite_bucket"
+        ]
       },
       "awss3bucket_regionallogbucket_logging": {
         "bucket": "examplecom-website-logs-eu-west-1",
@@ -285,13 +291,19 @@
       }
     },
     "aws_s3_bucket_policy": {
-      "examplecom_root_bucketpolicy": {
+      "examplecom_root_bucket_policy": {
         "bucket": "example-com-website",
-        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-website/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}"
+        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-website/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}",
+        "depends_on": [
+          "aws_s3_bucket.examplecom_root_bucket"
+        ]
       },
-      "examplecom_subsite_bucketpolicy": {
+      "examplecom_subsite_bucket_policy": {
         "bucket": "example-com-subsite",
-        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-subsite/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}"
+        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-subsite/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}",
+        "depends_on": [
+          "aws_s3_bucket.examplecom_subsite_bucket"
+        ]
       },
       "awss3bucket_regionallogbucket_policy": {
         "bucket": "examplecom-website-logs-eu-west-1",

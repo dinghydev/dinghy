@@ -223,10 +223,13 @@
       }
     },
     "aws_s3_bucket_logging": {
-      "cloudfrontsitedemodinghydev_site_root_bucketlogging": {
+      "cloudfrontsitedemodinghydev_site_root_bucket_logging": {
         "bucket": "dinghy-dev-demo-sites-origin",
         "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
-        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-origin/"
+        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-origin/",
+        "depends_on": [
+          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
+        ]
       },
       "awss3bucket_regionallogbucket_logging": {
         "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
@@ -247,9 +250,12 @@
       }
     },
     "aws_s3_bucket_policy": {
-      "cloudfrontsitedemodinghydev_site_root_bucketpolicy": {
+      "cloudfrontsitedemodinghydev_site_root_bucket_policy": {
         "bucket": "dinghy-dev-demo-sites-origin",
-        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-origin/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.arn}\"]}}}]}"
+        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-origin/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.arn}\"]}}}]}",
+        "depends_on": [
+          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
+        ]
       },
       "awss3bucket_regionallogbucket_policy": {
         "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
@@ -257,7 +263,7 @@
       }
     },
     "aws_s3_object": {
-      "cloudfrontsitedemodinghydev_site_root_404html": {
+      "dinghydevdemositesorigin_404html": {
         "bucket": "dinghy-dev-demo-sites-origin",
         "cache_control": "max-age=3600, public, must-revalidate",
         "content_type": "text/html; charset=UTF-8",
@@ -268,10 +274,10 @@
         "key": "/404.html",
         "tags": {
           "Name": "/404.html",
-          "iac:id": "cloudfrontsitedemodinghydev_site_root_404html"
+          "iac:id": "dinghydevdemositesorigin_404html"
         }
       },
-      "cloudfrontsitedemodinghydev_site_root_indexhtml": {
+      "dinghydevdemositesorigin_indexhtml": {
         "bucket": "dinghy-dev-demo-sites-origin",
         "cache_control": "max-age=3600, public, must-revalidate",
         "content_type": "text/html; charset=UTF-8",
@@ -282,7 +288,7 @@
         "key": "/index.html",
         "tags": {
           "Name": "/index.html",
-          "iac:id": "cloudfrontsitedemodinghydev_site_root_indexhtml"
+          "iac:id": "dinghydevdemositesorigin_indexhtml"
         }
       }
     },

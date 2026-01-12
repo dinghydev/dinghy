@@ -39,7 +39,7 @@
           <mxGeometry
             as="geometry" 
             width="300" 
-            height="470" 
+            height="360" 
             x="0" 
             y="0"
             />
@@ -106,9 +106,9 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.folder;" 
-          id="folder_examples" 
+          id="folder_sites" 
           parent="columns" 
-          value="examples" 
+          value="sites" 
           vertex="1"
           >
           <mxGeometry
@@ -180,36 +180,6 @@
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
-          id="columns_3" 
-          parent="stack" 
-          value="Columns" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="270" 
-            height="110" 
-            x="15" 
-            y="345"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.folder;" 
-          id="folder_sites" 
-          parent="columns_3" 
-          value="sites" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="105" 
-            y="15"
-            />
-          </mxCell>
-        <mxCell
           id="dependency" 
           source="folder_engine" 
           target="folder_core" 
@@ -237,7 +207,7 @@
           </mxCell>
         <mxCell
           id="dependency_2" 
-          source="folder_examples" 
+          source="folder_sites" 
           target="folder_core" 
           parent="root" 
           edge="1" 
@@ -329,7 +299,7 @@
               as="points"
               >
               <mxPoint
-                x="150" 
+                x="145" 
                 y="225"
                 />
               <mxPoint
@@ -355,12 +325,12 @@
               as="points"
               >
               <mxPoint
-                x="150" 
-                y="335"
+                x="155" 
+                y="225"
                 />
               <mxPoint
-                x="150" 
-                y="335"
+                x="240" 
+                y="225"
                 />
               </Array>
             </mxGeometry>

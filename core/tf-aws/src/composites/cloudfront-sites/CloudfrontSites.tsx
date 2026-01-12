@@ -1,27 +1,14 @@
 import { OriginType, useCloudfrontSites } from './useCloudfrontSites.ts'
-import { existsSync } from '@std/fs/exists'
-import { walkSync } from '@std/fs/walk'
-import { contentType } from '@std/media-types'
-import {
-  containerAppHome,
-  deepResolve,
-  NodeProps,
-  Shape,
-  toId,
-} from '@dinghy/base-components'
+import { S3Bucket } from '../s3-bucket/S3Bucket.tsx'
+import { deepResolve, NodeProps, Shape, toId } from '@dinghy/base-components'
 import {
   AwsRoute53Record,
   DataAwsRoute53Zone,
   useAwsRoute53Zone,
 } from '@dinghy/tf-aws/serviceRoute53'
 import { CloudfrontSiteType } from './useCloudfrontSites.ts'
-import {
-  AwsS3Bucket,
-  AwsS3BucketLogging,
-  AwsS3BucketPolicy,
-  useAwsS3Bucket,
-} from '@dinghy/tf-aws/serviceS3'
-import { useGlobalLogBucket, useRegionalLogBucket } from '@dinghy/tf-aws'
+import { useAwsS3Bucket } from '@dinghy/tf-aws/serviceS3'
+import { useGlobalLogBucket } from '@dinghy/tf-aws'
 import {
   AwsCloudfrontDistribution,
   AwsCloudfrontFunction,
@@ -35,12 +22,6 @@ import {
   useAwsAcmCertificate,
 } from '@dinghy/tf-aws/serviceAcm'
 import { Text } from '@dinghy/diagrams/entitiesGeneral'
-import { AwsS3Object } from '../../services/s3/AwsS3Object.tsx'
-
-function getContentType(filePath: string): string {
-  const extension = filePath.split('.').pop()?.toLowerCase() || ''
-  return contentType(`.${extension}`) || 'application/octet-stream'
-}
 
 export function CloudfrontSites(
   { _components, ...props }: NodeProps,
@@ -48,7 +29,6 @@ export function CloudfrontSites(
   const sites = useCloudfrontSites(props.sites)
 
   function CloudfrontSite({ site }: { site: CloudfrontSiteType }) {
-    const { logBucket } = useRegionalLogBucket()
     const redirectFunctionId = `${toId(`${site.title}_redirect_function`)}`
 
     const domainNameZone = (name: string) => {
@@ -317,102 +297,41 @@ export function CloudfrontSites(
         const origins = site.origins
 
         const S3Origin = ({ origin }: { origin: OriginType }) => {
-          const originFiles =
-            `${containerAppHome}/s3-files/${origin.targetHost}`
-          const originFilesExists = existsSync(originFiles)
-          const Files = () => {
-            const files = []
-            for (
-              const entry of walkSync(originFiles, { includeDirs: false })
-            ) {
-              const target = entry.path.replace(originFiles, '')
-              files.push({
-                source: entry.path,
-                target,
-                contentType: origin.contentTypes[target] ||
-                  getContentType(target),
-              })
-            }
-
-            const { s3Bucket } = useAwsS3Bucket()
-            const S3FilesComponent = _components?.s3Files as typeof Shape ||
-              Shape
-            const S3ObjectComponent =
-              _components?.s3Object as typeof AwsS3Object || AwsS3Object
-            return (
-              <S3FilesComponent _direction='vertical'>
-                {files
-                  .sort((a, b) => a.target.localeCompare(b.target))
-                  .map((file) => (
-                    <S3ObjectComponent
-                      _id={toId(`${site.title}_${origin.name}_${file.target}`)}
-                      _title={file.target}
-                      bucket={origin.targetHost}
-                      key={file.target}
-                      __key={file.target}
-                      cache_control={origin.cacheControls[file.target] ||
-                        origin.cacheControlDefault}
-                      content_type={file.contentType}
-                      source={file.source}
-                      depends_on={() => [s3Bucket._terraformId]}
-                    />
-                  ))}
-              </S3FilesComponent>
-            )
-          }
-
           const { cloudfrontDistribution } = useAwsCloudfrontDistribution()
-          const S3OriginComponent =
-            _components?.s3Origin as typeof AwsS3Bucket || AwsS3Bucket
-          const S3OriginLoggingComponent =
-            _components?.s3OriginLogging as typeof AwsS3BucketLogging ||
-            AwsS3BucketLogging
-          const S3OriginPolicyComponent =
-            _components?.s3OriginPolicy as typeof AwsS3BucketPolicy ||
-            AwsS3BucketPolicy
+          const S3OriginComponent = _components?.s3Origin as typeof S3Bucket ||
+            S3Bucket
           return (
             <S3OriginComponent
               _id={toId(`${site.title}_${origin.name}_bucket`)}
               _title={`Origin Bucket: ${site.title} ${origin.name}`}
               bucket={origin.targetHost}
               _display='none'
-              _direction='vertical'
               _distributed
-            >
-              <S3OriginLoggingComponent
-                _id={toId(`${site.title}_${origin.name}_bucketlogging`)}
-                bucket={origin.targetHost}
-                target_bucket={logBucket.bucket}
-                target_prefix={`s3-access-log/${origin.targetHost}/`}
-              />
-
-              <S3OriginPolicyComponent
-                _id={toId(`${site.title}_${origin.name}_bucketpolicy`)}
-                bucket={origin.targetHost}
-                policy={() =>
-                  JSON.stringify(deepResolve({
-                    'Version': '2008-10-17',
-                    'Id': 'PolicyForCloudFrontPrivateContent',
-                    'Statement': [
-                      {
-                        'Sid': 'AllowCloudFrontServicePrincipal',
-                        'Effect': 'Allow',
-                        'Principal': {
-                          'Service': 'cloudfront.amazonaws.com',
-                        },
-                        'Action': 's3:GetObject',
-                        'Resource': `arn:aws:s3:::${origin.targetHost}/*`,
-                        'Condition': {
-                          'ArnLike': {
-                            'AWS:SourceArn': [cloudfrontDistribution.arn],
-                          },
+              loggingEnabled
+              bucketPolicy={() =>
+                JSON.stringify(deepResolve({
+                  'Version': '2008-10-17',
+                  'Id': 'PolicyForCloudFrontPrivateContent',
+                  'Statement': [
+                    {
+                      'Sid': 'AllowCloudFrontServicePrincipal',
+                      'Effect': 'Allow',
+                      'Principal': {
+                        'Service': 'cloudfront.amazonaws.com',
+                      },
+                      'Action': 's3:GetObject',
+                      'Resource': `arn:aws:s3:::${origin.targetHost}/*`,
+                      'Condition': {
+                        'ArnLike': {
+                          'AWS:SourceArn': [cloudfrontDistribution.arn],
                         },
                       },
-                    ],
-                  }))}
-              />
-              {originFilesExists && <Files />}
-            </S3OriginComponent>
+                    },
+                  ],
+                }))}
+              _components={_components}
+              {...origin}
+            />
           )
         }
 

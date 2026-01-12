@@ -4,11 +4,11 @@ import { Folder } from '@dinghy/diagrams/entitiesAwsGeneralResources'
 export default function Stack() {
   return (
     <Dinghy>
-      <Folder _dependsBy={['engine', 'examples']}>core</Folder>
+      <Folder _dependsBy={['engine', 'sites']}>core</Folder>
       <Columns>
         <Folder>engine</Folder>
         <Folder>docker</Folder>
-        <Folder>examples</Folder>
+        <Folder>sites</Folder>
       </Columns>
       <Columns>
         <Folder _dependsOn='engine'>cli</Folder>
@@ -19,9 +19,6 @@ export default function Stack() {
           tasks
         </Folder>
         <Folder>.github</Folder>
-      </Columns>
-      <Columns>
-        <Folder>sites</Folder>
       </Columns>
     </Dinghy>
   )

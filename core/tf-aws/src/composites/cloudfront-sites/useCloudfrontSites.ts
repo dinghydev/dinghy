@@ -21,18 +21,13 @@ const OriginSchema = z.object({
   customHeaders: z.record(z.string(), z.string()).optional(),
   pathPattern: z.string().default('*'),
   cacheBehavior: z.record(z.string(), z.any()).optional(),
-  contentTypes: z.record(z.string(), z.string()).default({}),
-  cacheControls: z.record(z.string(), z.string()).default({}),
-  cacheControlDefault: z.string().default(
-    'max-age=3600, public, must-revalidate',
-  ),
 })
 
 const CloudfrontSiteSchema = z.object({
   title: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
-  origins: z.record(z.string(), OriginSchema),
+  origins: z.record(z.string(), OriginSchema.loose()),
   alternativeNames: z.string().array().optional().transform((
     value: string[] | undefined,
   ) => value as string[]),
