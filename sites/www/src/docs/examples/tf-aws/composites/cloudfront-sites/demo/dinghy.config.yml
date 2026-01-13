@@ -1,3 +1,5 @@
+awsProvider:
+  region: eu-west-1
 cloudfrontSites:
   cloudfront-site-demo.dinghy.dev:
     origins:

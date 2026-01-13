@@ -10,7 +10,7 @@ import { CloudfrontSites } from '@dinghy/tf-aws/cloudfrontSites'
 export default function Stack() {
   return (
     <DinghyDevDemoSites>
-      <AwsProvider region='eu-west-1'>
+      <AwsProvider>
         <CloudfrontSites />
         <Infrastructure />
       </AwsProvider>

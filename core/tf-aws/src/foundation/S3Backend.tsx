@@ -37,7 +37,7 @@ export function S3Backend(
 
   const BackendBucket = () => {
     const { logBucket } = useRegionalLogBucket()
-    const backendBucketConfig = S3BucketInputSchema.partial().parse({
+    const backendBucketConfig = S3BucketInputSchema.partial().loose().parse({
       logBucket: logBucket.bucket,
       ...backendConfig,
       bucket,
@@ -46,10 +46,10 @@ export function S3Backend(
       S3Bucket
     return (
       <S3BucketComponent
+        _id='awss3bucket_backend'
         {...backendBucketConfig}
         versioningEnabled
         object_lock_enabled
-        _id='awss3bucket_backend'
         _components={_components}
       />
     )

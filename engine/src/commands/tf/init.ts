@@ -67,7 +67,7 @@ const createBackend = async (
   await runTfImageCmd(
     workingDir,
     args,
-    ['terraform', 'apply', 'tf.plan'],
+    ['tf', 'apply', 'tf.plan'],
   )
 
   Deno.writeTextFileSync(
