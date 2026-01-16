@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   game_server_group_name: resolvableValue(z.string()),
   launch_template: resolvableValue(z.object({
     id: z.string().optional(),
@@ -45,7 +45,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_subnets: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsWafregionalRule } from './AwsWafregionalRule.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

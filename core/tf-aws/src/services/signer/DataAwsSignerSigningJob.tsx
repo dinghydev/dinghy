@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsSignerSigningJob } from './AwsSignerSigningJob.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   job_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   completed_at: z.string().optional(),

@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsCognitoIdentityPool } from './AwsCognitoIdentityPool.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   identity_pool_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   allow_classic_flow: z.boolean().optional(),

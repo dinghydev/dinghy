@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   default_outbound_queue_id: resolvableValue(z.string()),
   description: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
@@ -28,14 +28,14 @@ export const InputSchema = z.object({
       channel: z.string(),
       delay: z.number(),
       priority: z.number(),
-      queue_arn: z.string(),
+      queue_arn: z.string().optional(),
       queue_id: z.string(),
-      queue_name: z.string(),
+      queue_name: z.string().optional(),
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -44,9 +44,9 @@ export const OutputSchema = z.object({
     channel: z.string(),
     delay: z.number(),
     priority: z.number(),
-    queue_arn: z.string(),
+    queue_arn: z.string().optional(),
     queue_id: z.string(),
-    queue_name: z.string(),
+    queue_name: z.string().optional(),
   }).array().optional().optional(),
   routing_profile_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

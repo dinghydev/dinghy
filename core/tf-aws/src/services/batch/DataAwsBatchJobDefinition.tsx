@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsBatchJobDefinition } from './AwsBatchJobDefinition.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn_prefix: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string())),
   type: resolvableValue(z.string()),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   revision: resolvableValue(z.number().optional()),
   status: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   container_orchestration_type: z.string().optional(),

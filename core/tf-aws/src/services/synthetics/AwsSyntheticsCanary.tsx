@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   artifact_s3_location: resolvableValue(z.string()),
   execution_role_arn: resolvableValue(z.string()),
   handler: resolvableValue(z.string()),
@@ -53,11 +53,11 @@ export const InputSchema = z.object({
       ipv6_allowed_for_dual_stack: z.boolean().optional(),
       security_group_ids: z.string().array().optional(),
       subnet_ids: z.string().array().optional(),
-      vpc_id: z.string(),
+      vpc_id: z.string().optional(),
     }).optional(),
   ),
   zip_file: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

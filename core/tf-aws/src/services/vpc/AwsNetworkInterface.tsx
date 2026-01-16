@@ -9,12 +9,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   outpost_arn: resolvableValue(z.string()),
   subnet_id: resolvableValue(z.string()),
   attachment: resolvableValue(
     z.object({
-      attachment_id: z.string(),
+      attachment_id: z.string().optional(),
       device_index: z.number(),
       instance: z.string(),
       network_card_index: z.number().optional(),
@@ -40,7 +40,7 @@ export const InputSchema = z.object({
   security_groups: resolvableValue(z.string().array().optional()),
   source_dest_check: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

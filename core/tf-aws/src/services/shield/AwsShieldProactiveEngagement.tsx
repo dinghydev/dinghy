@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
   id: resolvableValue(z.string()),
   emergency_contact: resolvableValue(
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
       phone_number: z.string().optional(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

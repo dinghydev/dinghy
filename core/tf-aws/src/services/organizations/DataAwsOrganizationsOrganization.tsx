@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsOrganizationsOrganization } from './AwsOrganizationsOrganization.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   accounts: resolvableValue(
     z.object({
       arn: z.string(),
@@ -47,7 +47,7 @@ export const InputSchema = z.object({
       }).array(),
     }).array(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

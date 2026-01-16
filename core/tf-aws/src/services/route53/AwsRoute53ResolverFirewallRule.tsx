@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   action: resolvableValue(z.string()),
   firewall_rule_group_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -24,7 +24,7 @@ export const InputSchema = z.object({
   firewall_domain_redirection_action: resolvableValue(z.string().optional()),
   q_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   firewall_threat_protection_id: z.string().optional(),

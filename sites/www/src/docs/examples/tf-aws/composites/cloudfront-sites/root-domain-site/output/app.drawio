@@ -360,6 +360,36 @@
             />
           </mxCell>
         <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
+          id="s3backend" 
+          parent="infrastructure" 
+          value="S3 Backend" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="302" 
+            height="110" 
+            x="15" 
+            y="15"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#CD2264;gradientColor=none;fillColor=#7AA116;strokeColor=#CD2264;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
+          id="awss3bucket_backend" 
+          parent="s3backend" 
+          value="Backend Bucket" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="121" 
+            y="15"
+            />
+          </mxCell>
+        <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#CD2264;gradientColor=none;fillColor=#7AA116;strokeColor=#CD2264;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
           id="awss3bucket_regionallogbucket" 
           parent="infrastructure" 
@@ -370,7 +400,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="80.33333333333334" 
+            x="332" 
             y="30"
             />
           </mxCell>
@@ -385,7 +415,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="271" 
+            x="422" 
             y="30"
             />
           </mxCell>
@@ -400,7 +430,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="461.6666666666667" 
+            x="512" 
             y="30"
             />
           </mxCell>

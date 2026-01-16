@@ -1,5 +1,2 @@
 export { CloudfrontSites } from './CloudfrontSites.tsx'
-export {
-  type CloudfrontSiteType,
-  useCloudfrontSites,
-} from './useCloudfrontSites.ts'
+export { type CloudfrontSiteType, parseCloudfrontSites } from './types.ts'

@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   grafana_role: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   service_account_id: z.string().optional(),

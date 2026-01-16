@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsAcmpcaCertificateAuthority } from './AwsAcmpcaCertificateAuthority.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   key_storage_security_standard: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   certificate: z.string().optional(),

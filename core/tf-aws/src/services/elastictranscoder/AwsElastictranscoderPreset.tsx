@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   container: resolvableValue(z.string()),
   audio: resolvableValue(
     z.object({
@@ -79,7 +79,7 @@ export const InputSchema = z.object({
       vertical_offset: z.string().optional(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

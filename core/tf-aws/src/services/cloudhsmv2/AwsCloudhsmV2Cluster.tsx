@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   hsm_type: resolvableValue(z.string()),
   subnet_ids: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   cluster_certificates: z.object({

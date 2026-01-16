@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
   disabled_reason: resolvableValue(z.string()),
   email_address: resolvableValue(z.string()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   disable_email_notification: resolvableValue(z.boolean().optional()),
   message: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   administrator_id: z.string().optional(),

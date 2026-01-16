@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsIamUserSshKey } from './AwsIamUserSshKey.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   encoding: resolvableValue(z.string()),
   ssh_public_key_id: resolvableValue(z.string()),
   username: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   fingerprint: z.string().optional(),

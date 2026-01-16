@@ -9,112 +9,114 @@ import {
 import z from 'zod'
 import { AwsLbListenerRule } from './AwsLbListenerRule.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string().optional()),
   listener_arn: resolvableValue(z.string().optional()),
   priority: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   action: z.object({
-    order: z.number(),
-    type: z.string(),
+    order: z.number().optional(),
+    type: z.string().optional(),
     authenticate_cognito: z.object({
-      authentication_request_extra_params: z.record(z.string(), z.string()),
-      on_unauthenticated_request: z.string(),
-      scope: z.string(),
-      session_cookie_name: z.string(),
-      session_timeout: z.number(),
-      user_pool_arn: z.string(),
-      user_pool_client_id: z.string(),
-      user_pool_domain: z.string(),
+      authentication_request_extra_params: z.record(z.string(), z.string())
+        .optional(),
+      on_unauthenticated_request: z.string().optional(),
+      scope: z.string().optional(),
+      session_cookie_name: z.string().optional(),
+      session_timeout: z.number().optional(),
+      user_pool_arn: z.string().optional(),
+      user_pool_client_id: z.string().optional(),
+      user_pool_domain: z.string().optional(),
     }).array().optional(),
     authenticate_oidc: z.object({
-      authentication_request_extra_params: z.record(z.string(), z.string()),
-      authorization_endpoint: z.string(),
-      client_id: z.string(),
-      issuer: z.string(),
-      on_unauthenticated_request: z.string(),
-      scope: z.string(),
-      session_cookie_name: z.string(),
-      session_timeout: z.number(),
-      token_endpoint: z.string(),
-      user_info_endpoint: z.string(),
+      authentication_request_extra_params: z.record(z.string(), z.string())
+        .optional(),
+      authorization_endpoint: z.string().optional(),
+      client_id: z.string().optional(),
+      issuer: z.string().optional(),
+      on_unauthenticated_request: z.string().optional(),
+      scope: z.string().optional(),
+      session_cookie_name: z.string().optional(),
+      session_timeout: z.number().optional(),
+      token_endpoint: z.string().optional(),
+      user_info_endpoint: z.string().optional(),
     }).array().optional(),
     fixed_response: z.object({
-      content_type: z.string(),
-      message_body: z.string(),
-      status_code: z.string(),
+      content_type: z.string().optional(),
+      message_body: z.string().optional(),
+      status_code: z.string().optional(),
     }).array().optional(),
     forward: z.object({
       stickiness: z.object({
-        duration: z.number(),
-        enabled: z.boolean(),
+        duration: z.number().optional(),
+        enabled: z.boolean().optional(),
       }).array().optional(),
       target_group: z.object({
-        arn: z.string(),
-        weight: z.number(),
+        arn: z.string().optional(),
+        weight: z.number().optional(),
       }).array().optional(),
     }).array().optional(),
     jwt_validation: z.object({
-      issuer: z.string(),
-      jwks_endpoint: z.string(),
+      issuer: z.string().optional(),
+      jwks_endpoint: z.string().optional(),
       additional_claim: z.object({
-        format: z.string(),
-        name: z.string(),
-        values: z.set(z.string()),
+        format: z.string().optional(),
+        name: z.string().optional(),
+        values: z.set(z.string()).optional(),
       }).array().optional(),
     }).array().optional(),
     redirect: z.object({
-      host: z.string(),
-      path: z.string(),
-      port: z.string(),
-      protocol: z.string(),
-      query: z.string(),
-      status_code: z.string(),
+      host: z.string().optional(),
+      path: z.string().optional(),
+      port: z.string().optional(),
+      protocol: z.string().optional(),
+      query: z.string().optional(),
+      status_code: z.string().optional(),
     }).array().optional(),
   }).array().optional().optional(),
   condition: z.object({
     host_header: z.object({
-      regex_values: z.set(z.string()),
-      values: z.set(z.string()),
+      regex_values: z.set(z.string()).optional(),
+      values: z.set(z.string()).optional(),
     }).array().optional(),
     http_header: z.object({
-      http_header_name: z.string(),
-      regex_values: z.set(z.string()),
-      values: z.set(z.string()),
+      http_header_name: z.string().optional(),
+      regex_values: z.set(z.string()).optional(),
+      values: z.set(z.string()).optional(),
     }).array().optional(),
     http_request_method: z.object({
-      values: z.set(z.string()),
+      values: z.set(z.string()).optional(),
     }).array().optional(),
     path_pattern: z.object({
-      regex_values: z.set(z.string()),
-      values: z.set(z.string()),
+      regex_values: z.set(z.string()).optional(),
+      values: z.set(z.string()).optional(),
     }).array().optional(),
     query_string: z.object({
       values: z.object({
-        key: z.string(),
-        value: z.string(),
+        key: z.string().optional(),
+        value: z.string().optional(),
       }).array().optional(),
     }).array().optional(),
     source_ip: z.object({
-      values: z.set(z.string()),
+      values: z.set(z.string()).optional(),
     }).array().optional(),
   }).array().optional().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   transform: z.object({
-    type: z.string(),
+    type: z.string().optional(),
     host_header_rewrite_config: z.object({
       rewrite: z.object({
-        regex: z.string(),
-        replace: z.string(),
+        regex: z.string().optional(),
+        replace: z.string().optional(),
       }).array().optional(),
     }).array().optional(),
     url_rewrite_config: z.object({
       rewrite: z.object({
-        regex: z.string(),
-        replace: z.string(),
+        regex: z.string().optional(),
+        replace: z.string().optional(),
       }).array().optional(),
     }).array().optional(),
   }).array().optional().optional(),

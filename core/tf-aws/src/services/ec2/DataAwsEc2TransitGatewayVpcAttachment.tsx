@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2TransitGatewayVpcAttachment } from './AwsEc2TransitGatewayVpcAttachment.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -23,7 +23,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   appliance_mode_support: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   content_based_deduplication: resolvableValue(z.boolean().optional()),
   deduplication_scope: resolvableValue(z.string().optional()),
   delay_seconds: resolvableValue(z.number().optional()),
@@ -36,7 +36,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   visibility_timeout_seconds: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

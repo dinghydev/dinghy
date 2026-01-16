@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2TransitGatewayPeeringAttachment } from './AwsEc2TransitGatewayPeeringAttachment.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   state: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

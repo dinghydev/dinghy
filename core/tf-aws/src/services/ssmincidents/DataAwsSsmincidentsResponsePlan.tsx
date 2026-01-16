@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSsmincidentsResponsePlan } from './AwsSsmincidentsResponsePlan.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   incident_template: resolvableValue(
     z.object({
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   action: z.object({

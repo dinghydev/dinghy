@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsAuditmanagerFramework } from './AwsAuditmanagerFramework.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   compliance_type: resolvableValue(z.string()),
   control_sets: resolvableValue(
@@ -27,7 +27,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

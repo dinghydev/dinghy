@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsVpclatticeAuthPolicy } from './AwsVpclatticeAuthPolicy.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   resource_identifier: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   policy: z.string().optional(),

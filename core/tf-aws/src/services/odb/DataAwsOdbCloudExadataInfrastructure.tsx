@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsOdbCloudExadataInfrastructure } from './AwsOdbCloudExadataInfrastructure.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   available_storage_size_in_gbs: resolvableValue(z.number()),
   customer_contacts_to_send_to_oci: resolvableValue(
     z.object({
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   activated_storage_count: z.number().optional(),

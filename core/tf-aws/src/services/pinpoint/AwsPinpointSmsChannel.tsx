@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   enabled: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   sender_id: resolvableValue(z.string().optional()),
   short_code: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   promotional_messages_per_second: z.number().optional(),

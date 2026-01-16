@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsFsxWindowsFileSystem } from './AwsFsxWindowsFileSystem.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   backup_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   network_interface_ids: resolvableValue(z.string().array()),
   security_group_ids: resolvableValue(z.string().array()),
   skip_final_backup: resolvableValue(z.boolean()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   active_directory_id: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2ManagedPrefixList } from './AwsEc2ManagedPrefixList.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.number()),
   filter: resolvableValue(
     z.object({
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   address_family: z.string().optional(),

@@ -9,37 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   email_identity: resolvableValue(z.string()),
   configuration_set_name: resolvableValue(z.string().optional()),
   dkim_signing_attributes: resolvableValue(
     z.object({
-      current_signing_key_length: z.string(),
+      current_signing_key_length: z.string().optional(),
       domain_signing_private_key: z.string().optional(),
       domain_signing_selector: z.string().optional(),
-      last_key_generation_timestamp: z.string(),
+      last_key_generation_timestamp: z.string().optional(),
       next_signing_key_length: z.string().optional(),
-      signing_attributes_origin: z.string(),
-      status: z.string(),
-      tokens: z.string().array(),
+      signing_attributes_origin: z.string().optional(),
+      status: z.string().optional(),
+      tokens: z.string().array().optional(),
     }).optional(),
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   dkim_signing_attributes: z.object({
-    current_signing_key_length: z.string(),
+    current_signing_key_length: z.string().optional(),
     domain_signing_private_key: z.string().optional(),
     domain_signing_selector: z.string().optional(),
-    last_key_generation_timestamp: z.string(),
+    last_key_generation_timestamp: z.string().optional(),
     next_signing_key_length: z.string().optional(),
-    signing_attributes_origin: z.string(),
-    status: z.string(),
-    tokens: z.string().array(),
+    signing_attributes_origin: z.string().optional(),
+    status: z.string().optional(),
+    tokens: z.string().array().optional(),
   }).optional().optional(),
   identity_type: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

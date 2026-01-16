@@ -20,39 +20,42 @@ function collectStackChange(outputFile: string, maxLines: number) {
   const changes: string[] = []
   if (!planTxt.startsWith('No changes')) {
     const lines = planTxt.split(/\r?\n|\r|\n/g)
-    summary = lines.pop()!.split(': ')[1].slice(0, -1).split(',').map((s) => {
-      const count = s.trim().split(' ')[0]
-      if (count !== '0') {
-        changesCount += Number.parseInt(count)
-        return s
-      }
-    }).filter((s) => s).join(',')
-    let started = false
-    for (const line of lines) {
-      if (started && line && !line.trim().startsWith('# (')) {
-        const trimmedLine = line.trim()
-        if (CHANGE_LINE_PREFIX.has(trimmedLine.slice(0, 2))) {
-          if (changes.length === maxLines) {
-            changes.push('Ignored more output lines:', '.')
-          } else if (
-            changes.length > maxLines
-          ) {
-            changes.push(`${changes.pop()}.`)
-          } else {
-            changes.push(line.slice(2))
+    const changesSummary = lines.pop()!.split(': ')
+    if (changesSummary.length > 1) {
+      summary = changesSummary[1].slice(0, -1).split(',').map((s) => {
+        const count = s.trim().split(' ')[0]
+        if (count !== '0') {
+          changesCount += Number.parseInt(count)
+          return s
+        }
+      }).filter((s) => s).join(',')
+      let started = false
+      for (const line of lines) {
+        if (started && line && !line.trim().startsWith('# (')) {
+          const trimmedLine = line.trim()
+          if (CHANGE_LINE_PREFIX.has(trimmedLine.slice(0, 2))) {
+            if (changes.length === maxLines) {
+              changes.push('Ignored more output lines:', '.')
+            } else if (
+              changes.length > maxLines
+            ) {
+              changes.push(`${changes.pop()}.`)
+            } else {
+              changes.push(line.slice(2))
+            }
           }
+        }
+
+        if (line.endsWith('perform the following actions:')) {
+          started = true
         }
       }
 
-      if (line.endsWith('perform the following actions:')) {
-        started = true
+      return {
+        changesCount,
+        summary,
+        changes,
       }
-    }
-
-    return {
-      changesCount,
-      summary,
-      changes,
     }
   }
 }

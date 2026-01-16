@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   auto_scaling_configuration_name: resolvableValue(z.string()),
   has_associated_service: resolvableValue(z.boolean()),
   is_default: resolvableValue(z.boolean()),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   min_size: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

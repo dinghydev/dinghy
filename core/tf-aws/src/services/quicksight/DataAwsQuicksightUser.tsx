@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsQuicksightUser } from './AwsQuicksightUser.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   user_name: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   namespace: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   active: z.boolean().optional(),

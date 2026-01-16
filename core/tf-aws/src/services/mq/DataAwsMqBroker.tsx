@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsMqBroker } from './AwsMqBroker.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   broker_id: resolvableValue(z.string().optional()),
   broker_name: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

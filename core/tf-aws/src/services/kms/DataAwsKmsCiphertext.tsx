@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsKmsCiphertext } from './AwsKmsCiphertext.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   key_id: resolvableValue(z.string()),
   plaintext: resolvableValue(z.string()),
   context: resolvableValue(z.record(z.string(), z.string()).optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   ciphertext_blob: z.string().optional(),

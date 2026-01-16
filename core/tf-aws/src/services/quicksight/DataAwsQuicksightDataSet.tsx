@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsQuicksightDataSet } from './AwsQuicksightDataSet.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   column_groups: resolvableValue(
     z.object({
@@ -169,7 +169,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

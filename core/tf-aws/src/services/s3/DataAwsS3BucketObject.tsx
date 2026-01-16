@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsS3BucketObject } from './AwsS3BucketObject.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   arn: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   range: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   version_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   body: z.string().optional(),

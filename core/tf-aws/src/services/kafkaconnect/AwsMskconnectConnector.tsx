@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   capacity: resolvableValue(z.object({
     autoscaling: z.object({
       max_worker_count: z.number(),
@@ -90,7 +90,7 @@ export const InputSchema = z.object({
       revision: z.number(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

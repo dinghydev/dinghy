@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   signing_attributes: resolvableValue(
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   dnssec_key_id: z.string().optional(),

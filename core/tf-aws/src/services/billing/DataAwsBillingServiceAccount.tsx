@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({}).extend({ ...TfMetaSchema.shape })
+export const InputSchema = TfMetaSchema.extend({})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

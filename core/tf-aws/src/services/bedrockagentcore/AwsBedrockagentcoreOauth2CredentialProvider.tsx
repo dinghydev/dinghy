@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   credential_provider_vendor: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   oauth2_provider_config: resolvableValue(
@@ -44,7 +44,7 @@ export const InputSchema = z.object({
             token_endpoint: z.string(),
           }).array(),
           discovery_url: z.string(),
-        }).array(),
+        }).array().optional(),
       }).array().optional(),
       google_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
@@ -60,7 +60,7 @@ export const InputSchema = z.object({
             token_endpoint: z.string(),
           }).array(),
           discovery_url: z.string(),
-        }).array(),
+        }).array().optional(),
       }).array().optional(),
       microsoft_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
@@ -76,7 +76,7 @@ export const InputSchema = z.object({
             token_endpoint: z.string(),
           }).array(),
           discovery_url: z.string(),
-        }).array(),
+        }).array().optional(),
       }).array().optional(),
       salesforce_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
@@ -92,7 +92,7 @@ export const InputSchema = z.object({
             token_endpoint: z.string(),
           }).array(),
           discovery_url: z.string(),
-        }).array(),
+        }).array().optional(),
       }).array().optional(),
       slack_oauth2_provider_config: z.object({
         client_credentials_wo_version: z.number().optional(),
@@ -108,12 +108,12 @@ export const InputSchema = z.object({
             token_endpoint: z.string(),
           }).array(),
           discovery_url: z.string(),
-        }).array(),
+        }).array().optional(),
       }).array().optional(),
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   client_secret_arn: z.object({

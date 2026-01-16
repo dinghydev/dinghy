@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   base_capacity: resolvableValue(z.number()),
   compute_type: resolvableValue(z.string()),
   environment_type: resolvableValue(z.string()),
@@ -29,7 +29,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   scaling_configuration: resolvableValue(
     z.object({
-      desired_capacity: z.number(),
+      desired_capacity: z.number().optional(),
       max_capacity: z.number().optional(),
       scaling_type: z.string().optional(),
       target_tracking_scaling_configs: z.object({
@@ -47,7 +47,7 @@ export const InputSchema = z.object({
       vpc_id: z.string(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

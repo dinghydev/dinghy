@@ -9,22 +9,22 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(
     z.object({
       kms_key_arn: z.string().optional(),
       name: z.string(),
-      status: z.string(),
-      status_message: z.string(),
+      status: z.string().optional(),
+      status_message: z.string().optional(),
     }).array().optional(),
   ),
   regions: resolvableValue(
     z.object({
       kms_key_arn: z.string().optional(),
       name: z.string(),
-      status: z.string(),
-      status_message: z.string(),
+      status: z.string().optional(),
+      status_message: z.string().optional(),
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -35,7 +35,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

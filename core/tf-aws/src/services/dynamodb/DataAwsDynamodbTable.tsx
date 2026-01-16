@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDynamodbTable } from './AwsDynamodbTable.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   attribute: resolvableValue(
     z.object({
@@ -90,12 +90,12 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   server_side_encryption: resolvableValue(
     z.object({
-      enabled: z.boolean(),
-      kms_key_arn: z.string(),
+      enabled: z.boolean().optional(),
+      kms_key_arn: z.string().optional(),
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

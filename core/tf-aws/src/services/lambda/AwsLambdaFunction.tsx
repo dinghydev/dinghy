@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   architectures: resolvableValue(z.string().array().optional()),
@@ -91,7 +91,7 @@ export const InputSchema = z.object({
   snap_start: resolvableValue(
     z.object({
       apply_on: z.string(),
-      optimization_status: z.string(),
+      optimization_status: z.string().optional(),
     }).optional(),
   ),
   source_code_hash: resolvableValue(z.string().optional()),
@@ -120,10 +120,10 @@ export const InputSchema = z.object({
       ipv6_allowed_for_dual_stack: z.boolean().optional(),
       security_group_ids: z.string().array(),
       subnet_ids: z.string().array(),
-      vpc_id: z.string(),
+      vpc_id: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

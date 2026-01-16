@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsVerifiedpermissionsPolicyStore } from './AwsVerifiedpermissionsPolicyStore.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

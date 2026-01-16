@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpc } from './AwsVpc.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cidr_block: resolvableValue(z.string().optional()),
   default: resolvableValue(z.boolean().optional()),
   dhcp_options_id: resolvableValue(z.string().optional()),
@@ -28,7 +28,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsCognitoUserPool } from './AwsCognitoUserPool.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   account_recovery_setting: resolvableValue(
     z.object({
       recovery_mechanism: z.object({
@@ -99,7 +99,7 @@ export const InputSchema = z.object({
   ),
   user_pool_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

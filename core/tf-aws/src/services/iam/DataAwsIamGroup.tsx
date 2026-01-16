@@ -9,9 +9,9 @@ import {
 import z from 'zod'
 import { AwsIamGroup } from './AwsIamGroup.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   group_name: resolvableValue(z.string()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

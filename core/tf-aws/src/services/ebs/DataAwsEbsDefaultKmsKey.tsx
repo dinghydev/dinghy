@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsEbsDefaultKmsKey } from './AwsEbsDefaultKmsKey.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

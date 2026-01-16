@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsLambdaCodeSigningConfig } from './AwsLambdaCodeSigningConfig.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   allowed_publishers: z.object({

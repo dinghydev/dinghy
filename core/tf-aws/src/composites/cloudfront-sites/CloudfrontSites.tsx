@@ -1,4 +1,4 @@
-import { OriginType, useCloudfrontSites } from './useCloudfrontSites.ts'
+import { OriginType, parseCloudfrontSites } from './types.ts'
 import { S3Bucket } from '../s3-bucket/S3Bucket.tsx'
 import { deepResolve, NodeProps, Shape, toId } from '@dinghy/base-components'
 import {
@@ -6,7 +6,7 @@ import {
   DataAwsRoute53Zone,
   useAwsRoute53Zone,
 } from '@dinghy/tf-aws/serviceRoute53'
-import { CloudfrontSiteType } from './useCloudfrontSites.ts'
+import { CloudfrontSiteType } from './types.ts'
 import { useAwsS3Bucket } from '@dinghy/tf-aws/serviceS3'
 import { useGlobalLogBucket } from '@dinghy/tf-aws'
 import {
@@ -26,7 +26,7 @@ import { Text } from '@dinghy/diagrams/entitiesGeneral'
 export function CloudfrontSites(
   { _components, ...props }: NodeProps,
 ) {
-  const sites = useCloudfrontSites(props.sites)
+  const sites = parseCloudfrontSites(props.sites)
 
   function CloudfrontSite({ site }: { site: CloudfrontSiteType }) {
     const redirectFunctionId = `${toId(`${site.title}_redirect_function`)}`

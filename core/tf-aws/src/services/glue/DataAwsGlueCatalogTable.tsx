@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsGlueCatalogTable } from './AwsGlueCatalogTable.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   database_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   catalog_id: resolvableValue(z.string().optional()),
   query_as_of_time: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   transaction_id: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsIamSamlProvider } from './AwsIamSamlProvider.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   create_date: z.string().optional(),

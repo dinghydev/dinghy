@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRamResourceShare } from './AwsRamResourceShare.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   resource_owner: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resource_share_status: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

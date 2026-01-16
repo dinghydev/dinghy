@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   input_bucket: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   aws_kms_key_arn: resolvableValue(z.string().optional()),
@@ -50,7 +50,7 @@ export const InputSchema = z.object({
       grantee_type: z.string().optional(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

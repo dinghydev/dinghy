@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsElb } from './AwsElb.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   access_logs: resolvableValue(
     z.object({
       bucket: z.string(),
@@ -55,7 +55,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

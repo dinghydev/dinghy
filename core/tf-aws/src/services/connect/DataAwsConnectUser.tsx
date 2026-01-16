@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsConnectUser } from './AwsConnectUser.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   user_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

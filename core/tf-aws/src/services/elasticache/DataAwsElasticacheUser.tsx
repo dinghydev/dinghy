@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsElasticacheUser } from './AwsElasticacheUser.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   user_id: resolvableValue(z.string()),
   authentication_mode: resolvableValue(
     z.object({
@@ -22,7 +22,7 @@ export const InputSchema = z.object({
   no_password_required: resolvableValue(z.boolean().optional()),
   passwords: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   access_string: z.string().optional(),

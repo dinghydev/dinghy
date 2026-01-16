@@ -17,7 +17,7 @@ export const deepResolve = (
     }
     return value
   }
-  if (typeof value === 'object') {
+  if (typeof value === 'object' && value !== null) {
     const object = value
     for (const key of Object.keys(object)) {
       deepResolve(object, key)

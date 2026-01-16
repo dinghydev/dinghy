@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   user: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   password_length: resolvableValue(z.number().optional()),
   password_reset_required: resolvableValue(z.boolean().optional()),
   pgp_key: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   encrypted_password: z.string().optional(),

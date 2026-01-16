@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   custom_key_store_name: resolvableValue(z.string()),
   cloud_hsm_cluster_id: resolvableValue(z.string().optional()),
   custom_key_store_type: resolvableValue(z.string().optional()),
@@ -33,7 +33,7 @@ export const InputSchema = z.object({
   xks_proxy_uri_endpoint: resolvableValue(z.string().optional()),
   xks_proxy_uri_path: resolvableValue(z.string().optional()),
   xks_proxy_vpc_endpoint_service_name: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

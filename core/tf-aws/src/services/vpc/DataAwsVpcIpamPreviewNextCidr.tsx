@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcIpamPreviewNextCidr } from './AwsVpcIpamPreviewNextCidr.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   ipam_pool_id: resolvableValue(z.string()),
   disallowed_cidrs: resolvableValue(z.string().array().optional()),
   netmask_length: resolvableValue(z.number().optional()),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   cidr: z.string().optional(),

@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsOpensearchserverlessVpcEndpoint } from './AwsOpensearchserverlessVpcEndpoint.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   vpc_endpoint_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   created_date: z.string().optional(),

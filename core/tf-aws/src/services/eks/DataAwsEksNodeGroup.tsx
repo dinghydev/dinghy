@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEksNodeGroup } from './AwsEksNodeGroup.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   node_group_name: resolvableValue(z.string()),
   update_config: resolvableValue(
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
     }).array(),
   ),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   ami_type: z.string().optional(),

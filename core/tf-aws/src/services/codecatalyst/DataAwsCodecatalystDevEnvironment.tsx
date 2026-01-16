@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsCodecatalystDevEnvironment } from './AwsCodecatalystDevEnvironment.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   env_id: resolvableValue(z.string()),
   project_name: resolvableValue(z.string()),
   space_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),
@@ -32,8 +32,8 @@ export const OutputSchema = z.object({
     size: z.number(),
   }).array().optional(),
   repositories: z.object({
-    branch_name: z.string(),
-    repository_name: z.string(),
+    branch_name: z.string().optional(),
+    repository_name: z.string().optional(),
   }).array().optional().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),

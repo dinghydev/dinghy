@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsCloudformationType } from './AwsCloudformationType.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   type_arn: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   type: resolvableValue(z.string().optional()),
   type_name: resolvableValue(z.string().optional()),
   version_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   default_version_id: z.string().optional(),

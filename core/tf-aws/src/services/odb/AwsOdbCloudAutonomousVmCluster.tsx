@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   autonomous_data_storage_size_in_tbs: resolvableValue(z.number()),
   cloud_exadata_infrastructure_id: resolvableValue(z.string()),
   cpu_core_count_per_node: resolvableValue(z.number()),
@@ -47,7 +47,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

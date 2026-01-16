@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   exclude_characters: resolvableValue(z.string().optional()),
   exclude_lowercase: resolvableValue(z.boolean().optional()),
   exclude_numbers: resolvableValue(z.boolean().optional()),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   password_length: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   require_each_included_type: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   random_password: z.string().optional(),

@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   current_version: resolvableValue(z.string()),
   replication_info_list: resolvableValue(z.object({
-    source_kafka_cluster_alias: z.string(),
+    source_kafka_cluster_alias: z.string().optional(),
     source_kafka_cluster_arn: z.string(),
     target_compression_type: z.string(),
-    target_kafka_cluster_alias: z.string(),
+    target_kafka_cluster_alias: z.string().optional(),
     target_kafka_cluster_arn: z.string(),
     consumer_group_replication: z.object({
       consumer_groups_to_exclude: z.string().array().optional(),
@@ -61,7 +61,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

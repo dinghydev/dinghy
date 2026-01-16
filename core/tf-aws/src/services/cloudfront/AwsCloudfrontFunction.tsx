@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { CLOUDFRONT_FUNCTIONS } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   code: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   runtime: resolvableValue(z.string()),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   key_value_store_associations: resolvableValue(z.string().array().optional()),
   publish: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

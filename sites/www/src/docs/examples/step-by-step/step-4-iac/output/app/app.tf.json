@@ -50,6 +50,9 @@
         "subnets": [
           "${aws_subnet.awssubnet_publicsubnet.id}"
         ],
+        "depends_on": [
+          "aws_subnet.awssubnet_publicsubnet"
+        ],
         "tags": {
           "Name": "Load Balancer",
           "iac:id": "awslb_loadbalancer"
@@ -60,6 +63,9 @@
       "awsinstance_application": {
         "ami": "ami-005e54dee72cc1d00",
         "subnet_id": "${aws_subnet.awssubnet_privatesubnet.id}",
+        "depends_on": [
+          "aws_subnet.awssubnet_privatesubnet"
+        ],
         "tags": {
           "Name": "Application",
           "iac:id": "awsinstance_application"

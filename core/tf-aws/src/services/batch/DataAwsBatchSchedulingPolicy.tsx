@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsBatchSchedulingPolicy } from './AwsBatchSchedulingPolicy.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   fair_share_policy: resolvableValue(
     z.object({
@@ -23,7 +23,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   name: z.string().optional(),

@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsOrganizationsOrganizationalUnit } from './AwsOrganizationsOrganizationalUnit.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   parent_id: resolvableValue(z.string()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

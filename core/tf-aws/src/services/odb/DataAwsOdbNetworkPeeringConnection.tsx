@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsOdbNetworkPeeringConnection } from './AwsOdbNetworkPeeringConnection.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

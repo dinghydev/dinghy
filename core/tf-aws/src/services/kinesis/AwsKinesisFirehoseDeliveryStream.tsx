@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   destination: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   destination_id: resolvableValue(z.string().optional()),
@@ -59,7 +59,7 @@ export const InputSchema = z.object({
         role_arn: z.string(),
         security_group_ids: z.string().array(),
         subnet_ids: z.string().array(),
-        vpc_id: z.string(),
+        vpc_id: z.string().optional(),
       }).optional(),
     }).optional(),
   ),
@@ -328,7 +328,7 @@ export const InputSchema = z.object({
         role_arn: z.string(),
         security_group_ids: z.string().array(),
         subnet_ids: z.string().array(),
-        vpc_id: z.string(),
+        vpc_id: z.string().optional(),
       }).optional(),
     }).optional(),
   ),
@@ -375,7 +375,7 @@ export const InputSchema = z.object({
         role_arn: z.string(),
         security_group_ids: z.string().array(),
         subnet_ids: z.string().array(),
-        vpc_id: z.string(),
+        vpc_id: z.string().optional(),
       }).optional(),
     }).optional(),
   ),
@@ -567,7 +567,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   version_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

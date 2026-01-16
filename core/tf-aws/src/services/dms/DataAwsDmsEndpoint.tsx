@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDmsEndpoint } from './AwsDmsEndpoint.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   certificate_arn: resolvableValue(z.string()),
   database_name: resolvableValue(z.string()),
   elasticsearch_settings: resolvableValue(
@@ -183,7 +183,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

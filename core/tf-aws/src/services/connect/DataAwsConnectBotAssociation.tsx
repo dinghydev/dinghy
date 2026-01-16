@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsConnectBotAssociation } from './AwsConnectBotAssociation.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   lex_bot: resolvableValue(z.object({
     lex_region: z.string().optional(),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   })),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

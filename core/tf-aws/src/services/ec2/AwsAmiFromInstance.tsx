@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   architecture: resolvableValue(z.string()),
   boot_mode: resolvableValue(z.string()),
   ena_support: resolvableValue(z.boolean()),
@@ -39,21 +39,21 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   ebs_block_device: resolvableValue(
     z.object({
-      delete_on_termination: z.boolean(),
-      device_name: z.string(),
-      encrypted: z.boolean(),
-      iops: z.number(),
-      outpost_arn: z.string(),
-      snapshot_id: z.string(),
-      throughput: z.number(),
-      volume_size: z.number(),
-      volume_type: z.string(),
+      delete_on_termination: z.boolean().optional(),
+      device_name: z.string().optional(),
+      encrypted: z.boolean().optional(),
+      iops: z.number().optional(),
+      outpost_arn: z.string().optional(),
+      snapshot_id: z.string().optional(),
+      throughput: z.number().optional(),
+      volume_size: z.number().optional(),
+      volume_type: z.string().optional(),
     }).array().optional(),
   ),
   ephemeral_block_device: resolvableValue(
     z.object({
-      device_name: z.string(),
-      virtual_name: z.string(),
+      device_name: z.string().optional(),
+      virtual_name: z.string().optional(),
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
@@ -67,7 +67,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

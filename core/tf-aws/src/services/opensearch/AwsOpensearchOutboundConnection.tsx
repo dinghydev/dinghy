@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   connection_alias: resolvableValue(z.string()),
   local_domain_info: resolvableValue(z.object({
     domain_name: z.string(),
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
   connection_mode: resolvableValue(z.string().optional()),
   connection_properties: resolvableValue(
     z.object({
-      endpoint: z.string(),
+      endpoint: z.string().optional(),
       cross_cluster_search: z.object({
         skip_unavailable: z.string().optional(),
       }).optional(),
@@ -38,7 +38,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   connection_status: z.string().optional(),

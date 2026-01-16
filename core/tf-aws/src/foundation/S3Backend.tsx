@@ -7,21 +7,19 @@ import {
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-import {
-  InputSchema as S3BucketInputSchema,
-  S3Bucket,
-} from '../composites/s3-bucket/S3Bucket.tsx'
+import { S3Bucket } from '../composites/s3-bucket/S3Bucket.tsx'
+import { S3BucketSchema } from '../composites/s3-bucket/types.ts'
 import { useAwsProvider } from './AwsProvider.tsx'
 import { useRegionalLogBucket } from './RegionalLogBucket.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = S3BucketSchema.extend({
   bucket: ResolvableStringSchema.optional(),
   bucketSurfix: ResolvableStringSchema.default('backend'),
   stateFile: ResolvableStringSchema.optional(),
   stateFilePrefix: ResolvableStringSchema.default('tfstates/'),
   stateFileExt: ResolvableStringSchema.default('.tfstate'),
   createBackend: ResolvableBooleanSchema.default(true),
-}).extend({ ...S3BucketInputSchema.shape })
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>
@@ -37,7 +35,7 @@ export function S3Backend(
 
   const BackendBucket = () => {
     const { logBucket } = useRegionalLogBucket()
-    const backendBucketConfig = S3BucketInputSchema.partial().loose().parse({
+    const backendBucketConfig = S3BucketSchema.partial().loose().parse({
       logBucket: logBucket.bucket,
       ...backendConfig,
       bucket,
@@ -47,6 +45,8 @@ export function S3Backend(
     return (
       <S3BucketComponent
         _id='awss3bucket_backend'
+        _title='Backend Bucket'
+        _display='entity'
         {...backendBucketConfig}
         versioningEnabled
         object_lock_enabled
@@ -76,7 +76,7 @@ export function S3Backend(
           },
         },
       }}
-      _display='none'
+      _display='invisible'
       {...(s3Backend || {})}
       {...props}
     >

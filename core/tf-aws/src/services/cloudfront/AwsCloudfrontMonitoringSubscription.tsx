@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   distribution_id: resolvableValue(z.string()),
   monitoring_subscription: resolvableValue(z.object({
     realtime_metrics_subscription_config: z.object({
       realtime_metrics_subscription_status: z.string(),
     }),
   })),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

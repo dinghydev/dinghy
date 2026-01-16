@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   amazon_side_asn: resolvableValue(z.number().optional()),
   auto_accept_shared_attachments: resolvableValue(z.string().optional()),
   default_route_table_association: resolvableValue(z.string().optional()),
@@ -30,7 +30,7 @@ export const InputSchema = z.object({
   ),
   transit_gateway_cidr_blocks: resolvableValue(z.string().array().optional()),
   vpn_ecmp_support: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

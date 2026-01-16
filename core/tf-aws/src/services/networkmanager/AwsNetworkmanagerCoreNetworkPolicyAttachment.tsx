@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   core_network_id: resolvableValue(z.string()),
   policy_document: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   state: z.string().optional(),

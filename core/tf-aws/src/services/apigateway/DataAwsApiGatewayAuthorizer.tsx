@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsApiGatewayAuthorizer } from './AwsApiGatewayAuthorizer.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   authorizer_id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

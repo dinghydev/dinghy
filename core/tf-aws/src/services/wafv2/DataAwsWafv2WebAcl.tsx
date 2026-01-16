@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsWafv2WebAcl } from './AwsWafv2WebAcl.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   scope: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resource_arn: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

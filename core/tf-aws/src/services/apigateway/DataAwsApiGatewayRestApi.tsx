@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsApiGatewayRestApi } from './AwsApiGatewayRestApi.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   api_key_source: z.string().optional(),

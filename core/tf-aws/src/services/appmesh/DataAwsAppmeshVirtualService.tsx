@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsAppmeshVirtualService } from './AwsAppmeshVirtualService.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   mesh_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

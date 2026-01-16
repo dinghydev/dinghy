@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   rotation_rules: resolvableValue(z.object({
     automatically_after_days: z.number().optional(),
     duration: z.string().optional(),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   rotate_immediately: resolvableValue(z.boolean().optional()),
   rotation_lambda_arn: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

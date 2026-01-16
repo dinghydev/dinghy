@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsOpensearchserverlessSecurityPolicy } from './AwsOpensearchserverlessSecurityPolicy.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   created_date: z.string().optional(),

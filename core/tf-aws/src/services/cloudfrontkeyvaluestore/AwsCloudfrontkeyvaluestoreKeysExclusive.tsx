@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   key_value_store_arn: resolvableValue(z.string()),
   max_batch_size: resolvableValue(z.number().optional()),
   resource_key_value_pair: resolvableValue(
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
       value: z.string(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   total_size_in_bytes: z.number().optional(),

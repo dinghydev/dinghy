@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { ROUTE_53 } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
   delegation_set_id: resolvableValue(z.string().optional()),
@@ -32,7 +32,7 @@ export const InputSchema = z.object({
       vpc_region: z.string().optional(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

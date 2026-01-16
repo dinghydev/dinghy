@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsLocationRouteCalculator } from './AwsLocationRouteCalculator.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   calculator_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   calculator_arn: z.string().optional(),

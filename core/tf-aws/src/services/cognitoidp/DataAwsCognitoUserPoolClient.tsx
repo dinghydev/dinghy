@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsCognitoUserPoolClient } from './AwsCognitoUserPoolClient.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   client_id: resolvableValue(z.string()),
   enable_propagate_additional_user_context_data: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   access_token_validity: z.number().optional(),

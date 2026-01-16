@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   availability_zone_id: resolvableValue(z.string()),
   display_name: resolvableValue(z.string()),
   memory_size_in_gbs: resolvableValue(z.number()),
@@ -52,7 +52,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   activated_storage_count: z.number().optional(),

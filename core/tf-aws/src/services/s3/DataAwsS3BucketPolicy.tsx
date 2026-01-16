@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsS3BucketPolicy } from './AwsS3BucketPolicy.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   policy: z.string().optional(),

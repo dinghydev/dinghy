@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsAppconfigConfigurationProfile } from './AwsAppconfigConfigurationProfile.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   configuration_profile_id: resolvableValue(z.string()),
   kms_key_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

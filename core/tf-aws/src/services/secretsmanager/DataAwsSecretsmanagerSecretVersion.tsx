@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsSecretsmanagerSecretVersion } from './AwsSecretsmanagerSecretVersion.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   secret_id: resolvableValue(z.string()),
   version_stages: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
   version_id: resolvableValue(z.string().optional()),
   version_stage: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

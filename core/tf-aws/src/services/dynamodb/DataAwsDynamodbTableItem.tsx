@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDynamodbTableItem } from './AwsDynamodbTableItem.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   table_name: resolvableValue(z.string()),
   expression_attribute_names: resolvableValue(
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   projection_expression: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   item: z.string().optional(),

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   browser_policy: resolvableValue(z.string()),
   additional_encryption_context: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -16,7 +16,7 @@ export const InputSchema = z.object({
   customer_managed_key: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),

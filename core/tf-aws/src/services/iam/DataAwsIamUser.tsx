@@ -9,9 +9,9 @@ import {
 import z from 'zod'
 import { AwsIamUser } from './AwsIamUser.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   user_name: resolvableValue(z.string()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

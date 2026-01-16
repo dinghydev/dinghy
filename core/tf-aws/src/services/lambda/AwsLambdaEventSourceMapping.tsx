@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   amazon_managed_kafka_event_source_config: resolvableValue(
     z.object({
@@ -110,7 +110,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   topics: resolvableValue(z.string().array().optional()),
   tumbling_window_in_seconds: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

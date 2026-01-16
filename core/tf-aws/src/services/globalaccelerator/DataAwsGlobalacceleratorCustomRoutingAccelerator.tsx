@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsGlobalacceleratorCustomRoutingAccelerator } from './AwsGlobalacceleratorCustomRoutingAccelerator.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   attributes: resolvableValue(
     z.object({
       flow_logs_enabled: z.boolean(),
@@ -31,7 +31,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

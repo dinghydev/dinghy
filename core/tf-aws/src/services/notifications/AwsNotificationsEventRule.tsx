@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   event_type: resolvableValue(z.string()),
   notification_configuration_arn: resolvableValue(z.string()),
   regions: resolvableValue(z.string().array()),
   source: resolvableValue(z.string()),
   event_pattern: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

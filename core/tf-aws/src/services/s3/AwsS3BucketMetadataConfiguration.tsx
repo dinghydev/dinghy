@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   expected_bucket_owner: resolvableValue(z.string().optional()),
   metadata_configuration: resolvableValue(
@@ -18,19 +18,19 @@ export const InputSchema = z.object({
         table_bucket_arn: z.string(),
         table_bucket_type: z.string(),
         table_namespace: z.string(),
-      }).array(),
+      }).array().optional(),
       inventory_table_configuration: z.object({
         configuration_state: z.string(),
-        table_arn: z.string(),
-        table_name: z.string(),
+        table_arn: z.string().optional(),
+        table_name: z.string().optional(),
         encryption_configuration: z.object({
           kms_key_arn: z.string().optional(),
           sse_algorithm: z.string(),
         }).array().optional(),
       }).array().optional(),
       journal_table_configuration: z.object({
-        table_arn: z.string(),
-        table_name: z.string(),
+        table_arn: z.string().optional(),
+        table_name: z.string().optional(),
         encryption_configuration: z.object({
           kms_key_arn: z.string().optional(),
           sse_algorithm: z.string(),
@@ -48,7 +48,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsNetworkfirewallResourcePolicy } from './AwsNetworkfirewallResourcePolicy.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

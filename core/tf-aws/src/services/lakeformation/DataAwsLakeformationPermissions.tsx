@@ -8,7 +8,7 @@ import {
 import z from 'zod'
 import { AwsLakeformationPermissions } from './AwsLakeformationPermissions.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   principal: resolvableValue(z.string()),
   catalog_id: resolvableValue(z.string().optional()),
   catalog_resource: resolvableValue(z.boolean().optional()),
@@ -69,7 +69,7 @@ export const InputSchema = z.object({
       wildcard: z.boolean().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   permissions: z.string().array().optional(),

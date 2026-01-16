@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsRoute53Zone } from './AwsRoute53Zone.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   private_zone: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_id: resolvableValue(z.string().optional()),
   zone_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

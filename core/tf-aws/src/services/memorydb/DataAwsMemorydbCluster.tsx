@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsMemorydbCluster } from './AwsMemorydbCluster.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cluster_endpoint: resolvableValue(
     z.object({
       address: z.string(),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   ),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   acl_name: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsIdentitystoreUser } from './AwsIdentitystoreUser.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   identity_store_id: resolvableValue(z.string()),
   alternate_identifier: resolvableValue(
     z.object({
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   user_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   addresses: z.object({

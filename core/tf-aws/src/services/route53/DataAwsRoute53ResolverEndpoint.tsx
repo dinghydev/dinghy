@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRoute53ResolverEndpoint } from './AwsRoute53ResolverEndpoint.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resolver_endpoint_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

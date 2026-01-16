@@ -8,23 +8,23 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string().optional()),
   include_additional_language_codes: resolvableValue(z.boolean().optional()),
   language_code: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
   voices: z.object({
-    additional_language_codes: z.string().array(),
-    gender: z.string(),
-    id: z.string(),
-    language_code: z.string(),
-    language_name: z.string(),
-    name: z.string(),
-    supported_engines: z.string().array(),
+    additional_language_codes: z.string().array().optional(),
+    gender: z.string().optional(),
+    id: z.string().optional(),
+    language_code: z.string().optional(),
+    language_name: z.string().optional(),
+    name: z.string().optional(),
+    supported_engines: z.string().array().optional(),
   }).array().optional().optional(),
 })
 

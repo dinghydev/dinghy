@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   runtime_environment: resolvableValue(z.string()),
   service_execution_role: resolvableValue(z.string()),
@@ -69,8 +69,8 @@ export const InputSchema = z.object({
       }).optional(),
       sql_application_configuration: z.object({
         input: z.object({
-          in_app_stream_names: z.string().array(),
-          input_id: z.string(),
+          in_app_stream_names: z.string().array().optional(),
+          input_id: z.string().optional(),
           name_prefix: z.string(),
           input_parallelism: z.object({
             count: z.number().optional(),
@@ -112,7 +112,7 @@ export const InputSchema = z.object({
         }).optional(),
         output: z.object({
           name: z.string(),
-          output_id: z.string(),
+          output_id: z.string().optional(),
           destination_schema: z.object({
             record_format_type: z.string(),
           }),
@@ -127,7 +127,7 @@ export const InputSchema = z.object({
           }).optional(),
         }).array().optional(),
         reference_data_source: z.object({
-          reference_id: z.string(),
+          reference_id: z.string().optional(),
           table_name: z.string(),
           reference_schema: z.object({
             record_encoding: z.string().optional(),
@@ -158,15 +158,15 @@ export const InputSchema = z.object({
       vpc_configuration: z.object({
         security_group_ids: z.string().array(),
         subnet_ids: z.string().array(),
-        vpc_configuration_id: z.string(),
-        vpc_id: z.string(),
+        vpc_configuration_id: z.string().optional(),
+        vpc_id: z.string().optional(),
       }).optional(),
     }).optional(),
   ),
   application_mode: resolvableValue(z.string().optional()),
   cloudwatch_logging_options: resolvableValue(
     z.object({
-      cloudwatch_logging_option_id: z.string(),
+      cloudwatch_logging_option_id: z.string().optional(),
       log_stream_arn: z.string(),
     }).optional(),
   ),
@@ -182,7 +182,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

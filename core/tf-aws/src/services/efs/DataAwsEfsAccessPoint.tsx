@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEfsAccessPoint } from './AwsEfsAccessPoint.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   access_point_id: resolvableValue(z.string()),
   owner_id: resolvableValue(z.string()),
   root_directory: resolvableValue(
@@ -23,7 +23,7 @@ export const InputSchema = z.object({
     }).array(),
   ),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { CLOUD_LOGGING } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   target_bucket: resolvableValue(z.string()),
   target_prefix: resolvableValue(z.string()),
@@ -21,7 +21,7 @@ export const InputSchema = z.object({
     z.object({
       permission: z.string(),
       grantee: z.object({
-        display_name: z.string(),
+        display_name: z.string().optional(),
         email_address: z.string().optional(),
         id: z.string().optional(),
         type: z.string(),
@@ -37,7 +37,7 @@ export const InputSchema = z.object({
       simple_prefix: z.object({}).optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

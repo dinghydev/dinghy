@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSubnet } from './AwsSubnet.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string().optional()),
   availability_zone_id: resolvableValue(z.string().optional()),
   cidr_block: resolvableValue(z.string().optional()),
@@ -31,7 +31,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

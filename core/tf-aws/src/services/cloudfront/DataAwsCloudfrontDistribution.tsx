@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsCloudfrontDistribution } from './AwsCloudfrontDistribution.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
   id: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   aliases: z.set(z.string()).optional(),

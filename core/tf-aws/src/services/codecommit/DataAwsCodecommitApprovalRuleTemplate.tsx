@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsCodecommitApprovalRuleTemplate } from './AwsCodecommitApprovalRuleTemplate.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   approval_rule_template_id: z.string().optional(),

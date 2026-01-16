@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsBackupSelection } from './AwsBackupSelection.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   plan_id: resolvableValue(z.string()),
   selection_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   iam_role_arn: z.string().optional(),

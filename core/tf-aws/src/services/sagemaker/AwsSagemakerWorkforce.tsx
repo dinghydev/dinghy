@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   workforce_name: resolvableValue(z.string()),
   cognito_config: resolvableValue(
     z.object({
@@ -42,11 +42,11 @@ export const InputSchema = z.object({
     z.object({
       security_group_ids: z.string().array().optional(),
       subnets: z.string().array().optional(),
-      vpc_endpoint_id: z.string(),
+      vpc_endpoint_id: z.string().optional(),
       vpc_id: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cluster_id: resolvableValue(z.string()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   auto_minor_version_upgrade: resolvableValue(z.string().optional()),
@@ -55,7 +55,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   transit_encryption_enabled: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

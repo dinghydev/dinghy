@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   inference_profile_summaries: resolvableValue(
     z.object({
       created_at: z.string(),
@@ -26,7 +26,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   type: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

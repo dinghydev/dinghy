@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRoute53ResolverQueryLogConfig } from './AwsRoute53ResolverQueryLogConfig.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   ),
   region: resolvableValue(z.string().optional()),
   resolver_query_log_config_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

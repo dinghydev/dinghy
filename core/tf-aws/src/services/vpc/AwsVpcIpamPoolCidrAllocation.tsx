@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   ipam_pool_allocation_id: resolvableValue(z.string()),
   ipam_pool_id: resolvableValue(z.string()),
   cidr: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   disallowed_cidrs: resolvableValue(z.string().array().optional()),
   netmask_length: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

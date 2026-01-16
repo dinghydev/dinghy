@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bandwidth: resolvableValue(z.string()),
   connection_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   owner_account_id: resolvableValue(z.string()),
   vlan: resolvableValue(z.number()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   aws_device: z.string().optional(),

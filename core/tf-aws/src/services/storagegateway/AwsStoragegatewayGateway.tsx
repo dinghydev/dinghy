@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   gateway_name: resolvableValue(z.string()),
   gateway_timezone: resolvableValue(z.string()),
   activation_key: resolvableValue(z.string().optional()),
@@ -35,7 +35,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   smb_active_directory_settings: resolvableValue(
     z.object({
-      active_directory_status: z.string(),
+      active_directory_status: z.string().optional(),
       domain_controllers: z.string().array().optional(),
       domain_name: z.string(),
       organizational_unit: z.string().optional(),
@@ -54,7 +54,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

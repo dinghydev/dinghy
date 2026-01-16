@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   comment: resolvableValue(z.string()),
   enabled: resolvableValue(z.boolean()),
   cache_behavior: resolvableValue(
@@ -164,14 +164,14 @@ export const InputSchema = z.object({
     }).array().optional(),
   ),
   web_acl_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   active_trusted_key_groups: z.object({
-    enabled: z.boolean(),
+    enabled: z.boolean().optional(),
     items: z.object({
-      key_group_id: z.string(),
-      key_pair_ids: z.string().array(),
+      key_group_id: z.string().optional(),
+      key_pair_ids: z.string().array().optional(),
     }).array().optional(),
   }).array().optional().optional(),
   arn: z.string().optional(),

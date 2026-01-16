@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   tags_all: resolvableValue(z.record(z.string(), z.string())),
   access_endpoint: resolvableValue(z.string().optional()),
   endpoint_details: resolvableValue(
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
       vpc: z.object({
         security_group_ids: z.string().array().optional(),
         subnet_ids: z.string().array(),
-        vpc_endpoint_id: z.string(),
+        vpc_endpoint_id: z.string().optional(),
         vpc_id: z.string(),
       }).array().optional(),
     }).array().optional(),
@@ -25,7 +25,7 @@ export const InputSchema = z.object({
   identity_provider_details: resolvableValue(
     z.object({
       identity_center_config: z.object({
-        application_arn: z.string(),
+        application_arn: z.string().optional(),
         instance_arn: z.string().optional(),
         role: z.string().optional(),
       }).array().optional(),
@@ -39,7 +39,7 @@ export const InputSchema = z.object({
       provisioned: z.number(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -47,7 +47,7 @@ export const OutputSchema = z.object({
     vpc: z.object({
       security_group_ids: z.set(z.string()).optional(),
       subnet_ids: z.set(z.string()),
-      vpc_endpoint_id: z.string(),
+      vpc_endpoint_id: z.string().optional(),
       vpc_id: z.string(),
     }).array().optional(),
   }).array().optional().optional(),

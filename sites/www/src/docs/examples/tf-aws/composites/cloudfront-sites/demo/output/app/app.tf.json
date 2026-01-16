@@ -81,6 +81,12 @@
           "prefix": "cloudfront-accesslog/cloudfrontsitedemodinghydev_site/"
         },
         "ordered_cache_behavior": [],
+        "depends_on": [
+          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket",
+          "aws_cloudfront_origin_access_control.cloudfrontsitedemodinghydev_originaccesscontrol",
+          "aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate",
+          "aws_s3_bucket.awss3bucket_globallogbucket"
+        ],
         "tags": {
           "Name": "Distribution: cloudfront-site-demo.dinghy.dev",
           "iac:id": "cloudfrontsitedemodinghydev_site"
@@ -142,6 +148,13 @@
           "bucket": "${aws_s3_bucket.awss3bucket_globallogbucket.bucket_domain_name}",
           "prefix": "cloudfront-accesslog/cloudfrontsitedemodinghydev_redirect/"
         },
+        "depends_on": [
+          "aws_cloudfront_function.cloudfrontsitedemodinghydev_redirect_function",
+          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket",
+          "aws_cloudfront_origin_access_control.cloudfrontsitedemodinghydev_originaccesscontrol",
+          "aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate",
+          "aws_s3_bucket.awss3bucket_globallogbucket"
+        ],
         "tags": {
           "Name": "Distribution: Redirect to cloudfront-site-demo.dinghy.dev",
           "iac:id": "cloudfrontsitedemodinghydev_redirect"
@@ -157,7 +170,10 @@
           "name": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.domain_name}",
           "zone_id": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.hosted_zone_id}",
           "evaluate_target_health": false
-        }
+        },
+        "depends_on": [
+          "aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site"
+        ]
       },
       "cloudfrontsitedemodinghydev_validation_cname": {
         "name": "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"cloudfront-site-demo.dinghy.dev\"\n]).resource_record_name}",
@@ -167,7 +183,10 @@
         "records": [
           "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"cloudfront-site-demo.dinghy.dev\"\n]).resource_record_value}"
         ],
-        "ttl": 60
+        "ttl": 60,
+        "depends_on": [
+          "one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate"
+        ]
       },
       "star_cloudfrontsitedemodinghydev_arecord": {
         "name": "*.cloudfront-site-demo.dinghy.dev",
@@ -177,7 +196,10 @@
           "name": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_redirect.domain_name}",
           "zone_id": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_redirect.hosted_zone_id}",
           "evaluate_target_health": false
-        }
+        },
+        "depends_on": [
+          "aws_cloudfront_distribution.cloudfrontsitedemodinghydev_redirect"
+        ]
       },
       "star_cloudfrontsitedemodinghydev_validation_cname": {
         "name": "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.cloudfront-site-demo.dinghy.dev\"\n]).resource_record_name}",
@@ -187,7 +209,10 @@
         "records": [
           "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.cloudfront-site-demo.dinghy.dev\"\n]).resource_record_value}"
         ],
-        "ttl": 60
+        "ttl": 60,
+        "depends_on": [
+          "one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate"
+        ]
       }
     },
     "aws_s3_bucket": {
@@ -202,7 +227,7 @@
         "bucket": "dinghy-dev-demo-sites-backend",
         "object_lock_enabled": true,
         "tags": {
-          "Name": "dinghy-dev-demo-sites-backend",
+          "Name": "Backend Bucket",
           "iac:id": "awss3bucket_backend"
         }
       },
@@ -224,38 +249,38 @@
     },
     "aws_s3_bucket_logging": {
       "cloudfrontsitedemodinghydev_site_root_bucket_logging": {
-        "bucket": "dinghy-dev-demo-sites-origin",
-        "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
-        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-origin/",
         "depends_on": [
           "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
-        ]
+        ],
+        "bucket": "dinghy-dev-demo-sites-origin",
+        "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
+        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-origin/"
       },
       "awss3bucket_regionallogbucket_logging": {
-        "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
-        "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
-        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-logs-eu-west-1/",
         "depends_on": [
           "aws_s3_bucket.awss3bucket_regionallogbucket"
-        ]
+        ],
+        "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
+        "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
+        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-logs-eu-west-1/"
       },
       "awss3bucket_globallogbucket_logging": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_globallogbucket"
+        ],
         "bucket": "dinghy-dev-demo-sites-logs-global",
         "target_bucket": "dinghy-dev-demo-sites-logs-global",
         "target_prefix": "s3-access-log/dinghy-dev-demo-sites-logs-global/",
-        "region": "us-east-1",
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_globallogbucket"
-        ]
+        "region": "us-east-1"
       }
     },
     "aws_s3_bucket_policy": {
       "cloudfrontsitedemodinghydev_site_root_bucket_policy": {
-        "bucket": "dinghy-dev-demo-sites-origin",
-        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-origin/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.arn}\"]}}}]}",
         "depends_on": [
           "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
-        ]
+        ],
+        "bucket": "dinghy-dev-demo-sites-origin",
+        "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-origin/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.arn}\"]}}}]}"
       },
       "awss3bucket_regionallogbucket_policy": {
         "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
@@ -264,13 +289,13 @@
     },
     "aws_s3_object": {
       "dinghydevdemositesorigin_404html": {
+        "depends_on": [
+          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
+        ],
         "bucket": "dinghy-dev-demo-sites-origin",
         "cache_control": "max-age=3600, public, must-revalidate",
         "content_type": "text/html; charset=UTF-8",
         "source": "/dinghy/engine/workspace/demo/s3-files/dinghy-dev-demo-sites-origin/404.html",
-        "depends_on": [
-          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
-        ],
         "key": "/404.html",
         "tags": {
           "Name": "/404.html",
@@ -278,13 +303,13 @@
         }
       },
       "dinghydevdemositesorigin_indexhtml": {
+        "depends_on": [
+          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
+        ],
         "bucket": "dinghy-dev-demo-sites-origin",
         "cache_control": "max-age=3600, public, must-revalidate",
         "content_type": "text/html; charset=UTF-8",
         "source": "/dinghy/engine/workspace/demo/s3-files/dinghy-dev-demo-sites-origin/index.html",
-        "depends_on": [
-          "aws_s3_bucket.cloudfrontsitedemodinghydev_site_root_bucket"
-        ],
         "key": "/index.html",
         "tags": {
           "Name": "/index.html",
@@ -294,6 +319,12 @@
     },
     "aws_acm_certificate": {
       "cloudfrontsitedemodinghydev_site_20260104_certificate": {
+        "lifecycle": {
+          "ignore_changes": [
+            "subject_alternative_names",
+            "domain_name"
+          ]
+        },
         "domain_name": "cloudfront-site-demo.dinghy.dev",
         "region": "us-east-1",
         "subject_alternative_names": [],
@@ -301,15 +332,15 @@
           "iac:id": "cloudfrontsitedemodinghydev_site_20260104_certificate",
           "Name": "v20260104"
         },
-        "validation_method": "DNS",
+        "validation_method": "DNS"
+      },
+      "cloudfrontsitedemodinghydev_redirect_20260104_certificate": {
         "lifecycle": {
           "ignore_changes": [
             "subject_alternative_names",
             "domain_name"
           ]
-        }
-      },
-      "cloudfrontsitedemodinghydev_redirect_20260104_certificate": {
+        },
         "domain_name": "*.cloudfront-site-demo.dinghy.dev",
         "region": "us-east-1",
         "subject_alternative_names": [],
@@ -317,13 +348,7 @@
           "iac:id": "cloudfrontsitedemodinghydev_redirect_20260104_certificate",
           "Name": "v20260104"
         },
-        "validation_method": "DNS",
-        "lifecycle": {
-          "ignore_changes": [
-            "subject_alternative_names",
-            "domain_name"
-          ]
-        }
+        "validation_method": "DNS"
       }
     },
     "aws_cloudfront_origin_access_control": {
@@ -336,38 +361,38 @@
     },
     "aws_cloudfront_function": {
       "cloudfrontsitedemodinghydev_redirect_function": {
-        "code": "\n              function handler(event) {\n                var request = event.request;\n                \n                var newUrl = 'https://cloudfront-site-demo.dinghy.dev';\n                var response = {\n                  statusCode: 301,\n                  statusDescription: 'Moved Permanently',\n                  headers: {\n                    'location': { value: newUrl }\n                  }\n                };\n                return response;\n              }",
-        "name": "cloudfrontsitedemodinghydev_redirect_function",
-        "runtime": "cloudfront-js-2.0",
-        "publish": true,
         "lifecycle": {
           "ignore_changes": [
             "name"
           ]
-        }
+        },
+        "code": "\n              function handler(event) {\n                var request = event.request;\n                \n                var newUrl = 'https://cloudfront-site-demo.dinghy.dev';\n                var response = {\n                  statusCode: 301,\n                  statusDescription: 'Moved Permanently',\n                  headers: {\n                    'location': { value: newUrl }\n                  }\n                };\n                return response;\n              }",
+        "name": "cloudfrontsitedemodinghydev_redirect_function",
+        "runtime": "cloudfront-js-2.0",
+        "publish": true
       }
     },
     "aws_s3_bucket_versioning": {
       "awss3bucket_backend_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ],
         "bucket": "dinghy-dev-demo-sites-backend",
         "versioning_configuration": {
           "status": "Enabled"
-        },
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_backend"
-        ]
+        }
       }
     },
     "aws_s3_bucket_ownership_controls": {
       "awss3bucket_globallogbucket_ownership_controls": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_globallogbucket"
+        ],
         "bucket": "dinghy-dev-demo-sites-logs-global",
         "rule": {
           "object_ownership": "BucketOwnerPreferred"
         },
-        "region": "us-east-1",
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_globallogbucket"
-        ]
+        "region": "us-east-1"
       }
     }
   },

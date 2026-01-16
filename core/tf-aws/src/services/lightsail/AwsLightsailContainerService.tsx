@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   power: resolvableValue(z.string()),
   scale: resolvableValue(z.number()),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
     z.object({
       ecr_image_puller_role: z.object({
         is_active: z.boolean().optional(),
-        principal_arn: z.string(),
+        principal_arn: z.string().optional(),
       }).optional(),
     }).optional(),
   ),
@@ -39,7 +39,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -52,7 +52,7 @@ export const OutputSchema = z.object({
   private_registry_access: z.object({
     ecr_image_puller_role: z.object({
       is_active: z.boolean().optional(),
-      principal_arn: z.string(),
+      principal_arn: z.string().optional(),
     }).optional(),
   }).optional().optional(),
   resource_type: z.string().optional(),

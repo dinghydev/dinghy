@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsKmsKey } from './AwsKmsKey.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string()),
   cloud_hsm_cluster_id: resolvableValue(z.string()),
@@ -50,7 +50,7 @@ export const InputSchema = z.object({
   grant_tokens: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

@@ -48,7 +48,7 @@ const CloudfrontSitesSchema = z.record(z.string(), CloudfrontSiteSchema)
 export type OriginType = z.output<typeof OriginSchema>
 export type CloudfrontSiteType = z.output<typeof CloudfrontSiteSchema>
 
-export function useCloudfrontSites(
+export function parseCloudfrontSites(
   sites?: any,
 ): Record<string, CloudfrontSiteType> {
   const cloudfrontSites = sites ||

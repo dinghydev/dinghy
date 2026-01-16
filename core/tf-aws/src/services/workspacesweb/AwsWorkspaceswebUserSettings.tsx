@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   associated_portal_arns: resolvableValue(z.string().array()),
   copy_allowed: resolvableValue(z.string()),
   download_allowed: resolvableValue(z.string()),
@@ -46,7 +46,7 @@ export const InputSchema = z.object({
       visual_mode: z.string().optional(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),

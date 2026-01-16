@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   vpc_peering_connection_id: resolvableValue(z.string()),
   accepter: resolvableValue(
     z.object({
@@ -21,7 +21,7 @@ export const InputSchema = z.object({
       allow_remote_vpc_dns_resolution: z.boolean().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

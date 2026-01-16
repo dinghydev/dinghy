@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcEndpoint } from './AwsVpcEndpoint.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   ip_address_type: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -30,7 +30,7 @@ export const InputSchema = z.object({
   ),
   vpc_endpoint_type: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

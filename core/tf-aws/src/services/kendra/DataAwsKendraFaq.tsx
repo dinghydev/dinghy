@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsKendraFaq } from './AwsKendraFaq.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   faq_id: resolvableValue(z.string()),
   index_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

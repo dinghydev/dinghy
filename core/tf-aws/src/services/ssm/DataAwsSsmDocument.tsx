@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsSsmDocument } from './AwsSsmDocument.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   document_format: resolvableValue(z.string().optional()),
   document_version: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

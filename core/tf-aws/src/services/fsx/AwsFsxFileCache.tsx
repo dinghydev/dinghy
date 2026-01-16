@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   file_cache_type: resolvableValue(z.string()),
   file_cache_type_version: resolvableValue(z.string()),
   owner_id: resolvableValue(z.string()),
@@ -20,15 +20,15 @@ export const InputSchema = z.object({
   ),
   data_repository_association: resolvableValue(
     z.object({
-      association_id: z.string(),
+      association_id: z.string().optional(),
       data_repository_path: z.string(),
       data_repository_subdirectories: z.string().array().optional(),
-      file_cache_id: z.string(),
+      file_cache_id: z.string().optional(),
       file_cache_path: z.string(),
-      file_system_id: z.string(),
-      file_system_path: z.string(),
-      imported_file_chunk_size: z.number(),
-      resource_arn: z.string(),
+      file_system_id: z.string().optional(),
+      file_system_path: z.string().optional(),
+      imported_file_chunk_size: z.number().optional(),
+      resource_arn: z.string().optional(),
       tags: z.record(z.string(), z.string()).optional(),
       nfs: z.object({
         dns_ips: z.string().array().optional(),
@@ -43,8 +43,8 @@ export const InputSchema = z.object({
       log_configuration: z.object({
         destination: z.string(),
         level: z.string(),
-      }).array(),
-      mount_name: z.string(),
+      }).array().optional(),
+      mount_name: z.string().optional(),
       per_unit_storage_throughput: z.number(),
       weekly_maintenance_start_time: z.string().optional(),
       metadata_configuration: z.object({
@@ -63,7 +63,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

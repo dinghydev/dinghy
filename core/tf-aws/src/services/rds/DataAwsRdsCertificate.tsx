@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsRdsCertificate } from './AwsRdsCertificate.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   default_for_new_launches: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   latest_valid_till: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

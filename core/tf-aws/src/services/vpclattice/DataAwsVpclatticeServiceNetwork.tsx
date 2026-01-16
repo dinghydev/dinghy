@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsVpclatticeServiceNetwork } from './AwsVpclatticeServiceNetwork.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   service_network_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

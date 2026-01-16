@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   cluster_state: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -34,10 +34,10 @@ export const InputSchema = z.object({
   configurations_json: resolvableValue(z.string().optional()),
   core_instance_fleet: resolvableValue(
     z.object({
-      id: z.string(),
+      id: z.string().optional(),
       name: z.string().optional(),
-      provisioned_on_demand_capacity: z.number(),
-      provisioned_spot_capacity: z.number(),
+      provisioned_on_demand_capacity: z.number().optional(),
+      provisioned_spot_capacity: z.number().optional(),
       target_on_demand_capacity: z.number().optional(),
       target_spot_capacity: z.number().optional(),
       instance_type_configs: z.object({
@@ -73,7 +73,7 @@ export const InputSchema = z.object({
     z.object({
       autoscaling_policy: z.string().optional(),
       bid_price: z.string().optional(),
-      id: z.string(),
+      id: z.string().optional(),
       instance_count: z.number().optional(),
       instance_type: z.string(),
       name: z.string().optional(),
@@ -116,10 +116,10 @@ export const InputSchema = z.object({
   log_uri: resolvableValue(z.string().optional()),
   master_instance_fleet: resolvableValue(
     z.object({
-      id: z.string(),
+      id: z.string().optional(),
       name: z.string().optional(),
-      provisioned_on_demand_capacity: z.number(),
-      provisioned_spot_capacity: z.number(),
+      provisioned_on_demand_capacity: z.number().optional(),
+      provisioned_spot_capacity: z.number().optional(),
       target_on_demand_capacity: z.number().optional(),
       target_spot_capacity: z.number().optional(),
       instance_type_configs: z.object({
@@ -154,7 +154,7 @@ export const InputSchema = z.object({
   master_instance_group: resolvableValue(
     z.object({
       bid_price: z.string().optional(),
-      id: z.string(),
+      id: z.string().optional(),
       instance_count: z.number().optional(),
       instance_type: z.string(),
       name: z.string().optional(),
@@ -194,7 +194,7 @@ export const InputSchema = z.object({
   termination_protection: resolvableValue(z.boolean().optional()),
   unhealthy_node_replacement: resolvableValue(z.boolean().optional()),
   visible_to_all_users: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   applications: z.set(z.string()).optional(),

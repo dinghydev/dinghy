@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsCloudhsmV2Cluster } from './AwsCloudhsmV2Cluster.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cluster_id: resolvableValue(z.string()),
   cluster_state: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   cluster_certificates: z.object({

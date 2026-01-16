@@ -8,22 +8,22 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   agent_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   agent_version_summaries: z.object({
-    agent_name: z.string(),
-    agent_status: z.string(),
-    agent_version: z.string(),
-    created_at: z.string(),
-    description: z.string(),
-    updated_at: z.string(),
+    agent_name: z.string().optional(),
+    agent_status: z.string().optional(),
+    agent_version: z.string().optional(),
+    created_at: z.string().optional(),
+    description: z.string().optional(),
+    updated_at: z.string().optional(),
     guardrail_configuration: z.object({
-      guardrail_identifier: z.string(),
-      guardrail_version: z.string(),
+      guardrail_identifier: z.string().optional(),
+      guardrail_version: z.string().optional(),
     }).array().optional(),
   }).array().optional().optional(),
 })

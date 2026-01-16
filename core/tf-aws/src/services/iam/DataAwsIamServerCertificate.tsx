@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsIamServerCertificate } from './AwsIamServerCertificate.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   latest: resolvableValue(z.boolean().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   path_prefix: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

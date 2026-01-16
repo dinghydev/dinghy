@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsRedshiftCluster } from './AwsRedshiftCluster.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   cluster_version: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   allow_version_upgrade: z.boolean().optional(),

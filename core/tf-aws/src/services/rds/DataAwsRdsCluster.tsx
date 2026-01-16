@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRdsCluster } from './AwsRdsCluster.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   availability_zones: resolvableValue(z.string().array()),
   backtrack_window: resolvableValue(z.number()),
@@ -54,7 +54,7 @@ export const InputSchema = z.object({
   vpc_security_group_ids: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),

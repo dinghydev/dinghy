@@ -9,9 +9,9 @@ import {
 import z from 'zod'
 import { AwsDxGateway } from './AwsDxGateway.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   amazon_side_asn: z.string().optional(),

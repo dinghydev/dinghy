@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsMedialiveInput } from './AwsMedialiveInput.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   destinations: resolvableValue(
     z.object({
       ip: z.string(),
@@ -23,7 +23,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

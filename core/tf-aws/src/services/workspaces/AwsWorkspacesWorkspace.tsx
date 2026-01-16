@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bundle_id: resolvableValue(z.string()),
   directory_id: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
@@ -34,7 +34,7 @@ export const InputSchema = z.object({
       user_volume_size_gib: z.number().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   computer_name: z.string().optional(),

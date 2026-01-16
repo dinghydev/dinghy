@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   allow_users_to_change_password: resolvableValue(z.boolean().optional()),
   hard_expiry: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
   require_numbers: resolvableValue(z.boolean().optional()),
   require_symbols: resolvableValue(z.boolean().optional()),
   require_uppercase_characters: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   expire_passwords: z.boolean().optional(),

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDbClusterSnapshot } from './AwsDbClusterSnapshot.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   source_db_cluster_snapshot_arn: resolvableValue(z.string()),
   db_cluster_identifier: resolvableValue(z.string().optional()),
   db_cluster_snapshot_identifier: resolvableValue(z.string().optional()),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   snapshot_type: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   allocated_storage: z.number().optional(),

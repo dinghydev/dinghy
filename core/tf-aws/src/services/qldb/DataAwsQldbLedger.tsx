@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsQldbLedger } from './AwsQldbLedger.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   deletion_protection: resolvableValue(z.boolean()),
   kms_key: resolvableValue(z.string()),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

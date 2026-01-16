@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsAmi } from './AwsAmi.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   allow_unsafe_filter: resolvableValue(z.boolean().optional()),
   executable_users: resolvableValue(z.string().array().optional()),
   filter: resolvableValue(
@@ -28,7 +28,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   architecture: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   admin_contact: resolvableValue(
     z.object({
@@ -102,7 +102,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   transfer_lock: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   abuse_contact_email: z.string().optional(),

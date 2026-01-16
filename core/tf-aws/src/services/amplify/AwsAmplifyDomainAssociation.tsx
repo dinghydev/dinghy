@@ -9,20 +9,20 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   app_id: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   sub_domain: resolvableValue(
     z.object({
       branch_name: z.string(),
-      dns_record: z.string(),
+      dns_record: z.string().optional(),
       prefix: z.string(),
-      verified: z.boolean(),
+      verified: z.boolean().optional(),
     }).array(),
   ),
   certificate_settings: resolvableValue(
     z.object({
-      certificate_verification_dns_record: z.string(),
+      certificate_verification_dns_record: z.string().optional(),
       custom_certificate_arn: z.string().optional(),
       type: z.string(),
     }).optional(),
@@ -31,7 +31,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   wait_for_verification: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

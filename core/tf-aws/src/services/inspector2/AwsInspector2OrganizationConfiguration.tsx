@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   auto_enable: resolvableValue(z.object({
     code_repository: z.boolean().optional(),
     ec2: z.boolean(),
@@ -26,7 +26,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   max_account_limit_reached: z.boolean().optional(),

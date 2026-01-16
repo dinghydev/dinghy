@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   dag_s3_path: resolvableValue(z.string()),
   execution_role_arn: resolvableValue(z.string()),
   last_updated: resolvableValue(
@@ -39,27 +39,27 @@ export const InputSchema = z.object({
   logging_configuration: resolvableValue(
     z.object({
       dag_processing_logs: z.object({
-        cloud_watch_log_group_arn: z.string(),
+        cloud_watch_log_group_arn: z.string().optional(),
         enabled: z.boolean().optional(),
         log_level: z.string().optional(),
       }).optional(),
       scheduler_logs: z.object({
-        cloud_watch_log_group_arn: z.string(),
+        cloud_watch_log_group_arn: z.string().optional(),
         enabled: z.boolean().optional(),
         log_level: z.string().optional(),
       }).optional(),
       task_logs: z.object({
-        cloud_watch_log_group_arn: z.string(),
+        cloud_watch_log_group_arn: z.string().optional(),
         enabled: z.boolean().optional(),
         log_level: z.string().optional(),
       }).optional(),
       webserver_logs: z.object({
-        cloud_watch_log_group_arn: z.string(),
+        cloud_watch_log_group_arn: z.string().optional(),
         enabled: z.boolean().optional(),
         log_level: z.string().optional(),
       }).optional(),
       worker_logs: z.object({
-        cloud_watch_log_group_arn: z.string(),
+        cloud_watch_log_group_arn: z.string().optional(),
         enabled: z.boolean().optional(),
         log_level: z.string().optional(),
       }).optional(),
@@ -88,7 +88,7 @@ export const InputSchema = z.object({
   webserver_access_mode: resolvableValue(z.string().optional()),
   weekly_maintenance_window_start: resolvableValue(z.string().optional()),
   worker_replacement_strategy: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

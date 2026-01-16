@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsOdbNetwork } from './AwsOdbNetwork.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   oci_dns_forwarding_configs: resolvableValue(
     z.object({
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   ),
   tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

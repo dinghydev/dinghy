@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsQuicksightTheme } from './AwsQuicksightTheme.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   theme_id: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

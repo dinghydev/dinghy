@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsApigatewayv2Api } from './AwsApigatewayv2Api.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   ip_address_type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   api_endpoint: z.string().optional(),

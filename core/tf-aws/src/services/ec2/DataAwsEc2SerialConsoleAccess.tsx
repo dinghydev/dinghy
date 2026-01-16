@@ -8,14 +8,14 @@ import {
 import z from 'zod'
 import { AwsEc2SerialConsoleAccess } from './AwsEc2SerialConsoleAccess.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   enabled: z.boolean().optional(),

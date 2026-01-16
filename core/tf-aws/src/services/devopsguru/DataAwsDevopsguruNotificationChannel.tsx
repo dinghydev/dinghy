@@ -9,18 +9,18 @@ import {
 import z from 'zod'
 import { AwsDevopsguruNotificationChannel } from './AwsDevopsguruNotificationChannel.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   filters: z.object({
-    message_types: z.string().array(),
-    severities: z.string().array(),
+    message_types: z.string().array().optional(),
+    severities: z.string().array().optional(),
   }).array().optional().optional(),
   sns: z.object({
-    topic_arn: z.string(),
+    topic_arn: z.string().optional(),
   }).array().optional().optional(),
 })
 

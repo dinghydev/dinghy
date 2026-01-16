@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsEksCluster } from './AwsEksCluster.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   access_config: z.object({

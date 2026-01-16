@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsImagebuilderInfrastructureConfiguration } from './AwsImagebuilderInfrastructureConfiguration.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   date_updated: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   date_created: z.string().optional(),

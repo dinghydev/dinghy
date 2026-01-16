@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsInternetGateway } from './AwsInternetGateway.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   attachments: resolvableValue(
     z.object({
       state: z.string(),
@@ -31,7 +31,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

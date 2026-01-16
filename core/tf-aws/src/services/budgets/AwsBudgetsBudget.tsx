@@ -9,17 +9,17 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   budget_type: resolvableValue(z.string()),
   time_unit: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   auto_adjust_data: resolvableValue(
     z.object({
       auto_adjust_type: z.string(),
-      last_auto_adjust_time: z.string(),
+      last_auto_adjust_time: z.string().optional(),
       historical_options: z.object({
         budget_adjustment_period: z.number(),
-        lookback_available_periods: z.number(),
+        lookback_available_periods: z.number().optional(),
       }).optional(),
     }).optional(),
   ),
@@ -69,7 +69,7 @@ export const InputSchema = z.object({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   time_period_end: resolvableValue(z.string().optional()),
   time_period_start: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

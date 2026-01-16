@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   attribute: resolvableValue(
     z.object({
@@ -86,15 +86,15 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   replica: resolvableValue(
     z.object({
-      arn: z.string(),
+      arn: z.string().optional(),
       consistency_mode: z.string().optional(),
       deletion_protection_enabled: z.boolean().optional(),
       kms_key_arn: z.string().optional(),
       point_in_time_recovery: z.boolean().optional(),
       propagate_tags: z.boolean().optional(),
       region_name: z.string(),
-      stream_arn: z.string(),
-      stream_label: z.string(),
+      stream_arn: z.string().optional(),
+      stream_label: z.string().optional(),
     }).array().optional(),
   ),
   restore_date_time: resolvableValue(z.string().optional()),
@@ -131,7 +131,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   write_capacity: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

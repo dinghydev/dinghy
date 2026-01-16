@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string().optional()),
   key_types: resolvableValue(z.string().array().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   statuses: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   types: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

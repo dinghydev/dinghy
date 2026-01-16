@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { RDS_INSTANCE } from '@dinghy/diagrams/entitiesAwsDatabase'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   instance_class: resolvableValue(z.string()),
   allocated_storage: resolvableValue(z.number().optional()),
   allow_major_version_upgrade: resolvableValue(z.boolean().optional()),
@@ -113,7 +113,7 @@ export const InputSchema = z.object({
   upgrade_storage_config: resolvableValue(z.boolean().optional()),
   username: resolvableValue(z.string().optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   address: z.string().optional(),

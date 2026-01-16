@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { CERTIFICATE } from '@dinghy/diagrams/entitiesAwsInternetOfThings'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   certificate_authority_arn: resolvableValue(z.string().optional()),
   certificate_body: resolvableValue(z.string().optional()),
   certificate_chain: resolvableValue(z.string().optional()),
@@ -35,7 +35,7 @@ export const InputSchema = z.object({
       validation_domain: z.string(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

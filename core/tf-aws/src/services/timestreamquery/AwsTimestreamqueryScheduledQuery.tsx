@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   execution_role_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   query_string: resolvableValue(z.string()),
@@ -77,45 +77,45 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   last_run_summary: z.object({
-    failure_reason: z.string(),
-    invocation_time: z.string(),
-    run_status: z.string(),
-    trigger_time: z.string(),
+    failure_reason: z.string().optional(),
+    invocation_time: z.string().optional(),
+    run_status: z.string().optional(),
+    trigger_time: z.string().optional(),
     error_report_location: z.object({
       s3_report_location: z.object({
-        bucket_name: z.string(),
-        object_key: z.string(),
+        bucket_name: z.string().optional(),
+        object_key: z.string().optional(),
       }).array().optional(),
     }).array().optional(),
     execution_stats: z.object({
-      bytes_metered: z.number(),
-      cumulative_bytes_scanned: z.number(),
-      data_writes: z.number(),
-      execution_time_in_millis: z.number(),
-      query_result_rows: z.number(),
-      records_ingested: z.number(),
+      bytes_metered: z.number().optional(),
+      cumulative_bytes_scanned: z.number().optional(),
+      data_writes: z.number().optional(),
+      execution_time_in_millis: z.number().optional(),
+      query_result_rows: z.number().optional(),
+      records_ingested: z.number().optional(),
     }).array().optional(),
     query_insights_response: z.object({
-      output_bytes: z.number(),
-      output_rows: z.number(),
-      query_table_count: z.number(),
+      output_bytes: z.number().optional(),
+      output_rows: z.number().optional(),
+      query_table_count: z.number().optional(),
       query_spatial_coverage: z.object({
         max: z.object({
-          partition_key: z.string().array(),
-          table_arn: z.string(),
-          value: z.number(),
+          partition_key: z.string().array().optional(),
+          table_arn: z.string().optional(),
+          value: z.number().optional(),
         }).array().optional(),
       }).array().optional(),
       query_temporal_range: z.object({
         max: z.object({
-          table_arn: z.string(),
-          value: z.number(),
+          table_arn: z.string().optional(),
+          value: z.number().optional(),
         }).array().optional(),
       }).array().optional(),
     }).array().optional(),
@@ -123,39 +123,39 @@ export const OutputSchema = z.object({
   next_invocation_time: z.string().optional(),
   previous_invocation_time: z.string().optional(),
   recently_failed_runs: z.object({
-    failure_reason: z.string(),
-    invocation_time: z.string(),
-    run_status: z.string(),
-    trigger_time: z.string(),
+    failure_reason: z.string().optional(),
+    invocation_time: z.string().optional(),
+    run_status: z.string().optional(),
+    trigger_time: z.string().optional(),
     error_report_location: z.object({
       s3_report_location: z.object({
-        bucket_name: z.string(),
-        object_key: z.string(),
+        bucket_name: z.string().optional(),
+        object_key: z.string().optional(),
       }).array().optional(),
     }).array().optional(),
     execution_stats: z.object({
-      bytes_metered: z.number(),
-      cumulative_bytes_scanned: z.number(),
-      data_writes: z.number(),
-      execution_time_in_millis: z.number(),
-      query_result_rows: z.number(),
-      records_ingested: z.number(),
+      bytes_metered: z.number().optional(),
+      cumulative_bytes_scanned: z.number().optional(),
+      data_writes: z.number().optional(),
+      execution_time_in_millis: z.number().optional(),
+      query_result_rows: z.number().optional(),
+      records_ingested: z.number().optional(),
     }).array().optional(),
     query_insights_response: z.object({
-      output_bytes: z.number(),
-      output_rows: z.number(),
-      query_table_count: z.number(),
+      output_bytes: z.number().optional(),
+      output_rows: z.number().optional(),
+      query_table_count: z.number().optional(),
       query_spatial_coverage: z.object({
         max: z.object({
-          partition_key: z.string().array(),
-          table_arn: z.string(),
-          value: z.number(),
+          partition_key: z.string().array().optional(),
+          table_arn: z.string().optional(),
+          value: z.number().optional(),
         }).array().optional(),
       }).array().optional(),
       query_temporal_range: z.object({
         max: z.object({
-          table_arn: z.string(),
-          value: z.number(),
+          table_arn: z.string().optional(),
+          value: z.number().optional(),
         }).array().optional(),
       }).array().optional(),
     }).array().optional(),

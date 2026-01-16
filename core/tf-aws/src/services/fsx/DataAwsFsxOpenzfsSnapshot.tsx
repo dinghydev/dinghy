@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsFsxOpenzfsSnapshot } from './AwsFsxOpenzfsSnapshot.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   most_recent: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   snapshot_ids: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

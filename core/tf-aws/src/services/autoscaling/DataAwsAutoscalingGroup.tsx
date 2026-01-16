@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsAutoscalingGroup } from './AwsAutoscalingGroup.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   default_cooldown: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
   new_instances_protected_from_scale_in: resolvableValue(z.boolean()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

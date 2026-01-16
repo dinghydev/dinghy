@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   customer_gateway_id: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   enable_acceleration: resolvableValue(z.boolean().optional()),
@@ -120,7 +120,7 @@ export const InputSchema = z.object({
   tunnel2_startup_action: resolvableValue(z.string().optional()),
   vpn_concentrator_id: resolvableValue(z.string().optional()),
   vpn_gateway_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

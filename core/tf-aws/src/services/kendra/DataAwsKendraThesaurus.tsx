@@ -8,11 +8,11 @@ import {
 import z from 'zod'
 import { AwsKendraThesaurus } from './AwsKendraThesaurus.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   index_id: resolvableValue(z.string()),
   thesaurus_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

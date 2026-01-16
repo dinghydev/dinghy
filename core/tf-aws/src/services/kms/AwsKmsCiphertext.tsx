@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   key_id: resolvableValue(z.string()),
   context: resolvableValue(z.record(z.string(), z.string()).optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   plaintext_wo: resolvableValue(z.string().optional()),
   plaintext_wo_version: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   ciphertext_blob: z.string().optional(),

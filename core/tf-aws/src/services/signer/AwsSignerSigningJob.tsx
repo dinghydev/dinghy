@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   destination: resolvableValue(z.object({
     s3: z.object({
       bucket: z.string(),
@@ -27,7 +27,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   ignore_signing_job_failure: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   completed_at: z.string().optional(),

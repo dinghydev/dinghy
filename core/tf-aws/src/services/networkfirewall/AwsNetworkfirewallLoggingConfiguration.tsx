@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   firewall_arn: resolvableValue(z.string()),
   logging_configuration: resolvableValue(z.object({
     log_destination_config: z.object({
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
   })),
   enable_monitoring_dashboard: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

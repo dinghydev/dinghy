@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
   aws_account_id: resolvableValue(z.string().optional()),
   ip_restriction_rule_map: resolvableValue(
@@ -22,7 +22,7 @@ export const InputSchema = z.object({
   vpc_id_restriction_rule_map: resolvableValue(
     z.record(z.string(), z.string()).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsDatapipelinePipelineDefinition } from './AwsDatapipelinePipelineDefinition.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   pipeline_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   parameter_object: z.set(z.object({
@@ -24,8 +24,8 @@ export const OutputSchema = z.object({
     id: z.string(),
   })).optional(),
   parameter_value: z.object({
-    id: z.string(),
-    string_value: z.string(),
+    id: z.string().optional(),
+    string_value: z.string().optional(),
   }).array().optional().optional(),
   pipeline_object: z.set(z.object({
     field: z.set(z.object({

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   license_type: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   grafana_token: resolvableValue(z.string().optional()),
@@ -21,7 +21,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   free_trial_expiration: z.string().optional(),

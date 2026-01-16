@@ -8,11 +8,11 @@ import {
 import z from 'zod'
 import { AwsLakeformationDataLakeSettings } from './AwsLakeformationDataLakeSettings.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   catalog_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   admins: z.set(z.string()).optional(),

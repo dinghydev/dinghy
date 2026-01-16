@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   access_control_policy: resolvableValue(
     z.object({
       grant: z.object({
         permission: z.string(),
         grantee: z.object({
-          display_name: z.string(),
+          display_name: z.string().optional(),
           email_address: z.string().optional(),
           id: z.string().optional(),
           type: z.string(),
@@ -32,7 +32,7 @@ export const InputSchema = z.object({
   acl: resolvableValue(z.string().optional()),
   expected_bucket_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

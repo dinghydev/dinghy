@@ -8,7 +8,7 @@ import {
 import z from 'zod'
 import { AwsVpcDhcpOptions } from './AwsVpcDhcpOptions.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   dhcp_options_id: resolvableValue(z.string().optional()),
   filter: resolvableValue(
     z.object({
@@ -22,7 +22,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

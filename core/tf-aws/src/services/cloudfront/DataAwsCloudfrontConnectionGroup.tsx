@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsCloudfrontConnectionGroup } from './AwsCloudfrontConnectionGroup.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   ipv6_enabled: resolvableValue(z.boolean()),
   tags: resolvableValue(z.record(z.string(), z.string())),
   id: resolvableValue(z.string().optional()),
   routing_endpoint: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   anycast_ip_list_id: z.string().optional(),

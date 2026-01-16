@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   resource_type_opt_in_preference: resolvableValue(
     z.record(z.string(), z.boolean()),
   ),
@@ -16,7 +16,7 @@ export const InputSchema = z.object({
   resource_type_management_preference: resolvableValue(
     z.record(z.string(), z.boolean()).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

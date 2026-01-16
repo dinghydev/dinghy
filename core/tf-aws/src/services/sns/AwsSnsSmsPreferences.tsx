@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   default_sender_id: resolvableValue(z.string().optional()),
   default_sms_type: resolvableValue(z.string().optional()),
   delivery_status_iam_role_arn: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   monthly_spend_limit: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   usage_report_s3_bucket: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

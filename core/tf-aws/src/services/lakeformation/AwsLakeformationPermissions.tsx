@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   permissions: resolvableValue(z.string().array()),
   principal: resolvableValue(z.string()),
   catalog_id: resolvableValue(z.string().optional()),
@@ -71,7 +71,7 @@ export const InputSchema = z.object({
       wildcard: z.boolean().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

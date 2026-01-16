@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   auth_parameters: resolvableValue(z.object({
     api_key: z.object({
       key: z.string(),
@@ -69,14 +69,14 @@ export const InputSchema = z.object({
   invocation_connectivity_parameters: resolvableValue(
     z.object({
       resource_parameters: z.object({
-        resource_association_arn: z.string(),
+        resource_association_arn: z.string().optional(),
         resource_configuration_arn: z.string(),
       }),
     }).optional(),
   ),
   kms_key_identifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

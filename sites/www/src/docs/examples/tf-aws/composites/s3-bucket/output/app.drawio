@@ -39,7 +39,7 @@
           <mxGeometry
             as="geometry" 
             width="240" 
-            height="240" 
+            height="350" 
             x="0" 
             y="0"
             />
@@ -54,9 +54,39 @@
           <mxGeometry
             as="geometry" 
             width="180" 
-            height="180" 
+            height="290" 
             x="30" 
             y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
+          id="s3backend" 
+          parent="awsprovider_euwest1" 
+          value="S3 Backend" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="150" 
+            height="110" 
+            x="15" 
+            y="15"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#CD2264;gradientColor=none;fillColor=#7AA116;strokeColor=#CD2264;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
+          id="awss3bucket_backend" 
+          parent="s3backend" 
+          value="Backend Bucket" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="45" 
+            y="15"
             />
           </mxCell>
         <mxCell
@@ -71,7 +101,7 @@
             width="120" 
             height="120" 
             x="30" 
-            y="30"
+            y="140"
             />
           </mxCell>
         <mxCell

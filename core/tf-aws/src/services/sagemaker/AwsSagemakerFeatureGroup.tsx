@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   event_time_feature_name: resolvableValue(z.string()),
   feature_definition: resolvableValue(
     z.object({
@@ -66,7 +66,7 @@ export const InputSchema = z.object({
       throughput_mode: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

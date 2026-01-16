@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   iso_country_code: resolvableValue(z.string()),
   message_type: resolvableValue(z.string()),
   number_capabilities: resolvableValue(z.string().array()),
@@ -30,7 +30,7 @@ export const InputSchema = z.object({
   two_way_channel_arn: resolvableValue(z.string().optional()),
   two_way_channel_enabled: resolvableValue(z.boolean().optional()),
   two_way_channel_role: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

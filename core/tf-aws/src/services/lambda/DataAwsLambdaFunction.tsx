@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsLambdaFunction } from './AwsLambdaFunction.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   qualifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   architectures: z.string().array().optional(),

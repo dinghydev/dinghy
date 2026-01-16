@@ -9,63 +9,63 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   hierarchy_structure: resolvableValue(z.object({
     level_five: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_four: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_one: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_three: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_two: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
   })),
   instance_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   hierarchy_structure: z.object({
     level_five: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_four: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_one: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_three: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
     level_two: z.object({
-      arn: z.string(),
-      id: z.string(),
+      arn: z.string().optional(),
+      id: z.string().optional(),
       name: z.string(),
     }).optional(),
   }).optional(),

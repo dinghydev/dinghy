@@ -9,9 +9,9 @@ import {
 import z from 'zod'
 import { AwsS3AccountPublicAccessBlock } from './AwsS3AccountPublicAccessBlock.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   block_public_acls: z.boolean().optional(),

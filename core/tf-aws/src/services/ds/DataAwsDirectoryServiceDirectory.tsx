@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDirectoryServiceDirectory } from './AwsDirectoryServiceDirectory.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   connect_settings: resolvableValue(
     z.object({
       availability_zones: z.string().array(),
@@ -41,7 +41,7 @@ export const InputSchema = z.object({
   ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   access_url: z.string().optional(),

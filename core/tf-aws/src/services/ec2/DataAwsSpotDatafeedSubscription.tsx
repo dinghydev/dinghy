@@ -9,9 +9,9 @@ import {
 import z from 'zod'
 import { AwsSpotDatafeedSubscription } from './AwsSpotDatafeedSubscription.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   bucket: z.string().optional(),

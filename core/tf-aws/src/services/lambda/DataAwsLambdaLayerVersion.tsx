@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsLambdaLayerVersion } from './AwsLambdaLayerVersion.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   layer_name: resolvableValue(z.string()),
   compatible_architecture: resolvableValue(z.string().optional()),
   compatible_runtime: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

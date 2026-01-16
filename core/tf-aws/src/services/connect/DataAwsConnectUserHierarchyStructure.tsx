@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsConnectUserHierarchyStructure } from './AwsConnectUserHierarchyStructure.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   hierarchy_structure: z.object({

@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { APPLICATION_LOAD_BALANCER } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string()),
   access_logs: resolvableValue(
     z.object({
@@ -78,7 +78,7 @@ export const InputSchema = z.object({
     z.object({
       allocation_id: z.string().optional(),
       ipv6_address: z.string().optional(),
-      outpost_id: z.string(),
+      outpost_id: z.string().optional(),
       private_ipv4_address: z.string().optional(),
       subnet_id: z.string(),
     }).array().optional(),
@@ -93,7 +93,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   xff_header_processing_mode: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

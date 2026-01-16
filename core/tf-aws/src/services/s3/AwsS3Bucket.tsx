@@ -12,7 +12,7 @@ import z from 'zod'
 import { BUCKET } from '@dinghy/diagrams/entitiesAwsStorage'
 import { AWS_ACCOUNT } from '@dinghy/diagrams/containersAwsGroups'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   acceleration_status: resolvableValue(z.string().optional()),
   acl: resolvableValue(z.string().optional()),
   bucket: resolvableValue(z.string().optional()),
@@ -155,7 +155,7 @@ export const InputSchema = z.object({
       routing_rules: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

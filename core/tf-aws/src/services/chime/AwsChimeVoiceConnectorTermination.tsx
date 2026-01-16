@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   calling_regions: resolvableValue(z.string().array()),
   cidr_allow_list: resolvableValue(z.string().array()),
   voice_connector_id: resolvableValue(z.string()),
@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   default_phone_number: resolvableValue(z.string().optional()),
   disabled: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

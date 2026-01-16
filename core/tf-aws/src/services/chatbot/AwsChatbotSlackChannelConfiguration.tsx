@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   configuration_name: resolvableValue(z.string()),
   iam_role_arn: resolvableValue(z.string()),
   slack_channel_id: resolvableValue(z.string()),
@@ -27,7 +27,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   user_authorization_required: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   chat_configuration_arn: z.string().optional(),

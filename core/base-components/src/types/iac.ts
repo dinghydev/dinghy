@@ -21,6 +21,7 @@ export const IacCategorySchema = z.enum([
   'resource',
   'data',
   'ephemeral',
+  'output',
 ])
 
 export const IacNodeSchema = z.object({

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   editor_role_values: resolvableValue(z.string().array()),
   workspace_id: resolvableValue(z.string()),
   admin_role_values: resolvableValue(z.string().array().optional()),
@@ -31,7 +31,7 @@ export const InputSchema = z.object({
       delete: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   status: z.string().optional(),

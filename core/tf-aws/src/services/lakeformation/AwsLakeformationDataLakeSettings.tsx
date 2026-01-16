@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   admins: resolvableValue(z.string().array().optional()),
   allow_external_data_filtering: resolvableValue(z.boolean().optional()),
   allow_full_table_external_data_access: resolvableValue(
@@ -38,7 +38,7 @@ export const InputSchema = z.object({
   read_only_admins: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   trusted_resource_owners: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

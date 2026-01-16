@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsServicequotasServiceQuota } from './AwsServicequotasServiceQuota.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   service_code: resolvableValue(z.string()),
   quota_code: resolvableValue(z.string().optional()),
   quota_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   adjustable: z.boolean().optional(),

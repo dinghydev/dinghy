@@ -1,20 +1,11 @@
 import {
   containerAppHome,
-  deepMerge,
   deepResolve,
-  getRenderOptions,
   type NodeProps,
-  ResolvableBooleanSchema,
-  ResolvableStringSchema,
   Shape,
   toId,
 } from '@dinghy/base-components'
-import z from 'zod'
-import {
-  AwsS3Bucket,
-  InputSchema as AwsS3BucketInputSchema,
-  useAwsS3Bucket,
-} from '../../services/s3/AwsS3Bucket.tsx'
+import { AwsS3Bucket, useAwsS3Bucket } from '../../services/s3/AwsS3Bucket.tsx'
 import { AwsS3BucketVersioning } from '../../services/s3/AwsS3BucketVersioning.tsx'
 import { AwsS3BucketLogging } from '../../services/s3/AwsS3BucketLogging.tsx'
 import { existsSync } from '@std/fs/exists'
@@ -22,37 +13,17 @@ import { walkSync } from '@std/fs/walk'
 import { AwsS3BucketPolicy, AwsS3Object } from '@dinghy/tf-aws/serviceS3'
 import { contentType } from '@std/media-types'
 import { useRegionalLogBucket } from '@dinghy/tf-aws'
+import { parseS3Bucket } from './types.ts'
 
 function getContentType(filePath: string): string {
   const extension = filePath.split('.').pop()?.toLowerCase() || ''
   return contentType(`.${extension}`) || 'application/octet-stream'
 }
 
-export const InputSchema = z.object({
-  bucket: ResolvableStringSchema,
-  versioningEnabled: ResolvableBooleanSchema.default(false),
-  loggingEnabled: ResolvableBooleanSchema.default(false),
-  logBucket: ResolvableStringSchema.optional(),
-  logPrefix: ResolvableStringSchema.optional(),
-  bucketPolicy: ResolvableStringSchema.optional(),
-  contentTypes: z.record(z.string(), z.string()).default({}),
-  cacheControls: z.record(z.string(), z.string()).default({}),
-  cacheControlDefault: z.string().default(
-    'max-age=3600, public, must-revalidate',
-  ),
-}).extend({ ...AwsS3BucketInputSchema.shape })
-
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & NodeProps
-
 export function S3Bucket(
-  { _components, children, ...props }: Partial<InputProps>,
+  { _components, children, ...props }: NodeProps,
 ) {
-  const inputProps = deepMerge({}, getRenderOptions().s3Bucket || {})
-  deepMerge(inputProps, props.s3Bucket || {})
-  deepMerge(inputProps, props)
-  const bucketConfig = InputSchema.loose().parse(inputProps)
+  const bucketConfig = parseS3Bucket(props)
   const BucketVersioning = () => {
     const { s3Bucket } = useAwsS3Bucket()
     const BucketVersioningComponent: any =

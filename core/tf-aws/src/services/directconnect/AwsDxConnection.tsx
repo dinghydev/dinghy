@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bandwidth: resolvableValue(z.string()),
   location: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   request_macsec: resolvableValue(z.boolean().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -33,7 +33,7 @@
         "bucket": "s3-bucket-composite-component-example-backend",
         "object_lock_enabled": true,
         "tags": {
-          "Name": "s3-bucket-composite-component-example-backend",
+          "Name": "Backend Bucket",
           "iac:id": "awss3bucket_backend"
         }
       },
@@ -47,22 +47,22 @@
     },
     "aws_s3_bucket_versioning": {
       "awss3bucket_backend_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ],
         "bucket": "s3-bucket-composite-component-example-backend",
         "versioning_configuration": {
           "status": "Enabled"
-        },
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_backend"
-        ]
+        }
       },
       "awss3bucket_mydemobucketwithversioning_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_mydemobucketwithversioning"
+        ],
         "bucket": "my-demo-bucket-with-versioning",
         "versioning_configuration": {
           "status": "Enabled"
-        },
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_mydemobucketwithversioning"
-        ]
+        }
       }
     }
   }

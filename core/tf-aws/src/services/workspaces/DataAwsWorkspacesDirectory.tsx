@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsWorkspacesDirectory } from './AwsWorkspacesDirectory.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   certificate_based_auth_properties: resolvableValue(
     z.object({
       certificate_authority_arn: z.string(),
@@ -26,7 +26,7 @@ export const InputSchema = z.object({
   ),
   tenancy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   active_directory_config: z.set(z.object({

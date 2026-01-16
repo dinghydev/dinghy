@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   account: resolvableValue(z.string()),
   cluster_identifier: resolvableValue(z.string()),
   force_delete: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   vpc_ids: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   allowed_all_vpcs: z.boolean().optional(),

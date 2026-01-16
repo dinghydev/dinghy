@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsWafv2IpSet } from './AwsWafv2IpSet.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   addresses: z.set(z.string()).optional(),

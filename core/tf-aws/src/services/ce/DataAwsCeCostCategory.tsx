@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsCeCostCategory } from './AwsCeCostCategory.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cost_category_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   default_value: z.string().optional(),

@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsConnectContactFlow } from './AwsConnectContactFlow.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   contact_flow_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

@@ -9,11 +9,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   cloudwatch_logging_options: resolvableValue(
     z.object({
-      id: z.string(),
+      id: z.string().optional(),
       log_stream_arn: z.string(),
       role_arn: z.string(),
     }).optional(),
@@ -22,9 +22,9 @@ export const InputSchema = z.object({
   description: resolvableValue(z.string().optional()),
   inputs: resolvableValue(
     z.object({
-      id: z.string(),
+      id: z.string().optional(),
       name_prefix: z.string(),
-      stream_names: z.string().array(),
+      stream_names: z.string().array().optional(),
       kinesis_firehose: z.object({
         resource_arn: z.string(),
         role_arn: z.string(),
@@ -50,7 +50,7 @@ export const InputSchema = z.object({
           sql_type: z.string(),
         }).array(),
         record_format: z.object({
-          record_format_type: z.string(),
+          record_format_type: z.string().optional(),
           mapping_parameters: z.object({
             csv: z.object({
               record_column_delimiter: z.string(),
@@ -69,7 +69,7 @@ export const InputSchema = z.object({
   ),
   outputs: resolvableValue(
     z.object({
-      id: z.string(),
+      id: z.string().optional(),
       name: z.string(),
       kinesis_firehose: z.object({
         resource_arn: z.string(),
@@ -90,7 +90,7 @@ export const InputSchema = z.object({
   ),
   reference_data_sources: resolvableValue(
     z.object({
-      id: z.string(),
+      id: z.string().optional(),
       table_name: z.string(),
       s3: z.object({
         bucket_arn: z.string(),
@@ -105,7 +105,7 @@ export const InputSchema = z.object({
           sql_type: z.string(),
         }).array(),
         record_format: z.object({
-          record_format_type: z.string(),
+          record_format_type: z.string().optional(),
           mapping_parameters: z.object({
             csv: z.object({
               record_column_delimiter: z.string(),
@@ -122,7 +122,7 @@ export const InputSchema = z.object({
   region: resolvableValue(z.string().optional()),
   start_application: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

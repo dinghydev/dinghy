@@ -8,11 +8,11 @@ import {
 import z from 'zod'
 import { AwsSesv2EmailIdentityMailFromAttributes } from './AwsSesv2EmailIdentityMailFromAttributes.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   email_identity: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   behavior_on_mx_failure: z.string().optional(),

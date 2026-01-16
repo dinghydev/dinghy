@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsConnectInstance } from './AwsConnectInstance.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   auto_resolve_best_voices_enabled: resolvableValue(z.boolean()),
   id: resolvableValue(z.string().optional()),
   instance_alias: resolvableValue(z.string().optional()),
   instance_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

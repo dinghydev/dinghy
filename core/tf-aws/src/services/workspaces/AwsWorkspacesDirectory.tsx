@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   active_directory_config: resolvableValue(
     z.object({
       domain_name: z.string(),
@@ -69,7 +69,7 @@ export const InputSchema = z.object({
   workspace_directory_description: resolvableValue(z.string().optional()),
   workspace_directory_name: resolvableValue(z.string().optional()),
   workspace_type: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),

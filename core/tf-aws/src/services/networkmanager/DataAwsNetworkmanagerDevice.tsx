@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsNetworkmanagerDevice } from './AwsNetworkmanagerDevice.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   device_id: resolvableValue(z.string()),
   global_network_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

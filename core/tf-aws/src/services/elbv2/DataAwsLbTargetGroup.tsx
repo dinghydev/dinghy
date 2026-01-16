@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLbTargetGroup } from './AwsLbTargetGroup.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn_suffix: resolvableValue(z.string()),
   connection_termination: resolvableValue(z.boolean()),
   deregistration_delay: resolvableValue(z.string()),
@@ -58,7 +58,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

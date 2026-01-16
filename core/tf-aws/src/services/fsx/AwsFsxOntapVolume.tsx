@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   storage_virtual_machine_id: resolvableValue(z.string()),
   aggregate_configuration: resolvableValue(
     z.object({
       aggregates: z.string().array().optional(),
       constituents_per_aggregate: z.number().optional(),
-      total_constituents: z.number(),
+      total_constituents: z.number().optional(),
     }).optional(),
   ),
   bypass_snaplock_enterprise_retention: resolvableValue(z.boolean().optional()),
@@ -74,7 +74,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   volume_style: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

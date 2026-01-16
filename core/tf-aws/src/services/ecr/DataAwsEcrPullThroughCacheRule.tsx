@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEcrPullThroughCacheRule } from './AwsEcrPullThroughCacheRule.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   credential_arn: resolvableValue(z.string()),
   custom_role_arn: resolvableValue(z.string()),
   ecr_repository_prefix: resolvableValue(z.string()),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
   upstream_repository_prefix: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsRoute53ResolverRule } from './AwsRoute53ResolverRule.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resolver_endpoint_id: resolvableValue(z.string().optional()),
   resolver_rule_id: resolvableValue(z.string().optional()),
   rule_type: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

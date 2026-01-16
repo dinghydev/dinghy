@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsPrometheusWorkspace } from './AwsPrometheusWorkspace.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   workspace_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   alias: z.string().optional(),

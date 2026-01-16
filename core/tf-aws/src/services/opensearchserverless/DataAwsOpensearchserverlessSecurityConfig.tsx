@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsOpensearchserverlessSecurityConfig } from './AwsOpensearchserverlessSecurityConfig.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   config_version: z.string().optional(),
@@ -20,10 +20,10 @@ export const OutputSchema = z.object({
   description: z.string().optional(),
   last_modified_date: z.string().optional(),
   saml_options: z.object({
-    group_attribute: z.string(),
-    metadata: z.string(),
-    session_timeout: z.number(),
-    user_attribute: z.string(),
+    group_attribute: z.string().optional(),
+    metadata: z.string().optional(),
+    session_timeout: z.number().optional(),
+    user_attribute: z.string().optional(),
   }).array().optional().optional(),
   type: z.string().optional(),
 })

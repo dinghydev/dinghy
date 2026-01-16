@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsWorkspacesWorkspace } from './AwsWorkspacesWorkspace.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   directory_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   user_name: resolvableValue(z.string().optional()),
   workspace_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   bundle_id: z.string().optional(),

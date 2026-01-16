@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   capability_name: resolvableValue(z.string()),
   cluster_name: resolvableValue(z.string()),
   delete_propagation_policy: resolvableValue(z.string()),
@@ -19,10 +19,10 @@ export const InputSchema = z.object({
     z.object({
       argo_cd: z.object({
         namespace: z.string().optional(),
-        server_url: z.string(),
+        server_url: z.string().optional(),
         aws_idc: z.object({
           idc_instance_arn: z.string(),
-          idc_managed_application_arn: z.string(),
+          idc_managed_application_arn: z.string().optional(),
           idc_region: z.string().optional(),
         }).array().optional(),
         network_access: z.object({
@@ -47,7 +47,7 @@ export const InputSchema = z.object({
       update: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

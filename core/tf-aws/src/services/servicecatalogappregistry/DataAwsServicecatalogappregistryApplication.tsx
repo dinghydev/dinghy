@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsServicecatalogappregistryApplication } from './AwsServicecatalogappregistryApplication.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   application_tag: z.record(z.string(), z.string()).optional(),

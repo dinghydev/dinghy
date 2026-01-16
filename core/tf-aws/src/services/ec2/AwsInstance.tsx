@@ -12,7 +12,7 @@ import z from 'zod'
 import { EC2_INSTANCE_CONTENTS } from '@dinghy/diagrams/containersAwsGroups'
 import { ANDROID } from '@dinghy/diagrams/entitiesAws17Sdk'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   ami: resolvableValue(z.string().optional()),
   associate_public_ip_address: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -50,7 +50,7 @@ export const InputSchema = z.object({
       tags: z.record(z.string(), z.string()).optional(),
       tags_all: z.record(z.string(), z.string()).optional(),
       throughput: z.number().optional(),
-      volume_id: z.string(),
+      volume_id: z.string().optional(),
       volume_size: z.number().optional(),
       volume_type: z.string().optional(),
     }).array().optional(),
@@ -126,7 +126,7 @@ export const InputSchema = z.object({
   placement_partition_number: resolvableValue(z.number().optional()),
   primary_network_interface: resolvableValue(
     z.object({
-      delete_on_termination: z.boolean(),
+      delete_on_termination: z.boolean().optional(),
       network_interface_id: z.string(),
     }).optional(),
   ),
@@ -142,14 +142,14 @@ export const InputSchema = z.object({
   root_block_device: resolvableValue(
     z.object({
       delete_on_termination: z.boolean().optional(),
-      device_name: z.string(),
+      device_name: z.string().optional(),
       encrypted: z.boolean().optional(),
       iops: z.number().optional(),
       kms_key_id: z.string().optional(),
       tags: z.record(z.string(), z.string()).optional(),
       tags_all: z.record(z.string(), z.string()).optional(),
       throughput: z.number().optional(),
-      volume_id: z.string(),
+      volume_id: z.string().optional(),
       volume_size: z.number().optional(),
       volume_type: z.string().optional(),
     }).optional(),
@@ -173,7 +173,7 @@ export const InputSchema = z.object({
   user_data_replace_on_change: resolvableValue(z.boolean().optional()),
   volume_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

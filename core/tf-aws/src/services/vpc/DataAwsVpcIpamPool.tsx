@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcIpamPool } from './AwsVpcIpamPool.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   ipam_scope_type: resolvableValue(z.string()),
   pool_depth: resolvableValue(z.number()),
   state: resolvableValue(z.string()),
@@ -26,7 +26,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   address_family: z.string().optional(),

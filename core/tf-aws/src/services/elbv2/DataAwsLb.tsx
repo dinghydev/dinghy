@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLb } from './AwsLb.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   access_logs: resolvableValue(
     z.object({
       bucket: z.string(),
@@ -83,7 +83,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

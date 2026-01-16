@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsSecretsmanagerSecretRotation } from './AwsSecretsmanagerSecretRotation.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   secret_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   rotation_enabled: z.boolean().optional(),

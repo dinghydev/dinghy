@@ -9,17 +9,17 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   vpc_config: resolvableValue(z.object({
-    cluster_security_group_id: z.string(),
+    cluster_security_group_id: z.string().optional(),
     endpoint_private_access: z.boolean().optional(),
     endpoint_public_access: z.boolean().optional(),
     public_access_cidrs: z.string().array().optional(),
     security_group_ids: z.string().array().optional(),
     subnet_ids: z.string().array(),
-    vpc_id: z.string(),
+    vpc_id: z.string().optional(),
   })),
   access_config: resolvableValue(
     z.object({
@@ -55,7 +55,7 @@ export const InputSchema = z.object({
     z.object({
       ip_family: z.string().optional(),
       service_ipv4_cidr: z.string().optional(),
-      service_ipv6_cidr: z.string(),
+      service_ipv6_cidr: z.string().optional(),
       elastic_load_balancing: z.object({
         enabled: z.boolean().optional(),
       }).optional(),
@@ -107,7 +107,7 @@ export const InputSchema = z.object({
       enabled: z.boolean().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

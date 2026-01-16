@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsAthenaNamedQuery } from './AwsAthenaNamedQuery.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   querystring: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   workgroup: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   database: z.string().optional(),

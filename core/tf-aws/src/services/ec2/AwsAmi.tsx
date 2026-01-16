@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   last_launched_time: resolvableValue(z.string()),
   manage_ebs_snapshots: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
@@ -55,7 +55,7 @@ export const InputSchema = z.object({
   tpm_support: resolvableValue(z.string().optional()),
   uefi_data: resolvableValue(z.string().optional()),
   virtualization_type: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

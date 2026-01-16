@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2NetworkInsightsPath } from './AwsEc2NetworkInsightsPath.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -19,7 +19,7 @@ export const InputSchema = z.object({
   id: resolvableValue(z.string().optional()),
   network_insights_path_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

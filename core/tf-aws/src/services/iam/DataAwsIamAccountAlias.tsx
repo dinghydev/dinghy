@@ -7,7 +7,7 @@ import {
 import z from 'zod'
 import { AwsIamAccountAlias } from './AwsIamAccountAlias.tsx'
 
-export const InputSchema = z.object({}).extend({ ...TfMetaSchema.shape })
+export const InputSchema = TfMetaSchema.extend({})
 
 export const OutputSchema = z.object({
   account_alias: z.string().optional(),

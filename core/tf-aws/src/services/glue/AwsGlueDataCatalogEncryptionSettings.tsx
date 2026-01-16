@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   data_catalog_encryption_settings: resolvableValue(z.object({
     connection_password_encryption: z.object({
       aws_kms_key_id: z.string().optional(),
@@ -22,7 +22,7 @@ export const InputSchema = z.object({
   })),
   catalog_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cookies_config: resolvableValue(z.object({
     cookie_behavior: z.string(),
     cookies: z.object({
@@ -30,7 +30,7 @@ export const InputSchema = z.object({
     }).optional(),
   })),
   comment: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

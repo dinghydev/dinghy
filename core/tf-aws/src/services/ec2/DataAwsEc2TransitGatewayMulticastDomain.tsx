@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2TransitGatewayMulticastDomain } from './AwsEc2TransitGatewayMulticastDomain.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   state: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -24,7 +24,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   transit_gateway_multicast_domain_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

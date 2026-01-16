@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   abort_statement: resolvableValue(z.object({
     response_card: z.string().optional(),
     message: z.object({
@@ -56,7 +56,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   voice_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   checksum: z.string().optional(),

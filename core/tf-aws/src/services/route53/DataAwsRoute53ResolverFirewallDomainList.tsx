@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsRoute53ResolverFirewallDomainList } from './AwsRoute53ResolverFirewallDomainList.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   firewall_domain_list_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

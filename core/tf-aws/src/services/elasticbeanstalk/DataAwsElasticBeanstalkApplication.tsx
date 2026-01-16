@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsElasticBeanstalkApplication } from './AwsElasticBeanstalkApplication.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   appversion_lifecycle: resolvableValue(
     z.object({
       delete_source_from_s3: z.boolean(),
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
   ),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

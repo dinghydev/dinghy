@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsDmsReplicationTask } from './AwsDmsReplicationTask.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   replication_task_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   cdc_start_position: z.string().optional(),

@@ -8,18 +8,18 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   data_set_id: resolvableValue(z.string()),
   asset: resolvableValue(
     z.object({
-      arn: z.string(),
-      created_at: z.string(),
-      id: z.string(),
-      name: z.string(),
-      updated_at: z.string(),
+      arn: z.string().optional(),
+      created_at: z.string().optional(),
+      id: z.string().optional(),
+      name: z.string().optional(),
+      updated_at: z.string().optional(),
       create_s3_data_access_from_s3_bucket: z.object({
-        access_point_alias: z.string(),
-        access_point_arn: z.string(),
+        access_point_alias: z.string().optional(),
+        access_point_arn: z.string().optional(),
         asset_source: z.object({
           bucket: z.string(),
           key_prefixes: z.string().array().optional(),
@@ -50,7 +50,7 @@ export const InputSchema = z.object({
       create: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

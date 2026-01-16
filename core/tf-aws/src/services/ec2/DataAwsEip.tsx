@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEip } from './AwsEip.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   ipam_pool_id: resolvableValue(z.string()),
   filter: resolvableValue(
@@ -27,7 +27,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   association_id: z.string().optional(),

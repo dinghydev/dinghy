@@ -9,20 +9,20 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   certificate: resolvableValue(
     z.object({
       body: z.string(),
-      issuer: z.string(),
-      not_valid_after: z.string(),
-      not_valid_before: z.string(),
-      subject: z.string(),
-      thumbprint: z.string(),
+      issuer: z.string().optional(),
+      not_valid_after: z.string().optional(),
+      not_valid_before: z.string().optional(),
+      subject: z.string().optional(),
+      thumbprint: z.string().optional(),
     }).array().optional(),
   ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),

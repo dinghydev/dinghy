@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   parameters_in_cache_key_and_forwarded_to_origin: resolvableValue(z.object({
     enable_accept_encoding_brotli: z.boolean().optional(),
@@ -37,7 +37,7 @@ export const InputSchema = z.object({
   default_ttl: resolvableValue(z.number().optional()),
   max_ttl: resolvableValue(z.number().optional()),
   min_ttl: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

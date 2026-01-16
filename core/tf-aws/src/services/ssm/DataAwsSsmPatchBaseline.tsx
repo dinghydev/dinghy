@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsSsmPatchBaseline } from './AwsSsmPatchBaseline.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   owner: resolvableValue(z.string()),
   default_baseline: resolvableValue(z.boolean().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   operating_system: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   approval_rule: z.object({

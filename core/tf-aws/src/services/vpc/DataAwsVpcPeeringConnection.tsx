@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcPeeringConnection } from './AwsVpcPeeringConnection.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   cidr_block: resolvableValue(z.string().optional()),
   filter: resolvableValue(
     z.object({
@@ -30,7 +30,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   accepter: z.record(z.string(), z.boolean()).optional(),

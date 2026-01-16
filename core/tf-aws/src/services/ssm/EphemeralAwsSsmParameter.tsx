@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsSsmParameter } from './AwsSsmParameter.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   with_decryption: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   name: z.string().optional(),

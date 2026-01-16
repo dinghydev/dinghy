@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLbListener } from './AwsLbListener.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   alpn_policy: resolvableValue(z.string()),
   certificate_arn: resolvableValue(z.string()),
   default_action: resolvableValue(
@@ -95,7 +95,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   exclude_compliant_resources: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   include_compliance_details: resolvableValue(z.boolean().optional()),
@@ -21,7 +21,7 @@ export const InputSchema = z.object({
       values: z.string().array().optional(),
     }).array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   resource_tag_mapping_list: z.object({

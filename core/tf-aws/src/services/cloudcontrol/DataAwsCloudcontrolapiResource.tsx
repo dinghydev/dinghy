@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsCloudcontrolapiResource } from './AwsCloudcontrolapiResource.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   identifier: resolvableValue(z.string()),
   type_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   role_arn: resolvableValue(z.string().optional()),
   type_version_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   properties: z.string().optional(),

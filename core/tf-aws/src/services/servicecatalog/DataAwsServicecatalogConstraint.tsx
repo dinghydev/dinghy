@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsServicecatalogConstraint } from './AwsServicecatalogConstraint.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   accept_language: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   description: z.string().optional(),

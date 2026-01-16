@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsShieldProtection } from './AwsShieldProtection.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   protection_id: resolvableValue(z.string().optional()),
   resource_arn: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   name: z.string().optional(),

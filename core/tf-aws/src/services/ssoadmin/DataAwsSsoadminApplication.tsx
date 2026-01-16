@@ -9,10 +9,10 @@ import {
 import z from 'zod'
 import { AwsSsoadminApplication } from './AwsSsoadminApplication.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   application_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   application_account: z.string().optional(),

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   instance_state: resolvableValue(z.string()),
   outpost_arn: resolvableValue(z.string()),
@@ -58,7 +58,7 @@ export const InputSchema = z.object({
       tags: z.record(z.string(), z.string()).optional(),
       tags_all: z.record(z.string(), z.string()).optional(),
       throughput: z.number().optional(),
-      volume_id: z.string(),
+      volume_id: z.string().optional(),
       volume_size: z.number().optional(),
       volume_type: z.string().optional(),
     }).array().optional(),
@@ -116,7 +116,7 @@ export const InputSchema = z.object({
     z.object({
       delete_on_termination: z.boolean().optional(),
       device_index: z.number(),
-      network_card_index: z.number(),
+      network_card_index: z.number().optional(),
       network_interface_id: z.string(),
     }).array().optional(),
   ),
@@ -134,14 +134,14 @@ export const InputSchema = z.object({
   root_block_device: resolvableValue(
     z.object({
       delete_on_termination: z.boolean().optional(),
-      device_name: z.string(),
+      device_name: z.string().optional(),
       encrypted: z.boolean().optional(),
       iops: z.number().optional(),
       kms_key_id: z.string().optional(),
       tags: z.record(z.string(), z.string()).optional(),
       tags_all: z.record(z.string(), z.string()).optional(),
       throughput: z.number().optional(),
-      volume_id: z.string(),
+      volume_id: z.string().optional(),
       volume_size: z.number().optional(),
       volume_type: z.string().optional(),
     }).optional(),
@@ -169,7 +169,7 @@ export const InputSchema = z.object({
   volume_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
   wait_for_fulfillment: resolvableValue(z.boolean().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

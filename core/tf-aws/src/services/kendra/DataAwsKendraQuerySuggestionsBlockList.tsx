@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsKendraQuerySuggestionsBlockList } from './AwsKendraQuerySuggestionsBlockList.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   index_id: resolvableValue(z.string()),
   query_suggestions_block_list_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

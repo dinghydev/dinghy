@@ -90,6 +90,7 @@ const setTfElement = (
   const tfCategory: any = tfRoot[category] ??= {}
   deepResolve(tfElement)
   removeDoubleUnderscorePrefix(tfElement)
+  addDependsOnForReferences(tfElement)
 
   if (category === 'terraform') {
     deepMerge(tfCategory, tfElement)
@@ -97,6 +98,9 @@ const setTfElement = (
     const { providerId, ...provider } = tfElement
     const providerConfig: any = tfCategory[providerId] ??= []
     providerConfig.push(provider)
+  } else if (category === 'output') {
+    const id: any = node._props._consolidatedId || node._props._id
+    tfCategory[id] = tfElement
   } else {
     const id: any = node._props._consolidatedId || node._props._id
     const tfElements: any = tfCategory[node._props._type as any] ??= {}
@@ -140,4 +144,40 @@ function removeDoubleUnderscorePrefix(element: any): any {
     }
   })
   return element
+}
+
+function addDependsOnForReferences(element: any): any {
+  if (!element.depends_on) {
+    const references: string[] = []
+    collectReferences(element, references)
+    if (references.length > 0) {
+      element.depends_on = references
+    }
+  }
+}
+
+function collectReferences(element: any, references: string[]): any {
+  if (typeof element === 'string') {
+    const regex = /\$\{([^}]+)\}/g
+    let match
+    while ((match = regex.exec(element)) !== null) {
+      const sectionParts = match[1].split('.')
+      if (sectionParts.length >= 2) {
+        if (sectionParts[0] !== 'data') {
+          const reference = `${sectionParts[0]}.${sectionParts[1]}`
+          if (!references.includes(reference)) {
+            references.push(reference)
+          }
+        }
+      }
+    }
+  } else if (Array.isArray(element)) {
+    element.forEach((item) => {
+      collectReferences(item, references)
+    })
+  } else if (typeof element === 'object' && element !== null) {
+    Object.keys(element).forEach((key) => {
+      collectReferences(element[key], references)
+    })
+  }
 }

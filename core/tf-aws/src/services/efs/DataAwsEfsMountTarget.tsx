@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsEfsMountTarget } from './AwsEfsMountTarget.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   access_point_id: resolvableValue(z.string().optional()),
   file_system_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   mount_target_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   availability_zone_id: z.string().optional(),

@@ -12,7 +12,7 @@ import z from 'zod'
 import { AWS_IOT_GREENGRASS_DEPLOYMENT } from '@dinghy/diagrams/containersAwsGroups'
 import { CLOUDFRONT } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   default_cache_behavior: resolvableValue(z.object({
     allowed_methods: z.string().array(),
     cache_policy_id: z.string().optional(),
@@ -199,7 +199,7 @@ export const InputSchema = z.object({
   ),
   wait_for_deployment: resolvableValue(z.boolean().optional()),
   web_acl_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

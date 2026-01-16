@@ -9,16 +9,16 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   human_task_ui_name: resolvableValue(z.string()),
   ui_template: resolvableValue(z.object({
     content: z.string().optional(),
-    content_sha256: z.string(),
-    url: z.string(),
+    content_sha256: z.string().optional(),
+    url: z.string().optional(),
   })),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
@@ -26,8 +26,8 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
   ui_template: z.object({
     content: z.string().optional(),
-    content_sha256: z.string(),
-    url: z.string(),
+    content_sha256: z.string().optional(),
+    url: z.string().optional(),
   }).optional(),
 })
 

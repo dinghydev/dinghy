@@ -9,12 +9,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   namespace_name: resolvableValue(z.string()),
   snapshot_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   retention_period: resolvableValue(z.number().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   accounts_with_provisioned_restore_access: z.set(z.string()).optional(),

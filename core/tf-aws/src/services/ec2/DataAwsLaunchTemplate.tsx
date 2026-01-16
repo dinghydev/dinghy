@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLaunchTemplate } from './AwsLaunchTemplate.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   block_device_mappings: resolvableValue(
     z.object({
@@ -242,7 +242,7 @@ export const InputSchema = z.object({
       read: z.string().optional(),
     }).optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

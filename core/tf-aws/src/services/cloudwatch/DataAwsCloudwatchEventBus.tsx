@@ -8,10 +8,10 @@ import {
 import z from 'zod'
 import { AwsCloudwatchEventBus } from './AwsCloudwatchEventBus.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),

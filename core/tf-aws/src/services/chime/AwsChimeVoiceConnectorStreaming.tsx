@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   data_retention: resolvableValue(z.number()),
   voice_connector_id: resolvableValue(z.string()),
   disabled: resolvableValue(z.boolean().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = z.object({
   streaming_notification_targets: resolvableValue(
     z.string().array().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

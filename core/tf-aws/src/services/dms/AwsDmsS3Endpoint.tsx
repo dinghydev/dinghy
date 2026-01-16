@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   bucket_name: resolvableValue(z.string()),
   endpoint_id: resolvableValue(z.string()),
   endpoint_type: resolvableValue(z.string()),
@@ -70,7 +70,7 @@ export const InputSchema = z.object({
   use_task_start_time_for_full_load_timestamp: resolvableValue(
     z.boolean().optional(),
   ),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   endpoint_arn: z.string().optional(),

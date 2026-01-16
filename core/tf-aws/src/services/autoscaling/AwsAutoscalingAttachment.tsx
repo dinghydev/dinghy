@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   autoscaling_group_name: resolvableValue(z.string()),
   elb: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   lb_target_group_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({})
 

@@ -8,10 +8,10 @@ import {
 import z from 'zod'
 import { AwsGlueDataCatalogEncryptionSettings } from './AwsGlueDataCatalogEncryptionSettings.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   catalog_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   data_catalog_encryption_settings: z.object({

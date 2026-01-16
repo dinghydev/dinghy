@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   route_id: resolvableValue(z.string()),
   route_response_key: resolvableValue(z.string()),
   model_selection_expression: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   response_models: resolvableValue(z.record(z.string(), z.string()).optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   id: z.string().optional(),

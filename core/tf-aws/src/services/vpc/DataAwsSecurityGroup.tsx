@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSecurityGroup } from './AwsSecurityGroup.tsx'
 
-export const InputSchema = z.object({
+export const InputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -26,7 +26,7 @@ export const InputSchema = z.object({
     }).optional(),
   ),
   vpc_id: resolvableValue(z.string().optional()),
-}).extend({ ...TfMetaSchema.shape })
+})
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
