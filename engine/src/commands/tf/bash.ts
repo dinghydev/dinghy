@@ -6,7 +6,7 @@ import {
   RUN_SYMBOL,
 } from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions, tfOptionsPlan } from './parseStackInfo.ts'
+import { createTfOptions, tfOptionsPlan } from './stackInfoUtils.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { requireStacksConfig } from '@dinghy/cli'
 import { subCommandArgs } from '../../utils/subCommandArgs.ts'
@@ -29,7 +29,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   if (!firstStack) {
     throw new DinghyError('No stack found')
   }
-  let stackPath = `${args.output}/${firstStack.id}`
+  let stackPath = `${args.output}/${firstStack.name}`
   if (!stackPath.startsWith('/')) {
     stackPath = `${hostAppHome}/${stackPath}`
   }

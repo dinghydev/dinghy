@@ -1,22 +1,20 @@
 import { Shape } from '@dinghy/base-components'
 
-export default function Stack() {
-  return (
-    <WebApp>
-      <Client />
-      <Cloud>
-        <PublicSubnet>
-          <LoadBalancer />
-          <Firewall />
-        </PublicSubnet>
-        <PrivateSubnet>
-          <Application />
-          <Postgres />
-        </PrivateSubnet>
-      </Cloud>
-    </WebApp>
-  )
-}
+export default () => (
+  <WebApp>
+    <Client />
+    <Cloud>
+      <PublicSubnet>
+        <LoadBalancer />
+        <Firewall />
+      </PublicSubnet>
+      <PrivateSubnet>
+        <Application />
+        <Postgres />
+      </PrivateSubnet>
+    </Cloud>
+  </WebApp>
+)
 
 const WebApp = (props: any) => <Shape {...props} />
 

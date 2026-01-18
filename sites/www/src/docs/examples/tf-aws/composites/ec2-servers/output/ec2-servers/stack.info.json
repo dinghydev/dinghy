@@ -1,0 +1,20 @@
+{
+  "name": "ec2-servers",
+  "title": "Ec2 Servers",
+  "app": "app.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "ec2-servers",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false,
+  "outputs": {
+    "stack": "https://s3.us-east-1.amazonaws.com/ec2-servers-backend/outputs/ec2-servers.stack.json"
+  }
+}

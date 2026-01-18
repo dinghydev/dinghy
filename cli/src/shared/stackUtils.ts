@@ -1,30 +1,31 @@
 import Debug from 'debug'
-import {
-  DEFAULT_APP,
-  DEFAULT_VIEW,
-  Item,
-  Props,
-  Stacks,
-  StacksSchema,
-  StackType,
-} from './types.ts'
+import { Props, Stacks, StacksSchema, StackType } from './types.ts'
 import { deepMerge } from './deepMerge.ts'
+import { hostAppHome } from './home.ts'
+import { toTitle } from './stringUtils.ts'
+import { basename } from '@std/path/basename'
 const debug = Debug('stackUtils')
+
+export const DEFAULT_APPS = ['app', 'iac']
+export const DEFAULT_VIEW = 'overview'
 
 const populateNamedItems = (
   stack: Props,
   field: string,
   defaultValue: string,
 ) => {
-  const stackId = stack.id as string
+  const stackName = stack.name as string
 
   if (stack[field]) {
     const items: Props = {}
     Object.entries(stack[field]).map(([name, value]) => {
-      const id = name === defaultValue ? stackId : `${stackId}-${name}`
+      const fileName = name === defaultValue
+        ? stackName
+        : `${stackName}-${name}`
       items[name] = {
-        id,
+        fileName,
         name,
+        title: toTitle(name),
         ...(value || {}),
       }
     })
@@ -32,20 +33,32 @@ const populateNamedItems = (
   } else {
     stack[field] = {
       [defaultValue]: {
-        id: stackId,
+        fileName: stackName,
         name: defaultValue,
+        title: toTitle(defaultValue),
       },
     }
   }
 }
 
 const populateStackDefaultItems = (stack: Props, renderOptions: any) => {
+  if (DEFAULT_APPS.includes(stack.name as string)) {
+    stack.name = basename(hostAppHome)
+    debug('setting stack name %s base on app home %s', stack.name, hostAppHome)
+  }
   populateNamedItems(stack, 'views', DEFAULT_VIEW)
   if (!stack.app) {
-    stack.app = renderOptions.apps[stack.id as string] ||
-      renderOptions.apps[DEFAULT_APP] ||
-      Object.values(renderOptions.apps)[0]
+    stack.app = renderOptions.apps[stack.name as string]
+    if (!stack.app) {
+      stack.app = renderOptions.apps[
+        DEFAULT_APPS.find((app) => renderOptions.apps[app]) as string
+      ]
+    }
+    if (!stack.app) {
+      stack.app = Object.values(renderOptions.apps)[0]
+    }
   }
+  stack.title ??= toTitle(stack.name as string)
   return stack
 }
 
@@ -53,17 +66,11 @@ export const createView = (
   stack: StackType,
   name: string,
 ) => {
-  return createDefaultItem(stack, name, DEFAULT_VIEW)
-}
-
-const createDefaultItem = (
-  stack: StackType,
-  name: string,
-  defaultValue: string,
-) => {
+  const fileName = name === DEFAULT_VIEW ? stack.name : `${stack.name}-${name}`
   return {
-    id: name === defaultValue ? stack.id : `${stack.id}-${name}`,
     name,
+    title: toTitle(name),
+    fileName,
   }
 }
 
@@ -91,23 +98,23 @@ export const parseStacks = (
 ): Stacks => {
   const stacks: any = {}
   if (renderOptions.stacks) {
-    Object.entries(renderOptions.stacks).map(([stackId, stackOptions]) => {
+    Object.entries(renderOptions.stacks).map(([name, stackOptions]) => {
       if (stackOptions) {
-        stacks[stackId] = populateStackDefaultItems({
-          id: stackId,
+        stacks[name] = populateStackDefaultItems({
+          name,
           ...stackOptions,
         }, renderOptions)
       } else {
-        stacks[stackId] = populateStackDefaultItems(
-          { id: stackId },
+        stacks[name] = populateStackDefaultItems(
+          { name },
           renderOptions,
         )
       }
     })
   }
-  Object.entries(renderOptions.apps).map(([appId, appFile]) => {
-    if (!stacks[appId]) {
-      if (appId === DEFAULT_APP && renderOptions.stacks) {
+  Object.entries(renderOptions.apps).map(([name, appFile]) => {
+    if (!stacks[name]) {
+      if (DEFAULT_APPS.includes(name) && renderOptions.stacks) {
         return
       }
       if (
@@ -115,12 +122,12 @@ export const parseStacks = (
       ) {
         return
       }
-      stacks[appId] = populateStackDefaultItems(
-        { id: appId },
+      stacks[name] = populateStackDefaultItems(
+        { name },
         renderOptions,
       )
     }
-    stacks[appId].app ??= appFile
+    stacks[name].app ??= appFile
   })
   if (stackSpec && !stacks[stackSpec]) {
     throw new Error(`Stack ${stackSpec} not found`)
@@ -136,8 +143,8 @@ export const loadStackConfig = (
   stackOptions: any,
 ) => {
   const settings =
-    loadFilesData(stackOptions, 'config/stacks', stackOptions.stack.id) ||
-    loadFilesData(stackOptions, 'config', stackOptions.stack.id)
+    loadFilesData(stackOptions, 'config/stacks', stackOptions.stack.name) ||
+    loadFilesData(stackOptions, 'config', stackOptions.stack.name)
   if (settings) {
     deepMerge(stackOptions, settings)
   }
@@ -228,37 +235,4 @@ export const loadFile = (options: any, path: string) => {
     return undefined
   }
   return current[name]
-}
-
-export const mergeStackOptions = (
-  stack: StackType,
-  input: string[],
-  field: string,
-) => {
-  return Object.values(
-    mergeStackItemList(
-      stack,
-      stack[`${field}s` as keyof StackType],
-      input,
-      DEFAULT_VIEW,
-    ),
-  ) as Item[]
-}
-
-const mergeStackItemList = (
-  stack: StackType,
-  items: any,
-  input: string[],
-  defaultValue: string,
-) => {
-  input?.map((name) => {
-    if (!items[name]) {
-      if (name === defaultValue) {
-        ;(Object.values(items)[0] as any).name = defaultValue
-      } else {
-        items[name] = { id: `${stack.id}-${name}`, name }
-      }
-    }
-  })
-  return Object.values(items) as Item[]
 }

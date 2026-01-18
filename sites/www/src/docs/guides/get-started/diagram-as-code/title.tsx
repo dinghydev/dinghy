@@ -9,11 +9,9 @@ const TagLevel2 = (props: any) => (
   />
 )
 
-export default function Stack() {
-  return (
-    <Shape _title='Title example'>
-      <TagLevel2 />
-      <Shape>Title as text</Shape>
-    </Shape>
-  )
-}
+export default () => (
+  <Shape _title='Title example'>
+    <TagLevel2 />
+    <Shape>Title as text</Shape>
+  </Shape>
+)

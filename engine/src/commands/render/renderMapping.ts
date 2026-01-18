@@ -6,7 +6,12 @@ import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
 import { hostAppHome, isCi } from '@dinghy/cli'
-import { createView, deepMerge, toTitle } from '@dinghy/base-components'
+import {
+  createView,
+  deepMerge,
+  deepResolve,
+  toTitle,
+} from '@dinghy/base-components'
 import { runCommand } from '@dinghy/cli'
 import png from '../diagram/png.ts'
 import { OPTIONS_SYMBOL } from '@dinghy/cli'
@@ -19,7 +24,7 @@ const writeFile = async (path: string, content: string) => {
   await Deno.writeTextFile(filePath, content)
 
   debug('rendered to', filePath)
-  if (path.endsWith('stack-info.json')) {
+  if (path.endsWith('stack.info.json')) {
     console.log(chalk.green('saved stack info to:'), filePath)
   } else if (path.endsWith('.md')) {
     console.log(chalk.green('generated stack markdown to:'), filePath)
@@ -29,44 +34,41 @@ const writeFile = async (path: string, content: string) => {
 }
 
 const json = async (app: any, options: any, args: any) => {
-  const outputPath = `${args.output}/${options.stack.id}.json`
+  const outputPath = `${args.output}/${options.stack.name}.json`
   debug('rendering json to %s/%s', hostAppHome, outputPath)
   const result = await renderJson(app, options)
   await writeFile(outputPath, result.result)
 }
 
-const saveStackInfo = async (options: any, args: any, stackInfo: any) => {
-  const outputPath = `${args.output}/${options.stack.id}/stack-info.json`
+const saveStackInfo = async (options: any, args: any) => {
+  deepResolve(options, 'stack')
+  const outputPath = `${args.output}/${options.stack.name}/stack.info.json`
   const outputFile = `${hostAppHome}/${outputPath}`
   if (existsSync(outputFile)) {
     const stackInfoText = await Deno.readTextFile(outputFile)
     if (stackInfoText) {
       const existingStackInfo = JSON.parse(stackInfoText)
-      stackInfo = deepMerge(existingStackInfo, stackInfo)
+      options.stack = deepMerge(existingStackInfo, options.stack)
     }
   }
-  await writeFile(outputPath, JSON.stringify(stackInfo, null, 2))
+  await writeFile(outputPath, JSON.stringify(options.stack, null, 2) + '\n')
 }
 
 const saveStackMd = async (options: any, args: any, views: any) => {
-  const outputPath = `${args.output}/${options.stack.id}.md`
+  const outputPath = `${args.output}/${options.stack.name}.md`
   const md: string[] = []
-  md.push(
-    `# ${
-      options.stack.title || toTitle(options.stack.name || options.stack.id)
-    }`,
-  )
+  md.push(`# ${options.stack.title}`)
   if (options.stack.description) {
     md.push(options.stack.description)
   }
   for (const v of Object.values(views)) {
     const view = v as any
-    const viewTitle = view.title || toTitle(view.name || view.id)
+    const viewTitle = view.title || toTitle(view.name)
     md.push(`## ${viewTitle}`)
     if (view.description) {
       md.push(view.description)
     }
-    md.push(`![${viewTitle}](${view.id}.png)`)
+    md.push(`![${viewTitle}](${view.fileName}.png)`)
   }
   await writeFile(outputPath, md.join('\n\n') + '\n')
 }
@@ -80,7 +82,7 @@ const generatePng = async (
   const pngArgs = ['png', ...context.originalArgs.slice(1)]
   for (const view of Object.values(views)) {
     pngArgs.push('-f')
-    pngArgs.push(`${(view as any).id}.drawio`)
+    pngArgs.push(`${(view as any).fileName}.drawio`)
   }
   await runCommand({
     isEngine: true,
@@ -123,7 +125,7 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
       return
     }
     options.view = view
-    const outputPath = `${args.output}/${view.id}.drawio`
+    const outputPath = `${args.output}/${view.fileName}.drawio`
     debug('rendering drawio to %s/%s', hostAppHome, outputPath)
     const result = await renderDrawio(app, options)
     await writeFile(outputPath, result.result)
@@ -132,7 +134,7 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
       args['diagram-save-view'] || args['diagram-create-md'] ||
       isDiagramPng
     ) {
-      views[view.id] = view
+      views[view.name] = view
     }
   }
   for (const viewString of selectedViews) {
@@ -147,7 +149,8 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
   }
   if (Object.values(views).length) {
     if (args['diagram-save-view']) {
-      await saveStackInfo(options, args, { views })
+      options.stack.views = views
+      await saveStackInfo(options, args)
     }
     if (args['diagram-create-md']) {
       await saveStackMd(options, args, views)
@@ -159,15 +162,12 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
 }
 
 const tf = async (app: any, options: any, args: any) => {
-  const stackInfo: any = {}
-  const outputPath =
-    `${args.output}/${options.stack.id}/${options.stack.id}.tf.json`
+  const outputPath = `${args.output}/${options.stack.name}/stack.tf.json`
   debug('rendering tf to %s/%s', hostAppHome, outputPath)
   const result = await renderTf(app, options)
   if (result.result !== '{}\n') {
     await writeFile(outputPath, result.result)
-    stackInfo.id = options.stack.id
-    await saveStackInfo(options, args, stackInfo)
+    await saveStackInfo(options, args)
   }
 }
 

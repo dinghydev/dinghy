@@ -6,19 +6,17 @@ import {
   useAwsS3Bucket,
 } from '@dinghy/tf-aws/serviceS3'
 
-export default function Stack() {
-  return (
-    <Shape _title='S3 Bucket Service Components Example'>
-      <AwsProvider region='eu-west-1'>
-        <S3Backend />
-        <VersionedBucket
-          bucket='my-demo-bucket-with-versioning'
-          versioningEnabled
-        />
-      </AwsProvider>
-    </Shape>
-  )
-}
+export default () => (
+  <Shape _title='S3 Bucket Service Components Example'>
+    <AwsProvider region='eu-west-1'>
+      <S3Backend />
+      <VersionedBucket
+        bucket='my-demo-bucket-with-versioning'
+        versioningEnabled
+      />
+    </AwsProvider>
+  </Shape>
+)
 
 const VersionedBucket = (
   { bucket, versioningEnabled, children, ...props }: any,

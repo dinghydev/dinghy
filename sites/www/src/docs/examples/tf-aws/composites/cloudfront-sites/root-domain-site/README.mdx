@@ -1,16 +1,16 @@
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
-import AppTsx from "!!raw-loader!./app.tsx";
+import AppTsx from "!!raw-loader!./example-com-websites.tsx";
 import DinghyConfigYaml from "!!raw-loader!./dinghy.config.yml";
-import TfJson from "!!raw-loader!./output/app/app.tf.json";
+import TfJson from "!!raw-loader!./output/example-com-websites/stack.tf.json";
 
 # Root Domain Site
 
 A simple site with redirect from other none root domain.
 
 <Tabs>
-  <TabItem value="app.tsx">
+  <TabItem value="tsx">
     <CodeBlock language="tsx" showLineNumbers>
       {AppTsx}
     </CodeBlock>
@@ -21,13 +21,13 @@ A simple site with redirect from other none root domain.
     </CodeBlock>
   </TabItem>
   <TabItem value="Overview" default>
-    ![](./output/app.png#drawio-w-100)
+    ![](./output/example-com-websites.png#drawio-w-100)
   </TabItem>
   <TabItem value="All View" default>
-    ![](./output/app-all.png#drawio-w-100)
+    ![](./output/example-com-websites-all.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform">
-    <CodeBlock language="json" title="tf.json" showLineNumbers>
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
       {TfJson}
     </CodeBlock>
   </TabItem>

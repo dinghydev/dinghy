@@ -1,0 +1,17 @@
+{
+  "name": "dinghy-dev-demo-sites",
+  "title": "Dinghy Dev Demo Sites",
+  "app": "dinghy-dev-demo-sites.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "dinghy-dev-demo-sites",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}

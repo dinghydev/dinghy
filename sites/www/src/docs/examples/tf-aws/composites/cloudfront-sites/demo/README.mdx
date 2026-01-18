@@ -1,9 +1,9 @@
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
-import AppTsx from "!!raw-loader!./app.tsx";
+import AppTsx from "!!raw-loader!./dinghy-dev-demo-sites.tsx";
 import DinghyConfigYaml from "!!raw-loader!./dinghy.config.yml";
-import TfJson from "!!raw-loader!./output/app/app.tf.json";
+import TfJson from "!!raw-loader!./output/dinghy-dev-demo-sites/stack.tf.json";
 
 # Demo Site
 
@@ -15,7 +15,7 @@ A complete end-to-end demonstration of a Dinghy IaC project featuring CI/CD auto
 1. deployed as: https://cloudfront-site-demo.dinghy.dev/
 
 <Tabs>
-  <TabItem value="app.tsx">
+  <TabItem value="tsx">
     <CodeBlock language="tsx" showLineNumbers>
       {AppTsx}
     </CodeBlock>
@@ -26,13 +26,14 @@ A complete end-to-end demonstration of a Dinghy IaC project featuring CI/CD auto
     </CodeBlock>
   </TabItem>
   <TabItem value="Overview" default>
-    ![](./output/app.png#drawio-w-100)
+    ![](./output/dinghy-dev-demo-sites.png#drawio-w-100)
   </TabItem>
   <TabItem value="All View" default>
-    ![](./output/app-all.png#drawio-w-100)
+    All elements without filter
+    ![](./output/dinghy-dev-demo-sites-all.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform">
-    <CodeBlock language="json" title="tf.json" showLineNumbers>
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
       {TfJson}
     </CodeBlock>
   </TabItem>

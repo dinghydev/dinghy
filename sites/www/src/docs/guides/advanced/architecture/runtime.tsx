@@ -129,6 +129,4 @@ const sequenceDiagram = {
   ],
 }
 
-export default function Stack() {
-  return <SequenceDiagram {...sequenceDiagram} />
-}
+export default () => <SequenceDiagram {...sequenceDiagram} />

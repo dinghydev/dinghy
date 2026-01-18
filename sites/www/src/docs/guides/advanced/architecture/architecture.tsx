@@ -1,37 +1,35 @@
 import { Shape } from '@dinghy/base-components'
 import * as uml from '@dinghy/diagrams/entitiesUml'
 
-export default function Stack() {
-  return (
-    <DinghyArchitecture>
-      <CoreModules>
-        <StandardComponents>
-          <Module>diagrams</Module>
-          <Module>tf-common</Module>
-          <Module>tf-aws</Module>
-        </StandardComponents>
-        <Base _distributed>
-          <Module _dependsBy={['StandardComponents', 'base-renderer']}>
-            base-components
-          </Module>
-          <Module>base-renderer</Module>
-        </Base>
-        <Renderers _dependsOn='base-renderer'>
-          <Module>renderer-json</Module>
-          <Module>renderer-drawio</Module>
-          <Module>renderer-tf</Module>
-        </Renderers>
-      </CoreModules>
-      <Projects _distributed>
-        <Project _dependsBy='cli' _dependsOn='StandardComponents'>
-          project / examples
-        </Project>
-        <Project>cli</Project>
-        <Project _dependsBy='cli' _dependsOn='Renderers'>engine</Project>
-      </Projects>
-    </DinghyArchitecture>
-  )
-}
+export default () => (
+  <DinghyArchitecture>
+    <CoreModules>
+      <StandardComponents>
+        <Module>diagrams</Module>
+        <Module>tf-common</Module>
+        <Module>tf-aws</Module>
+      </StandardComponents>
+      <Base _distributed>
+        <Module _dependsBy={['StandardComponents', 'base-renderer']}>
+          base-components
+        </Module>
+        <Module>base-renderer</Module>
+      </Base>
+      <Renderers _dependsOn='base-renderer'>
+        <Module>renderer-json</Module>
+        <Module>renderer-drawio</Module>
+        <Module>renderer-tf</Module>
+      </Renderers>
+    </CoreModules>
+    <Projects _distributed>
+      <Project _dependsBy='cli' _dependsOn='StandardComponents'>
+        project / examples
+      </Project>
+      <Project>cli</Project>
+      <Project _dependsBy='cli' _dependsOn='Renderers'>engine</Project>
+    </Projects>
+  </DinghyArchitecture>
+)
 
 const DinghyArchitecture = (props: any) => (
   <Shape

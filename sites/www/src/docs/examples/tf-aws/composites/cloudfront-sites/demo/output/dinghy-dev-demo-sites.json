@@ -1,0 +1,844 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "dinghy.dev Demo Sites",
+    "name": "dinghy-dev-demo-sites",
+    "title": "Dinghy Dev Demo Sites",
+    "_id": "stack",
+    "_tags": [
+      "default",
+      "AwsStack",
+      "Shape"
+    ],
+    "_type": "aws_stack",
+    "_name": "dinghy-dev-demo-sites"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "eu-west-1",
+        "_tags": [
+          "Provider",
+          "AwsProvider",
+          "Shape"
+        ],
+        "_type": "provider",
+        "_name": "eu-west-1",
+        "_id": "provider_euwest1"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "CloudfrontSites",
+              "Shape"
+            ],
+            "_type": "cloudfront_sites",
+            "_title": "Cloudfront Sites",
+            "_name": "cloudfront-sites",
+            "_id": "cloudfrontsites"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_title": "cloudfront-site-demo.dinghy.dev",
+                "_tags": [
+                  "CloudfrontSite",
+                  "Shape"
+                ],
+                "_type": "cloudfront_site",
+                "_name": "cloudfront-site-demodinghydev",
+                "_id": "cloudfrontsite_cloudfrontsitedemodinghydev"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_tags": [
+                      "Distributions",
+                      "Shape"
+                    ],
+                    "_type": "distributions",
+                    "_title": "Distributions",
+                    "_name": "distributions",
+                    "_id": "distributions"
+                  },
+                  "children": [
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_type": "aws_cloudfront_distribution",
+                        "_title": "Distribution: cloudfront-site-demo.dinghy.dev",
+                        "_id": "cloudfrontsitedemodinghydev_site",
+                        "title": "cloudfront-site-demo.dinghy.dev",
+                        "_tags": [
+                          "Distribution",
+                          "AwsCloudfrontDistribution",
+                          "Shape"
+                        ],
+                        "_name": "distribution-cloudfront-site-demodinghydev"
+                      },
+                      "children": [
+                        {
+                          "type": "node",
+                          "attributes": {
+                            "_level": 7,
+                            "_tags": [
+                              "Shape"
+                            ],
+                            "_type": "shape",
+                            "_title": "Shape",
+                            "_name": "shape",
+                            "_id": "shape"
+                          },
+                          "children": [
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_tags": [
+                                  "AliasesRecords",
+                                  "Shape"
+                                ],
+                                "_type": "aliases_records",
+                                "_title": "Aliases Records",
+                                "_name": "aliases-records",
+                                "_id": "aliasesrecords"
+                              },
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_title": "<table><tr><td>🌐 cloudfront-site-demo.dinghy.dev</td></tr></table>",
+                                    "_tags": [
+                                      "Text",
+                                      "Shape"
+                                    ],
+                                    "_type": "text",
+                                    "_name": "tabletrtd-cloudfront-site-demodinghydevtdtrtable",
+                                    "_id": "text_tabletrtdcloudfrontsitedemodinghydevtdtrtable"
+                                  },
+                                  "children": []
+                                },
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_title": "Records Definations",
+                                    "_tags": [
+                                      "Shape"
+                                    ],
+                                    "_type": "shape",
+                                    "_name": "records-definations",
+                                    "_id": "shape_recordsdefinations"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_type": "aws_route53_record",
+                                        "_title": "cloudfront-site-demo.dinghy.dev",
+                                        "_id": "cloudfrontsitedemodinghydev_arecord",
+                                        "name": "cloudfront-site-demo.dinghy.dev",
+                                        "_tags": [
+                                          "AliasesRecord",
+                                          "AwsRoute53Record",
+                                          "Shape"
+                                        ],
+                                        "_name": "cloudfront-site-demo.dinghy.dev"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_tags": [
+                                  "Origins",
+                                  "Shape"
+                                ],
+                                "_type": "origins",
+                                "_title": "Origins",
+                                "_name": "origins",
+                                "_id": "origins"
+                              },
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_title": "<table><tr><td>*</td><td>➙ s3://dinghy-dev-demo-sites-origin</td></tr></table>",
+                                    "_id": "cloudfrontsitedemodinghydev_site_origins_table",
+                                    "_tags": [
+                                      "Text",
+                                      "Shape"
+                                    ],
+                                    "_type": "text",
+                                    "_name": "tabletrtdtdtd-s3dinghy-dev-demo-sites-origintdtrtable"
+                                  },
+                                  "children": []
+                                },
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_type": "aws_s3_bucket",
+                                    "_title": "Origin Bucket: cloudfront-site-demo.dinghy.dev site_root",
+                                    "_id": "cloudfrontsitedemodinghydev_site_root_bucket",
+                                    "name": "site_root",
+                                    "_tags": [
+                                      "S3Origin",
+                                      "S3Bucket",
+                                      "AwsS3Bucket",
+                                      "Shape"
+                                    ],
+                                    "_name": "site_root"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_type": "aws_s3_bucket_logging",
+                                        "_title": "Bucket Logging",
+                                        "_id": "cloudfrontsitedemodinghydev_site_root_bucket_logging",
+                                        "_tags": [
+                                          "BucketLogging",
+                                          "AwsS3BucketLogging",
+                                          "Shape"
+                                        ],
+                                        "_name": "bucket-logging"
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_type": "aws_s3_bucket_policy",
+                                        "_title": "Bucket Policy",
+                                        "_id": "cloudfrontsitedemodinghydev_site_root_bucket_policy",
+                                        "_tags": [
+                                          "BucketPolicy",
+                                          "AwsS3BucketPolicy",
+                                          "Shape"
+                                        ],
+                                        "_name": "bucket-policy"
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_tags": [
+                                          "Files",
+                                          "Shape"
+                                        ],
+                                        "_type": "files",
+                                        "_title": "Files",
+                                        "_name": "files",
+                                        "_id": "files"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "node",
+                                          "attributes": {
+                                            "_level": 11,
+                                            "_type": "aws_s3_object",
+                                            "_title": "/404.html",
+                                            "_id": "dinghydevdemositesorigin_404html",
+                                            "_tags": [
+                                              "AwsS3Object",
+                                              "Shape"
+                                            ],
+                                            "_name": "404html"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "node",
+                                          "attributes": {
+                                            "_level": 11,
+                                            "_type": "aws_s3_object",
+                                            "_title": "/index.html",
+                                            "_id": "dinghydevdemositesorigin_indexhtml",
+                                            "_tags": [
+                                              "AwsS3Object",
+                                              "Shape"
+                                            ],
+                                            "_name": "indexhtml"
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "node",
+                          "attributes": {
+                            "_level": 7,
+                            "_tags": [
+                              "Shape"
+                            ],
+                            "_type": "shape",
+                            "_title": "Shape",
+                            "_name": "shape",
+                            "_id": "shape_2"
+                          },
+                          "children": [
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_tags": [
+                                  "AliasesCertificates",
+                                  "Shape"
+                                ],
+                                "_type": "aliases_certificates",
+                                "_title": "Aliases Certificates",
+                                "_name": "aliases-certificates",
+                                "_id": "aliasescertificates"
+                              },
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_type": "aws_acm_certificate",
+                                    "_title": "v20260104",
+                                    "_id": "cloudfrontsitedemodinghydev_site_20260104_certificate",
+                                    "_tags": [
+                                      "Certificate",
+                                      "AwsAcmCertificate",
+                                      "Shape"
+                                    ],
+                                    "_name": "v20260104"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_tags": [
+                                          "ValidationCnames",
+                                          "Shape"
+                                        ],
+                                        "_type": "validation_cnames",
+                                        "_title": "Validation Cnames",
+                                        "_name": "validation-cnames",
+                                        "_id": "validationcnames"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "node",
+                                          "attributes": {
+                                            "_level": 11,
+                                            "_type": "aws_route53_record",
+                                            "_title": "For validating cloudfront-site-demo.dinghy.dev",
+                                            "_id": "cloudfrontsitedemodinghydev_site_20260104_cloudfrontsitedemodinghydev_validation_cname",
+                                            "_tags": [
+                                              "ValidateCname",
+                                              "AwsRoute53Record",
+                                              "Shape"
+                                            ],
+                                            "_name": "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"cloudfront-site-demo.dinghy.dev\"\n]).resource_record_name}"
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_type": "aws_cloudfront_origin_access_control",
+                                "_title": "Cloudfront Origin Access Control",
+                                "_id": "cloudfrontsitedemodinghydev_originaccesscontrol",
+                                "name": "oac-cloudfrontsitedemodinghydev",
+                                "_tags": [
+                                  "AwsCloudfrontOriginAccessControl",
+                                  "Shape"
+                                ],
+                                "_name": "oac-cloudfrontsitedemodinghydev"
+                              },
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_type": "aws_cloudfront_distribution",
+                        "_title": "Distribution: Redirect to cloudfront-site-demo.dinghy.dev",
+                        "_id": "cloudfrontsitedemodinghydev_redirect",
+                        "title": "cloudfront-site-demo.dinghy.dev",
+                        "_tags": [
+                          "Distribution",
+                          "AwsCloudfrontDistribution",
+                          "Shape"
+                        ],
+                        "_name": "distribution-redirect-to-cloudfront-site-demodinghydev"
+                      },
+                      "children": [
+                        {
+                          "type": "node",
+                          "attributes": {
+                            "_level": 7,
+                            "_tags": [
+                              "Shape"
+                            ],
+                            "_type": "shape",
+                            "_title": "Shape",
+                            "_name": "shape",
+                            "_id": "shape_3"
+                          },
+                          "children": [
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_tags": [
+                                  "AliasesRecords",
+                                  "Shape"
+                                ],
+                                "_type": "aliases_records",
+                                "_title": "Aliases Records",
+                                "_name": "aliases-records",
+                                "_id": "aliasesrecords_2"
+                              },
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_title": "<table><tr><td>🌐 *.cloudfront-site-demo.dinghy.dev</td></tr></table>",
+                                    "_tags": [
+                                      "Text",
+                                      "Shape"
+                                    ],
+                                    "_type": "text",
+                                    "_name": "tabletrtd-cloudfront-site-demodinghydevtdtrtable",
+                                    "_id": "text_2"
+                                  },
+                                  "children": []
+                                },
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_title": "Records Definations",
+                                    "_tags": [
+                                      "Shape"
+                                    ],
+                                    "_type": "shape",
+                                    "_name": "records-definations",
+                                    "_id": "shape_4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_type": "aws_route53_record",
+                                        "_title": "*.cloudfront-site-demo.dinghy.dev",
+                                        "_id": "star_cloudfrontsitedemodinghydev_arecord",
+                                        "name": "*.cloudfront-site-demo.dinghy.dev",
+                                        "_tags": [
+                                          "AliasesRecord",
+                                          "AwsRoute53Record",
+                                          "Shape"
+                                        ],
+                                        "_name": "*.cloudfront-site-demo.dinghy.dev"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "node",
+                          "attributes": {
+                            "_level": 7,
+                            "_tags": [
+                              "Shape"
+                            ],
+                            "_type": "shape",
+                            "_title": "Shape",
+                            "_name": "shape",
+                            "_id": "shape_5"
+                          },
+                          "children": [
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_type": "aws_cloudfront_function",
+                                "_title": "Host Redirect",
+                                "_id": "cloudfrontsitedemodinghydev_redirect_function",
+                                "name": "cloudfrontsitedemodinghydev_redirect_function",
+                                "_tags": [
+                                  "HostRedirect",
+                                  "RedirectFunction",
+                                  "AwsCloudfrontFunction",
+                                  "Shape"
+                                ],
+                                "_name": "cloudfrontsitedemodinghydev_redirect_function"
+                              },
+                              "children": []
+                            },
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_tags": [
+                                  "AliasesCertificates",
+                                  "Shape"
+                                ],
+                                "_type": "aliases_certificates",
+                                "_title": "Aliases Certificates",
+                                "_name": "aliases-certificates",
+                                "_id": "aliasescertificates_2"
+                              },
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_type": "aws_acm_certificate",
+                                    "_title": "v20260104",
+                                    "_id": "cloudfrontsitedemodinghydev_redirect_20260104_certificate",
+                                    "_tags": [
+                                      "Certificate",
+                                      "AwsAcmCertificate",
+                                      "Shape"
+                                    ],
+                                    "_name": "v20260104"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_tags": [
+                                          "ValidationCnames",
+                                          "Shape"
+                                        ],
+                                        "_type": "validation_cnames",
+                                        "_title": "Validation Cnames",
+                                        "_name": "validation-cnames",
+                                        "_id": "validationcnames_2"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "node",
+                                          "attributes": {
+                                            "_level": 11,
+                                            "_type": "aws_route53_record",
+                                            "_title": "For validating *.cloudfront-site-demo.dinghy.dev",
+                                            "_id": "cloudfrontsitedemodinghydev_redirect_20260104_star_cloudfrontsitedemodinghydev_validation_cname",
+                                            "_tags": [
+                                              "ValidateCname",
+                                              "AwsRoute53Record",
+                                              "Shape"
+                                            ],
+                                            "_name": "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.cloudfront-site-demo.dinghy.dev\"\n]).resource_record_name}"
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_tags": [
+                      "Zones",
+                      "Shape"
+                    ],
+                    "_type": "zones",
+                    "_title": "Zones",
+                    "_name": "zones",
+                    "_id": "zones"
+                  },
+                  "children": [
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_type": "aws_route53_zone",
+                        "_title": "dinghy.dev",
+                        "name": "dinghy.dev",
+                        "_id": "cloudfrontsitedemodinghydev_dinghydev",
+                        "_tags": [
+                          "DataAwsRoute53Zone",
+                          "AwsRoute53Zone",
+                          "Shape"
+                        ],
+                        "_name": "dinghy.dev"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Infrastructure",
+              "Shape"
+            ],
+            "_type": "infrastructure",
+            "_title": "Infrastructure",
+            "_name": "infrastructure",
+            "_id": "infrastructure"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "Backend",
+                  "S3Backend",
+                  "Shape"
+                ],
+                "_type": "backend",
+                "_title": "Backend",
+                "_name": "backend",
+                "_id": "backend"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_s3_bucket",
+                    "_title": "Backend Bucket",
+                    "_id": "awss3bucket_backend",
+                    "_tags": [
+                      "BackendBucket",
+                      "S3Bucket",
+                      "AwsS3Bucket",
+                      "Shape"
+                    ],
+                    "_name": "backend-bucket"
+                  },
+                  "children": [
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_type": "aws_s3_bucket_versioning",
+                        "_title": "Bucket Versioning",
+                        "_id": "awss3bucket_backend_versioning",
+                        "_tags": [
+                          "BucketVersioning",
+                          "AwsS3BucketVersioning",
+                          "Shape"
+                        ],
+                        "_name": "bucket-versioning"
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_type": "aws_s3_bucket_logging",
+                        "_title": "Bucket Logging",
+                        "_id": "awss3bucket_backend_logging",
+                        "_tags": [
+                          "BucketLogging",
+                          "AwsS3BucketLogging",
+                          "Shape"
+                        ],
+                        "_name": "bucket-logging"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_type": "aws_s3_bucket",
+                "_title": "Regional LogBucket",
+                "_tags": [
+                  "RegionalLog",
+                  "RegionalLogBucket",
+                  "AwsS3Bucket",
+                  "Shape"
+                ],
+                "_name": "regional-logbucket",
+                "_id": "awss3bucket_regionallogbucket"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_s3_bucket_logging",
+                    "_title": "Bucket Logging",
+                    "_id": "awss3bucket_regionallogbucket_logging",
+                    "_tags": [
+                      "BucketLogging",
+                      "AwsS3BucketLogging",
+                      "Shape"
+                    ],
+                    "_name": "bucket-logging"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_s3_bucket_policy",
+                    "_title": "Bucket Policy",
+                    "_id": "awss3bucket_regionallogbucket_policy",
+                    "_tags": [
+                      "BucketPolicy",
+                      "AwsS3BucketPolicy",
+                      "Shape"
+                    ],
+                    "_name": "bucket-policy"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_caller_identity",
+                    "_title": "Caller Identity",
+                    "_tags": [
+                      "DataAwsCallerIdentity",
+                      "Shape"
+                    ],
+                    "_name": "caller-identity",
+                    "_id": "awscalleridentity_calleridentity"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_type": "aws_s3_bucket",
+                "_title": "Global LogBucket",
+                "_tags": [
+                  "GlobalLog",
+                  "GlobalLogBucket",
+                  "AwsS3Bucket",
+                  "Shape"
+                ],
+                "_name": "global-logbucket",
+                "_id": "awss3bucket_globallogbucket"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_s3_bucket_ownership_controls",
+                    "_title": "Ownership Controls",
+                    "_id": "awss3bucket_globallogbucket_ownership_controls",
+                    "_tags": [
+                      "OwnershipControls",
+                      "AwsS3BucketOwnershipControls",
+                      "Shape"
+                    ],
+                    "_name": "ownership-controls"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_s3_bucket_logging",
+                    "_title": "Bucket Logging",
+                    "_id": "awss3bucket_globallogbucket_logging",
+                    "_tags": [
+                      "BucketLogging",
+                      "AwsS3BucketLogging",
+                      "Shape"
+                    ],
+                    "_name": "bucket-logging"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "MoveToHere",
+                  "Shape"
+                ],
+                "_type": "move_to_here",
+                "_title": "Move To Here",
+                "_name": "move-to-here",
+                "_id": "movetohere"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

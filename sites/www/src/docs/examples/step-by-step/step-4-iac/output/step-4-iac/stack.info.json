@@ -1,0 +1,17 @@
+{
+  "name": "step-4-iac",
+  "title": "Step 4 Iac",
+  "app": "app.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "step-4-iac",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}

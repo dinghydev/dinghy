@@ -1,11 +1,6 @@
 import z, { type ZodType } from 'zod'
 
-// export const CallableSchema = z.function({
-//   input: z.tuple([]).rest(z.any()),
-//   output: z.any(),
-// })
-export const CallableSchema = z.function()
-export type CallableType = z.output<typeof CallableSchema>
+export const FunctionSchema = z.function()
 
 export const ResolvableAttributeSchema = z.function({
   input: z.tuple([]).rest(z.any()),
@@ -22,13 +17,13 @@ export const resolvable = <T extends ZodType>(_schema: T): ZodType<T> =>
 // export const resolvableValue = <T extends z.ZodType>(schema: T) =>
 //   z.union([
 //     schema,
-//     CallableSchema,
+//     FunctionSchema,
 //   ])
 
 export const resolvableValue = <T extends z.ZodType>(schema: T) =>
   z.union([
     schema,
-    CallableSchema,
+    FunctionSchema,
   ]).transform((val) => val as z.output<T>)
 
 export const StringSchema = z.string()
@@ -150,11 +145,11 @@ export const BaseAttributesSchema = z.object({
 Events been invoked during lifecycle of the node
 */
 export const LifecycleSchema = z.object({
-  _afterDataBind: CallableSchema.optional().meta({
+  _afterDataBind: FunctionSchema.optional().meta({
     description: 'Invoked after all attributes resolved to the node tree',
     typeText: 'function(node)',
   }),
-  _beforeGenerate: CallableSchema.optional().meta({
+  _beforeGenerate: FunctionSchema.optional().meta({
     description: 'Invoked before the node is generated to target format',
     typeText: 'function(node)',
   }),

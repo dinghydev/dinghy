@@ -1,0 +1,208 @@
+{
+  "provider": {
+    "aws": [
+      {
+        "region": "us-east-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "Ec2 Servers",
+            "iac:stack-name": "ec2-servers"
+          }
+        }
+      }
+    ]
+  },
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.28.0"
+      }
+    },
+    "backend": {
+      "s3": {
+        "bucket": "ec2-servers-backend",
+        "key": "tfstates/ec2-servers.tfstate.json",
+        "region": "us-east-1"
+      }
+    }
+  },
+  "resource": {
+    "aws_instance": {
+      "awsinstance_ec2servers": {
+        "ami": "${data.aws_ami.awsami_ami.id}",
+        "associate_public_ip_address": true,
+        "iam_instance_profile": "ec2-servers-instance-profile",
+        "instance_type": "t4g.nano",
+        "root_block_device": {
+          "volume_size": 8
+        },
+        "subnet_id": "${aws_subnet.awssubnet_ec2serverspublicasubnet.id}",
+        "depends_on": [
+          "aws_subnet.awssubnet_ec2serverspublicasubnet"
+        ],
+        "tags": {
+          "Name": "ec2-servers",
+          "iac:id": "awsinstance_ec2servers"
+        }
+      }
+    },
+    "aws_vpc": {
+      "awsvpc_ec2serversvpc": {
+        "cidr_block": "10.10.0.0/16",
+        "tags": {
+          "Name": "ec2-servers-vpc",
+          "iac:id": "awsvpc_ec2serversvpc"
+        }
+      }
+    },
+    "aws_subnet": {
+      "awssubnet_ec2serverspublicasubnet": {
+        "vpc_id": "${aws_vpc.awsvpc_ec2serversvpc.id}",
+        "availability_zone": "us-east-1a",
+        "cidr_block": "10.10.200.0/24",
+        "depends_on": [
+          "aws_vpc.awsvpc_ec2serversvpc"
+        ],
+        "tags": {
+          "Name": "ec2-servers-public-a-subnet",
+          "iac:id": "awssubnet_ec2serverspublicasubnet"
+        }
+      }
+    },
+    "aws_internet_gateway": {
+      "awsinternetgateway_ec2serversinternetgateway": {
+        "vpc_id": "${aws_vpc.awsvpc_ec2serversvpc.id}",
+        "depends_on": [
+          "aws_vpc.awsvpc_ec2serversvpc"
+        ],
+        "tags": {
+          "Name": "ec2-servers-internet-gateway",
+          "iac:id": "awsinternetgateway_ec2serversinternetgateway"
+        }
+      }
+    },
+    "aws_default_route_table": {
+      "awsdefaultroutetable_ec2serversdefaultroutetable": {
+        "default_route_table_id": "${aws_vpc.awsvpc_ec2serversvpc.default_route_table_id}",
+        "depends_on": [
+          "aws_vpc.awsvpc_ec2serversvpc"
+        ],
+        "tags": {
+          "Name": "ec2-servers-default-route-table",
+          "iac:id": "awsdefaultroutetable_ec2serversdefaultroutetable"
+        }
+      }
+    },
+    "aws_route": {
+      "awsroute_route": {
+        "route_table_id": "${aws_vpc.awsvpc_ec2serversvpc.default_route_table_id}",
+        "destination_cidr_block": "0.0.0.0/0",
+        "gateway_id": "${aws_internet_gateway.awsinternetgateway_ec2serversinternetgateway.id}",
+        "depends_on": [
+          "aws_vpc.awsvpc_ec2serversvpc",
+          "aws_internet_gateway.awsinternetgateway_ec2serversinternetgateway"
+        ]
+      }
+    },
+    "aws_iam_role": {
+      "awsiamrole_ec2serversinstancerole": {
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "name": "ec2-servers-instance-role",
+        "tags": {
+          "Name": "ec2-servers-instance-role",
+          "iac:id": "awsiamrole_ec2serversinstancerole"
+        }
+      }
+    },
+    "aws_iam_instance_profile": {
+      "awsiaminstanceprofile_ec2serversinstanceprofile": {
+        "name": "ec2-servers-instance-profile",
+        "role": "ec2-servers-instance-role",
+        "tags": {
+          "Name": "ec2-servers-instance-profile",
+          "iac:id": "awsiaminstanceprofile_ec2serversinstanceprofile"
+        }
+      }
+    },
+    "aws_iam_role_policy_attachment": {
+      "awsiamrolepolicyattachment_iamrolepolicyattachment": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_ec2serversinstancerole"
+        ],
+        "policy_arn": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+        "role": "ec2-servers-instance-role"
+      }
+    },
+    "aws_s3_object": {
+      "outputsec2serversstackjson": {
+        "bucket": "ec2-servers-backend",
+        "content": "{\n  \"ec2servers_publicip\": \"${aws_instance.awsinstance_ec2servers.public_ip}\",\n  \"ec2servers_instanceid\": \"${aws_instance.awsinstance_ec2servers.id}\"\n}",
+        "key": "outputs/ec2-servers.stack.json",
+        "depends_on": [
+          "aws_instance.awsinstance_ec2servers"
+        ],
+        "tags": {
+          "Name": "Stack Output",
+          "iac:id": "outputsec2serversstackjson"
+        }
+      }
+    },
+    "aws_s3_bucket": {
+      "awss3bucket_backend": {
+        "bucket": "ec2-servers-backend",
+        "object_lock_enabled": true,
+        "tags": {
+          "Name": "Backend Bucket",
+          "iac:id": "awss3bucket_backend"
+        }
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_backend_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ],
+        "bucket": "ec2-servers-backend",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
+      }
+    }
+  },
+  "output": {
+    "ec2servers_publicip": {
+      "value": "${aws_instance.awsinstance_ec2servers.public_ip}",
+      "description": "Public IP of ec2-servers",
+      "depends_on": [
+        "aws_instance.awsinstance_ec2servers"
+      ]
+    },
+    "ec2servers_instanceid": {
+      "value": "${aws_instance.awsinstance_ec2servers.id}",
+      "description": "Instance ID of ec2-servers",
+      "depends_on": [
+        "aws_instance.awsinstance_ec2servers"
+      ]
+    }
+  },
+  "data": {
+    "aws_ami": {
+      "awsami_ami": {
+        "filter": [
+          {
+            "name": "architecture",
+            "values": [
+              "arm64"
+            ]
+          }
+        ],
+        "most_recent": true,
+        "name_regex": "^al\\d{4}-ami-\\d{4}.*",
+        "owners": [
+          "amazon"
+        ]
+      }
+    }
+  }
+}

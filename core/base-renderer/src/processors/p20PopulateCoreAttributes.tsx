@@ -5,7 +5,6 @@ import {
   type NodeTree,
   toId,
   toName,
-  toTitle,
 } from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
@@ -126,14 +125,6 @@ const populateNodeAttributes = (element: ReactElement, usedIds: string[]) => {
   populateField(fiber, _node, 'title', usedIds, defaultTitle)
   populateField(fiber, _node, 'name', usedIds, defaultName)
 
-  if (isStack) {
-    if (_node._props._title === 'Shape') {
-      _node._props._title = toTitle((_node._parent as any)!._props!.stack!.id)
-      _node._props._name = (_node._parent as any)!._props!.stack!.id
-    }
-    ;(_node._parent as any)!._props!.stack!.title ??= _node._props._title
-    ;(_node._parent as any)!._props!.stack!.name ??= _node._props._name
-  }
   const id = populateField(fiber, _node, 'id', usedIds, defaultId) as string
   if (usedIds.includes(id)) {
     throw new Error(`Duplicated id ${id} found!`)

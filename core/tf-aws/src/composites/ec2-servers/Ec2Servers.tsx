@@ -4,6 +4,7 @@ import {
   getRenderOptions,
   NodeProps,
   Shape,
+  toId,
 } from '@dinghy/base-components'
 import {
   AwsInstance,
@@ -20,6 +21,7 @@ import {
 import { AwsIamRole, useAwsIamRole } from '../../services/iam/AwsIamRole.tsx'
 import { AwsIamRolePolicyAttachment } from '../../services/iam/AwsIamRolePolicyAttachment.tsx'
 import { Output } from '@dinghy/tf-common'
+import { S3BackendOutput } from '../../foundation/S3BackendOutput.tsx'
 
 export function Ec2Servers(
   { _components, children, ...props }: NodeProps,
@@ -131,6 +133,7 @@ export function Ec2Servers(
         {createVpc && <Vpc _display='entity' _title='VPC' />}
         {referenceAmi && <Ami />}
         {createInstanceProfile && <InstanceProfile />}
+        <S3BackendOutput _title='Stack Output' />
       </OnDemandResourcesComponent>
     )
   }
@@ -145,10 +148,12 @@ export function Ec2Servers(
     const { instanceProfile } = useAwsIamInstanceProfile()
     function PublicIp(props: any) {
       const { awsInstance } = useAwsInstance()
+      const title = () => `Public IP of ${deepResolve(_server.name)}`
       return (
         <Output
-          _title={() => `${deepResolve(_server.name)}-public-ip`}
-          description={() => `Public IP of ${deepResolve(_server.name)}`}
+          _title={title}
+          _id={() => `${toId(deepResolve(_server.name))}_publicip`}
+          description={title}
           value={() => `\${${deepResolve(awsInstance._terraformId)}.public_ip}`}
           {...props}
         />
@@ -156,10 +161,12 @@ export function Ec2Servers(
     }
     function InstanceId(props: any) {
       const { awsInstance } = useAwsInstance()
+      const title = () => `Instance ID of ${deepResolve(_server.name)}`
       return (
         <Output
-          _title={() => `${deepResolve(_server.name)}-instance-id`}
-          description={() => `Instance ID of ${deepResolve(_server.name)}`}
+          _title={title}
+          _id={() => `${toId(deepResolve(_server.name))}_instanceid`}
+          description={title}
           value={() => `\${${deepResolve(awsInstance._terraformId)}.id}`}
           {...props}
         />

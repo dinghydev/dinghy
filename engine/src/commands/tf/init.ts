@@ -1,7 +1,7 @@
 import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions } from './parseStackInfo.ts'
+import { createTfOptions } from './stackInfoUtils.ts'
 import process from 'node:process'
 import confirm from '@inquirer/confirm'
 import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
@@ -107,10 +107,10 @@ const runTfInit = (
 const run = async (_context: CommandContext, args: CommandArgs) => {
   await requireStacksConfig()
   await doWithTfStacks(args, async (stackInfo) => {
-    const stackPath = `${args.output}/${stackInfo.id}`
+    const stackPath = `${args.output}/${stackInfo.name}`
     console.log(
       `Initializing ${
-        chalk.green(`${hostAppHome}/${stackPath}/${stackInfo.id}.tf.json`)
+        chalk.green(`${hostAppHome}/${stackPath}/stack.tf.json`)
       } ...`,
     )
     const result = await runTfInit(
@@ -122,7 +122,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       if (result.stdout?.includes('StatusCode: 404')) {
         const tfModel = JSON.parse(
           Deno.readTextFileSync(
-            `${hostAppHome}/${stackPath}/${stackInfo.id}.tf.json`,
+            `${hostAppHome}/${stackPath}/stack.tf.json`,
           ),
         )
         const backendBucket = tfModel.terraform?.backend?.s3?.bucket

@@ -1,0 +1,17 @@
+{
+  "name": "s3-bucket",
+  "title": "S3 Bucket",
+  "app": "app.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "s3-bucket",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}

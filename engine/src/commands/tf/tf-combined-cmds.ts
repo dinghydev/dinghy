@@ -11,7 +11,7 @@ import { dinghyAppConfig, hostAppHome, requireStacksConfig } from '@dinghy/cli'
 import { attachChangeToMR, isCi, isMr } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import chalk from 'chalk'
-import { parseStackInfo } from './parseStackInfo.ts'
+import { parseStackInfo } from './stackInfoUtils.ts'
 import render from '../render/index.ts'
 import Debug from 'debug'
 import { onEvent } from '@dinghy/base-components'
@@ -91,7 +91,7 @@ export const createCombinedTfCmds = (
         if (cmds.includes('render')) {
           const renderArgs = [
             'render',
-            stackOptions.stack.id,
+            stackOptions.stack.name,
             '--format',
             'tf',
             ...noneStackArgs,
@@ -106,7 +106,7 @@ export const createCombinedTfCmds = (
             options: render[OPTIONS_SYMBOL],
           })
         }
-        stacksOptions[stackOptions.stack.id] = stackOptions
+        stacksOptions[stackOptions.stack.name] = stackOptions
       },
     )
     await onEvent(`tf.render.finish`, stacksOptions)
@@ -122,10 +122,10 @@ export const createCombinedTfCmds = (
           (!isMr() && stackInfo.mainAutoDiff)
         ) {
           await onEvent(`tf.stack.start`, stackOptions, stackInfo)
-          await runStackCommands(context, stackInfo.id, noneStackArgs)
+          await runStackCommands(context, stackInfo.name, noneStackArgs)
 
           const stackInfoFile =
-            `${hostAppHome}/${args.output}/${stackInfo.id}/stack-info.json`
+            `${hostAppHome}/${args.output}/${stackInfo.name}/stack.info.json`
           const updatedStackInfo = JSON.parse(
             Deno.readTextFileSync(stackInfoFile),
           )
@@ -153,7 +153,7 @@ export const createCombinedTfCmds = (
           args,
         )
       } else {
-        console.log(
+        debug(
           `Ignore notification ${
             isApply ? 'and auto deploy ' : ''
           }in non-CI environment`,

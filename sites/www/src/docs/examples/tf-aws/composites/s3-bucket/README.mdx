@@ -5,7 +5,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import AppTsx from "!!raw-loader!./app.tsx";
-import TfJson from "!!raw-loader!./output/app/app.tf.json";
+import TfJson from "!!raw-loader!./output/s3-bucket/stack.tf.json";
 
 # S3 Bucket
 
@@ -18,13 +18,13 @@ This example demonstrates how to create an S3 bucket using the composite S3Bucke
     </CodeBlock>
   </TabItem>
   <TabItem value="Overview">
-    ![](./output/app.png#drawio-w-100)
+    ![](./output/s3-bucket.png#drawio-w-100)
   </TabItem>
   <TabItem value="All View">
-    ![](./output/app-all.png#drawio-w-100)
+    ![](./output/s3-bucket-all.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform">
-    <CodeBlock language="json" title="tf.json" showLineNumbers>
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
       {TfJson}
     </CodeBlock>
   </TabItem>

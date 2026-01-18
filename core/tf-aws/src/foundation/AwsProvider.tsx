@@ -418,6 +418,7 @@ export function AwsProvider(props: Partial<InputProps>) {
       }}
       _inputSchema={InputSchema}
       _direction='vertical'
+      region='us-east-1'
       {...(awsProvider || {})}
       {...props}
       _title={_title}

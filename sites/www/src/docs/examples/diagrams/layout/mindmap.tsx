@@ -1,44 +1,42 @@
 import { Dependency, Shape } from '@dinghy/base-components'
-export default function Stack() {
-  return (
-    <Mindmap>
-      <Row>
-        Top
-        <Shape>T1</Shape>
-        <Shape>T2</Shape>
-        <Shape>T3</Shape>
-      </Row>
-      <Row>
-        <Column>
-          Left
-          <Shape>L1</Shape>
-          <Shape>L2</Shape>
-          <Shape>L3</Shape>
-        </Column>
-        <CenterMiddle>
-          <Shape>
-            Center
-            <Dependencies />
-          </Shape>
-        </CenterMiddle>
-        <Column>
-          Right
-          <Shape _align='right'>R1</Shape>
-          <Shape _align='left'>R2</Shape>
-          <Shape _verticalAlign='top'>R3</Shape>
-          <Shape _verticalAlign='bottom'>R4</Shape>
-        </Column>
-      </Row>
-      <Row _display={'invisible'}>
-        Bottom
-        <Shape>B1</Shape>
-        <Shape>B2</Shape>
-        <Shape>B3</Shape>
-        <Shape>B4</Shape>
-      </Row>
-    </Mindmap>
-  )
-}
+export default () => (
+  <Mindmap>
+    <Row>
+      Top
+      <Shape>T1</Shape>
+      <Shape>T2</Shape>
+      <Shape>T3</Shape>
+    </Row>
+    <Row>
+      <Column>
+        Left
+        <Shape>L1</Shape>
+        <Shape>L2</Shape>
+        <Shape>L3</Shape>
+      </Column>
+      <CenterMiddle>
+        <Shape>
+          Center
+          <Dependencies />
+        </Shape>
+      </CenterMiddle>
+      <Column>
+        Right
+        <Shape _align='right'>R1</Shape>
+        <Shape _align='left'>R2</Shape>
+        <Shape _verticalAlign='top'>R3</Shape>
+        <Shape _verticalAlign='bottom'>R4</Shape>
+      </Column>
+    </Row>
+    <Row _display={'invisible'}>
+      Bottom
+      <Shape>B1</Shape>
+      <Shape>B2</Shape>
+      <Shape>B3</Shape>
+      <Shape>B4</Shape>
+    </Row>
+  </Mindmap>
+)
 
 const Mindmap = (props: any) => <Shape _direction={'vertical'} {...props} />
 const Row = (props: any) => <Shape _display={'invisible'} {...props} />

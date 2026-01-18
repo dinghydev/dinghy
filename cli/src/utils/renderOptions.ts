@@ -16,7 +16,7 @@ export const renderOptions = {
     'diagram-png':
       'Generate png file for diagram with `true` or `false`. If not specified, png will generated in none CI environment by default',
     'diagram-create-md': 'Create markdown file for diagram',
-    'diagram-save-view': 'Save view to stack-info.json',
+    'diagram-save-view': 'Save view to stack.info.json',
     watch: 'Re-render when changes of yaml/ts/tsx files detected',
   },
   default: {

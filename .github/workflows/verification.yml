@@ -30,7 +30,5 @@ jobs:
           deno task render-examples
           echo "::endgroup::"
 
-          echo "::group::Check Projects"
           deno task check-projects
-          echo "::endgroup::"
           

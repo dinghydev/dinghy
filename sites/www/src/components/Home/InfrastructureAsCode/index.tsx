@@ -1,17 +1,17 @@
-import TwoColumn from "../../TwoColumn/index.tsx";
-import CodeBlock from "@theme/CodeBlock";
-import AppTfJson from "!!raw-loader!./app.tf.json";
-import TerraformLogo from "./terraform.png";
-import OpenTofuSvg from "./opentofu.svg";
-import DenoSvg from "./deno.svg";
-import ReactSvg from "./react.svg";
-import styles from "./styles.module.css";
-import clsx from "clsx";
+import TwoColumn from '../../TwoColumn/index.tsx'
+import CodeBlock from '@theme/CodeBlock'
+import AppTfJson from '!!raw-loader!./stack.tf.json'
+import TerraformLogo from './terraform.png'
+import OpenTofuSvg from './opentofu.svg'
+import DenoSvg from './deno.svg'
+import ReactSvg from './react.svg'
+import styles from './styles.module.css'
+import clsx from 'clsx'
 export default function InfrastructureAsCode() {
   return (
     <TwoColumn
       title={
-        <a href="/guides/get-started/infrastructure-as-code">
+        <a href='/guides/get-started/infrastructure-as-code'>
           Infrastructure as Code
         </a>
       }
@@ -24,10 +24,10 @@ export default function InfrastructureAsCode() {
             <img
               className={styles.logos}
               src={TerraformLogo}
-              alt="Terraform Logo"
+              alt='Terraform Logo'
             />
             <OpenTofuSvg
-              alt="OpenTofu Logo"
+              alt='OpenTofu Logo'
               className={clsx(styles.logos, styles.opentofuLogo)}
             />
           </div>
@@ -46,7 +46,7 @@ export default function InfrastructureAsCode() {
           </div>
           <div>
             <DenoSvg
-              title="Deno.com"
+              title='Deno.com'
               className={clsx(styles.logos)}
             />
             <ReactSvg
@@ -56,11 +56,11 @@ export default function InfrastructureAsCode() {
         </div>
       }
       background
-      bodyAlign="right"
+      bodyAlign='right'
     >
-      <CodeBlock language="json" title="app.tf.json">
+      <CodeBlock language='json' title='stack.tf.json'>
         {AppTfJson}
       </CodeBlock>
     </TwoColumn>
-  );
+  )
 }

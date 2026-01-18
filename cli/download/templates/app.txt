@@ -6,23 +6,22 @@ import { PostgreSqlInstance } from '@dinghy/diagrams/entitiesAwsDatabase'
 import { ApplicationLoadBalancer } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 import { Waf } from '@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance'
 
-export default function Stack() {
-  return (
-    <WebApp>
-      <Client />
-      <Cloud>
-        <PublicSubnet>
-          <LoadBalancer />
-          <Firewall />
-        </PublicSubnet>
-        <PrivateSubnet>
-          <Application />
-          <Postgres />
-        </PrivateSubnet>
-      </Cloud>
-    </WebApp>
-  )
-}
+export default ()=> (
+  <WebApp>
+    <Client />
+    <Cloud>
+      <PublicSubnet>
+        <LoadBalancer />
+        <Firewall />
+      </PublicSubnet>
+      <PrivateSubnet>
+        <Application />
+        <Postgres />
+      </PrivateSubnet>
+    </Cloud>
+  </WebApp>
+)
+
 
 const Postgres = (props: any) => <PostgreSqlInstance {...props} />
 

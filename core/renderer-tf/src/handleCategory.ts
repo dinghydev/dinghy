@@ -165,7 +165,7 @@ function collectReferences(element: any, references: string[]): any {
       if (sectionParts.length >= 2) {
         if (sectionParts[0] !== 'data') {
           const reference = `${sectionParts[0]}.${sectionParts[1]}`
-          if (!references.includes(reference)) {
+          if (!reference.includes(' ') && !references.includes(reference)) {
             references.push(reference)
           }
         }

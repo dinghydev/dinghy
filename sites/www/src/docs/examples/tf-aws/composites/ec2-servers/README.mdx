@@ -5,7 +5,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import AppTsx from "!!raw-loader!./app.tsx";
-import TfJson from "!!raw-loader!./output/app/app.tf.json";
+import TfJson from "!!raw-loader!./output/ec2-servers/stack.tf.json";
 
 # EC2 Servers
 
@@ -18,13 +18,13 @@ This example demonstrates how to create an EC2 server using the composite Ec2Ser
     </CodeBlock>
   </TabItem>
   <TabItem value="Overview">
-    ![](./output/app.png#drawio-w-100)
+    ![](./output/ec2-servers.png#drawio-w-100)
   </TabItem>
   <TabItem value="All View">
-    ![](./output/app-all.png#drawio-w-100)
+    ![](./output/ec2-servers-all.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform">
-    <CodeBlock language="json" title="tf.json" showLineNumbers>
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
       {TfJson}
     </CodeBlock>
   </TabItem>

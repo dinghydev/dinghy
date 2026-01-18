@@ -47,7 +47,8 @@ const renderProject = async (projectPath: string) => {
   })
   if (existsSync(`${projectPath}/s3-files`)) {
     const replacePath = dirname(projectPath)
-    const tfJsonFile = `${projectPath}/output/app/app.tf.json`
+    const tfJsonFile =
+      `${projectPath}/output/dinghy-dev-demo-sites/stack.tf.json`
     const tfJsonText = Deno.readTextFileSync(tfJsonFile)
     const updatedTfJsonText = tfJsonText.replaceAll(
       replacePath,

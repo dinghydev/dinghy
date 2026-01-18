@@ -149,8 +149,8 @@ or function to update/generate based on existing configurations:
 import { type RenderOptions } from "@dinghy/base-components";
 
 export const renderOptions = (options: RenderOptions){
-    options.stack.title=`Enviroment: ${options.stack.id}`
-    if(options.stack.id==='application'){
+    options.stack.title=`Enviroment: ${options.stack.name}`
+    if(options.stack.name==='dev'){
         options.stack.configUrls={
           'inputs.mysolutionstack.output': 'https://my-solution-network-backend.s3.us-east-1.amazonaws.com/output/stack.yml'
         }

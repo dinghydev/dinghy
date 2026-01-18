@@ -14,34 +14,32 @@ import {
 } from '@dinghy/diagrams/entitiesAwsDatabase'
 import { Waf } from '@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance'
 
-export default function Stack() {
-  return (
-    <Shape title='ECS architecture diagram'>
-      <User _dependsOn={'LoadBalancer'} />
-      <Cloud>
-        <Region>
-          <Vpc>
-            <PublicSubnet>
-              <LoadBalancer _dependsOn={['web', 'WAF']} />
-              <WAF />
-            </PublicSubnet>
-            <PrivateSubnet>
-              <ECSCluster _dependsOn={['Postgres', 'Redis']}>
-                <ECSService>web</ECSService>
-                <ECSService>job</ECSService>
-                <ECSService _display='inactive'>migration</ECSService>
-              </ECSCluster>
-              <StorageLayer>
-                <Postgres />
-                <Redis />
-              </StorageLayer>
-            </PrivateSubnet>
-          </Vpc>
-        </Region>
-      </Cloud>
-    </Shape>
-  )
-}
+export default () => (
+  <Shape title='ECS architecture diagram'>
+    <User _dependsOn={'LoadBalancer'} />
+    <Cloud>
+      <Region>
+        <Vpc>
+          <PublicSubnet>
+            <LoadBalancer _dependsOn={['web', 'WAF']} />
+            <WAF />
+          </PublicSubnet>
+          <PrivateSubnet>
+            <ECSCluster _dependsOn={['Postgres', 'Redis']}>
+              <ECSService>web</ECSService>
+              <ECSService>job</ECSService>
+              <ECSService _display='inactive'>migration</ECSService>
+            </ECSCluster>
+            <StorageLayer>
+              <Postgres />
+              <Redis />
+            </StorageLayer>
+          </PrivateSubnet>
+        </Vpc>
+      </Region>
+    </Cloud>
+  </Shape>
+)
 
 function Cloud(props: NodeProps) {
   return <AwsCloud {...props} />

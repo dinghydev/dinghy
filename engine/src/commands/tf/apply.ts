@@ -4,9 +4,15 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { isCi } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions, tfOptionsPlan } from './parseStackInfo.ts'
+import {
+  collectStackChanges,
+  createTfOptions,
+  tfOptionsPlan,
+} from './stackInfoUtils.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { requireStacksConfig } from '@dinghy/cli'
+import Debug from 'debug'
+const debug = Debug('tf:apply')
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,
@@ -25,30 +31,32 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   const changedStacks: any[] = []
   // deno-lint-ignore require-await
   await doWithTfStacks(args, async (stackInfo) => {
-    if (stackInfo.plan?.changesCount) {
+    const changes = collectStackChanges(stackInfo, args)
+    if (changes?.changesCount) {
+      stackInfo.plan = changes
       changedStacks.push(stackInfo)
     }
   })
   if (changedStacks.length) {
     try {
       for (const stack of changedStacks) {
-        const stackPath = `${args.output}/${stack.id}`
+        const stackPath = `${args.output}/${stack.name}`
         await runTfImageCmd(
           stackPath,
           args,
-          ['tf', 'apply', args['plan-file']],
+          ['tf', 'apply', 'tf.plan'],
         )
       }
       if (isCi()) {
         await notifyChanges(changedStacks)
       } else {
-        console.log('Ignore notification in non-CI environment')
-        changedStacks.map((change) => {
+        debug('Ignore notification in non-CI environment')
+        changedStacks.map((stackInfo) => {
           console.log(
             chalk.red(
-              `${change.id} changes: ${
+              `${stackInfo.name} changes: ${
                 changeSummaryWording(
-                  change.plan.summary,
+                  stackInfo.plan.summary,
                 )
               }`,
             ),

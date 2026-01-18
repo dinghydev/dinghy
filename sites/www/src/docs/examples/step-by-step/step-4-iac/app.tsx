@@ -19,23 +19,21 @@ import {
 import { AwsInstance } from '@dinghy/tf-aws/serviceEc2'
 import { AwsDbInstance } from '@dinghy/tf-aws/serviceRds'
 
-export default function Stack() {
-  return (
-    <WebApp>
-      <Client />
-      <Cloud>
-        <PublicSubnet>
-          <LoadBalancer />
-          <Firewall />
-        </PublicSubnet>
-        <PrivateSubnet>
-          <Application />
-          <Postgres />
-        </PrivateSubnet>
-      </Cloud>
-    </WebApp>
-  )
-}
+export default () => (
+  <WebApp>
+    <Client />
+    <Cloud>
+      <PublicSubnet>
+        <LoadBalancer />
+        <Firewall />
+      </PublicSubnet>
+      <PrivateSubnet>
+        <Application />
+        <Postgres />
+      </PrivateSubnet>
+    </Cloud>
+  </WebApp>
+)
 
 const Postgres = (props: any) => (
   <AwsDbInstance

@@ -24,7 +24,7 @@ export const notifyChanges = async (changes: any[], error?: string) => {
   const options: any = {}
   options.username = `${await projectName()} ${jobName()}`
   let text: string
-  const changedStacks = changes.map((s) => s.id).join('|')
+  const changedStacks = changes.map((s) => s.name).join('|')
   if (error) {
     text = `Failed to apply changes [${changedStacks}] with error \`${error}\``
     options.icon_emoji = ':fire:'
@@ -44,7 +44,7 @@ export const notifyChanges = async (changes: any[], error?: string) => {
   const lines: string[] = []
   for (const stackChange of changes) {
     lines.push(
-      `${(stackChange as any).id}: ${(stackChange as any).plan.summary}`,
+      `${(stackChange as any).name}: ${(stackChange as any).plan.summary}`,
       '```',
       ...(stackChange as any).plan.changes,
       '```',

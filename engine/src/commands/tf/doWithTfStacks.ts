@@ -1,5 +1,5 @@
 import type { CommandArgs } from '@dinghy/cli'
-import { parseStackInfo } from './parseStackInfo.ts'
+import { parseStackInfo } from './stackInfoUtils.ts'
 import { dinghyAppConfig } from '@dinghy/cli'
 import { doWithStacks } from '@dinghy/cli'
 

@@ -6,7 +6,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import AppTsx from "!!raw-loader!./app.tsx";
-import AppTfJson from "!!raw-loader!./output/app/app.tf.json";
+import AppTfJson from "!!raw-loader!./output/step-4-iac/stack.tf.json";
 
 # Step 4: Infrastructure as Code
 
@@ -19,12 +19,12 @@ to not only generate same diagramm as
     <CodeBlock language="tsx" title="app.tsx">{AppTsx}</CodeBlock>
   </TabItem>
   <TabItem value="Diagram">
-    ![](./output/app.png#drawio-w-100)
+    ![](./output/step-4-iac.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform Code" default>
     The terraform code snippet is for illustration only.
 
-    <CodeBlock language="json" title="output/app/app.tf.json">{AppTfJson}</CodeBlock>
+    <CodeBlock language="json" title="output/step-4-iac/stack.tf.json">{AppTfJson}</CodeBlock>
 
   </TabItem>
 </Tabs>

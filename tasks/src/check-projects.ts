@@ -22,6 +22,7 @@ if (import.meta.main) {
     })
   }
   const runGitDiff = async () => {
+    console.log('::group::Check Projects: git diff')
     const cwd = projectRoot
     console.log(
       `Running [git diff] from ${cwd} ...`,
@@ -42,8 +43,10 @@ if (import.meta.main) {
       cmd: 'git diff',
       result,
     })
+    console.log('::endgroup::')
   }
 
+  console.log('::group::Check Projects: checks')
   for (
     const project of [
       'core',
@@ -71,8 +74,12 @@ if (import.meta.main) {
       }
     }
   }
+  console.log('::endgroup::')
+  console.log('::group::Check Projects: generate docs')
   await runDenoCmd('engine', 'run -A src/generate-docs.ts')
+  console.log('::endgroup::')
   await runGitDiff()
+  console.log('::group::Check Projects: results')
   console.log(
     results.map((r) =>
       `${r.project} ${r.cmd} ${
@@ -86,6 +93,9 @@ if (import.meta.main) {
         'Some projects failed to check, fmt, lint, or git diff. Please fix them and try again.',
       ),
     )
+    console.log('::endgroup::')
     Deno.exit(1)
+  } else {
+    console.log('::endgroup::')
   }
 }

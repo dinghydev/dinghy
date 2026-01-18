@@ -1,3 +1,5 @@
+s3Bucket:
+  loggingEnabled: true
 awsProvider:
   region: eu-west-1
 cloudfrontSites:

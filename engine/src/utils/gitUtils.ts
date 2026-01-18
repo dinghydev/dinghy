@@ -246,15 +246,15 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
 
   for (const stack of stacks) {
     const optionKey = `${isMr() ? 'mr' : 'main'}AutoDeploy`
-    debug('stack %O', stack.id, stack)
+    debug('stack %O', stack.name, stack)
     if (stack[optionKey]) {
       namesCandidates.push(
-        `tf diff ${stack.id}`,
-        `tf apply ${stack.id}`,
-        `tf up ${stack.id}`,
-        `dinghy tf diff ${stack.id}`,
-        `dinghy tf apply ${stack.id}`,
-        `dinghy tf up ${stack.id}`,
+        `tf diff ${stack.name}`,
+        `tf apply ${stack.name}`,
+        `tf up ${stack.name}`,
+        `dinghy tf diff ${stack.name}`,
+        `dinghy tf apply ${stack.name}`,
+        `dinghy tf up ${stack.name}`,
       )
     }
   }

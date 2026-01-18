@@ -1,0 +1,17 @@
+{
+  "name": "example-com-websites",
+  "title": "Example Com Websites",
+  "app": "example-com-websites.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "example-com-websites",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}
