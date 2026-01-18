@@ -11,7 +11,7 @@ import { dinghyAppConfig, hostAppHome, requireStacksConfig } from '@dinghy/cli'
 import { attachChangeToMR, isCi, isMr } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import chalk from 'chalk'
-import { parseStackInfo } from './stackInfoUtils.ts'
+import { collectStackChanges, parseStackInfo } from './stackInfoUtils.ts'
 import render from '../render/index.ts'
 import Debug from 'debug'
 import { onEvent } from '@dinghy/base-components'
@@ -124,17 +124,16 @@ export const createCombinedTfCmds = (
           await onEvent(`tf.stack.start`, stackOptions, stackInfo)
           await runStackCommands(context, stackInfo.name, noneStackArgs)
 
-          const stackInfoFile =
-            `${hostAppHome}/${args.output}/${stackInfo.name}/stack.info.json`
-          const updatedStackInfo = JSON.parse(
-            Deno.readTextFileSync(stackInfoFile),
-          )
-          if ((updatedStackInfo as any).plan?.changesCount) {
-            changedStacks.push(updatedStackInfo)
-            await onEvent(
-              `tf.stack.changes.${isApply ? 'applied' : 'detected'}`,
-              updatedStackInfo,
-            )
+          if (cmds.includes('plan') || cmds.includes('apply')) {
+            const changes = collectStackChanges(stackInfo, args)
+            if (changes?.changesCount) {
+              stackInfo.plan = changes
+              changedStacks.push(stackInfo)
+              await onEvent(
+                `tf.stack.changes.${isApply ? 'applied' : 'detected'}`,
+                stackInfo,
+              )
+            }
           }
           await onEvent(`tf.stack.finish`, stackOptions, stackInfo)
         }
