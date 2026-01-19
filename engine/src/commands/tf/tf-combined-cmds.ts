@@ -7,7 +7,7 @@ import type {
 import { doWithStacks, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import tf from './index.ts'
 import { runCommand } from '@dinghy/cli'
-import { dinghyAppConfig, hostAppHome, requireStacksConfig } from '@dinghy/cli'
+import { dinghyAppConfig, requireStacksConfig } from '@dinghy/cli'
 import { attachChangeToMR, isCi, isMr } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import chalk from 'chalk'

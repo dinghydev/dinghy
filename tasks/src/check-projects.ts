@@ -22,7 +22,7 @@ if (import.meta.main) {
     })
   }
   const runGitDiff = async () => {
-    console.log('::group::Check Projects: git diff')
+    console.log('::group::Run: git diff')
     const cwd = projectRoot
     console.log(
       `Running [git diff] from ${cwd} ...`,
@@ -46,7 +46,6 @@ if (import.meta.main) {
     console.log('::endgroup::')
   }
 
-  console.log('::group::Check Projects: checks')
   for (
     const project of [
       'core',
@@ -57,6 +56,7 @@ if (import.meta.main) {
     ]
   ) {
     for (const cmd of ['check', 'fmt', 'lint']) {
+      console.log(`::group:: Run: ${cmd} for ${project}`)
       const cwd = `${projectRoot}/${project}`
       if (cmd === 'check' && project === 'core') {
         const folders = Deno.readDirSync(cwd)
@@ -72,14 +72,15 @@ if (import.meta.main) {
       } else {
         await runDenoCmd(project, cmd)
       }
+      console.log('::endgroup::')
     }
   }
-  console.log('::endgroup::')
-  console.log('::group::Check Projects: generate docs')
+
+  console.log('::group::Generate docs')
   await runDenoCmd('engine', 'run -A src/generate-docs.ts')
   console.log('::endgroup::')
   await runGitDiff()
-  console.log('::group::Check Projects: results')
+  console.log('::group::Check Projects Results')
   console.log(
     results.map((r) =>
       `${r.project} ${r.cmd} ${

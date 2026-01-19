@@ -1,6 +1,19 @@
 ARG BUILD_ARCH=arm64
-FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
 
+
+FROM golang:<%= VERSION_GOLANG %> as session-manager-plugin
+RUN apt -y update && apt -y upgrade && apt -y install rpm tar gzip wget zip && apt clean all
+# https://github.com/aws/session-manager-plugin/releases
+RUN curl -sLO https://github.com/aws/session-manager-plugin/archive/refs/tags/<%= VERSION_SSM %>.tar.gz && \
+		tar xzf <%= VERSION_SSM %>.tar.gz && \
+		cd session-manager-plugin-<%= VERSION_SSM %> && \
+    make release && \
+    cp /go/session-manager-plugin-<%= VERSION_SSM %>/bin/linux_arm_plugin/session-manager-plugin /session-manager-plugin
+
+
+
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+COPY --from=session-manager-plugin /session-manager-plugin /usr/bin/
 RUN echo 'Install aws cli' \
    && apt-get update \
     # && apt list -a awscli \

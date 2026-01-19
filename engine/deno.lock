@@ -27,6 +27,7 @@
     "npm:@types/node@22.14.0": "22.14.0",
     "npm:@types/react@19.1.0": "19.1.0",
     "npm:chalk@5.4.1": "5.4.1",
+    "npm:console-table-printer@2.15.0": "2.15.0",
     "npm:dayjs@1.11.13": "1.11.13",
     "npm:debug@4.4.0": "4.4.0",
     "npm:ejs@3.1.10": "3.1.10",
@@ -1233,6 +1234,12 @@
     "color-name@1.1.4": {
       "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
     },
+    "console-table-printer@2.15.0": {
+      "integrity": "sha512-SrhBq4hYVjLCkBVOWaTzceJalvn5K1Zq5aQA6wXC/cYjI3frKWNPEMK3sZsJfNNQApvCQmgBcc13ZKmFj8qExw==",
+      "dependencies": [
+        "simple-wcswidth"
+      ]
+    },
     "cross-spawn@7.0.6": {
       "integrity": "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==",
       "dependencies": [
@@ -1431,6 +1438,9 @@
     "signal-exit@4.1.0": {
       "integrity": "sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw=="
     },
+    "simple-wcswidth@1.1.2": {
+      "integrity": "sha512-j7piyCjAeTDSjzTSQ7DokZtMNwNlEAyxqSZeCS+CXH7fJ4jx3FuJ/mTW3mE+6JLs4VJBbcll0Kjn+KXI5t21Iw=="
+    },
     "stream-browserify@3.0.0": {
       "integrity": "sha512-H73RAHsVBapbim0tU2JwwOiXUj+fikfiaoYAKHF3VJfA0pe2BCzkhAHBlLG6REzE+2WNZcxOXjK7lkso+9euLA==",
       "dependencies": [
@@ -1519,6 +1529,7 @@
       "npm:@types/node@22.14.0",
       "npm:@types/react@19.1.0",
       "npm:chalk@5.4.1",
+      "npm:console-table-printer@2.15.0",
       "npm:dayjs@1.11.13",
       "npm:debug@4.4.0",
       "npm:ejs@3.1.10",

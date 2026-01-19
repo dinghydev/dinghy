@@ -85,6 +85,7 @@ const commands: Commands = {
   ),
   tf: createEngineCommand('Terraform/OpenTofu related operations'),
   gh: createEngineCommand('GitHub related operations'),
+  aws: createEngineCommand('AWS CLI related operations'),
   site: createEngineCommand('Operation for docusaurus.io based site'),
   deno: createEngineCommand('Run deno with in the probject'),
   check: createEngineCommand('Run static code analysis'),

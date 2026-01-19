@@ -35,6 +35,7 @@
     "@std/async": "jsr:@std/async@1.0.14",
     "@deno-library/compress": "jsr:@deno-library/compress@0.5.6",
     "@octokit/core": "npm:@octokit/core@7.0.6",
+    "console-table-printer": "npm:console-table-printer@2.15.0",
     // CLI AND CORE DEPENDENCIES
     "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
     "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",
