@@ -1,0 +1,30 @@
+---
+sidebar_position: 40
+---
+
+# Log Buckets
+
+Log buckets are commonly required to collect AWS-generated logs for monitoring and observability. We provide two types of log bucket components to make creating these buckets straightforward.
+
+## RegionalLogBucket
+
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/RegionalLogBucket.tsx)
+
+Region based log bucket
+
+```js
+import { RegionalLogBucket } from "@dinghy/tf-aws"
+
+<RegionalLogBucket/>
+```
+## GlobalLogBucket
+
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/GlobalLogBucket.tsx)
+
+Global log bucket that is always created in the `us-east-1` region. This is required for certain AWS services, such as CloudFront, that only support v1 access logging to buckets in this specific region.
+
+```js
+import { GlobalLogBucket } from "@dinghy/tf-aws"
+
+<GlobalLogBucket/>
+```

@@ -1,0 +1,19 @@
+---
+sidebar_position: 50
+---
+
+# S3 Backend Output
+
+A utility component that writes the Terraform outputs as a JSON object into the same S3 bucket used for your state backend, using a [S3BucketObject](https://dinghy.dev/references/tf-aws/services/s3#awss3bucketobject) resource. This makes your stack’s output values easily accessible and shareable via S3.
+
+## Usage
+
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/S3BackendOutput.tsx)
+
+You can see an example of its usage in the [Ec2Servers.tsx](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/Ec2Servers.tsx) composite component.
+
+```js
+import { S3BackendOutput } from "@dinghy/tf-aws"
+
+<S3BackendOutput/>
+```

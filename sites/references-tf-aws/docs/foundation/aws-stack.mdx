@@ -1,0 +1,30 @@
+---
+sidebar_position: 10
+---
+
+# Aws Stack
+
+A composite component that bundles foundational AWS components together for convenience:
+
+1. Top level stack component
+1. [AwsProvider](./aws-provider.mdx)
+1. [S3Backend](./s3-backend.mdx)
+1. [RegionalLogBucket](./log-buckets.mdx#regionallogbucket)
+1. [GlobalLogBucket](./log-buckets.mdx#globallogbucket)
+
+
+## Usage
+
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/AwsStack.tsx)
+
+
+```js
+import { AwsStack } from "@dinghy/tf-aws"
+
+
+export default () => (
+  <AwsStack>
+    ....
+  </AwsStack>
+)
+```

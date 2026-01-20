@@ -4,24 +4,30 @@ sidebar_position: 10
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
-import AppTsx from "!!raw-loader!./app.tsx";
-import TfJson from "!!raw-loader!./output/ec2-servers/stack.tf.json";
+import AppTsx from "!!raw-loader!./my-server.tsx";
+import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
+import TfJson from "!!raw-loader!./output/my-server/stack.tf.json";
 
 # EC2 Servers
 
-This example demonstrates how to create an EC2 server using the composite Ec2Servers component.
+This example demonstrates how to create an EC2 server using the composite [Ec2Servers](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/Ec2Servers.tsx) ([schema](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/types.ts)) component.
 
 <Tabs>
-  <TabItem value="app.tsx">
+  <TabItem value="my-server.tsx">
     <CodeBlock language="tsx" showLineNumbers>
       {AppTsx}
     </CodeBlock>
   </TabItem>
-  <TabItem value="Overview">
-    ![](./output/ec2-servers.png#drawio-w-100)
+  <TabItem value="dinghy.config.yml">
+    <CodeBlock language="yaml" showLineNumbers>
+      {DinghyConfigYml}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Overview" default>
+    ![](./output/my-server.png#drawio-w-100)
   </TabItem>
   <TabItem value="All View">
-    ![](./output/ec2-servers-all.png#drawio-w-100)
+    ![](./output/my-server-all.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform">
     <CodeBlock language="json" title="stack.tf.json" showLineNumbers>

@@ -1,0 +1,205 @@
+{
+  "provider": {
+    "aws": [
+      {
+        "region": "us-east-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "My Server",
+            "iac:stack-name": "my-server"
+          }
+        }
+      }
+    ]
+  },
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.28.0"
+      }
+    },
+    "backend": {
+      "s3": {
+        "bucket": "my-server-backend",
+        "key": "tfstates/my-server.tfstate.json",
+        "region": "us-east-1"
+      }
+    }
+  },
+  "resource": {
+    "aws_instance": {
+      "awsinstance_myserver": {
+        "ami": "${data.aws_ami.awsami_ami.id}",
+        "associate_public_ip_address": true,
+        "iam_instance_profile": "my-server-instance-profile",
+        "instance_type": "t4g.nano",
+        "subnet_id": "${aws_subnet.awssubnet_myserverpublicasubnet.id}",
+        "depends_on": [
+          "aws_subnet.awssubnet_myserverpublicasubnet"
+        ],
+        "tags": {
+          "Name": "my-server",
+          "iac:id": "awsinstance_myserver"
+        }
+      }
+    },
+    "aws_vpc": {
+      "awsvpc_myservervpc": {
+        "cidr_block": "10.10.0.0/16",
+        "tags": {
+          "Name": "my-server-vpc",
+          "iac:id": "awsvpc_myservervpc"
+        }
+      }
+    },
+    "aws_subnet": {
+      "awssubnet_myserverpublicasubnet": {
+        "vpc_id": "${aws_vpc.awsvpc_myservervpc.id}",
+        "availability_zone": "us-east-1a",
+        "cidr_block": "10.10.200.0/24",
+        "depends_on": [
+          "aws_vpc.awsvpc_myservervpc"
+        ],
+        "tags": {
+          "Name": "my-server-public-a-subnet",
+          "iac:id": "awssubnet_myserverpublicasubnet"
+        }
+      }
+    },
+    "aws_internet_gateway": {
+      "awsinternetgateway_myserverinternetgateway": {
+        "vpc_id": "${aws_vpc.awsvpc_myservervpc.id}",
+        "depends_on": [
+          "aws_vpc.awsvpc_myservervpc"
+        ],
+        "tags": {
+          "Name": "my-server-internet-gateway",
+          "iac:id": "awsinternetgateway_myserverinternetgateway"
+        }
+      }
+    },
+    "aws_default_route_table": {
+      "awsdefaultroutetable_myserverdefaultroutetable": {
+        "default_route_table_id": "${aws_vpc.awsvpc_myservervpc.default_route_table_id}",
+        "depends_on": [
+          "aws_vpc.awsvpc_myservervpc"
+        ],
+        "tags": {
+          "Name": "my-server-default-route-table",
+          "iac:id": "awsdefaultroutetable_myserverdefaultroutetable"
+        }
+      }
+    },
+    "aws_route": {
+      "awsroute_route": {
+        "route_table_id": "${aws_vpc.awsvpc_myservervpc.default_route_table_id}",
+        "destination_cidr_block": "0.0.0.0/0",
+        "gateway_id": "${aws_internet_gateway.awsinternetgateway_myserverinternetgateway.id}",
+        "depends_on": [
+          "aws_vpc.awsvpc_myservervpc",
+          "aws_internet_gateway.awsinternetgateway_myserverinternetgateway"
+        ]
+      }
+    },
+    "aws_iam_role": {
+      "awsiamrole_myserverinstancerole": {
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "name": "my-server-instance-role",
+        "tags": {
+          "Name": "my-server-instance-role",
+          "iac:id": "awsiamrole_myserverinstancerole"
+        }
+      }
+    },
+    "aws_iam_instance_profile": {
+      "awsiaminstanceprofile_myserverinstanceprofile": {
+        "name": "my-server-instance-profile",
+        "role": "my-server-instance-role",
+        "tags": {
+          "Name": "my-server-instance-profile",
+          "iac:id": "awsiaminstanceprofile_myserverinstanceprofile"
+        }
+      }
+    },
+    "aws_iam_role_policy_attachment": {
+      "awsiamrolepolicyattachment_iamrolepolicyattachment": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_myserverinstancerole"
+        ],
+        "policy_arn": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+        "role": "my-server-instance-role"
+      }
+    },
+    "aws_s3_object": {
+      "outputsmyserverstackjson": {
+        "bucket": "my-server-backend",
+        "content": "{\n  \"myserver_publicip\": \"${aws_instance.awsinstance_myserver.public_ip}\",\n  \"myserver_instanceid\": \"${aws_instance.awsinstance_myserver.id}\"\n}",
+        "key": "outputs/my-server.stack.json",
+        "depends_on": [
+          "aws_instance.awsinstance_myserver"
+        ],
+        "tags": {
+          "Name": "Stack Output",
+          "iac:id": "outputsmyserverstackjson"
+        }
+      }
+    },
+    "aws_s3_bucket": {
+      "awss3bucket_backend": {
+        "bucket": "my-server-backend",
+        "object_lock_enabled": true,
+        "tags": {
+          "Name": "Backend Bucket",
+          "iac:id": "awss3bucket_backend"
+        }
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_backend_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ],
+        "bucket": "my-server-backend",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
+      }
+    }
+  },
+  "output": {
+    "myserver_publicip": {
+      "value": "${aws_instance.awsinstance_myserver.public_ip}",
+      "description": "Public IP of my-server",
+      "depends_on": [
+        "aws_instance.awsinstance_myserver"
+      ]
+    },
+    "myserver_instanceid": {
+      "value": "${aws_instance.awsinstance_myserver.id}",
+      "description": "Instance ID of my-server",
+      "depends_on": [
+        "aws_instance.awsinstance_myserver"
+      ]
+    }
+  },
+  "data": {
+    "aws_ami": {
+      "awsami_ami": {
+        "filter": [
+          {
+            "name": "architecture",
+            "values": [
+              "arm64"
+            ]
+          }
+        ],
+        "most_recent": true,
+        "name_regex": "^al2023-ami-\\d{4}.*",
+        "owners": [
+          "amazon"
+        ]
+      }
+    }
+  }
+}

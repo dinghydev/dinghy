@@ -1,3 +1,5 @@
+import DocCardList from "@theme/DocCardList";
+
 # Foundation
 
-- [AwsProvider](./foundation/aws-provider.mdx)
+<DocCardList />

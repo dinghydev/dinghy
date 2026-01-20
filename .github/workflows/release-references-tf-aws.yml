@@ -1,4 +1,4 @@
-name: release-references-tf
+name: release-references-tf-aws
 
 on:
   push:

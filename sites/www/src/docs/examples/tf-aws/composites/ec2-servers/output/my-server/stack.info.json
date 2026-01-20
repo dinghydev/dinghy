@@ -1,11 +1,11 @@
 {
-  "name": "ec2-servers",
-  "title": "Ec2 Servers",
-  "app": "app.tsx",
+  "name": "my-server",
+  "title": "My Server",
+  "app": "my-server.tsx",
   "sequence": 10,
   "views": {
     "overview": {
-      "fileName": "ec2-servers",
+      "fileName": "my-server",
       "name": "overview",
       "title": "Overview"
     }
@@ -15,6 +15,6 @@
   "mainAutoDiff": true,
   "mainAutoDeploy": false,
   "outputs": {
-    "stack": "https://s3.us-east-1.amazonaws.com/ec2-servers-backend/outputs/ec2-servers.stack.json"
+    "stack": "https://s3.us-east-1.amazonaws.com/my-server-backend/outputs/my-server.stack.json"
   }
 }

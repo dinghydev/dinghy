@@ -4,7 +4,7 @@
   version="25.0.2"
   >
   <diagram
-    name="ec2-servers"
+    name="my-server"
     >
     <mxGraphModel
       grid="1" 
@@ -33,7 +33,7 @@
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
           id="stack" 
           parent="root" 
-          value="Ec2 Servers" 
+          value="My Server" 
           vertex="1"
           >
           <mxGeometry
@@ -76,9 +76,9 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;strokeColor=#D86613;fontColor=#D86613;outlineConnect=0;dashed=0;verticalLabelPosition=bottom;html=1;shape=mxgraph.aws3.android;fillColor=#96BF3D;gradientColor=none;" 
-          id="awsinstance_ec2servers" 
+          id="awsinstance_myserver" 
           parent="ec2servers" 
-          value="ec2-servers" 
+          value="my-server" 
           vertex="1"
           >
           <mxGeometry
@@ -106,7 +106,7 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awsvpc_ec2serversvpc" 
+          id="awsvpc_myservervpc" 
           parent="ondemandresources" 
           value="VPC" 
           vertex="1"
@@ -136,7 +136,7 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awsiamrole_ec2serversinstancerole" 
+          id="awsiamrole_myserverinstancerole" 
           parent="ondemandresources" 
           value="Instance Role" 
           vertex="1"
@@ -151,7 +151,7 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awss3object_outputsec2serversstackjson" 
+          id="awss3object_outputsmyserverstackjson" 
           parent="ondemandresources" 
           value="Stack Output" 
           vertex="1"

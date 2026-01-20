@@ -1,0 +1,19 @@
+---
+sidebar_position: 30
+---
+
+# S3 Backend
+
+Utilize this component to set up the Terraform [S3 Backend](https://developer.hashicorp.com/terraform/language/backend/s3) for managing your remote state.
+
+## Usage
+
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/S3Backend.tsx)
+
+By default, this component assumes the backend bucket does not exist and will create it during the first `tf init` command. To prevent automatic bucket creation, set `createBackend=false`.
+
+```js
+import { S3Backend } from "@dinghy/tf-aws"
+
+<S3Backend/>
+```
