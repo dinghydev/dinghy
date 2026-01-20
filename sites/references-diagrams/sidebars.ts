@@ -57,6 +57,11 @@ export default {
         },
         {
           type: 'doc',
+          label: '/References/TF Common/',
+          id: 'rewrite-url',
+        },
+        {
+          type: 'doc',
           label: '/References/TF AWS/',
           id: 'rewrite-url',
         },
