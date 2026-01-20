@@ -96,10 +96,15 @@ export function Ec2Servers(
 
   function Ami(props: any) {
     const ami: any = renderOptions.ami || {}
+    const server = Object.values(servers).find((server) => !server.ami) as any
     ami.most_recent = true
-    ami.owners ??= ['amazon']
+    ami.owners ??= [
+      server.linuxFlavor === 'ubuntu' ? '099720109477' : 'amazon',
+    ]
     if (!ami.name_regex && !ami.filter) {
-      ami.name_regex = '^al\\d{4}-ami-\\d{4}.*'
+      ami.name_regex = server.linuxFlavor === 'ubuntu'
+        ? '^ubuntu/images/.*-server-.*'
+        : `^${server.linuxFlavor}-ami-\\d{4}.*`
 
       const basedOnServer = Object.values(servers).find((server) =>
         !server.ami

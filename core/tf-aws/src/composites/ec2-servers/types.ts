@@ -8,12 +8,8 @@ import { InputSchema as AwsInstanceInputSchema } from '../../services/ec2/AwsIns
 const Ec2ServerSchema = AwsInstanceInputSchema.extend({
   name: ResolvableStringSchema.optional(),
   instance_type: z.string().default('t4g.nano'),
+  linuxFlavor: z.enum(['al2023', 'ubuntu']).default('al2023'),
   associate_public_ip_address: z.boolean().default(true),
-  root_block_device: z.object({
-    volume_size: z.number().default(8),
-  }).loose().default({
-    volume_size: 8,
-  }),
 })
 
 const Ec2ServersSchema = z.record(z.string(), Ec2ServerSchema.loose())
