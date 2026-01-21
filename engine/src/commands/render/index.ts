@@ -1,5 +1,10 @@
 import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import {
+  DinghyError,
+  hostAppHome,
+  OPTIONS_SYMBOL,
+  RUN_SYMBOL,
+} from '@dinghy/cli'
 import { onEvent } from '@dinghy/base-components'
 import { rendererMapping } from './renderMapping.ts'
 import { debounce } from '@std/async/debounce'
@@ -142,11 +147,11 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   debug('render finished at %O', new Date())
 
   if (isCi() && !Deno.env.get('CI_SKIP_GIT_DIFF_CHECK')) {
-    const changes = await execCmd(`git diff ${args.output}`)
+    const changes = await execCmd(`git diff ${args.output}`, hostAppHome)
     if (changes) {
       console.log(`Detected changes in ${args.output} folder`)
       console.log(chalk.red(changes))
-      throw new Error('Unexpected changes detected in output folder')
+      throw new DinghyError('Unexpected changes detected in output folder')
     }
   }
 }

@@ -70,11 +70,19 @@ export function getDockerMounts(
   if (!appMounts.some((m) => m.source === hostAppHome)) {
     mounts.push({
       source: hostAppHome,
-      target: hostAppHome,
-    }, {
-      source: hostAppHome,
       target: appHomeMount,
     })
+    if (hostAppHome.startsWith(Deno.cwd())) {
+      mounts.push({
+        source: Deno.cwd(),
+        target: Deno.cwd(),
+      })
+    } else {
+      mounts.push({
+        source: hostAppHome,
+        target: hostAppHome,
+      })
+    }
   }
 
   mounts.push(...appMounts.map((mount) => {

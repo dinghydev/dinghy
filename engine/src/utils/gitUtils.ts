@@ -13,6 +13,15 @@ export const jobName = () =>
   Deno.env.get('CI_JOB_NAME') || `dinghy ${Deno.args.join(' ')}`
 const projectId = () => Deno.env.get('CI_PROJECT_ID')
 
+export const hasGitRepo = async () => {
+  try {
+    await execCmd('git rev-parse --show-toplevel', hostAppHome)
+    return true
+  } catch {
+    return false
+  }
+}
+
 let _projectName: string | undefined
 export const projectName = async (): Promise<string> => {
   if (_projectName) {

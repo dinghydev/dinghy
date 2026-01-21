@@ -44,6 +44,11 @@ Different parts of the Dinghy application access this file at various stages.
 While the configuration format is flexible and allows free-form data, most
 settings are validated against defined schemas before they are used.
 
+
+### APP_HOME
+
+By default, Dinghy uses the current working directory as the application's home directory. If you want Dinghy to treat a different location as your project root, set the `APP_HOME` environment variable to your desired path. Dinghy will then operate from that directory as the application's root.
+
 ### Homes
 
 There are several "home" variables defined in

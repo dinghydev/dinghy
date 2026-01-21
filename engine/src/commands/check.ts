@@ -1,4 +1,3 @@
-import { existsSync } from '@std/fs/exists'
 import type {
   Command,
   CommandArgs,
@@ -9,6 +8,7 @@ import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
 import { hostAppHome } from '@dinghy/cli'
 import chalk from 'chalk'
+import { hasGitRepo } from '../utils/gitUtils.ts'
 
 const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'git']
 
@@ -43,9 +43,10 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   const results: CheckResult[] = []
   for (const check of checks) {
     const command = args[`${check}Cmd`]
-    if (check === 'git' && !existsSync(`${hostAppHome}/.git`)) {
+    const isGitCheck = check === 'git'
+    if (isGitCheck && !(await hasGitRepo())) {
       console.log(
-        chalk.yellow(`${hostAppHome}/.git not found, skipping git check`),
+        chalk.yellow(`No git repo found, skipping git check`),
       )
       results.push({
         check: 'git',
@@ -59,10 +60,13 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     console.log(`Running ${check} check with command: ${command}...`)
     const result = await streamCmd(
       command.split(' '),
-      undefined,
+      isGitCheck ? hostAppHome : undefined,
       false,
     )
     if (check === 'git' && result.all) {
+      console.log(
+        chalk.red(`Unexpected changes detected in git repo`),
+      )
       result.exitCode = 1
     }
     results.push({
