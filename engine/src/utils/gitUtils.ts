@@ -1,4 +1,4 @@
-import { execCmd } from './cmd.ts'
+import { execCmd, streamCmd } from './cmd.ts'
 import Debug from 'debug'
 import { dublinTimeNow } from './timeUtils.ts'
 import { temporaryStorageGetFile, temporaryStorageSaveFile } from './s3.ts'
@@ -15,7 +15,11 @@ const projectId = () => Deno.env.get('CI_PROJECT_ID')
 
 export const hasGitRepo = async () => {
   try {
-    await execCmd('git rev-parse --show-toplevel', hostAppHome)
+    await streamCmd(
+      ['git', 'rev-parse', '--show-toplevel'],
+      hostAppHome,
+      true,
+    )
     return true
   } catch {
     return false
