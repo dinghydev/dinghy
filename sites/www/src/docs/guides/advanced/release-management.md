@@ -44,7 +44,9 @@ The github
 action based workflow to perform the release of runtime. The release will be
 triggered:
 
-1. automatically when last commit has `[release]` keyword
+1. automatically when
+   [verification](https://github.com/dinghydev/dinghy/actions/workflows/verification.yml)
+   workflow passed
 2. or manually on demand
 
 This documentation site is automatically released whenever changes are made in

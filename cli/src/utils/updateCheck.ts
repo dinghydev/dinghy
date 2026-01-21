@@ -6,14 +6,14 @@ import { upgradeToVersion } from '../commands/upgrade.ts'
 import { dinghyHome } from '../shared/home.ts'
 import { execa } from 'execa'
 import { projectVersionRelease } from './projectVersions.ts'
+import { isCi } from './gitUtils.ts'
 const debug = Debug('updateCheck')
 
-const todayYYYYMMDD = () => {
+const todayYYYYMM = () => {
   const date = new Date()
   const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
-  const day = String(date.getDate()).padStart(2, '0')
-  return `${year}${month}${day}`
+  return `${year}${month}`
 }
 
 const latestVersionFile = () => `${dinghyHome}/states/latest-version.json`
@@ -40,7 +40,7 @@ const writeLatestVersion = (version: object) => {
 }
 
 const updateCheckFile = () =>
-  `${dinghyHome}/states/update-check-${todayYYYYMMDD()}`
+  `${dinghyHome}/states/update-check-${todayYYYYMM()}`
 
 export const createUpdateCheckFile = () => {
   const file = updateCheckFile()
@@ -97,7 +97,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
 
   const updateCheckFile = `${
     Deno.env.get('HOME')
-  }/.dinghy/states/update-check-${todayYYYYMMDD()}`
+  }/.dinghy/states/update-check-${todayYYYYMM()}`
   if (existsSync(updateCheckFile)) {
     debug('skip update check as file %s exists', updateCheckFile)
     return
@@ -140,6 +140,10 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
 export const updateCheck = async (fetch = false) => {
   if (!Deno.build.standalone) {
     debug('skip update check as running in deno')
+    return
+  }
+  if (isCi()) {
+    debug('skip update check as running in CI')
     return
   }
   const autoUpgrade = Boolean(
