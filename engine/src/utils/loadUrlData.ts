@@ -2,8 +2,12 @@ import * as yaml from '@std/yaml'
 
 import Debug from 'debug'
 import { s3GetFile } from './s3.ts'
+import { hostAppHome } from '@dinghy/cli'
 const debug = Debug('loadUrlData')
-export async function loadUrlData(url: string): Promise<any> {
+export async function loadUrlData(
+  url: string,
+  fileBasePath?: string,
+): Promise<any> {
   debug('loading from %s', url)
   let fetchUrl = url
   const fetchOptions: RequestInit = {}
@@ -29,7 +33,10 @@ export async function loadUrlData(url: string): Promise<any> {
   let response: Response
   if (fetchUrl.startsWith('file://')) {
     // Read from local filesystem for file:// URLs
-    const localPath = fetchUrl.replace('file://', '')
+    let localPath = fetchUrl.replace('file://', '')
+    if (!localPath.startsWith('/')) {
+      localPath = `${fileBasePath || hostAppHome}/${localPath}`
+    }
     try {
       const fileData = Deno.readTextFileSync(localPath)
       response = new Response(fileData, { status: 200 })
@@ -95,5 +102,6 @@ export async function loadUrlData(url: string): Promise<any> {
   } else {
     config = JSON.parse(configText)
   }
+  debug('loaded config %O', config)
   return config
 }

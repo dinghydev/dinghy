@@ -18,7 +18,7 @@ function proxyNodeProps({ _props }: NodeTree) {
       if (key === '_terraformId') {
         return terraformId()
       }
-      if (key in _props) {
+      if (key in _props || key === '_consolidatedId') {
         return (_props as any)[key]
       }
       for (

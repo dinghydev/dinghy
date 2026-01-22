@@ -21,7 +21,7 @@
     },
     "backend": {
       "s3": {
-        "bucket": "my-server-backend",
+        "bucket": "my-unique-s3-backend-bucket",
         "key": "tfstates/my-server.tfstate.json",
         "region": "us-east-1"
       }
@@ -131,23 +131,9 @@
         "role": "my-server-instance-role"
       }
     },
-    "aws_s3_object": {
-      "outputsmyserverstackjson": {
-        "bucket": "my-server-backend",
-        "content": "{\n  \"myserver_publicip\": \"${aws_instance.awsinstance_myserver.public_ip}\",\n  \"myserver_instanceid\": \"${aws_instance.awsinstance_myserver.id}\"\n}",
-        "key": "outputs/my-server.stack.json",
-        "depends_on": [
-          "aws_instance.awsinstance_myserver"
-        ],
-        "tags": {
-          "Name": "Stack Output",
-          "iac:id": "outputsmyserverstackjson"
-        }
-      }
-    },
     "aws_s3_bucket": {
       "awss3bucket_backend": {
-        "bucket": "my-server-backend",
+        "bucket": "my-unique-s3-backend-bucket",
         "object_lock_enabled": true,
         "tags": {
           "Name": "Backend Bucket",
@@ -160,24 +146,31 @@
         "depends_on": [
           "aws_s3_bucket.awss3bucket_backend"
         ],
-        "bucket": "my-server-backend",
+        "bucket": "my-unique-s3-backend-bucket",
         "versioning_configuration": {
           "status": "Enabled"
+        }
+      }
+    },
+    "aws_s3_object": {
+      "awss3object_outputsmyserverstackjson": {
+        "bucket": "my-unique-s3-backend-bucket",
+        "content": "{\n  \"awsinstance_myserver_output\": {\n    \"Name\": \"my-server\",\n    \"InstanceId\": \"${aws_instance.awsinstance_myserver.id}\",\n    \"PublicIp\": \"${aws_instance.awsinstance_myserver.public_ip}\",\n    \"Region\": \"${aws_instance.awsinstance_myserver.region}\"\n  }\n}",
+        "key": "outputs/my-server.stack.json",
+        "depends_on": [
+          "aws_instance.awsinstance_myserver"
+        ],
+        "tags": {
+          "Name": "outputs/my-server.stack.json",
+          "iac:id": "awss3object_outputsmyserverstackjson"
         }
       }
     }
   },
   "output": {
-    "myserver_publicip": {
-      "value": "${aws_instance.awsinstance_myserver.public_ip}",
-      "description": "Public IP of my-server",
-      "depends_on": [
-        "aws_instance.awsinstance_myserver"
-      ]
-    },
-    "myserver_instanceid": {
-      "value": "${aws_instance.awsinstance_myserver.id}",
-      "description": "Instance ID of my-server",
+    "awsinstance_myserver_output": {
+      "value": "{\"Name\":\"my-server\",\"InstanceId\":\"${aws_instance.awsinstance_myserver.id}\",\"PublicIp\":\"${aws_instance.awsinstance_myserver.public_ip}\",\"Region\":\"${aws_instance.awsinstance_myserver.region}\"}",
+      "description": "Output of my-server",
       "depends_on": [
         "aws_instance.awsinstance_myserver"
       ]

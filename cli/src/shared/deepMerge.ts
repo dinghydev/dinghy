@@ -29,6 +29,9 @@ export const deepMerge = (
   }
 
   if (typeof source === 'object') {
+    if (Object.keys(source).includes('$$typeof')) {
+      return source
+    }
     if (Array.isArray(target)) {
       console.error('target', target)
       console.error('source', source)

@@ -8,6 +8,10 @@
       "archive": {
         "source": "archive",
         "version": "2.7.1"
+      },
+      "local": {
+        "source": "local",
+        "version": "2.6.1"
       }
     }
   }

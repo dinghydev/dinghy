@@ -9,8 +9,8 @@ import {
 import { awscliOptions } from './awscliOptions.ts'
 import { doWithTfStacks } from '../tf/doWithTfStacks.ts'
 import { existsSync } from '@std/fs/exists'
-import { s3GetFile } from '../../utils/s3.ts'
 import { printTable } from 'console-table-printer'
+import { loadUrlData } from '../../utils/loadUrlData.ts'
 import Debug from 'debug'
 const debug = Debug('aws:list')
 
@@ -19,7 +19,7 @@ const options: any = {
   cmdDescription: 'List connectable instances in the stack',
 }
 
-export const listConnectableResources = async (
+export const listConnectableInstances = async (
   args: CommandArgs,
 ) => {
   await requireStacksConfig()
@@ -47,15 +47,10 @@ export const listConnectableResources = async (
     throw new DinghyError('Stack output url not found')
   }
 
-  const s3Object = parseS3ObjectUrl(stackOutputUrl)
-  let s3ObjectContent
+  let stackOutput
   try {
-    s3ObjectContent = await s3GetFile(
-      s3Object.region,
-      s3Object.bucket,
-      s3Object.key,
-    )
-    debug('s3ObjectContent %O', s3ObjectContent)
+    stackOutput = await loadUrlData(stackOutputUrl, stackPath)
+    debug('stackOutput %O', stackOutput)
   } catch (error) {
     if (error?.toString().includes('NoSuchKey')) {
       throw new DinghyError(
@@ -63,28 +58,32 @@ export const listConnectableResources = async (
       )
     } else {
       console.log(error)
-      throw new DinghyError('Failed to get stack output from s3')
+      throw new DinghyError('Failed to load stack output')
     }
   }
-  const s3ObjectContentJson = JSON.parse(s3ObjectContent)
-  const resources = Object.entries(s3ObjectContentJson).filter((
-    [key, _value],
-  ) => key.includes('_instanceid')).map(([key, value], index: number) => ({
+  const instances = Object.values(stackOutput).filter((
+    value,
+  ) => typeof value === 'object' && (value as any).InstanceId).map((
+    value,
+    index: number,
+  ) => ({
     '#': index + 1,
-    Name: key.replace('_instanceid', ''),
-    InstanceId: value,
+    ...(value as any),
   }))
-  if (resources.length === 0) {
-    console.log('Stack output:', s3ObjectContentJson)
+  if (instances.length === 0) {
+    console.log('Stack output:', stackOutput)
     throw new DinghyError('No instance ids found in stack output')
   }
-  return { stackPath, region: s3Object.region, resources }
+  return instances
 }
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  const { resources } = await listConnectableResources(args)
+  const instances = await listConnectableInstances(args)
   console.log('Connectable instances:')
-  printTable(resources)
+  printTable(instances.map((instance) => {
+    delete instance.Region
+    return instance
+  }))
 }
 
 const commands: Commands = {
@@ -93,12 +92,3 @@ const commands: Commands = {
 }
 
 export default commands
-
-function parseS3ObjectUrl(url: string) {
-  debug('parseS3ObjectUrl %s', url)
-  const parts = url.split('/')
-  const region = parts[2].split('.')[1]
-  const bucket = parts[3]
-  const key = parts.slice(4).join('/')
-  return { region, bucket, key }
-}

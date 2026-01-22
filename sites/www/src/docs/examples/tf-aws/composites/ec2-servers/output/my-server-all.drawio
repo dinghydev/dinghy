@@ -38,7 +38,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="1080" 
+            width="990" 
             height="840" 
             x="0" 
             y="0"
@@ -53,7 +53,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="1020" 
+            width="930" 
             height="780" 
             x="30" 
             y="30"
@@ -68,7 +68,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="960" 
+            width="870" 
             height="450" 
             x="30" 
             y="30"
@@ -83,7 +83,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="900" 
+            width="810" 
             height="120" 
             x="30" 
             y="30"
@@ -91,31 +91,16 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="myserver_publicip" 
+          id="awsinstance_myserver_output" 
           parent="awsinstance_myserver" 
-          value="Public IP of my-server" 
+          value="Output of my-server" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="60" 
             height="60" 
-            x="202.5" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="myserver_instanceid" 
-          parent="awsinstance_myserver" 
-          value="Instance ID of my-server" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="637.5" 
+            x="375" 
             y="30"
             />
           </mxCell>
@@ -128,7 +113,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="900" 
+            width="810" 
             height="240" 
             x="30" 
             y="180"
@@ -285,21 +270,6 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awss3object_outputsmyserverstackjson" 
-          parent="ondemandresources" 
-          value="Stack Output" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="810" 
-            y="90"
-            />
-          </mxCell>
-        <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="infrastructure" 
           parent="provider_useast1" 
@@ -308,7 +278,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="960" 
+            width="870" 
             height="240" 
             x="30" 
             y="510"
@@ -323,7 +293,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="900" 
+            width="810" 
             height="180" 
             x="30" 
             y="30"
@@ -338,7 +308,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="840" 
+            width="660" 
             height="120" 
             x="30" 
             y="30"
@@ -355,8 +325,23 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="390" 
+            x="300" 
             y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="awss3object_outputsmyserverstackjson" 
+          parent="backend" 
+          value="outputs/my-server.stack.json" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="720" 
+            y="60"
             />
           </mxCell>
         </root>

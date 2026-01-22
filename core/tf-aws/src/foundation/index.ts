@@ -6,4 +6,4 @@ export {
 } from './RegionalLogBucket.tsx'
 export { GlobalLogBucket, useGlobalLogBucket } from './GlobalLogBucket.tsx'
 export { AwsStack } from './AwsStack.tsx'
-export { S3BackendOutput } from './S3BackendOutput.tsx'
+export { S3BackendOutputs } from './S3BackendOutputs.tsx'

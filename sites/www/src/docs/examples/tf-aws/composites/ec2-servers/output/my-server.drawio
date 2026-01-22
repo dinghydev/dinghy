@@ -38,7 +38,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="570" 
+            width="480" 
             height="580" 
             x="0" 
             y="0"
@@ -53,7 +53,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="510" 
+            width="420" 
             height="520" 
             x="30" 
             y="30"
@@ -68,7 +68,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="450" 
+            width="360" 
             height="290" 
             x="30" 
             y="30"
@@ -85,7 +85,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="195" 
+            x="150" 
             y="30"
             />
           </mxCell>
@@ -98,7 +98,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="390" 
+            width="300" 
             height="120" 
             x="30" 
             y="140"
@@ -150,21 +150,6 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awss3object_outputsmyserverstackjson" 
-          parent="ondemandresources" 
-          value="Stack Output" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="300" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="infrastructure" 
           parent="provider_useast1" 
@@ -173,40 +158,25 @@
           >
           <mxGeometry
             as="geometry" 
-            width="450" 
+            width="360" 
             height="140" 
             x="30" 
             y="350"
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
           id="backend" 
           parent="infrastructure" 
           value="Backend" 
           vertex="1"
           >
           <mxGeometry
-            width="60" 
-            as="geometry" 
-            height="110" 
-            x="195" 
-            y="15"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#CD2264;gradientColor=none;fillColor=#7AA116;strokeColor=#CD2264;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
-          id="awss3bucket_backend" 
-          parent="backend" 
-          value="Backend Bucket" 
-          vertex="1"
-          >
-          <mxGeometry
             as="geometry" 
             width="60" 
             height="60" 
-            x="0" 
-            y="15"
+            x="150" 
+            y="30"
             />
           </mxCell>
         </root>

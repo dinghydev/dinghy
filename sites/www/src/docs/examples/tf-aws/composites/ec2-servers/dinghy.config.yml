@@ -1,5 +1,7 @@
-# s3Backend:
-#   bucket: my-unique-s3-bucket-name
+awsStack:
+  backendOutputs: true # to support aws list/connect commands
+s3Backend:
+  bucket: my-unique-s3-backend-bucket
 # awsProvider:
 #   region: eu-west-1
 # ec2Servers:

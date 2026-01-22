@@ -4,7 +4,6 @@ import {
   getRenderOptions,
   NodeProps,
   Shape,
-  toId,
 } from '@dinghy/base-components'
 import {
   AwsInstance,
@@ -21,7 +20,6 @@ import {
 import { AwsIamRole, useAwsIamRole } from '../../services/iam/AwsIamRole.tsx'
 import { AwsIamRolePolicyAttachment } from '../../services/iam/AwsIamRolePolicyAttachment.tsx'
 import { Output } from '@dinghy/tf-common'
-import { S3BackendOutput } from '../../foundation/S3BackendOutput.tsx'
 
 export function Ec2Servers(
   { _components, children, ...props }: NodeProps,
@@ -138,7 +136,6 @@ export function Ec2Servers(
         {createVpc && <Vpc _display='entity' _title='VPC' />}
         {referenceAmi && <Ami />}
         {createInstanceProfile && <InstanceProfile />}
-        <S3BackendOutput _title='Stack Output' />
       </OnDemandResourcesComponent>
     )
   }
@@ -151,28 +148,24 @@ export function Ec2Servers(
       _server.associate_public_ip_address ? 'public' : 'private',
     )
     const { instanceProfile } = useAwsIamInstanceProfile()
-    function PublicIp(props: any) {
+    function InstanceOutput(props: any) {
       const { awsInstance } = useAwsInstance()
-      const title = () => `Public IP of ${deepResolve(_server.name)}`
+      const title = () => `Output of ${deepResolve(_server.name)}`
+      const instanceInfo = () => {
+        const terraformId = deepResolve(awsInstance._terraformId)
+        return {
+          Name: deepResolve(_server.name),
+          InstanceId: `\${${terraformId}.id}`,
+          PublicIp: `\${${terraformId}.public_ip}`,
+          Region: `\${${terraformId}.region}`,
+        }
+      }
       return (
         <Output
           _title={title}
-          _id={() => `${toId(deepResolve(_server.name))}_publicip`}
+          _id={() => `${deepResolve(awsInstance._id)}_output`}
           description={title}
-          value={() => `\${${deepResolve(awsInstance._terraformId)}.public_ip}`}
-          {...props}
-        />
-      )
-    }
-    function InstanceId(props: any) {
-      const { awsInstance } = useAwsInstance()
-      const title = () => `Instance ID of ${deepResolve(_server.name)}`
-      return (
-        <Output
-          _title={title}
-          _id={() => `${toId(deepResolve(_server.name))}_instanceid`}
-          description={title}
-          value={() => `\${${deepResolve(awsInstance._terraformId)}.id}`}
+          value={() => JSON.stringify(instanceInfo())}
           {...props}
         />
       )
@@ -187,8 +180,7 @@ export function Ec2Servers(
         {..._server}
         {...props}
       >
-        <PublicIp />
-        <InstanceId />
+        <InstanceOutput />
       </Ec2ServerComponent>
     )
   }

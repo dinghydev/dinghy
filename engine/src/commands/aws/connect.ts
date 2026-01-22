@@ -3,7 +3,7 @@ import { deepMerge, DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { runAwscliImageCmd } from './runAwscliImageCmd.ts'
 import { awscliOptions } from './awscliOptions.ts'
 import chalk from 'chalk'
-import { listConnectableResources } from './list.ts'
+import { listConnectableInstances } from './list.ts'
 
 const options: any = deepMerge(deepMerge({}, awscliOptions), {
   string: ['instance-id'],
@@ -21,18 +21,18 @@ const options: any = deepMerge(deepMerge({}, awscliOptions), {
 })
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  const { stackPath, region, resources } = await listConnectableResources(args)
-  const instance = resources.find((resource: any, index: number) =>
+  const instances = await listConnectableInstances(args)
+  const instance = instances.find((instance: any, index: number) =>
     `${index + 1}` === args['instance-id']
       ? true
-      : resource.instanceId === args['instance-id']
+      : instance.InstanceId === args['instance-id']
       ? true
-      : resource.Name === args['instance-id']
+      : instance.Name === args['instance-id']
   )
   if (!instance) {
     throw new DinghyError(
       `Instance id ${args['instance-id']} not found in [${
-        resources.map((resource: any) =>
+        instance.map((resource: any) =>
           `${resource.Name}: ${resource.InstanceId}`
         ).join(', ')
       }]`,
@@ -46,14 +46,13 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   )
 
   await runAwscliImageCmd(
-    stackPath,
     args,
     [
       'aws',
       'ssm',
       'start-session',
       '--region',
-      region,
+      instance.Region,
       '--target',
       instance.InstanceId as string,
     ],

@@ -8,14 +8,10 @@ import Debug from 'debug'
 const debug = Debug('runAwscliImageCmd')
 
 export const runAwscliImageCmd = async (
-  workingDir: string,
   options: CommandArgs,
   args: string[],
   exitOnFailure = true,
 ) => {
-  const containerWorkingDir = workingDir.startsWith('/')
-    ? workingDir
-    : `${hostAppHome}/${workingDir}`
   const image = configGetImage('awscli')
   const envs: Record<string, string> = {}
   if (debug.enabled) {
@@ -23,12 +19,9 @@ export const runAwscliImageCmd = async (
   }
 
   return await runDockerCmd(
-    containerWorkingDir,
+    hostAppHome,
     envs,
-    [{
-      source: containerWorkingDir,
-      target: containerWorkingDir,
-    }],
+    [],
     [...args, ...(options['awscli-options'] || [])],
     image,
     exitOnFailure,

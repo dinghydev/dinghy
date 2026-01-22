@@ -20,10 +20,8 @@
       }
     },
     "backend": {
-      "s3": {
-        "bucket": "s3-bucket-backend",
-        "key": "tfstates/s3-bucket.tfstate.json",
-        "region": "us-east-1"
+      "local": {
+        "path": "stack.tfstate.json"
       }
     }
   },
@@ -35,14 +33,6 @@
           "Name": "my-demo-bucket-with-versioning",
           "iac:id": "awss3bucket_mydemobucketwithversioning"
         }
-      },
-      "awss3bucket_backend": {
-        "bucket": "s3-bucket-backend",
-        "object_lock_enabled": true,
-        "tags": {
-          "Name": "Backend Bucket",
-          "iac:id": "awss3bucket_backend"
-        }
       }
     },
     "aws_s3_bucket_versioning": {
@@ -51,15 +41,6 @@
           "aws_s3_bucket.awss3bucket_mydemobucketwithversioning"
         ],
         "bucket": "my-demo-bucket-with-versioning",
-        "versioning_configuration": {
-          "status": "Enabled"
-        }
-      },
-      "awss3bucket_backend_versioning": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_backend"
-        ],
-        "bucket": "s3-bucket-backend",
         "versioning_configuration": {
           "status": "Enabled"
         }

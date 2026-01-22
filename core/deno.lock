@@ -96,6 +96,7 @@
       "jsr:@std/media-types@1.1.0",
       "npm:@types/node@22.14.0",
       "npm:@types/react@19.1.0",
+      "npm:debug@4.4.0",
       "npm:react-dom@19.1.0",
       "npm:react@19.1.0",
       "npm:zod@4.1.12"
