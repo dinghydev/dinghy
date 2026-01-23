@@ -1,19 +1,20 @@
 import { parseArgs } from 'jsr:@std/cli'
 import { execa } from 'npm:execa'
 import { projectRoot } from '../../cli/src/utils/projectRoot.ts'
+import { projectVersionRelease } from '../../cli/src/utils/projectVersions.ts'
 
 const args = parseArgs(Deno.args)
 const arch = args._[0]
 const cliSrcFolder = `${projectRoot}/cli`
 const cliOutputFolder = `${projectRoot}/build/cli`
 const outputFolder = `${cliOutputFolder}/${arch}`
-const zipsFolder = `${cliOutputFolder}/zips`
+const releaseFolder = `${cliOutputFolder}/release`
 
 const outputFile = `${outputFolder}/dinghy`
-const zipFile = `${zipsFolder}/dinghy-${arch}.zip`
+const zipFile = `${releaseFolder}/dinghy-${projectVersionRelease()}-${arch}.zip`
 
 await Deno.mkdir(outputFolder, { recursive: true })
-await Deno.mkdir(zipsFolder, { recursive: true })
+await Deno.mkdir(releaseFolder, { recursive: true })
 
 const versionFile = `${projectRoot}/.versions.json`
 

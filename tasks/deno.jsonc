@@ -23,8 +23,8 @@
     "cli-build": {
       "dependencies": [
         "cli-build-x86_64-unknown-linux-gnu",
-        // "cli-build-aarch64-unknown-linux-gnu",
-        // "cli-build-x86_64-apple-darwin",
+        "cli-build-aarch64-unknown-linux-gnu",
+        "cli-build-x86_64-apple-darwin",
         "cli-build-aarch64-apple-darwin"
       ]
     },
