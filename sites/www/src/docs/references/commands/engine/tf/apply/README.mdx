@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/tf/apply.ts
 ---
 # tf apply
-
-Apply pending planned changes
-
+Run `terraform apply` command for selected stacks
 ## Usage
 ```sh
 $ dinghy tf apply [STACK] [options]
@@ -12,11 +10,9 @@ $ dinghy tf apply [STACK] [options]
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name  |
+| `stack` |Stack name  |
 ## Options
 | Name            | Description           | Default                   |
 | ---------------- | --------------- | ----------------------------- |
-| `--debug` |  |   |
-| `--diff-changes-max-lines` | Max lines of diff changes | `10`  |
-| `--lock` | Lock the state during plan |   |
-| `--tf-options` | Additional tf options |   |
+| `--diff-changes-max-lines <value>` |Max lines of diff changes | `10` |
+| `--lock` |Lock the state during plan | `true` |

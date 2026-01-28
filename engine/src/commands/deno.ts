@@ -1,23 +1,18 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '@dinghy/cli'
-import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import type { CmdInput } from '@dinghy/cli'
+import { DinghyError } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
-import { subCommandArgs } from '../utils/subCommandArgs.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: CommandOptions = {
-  description: {},
-  cmdDescription: 'Run deno command with engine image',
+export const schema: CmdInput = {
+  description: 'Run deno command with engine image',
+  args: [],
 }
 
-const run = async (context: CommandContext, _args: CommandArgs) => {
+export const run = async (args: Args) => {
   const result = await streamCmd(
     [
       'deno',
-      ...subCommandArgs(context.originalArgs),
+      ...args.extraOptions,
     ],
     undefined,
     false,
@@ -26,7 +21,3 @@ const run = async (context: CommandContext, _args: CommandArgs) => {
     throw new DinghyError(`Failed to run deno, see error above`)
   }
 }
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

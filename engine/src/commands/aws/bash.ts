@@ -1,24 +1,15 @@
-import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
-import { runAwscliImageCmd } from './runAwscliImageCmd.ts'
-import { awscliOptions } from './awscliOptions.ts'
-import { subCommandArgs } from '../../utils/subCommandArgs.ts'
+import type { CmdInput } from '@dinghy/cli'
+import { runAwscliImageCmd } from '../../services/aws/runAwscliImageCmd.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: any = {
-  ...awscliOptions,
-  cmdDescription: 'Run bash command with awscli image',
+export const schema: CmdInput = {
+  description: 'Run bash command with awscli image',
+  args: [],
 }
 
-const run = async (context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   await runAwscliImageCmd(
     args,
-    ['bash', ...subCommandArgs(context.originalArgs, 2)],
+    ['bash'],
   )
 }
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

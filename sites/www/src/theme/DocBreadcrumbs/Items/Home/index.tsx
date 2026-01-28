@@ -1,34 +1,34 @@
 // Generated with:
-// dinghy site docusaurus -- swizzle @docusaurus/theme-classic HomeBreadcrumbItem/Home --danger --eject --typescript
+// dinghy site -- swizzle @docusaurus/theme-classic HomeBreadcrumbItem/Home --danger --eject --typescript
 
-import React, { type ReactNode } from "react";
-import Link from "@docusaurus/Link";
+import React, { type ReactNode } from 'react'
+import Link from '@docusaurus/Link'
 // import useBaseUrl from "@docusaurus/useBaseUrl";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { translate } from "@docusaurus/Translate";
-import IconHome from "@theme/Icon/Home";
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import { translate } from '@docusaurus/Translate'
+import IconHome from '@theme/Icon/Home'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
 export default function HomeBreadcrumbItem(): ReactNode {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext()
   // const homeHref = useBaseUrl("/");
-  const homeHref = siteConfig.url;
+  const homeHref = siteConfig.url
 
   return (
-    <li className="breadcrumbs__item">
+    <li className='breadcrumbs__item'>
       <Link
         aria-label={translate({
-          id: "theme.docs.breadcrumbs.home",
-          message: "Home page",
-          description: "The ARIA label for the home page in the breadcrumbs",
+          id: 'theme.docs.breadcrumbs.home',
+          message: 'Home page',
+          description: 'The ARIA label for the home page in the breadcrumbs',
         })}
-        className="breadcrumbs__link"
+        className='breadcrumbs__link'
         href={homeHref}
-        target="_self"
+        target='_self'
       >
         <IconHome className={styles.breadcrumbHomeIcon} />
       </Link>
     </li>
-  );
+  )
 }

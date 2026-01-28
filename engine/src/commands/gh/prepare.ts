@@ -1,22 +1,16 @@
-import type {
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-  Commands,
-} from '@dinghy/cli'
-import { OPTIONS_SYMBOL, projectVersionRelease, RUN_SYMBOL } from '@dinghy/cli'
+import type { CmdInput } from '@dinghy/cli'
+import { projectVersionRelease } from '@dinghy/cli'
 import Debug from 'debug'
 import {
   appendToGithubEnv,
   appendToGithubFile,
 } from '../../utils/githubUtils.ts'
+import { Args } from '@std/cli/parse-args'
 const debug = Debug('gh:prepare')
-
-const options: CommandOptions = {
-  description: {},
-  cmdDescription: 'Prepare github workflow',
+export const schema: CmdInput = {
+  description: 'Prepare github workflow',
 }
-const run = (_context: CommandContext, _args: CommandArgs) => {
+export const run = (_args: Args) => {
   if (debug.enabled) {
     debug('Environment variables:')
     for (const [key, value] of Object.entries(Deno.env.toObject())) {
@@ -51,10 +45,3 @@ const run = (_context: CommandContext, _args: CommandArgs) => {
     }
   }
 }
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

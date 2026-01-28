@@ -1,36 +1,27 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '@dinghy/cli'
+import type { CmdInput } from '@dinghy/cli'
 import {
   DinghyError,
   fetchLatestVersion,
-  OPTIONS_SYMBOL,
-  RUN_SYMBOL,
   updateProjectVersion,
 } from '@dinghy/cli'
 import Debug from 'debug'
+import { Args } from '@std/cli/parse-args'
 const debug = Debug('upgrade')
 
-const options: CommandOptions = {
-  string: ['version'],
-  description: {
-    version: 'The version to upgrade to',
-  },
-  alias: {
-    v: 'version',
-  },
-  default: {
-    version: 'latest',
-  },
-  cmdDescription:
-    'Upgrade/lock project Dinghy version, to the latest version by default',
-  cmdAlias: ['up'],
+export const schema: CmdInput = {
+  description: 'Upgrade/lock project Dinghy version.',
+  options: [
+    {
+      name: 'version',
+      description: 'The version to upgrade to',
+      default: 'latest',
+      alias: 'v',
+    },
+  ],
+  alias: ['up'],
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   let version = args.version
   if (!version.includes('-')) {
     const latestVersion = await fetchLatestVersion()
@@ -40,10 +31,5 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     }
     debug('resolved %s to version %s', args.version, version)
   }
-  updateProjectVersion(version)
+  updateProjectVersion(version, true)
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

@@ -58,6 +58,7 @@
     "@types/node": "npm:@types/node@22.14.0",
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
+    "zod": "npm:zod@4.1.12",
     "execa": "npm:execa@9.5.2"
   },
   "fmt": {

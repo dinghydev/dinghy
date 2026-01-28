@@ -27,7 +27,7 @@ export default {
         },
         {
           type: 'doc',
-          label: '/References/TF Common/',
+          label: '/References/TF Common',
           id: 'rewrite-url',
         },
         {

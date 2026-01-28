@@ -1,31 +1,28 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import chalk from 'chalk'
 import { getTfImageTag, prepareOndemandImage } from './dockerBuildUtils.ts'
 import { consumerImages } from './consumerImages.ts'
+import { CmdInput } from '../../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: CommandOptions = {
-  string: ['include-images'],
-  boolean: ['ignore-local-cache'],
-  negatable: ['ignore-local-cache'],
-  default: {
-    'ignore-local-cache': true,
-  },
-  description: {
-    'ignore-local-cache': 'Ignore local cache and force repopulate',
-    'include-images':
-      'Only include these images, comma separated list of image names. If not provided, all images will be cached.',
-  },
-  cmdAlias: ['populate-local-cache'],
-  cmdDescription: 'Cache all related docker images locally',
+export const schema: CmdInput = {
+  description: 'Cache all related docker images locally',
+  options: [
+    {
+      name: 'include-images',
+      description:
+        'Only include these images, comma separated list of image names. If not provided, all images will be cached.',
+    },
+    {
+      name: 'use-local-cache',
+      description:
+        'Use local cache instead of repopulating for faster operation.',
+      boolean: true,
+    },
+  ],
+  alias: ['populate-local-cache'],
 }
 
-function run(_context: CommandContext, args: CommandArgs) {
+export function run(args: Args) {
   for (const image of consumerImages().reverse()) {
     if (
       args['include-images'] &&
@@ -37,12 +34,7 @@ function run(_context: CommandContext, args: CommandArgs) {
     if (image.image.includes(':tf-')) {
       image.image = getTfImageTag()
     }
-    prepareOndemandImage(image.image, args['ignore-local-cache'])
+    prepareOndemandImage(image.image, args['use-local-cache'])
     console.log(`Image ${chalk.green(image.image)} is ready`)
   }
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

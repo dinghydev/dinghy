@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/tf/destroy.ts
 ---
 # tf destroy
-
-Destroy all managed resources
-
+Run `terraform destroy` command for selected stacks
 ## Usage
 ```sh
 $ dinghy tf destroy [STACK] [options]
@@ -12,11 +10,8 @@ $ dinghy tf destroy [STACK] [options]
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name  |
+| `stack` |Stack name  |
 ## Options
-| Name            | Description           | Default                   |
-| ---------------- | --------------- | ----------------------------- |
-| `--auto-approve` | Auto approve the destroy operation |   |
-| `--debug` |  |   |
-| `--diff-changes-max-lines` |  | `10`  |
-| `--tf-options` | Additional tf options |   |
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `-a, --auto-approve` |Auto approve the destroy operation  |

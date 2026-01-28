@@ -1,26 +1,21 @@
-import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import {
-  DinghyError,
-  hostAppHome,
-  OPTIONS_SYMBOL,
-  requireStacksConfig,
-  RUN_SYMBOL,
-} from '@dinghy/cli'
-import { awscliOptions } from './awscliOptions.ts'
-import { doWithTfStacks } from '../tf/doWithTfStacks.ts'
+import type { CmdInput } from '@dinghy/cli'
+import { DinghyError, hostAppHome, requireStacksConfig } from '@dinghy/cli'
+import { doWithTfStacks } from '../../services/tf/doWithTfStacks.ts'
 import { existsSync } from '@std/fs/exists'
 import { printTable } from 'console-table-printer'
 import { loadUrlData } from '../../utils/loadUrlData.ts'
 import Debug from 'debug'
+import { Args } from '@std/cli/parse-args'
+import { stackArgs } from '../tf/index.ts'
 const debug = Debug('aws:list')
 
-const options: any = {
-  ...awscliOptions,
-  cmdDescription: 'List connectable instances in the stack',
+export const schema: CmdInput = {
+  description: 'List connectable instances in the stack',
+  ...stackArgs,
 }
 
 export const listConnectableInstances = async (
-  args: CommandArgs,
+  args: Args,
 ) => {
   await requireStacksConfig()
   let firstStack: any = null
@@ -77,7 +72,7 @@ export const listConnectableInstances = async (
   return instances
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   const instances = await listConnectableInstances(args)
   console.log('Connectable instances:')
   printTable(instances.map((instance) => {
@@ -85,10 +80,3 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     return instance
   }))
 }
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

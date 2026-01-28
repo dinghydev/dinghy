@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/cli/src/commands/devcontainer.ts
 ---
 # devcontainer
-
 Start the project in devcontainer
-
 ## Usage
 ```sh
 $ dinghy devcontainer [options]
@@ -13,6 +11,6 @@ $ dinghy dc [options]
 ## Options
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `--no-open` | Do not open the devcontainer. Generate .devcontainer.json only if not exist  |
-| `--volumns` | Additional volumns to mount to the devcontainer  |
-| `--workspace` | The workspace folder to use in the devcontainer  |
+| `[--volumns <value>]` |Additional volumns to mount to the devcontainer  |
+| `--workspace <value>` |The workspace folder to use in the devcontainer  |
+| `--skip-open` |Do not open the devcontainer. Generate .devcontainer.json only  |

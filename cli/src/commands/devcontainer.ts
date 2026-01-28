@@ -1,38 +1,41 @@
 import { existsSync } from '@std/fs/exists'
 import { dirname } from '@std/path'
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import { appHomeMount, hostAppHome } from '../shared/home.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
 import { execa } from 'execa'
 import { getDockerEnvs, getDockerMounts } from '../utils/dockerUtils.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
 import Debug from 'debug'
-import { configGet } from '../utils/loadConfig.ts'
+import { useEnvVar } from '../utils/loadConfig.ts'
+import { CmdInput } from '../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
 const debug = Debug('devcontainer')
 
-const options: CommandOptions = {
-  collect: ['volumns'],
-  string: ['workspace'],
-  boolean: ['no-open'],
-  description: {
-    volumns: 'Additional volumns to mount to the devcontainer',
-    workspace: 'The workspace folder to use in the devcontainer',
-    'no-open':
-      'Do not open the devcontainer. Generate .devcontainer.json only if not exist',
-  },
-  cmdDescription: 'Start the project in devcontainer',
-  cmdAlias: ['dc'],
+export const schema: CmdInput = {
+  description: 'Start the project in devcontainer',
+  alias: ['dc'],
+  options: [
+    {
+      name: 'volumns',
+      description: 'Additional volumns to mount to the devcontainer',
+      multiple: true,
+    },
+    {
+      name: 'workspace',
+      description: 'The workspace folder to use in the devcontainer',
+    },
+    {
+      name: 'skip-open',
+      description:
+        'Do not open the devcontainer. Generate .devcontainer.json only',
+      boolean: true,
+    },
+  ],
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   const devcontainerConfig = await prepareConfig(args)
-  if (!args['no-open']) {
+  if (!args['skip-open']) {
     if (devcontainerConfig) {
       debug('remove devcontainer %s if exits', devcontainerConfig.name)
       debug('running command from %s: devcontainer open', hostAppHome)
@@ -58,12 +61,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
 }
 
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command
-
-function prepareConfig(args: CommandArgs): any {
+function prepareConfig(args: Args): any {
   const configFolder = `${hostAppHome}/.devcontainer`
   if (existsSync(configFolder)) {
     debug(
@@ -73,7 +71,7 @@ function prepareConfig(args: CommandArgs): any {
   }
 
   const configFile = `${hostAppHome}/.devcontainer.json`
-  const config: any = configGet(['dinghy', 'devcontainer', 'json']) || {}
+  const config: any = useEnvVar(['dinghy', 'devcontainer', 'json']) || {}
   config.name ??= hostAppHome.split('/').pop() as string
   config.runArgs ??= ['--name', config.name]
   if (!config.build) {
@@ -128,7 +126,7 @@ function prepareConfig(args: CommandArgs): any {
       },
     },
   }
-  let extensions: any = configGet(['dinghy', 'devcontainer', 'extensions'])
+  let extensions: any = useEnvVar(['dinghy', 'devcontainer', 'extensions'])
   if (extensions) {
     if (typeof extensions === 'string') {
       extensions = extensions.split(',')
@@ -139,7 +137,7 @@ function prepareConfig(args: CommandArgs): any {
 
   Deno.writeTextFileSync(configFile, JSON.stringify(config, null, 2))
   debug('generated %s', configFile)
-  if (args['no-open']) {
+  if (args['skip-open']) {
     console.log('generated', configFile)
   }
   return config

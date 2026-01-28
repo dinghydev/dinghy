@@ -1,22 +1,15 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/tf/bash.ts
 ---
 # tf bash
-
-Run bash command with tf image
-
+Run bash/tofu/terraform with tf image on selected stack
 ## Usage
 ```sh
 $ dinghy tf bash [STACK] [options]
+$ dinghy tf tofu [STACK] [options]
+$ dinghy tf terraform [STACK] [options]
 ```
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name  |
-## Options
-| Name            | Description           | Default                   |
-| ---------------- | --------------- | ----------------------------- |
-| `--debug` |  |   |
-| `--diff-changes-max-lines` | Max lines of diff changes | `10`  |
-| `--lock` | Lock the state during plan |   |
-| `--tf-options` | Additional tf options |   |
+| `stack` |Stack name  |

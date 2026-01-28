@@ -1,44 +1,28 @@
-import { runCommand } from './runCommand.ts'
-import {
-  type Commands,
-  DinghyError,
-  HANDLED_ERROR_EXIT_CODE,
-  OPTIONS_SYMBOL,
-} from '../types.ts'
+import { DinghyError, HANDLED_ERROR_EXIT_CODE } from '../types.ts'
 import { updateCheck } from './updateCheck.ts'
-import { setupDebug } from './setupDebug.ts'
 import { loadGlobalConfig } from './loadConfig.ts'
 import Debug from 'debug'
 import { projectVersionRelease } from './projectVersions.ts'
 import chalk from 'chalk'
 import { hrtime } from 'node:process'
 import { reportResult } from './reportResult.ts'
+import { runCommands } from '../services/cli/runCommands.ts'
 const NS_PER_SEC = 1e9
 
 export const cliRun = async (
-  commands: Commands,
+  commands: any,
   debug: Debug.Debugger,
   isEngine: boolean,
 ) => {
   const startTime = hrtime()
   let error: any = null
   try {
-    setupDebug()
     debug('started at %O with version %s', new Date(), projectVersionRelease())
 
     await loadGlobalConfig()
     await updateCheck(true)
 
-    await runCommand({
-      isEngine,
-      prefix: [],
-      envPrefix: [],
-      args: Deno.args,
-      originalArgs: Deno.args,
-      commands,
-      rootCommands: commands,
-      options: commands[OPTIONS_SYMBOL],
-    })
+    await runCommands(Deno.args, commands, isEngine)
 
     debug('finished at %O', new Date())
   } catch (e) {

@@ -1,37 +1,34 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/index.ts
 ---
 # Engine
-
-Dinghy Engine which runs commands inside a Docker container. It could be run by Dinghy Cli or directly with required configurations.
-
+Dinghy Engine which runs commands inside a Docker container.
 ## Usage
 ```sh
-$ dinghy <command> [options]
+$ dinghy [command] [options]
 ```
 ## Commands
-- [ aws](./aws/README.mdx)
-- [ bash](./bash/README.mdx)
-- [ check](./check/README.mdx)
-- [ deno](./deno/README.mdx)
-- [ devcontainer](./devcontainer/README.mdx)
-- [ diagram](./diagram/README.mdx)
-- [ gh](./gh/README.mdx)
-- [ info](./info/README.mdx)
-- [ render](./render/README.mdx)
-- [ site](./site/README.mdx)
-- [ tf](./tf/README.mdx)
-- [ upgrade](./upgrade/README.mdx)
+- [aws](./aws/README.mdx)
+- [bash](./bash/README.mdx)
+- [check](./check/README.mdx)
+- [deno](./deno/README.mdx)
+- [devcontainer](./devcontainer/README.mdx)
+- [diagram](./diagram/README.mdx)
+- [gh](./gh/README.mdx)
+- [info](./info/README.mdx)
+- [render](./render/README.mdx)
+- [site](./site/README.mdx)
+- [tf](./tf/README.mdx)
+- [upgrade](./upgrade/README.mdx)
 ## Options
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `-c, --commands` | Commands to run in sequence, parallel commands split by |  |
-| `-v, --version` | Show version  |
+| `-v, --version` |Show version  |
+| `[--commands <value>]` |Commands to run in sequence, parallel commands split by  \| from value  |
 ## Global Options
 | Name            | Description           | Default                   |
 | ---------------- | --------------- | ----------------------------- |
-| `--app-home` | The path to the Dinghy app home directory |   |
-| `--engine-version` | The docker image version of the Dinghy app to use |   |
-| `--debug` | Enable debug mode |   |
-| `-h, --help` | Show help |   |
-| `--output` | The path to the output directory | `output`  |
+| `-h, --help` |Show help |  |
+| `--app-home <value>` |The path to the Dinghy app home directory `APP_HOME`|  |
+| `--debug` |Enable debug mode |  |
+| `--output <value>` |The path to the output directory | `output` |

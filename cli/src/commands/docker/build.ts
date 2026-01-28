@@ -1,17 +1,9 @@
 import { existsSync } from '@std/fs/exists'
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import { isCi } from '../../utils/gitUtils.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
 import { execaSync } from 'execa'
 import chalk from 'chalk'
-import Debug from 'debug'
 import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
@@ -23,21 +15,55 @@ import {
   multiArch,
 } from './dockerBuildUtils.ts'
 import { supportedArchs } from './dockerBuildUtils.ts'
-const debug = Debug('init')
+import { CmdInput } from '../../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
+import Debug from 'debug'
+const debug = Debug('docker:build')
 
-const options: CommandOptions = {
-  boolean: ['push', 'multi-arch', 'dryrun'],
-  collect: ['arch'],
-  string: ['source', 'repo'],
-  default: {
-    source: 'docker/images',
-    arch: supportedArchs,
-    repo: 'dinghydev/dinghy',
-    'multi-arch': multiArch,
-  },
-  description: {},
+export const schema: CmdInput = {
+  description: 'Build docker images',
   hidden: true, // keep to internal use only for now
-  cmdDescription: 'Build docker images',
+  options: [
+    {
+      name: 'source',
+      description: 'Source folder to build',
+      default: 'docker/images',
+    },
+    {
+      name: 'repo',
+      description: 'Repository to build the images to',
+      default: 'dinghydev/dinghy',
+    },
+    {
+      name: 'push',
+      description: 'Push the built images to the repository',
+      boolean: true,
+    },
+    {
+      name: 'multi-arch',
+      description: 'Build multi-arch images',
+      boolean: true,
+      default: multiArch,
+    },
+    {
+      name: 'dryrun',
+      description: 'Dry run the build',
+      boolean: true,
+    },
+    {
+      name: 'arch',
+      description: 'Architectures to build',
+      multiple: true,
+      default: supportedArchs,
+    },
+  ],
+  args: [
+    {
+      name: 'image',
+      description: 'Image to build, if not provided, all images will be built',
+      required: false,
+    },
+  ],
 }
 
 type DockerImage = {
@@ -46,7 +72,7 @@ type DockerImage = {
   tag: string
 }
 
-async function init(args: CommandArgs) {
+async function init(args: Args) {
   const versionsFile = `${projectRoot}/.versions.json`
   debug('versions file: %s', versionsFile)
   if (existsSync(versionsFile)) {
@@ -112,11 +138,11 @@ function dockerCommand(args: string[]) {
   })`docker ${args}`
 }
 
-function dockerPushEnabled(args: CommandArgs) {
+function dockerPushEnabled(args: Args) {
   return args.push || isCi()
 }
 
-function performDockerPush(args: CommandArgs, tag: string) {
+function performDockerPush(args: Args, tag: string) {
   if (dockerPushEnabled(args)) {
     if (tag.includes('-dirty')) {
       throw new Error(`Cannot push dirty image: ${tag}`)
@@ -127,7 +153,7 @@ function performDockerPush(args: CommandArgs, tag: string) {
   }
 }
 
-async function populateImageTag(image: DockerImage, args: CommandArgs) {
+async function populateImageTag(image: DockerImage, args: Args) {
   const files: string[] = []
 
   for await (const dirEntry of walk(image.folder)) {
@@ -196,7 +222,7 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
   debug('Docker image tag %s generated', image.tag)
 }
 
-async function buildImage(image: DockerImage, args: CommandArgs) {
+async function buildImage(image: DockerImage, args: Args) {
   await populateImageTag(image, args)
   args.imageTags.push(image.tag)
 
@@ -239,7 +265,7 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
 
 async function buildImageWithArch(
   image: DockerImage,
-  args: CommandArgs,
+  args: Args,
   arch?: string,
 ) {
   const tag = arch ? `${image.tag}-linux-${arch}` : image.tag
@@ -262,7 +288,7 @@ async function buildImageWithArch(
   performDockerPush(args, tag)
 }
 
-async function run(_context: CommandContext, args: CommandArgs) {
+export async function run(args: Args) {
   await init(args)
 
   for (const image of args.images) {
@@ -272,8 +298,3 @@ async function run(_context: CommandContext, args: CommandArgs) {
   console.log(chalk.green(args.imageTags.join('\n')))
   console.log('versions file:', `${hostAppHome}/.versions.json`)
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

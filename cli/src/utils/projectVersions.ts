@@ -2,6 +2,7 @@ import { existsSync } from 'jsr:@std/fs'
 import { projectRoot } from './projectRoot.ts'
 import Debug from 'debug'
 import { commitVersion } from './commitVersion.ts'
+import { configGetEngineVersion } from './dockerConfig.ts'
 const debug = Debug('runCommand')
 
 const versions: any = {}
@@ -37,13 +38,14 @@ export const versionDetails = () => {
   const versionInfo: string[] = []
   const cliVersion = Deno.env.get('DINGHY_CLI_VERSION')
   if (cliVersion) {
-    versionInfo.push(`@dinghy/engine/${projectVersionRelease()}`)
     versionInfo.push(`@dinghy/cli/${cliVersion}`)
+    versionInfo.push(`@dinghy/engine/${projectVersionRelease()}`)
   } else {
     versionInfo.push(`@dinghy/cli/${projectVersionRelease()}`)
+    versionInfo.push(`@dinghy/engine/${configGetEngineVersion()}`)
   }
   versionInfo.push(
     `deno/${Deno.version.deno}-${Deno.build.os}-${Deno.build.arch}`,
   )
-  return versionInfo.join(' ')
+  return versionInfo
 }

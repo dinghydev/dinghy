@@ -1,6 +1,6 @@
 // Generated with:
-// dinghy site docusaurus -- swizzle --list
-// dinghy site docusaurus -- swizzle @docusaurus/theme-classic MDXComponents/A --danger --eject --typescript
+// dinghy site -- swizzle --list
+// dinghy site -- swizzle @docusaurus/theme-classic MDXComponents/A --danger --eject --typescript
 import React, { type ReactNode } from 'react'
 import Link from '@docusaurus/Link'
 import type { Props } from '@theme/MDXComponents/A'

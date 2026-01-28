@@ -151,9 +151,9 @@ export function buildOndemandImage(image: string, buildArch?: string) {
 
 export function prepareOndemandImage(
   image: string,
-  ignoreLocalCache = false,
+  useLocalCache = false,
 ) {
-  if (!ignoreLocalCache && isImageExistLocally(image)) {
+  if (useLocalCache && isImageExistLocally(image)) {
     return
   }
   if (dockerPull(image)) {
@@ -174,10 +174,10 @@ export function getTfImageTag() {
     return tfBaseImage
   }
 }
-export function prepareTfImage(ignoreLocalCache = false) {
+export function prepareTfImage(useLocalCache = true) {
   if (!tfImage) {
     tfImage = getTfImageTag()
-    prepareOndemandImage(tfImage, ignoreLocalCache)
+    prepareOndemandImage(tfImage, useLocalCache)
   }
   return tfImage!
 }

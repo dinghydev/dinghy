@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/cli/src/commands/upgrade.ts
 ---
 # upgrade
-
-Upgrade Dinghy Cli to latest or specified version
-
+Upgrade Dinghy Cli to latest or specified version.
 ## Usage
 ```sh
 $ dinghy upgrade [options]
@@ -13,5 +11,5 @@ $ dinghy up [options]
 ## Options
 | Name            | Description           | Default                   |
 | ---------------- | --------------- | ----------------------------- |
-| `--[no]-update-project` | By default, upgrade will also update your project engine version if `dinghy.config.yml` exist in current folder. You may pass `--no-update-project` to skip it. | `true`  |
-| `-v, --version` | The version to upgrade to | `latest`  |
+| `--version <value>` |The version to upgrade to | `latest` |
+| `--skip-update-project` |By default, upgrade will also update your project engine version if `.dinghyrc` exist in current folder. |  |

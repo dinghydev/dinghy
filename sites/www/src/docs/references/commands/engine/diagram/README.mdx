@@ -1,21 +1,19 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/diagram/index.ts
 ---
 # diagram
-
 Render drawio files and generate png outputs
-
 ## Usage
 ```sh
-$ dinghy diagram [STACK] <command> [options]
+$ dinghy diagram [command] [STACK] [options]
 ```
+## Commands
+- [diagram png](./png/README.mdx)
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name or tsx file name  |
-## Commands
-- [diagram png](./png/README.mdx)
+| `stack` |Stack name or tsx file name. If not specified, all stacks will be rendered  |
 ## Options
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `--debug` |   |
+| `--delete-drawio-file-after-render` |Delete the drawio file after successful generation the png file  |

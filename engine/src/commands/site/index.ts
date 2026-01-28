@@ -1,45 +1,60 @@
-import type {
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-  Commands,
-} from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL, showHelp } from '@dinghy/cli'
-import { createDocusaurusCommand } from './createDocusaurusCommand.ts'
+import type { CmdInput, OptionInput } from '@dinghy/cli'
+import { runDocusaurusImageCmd } from '../../services/docusaurus/runDocusaurusImageCmd.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: CommandOptions = {
-  description: {},
-  cmdDescription: 'Operation for docusaurus.io based site',
+/**
+ * ## Example usage
+ *
+ * To execute `docusaurus swizzle`, run:
+ * ```sh
+ * dinghy site swizzle
+ * ```
+ *
+ * ### Double dash
+ *
+ * Dinghy will interpret any argument starting with `-` as a Dinghy option.
+ *
+ * To pass all subsequent arguments directly to docusaurus, use a double dash (`--`):
+ *
+ * ```sh
+ * dinghy site -- swizzle --list
+ * ```
+ *
+ * All arguments after `--` are forwarded to the docusaurus command unchanged.
+ */
+export const schema: CmdInput = {
+  description: 'Run docusaurus command with arbitrary arguments.',
+  args: [],
 }
 
-const run = (context: CommandContext, _args: CommandArgs) => {
-  showHelp(context)
-}
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-  docusaurus: createDocusaurusCommand(
-    'Run docusaurus command with arbitrary arguments.  Additional docusaurus args could be passed after `--`',
+export const run = async (args: Args) => {
+  await runDocusaurusImageCmd(
+    args,
     ['yarn', 'docusaurus'],
-    false,
-  ),
-  bash: createDocusaurusCommand(
-    'Run bash in the docusaurus container',
-    ['bash'],
-    true,
-  ),
-  start: createDocusaurusCommand(
-    'Start site in development mode',
-    ['yarn', 'start'],
-    true,
-  ),
-  build: createDocusaurusCommand('Build site', ['yarn', 'build']),
-  deploy: createDocusaurusCommand('Deploy site', ['yarn', 'deploy']),
-  serve: createDocusaurusCommand('Serve built static site', [
-    'yarn',
-    'serve',
-  ], true),
+  )
 }
 
-export default commands
+export const globalOptions: OptionInput[] = [
+  {
+    name: 'site-docker-options',
+    description: 'Additional options to pass to the docker run command',
+    multiple: true,
+    env: 'DINGHY_SITE_DOCKER_OPTIONS',
+  },
+  {
+    name: 'site',
+    description: 'Named site if there are multiple sites configured',
+  },
+  {
+    name: 'site-dir',
+    description: 'Path to the site base directory',
+  },
+  {
+    name: 'site-output',
+    description: 'The build output directory',
+  },
+  {
+    name: 'port',
+    description: 'Port to listen on',
+  },
+]

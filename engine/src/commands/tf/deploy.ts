@@ -1,6 +1,9 @@
-import { createCombinedTfCmds } from './tf-combined-cmds.ts'
+import { createCombinedTfCmd } from '../../services/tf/createCombinedTfCmd.ts'
 
-export default createCombinedTfCmds(
-  'Run terraform init and apply commands in sequence',
+const commandDef = createCombinedTfCmd(
+  'Combined init and apply commands.',
   ['init', 'apply'],
 )
+
+export const schema = commandDef.schema
+export const run = commandDef.run

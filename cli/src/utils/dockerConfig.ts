@@ -1,6 +1,6 @@
 import Debug from 'debug'
 import { resolveLatestVersion } from './updateCheck.ts'
-import { configGet } from './loadConfig.ts'
+import { useEnvVar } from './loadConfig.ts'
 import { projectVersionRelease, projectVersions } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
 
@@ -14,7 +14,7 @@ export const configGetEngineRepo = () => {
     debug('using default engine repo for special docker operation')
     return configEngineRepoDefault
   }
-  return configGet(['dinghy', 'engine', 'repo']) || configEngineRepoDefault
+  return useEnvVar(['dinghy', 'engine', 'repo']) || configEngineRepoDefault
 }
 
 export const configIsEngineRepoDefault = () => {
@@ -34,7 +34,7 @@ const cliArgsVersion = () => {
 
 export const configGetEngineVersion = () => {
   let version = cliArgsVersion() ||
-    configGet(['dinghy', 'engine', 'version'])
+    useEnvVar(['dinghy', 'engine', 'version'])
   if (!version || !version.includes('-')) {
     debug('none locked engine version detected, resolving', version)
     if (version && Deno.build.standalone) {
@@ -50,7 +50,7 @@ export const configGetEngineVersion = () => {
 }
 
 export const configGetEngineImage = () => {
-  let image = configGet(['dinghy', 'engine', 'image'])
+  let image = useEnvVar(['dinghy', 'engine', 'image'])
   if (!image) {
     image = `${configGetEngineRepo()}:${configGetEngineVersion()}`
   }

@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/tf/init.ts
 ---
 # tf init
-
-Initialize working directory
-
+Run `terraform init` command for selected stacks
 ## Usage
 ```sh
 $ dinghy tf init [STACK] [options]
@@ -12,10 +10,8 @@ $ dinghy tf init [STACK] [options]
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name  |
+| `stack` |Stack name  |
 ## Options
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `--auto-create-backend` | Auto create backend bucket if it doesn't exist  |
-| `--debug` |   |
-| `--tf-options` | Additional tf options  |
+| `--auto-create-backend` |Auto create backend bucket if it doesn't exist `DINGHY_TF_INIT_AUTO_CREATE_BACKEND` |

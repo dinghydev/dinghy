@@ -64,6 +64,21 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "generate commands docs",
+      "args": [],
+      "program": "src/generate-commands-docs.ts",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+      ],
+      "attachSimplePort": 0,
+      "killBehavior": "polite",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "check projects",
       "args": [
         "deno task check-projects"

@@ -1,53 +1,14 @@
-import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import {
-  DinghyError,
-  hostAppHome,
-  OPTIONS_SYMBOL,
-  RUN_SYMBOL,
-} from '@dinghy/cli'
-import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions, tfOptionsPlan } from './stackInfoUtils.ts'
-import { doWithTfStacks } from './doWithTfStacks.ts'
-import { requireStacksConfig } from '@dinghy/cli'
-import { subCommandArgs } from '../../utils/subCommandArgs.ts'
-import { existsSync } from '@std/fs/exists'
+import type { CmdInput } from '@dinghy/cli'
+import { Args } from '@std/cli/parse-args'
+import { runStacksCmd } from '../../services/tf/runStacksCmd.ts'
+import { stackArgs } from './index.ts'
 
-const options: any = createTfOptions({
-  ...tfOptionsPlan,
-  cmdDescription: 'Run bash command with tf image',
-})
-
-const run = async (context: CommandContext, args: CommandArgs) => {
-  await requireStacksConfig()
-  let firstStack: any = null
-  // deno-lint-ignore require-await
-  await doWithTfStacks(args, async (stackInfo) => {
-    if (!firstStack) {
-      firstStack = stackInfo
-    }
-  })
-  if (!firstStack) {
-    throw new DinghyError('No stack found')
-  }
-  let stackPath = `${args.output}/${firstStack.name}`
-  if (!stackPath.startsWith('/')) {
-    stackPath = `${hostAppHome}/${stackPath}`
-  }
-  if (!existsSync(stackPath)) {
-    throw new DinghyError(
-      `Stack folder ${stackPath} not exist. Run render or tf operation first`,
-    )
-  }
-  await runTfImageCmd(
-    stackPath,
-    args,
-    ['bash', ...subCommandArgs(context.originalArgs, 2)],
-  )
+export const schema: CmdInput = {
+  description: 'Run bash/tofu/terraform with tf image on selected stack',
+  alias: ['tofu', 'terraform'],
+  ...stackArgs,
 }
 
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
+export const run = async (args: Args) => {
+  await runStacksCmd([args.originalArgs[1]], args, undefined, true)
 }
-
-export default commands

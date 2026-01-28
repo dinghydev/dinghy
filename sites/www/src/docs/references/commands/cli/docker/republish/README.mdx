@@ -1,17 +1,19 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/cli/src/commands/docker/republish.ts
 ---
 # docker republish
-
 Republish all related docker images from official registry to target docker registry.
-
 ## Usage
 ```sh
-$ dinghy docker republish [options]
+$ dinghy docker republish [IMAGE] [options]
 ```
+## Arguments
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `image` |Name of the image to republish. If not provided, all images will be republished.  |
 ## Options
 | Name            | Description           | Default                   |
 | ---------------- | --------------- | ----------------------------- |
-| `--image-name` | Name of the image to republish. If not provided, all images will be republished. |   |
-| `--[no]-push` | Push the images to the target registry, otherwise the image will only be built and can be used locally | `true`  |
-| `--target-repo` | Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`. |   |
+| `--include-images <value>` |Only include these images, comma separated list of image names. If not provided, all images will be cached. |  |
+| `--target-repo <value>` |Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`. |  |
+| `--[no]-push` |Push the images to the target registry, otherwise the image will only be built and can be used locally. | `true` |

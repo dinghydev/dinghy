@@ -99,7 +99,7 @@ yarn start --host 0.0.0.0
 Run docusaurus command so you can pass additional args e.g.
 
 ```sh
-dinghy site docusaurus -- swizzle --list
+dinghy site -- swizzle --list
 ```
 
 Which is equivalent of `docusaurus swizzle --list`

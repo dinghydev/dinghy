@@ -1,10 +1,4 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../../types.ts'
-import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
+import { DinghyError } from '../../types.ts'
 import { dinghyAppConfig } from '../../utils/loadConfig.ts'
 import chalk from 'chalk'
 import {
@@ -27,25 +21,41 @@ import {
   configEngineRepoDefault,
   configGetEngineRepo,
 } from '../../utils/dockerConfig.ts'
+import { Args } from '@std/cli/parse-args'
+import { CmdInput } from '../../services/cli/types.ts'
 
 const debug = Debug('docker:republish')
-const options: CommandOptions = {
-  boolean: ['push'],
-  string: ['target-repo', 'image-name'],
-  negatable: ['push'],
-  default: {
-    push: true,
-  },
-  description: {
-    'push':
-      'Push the images to the target registry, otherwise the image will only be built and can be used locally',
-    'target-repo':
-      'Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`.',
-    'image-name':
-      'Name of the image to republish. If not provided, all images will be republished.',
-  },
-  cmdDescription:
-    `Republish all related docker images from official registry to target docker registry.`,
+
+export const schema: CmdInput = {
+  description:
+    'Republish all related docker images from official registry to target docker registry.',
+  options: [
+    {
+      name: 'include-images',
+      description:
+        'Only include these images, comma separated list of image names. If not provided, all images will be cached.',
+    },
+    {
+      name: 'target-repo',
+      description:
+        'Target docker registry to republish images to. If not provided, the target registry will be read from the Dinghy Config file as `engine.repo`.',
+    },
+    {
+      name: 'push',
+      description:
+        'Push the images to the target registry, otherwise the image will only be built and can be used locally.',
+      boolean: true,
+      negatable: true,
+      default: true,
+    },
+  ],
+  args: [
+    {
+      name: 'image',
+      description:
+        'Name of the image to republish. If not provided, all images will be republished.',
+    },
+  ],
 }
 
 const rebuildOrTagImage = (
@@ -99,7 +109,7 @@ const rebuildOrTagImage = (
   }
 }
 
-function run(_context: CommandContext, args: CommandArgs) {
+export function run(args: Args) {
   const images = consumerImages()
 
   const targetRepo = args['target-repo'] || configGetEngineRepo()
@@ -112,7 +122,7 @@ function run(_context: CommandContext, args: CommandArgs) {
     if (image.name === 'tf') {
       image.image = getTfImageTag()
     }
-    if (args['image-name'] && image.name !== args['image-name']) {
+    if (args['image'] && image.name !== args['image']) {
       continue
     }
     const ondemand = isOndemandImage(image.name)
@@ -163,8 +173,3 @@ function run(_context: CommandContext, args: CommandArgs) {
     console.log(`Republished image ${chalk.green(targetTag)}`)
   }
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

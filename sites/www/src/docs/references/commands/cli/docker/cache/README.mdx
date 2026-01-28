@@ -1,17 +1,15 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/cli/src/commands/docker/cache.ts
 ---
 # docker cache
-
 Cache all related docker images locally
-
 ## Usage
 ```sh
 $ dinghy docker cache [options]
 $ dinghy docker populate-local-cache [options]
 ```
 ## Options
-| Name            | Description           | Default                   |
-| ---------------- | --------------- | ----------------------------- |
-| `--[no]-ignore-local-cache` | Ignore local cache and force repopulate | `true`  |
-| `--include-images` | Only include these images, comma separated list of image names. If not provided, all images will be cached. |   |
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `--include-images <value>` |Only include these images, comma separated list of image names. If not provided, all images will be cached.  |
+| `--use-local-cache` |Use local cache instead of repopulating for faster operation.  |

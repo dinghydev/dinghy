@@ -1,22 +1,74 @@
-import { type CommandContext, HANDLED_ERROR_EXIT_CODE } from '../types.ts'
+import { HANDLED_ERROR_EXIT_CODE } from '../types.ts'
 import Debug from 'debug'
-import { hostAppHome } from '../shared/home.ts'
+import { dinghyHome, hostAppHome } from '../shared/home.ts'
 import { runDockerCmd } from './dockerUtils.ts'
-import { configGetEngineImage } from './dockerConfig.ts'
+import {
+  configGetEngineImage,
+  configIsEngineRepoDefault,
+} from './dockerConfig.ts'
 import { projectVersionRelease } from './projectVersions.ts'
 import { ExecaError } from 'execa'
 import { walk } from '@std/fs/walk'
 import { existsSync } from '@std/fs/exists'
+
+import { run as cacheRun } from '../commands/docker/cache.ts'
+import chalk from 'chalk'
+import { parseArgs } from '@std/cli/parse-args'
+import { useEnvVar } from './loadConfig.ts'
 const debug = Debug('runEngineCommand')
-function collectEngineArgs(originalArgs: string[]) {
-  const engineVersionIndex = originalArgs.indexOf('--engine-version')
-  if (engineVersionIndex !== -1) {
-    originalArgs = [
-      ...originalArgs.slice(0, engineVersionIndex),
-      ...originalArgs.slice(engineVersionIndex + 2),
-    ]
+
+export const ENGINE_DOCKER_OPTIONS = {
+  name: 'engine-docker-options',
+  description: 'Additional options to pass to the engine docker run command',
+  multiple: true,
+  env: 'DINGHY_ENGINE_DOCKER_OPTIONS',
+  hidden: true,
+}
+
+const populateCacheIfNeeded = async () => {
+  if (
+    !configIsEngineRepoDefault()
+  ) {
+    const cacheMarkerFile = `${dinghyHome}/states/marker-cache-populated-${
+      configGetEngineImage().replace(/\W/g, '')
+    }`
+    if (!existsSync(cacheMarkerFile)) {
+      console.log(
+        'Populating docker image cache to from custom registry to avoid permission issues later ...',
+      )
+      await cacheRun({ 'use-local-cache': true } as any)
+      Deno.mkdirSync(`${dinghyHome}/states`, { recursive: true })
+      Deno.writeTextFileSync(cacheMarkerFile, new Date().toISOString())
+      console.log(chalk.green('Cache populated successfully'))
+    }
   }
-  return originalArgs.map((arg) => arg.includes(' ') ? `"${arg}"` : arg)
+}
+
+function collectDockerArgs(originalArgs: string[]) {
+  const dockerArgs: string[] = []
+  if (
+    originalArgs.join(' ').includes(
+      '--engine-docker-options',
+    )
+  ) {
+    const parsedOptions: any = parseArgs(originalArgs, {
+      collect: [ENGINE_DOCKER_OPTIONS.name],
+    })
+    const engineDockerOptions = parsedOptions[ENGINE_DOCKER_OPTIONS.name]
+    dockerArgs.push(...engineDockerOptions)
+    debug('parsed engine docker options from args: %s', engineDockerOptions)
+  } else {
+    const envValue = useEnvVar([ENGINE_DOCKER_OPTIONS.env])
+    if (envValue) {
+      const splitter = envValue.includes(',') ? ',' : ' '
+      const engineDockerOptions = envValue.split(splitter).map((v: string) =>
+        v.trim()
+      )
+      dockerArgs.push(...engineDockerOptions)
+      debug('parsed engine docker options from env: %s', engineDockerOptions)
+    }
+  }
+  return dockerArgs
 }
 
 async function collectDinghyFileOverrideMount() {
@@ -33,8 +85,10 @@ async function collectDinghyFileOverrideMount() {
   return dotDinghyFiles
 }
 
-export async function runEngineCommand(context: CommandContext) {
-  debug('running engine command [%s]', context.originalArgs.join(' '))
+export async function runEngineCommand(args: string[]) {
+  debug('running engine command [%s]', args.join(' '))
+
+  await populateCacheIfNeeded()
 
   try {
     await runDockerCmd(
@@ -43,12 +97,13 @@ export async function runEngineCommand(context: CommandContext) {
       await collectDinghyFileOverrideMount(),
       [
         'dinghy',
-        ...collectEngineArgs(context.originalArgs),
+        ...args,
       ],
       configGetEngineImage(),
+      true,
+      collectDockerArgs(args),
     )
     debug('Engine command finished')
-    Deno.exit(0)
   } catch (e) {
     debug('Engine command failed: %O', e)
     if (e instanceof ExecaError && e.exitCode === HANDLED_ERROR_EXIT_CODE) {

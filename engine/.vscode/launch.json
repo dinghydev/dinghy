@@ -192,7 +192,6 @@
         // "deploy",
         // "--debug",
         // "bash",
-        // "docusaurus",
         // "--",
         // "swizzle",
         // "--list"
@@ -225,9 +224,9 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "generate docs",
+      "name": "generate schema docs",
       "args": [],
-      "program": "src/generate-docs.ts",
+      "program": "src/generate-schema-docs.ts",
       "env": {
         "APP_HOME": "${workspaceFolder}/../sites"
       },

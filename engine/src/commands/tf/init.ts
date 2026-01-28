@@ -1,24 +1,90 @@
-import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
-import { runTfImageCmd } from './runTfImageCmd.ts'
-import { createTfOptions } from './stackInfoUtils.ts'
+import { runTfImageCmd } from '../../services/tf/runTfImageCmd.ts'
 import process from 'node:process'
 import confirm from '@inquirer/confirm'
 import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
-import { doWithTfStacks } from './doWithTfStacks.ts'
+import { doWithTfStacks } from '../../services/tf/doWithTfStacks.ts'
 import chalk from 'chalk'
+import { Args } from '@std/cli/parse-args'
+import { createCombinedTfSchema } from '../../services/tf/createCombinedTfSchema.ts'
+import { onEvent } from '@dinghy/base-components'
+import Debug from 'debug'
+const debug = Debug('tf:init')
 
-const options: any = createTfOptions({
-  boolean: ['auto-create-backend'],
-  description: {
-    'auto-create-backend': "Auto create backend bucket if it doesn't exist",
-  },
-  cmdDescription: 'Initialize working directory',
-})
+export const schema = createCombinedTfSchema(
+  'Run `terraform init` command for selected stacks',
+  ['init'],
+)
+
+export const run = async (args: Args, stackInfo?: any) => {
+  const doWithStack = async (stackInfo: any) => {
+    const stackPath = `${args.output}/${stackInfo.name}`
+    debug('Running terraform init from %s', stackPath)
+    await onEvent(`tf.stack.init.start`, stackInfo)
+
+    console.log(
+      `Initializing ${
+        chalk.green(`${hostAppHome}/${stackPath}/stack.tf.json`)
+      } ...`,
+    )
+    const result = await runTfInit(
+      stackPath,
+      args,
+    )
+
+    if (result.exitCode !== 0) {
+      if (result.stdout?.includes('StatusCode: 404')) {
+        const tfModel = JSON.parse(
+          Deno.readTextFileSync(
+            `${hostAppHome}/${stackPath}/stack.tf.json`,
+          ),
+        )
+        const backendBucket = tfModel.terraform?.backend?.s3?.bucket
+        const backendResource = Object.entries(
+          tfModel.resource?.aws_s3_bucket || {},
+        ).find(([_k, v]) => (v as any).bucket === backendBucket)
+        if (backendResource) {
+          console.error(
+            `backend bucket ${backendBucket} not created yet, you may use --auto-create-backend flag or DINGHY_TF_INIT_AUTO_CREATE_BACKEND environment variable to create it automatically`,
+          )
+          let createOnDemand = args['auto-create-backend']
+          let userConfirmed = false
+          if (!createOnDemand && process.stdout.isTTY) {
+            createOnDemand = await confirm({
+              message: 'Do you want to create it now?',
+              default: true,
+            })
+            userConfirmed = true
+          }
+          console.log('createOnDemand', createOnDemand)
+          if (createOnDemand) {
+            return createBackend(
+              stackPath,
+              args,
+              tfModel,
+              backendResource,
+              userConfirmed,
+            )
+          }
+        }
+      }
+      throw new Error('failed to init')
+    }
+    await onEvent(`tf.stack.init.finish`, stackInfo)
+  }
+
+  if (stackInfo) {
+    await doWithStack(stackInfo)
+  } else {
+    await requireStacksConfig()
+    await doWithTfStacks(args, async (stackInfo: any) => {
+      await doWithStack(stackInfo)
+    })
+  }
+}
 
 const createBackend = async (
   stackPath: string,
-  args: CommandArgs,
+  args: Args,
   tfModel: any,
   backendResource: any,
   userConfirmed: boolean,
@@ -94,7 +160,7 @@ const createBackend = async (
 
 const runTfInit = (
   stackPath: string,
-  args: CommandArgs,
+  args: Args,
 ) => {
   return runTfImageCmd(
     stackPath,
@@ -103,65 +169,3 @@ const runTfInit = (
     false,
   )
 }
-
-const run = async (_context: CommandContext, args: CommandArgs) => {
-  await requireStacksConfig()
-  await doWithTfStacks(args, async (stackInfo) => {
-    const stackPath = `${args.output}/${stackInfo.name}`
-    console.log(
-      `Initializing ${
-        chalk.green(`${hostAppHome}/${stackPath}/stack.tf.json`)
-      } ...`,
-    )
-    const result = await runTfInit(
-      stackPath,
-      args,
-    )
-
-    if (result.exitCode !== 0) {
-      if (result.stdout?.includes('StatusCode: 404')) {
-        const tfModel = JSON.parse(
-          Deno.readTextFileSync(
-            `${hostAppHome}/${stackPath}/stack.tf.json`,
-          ),
-        )
-        const backendBucket = tfModel.terraform?.backend?.s3?.bucket
-        const backendResource = Object.entries(
-          tfModel.resource?.aws_s3_bucket || {},
-        ).find(([_k, v]) => (v as any).bucket === backendBucket)
-        if (backendResource) {
-          console.error(
-            `backend bucket ${backendBucket} not created yet, you may use --auto-create-backend flag or TF_INIT_AUTO_CREATE_BACKEND environment variable to create it automatically`,
-          )
-          let createOnDemand = args['auto-create-backend']
-          let userConfirmed = false
-          if (!createOnDemand && process.stdout.isTTY) {
-            createOnDemand = await confirm({
-              message: 'Do you want to create it now?',
-              default: true,
-            })
-            userConfirmed = true
-          }
-          console.log('createOnDemand', createOnDemand)
-          if (createOnDemand) {
-            return createBackend(
-              stackPath,
-              args,
-              tfModel,
-              backendResource,
-              userConfirmed,
-            )
-          }
-        }
-      }
-      throw new Error('failed to init')
-    }
-  })
-}
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

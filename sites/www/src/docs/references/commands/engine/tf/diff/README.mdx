@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/tf/diff.ts
 ---
 # tf diff
-
-Show a preview of actions in selected targets. It combines render, init and plan commands. You may provide any addtiional arguments which are valid for those commands.
-
+Combined render, init and plan commands.
 ## Usage
 ```sh
 $ dinghy tf diff [STACK] [options]
@@ -12,8 +10,10 @@ $ dinghy tf diff [STACK] [options]
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name  |
+| `stack` |Stack name  |
 ## Options
-| Name            | Description                     |
-| ---------------- | ----------------------------- |
-| `--debug` |   |
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `--auto-create-backend` |Auto create backend bucket if it doesn't exist `DINGHY_TF_INIT_AUTO_CREATE_BACKEND`|  |
+| `--diff-changes-max-lines <value>` |Max lines of diff changes | `10` |
+| `--lock` |Lock the state during plan | `false` |

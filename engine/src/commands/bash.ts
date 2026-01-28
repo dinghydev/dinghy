@@ -1,32 +1,19 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '@dinghy/cli'
-import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import type { CmdInput } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
-import { subCommandArgs } from '../utils/subCommandArgs.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: CommandOptions = {
-  description: {},
-  cmdDescription: 'Run bash command with engine image',
+export const schema: CmdInput = {
+  description: 'Run bash command with engine image',
+  args: [],
 }
 
-const run = async (context: CommandContext, _args: CommandArgs) => {
-  const result = await streamCmd(
+export const run = async (args: Args) => {
+  await streamCmd(
     [
       'bash',
-      ...subCommandArgs(context.originalArgs),
+      ...args.extraOptions,
     ],
     undefined,
     false,
   )
-  if (result.exitCode !== 0) {
-    throw new DinghyError(`Failed to run bash, see error above`)
-  }
 }
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

@@ -1,27 +1,20 @@
 import { existsSync } from '@std/fs/exists'
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import { execa } from 'execa'
 import chalk from 'chalk'
 import { versionDetails } from '../utils/projectVersions.ts'
-import { configGetEngineImage } from '../utils/dockerConfig.ts'
 import { dinghyConfigFile, dinghyRcFiles } from '../utils/loadConfig.ts'
 import { dinghyHome } from '../shared/home.ts'
+import { CmdInput } from '../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: CommandOptions = {
-  description: {},
-  cmdDescription:
+export const schema: CmdInput = {
+  description:
     'Show information about runtime environment and project configuration',
 }
 
 type InfoItem = {
   label: string
-  value: string
+  values: string[]
 }
 
 const existConfigFiles = () => {
@@ -43,42 +36,45 @@ const binaryVersion = async (bin: string) => {
   return version
 }
 
-const run = async (_context: CommandContext, _args: CommandArgs) => {
+export const run = async (_args: Args) => {
   const infoItems: InfoItem[] = []
-  infoItems.push({ label: 'Dinghy version', value: versionDetails() })
   infoItems.push({
-    label: 'Dinghy Engine image',
-    value: configGetEngineImage(),
+    label: 'Dinghy version',
+    values: versionDetails(),
   })
-  infoItems.push({ label: 'Dinghy home', value: dinghyHome })
+  infoItems.push({ label: 'Dinghy home', values: [dinghyHome] })
   infoItems.push({
     label: 'Dinghy config files',
-    value: existConfigFiles().join(', '),
+    values: existConfigFiles(),
   })
-  infoItems.push({ label: 'Shell', value: Deno.env.get('SHELL') || 'unknown' })
+  infoItems.push({
+    label: 'Shell',
+    values: [Deno.env.get('SHELL') || 'unknown'],
+  })
   infoItems.push({
     label: 'Git version',
-    value: await binaryVersion('git'),
+    values: [await binaryVersion('git')],
   })
   infoItems.push({
     label: 'Docker client version',
-    value: await binaryVersion('docker'),
+    values: [await binaryVersion('docker')],
   })
   infoItems.push({
     label: 'Devcontainer version',
-    value: await binaryVersion('devcontainer'),
+    values: [await binaryVersion('devcontainer')],
   })
   infoItems.push({
     label: 'VSCode version',
-    value: await binaryVersion('code'),
+    values: [await binaryVersion('code')],
   })
 
-  infoItems.map((item) => {
-    console.log(chalk.bold(item.label + ':'), item.value)
-  })
+  console.log(
+    infoItems.map((item) =>
+      `${chalk.bold(item.label.toUpperCase())}\n${
+        item.values.map((line) => `  ${chalk.green(line)}`).join(
+          '\n',
+        )
+      }`
+    ).join('\n\n'),
+  )
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

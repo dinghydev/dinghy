@@ -146,7 +146,7 @@ export const runDockerCmd = async (
 ) => {
   prepareDockerAuthConfig()
   if (errorOnFailure) {
-    if (process.stdout.isTTY && !Deno.env.get('CI')) {
+    if (process.stdin.isTTY && !Deno.env.get('CI')) {
       dockerArgs.push('-i')
     } else {
       debug('not a tty')
@@ -159,7 +159,6 @@ export const runDockerCmd = async (
       'run',
       '--rm',
       '-t',
-      ...dockerArgs,
       ...Object.entries(getDockerEnvs(envs)).flatMap((
         [k, v],
       ) => ['-e', `'${k}=${(v as string).replace(/'/g, "'\"'\"'")}'`]),
@@ -168,6 +167,7 @@ export const runDockerCmd = async (
       ) => ['--volume', `${mount.source}:${mount.target}`]),
       '--workdir',
       workingDir,
+      ...dockerArgs,
       dockerImage,
       ...args,
     ],

@@ -1,36 +1,28 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import { execa } from 'execa'
 import { fetchLatestVersion } from '../utils/updateCheck.ts'
 import { updateProjectVersion } from '../utils/updateProjectVersion.ts'
 import Debug from 'debug'
+import { CmdInput } from '../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
 const debug = Debug('upgrade')
 
-const options: CommandOptions = {
-  string: ['version'],
-  description: {
-    version: 'The version to upgrade to',
-    'update-project':
-      'By default, upgrade will also update your project engine version if `dinghy.config.yml` exist in current folder. You may pass `--no-update-project` to skip it.',
-  },
-  boolean: ['update-project'],
-  negatable: ['update-project'],
-  alias: {
-    v: 'version',
-  },
-  default: {
-    version: 'latest',
-    'update-project': true,
-  },
-  cmdDescription: 'Upgrade Dinghy Cli to latest or specified version',
-  cmdAlias: ['up'],
+export const schema: CmdInput = {
+  description: 'Upgrade Dinghy Cli to latest or specified version.',
+  options: [
+    {
+      name: 'version',
+      description: 'The version to upgrade to',
+      default: 'latest',
+    },
+    {
+      name: 'skip-update-project',
+      description:
+        'By default, upgrade will also update your project engine version if `.dinghyrc` exist in current folder.',
+      boolean: true,
+    },
+  ],
+  alias: ['up'],
 }
-
 export const upgradeToVersion = async (version: string) => {
   const url = 'https://get.dinghy.dev/install.sh'
   const response = await fetch(url)
@@ -46,7 +38,7 @@ export const upgradeToVersion = async (version: string) => {
   })`sh`
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   let version = args.version
   if (!version.includes('-')) {
     const latestVersion = await fetchLatestVersion()
@@ -57,13 +49,8 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     debug('resolved %s to version %s', args.version, version)
   }
 
-  if (args['update-project']) {
+  if (!args['skip-update-project']) {
     updateProjectVersion(version)
   }
   await upgradeToVersion(version)
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

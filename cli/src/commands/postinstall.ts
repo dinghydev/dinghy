@@ -1,30 +1,26 @@
 import { existsSync } from '@std/fs/exists'
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
-import init from './init.ts'
 import chalk from 'chalk'
-import { runCommand } from '../utils/runCommand.ts'
 import { dinghyHome } from '../shared/home.ts'
 import Debug from 'debug'
 import { cleanUpdateCheck } from '../utils/updateCheck.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
+import { CmdInput } from '../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
+import { run as initRun } from './init.ts'
 const debug = Debug('postinstall')
 
-const options: CommandOptions = {
-  boolean: ['quiet'],
-  description: {
-    quiet: 'Quiet mode',
-  },
-  alias: {
-    q: 'quiet',
-  },
+export const schema: CmdInput = {
+  description: 'Command to execute after installation',
   hidden: true,
-  cmdDescription: 'Command to execute after installation',
+  options: [
+    {
+      name: 'quiet',
+      description: 'Quiet mode',
+      boolean: true,
+      default: true,
+      alias: 'q',
+    },
+  ],
 }
 
 const refreshCommand: string[] = []
@@ -64,7 +60,7 @@ const addToPathIfNotAlready = (shell: string, paths: string[]) => {
   })
 }
 
-const run = async (context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   addToPathIfNotAlready('bash', ['.bashrc', '.profile'])
   addToPathIfNotAlready('zsh', ['.zshrc', '.zprofile'])
   addToPathIfNotAlready('fish', ['.config/fish/config.fish'])
@@ -77,16 +73,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
 
   const initProject = Deno.env.get('INIT_PROJECT')
   if (initProject) {
-    await runCommand({
-      isEngine: false,
-      prefix: ['init'],
-      envPrefix: ['init'],
-      args: ['--quiet'],
-      originalArgs: ['init', '--quiet'],
-      commands: init,
-      rootCommands: context.rootCommands,
-      options: init[OPTIONS_SYMBOL],
-    })
+    await initRun({ quiet: true } as any)
   }
 
   const startCommand = initProject
@@ -121,8 +108,3 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       `)
   }
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

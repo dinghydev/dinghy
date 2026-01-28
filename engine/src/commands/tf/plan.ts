@@ -1,27 +1,21 @@
-import chalk from 'chalk'
-import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
-import { doWithTfStacks } from './doWithTfStacks.ts'
-import { runTfImageCmd } from './runTfImageCmd.ts'
-import {
-  collectStackChanges,
-  createTfOptions,
-  tfOptionsPlan,
-} from './stackInfoUtils.ts'
+import { doWithTfStacks } from '../../services/tf/doWithTfStacks.ts'
+import { runTfImageCmd } from '../../services/tf/runTfImageCmd.ts'
 import Debug from 'debug'
+import { createCombinedTfSchema } from '../../services/tf/createCombinedTfSchema.ts'
+import { Args } from '@std/cli/parse-args'
+import { onEvent } from '@dinghy/base-components'
 const debug = Debug('tf:plan')
-const options: any = createTfOptions({
-  ...tfOptionsPlan,
-  cmdDescription: 'Plan changes',
-})
+export const schema = createCombinedTfSchema(
+  'Run `terraform plan` command for selected stacks',
+  ['plan'],
+)
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
-  await requireStacksConfig()
-  const changedStacks: any[] = []
-  await doWithTfStacks(args, async (stackInfo) => {
+export const run = async (args: Args, stackInfo?: any) => {
+  const doWithStack = async (stackInfo: any) => {
     const stackPath = `${args.output}/${stackInfo.name}`
     debug('Running terraform plan from %s', stackPath)
+    await onEvent(`tf.stack.plan.start`, stackInfo)
     await runTfImageCmd(
       stackPath,
       args,
@@ -32,6 +26,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         `-out=tf.plan`,
       ],
     )
+    await onEvent(`tf.stack.plan.finish`, stackInfo)
     for (const format of ['json', 'txt']) {
       const planOutputFile = `${hostAppHome}/${stackPath}/tf.plan.${format}`
       debug('Formatting plan file to %s', planOutputFile)
@@ -48,40 +43,15 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         ],
       )
       console.log('Formated plan ', planOutputFile)
-      if (format === 'txt') {
-        const changes = collectStackChanges(stackInfo, args)
-        if (changes?.changesCount) {
-          stackInfo.plan = changes
-          changedStacks.push(stackInfo)
-        }
-      }
     }
-  })
-  if (changedStacks.length) {
-    changedStacks.map((stackInfo) => {
-      console.log(
-        chalk.red(`${stackInfo.name} changes: ${stackInfo.plan.summary}`),
-      )
-    })
-    if (changedStacks.length > 1) {
-      console.log(
-        chalk.red(`Changes found in ${changedStacks.length} stacks`),
-      )
-    }
+  }
+
+  if (stackInfo) {
+    await doWithStack(stackInfo)
   } else {
-    console.log(
-      chalk.green(
-        `No changes found ${
-          args.stack ? `in ${args.stack} stack` : 'in any stack'
-        }`,
-      ),
-    )
+    await requireStacksConfig()
+    await doWithTfStacks(args, async (stackInfo: any) => {
+      await doWithStack(stackInfo)
+    })
   }
 }
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

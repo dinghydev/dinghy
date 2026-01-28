@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/render.ts
 ---
 # render
-
-Render from `tsx` files to target formats e.g. `json`, `drawio` or `tf`
-
+Render from `tsx` files to target formats
 ## Usage
 ```sh
 $ dinghy render [STACK] [options]
@@ -12,16 +10,14 @@ $ dinghy render [STACK] [options]
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name or tsx file name. If not specified, all stacks will be rendered  |
+| `stack` |Stack name or tsx file name. If not specified, all stacks will be rendered  |
 ## Options
-| Name            | Description           | Default                   |
-| ---------------- | --------------- | ----------------------------- |
-| `--debug` |  |   |
-| `--diagram-create-md` | Create markdown file for diagram | `false`  |
-| `--diagram-png` | Generate png file for diagram with `true` or `false`. If not specified, png will generated in none CI environment by default |   |
-| `--diagram-save-view` | Save view to stack.info.json |   |
-| `--format` | Formats to render |   |
-| `--output` | Output folder |   |
-| `--tf-generate-import` | Generate import statements for tf |   |
-| `--view` | Views to render |   |
-| `--watch` | Re-render when changes of yaml/ts/tsx files detected |   |
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `[--format <value>]` |Formats to render. e.g. `tf`, `diagram` or `json`  |
+| `[--view <value>]` |Views to render. Special view `overview` and `all` are avilable always.  |
+| `--tf-generate-import` |Generate import statements for tf  |
+| `--diagram-create-md` |Create markdown file for diagram  |
+| `--diagram-save-view` |Save view to stack.info.json  |
+| `--watch` |Re-render when changes of yaml/ts/tsx files detected  |
+| `--diagram-png` |Generate png file for diagram with `true` or `false`. If not specified, png will generated in none CI environment by default  |

@@ -1,6 +1,9 @@
-import { createCombinedTfCmds } from './tf-combined-cmds.ts'
+import { createCombinedTfCmd } from '../../services/tf/createCombinedTfCmd.ts'
 
-export default createCombinedTfCmds(
-  'Create or update the resources in selected targets. It combines render, init, plan and apply commands. You may provide any addtiional arguments which are valid for those commands.',
+const commandDef = createCombinedTfCmd(
+  'Combined render, init, plan and apply commands.',
   ['render', 'init', 'plan', 'apply'],
 )
+
+export const schema = commandDef.schema
+export const run = commandDef.run

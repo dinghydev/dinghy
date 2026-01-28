@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/aws/connect.ts
 ---
 # aws connect
-
 Connect to a specific instance in the stack
-
 ## Usage
 ```sh
 $ dinghy aws connect [STACK] [options]
@@ -12,10 +10,8 @@ $ dinghy aws connect [STACK] [options]
 ## Arguments
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
-| `STACK` | Stack name  |
+| `stack` |Stack name  |
 ## Options
 | Name            | Description           | Default                   |
 | ---------------- | --------------- | ----------------------------- |
-| `--awscli-options` | Additional awscli options |   |
-| `--debug` |  |   |
-| `-i, --instance-id` | The instance id to connect to, could be sequence or actual instance id | `1`  |
+| `-i, --instance-id <value>` |The instance id to connect to, could be sequence or actual instance id | `1` |

@@ -1,18 +1,41 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/site/index.ts
 ---
 # site
-
-Operation for docusaurus.io based site
-
+Run docusaurus command with arbitrary arguments.
 ## Usage
 ```sh
-$ dinghy site <command>
+$ dinghy site [command] [options]
 ```
 ## Commands
 - [site bash](./bash/README.mdx)
 - [site build](./build/README.mdx)
 - [site deploy](./deploy/README.mdx)
-- [site docusaurus](./docusaurus/README.mdx)
 - [site serve](./serve/README.mdx)
 - [site start](./start/README.mdx)
+## Global Options
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `[--site-docker-options <value>]` |Additional options to pass to the docker run command `DINGHY_SITE_DOCKER_OPTIONS` |
+| `--site <value>` |Named site if there are multiple sites configured  |
+| `--site-dir <value>` |Path to the site base directory  |
+| `--site-output <value>` |The build output directory  |
+| `--port <value>` |Port to listen on  |
+## Example usage
+
+To execute `docusaurus swizzle`, run:
+```sh
+dinghy site swizzle
+```
+
+### Double dash
+
+Dinghy will interpret any argument starting with `-` as a Dinghy option.
+
+To pass all subsequent arguments directly to docusaurus, use a double dash (`--`):
+
+```sh
+dinghy site -- swizzle --list
+```
+
+All arguments after `--` are forwarded to the docusaurus command unchanged.

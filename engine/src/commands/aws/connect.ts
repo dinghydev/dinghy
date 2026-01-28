@@ -1,26 +1,26 @@
-import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { deepMerge, DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
-import { runAwscliImageCmd } from './runAwscliImageCmd.ts'
-import { awscliOptions } from './awscliOptions.ts'
+import type { CmdInput } from '@dinghy/cli'
+import { DinghyError } from '@dinghy/cli'
+import { runAwscliImageCmd } from '../../services/aws/runAwscliImageCmd.ts'
 import chalk from 'chalk'
 import { listConnectableInstances } from './list.ts'
+import { stackArgs } from '../tf/index.ts'
+import { Args } from '@std/cli/parse-args'
 
-const options: any = deepMerge(deepMerge({}, awscliOptions), {
-  string: ['instance-id'],
-  description: {
-    'instance-id':
-      'The instance id to connect to, could be sequence or actual instance id',
-  },
-  default: {
-    'instance-id': '1',
-  },
-  alias: {
-    i: 'instance-id',
-  },
-  cmdDescription: 'Connect to a specific instance in the stack',
-})
+export const schema: CmdInput = {
+  description: 'Connect to a specific instance in the stack',
+  options: [
+    {
+      name: 'instance-id',
+      description:
+        'The instance id to connect to, could be sequence or actual instance id',
+      default: '1',
+      alias: 'i',
+    },
+  ],
+  ...stackArgs,
+}
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   const instances = await listConnectableInstances(args)
   const instance = instances.find((instance: any, index: number) =>
     `${index + 1}` === args['instance-id']
@@ -58,10 +58,3 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     ],
   )
 }
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

@@ -1,40 +1,50 @@
 import { existsSync } from '@std/fs/exists'
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import { execa } from 'execa'
 import chalk from 'chalk'
 import Debug from 'debug'
+import { CmdInput } from '../services/cli/types.ts'
+import { Args } from '@std/cli/parse-args'
 const debug = Debug('init')
 
-const options: CommandOptions = {
-  boolean: ['git', 'gitlab', 'github', 'quiet', 'debug'],
-  description: {
-    git: 'Init git repository',
-    gitlab: 'Generate GitLab .gitlab-ci.yml',
-    github: 'Generate GitHub Actions',
-    quiet: 'Quiet mode',
-  },
-  arguments: {
-    project: {
-      description: 'The target folder of the project',
+export const schema: CmdInput = {
+  description: 'Create a new Dinghy project with recommended files.',
+  options: [
+    {
+      name: 'git',
+      description: 'Init git repository if not exists',
+      boolean: true,
+      default: true,
+      negatable: true,
+    },
+    {
+      name: 'gitlab',
+      description: 'Generate GitLab .gitlab-ci.yml',
+      boolean: true,
+    },
+    {
+      name: 'github',
+      description: 'Generate GitHub Actions',
+      boolean: true,
+    },
+    {
+      name: 'quiet',
+      description: 'Quiet mode',
+      boolean: true,
+    },
+  ],
+  alias: ['create-project'],
+  args: [
+    {
+      name: 'project',
+      description:
+        'The target folder of the project, if not provided, the current folder will be used',
       required: false,
     },
-  },
-  negatable: ['git'],
-  default: {
-    git: true,
-  },
-  cmdDescription: 'Create a new Dinghy project with recommended files',
-  cmdAlias: ['create-project'],
+  ],
 }
 
 const generateFile = async (
-  args: CommandArgs,
+  args: Args,
   projectHome: string,
   fileName: string,
   templateName: string,
@@ -57,7 +67,7 @@ const generateFile = async (
   }
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   if (!args.quiet) {
     console.log('Creating new Dinghy project ...')
   }
@@ -111,8 +121,3 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     console.log(chalk.gray('  dinghy devcontainer'))
   }
 }
-
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

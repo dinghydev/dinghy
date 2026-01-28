@@ -1,36 +1,51 @@
-import type {
-  Command,
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-} from '@dinghy/cli'
-import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import type { CmdInput } from '@dinghy/cli'
+import { DinghyError } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
 import { hostAppHome } from '@dinghy/cli'
 import chalk from 'chalk'
 import { hasGitRepo } from '../utils/gitUtils.ts'
+import { Args } from '@std/cli/parse-args'
 
 const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'git']
 
-const options: CommandOptions = {
-  string: ['fmtCmd', 'lintCmd', 'typeCmd', 'gitCmd'],
-  collect: ['checks'],
-  description: {},
-  default: {
-    checks: SUPPORTED_CHECKS,
-    fmtCmd: 'deno fmt',
-    lintCmd: 'deno lint',
-    typeCmd: 'deno check',
-    gitCmd: 'git diff',
-  },
-  arguments: {
-    check: {
+export const schema: CmdInput = {
+  description: 'Run static code analysis, available checks: ' +
+    SUPPORTED_CHECKS.join(', '),
+  options: [
+    {
+      name: 'fmtCmd',
+      description: 'The command to run for fmt check',
+      default: 'deno fmt',
+    },
+    {
+      name: 'lintCmd',
+      description: 'The command to run for lint check',
+      default: 'deno lint',
+    },
+    {
+      name: 'typeCmd',
+      description: 'The command to run for type check',
+      default: 'deno check',
+    },
+    {
+      name: 'gitCmd',
+      description: 'The command to run for git check',
+      default: 'git diff',
+    },
+    {
+      name: 'checks',
+      description: 'The checks to run',
+      default: SUPPORTED_CHECKS,
+      multiple: true,
+    },
+  ],
+  args: [
+    {
+      name: 'check',
       description: 'The checks to run',
       required: false,
     },
-  },
-  cmdDescription: 'Run static code analysis, available checks: ' +
-    SUPPORTED_CHECKS.join(', '),
+  ],
 }
 
 type CheckResult = {
@@ -38,7 +53,7 @@ type CheckResult = {
   result: any
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   const checks = args.check ? [args.check] : args.checks
   const results: CheckResult[] = []
   for (const check of checks) {
@@ -83,7 +98,3 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     )
   }
 }
-export default {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-} as Command

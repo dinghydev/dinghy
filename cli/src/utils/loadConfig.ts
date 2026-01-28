@@ -74,23 +74,12 @@ function loadApps() {
   }
 }
 
-export const configGet = (paths: string[]) => {
-  const envVar = paths.join('_').toUpperCase().replace(/-/g, '_')
-  let current = Deno.env.get(envVar)
+export const useEnvVar = (paths: string[]) => {
+  const envVar = paths.map((s) => s.replace(/\W/g, '')).join('_').toUpperCase()
+  debug('looking up %s=?', envVar)
+  const current = Deno.env.get(envVar)
   if (current !== undefined) {
-    debug('use env %s=*', envVar)
-  } else {
-    current = dinghyAppConfig
-    const configPaths = paths.slice(1)
-    for (const path of configPaths) {
-      if (!current || typeof current !== 'object') {
-        break
-      }
-      current = current[path]
-    }
-    if (current !== undefined) {
-      debug('use config %s=*', configPaths.join('.'))
-    }
+    debug('found env %s=*', envVar)
   }
   return current
 }

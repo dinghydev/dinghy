@@ -1,45 +1,39 @@
 import { existsSync } from '@std/fs/exists'
-import type {
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-  Commands,
-} from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
+import type { CmdInput } from '@dinghy/cli'
 import Debug from 'debug'
 import { resolve } from '@std/path/resolve'
 import chalk from 'chalk'
 import { runDockerCmd } from '@dinghy/cli'
 import { configGetImage } from '@dinghy/cli'
 import { hostAppHome } from '@dinghy/cli'
+import { Args } from '@std/cli/parse-args'
 const debug = Debug('diagram:png')
 
-const options: CommandOptions = {
-  boolean: ['debug', 'delete-drawio-file-after-render'],
-  collect: ['file'],
-  string: ['drawio-bin', 'output'],
-  description: {
-    file: 'Path to the drawio file',
-    'drawio-bin':
-      'Path to local drawio binary, e.g. --drawio-bin /Applications/draw.io.app/Contents/MacOS/draw.io',
-    output: 'Path to the lookup drawio files if file not provided',
-    'delete-drawio-file-after-render':
-      'Delete the drawio file after successful generation the png file',
-  },
-  alias: {
-    f: 'file',
-  },
-  arguments: {
-    stack: {
-      description: 'Stack name or tsx file name',
-      required: false,
+export const schema: CmdInput = {
+  description: 'Generate png from drawio file',
+  options: [
+    {
+      name: 'file',
+      description: 'Path to the drawio file',
+      multiple: true,
+      alias: 'f',
     },
-  },
-  cmdDescription: 'Generate png from drawio file',
+    {
+      name: 'delete-drawio-file-after-render',
+      description:
+        'Delete the drawio file after successful generation the png file',
+      boolean: true,
+    },
+  ],
+  args: [{
+    name: 'stack',
+    description:
+      'Stack name or tsx file name. If not specified, all stacks will be rendered',
+  }],
 }
 
 const runDrawioCmd = async (
-  _args: CommandArgs,
+  _args: Args,
   drawioImage: string,
   drawioArgs: string[],
 ) => {
@@ -53,7 +47,7 @@ const runDrawioCmd = async (
   )
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+export const run = async (args: Args) => {
   if (!args.output.startsWith('/')) {
     args.output = resolve(`${hostAppHome}/${args.output}`)
   }
@@ -128,10 +122,3 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     throw new Error('Failed to generate png')
   }
 }
-
-const commands: Commands = {
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands

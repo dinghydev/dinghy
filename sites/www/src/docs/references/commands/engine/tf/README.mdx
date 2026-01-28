@@ -1,10 +1,8 @@
 ---
-edit_url: none
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/tf/index.ts
 ---
 # tf
-
 Terraform/OpenTofu related operations
-
 ## Usage
 ```sh
 $ dinghy tf <command>
@@ -16,6 +14,10 @@ $ dinghy tf <command>
 - [tf destroy](./destroy/README.mdx)
 - [tf diff](./diff/README.mdx)
 - [tf init](./init/README.mdx)
-- [tf normalise](./normalise/README.mdx)
 - [tf plan](./plan/README.mdx)
+- [tf render](./render/README.mdx)
 - [tf up](./up/README.mdx)
+## Global Options
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `[--tf-docker-options <value>]` |Additional options to pass to the tf docker run command `DINGHY_TF_DOCKER_OPTIONS` |

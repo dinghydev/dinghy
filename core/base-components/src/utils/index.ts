@@ -1,5 +1,5 @@
 export * from './debugUtils.ts'
 export * from './deepClone.ts'
-export * from './deepResolve.ts'
+export * from '../cli-shared/deepResolve.ts'
 export * from './styleUtils.ts'
 export * from './onEvent.ts'

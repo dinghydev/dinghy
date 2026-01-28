@@ -1,92 +1,52 @@
-import type {
-  CommandArgs,
-  CommandContext,
-  CommandOptions,
-  Commands,
-} from '@dinghy/cli'
+import type { CmdInput, OptionInput } from '@dinghy/cli'
 import {
-  commands as cliCommands,
-  OPTIONS_SYMBOL,
-  RUN_SYMBOL,
-  runCommand,
+  CMD_DEF_SYMBOL,
+  runCommands,
   showHelp,
   throwDinghyError,
   versionDetails,
 } from '@dinghy/cli'
-import render from './render/index.ts'
-import diagram from './diagram/index.ts'
-import tf from './tf/index.ts'
-import aws from './aws/index.ts'
+// import render from './render/index.ts'
+// import diagram from './diagram/index.ts'
+// import tf from './tf/index.ts'
+// import aws from './aws/index.ts'
 import Debug from 'debug'
-import upgrade from './upgrade.ts'
-import check from './check.ts'
-import deno from './deno.ts'
-import bash from './bash.ts'
-import site from './site/index.ts'
-import gh from './gh/index.ts'
+// import upgrade from './upgrade.ts'
+// import check from './check.ts'
+// import deno from './deno.ts'
+// import bash from './bash.ts'
+// import site from './site/index.ts'
+// import gh from './gh/index.ts'
+import { Args } from '@std/cli/parse-args'
+import { loadEngineCommands } from './commands.ts'
 const debug = Debug('dinghy:main')
 
-const options: CommandOptions = {
-  boolean: ['debug', 'help', 'version'],
-  collect: ['commands'],
-  flagsHidden: ['debug', 'help'],
-  default: {
-    debug: Boolean(Deno.env.get('DEBUG')),
-  },
-  description: {
-    debug: 'Enable debug mode',
-    help: 'Show help',
-    version: 'Show version',
-    commands: 'Commands to run in sequence, parallel commands split by |',
-  },
-  alias: {
-    h: 'help',
-    v: 'version',
-    c: 'commands',
-  },
-  cmdDescription:
-    'Dinghy Engine which runs commands inside a Docker container. It could be run by Dinghy Cli or directly with required configurations.',
-  additionalOptions: {
-    'Global Options': [
-      {
-        name: '--app-home',
-        description: 'The path to the Dinghy app home directory',
-      },
-      {
-        name: '--engine-version',
-        description: 'The docker image version of the Dinghy app to use',
-      },
-      {
-        name: '--debug',
-        description: 'Enable debug mode',
-      },
-      {
-        name: '-h, --help',
-        description: 'Show help',
-      },
-      {
-        name: '--output',
-        description: 'The path to the output directory',
-        defaultValue: 'output',
-      },
-    ],
-  },
+export const schema: CmdInput = {
+  description: 'Dinghy Engine which runs commands inside a Docker container.',
+  options: [
+    {
+      name: 'version',
+      description: 'Show version',
+      boolean: true,
+      alias: 'v',
+      env: false,
+    },
+    {
+      name: 'commands',
+      description:
+        'Commands to run in sequence, parallel commands split by | from value',
+      multiple: true,
+      env: false,
+    },
+  ],
 }
 
 const runCommandInParallel = async (cmds: string[]) => {
   debug('Running commands in parallel %O', cmds)
+  const commands = await loadEngineCommands()
   const promises = cmds.map(async (cmd) => {
     const args = cmd.split(' ')
-    await runCommand({
-      prefix: [],
-      envPrefix: [],
-      args,
-      originalArgs: args,
-      commands,
-      rootCommands: commands,
-      options: commands[OPTIONS_SYMBOL],
-      isEngine: true,
-    })
+    await runCommands(args, commands, true)
   })
   await Promise.allSettled(promises).then((results) => {
     let failed = false
@@ -102,33 +62,41 @@ const runCommandInParallel = async (cmds: string[]) => {
   })
 }
 
-const run = async (context: CommandContext, args: CommandArgs) => {
-  if (args.commands) {
+export const run = async (args: Args) => {
+  if (args.version) {
+    versionDetails().map(console.log)
+  } else if (args.commands) {
     for (const command of args.commands) {
       await runCommandInParallel(command.split('|'))
     }
-  } else if (args.version) {
-    console.log(versionDetails())
   } else {
-    showHelp(context)
+    const commands = await loadEngineCommands()
+    showHelp(commands[CMD_DEF_SYMBOL] as any, commands, true)
   }
 }
 
-const commands: Commands = {
-  render,
-  diagram,
-  site,
-  tf,
-  gh,
-  aws,
-  info: cliCommands.info,
-  devcontainer: cliCommands.devcontainer,
-  upgrade,
-  check,
-  deno,
-  bash,
-  [OPTIONS_SYMBOL]: options,
-  [RUN_SYMBOL]: run,
-}
-
-export default commands
+export const globalOptions: OptionInput[] = [
+  {
+    name: 'help',
+    description: 'Show help',
+    boolean: true,
+    alias: 'h',
+    env: false,
+  },
+  {
+    name: 'app-home',
+    description: 'The path to the Dinghy app home directory',
+    env: 'APP_HOME',
+  },
+  {
+    name: 'debug',
+    description: 'Enable debug mode',
+    boolean: true,
+    env: false,
+  },
+  {
+    name: 'output',
+    description: 'The path to the output directory',
+    default: 'output',
+  },
+]
