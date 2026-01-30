@@ -5,7 +5,7 @@ import { walk } from 'jsr:@std/fs/walk'
 import { upgradeToVersion } from '../commands/upgrade.ts'
 import { dinghyHome } from '../shared/home.ts'
 import { execa } from 'execa'
-import { projectVersionRelease } from './projectVersions.ts'
+import { projectVersionEngine } from './projectVersions.ts'
 import { isCi } from './gitUtils.ts'
 const debug = Debug('updateCheck')
 
@@ -71,7 +71,7 @@ export const fetchLatestVersion = async () => {
   const url = Deno.env.get('DINGHY_UPDATE_CHECK_URL') ||
     'https://get.dinghy.dev/latest-version.json'
   const response = await fetch(
-    `${url}?runner-version=${projectVersionRelease()}`,
+    `${url}?runner-version=${projectVersionEngine()}`,
   )
   const version = await response.json()
   debug('fetched latest version %O', version)
@@ -87,7 +87,7 @@ const runCommandWithUpgradedVersion = async () => {
 }
 
 const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
-  debug('Dinghy Cli version', projectVersionRelease())
+  debug('Dinghy Cli version', projectVersionEngine())
   debug('Deno build %s/%s', Deno.version.deno, Deno.build.target)
 
   if (Deno.env.get('DINGHY_UPDATE_CHECK_SKIP')) {
@@ -115,7 +115,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
       const version = await fetchLatestVersion()
       writeLatestVersion(version)
       const latestVersion = version.latest
-      if (latestVersion !== projectVersionRelease()) {
+      if (latestVersion !== projectVersionEngine()) {
         if (autoUpgrade) {
           console.log(`Performing auto-upgrade to ${latestVersion} ...`)
           await upgradeToVersion(latestVersion)
@@ -123,7 +123,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
         } else {
           console.log(
             `A new release of Dinghy is available: ${
-              chalk.dim(projectVersionRelease())
+              chalk.dim(projectVersionEngine())
             } → ${chalk.green(latestVersion)}`,
           )
           console.log(`Run ${chalk.yellow('dinghy upgrade')} to install it`)

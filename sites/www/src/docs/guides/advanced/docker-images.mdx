@@ -30,14 +30,14 @@ across all docker containers.
 
 ### Release Base Image
 
-[release-base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/61-release-base/Dockerfile.ejs)
+[release-base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/61-engine-base/Dockerfile.ejs)
 contains docker cli for engine to perform docker operations.
 
 Also contains small numbers rarely change files which will be used by engine.
 
 ### Release Dependencies Image
 
-[release-dependencies Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/65-release-dependencies/Dockerfile.ejs)
+[release-dependencies Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/65-engine-dependencies/Dockerfile.ejs)
 install dinghy npm/jsr dependencies.
 
 At runtime, applications can only access dependencies that have been

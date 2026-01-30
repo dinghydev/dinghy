@@ -204,9 +204,9 @@ async function populateImageTag(image: DockerImage, args: Args) {
 
   const imageKey = image.name.toUpperCase().split('-').join('_')
   let imageVersion
-  const isReleaseImage = image.name === 'release'
-  if (isReleaseImage) {
-    imageVersion = `${args.buildContext.VERSION_RELEASE}`
+  const isEngineImage = image.name === 'engine'
+  if (isEngineImage) {
+    imageVersion = `${image.name}-${args.buildContext.VERSION_RELEASE}`
   } else {
     imageVersion = `${image.name}-${imageHash()}`
   }

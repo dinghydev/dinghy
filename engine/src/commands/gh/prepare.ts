@@ -1,5 +1,5 @@
 import type { CmdInput } from '@dinghy/cli'
-import { projectVersionRelease } from '@dinghy/cli'
+import { projectVersionEngine } from '@dinghy/cli'
 import Debug from 'debug'
 import {
   appendToGithubEnv,
@@ -24,7 +24,7 @@ export const run = (_args: Args) => {
   )
   appendToGithubFile(
     'GITHUB_OUTPUT',
-    `dinghy-version=${projectVersionRelease()}`,
+    `dinghy-version=${projectVersionEngine()}`,
   )
   if (Deno.env.get('GITHUB_EVENT_PATH')) {
     const eventInfo = JSON.parse(

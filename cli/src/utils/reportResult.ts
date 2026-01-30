@@ -1,4 +1,4 @@
-import { projectVersionRelease } from './projectVersions.ts'
+import { projectVersionEngine } from './projectVersions.ts'
 
 const URL_ERROR_REPORT = 'https://error.dinghy.dev/report'
 const URL_USAGE_REPORT = 'https://usage.dinghy.dev/report'
@@ -38,7 +38,7 @@ export async function sendReport(msTaken: number, error?: any) {
   if (cliVersion) {
     params.set('cli', cliVersion)
   }
-  params.set('version', projectVersionRelease())
+  params.set('version', projectVersionEngine())
   params.set('arch', Deno.build.arch)
   params.set('os', Deno.build.os)
   params.set('ms', msTaken.toString())

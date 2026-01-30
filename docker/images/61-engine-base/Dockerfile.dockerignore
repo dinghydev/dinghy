@@ -2,4 +2,4 @@
 **
 
 # Allow files and directories
-!/docker/images/61-release-base/fs-root/**
+!/docker/images/61-engine-base/fs-root/**

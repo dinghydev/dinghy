@@ -6,7 +6,7 @@ import {
   configGetEngineImage,
   configIsEngineRepoDefault,
 } from '../../utils/dockerConfig.ts'
-import { projectVersionRelease } from '../../utils/projectVersions.ts'
+import { projectVersionEngine } from '../../utils/projectVersions.ts'
 import { ExecaError } from 'execa'
 import { walk } from '@std/fs/walk'
 import { existsSync } from '@std/fs/exists'
@@ -93,7 +93,7 @@ export async function runEngineCommand(args: string[]) {
   try {
     await runDockerCmd(
       hostAppHome,
-      { DINGHY_CLI_VERSION: projectVersionRelease() },
+      { DINGHY_CLI_VERSION: projectVersionEngine() },
       await collectDinghyFileOverrideMount(),
       [
         'dinghy',

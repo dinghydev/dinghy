@@ -3,7 +3,7 @@ import chalk from 'chalk'
 import { dinghyHome } from '../shared/home.ts'
 import Debug from 'debug'
 import { cleanUpdateCheck } from '../utils/updateCheck.ts'
-import { projectVersionRelease } from '../utils/projectVersions.ts'
+import { projectVersionEngine } from '../utils/projectVersions.ts'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import { run as initRun } from './init.ts'
@@ -86,9 +86,7 @@ export const run = async (args: Args) => {
       refreshCommand,
     )
     console.log(
-      `Installed Dinghy Cli ${
-        chalk.dim(projectVersionRelease())
-      } successfully.`,
+      `Installed Dinghy Cli ${chalk.dim(projectVersionEngine())} successfully.`,
     )
 
     console.log(`\n\nTo get started, run:
@@ -99,7 +97,7 @@ export const run = async (args: Args) => {
   } else {
     if (!initProject) {
       console.log(
-        `Upgrade to ${chalk.dim(projectVersionRelease())} complete.`,
+        `Upgrade to ${chalk.dim(projectVersionEngine())} complete.`,
       )
     }
     console.log(`\n\nTo get started, run:
