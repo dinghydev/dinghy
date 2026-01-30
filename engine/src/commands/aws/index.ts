@@ -9,18 +9,6 @@ import { Args } from '@std/cli/parse-args'
  * ```sh
  * dinghy aws s3 ls
  * ```
- *
- * ### Double dash
- *
- * Dinghy will interpret any argument starting with `-` as a Dinghy option.
- *
- * To pass all subsequent arguments directly to AWS CLI, use a double dash (`--`):
- *
- * ```sh
- * dinghy aws -- s3 ls --no-cli-pager
- * ```
- *
- * All arguments after `--` are forwarded to the AWS command unchanged.
  */
 export const schema: CmdInput = {
   description: 'Run aws command with awscli image',

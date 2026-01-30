@@ -3,7 +3,7 @@ awsStack:
   s3Backend: true
   regionalLogBucket: true
   globalLogBucket: true
-cloudfrontSites:
+sites:
   example.com:
     origins:
       root:

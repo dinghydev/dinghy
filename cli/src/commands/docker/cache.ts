@@ -1,6 +1,9 @@
 import chalk from 'chalk'
-import { getTfImageTag, prepareOndemandImage } from './dockerBuildUtils.ts'
-import { consumerImages } from './consumerImages.ts'
+import {
+  getTfImageTag,
+  prepareOndemandImage,
+} from '../../services/docker/dockerBuildUtils.ts'
+import { consumerImages } from '../../services/docker/consumerImages.ts'
 import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 

@@ -54,7 +54,6 @@ export const schema: CmdInput = {
       name: 'diagram-png',
       description:
         'Generate png file for diagram with `true` or `false`. If not specified, png will generated in none CI environment by default',
-      boolean: true,
     },
   ],
   args: [{

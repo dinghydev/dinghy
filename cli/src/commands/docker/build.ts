@@ -13,8 +13,8 @@ import {
   dockerPush,
   md5Hash,
   multiArch,
-} from './dockerBuildUtils.ts'
-import { supportedArchs } from './dockerBuildUtils.ts'
+} from '../../services/docker/dockerBuildUtils.ts'
+import { supportedArchs } from '../../services/docker/dockerBuildUtils.ts'
 import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'

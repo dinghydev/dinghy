@@ -32,7 +32,6 @@ higher priority:
 1. `.dinghyrc.local`: `DINGHY_ENGINE_VERSION=3`
 1. `.dinghyrc`: `DINGHY_ENGINE_VERSION=4`
 1. `~/.dinghyrc`: `DINGHY_ENGINE_VERSION=5`
-1. `dinghy.config.yml`: `engine.version: 6`
 
 ### dinghy.config.yml
 
@@ -178,3 +177,13 @@ export const renderOptions = (options: RenderOptions){
 1. This feature allows you to import and merge configuration data from other
    stacks as needed.
 1. The key for each entry specifies where in the `renderOptions` object the loaded configuration should be merged. To merge at the root level, use `.` as the key.
+
+## Double dash
+
+After a double dash (`--`), Dinghy passes all subsequent arguments directly to the underlying tool without interpreting them. This is helpful if the arguments you need to pass would otherwise be processed by Dinghy itself.
+
+For example, running `dinghy aws s3 --debug` will enable Dinghy's debug mode, because `--debug` is parsed by Dinghy.
+
+If you want to pass `--debug` (or any other option) to the AWS CLI instead of Dinghy, use a double dash:  
+`dinghy aws s3 -- --debug`  
+In this case, everything after `--` (here, `--debug`) will be forwarded unmodified to `awscli`.

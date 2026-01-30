@@ -1,5 +1,4 @@
 import { DinghyError } from '../../types.ts'
-import { dinghyAppConfig } from '../../utils/loadConfig.ts'
 import chalk from 'chalk'
 import {
   buildOndemandImage,
@@ -11,8 +10,8 @@ import {
   isOndemandImage,
   multiArch,
   supportedArchs,
-} from './dockerBuildUtils.ts'
-import { consumerImages } from './consumerImages.ts'
+} from '../../services/docker/dockerBuildUtils.ts'
+import { consumerImages } from '../../services/docker/consumerImages.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'
@@ -23,6 +22,7 @@ import {
 } from '../../utils/dockerConfig.ts'
 import { Args } from '@std/cli/parse-args'
 import { CmdInput } from '../../services/cli/types.ts'
+import { imageCustomization } from '../../services/config/imageConfig.ts'
 
 const debug = Debug('docker:republish')
 
@@ -67,11 +67,12 @@ const rebuildOrTagImage = (
   if (!buildArch) {
     buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
   }
-  const republishRuns = dinghyAppConfig.docker?.images?.[name]?.republishRuns
+
+  const customization = imageCustomization(name)
   const overrideFsRootDir =
     `.dinghy_file_override/docker/images/${name}/fs-root`
   const hasOverrideFsRoot = existsSync(`${hostAppHome}/${overrideFsRootDir}`)
-  if (republishRuns || hasOverrideFsRoot) {
+  if (customization || hasOverrideFsRoot) {
     const workingDir = Deno.makeTempDirSync({
       dir: hostAppHome,
       prefix: `.tmp-dinghy-docker-republish-${name}-${buildArch}`,
@@ -89,8 +90,8 @@ const rebuildOrTagImage = (
       `${dockerFile}.dockerignore`,
       dockerIgnoreContent.join('\n'),
     )
-    if (republishRuns) {
-      republishRuns.map((cmd: string) => {
+    if (customization?.runs) {
+      customization.runs.map((cmd: string) => {
         dockerFileContent.push(`RUN ${cmd}`)
       })
     }

@@ -20,7 +20,7 @@ export function parseEc2Servers(
   servers?: any,
 ): Record<string, Ec2ServerType> {
   const renderOptions = getRenderOptions()
-  let ec2Servers = servers || renderOptions.ec2Servers
+  let ec2Servers = servers || renderOptions.servers
   if (!ec2Servers) {
     ec2Servers = { default: { name: () => renderOptions.stack.name } }
   }

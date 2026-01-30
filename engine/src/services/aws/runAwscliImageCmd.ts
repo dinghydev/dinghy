@@ -1,4 +1,9 @@
-import { configGetImage, hostAppHome, runDockerCmd } from '@dinghy/cli'
+import {
+  configGetImage,
+  DinghyError,
+  hostAppHome,
+  runDockerCmd,
+} from '@dinghy/cli'
 import Debug from 'debug'
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('runAwscliImageCmd')
@@ -6,7 +11,6 @@ const debug = Debug('runAwscliImageCmd')
 export const runAwscliImageCmd = async (
   options: Args,
   args: string[],
-  exitOnFailure = true,
 ) => {
   const image = configGetImage('awscli')
   const envs: Record<string, string> = {}
@@ -14,12 +18,16 @@ export const runAwscliImageCmd = async (
     envs['AWS_DEBUG'] = 'true'
   }
 
-  return await runDockerCmd(
+  const result = await runDockerCmd(
     hostAppHome,
     envs,
     [],
     [...args, ...options.extraOptions],
     image,
-    exitOnFailure,
+    false,
   )
+  if (result.exitCode !== 0) {
+    throw new DinghyError()
+  }
+  return result
 }

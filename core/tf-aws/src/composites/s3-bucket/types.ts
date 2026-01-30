@@ -25,8 +25,7 @@ export function parseS3Bucket(
   props: any,
 ): S3BucketType {
   const renderOptions = getRenderOptions()
-  const inputProps = deepMerge({}, renderOptions.s3Bucket)
-  deepMerge(inputProps, props.s3Bucket)
+  const inputProps = deepMerge({}, props.s3Bucket || renderOptions.s3Bucket)
   deepMerge(inputProps, props)
   const bucketConfig = S3BucketSchema.loose().parse(inputProps)
   return bucketConfig

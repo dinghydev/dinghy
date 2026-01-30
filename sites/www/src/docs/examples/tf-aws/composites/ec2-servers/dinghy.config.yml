@@ -4,7 +4,7 @@ s3Backend:
   bucket: my-unique-s3-backend-bucket
 # awsProvider:
 #   region: eu-west-1
-# ec2Servers:
+# servers:
 #   my-server:
 #     instance_type: t4.nano # default is t4g.nano which is arm64 architecture
 #     linuxFlavor: ubuntu # default is al2023 which is amazon linux 2023

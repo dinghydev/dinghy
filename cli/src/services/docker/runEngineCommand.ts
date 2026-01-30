@@ -1,20 +1,20 @@
-import { HANDLED_ERROR_EXIT_CODE } from '../types.ts'
+import { HANDLED_ERROR_EXIT_CODE } from '../../types.ts'
 import Debug from 'debug'
-import { dinghyHome, hostAppHome } from '../shared/home.ts'
-import { runDockerCmd } from './dockerUtils.ts'
+import { dinghyHome, hostAppHome } from '../../shared/home.ts'
+import { runDockerCmd } from '../../utils/dockerUtils.ts'
 import {
   configGetEngineImage,
   configIsEngineRepoDefault,
-} from './dockerConfig.ts'
-import { projectVersionRelease } from './projectVersions.ts'
+} from '../../utils/dockerConfig.ts'
+import { projectVersionRelease } from '../../utils/projectVersions.ts'
 import { ExecaError } from 'execa'
 import { walk } from '@std/fs/walk'
 import { existsSync } from '@std/fs/exists'
 
-import { run as cacheRun } from '../commands/docker/cache.ts'
+import { run as cacheRun } from '../../commands/docker/cache.ts'
 import chalk from 'chalk'
 import { parseArgs } from '@std/cli/parse-args'
-import { useEnvVar } from './loadConfig.ts'
+import { useEnvVar } from '../../utils/loadConfig.ts'
 const debug = Debug('runEngineCommand')
 
 export const ENGINE_DOCKER_OPTIONS = {

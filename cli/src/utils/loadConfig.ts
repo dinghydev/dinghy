@@ -85,7 +85,7 @@ export const useEnvVar = (paths: string[]) => {
 }
 
 function loadEnvFromConfig() {
-  const envs = dinghyAppConfig.dinghy?.envs
+  const envs = dinghyAppConfig.envs
   if (!envs) {
     return
   }

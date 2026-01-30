@@ -7,6 +7,7 @@ export * as devcontainer from './commands/devcontainer.ts'
 export { loadCommands } from './services/cli/loadCommands.ts'
 export { runCommands } from './services/cli/runCommands.ts'
 export { showHelp } from './services/cli/showHelp.ts'
+export { prepareTfImage } from './services/docker/dockerBuildUtils.ts'
 export {
   CMD_DEF_SYMBOL,
   type CmdDefinition,

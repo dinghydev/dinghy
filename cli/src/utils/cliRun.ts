@@ -34,11 +34,14 @@ export const cliRun = async (
 
     if (error) {
       if (error instanceof DinghyError) {
-        console.error(
-          `${error.code ? `${chalk.bold(error.code)} ` : ''}${
-            chalk.red(error.message)
-          }`,
-        )
+        debug('Deno.exit with %O', error)
+        if (error.message) {
+          console.error(
+            `${error.code ? `${chalk.bold(error.code)} ` : ''}${
+              chalk.red(error.message)
+            }`,
+          )
+        }
         Deno.exit(HANDLED_ERROR_EXIT_CODE)
       } else {
         if (Deno.env.get('VSCODE_INSPECTOR_OPTIONS')) {

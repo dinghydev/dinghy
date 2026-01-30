@@ -1,3 +1,4 @@
+import { deepMerge } from '@dinghy/base-components'
 import type { DrawioContext, DrawioNodeTree } from '../types.ts'
 
 function collectNodes(
@@ -74,6 +75,9 @@ function handleMoveToHere(
   )
   const toBeMoved = removeExcluded(root, spec.excludes, collected)
   toBeMoved.map((c) => {
+    if (spec.elementOverride) {
+      deepMerge(c._props, spec.elementOverride)
+    }
     c._parent!._children.splice(c._parent!._children.indexOf(c), 1)
     c._parent = node._parent
     if (c._props._consolidatedId) {

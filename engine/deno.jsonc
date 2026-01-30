@@ -15,6 +15,7 @@
     "singleQuote": true,
     "exclude": [
       "deno.jsonc",
+      "**/stack.tfstate.json",
       "**/.vscode/launch.json"
     ]
   },

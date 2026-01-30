@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import { versionDetails } from '../../utils/projectVersions.ts'
 import { CMD_DEF_SYMBOL, CmdDefinition, OptionType } from './types.ts'
-import { runEngineCommand } from '../../utils/runEngineCommand.ts'
+import { runEngineCommand } from '../docker/runEngineCommand.ts'
 type Row = {
   name: string
   options?: string

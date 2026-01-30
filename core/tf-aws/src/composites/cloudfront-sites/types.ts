@@ -52,7 +52,7 @@ export function parseCloudfrontSites(
   sites?: any,
 ): Record<string, CloudfrontSiteType> {
   const cloudfrontSites = sites ||
-    getRenderOptions().cloudfrontSites
+    getRenderOptions().sites
   if (!cloudfrontSites) {
     throw new Error('Cloudfront sites not configured')
   }

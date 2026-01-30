@@ -3,7 +3,7 @@ import { versionDetails } from '../utils/projectVersions.ts'
 import { CMD_DEF_SYMBOL, CmdInput, OptionInput } from '../services/cli/types.ts'
 import { loadCliCommands } from './commands.ts'
 import { showHelp } from '../services/cli/showHelp.ts'
-import { ENGINE_DOCKER_OPTIONS } from '../utils/runEngineCommand.ts'
+import { ENGINE_DOCKER_OPTIONS } from '../services/docker/runEngineCommand.ts'
 
 export const schema: CmdInput = {
   description:

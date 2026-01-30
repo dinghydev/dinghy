@@ -5,22 +5,10 @@ import { Args } from '@std/cli/parse-args'
 /**
  * ## Example usage
  *
- * To execute `docusaurus swizzle`, run:
+ * To execute `docusaurus swizzle --list`, run:
  * ```sh
- * dinghy site swizzle
+ * dinghy site swizzle --list
  * ```
- *
- * ### Double dash
- *
- * Dinghy will interpret any argument starting with `-` as a Dinghy option.
- *
- * To pass all subsequent arguments directly to docusaurus, use a double dash (`--`):
- *
- * ```sh
- * dinghy site -- swizzle --list
- * ```
- *
- * All arguments after `--` are forwarded to the docusaurus command unchanged.
  */
 export const schema: CmdInput = {
   description: 'Run docusaurus command with arbitrary arguments.',

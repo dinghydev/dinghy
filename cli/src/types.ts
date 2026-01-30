@@ -1,6 +1,6 @@
 export class DinghyError extends Error {
   code?: string
-  constructor(message: string, code?: string) {
+  constructor(message?: string, code?: string) {
     super(message)
     this.name = 'DinghyError'
     this.code = code

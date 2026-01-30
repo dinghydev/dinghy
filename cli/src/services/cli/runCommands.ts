@@ -12,7 +12,7 @@ import { useEnvVar } from '../../utils/loadConfig.ts'
 import Debug from 'debug'
 import { showHelp } from './showHelp.ts'
 import chalk from 'chalk'
-import { runEngineCommand } from '../../utils/runEngineCommand.ts'
+import { runEngineCommand } from '../docker/runEngineCommand.ts'
 
 const debug = Debug('runCommands')
 
@@ -101,6 +101,7 @@ const runCommand = async (
   originalArgs: string[],
 ) => {
   const cmd = cmdDef.schema
+  const unknownOptions: string[] = []
   const argOptions = {
     '--': true,
     collect: [] as string[],
@@ -110,6 +111,17 @@ const runCommand = async (
     default: {} as Record<string, any>,
     description: {} as Record<string, string>,
     alias: {} as Record<string, string>,
+    unknown: (flag: string, _name: string, value: any) => {
+      if (flag.startsWith('-')) {
+        unknownOptions.push(flag)
+        if (!flag.includes('=')) {
+          if (value !== true) {
+            unknownOptions.push(value)
+          }
+        }
+      }
+      return true
+    },
   }
   const allOptions = [...globalOptions, ...(cmd.options || [])].reverse()
   const globalOptionsKeys: string[] = globalOptions.map((option: OptionInput) =>
@@ -117,10 +129,6 @@ const runCommand = async (
   )
   const addedOptionsKeys: string[] = []
   OptionSchema.array().parse(allOptions).forEach((option: OptionType) => {
-    if (option.name === 'debug') {
-      // debug option already processed during startup process
-      return
-    }
     if (addedOptionsKeys.includes(option.name)) {
       return
     } else {
@@ -179,7 +187,7 @@ const runCommand = async (
       return value
     }
   })
-  const parsedOptions: any = parseArgs(args, argOptions)
+  const parsedOptions: any = parseArgs(args, argOptions as any)
   deepResolve(parsedOptions)
   const extraOptions = [...parsedOptions['_']]
   cmdDef.schema.args?.forEach((arg) => {
@@ -197,10 +205,14 @@ const runCommand = async (
     }
     parsedOptions[arg.name] = argValue
   })
+  extraOptions.push(...unknownOptions)
   extraOptions.push(...parsedOptions['--'])
   parsedOptions.extraOptions = extraOptions
   parsedOptions.originalArgs = originalArgs
   parsedOptions.cmdDef = cmdDef
+  if (unknownOptions.length > 0) {
+    debug('unknownOptions %O', unknownOptions)
+  }
   debug('parsedOptions %O', parsedOptions)
 
   if (parsedOptions.help || !cmdDef.run) {
