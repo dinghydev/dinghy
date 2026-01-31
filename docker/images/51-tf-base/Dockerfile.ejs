@@ -1,0 +1,4 @@
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+
+COPY docker/images/51-tf-base/fs-root /

@@ -105,7 +105,7 @@ async function init(args: Args) {
       return { name, folder: `${args.sourceFolder}/${folder}` }
     }) as DockerImage[]
   args.imageTags = []
-  args.versions = {}
+  args.versions = { release: args.buildContext.VERSION_RELEASE }
 }
 
 async function parseVersionIntoContext(path: string, buildContext: any) {

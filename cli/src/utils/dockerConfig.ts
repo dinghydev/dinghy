@@ -1,7 +1,7 @@
 import Debug from 'debug'
 import { resolveLatestVersion } from './updateCheck.ts'
 import { useEnvVar } from './loadConfig.ts'
-import { projectVersionEngine, projectVersions } from './projectVersions.ts'
+import { projectVersionRelease, projectVersions } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
 
 export const configEngineRepoDefault = 'dinghydev/dinghy'
@@ -41,7 +41,7 @@ export const configGetEngineVersion = () => {
       version = resolveLatestVersion(version)
       debug('resolved engine version %s for standalone cli', version)
     } else {
-      version = projectVersionEngine()
+      version = projectVersionRelease()
       debug('resolved engine version %s from .versions.json', version)
     }
   }

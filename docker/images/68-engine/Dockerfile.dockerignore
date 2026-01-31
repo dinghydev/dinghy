@@ -6,7 +6,3 @@
 !/cli/**
 !/core/**
 !/engine/**
-!/docker/images/50-tf/fs-root/**
-!/docker/images/50-tf/Dockerfile.dockerignore
-!/docker/images/50-tf/Dockerfile
-!/docker/images/50-tf/versions.json

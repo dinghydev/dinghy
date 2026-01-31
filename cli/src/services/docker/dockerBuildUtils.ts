@@ -1,9 +1,6 @@
 import Debug from 'debug'
 import { DinghyError } from '../../types.ts'
-import {
-  configGetEngineImage,
-  configGetImage,
-} from '../../utils/dockerConfig.ts'
+import { configGetImage } from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { execaSync } from 'execa'
 import {
@@ -12,6 +9,7 @@ import {
   tfVendorConfig,
 } from './tfBuildUtils.ts'
 import { createHash } from 'node:crypto'
+import { dirname } from 'node:path'
 const debug = Debug('init')
 
 const ondemandImages: any = {
@@ -96,13 +94,23 @@ export function dockerManifestCreate(
   dockerCommand(['manifest', 'push', image])
 }
 
-function extractDockerSourceFiles() {
+function createTempWorkingDir() {
   const workingDir = Deno.makeTempDirSync({
     dir: hostAppHome,
     prefix: '.tmp-dinghy-docker-build-',
   })
-  debug('Extracting docker source files to %s ...', workingDir)
+  debug('Created temp working directory %s ...', workingDir)
+  return workingDir
+}
 
+function extractDockerSourceFile(
+  workingDir: string,
+  sourceFile: string,
+  targetFile: string,
+) {
+  const targetFilePath = `${workingDir}/${targetFile}`
+  const targetFileBaseDir = dirname(targetFilePath)
+  Deno.mkdirSync(targetFileBaseDir, { recursive: true })
   dockerCommand(
     [
       'run',
@@ -113,16 +121,15 @@ function extractDockerSourceFiles() {
       '--rm',
       '--entrypoint',
       'cp',
-      configGetEngineImage(),
+      configGetImage('tf-base'),
       '--no-preserve=ownership',
-      '-r',
-      '/dinghy/docker',
-      '/output/docker',
+      sourceFile,
+      `/output/${targetFile}`,
     ],
     hostAppHome,
   )
 
-  return workingDir
+  debug('Extracted docker source file %s', targetFilePath)
 }
 
 export function buildOndemandImage(image: string, buildArch?: string) {
@@ -135,16 +142,26 @@ export function buildOndemandImage(image: string, buildArch?: string) {
     throw new Error(`Image ${image} not found`)
   }
 
-  const workingDir = extractDockerSourceFiles()
+  const workingDir = createTempWorkingDir()
   if (imageName === 'tf') {
-    customTfImage(`${workingDir}/${imageFolder}`)
+    extractDockerSourceFile(
+      workingDir,
+      '/terraform/providers.tf.json',
+      'fs-root/terraform/providers.tf.json',
+    )
+    extractDockerSourceFile(
+      workingDir,
+      '/terraform/versions.json',
+      'versions.json',
+    )
+    customTfImage(workingDir)
   }
   console.log(`Building ondemand docker image ${image}...`)
   execaSync({
     stderr: 'inherit',
     stdout: 'inherit',
     cwd: workingDir,
-  })`docker buildx build --provenance false --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${image} -f ${imageFolder}/Dockerfile .`
+  })`docker buildx build --provenance false --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${image} -f ${workingDir}/Dockerfile .`
   debug('Removing temporary folder %s ...', workingDir)
   Deno.removeSync(workingDir, { recursive: true })
 }

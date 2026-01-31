@@ -30,18 +30,18 @@ export const projectVersionBase = () => lazyLoad().base
 export const projectVersionTf = () => lazyLoad().tf
 export const projectVersionDrawio = () => lazyLoad().drawio
 export const projectVersionSite = () => lazyLoad().site
-export const projectVersionEngine = () => lazyLoad().engine.substring(7)
-export const projectVersionEngineBase = () =>
-  projectVersionEngine().split('.').slice(0, 2).join('.')
+export const projectVersionRelease = () => lazyLoad().release
+export const projectVersionReleaseBase = () =>
+  projectVersionRelease().split('.').slice(0, 2).join('.')
 
 export const versionDetails = () => {
   const versionInfo: string[] = []
   const cliVersion = Deno.env.get('DINGHY_CLI_VERSION')
   if (cliVersion) {
     versionInfo.push(`@dinghy/cli/${cliVersion}`)
-    versionInfo.push(`@dinghy/engine/${projectVersionEngine()}`)
+    versionInfo.push(`@dinghy/engine/${projectVersionRelease()}`)
   } else {
-    versionInfo.push(`@dinghy/cli/${projectVersionEngine()}`)
+    versionInfo.push(`@dinghy/cli/${projectVersionRelease()}`)
     versionInfo.push(`@dinghy/engine/${configGetEngineVersion()}`)
   }
   versionInfo.push(

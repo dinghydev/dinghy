@@ -2,7 +2,7 @@ import { DinghyError, HANDLED_ERROR_EXIT_CODE } from '../types.ts'
 import { updateCheck } from './updateCheck.ts'
 import { loadGlobalConfig } from './loadConfig.ts'
 import Debug from 'debug'
-import { projectVersionEngine } from './projectVersions.ts'
+import { projectVersionRelease } from './projectVersions.ts'
 import chalk from 'chalk'
 import { hrtime } from 'node:process'
 import { reportResult } from './reportResult.ts'
@@ -17,7 +17,7 @@ export const cliRun = async (
   const startTime = hrtime()
   let error: any = null
   try {
-    debug('started at %O with version %s', new Date(), projectVersionEngine())
+    debug('started at %O with version %s', new Date(), projectVersionRelease())
 
     await loadGlobalConfig()
     await updateCheck(true)

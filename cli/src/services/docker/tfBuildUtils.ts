@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { dinghyAppConfig } from '../../utils/loadConfig.ts'
 import chalk from 'chalk'
+import { configGetImage } from '../../utils/dockerConfig.ts'
 
 const TfSchema = z.object({
   vendor: z.enum(['terraform', 'opentofu']).default('terraform'),
@@ -14,10 +15,11 @@ export const tfContainsCustomization = () =>
 export const tfVendorConfig = () =>
   TfSchema.parse(dinghyAppConfig.docker?.images?.tf || {})
 
-export const customTfImage = (baseDir: string) => {
+export const customTfImage = (workingDir: string) => {
   const tfConfig = tfVendorConfig()
   if (tfConfig.providers) {
-    const providersTfJsonPath = `${baseDir}/fs-root/terraform/providers.tf.json`
+    const providersTfJsonPath =
+      `${workingDir}/fs-root/terraform/providers.tf.json`
     const allProviders = JSON.parse(
       Deno.readTextFileSync(providersTfJsonPath),
     )
@@ -45,17 +47,17 @@ export const customTfImage = (baseDir: string) => {
 
   if (!tfConfig.version) {
     const versionsJson = JSON.parse(
-      Deno.readTextFileSync(`${baseDir}/versions.json`),
+      Deno.readTextFileSync(`${workingDir}/versions.json`),
     )
     tfConfig.version = versionsJson[tfConfig.vendor]
   }
 
-  const dockerFile = `${baseDir}/Dockerfile`
-  const baseDockerFileContent = Deno
-    .readTextFileSync(dockerFile)
-    .split('\n')
-    .slice(0, 2)
-  const dockerFileContent = [...baseDockerFileContent]
+  const dockerFile = `${workingDir}/Dockerfile`
+  const dockerFileContent = [
+    'ARG BUILD_ARCH=arm64',
+    `FROM ${configGetImage('tf-base')}-linux-$BUILD_ARCH`,
+    `COPY fs-root /`,
+  ]
 
   if (tfConfig.vendor === 'terraform') {
     // https://developer.hashicorp.com/terraform/install
@@ -85,11 +87,18 @@ RUN echo 'Install opentofu' \
     && ln -s /usr/local/bin/tofu /usr/bin/tf`)
   }
 
-  dockerFileContent.push(`COPY docker/images/50-tf/fs-root /    
+  dockerFileContent.push(`
 RUN echo 'Install aws provider' \
      && cd /terraform \
      && tf init
     `)
   Deno.writeTextFileSync(dockerFile, dockerFileContent.join('\n'))
+  Deno.writeTextFileSync(
+    `${workingDir}/Dockerfile.dockerignore`,
+    [
+      '# Ignore everything\n**\n',
+      `# Allow files and directories\n!/fs-root/**\n`,
+    ].join('\n'),
+  )
   console.log(`Updated ${chalk.grey(dockerFile)}`)
 }

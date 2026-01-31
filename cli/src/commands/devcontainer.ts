@@ -4,7 +4,7 @@ import { appHomeMount, hostAppHome } from '../shared/home.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
 import { execa } from 'execa'
 import { getDockerEnvs, getDockerMounts } from '../utils/dockerUtils.ts'
-import { projectVersionEngine } from '../utils/projectVersions.ts'
+import { projectVersionRelease } from '../utils/projectVersions.ts'
 import Debug from 'debug'
 import { useEnvVar } from '../utils/loadConfig.ts'
 import { CmdInput } from '../services/cli/types.ts'
@@ -79,7 +79,7 @@ function prepareConfig(args: Args): any {
   }
 
   config.containerEnv = getDockerEnvs(config.containerEnv || {})
-  config.containerEnv.DINGHY_CLI_VERSION = projectVersionEngine()
+  config.containerEnv.DINGHY_CLI_VERSION = projectVersionRelease()
   config.containerEnv.DOCKER_IMAGE = Deno.env.get('DOCKER_IMAGE') ||
     config.image
 

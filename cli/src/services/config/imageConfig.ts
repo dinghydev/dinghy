@@ -26,6 +26,6 @@ const schemaMap = {
 export const imageCustomization = (name: string) => {
   const config = dinghyAppConfig.docker?.images?.[name]
   if (config) {
-    return schemaMap[name as any].parse(config)
+    return schemaMap[name as keyof typeof schemaMap].parse(config)
   }
 }
