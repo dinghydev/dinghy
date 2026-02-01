@@ -26,7 +26,6 @@ import { setupDebug } from './utils/setupDebug.ts'
 
 if (import.meta.main) {
   setupDebug()
-  const debug = Debug('dinghy:cli')
   const commands = await loadCliCommands()
-  await cliRun(commands, debug, false)
+  await cliRun(commands, Debug('dinghy:cli'), false)
 }

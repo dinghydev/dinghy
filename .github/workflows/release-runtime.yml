@@ -78,9 +78,9 @@ jobs:
           # aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7
           cd tasks
 
-          # echo "::group::Install multiarch support"
-          # docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
-          # echo "::endgroup::"
+          echo "::group::Install multiarch support"
+          docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
+          echo "::endgroup::"
 
           echo "::group::Prepare Build"
           deno task prepare-build

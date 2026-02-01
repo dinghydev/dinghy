@@ -15,3 +15,8 @@ export async function imageExistLocally(image: string) {
   const { success } = await cmdCode(`docker image inspect ${image}`)
   return success
 }
+
+export async function imageExistRemotely(image: string) {
+  const { success } = await cmdCode(['docker', 'manifest', 'inspect', image])
+  return success
+}

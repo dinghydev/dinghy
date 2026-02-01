@@ -2,7 +2,6 @@ import { existsSync } from '@std/fs/exists'
 import { isCi } from '../../utils/gitUtils.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
-import { execaSync } from 'execa'
 import chalk from 'chalk'
 import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
@@ -20,6 +19,7 @@ import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'
 import { cmdInherit } from '../../utils/cmd.ts'
+import { imageExistRemotely } from '../../services/docker/imageStatusUtil.ts'
 const debug = Debug('docker:build')
 
 export const schema: CmdInput = {
@@ -118,29 +118,16 @@ async function parseVersionIntoContext(path: string, buildContext: any) {
   })
 }
 
-function isTagExists(tag: string) {
-  const args = ['manifest', 'inspect', tag]
-  try {
-    execaSync({
-      stdio: 'ignore',
-      cwd: hostAppHome,
-    })`docker ${args}`
-  } catch {
-    return false
-  }
-  return true
-}
-
 function dockerPushEnabled(args: Args) {
   return args.push || isCi()
 }
 
-function performDockerPush(args: Args, tag: string) {
+async function performDockerPush(args: Args, tag: string) {
   if (dockerPushEnabled(args)) {
     if (tag.includes('-dirty')) {
       throw new Error(`Cannot push dirty image: ${tag}`)
     }
-    dockerPush(tag)
+    await dockerPush(tag)
   } else {
     console.log(`Skipping: docker push ${tag}`)
   }
@@ -224,7 +211,7 @@ async function buildImage(image: DockerImage, args: Args) {
     return
   }
 
-  if (isTagExists(image.tag)) {
+  if (await imageExistRemotely(image.tag)) {
     console.log(`Tag ${image.tag} already exists, skipping build`)
     return
   }
@@ -238,7 +225,7 @@ async function buildImage(image: DockerImage, args: Args) {
       await buildImageWithArch(image, args, arch)
     }
     if (dockerPushEnabled(args)) {
-      dockerManifestCreate(
+      await dockerManifestCreate(
         image.tag,
         args.arch.map((arch: string) => `${image.tag}-linux-${arch}`),
       )
@@ -275,9 +262,9 @@ async function buildImageWithArch(
   }
   buildArgs.push('-t', tag, '-f', `${image.folder}/Dockerfile`, '.')
   await cmdInherit(buildArgs, true)
-  console.log(`Tag ${image.tag} built at`, new Date().toISOString())
+  console.log(`Tag ${tag} built at`, new Date().toISOString())
 
-  performDockerPush(args, tag)
+  await performDockerPush(args, tag)
 }
 
 export async function run(args: Args) {

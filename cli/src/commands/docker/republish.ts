@@ -54,6 +54,7 @@ export async function run(args: Args) {
         const srcArchTag = `${image}-linux-${arch}`
         const targetArchTag = `${targetTag}-linux-${arch}`
         await imagePull(srcArchTag, true)
+        await dockerTag(srcArchTag, targetArchTag)
         if (push) {
           await dockerPush(targetArchTag)
         } else {
@@ -98,11 +99,10 @@ export async function run(args: Args) {
     if (multiArch) {
       const targetArchTags: string[] = []
       for (const arch of supportedArchs) {
-        const srcArchTag = `${baseImage}-linux-${arch}`
         const targetArchTag = `${targetTag}-linux-${arch}`
         await buildCustomizedImage(
           targetArchTag,
-          srcArchTag,
+          baseImage,
           customization,
           arch,
         )
@@ -137,8 +137,7 @@ export async function run(args: Args) {
   }
 
   await configLoadEngineVersions()
-  // for (const name of Object.keys(projectVersions()).reverse()) {
-  for (const name of Object.keys(projectVersions())) {
+  for (const name of Object.keys(projectVersions()).reverse()) {
     if (['release', 'base'].includes(name) || name.includes('engine-')) {
       continue
     }

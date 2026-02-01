@@ -2,7 +2,6 @@ import { HANDLED_ERROR_EXIT_CODE } from '../../types.ts'
 import Debug from 'debug'
 import { dinghyHome, hostAppHome } from '../../shared/home.ts'
 import { runDockerCmd } from '../../utils/dockerUtils.ts'
-import { configIsEngineRepoDefault } from '../../utils/dockerConfig.ts'
 import { projectVersionRelease } from '../../utils/projectVersions.ts'
 import { ExecaError } from 'execa'
 import { walk } from '@std/fs/walk'
@@ -13,19 +12,13 @@ import chalk from 'chalk'
 import { parseArgs } from '@std/cli/parse-args'
 import { useEnvVar } from '../../utils/loadConfig.ts'
 import { configGetEngineImage } from '../config/configGetEngineImage.ts'
+import { isCi } from '@dinghy/cli'
+import { ENGINE_DOCKER_OPTIONS } from '../config/engineDockerOptions.ts'
 const debug = Debug('runEngineCommand')
-
-export const ENGINE_DOCKER_OPTIONS = {
-  name: 'engine-docker-options',
-  description: 'Additional options to pass to the engine docker run command',
-  multiple: true,
-  env: 'DINGHY_ENGINE_DOCKER_OPTIONS',
-  hidden: true,
-}
 
 const populateCacheIfNeeded = async () => {
   if (
-    !configIsEngineRepoDefault()
+    Deno.env.get('DINGHY_DOCKER_PREPOPULATE_CACHE') === 'true' && !isCi()
   ) {
     const cacheMarkerFile = `${dinghyHome}/states/marker-cache-populated-${
       (await configGetEngineImage()).replace(/\W/g, '')
