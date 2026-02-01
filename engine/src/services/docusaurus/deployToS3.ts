@@ -1,7 +1,6 @@
 import { walk } from '@std/fs'
 import { existsSync } from 'node:fs'
-import { s3UploadFile } from '../../utils/index.ts'
-import { s3Sync } from '../../utils/s3.ts'
+import { s3Sync, s3UploadFile } from '../../utils/s3.ts'
 import { gzip } from 'jsr:@deno-library/compress'
 import chalk from 'chalk'
 import { SiteConfigSchema } from '../../services/docusaurus/site-config-schema.ts'

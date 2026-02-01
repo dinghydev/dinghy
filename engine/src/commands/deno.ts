@@ -1,6 +1,5 @@
 import type { CmdInput } from '@dinghy/cli'
-import { DinghyError } from '@dinghy/cli'
-import { streamCmd } from '../utils/cmd.ts'
+import { cmdStream } from '@dinghy/cli'
 import { Args } from '@std/cli/parse-args'
 
 export const schema: CmdInput = {
@@ -9,15 +8,11 @@ export const schema: CmdInput = {
 }
 
 export const run = async (args: Args) => {
-  const result = await streamCmd(
+  await cmdStream(
     [
       'deno',
       ...args.extraOptions,
     ],
-    undefined,
-    false,
+    true,
   )
-  if (result.exitCode !== 0) {
-    throw new DinghyError(`Failed to run deno, see error above`)
-  }
 }

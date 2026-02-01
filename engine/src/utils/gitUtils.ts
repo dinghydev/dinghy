@@ -1,9 +1,8 @@
-import { execCmd, streamCmd } from './cmd.ts'
 import Debug from 'debug'
 import { dublinTimeNow } from './timeUtils.ts'
 import { temporaryStorageGetFile, temporaryStorageSaveFile } from './s3.ts'
 import { commitVersion } from './commitVersion.ts'
-import { hostAppHome } from '@dinghy/cli'
+import { cmdStream, hostAppHome } from '@dinghy/cli'
 const debug = Debug('gitUtils')
 export const mrId = () => Deno.env.get('CI_MERGE_REQUEST_IID')
 
@@ -15,10 +14,10 @@ const projectId = () => Deno.env.get('CI_PROJECT_ID')
 
 export const hasGitRepo = async () => {
   try {
-    await streamCmd(
+    await cmdStream(
       ['git', 'rev-parse', '--show-toplevel'],
-      hostAppHome,
       true,
+      hostAppHome,
     )
     return true
   } catch {
@@ -34,7 +33,11 @@ export const projectName = async (): Promise<string> => {
   let project = Deno.env.get('CI_PROJECT_PATH')
   try {
     if (!project) {
-      const originUrl = (await execCmd('git remote get-url origin')).trim()
+      const originUrl = ((await cmdStream(
+        ['git', 'remote', 'get-url', 'origin'],
+        true,
+        hostAppHome,
+      )).output as string).trim()
       const splitIndex = originUrl.startsWith('git')
         ? originUrl.indexOf(':')
         : originUrl.indexOf('/', 10)

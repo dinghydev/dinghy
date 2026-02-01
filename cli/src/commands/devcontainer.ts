@@ -1,7 +1,6 @@
 import { existsSync } from '@std/fs/exists'
 import { dirname } from '@std/path'
 import { appHomeMount, hostAppHome } from '../shared/home.ts'
-import { configGetEngineImage } from '../utils/dockerConfig.ts'
 import { execa } from 'execa'
 import { getDockerEnvs, getDockerMounts } from '../utils/dockerUtils.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
@@ -9,6 +8,8 @@ import Debug from 'debug'
 import { useEnvVar } from '../utils/loadConfig.ts'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
+import { configGetEngineImage } from '../services/config/configGetEngineImage.ts'
+import { cmdCode } from '../utils/cmd.ts'
 const debug = Debug('devcontainer')
 
 export const schema: CmdInput = {
@@ -45,12 +46,12 @@ export const run = async (args: Args) => {
       })
     }
 
-    const result = await execa('devcontainer', ['open'], {
-      cwd: hostAppHome,
-      stdio: 'ignore',
-      reject: false,
-    })
-    if (result.exitCode !== 0) {
+    const result = await cmdCode(
+      ['devcontainer', 'open'],
+      false,
+      hostAppHome,
+    )
+    if (!result.success) {
       console.log(
         `Config generated at ${hostAppHome}/.devcontainer.json}`,
       )
@@ -61,7 +62,7 @@ export const run = async (args: Args) => {
   }
 }
 
-function prepareConfig(args: Args): any {
+async function prepareConfig(args: Args): Promise<any> {
   const configFolder = `${hostAppHome}/.devcontainer`
   if (existsSync(configFolder)) {
     debug(
@@ -75,7 +76,7 @@ function prepareConfig(args: Args): any {
   config.name ??= hostAppHome.split('/').pop() as string
   config.runArgs ??= ['--name', config.name]
   if (!config.build) {
-    config.image = configGetEngineImage()
+    config.image = await configGetEngineImage()
   }
 
   config.containerEnv = getDockerEnvs(config.containerEnv || {})

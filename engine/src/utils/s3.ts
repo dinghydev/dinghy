@@ -5,9 +5,7 @@ import {
 } from '@aws-sdk/client-s3'
 
 import Debug from 'debug'
-// import { sleep } from './timeUtils.ts'
-import { configGetImage, runDockerCmd } from '@dinghy/cli'
-// import { runTfImageCmd } from '../commands/tf/runTfImageCmd.ts'
+import { configGetOriginalImage, runDockerCmd } from '@dinghy/cli'
 import { gzip } from 'jsr:@deno-library/compress'
 const debug = Debug('aws:s3')
 
@@ -23,28 +21,6 @@ export const s3GetFile = async (
   debug('download s3://%s/%s request', Bucket, Key)
   const s3Response = await s3Client(region).send(s3Command)
   const body = await s3Response.Body!.transformToString('utf-8')
-
-  // const s3GetFileName = `${hostAppHome}/s3GetFile`
-  // const result = await runTfImageCmd(
-  //   hostAppHome,
-  //   {} as any,
-  //   [
-  //     'aws',
-  //     's3',
-  //     'cp',
-  //     `s3://${Bucket}/${Key}`,
-  //     s3GetFileName,
-  //     '--region',
-  //     region,
-  //   ],
-  //   false,
-  // )
-  // if (result.exitCode !== 0) {
-  //   debug('Failed to download s3://%s/%s', Bucket, Key)
-  //   return null
-  // }
-  // const body = Deno.readTextFileSync(s3GetFileName)
-  // Deno.removeSync(s3GetFileName)
   debug('download response: %s', body)
   return body
 }
@@ -65,27 +41,6 @@ export const s3WriteString = async (
   debug('upload s3://%s/%s request', Bucket, Key)
   const s3Response = await s3Client(region).send(s3Command)
   debug('upload response', s3Response)
-
-  // const s3WriteStringName = `${hostAppHome}/s3WriteString`
-  // Deno.writeTextFileSync(s3WriteStringName, Body)
-  // const result = await runTfImageCmd(
-  //   hostAppHome,
-  //   {} as any,
-  //   [
-  //     'aws',
-  //     's3',
-  //     'cp',
-  //     s3WriteStringName,
-  //     `s3://${Bucket}/${Key}`,
-  //     '--region',
-  //     region,
-  //   ],
-  //   false,
-  // )
-  // if (result.exitCode !== 0) {
-  //   throw new Error(`Failed to upload s3://${Bucket}/${Key}`)
-  // }
-  // Deno.removeSync(s3WriteStringName)
 }
 
 export const s3UploadFile = async (
@@ -116,7 +71,7 @@ export const s3Sync = async (
   options: any = {},
 ) => {
   debug('sync %s to %s %s', src, targetS3Url)
-  const image = configGetImage('awscli')
+  const image = configGetOriginalImage('awscli')
 
   const s3SyncCmd = [
     'aws',

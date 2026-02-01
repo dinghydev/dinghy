@@ -11,12 +11,7 @@ function lazyLoad(): Record<string, string> {
   if (!versions['release']) {
     const versionFile = `${projectRoot}/.versions.json`
     if (existsSync(versionFile)) {
-      const loadedVersions = JSON.parse(
-        Deno.readTextFileSync(versionFile).trim(),
-      )
-      Object.entries(loadedVersions).forEach(([key, value]) => {
-        versions[key] = value
-      })
+      loadVersionsFromFile(versionFile)
     } else {
       debug('Version file %s not found, using commit version', versionFile)
       return { release: commitVersion(projectRoot) }
@@ -48,4 +43,14 @@ export const versionDetails = () => {
     `deno/${Deno.version.deno}-${Deno.build.os}-${Deno.build.arch}`,
   )
   return versionInfo
+}
+
+export function loadVersionsFromFile(versionFile: string) {
+  const loadedVersions = JSON.parse(
+    Deno.readTextFileSync(versionFile).trim(),
+  )
+  Object.entries(loadedVersions).forEach(([key, value]) => {
+    versions[key] = value
+  })
+  debug('Loaded versions from %s: %O', versionFile, loadedVersions)
 }

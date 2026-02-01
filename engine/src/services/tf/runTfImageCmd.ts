@@ -1,4 +1,4 @@
-import { hostAppHome, prepareTfImage, runDockerCmd } from '@dinghy/cli'
+import { configGetToolImage, hostAppHome, runDockerCmd } from '@dinghy/cli'
 import Debug from 'debug'
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('runTfImageCmd')
@@ -12,7 +12,7 @@ export const runTfImageCmd = async (
   const containerWorkingDir = workingDir.startsWith('/')
     ? workingDir
     : `${hostAppHome}/${workingDir}`
-  const image = prepareTfImage()
+  const image = await configGetToolImage('tf')
   const envs: Record<string, string> = {}
   if (debug.enabled) {
     envs['TF_LOG'] = 'DEBUG'

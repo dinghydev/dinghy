@@ -2,10 +2,7 @@ import { HANDLED_ERROR_EXIT_CODE } from '../../types.ts'
 import Debug from 'debug'
 import { dinghyHome, hostAppHome } from '../../shared/home.ts'
 import { runDockerCmd } from '../../utils/dockerUtils.ts'
-import {
-  configGetEngineImage,
-  configIsEngineRepoDefault,
-} from '../../utils/dockerConfig.ts'
+import { configIsEngineRepoDefault } from '../../utils/dockerConfig.ts'
 import { projectVersionRelease } from '../../utils/projectVersions.ts'
 import { ExecaError } from 'execa'
 import { walk } from '@std/fs/walk'
@@ -15,6 +12,7 @@ import { run as cacheRun } from '../../commands/docker/cache.ts'
 import chalk from 'chalk'
 import { parseArgs } from '@std/cli/parse-args'
 import { useEnvVar } from '../../utils/loadConfig.ts'
+import { configGetEngineImage } from '../config/configGetEngineImage.ts'
 const debug = Debug('runEngineCommand')
 
 export const ENGINE_DOCKER_OPTIONS = {
@@ -30,7 +28,7 @@ const populateCacheIfNeeded = async () => {
     !configIsEngineRepoDefault()
   ) {
     const cacheMarkerFile = `${dinghyHome}/states/marker-cache-populated-${
-      configGetEngineImage().replace(/\W/g, '')
+      (await configGetEngineImage()).replace(/\W/g, '')
     }`
     if (!existsSync(cacheMarkerFile)) {
       console.log(
@@ -99,7 +97,7 @@ export async function runEngineCommand(args: string[]) {
         'dinghy',
         ...args,
       ],
-      configGetEngineImage(),
+      await configGetEngineImage(),
       true,
       collectDockerArgs(args),
     )

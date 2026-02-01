@@ -1,5 +1,5 @@
 import {
-  configGetImage,
+  configGetToolImage,
   deepMerge,
   dinghyAppConfig,
   DinghyError,
@@ -87,7 +87,7 @@ export const runDocusaurusImageCmd = async (
   if (Object.keys(restSiteConfig).length > 0) {
     dockerEnvs['SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
   }
-  const image = configGetImage('site')
+  const image = await configGetToolImage('site')
   const siteOptions = []
   const dockerArgs: string[] = args['site-docker-options'] || []
   if (args['port']) {

@@ -85,8 +85,8 @@ function addOptions(
     const name = option.boolean
       ? `${alias}--${(option.negatable ? '[no]-' : '')}${option.name}`
       : option.multiple
-      ? `[${alias}--${option.name} <value>]`
-      : `${alias}--${option.name} <value>`
+      ? `[${alias}--${option.name}=<value>]`
+      : `${alias}--${option.name}=<value>`
     return name
   })
 }

@@ -11,7 +11,7 @@ const useDefaultRepo = () =>
 
 export const configGetEngineRepo = () => {
   if (useDefaultRepo()) {
-    debug('using default engine repo for special docker operation')
+    debug('using default engine repo for special docker republish operation')
     return configEngineRepoDefault
   }
   return useEnvVar(['dinghy', 'engine', 'repo']) || configEngineRepoDefault
@@ -49,13 +49,7 @@ export const configGetEngineVersion = () => {
   return version
 }
 
-export const configGetEngineImage = () => {
-  const image = `${configGetEngineRepo()}:engine-${configGetEngineVersion()}`
-  debug('resolved engine image %s', image)
-  return image
-}
-
-export const configGetImage = (name: string) => {
+export const configGetOriginalImage = (name: string) => {
   const imageVersion = projectVersions()[name]
   if (!imageVersion) {
     throw new Error(`Image ${name} not exists`)

@@ -7,7 +7,7 @@ import {
   hostAppHome,
   isInsideContainer,
 } from '../shared/home.ts'
-import { streamCmd } from './cmd.ts'
+import { cmdStream } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
@@ -153,7 +153,7 @@ export const runDockerCmd = async (
     }
   }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome
-  return await streamCmd(
+  return await cmdStream(
     [
       'docker',
       'run',
@@ -171,7 +171,7 @@ export const runDockerCmd = async (
       dockerImage,
       ...args,
     ],
-    cwd,
     errorOnFailure,
+    cwd,
   )
 }

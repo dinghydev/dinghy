@@ -4,7 +4,7 @@ import Debug from 'debug'
 import { resolve } from '@std/path/resolve'
 import chalk from 'chalk'
 import { runDockerCmd } from '@dinghy/cli'
-import { configGetImage } from '@dinghy/cli'
+import { configGetOriginalImage } from '@dinghy/cli'
 import { hostAppHome } from '@dinghy/cli'
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('diagram:png')
@@ -77,7 +77,7 @@ export const run = async (args: Args) => {
   }
   const results: any = {}
   let failed = false
-  const drawioImage = configGetImage('drawio')
+  const drawioImage = configGetOriginalImage('drawio')
   for (const file of files) {
     const pngFile = file.replace('.drawio', '.png')
     debug(`generating from ${file}`)
@@ -91,7 +91,7 @@ export const run = async (args: Args) => {
       pngFile,
       file,
     ])
-    if (pngResult!.all?.includes('Export failed')) {
+    if (pngResult!.output?.includes('Export failed')) {
       results[file] = 'FAILED'
       failed = true
     } else {

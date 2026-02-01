@@ -123,6 +123,8 @@ const runCommand = async (
       return true
     },
   }
+  // deno-lint-ignore prefer-const
+  let parsedOptions: any
   const allOptions = [...globalOptions, ...(cmd.options || [])].reverse()
   const globalOptionsKeys: string[] = globalOptions.map((option: OptionInput) =>
     option.name
@@ -174,7 +176,7 @@ const runCommand = async (
           if (option.boolean) {
             value = false
           } else {
-            if (option.required) {
+            if (option.required && !parsedOptions.help) {
               throw new DinghyError(
                 `Option [${option.name}] is required`,
               )
@@ -187,14 +189,15 @@ const runCommand = async (
       return value
     }
   })
-  const parsedOptions: any = parseArgs(args, argOptions as any)
+  parsedOptions = parseArgs(args, argOptions as any)
+  deepResolve(parsedOptions, 'help')
   deepResolve(parsedOptions)
   const extraOptions = [...parsedOptions['_']]
   cmdDef.schema.args?.forEach((arg) => {
     let argValue = extraOptions.shift()
     if (argValue === undefined) {
       if (arg.default === undefined) {
-        if (arg.required) {
+        if (arg.required && !parsedOptions.help) {
           throw new DinghyError(
             `Argument [${arg.name.toLocaleUpperCase()}] is required`,
           )

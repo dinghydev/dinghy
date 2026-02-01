@@ -81,6 +81,7 @@ export const fetchLatestVersion = async () => {
 const runCommandWithUpgradedVersion = async () => {
   const result = await execa({
     stderr: 'inherit',
+    stdin: 'inherit',
     stdout: 'inherit',
   })`${dinghyHome}/bin/dinghy ${Deno.args}`
   Deno.exit(result.exitCode)

@@ -11,21 +11,21 @@ const TfSchema = RunsSchema.extend({
   providers: z.record(z.string(), z.string()).optional(),
 })
 
-const NpmSchema = RunsSchema.extend({
-  packages: z.record(z.string(), z.string()).optional(),
+const PackagesSchema = RunsSchema.extend({
+  packages: z.string().array().optional(),
 })
 
 const schemaMap = {
   drawio: RunsSchema,
-  site: NpmSchema,
+  site: PackagesSchema,
   awscli: RunsSchema,
   tf: TfSchema,
-  release: NpmSchema,
+  engine: PackagesSchema,
 }
 
 export const imageCustomization = (name: string) => {
   const config = dinghyAppConfig.docker?.images?.[name]
   if (config) {
-    return schemaMap[name as keyof typeof schemaMap].parse(config)
+    return schemaMap[name as keyof typeof schemaMap]?.parse(config)
   }
 }

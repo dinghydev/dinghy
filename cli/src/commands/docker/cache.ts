@@ -1,11 +1,11 @@
 import chalk from 'chalk'
-import {
-  getTfImageTag,
-  prepareOndemandImage,
-} from '../../services/docker/dockerBuildUtils.ts'
-import { consumerImages } from '../../services/docker/consumerImages.ts'
 import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
+import { configGetToolImage } from '../../services/config/configGetToolImage.ts'
+import { configGetEngineImage } from '../../services/config/configGetEngineImage.ts'
+import { configLoadEngineVersions } from '../../services/config/configLoadEngineVersions.ts'
+import { projectVersions } from '../../utils/projectVersions.ts'
+import { configGetOriginalImage } from '../../utils/dockerConfig.ts'
 
 export const schema: CmdInput = {
   description: 'Cache all related docker images locally',
@@ -15,29 +15,34 @@ export const schema: CmdInput = {
       description:
         'Only include these images, comma separated list of image names. If not provided, all images will be cached.',
     },
-    {
-      name: 'use-local-cache',
-      description:
-        'Use local cache instead of repopulating for faster operation.',
-      boolean: true,
-    },
   ],
   alias: ['populate-local-cache'],
 }
 
-export function run(args: Args) {
-  for (const image of consumerImages().reverse()) {
+export async function run(args: Args) {
+  await configLoadEngineVersions()
+  const includeImages = args['include-images']
+    ? args['include-images'].split(',').map((image: string) => image.trim())
+    : undefined
+
+  for (const name of Object.keys(projectVersions()).reverse()) {
     if (
-      args['include-images'] &&
-      !args['include-images'].split(',').includes(image.name)
+      name !== 'engine' &&
+      includeImages &&
+      !includeImages.includes(name)
     ) {
       continue
     }
-    console.log(`Preparing image ${chalk.grey(image.image)}...`)
-    if (image.image.includes(':tf-')) {
-      image.image = getTfImageTag()
+    if (name === 'release' || name === 'base' || name.includes('-')) {
+      continue
     }
-    prepareOndemandImage(image.image, args['use-local-cache'])
-    console.log(`Image ${chalk.green(image.image)} is ready`)
+    let image = configGetOriginalImage(name)
+    console.log(`Preparing image ${chalk.grey(image)}...`)
+    if (name === 'engine') {
+      image = await configGetEngineImage()
+    } else {
+      image = await configGetToolImage(name)
+    }
+    console.log(`Image ${chalk.green(image)} is ready`)
   }
 }

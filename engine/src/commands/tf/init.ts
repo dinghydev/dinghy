@@ -1,7 +1,7 @@
 import { runTfImageCmd } from '../../services/tf/runTfImageCmd.ts'
 import process from 'node:process'
 import confirm from '@inquirer/confirm'
-import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
+import { DinghyError, hostAppHome, requireStacksConfig } from '@dinghy/cli'
 import { doWithTfStacks } from '../../services/tf/doWithTfStacks.ts'
 import chalk from 'chalk'
 import { Args } from '@std/cli/parse-args'
@@ -31,8 +31,8 @@ export const run = async (args: Args, stackInfo?: any) => {
       args,
     )
 
-    if (result.exitCode !== 0) {
-      if (result.stdout?.includes('StatusCode: 404')) {
+    if (!result.success) {
+      if (result.output?.includes('StatusCode: 404')) {
         const tfModel = JSON.parse(
           Deno.readTextFileSync(
             `${hostAppHome}/${stackPath}/stack.tf.json`,
@@ -48,7 +48,7 @@ export const run = async (args: Args, stackInfo?: any) => {
           )
           let createOnDemand = args['auto-create-backend']
           let userConfirmed = false
-          if (!createOnDemand && process.stdout.isTTY) {
+          if (!createOnDemand && process.stdin.isTTY) {
             createOnDemand = await confirm({
               message: 'Do you want to create it now?',
               default: true,
@@ -67,7 +67,7 @@ export const run = async (args: Args, stackInfo?: any) => {
           }
         }
       }
-      throw new Error('failed to init')
+      throw new DinghyError('Failed to run tf init')
     }
     await onEvent(`tf.stack.init.finish`, stackInfo)
   }
@@ -111,7 +111,7 @@ const createBackend = async (
     workingDir,
     args,
   )
-  if (result.exitCode !== 0) {
+  if (!result.success) {
     throw new Error('failed to init backend')
   }
 
@@ -166,6 +166,5 @@ const runTfInit = (
     stackPath,
     args,
     ['tf-init'],
-    false,
   )
 }

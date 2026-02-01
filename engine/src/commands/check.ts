@@ -1,6 +1,5 @@
 import type { CmdInput } from '@dinghy/cli'
-import { DinghyError } from '@dinghy/cli'
-import { streamCmd } from '../utils/cmd.ts'
+import { cmdStream, DinghyError } from '@dinghy/cli'
 import { hostAppHome } from '@dinghy/cli'
 import chalk from 'chalk'
 import { hasGitRepo } from '../utils/gitUtils.ts'
@@ -73,23 +72,23 @@ export const run = async (args: Args) => {
     }
 
     console.log(`Running ${check} check with command: ${command}...`)
-    const result = await streamCmd(
+    const result = await cmdStream(
       command.split(' '),
-      isGitCheck ? hostAppHome : undefined,
       false,
+      isGitCheck ? hostAppHome : undefined,
     )
-    if (check === 'git' && result.all) {
+    if (check === 'git' && result.output) {
       console.log(
         chalk.red(`Unexpected changes detected in git repo`),
       )
-      result.exitCode = 1
+      result.success = false
     }
     results.push({
       check: command,
       result,
     })
   }
-  const failedChecks = results.filter((result) => result.result.exitCode !== 0)
+  const failedChecks = results.filter((result) => !result.result.success)
   if (failedChecks.length > 0) {
     throw new DinghyError(
       `Failed to run checks [${

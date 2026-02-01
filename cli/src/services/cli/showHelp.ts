@@ -144,8 +144,8 @@ const generateOptionsSection = (
         const name = option.boolean
           ? `${alias}--${(option.negatable ? '[no]-' : '')}${option.name}`
           : option.multiple
-          ? `[${alias}--${option.name} <value>]`
-          : `${alias}--${option.name} <value>`
+          ? `[${alias}--${option.name}=<value>]`
+          : `${alias}--${option.name}=<value>`
         section.push({
           name,
           description: option.description,

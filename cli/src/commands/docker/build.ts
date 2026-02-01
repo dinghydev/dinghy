@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs'
 import {
   dockerManifestCreate,
   dockerPush,
+  dockerTag,
   md5Hash,
   multiArch,
 } from '../../services/docker/dockerBuildUtils.ts'
@@ -18,6 +19,7 @@ import { supportedArchs } from '../../services/docker/dockerBuildUtils.ts'
 import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'
+import { cmdInherit } from '../../utils/cmd.ts'
 const debug = Debug('docker:build')
 
 export const schema: CmdInput = {
@@ -127,15 +129,6 @@ function isTagExists(tag: string) {
     return false
   }
   return true
-}
-
-function dockerCommand(args: string[]) {
-  console.log(`Executing: cd ${hostAppHome}; docker ${args.join(' ')}`)
-  execaSync({
-    stderr: 'inherit',
-    stdout: 'inherit',
-    cwd: hostAppHome,
-  })`docker ${args}`
 }
 
 function dockerPushEnabled(args: Args) {
@@ -250,13 +243,12 @@ async function buildImage(image: DockerImage, args: Args) {
         args.arch.map((arch: string) => `${image.tag}-linux-${arch}`),
       )
     } else {
-      await dockerCommand([
-        'tag',
+      await dockerTag(
         `${image.tag}-linux-${
           Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
         }`,
         image.tag,
-      ])
+      )
     }
   } else {
     await buildImageWithArch(image, args)
@@ -269,7 +261,7 @@ async function buildImageWithArch(
   arch?: string,
 ) {
   const tag = arch ? `${image.tag}-linux-${arch}` : image.tag
-  const buildArgs = ['buildx', 'build']
+  const buildArgs = ['docker', 'buildx', 'build']
   if (arch) {
     buildArgs.push('--provenance', 'false')
     buildArgs.push('--platform', `linux/${arch}`)
@@ -282,7 +274,7 @@ async function buildImageWithArch(
     }
   }
   buildArgs.push('-t', tag, '-f', `${image.folder}/Dockerfile`, '.')
-  await dockerCommand(buildArgs)
+  await cmdInherit(buildArgs, true)
   console.log(`Tag ${image.tag} built at`, new Date().toISOString())
 
   performDockerPush(args, tag)

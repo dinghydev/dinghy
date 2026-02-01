@@ -34,7 +34,7 @@ export const cliRun = async (
 
     if (error) {
       if (error instanceof DinghyError) {
-        debug('Deno.exit with %O', error)
+        debug('Deno.exit with DinghyError: %O', error)
         if (error.message) {
           console.error(
             `${error.code ? `${chalk.bold(error.code)} ` : ''}${
