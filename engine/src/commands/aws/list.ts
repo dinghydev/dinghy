@@ -47,9 +47,13 @@ export const listConnectableInstances = async (
     stackOutput = await loadUrlData(stackOutputUrl, stackPath)
     debug('stackOutput %O', stackOutput)
   } catch (error) {
-    if (error?.toString().includes('NoSuchKey')) {
+    const errorMessage = error?.toString()
+    if (
+      errorMessage?.includes('NoSuchKey') ||
+      errorMessage?.includes('File not found')
+    ) {
       throw new DinghyError(
-        'Output file not found in s3, you may need to run perform tf operation first to create the resources!',
+        'Stack output file not found, you may need to perform tf operation first to create the resources!',
       )
     } else {
       console.log(error)

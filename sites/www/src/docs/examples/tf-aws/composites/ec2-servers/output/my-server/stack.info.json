@@ -15,6 +15,6 @@
   "mainAutoDiff": true,
   "mainAutoDeploy": false,
   "outputs": {
-    "stack": "https://s3.us-east-1.amazonaws.com/my-unique-s3-backend-bucket/outputs/my-server.stack.json"
+    "stack": "file://my-server.stack.json"
   }
 }

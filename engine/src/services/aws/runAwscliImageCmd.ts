@@ -19,6 +19,7 @@ export const runAwscliImageCmd = async (
     [],
     [...args, ...options.extraOptions],
     image,
+    false,
     true,
   )
 }

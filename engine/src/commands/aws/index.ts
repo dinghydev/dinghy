@@ -3,7 +3,7 @@ import { runAwscliImageCmd } from '../../services/aws/runAwscliImageCmd.ts'
 import { Args } from '@std/cli/parse-args'
 
 /**
- * ## Example usage
+ * ## Examples
  *
  * To execute `aws s3 ls`, run:
  * ```sh

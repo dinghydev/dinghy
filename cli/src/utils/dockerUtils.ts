@@ -7,7 +7,7 @@ import {
   hostAppHome,
   isInsideContainer,
 } from '../shared/home.ts'
-import { cmdStream } from './cmd.ts'
+import { cmdStream, cmdStreamAndCapture } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
@@ -31,11 +31,12 @@ const HOME_MOUNTS = [
 ]
 
 const DOCKER_EXCLUDED_ENVS = [
-  'PATH',
   'HOME',
-  'TMPDIR',
+  'PWD',
+  'PATH',
   'SHELL',
   'SSH_AUTH_SOCK',
+  'TMPDIR',
 ]
 
 const GLOBALE_MOUNTS = [
@@ -141,6 +142,7 @@ export const runDockerCmd = async (
   appMounts: Mount[],
   args: string[],
   dockerImage: string,
+  captureOutput = false,
   errorOnFailure = true,
   dockerArgs = [] as string[],
 ) => {
@@ -152,8 +154,11 @@ export const runDockerCmd = async (
       debug('not a tty')
     }
   }
+  if (args.includes('bash')) {
+    envs.PROMPT_DIRTRIM = '5'
+  }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome
-  return await cmdStream(
+  return await (captureOutput ? cmdStreamAndCapture : cmdStream)(
     [
       'docker',
       'run',

@@ -1,5 +1,5 @@
 import type { CmdInput } from '@dinghy/cli'
-import { cmdStream } from '@dinghy/cli'
+import { cmdStreamAndCapture } from '@dinghy/cli'
 import { Args } from '@std/cli/parse-args'
 
 export const schema: CmdInput = {
@@ -8,7 +8,7 @@ export const schema: CmdInput = {
 }
 
 export const run = async (args: Args) => {
-  await cmdStream(
+  await cmdStreamAndCapture(
     [
       'deno',
       ...args.extraOptions,

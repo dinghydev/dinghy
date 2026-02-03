@@ -158,6 +158,7 @@ export const runDocusaurusImageCmd = async (
     dockerVolumnes,
     [...cmd, ...siteOptions, ...args.extraOptions],
     image,
+    false,
     true,
     dockerArgs,
   )

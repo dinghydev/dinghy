@@ -3,7 +3,7 @@ import { runDocusaurusImageCmd } from '../../services/docusaurus/runDocusaurusIm
 import { Args } from '@std/cli/parse-args'
 
 /**
- * ## Example usage
+ * ## Examples
  *
  * To execute `docusaurus swizzle --list`, run:
  * ```sh

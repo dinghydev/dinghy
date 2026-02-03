@@ -1,0 +1,17 @@
+{
+  "name": "bucket-with-composite-components",
+  "title": "Bucket With Composite Components",
+  "app": "bucket-with-composite-components.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "bucket-with-composite-components",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}

@@ -24,6 +24,7 @@ export const runTfImageCmd = async (
     [],
     [...cmd, ...options.extraOptions],
     image,
+    cmd.includes('tf-init'),
     exitOnFailure,
     options['tf-docker-options'] || [],
   )

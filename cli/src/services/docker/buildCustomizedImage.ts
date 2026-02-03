@@ -3,7 +3,7 @@ import { configGetOriginalImage } from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { dirname } from 'node:path'
 import { imageExistLocally, imagePull } from './imageStatusUtil.ts'
-import { cmdInherit } from '../../utils/cmd.ts'
+import { cmdStream } from '../../utils/cmd.ts'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
 import { extractImageFile } from './extractImageFile.ts'
@@ -189,7 +189,7 @@ export async function buildCustomizedImage(
   )
 
   console.log(`Building customized docker image ${image}...`)
-  await cmdInherit(
+  await cmdStream(
     `docker buildx build --provenance false --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${image} -f ${workingDir}/Dockerfile .`,
     true,
     workingDir,

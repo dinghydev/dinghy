@@ -4,7 +4,7 @@
   version="25.0.2"
   >
   <diagram
-    name="bucket"
+    name="s3-bucket"
     >
     <mxGraphModel
       grid="1" 
@@ -33,7 +33,7 @@
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
           id="stack" 
           parent="root" 
-          value="S3 Bucket Service Components Example" 
+          value="Bucket With Basic Building Blocks" 
           vertex="1"
           >
           <mxGeometry
@@ -46,9 +46,9 @@
           </mxCell>
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;fontColor=#232F3E;dashed=0;" 
-          id="awsprovider_euwest1" 
+          id="awsprovider_useast1" 
           parent="stack" 
-          value="eu-west-1" 
+          value="us-east-1" 
           vertex="1"
           >
           <mxGeometry
@@ -60,24 +60,9 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
-          id="s3backend" 
-          parent="awsprovider_euwest1" 
-          value="S3 Backend" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="60" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
           style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;fontColor=#CD2264;dashed=0;" 
           id="awss3bucket_mydemobucketwithversioning" 
-          parent="awsprovider_euwest1" 
+          parent="awsprovider_useast1" 
           value="my-demo-bucket-with-versioning" 
           vertex="1"
           >
@@ -86,7 +71,7 @@
             width="120" 
             height="120" 
             x="30" 
-            y="140"
+            y="30"
             />
           </mxCell>
         <mxCell
@@ -102,6 +87,21 @@
             height="60" 
             x="30" 
             y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;verticalLabelPosition=bottom;html=1;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.code_file;pointerEvents=1;" 
+          id="localbackend" 
+          parent="awsprovider_useast1" 
+          value="Local Backend" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="60" 
+            y="180"
             />
           </mxCell>
         </root>

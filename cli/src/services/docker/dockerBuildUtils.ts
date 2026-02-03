@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { cmdInherit } from '../../utils/cmd.ts'
+import { cmdStream } from '../../utils/cmd.ts'
 
 export const md5Hash = (str: string) =>
   createHash('md5')
@@ -7,25 +7,25 @@ export const md5Hash = (str: string) =>
     .digest('hex')
 
 export async function dockerPush(image: string) {
-  await cmdInherit(['docker', 'push', image], true)
+  await cmdStream(['docker', 'push', image], true)
 }
 
 export async function dockerTag(image: string, target: string) {
-  await cmdInherit(['docker', 'tag', image, target], true)
+  await cmdStream(['docker', 'tag', image, target], true)
 }
 
 export async function dockerManifestCreate(
   image: string,
   archImages: string[],
 ) {
-  await cmdInherit([
+  await cmdStream([
     'docker',
     'manifest',
     'create',
     image,
     ...archImages,
   ], true)
-  await cmdInherit(['docker', 'manifest', 'push', image], true)
+  await cmdStream(['docker', 'manifest', 'push', image], true)
 }
 
 export function buildOndemandImage(_image: string, _buildArch?: string) {

@@ -21,9 +21,25 @@ type Sections = {
   'Global Options': Row[]
 }
 
+const formateText = (text: string) => {
+  text = text.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    (_match: string, p1: string, _p2: string) => {
+      return chalk.blueBright(p1)
+    },
+  )
+  text = text.replace(
+    /\`(.*?)\`/g,
+    (_match: string, p1: string, _p2: string) => {
+      return chalk.cyan(p1)
+    },
+  )
+  return text
+}
+
 const printHelp = (cmdDef: CmdDefinition, sections: Sections) => {
   if (cmdDef.schema.description) {
-    console.log(cmdDef.schema.description)
+    console.log(formateText(cmdDef.schema.description))
   }
   for (const [name, rows] of Object.entries(sections)) {
     if (rows.length > 0) {
@@ -44,10 +60,13 @@ const printHelp = (cmdDef: CmdDefinition, sections: Sections) => {
             `  $ ${chalk.green(row.name)}`,
           )
         } else {
+          const description = row.description
+            ? formateText(row.description)
+            : ''
           console.log(
             `  ${chalk.green(row.name.padEnd(maxNameLength + 2))}${
               chalk.dim(options)
-            }${row.description ? row.description : ''}`,
+            }${description}`,
           )
         }
       }

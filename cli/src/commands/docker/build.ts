@@ -18,7 +18,7 @@ import { supportedArchs } from '../../services/docker/dockerBuildUtils.ts'
 import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'
-import { cmdInherit } from '../../utils/cmd.ts'
+import { cmdStream } from '../../utils/cmd.ts'
 import { imageExistRemotely } from '../../services/docker/imageStatusUtil.ts'
 const debug = Debug('docker:build')
 
@@ -261,7 +261,7 @@ async function buildImageWithArch(
     }
   }
   buildArgs.push('-t', tag, '-f', `${image.folder}/Dockerfile`, '.')
-  await cmdInherit(buildArgs, true)
+  await cmdStream(buildArgs, true)
   console.log(`Tag ${tag} built at`, new Date().toISOString())
 
   await performDockerPush(args, tag)

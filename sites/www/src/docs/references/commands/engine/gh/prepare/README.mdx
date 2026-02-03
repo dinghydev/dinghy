@@ -2,7 +2,7 @@
 edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/gh/prepare.ts
 ---
 # gh prepare
-Prepare github workflow
+Prepares the GitHub workflow based on incoming event data. Extracts the issue number and action run ID from the event payload and sets them as environment variables. This is utilized by the [dinghydev/setup-dinghy](https://github.com/dinghydev/setup-dinghy/blob/main/action.yml) GitHub Action.
 ## Usage
 ```sh
 $ dinghy gh prepare [options]

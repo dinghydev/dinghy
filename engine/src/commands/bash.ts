@@ -1,4 +1,4 @@
-import { type CmdInput, cmdStream } from '@dinghy/cli'
+import { type CmdInput, cmdStreamAndCapture } from '@dinghy/cli'
 import { Args } from '@std/cli/parse-args'
 
 export const schema: CmdInput = {
@@ -7,7 +7,7 @@ export const schema: CmdInput = {
 }
 
 export const run = async (args: Args) => {
-  await cmdStream(
+  await cmdStreamAndCapture(
     [
       'bash',
       ...args.extraOptions,

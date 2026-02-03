@@ -1,4 +1,9 @@
-import { CmdInput, cmdStream, DinghyError, hostAppHome } from '@dinghy/cli'
+import {
+  CmdInput,
+  cmdStreamAndCapture,
+  DinghyError,
+  hostAppHome,
+} from '@dinghy/cli'
 import { onEvent } from '@dinghy/base-components'
 import { debounce } from '@std/async/debounce'
 
@@ -189,7 +194,7 @@ export const run = async (args: Args) => {
   debug('render finished at %O', new Date())
 
   if (isCi() && !Deno.env.get('CI_SKIP_GIT_DIFF_CHECK')) {
-    const changes = await cmdStream(
+    const changes = await cmdStreamAndCapture(
       `git diff ${args.output}`,
       false,
       hostAppHome,

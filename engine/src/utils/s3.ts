@@ -99,6 +99,7 @@ export const s3Sync = async (
     dockerVolumnes,
     s3SyncCmd,
     image,
+    false,
     true,
     [],
   )

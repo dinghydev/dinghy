@@ -4,7 +4,7 @@
   version="25.0.2"
   >
   <diagram
-    name="s3-bucket"
+    name="bucket-with-composite-components"
     >
     <mxGraphModel
       grid="1" 
@@ -33,7 +33,7 @@
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
           id="stack" 
           parent="root" 
-          value="S3 Bucket" 
+          value="Bucket With Composite Components" 
           vertex="1"
           >
           <mxGeometry

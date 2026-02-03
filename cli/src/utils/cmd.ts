@@ -7,7 +7,7 @@ Debug.formatters.a = (v: any) => {
 }
 const debug = Debug('cmd')
 
-export const cmdStream = async (
+export const cmdStreamAndCapture = async (
   args: string[] | string,
   errorOnFailure = false,
   cwd?: string,
@@ -15,7 +15,7 @@ export const cmdStream = async (
   return await execCmd(args, ['pipe', 'inherit'], errorOnFailure, cwd)
 }
 
-export const cmdInherit = async (
+export const cmdStream = async (
   args: string[] | string,
   errorOnFailure = false,
   cwd?: string,
@@ -23,7 +23,7 @@ export const cmdInherit = async (
   return await execCmd(args, ['inherit'], errorOnFailure, cwd)
 }
 
-export const cmdOutput = async (
+export const cmdCapture = async (
   args: string[] | string,
   errorOnFailure = false,
   cwd?: string,
@@ -49,7 +49,7 @@ const execCmd = async (
     args = args.split(' ')
   }
   const workingDir = cwd || containerAppHome
-  debug('execCmd %a from %s', args, containerAppHome)
+  debug('execCmd from %s with %a: %a', workingDir, ioOption, args)
   const result = await execa(args[0], args.slice(1), {
     stdin: 'inherit',
     stdout: ioOption,

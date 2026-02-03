@@ -1,0 +1,15 @@
+# LocalBackendOutputs
+
+A [local file](./local-file.mdx) based backend outputs implementation. All terraraform outputs entry are stored in the output file.
+
+## Usage
+
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-common/src/LocalBackendOutputs.tsx)
+
+The [EC2 Servers](/examples/tf-aws/composites/ec2-servers) example demonstrates the generated Terraform `local_file.localfile_myserverstackjson` resource inside the `stack.tf.json` file.
+
+```js
+import { LocalBackendOutputs } from "@dinghy/tf-common"
+
+<LocalBackendOutputs/>
+```

@@ -1,11 +1,12 @@
 import type { CmdInput } from '@dinghy/cli'
-import { cmdStream, DinghyError } from '@dinghy/cli'
+import { cmdStreamAndCapture, DinghyError } from '@dinghy/cli'
 import { hostAppHome } from '@dinghy/cli'
 import chalk from 'chalk'
 import { hasGitRepo } from '../utils/gitUtils.ts'
 import { Args } from '@std/cli/parse-args'
+import { existsSync } from '@std/fs/exists'
 
-const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'git']
+const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'test', 'git']
 
 export const schema: CmdInput = {
   description: 'Run static code analysis, available checks: ' +
@@ -27,8 +28,15 @@ export const schema: CmdInput = {
       default: 'deno check',
     },
     {
+      name: 'testCmd',
+      description:
+        'The command to run for deno test if `__tests__` folder exists',
+      default: 'deno test --no-check',
+    },
+    {
       name: 'gitCmd',
-      description: 'The command to run for git check',
+      description:
+        'The command to run for git diff check if current directory is in a git repo',
       default: 'git diff',
     },
     {
@@ -62,17 +70,14 @@ export const run = async (args: Args) => {
       console.log(
         chalk.yellow(`No git repo found, skipping git check`),
       )
-      results.push({
-        check: 'git',
-        result: {
-          exitCode: 0,
-        },
-      })
+      continue
+    }
+    if (check === 'test' && !(hasDenoTest())) {
       continue
     }
 
     console.log(`Running ${check} check with command: ${command}...`)
-    const result = await cmdStream(
+    const result = await cmdStreamAndCapture(
       command.split(' '),
       false,
       isGitCheck ? hostAppHome : undefined,
@@ -96,4 +101,8 @@ export const run = async (args: Args) => {
       }], see error above`,
     )
   }
+}
+
+export const hasDenoTest = () => {
+  return existsSync(`${hostAppHome}/__tests__`)
 }

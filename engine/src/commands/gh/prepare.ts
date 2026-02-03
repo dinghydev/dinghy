@@ -8,7 +8,8 @@ import {
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('gh:prepare')
 export const schema: CmdInput = {
-  description: 'Prepare github workflow',
+  description:
+    'Prepares the GitHub workflow based on incoming event data. Extracts the issue number and action run ID from the event payload and sets them as environment variables. This is utilized by the [dinghydev/setup-dinghy](https://github.com/dinghydev/setup-dinghy/blob/main/action.yml) GitHub Action.',
 }
 export const run = (_args: Args) => {
   if (debug.enabled) {

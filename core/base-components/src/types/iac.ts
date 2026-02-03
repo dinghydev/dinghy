@@ -24,22 +24,44 @@ export const IacCategorySchema = z.enum([
   'output',
 ])
 
+/**
+## IacNodeSchema
+
+IaC node attributes.
+
+ */
 export const IacNodeSchema = z.object({
-  _importId: ResolvableStringSchema.optional(),
-  _terraformId: ResolvableStringSchema.optional(),
-  _importSchema: z.instanceof(z.ZodType).optional(),
-  _inputSchema: z.instanceof(z.ZodType).optional(),
-  _outputSchema: z.instanceof(z.ZodType).optional(),
-  _category: z.union([IacCategorySchema, IacCategorySchema.array()]).optional(),
-  _components: RecordSchema.optional(),
+  _terraformId: ResolvableStringSchema.optional().describe(
+    'Terraform ID of the resource',
+  ),
+  _importSchema: z.instanceof(z.ZodType).optional().describe(
+    'Import schema of the resource',
+  ),
+  _inputSchema: z.instanceof(z.ZodType).optional().describe(
+    'Input schema of the resource',
+  ),
+  _outputSchema: z.instanceof(z.ZodType).optional().describe(
+    'Output schema of the resource',
+  ),
+  _category: z.union([IacCategorySchema, IacCategorySchema.array()]).optional()
+    .describe('Category of the terraform object'),
+  _components: RecordSchema.optional().describe(
+    'Components of the componsite component',
+  ),
 })
 
+/**
+## TfMetaSchema
+
+Terraform [meta](https://developer.hashicorp.com/terraform/language/meta-arguments) attributes.
+
+ */
 export const TfMetaSchema = z.object({
-  depends_on: resolvableValue(z.string().array().optional()),
-  count: resolvableValue(z.number().optional()),
+  depends_on: resolvableValue(z.string().array()).optional(),
+  count: resolvableValue(z.number()).optional(),
   for_each: resolvableValue(
-    z.union([z.set(z.any()), z.record(z.string(), z.any())]).optional(),
-  ),
+    z.union([z.set(z.any()), z.record(z.string(), z.any())]),
+  ).optional(),
   lifecycle: resolvableValue(
     z.object(
       {
@@ -57,9 +79,9 @@ export const TfMetaSchema = z.object({
           error_message: z.string().optional(),
         }).optional(),
       },
-    ).optional(),
-  ),
-  provider: resolvableValue(z.string().optional()),
+    ),
+  ).optional(),
+  provider: resolvableValue(z.string()).optional(),
 })
 
 export type IacNodeType = z.input<typeof IacNodeSchema>

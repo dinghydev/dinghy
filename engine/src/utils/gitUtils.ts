@@ -2,7 +2,7 @@ import Debug from 'debug'
 import { dublinTimeNow } from './timeUtils.ts'
 import { temporaryStorageGetFile, temporaryStorageSaveFile } from './s3.ts'
 import { commitVersion } from './commitVersion.ts'
-import { cmdStream, hostAppHome } from '@dinghy/cli'
+import { cmdCode, cmdStreamAndCapture, hostAppHome } from '@dinghy/cli'
 const debug = Debug('gitUtils')
 export const mrId = () => Deno.env.get('CI_MERGE_REQUEST_IID')
 
@@ -13,16 +13,12 @@ export const jobName = () =>
 const projectId = () => Deno.env.get('CI_PROJECT_ID')
 
 export const hasGitRepo = async () => {
-  try {
-    await cmdStream(
-      ['git', 'rev-parse', '--show-toplevel'],
-      true,
-      hostAppHome,
-    )
-    return true
-  } catch {
-    return false
-  }
+  const result = await cmdCode(
+    ['git', 'rev-parse', '--show-toplevel'],
+    false,
+    hostAppHome,
+  )
+  return result.success
 }
 
 let _projectName: string | undefined
@@ -33,7 +29,7 @@ export const projectName = async (): Promise<string> => {
   let project = Deno.env.get('CI_PROJECT_PATH')
   try {
     if (!project) {
-      const originUrl = ((await cmdStream(
+      const originUrl = ((await cmdStreamAndCapture(
         ['git', 'remote', 'get-url', 'origin'],
         true,
         hostAppHome,

@@ -8,6 +8,9 @@ import { capitalise, decapitalise } from '../cli-shared/stringUtils.ts'
 function proxyNodeProps({ _props }: NodeTree) {
   return new Proxy(_props, {
     get: (_target: Props, key: string) => {
+      if (key in _props || key === '_consolidatedId') {
+        return (_props as any)[key]
+      }
       const terraformId = () => {
         return `${
           (_props as any)._category === 'resource'
@@ -17,9 +20,6 @@ function proxyNodeProps({ _props }: NodeTree) {
       }
       if (key === '_terraformId') {
         return terraformId()
-      }
-      if (key in _props || key === '_consolidatedId') {
-        return (_props as any)[key]
       }
       for (
         const schema of [

@@ -1,0 +1,42 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Archive
+
+This is the component for official Terrafrom [archive](https://registry.terraform.io/providers/hashicorp/archive/latest/docs) provider.
+
+
+## ArchiveFile
+
+Generates an archive from content, a file, or directory of files.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/resources/file)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-common/src/archive/ArchiveFile.tsx)
+
+```js
+import { ArchiveFile } from "@dinghy/tf-common"
+
+<ArchiveFile/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-common/src/archive/DataArchiveFile.tsx)
+
+```js
+import { DataArchiveFile } from "@dinghy/tf-common"
+
+<DataArchiveFile/>
+```
+
+  </TabItem>
+  
+</Tabs>

@@ -1,5 +1,6 @@
 import { deepResolve, Shape } from '@dinghy/base-components'
-import { AwsProvider, S3Backend } from '@dinghy/tf-aws'
+import { AwsProvider } from '@dinghy/tf-aws'
+import { LocalBackend } from '@dinghy/tf-common'
 import {
   AwsS3Bucket,
   AwsS3BucketVersioning,
@@ -7,29 +8,24 @@ import {
 } from '@dinghy/tf-aws/serviceS3'
 
 export default () => (
-  <Shape _title='S3 Bucket Service Components Example'>
-    <AwsProvider region='eu-west-1'>
-      <S3Backend />
-      <VersionedBucket
-        bucket='my-demo-bucket-with-versioning'
-        versioningEnabled
-      />
+  <Shape _title='Bucket With Basic Building Blocks'>
+    <AwsProvider>
+      <Bucket>
+        <BucketVersioning />
+      </Bucket>
+      <LocalBackend />
     </AwsProvider>
   </Shape>
 )
 
-const VersionedBucket = (
-  { bucket, versioningEnabled, children, ...props }: any,
-) => {
+const Bucket = (props: any) => {
+  const bucket = props.bucket || 'my-demo-bucket-with-versioning'
   return (
     <AwsS3Bucket
       bucket={bucket}
       _title={bucket}
       {...props}
-    >
-      {versioningEnabled && <BucketVersioning />}
-      {children}
-    </AwsS3Bucket>
+    />
   )
 }
 

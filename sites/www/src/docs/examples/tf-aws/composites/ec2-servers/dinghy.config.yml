@@ -1,12 +1,12 @@
 awsStack:
-  backendOutputs: true # to support aws list/connect commands
-s3Backend:
-  bucket: my-unique-s3-backend-bucket
+  backendOutputs: true # required to support aws list/connect commands
+# s3Backend: # if you want to use a S3 bucket as backend
+#   bucket: my-unique-s3-backend-bucket
 # awsProvider:
 #   region: eu-west-1
 # servers:
-#   my-server:
-#     instance_type: t4.nano # default is t4g.nano which is arm64 architecture
+#   my-server: # server name default to tsx file name without extension
+#     instance_type: t4g.nano # change to arm64 architecture instance type. Default is t4.nano which is amd64
 #     linuxFlavor: ubuntu # default is al2023 which is amazon linux 2023
 #     root_block_device:
 #       volume_size: 100 # default is 8GB

@@ -1,7 +1,7 @@
 import Debug from 'debug'
 import { execaSync } from 'execa'
 import { dirname } from 'node:path'
-import { cmdInherit } from '../../utils/cmd.ts'
+import { cmdStream } from '../../utils/cmd.ts'
 const debug = Debug('extractImageFile')
 
 export async function extractImageFile(
@@ -13,7 +13,7 @@ export async function extractImageFile(
   const targetFilePath = `${workingDir}/${targetFile}`
   const targetFileBaseDir = dirname(targetFilePath)
   Deno.mkdirSync(targetFileBaseDir, { recursive: true })
-  await cmdInherit(
+  await cmdStream(
     [
       'docker',
       'run',

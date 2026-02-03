@@ -43,6 +43,7 @@ const runDrawioCmd = async (
     [],
     drawioArgs,
     drawioImage,
+    true,
     false,
   )
 }

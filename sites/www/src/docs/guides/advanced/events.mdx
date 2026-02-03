@@ -62,19 +62,15 @@ Below is the sequence of events emitted during a
 `dinghy tf diff --debug | grep dinghy:event` command execution:
 
 1. engine.start
-   1. tf.render.start (the following sequence repeats for each active stack)
-      1. render.start
-      1. tf.generated
-      1. render.finish
-   1. tf.render.finish
+   1. render.start
+   1. tf.generated (repeats for each active stack)
+   1. render.finish
    1. tf.stacks.start (the following sequence repeats for each active stack)
-      1. tf.stack.start
       1. tf.stack.init.start
       1. tf.stack.init.finish
       1. tf.stack.plan.start
       1. tf.stack.plan.finish
       1. tf.stack.changes.detected
-      1. tf.stack.finish
    1. tf.stacks.changes.detected
    1. tf.stacks.finish
 1. engine.finish

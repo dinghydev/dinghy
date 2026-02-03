@@ -2,7 +2,8 @@ import * as yaml from '@std/yaml'
 
 import Debug from 'debug'
 import { s3GetFile } from './s3.ts'
-import { hostAppHome } from '@dinghy/cli'
+import { DinghyError, hostAppHome } from '@dinghy/cli'
+import { existsSync } from '@std/fs/exists'
 const debug = Debug('loadUrlData')
 export async function loadUrlData(
   url: string,
@@ -36,6 +37,9 @@ export async function loadUrlData(
     let localPath = fetchUrl.replace('file://', '')
     if (!localPath.startsWith('/')) {
       localPath = `${fileBasePath || hostAppHome}/${localPath}`
+    }
+    if (!existsSync(localPath)) {
+      throw new DinghyError(`File not found: ${localPath}`, 'FILE_NOT_FOUND')
     }
     try {
       const fileData = Deno.readTextFileSync(localPath)

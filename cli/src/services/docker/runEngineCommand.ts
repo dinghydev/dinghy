@@ -1,6 +1,6 @@
 import { HANDLED_ERROR_EXIT_CODE } from '../../types.ts'
 import Debug from 'debug'
-import { dinghyHome, hostAppHome } from '../../shared/home.ts'
+import { appHomeMount, dinghyHome, hostAppHome } from '../../shared/home.ts'
 import { runDockerCmd } from '../../utils/dockerUtils.ts'
 import { projectVersionRelease } from '../../utils/projectVersions.ts'
 import { ExecaError } from 'execa'
@@ -77,20 +77,23 @@ async function collectDinghyFileOverrideMount() {
 }
 
 export async function runEngineCommand(args: string[]) {
+  let workingDir = appHomeMount
+  if (args[0] !== 'bash') {
+    args = ['dinghy', ...args]
+    workingDir = hostAppHome
+  }
   debug('running engine command [%s]', args.join(' '))
 
   await populateCacheIfNeeded()
 
   try {
     await runDockerCmd(
-      hostAppHome,
+      workingDir,
       { DINGHY_CLI_VERSION: projectVersionRelease() },
       await collectDinghyFileOverrideMount(),
-      [
-        'dinghy',
-        ...args,
-      ],
+      args,
       await configGetEngineImage(),
+      false,
       true,
       collectDockerArgs(args),
     )

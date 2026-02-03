@@ -1,0 +1,50 @@
+{
+  "provider": {
+    "aws": [
+      {
+        "region": "us-east-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "Bucket With Composite Components",
+            "iac:stack-name": "bucket-with-composite-components"
+          }
+        }
+      }
+    ]
+  },
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.28.0"
+      }
+    },
+    "backend": {
+      "local": {
+        "path": "stack.tfstate.json"
+      }
+    }
+  },
+  "resource": {
+    "aws_s3_bucket": {
+      "awss3bucket_mydemobucketwithversioning": {
+        "bucket": "my-demo-bucket-with-versioning",
+        "tags": {
+          "Name": "my-demo-bucket-with-versioning",
+          "iac:id": "awss3bucket_mydemobucketwithversioning"
+        }
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_mydemobucketwithversioning_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_mydemobucketwithversioning"
+        ],
+        "bucket": "my-demo-bucket-with-versioning",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
+      }
+    }
+  }
+}

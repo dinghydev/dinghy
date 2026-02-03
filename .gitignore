@@ -45,9 +45,9 @@ tmp*
 **/.terraform
 **/.terraform.lock.hcl
 **/tf.plan
-**/tf.plan.json
+**/tf.plan.*
 **/terraform.tfstate
-**/terraform.tfstate.backup
+**/*.backup
 
 # Generated locks not in use
 workspace/deno.lock

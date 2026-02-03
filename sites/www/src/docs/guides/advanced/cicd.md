@@ -30,7 +30,7 @@ image for use.
 ```yml
 - uses: dinghydev/setup-dinghy@v1
   with:
-    prepare-images: release,tf
+    prepare-images: tf
 ```
 
 If your job will use tf operations, it's recommended to prepare the image
@@ -56,7 +56,7 @@ workflow to apply the changes.
 
 ## Avaliable images
 
-1. release - the engine image
+1. engine - the engine image, always pulled
 1. tf - for Terraform/OpenTofu operations
 1. drawio - draw.io image to convert `.drawio` file to `.png` file
 1. site - to render [docusaurus.io](https://docusaurus.io/) based site

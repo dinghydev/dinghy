@@ -1,8 +1,8 @@
-import { cmdCode, cmdInherit } from '../../utils/cmd.ts'
+import { cmdCode, cmdStream } from '../../utils/cmd.ts'
 import { DinghyError } from '../../types.ts'
 
 export async function imagePull(image: string, required = false) {
-  const { success } = await cmdInherit(
+  const { success } = await cmdStream(
     `docker pull ${image}`,
   )
   if (!success && required) {

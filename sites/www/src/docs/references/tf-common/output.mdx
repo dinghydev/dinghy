@@ -1,19 +1,45 @@
----
-sidebar_position: 20
----
-
 # Output
 
-This is the component for official Terrafrom[output block](https://developer.hashicorp.com/terraform/language/block/output)
+This is the component for official Terrafrom [output block](https://developer.hashicorp.com/terraform/language/block/output)
 
 ## Usage
 
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-common/src/Output.tsx)
 
-You can see an example of its usage in the [Ec2Servers.tsx](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/Ec2Servers.tsx) composite component.
 
 ```js
 import { Output } from "@dinghy/tf-common"
 
 <Output/>
+```
+
+## Example
+
+You can see an example of its usage in the [Ec2Servers.tsx](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/Ec2Servers.tsx) composite component.
+
+```typescript
+
+    function InstanceOutput(props: any) {
+      const { awsInstance } = useAwsInstance()
+      const title = () => `Output of ${deepResolve(_server.name)}`
+      const instanceInfo = () => {
+        const terraformId = deepResolve(awsInstance._terraformId)
+        return {
+          Name: deepResolve(_server.name),
+          InstanceId: `\${${terraformId}.id}`,
+          PublicIp: `\${${terraformId}.public_ip}`,
+          Region: `\${${terraformId}.region}`,
+        }
+      }
+      return (
+        <Output
+          _title={title}
+          _id={() => `${deepResolve(awsInstance._id)}_output`}
+          description={title}
+          value={() => JSON.stringify(instanceInfo())}
+          {...props}
+        />
+      )
+    }
+
 ```

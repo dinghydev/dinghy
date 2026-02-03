@@ -37,11 +37,13 @@
     "@deno-library/compress": "jsr:@deno-library/compress@0.5.6",
     "@octokit/core": "npm:@octokit/core@7.0.6",
     "console-table-printer": "npm:console-table-printer@2.15.0",
+    "@std/assert": "jsr:@std/assert@1.0.18",
     // CLI AND CORE DEPENDENCIES
     "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
     "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",
     "@std/cli": "jsr:@std/cli@1.0.14",
     "@std/fs": "jsr:@std/fs@1.0.15",
+    "@std/media-types": "jsr:@std/media-types@1.1.0",
     "@std/path": "jsr:@std/path@1.0.8",
     "@std/yaml": "jsr:@std/yaml@1.0.5",
     "@types/node": "npm:@types/node@22.14.0",

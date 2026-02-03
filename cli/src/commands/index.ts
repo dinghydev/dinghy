@@ -52,7 +52,8 @@ export const globalOptions: OptionInput[] = [
   },
   {
     name: 'debug',
-    description: 'Enable debug mode',
+    description:
+      'Enable [debug](https://github.com/debug-js/debug?tab=readme-ov-file#environment-variables) mode',
     boolean: true,
     env: false,
   },

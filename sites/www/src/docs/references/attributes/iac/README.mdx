@@ -16,3 +16,179 @@ Type of category for the IaC node
 - `data` 
 - `ephemeral` 
 - `output` 
+## IacNodeSchema
+
+IaC node attributes.
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`_terraformId`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Terraform ID of the resource
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`_importSchema`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+Import schema of the resource
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`_inputSchema`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+Input schema of the resource
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`_outputSchema`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+Output schema of the resource
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`_category`</td>
+<td>
+[IacCategorySchema](#iaccategoryschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Category of the terraform object
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`_components`</td>
+<td>
+&lt;string:any&gt;
+</td>
+<td style={{"min-width":"200px"}}>
+Components of the componsite component
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+## TfMetaSchema
+
+Terraform [meta](https://developer.hashicorp.com/terraform/language/meta-arguments) attributes.
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`depends_on`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`count`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`for_each`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`lifecycle`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>`provider`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+
+</td>
+<td align="center">❌</td>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table>

@@ -3,8 +3,10 @@ sidebar_position: 50
 toc_max_heading_level: 4
 ---
 
-import CodeBlock from "@theme/CodeBlock"; import AppTsx from
-"!!raw-loader!../../../examples/tf-aws/composites/s3-bucket/app.tsx";
+import CodeBlock from "@theme/CodeBlock"; import BasicS3BucketAppTsx from
+"!!raw-loader!../../../examples/tf-aws/basic/s3-bucket/app.tsx";import
+CompositeS3BucketAppTsx from
+"!!raw-loader!../../../examples/tf-aws/composites/s3-bucket/bucket-with-composite-components.tsx";
 
 # Infrastructure as Code
 
@@ -31,13 +33,13 @@ configuration. To learn more about their internal implementation and
 capabilities, refer to the advanced guide:
 [Tf Components Definition](/guides/advanced/tf-components-definition).
 
-Let's walk through a fully working
-[S3 Bucket](/examples/tf-aws/composites/s3-bucket) example to explore the core
-Dinghy components you'll encounter. With just a single `app.tsx` file, you have
-everything you need to kickstart your Dinghy Infrastructure as Code project.
+Let's walk through a fully working [S3 Bucket](/examples/tf-aws/basic/s3-bucket)
+example to explore the core Dinghy components you'll encounter. With just a
+single `app.tsx` file, you have everything you need to kickstart your Dinghy
+Infrastructure as Code project.
 
 <CodeBlock language="tsx" showLineNumbers title='app.tsx'>
-{AppTsx}
+{BasicS3BucketAppTsx}
 </CodeBlock>
 
 ### Fundational components
@@ -46,13 +48,12 @@ everything you need to kickstart your Dinghy Infrastructure as Code project.
 
 A Stack is conceptually similar to a terraform workspace — each Stack maintains
 its own separate state. In Dinghy, the Stack is bound to the root of your React
-application, and its `title` and `name` will be kept in sync if you specify them
-via config file or component attributes. Within a single codebase, you can
-define multiple stacks to represent different environments or layer of your
-resources. You could have single app.tsx for multiple stack with different
-configuration. Or have different tsx for different stack. Refer to
-[Stack Config](/guides/advanced/configuration#stack-config) for advanced
-configuration.
+application, and its `title` and `name` will be passed as component attributes.
+Within a single codebase, you can define multiple stacks to represent different
+environments or layer of your resources. You could have single app.tsx for
+multiple stack with different configuration. Or have different tsx for different
+stack. Refer to [Stack Config](/guides/advanced/configuration#stack-config) for
+advanced configuration.
 
 #### Provider
 
@@ -69,10 +70,21 @@ import { AwsProvider } from '@dinghy/tf-aws'
 
 #### Backend
 
-The Backend component defines the Terraform backend block to store your state.
-For AWS, you can use the
+The Backend component specifies where Terraform stores its state data.
+
+For local testing and simple workflows, Dinghy provides a
+[LocalBackend](https://github.com/dinghydev/dinghy/blob/main/core/tf-common/src/LocalBackend.tsx)
+component:
+
+```typescript
+import { LocalBackend } from '@dinghy/tf-common'
+
+<LocalBackend />
+```
+
+To store state centrally on AWS, use the
 [S3Backend](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/S3Backend.tsx)
-component like this:
+component:
 
 ```typescript
 import { S3Backend } from '@dinghy/tf-aws'
@@ -88,8 +100,8 @@ the S3Backend component, Dinghy automates this for you: the backend will be
 created on demand as part of your Infrastructure as Code workflow. You can
 enable automatic backend bucket creation by either passing the
 `--auto-create-backend` flag or by setting the environment variable
-`DINGHY_AUTO_CREATE_BACKEND=true`. This will automatically create the backend
-bucket during the [init operation](/references/commands/engine/tf/init).
+`DINGHY_TF_INIT_AUTO_CREATE_BACKEND=true`. This will automatically create the
+backend bucket during the [init operation](/references/commands/engine/tf/init).
 
 ### Componsite components
 
@@ -99,11 +111,19 @@ more convenient interface with simplified components and configuration.
 Composite components are constructed using one or more
 [service components](#service-componenets) from below as building blocks.
 
+The previous S3 Bucket example, which spans over 40 lines, can be dramatically
+simplified to just
+[about 10 lines by using composite components](/examples/tf-aws/composites/s3-bucket).
+
+<CodeBlock language="tsx" showLineNumbers title='app.tsx'>
+{CompositeS3BucketAppTsx}
+</CodeBlock>
+
 ### Service componenets
 
-Service compoenents are basic terraform data models such as resource or data.
-They are generated from official provider json data representation. There is one
-to one maping for AWS Provider elements e.g. Terraform resource
+Service compoenents are basic terraform models such as resource or data. They
+are generated from official provider json data representation. There is one to
+one maping for AWS Provider elements e.g. Terraform resource
 [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/6.22.0/docs/resources/s3_bucket)
 is available to use as
 [AwsS3Bucket](https://dinghy.dev/references/tf-aws/services/s3#awss3bucket):

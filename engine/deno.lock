@@ -4,12 +4,14 @@
     "jsr:@deno-library/compress@*": "0.5.6",
     "jsr:@deno-library/compress@0.5.6": "0.5.6",
     "jsr:@deno-library/crc32@1.0.2": "1.0.2",
+    "jsr:@std/assert@1.0.18": "1.0.18",
     "jsr:@std/async@1.0.14": "1.0.14",
     "jsr:@std/bytes@^1.0.2": "1.0.5",
     "jsr:@std/cli@1.0.14": "1.0.14",
     "jsr:@std/fs@*": "1.0.15",
     "jsr:@std/fs@1.0.15": "1.0.15",
     "jsr:@std/fs@1.0.5": "1.0.5",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/io@0.225.0": "0.225.0",
     "jsr:@std/media-types@1.1.0": "1.1.0",
     "jsr:@std/path@*": "1.0.8",
@@ -54,6 +56,12 @@
     "@deno-library/crc32@1.0.2": {
       "integrity": "d2061bfee30c87c97f285dfca0fdc4458e632dc072a33ecfc73ca5177a5a39a0"
     },
+    "@std/assert@1.0.18": {
+      "integrity": "270245e9c2c13b446286de475131dc688ca9abcd94fc5db41d43a219b34d1c78",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
     "@std/async@1.0.14": {
       "integrity": "62e954a418652c704d37563a3e54a37d4cf0268a9dcaeac1660cc652880b5326"
     },
@@ -74,6 +82,9 @@
       "dependencies": [
         "jsr:@std/path@^1.0.8"
       ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
     },
     "@std/io@0.225.0": {
       "integrity": "c1db7c5e5a231629b32d64b9a53139445b2ca640d828c26bf23e1c55f8c079b3",
@@ -1517,9 +1528,11 @@
   "workspace": {
     "dependencies": [
       "jsr:@deno-library/compress@0.5.6",
+      "jsr:@std/assert@1.0.18",
       "jsr:@std/async@1.0.14",
       "jsr:@std/cli@1.0.14",
       "jsr:@std/fs@1.0.15",
+      "jsr:@std/media-types@1.1.0",
       "jsr:@std/path@1.0.8",
       "jsr:@std/yaml@1.0.5",
       "npm:@aws-sdk/client-s3@3.802.0",

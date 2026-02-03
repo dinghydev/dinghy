@@ -28,16 +28,21 @@ tools.
 All other dinghy images are based on this so have a solid working environments
 across all docker containers.
 
-### Release Base Image
+### Tf Base Image
 
-[release-base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/61-engine-base/Dockerfile.ejs)
+[tf-base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/51-tf-base/Dockerfile.ejs)
+contains small numbers rarely change files which will be used by tf.
+
+### Engine Base Image
+
+[engine-base Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/61-engine-base/Dockerfile.ejs)
 contains docker cli for engine to perform docker operations.
 
 Also contains small numbers rarely change files which will be used by engine.
 
-### Release Dependencies Image
+### Engine Dependencies Image
 
-[release-dependencies Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/65-engine-dependencies/Dockerfile.ejs)
+[engine-dependencies Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/65-engine-dependencies/Dockerfile.ejs)
 install dinghy npm/jsr dependencies.
 
 At runtime, applications can only access dependencies that have been
@@ -52,13 +57,37 @@ environment for your Dinghy workflows—whether for local development, continuou
 integration, or production deployments. Below, we outline the available
 distribution images and their intended uses.
 
-### Engine Image
+### Customise Distribution Image
 
-Based on the [Release Dependencies Image](#release-dependencies-image), the
+To further tailor any distribution image to your needs, add custom Docker RUN commands in your `dinghy.config.yaml` file as shown below:
+
+```yaml
+docker:
+  images:
+    IMAGE_NAME:
+      runs:
+        - COMMANDS_TO_RUN
+```
+
+## Engine Image
+
+Based on the [Engine Dependencies Image](#engine-dependencies-image), the
 Engine Image includes the complete Dinghy codebase required to execute all core
 functionalities.
 
-### Drawio Image
+### Customise Engine Image
+
+When you add Deno packages, Dinghy will automatically generate a corresponding `RUN deno add PACKAGE` command in the Dockerfile.
+
+```yaml
+docker:
+  images:
+    engine:
+      packages:
+        - npm:dayjs@1.11.19
+```
+
+## Drawio Image
 
 :::warning
 
@@ -77,14 +106,26 @@ provides an environment for converting `.drawio` files to PNG image. It
 leverages drawio-desktop in headless mode to automate PNG export from diagram
 source files.
 
-### Site Image
+## Site Image
 
 The
 [site Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/Dockerfile.ejs)
 bundles [docusaurus.io](https://docusaurus.io/), providing everything needed to
 build and serve static documentation sites like this one.
 
-### Awscli Image
+### Customise Site Image
+
+When you add yarn packages, Dinghy will automatically generate a corresponding `RUN yarn add PACKAGE` command in the Dockerfile.
+
+```yaml
+docker:
+  images:
+    site:
+      packages:
+        - dayjs@1.11.19
+```
+
+## Awscli Image
 
 The
 [awscli Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/45-awscli/Dockerfile.ejs)
@@ -93,11 +134,12 @@ provides a standalone environment with the
 image is intended for running AWS commands and managing AWS resources outside of
 Terraform.
 
+
 ## Tf Image
 
 The
-[tf Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/Dockerfile.ejs)
-image is built on demand, customized by each user based on their project's
+[tf Dockerfile.ejs](https://github.com/dinghydev/dinghy/blob/main/docker/images/58-tf/Dockerfile.ejs)
+image is based on the [Tf Base Image](#tf-base-image), customized by each user based on their project's
 `dinghy.config.yml`. This allows users to control Terraform (tf) runtime
 details such as the vendor (Terraform or OpenTofu), the version, and required
 providers.
@@ -105,7 +147,7 @@ providers.
 ### Customise tf providers
 
 By default, several commonly used
-[official Terraform providers](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/fs-root/terraform/providers.tf.json)
+[official Terraform providers](https://github.com/dinghydev/dinghy/blob/main/docker/images/51-tf-base/fs-root/terraform/providers.tf.json)
 already installed.
 
 If you need additional providers or change provider version, you can easily add
@@ -136,7 +178,7 @@ docker:
 ```
 ### Customise tf version
 
-If you want to use a different tf version than the [default](https://github.com/dinghydev/dinghy/blob/main/docker/images/50-tf/versions.json), you can specify it in your configuration.
+If you want to use a different tf version than the [default](https://github.com/dinghydev/dinghy/blob/main/docker/images/51-tf-base/fs-root/terraform/versions.json), you can specify it in your configuration.
 
 To find the latest compatible versions, check:
 
@@ -161,6 +203,27 @@ docker:
    introduced in
    [terraform v1.12.0](https://github.com/hashicorp/terraform/releases/tag/v1.12.0).
 
+## Override files while republish
+
+Any files placed in `.dinghy_file_override/docker/images/NAME_OF_IMAGE/fs-root`
+will be copied into the image before any additional `RUN` commands are executed
+during the build/republish process.
+
+
+## Run additional docker build commands
+
+You can specify a list of shell commands in the `runs` array under
+`docker.images.NAME_OF_IMAGE` in your `dinghy.config.yml` file. These commands
+will be executed as additional build steps when the image is requested.
+
+## Runtime architecture
+
+Dinghy supports both `arm64` and `amd64` architectures.
+
+If you want to disable multi-architecture support, set the environment variable
+`DINGHYT_DOCKER_SUPPORTED_ARCHS=false`. With multi-architecture disabled, images
+will be published without the architecture included in the image tag.
+
 ## Private Registry
 
 Dinghy docker images are published at official docker hub as
@@ -176,33 +239,11 @@ When using the republish command, you can customize the image by adding or
 overriding files, or by specifying commands to perform further customization
 during the image republish process.
 
-### Override files while republish
-
-Any files placed in `.dinghy_file_override/docker/images/NAME_OF_IMAGE/fs-root`
-will be copied into the image before any additional `RUN` commands are executed
-during the republish process.
-
-The Engine image name is `release`.
-
-### Run additional docker build commands
-
-You can specify a list of shell commands in the `republishRuns` array under
-`docker.images.NAME_OF_IMAGE` in your `dinghy.config.yml` file. These commands
-will be executed as additional build steps when the image is republished.
-
-### Runtime architecture
-
-Dinghy supports both `arm64` and `amd64` architectures.
-
-If you want to disable multi-architecture support, set the environment variable
-`DINGHYT_DOCKER_SUPPORTED_ARCHS=false`. With multi-architecture disabled, images
-will be published without the architecture included in the image tag.
-
-### Use Private Registry
+## Use Private Registry
 
 You can configure your project to use the private registry by adding the
 following setting:
 
 <CodeBlock language="tsx" title=".dinghyrc">
-DINGHY_ENGINE_REPO=repo.path
+DINGHY_ENGINE_REPO=repo/path
 </CodeBlock>

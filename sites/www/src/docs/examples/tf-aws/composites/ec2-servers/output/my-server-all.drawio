@@ -39,7 +39,7 @@
           <mxGeometry
             as="geometry" 
             width="990" 
-            height="840" 
+            height="780" 
             x="0" 
             y="0"
             />
@@ -54,7 +54,7 @@
           <mxGeometry
             as="geometry" 
             width="930" 
-            height="780" 
+            height="720" 
             x="30" 
             y="30"
             />
@@ -279,7 +279,7 @@
           <mxGeometry
             as="geometry" 
             width="870" 
-            height="240" 
+            height="180" 
             x="30" 
             y="510"
             />
@@ -294,21 +294,6 @@
           <mxGeometry
             as="geometry" 
             width="810" 
-            height="180" 
-            x="30" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="verticalAlign=top;aspect=fixed;align=left;spacingLeft=30;spacingRight=5;spacingBottom=5;points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_account;strokeColor=#CD2264;fillColor=none;fontColor=#CD2264;dashed=0;" 
-          id="awss3bucket_backend" 
-          parent="backend" 
-          value="Backend Bucket" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="660" 
             height="120" 
             x="30" 
             y="30"
@@ -316,32 +301,17 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awss3bucket_backend_versioning" 
-          parent="awss3bucket_backend" 
-          value="Bucket Versioning" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="300" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awss3object_outputsmyserverstackjson" 
+          id="localfile_myserverstackjson" 
           parent="backend" 
-          value="outputs/my-server.stack.json" 
+          value="my-server.stack.json" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="60" 
             height="60" 
-            x="720" 
-            y="60"
+            x="375" 
+            y="30"
             />
           </mxCell>
         </root>

@@ -17,13 +17,15 @@
       "aws": {
         "source": "aws",
         "version": "6.28.0"
+      },
+      "local": {
+        "source": "local",
+        "version": "2.6.1"
       }
     },
     "backend": {
-      "s3": {
-        "bucket": "my-unique-s3-backend-bucket",
-        "key": "tfstates/my-server.tfstate.json",
-        "region": "us-east-1"
+      "local": {
+        "path": "stack.tfstate.json"
       }
     }
   },
@@ -33,7 +35,7 @@
         "ami": "${data.aws_ami.awsami_ami.id}",
         "associate_public_ip_address": true,
         "iam_instance_profile": "my-server-instance-profile",
-        "instance_type": "t4g.nano",
+        "instance_type": "t4.nano",
         "subnet_id": "${aws_subnet.awssubnet_myserverpublicasubnet.id}",
         "depends_on": [
           "aws_subnet.awssubnet_myserverpublicasubnet"
@@ -131,39 +133,13 @@
         "role": "my-server-instance-role"
       }
     },
-    "aws_s3_bucket": {
-      "awss3bucket_backend": {
-        "bucket": "my-unique-s3-backend-bucket",
-        "object_lock_enabled": true,
-        "tags": {
-          "Name": "Backend Bucket",
-          "iac:id": "awss3bucket_backend"
-        }
-      }
-    },
-    "aws_s3_bucket_versioning": {
-      "awss3bucket_backend_versioning": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_backend"
-        ],
-        "bucket": "my-unique-s3-backend-bucket",
-        "versioning_configuration": {
-          "status": "Enabled"
-        }
-      }
-    },
-    "aws_s3_object": {
-      "awss3object_outputsmyserverstackjson": {
-        "bucket": "my-unique-s3-backend-bucket",
+    "local_file": {
+      "localfile_myserverstackjson": {
+        "filename": "my-server.stack.json",
         "content": "{\n  \"awsinstance_myserver_output\": {\n    \"Name\": \"my-server\",\n    \"InstanceId\": \"${aws_instance.awsinstance_myserver.id}\",\n    \"PublicIp\": \"${aws_instance.awsinstance_myserver.public_ip}\",\n    \"Region\": \"${aws_instance.awsinstance_myserver.region}\"\n  }\n}",
-        "key": "outputs/my-server.stack.json",
         "depends_on": [
           "aws_instance.awsinstance_myserver"
-        ],
-        "tags": {
-          "Name": "outputs/my-server.stack.json",
-          "iac:id": "awss3object_outputsmyserverstackjson"
-        }
+        ]
       }
     }
   },
@@ -183,7 +159,7 @@
           {
             "name": "architecture",
             "values": [
-              "arm64"
+              "x86_64"
             ]
           }
         ],

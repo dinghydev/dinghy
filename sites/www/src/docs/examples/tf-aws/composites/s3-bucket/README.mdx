@@ -4,12 +4,12 @@ sidebar_position: 10
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
-import AppTsx from "!!raw-loader!./app.tsx";
-import TfJson from "!!raw-loader!./output/s3-bucket/stack.tf.json";
+import AppTsx from "!!raw-loader!./bucket-with-composite-components.tsx";
+import TfJson from "!!raw-loader!./output/bucket-with-composite-components/stack.tf.json";
 
-# S3 Bucket
+# S3 Bucket With Componsite Components
 
-This example demonstrates how to create an S3 bucket using the composite S3Bucket component. It builds upon the [basic bucket example](/examples/tf-aws/basic/bucket), integrating functionality into a higher-level abstraction.
+This example demonstrates how to create an S3 bucket using the composite components. It builds upon the [basic bucket example](/examples/tf-aws/basic/s3-bucket), integrating functionality into a higher-level abstraction.
 
 <Tabs>
   <TabItem value="app.tsx">
@@ -18,7 +18,7 @@ This example demonstrates how to create an S3 bucket using the composite S3Bucke
     </CodeBlock>
   </TabItem>
   <TabItem value="Overview">
-    ![](./output/s3-bucket.png#drawio-w-100)
+    ![](./output/bucket-with-composite-components.png#drawio-w-50)
   </TabItem>
   <TabItem value="Terraform">
     <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
