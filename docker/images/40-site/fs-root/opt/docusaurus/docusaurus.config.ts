@@ -9,7 +9,8 @@ const siteConfigJson = process.env.SITE_CONFIG_JSON
 
 // console.log("siteConfigJson:", JSON.stringify(siteConfigJson, null, 2));
 
-let { docs, blog, theme, svgr, themeConfig, ...siteConfig } = siteConfigJson;
+let { docs, blog, theme, svgr, themeConfig, classic, ...siteConfig } =
+  siteConfigJson;
 if (fs.existsSync("./docs") || fs.existsSync("./src/docs")) {
   docs = docs || {};
   if (fs.existsSync("./src/docs")) {
@@ -151,6 +152,7 @@ const config: Config = {
         blog,
         theme,
         svgr,
+        ...(classic || {}),
       } satisfies Preset.Options,
     ],
   ],

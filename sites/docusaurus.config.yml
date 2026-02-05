@@ -6,6 +6,9 @@ title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
 url: https://dinghy.dev
 favicon: /assets/img/favicon.ico
+classic:
+  gtag:
+    trackingID: G-D958F1XPX4
 themeConfig:
   metadata:
     - name: keywords
@@ -17,7 +20,7 @@ themeConfig:
       src: /assets/img/logo.svg
       href: /
   footer:
-    copyright: Made with ❤️ from ☘️🇮🇪 © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
+    copyright: Built with ❤️ from ☘️🇮🇪 © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
   algolia:
     appId: NFDOJ9SF91
     apiKey: 75e2f9fc53ca9b901a6d04a36561f8b6
