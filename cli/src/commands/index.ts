@@ -3,6 +3,7 @@ import { versionDetails } from '../utils/projectVersions.ts'
 import { CMD_DEF_SYMBOL, CmdInput, OptionInput } from '../services/cli/types.ts'
 import { loadCliCommands } from './commands.ts'
 import { ENGINE_DOCKER_OPTIONS } from '../services/config/engineDockerOptions.ts'
+import chalk from 'chalk'
 export const schema: CmdInput = {
   description:
     'Dinghy CLI is a command-line tool for running Dinghy in local development to interact with Dinghy Engine',
@@ -18,7 +19,7 @@ export const schema: CmdInput = {
 
 export const run = async (args: Args) => {
   if (args.version) {
-    versionDetails().map(console.log)
+    versionDetails().map((v) => console.log(chalk.green(v)))
   } else {
     const commands = await loadCliCommands()
     const showHelp = (await import('../services/cli/showHelp.ts')).showHelp

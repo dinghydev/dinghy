@@ -17,6 +17,10 @@ export default function DiagramAsCode() {
             <img
               src={diagramUrl}
               className={styles.diagramImage}
+              alt='Diagram as Code with Dinghy'
+              fetchPriority='high'
+              width='95%'
+              height='auto'
             />
           </div>
         </div>

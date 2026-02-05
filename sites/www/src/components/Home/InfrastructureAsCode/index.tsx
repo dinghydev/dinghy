@@ -25,6 +25,8 @@ export default function InfrastructureAsCode() {
               className={styles.logos}
               src={TerraformLogo}
               alt='Terraform Logo'
+              width='190'
+              height='auto'
             />
             <OpenTofuSvg
               alt='OpenTofu Logo'
