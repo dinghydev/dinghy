@@ -13,3 +13,11 @@ $ dinghy tf terraform [STACK] [options]
 | Name            | Description                     |
 | ---------------- | ----------------------------- |
 | `stack` |Stack name  |
+## Examples
+
+To execute `tofu state list`, run:
+```sh
+dinghy tf tofu -- state list
+```
+
+The `--` is used to pass arguments to the tofu command otherwise it will be interpreted as a dinghy parameters.

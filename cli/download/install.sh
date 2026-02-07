@@ -38,6 +38,7 @@ install_dinghy() {
 	fi
 
 	dinghy_version="${DINGHY_VERSION:-RELEASE_VERSION}"
+	echo "Installing Dinghy CLI $dinghy_version ..."
 
 	dinghy_uri="https://github.com/dinghydev/dinghy/releases/download/v${dinghy_version}/dinghy-${dinghy_version}-${target}.zip"
 	bin_dir="$dinghy_home/bin"

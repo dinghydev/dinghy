@@ -7,7 +7,7 @@ import { InputSchema as AwsInstanceInputSchema } from '../../services/ec2/AwsIns
 
 const Ec2ServerSchema = AwsInstanceInputSchema.extend({
   name: ResolvableStringSchema.optional(),
-  instance_type: z.string().default('t4.nano'),
+  instance_type: z.string().default('t3.nano'),
   linuxFlavor: z.enum(['al2023', 'ubuntu']).default('al2023'),
   associate_public_ip_address: z.boolean().default(true),
 })

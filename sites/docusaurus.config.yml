@@ -20,7 +20,7 @@ themeConfig:
       src: /assets/img/logo.svg
       href: /
   footer:
-    copyright: 🛠️ with ❤️ from ☘️🇮🇪 © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
+    copyright: 🛠️ with ❤️ from ☘️🇮🇪 ©️ YYYY <a href="https://dinghy.dev">dinghy.dev</a>
   algolia:
     appId: NFDOJ9SF91
     apiKey: 75e2f9fc53ca9b901a6d04a36561f8b6

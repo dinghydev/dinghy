@@ -145,10 +145,10 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "tf apply",
+      "name": "tf deploy",
       "args": [
         "tf",
-        "apply",
+        "deploy",
         // "development",
         // "production",
         // "-h",

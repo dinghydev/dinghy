@@ -1,0 +1,111 @@
+---
+slug: /show-cases/cloudfront-sites
+sidebar_position: 20
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./dinghy-dev-demo-sites.tsx";
+import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
+import TfJson from "!!raw-loader!./output/dinghy-dev-demo-sites/stack.tf.json";
+
+# CloudFront Sites
+
+CI/CD and drift detection with CloudFront Sites.
+
+1. Github project: [dinghydev/dinghy-showcases-cloudfrontsites](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites)
+1. Deployed Site: https://cloudfront-site-demo.dinghy.dev/
+
+
+## Features
+
+- Simplifies the deployment of static websites using AWS CloudFront and S3 with minimal configuration
+- Provides secure and scalable hosting with integrated HTTPS using AWS ACM certificates
+- Supports the multiple SSL certificates and certificate rotation workflow
+- Automatically configures Route53 DNS records for custom domain support
+- Supports redirection from alternate domains or custom paths
+- Supports uploading static files to S3 buckets with customizable cache-control headers and MIME type settings
+- Manages S3 bucket permissions and logging for security and compliance
+- Enables CI/CD pipeline for site updates and supports drift detection for infrastructure consistency
+- Generates clear Terraform code and visual infrastructure diagrams as output
+
+
+
+## Source Code
+
+<Tabs>
+  <TabItem value="dinghy-dev-demo-sites.tsx">
+    <CodeBlock language="tsx" showLineNumbers>
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="dinghy.config.yml">
+    <CodeBlock language="yaml" showLineNumbers>
+      {DinghyConfigYml}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Outputs
+
+<Tabs>
+  <TabItem value="Overview" default>
+    ![](./output/dinghy-dev-demo-sites.png#drawio-w-100)
+  </TabItem>
+  <TabItem value="All View">
+    All elements without filter
+    ![](./output/dinghy-dev-demo-sites-all.png#drawio-w-100)
+  </TabItem>
+  <TabItem value="Terraform">
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
+      {TfJson}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+### Resource types
+
+List of resource types used by this stack, in approximate order of creation:
+
+1. [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)
+1. [aws_s3_bucket_versioning](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning)
+1. [aws_s3_bucket_logging](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_logging)
+1. [aws_s3_bucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy)
+1. [aws_s3_bucket_ownership_controls](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls)
+1. [aws_s3_object](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object)
+1. [data.aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+1. [data.aws_route53_zone](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone)
+1. [aws_acm_certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate)
+1. [aws_route53_record](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record)
+1. [aws_route53_record](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record)
+1. [aws_cloudfront_function](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_function)
+1. [aws_cloudfront_distribution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)
+1. [aws_cloudfront_origin_access_control](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control)
+
+## Workflows
+
+### CI/CD
+
+Github `CI/CD` workflow: [![cicd](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/workflows/cicd.yml/badge.svg)](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/workflows/cicd.yml)
+
+
+[Sample](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/runs/21766917469) Screenshot
+![](./screenshot-cicd.png#drawio-w-100)
+
+
+### Drift Detection
+
+Github `Drift Detection` workflow with manual approval to deploy: [![drift-detection](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/workflows/drift-detection.yml/badge.svg)](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/workflows/drift-detection.yml)
+
+[Sample Drift Detection](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/runs/20885594430/job/60008277977) Screenshot
+![](./screenshot-cicd.png#drawio-w-100)
+
+When drift is detected, a [Manual Approval Issue](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/issues/3) will be created, allowing you to manually trigger the correction workflow:
+![](./screenshot-issue.png#drawio-w-100)
+
+After you add the `approved-deployment` label to the issue, the [Drift Correction](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/runs/20885617983) workflow will be triggered:
+![](./screenshot-correction.png#drawio-w-100)
+
+After the correction workflow completes successfully, it will automatically close the associated issue:
+![](./screenshot-approve.png#drawio-w-100)

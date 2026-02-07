@@ -40,18 +40,18 @@ tf operations themselves.
 ### CI/CD Demo Project
 
 You can view a practical example of a CI/CD pipeline using Dinghy in the
-[dinghydev/dinghy-example-cloudfront-sites](https://github.com/dinghydev/dinghy-example-cloudfront-sites/actions)
+[dinghydev/dinghy-showcases-cloudfrontsites](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions)
 demo project.
 
 ### Manual Approval Changes
 
 Set
-[GITHUB_CREATE_DEPLOY_ISSUE=true](https://github.com/dinghydev/dinghy-example-cloudfront-sites/blob/main/.github/workflows/drift-detection.yml#L29C11-L29C37)
+[GITHUB_CREATE_DEPLOY_ISSUE=true](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/blob/main/.github/workflows/drift-detection.yml#L29C11-L29C37)
 in your workflow to automatically open a deployment issue when changes are
 detected. This allows you to review and approve the proposed changes before they
 are applied. To proceed with the deployment, simply add the
 `approved-deployment` label to the deployment issue. This will trigger the
-[Drift Correction](https://github.com/dinghydev/dinghy-example-cloudfront-sites/blob/main/.github/workflows/drift-correction.yml)
+[Drift Correction](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/blob/main/.github/workflows/drift-correction.yml)
 workflow to apply the changes.
 
 ## Avaliable images

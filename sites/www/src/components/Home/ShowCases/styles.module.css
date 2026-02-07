@@ -1,0 +1,52 @@
+.container {
+  padding: 55px;
+  background-color: var(--ifm-footer-background-color);
+}
+
+[data-theme='dark'] .container {
+  background-color: var(--ifm-footer-background-color);
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.gridContent {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.gridContent a {
+  color: var(--ifm-primary-color);
+}
+.gridContent a span {
+  display: block;
+  font-size: 20px;
+}
+.gridContent a svg {
+  width: 100px;
+  height: 100px;
+}
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.title a {
+  color: var(--ifm-primary-color);
+}
+.title div {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+@media (min-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

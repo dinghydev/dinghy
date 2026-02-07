@@ -1,40 +1,5 @@
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import AppTsx from "!!raw-loader!./dinghy-dev-demo-sites.tsx";
-import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
-import TfJson from "!!raw-loader!./output/dinghy-dev-demo-sites/stack.tf.json";
+import {Redirect} from '@docusaurus/router';
 
-# Demo Site
+# Demo
 
-A complete end-to-end demonstration of a Dinghy IaC project featuring CI/CD automation and drift detection:
-
-1. Github project: [dinghydev/dinghy-example-cloudfront-sites](https://github.com/dinghydev/dinghy-example-cloudfront-sites)
-1. Github `CI/CD` workflow: [![cicd](https://github.com/dinghydev/dinghy-example-cloudfront-sites/actions/workflows/cicd.yml/badge.svg)](https://github.com/dinghydev/dinghy-example-cloudfront-sites/actions/workflows/cicd.yml)
-1. Github `Drift Detection` workflow with manual approval to deploy: [![drift-detection](https://github.com/dinghydev/dinghy-example-cloudfront-sites/actions/workflows/drift-detection.yml/badge.svg)](https://github.com/dinghydev/dinghy-example-cloudfront-sites/actions/workflows/drift-detection.yml)
-1. deployed as: https://cloudfront-site-demo.dinghy.dev/
-
-<Tabs>
-  <TabItem value="tsx">
-    <CodeBlock language="tsx" showLineNumbers>
-      {AppTsx}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="dinghy.config.yml">
-    <CodeBlock language="yaml" showLineNumbers>
-      {DinghyConfigYml}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="Overview" default>
-    ![](./output/dinghy-dev-demo-sites.png#drawio-w-100)
-  </TabItem>
-  <TabItem value="All View" default>
-    All elements without filter
-    ![](./output/dinghy-dev-demo-sites-all.png#drawio-w-100)
-  </TabItem>
-  <TabItem value="Terraform">
-    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
-      {TfJson}
-    </CodeBlock>
-  </TabItem>
-</Tabs>
+<Redirect to="/show-cases/cloudfront-sites" />

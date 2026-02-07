@@ -1,54 +1,8 @@
 ---
 sidebar_position: 10
 ---
-
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import AppTsx from "!!raw-loader!./my-server.tsx";
-import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
-import TfJson from "!!raw-loader!./output/my-server/stack.tf.json";
+import {Redirect} from '@docusaurus/router';
 
 # EC2 Servers
 
-This example demonstrates how to create an EC2 server using the composite [Ec2Servers](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/Ec2Servers.tsx) ([schema](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/types.ts)) component.
-
-<Tabs>
-  <TabItem value="my-server.tsx">
-    <CodeBlock language="tsx" showLineNumbers>
-      {AppTsx}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="dinghy.config.yml">
-    <CodeBlock language="yaml" showLineNumbers>
-      {DinghyConfigYml}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="Overview" default>
-    ![](./output/my-server.png#drawio-w-100)
-  </TabItem>
-  <TabItem value="All View">
-    ![](./output/my-server-all.png#drawio-w-100)
-  </TabItem>
-  <TabItem value="Terraform">
-    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
-      {TfJson}
-    </CodeBlock>
-  </TabItem>
-</Tabs>
-
-## Steps to try
-
-1. [Install dinghy-cli](/guides/get-started/installation) if you haven't already:
-   ```sh
-   curl -fsSL https://get.dinghy.dev/install.sh | sh
-   ```
-2. Create a file named `my-server.tsx` and paste the code from the tab above.
-3. Create a file named `dinghy.config.yml` and paste the code from the tab above.
-4. Run [`dinghy tf diff`](https://dinghy.dev/references/commands/engine/tf/diff) to preview the Terraform actions that will be performed.
-   - Ensure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#configure-precedence) are set up.
-5. Run [`dinghy tf deploy`](https://dinghy.dev/references/commands/engine/tf/deploy) to apply the changes and provision your resources.
-6. Once your EC2 server(s) are ready, you can connect to them easily:
-   - Run [`dinghy aws list`](https://dinghy.dev/references/commands/engine/aws/list) to see all EC2 instances.
-   - Run [`dinghy aws connect`](https://dinghy.dev/references/commands/engine/aws/connect) to start an interactive connection to any instance, with no additional setup needed.
-7. After experimenting, run [`dinghy tf destroy`](https://dinghy.dev/references/commands/engine/tf/destroy) to remove all resources created in the previous steps.
+<Redirect to="/show-cases/ec2-servers" />

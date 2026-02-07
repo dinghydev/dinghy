@@ -1,0 +1,146 @@
+---
+slug: /show-cases/ec2-servers
+sidebar_position: 10
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./my-server.tsx";
+import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
+import TfJson from "!!raw-loader!./output/my-server/stack.tf.json";
+
+# EC2 Servers
+
+With 10 lines of code to create an EC2 server.
+
+## Features
+
+- Simplifies the creation of EC2 servers on AWS with minimal configuration
+- Uses the high-level [Ec2Servers](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/Ec2Servers.tsx) ([schema](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/ec2-servers/types.ts)) composite component for easy infrastructure definition
+- Supports customization of instance type (e.g., ARM or AMD architectures)
+- Lets you choose Linux flavor (Amazon Linux 2023 or Ubuntu)
+- Handles networking setup automatically: VPC, subnet, internet gateway, routing
+- Automatically manages IAM roles and permissions for your EC2 instances
+- Managing your servers securely with [AWS Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) without `SSH`
+- Generates standard Terraform code as an output alongside visual diagrams
+
+
+
+## Source Code
+
+<Tabs>
+  <TabItem value="my-server.tsx">
+    <CodeBlock language="tsx" showLineNumbers>
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="dinghy.config.yml">
+    <CodeBlock language="yaml" showLineNumbers>
+      {DinghyConfigYml}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Outputs
+
+<Tabs>
+  <TabItem value="Overview" default>
+    ![](./output/my-server.png#drawio-w-70)
+  </TabItem>
+  <TabItem value="All View">
+    All elements without filter
+    ![](./output/my-server-all.png#drawio-w-100)
+  </TabItem>
+  <TabItem value="Terraform">
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
+      {TfJson}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+### Resource types
+
+List of resource types used by this stack, in approximate order of creation:
+
+1. [aws_vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)
+1. [aws_default_route_table](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)
+1. [aws_internet_gateway](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)
+1. [aws_subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)
+1. [aws_route](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route)
+1. [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)
+1. [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment)
+1. [aws_iam_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile)
+1. [data.aws_ami](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami)
+1. [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
+1. [local_file](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file)
+
+## Steps to try
+
+### [Install dinghy-cli](/guides/get-started/installation)
+
+If you haven't already:
+
+```sh
+curl -fsSL https://get.dinghy.dev/install.sh | sh
+```
+
+Sample Screenshot
+![](../../../guides/get-started/screenshot-install.png#drawio-w-100)
+
+### Prepare source code
+
+Create `my-server.tsx` and `dinghy.config.yml` files with content from [above](#source-code).
+
+```sh
+curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/ec2-servers/my-server.tsx
+curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/ec2-servers/dinghy.config.yml
+```
+
+### Preview the actions
+
+Run [`dinghy tf diff`](https://dinghy.dev/references/commands/engine/tf/diff) to preview the Terraform actions that will be performed.
+
+:::info
+
+Make sure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#configure-precedence) are configured before interacting with AWS services.
+
+:::
+
+
+```sh
+dinghy tf diff
+```
+
+Sample Screenshot
+![](./screenshots/screenshot-diff.png#drawio-w-100)
+
+
+### Apply the actions
+
+Run [`dinghy tf deploy`](https://dinghy.dev/references/commands/engine/tf/deploy) to apply the changes and provision your resources.
+
+```sh
+dinghy tf deploy
+```
+Sample Screenshot
+![](./screenshots/screenshot-deploy.png#drawio-w-100)
+
+### Access the server
+
+Once your EC2 server(s) are ready, you can connect to them easily:
+
+- Run [`dinghy aws list`](https://dinghy.dev/references/commands/engine/aws/list) to see all EC2 instances.
+- Run [`dinghy aws connect`](https://dinghy.dev/references/commands/engine/aws/connect) to start an interactive connection to any instance, with no additional setup needed 🪄
+
+```sh
+dinghy aws list
+dinghy aws connect
+```
+
+Sample Screenshot
+![](./screenshots/screenshot-access.png#drawio-w-100)
+
+### Destroy resources
+
+After experimenting, run [`dinghy tf destroy`](https://dinghy.dev/references/commands/engine/tf/destroy) to remove all resources created in the previous steps.

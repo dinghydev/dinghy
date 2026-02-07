@@ -43,6 +43,10 @@ It will
 2. unzip use `unzip` or `7z` to target installation location
 3. run `dinghy postinstall` to complete the installation process
 
+### Sample Screenshot
+
+![](./screenshot-install.png#drawio-w-100)
+
 ### Install options
 
 The installation script taken additional options from environment variables for
