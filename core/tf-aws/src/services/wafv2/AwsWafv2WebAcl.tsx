@@ -30,7 +30,6 @@ export const InputSchema = TfMetaSchema.extend({
       }).optional(),
     }).optional(),
   })),
-  lock_token: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   visibility_config: resolvableValue(z.object({
     cloudwatch_metrics_enabled: z.boolean(),
@@ -26635,6 +26634,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   capacity: z.number().optional(),
   id: z.string().optional(),
+  lock_token: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

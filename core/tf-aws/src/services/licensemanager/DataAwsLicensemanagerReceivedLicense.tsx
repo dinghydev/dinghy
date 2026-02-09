@@ -11,13 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   license_arn: resolvableValue(z.string()),
-  license_metadata: resolvableValue(
-    z.object({
-      name: z.string(),
-      value: z.string(),
-    }).array(),
-  ),
-  product_sku: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -50,8 +43,13 @@ export const OutputSchema = z.object({
     sign_key: z.string(),
   }).array().optional(),
   license_arn: z.string().optional(),
+  license_metadata: z.set(z.object({
+    name: z.string(),
+    value: z.string(),
+  })).optional(),
   license_name: z.string().optional(),
   product_name: z.string().optional(),
+  product_sku: z.string().optional(),
   received_metadata: z.object({
     allowed_operations: z.set(z.string()),
     received_status: z.string(),

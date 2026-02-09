@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsVpcEndpoint } from './AwsVpcEndpoint.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  ip_address_type: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -45,6 +44,7 @@ export const OutputSchema = z.object({
     private_dns_preference: z.string(),
     private_dns_specified_domains: z.set(z.string()),
   }).array().optional(),
+  ip_address_type: z.string().optional(),
   network_interface_ids: z.set(z.string()).optional(),
   owner_id: z.string().optional(),
   policy: z.string().optional(),

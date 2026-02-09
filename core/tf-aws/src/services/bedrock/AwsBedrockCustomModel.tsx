@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   base_model_identifier: resolvableValue(z.string()),
   custom_model_name: resolvableValue(z.string()),
   hyperparameters: resolvableValue(z.record(z.string(), z.string())),
-  id: resolvableValue(z.string()),
   job_name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   custom_model_kms_key_id: resolvableValue(z.string().optional()),
@@ -53,6 +52,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   custom_model_arn: z.string().optional(),
+  id: z.string().optional(),
   job_arn: z.string().optional(),
   job_status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

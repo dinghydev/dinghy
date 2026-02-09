@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   parameters: resolvableValue(z.string()),
   portfolio_id: resolvableValue(z.string()),
   product_id: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   accept_language: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
@@ -31,6 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   id: z.string().optional(),
   owner: z.string().optional(),
+  status: z.string().optional(),
 })
 
 export type InputProps =

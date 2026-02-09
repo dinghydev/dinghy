@@ -10,8 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
-  original_default_route_table_id: resolvableValue(z.string()),
   transit_gateway_id: resolvableValue(z.string()),
   transit_gateway_route_table_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -24,7 +22,10 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  id: z.string().optional(),
+  original_default_route_table_id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

@@ -10,21 +10,20 @@ import z from 'zod'
 import { AwsSsmcontactsContactChannel } from './AwsSsmcontactsContactChannel.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  activation_status: resolvableValue(z.string()),
   arn: resolvableValue(z.string()),
-  contact_id: resolvableValue(z.string()),
-  delivery_address: resolvableValue(
-    z.object({
-      simple_address: z.string(),
-    }).array(),
-  ),
-  name: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  activation_status: z.string().optional(),
+  contact_id: z.string().optional(),
+  delivery_address: z.object({
+    simple_address: z.string(),
+  }).array().optional(),
+  name: z.string().optional(),
+  type: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

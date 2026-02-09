@@ -10,12 +10,6 @@ import z from 'zod'
 import { AwsInternetGateway } from './AwsInternetGateway.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  attachments: resolvableValue(
-    z.object({
-      state: z.string(),
-      vpc_id: z.string(),
-    }).array(),
-  ),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -35,6 +29,10 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  attachments: z.object({
+    state: z.string(),
+    vpc_id: z.string(),
+  }).array().optional(),
   owner_id: z.string().optional(),
 })
 

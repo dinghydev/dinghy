@@ -240,6 +240,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export const ImportSchema = z.object({

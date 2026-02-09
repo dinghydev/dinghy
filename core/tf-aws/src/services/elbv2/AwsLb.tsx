@@ -12,7 +12,6 @@ import z from 'zod'
 import { APPLICATION_LOAD_BALANCER } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
 export const InputSchema = TfMetaSchema.extend({
-  vpc_id: resolvableValue(z.string()),
   access_logs: resolvableValue(
     z.object({
       bucket: z.string(),
@@ -100,6 +99,7 @@ export const OutputSchema = z.object({
   arn_suffix: z.string().optional(),
   dns_name: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  vpc_id: z.string().optional(),
   zone_id: z.string().optional(),
 })
 

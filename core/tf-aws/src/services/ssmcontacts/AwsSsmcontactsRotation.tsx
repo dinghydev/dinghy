@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   contact_ids: resolvableValue(z.string().array()),
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   time_zone_id: resolvableValue(z.string()),
   recurrence: resolvableValue(
@@ -58,6 +57,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

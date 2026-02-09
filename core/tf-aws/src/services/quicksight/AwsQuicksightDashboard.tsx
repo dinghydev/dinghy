@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   dashboard_id: resolvableValue(z.string()),
-  last_published_time: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   version_description: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
@@ -29684,6 +29683,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
+  last_published_time: z.string().optional(),
   last_updated_time: z.string().optional(),
   source_entity_arn: z.string().optional(),
   status: z.string().optional(),

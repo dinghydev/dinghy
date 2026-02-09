@@ -14,7 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
     subnet_arn: z.string(),
   })),
   efs_file_system_arn: resolvableValue(z.string()),
-  uri: resolvableValue(z.string()),
   access_point_arn: resolvableValue(z.string().optional()),
   file_system_access_role_arn: resolvableValue(z.string().optional()),
   in_transit_encryption: resolvableValue(z.string().optional()),
@@ -27,6 +26,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  uri: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

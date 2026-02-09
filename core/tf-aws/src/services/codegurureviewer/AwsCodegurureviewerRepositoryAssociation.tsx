@@ -29,15 +29,6 @@ export const InputSchema = TfMetaSchema.extend({
       name: z.string(),
     }).optional(),
   })),
-  s3_repository_details: resolvableValue(
-    z.object({
-      bucket_name: z.string(),
-      code_artifacts: z.object({
-        build_artifacts_object_key: z.string(),
-        source_code_artifacts_object_key: z.string(),
-      }).array(),
-    }).array(),
-  ),
   kms_key_details: resolvableValue(
     z.object({
       encryption_option: z.string().optional(),
@@ -64,6 +55,13 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
   owner: z.string().optional(),
   provider_type: z.string().optional(),
+  s3_repository_details: z.object({
+    bucket_name: z.string(),
+    code_artifacts: z.object({
+      build_artifacts_object_key: z.string(),
+      source_code_artifacts_object_key: z.string(),
+    }).array(),
+  }).array().optional(),
   state: z.string().optional(),
   state_reason: z.string().optional(),
 })

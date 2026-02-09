@@ -10,15 +10,13 @@ import z from 'zod'
 import { AwsOdbCloudVmCluster } from './AwsOdbCloudVmCluster.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  cloud_exadata_infrastructure_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
-  odb_network_arn: resolvableValue(z.string()),
-  tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  cloud_exadata_infrastructure_arn: z.string().optional(),
   cloud_exadata_infrastructure_id: z.string().optional(),
   cluster_name: z.string().optional(),
   compute_model: z.string().optional(),
@@ -57,6 +55,7 @@ export const OutputSchema = z.object({
   oci_resource_anchor_name: z.string().optional(),
   oci_url: z.string().optional(),
   ocid: z.string().optional(),
+  odb_network_arn: z.string().optional(),
   odb_network_id: z.string().optional(),
   percent_progress: z.number().optional(),
   scan_dns_name: z.string().optional(),
@@ -68,6 +67,7 @@ export const OutputSchema = z.object({
   status_reason: z.string().optional(),
   storage_size_in_gbs: z.number().optional(),
   system_version: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
   timezone: z.string().optional(),
   vip_ids: z.string().array().optional(),
 })

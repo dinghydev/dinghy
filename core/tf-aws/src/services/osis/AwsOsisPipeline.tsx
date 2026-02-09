@@ -14,7 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   min_units: resolvableValue(z.number()),
   pipeline_configuration_body: resolvableValue(z.string()),
   pipeline_name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   buffer_options: resolvableValue(
     z.object({
       persistent_buffer_enabled: z.boolean(),
@@ -56,6 +55,7 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   ingest_endpoint_urls: z.set(z.string()).optional(),
   pipeline_arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

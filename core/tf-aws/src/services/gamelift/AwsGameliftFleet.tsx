@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   ec2_instance_type: resolvableValue(z.string()),
-  log_paths: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
   build_id: resolvableValue(z.string().optional()),
   certificate_configuration: resolvableValue(
@@ -64,6 +63,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   build_arn: z.string().optional(),
   id: z.string().optional(),
+  log_paths: z.string().array().optional(),
   operating_system: z.string().optional(),
   script_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

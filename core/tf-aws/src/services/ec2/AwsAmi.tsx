@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   last_launched_time: resolvableValue(z.string()),
-  manage_ebs_snapshots: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
   architecture: resolvableValue(z.string().optional()),
   boot_mode: resolvableValue(z.string().optional()),
@@ -63,6 +62,8 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   image_owner_alias: z.string().optional(),
   image_type: z.string().optional(),
+  last_launched_time: z.string().optional(),
+  manage_ebs_snapshots: z.boolean().optional(),
   owner_id: z.string().optional(),
   platform: z.string().optional(),
   platform_details: z.string().optional(),

@@ -11,7 +11,6 @@ import { AwsAthenaNamedQuery } from './AwsAthenaNamedQuery.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
-  querystring: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   workgroup: resolvableValue(z.string().optional()),
 })
@@ -20,6 +19,7 @@ export const OutputSchema = z.object({
   database: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
+  querystring: z.string().optional(),
 })
 
 export type InputProps =

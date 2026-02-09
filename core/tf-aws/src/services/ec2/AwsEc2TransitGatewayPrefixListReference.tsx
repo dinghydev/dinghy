@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   prefix_list_id: resolvableValue(z.string()),
-  prefix_list_owner_id: resolvableValue(z.string()),
   transit_gateway_route_table_id: resolvableValue(z.string()),
   blackhole: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
@@ -20,6 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
+  prefix_list_owner_id: z.string().optional(),
 })
 
 export type InputProps =

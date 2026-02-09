@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   rule_name: resolvableValue(z.string()),
   rule_order: resolvableValue(z.number()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   actions: resolvableValue(
     z.object({
       type: z.string().optional(),
@@ -235,6 +234,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export const ImportSchema = z.object({

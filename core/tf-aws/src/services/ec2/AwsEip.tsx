@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   address: resolvableValue(z.string().optional()),
   associate_with_private_ip: resolvableValue(z.string().optional()),
   customer_owned_ipv4_pool: resolvableValue(z.string().optional()),
@@ -33,6 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   allocation_id: z.string().optional(),
+  arn: z.string().optional(),
   association_id: z.string().optional(),
   carrier_ip: z.string().optional(),
   customer_owned_ip: z.string().optional(),

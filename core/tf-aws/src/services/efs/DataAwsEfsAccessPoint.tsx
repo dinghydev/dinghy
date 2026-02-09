@@ -11,17 +11,6 @@ import { AwsEfsAccessPoint } from './AwsEfsAccessPoint.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   access_point_id: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
-  root_directory: resolvableValue(
-    z.object({
-      creation_info: z.object({
-        owner_gid: z.number(),
-        owner_uid: z.number(),
-        permissions: z.string(),
-      }).array(),
-      path: z.string(),
-    }).array(),
-  ),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -30,10 +19,19 @@ export const OutputSchema = z.object({
   file_system_arn: z.string().optional(),
   file_system_id: z.string().optional(),
   id: z.string().optional(),
+  owner_id: z.string().optional(),
   posix_user: z.object({
     gid: z.number(),
     secondary_gids: z.set(z.number()),
     uid: z.number(),
+  }).array().optional(),
+  root_directory: z.object({
+    creation_info: z.object({
+      owner_gid: z.number(),
+      owner_uid: z.number(),
+      permissions: z.string(),
+    }).array(),
+    path: z.string(),
   }).array().optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })

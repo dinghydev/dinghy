@@ -12,8 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
   ipam_scope_id: resolvableValue(z.string()),
-  ipam_scope_type: resolvableValue(z.string()),
-  pool_depth: resolvableValue(z.number()),
   allocation_default_netmask_length: resolvableValue(z.number().optional()),
   allocation_max_netmask_length: resolvableValue(z.number().optional()),
   allocation_min_netmask_length: resolvableValue(z.number().optional()),
@@ -42,6 +40,8 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  ipam_scope_type: z.string().optional(),
+  pool_depth: z.number().optional(),
   state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })

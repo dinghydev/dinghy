@@ -10,17 +10,6 @@ import z from 'zod'
 import { AwsMedialiveInput } from './AwsMedialiveInput.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  destinations: resolvableValue(
-    z.object({
-      ip: z.string(),
-      port: z.string(),
-      url: z.string(),
-      vpc: z.object({
-        availability_zone: z.string(),
-        network_interface_id: z.string(),
-      }).array(),
-    }).array(),
-  ),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -28,6 +17,15 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   attached_channels: z.string().array().optional(),
+  destinations: z.object({
+    ip: z.string(),
+    port: z.string(),
+    url: z.string(),
+    vpc: z.object({
+      availability_zone: z.string(),
+      network_interface_id: z.string(),
+    }).array(),
+  }).array().optional(),
   input_class: z.string().optional(),
   input_devices: z.object({
     id: z.string(),

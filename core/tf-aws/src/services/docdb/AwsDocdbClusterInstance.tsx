@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   instance_class: resolvableValue(z.string()),
-  publicly_accessible: resolvableValue(z.boolean()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -46,6 +45,7 @@ export const OutputSchema = z.object({
   kms_key_id: z.string().optional(),
   port: z.number().optional(),
   preferred_backup_window: z.string().optional(),
+  publicly_accessible: z.boolean().optional(),
   storage_encrypted: z.boolean().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   writer: z.boolean().optional(),

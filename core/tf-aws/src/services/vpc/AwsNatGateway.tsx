@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  regional_nat_gateway_auto_mode: resolvableValue(z.string()),
   allocation_id: resolvableValue(z.string().optional()),
   availability_mode: resolvableValue(z.string().optional()),
   availability_zone_address: resolvableValue(
@@ -57,6 +56,7 @@ export const OutputSchema = z.object({
     public_ip: z.string(),
     status: z.string(),
   })).optional(),
+  regional_nat_gateway_auto_mode: z.string().optional(),
   route_table_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })

@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
-  id: resolvableValue(z.string()),
   emergency_contact: resolvableValue(
     z.object({
       contact_notes: z.string().optional(),
@@ -21,7 +20,9 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

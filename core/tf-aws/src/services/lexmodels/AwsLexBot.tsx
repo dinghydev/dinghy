@@ -18,7 +18,6 @@ export const InputSchema = TfMetaSchema.extend({
       group_number: z.number().optional(),
     }).array(),
   })),
-  arn: resolvableValue(z.string()),
   child_directed: resolvableValue(z.boolean()),
   intent: resolvableValue(
     z.object({
@@ -59,6 +58,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   checksum: z.string().optional(),
   created_date: z.string().optional(),
   failure_reason: z.string().optional(),

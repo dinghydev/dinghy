@@ -12,16 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   dag_s3_path: resolvableValue(z.string()),
   execution_role_arn: resolvableValue(z.string()),
-  last_updated: resolvableValue(
-    z.object({
-      created_at: z.string(),
-      error: z.object({
-        error_code: z.string(),
-        error_message: z.string(),
-      }).array(),
-      status: z.string(),
-    }).array(),
-  ),
   name: resolvableValue(z.string()),
   network_configuration: resolvableValue(z.object({
     security_group_ids: z.string().array(),
@@ -94,6 +84,14 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   database_vpc_endpoint_service: z.string().optional(),
+  last_updated: z.object({
+    created_at: z.string(),
+    error: z.object({
+      error_code: z.string(),
+      error_message: z.string(),
+    }).array(),
+    status: z.string(),
+  }).array().optional(),
   service_role_arn: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

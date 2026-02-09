@@ -10,16 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  metadata: resolvableValue(
-    z.object({
-      creation_date: z.string(),
-      parent_group_name: z.string(),
-      root_to_parent_groups: z.object({
-        group_arn: z.string(),
-        group_name: z.string(),
-      }).array(),
-    }).array(),
-  ),
   name: resolvableValue(z.string()),
   parent_group_name: resolvableValue(z.string().optional()),
   properties: resolvableValue(
@@ -38,6 +28,14 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  metadata: z.object({
+    creation_date: z.string(),
+    parent_group_name: z.string(),
+    root_to_parent_groups: z.object({
+      group_arn: z.string(),
+      group_name: z.string(),
+    }).array(),
+  }).array().optional(),
   version: z.number().optional(),
 })
 

@@ -10,12 +10,6 @@ import z from 'zod'
 import { AwsMemorydbCluster } from './AwsMemorydbCluster.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  cluster_endpoint: resolvableValue(
-    z.object({
-      address: z.string(),
-      port: z.number(),
-    }).array(),
-  ),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -24,6 +18,10 @@ export const OutputSchema = z.object({
   acl_name: z.string().optional(),
   arn: z.string().optional(),
   auto_minor_version_upgrade: z.boolean().optional(),
+  cluster_endpoint: z.object({
+    address: z.string(),
+    port: z.number(),
+  }).array().optional(),
   data_tiering: z.boolean().optional(),
   description: z.string().optional(),
   engine: z.string().optional(),

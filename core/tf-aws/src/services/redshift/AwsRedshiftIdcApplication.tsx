@@ -14,7 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   idc_display_name: resolvableValue(z.string()),
   idc_instance_arn: resolvableValue(z.string()),
   redshift_idc_application_name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   application_type: resolvableValue(z.string().optional()),
   authorized_token_issuer: resolvableValue(
     z.object({
@@ -49,6 +48,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   idc_managed_application_arn: z.string().optional(),
   redshift_idc_application_arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

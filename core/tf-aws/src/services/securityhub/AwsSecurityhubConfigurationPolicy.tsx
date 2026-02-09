@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   configuration_policy: resolvableValue(z.object({
     enabled_standard_arns: z.string().array().optional(),
     service_enabled: z.boolean(),
@@ -56,6 +55,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   id: z.string().optional(),
 })
 

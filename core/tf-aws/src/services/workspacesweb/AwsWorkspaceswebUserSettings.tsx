@@ -49,6 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  associated_portal_arns: z.string().array().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   user_settings_arn: z.string().optional(),
 })

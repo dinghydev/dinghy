@@ -10,8 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  job_arn: resolvableValue(z.string()),
-  job_id: resolvableValue(z.string()),
   job_type: resolvableValue(z.string()),
   s3_job_definition: resolvableValue(z.object({
     bucket_criteria: z.object({
@@ -118,6 +116,8 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
   id: z.string().optional(),
+  job_arn: z.string().optional(),
+  job_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   user_paused_details: z.object({
     job_expires_at: z.string(),

@@ -15,7 +15,6 @@ export const InputSchema = TfMetaSchema.extend({
   client_subnet_cidr: resolvableValue(z.string()),
   display_name: resolvableValue(z.string()),
   s3_access: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   zero_etl_access: resolvableValue(z.string()),
   availability_zone: resolvableValue(z.string().optional()),
   custom_domain_name: resolvableValue(z.string().optional()),
@@ -73,6 +72,7 @@ export const OutputSchema = z.object({
   percent_progress: z.number().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

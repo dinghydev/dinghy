@@ -21,11 +21,10 @@ With 10 lines of code to create an EC2 server.
 - Supports customization of instance type (e.g., ARM or AMD architectures)
 - Lets you choose Linux flavor (Amazon Linux 2023 or Ubuntu)
 - Handles networking setup automatically: VPC, subnet, internet gateway, routing
+- Automatically creates a public web traffic security group for your server when a public IP is enabled
 - Automatically manages IAM roles and permissions for your EC2 instances
 - Managing your servers securely with [AWS Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) without `SSH`
 - Generates standard Terraform code as an output alongside visual diagrams
-
-
 
 ## Source Code
 
@@ -49,8 +48,7 @@ With 10 lines of code to create an EC2 server.
     ![](./output/my-server.png#drawio-w-70)
   </TabItem>
   <TabItem value="All View">
-    All elements without filter
-    ![](./output/my-server-all.png#drawio-w-100)
+    All elements without filter ![](./output/my-server-all.png#drawio-w-100)
   </TabItem>
   <TabItem value="Terraform">
     <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
@@ -68,6 +66,9 @@ List of resource types used by this stack, in approximate order of creation:
 1. [aws_internet_gateway](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)
 1. [aws_subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)
 1. [aws_route](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route)
+1. [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
+1. [aws_vpc_security_group_ingress_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule)
+1. [aws_vpc_security_group_egress_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_egress_rule)
 1. [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)
 1. [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment)
 1. [aws_iam_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile)
@@ -107,14 +108,12 @@ Make sure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguid
 
 :::
 
-
 ```sh
 dinghy tf diff
 ```
 
 Sample Screenshot
 ![](./screenshots/screenshot-diff.png#drawio-w-100)
-
 
 ### Apply the actions
 
@@ -123,6 +122,7 @@ Run [`dinghy tf deploy`](https://dinghy.dev/references/commands/engine/tf/deploy
 ```sh
 dinghy tf deploy
 ```
+
 Sample Screenshot
 ![](./screenshots/screenshot-deploy.png#drawio-w-100)
 

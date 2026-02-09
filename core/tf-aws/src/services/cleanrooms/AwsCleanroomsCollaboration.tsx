@@ -15,7 +15,6 @@ export const InputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   query_log_status: resolvableValue(z.string()),
-  update_time: resolvableValue(z.string()),
   analytics_engine: resolvableValue(z.string().optional()),
   data_encryption_metadata: resolvableValue(
     z.object({
@@ -49,6 +48,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
   id: z.string().optional(),
+  update_time: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   include_member_accounts: resolvableValue(z.boolean().optional()),
 })
 
 export const OutputSchema = z.object({
+  id: z.string().optional(),
   status: z.string().optional(),
 })
 

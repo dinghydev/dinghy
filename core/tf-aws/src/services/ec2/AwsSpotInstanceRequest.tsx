@@ -10,17 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  instance_state: resolvableValue(z.string()),
-  outpost_arn: resolvableValue(z.string()),
-  password_data: resolvableValue(z.string()),
-  primary_network_interface: resolvableValue(
-    z.object({
-      delete_on_termination: z.boolean(),
-      network_interface_id: z.string(),
-    }).array(),
-  ),
-  primary_network_interface_id: resolvableValue(z.string()),
   ami: resolvableValue(z.string().optional()),
   associate_public_ip_address: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -172,7 +161,16 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   id: z.string().optional(),
+  instance_state: z.string().optional(),
+  outpost_arn: z.string().optional(),
+  password_data: z.string().optional(),
+  primary_network_interface: z.object({
+    delete_on_termination: z.boolean(),
+    network_interface_id: z.string(),
+  }).array().optional(),
+  primary_network_interface_id: z.string().optional(),
   private_dns: z.string().optional(),
   private_ip: z.string().optional(),
   public_dns: z.string().optional(),

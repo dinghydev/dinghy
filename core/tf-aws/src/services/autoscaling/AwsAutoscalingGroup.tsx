@@ -10,11 +10,8 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   max_size: resolvableValue(z.number()),
   min_size: resolvableValue(z.number()),
-  predicted_capacity: resolvableValue(z.number()),
-  warm_pool_size: resolvableValue(z.number()),
   availability_zone_distribution: resolvableValue(
     z.object({
       capacity_distribution_strategy: z.string().optional(),
@@ -218,7 +215,11 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  predicted_capacity: z.number().optional(),
+  warm_pool_size: z.number().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

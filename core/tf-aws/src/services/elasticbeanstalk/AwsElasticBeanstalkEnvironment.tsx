@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   application: resolvableValue(z.string()),
-  arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   cname_prefix: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
@@ -42,6 +41,7 @@ export const OutputSchema = z.object({
     value: z.string(),
   })).optional(),
   application: z.string().optional(),
+  arn: z.string().optional(),
   autoscaling_groups: z.string().array().optional(),
   cname: z.string().optional(),
   description: z.string().optional(),

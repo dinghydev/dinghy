@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   security_control_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  id: z.string().optional(),
   standards_control_associations: z.object({
     association_status: z.string(),
     related_requirements: z.string().array(),

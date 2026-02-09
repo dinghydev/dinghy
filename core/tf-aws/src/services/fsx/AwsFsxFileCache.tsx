@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   file_cache_type: resolvableValue(z.string()),
   file_cache_type_version: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
   storage_capacity: resolvableValue(z.number()),
   subnet_ids: resolvableValue(z.string().array()),
   copy_tags_to_data_repository_associations: resolvableValue(
@@ -72,6 +71,7 @@ export const OutputSchema = z.object({
   file_cache_id: z.string().optional(),
   id: z.string().optional(),
   network_interface_ids: z.set(z.string()).optional(),
+  owner_id: z.string().optional(),
   vpc_id: z.string().optional(),
 })
 

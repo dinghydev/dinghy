@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsDbSnapshot } from './AwsDbSnapshot.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  port: resolvableValue(z.number()),
   db_instance_identifier: resolvableValue(z.string().optional()),
   db_snapshot_identifier: resolvableValue(z.string().optional()),
   include_public: resolvableValue(z.boolean().optional()),
@@ -34,6 +33,7 @@ export const OutputSchema = z.object({
   license_model: z.string().optional(),
   option_group_name: z.string().optional(),
   original_snapshot_create_time: z.string().optional(),
+  port: z.number().optional(),
   snapshot_create_time: z.string().optional(),
   source_db_snapshot_identifier: z.string().optional(),
   source_region: z.string().optional(),

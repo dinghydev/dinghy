@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   exportable: resolvableValue(z.boolean()),
-  id: resolvableValue(z.string()),
   deletion_window_in_days: resolvableValue(z.number().optional()),
   enabled: resolvableValue(z.boolean().optional()),
   key_attributes: resolvableValue(
@@ -46,6 +45,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  id: z.string().optional(),
   key_check_value: z.string().optional(),
   key_origin: z.string().optional(),
   key_state: z.string().optional(),

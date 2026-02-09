@@ -10,54 +10,49 @@ import z from 'zod'
 import { AwsElb } from './AwsElb.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  access_logs: resolvableValue(
-    z.object({
-      bucket: z.string(),
-      bucket_prefix: z.string(),
-      enabled: z.boolean(),
-      interval: z.number(),
-    }).array(),
-  ),
-  arn: resolvableValue(z.string()),
-  availability_zones: resolvableValue(z.string().array()),
-  connection_draining: resolvableValue(z.boolean()),
-  connection_draining_timeout: resolvableValue(z.number()),
-  cross_zone_load_balancing: resolvableValue(z.boolean()),
-  desync_mitigation_mode: resolvableValue(z.string()),
-  dns_name: resolvableValue(z.string()),
-  health_check: resolvableValue(
-    z.object({
-      healthy_threshold: z.number(),
-      interval: z.number(),
-      target: z.string(),
-      timeout: z.number(),
-      unhealthy_threshold: z.number(),
-    }).array(),
-  ),
-  idle_timeout: resolvableValue(z.number()),
-  instances: resolvableValue(z.string().array()),
-  internal: resolvableValue(z.boolean()),
-  listener: resolvableValue(
-    z.object({
-      instance_port: z.number(),
-      instance_protocol: z.string(),
-      lb_port: z.number(),
-      lb_protocol: z.string(),
-      ssl_certificate_id: z.string(),
-    }).array(),
-  ),
   name: resolvableValue(z.string()),
-  security_groups: resolvableValue(z.string().array()),
-  source_security_group: resolvableValue(z.string()),
-  source_security_group_id: resolvableValue(z.string()),
-  subnets: resolvableValue(z.string().array()),
-  zone_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  access_logs: z.object({
+    bucket: z.string(),
+    bucket_prefix: z.string(),
+    enabled: z.boolean(),
+    interval: z.number(),
+  }).array().optional(),
+  arn: z.string().optional(),
+  availability_zones: z.set(z.string()).optional(),
+  connection_draining: z.boolean().optional(),
+  connection_draining_timeout: z.number().optional(),
+  cross_zone_load_balancing: z.boolean().optional(),
+  desync_mitigation_mode: z.string().optional(),
+  dns_name: z.string().optional(),
+  health_check: z.object({
+    healthy_threshold: z.number(),
+    interval: z.number(),
+    target: z.string(),
+    timeout: z.number(),
+    unhealthy_threshold: z.number(),
+  }).array().optional(),
+  idle_timeout: z.number().optional(),
+  instances: z.set(z.string()).optional(),
+  internal: z.boolean().optional(),
+  listener: z.set(z.object({
+    instance_port: z.number(),
+    instance_protocol: z.string(),
+    lb_port: z.number(),
+    lb_protocol: z.string(),
+    ssl_certificate_id: z.string(),
+  })).optional(),
+  security_groups: z.set(z.string()).optional(),
+  source_security_group: z.string().optional(),
+  source_security_group_id: z.string().optional(),
+  subnets: z.set(z.string()).optional(),
+  zone_id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

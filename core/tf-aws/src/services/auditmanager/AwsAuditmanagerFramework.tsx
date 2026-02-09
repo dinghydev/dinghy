@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   compliance_type: resolvableValue(z.string().optional()),
   control_sets: resolvableValue(
     z.object({
@@ -31,6 +30,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   framework_type: z.string().optional(),
   id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

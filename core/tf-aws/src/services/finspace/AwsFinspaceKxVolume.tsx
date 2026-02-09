@@ -10,13 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  attached_clusters: resolvableValue(
-    z.object({
-      cluster_name: z.string(),
-      cluster_status: z.string(),
-      cluster_type: z.string(),
-    }).array(),
-  ),
   availability_zones: resolvableValue(z.string().array()),
   az_mode: resolvableValue(z.string()),
   environment_id: resolvableValue(z.string()),
@@ -44,6 +37,11 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  attached_clusters: z.object({
+    cluster_name: z.string(),
+    cluster_status: z.string(),
+    cluster_type: z.string(),
+  }).array().optional(),
   created_timestamp: z.string().optional(),
   last_modified_timestamp: z.string().optional(),
   status: z.string().optional(),

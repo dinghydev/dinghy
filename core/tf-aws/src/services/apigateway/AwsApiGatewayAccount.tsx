@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   cloudwatch_role_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -18,6 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   api_key_version: z.string().optional(),
   features: z.set(z.string()).optional(),
+  id: z.string().optional(),
   throttle_settings: z.object({
     burst_limit: z.number(),
     rate_limit: z.number(),

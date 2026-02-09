@@ -9,7 +9,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   internet_gateway_block_mode: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -24,6 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   aws_account_id: z.string().optional(),
   aws_region: z.string().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =

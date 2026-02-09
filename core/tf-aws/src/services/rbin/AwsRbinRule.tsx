@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   resource_type: resolvableValue(z.string()),
   retention_period: resolvableValue(z.object({
     retention_period_unit: z.string(),
@@ -50,6 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   id: z.string().optional(),
   lock_end_time: z.string().optional(),
   lock_state: z.string().optional(),

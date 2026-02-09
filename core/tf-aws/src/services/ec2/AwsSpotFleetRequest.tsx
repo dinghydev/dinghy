@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  client_token: resolvableValue(z.string()),
   iam_fleet_role: resolvableValue(z.string()),
   target_capacity: resolvableValue(z.number()),
   allocation_strategy: resolvableValue(z.string().optional()),
@@ -166,6 +165,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  client_token: z.string().optional(),
   id: z.string().optional(),
   spot_request_state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

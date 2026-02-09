@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   app_bundle_arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   ingestion_arn: resolvableValue(z.string()),
   destination_configuration: resolvableValue(
     z.object({
@@ -49,6 +48,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

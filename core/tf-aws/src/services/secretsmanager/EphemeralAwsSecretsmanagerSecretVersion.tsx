@@ -11,7 +11,6 @@ import { AwsSecretsmanagerSecretVersion } from './AwsSecretsmanagerSecretVersion
 
 export const InputSchema = TfMetaSchema.extend({
   secret_id: resolvableValue(z.string()),
-  version_stages: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
   version_id: resolvableValue(z.string().optional()),
   version_stage: resolvableValue(z.string().optional()),
@@ -23,6 +22,7 @@ export const OutputSchema = z.object({
   secret_binary: z.string().optional(),
   secret_string: z.string().optional(),
   version_id: z.string().optional(),
+  version_stages: z.string().array().optional(),
 })
 
 export type InputProps =

@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
-  amazon_side_asn: resolvableValue(z.string()),
   bgp_asn: resolvableValue(z.number()),
   connection_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -35,6 +34,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  amazon_side_asn: z.string().optional(),
   arn: z.string().optional(),
   aws_device: z.string().optional(),
   id: z.string().optional(),

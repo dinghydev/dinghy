@@ -10,11 +10,7 @@ import z from 'zod'
 import { AwsFsxWindowsFileSystem } from './AwsFsxWindowsFileSystem.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  backup_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
-  network_interface_ids: resolvableValue(z.string().array()),
-  security_group_ids: resolvableValue(z.string().array()),
-  skip_final_backup: resolvableValue(z.boolean()),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -28,6 +24,7 @@ export const OutputSchema = z.object({
     file_share_access_audit_log_level: z.string(),
   }).array().optional(),
   automatic_backup_retention_days: z.number().optional(),
+  backup_id: z.string().optional(),
   copy_tags_to_backups: z.boolean().optional(),
   daily_automatic_backup_start_time: z.string().optional(),
   deployment_type: z.string().optional(),
@@ -38,9 +35,12 @@ export const OutputSchema = z.object({
   dns_name: z.string().optional(),
   id: z.string().optional(),
   kms_key_id: z.string().optional(),
+  network_interface_ids: z.set(z.string()).optional(),
   owner_id: z.string().optional(),
   preferred_file_server_ip: z.string().optional(),
   preferred_subnet_id: z.string().optional(),
+  security_group_ids: z.set(z.string()).optional(),
+  skip_final_backup: z.boolean().optional(),
   storage_capacity: z.number().optional(),
   storage_type: z.string().optional(),
   subnet_ids: z.set(z.string()).optional(),

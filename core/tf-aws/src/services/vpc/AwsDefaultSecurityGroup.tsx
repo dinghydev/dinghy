@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  name_prefix: resolvableValue(z.string()),
   egress: resolvableValue(
     z.object({
       cidr_blocks: z.string().array(),
@@ -48,6 +47,7 @@ export const OutputSchema = z.object({
   description: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
+  name_prefix: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })

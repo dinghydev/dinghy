@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -27,6 +26,7 @@ export const OutputSchema = z.object({
   cidr_ipv6: z.string().optional(),
   description: z.string().optional(),
   from_port: z.number().optional(),
+  id: z.string().optional(),
   ip_protocol: z.string().optional(),
   is_egress: z.boolean().optional(),
   prefix_list_id: z.string().optional(),

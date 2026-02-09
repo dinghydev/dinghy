@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsCloudformationType } from './AwsCloudformationType.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  type_arn: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -33,6 +32,7 @@ export const OutputSchema = z.object({
   provisioning_type: z.string().optional(),
   schema: z.string().optional(),
   source_url: z.string().optional(),
+  type_arn: z.string().optional(),
   visibility: z.string().optional(),
 })
 

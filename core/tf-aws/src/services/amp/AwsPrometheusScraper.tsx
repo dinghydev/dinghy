@@ -10,9 +10,7 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   scrape_configuration: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   alias: resolvableValue(z.string().optional()),
   destination: resolvableValue(
     z.object({
@@ -49,7 +47,9 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  id: z.string().optional(),
   role_arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

@@ -10,8 +10,6 @@ import z from 'zod'
 import { AwsCodeguruprofilerProfilingGroup } from './AwsCodeguruprofilerProfilingGroup.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  created_at: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -22,6 +20,8 @@ export const OutputSchema = z.object({
   }).array().optional(),
   arn: z.string().optional(),
   compute_platform: z.string().optional(),
+  created_at: z.string().optional(),
+  id: z.string().optional(),
   profiling_status: z.object({
     latest_agent_orchestrated_at: z.string(),
     latest_agent_profile_reported_at: z.string(),

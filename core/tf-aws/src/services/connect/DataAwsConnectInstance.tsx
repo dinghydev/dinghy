@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsConnectInstance } from './AwsConnectInstance.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  auto_resolve_best_voices_enabled: resolvableValue(z.boolean()),
   id: resolvableValue(z.string().optional()),
   instance_alias: resolvableValue(z.string().optional()),
   instance_id: resolvableValue(z.string().optional()),
@@ -19,6 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  auto_resolve_best_voices_enabled: z.boolean().optional(),
   contact_flow_logs_enabled: z.boolean().optional(),
   contact_lens_enabled: z.boolean().optional(),
   created_time: z.string().optional(),

@@ -11,7 +11,6 @@ import { AwsCeCostCategory } from './AwsCeCostCategory.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   cost_category_arn: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
 })
 
 export const OutputSchema = z.object({
@@ -19,6 +18,7 @@ export const OutputSchema = z.object({
   effective_end: z.string().optional(),
   effective_start: z.string().optional(),
   id: z.string().optional(),
+  name: z.string().optional(),
   rule: z.set(z.object({
     inherited_value: z.object({
       dimension_key: z.string(),

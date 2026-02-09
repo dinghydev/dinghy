@@ -11,12 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   domain_identifier: resolvableValue(z.string()),
-  imports: resolvableValue(
-    z.object({
-      name: z.string(),
-      revision: z.string(),
-    }).array(),
-  ),
   name: resolvableValue(z.string()),
   owning_project_identifier: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -37,6 +31,10 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
+  imports: z.object({
+    name: z.string(),
+    revision: z.string(),
+  }).array().optional(),
   origin_domain_id: z.string().optional(),
   origin_project_id: z.string().optional(),
   revision: z.string().optional(),

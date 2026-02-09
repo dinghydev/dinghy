@@ -19,7 +19,6 @@ export const InputSchema = TfMetaSchema.extend({
       value: z.string().optional(),
     }).array(),
   ),
-  type: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   max_devices: resolvableValue(z.number().optional()),
@@ -30,6 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  type: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

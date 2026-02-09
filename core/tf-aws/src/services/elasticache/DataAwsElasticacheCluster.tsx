@@ -10,13 +10,13 @@ import z from 'zod'
 import { AwsElasticacheCluster } from './AwsElasticacheCluster.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   cluster_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   availability_zone: z.string().optional(),
   cache_nodes: z.object({
     address: z.string(),

@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsSsoadminPermissionSet } from './AwsSsoadminPermissionSet.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  created_date: resolvableValue(z.string()),
   instance_arn: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -18,6 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  created_date: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
   relay_state: z.string().optional(),

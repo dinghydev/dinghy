@@ -11,7 +11,6 @@ import { AwsRedshiftCluster } from './AwsRedshiftCluster.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
-  cluster_version: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -36,6 +35,7 @@ export const OutputSchema = z.object({
   cluster_revision_number: z.string().optional(),
   cluster_subnet_group_name: z.string().optional(),
   cluster_type: z.string().optional(),
+  cluster_version: z.string().optional(),
   database_name: z.string().optional(),
   default_iam_role_arn: z.string().optional(),
   elastic_ip: z.string().optional(),

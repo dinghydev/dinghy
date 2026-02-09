@@ -10,13 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  master_user_secret: resolvableValue(
-    z.object({
-      kms_key_id: z.string(),
-      secret_arn: z.string(),
-      secret_status: z.string(),
-    }).array(),
-  ),
   allow_major_version_upgrade: resolvableValue(z.boolean().optional()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   availability_zones: resolvableValue(z.string().array().optional()),
@@ -80,6 +73,11 @@ export const OutputSchema = z.object({
   endpoint: z.string().optional(),
   hosted_zone_id: z.string().optional(),
   id: z.string().optional(),
+  master_user_secret: z.object({
+    kms_key_id: z.string(),
+    secret_arn: z.string(),
+    secret_status: z.string(),
+  }).array().optional(),
   reader_endpoint: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })

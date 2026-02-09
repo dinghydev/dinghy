@@ -11,12 +11,12 @@ import { AwsSsmcontactsRotation } from './AwsSsmcontactsRotation.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   contact_ids: z.string().array().optional(),
+  id: z.string().optional(),
   name: z.string().optional(),
   recurrence: z.object({
     daily_settings: z.object({

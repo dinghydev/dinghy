@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsBudgetsBudget } from './AwsBudgetsBudget.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -18,6 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   auto_adjust_data: z.object({
     auto_adjust_type: z.string(),
     historical_options: z.object({

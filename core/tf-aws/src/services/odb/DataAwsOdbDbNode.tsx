@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   cloud_vm_cluster_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -18,6 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   additional_details: z.string().optional(),
+  arn: z.string().optional(),
   backup_ip_id: z.string().optional(),
   backup_vnic_id: z.string().optional(),
   backup_vnic2_id: z.string().optional(),

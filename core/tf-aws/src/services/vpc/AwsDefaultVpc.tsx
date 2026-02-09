@@ -10,15 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  default_network_acl_id: resolvableValue(z.string()),
-  default_route_table_id: resolvableValue(z.string()),
-  default_security_group_id: resolvableValue(z.string()),
-  dhcp_options_id: resolvableValue(z.string()),
-  existing_default_vpc: resolvableValue(z.boolean()),
-  ipv6_association_id: resolvableValue(z.string()),
-  main_route_table_id: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
   assign_generated_ipv6_cidr_block: resolvableValue(z.boolean().optional()),
   enable_dns_hostnames: resolvableValue(z.boolean().optional()),
   enable_dns_support: resolvableValue(z.boolean().optional()),
@@ -35,8 +26,17 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   cidr_block: z.string().optional(),
+  default_network_acl_id: z.string().optional(),
+  default_route_table_id: z.string().optional(),
+  default_security_group_id: z.string().optional(),
+  dhcp_options_id: z.string().optional(),
+  existing_default_vpc: z.boolean().optional(),
   instance_tenancy: z.string().optional(),
+  ipv6_association_id: z.string().optional(),
+  main_route_table_id: z.string().optional(),
+  owner_id: z.string().optional(),
 })
 
 export type InputProps =

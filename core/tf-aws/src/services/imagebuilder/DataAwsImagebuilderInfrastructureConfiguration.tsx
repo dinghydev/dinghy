@@ -11,13 +11,13 @@ import { AwsImagebuilderInfrastructureConfiguration } from './AwsImagebuilderInf
 
 export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
-  date_updated: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   date_created: z.string().optional(),
+  date_updated: z.string().optional(),
   description: z.string().optional(),
   instance_metadata_options: z.object({
     http_put_response_hop_limit: z.number(),

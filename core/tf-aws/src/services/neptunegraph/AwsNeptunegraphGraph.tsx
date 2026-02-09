@@ -10,11 +10,7 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  endpoint: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   provisioned_memory: resolvableValue(z.number()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   deletion_protection: resolvableValue(z.boolean().optional()),
   graph_name: resolvableValue(z.string().optional()),
   graph_name_prefix: resolvableValue(z.string().optional()),
@@ -37,7 +33,12 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  endpoint: z.string().optional(),
+  id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

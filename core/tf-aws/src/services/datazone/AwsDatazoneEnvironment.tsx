@@ -14,14 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   profile_identifier: resolvableValue(z.string()),
   project_identifier: resolvableValue(z.string()),
-  provisioned_resources: resolvableValue(
-    z.object({
-      name: z.string(),
-      provider: z.string(),
-      type: z.string(),
-      value: z.string(),
-    }).array(),
-  ),
   account_identifier: resolvableValue(z.string().optional()),
   account_region: resolvableValue(z.string().optional()),
   blueprint_identifier: resolvableValue(z.string().optional()),
@@ -59,6 +51,12 @@ export const OutputSchema = z.object({
     messages: z.string().array(),
   }).array().optional(),
   provider_environment: z.string().optional(),
+  provisioned_resources: z.object({
+    name: z.string(),
+    provider: z.string(),
+    type: z.string(),
+    value: z.string(),
+  }).array().optional(),
 })
 
 export type InputProps =

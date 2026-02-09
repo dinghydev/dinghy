@@ -10,12 +10,6 @@ import z from 'zod'
 import { AwsOdbCloudExadataInfrastructure } from './AwsOdbCloudExadataInfrastructure.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  available_storage_size_in_gbs: resolvableValue(z.number()),
-  customer_contacts_to_send_to_oci: resolvableValue(
-    z.object({
-      email: z.string(),
-    }).array(),
-  ),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -26,10 +20,14 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone: z.string().optional(),
   availability_zone_id: z.string().optional(),
+  available_storage_size_in_gbs: z.number().optional(),
   compute_count: z.number().optional(),
   compute_model: z.string().optional(),
   cpu_count: z.number().optional(),
   created_at: z.string().optional(),
+  customer_contacts_to_send_to_oci: z.set(z.object({
+    email: z.string(),
+  })).optional(),
   data_storage_size_in_tbs: z.number().optional(),
   database_server_type: z.string().optional(),
   db_node_storage_size_in_gbs: z.number().optional(),

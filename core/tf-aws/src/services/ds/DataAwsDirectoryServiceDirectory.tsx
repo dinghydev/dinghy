@@ -10,35 +10,7 @@ import z from 'zod'
 import { AwsDirectoryServiceDirectory } from './AwsDirectoryServiceDirectory.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  connect_settings: resolvableValue(
-    z.object({
-      availability_zones: z.string().array(),
-      connect_ips: z.string().array(),
-      customer_dns_ips: z.string().array(),
-      customer_username: z.string(),
-      subnet_ids: z.string().array(),
-      vpc_id: z.string(),
-    }).array(),
-  ),
   directory_id: resolvableValue(z.string()),
-  radius_settings: resolvableValue(
-    z.object({
-      authentication_protocol: z.string(),
-      display_label: z.string(),
-      radius_port: z.number(),
-      radius_retries: z.number(),
-      radius_servers: z.string().array(),
-      radius_timeout: z.number(),
-      use_same_username: z.boolean(),
-    }).array(),
-  ),
-  vpc_settings: resolvableValue(
-    z.object({
-      availability_zones: z.string().array(),
-      subnet_ids: z.string().array(),
-      vpc_id: z.string(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -46,16 +18,38 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   access_url: z.string().optional(),
   alias: z.string().optional(),
+  connect_settings: z.object({
+    availability_zones: z.set(z.string()),
+    connect_ips: z.set(z.string()),
+    customer_dns_ips: z.set(z.string()),
+    customer_username: z.string(),
+    subnet_ids: z.set(z.string()),
+    vpc_id: z.string(),
+  }).array().optional(),
   description: z.string().optional(),
   dns_ip_addresses: z.set(z.string()).optional(),
   edition: z.string().optional(),
   enable_sso: z.boolean().optional(),
   name: z.string().optional(),
+  radius_settings: z.object({
+    authentication_protocol: z.string(),
+    display_label: z.string(),
+    radius_port: z.number(),
+    radius_retries: z.number(),
+    radius_servers: z.set(z.string()),
+    radius_timeout: z.number(),
+    use_same_username: z.boolean(),
+  }).array().optional(),
   security_group_id: z.string().optional(),
   short_name: z.string().optional(),
   size: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
+  vpc_settings: z.object({
+    availability_zones: z.set(z.string()),
+    subnet_ids: z.set(z.string()),
+    vpc_id: z.string(),
+  }).array().optional(),
 })
 
 export type InputProps =

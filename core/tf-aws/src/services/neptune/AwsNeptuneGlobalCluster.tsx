@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   global_cluster_identifier: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
   deletion_protection: resolvableValue(z.boolean().optional()),
   engine: resolvableValue(z.string().optional()),
   engine_version: resolvableValue(z.string().optional()),
@@ -35,6 +34,7 @@ export const OutputSchema = z.object({
   })).optional(),
   global_cluster_resource_id: z.string().optional(),
   id: z.string().optional(),
+  status: z.string().optional(),
 })
 
 export type InputProps =

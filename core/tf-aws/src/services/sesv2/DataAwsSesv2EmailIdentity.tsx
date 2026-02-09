@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsSesv2EmailIdentity } from './AwsSesv2EmailIdentity.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  configuration_set_name: resolvableValue(z.string()),
   email_identity: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -18,6 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  configuration_set_name: z.string().optional(),
   dkim_signing_attributes: z.object({
     current_signing_key_length: z.string(),
     domain_signing_private_key: z.string(),

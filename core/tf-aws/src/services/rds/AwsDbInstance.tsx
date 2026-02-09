@@ -150,6 +150,7 @@ export const OutputSchema = z.object({
   }).array().optional(),
   multi_az: z.boolean().optional(),
   port: z.number().optional(),
+  replicas: z.string().array().optional(),
   resource_id: z.string().optional(),
   status: z.string().optional(),
   storage_encrypted: z.boolean().optional(),

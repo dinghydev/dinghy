@@ -10,21 +10,22 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  create_date: resolvableValue(z.string()),
-  expiration_date: resolvableValue(z.string()),
-  service_credential_alias: resolvableValue(z.string()),
-  service_credential_secret: resolvableValue(z.string()),
   service_name: resolvableValue(z.string()),
-  service_password: resolvableValue(z.string()),
-  service_specific_credential_id: resolvableValue(z.string()),
-  service_user_name: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
   credential_age_days: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  create_date: z.string().optional(),
+  expiration_date: z.string().optional(),
+  service_credential_alias: z.string().optional(),
+  service_credential_secret: z.string().optional(),
+  service_password: z.string().optional(),
+  service_specific_credential_id: z.string().optional(),
+  service_user_name: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

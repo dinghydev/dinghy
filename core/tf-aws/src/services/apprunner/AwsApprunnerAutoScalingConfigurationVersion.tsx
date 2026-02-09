@@ -11,8 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   auto_scaling_configuration_name: resolvableValue(z.string()),
-  has_associated_service: resolvableValue(z.boolean()),
-  is_default: resolvableValue(z.boolean()),
   id: resolvableValue(z.string().optional()),
   max_concurrency: resolvableValue(z.number().optional()),
   max_size: resolvableValue(z.number().optional()),
@@ -24,6 +22,8 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   auto_scaling_configuration_revision: z.number().optional(),
+  has_associated_service: z.boolean().optional(),
+  is_default: z.boolean().optional(),
   latest: z.boolean().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

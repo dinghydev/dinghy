@@ -10,8 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  port: resolvableValue(z.number()),
-  snapshot_type: resolvableValue(z.string()),
   source_db_snapshot_identifier: resolvableValue(z.string()),
   target_db_snapshot_identifier: resolvableValue(z.string()),
   copy_tags: resolvableValue(z.boolean().optional()),
@@ -41,7 +39,9 @@ export const OutputSchema = z.object({
   kms_key_id: z.string().optional(),
   license_model: z.string().optional(),
   option_group_name: z.string().optional(),
+  port: z.number().optional(),
   shared_accounts: z.set(z.string()).optional(),
+  snapshot_type: z.string().optional(),
   source_db_snapshot_identifier: z.string().optional(),
   source_region: z.string().optional(),
   storage_type: z.string().optional(),

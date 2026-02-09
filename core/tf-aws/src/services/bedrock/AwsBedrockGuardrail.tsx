@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   blocked_input_messaging: resolvableValue(z.string()),
   blocked_outputs_messaging: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   content_policy_config: resolvableValue(
     z.object({
       tier_config: z.object({
@@ -116,6 +115,7 @@ export const OutputSchema = z.object({
   guardrail_arn: z.string().optional(),
   guardrail_id: z.string().optional(),
   status: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
   version: z.string().optional(),
 })
 

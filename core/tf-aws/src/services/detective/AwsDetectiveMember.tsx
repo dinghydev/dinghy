@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
-  disabled_reason: resolvableValue(z.string()),
   email_address: resolvableValue(z.string()),
   graph_arn: resolvableValue(z.string()),
   disable_email_notification: resolvableValue(z.boolean().optional()),
@@ -21,6 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   administrator_id: z.string().optional(),
+  disabled_reason: z.string().optional(),
   id: z.string().optional(),
   invited_time: z.string().optional(),
   status: z.string().optional(),

@@ -11,10 +11,7 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   definition: resolvableValue(z.string()),
-  description: resolvableValue(z.string()),
-  revision_id: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
-  version_description: resolvableValue(z.string()),
   encryption_configuration: resolvableValue(
     z.object({
       kms_data_key_reuse_period_seconds: z.number().optional(),
@@ -52,10 +49,13 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
+  description: z.string().optional(),
   id: z.string().optional(),
+  revision_id: z.string().optional(),
   state_machine_version_arn: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  version_description: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

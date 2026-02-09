@@ -11,18 +11,6 @@ import { AwsSsmincidentsResponsePlan } from './AwsSsmincidentsResponsePlan.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
-  incident_template: resolvableValue(
-    z.object({
-      dedupe_string: z.string(),
-      impact: z.number(),
-      incident_tags: z.record(z.string(), z.string()),
-      notification_target: z.object({
-        sns_topic_arn: z.string(),
-      }).array(),
-      summary: z.string(),
-      title: z.string(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -44,6 +32,16 @@ export const OutputSchema = z.object({
   chat_channel: z.set(z.string()).optional(),
   display_name: z.string().optional(),
   engagements: z.set(z.string()).optional(),
+  incident_template: z.object({
+    dedupe_string: z.string(),
+    impact: z.number(),
+    incident_tags: z.record(z.string(), z.string()),
+    notification_target: z.set(z.object({
+      sns_topic_arn: z.string(),
+    })),
+    summary: z.string(),
+    title: z.string(),
+  }).array().optional(),
   integration: z.object({
     pagerduty: z.object({
       name: z.string(),

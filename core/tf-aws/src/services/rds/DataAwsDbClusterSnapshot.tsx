@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsDbClusterSnapshot } from './AwsDbClusterSnapshot.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  source_db_cluster_snapshot_arn: resolvableValue(z.string()),
   db_cluster_identifier: resolvableValue(z.string().optional()),
   db_cluster_snapshot_identifier: resolvableValue(z.string().optional()),
   include_public: resolvableValue(z.boolean().optional()),
@@ -33,6 +32,7 @@ export const OutputSchema = z.object({
   license_model: z.string().optional(),
   port: z.number().optional(),
   snapshot_create_time: z.string().optional(),
+  source_db_cluster_snapshot_arn: z.string().optional(),
   status: z.string().optional(),
   storage_encrypted: z.boolean().optional(),
   tags: z.record(z.string(), z.string()).optional(),

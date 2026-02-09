@@ -11,9 +11,7 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   cache_usage_limits: resolvableValue(
     z.object({
       data_storage: z.object({
@@ -55,12 +53,14 @@ export const OutputSchema = z.object({
     port: z.number(),
   }).array().optional(),
   full_engine_version: z.string().optional(),
+  id: z.string().optional(),
   major_engine_version: z.string().optional(),
   reader_endpoint: z.object({
     address: z.string(),
     port: z.number(),
   }).array().optional(),
   status: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

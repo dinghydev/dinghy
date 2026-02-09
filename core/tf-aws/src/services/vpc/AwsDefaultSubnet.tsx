@@ -10,13 +10,7 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   availability_zone: resolvableValue(z.string()),
-  enable_lni_at_device_index: resolvableValue(z.number()),
-  existing_default_subnet: resolvableValue(z.boolean()),
-  ipv6_cidr_block_association_id: resolvableValue(z.string()),
-  outpost_arn: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
   assign_ipv6_address_on_creation: resolvableValue(z.boolean().optional()),
   customer_owned_ipv4_pool: resolvableValue(z.string().optional()),
   enable_dns64: resolvableValue(z.boolean().optional()),
@@ -45,8 +39,14 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   availability_zone_id: z.string().optional(),
   cidr_block: z.string().optional(),
+  enable_lni_at_device_index: z.number().optional(),
+  existing_default_subnet: z.boolean().optional(),
+  ipv6_cidr_block_association_id: z.string().optional(),
+  outpost_arn: z.string().optional(),
+  owner_id: z.string().optional(),
   vpc_id: z.string().optional(),
 })
 

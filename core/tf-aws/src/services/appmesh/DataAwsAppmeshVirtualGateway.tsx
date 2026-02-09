@@ -21,6 +21,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   last_updated_date: z.string().optional(),
+  mesh_owner: z.string().optional(),
   resource_owner: z.string().optional(),
   spec: z.object({
     backend_defaults: z.object({

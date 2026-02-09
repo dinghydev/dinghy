@@ -11,8 +11,6 @@ import { AwsCognitoUserPoolClient } from './AwsCognitoUserPoolClient.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   client_id: resolvableValue(z.string()),
-  enable_propagate_additional_user_context_data: resolvableValue(z.boolean()),
-  name: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -33,11 +31,13 @@ export const OutputSchema = z.object({
   callback_urls: z.set(z.string()).optional(),
   client_secret: z.string().optional(),
   default_redirect_uri: z.string().optional(),
+  enable_propagate_additional_user_context_data: z.boolean().optional(),
   enable_token_revocation: z.boolean().optional(),
   explicit_auth_flows: z.set(z.string()).optional(),
   generate_secret: z.boolean().optional(),
   id_token_validity: z.number().optional(),
   logout_urls: z.set(z.string()).optional(),
+  name: z.string().optional(),
   prevent_user_existence_errors: z.string().optional(),
   read_attributes: z.set(z.string()).optional(),
   refresh_token_rotation: z.object({

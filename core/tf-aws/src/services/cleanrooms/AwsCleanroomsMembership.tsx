@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   collaboration_id: resolvableValue(z.string()),
   query_log_status: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   default_result_configuration: resolvableValue(
     z.object({
       role_arn: z.string().optional(),
@@ -47,6 +46,7 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   member_abilities: z.string().array().optional(),
   status: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
   update_time: z.string().optional(),
 })
 

@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  ipam_pool_allocation_id: resolvableValue(z.string()),
   ipam_pool_id: resolvableValue(z.string()),
   cidr: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
@@ -21,6 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
+  ipam_pool_allocation_id: z.string().optional(),
   resource_id: z.string().optional(),
   resource_owner: z.string().optional(),
   resource_type: z.string().optional(),

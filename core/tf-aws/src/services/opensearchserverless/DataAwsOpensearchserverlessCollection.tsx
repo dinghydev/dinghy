@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsOpensearchserverlessCollection } from './AwsOpensearchserverlessCollection.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  failure_message: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -23,6 +22,7 @@ export const OutputSchema = z.object({
   dashboard_endpoint: z.string().optional(),
   description: z.string().optional(),
   failure_code: z.string().optional(),
+  failure_message: z.string().optional(),
   kms_key_arn: z.string().optional(),
   last_modified_date: z.string().optional(),
   standby_replicas: z.string().optional(),

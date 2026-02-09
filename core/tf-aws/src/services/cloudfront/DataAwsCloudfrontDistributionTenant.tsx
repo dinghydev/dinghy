@@ -10,35 +10,6 @@ import z from 'zod'
 import { AwsCloudfrontDistributionTenant } from './AwsCloudfrontDistributionTenant.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  customizations: resolvableValue(
-    z.object({
-      certificate: z.object({
-        arn: z.string(),
-      }).array(),
-      geo_restriction: z.object({
-        locations: z.string().array(),
-        restriction_type: z.string(),
-      }).array(),
-      web_acl: z.object({
-        action: z.string(),
-        arn: z.string(),
-      }).array(),
-    }).array(),
-  ),
-  managed_certificate_request: resolvableValue(
-    z.object({
-      certificate_transparency_logging_preference: z.string(),
-      primary_domain_name: z.string(),
-      validation_token_host: z.string(),
-    }).array(),
-  ),
-  parameters: resolvableValue(
-    z.object({
-      name: z.string(),
-      value: z.string(),
-    }).array(),
-  ),
-  tags: resolvableValue(z.record(z.string(), z.string())),
   domain: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -47,6 +18,19 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   connection_group_id: z.string().optional(),
+  customizations: z.object({
+    certificate: z.object({
+      arn: z.string(),
+    }).array(),
+    geo_restriction: z.object({
+      locations: z.set(z.string()),
+      restriction_type: z.string(),
+    }).array(),
+    web_acl: z.object({
+      action: z.string(),
+      arn: z.string(),
+    }).array(),
+  }).array().optional(),
   distribution_id: z.string().optional(),
   domains: z.object({
     domain: z.string(),
@@ -54,7 +38,17 @@ export const OutputSchema = z.object({
   }).array().optional(),
   enabled: z.boolean().optional(),
   etag: z.string().optional(),
+  managed_certificate_request: z.object({
+    certificate_transparency_logging_preference: z.string(),
+    primary_domain_name: z.string(),
+    validation_token_host: z.string(),
+  }).array().optional(),
+  parameters: z.object({
+    name: z.string(),
+    value: z.string(),
+  }).array().optional(),
   status: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

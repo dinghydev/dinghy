@@ -21,7 +21,6 @@ export const InputSchema = TfMetaSchema.extend({
       }).array().optional(),
     }).array().optional(),
   })),
-  last_updated_at: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   protocol: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -43,6 +42,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
+  last_updated_at: z.string().optional(),
   listener_id: z.string().optional(),
 })
 

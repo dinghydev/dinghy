@@ -11,9 +11,7 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   base_image: resolvableValue(z.string()),
-  image_arn: resolvableValue(z.string()),
   image_name: resolvableValue(z.string()),
-  version: resolvableValue(z.number()),
   aliases: resolvableValue(z.string().array().optional()),
   horovod: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
@@ -29,6 +27,8 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   container_image: z.string().optional(),
+  image_arn: z.string().optional(),
+  version: z.number().optional(),
 })
 
 export type InputProps =

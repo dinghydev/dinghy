@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   engine_type: resolvableValue(z.string()),
   instance_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   apply_changes_during_maintenance_window: resolvableValue(
     z.boolean().optional(),
   ),
@@ -58,6 +57,7 @@ export const OutputSchema = z.object({
   environment_id: z.string().optional(),
   id: z.string().optional(),
   load_balancer_arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

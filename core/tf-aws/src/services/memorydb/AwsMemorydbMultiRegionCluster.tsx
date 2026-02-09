@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   multi_region_cluster_name_suffix: resolvableValue(z.string()),
   node_type: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   engine: resolvableValue(z.string().optional()),
   engine_version: resolvableValue(z.string().optional()),
@@ -34,6 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   multi_region_cluster_name: z.string().optional(),
+  status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

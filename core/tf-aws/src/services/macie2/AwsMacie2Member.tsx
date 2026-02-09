@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
   email: resolvableValue(z.string()),
-  master_account_id: resolvableValue(z.string()),
   invitation_disable_email_notification: resolvableValue(
     z.boolean().optional(),
   ),
@@ -34,6 +33,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   invited_at: z.string().optional(),
+  master_account_id: z.string().optional(),
   relationship_status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   updated_at: z.string().optional(),

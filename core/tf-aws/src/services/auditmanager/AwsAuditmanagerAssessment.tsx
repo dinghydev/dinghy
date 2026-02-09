@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   framework_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   assessment_reports_destination: resolvableValue(
     z.object({
       destination: z.string(),
@@ -48,6 +47,7 @@ export const OutputSchema = z.object({
     role_type: z.string(),
   }).array().optional(),
   status: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsEc2ManagedPrefixList } from './AwsEc2ManagedPrefixList.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  version: resolvableValue(z.number()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -39,6 +38,7 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
   owner_id: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
+  version: z.number().optional(),
 })
 
 export type InputProps =

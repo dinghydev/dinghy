@@ -10,23 +10,22 @@ import z from 'zod'
 import { AwsBedrockInferenceProfile } from './AwsBedrockInferenceProfile.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  created_at: resolvableValue(z.string()),
-  description: resolvableValue(z.string()),
-  inference_profile_arn: resolvableValue(z.string()),
   inference_profile_id: resolvableValue(z.string()),
-  inference_profile_name: resolvableValue(z.string()),
-  models: resolvableValue(
-    z.object({
-      model_arn: z.string(),
-    }).array(),
-  ),
-  status: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  updated_at: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  created_at: z.string().optional(),
+  description: z.string().optional(),
+  inference_profile_arn: z.string().optional(),
+  inference_profile_name: z.string().optional(),
+  models: z.object({
+    model_arn: z.string(),
+  }).array().optional(),
+  status: z.string().optional(),
+  type: z.string().optional(),
+  updated_at: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

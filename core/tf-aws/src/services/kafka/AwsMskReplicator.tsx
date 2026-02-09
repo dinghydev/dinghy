@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  current_version: resolvableValue(z.string()),
   replication_info_list: resolvableValue(z.object({
     source_kafka_cluster_alias: z.string().optional(),
     source_kafka_cluster_arn: z.string(),
@@ -65,6 +64,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  current_version: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

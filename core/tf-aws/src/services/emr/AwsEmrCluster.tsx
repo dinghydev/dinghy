@@ -10,8 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  cluster_state: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   release_label: resolvableValue(z.string()),
   service_role: resolvableValue(z.string()),
@@ -198,11 +196,13 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   applications: z.set(z.string()).optional(),
+  arn: z.string().optional(),
   bootstrap_action: z.object({
     args: z.string().array().optional(),
     name: z.string(),
     path: z.string(),
   }).array().optional().optional(),
+  cluster_state: z.string().optional(),
   configurations: z.string().optional(),
   ec2_attributes: z.object({
     additional_master_security_groups: z.string().optional(),

@@ -14,8 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   environment_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   release_label: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
-  status_reason: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   vpc_configuration: resolvableValue(z.object({
     ip_address_type: z.string(),
@@ -107,6 +105,8 @@ export const OutputSchema = z.object({
   created_timestamp: z.string().optional(),
   id: z.string().optional(),
   last_modified_timestamp: z.string().optional(),
+  status: z.string().optional(),
+  status_reason: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

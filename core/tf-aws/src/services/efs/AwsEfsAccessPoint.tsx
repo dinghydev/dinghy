@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   file_system_id: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
   posix_user: resolvableValue(
     z.object({
       gid: z.number(),
@@ -37,6 +36,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   file_system_arn: z.string().optional(),
   id: z.string().optional(),
+  owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

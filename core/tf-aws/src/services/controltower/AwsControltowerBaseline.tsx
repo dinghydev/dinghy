@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   baseline_identifier: resolvableValue(z.string()),
   baseline_version: resolvableValue(z.string()),
-  operation_identifier: resolvableValue(z.string()),
   target_identifier: resolvableValue(z.string()),
   parameters: resolvableValue(
     z.object({
@@ -33,6 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  operation_identifier: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

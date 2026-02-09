@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsVpnGateway } from './AwsVpnGateway.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   amazon_side_asn: resolvableValue(z.string().optional()),
   attached_vpc_id: resolvableValue(z.string().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -31,7 +30,9 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

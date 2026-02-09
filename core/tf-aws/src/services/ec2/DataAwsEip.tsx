@@ -10,8 +10,6 @@ import z from 'zod'
 import { AwsEip } from './AwsEip.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  ipam_pool_id: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -30,6 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   association_id: z.string().optional(),
   carrier_ip: z.string().optional(),
   customer_owned_ip: z.string().optional(),
@@ -37,6 +36,7 @@ export const OutputSchema = z.object({
   domain: z.string().optional(),
   id: z.string().optional(),
   instance_id: z.string().optional(),
+  ipam_pool_id: z.string().optional(),
   network_interface_id: z.string().optional(),
   network_interface_owner_id: z.string().optional(),
   private_dns: z.string().optional(),

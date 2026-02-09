@@ -10,12 +10,12 @@ import z from 'zod'
 import { AwsApiGatewayVpcLink } from './AwsApiGatewayVpcLink.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),

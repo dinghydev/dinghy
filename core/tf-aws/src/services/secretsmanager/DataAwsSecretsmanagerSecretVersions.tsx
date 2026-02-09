@@ -9,7 +9,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
   secret_id: resolvableValue(z.string()),
   include_deprecated: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
@@ -17,6 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  name: z.string().optional(),
   versions: z.object({
     created_time: z.string(),
     last_accessed_date: z.string(),

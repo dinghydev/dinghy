@@ -10,21 +10,7 @@ import z from 'zod'
 import { AwsWorkspacesDirectory } from './AwsWorkspacesDirectory.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  certificate_based_auth_properties: resolvableValue(
-    z.object({
-      certificate_authority_arn: z.string(),
-      status: z.string(),
-    }).array(),
-  ),
   directory_id: resolvableValue(z.string()),
-  saml_properties: resolvableValue(
-    z.object({
-      relay_state_parameter_name: z.string(),
-      status: z.string(),
-      user_access_url: z.string(),
-    }).array(),
-  ),
-  tenancy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -34,6 +20,10 @@ export const OutputSchema = z.object({
     service_account_secret_arn: z.string(),
   })).optional(),
   alias: z.string().optional(),
+  certificate_based_auth_properties: z.object({
+    certificate_authority_arn: z.string(),
+    status: z.string(),
+  }).array().optional(),
   customer_user_name: z.string().optional(),
   directory_name: z.string().optional(),
   directory_type: z.string().optional(),
@@ -42,6 +32,11 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   ip_group_ids: z.set(z.string()).optional(),
   registration_code: z.string().optional(),
+  saml_properties: z.object({
+    relay_state_parameter_name: z.string(),
+    status: z.string(),
+    user_access_url: z.string(),
+  }).array().optional(),
   self_service_permissions: z.object({
     change_compute_type: z.boolean(),
     increase_volume_size: z.boolean(),
@@ -51,6 +46,7 @@ export const OutputSchema = z.object({
   }).array().optional(),
   subnet_ids: z.set(z.string()).optional(),
   tags: z.record(z.string(), z.string()).optional(),
+  tenancy: z.string().optional(),
   user_identity_type: z.string().optional(),
   workspace_access_properties: z.object({
     device_type_android: z.string(),

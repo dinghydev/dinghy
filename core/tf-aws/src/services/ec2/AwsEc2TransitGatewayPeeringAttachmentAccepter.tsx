@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  peer_region: resolvableValue(z.string()),
   transit_gateway_attachment_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -19,6 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   id: z.string().optional(),
   peer_account_id: z.string().optional(),
+  peer_region: z.string().optional(),
   peer_transit_gateway_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   transit_gateway_id: z.string().optional(),

@@ -18,13 +18,13 @@ export const InputSchema = TfMetaSchema.extend({
     }).array(),
   ),
   instance_arn: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
-  status_reason: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
+  status: z.string().optional(),
+  status_reason: z.string().optional(),
 })
 
 export type InputProps =

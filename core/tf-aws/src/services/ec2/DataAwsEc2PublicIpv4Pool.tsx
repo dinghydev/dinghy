@@ -10,14 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  pool_address_ranges: resolvableValue(
-    z.object({
-      address_count: z.number(),
-      available_address_count: z.number(),
-      first_address: z.string(),
-      last_address: z.string(),
-    }).array(),
-  ),
   pool_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -26,6 +18,12 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   description: z.string().optional(),
   network_border_group: z.string().optional(),
+  pool_address_ranges: z.object({
+    address_count: z.number(),
+    available_address_count: z.number(),
+    first_address: z.string(),
+    last_address: z.string(),
+  }).array().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   total_address_count: z.number().optional(),
   total_available_address_count: z.number().optional(),

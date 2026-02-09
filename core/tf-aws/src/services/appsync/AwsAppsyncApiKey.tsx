@@ -10,15 +10,15 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  __key: resolvableValue(z.string()),
   api_id: resolvableValue(z.string()),
-  api_key_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   expires: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  __key: z.string().optional(),
+  api_key_id: z.string().optional(),
   id: z.string().optional(),
 })
 

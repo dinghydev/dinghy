@@ -10,43 +10,6 @@ import z from 'zod'
 import { AwsLbTargetGroup } from './AwsLbTargetGroup.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn_suffix: resolvableValue(z.string()),
-  connection_termination: resolvableValue(z.boolean()),
-  deregistration_delay: resolvableValue(z.string()),
-  health_check: resolvableValue(
-    z.object({
-      enabled: z.boolean(),
-      healthy_threshold: z.number(),
-      interval: z.number(),
-      matcher: z.string(),
-      path: z.string(),
-      port: z.string(),
-      protocol: z.string(),
-      timeout: z.number(),
-      unhealthy_threshold: z.number(),
-    }).array(),
-  ),
-  lambda_multi_value_headers_enabled: resolvableValue(z.boolean()),
-  load_balancer_arns: resolvableValue(z.string().array()),
-  load_balancing_algorithm_type: resolvableValue(z.string()),
-  load_balancing_cross_zone_enabled: resolvableValue(z.string()),
-  port: resolvableValue(z.number()),
-  preserve_client_ip: resolvableValue(z.string()),
-  protocol: resolvableValue(z.string()),
-  protocol_version: resolvableValue(z.string()),
-  proxy_protocol_v2: resolvableValue(z.boolean()),
-  slow_start: resolvableValue(z.number()),
-  stickiness: resolvableValue(
-    z.object({
-      cookie_duration: z.number(),
-      cookie_name: z.string(),
-      enabled: z.boolean(),
-      type: z.string(),
-    }).array(),
-  ),
-  target_control_port: resolvableValue(z.number()),
-  target_type: resolvableValue(z.string()),
-  vpc_id: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   load_balancing_anomaly_mitigation: resolvableValue(z.string().optional()),
@@ -60,7 +23,41 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn_suffix: z.string().optional(),
+  connection_termination: z.boolean().optional(),
+  deregistration_delay: z.string().optional(),
+  health_check: z.object({
+    enabled: z.boolean(),
+    healthy_threshold: z.number(),
+    interval: z.number(),
+    matcher: z.string(),
+    path: z.string(),
+    port: z.string(),
+    protocol: z.string(),
+    timeout: z.number(),
+    unhealthy_threshold: z.number(),
+  }).array().optional(),
+  lambda_multi_value_headers_enabled: z.boolean().optional(),
+  load_balancer_arns: z.set(z.string()).optional(),
+  load_balancing_algorithm_type: z.string().optional(),
+  load_balancing_cross_zone_enabled: z.string().optional(),
+  port: z.number().optional(),
+  preserve_client_ip: z.string().optional(),
+  protocol: z.string().optional(),
+  protocol_version: z.string().optional(),
+  proxy_protocol_v2: z.boolean().optional(),
+  slow_start: z.number().optional(),
+  stickiness: z.object({
+    cookie_duration: z.number(),
+    cookie_name: z.string(),
+    enabled: z.boolean(),
+    type: z.string(),
+  }).array().optional(),
+  target_control_port: z.number().optional(),
+  target_type: z.string().optional(),
+  vpc_id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

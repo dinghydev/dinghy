@@ -19,8 +19,6 @@ export const InputSchema = TfMetaSchema.extend({
       s3_key: z.string(),
     }).optional(),
   })),
-  outpost_arn: resolvableValue(z.string()),
-  volume_id: resolvableValue(z.string()),
   client_data: resolvableValue(
     z.object({
       comment: z.string().optional(),
@@ -50,9 +48,11 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   data_encryption_key_id: z.string().optional(),
   id: z.string().optional(),
+  outpost_arn: z.string().optional(),
   owner_alias: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  volume_id: z.string().optional(),
   volume_size: z.number().optional(),
 })
 

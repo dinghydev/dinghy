@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   auth_mode: resolvableValue(z.string()),
   default_s3_location: resolvableValue(z.string()),
   engine_security_group_id: resolvableValue(z.string()),
@@ -31,6 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   url: z.string().optional(),
 })
 

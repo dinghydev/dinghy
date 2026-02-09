@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  creation_time: resolvableValue(z.string()),
   protocol: resolvableValue(z.object({
     nfs: z.object({
       mount_options: z.object({
@@ -37,6 +36,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  creation_time: z.string().optional(),
   fsx_filesystem_arn: z.string().optional(),
   uri: z.string().optional(),
 })

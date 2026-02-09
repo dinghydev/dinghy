@@ -14,7 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   password: resolvableValue(z.string()),
   server_hostname: resolvableValue(z.string()),
   subdirectory: resolvableValue(z.string()),
-  uri: resolvableValue(z.string()),
   user: resolvableValue(z.string()),
   domain: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -30,6 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  uri: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

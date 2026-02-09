@@ -10,31 +10,8 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  architecture: resolvableValue(z.string()),
-  boot_mode: resolvableValue(z.string()),
-  ena_support: resolvableValue(z.boolean()),
-  hypervisor: resolvableValue(z.string()),
-  image_location: resolvableValue(z.string()),
-  image_owner_alias: resolvableValue(z.string()),
-  image_type: resolvableValue(z.string()),
-  imds_support: resolvableValue(z.string()),
-  kernel_id: resolvableValue(z.string()),
-  last_launched_time: resolvableValue(z.string()),
-  manage_ebs_snapshots: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
-  platform: resolvableValue(z.string()),
-  platform_details: resolvableValue(z.string()),
-  public: resolvableValue(z.boolean()),
-  ramdisk_id: resolvableValue(z.string()),
-  root_device_name: resolvableValue(z.string()),
-  root_snapshot_id: resolvableValue(z.string()),
   source_instance_id: resolvableValue(z.string()),
-  sriov_net_support: resolvableValue(z.string()),
-  tpm_support: resolvableValue(z.string()),
-  uefi_data: resolvableValue(z.string()),
-  usage_operation: resolvableValue(z.string()),
-  virtualization_type: resolvableValue(z.string()),
   deprecation_time: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
   ebs_block_device: resolvableValue(
@@ -70,8 +47,31 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  architecture: z.string().optional(),
   arn: z.string().optional(),
+  boot_mode: z.string().optional(),
+  ena_support: z.boolean().optional(),
+  hypervisor: z.string().optional(),
   id: z.string().optional(),
+  image_location: z.string().optional(),
+  image_owner_alias: z.string().optional(),
+  image_type: z.string().optional(),
+  imds_support: z.string().optional(),
+  kernel_id: z.string().optional(),
+  last_launched_time: z.string().optional(),
+  manage_ebs_snapshots: z.boolean().optional(),
+  owner_id: z.string().optional(),
+  platform: z.string().optional(),
+  platform_details: z.string().optional(),
+  public: z.boolean().optional(),
+  ramdisk_id: z.string().optional(),
+  root_device_name: z.string().optional(),
+  root_snapshot_id: z.string().optional(),
+  sriov_net_support: z.string().optional(),
+  tpm_support: z.string().optional(),
+  uefi_data: z.string().optional(),
+  usage_operation: z.string().optional(),
+  virtualization_type: z.string().optional(),
 })
 
 export type InputProps =

@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsRoute53ResolverEndpoint } from './AwsRoute53ResolverEndpoint.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -26,6 +25,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   direction: z.string().optional(),
   ip_addresses: z.set(z.string()).optional(),
+  name: z.string().optional(),
   protocols: z.set(z.string()).optional(),
   resolver_endpoint_type: z.string().optional(),
   rni_enhanced_metrics_enabled: z.boolean().optional(),

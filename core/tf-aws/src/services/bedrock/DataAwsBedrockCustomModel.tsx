@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsBedrockCustomModel } from './AwsBedrockCustomModel.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   model_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -19,6 +18,7 @@ export const OutputSchema = z.object({
   base_model_arn: z.string().optional(),
   creation_time: z.string().optional(),
   hyperparameters: z.record(z.string(), z.string()).optional(),
+  id: z.string().optional(),
   job_arn: z.string().optional(),
   job_name: z.string().optional(),
   job_tags: z.record(z.string(), z.string()).optional(),

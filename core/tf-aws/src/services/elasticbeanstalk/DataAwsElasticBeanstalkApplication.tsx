@@ -10,19 +10,17 @@ import z from 'zod'
 import { AwsElasticBeanstalkApplication } from './AwsElasticBeanstalkApplication.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  appversion_lifecycle: resolvableValue(
-    z.object({
-      delete_source_from_s3: z.boolean(),
-      max_age_in_days: z.number(),
-      max_count: z.number(),
-      service_role: z.string(),
-    }).array(),
-  ),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  appversion_lifecycle: z.object({
+    delete_source_from_s3: z.boolean(),
+    max_age_in_days: z.number(),
+    max_count: z.number(),
+    service_role: z.string(),
+  }).array().optional(),
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),

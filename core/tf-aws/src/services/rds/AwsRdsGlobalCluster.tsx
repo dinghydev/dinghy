@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  engine_version_actual: resolvableValue(z.string()),
   global_cluster_identifier: resolvableValue(z.string()),
   database_name: resolvableValue(z.string().optional()),
   deletion_protection: resolvableValue(z.boolean().optional()),
@@ -34,6 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
+  engine_version_actual: z.string().optional(),
   global_cluster_members: z.set(z.object({
     db_cluster_arn: z.string(),
     is_writer: z.boolean(),

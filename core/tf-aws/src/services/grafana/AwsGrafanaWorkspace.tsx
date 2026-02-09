@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   account_access_type: resolvableValue(z.string()),
   authentication_providers: resolvableValue(z.string().array()),
   permission_type: resolvableValue(z.string()),
-  saml_configuration_status: resolvableValue(z.string()),
   configuration: resolvableValue(z.string().optional()),
   data_sources: resolvableValue(z.string().array().optional()),
   description: resolvableValue(z.string().optional()),
@@ -51,6 +50,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   grafana_version: z.string().optional(),
+  saml_configuration_status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

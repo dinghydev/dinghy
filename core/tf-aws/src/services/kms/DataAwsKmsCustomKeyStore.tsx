@@ -10,13 +10,13 @@ import z from 'zod'
 import { AwsKmsCustomKeyStore } from './AwsKmsCustomKeyStore.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  cloud_hsm_cluster_id: resolvableValue(z.string()),
   custom_key_store_id: resolvableValue(z.string().optional()),
   custom_key_store_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  cloud_hsm_cluster_id: z.string().optional(),
   connection_state: z.string().optional(),
   creation_date: z.string().optional(),
   id: z.string().optional(),

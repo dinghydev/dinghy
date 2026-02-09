@@ -11,12 +11,12 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
 })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   email: z.string().optional(),
+  id: z.string().optional(),
   name: z.string().optional(),
   service_principal: z.string().optional(),
 })

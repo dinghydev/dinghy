@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
-  xray_enabled: resolvableValue(z.boolean()),
   event_config: resolvableValue(
     z.object({
       auth_provider: z.object({
@@ -59,6 +58,7 @@ export const OutputSchema = z.object({
   dns: z.record(z.string(), z.string()).optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   waf_web_acl_arn: z.string().optional(),
+  xray_enabled: z.boolean().optional(),
 })
 
 export type InputProps =

@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsEc2TransitGatewayMulticastDomain } from './AwsEc2TransitGatewayMulticastDomain.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  state: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -44,6 +43,7 @@ export const OutputSchema = z.object({
     group_ip_address: z.string(),
     network_interface_id: z.string(),
   }).array().optional(),
+  state: z.string().optional(),
   static_sources_support: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   transit_gateway_attachment_id: z.string().optional(),

@@ -11,7 +11,6 @@ import { AwsAcmpcaCertificateAuthority } from './AwsAcmpcaCertificateAuthority.t
 
 export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
-  key_storage_security_standard: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -20,6 +19,7 @@ export const OutputSchema = z.object({
   certificate_chain: z.string().optional(),
   certificate_signing_request: z.string().optional(),
   id: z.string().optional(),
+  key_storage_security_standard: z.string().optional(),
   not_after: z.string().optional(),
   not_before: z.string().optional(),
   revocation_configuration: z.object({

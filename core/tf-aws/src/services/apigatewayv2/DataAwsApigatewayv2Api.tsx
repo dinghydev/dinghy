@@ -11,7 +11,6 @@ import { AwsApigatewayv2Api } from './AwsApigatewayv2Api.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
-  ip_address_type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -31,6 +30,7 @@ export const OutputSchema = z.object({
   description: z.string().optional(),
   disable_execute_api_endpoint: z.boolean().optional(),
   execution_arn: z.string().optional(),
+  ip_address_type: z.string().optional(),
   name: z.string().optional(),
   protocol_type: z.string().optional(),
   route_selection_expression: z.string().optional(),

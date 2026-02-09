@@ -20,6 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  home_region: z.string().optional(),
   id: z.string().optional(),
   parent_arn: z.string().optional(),
   status: z.string().optional(),

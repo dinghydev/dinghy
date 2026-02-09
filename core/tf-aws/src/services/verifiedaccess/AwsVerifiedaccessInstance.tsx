@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  name_servers: resolvableValue(z.string().array()),
   cidr_endpoints_custom_subdomain: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
   fips_enabled: resolvableValue(z.boolean().optional()),
@@ -23,6 +22,7 @@ export const OutputSchema = z.object({
   creation_time: z.string().optional(),
   id: z.string().optional(),
   last_updated_time: z.string().optional(),
+  name_servers: z.set(z.string()).optional(),
   verified_access_trust_providers: z.object({
     description: z.string(),
     device_trust_provider_type: z.string(),

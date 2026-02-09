@@ -13,11 +13,9 @@ export const InputSchema = TfMetaSchema.extend({
   admin_user_name: resolvableValue(z.string()),
   admin_user_password: resolvableValue(z.string()),
   auth_type: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   shard_capacity: resolvableValue(z.number()),
   shard_count: resolvableValue(z.number()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   backup_retention_period: resolvableValue(z.number().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
   preferred_backup_window: resolvableValue(z.string().optional()),
@@ -38,6 +36,8 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
+  id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export const ImportSchema = z.object({

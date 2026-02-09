@@ -1,7 +1,6 @@
 import {
   camelCaseToWords,
   type NodeProps,
-  resolvableValue,
   TfMetaSchema,
   useTypedNode,
   useTypedNodes,
@@ -9,54 +8,47 @@ import {
 import z from 'zod'
 import { AwsOrganizationsOrganization } from './AwsOrganizationsOrganization.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  accounts: resolvableValue(
-    z.object({
-      arn: z.string(),
-      email: z.string(),
-      id: z.string(),
-      joined_method: z.string(),
-      joined_timestamp: z.string(),
-      name: z.string(),
-      state: z.string(),
-      status: z.string(),
-    }).array(),
-  ),
-  aws_service_access_principals: resolvableValue(z.string().array()),
-  enabled_policy_types: resolvableValue(z.string().array()),
-  non_master_accounts: resolvableValue(
-    z.object({
-      arn: z.string(),
-      email: z.string(),
-      id: z.string(),
-      joined_method: z.string(),
-      joined_timestamp: z.string(),
-      name: z.string(),
-      state: z.string(),
-      status: z.string(),
-    }).array(),
-  ),
-  roots: resolvableValue(
-    z.object({
-      arn: z.string(),
-      id: z.string(),
-      name: z.string(),
-      policy_types: z.object({
-        status: z.string(),
-        type: z.string(),
-      }).array(),
-    }).array(),
-  ),
-})
+export const InputSchema = TfMetaSchema.extend({})
 
 export const OutputSchema = z.object({
+  accounts: z.object({
+    arn: z.string(),
+    email: z.string(),
+    id: z.string(),
+    joined_method: z.string(),
+    joined_timestamp: z.string(),
+    name: z.string(),
+    state: z.string(),
+    status: z.string(),
+  }).array().optional(),
   arn: z.string().optional(),
+  aws_service_access_principals: z.set(z.string()).optional(),
+  enabled_policy_types: z.set(z.string()).optional(),
   feature_set: z.string().optional(),
   id: z.string().optional(),
   master_account_arn: z.string().optional(),
   master_account_email: z.string().optional(),
   master_account_id: z.string().optional(),
   master_account_name: z.string().optional(),
+  non_master_accounts: z.object({
+    arn: z.string(),
+    email: z.string(),
+    id: z.string(),
+    joined_method: z.string(),
+    joined_timestamp: z.string(),
+    name: z.string(),
+    state: z.string(),
+    status: z.string(),
+  }).array().optional(),
+  roots: z.object({
+    arn: z.string(),
+    id: z.string(),
+    name: z.string(),
+    policy_types: z.object({
+      status: z.string(),
+      type: z.string(),
+    }).array(),
+  }).array().optional(),
 })
 
 export type InputProps =

@@ -10,11 +10,6 @@ import z from 'zod'
 import { AwsEfsFileSystem } from './AwsEfsFileSystem.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  protection: resolvableValue(
-    z.object({
-      replication_overwrite: z.string(),
-    }).array(),
-  ),
   creation_token: resolvableValue(z.string().optional()),
   file_system_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -36,6 +31,9 @@ export const OutputSchema = z.object({
   }).array().optional(),
   name: z.string().optional(),
   performance_mode: z.string().optional(),
+  protection: z.object({
+    replication_overwrite: z.string(),
+  }).array().optional(),
   provisioned_throughput_in_mibps: z.number().optional(),
   size_in_bytes: z.number().optional(),
   tags: z.record(z.string(), z.string()).optional(),

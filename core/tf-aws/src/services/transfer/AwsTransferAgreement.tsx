@@ -15,7 +15,6 @@ export const InputSchema = TfMetaSchema.extend({
   local_profile_id: resolvableValue(z.string()),
   partner_profile_id: resolvableValue(z.string()),
   server_id: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -26,6 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   agreement_id: z.string().optional(),
   arn: z.string().optional(),
+  status: z.string().optional(),
 })
 
 export type InputProps =

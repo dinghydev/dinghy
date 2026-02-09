@@ -12,13 +12,13 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   custom_domain_certificate_arn: resolvableValue(z.string()),
   custom_domain_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   workgroup_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   custom_domain_certificate_expiry_time: z.string().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =

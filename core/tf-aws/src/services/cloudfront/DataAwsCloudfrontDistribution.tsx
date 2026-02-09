@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsCloudfrontDistribution } from './AwsCloudfrontDistribution.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  enabled: resolvableValue(z.boolean()),
   id: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
@@ -20,6 +19,7 @@ export const OutputSchema = z.object({
   anycast_ip_list_id: z.string().optional(),
   arn: z.string().optional(),
   domain_name: z.string().optional(),
+  enabled: z.boolean().optional(),
   etag: z.string().optional(),
   hosted_zone_id: z.string().optional(),
   id: z.string().optional(),

@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   source_name: resolvableValue(z.string()),
   configuration: resolvableValue(
     z.object({
@@ -34,6 +33,7 @@ export const OutputSchema = z.object({
     database_arn: z.string(),
     table_arn: z.string(),
   }).array().optional(),
+  id: z.string().optional(),
   provider_details: z.object({
     location: z.string(),
     role_arn: z.string(),

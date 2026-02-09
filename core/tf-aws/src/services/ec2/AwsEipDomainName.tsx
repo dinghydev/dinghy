@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   allocation_id: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -24,6 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  id: z.string().optional(),
   ptr_record: z.string().optional(),
 })
 

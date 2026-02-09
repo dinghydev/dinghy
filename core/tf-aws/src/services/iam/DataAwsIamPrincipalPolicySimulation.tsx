@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   action_names: resolvableValue(z.string().array()),
-  id: resolvableValue(z.string()),
   policy_source_arn: resolvableValue(z.string()),
   additional_policies_json: resolvableValue(z.string().array().optional()),
   caller_arn: resolvableValue(z.string().optional()),
@@ -33,6 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   all_allowed: z.boolean().optional(),
+  id: z.string().optional(),
   results: z.set(z.object({
     action_name: z.string(),
     allowed: z.boolean(),

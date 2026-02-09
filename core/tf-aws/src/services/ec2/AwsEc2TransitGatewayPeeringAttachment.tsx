@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   peer_region: resolvableValue(z.string()),
   peer_transit_gateway_id: resolvableValue(z.string()),
-  state: resolvableValue(z.string()),
   transit_gateway_id: resolvableValue(z.string()),
   options: resolvableValue(
     z.object({
@@ -27,6 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

@@ -16,7 +16,6 @@ export const InputSchema = TfMetaSchema.extend({
     bucket: z.string(),
     key: z.string(),
   })),
-  thesaurus_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -34,6 +33,7 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  thesaurus_id: z.string().optional(),
 })
 
 export type InputProps =

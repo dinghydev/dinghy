@@ -10,34 +10,33 @@ import z from 'zod'
 import { AwsAuditmanagerControl } from './AwsAuditmanagerControl.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  action_plan_instructions: resolvableValue(z.string()),
-  action_plan_title: resolvableValue(z.string()),
-  arn: resolvableValue(z.string()),
-  control_mapping_sources: resolvableValue(
-    z.object({
-      source_description: z.string(),
-      source_frequency: z.string(),
-      source_id: z.string(),
-      source_keyword: z.object({
-        keyword_input_type: z.string(),
-        keyword_value: z.string(),
-      }).array(),
-      source_name: z.string(),
-      source_set_up_option: z.string(),
-      source_type: z.string(),
-      troubleshooting_text: z.string(),
-    }).array(),
-  ),
-  description: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  tags: resolvableValue(z.record(z.string(), z.string())),
-  testing_information: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  action_plan_instructions: z.string().optional(),
+  action_plan_title: z.string().optional(),
+  arn: z.string().optional(),
+  control_mapping_sources: z.object({
+    source_description: z.string(),
+    source_frequency: z.string(),
+    source_id: z.string(),
+    source_keyword: z.object({
+      keyword_input_type: z.string(),
+      keyword_value: z.string(),
+    }).array(),
+    source_name: z.string(),
+    source_set_up_option: z.string(),
+    source_type: z.string(),
+    troubleshooting_text: z.string(),
+  }).array().optional(),
+  description: z.string().optional(),
+  id: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
+  testing_information: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

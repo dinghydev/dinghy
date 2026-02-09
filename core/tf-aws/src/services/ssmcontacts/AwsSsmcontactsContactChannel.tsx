@@ -10,8 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  activation_status: resolvableValue(z.string()),
-  arn: resolvableValue(z.string()),
   contact_id: resolvableValue(z.string()),
   delivery_address: resolvableValue(z.object({
     simple_address: z.string(),
@@ -22,7 +20,10 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  activation_status: z.string().optional(),
+  arn: z.string().optional(),
+})
 
 export const ImportSchema = z.object({
   arn: resolvableValue(z.string()),

@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   arns: z.string().array().optional(),
   buckets: z.string().array().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =

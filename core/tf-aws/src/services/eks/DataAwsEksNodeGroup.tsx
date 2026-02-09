@@ -12,13 +12,6 @@ import { AwsEksNodeGroup } from './AwsEksNodeGroup.tsx'
 export const InputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   node_group_name: resolvableValue(z.string()),
-  update_config: resolvableValue(
-    z.object({
-      max_unavailable: z.number(),
-      max_unavailable_percentage: z.number(),
-      update_strategy: z.string(),
-    }).array(),
-  ),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -59,6 +52,11 @@ export const OutputSchema = z.object({
     effect: z.string(),
     key: z.string(),
     value: z.string(),
+  }).array().optional(),
+  update_config: z.object({
+    max_unavailable: z.number(),
+    max_unavailable_percentage: z.number(),
+    update_strategy: z.string(),
   }).array().optional(),
   version: z.string().optional(),
 })

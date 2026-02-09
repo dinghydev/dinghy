@@ -4,7 +4,6 @@ import { updateProjectVersion } from '../utils/updateProjectVersion.ts'
 import Debug from 'debug'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
-import chalk from 'chalk'
 const debug = Debug('upgrade')
 
 export const schema: CmdInput = {
@@ -25,8 +24,6 @@ export const schema: CmdInput = {
   alias: ['up'],
 }
 export const upgradeToVersion = async (version: string) => {
-  console.log(`Upgrading Dinghy Cli to ${chalk.green(version)} ...`)
-
   const url = 'https://get.dinghy.dev/install.sh'
   const response = await fetch(url)
   const content = await response.text()

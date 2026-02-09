@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   exclude_resource_tags: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
   security_service_policy_data: resolvableValue(z.object({
@@ -87,6 +86,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   id: z.string().optional(),
   policy_update_token: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

@@ -10,10 +10,8 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  outpost_arn: resolvableValue(z.string()),
   source_region: resolvableValue(z.string()),
   source_snapshot_id: resolvableValue(z.string()),
-  volume_id: resolvableValue(z.string()),
   completion_duration_minutes: resolvableValue(z.number().optional()),
   description: resolvableValue(z.string().optional()),
   encrypted: resolvableValue(z.boolean().optional()),
@@ -35,9 +33,11 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   data_encryption_key_id: z.string().optional(),
   id: z.string().optional(),
+  outpost_arn: z.string().optional(),
   owner_alias: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  volume_id: z.string().optional(),
   volume_size: z.number().optional(),
 })
 

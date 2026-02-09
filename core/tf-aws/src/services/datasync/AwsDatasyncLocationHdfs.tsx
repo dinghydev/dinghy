@@ -16,7 +16,6 @@ export const InputSchema = TfMetaSchema.extend({
       port: z.number(),
     }).array(),
   ),
-  uri: resolvableValue(z.string()),
   authentication_type: resolvableValue(z.string().optional()),
   block_size: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
@@ -42,6 +41,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  uri: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

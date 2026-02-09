@@ -17,7 +17,6 @@ export const InputSchema = TfMetaSchema.extend({
     bucket: z.string(),
     key: z.string(),
   })),
-  status: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -34,6 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   query_suggestions_block_list_id: z.string().optional(),
+  status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

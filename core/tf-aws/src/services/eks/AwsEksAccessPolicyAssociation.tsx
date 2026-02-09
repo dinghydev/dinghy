@@ -14,9 +14,7 @@ export const InputSchema = TfMetaSchema.extend({
     namespaces: z.string().array().optional(),
     type: z.string(),
   })),
-  associated_at: resolvableValue(z.string()),
   cluster_name: resolvableValue(z.string()),
-  modified_at: resolvableValue(z.string()),
   policy_arn: resolvableValue(z.string()),
   principal_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -29,7 +27,10 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  associated_at: z.string().optional(),
+  modified_at: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

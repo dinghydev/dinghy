@@ -11,13 +11,13 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   grafana_role: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  id: z.string().optional(),
   service_account_id: z.string().optional(),
 })
 

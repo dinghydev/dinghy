@@ -18,6 +18,12 @@ import { parseVpc, SubnetType } from './types.ts'
 import { AwsSubnet } from '../../services/vpc/AwsSubnet.tsx'
 import { AwsDefaultRouteTable } from '../../services/vpc/AwsDefaultRouteTable.tsx'
 import { AwsRoute } from '../../services/vpc/AwsRoute.tsx'
+import {
+  AwsSecurityGroup,
+  useAwsSecurityGroup,
+} from '../../services/vpc/AwsSecurityGroup.tsx'
+import { AwsVpcSecurityGroupIngressRule } from '../../services/vpc/AwsVpcSecurityGroupIngressRule.tsx'
+import { AwsVpcSecurityGroupEgressRule } from '../../services/vpc/AwsVpcSecurityGroupEgressRule.tsx'
 export function Vpc(
   { _components, children, ...props }: NodeProps,
 ) {
@@ -123,6 +129,88 @@ export function Vpc(
     )
   }
 
+  function SecurityGroups(props: any) {
+    if (
+      Object.keys(vpcConfig.securityGroups).length === 0
+    ) return null
+
+    function SecurityGroupIngressRule({ _rule, ...props }: any) {
+      const SecurityGroupIngressRuleComponent = _components
+        ?.securityGroupIngressRule as typeof AwsVpcSecurityGroupIngressRule ||
+        AwsVpcSecurityGroupIngressRule
+      const { securityGroup } = useAwsSecurityGroup()
+      return (
+        <SecurityGroupIngressRuleComponent
+          _title={_rule.description}
+          security_group_id={securityGroup.id}
+          {..._rule}
+          {...props}
+        />
+      )
+    }
+
+    function SecurityGroupEgressRule({ _rule, ...props }: any) {
+      const SecurityGroupEgressRuleComponent = _components
+        ?.securityGroupEgressRule as typeof AwsVpcSecurityGroupEgressRule ||
+        AwsVpcSecurityGroupEgressRule
+      const { securityGroup } = useAwsSecurityGroup()
+      return (
+        <SecurityGroupEgressRuleComponent
+          _title={_rule.description}
+          security_group_id={securityGroup.id}
+          {..._rule}
+          {...props}
+        />
+      )
+    }
+
+    function SecurityGroup({ _securityGroup, ...props }: any) {
+      const SecurityGroupComponent =
+        _components?.securityGroup as typeof AwsSecurityGroup ||
+        AwsSecurityGroup
+      const { ingress, egress, ...securityGroup } = _securityGroup
+      const { awsVpc } = useAwsVpc()
+      securityGroup.vpc_id ??= awsVpc.id
+      securityGroup._title ??= _securityGroup.name
+      return (
+        <SecurityGroupComponent
+          {...securityGroup}
+          {...props}
+        >
+          {ingress && ingress.map((rule: any) => (
+            <SecurityGroupIngressRule
+              key={rule.description}
+              _rule={rule}
+            />
+          ))}
+          {egress && egress.map((rule: any) => (
+            <SecurityGroupEgressRule
+              key={rule.description}
+              _rule={rule}
+            />
+          ))}
+        </SecurityGroupComponent>
+      )
+    }
+
+    const SecurityGroupsComponent =
+      _components?.securityGroups as typeof Shape || Shape
+    return (
+      <SecurityGroupsComponent
+        {...props}
+      >
+        {Object.values(
+          vpcConfig.securityGroups,
+        ).map((securityGroup) => (
+          <SecurityGroup
+            key={securityGroup.name}
+            _securityGroup={securityGroup}
+          />
+        ))}
+      </SecurityGroupsComponent>
+    )
+  }
+
   const VpcComponent: any = _components?.vpc as typeof AwsVpc ||
     AwsVpc
   return (
@@ -133,6 +221,7 @@ export function Vpc(
     >
       <PublicSubnets />
       <PrivateSubnets />
+      <SecurityGroups />
       <InternetGateway />
       <DefaultRouteTable />
       {children}

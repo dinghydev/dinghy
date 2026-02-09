@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsOpensearchserverlessLifecyclePolicy } from './AwsOpensearchserverlessLifecyclePolicy.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -19,6 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   created_date: z.string().optional(),
   description: z.string().optional(),
+  id: z.string().optional(),
   last_modified_date: z.string().optional(),
   policy: z.string().optional(),
   policy_version: z.string().optional(),

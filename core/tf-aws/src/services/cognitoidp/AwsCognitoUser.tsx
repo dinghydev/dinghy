@@ -10,10 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  creation_date: resolvableValue(z.string()),
-  last_modified_date: resolvableValue(z.string()),
-  mfa_setting_list: resolvableValue(z.string().array()),
-  preferred_mfa_setting: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
   username: resolvableValue(z.string()),
   attributes: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -30,6 +26,10 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  creation_date: z.string().optional(),
+  last_modified_date: z.string().optional(),
+  mfa_setting_list: z.set(z.string()).optional(),
+  preferred_mfa_setting: z.string().optional(),
   status: z.string().optional(),
   sub: z.string().optional(),
 })

@@ -12,10 +12,7 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   availability_zone_id: resolvableValue(z.string()),
   display_name: resolvableValue(z.string()),
-  memory_size_in_gbs: resolvableValue(z.number()),
-  oci_url: resolvableValue(z.string()),
   shape: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
   availability_zone: resolvableValue(z.string().optional()),
   compute_count: resolvableValue(z.number().optional()),
   customer_contacts_to_send_to_oci: resolvableValue(
@@ -71,15 +68,18 @@ export const OutputSchema = z.object({
   max_data_storage_in_tbs: z.number().optional(),
   max_db_node_storage_size_in_gbs: z.number().optional(),
   max_memory_in_gbs: z.number().optional(),
+  memory_size_in_gbs: z.number().optional(),
   monthly_db_server_version: z.string().optional(),
   monthly_storage_server_version: z.string().optional(),
   next_maintenance_run_id: z.string().optional(),
   oci_resource_anchor_name: z.string().optional(),
+  oci_url: z.string().optional(),
   ocid: z.string().optional(),
   percent_progress: z.number().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),
   storage_server_version: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
   total_storage_size_in_gbs: z.number().optional(),
 })
 

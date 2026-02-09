@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  package_id: resolvableValue(z.string()),
   package_name: resolvableValue(z.string()),
   package_source: resolvableValue(z.object({
     s3_bucket_name: z.string(),
@@ -25,6 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   available_package_version: z.string().optional(),
   id: z.string().optional(),
+  package_id: z.string().optional(),
 })
 
 export type InputProps =

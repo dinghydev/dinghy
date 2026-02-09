@@ -20,6 +20,7 @@ import {
 import { AwsIamRole, useAwsIamRole } from '../../services/iam/AwsIamRole.tsx'
 import { AwsIamRolePolicyAttachment } from '../../services/iam/AwsIamRolePolicyAttachment.tsx'
 import { Output } from '@dinghy/tf-common'
+import { useAwsSecurityGroup } from '../../services/vpc/AwsSecurityGroup.tsx'
 
 export function Ec2Servers(
   { _components, children, ...props }: NodeProps,
@@ -147,6 +148,12 @@ export function Ec2Servers(
     const { awsSubnet } = useAwsSubnet(
       _server.associate_public_ip_address ? 'public' : 'private',
     )
+    if (
+      !_server.vpc_security_group_ids && _server.associate_public_ip_address
+    ) {
+      const { securityGroup } = useAwsSecurityGroup('public')
+      _server.vpc_security_group_ids = () => [securityGroup.id]
+    }
     const { instanceProfile } = useAwsIamInstanceProfile()
     function InstanceOutput(props: any) {
       const { awsInstance } = useAwsInstance()
@@ -170,6 +177,13 @@ export function Ec2Servers(
         />
       )
     }
+    const lifecycle = referenceAmi
+      ? {
+        ignore_changes: [
+          'ami',
+        ],
+      }
+      : {}
 
     return (
       <Ec2ServerComponent
@@ -177,6 +191,7 @@ export function Ec2Servers(
         subnet_id={awsSubnet.id}
         iam_instance_profile={instanceProfile.name}
         _display='entity'
+        lifecycle={lifecycle}
         {..._server}
         {...props}
       >

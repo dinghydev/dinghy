@@ -12,7 +12,6 @@ import { AwsAppconfigConfigurationProfile } from './AwsAppconfigConfigurationPro
 export const InputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   configuration_profile_id: resolvableValue(z.string()),
-  kms_key_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -20,6 +19,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
+  kms_key_identifier: z.string().optional(),
   location_uri: z.string().optional(),
   name: z.string().optional(),
   retrieval_role_arn: z.string().optional(),

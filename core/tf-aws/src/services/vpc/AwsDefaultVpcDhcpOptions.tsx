@@ -9,12 +9,8 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  domain_name: resolvableValue(z.string()),
-  domain_name_servers: resolvableValue(z.string()),
-  ipv6_address_preferred_lease_time: resolvableValue(z.string()),
   netbios_name_servers: resolvableValue(z.string()),
   netbios_node_type: resolvableValue(z.string()),
-  ntp_servers: resolvableValue(z.string()),
   owner_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -23,7 +19,13 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  domain_name: z.string().optional(),
+  domain_name_servers: z.string().optional(),
   id: z.string().optional(),
+  ipv6_address_preferred_lease_time: z.string().optional(),
+  netbios_name_servers: z.string().optional(),
+  netbios_node_type: z.string().optional(),
+  ntp_servers: z.string().optional(),
 })
 
 export type InputProps =

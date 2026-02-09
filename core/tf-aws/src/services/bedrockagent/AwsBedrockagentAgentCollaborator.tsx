@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   agent_id: resolvableValue(z.string()),
   collaboration_instruction: resolvableValue(z.string()),
   collaborator_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   agent_descriptor: resolvableValue(
     z.object({
       alias_arn: z.string(),
@@ -34,6 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   collaborator_id: z.string().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =

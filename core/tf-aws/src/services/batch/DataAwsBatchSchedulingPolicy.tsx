@@ -11,21 +11,19 @@ import { AwsBatchSchedulingPolicy } from './AwsBatchSchedulingPolicy.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
-  fair_share_policy: resolvableValue(
-    z.object({
-      compute_reservation: z.number(),
-      share_decay_seconds: z.number(),
-      share_distribution: z.object({
-        share_identifier: z.string(),
-        weight_factor: z.number(),
-      }).array(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  fair_share_policy: z.object({
+    compute_reservation: z.number(),
+    share_decay_seconds: z.number(),
+    share_distribution: z.set(z.object({
+      share_identifier: z.string(),
+      weight_factor: z.number(),
+    })),
+  }).array().optional(),
   name: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })

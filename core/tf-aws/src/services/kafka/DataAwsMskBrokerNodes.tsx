@@ -10,21 +10,20 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   cluster_arn: resolvableValue(z.string()),
-  node_info_list: resolvableValue(
-    z.object({
-      attached_eni_id: z.string(),
-      broker_id: z.number(),
-      client_subnet: z.string(),
-      client_vpc_ip_address: z.string(),
-      endpoints: z.string().array(),
-      node_arn: z.string(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  node_info_list: z.object({
+    attached_eni_id: z.string(),
+    broker_id: z.number(),
+    client_subnet: z.string(),
+    client_vpc_ip_address: z.string(),
+    endpoints: z.set(z.string()),
+    node_arn: z.string(),
+  }).array().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

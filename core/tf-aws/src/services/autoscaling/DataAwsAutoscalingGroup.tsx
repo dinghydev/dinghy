@@ -10,15 +10,14 @@ import z from 'zod'
 import { AwsAutoscalingGroup } from './AwsAutoscalingGroup.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  default_cooldown: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
-  new_instances_protected_from_scale_in: resolvableValue(z.boolean()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   availability_zones: z.set(z.string()).optional(),
+  default_cooldown: z.number().optional(),
   desired_capacity: z.number().optional(),
   desired_capacity_type: z.string().optional(),
   enabled_metrics: z.set(z.string()).optional(),
@@ -119,6 +118,7 @@ export const OutputSchema = z.object({
     }).array(),
   }).array().optional(),
   name: z.string().optional(),
+  new_instances_protected_from_scale_in: z.boolean().optional(),
   placement_group: z.string().optional(),
   predicted_capacity: z.number().optional(),
   service_linked_role_arn: z.string().optional(),

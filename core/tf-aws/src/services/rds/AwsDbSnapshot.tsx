@@ -12,8 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   db_instance_identifier: resolvableValue(z.string()),
   db_snapshot_identifier: resolvableValue(z.string()),
-  port: resolvableValue(z.number()),
-  snapshot_type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   shared_accounts: resolvableValue(z.string().array().optional()),
@@ -36,6 +34,8 @@ export const OutputSchema = z.object({
   kms_key_id: z.string().optional(),
   license_model: z.string().optional(),
   option_group_name: z.string().optional(),
+  port: z.number().optional(),
+  snapshot_type: z.string().optional(),
   source_db_snapshot_identifier: z.string().optional(),
   source_region: z.string().optional(),
   status: z.string().optional(),

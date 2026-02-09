@@ -10,9 +10,6 @@ import z from 'zod'
 import { AwsBatchJobDefinition } from './AwsBatchJobDefinition.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn_prefix: resolvableValue(z.string()),
-  tags: resolvableValue(z.record(z.string(), z.string())),
-  type: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -21,6 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn_prefix: z.string().optional(),
   container_orchestration_type: z.string().optional(),
   eks_properties: z.object({
     pod_properties: z.object({
@@ -207,9 +205,11 @@ export const OutputSchema = z.object({
     }).array(),
   }).array().optional(),
   scheduling_priority: z.number().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
   timeout: z.object({
     attempt_duration_seconds: z.number(),
   }).array().optional(),
+  type: z.string().optional(),
 })
 
 export type InputProps =

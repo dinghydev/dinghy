@@ -10,16 +10,16 @@ import z from 'zod'
 import { AwsDmsReplicationSubnetGroup } from './AwsDmsReplicationSubnetGroup.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  replication_subnet_group_arn: resolvableValue(z.string()),
   replication_subnet_group_id: resolvableValue(z.string()),
-  subnet_group_status: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
 export const OutputSchema = z.object({
+  replication_subnet_group_arn: z.string().optional(),
   replication_subnet_group_description: z.string().optional(),
+  subnet_group_status: z.string().optional(),
   subnet_ids: z.set(z.string()).optional(),
   vpc_id: z.string().optional(),
 })

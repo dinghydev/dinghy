@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   service_arn: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
   enable_www_subdomain: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -26,6 +25,7 @@ export const OutputSchema = z.object({
   })).optional(),
   dns_target: z.string().optional(),
   id: z.string().optional(),
+  status: z.string().optional(),
 })
 
 export type InputProps =

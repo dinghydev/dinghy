@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  last_modified_time: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -24,6 +23,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
+  last_modified_time: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

@@ -10,31 +10,28 @@ import z from 'zod'
 import { AwsGlobalacceleratorAccelerator } from './AwsGlobalacceleratorAccelerator.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  attributes: resolvableValue(
-    z.object({
-      flow_logs_enabled: z.boolean(),
-      flow_logs_s3_bucket: z.string(),
-      flow_logs_s3_prefix: z.string(),
-    }).array(),
-  ),
-  dns_name: resolvableValue(z.string()),
-  dual_stack_dns_name: resolvableValue(z.string()),
-  enabled: resolvableValue(z.boolean()),
-  hosted_zone_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
-  ip_address_type: resolvableValue(z.string()),
-  ip_sets: resolvableValue(
-    z.object({
-      ip_addresses: z.string().array(),
-      ip_family: z.string(),
-    }).array(),
-  ),
-  tags: resolvableValue(z.record(z.string(), z.string())),
   arn: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  attributes: z.object({
+    flow_logs_enabled: z.boolean(),
+    flow_logs_s3_bucket: z.string(),
+    flow_logs_s3_prefix: z.string(),
+  }).array().optional(),
+  dns_name: z.string().optional(),
+  dual_stack_dns_name: z.string().optional(),
+  enabled: z.boolean().optional(),
+  hosted_zone_id: z.string().optional(),
+  id: z.string().optional(),
+  ip_address_type: z.string().optional(),
+  ip_sets: z.object({
+    ip_addresses: z.string().array(),
+    ip_family: z.string(),
+  }).array().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

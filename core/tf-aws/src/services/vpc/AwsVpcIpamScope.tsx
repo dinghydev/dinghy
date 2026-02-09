@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   ipam_id: resolvableValue(z.string()),
-  ipam_scope_type: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -29,6 +28,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   ipam_arn: z.string().optional(),
+  ipam_scope_type: z.string().optional(),
   is_default: z.boolean().optional(),
   pool_count: z.number().optional(),
 })

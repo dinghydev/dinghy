@@ -10,17 +10,18 @@ import z from 'zod'
 import { AwsEcrPullThroughCacheRule } from './AwsEcrPullThroughCacheRule.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  credential_arn: resolvableValue(z.string()),
-  custom_role_arn: resolvableValue(z.string()),
   ecr_repository_prefix: resolvableValue(z.string()),
-  registry_id: resolvableValue(z.string()),
-  upstream_registry_url: resolvableValue(z.string()),
-  upstream_repository_prefix: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  credential_arn: z.string().optional(),
+  custom_role_arn: z.string().optional(),
+  registry_id: z.string().optional(),
+  upstream_registry_url: z.string().optional(),
+  upstream_repository_prefix: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

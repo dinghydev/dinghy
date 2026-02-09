@@ -11,12 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   acl_name: resolvableValue(z.string()),
-  cluster_endpoint: resolvableValue(
-    z.object({
-      address: z.string(),
-      port: z.number(),
-    }).array(),
-  ),
   node_type: resolvableValue(z.string()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
   data_tiering: resolvableValue(z.boolean().optional()),
@@ -54,6 +48,10 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
+  cluster_endpoint: z.object({
+    address: z.string(),
+    port: z.number(),
+  }).array().optional(),
   engine_patch_version: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),

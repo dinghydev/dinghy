@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsGrafanaWorkspace } from './AwsGrafanaWorkspace.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  saml_configuration_status: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -32,6 +31,7 @@ export const OutputSchema = z.object({
   organizational_units: z.string().array().optional(),
   permission_type: z.string().optional(),
   role_arn: z.string().optional(),
+  saml_configuration_status: z.string().optional(),
   stack_set_name: z.string().optional(),
   status: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),

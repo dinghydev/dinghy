@@ -10,49 +10,46 @@ import z from 'zod'
 import { AwsKmsKey } from './AwsKmsKey.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  aws_account_id: resolvableValue(z.string()),
-  cloud_hsm_cluster_id: resolvableValue(z.string()),
-  creation_date: resolvableValue(z.string()),
-  custom_key_store_id: resolvableValue(z.string()),
-  customer_master_key_spec: resolvableValue(z.string()),
-  deletion_date: resolvableValue(z.string()),
-  description: resolvableValue(z.string()),
-  enabled: resolvableValue(z.boolean()),
-  expiration_model: resolvableValue(z.string()),
   key_id: resolvableValue(z.string()),
-  key_manager: resolvableValue(z.string()),
-  key_spec: resolvableValue(z.string()),
-  key_state: resolvableValue(z.string()),
-  key_usage: resolvableValue(z.string()),
-  multi_region: resolvableValue(z.boolean()),
-  multi_region_configuration: resolvableValue(
-    z.object({
-      multi_region_key_type: z.string(),
-      primary_key: z.object({
-        arn: z.string(),
-        region: z.string(),
-      }).array(),
-      replica_keys: z.object({
-        arn: z.string(),
-        region: z.string(),
-      }).array(),
-    }).array(),
-  ),
-  origin: resolvableValue(z.string()),
-  pending_deletion_window_in_days: resolvableValue(z.number()),
-  valid_to: resolvableValue(z.string()),
-  xks_key_configuration: resolvableValue(
-    z.object({
-      id: z.string(),
-    }).array(),
-  ),
   grant_tokens: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  aws_account_id: z.string().optional(),
+  cloud_hsm_cluster_id: z.string().optional(),
+  creation_date: z.string().optional(),
+  custom_key_store_id: z.string().optional(),
+  customer_master_key_spec: z.string().optional(),
+  deletion_date: z.string().optional(),
+  description: z.string().optional(),
+  enabled: z.boolean().optional(),
+  expiration_model: z.string().optional(),
+  key_manager: z.string().optional(),
+  key_spec: z.string().optional(),
+  key_state: z.string().optional(),
+  key_usage: z.string().optional(),
+  multi_region: z.boolean().optional(),
+  multi_region_configuration: z.object({
+    multi_region_key_type: z.string(),
+    primary_key: z.object({
+      arn: z.string(),
+      region: z.string(),
+    }).array(),
+    replica_keys: z.object({
+      arn: z.string(),
+      region: z.string(),
+    }).array(),
+  }).array().optional(),
+  origin: z.string().optional(),
+  pending_deletion_window_in_days: z.number().optional(),
+  valid_to: z.string().optional(),
+  xks_key_configuration: z.object({
+    id: z.string(),
+  }).array().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

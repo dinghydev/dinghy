@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   display_name: resolvableValue(z.string()),
   peer_network_id: resolvableValue(z.string()),
   odb_network_arn: resolvableValue(z.string().optional()),
@@ -27,6 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   created_at: z.string().optional(),
   id: z.string().optional(),
   odb_peering_connection_type: z.string().optional(),

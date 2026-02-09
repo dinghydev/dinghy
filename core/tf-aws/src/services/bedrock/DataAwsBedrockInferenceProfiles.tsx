@@ -9,26 +9,25 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  inference_profile_summaries: resolvableValue(
-    z.object({
-      created_at: z.string(),
-      description: z.string(),
-      inference_profile_arn: z.string(),
-      inference_profile_id: z.string(),
-      inference_profile_name: z.string(),
-      models: z.object({
-        model_arn: z.string(),
-      }).array(),
-      status: z.string(),
-      type: z.string(),
-      updated_at: z.string(),
-    }).array(),
-  ),
   region: resolvableValue(z.string().optional()),
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  inference_profile_summaries: z.object({
+    created_at: z.string(),
+    description: z.string(),
+    inference_profile_arn: z.string(),
+    inference_profile_id: z.string(),
+    inference_profile_name: z.string(),
+    models: z.object({
+      model_arn: z.string(),
+    }).array(),
+    status: z.string(),
+    type: z.string(),
+    updated_at: z.string(),
+  }).array().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

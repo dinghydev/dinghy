@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   attachment_type: resolvableValue(z.string()),
   endpoint_type: resolvableValue(z.string()),
   verified_access_group_id: resolvableValue(z.string()),
-  verified_access_instance_id: resolvableValue(z.string()),
   application_domain: resolvableValue(z.string().optional()),
   cidr_options: resolvableValue(
     z.object({
@@ -87,6 +86,7 @@ export const OutputSchema = z.object({
   device_validation_domain: z.string().optional(),
   endpoint_domain: z.string().optional(),
   id: z.string().optional(),
+  verified_access_instance_id: z.string().optional(),
 })
 
 export type InputProps =

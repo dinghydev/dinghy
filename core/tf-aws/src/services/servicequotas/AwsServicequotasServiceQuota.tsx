@@ -11,8 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   quota_code: resolvableValue(z.string()),
-  request_id: resolvableValue(z.string()),
-  request_status: resolvableValue(z.string()),
   service_code: resolvableValue(z.string()),
   value: resolvableValue(z.number()),
   region: resolvableValue(z.string().optional()),
@@ -24,6 +22,8 @@ export const OutputSchema = z.object({
   default_value: z.number().optional(),
   id: z.string().optional(),
   quota_name: z.string().optional(),
+  request_id: z.string().optional(),
+  request_status: z.string().optional(),
   service_name: z.string().optional(),
   usage_metric: z.object({
     metric_dimensions: z.object({

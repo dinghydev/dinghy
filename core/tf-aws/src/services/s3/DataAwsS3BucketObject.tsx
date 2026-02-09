@@ -11,7 +11,6 @@ import { AwsS3BucketObject } from './AwsS3BucketObject.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
-  arn: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   range: resolvableValue(z.string().optional()),
@@ -20,6 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   body: z.string().optional(),
   bucket_key_enabled: z.boolean().optional(),
   cache_control: z.string().optional(),

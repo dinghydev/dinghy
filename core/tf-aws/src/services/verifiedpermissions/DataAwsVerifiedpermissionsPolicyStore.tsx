@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsVerifiedpermissionsPolicyStore } from './AwsVerifiedpermissionsPolicyStore.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  description: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -19,6 +18,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   deletion_protection: z.string().optional(),
+  description: z.string().optional(),
   last_updated_date: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   validation_settings: z.object({

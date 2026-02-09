@@ -13,10 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   app: resolvableValue(z.string()),
   app_bundle_arn: resolvableValue(z.string()),
   auth_type: resolvableValue(z.string()),
-  created_at: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
-  tags_all: resolvableValue(z.record(z.string(), z.string())),
-  updated_at: resolvableValue(z.string()),
   credential: resolvableValue(
     z.object({
       api_key_credential: z.object({
@@ -48,7 +44,11 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   auth_url: z.string().optional(),
+  created_at: z.string().optional(),
+  id: z.string().optional(),
   persona: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
+  updated_at: z.string().optional(),
 })
 
 export type InputProps =

@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   sns_topic_arn: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
   enabled: resolvableValue(z.boolean().optional()),
   event_categories: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
@@ -33,6 +32,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   customer_aws_id: z.string().optional(),
   id: z.string().optional(),
+  status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

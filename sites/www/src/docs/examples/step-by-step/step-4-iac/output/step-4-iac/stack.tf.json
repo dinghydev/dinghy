@@ -46,7 +46,6 @@
     },
     "aws_lb": {
       "awslb_loadbalancer": {
-        "vpc_id": "${data.aws_vpc.awsvpc_vpc.id}",
         "subnets": [
           "${aws_subnet.awssubnet_publicsubnet.id}"
         ],

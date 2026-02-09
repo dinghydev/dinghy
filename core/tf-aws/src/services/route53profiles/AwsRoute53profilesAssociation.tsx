@@ -10,9 +10,7 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  owner_id: resolvableValue(z.string()),
   profile_id: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -27,7 +25,9 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   id: z.string().optional(),
+  owner_id: z.string().optional(),
   status: z.string().optional(),
   status_message: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

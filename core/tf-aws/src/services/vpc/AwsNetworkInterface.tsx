@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  outpost_arn: resolvableValue(z.string()),
   subnet_id: resolvableValue(z.string()),
   attachment: resolvableValue(
     z.object({
@@ -46,6 +45,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   mac_address: z.string().optional(),
+  outpost_arn: z.string().optional(),
   owner_id: z.string().optional(),
   private_dns_name: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),

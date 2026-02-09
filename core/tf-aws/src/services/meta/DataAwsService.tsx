@@ -20,6 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  partition: z.string().optional(),
   supported: z.boolean().optional(),
 })
 

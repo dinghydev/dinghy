@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsEc2TransitGatewayPeeringAttachment } from './AwsEc2TransitGatewayPeeringAttachment.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  state: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -32,6 +31,7 @@ export const OutputSchema = z.object({
   peer_account_id: z.string().optional(),
   peer_region: z.string().optional(),
   peer_transit_gateway_id: z.string().optional(),
+  state: z.string().optional(),
   transit_gateway_id: z.string().optional(),
 })
 

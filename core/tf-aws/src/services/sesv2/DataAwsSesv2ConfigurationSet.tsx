@@ -10,13 +10,13 @@ import z from 'zod'
 import { AwsSesv2ConfigurationSet } from './AwsSesv2ConfigurationSet.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   configuration_set_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   delivery_options: z.object({
     max_delivery_seconds: z.number(),
     sending_pool_name: z.string(),

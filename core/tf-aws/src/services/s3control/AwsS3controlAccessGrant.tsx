@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   access_grants_location_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   permission: resolvableValue(z.string()),
   access_grants_location_configuration: resolvableValue(
     z.object({
@@ -34,6 +33,7 @@ export const OutputSchema = z.object({
   access_grant_arn: z.string().optional(),
   access_grant_id: z.string().optional(),
   grant_scope: z.string().optional(),
+  id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

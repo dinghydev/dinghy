@@ -14,7 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   })),
   server_hostname: resolvableValue(z.string()),
   subdirectory: resolvableValue(z.string()),
-  uri: resolvableValue(z.string()),
   mount_options: resolvableValue(
     z.object({
       version: z.string().optional(),
@@ -28,6 +27,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  uri: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

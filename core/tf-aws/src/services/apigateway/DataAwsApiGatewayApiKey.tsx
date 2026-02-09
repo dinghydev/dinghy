@@ -10,12 +10,12 @@ import z from 'zod'
 import { AwsApiGatewayApiKey } from './AwsApiGatewayApiKey.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
+  arn: z.string().optional(),
   created_date: z.string().optional(),
   customer_id: z.string().optional(),
   description: z.string().optional(),

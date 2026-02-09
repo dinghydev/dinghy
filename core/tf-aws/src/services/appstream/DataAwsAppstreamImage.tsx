@@ -10,35 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  applications: resolvableValue(
-    z.object({
-      app_block_arn: z.string(),
-      arn: z.string(),
-      created_time: z.string(),
-      description: z.string(),
-      display_name: z.string(),
-      enabled: z.boolean(),
-      icon_s3_location: z.object({
-        s3_bucket: z.string(),
-        s3_key: z.string(),
-      }).array(),
-      icon_url: z.string(),
-      instance_families: z.string().array(),
-      launch_parameters: z.string(),
-      launch_path: z.string(),
-      metadata: z.record(z.string(), z.string()),
-      name: z.string(),
-      platforms: z.string().array(),
-      working_directory: z.string(),
-    }).array(),
-  ),
-  public_base_image_released_date: resolvableValue(z.string()),
-  state_change_reason: resolvableValue(
-    z.object({
-      code: z.string(),
-      message: z.string(),
-    }).array(),
-  ),
   arn: resolvableValue(z.string().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
   name: resolvableValue(z.string().optional()),
@@ -48,6 +19,26 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
+  applications: z.object({
+    app_block_arn: z.string(),
+    arn: z.string(),
+    created_time: z.string(),
+    description: z.string(),
+    display_name: z.string(),
+    enabled: z.boolean(),
+    icon_s3_location: z.object({
+      s3_bucket: z.string(),
+      s3_key: z.string(),
+    }).array(),
+    icon_url: z.string(),
+    instance_families: z.string().array(),
+    launch_parameters: z.string(),
+    launch_path: z.string(),
+    metadata: z.record(z.string(), z.string()),
+    name: z.string(),
+    platforms: z.string().array(),
+    working_directory: z.string(),
+  }).array().optional(),
   appstream_agent_version: z.string().optional(),
   arn: z.string().optional(),
   base_image_arn: z.string().optional(),
@@ -61,7 +52,12 @@ export const OutputSchema = z.object({
     allow_image_builder: z.boolean(),
   }).array().optional(),
   platform: z.string().optional(),
+  public_base_image_released_date: z.string().optional(),
   state: z.string().optional(),
+  state_change_reason: z.object({
+    code: z.string(),
+    message: z.string(),
+  }).array().optional(),
 })
 
 export type InputProps =

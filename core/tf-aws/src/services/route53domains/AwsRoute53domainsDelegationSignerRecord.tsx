@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   signing_attributes: resolvableValue(
     z.object({
       algorithm: z.number(),
@@ -29,6 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   dnssec_key_id: z.string().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =

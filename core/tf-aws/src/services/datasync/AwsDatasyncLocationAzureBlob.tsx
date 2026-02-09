@@ -13,7 +13,6 @@ export const InputSchema = TfMetaSchema.extend({
   agent_arns: resolvableValue(z.string().array()),
   authentication_type: resolvableValue(z.string()),
   container_url: resolvableValue(z.string()),
-  uri: resolvableValue(z.string()),
   access_tier: resolvableValue(z.string().optional()),
   blob_type: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -30,6 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  uri: z.string().optional(),
 })
 
 export const ImportSchema = z.object({

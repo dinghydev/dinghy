@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   app_authorization_arn: resolvableValue(z.string()),
   app_bundle_arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   auth_request: resolvableValue(
     z.object({
       code: z.string(),
@@ -29,6 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   app: z.string().optional(),
+  id: z.string().optional(),
   tenant: z.object({
     tenant_display_name: z.string(),
     tenant_identifier: z.string(),

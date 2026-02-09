@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  local_gateway_virtual_interface_ids: resolvableValue(z.string().array()),
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -31,6 +30,7 @@ export const OutputSchema = z.object({
   local_address: z.string().optional(),
   local_bgp_asn: z.number().optional(),
   local_gateway_id: z.string().optional(),
+  local_gateway_virtual_interface_ids: z.set(z.string()).optional(),
   peer_address: z.string().optional(),
   peer_bgp_asn: z.number().optional(),
   vlan: z.number().optional(),

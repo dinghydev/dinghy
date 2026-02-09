@@ -10,13 +10,13 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   detector_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   finding_ids: z.string().array().optional(),
   has_findings: z.boolean().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =

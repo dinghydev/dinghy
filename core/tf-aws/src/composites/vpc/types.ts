@@ -7,12 +7,20 @@ import {
 import { z } from 'zod'
 import { InputSchema as AwsVpcInputSchema } from '../../services/vpc/AwsVpc.tsx'
 import { InputSchema as AwsSubnetInputSchema } from '../../services/vpc/AwsSubnet.tsx'
+import { InputSchema as RuleInputSchema } from '../../services/vpc/AwsVpcSecurityGroupEgressRule.tsx'
 import { useAwsProvider } from '../../foundation/AwsProvider.tsx'
 
 const SubnetSchema = AwsSubnetInputSchema.extend({
   name: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
+})
+const SecurityGroupSchema = z.object({
+  name: z.string().optional().transform((value: string | undefined) =>
+    value as string
+  ),
+  ingress: RuleInputSchema.partial().array().optional(),
+  egress: RuleInputSchema.partial().array().optional(),
 })
 
 const VpcSchema = AwsVpcInputSchema.extend({
@@ -23,6 +31,8 @@ const VpcSchema = AwsVpcInputSchema.extend({
   privateSubnetsCount: ResolvableNumberSchema.default(0),
   publicSubnets: z.record(z.string(), SubnetSchema.loose()).default({}),
   privateSubnets: z.record(z.string(), SubnetSchema.loose()).default({}),
+  securityGroups: z.record(z.string(), SecurityGroupSchema.loose())
+    .default({}),
 })
 
 export type VpcType = z.output<typeof VpcSchema>
@@ -80,6 +90,41 @@ export function parseVpc(
         }.0/24`
       }
     })
+  })
+  if (
+    vpcConfig.publicSubnetsCount !== 0 &&
+    Object.keys(vpcConfig.securityGroups).length === 0
+  ) {
+    vpcConfig.securityGroups['public-web-traffic'] = {
+      ingress: [
+        {
+          description: 'Allow HTTP traffic from the internet',
+          from_port: 80,
+          to_port: 80,
+          ip_protocol: 'tcp',
+          cidr_ipv4: '0.0.0.0/0',
+        },
+        {
+          description: 'Allow HTTPS traffic from the internet',
+          from_port: 443,
+          to_port: 443,
+          ip_protocol: 'tcp',
+          cidr_ipv4: '0.0.0.0/0',
+        },
+      ],
+      egress: [
+        {
+          description: 'Allow All traffic to the internet',
+          from_port: 0,
+          to_port: 0,
+          ip_protocol: '-1',
+          cidr_ipv4: '0.0.0.0/0',
+        },
+      ],
+    } as any
+  }
+  Object.entries(vpcConfig.securityGroups).map(([name, securityGroup]) => {
+    securityGroup.name ??= name
   })
   vpcConfig.name ??=
     (() => `${renderOptions.stack.name}-vpc`) as unknown as string

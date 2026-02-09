@@ -12,7 +12,6 @@ import z from 'zod'
 export const InputSchema = TfMetaSchema.extend({
   router_type_identifier: resolvableValue(z.string()),
   virtual_interface_id: resolvableValue(z.string()),
-  virtual_interface_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -28,6 +27,7 @@ export const OutputSchema = z.object({
     xslt_template_name_for_mac_sec: z.string(),
   }).array().optional(),
   router_type_identifier: z.string().optional(),
+  virtual_interface_name: z.string().optional(),
 })
 
 export type InputProps =

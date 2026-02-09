@@ -10,7 +10,6 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  last_updated_by: resolvableValue(z.string()),
   principal: resolvableValue(
     z.object({
       data_lake_principal_identifier: z.string(),
@@ -75,6 +74,7 @@ export const OutputSchema = z.object({
     expression: z.string().optional(),
   }).array().optional().optional(),
   last_modified: z.string().optional(),
+  last_updated_by: z.string().optional(),
 })
 
 export type InputProps =

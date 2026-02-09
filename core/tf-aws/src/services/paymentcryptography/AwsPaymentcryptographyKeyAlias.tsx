@@ -10,12 +10,13 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   alias_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   key_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

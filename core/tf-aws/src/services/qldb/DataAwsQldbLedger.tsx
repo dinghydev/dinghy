@@ -10,17 +10,18 @@ import z from 'zod'
 import { AwsQldbLedger } from './AwsQldbLedger.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  deletion_protection: resolvableValue(z.boolean()),
-  kms_key: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
-  permissions_mode: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  deletion_protection: z.boolean().optional(),
+  kms_key: z.string().optional(),
+  permissions_mode: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

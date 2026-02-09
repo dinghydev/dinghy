@@ -10,8 +10,6 @@ import z from 'zod'
 import { AwsCloudfrontConnectionGroup } from './AwsCloudfrontConnectionGroup.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  ipv6_enabled: resolvableValue(z.boolean()),
-  tags: resolvableValue(z.record(z.string(), z.string())),
   id: resolvableValue(z.string().optional()),
   routing_endpoint: resolvableValue(z.string().optional()),
 })
@@ -21,10 +19,12 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   enabled: z.boolean().optional(),
   etag: z.string().optional(),
+  ipv6_enabled: z.boolean().optional(),
   is_default: z.boolean().optional(),
   last_modified_time: z.string().optional(),
   name: z.string().optional(),
   status: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

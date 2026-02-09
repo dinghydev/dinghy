@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsSfnStateMachine } from './AwsSfnStateMachine.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  description: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -19,6 +18,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
   definition: z.string().optional(),
+  description: z.string().optional(),
   id: z.string().optional(),
   revision_id: z.string().optional(),
   role_arn: z.string().optional(),

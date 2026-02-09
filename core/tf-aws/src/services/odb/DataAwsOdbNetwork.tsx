@@ -11,13 +11,6 @@ import { AwsOdbNetwork } from './AwsOdbNetwork.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
-  oci_dns_forwarding_configs: resolvableValue(
-    z.object({
-      domain_name: z.string(),
-      oci_dns_listener_ip: z.string(),
-    }).array(),
-  ),
-  tags: resolvableValue(z.record(z.string(), z.string())),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -55,6 +48,10 @@ export const OutputSchema = z.object({
       status: z.string(),
     }).array(),
   }).array().optional(),
+  oci_dns_forwarding_configs: z.object({
+    domain_name: z.string(),
+    oci_dns_listener_ip: z.string(),
+  }).array().optional(),
   oci_network_anchor_id: z.string().optional(),
   oci_network_anchor_url: z.string().optional(),
   oci_resource_anchor_name: z.string().optional(),
@@ -64,6 +61,7 @@ export const OutputSchema = z.object({
   percent_progress: z.number().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),
+  tags: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =

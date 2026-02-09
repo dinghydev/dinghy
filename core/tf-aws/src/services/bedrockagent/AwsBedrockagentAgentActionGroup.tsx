@@ -10,11 +10,9 @@ import {
 import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
-  action_group_id: resolvableValue(z.string()),
   action_group_name: resolvableValue(z.string()),
   agent_id: resolvableValue(z.string()),
   agent_version: resolvableValue(z.string()),
-  id: resolvableValue(z.string()),
   action_group_executor: resolvableValue(
     z.object({
       custom_control: z.string().optional(),
@@ -60,7 +58,10 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  action_group_id: z.string().optional(),
+  id: z.string().optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>

@@ -11,15 +11,6 @@ import { AwsImagebuilderImagePipeline } from './AwsImagebuilderImagePipeline.tsx
 
 export const InputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
-  image_scanning_configuration: resolvableValue(
-    z.object({
-      ecr_configuration: z.object({
-        container_tags: z.string().array(),
-        repository_name: z.string(),
-      }).array(),
-      image_scanning_enabled: z.boolean(),
-    }).array(),
-  ),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
@@ -34,6 +25,13 @@ export const OutputSchema = z.object({
   distribution_configuration_arn: z.string().optional(),
   enhanced_image_metadata_enabled: z.boolean().optional(),
   image_recipe_arn: z.string().optional(),
+  image_scanning_configuration: z.object({
+    ecr_configuration: z.object({
+      container_tags: z.set(z.string()),
+      repository_name: z.string(),
+    }).array(),
+    image_scanning_enabled: z.boolean(),
+  }).array().optional(),
   image_tests_configuration: z.object({
     image_tests_enabled: z.boolean(),
     timeout_minutes: z.number(),

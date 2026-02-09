@@ -11,7 +11,6 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   ip_address_version: resolvableValue(z.string()),
-  lock_token: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   addresses: resolvableValue(z.string().array().optional()),
   description: resolvableValue(z.string().optional()),
@@ -24,6 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  lock_token: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 

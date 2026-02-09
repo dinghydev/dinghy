@@ -10,7 +10,6 @@ import z from 'zod'
 import { AwsRedshiftserverlessWorkgroup } from './AwsRedshiftserverlessWorkgroup.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  namespace_name: resolvableValue(z.string()),
   workgroup_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
@@ -33,6 +32,7 @@ export const OutputSchema = z.object({
   }).array().optional(),
   enhanced_vpc_routing: z.boolean().optional(),
   id: z.string().optional(),
+  namespace_name: z.string().optional(),
   publicly_accessible: z.boolean().optional(),
   security_group_ids: z.set(z.string()).optional(),
   subnet_ids: z.set(z.string()).optional(),
