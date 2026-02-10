@@ -44,7 +44,7 @@
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/diagrams/layout",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/tf-aws/basic/s3-bucket",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/tf-aws/composites/s3-bucket",
-        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/ec2-servers",
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/ec2-servers",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/cloudfront-sites",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-3-draw-io"

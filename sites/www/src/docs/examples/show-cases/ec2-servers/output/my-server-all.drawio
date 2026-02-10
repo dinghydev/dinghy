@@ -38,8 +38,8 @@
           >
           <mxGeometry
             as="geometry" 
-            width="990" 
-            height="780" 
+            width="1380" 
+            height="840" 
             x="0" 
             y="0"
             />
@@ -53,8 +53,8 @@
           >
           <mxGeometry
             as="geometry" 
-            width="930" 
-            height="720" 
+            width="1320" 
+            height="780" 
             x="30" 
             y="30"
             />
@@ -68,8 +68,8 @@
           >
           <mxGeometry
             as="geometry" 
-            width="870" 
-            height="450" 
+            width="1260" 
+            height="510" 
             x="30" 
             y="30"
             />
@@ -83,7 +83,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="810" 
+            width="1200" 
             height="120" 
             x="30" 
             y="30"
@@ -100,7 +100,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="375" 
+            x="570" 
             y="30"
             />
           </mxCell>
@@ -113,8 +113,8 @@
           >
           <mxGeometry
             as="geometry" 
-            width="810" 
-            height="240" 
+            width="1200" 
+            height="300" 
             x="30" 
             y="180"
             />
@@ -128,8 +128,8 @@
           >
           <mxGeometry
             as="geometry" 
-            width="420" 
-            height="180" 
+            width="810" 
+            height="240" 
             x="30" 
             y="30"
             />
@@ -144,7 +144,7 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="120" 
+            height="180" 
             x="30" 
             y="30"
             />
@@ -161,6 +161,81 @@
             width="60" 
             height="60" 
             x="30" 
+            y="60"
+            />
+          </mxCell>
+        <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="securitygroups" 
+          parent="awsvpc_myservervpc" 
+          value="Security Groups" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="360" 
+            height="180" 
+            x="180" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="awssecuritygroup_publicwebtraffic" 
+          parent="securitygroups" 
+          value="public-web-traffic" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="300" 
+            height="120" 
+            x="30" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="awsvpcsecuritygroupingressrule_allowhttptrafficfromtheinternet" 
+          parent="awssecuritygroup_publicwebtraffic" 
+          value="Allow HTTP traffic from the internet" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="30" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="awsvpcsecuritygroupingressrule_allowhttpstrafficfromtheinternet" 
+          parent="awssecuritygroup_publicwebtraffic" 
+          value="Allow HTTPS traffic from the internet" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="120" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="awsvpcsecuritygroupegressrule_allowalltraffictotheinternet" 
+          parent="awssecuritygroup_publicwebtraffic" 
+          value="Allow All traffic to the internet" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="210" 
             y="30"
             />
           </mxCell>
@@ -175,8 +250,8 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="180" 
-            y="60"
+            x="570" 
+            y="90"
             />
           </mxCell>
         <mxCell
@@ -189,8 +264,8 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="120" 
-            x="270" 
+            height="180" 
+            x="660" 
             y="30"
             />
           </mxCell>
@@ -206,7 +281,7 @@
             width="60" 
             height="60" 
             x="30" 
-            y="30"
+            y="60"
             />
           </mxCell>
         <mxCell
@@ -220,8 +295,8 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="480" 
-            y="90"
+            x="870" 
+            y="120"
             />
           </mxCell>
         <mxCell
@@ -234,8 +309,8 @@
           <mxGeometry
             as="geometry" 
             width="210" 
-            height="180" 
-            x="570" 
+            height="240" 
+            x="960" 
             y="30"
             />
           </mxCell>
@@ -251,7 +326,7 @@
             width="60" 
             height="60" 
             x="30" 
-            y="60"
+            y="90"
             />
           </mxCell>
         <mxCell
@@ -266,7 +341,7 @@
             width="60" 
             height="60" 
             x="120" 
-            y="60"
+            y="90"
             />
           </mxCell>
         <mxCell
@@ -278,10 +353,10 @@
           >
           <mxGeometry
             as="geometry" 
-            width="870" 
+            width="1260" 
             height="180" 
             x="30" 
-            y="510"
+            y="570"
             />
           </mxCell>
         <mxCell
@@ -293,7 +368,7 @@
           >
           <mxGeometry
             as="geometry" 
-            width="810" 
+            width="1200" 
             height="120" 
             x="30" 
             y="30"
@@ -310,7 +385,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="375" 
+            x="570" 
             y="30"
             />
           </mxCell>

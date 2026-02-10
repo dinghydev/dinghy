@@ -176,7 +176,7 @@ export async function buildCustomizedImage(
     })
   }
   if (imageName === 'tf') {
-    customTfImage(workingDir, customization, dockerFileContent)
+    await customTfImage(workingDir, customization, dockerFileContent)
   }
   Deno.writeTextFileSync(dockerFile, dockerFileContent.join('\n'))
 
