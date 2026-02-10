@@ -7,7 +7,6 @@ export default function LatestVersion() {
     fetch(`https://get.dinghy.dev/latest-version.json`)
       .then((response) => response.json())
       .then((data) => {
-        console.log('Fetched latest version:', data)
         setLatestVersion(data.latest)
       })
       .catch((error) => {

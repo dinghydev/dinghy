@@ -13,6 +13,7 @@ export const S3BucketSchema = InputSchema.extend({
   logBucket: ResolvableStringSchema.optional(),
   logPrefix: ResolvableStringSchema.optional(),
   bucketPolicy: ResolvableStringSchema.optional(),
+  corsPolicy: z.record(z.string(), z.any()).array().optional(),
   contentTypes: z.record(z.string(), z.string()).default({}),
   cacheControls: z.record(z.string(), z.string()).default({}),
   cacheControlDefault: z.string().default(

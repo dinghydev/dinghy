@@ -297,6 +297,7 @@
         "bucket": "dinghy-dev-demo-sites-origin",
         "cache_control": "max-age=3600, public, must-revalidate",
         "content_type": "text/html; charset=UTF-8",
+        "etag": "${filemd5(\"/dinghy/engine/workspace/cloudfront-sites/s3-files/dinghy-dev-demo-sites-origin/404.html\")}",
         "source": "/dinghy/engine/workspace/cloudfront-sites/s3-files/dinghy-dev-demo-sites-origin/404.html",
         "key": "/404.html",
         "tags": {
@@ -311,6 +312,7 @@
         "bucket": "dinghy-dev-demo-sites-origin",
         "cache_control": "max-age=3600, public, must-revalidate",
         "content_type": "text/html; charset=UTF-8",
+        "etag": "${filemd5(\"/dinghy/engine/workspace/cloudfront-sites/s3-files/dinghy-dev-demo-sites-origin/index.html\")}",
         "source": "/dinghy/engine/workspace/cloudfront-sites/s3-files/dinghy-dev-demo-sites-origin/index.html",
         "key": "/index.html",
         "tags": {

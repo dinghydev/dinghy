@@ -10,7 +10,11 @@ import { AwsS3BucketVersioning } from '../../services/s3/AwsS3BucketVersioning.t
 import { AwsS3BucketLogging } from '../../services/s3/AwsS3BucketLogging.tsx'
 import { existsSync } from '@std/fs/exists'
 import { walkSync } from '@std/fs/walk'
-import { AwsS3BucketPolicy, AwsS3Object } from '@dinghy/tf-aws/serviceS3'
+import {
+  AwsS3BucketCorsConfiguration,
+  AwsS3BucketPolicy,
+  AwsS3Object,
+} from '@dinghy/tf-aws/serviceS3'
 import { contentType } from '@std/media-types'
 import { useRegionalLogBucket } from '@dinghy/tf-aws'
 import { parseS3Bucket } from './types.ts'
@@ -66,6 +70,21 @@ export function S3Bucket(
         _id={() => `${deepResolve(s3Bucket._id)}_policy`}
         bucket={s3Bucket.bucket}
         policy={bucketConfig.bucketPolicy}
+      />
+    )
+  }
+
+  const CorsPolicy = () => {
+    const { s3Bucket } = useAwsS3Bucket()
+    const S3BucketCorsConfiguration =
+      _components?.s3BucketCors as typeof AwsS3BucketCorsConfiguration ||
+      AwsS3BucketCorsConfiguration
+    return (
+      <S3BucketCorsConfiguration
+        depends_on={() => [s3Bucket._terraformId]}
+        _id={() => `${deepResolve(s3Bucket._id)}_cors`}
+        bucket={s3Bucket.bucket}
+        cors_rule={bucketConfig.corsPolicy as any}
       />
     )
   }
@@ -127,6 +146,7 @@ export function S3Bucket(
       {bucketConfig.versioningEnabled && <BucketVersioning />}
       {bucketConfig.loggingEnabled && <BucketLogging />}
       {bucketConfig.bucketPolicy && <BucketPolicy />}
+      {bucketConfig.corsPolicy && <CorsPolicy />}
       {s3FilesExists && <Files />}
       {children}
     </BucketComponent>

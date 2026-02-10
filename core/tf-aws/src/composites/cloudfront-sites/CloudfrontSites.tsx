@@ -13,9 +13,11 @@ import {
   AwsCloudfrontDistribution,
   AwsCloudfrontFunction,
   AwsCloudfrontOriginAccessControl,
+  AwsCloudfrontResponseHeadersPolicy,
   useAwsCloudfrontDistribution,
   useAwsCloudfrontFunction,
   useAwsCloudfrontOriginAccessControl,
+  useAwsCloudfrontResponseHeadersPolicy,
 } from '@dinghy/tf-aws/serviceCloudfront'
 import {
   AwsAcmCertificate,
@@ -424,6 +426,8 @@ export function CloudfrontSites(
         (origin) => origin.targetProtocol !== 'https',
       )!
 
+      const { headersPolicy } = useAwsCloudfrontResponseHeadersPolicy()
+
       const cacheBehaviors = (isDefault: boolean) => () => {
         const cacheBehavior = (origin: OriginType) => ({
           path_pattern: origin.pathPattern !== '*'
@@ -436,6 +440,9 @@ export function CloudfrontSites(
             : origin.name,
           viewer_protocol_policy: 'redirect-to-https',
           cache_policy_id: '658327ea-f89d-4fab-a63d-7e88639e58f6', // Managed-CachingOptimized
+          response_headers_policy_id: origin.allowedOrigins
+            ? headersPolicy.id
+            : undefined,
           function_association: isRedirect
             ? [{
               event_type: 'viewer-request',
@@ -459,6 +466,48 @@ export function CloudfrontSites(
             (origin) => origin.pathPattern !== '*',
           ).map((origin) => cacheBehavior(origin))
       }
+
+      const CorsSupportPolicy = () => {
+        const CloudfrontResponseHeadersPolicyComponent = _components
+          ?.responseHeadersPolicy as typeof AwsCloudfrontResponseHeadersPolicy ||
+          AwsCloudfrontResponseHeadersPolicy
+        const allowedOrigins: string[] = []
+        Object.values(site.origins).map((origin) => {
+          if (origin.allowedOrigins) {
+            origin.allowedOrigins.forEach((origin) => {
+              if (!allowedOrigins.includes(origin)) {
+                allowedOrigins.push(origin)
+              }
+            })
+          }
+        })
+        const corsConfig = () => ({
+          access_control_allow_credentials: false,
+          access_control_allow_headers: {
+            items: ['*'],
+          },
+          access_control_allow_methods: {
+            items: ['GET', 'HEAD'],
+          },
+          access_control_allow_origins: {
+            items: allowedOrigins,
+          },
+          access_control_max_age_sec: 3600,
+          origin_override: true,
+        })
+        return (
+          <CloudfrontResponseHeadersPolicyComponent
+            _display='invisible'
+            name={toId(`${site.title}_cors_support_policy`)}
+            _title='CORS Support Policy'
+            cors_config={corsConfig}
+          />
+        )
+      }
+
+      const corsSupportEnabled = Object.values(site.origins).some(
+        (origin) => origin.allowedOrigins,
+      )
 
       const DistributionComponent =
         _components?.distribution as typeof AwsCloudfrontDistribution ||
@@ -504,6 +553,7 @@ export function CloudfrontSites(
           </DistributionCol1Component>
           <DistributionCol2Component _display='invisible' _direction='vertical'>
             {isRedirect && <HostRedirect />}
+            {corsSupportEnabled && <CorsSupportPolicy />}
             <AliasesCertificates />
             {!isRedirect &&
               Object.values(site.origins).find((o) =>
