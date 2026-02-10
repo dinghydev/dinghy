@@ -28,10 +28,19 @@ site. e.g. create a single file as
 
 ### Homepage source
 
-```md title="src/pages/INDEX.md"
+```md title="src/pages/INDEX.mdx"
 # Welcome
 
 To my site homepage
+```
+
+Helper script to create the file:
+
+```sh
+mkdir -p src/pages
+echo "# Welcome
+
+To my site homepage" > src/pages/INDEX.mdx
 ```
 
 ### Serve in development

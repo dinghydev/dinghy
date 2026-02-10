@@ -107,6 +107,7 @@ export function S3Bucket(
                 bucketConfig.cacheControlDefault}
               content_type={file.contentType}
               source={file.source}
+              etag={() => `\${filemd5(\"${deepResolve(file.source)}\")}`}
               depends_on={() => [s3Bucket._terraformId]}
             />
           ))}
