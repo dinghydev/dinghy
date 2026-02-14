@@ -1,4 +1,4 @@
-import { parseEc2Servers } from './types.ts'
+import { Ec2ServerType, parseEc2Servers } from './types.ts'
 import {
   deepResolve,
   getRenderOptions,
@@ -14,16 +14,15 @@ import {
 import { Vpc } from '../vpc/Vpc.tsx'
 import { useAwsSubnet } from '../../services/vpc/AwsSubnet.tsx'
 import {
-  AwsIamInstanceProfile,
   useAwsIamInstanceProfile,
 } from '../../services/iam/AwsIamInstanceProfile.tsx'
-import { AwsIamRole, useAwsIamRole } from '../../services/iam/AwsIamRole.tsx'
-import { AwsIamRolePolicyAttachment } from '../../services/iam/AwsIamRolePolicyAttachment.tsx'
 import { Output } from '@dinghy/tf-common'
 import { useAwsSecurityGroup } from '../../services/vpc/AwsSecurityGroup.tsx'
+import { IamInstanceRole } from '../iam/IamInstanceRole.tsx'
+import { IamRolePolicyAttachment } from '../iam/IamRolePolicyAttachment.tsx'
 
 export function Ec2Servers(
-  { _components, children, ...props }: NodeProps,
+  { _components, children, ...props }: Ec2ServerType & NodeProps,
 ) {
   const renderOptions = getRenderOptions()
   const servers = parseEc2Servers(props.servers)
@@ -33,63 +32,24 @@ export function Ec2Servers(
   const createInstanceProfile = Object.values(servers).some((server) =>
     !server.iam_instance_profile
   )
+  const enableSsm = Object.values(servers).some((server) => server.enableSsm)
 
-  function InstanceProfile(props: any) {
-    const instanceProfile: any = renderOptions.instanceProfile || {}
-    const roleName = () => `${renderOptions.stack.name}-instance-role`
-
-    function Role(props: any) {
-      const RoleComponent = _components?.role as typeof AwsIamRole || AwsIamRole
-      return (
-        <RoleComponent
-          _title={roleName}
-          name={roleName}
-          assume_role_policy={JSON.stringify({
-            'Version': '2012-10-17',
-            'Statement': [
-              {
-                'Effect': 'Allow',
-                'Principal': {
-                  'Service': 'ec2.amazonaws.com',
-                },
-                'Action': 'sts:AssumeRole',
-              },
-            ],
-          })}
-          {...props}
-        />
-      )
-    }
-    function Profile(props: any) {
-      const InstanceProfileComponent =
-        _components?.instanceProfile as typeof AwsIamInstanceProfile ||
-        AwsIamInstanceProfile
-      const profileName = () => `${renderOptions.stack.name}-instance-profile`
-      return (
-        <InstanceProfileComponent
-          _title={profileName}
-          name={profileName}
-          role={roleName}
-          {...instanceProfile}
-          {...props}
-        />
-      )
-    }
-    const { iamRole } = useAwsIamRole()
+  function InstanceRole() {
+    const profileName = () => `${renderOptions.stack.name}-instance-profile`
     return (
-      <Role
+      <IamInstanceRole
         _display='entity'
-        _title='Instance Role'
-        tags={() => ({ Name: roleName })}
-        {...props}
+        _components={_components}
+        name={profileName}
       >
-        <Profile />
-        <AwsIamRolePolicyAttachment
-          role={roleName}
-          policy_arn='arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
-          depends_on={() => [iamRole._terraformId]}
-        />
-      </Role>
+        {enableSsm &&
+          (
+            <IamRolePolicyAttachment
+              _components={_components}
+              policy_arn='arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
+            />
+          )}
+      </IamInstanceRole>
     )
   }
 
@@ -136,7 +96,7 @@ export function Ec2Servers(
       >
         {createVpc && <Vpc _display='entity' _title='VPC' />}
         {referenceAmi && <Ami />}
-        {createInstanceProfile && <InstanceProfile />}
+        {createInstanceProfile && <InstanceRole />}
       </OnDemandResourcesComponent>
     )
   }

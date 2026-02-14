@@ -9,7 +9,7 @@ import {
   useTypedNode,
 } from '@dinghy/base-components'
 import z from 'zod'
-import { S3Bucket } from '../composites/s3-bucket/S3Bucket.tsx'
+import { S3Bucket } from '../composites/s3/S3Bucket.tsx'
 import { useAwsProvider } from './AwsProvider.tsx'
 import { Backend, BackendInputSchema } from '@dinghy/tf-common'
 import { BUCKET } from '@dinghy/diagrams/entitiesAwsStorage'

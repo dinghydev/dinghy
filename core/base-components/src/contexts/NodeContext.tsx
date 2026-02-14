@@ -15,6 +15,7 @@ export const useNode = (_props: NodeProps): NodeTree => {
       _level: (_parent._props._level as number) + 1,
       _version: _parent._props._version,
       _view: _parent._props._view,
+      _components: _parent._props._components,
       ..._props,
     },
   } as Props as NodeTree

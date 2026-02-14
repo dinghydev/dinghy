@@ -1,8 +1,8 @@
 import { AwsStack } from '@dinghy/tf-aws'
-import { Ec2Servers } from '@dinghy/tf-aws/ec2'
+import { LambdaFunctions } from '@dinghy/tf-aws/lambda'
 
 export default () => (
   <AwsStack>
-    <Ec2Servers />
+    <LambdaFunctions />
   </AwsStack>
 )

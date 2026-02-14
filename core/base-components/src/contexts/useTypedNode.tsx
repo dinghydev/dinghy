@@ -12,11 +12,13 @@ function proxyNodeProps({ _props }: NodeTree) {
         return (_props as any)[key]
       }
       const terraformId = () => {
-        return `${
-          (_props as any)._category === 'resource'
-            ? ''
-            : `${(_props as any)._category}.`
-        }${(_props as any)._type}.${_props._consolidatedId || _props._id}`
+        let category = (_props as any)._category
+        if (Array.isArray(category)) {
+          category = category[0]
+        }
+        return `${category === 'resource' ? '' : `${category}.`}${
+          (_props as any)._type
+        }.${_props._consolidatedId || _props._id}`
       }
       if (key === '_terraformId') {
         return terraformId()

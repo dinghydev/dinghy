@@ -4,7 +4,7 @@
   version="25.0.2"
   >
   <diagram
-    name="my-server"
+    name="my-lambda"
     >
     <mxGraphModel
       grid="1" 
@@ -33,13 +33,13 @@
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
           id="stack" 
           parent="root" 
-          value="My Server" 
+          value="My Lambda" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="480" 
-            height="580" 
+            width="390" 
+            height="620" 
             x="0" 
             y="0"
             />
@@ -53,62 +53,47 @@
           >
           <mxGeometry
             as="geometry" 
-            width="420" 
-            height="520" 
+            width="330" 
+            height="560" 
             x="30" 
             y="30"
             />
           </mxCell>
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
-          id="ec2servers" 
+          id="lambdafunctions" 
           parent="provider_useast1" 
-          value="Ec2 Servers" 
+          value="Lambda Functions" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="360" 
-            height="290" 
+            width="270" 
+            height="330" 
             x="30" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;strokeColor=#D86613;fontColor=#D86613;outlineConnect=0;dashed=0;verticalLabelPosition=bottom;html=1;shape=mxgraph.aws3.android;fillColor=#96BF3D;gradientColor=none;" 
-          id="awsinstance_myserver" 
-          parent="ec2servers" 
-          value="my-server" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="150" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
-          id="ondemandresources" 
-          parent="ec2servers" 
-          value="On Demand Resources" 
+          id="awslambdafunction_albhandler" 
+          parent="lambdafunctions" 
+          value="alb-handler" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="300" 
+            width="210" 
             height="120" 
             x="30" 
-            y="140"
+            y="30"
             />
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awsvpc_myservervpc" 
-          parent="ondemandresources" 
-          value="VPC" 
+          id="awsiamrole_mylambdaalbhandlerrole" 
+          parent="awslambdafunction_albhandler" 
+          value="my-lambda-alb-handler-role" 
           vertex="1"
           >
           <mxGeometry
@@ -121,9 +106,9 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="awsami_ami" 
-          parent="ondemandresources" 
-          value="AMI" 
+          id="archivefile_albhandlersourcefile" 
+          parent="awslambdafunction_albhandler" 
+          value="alb-handler source file" 
           vertex="1"
           >
           <mxGeometry
@@ -135,17 +120,47 @@
             />
           </mxCell>
         <mxCell
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="awslambdafunction_apigatewayhandler" 
+          parent="lambdafunctions" 
+          value="api-gateway-handler" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="210" 
+            height="120" 
+            x="30" 
+            y="180"
+            />
+          </mxCell>
+        <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="instancerole_myserverinstanceprofile" 
-          parent="ondemandresources" 
-          value="Instance Role" 
+          id="awsiamrole_mylambdaapigatewayhandlerrole" 
+          parent="awslambdafunction_apigatewayhandler" 
+          value="my-lambda-api-gateway-handler-role" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="60" 
             height="60" 
-            x="210" 
+            x="30" 
+            y="30"
+            />
+          </mxCell>
+        <mxCell
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="archivefile_apigatewayhandlersourcefile" 
+          parent="awslambdafunction_apigatewayhandler" 
+          value="api-gateway-handler source file" 
+          vertex="1"
+          >
+          <mxGeometry
+            as="geometry" 
+            width="60" 
+            height="60" 
+            x="120" 
             y="30"
             />
           </mxCell>
@@ -158,10 +173,10 @@
           >
           <mxGeometry
             as="geometry" 
-            width="360" 
+            width="270" 
             height="140" 
             x="30" 
-            y="350"
+            y="390"
             />
           </mxCell>
         <mxCell
@@ -175,7 +190,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="150" 
+            x="105" 
             y="30"
             />
           </mxCell>

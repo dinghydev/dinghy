@@ -37,6 +37,7 @@
     "@deno-library/compress": "jsr:@deno-library/compress@0.5.6",
     "@octokit/core": "npm:@octokit/core@7.0.6",
     "console-table-printer": "npm:console-table-printer@2.15.0",
+    "aws-lambda": "npm:@types/aws-lambda@8.10.160",
     "@std/assert": "jsr:@std/assert@1.0.18",
     // CLI AND CORE DEPENDENCIES
     "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",

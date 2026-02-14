@@ -163,6 +163,9 @@ export const run = async (args: Args) => {
 
       debug('applied app render options: %O', app.renderOptions)
     }
+    renderOptions.outputFolder = args.output.startsWith('/')
+      ? args.output
+      : `${containerAppHome}/${args.output}`
     return app.default
   }
 

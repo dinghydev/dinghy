@@ -10,9 +10,10 @@ const Ec2ServerSchema = AwsInstanceInputSchema.extend({
   instance_type: z.string().default('t3.nano'),
   linuxFlavor: z.enum(['al2023', 'ubuntu']).default('al2023'),
   associate_public_ip_address: z.boolean().default(true),
+  enableSsm: z.boolean().default(true),
 })
 
-const Ec2ServersSchema = z.record(z.string(), Ec2ServerSchema.loose())
+const Ec2ServersSchema = z.record(z.string(), Ec2ServerSchema.partial().loose())
 
 export type Ec2ServerType = z.output<typeof Ec2ServersSchema>
 

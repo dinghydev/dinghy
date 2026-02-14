@@ -238,10 +238,12 @@
     "./serviceWorkspaces": "./src/services/workspaces/index.ts",
     "./serviceWorkspacesweb": "./src/services/workspacesweb/index.ts",
     "./serviceXray": "./src/services/xray/index.ts",
-    "./cloudfrontSites": "./src/composites/cloudfront-sites/index.ts",
-    "./ec2Servers": "./src/composites/ec2-servers/index.ts",
-    "./s3Bucket": "./src/composites/s3-bucket/index.ts",
+    "./cloudfront": "./src/composites/cloudfront/index.ts",
+    "./ec2": "./src/composites/ec2/index.ts",
+    "./s3": "./src/composites/s3/index.ts",
     "./vpc": "./src/composites/vpc/index.ts",
+    "./lambda": "./src/composites/lambda/index.ts",
+    "./iam": "./src/composites/iam/index.ts",
     ".": "./src/index.ts"
   }
 }

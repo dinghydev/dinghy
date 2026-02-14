@@ -48,6 +48,7 @@ tmp*
 **/tf.plan.*
 **/terraform.tfstate
 **/*.backup
+**/output/lambdas
 
 # Generated locks not in use
 workspace/deno.lock

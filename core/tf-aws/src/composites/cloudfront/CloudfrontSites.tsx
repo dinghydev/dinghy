@@ -1,5 +1,5 @@
 import { OriginType, parseCloudfrontSites } from './types.ts'
-import { S3Bucket } from '../s3-bucket/S3Bucket.tsx'
+import { S3Bucket } from '../s3/S3Bucket.tsx'
 import { deepResolve, NodeProps, Shape, toId } from '@dinghy/base-components'
 import {
   AwsRoute53Record,

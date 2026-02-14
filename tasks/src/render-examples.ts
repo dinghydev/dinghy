@@ -57,6 +57,17 @@ const renderProject = async (projectPath: string) => {
     Deno.writeTextFileSync(tfJsonFile, updatedTfJsonText)
     console.log(`Updated tf json file ${chalk.red(tfJsonFile)}`)
   }
+  if (existsSync(`${projectPath}/src/lambdas`)) {
+    const replacePath = dirname(projectPath)
+    const tfJsonFile = `${projectPath}/output/my-lambda/stack.tf.json`
+    const tfJsonText = Deno.readTextFileSync(tfJsonFile)
+    const updatedTfJsonText = tfJsonText.replaceAll(
+      replacePath,
+      '/dinghy/engine/workspace',
+    )
+    Deno.writeTextFileSync(tfJsonFile, updatedTfJsonText)
+    console.log(`Updated tf json file ${chalk.red(tfJsonFile)}`)
+  }
 }
 
 if (import.meta.main) {

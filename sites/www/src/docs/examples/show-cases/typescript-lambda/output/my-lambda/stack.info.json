@@ -1,0 +1,17 @@
+{
+  "name": "my-lambda",
+  "title": "My Lambda",
+  "app": "my-lambda.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "my-lambda",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}

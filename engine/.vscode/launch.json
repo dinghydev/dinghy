@@ -8,7 +8,6 @@
         // "move-to-here",
         // "--format",
         // "all",
-        // "tf"
         // "--tf-generate-import",
         // "--diagram-save-view",
         // "--view",
@@ -46,6 +45,7 @@
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/tf-aws/composites/s3-bucket",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/ec2-servers",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/cloudfront-sites",
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/typescript-lambda",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-3-draw-io"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/step-by-step/step-4-iac"
@@ -62,117 +62,25 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "tf init",
+      "name": "tf *",
       "args": [
         "tf",
-        "init",
-        "--debug"
-        // "-h"
-      ],
-      "program": "src/index.ts",
-      "env": {
-        "DEBUG": "10",
-        // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
-        // "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-      ],
-      "attachSimplePort": 0,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf plan",
-      "args": [
-        "tf",
-        "plan"
-        // "--debug"
-        // "-h"
-      ],
-      "program": "src/index.ts",
-      "env": {
-        "DEBUG": "10",
-        // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-      ],
-      "attachSimplePort": 0,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf diff",
-      "args": [
-        "tf",
-        "diff",
-        // "platform-staging",
-        // "production",
-        // "development",
+        // "bash",
+        // "init",
+        // "plan",
+        // "diff",
+        // "up",
+        // "destroy",
         // "--tf-generate-import",
         // "true",
         // "-h",
-        "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "env": {
-        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/ec2-servers",
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/typescript-lambda",
       },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-      ],
-      "attachSimplePort": 0,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf apply",
-      "args": [
-        "tf",
-        "apply",
-        // "--tf-generate-import",
-        // "true",
-        // "-h",
-        "--debug",
-      ],
-      "program": "src/index.ts",
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-      ],
-      "attachSimplePort": 0,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf normalise",
-      "args": [
-        "tf",
-        "normalise",
-        "--exclude-identifier",
-        "--json-file",
-        "--output-folder",
-        // "-h",
-        "--debug"
-      ],
-      "program": "src/index.ts",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",

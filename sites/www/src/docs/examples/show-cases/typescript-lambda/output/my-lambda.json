@@ -1,0 +1,187 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "name": "my-lambda",
+    "title": "My Lambda",
+    "_id": "stack",
+    "_tags": [
+      "default",
+      "AwsStack",
+      "Shape"
+    ],
+    "_type": "aws_stack",
+    "_title": "My Lambda",
+    "_name": "my-lambda"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "us-east-1",
+        "_tags": [
+          "Provider",
+          "AwsProvider",
+          "Shape"
+        ],
+        "_type": "provider",
+        "_name": "us-east-1",
+        "_id": "provider_useast1"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "LambdaFunctions",
+              "Shape"
+            ],
+            "_type": "lambda_functions",
+            "_title": "Lambda Functions",
+            "_name": "lambda-functions",
+            "_id": "lambdafunctions"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_type": "aws_lambda_function",
+                "_title": "alb-handler",
+                "_tags": [
+                  "LambdaFunction",
+                  "AwsLambdaFunction",
+                  "Shape"
+                ],
+                "_name": "alb-handler",
+                "_id": "awslambdafunction_albhandler"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_iam_role",
+                    "_title": "my-lambda-alb-handler-role",
+                    "name": "my-lambda-alb-handler-role",
+                    "_tags": [
+                      "IamRole",
+                      "AwsIamRole",
+                      "Shape"
+                    ],
+                    "_name": "my-lambda-alb-handler-role",
+                    "_id": "awsiamrole_mylambdaalbhandlerrole"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "archive_file",
+                    "_title": "alb-handler source file",
+                    "_tags": [
+                      "SourceFile",
+                      "DataArchiveFile",
+                      "ArchiveFile",
+                      "Shape"
+                    ],
+                    "_name": "alb-handler-source-file",
+                    "_id": "archivefile_albhandlersourcefile"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_type": "aws_lambda_function",
+                "_title": "api-gateway-handler",
+                "_tags": [
+                  "LambdaFunction",
+                  "AwsLambdaFunction",
+                  "Shape"
+                ],
+                "_name": "api-gateway-handler",
+                "_id": "awslambdafunction_apigatewayhandler"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "aws_iam_role",
+                    "_title": "my-lambda-api-gateway-handler-role",
+                    "name": "my-lambda-api-gateway-handler-role",
+                    "_tags": [
+                      "IamRole",
+                      "AwsIamRole",
+                      "Shape"
+                    ],
+                    "_name": "my-lambda-api-gateway-handler-role",
+                    "_id": "awsiamrole_mylambdaapigatewayhandlerrole"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_type": "archive_file",
+                    "_title": "api-gateway-handler source file",
+                    "_tags": [
+                      "SourceFile",
+                      "DataArchiveFile",
+                      "ArchiveFile",
+                      "Shape"
+                    ],
+                    "_name": "api-gateway-handler-source-file",
+                    "_id": "archivefile_apigatewayhandlersourcefile"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Infrastructure",
+              "Shape"
+            ],
+            "_type": "infrastructure",
+            "_title": "Infrastructure",
+            "_name": "infrastructure",
+            "_id": "infrastructure"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "Backend",
+                  "LocalBackend",
+                  "Backend",
+                  "Shape"
+                ],
+                "_type": "backend",
+                "_title": "Backend",
+                "_name": "backend",
+                "_id": "backend"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

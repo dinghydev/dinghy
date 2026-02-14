@@ -39,13 +39,14 @@
         },
         "ami": "${data.aws_ami.awsami_ami.id}",
         "associate_public_ip_address": true,
-        "iam_instance_profile": "my-server-instance-profile",
+        "iam_instance_profile": "${aws_iam_instance_profile.awsiaminstanceprofile_myserverinstanceprofile.name}",
         "instance_type": "t3.nano",
         "subnet_id": "${aws_subnet.awssubnet_myserverpublicasubnet.id}",
         "vpc_security_group_ids": [
           "${aws_security_group.awssecuritygroup_publicwebtraffic.id}"
         ],
         "depends_on": [
+          "aws_iam_instance_profile.awsiaminstanceprofile_myserverinstanceprofile",
           "aws_subnet.awssubnet_myserverpublicasubnet",
           "aws_security_group.awssecuritygroup_publicwebtraffic"
         ],
@@ -176,19 +177,21 @@
       }
     },
     "aws_iam_role": {
-      "awsiamrole_myserverinstancerole": {
+      "awsiamrole_myserverrole": {
         "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
-        "name": "my-server-instance-role",
+        "name": "my-server-role",
         "tags": {
-          "Name": "my-server-instance-role",
-          "iac:id": "awsiamrole_myserverinstancerole"
+          "Name": "my-server-role",
+          "iac:id": "awsiamrole_myserverrole"
         }
       }
     },
     "aws_iam_instance_profile": {
       "awsiaminstanceprofile_myserverinstanceprofile": {
-        "name": "my-server-instance-profile",
-        "role": "my-server-instance-role",
+        "depends_on": [
+          "aws_iam_role.awsiamrole_myserverrole"
+        ],
+        "role": "my-server-role",
         "tags": {
           "Name": "my-server-instance-profile",
           "iac:id": "awsiaminstanceprofile_myserverinstanceprofile"
@@ -196,12 +199,12 @@
       }
     },
     "aws_iam_role_policy_attachment": {
-      "awsiamrolepolicyattachment_iamrolepolicyattachment": {
+      "awsiamrolepolicyattachment_myserverroleamazonssmmanagedinstancecore": {
         "depends_on": [
-          "aws_iam_role.awsiamrole_myserverinstancerole"
+          "aws_iam_role.awsiamrole_myserverrole"
         ],
         "policy_arn": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-        "role": "my-server-instance-role"
+        "role": "my-server-role"
       }
     },
     "local_file": {

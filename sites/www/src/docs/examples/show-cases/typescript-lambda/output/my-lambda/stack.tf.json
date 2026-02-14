@@ -1,0 +1,98 @@
+{
+  "provider": {
+    "aws": [
+      {
+        "region": "us-east-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "My Lambda",
+            "iac:stack-name": "my-lambda"
+          }
+        }
+      }
+    ]
+  },
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.28.0"
+      },
+      "archive": {
+        "source": "archive",
+        "version": "2.7.1"
+      }
+    },
+    "backend": {
+      "local": {
+        "path": "stack.tfstate.json"
+      }
+    }
+  },
+  "resource": {
+    "aws_lambda_function": {
+      "awslambdafunction_albhandler": {
+        "function_name": "alb-handler",
+        "role": "${aws_iam_role.awsiamrole_mylambdaalbhandlerrole.arn}",
+        "code_sha256": "${data.archive_file.archivefile_albhandlersourcefile.output_base64sha256}",
+        "filename": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
+        "handler": "index.handler",
+        "runtime": "nodejs24.x",
+        "depends_on": [
+          "aws_iam_role.awsiamrole_mylambdaalbhandlerrole"
+        ],
+        "tags": {
+          "Name": "alb-handler",
+          "iac:id": "awslambdafunction_albhandler"
+        }
+      },
+      "awslambdafunction_apigatewayhandler": {
+        "function_name": "api-gateway-handler",
+        "role": "${aws_iam_role.awsiamrole_mylambdaapigatewayhandlerrole.arn}",
+        "code_sha256": "${data.archive_file.archivefile_apigatewayhandlersourcefile.output_base64sha256}",
+        "filename": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
+        "handler": "index.handler",
+        "runtime": "nodejs24.x",
+        "depends_on": [
+          "aws_iam_role.awsiamrole_mylambdaapigatewayhandlerrole"
+        ],
+        "tags": {
+          "Name": "api-gateway-handler",
+          "iac:id": "awslambdafunction_apigatewayhandler"
+        }
+      }
+    },
+    "aws_iam_role": {
+      "awsiamrole_mylambdaalbhandlerrole": {
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "name": "my-lambda-alb-handler-role",
+        "tags": {
+          "Name": "my-lambda-alb-handler-role",
+          "iac:id": "awsiamrole_mylambdaalbhandlerrole"
+        }
+      },
+      "awsiamrole_mylambdaapigatewayhandlerrole": {
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "name": "my-lambda-api-gateway-handler-role",
+        "tags": {
+          "Name": "my-lambda-api-gateway-handler-role",
+          "iac:id": "awsiamrole_mylambdaapigatewayhandlerrole"
+        }
+      }
+    }
+  },
+  "data": {
+    "archive_file": {
+      "archivefile_albhandlersourcefile": {
+        "output_path": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
+        "type": "zip",
+        "source_dir": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler"
+      },
+      "archivefile_apigatewayhandlersourcefile": {
+        "output_path": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
+        "type": "zip",
+        "source_dir": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler"
+      }
+    }
+  }
+}
