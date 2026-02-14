@@ -30,7 +30,6 @@ export function BackendOutputs(
   const backendOutputsConfig = BackendOutputsSchema.loose().parse(inputProps)
   const { allOutputs } = useOutputs()
   const stack = renderOptions.stack as any
-  stack.outputs ??= {}
   const outputName =
     deepResolve(backendOutputsConfig.outputFileExt).split('.').splice(-2, 1)[0]
   const outputFileName = () =>
@@ -39,20 +38,24 @@ export function BackendOutputs(
     }${renderOptions.stack.name}${
       deepResolve(backendOutputsConfig.outputFileExt)
     }`
-  stack.outputs[outputName] = () =>
-    `${
-      deepResolve(backendOutputsConfig.outputProtocolPrefix)
-    }${outputFileName()}`
+  const _condition = () => deepResolve(allOutputs.map((o) => o._id)).length > 0
+  const populateOutputs = () => {
+    stack.outputs ??= {}
+    stack.outputs[outputName] = () =>
+      `${
+        deepResolve(backendOutputsConfig.outputProtocolPrefix)
+      }${outputFileName()}`
+  }
   const content = () => {
     const outputs: Record<string, string> = {}
     deepResolve(allOutputs.map((o) => [o._consolidatedId, o._id, o.value]))
       .map((output: any) => {
         let outputValue = output[2]
-        if (typeof outputValue === 'string' && outputValue.startsWith('{')) {
+        if (typeof outputValue === 'string') {
           try {
             outputValue = JSON.parse(outputValue)
-          } catch (error) {
-            debug(`failed to parse json value: ${outputValue}`, error)
+          } catch {
+            debug(`not a json output value: ${outputValue}`)
           }
         }
         outputs[deepResolve(output[0] || output[1])] = outputValue
@@ -65,6 +68,8 @@ export function BackendOutputs(
       _title={outputFileName}
       filename={outputFileName}
       __key={outputFileName}
+      _condition={_condition}
+      _afterDataBind={populateOutputs}
       content={content}
       {...(backendOutputsConfig as any)}
     />

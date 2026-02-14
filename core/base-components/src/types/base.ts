@@ -134,6 +134,9 @@ export const BaseAttributesSchema = z.object({
   _id: ResolvableStringSchema.optional().describe(
     `An unique identifier for the component.  \`IaC\``,
   ),
+  _condition: ResolvableBooleanSchema.optional().describe(
+    `Condition to determine if the component should be rendered. If attribute exist and not return truthy value, the component will be skipped and not rendered.`,
+  ),
   title: ResolvableStringSchema.optional().meta({ hidden: true }),
   name: ResolvableStringSchema.optional().meta({ hidden: true }),
   id: ResolvableStringSchema.optional().meta({ hidden: true }),

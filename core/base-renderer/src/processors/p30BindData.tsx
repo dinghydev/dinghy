@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react'
 import type { NodeTree } from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
@@ -8,8 +7,7 @@ export const p30BindData = (
   const { bindings } = container.renderOptions as { bindings: any }
   const keys = bindings ? Object.keys(bindings) : []
 
-  const bindAttributes = (element: ReactElement) => {
-    const _node = (element as any).props._node as NodeTree
+  const bindAttributes = (_node: NodeTree) => {
     const _props = _node._props as any
 
     if (bindings) {
@@ -26,12 +24,12 @@ export const p30BindData = (
     }
   }
 
-  const bindData = (element: ReactElement) => {
-    bindAttributes(element)
-    ;(element.props as any).children?.map((c: ReactElement) => {
+  const bindData = (_node: NodeTree) => {
+    bindAttributes(_node)
+    _node._children?.map((c: NodeTree) => {
       bindData(c)
     })
   }
 
-  bindData(container.rootElement as ReactElement)
+  bindData((container.rootElement!.props as any)._node)
 }

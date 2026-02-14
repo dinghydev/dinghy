@@ -1,5 +1,3 @@
-awsStack:
-  backendOutputs: true # required to support aws list/connect commands
 # s3Backend: # if you want to use a S3 bucket as backend
 #   bucket: my-unique-s3-backend-bucket
 # awsProvider: # if you want to use a specific AWS region

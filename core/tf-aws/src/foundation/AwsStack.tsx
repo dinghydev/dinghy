@@ -37,9 +37,12 @@ export function AwsStack(
   }
 
   function BackendOutput() {
-    if (!awsStackConfig.backendOutputs) return null
+    if (awsStackConfig.backendOutputs === false) return null
 
-    if (typeof awsStackConfig.backendOutputs !== 'boolean') {
+    if (
+      awsStackConfig.backendOutputs &&
+      typeof awsStackConfig.backendOutputs !== 'boolean'
+    ) {
       return awsStackConfig.backendOutputs as any
     }
 
