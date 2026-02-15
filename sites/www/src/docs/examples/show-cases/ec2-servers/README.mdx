@@ -94,8 +94,9 @@ Sample Screenshot
 Create `my-server.tsx` and `dinghy.config.yml` files with content from [above](#source-code).
 
 ```sh
-curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/ec2-servers/my-server.tsx
-curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/ec2-servers/dinghy.config.yml
+curl -fsSL --create-dirs -o ec2-servers/my-server.tsx https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/ec2-servers/my-server.tsx
+curl -fsSL --create-dirs -o ec2-servers/dinghy.config.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/ec2-servers/dinghy.config.yml
+cd ec2-servers
 ```
 
 ### Preview the actions

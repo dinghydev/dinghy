@@ -9,6 +9,8 @@ import { AwsLambdaFunction } from '@dinghy/tf-aws/serviceLambda'
 import { useAwsIamRole } from '../../services/iam/AwsIamRole.tsx'
 import { DataArchiveFile, useArchiveFile } from '@dinghy/tf-common'
 import { IamRole } from '../iam/IamRole.tsx'
+import { extendStyle } from '@dinghy/base-components'
+import { LAMBDA_FUNCTION } from '@dinghy/diagrams/entitiesAws18Compute'
 
 export function LambdaFunctions(
   { _components, children, ...props }: NodeProps,
@@ -45,6 +47,7 @@ export function LambdaFunctions(
     return (
       <LambdaFunctionComponent
         _display='entity'
+        _style={extendStyle(props, LAMBDA_FUNCTION)}
         {..._lambda}
         {...props}
       >

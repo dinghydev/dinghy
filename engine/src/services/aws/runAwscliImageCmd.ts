@@ -8,7 +8,10 @@ export const runAwscliImageCmd = async (
   args: string[],
 ) => {
   const image = await configGetToolImage('awscli')
-  const envs: Record<string, string> = {}
+  const envs: Record<string, string> = {
+    // Disable pager so output works in the minimal awscli image (no `less` installed)
+    AWS_PAGER: '',
+  }
   if (debug.enabled) {
     envs['AWS_DEBUG'] = 'true'
   }

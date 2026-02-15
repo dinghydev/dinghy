@@ -82,6 +82,9 @@ if (import.meta.main) {
   console.log('::group::Generate commands docs')
   await runDenoCmd('tasks', 'run -A src/generate-commands-docs.ts')
   console.log('::endgroup::')
+  console.log('::group::Render examples')
+  await runDenoCmd('tasks', 'run -A src/render-examples.ts --diagram-png false')
+  console.log('::endgroup::')
   await runGitDiff()
   console.log('::group::Check Projects Results')
   console.log(

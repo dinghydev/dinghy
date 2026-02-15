@@ -6,17 +6,17 @@ export const handler: ALBHandler = async (
   const message = 'Hello World from TypeScript!'
   const response = await fetch('https://httpbin.org/get')
   const httpbin = await response.json()
-  console.log(httpbin.headers)
+  const body = JSON.stringify({
+    message,
+    event,
+    httpbin,
+  })
 
   return {
-    'isBase64Encoded': false,
-    'statusCode': 200,
-    'statusDescription': '200 OK',
-    'headers': { 'Content-Type': 'application/json' },
-    'body': JSON.stringify({
-      message,
-      event,
-      httpbin,
-    }),
+    isBase64Encoded: false,
+    statusCode: 200,
+    statusDescription: '200 OK',
+    headers: { 'Content-Type': 'application/json' },
+    body,
   }
 }

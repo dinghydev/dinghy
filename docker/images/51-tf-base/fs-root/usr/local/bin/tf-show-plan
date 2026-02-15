@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+tf show $1 tf.plan > $2

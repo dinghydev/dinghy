@@ -2,3 +2,14 @@
 #   bucket: my-unique-s3-backend-bucket
 # awsProvider: # if you want to use a specific AWS region
 #   region: eu-west-1
+# lambdas:
+#   alb-handler: # optional customizations
+#     # schema reference: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
+#     runtime: nodejs22.x
+#     memory_size: 256
+#     timeout: 60
+#     environment:
+#       variables:
+#         NODE_ENV: production
+#     architectures:
+#       - arm64

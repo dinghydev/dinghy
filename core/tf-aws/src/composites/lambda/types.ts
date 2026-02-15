@@ -29,13 +29,17 @@ export function parseLambdaFunctions(
     renderOptions,
     lambdasFolder,
   )
-
   for (
     const [name, lambda] of Object.entries(lambdaFunctions) as [string, any]
   ) {
     if (typeof lambda !== 'object') {
       lambdaFunctions[name] = {}
     }
+  }
+
+  for (
+    const [name, lambda] of Object.entries(lambdaFunctions) as [string, any]
+  ) {
     lambda.function_name ??= name
     lambda._title ??= lambda.function_name
     if (!lambda.image_uri && !lambda.s3_bucket) {
@@ -43,7 +47,6 @@ export function parseLambdaFunctions(
     }
   }
   const validatedLambdaFunctions = LambdaFunctionsSchema.parse(lambdaFunctions)
-  console.log(validatedLambdaFunctions)
   return validatedLambdaFunctions
 }
 
@@ -121,25 +124,30 @@ function initLambdaFunctions(
   lambdasFolder: string,
 ) {
   let lambdaFunctions = lambdas || renderOptions.lambdas
-  if (!lambdaFunctions) {
-    if (existsSync(lambdasFolder)) {
+  if (existsSync(lambdasFolder)) {
+    if (!lambdaFunctions) {
       lambdaFunctions = {}
-      Deno.readDirSync(lambdasFolder).toArray().sort((a, b) =>
-        a.name.localeCompare(b.name)
-      ).forEach((dirEntry) => {
-        if (dirEntry.isFile && dirEntry.name.endsWith('.ts')) {
-          const lambdaName = dirEntry.name.replace('.ts', '')
+    }
+    Deno.readDirSync(lambdasFolder).toArray().sort((a, b) =>
+      a.name.localeCompare(b.name)
+    ).forEach((dirEntry) => {
+      if (dirEntry.isFile && dirEntry.name.endsWith('.ts')) {
+        const lambdaName = dirEntry.name.replace('.ts', '')
+        if (!lambdaFunctions[lambdaName]) {
           lambdaFunctions[lambdaName] = {}
-        } else if (
-          dirEntry.isDirectory &&
-          existsSync(`${lambdasFolder}/${dirEntry.name}/index.ts`)
-        ) {
+        }
+      } else if (
+        dirEntry.isDirectory &&
+        existsSync(`${lambdasFolder}/${dirEntry.name}/index.ts`)
+      ) {
+        if (!lambdaFunctions[dirEntry.name]) {
           lambdaFunctions[dirEntry.name] = {}
         }
-      })
-    } else {
-      throw new DinghyError(`No lambda functions configured!`)
-    }
+      }
+    })
+  }
+  if (!lambdaFunctions) {
+    throw new DinghyError(`No lambda functions configured!`)
   }
   return lambdaFunctions
 }

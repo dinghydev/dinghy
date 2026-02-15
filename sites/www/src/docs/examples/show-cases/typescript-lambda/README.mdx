@@ -7,6 +7,8 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import AppTsx from "!!raw-loader!./my-lambda.tsx";
+import AlbHandlerTs from "!!raw-loader!./src/lambdas/alb-handler.ts";
+import ApiGatewayHandlerTs from "!!raw-loader!./src/lambdas/api-gateway-handler";
 import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
 import TfJson from "!!raw-loader!./output/my-lambda/stack.tf.json";
 
@@ -16,7 +18,11 @@ Deploy TypeScript lambda to AWS with ease.
 
 ## Features
 
-- TODO
+- Write AWS Lambda functions in TypeScript
+- TypeScript is automatically transpiled and bundled into JavaScript using `deno bundle`.
+- Automatically bundle source code and other files into .zip archives for Lambda deployment
+- Automatically creates a dedicated IAM role for each Lambda function
+
 
 ## Source Code
 
@@ -29,6 +35,16 @@ Deploy TypeScript lambda to AWS with ease.
   <TabItem value="dinghy.config.yml">
     <CodeBlock language="yaml" showLineNumbers>
       {DinghyConfigYml}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="alb-handler.ts">
+    <CodeBlock language="ts" showLineNumbers>
+      {AlbHandlerTs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="api-gateway-handler.ts">
+    <CodeBlock language="ts" showLineNumbers>
+      {ApiGatewayHandlerTs}
     </CodeBlock>
   </TabItem>
 </Tabs>
@@ -53,7 +69,10 @@ Deploy TypeScript lambda to AWS with ease.
 
 List of resource types used by this stack, in approximate order of creation:
 
-TODO
+1. [aws_lambda_function](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)
+1. [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)
+1. [data.archive_file](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file)
+
 
 ## Steps to try
 
@@ -73,14 +92,12 @@ Sample Screenshot
 Create `my-lambda.tsx` and other files with content from [above](#source-code).
 
 ```sh
-curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/my-lambda.tsx
-curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/dinghy.config.yml
+curl -fsSL --create-dirs -o typescript-lambda/my-lambda.tsx https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/my-lambda.tsx
+curl -fsSL --create-dirs -o typescript-lambda/dinghy.config.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/dinghy.config.yml
+cd typescript-lambda
 
-mkdir -p src/lambdas
-cd src/lambdas
-curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/src/lambdas/alb-handler.ts
-curl -fsSLO https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/src/lambdas/api-gateway-handler.ts
-cd ../..
+curl -fsSL --create-dirs -o src/lambdas/alb-handler.ts https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/src/lambdas/alb-handler.ts
+curl -fsSL --create-dirs -o src/lambdas/api-gateway-handler.ts https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/typescript-lambda/src/lambdas/api-gateway-handler.ts
 ```
 
 ### Preview the actions
@@ -110,6 +127,18 @@ dinghy tf deploy
 
 Sample Screenshot
 ![](./screenshot-deploy.png#drawio-w-100)
+
+### Invoke the lambdas
+
+To test your newly deployed Lambda functions, use the [`dinghy aws`](https://dinghy.dev/references/commands/engine/aws) command.
+
+```sh
+dinghy aws lambda invoke --function-name api-gateway-handler.ts  --region us-east-1--cli-binary-format raw-in-base64-out --payload "{\"key\":\"value\"}" response.json
+dinghy aws lambda invoke --function-name alb-handler --region us-east-1 --cli-binary-format raw-in-base64-out --payload "{\"key\":\"value\"}" response.json
+```
+
+Sample Screenshot
+![](./screenshot-invoke.png#drawio-w-100)
 
 ### Destroy resources
 

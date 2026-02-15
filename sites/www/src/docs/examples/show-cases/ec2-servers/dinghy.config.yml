@@ -4,6 +4,7 @@
 #   region: eu-west-1
 # servers:
 #   my-server: # server name default to tsx file name without extension
+#     # schema reference: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 #     instance_type: t4g.nano # change to arm64 architecture instance type. Default is t3.nano which is amd64
 #     linuxFlavor: ubuntu # default is al2023 which is amazon linux 2023
 #     root_block_device:

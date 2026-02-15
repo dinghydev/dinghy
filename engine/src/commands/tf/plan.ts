@@ -34,11 +34,8 @@ export const run = async (args: Args, stackInfo?: any) => {
         stackPath,
         args,
         [
-          'tf',
-          'show',
+          'tf-show-plan',
           format === 'json' ? '-json' : '-no-color',
-          'tf.plan',
-          '>',
           planOutputFile,
         ],
       )

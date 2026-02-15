@@ -61,7 +61,6 @@ const execCmd = async (
     stderr: ioOption,
     all: true,
     cwd: workingDir,
-    shell: true,
     reject: false,
   }
   const result = sync

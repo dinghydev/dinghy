@@ -166,7 +166,7 @@ export const runDockerCmd = async (
       '-t',
       ...Object.entries(getDockerEnvs(envs)).flatMap((
         [k, v],
-      ) => ['-e', `'${k}=${(v as string).replace(/'/g, "'\"'\"'")}'`]),
+      ) => ['-e', `${k}=${v}`]),
       ...getDockerMounts(appMounts).flatMap((
         mount,
       ) => ['--volume', `${mount.source}:${mount.target}`]),
