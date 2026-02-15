@@ -84,7 +84,7 @@ export const s3Sync = async (
   for (const k of Object.keys(options)) {
     if (options[k]) {
       s3SyncCmd.push(`--${k}`)
-      s3SyncCmd.push(`"${options[k]}"`)
+      s3SyncCmd.push(`${options[k]}`)
     }
   }
   s3SyncCmd.push('.')

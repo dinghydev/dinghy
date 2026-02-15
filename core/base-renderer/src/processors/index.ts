@@ -1,21 +1,21 @@
-import { p10HandleTextNodes } from './p10HandleTextNodes.tsx'
-import { p20PopulateCoreAttributes } from './p20PopulateCoreAttributes.tsx'
 import { p40ResolveDependencies } from './p40ResolveDependencies.tsx'
 import type { HostContainer } from '../types.ts'
 import { p50CollectViews } from './p50CollectViews.tsx'
 import { p30BindData } from './p30BindData.tsx'
-import { p25ApplyCondition } from './p25ApplyCondition.ts'
+import { p25ApplyEnabled } from './p25ApplyEnabled.ts'
 export type Processor = (container: HostContainer<unknown, unknown>) => void
 
-const processors: Processor[] = [
-  p10HandleTextNodes,
-  p20PopulateCoreAttributes,
-  p25ApplyCondition,
+export const processors: Processor[] = [
+  p25ApplyEnabled,
   p30BindData,
   p40ResolveDependencies,
   p50CollectViews,
 ]
 
-export function applyProcessors(container: HostContainer<unknown, unknown>) {
-  processors.map((processor) => processor(container))
+export async function applyProcessors<T, P>(
+  container: HostContainer<T, P>,
+) {
+  for (const processor of processors) {
+    await processor(container as HostContainer<unknown, unknown>)
+  }
 }

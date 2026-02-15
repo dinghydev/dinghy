@@ -38,7 +38,7 @@ export function BackendOutputs(
     }${renderOptions.stack.name}${
       deepResolve(backendOutputsConfig.outputFileExt)
     }`
-  const _condition = () => deepResolve(allOutputs.map((o) => o._id)).length > 0
+  const _enabled = () => deepResolve(allOutputs.map((o) => o._id)).length > 0
   const populateOutputs = () => {
     stack.outputs ??= {}
     stack.outputs[outputName] = () =>
@@ -68,7 +68,7 @@ export function BackendOutputs(
       _title={outputFileName}
       filename={outputFileName}
       __key={outputFileName}
-      _condition={_condition}
+      _enabled={_enabled}
       _afterDataBind={populateOutputs}
       content={content}
       {...(backendOutputsConfig as any)}

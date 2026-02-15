@@ -5,7 +5,7 @@ import {
   NoEventPriority,
 } from 'react-reconciler/constants.js'
 import type { HostContainer } from './types.ts'
-import { applyProcessors } from './processors/index.ts'
+import { applyFiberProcessors } from './fiber-processors/index.ts'
 
 type EventPriority = number
 
@@ -172,10 +172,7 @@ export const nodeReconciler = createReconciler<
   ) => {
     try {
       container.rootElement = rootElement
-      applyProcessors(container)
-      if (container.applyProcessors) {
-        container.rootElement = container.applyProcessors(container)
-      }
+      applyFiberProcessors(container)
     } catch (e) {
       container.rootElement = null as any
       throw e

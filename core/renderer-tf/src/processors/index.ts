@@ -10,7 +10,7 @@ import type { HostContainer } from '@dinghy/base-renderer'
 
 const processors: Processor[] = [p10ResolveCategory]
 
-export function applyProcessors(
+export async function applyProcessors(
   container: HostContainer<string, TfRenderOptions>,
 ) {
   const { rootElement } = container
@@ -20,6 +20,8 @@ export function applyProcessors(
     renderOptions: container.renderOptions,
     rootElement: rootElement as ReactElement,
   }
-  processors.map((processor) => processor(context))
+  for (const processor of processors) {
+    await processor(context)
+  }
   return context.rootElement
 }

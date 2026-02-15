@@ -4,8 +4,22 @@ import type { HostContainer, Output } from './types.ts'
 import { ZodError } from 'zod'
 import { nodeReconciler } from './nodeReconciler.ts'
 import { createDebugger } from '@dinghy/base-components'
+import { applyProcessors } from './processors/index.ts'
 
-const debug = createDebugger('core')
+const debug = createDebugger('base-render:renderNode')
+
+async function applyProcessorsAndCallback<T, P>(
+  container: HostContainer<T, P>,
+): Promise<Output<T>> {
+  await applyProcessors(container)
+  if (container.applyProcessors) {
+    container.rootElement = await container.applyProcessors(container)
+  }
+  const output = container.callback
+    ? await container.callback!(container)
+    : container
+  return output as Output<T>
+}
 
 export function renderNode<T, P>(
   container: HostContainer<T, P>,
@@ -31,11 +45,7 @@ export function renderNode<T, P>(
     )
     nodeReconciler.updateContainer(reactNode, fiberRootNode, null, () => {
       if (container.rootElement) {
-        const output = container.callback
-          ? container.callback(container)
-          : container
-        // debug('renderNode output %O', output)
-        resolve(output)
+        resolve(applyProcessorsAndCallback(container))
       }
     })
   })

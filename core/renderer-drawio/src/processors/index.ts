@@ -45,7 +45,7 @@ const processors: Processor[] = [
   p88BuildMxfile,
 ]
 
-export function applyProcessors(
+export async function applyProcessors(
   container: HostContainer<string, DrawioRenderOptions>,
 ) {
   const rootNode = (container.rootElement!.props as any)._node as DrawioNodeTree
@@ -57,6 +57,8 @@ export function applyProcessors(
     mxfileElement: null as unknown as ReactElement,
     dependsPairs: [],
   }
-  processors.map((processor) => processor(context))
+  for (const processor of processors) {
+    await processor(context)
+  }
   return context.mxfileElement
 }

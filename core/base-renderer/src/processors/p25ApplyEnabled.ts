@@ -1,12 +1,12 @@
 import { deepResolve, type NodeTree } from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
-const processConditionFlag = (_node: NodeTree) => {
-  const condition = _node._props._condition
-  if (condition !== undefined) {
+const processEnabledFlag = (_node: NodeTree) => {
+  const enabled = _node._props._enabled
+  if (enabled !== undefined) {
     let toBeRemoved = true
     try {
-      if (deepResolve(condition)) {
+      if (deepResolve(enabled)) {
         toBeRemoved = false
       }
     } catch {
@@ -20,11 +20,11 @@ const processConditionFlag = (_node: NodeTree) => {
       return
     }
   }
-  _node._children.map((child: NodeTree) => processConditionFlag(child))
+  _node._children.map((child: NodeTree) => processEnabledFlag(child))
 }
 
-export const p25ApplyCondition = (
+export const p25ApplyEnabled = (
   container: HostContainer<unknown, unknown>,
 ) => {
-  processConditionFlag((container.rootElement!.props as any)._node)
+  processEnabledFlag((container.rootElement!.props as any)._node)
 }

@@ -1,13 +1,13 @@
 import type { NodeTree } from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
-export const p30BindData = (
+export const p30BindData = async (
   container: HostContainer<unknown, unknown>,
 ) => {
   const { bindings } = container.renderOptions as { bindings: any }
   const keys = bindings ? Object.keys(bindings) : []
 
-  const bindAttributes = (_node: NodeTree) => {
+  const bindAttributes = async (_node: NodeTree) => {
     const _props = _node._props as any
 
     if (bindings) {
@@ -20,16 +20,18 @@ export const p30BindData = (
       }
     }
     if (_props._afterDataBind) {
-      _props._afterDataBind(_node)
+      await _props._afterDataBind(_node)
     }
   }
 
-  const bindData = (_node: NodeTree) => {
-    bindAttributes(_node)
-    _node._children?.map((c: NodeTree) => {
-      bindData(c)
-    })
+  const bindData = async (_node: NodeTree) => {
+    await bindAttributes(_node)
+    if (_node._children) {
+      for (const child of _node._children) {
+        await bindData(child)
+      }
+    }
   }
 
-  bindData((container.rootElement!.props as any)._node)
+  await bindData((container.rootElement!.props as any)._node)
 }
