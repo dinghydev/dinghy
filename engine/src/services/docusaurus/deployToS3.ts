@@ -19,7 +19,7 @@ export const deployToS3 = async (
     cacheControl,
     gzipExtensions,
     cleanUpStagingFiles,
-  } = deployConfig.site!.deploy
+  } = deployConfig.deploy!
   const s3Bucket = s3Url.split('/')[2]
   let s3Prefix = s3Url.substring(s3Url.indexOf(s3Bucket) + s3Bucket.length + 1)
   if (s3Prefix.endsWith('/')) {

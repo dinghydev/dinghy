@@ -5,7 +5,7 @@ import {
 } from '@aws-sdk/client-s3'
 
 import Debug from 'debug'
-import { configGetOriginalImage, runDockerCmd } from '@dinghy/cli'
+import { configGetOriginalImage, DinghyError, runDockerCmd } from '@dinghy/cli'
 import { gzip } from 'jsr:@deno-library/compress'
 const debug = Debug('aws:s3')
 
@@ -93,16 +93,19 @@ export const s3Sync = async (
     source: src,
     target: src,
   }]
-  await runDockerCmd(
+  const result = await runDockerCmd(
     src,
     {},
     dockerVolumnes,
     s3SyncCmd,
     image,
-    false,
     true,
+    false,
     [],
   )
+  if (!result.success) {
+    throw new DinghyError(`Failed to sync ${src} to ${targetS3Url}`)
+  }
 }
 
 const temporaryStorageBucket = () => {

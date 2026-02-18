@@ -11,7 +11,7 @@
 /build
 /output
 sites/*/output
-examples/site/output
+**/output/site
 **/Dockerfile
 **/dist
 

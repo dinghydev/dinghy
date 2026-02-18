@@ -15,6 +15,7 @@
     "singleQuote": true,
     "exclude": [
       "deno.jsonc",
+      "**/*.mjs",
       "**/stack.tfstate.json",
       "**/.vscode/launch.json"
     ]
@@ -28,7 +29,10 @@
         "no-explicit-any",
         "no-unversioned-import"
       ]
-    }
+    },
+    "exclude": [
+      "**/*.mjs"
+    ]
   },
   "imports": {
     // ENGINE ONLY DEPENDENCIES

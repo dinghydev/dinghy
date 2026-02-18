@@ -1,4 +1,4 @@
-import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
+import { requireStacksConfig } from '@dinghy/cli'
 import { doWithTfStacks } from '../../services/tf/doWithTfStacks.ts'
 import { runTfImageCmd } from '../../services/tf/runTfImageCmd.ts'
 import Debug from 'debug'
@@ -20,27 +20,11 @@ export const run = async (args: Args, stackInfo?: any) => {
       stackPath,
       args,
       [
-        'tf',
-        'plan',
+        'tf-plan',
         `-lock=${args.lock}`,
-        `-out=tf.plan`,
       ],
     )
     await onEvent(`tf.stack.plan.finish`, stackInfo)
-    for (const format of ['json', 'txt']) {
-      const planOutputFile = `${hostAppHome}/${stackPath}/tf.plan.${format}`
-      debug('Formatting plan file to %s', planOutputFile)
-      await runTfImageCmd(
-        stackPath,
-        args,
-        [
-          'tf-show-plan',
-          format === 'json' ? '-json' : '-no-color',
-          planOutputFile,
-        ],
-      )
-      console.log('Formated plan ', planOutputFile)
-    }
   }
 
   if (stackInfo) {

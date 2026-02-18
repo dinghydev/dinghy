@@ -46,6 +46,7 @@ const resolveSiteConfig = (siteDir: string): any => {
   const configFiles = [
     `${siteDir}/../docusaurus.config.yml`,
     `${siteDir}/docusaurus.config.yml`,
+    `${siteDir}/config/site/docusaurus.config.yml`,
   ]
   const configs: any[] = []
   if (dinghyAppConfig.site) {
@@ -80,8 +81,8 @@ export const runDocusaurusImageCmd = async (
   const siteConfig = await resolveSiteConfig(siteDir)
 
   const dockerEnvs = {} as Record<string, string>
-  const { site, ...restSiteConfig } = siteConfig
-  if (site?.deploy?.s3Url && actualCmd === 'deploy') {
+  const { volumes, deploy, ...restSiteConfig } = siteConfig
+  if (deploy?.s3Url && actualCmd === 'deploy') {
     return await deployToS3(args, outputDir, siteConfig)
   }
   if (Object.keys(restSiteConfig).length > 0) {
@@ -126,12 +127,18 @@ export const runDocusaurusImageCmd = async (
       })
     }
   }
+  if (existsSync(`${siteDir}/config/site/sidebars.ts`)) {
+    dockerVolumnes.push({
+      source: `${siteDir}/config/site/sidebars.ts`,
+      target: `/opt/docusaurus/sidebars.ts`,
+    })
+  }
   for (
-    const volumns of [
-      ...(site?.volumes || []),
+    const vs of [
+      ...(volumes || []),
     ]
   ) {
-    for (const v of volumns.split(',')) {
+    for (const v of vs.split(',')) {
       const [source, target] = v.split(':')
       if (source && target) {
         const resolvedSource = source.startsWith('/')

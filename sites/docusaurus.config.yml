@@ -1,7 +1,6 @@
-site:
-  deploy:
-    s3Url: s3://dinghy-dev-site-www
-    s3Region: eu-west-1
+deploy:
+  s3Url: s3://dinghy-dev-site-www
+  s3Region: eu-west-1
 title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
 url: https://dinghy.dev
@@ -9,18 +8,18 @@ favicon: /assets/img/favicon.ico
 classic:
   gtag:
     trackingID: G-D958F1XPX4
+navbar:
+  title: Dinghy
+  logo:
+    alt: Logo
+    src: /assets/img/logo.svg
+    href: /
+footer:
+  copyright: 🛠️ with ❤️ from ☘️🇮🇪 ©️ YYYY <a href="https://dinghy.dev">dinghy.dev</a>
 themeConfig:
   metadata:
     - name: keywords
       content: dinghy, diagram as code, infrastructure as code, react
-  navbar:
-    title: Dinghy
-    logo:
-      alt: Logo
-      src: /assets/img/logo.svg
-      href: /
-  footer:
-    copyright: 🛠️ with ❤️ from ☘️🇮🇪 ©️ YYYY <a href="https://dinghy.dev">dinghy.dev</a>
   algolia:
     appId: NFDOJ9SF91
     apiKey: 75e2f9fc53ca9b901a6d04a36561f8b6

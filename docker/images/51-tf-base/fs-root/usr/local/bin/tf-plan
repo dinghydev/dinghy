@@ -1,0 +1,4 @@
+#!/bin/bash -e
+tf plan $@ -out=tf.plan
+tf show -json tf.plan > tf.plan.json
+tf show -no-color tf.plan > tf.plan.txt

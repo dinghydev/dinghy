@@ -1,0 +1,127 @@
+---
+slug: /show-cases/web-app
+sidebar_position: 40
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import IndexMdx from "!!raw-loader!./INDEX.mdx.txt";
+import TimestampTsx from "!!raw-loader!./Timestamp.tsx.txt";
+
+# Web App
+
+Simple React App in [Docusaurus](https://docusaurus.io/) with flexible server/client side rendering.
+
+## Features
+
+- React-based web application with both server and client-side rendering
+- Demonstrates dynamic data fetching and hydration (see Client Side Rendering example)
+- Navigation links for pages
+- Easily customizable UI via Docusaurus theme configuration
+
+## Source Code
+
+<Tabs>
+  <TabItem value="INDEX.mdx">
+    <CodeBlock language="mdx" showLineNumbers>
+      {IndexMdx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Timestamp.tsx">
+    <CodeBlock language="tsx" showLineNumbers>
+      {TimestampTsx}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Steps to try
+
+### [Install dinghy-cli](/guides/get-started/installation)
+
+If you haven't already:
+
+```sh
+curl -fsSL https://get.dinghy.dev/install.sh | sh
+```
+
+Sample Screenshot
+![](../../../guides/get-started/screenshot-install.png#drawio-w-100)
+
+### Prepare source code
+
+Create `src/docs/INDEX.mdx` and other files with content from [above](#source-code).
+
+```sh
+curl -fsSL --create-dirs -o web-app/src/docs/INDEX.mdx https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/src/docs/INDEX.mdx
+curl -fsSL --create-dirs -o web-app/src/components/Timestamp.tsx https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/src/components/Timestamp.tsx
+cd web-app
+```
+
+### Preview site
+
+Run [`dinghy site start`](https://dinghy.dev/references/commands/engine/site/start).
+
+```sh
+dinghy site start
+```
+
+Sample Screenshot
+![](./screenshot-start.png#drawio-w-100)
+
+Preview the site from http://localhost:3000
+![](./screenshot-home.png#drawio-w-100)
+
+### Customise site
+
+By add configurations:
+
+```sh
+curl -fsSL -o docusaurus.config.yml https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/config/site/docusaurus.config.yml
+curl -fsSL -o sidebars.ts https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/config/site/sidebars.ts
+curl -fsSL --create-dirs -o src/docs/my-category/doc1.mdx https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/src/docs/my-category/doc1.mdx
+curl -fsSL --create-dirs -o src/docs/my-category/doc2.mdx https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/src/docs/my-category/doc2.mdx
+curl -fsSL --create-dirs -o src/docs/my-category/doc3.mdx https://raw.githubusercontent.com/dinghydev/dinghy-showcases-cloudfrontsites/main/src/docs/my-category/doc3.mdx
+```
+
+Then stop and start the site again. You will see updates sites with additional nav links:
+
+![](./screenshot-doc1.png#drawio-w-100)
+
+### Develop with devcontainer
+
+You can launch a fully functional development environment by opening the project in a [VS Code DevContainer](/guides/get-started/application-development):
+
+```sh
+dinghy dc
+```
+
+### Build site
+
+Run [`dinghy site build`](https://dinghy.dev/references/commands/engine/site/build) to build static distributable site.
+
+```sh
+dinghy site build
+```
+
+Sample Screenshot
+![](./screenshot-build.png#drawio-w-100)
+
+### Preivew built site
+
+Run [`dinghy site serve`](https://dinghy.dev/references/commands/engine/site/serve) to preview previously built site.
+
+```sh
+dinghy site site
+```
+
+Sample Screenshot
+![](./screenshot-serve.png#drawio-w-100)
+
+### CI/CD
+
+The demo web app is maintained in the [dinghydev/dinghy-showcases-cloudfrontsites](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites) repository.
+
+The Github `Site CI/CD` workflow [![cicd](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/workflows/site-cicd.yml/badge.svg)](https://github.com/dinghydev/dinghy-showcases-cloudfrontsites/actions/workflows/site-cicd.yml) automatically publishes updates whenever changes are made to the `src` folder.
+
+Published site at https://cloudfront-site-demo.dinghy.dev/demo-app-site/

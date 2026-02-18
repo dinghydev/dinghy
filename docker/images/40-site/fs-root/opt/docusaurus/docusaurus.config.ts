@@ -9,8 +9,18 @@ const siteConfigJson = process.env.SITE_CONFIG_JSON
 
 // console.log("siteConfigJson:", JSON.stringify(siteConfigJson, null, 2));
 
-let { docs, blog, theme, svgr, themeConfig, classic, ...siteConfig } =
-  siteConfigJson;
+let {
+  docs,
+  blog,
+  theme,
+  svgr,
+  themeConfig,
+  classic,
+  sidebars,
+  navbar,
+  footer,
+  ...siteConfig
+} = siteConfigJson;
 if (fs.existsSync("./docs") || fs.existsSync("./src/docs")) {
   docs = docs || {};
   if (fs.existsSync("./src/docs")) {
@@ -37,6 +47,12 @@ if (fs.existsSync("./docs") || fs.existsSync("./src/docs")) {
       );
     };
   }
+}
+if (sidebars) {
+  fs.writeFileSync(
+    "./sidebars.ts",
+    "export default " + JSON.stringify(sidebars, null, 2),
+  );
 }
 if (docs && fs.existsSync("./sidebars.ts")) {
   docs.sidebarPath ??= "./sidebars.ts";
@@ -98,9 +114,26 @@ themeConfig = {
   ...(themeConfig || {}),
 };
 
-if (themeConfig.footer === false) {
+if (navbar) {
+  themeConfig.navbar = {
+    ...themeConfig.navbar,
+    ...navbar,
+  };
+}
+if (themeConfig.navbar.logo === false) {
+  delete themeConfig.navbar.logo;
+}
+
+if (footer === false) {
   delete themeConfig.footer;
-} else if (themeConfig.footer?.copyright) {
+} else if (footer) {
+  themeConfig.footer = {
+    ...themeConfig.footer,
+    ...footer,
+  };
+}
+
+if (themeConfig.footer?.copyright) {
   themeConfig.footer.copyright = themeConfig.footer?.copyright.replace(
     "YYYY",
     `${new Date().getFullYear()}`,

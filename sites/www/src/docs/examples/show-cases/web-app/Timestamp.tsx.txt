@@ -1,0 +1,35 @@
+import { useEffect, useState } from 'react'
+export default function Timestamp(
+  { refreshable }: { refreshable?: boolean },
+) {
+  if (!refreshable) {
+    return (
+      <div suppressHydrationWarning>
+        Build Timestamp {new Date().toLocaleString()}
+      </div>
+    )
+  }
+
+  const [timestampTime, setTimestampTime] = useState('loading...')
+  const refreshTime = () => {
+    setTimestampTime('refreshing...')
+    const timestamp = new Date().toLocaleString()
+    fetch(`https://httpbin.org/get?timestamp=${timestamp}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Fetched from httpbin:', data)
+        setTimestampTime(data.args.timestamp)
+      })
+  }
+  useEffect(() => {
+    refreshTime()
+  }, [])
+  return (
+    <div>
+      Current Timestamp {timestampTime}
+      <div>
+        <button onClick={refreshTime}>Refresh</button>
+      </div>
+    </div>
+  )
+}

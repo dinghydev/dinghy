@@ -133,12 +133,19 @@ Sample Screenshot
 To test your newly deployed Lambda functions, use the [`dinghy aws`](https://dinghy.dev/references/commands/engine/aws) command.
 
 ```sh
-dinghy aws lambda invoke --function-name api-gateway-handler.ts  --region us-east-1--cli-binary-format raw-in-base64-out --payload "{\"key\":\"value\"}" response.json
 dinghy aws lambda invoke --function-name alb-handler --region us-east-1 --cli-binary-format raw-in-base64-out --payload "{\"key\":\"value\"}" response.json
 ```
 
 Sample Screenshot
 ![](./screenshot-invoke.png#drawio-w-100)
+
+### Develop with devcontainer
+
+You can launch a fully functional development environment by opening the project in a [VS Code DevContainer](/guides/get-started/application-development):
+
+```sh
+dinghy dc
+```
 
 ### Destroy resources
 
