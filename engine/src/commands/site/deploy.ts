@@ -9,6 +9,6 @@ export const schema: CmdInput = {
 export const run = async (args: Args) => {
   await runDocusaurusImageCmd(
     args,
-    ['yarn', 'deploy'],
+    ['yarn', 'docusaurus', 'deploy'],
   )
 }

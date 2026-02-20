@@ -48,13 +48,11 @@ if (fs.existsSync("./docs") || fs.existsSync("./src/docs")) {
     };
   }
 }
-if (sidebars) {
+if (docs && sidebars) {
   fs.writeFileSync(
     "./sidebars.ts",
     "export default " + JSON.stringify(sidebars, null, 2),
   );
-}
-if (docs && fs.existsSync("./sidebars.ts")) {
   docs.sidebarPath ??= "./sidebars.ts";
 }
 if (!docs) {

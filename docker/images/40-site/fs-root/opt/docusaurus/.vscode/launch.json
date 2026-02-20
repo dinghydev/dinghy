@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "site start",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "docusaurus",
+        "start",
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "site build",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "docusaurus",
+        "build",
+        "--out-dir",
+        "${workspaceFolder}/output/site",
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "site serve",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "docusaurus",
+        "serve",
+        "--dir",
+        "${workspaceFolder}/output/site",
+      ],
+      "console": "integratedTerminal"
+    },
+  ]
+}

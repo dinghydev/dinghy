@@ -2,7 +2,7 @@ import { existsSync } from '@std/fs/exists'
 import { execa } from 'execa'
 import chalk from 'chalk'
 import { versionDetails } from '../utils/projectVersions.ts'
-import { dinghyConfigFile, dinghyRcFiles } from '../utils/loadConfig.ts'
+import { dinghyConfigFiles, dinghyRcFiles } from '../utils/loadConfig.ts'
 import { dinghyHome } from '../shared/home.ts'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
@@ -20,7 +20,7 @@ type InfoItem = {
 const existConfigFiles = () => {
   return [
     ...dinghyRcFiles,
-    dinghyConfigFile,
+    ...dinghyConfigFiles,
   ].filter((path) => existsSync(path))
 }
 

@@ -8,6 +8,7 @@ export { loadCommands } from './services/cli/loadCommands.ts'
 export { runCommands } from './services/cli/runCommands.ts'
 export { showHelp } from './services/cli/showHelp.ts'
 export { configGetToolImage } from './services/config/configGetToolImage.ts'
+export { configGetEngineImage } from './services/config/configGetEngineImage.ts'
 export {
   CMD_DEF_SYMBOL,
   type CmdDefinition,

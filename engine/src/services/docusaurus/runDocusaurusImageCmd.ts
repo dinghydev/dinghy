@@ -15,8 +15,11 @@ import { onEvent } from '@dinghy/base-components'
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('runDocusaurusCmd')
 
-const resolveSiteDir = (args: Args) => {
-  let siteDir = args['site-dir'] || args.site || hostAppHome
+export const resolveSiteDir = (args: Args) => {
+  let siteDir = args['site-dir'] ||
+    ((args.site !== undefined && args.site !== 'true')
+      ? args.site as string
+      : hostAppHome)
   if (!siteDir.startsWith('/')) {
     siteDir = `${hostAppHome}/${siteDir}`
   }
@@ -27,7 +30,7 @@ const resolveSiteDir = (args: Args) => {
   return siteDir
 }
 
-const resolveOutputDir = (siteDir: string, args: Args) => {
+export const resolveOutputDir = (siteDir: string, args: Args) => {
   let outputDir = args['site-output']
   if (!outputDir) {
     outputDir = `${siteDir}/output/site`
@@ -42,7 +45,7 @@ const resolveOutputDir = (siteDir: string, args: Args) => {
   return outputDir
 }
 
-const resolveSiteConfig = (siteDir: string): any => {
+export const resolveSiteConfig = (siteDir: string): any => {
   const configFiles = [
     `${siteDir}/../docusaurus.config.yml`,
     `${siteDir}/docusaurus.config.yml`,
@@ -70,6 +73,13 @@ const resolveSiteConfig = (siteDir: string): any => {
   }
 }
 
+export const resolveSiteConfigJson = (siteConfig: any, target: any) => {
+  const { volumes: _volumes, deploy: _deploy, ...restSiteConfig } = siteConfig
+  if (Object.keys(restSiteConfig).length > 0) {
+    target['SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
+  }
+}
+
 export const runDocusaurusImageCmd = async (
   args: Args,
   cmd: string[],
@@ -81,13 +91,11 @@ export const runDocusaurusImageCmd = async (
   const siteConfig = await resolveSiteConfig(siteDir)
 
   const dockerEnvs = {} as Record<string, string>
-  const { volumes, deploy, ...restSiteConfig } = siteConfig
+  const { volumes, deploy } = siteConfig
   if (deploy?.s3Url && actualCmd === 'deploy') {
     return await deployToS3(args, outputDir, siteConfig)
   }
-  if (Object.keys(restSiteConfig).length > 0) {
-    dockerEnvs['SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
-  }
+  resolveSiteConfigJson(siteConfig, dockerEnvs)
   const image = await configGetToolImage('site')
   const siteOptions = []
   const dockerArgs: string[] = args['site-docker-options'] || []
@@ -126,12 +134,6 @@ export const runDocusaurusImageCmd = async (
         target: `/opt/docusaurus/${f.name}`,
       })
     }
-  }
-  if (existsSync(`${siteDir}/config/site/sidebars.ts`)) {
-    dockerVolumnes.push({
-      source: `${siteDir}/config/site/sidebars.ts`,
-      target: `/opt/docusaurus/sidebars.ts`,
-    })
   }
   for (
     const vs of [

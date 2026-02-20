@@ -34,6 +34,8 @@ tmp*
 !.vscode/none-debug-run.sh
 # !.vscode/launch.json
 !.vscode/extensions.json
+!docker/images/40-site/fs-root/opt/docusaurus/.vscode/launch.json
+!docker/images/40-site/fs-root/opt/docusaurus/.vscode/settings.json
 
 # IDE - JetBrains
 .idea/

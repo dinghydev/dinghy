@@ -6,6 +6,10 @@ import { configGetEngineImage } from '../../services/config/configGetEngineImage
 import { configLoadEngineVersions } from '../../services/config/configLoadEngineVersions.ts'
 import { projectVersions } from '../../utils/projectVersions.ts'
 import { configGetOriginalImage } from '../../utils/dockerConfig.ts'
+import {
+  imageExistLocally,
+  imagePull,
+} from '../../services/docker/imageStatusUtil.ts'
 
 export const schema: CmdInput = {
   description: 'Cache all related docker images locally',
@@ -42,6 +46,10 @@ export async function run(args: Args) {
       image = await configGetEngineImage()
     } else {
       image = await configGetToolImage(name)
+    }
+
+    if (!(await imageExistLocally(image))) {
+      await imagePull(image, true)
     }
     console.log(`Image ${chalk.green(image)} is ready`)
   }

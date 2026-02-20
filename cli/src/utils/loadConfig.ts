@@ -3,6 +3,7 @@ import { walkSync } from '@std/fs'
 import * as yaml from '@std/yaml'
 import Debug from 'debug'
 import { containerAppHome, dinghyHome, hostAppHome } from '../shared/home.ts'
+import { deepMerge } from '../shared/deepMerge.ts'
 const debug = Debug('loadConfig')
 export const dinghyRc: Record<string, string> = {}
 
@@ -12,7 +13,10 @@ export const dinghyRcFiles: string[] = [
   `${containerAppHome}/.dinghyrc`,
   `${dinghyHome}rc`,
 ]
-export const dinghyConfigFile = `${hostAppHome}/dinghy.config.yml`
+export const dinghyConfigFiles = [
+  `${hostAppHome}/dinghy.config.yml.local`,
+  `${hostAppHome}/dinghy.config.yml`,
+]
 
 export async function loadGlobalConfig() {
   debug('dinghy home %s', dinghyHome)
@@ -22,13 +26,17 @@ export async function loadGlobalConfig() {
     await loadEnvFile(file)
   }
 
-  if (!fs.existsSync(dinghyConfigFile)) {
-    return
+  let loadedConfig = false
+  for (const file of [...dinghyConfigFiles].reverse()) {
+    if (fs.existsSync(file)) {
+      const config = yaml.parse(Deno.readTextFileSync(file))
+      if (config) {
+        deepMerge(dinghyAppConfig, config)
+        loadedConfig = true
+      }
+    }
   }
-
-  const config = yaml.parse(Deno.readTextFileSync(dinghyConfigFile))
-  if (config) {
-    Object.assign(dinghyAppConfig, config)
+  if (loadedConfig) {
     loadEnvFromConfig()
   }
 }
