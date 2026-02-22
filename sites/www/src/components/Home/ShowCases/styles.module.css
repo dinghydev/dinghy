@@ -4,7 +4,7 @@
 }
 
 [data-theme='dark'] .container {
-  background-color: var(--ifm-footer-background-color);
+  background-color: #303846;
 }
 
 .grid {
@@ -30,6 +30,10 @@
   width: 100px;
   height: 100px;
 }
+.gridContent a .gridContentMore {
+  width: 100px;
+  height: 100px;
+}
 .title {
   font-size: 32px;
   font-weight: bold;
@@ -47,6 +51,6 @@
 
 @media (min-width: 996px) {
   .grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 0.25fr;
   }
 }

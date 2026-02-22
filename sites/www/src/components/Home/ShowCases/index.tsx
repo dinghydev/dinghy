@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import Ec2Svg from './ec2.svg'
 import CloudFrontSvg from './cloudfront.svg'
 import LambdaSvg from './lambda.svg'
+import MoreSvg from './more.svg'
 import styles from './styles.module.css'
 
 export default function ShowCases() {
@@ -43,6 +44,12 @@ export default function ShowCases() {
           <a href='/show-cases/typescript-lambda'>
             <LambdaSvg />
             <span>TypeScript Lambda</span>
+          </a>
+        </div>
+        <div className={styles.gridContent}>
+          <a href='/show-cases'>
+            <MoreSvg />
+            <span>More</span>
           </a>
         </div>
       </div>
