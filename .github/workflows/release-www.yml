@@ -4,12 +4,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'sites/www/**'
+      - "sites/www/**"
   workflow_dispatch:
 
 permissions:
-    id-token: write   # This is required for requesting the JWT
-    contents: read    # This is required for actions/checkout
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
 
 jobs:
   release-www:
@@ -46,7 +46,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE }}
       - name: publish sites
         run: |
           cd tasks
@@ -59,7 +59,7 @@ jobs:
           echo "::group::Generate Versions File"
           deno task run docker build --dryrun  --app-home ../
           echo "::endgroup::"
-          
+
 
           cd ../tasks
           echo "::group::Release Site WWW"
