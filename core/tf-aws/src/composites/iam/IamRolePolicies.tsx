@@ -14,10 +14,6 @@ const S3_ACTIONS = {
   readonly: [
     's3:Get*',
   ],
-  bucket: [
-    's3:List*',
-    's3:Get*',
-  ],
 }
 
 function uniqueServices(actions: string[]) {
@@ -99,7 +95,7 @@ const parsePolicies = (policies: any) => {
       }
       addPolicy(
         undefined,
-        S3_ACTIONS.bucket,
+        S3_ACTIONS.admin,
         undefined,
         buckets.map((bucket: string) => `arn:aws:s3:::${bucket}`),
       )
