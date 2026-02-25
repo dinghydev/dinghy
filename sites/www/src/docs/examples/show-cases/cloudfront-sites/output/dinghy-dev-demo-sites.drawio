@@ -370,37 +370,22 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="48.625" 
+            x="69.83333333333334" 
             y="30"
             />
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#CD2264;gradientColor=none;fillColor=#7AA116;strokeColor=#CD2264;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
-          id="awss3bucket_regionallogbucket" 
+          id="awss3bucket_logbucket" 
           parent="infrastructure" 
-          value="Regional LogBucket" 
+          value="LogBucket" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="60" 
             height="60" 
-            x="175.875" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=top;align=center;sketch=0;outlineConnect=0;fontColor=#CD2264;gradientColor=none;fillColor=#7AA116;strokeColor=#CD2264;dashed=0;verticalLabelPosition=bottom;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" 
-          id="awss3bucket_globallogbucket" 
-          parent="infrastructure" 
-          value="Global LogBucket" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="303.125" 
+            x="239.5" 
             y="30"
             />
           </mxCell>
@@ -415,7 +400,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="430.375" 
+            x="409.1666666666667" 
             y="30"
             />
           </mxCell>

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/tf-aws/serviceRoute53'
 import { CloudfrontSiteType } from './types.ts'
 import { useAwsS3Bucket } from '@dinghy/tf-aws/serviceS3'
-import { useGlobalLogBucket } from '@dinghy/tf-aws'
+import { GlobalLogBucket, useGlobalLogBucket } from './GlobalLogBucket.tsx'
 import {
   AwsCloudfrontDistribution,
   AwsCloudfrontFunction,
@@ -596,6 +596,15 @@ export function CloudfrontSites(
     )
   }
 
+  function GlobalLog() {
+    if (props.globalLogBucket === false) return null
+
+    const GlobalLogBucketComponent =
+      _components?.globalLogBucket as typeof GlobalLogBucket ||
+      GlobalLogBucket
+    return <GlobalLogBucketComponent />
+  }
+
   const SitesComponent = _components?.sites as typeof Shape || Shape
   return (
     <SitesComponent
@@ -610,6 +619,7 @@ export function CloudfrontSites(
           site={site}
         />
       ))}
+      <GlobalLog />
     </SitesComponent>
   )
 }

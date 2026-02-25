@@ -7,18 +7,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-import {
-  AwsS3Bucket,
-  AwsS3BucketLogging,
-  AwsS3BucketPolicy,
-  useAwsS3Bucket,
-} from '@dinghy/tf-aws/serviceS3'
+import { AwsS3BucketPolicy, useAwsS3Bucket } from '@dinghy/tf-aws/serviceS3'
 import {
   DataAwsCallerIdentity,
   useDataAwsCallerIdentity,
 } from '@dinghy/tf-aws/serviceSts'
 
 import { useAwsProvider } from '@dinghy/tf-aws'
+import { S3Bucket } from '../composites/s3/S3Bucket.tsx'
 
 export const InputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
@@ -29,33 +25,17 @@ export type InputProps =
   & z.input<typeof InputSchema>
   & NodeProps
 
-export function RegionalLogBucket(
+export function LogBucket(
   { _components, ...props }: Partial<InputProps>,
 ) {
-  const { stack, regionalLogBucket } = getRenderOptions()
+  const { stack, logBucket } = getRenderOptions()
   const { awsProvider } = useAwsProvider()
   const defaults = InputSchema.parse(props)
-  const bucket = defaults.bucket || (regionalLogBucket as any)?.bucket ||
+  const bucket = defaults.bucket || (logBucket as any)?.bucket ||
     (() =>
       `${stack.name}-${defaults.bucketSurfix}-${
         deepResolve(awsProvider.region)
       }`)
-
-  const BucketLogging = () => {
-    const { s3Bucket } = useAwsS3Bucket()
-    const BucketLoggingComponent =
-      _components?.bucketLogging as typeof AwsS3BucketLogging ||
-      AwsS3BucketLogging
-    return (
-      <BucketLoggingComponent
-        bucket={bucket}
-        target_bucket={bucket}
-        target_prefix={() => `s3-access-log/${deepResolve(bucket)}/`}
-        _id={() => `${deepResolve(s3Bucket._id)}_logging`}
-        depends_on={() => [s3Bucket._terraformId]}
-      />
-    )
-  }
 
   const BucketPolicy = () => {
     const { s3Bucket } = useAwsS3Bucket()
@@ -106,25 +86,25 @@ export function RegionalLogBucket(
     )
   }
 
-  const BucketComponent = _components?.bucket as typeof AwsS3Bucket ||
-    AwsS3Bucket
+  const BucketComponent = _components?.bucket as typeof S3Bucket ||
+    S3Bucket
   return (
     <BucketComponent
       bucket={bucket}
-      _title='Regional LogBucket'
+      _title='LogBucket'
       _display='entity'
-      {...(regionalLogBucket || {})}
+      loggingEnabled={false}
+      {...(logBucket || {})}
       {...props}
     >
-      <BucketLogging />
       <BucketPolicy />
       <DataAwsCallerIdentity _consolidatedId='caller_identity' />
     </BucketComponent>
   )
 }
 
-export const useRegionalLogBucket = (
+export const useLogBucket = (
   idFilter?: string,
   node?: any,
   optional?: boolean,
-) => useTypedNode<InputProps>(RegionalLogBucket, idFilter, node, optional)
+) => useTypedNode<InputProps>(LogBucket, idFilter, node, optional)

@@ -3,6 +3,7 @@ import { AwsIamRole } from '../../services/iam/AwsIamRole.tsx'
 import { deepMerge, getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
 import { InputSchema as AwsIamRoleInputSchema } from '../../services/iam/AwsIamRole.tsx'
+import { IamRolePolicies } from './IamRolePolicies.tsx'
 
 export const IamRoleSchema = AwsIamRoleInputSchema.extend({
   assume_role_service: z.union([z.string(), z.string().array()]).optional(),
@@ -29,6 +30,9 @@ function parseIamRole(
       ],
     })
   }
+  if (typeof role.assume_role_policy === 'object') {
+    role.assume_role_policy = JSON.stringify(role.assume_role_policy)
+  }
   return IamRoleSchema.partial().loose().parse(role)
 }
 
@@ -41,9 +45,10 @@ export function IamRole(
   return (
     <RoleComponent
       _role={role}
-      _title={props.name}
+      _title={role.name}
       {...role}
     >
+      <IamRolePolicies roleName={role.name} policies={role.policies} />
       {children}
     </RoleComponent>
   )

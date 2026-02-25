@@ -4,7 +4,6 @@ import {
   extendStyle,
   getRenderOptions,
   type NodeProps,
-  ResolvableBooleanSchema,
   ResolvableStringSchema,
   useTypedNode,
 } from '@dinghy/base-components'
@@ -19,9 +18,8 @@ export const InputSchema = BackendInputSchema.extend({
   bucket: ResolvableStringSchema.optional(),
   bucketSurfix: ResolvableStringSchema.default('backend'),
   stateFile: ResolvableStringSchema.optional(),
-  stateFilePrefix: ResolvableStringSchema.default('tfstates/'),
+  stateFilePrefix: ResolvableStringSchema.optional(),
   stateFileExt: ResolvableStringSchema.default('.tfstate.json'),
-  createBackend: ResolvableBooleanSchema.default(true),
   s3Bucket: z.any().default({}),
 })
 
@@ -40,7 +38,8 @@ export function S3Backend(
     (() => `${renderOptions.stack.name}-${backendConfig.bucketSurfix}`)) as any
 
   const BackendBucket = () => {
-    const S3BucketComponent: any = _components?.s3Bucket as typeof S3Bucket ||
+    const S3BucketComponent: any =
+      _components?.backendBucket as typeof S3Bucket ||
       S3Bucket
     return (
       <S3BucketComponent
@@ -48,9 +47,9 @@ export function S3Backend(
         _title='Backend Bucket'
         _display='entity'
         bucket={bucket}
+        useData={backendConfig.useData}
         versioningEnabled
         object_lock_enabled
-        _components={_components}
         {...backendConfig.s3Bucket}
       />
     )
@@ -60,7 +59,9 @@ export function S3Backend(
     Backend
 
   const stateRemoteFile = backendConfig.stateFile ||
-    `${backendConfig.stateFilePrefix}${renderOptions.stack.name}${backendConfig.stateFileExt}`
+    `${
+      backendConfig.stateFilePrefix || `${renderOptions.stack.name}/`
+    }${renderOptions.stack.name}${backendConfig.stateFileExt}`
   const { awsProvider } = useAwsProvider()
   const alias = deepResolve(backendConfig.alias || backendConfig.type)
   return (
@@ -80,7 +81,7 @@ export function S3Backend(
       _style={extendStyle(props, BUCKET)}
       {...(backendConfig as any)}
     >
-      {backendConfig.createBackend && <BackendBucket />}
+      <BackendBucket />
       {children}
     </BackendComponent>
   )

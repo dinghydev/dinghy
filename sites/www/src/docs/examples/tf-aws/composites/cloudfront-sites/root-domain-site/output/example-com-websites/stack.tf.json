@@ -22,7 +22,7 @@
     "backend": {
       "s3": {
         "bucket": "example-com-websites-backend",
-        "key": "tfstates/example-com-websites.tfstate.json",
+        "key": "example-com-websites/example-com-websites.tfstate.json",
         "region": "us-east-1"
       }
     }
@@ -252,6 +252,14 @@
           "iac:id": "examplecom_subsite_bucket"
         }
       },
+      "awss3bucket_globallogbucket": {
+        "bucket": "example-com-websites-logs-global",
+        "region": "us-east-1",
+        "tags": {
+          "Name": "Global LogBucket",
+          "iac:id": "awss3bucket_globallogbucket"
+        }
+      },
       "awss3bucket_backend": {
         "bucket": "example-com-websites-backend",
         "object_lock_enabled": true,
@@ -260,19 +268,11 @@
           "iac:id": "awss3bucket_backend"
         }
       },
-      "awss3bucket_regionallogbucket": {
+      "awss3bucket_logbucket": {
         "bucket": "example-com-websites-logs-us-east-1",
         "tags": {
-          "Name": "Regional LogBucket",
-          "iac:id": "awss3bucket_regionallogbucket"
-        }
-      },
-      "awss3bucket_globallogbucket": {
-        "bucket": "example-com-websites-logs-global",
-        "region": "us-east-1",
-        "tags": {
-          "Name": "Global LogBucket",
-          "iac:id": "awss3bucket_globallogbucket"
+          "Name": "LogBucket",
+          "iac:id": "awss3bucket_logbucket"
         }
       }
     },
@@ -293,22 +293,13 @@
         "target_bucket": "example-com-websites-logs-us-east-1",
         "target_prefix": "s3-access-log/example-com-subsite/"
       },
-      "awss3bucket_regionallogbucket_logging": {
+      "awss3bucket_backend_logging": {
         "depends_on": [
-          "aws_s3_bucket.awss3bucket_regionallogbucket"
+          "aws_s3_bucket.awss3bucket_backend"
         ],
-        "bucket": "example-com-websites-logs-us-east-1",
+        "bucket": "example-com-websites-backend",
         "target_bucket": "example-com-websites-logs-us-east-1",
-        "target_prefix": "s3-access-log/example-com-websites-logs-us-east-1/"
-      },
-      "awss3bucket_globallogbucket_logging": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_globallogbucket"
-        ],
-        "bucket": "example-com-websites-logs-global",
-        "target_bucket": "example-com-websites-logs-global",
-        "target_prefix": "s3-access-log/example-com-websites-logs-global/",
-        "region": "us-east-1"
+        "target_prefix": "s3-access-log/example-com-websites-backend/"
       }
     },
     "aws_s3_bucket_policy": {
@@ -326,7 +317,7 @@
         "bucket": "example-com-subsite",
         "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::example-com-subsite/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.examplecom_site.arn}\"]}}}]}"
       },
-      "awss3bucket_regionallogbucket_policy": {
+      "awss3bucket_logbucket_policy": {
         "bucket": "example-com-websites-logs-us-east-1",
         "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::example-com-websites-logs-us-east-1/*\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:GetBucketAcl\",\"Resource\":\"arn:aws:s3:::example-com-websites-logs-us-east-1\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::example-com-websites-logs-us-east-1/*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"${data.aws_caller_identity.caller_identity.account_id}\"}}}]}"
       }
@@ -397,17 +388,6 @@
         "signing_protocol": "sigv4"
       }
     },
-    "aws_s3_bucket_versioning": {
-      "awss3bucket_backend_versioning": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_backend"
-        ],
-        "bucket": "example-com-websites-backend",
-        "versioning_configuration": {
-          "status": "Enabled"
-        }
-      }
-    },
     "aws_s3_bucket_ownership_controls": {
       "awss3bucket_globallogbucket_ownership_controls": {
         "depends_on": [
@@ -418,6 +398,17 @@
           "object_ownership": "BucketOwnerPreferred"
         },
         "region": "us-east-1"
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_backend_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ],
+        "bucket": "example-com-websites-backend",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
       }
     }
   },

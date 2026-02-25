@@ -1,8 +1,7 @@
 awsStack:
   title: example.com website
   s3Backend: true
-  regionalLogBucket: true
-  globalLogBucket: true
+  logBucket: true
 sites:
   example.com:
     origins:

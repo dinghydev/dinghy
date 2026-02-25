@@ -6,6 +6,7 @@ import {
   toId,
 } from '@dinghy/base-components'
 import { AwsS3Bucket, useAwsS3Bucket } from '../../services/s3/AwsS3Bucket.tsx'
+import { DataAwsS3Bucket } from '../../services/s3/DataAwsS3Bucket.tsx'
 import { AwsS3BucketVersioning } from '../../services/s3/AwsS3BucketVersioning.tsx'
 import { AwsS3BucketLogging } from '../../services/s3/AwsS3BucketLogging.tsx'
 import { existsSync } from '@std/fs/exists'
@@ -16,7 +17,7 @@ import {
   AwsS3Object,
 } from '@dinghy/tf-aws/serviceS3'
 import { contentType } from '@std/media-types'
-import { useRegionalLogBucket } from '@dinghy/tf-aws'
+import { useLogBucket } from '@dinghy/tf-aws'
 import { parseS3Bucket } from './types.ts'
 
 function getContentType(filePath: string): string {
@@ -28,6 +29,19 @@ export function S3Bucket(
   { _components, children, ...props }: NodeProps,
 ) {
   const bucketConfig = parseS3Bucket(props)
+
+  if (bucketConfig.useData) {
+    const DataBucketComponent: any =
+      _components?.dataBucket as typeof DataAwsS3Bucket || DataAwsS3Bucket
+    return (
+      <DataBucketComponent
+        _title={bucketConfig.bucket}
+        {...bucketConfig}
+        {...props}
+      />
+    )
+  }
+
   const BucketVersioning = () => {
     const { s3Bucket } = useAwsS3Bucket()
     const BucketVersioningComponent: any =
@@ -47,9 +61,10 @@ export function S3Bucket(
     const BucketLoggingComponent: any =
       _components?.logging as typeof AwsS3BucketLogging ||
       AwsS3BucketLogging
-    const { logBucket } = useRegionalLogBucket()
+    const { logBucket } = useLogBucket()
     return (
       <BucketLoggingComponent
+        _enabled={() => bucketConfig.logBucket || logBucket.bucket}
         bucket={s3Bucket.bucket}
         target_bucket={bucketConfig.logBucket || logBucket.bucket}
         target_prefix={() => `s3-access-log/${deepResolve(s3Bucket.bucket)}/`}

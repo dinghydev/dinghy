@@ -7,8 +7,7 @@ import {
 import z from 'zod'
 import { AwsProvider } from './AwsProvider.tsx'
 import { S3Backend } from './S3Backend.tsx'
-import { RegionalLogBucket } from './RegionalLogBucket.tsx'
-import { GlobalLogBucket } from './GlobalLogBucket.tsx'
+import { LogBucket } from './LogBucket.tsx'
 import { LocalBackend, LocalBackendOutputs } from '@dinghy/tf-common'
 import { S3BackendOutputs } from './S3BackendOutputs.tsx'
 
@@ -17,8 +16,7 @@ export const InputSchema = z.object({
   s3Backend: z.any().optional(),
   backendOutputs: z.any().optional(),
   infrastructure: z.any().optional(),
-  regionalLogBucket: z.any().optional(),
-  globalLogBucket: z.any().optional(),
+  logBucket: z.any().optional(),
 })
 
 export type InputProps =
@@ -34,6 +32,9 @@ export function AwsStack(
   const awsStackConfig = InputSchema.loose().parse(inputProps)
   if (renderOptions.s3Backend) {
     awsStackConfig.s3Backend ??= true
+  }
+  if (renderOptions.logBucket) {
+    awsStackConfig.logBucket ??= true
   }
 
   function BackendOutput() {
@@ -73,25 +74,13 @@ export function AwsStack(
   }
 
   function RegionalLog() {
-    if (!awsStackConfig.regionalLogBucket) return null
-    if (typeof awsStackConfig.regionalLogBucket !== 'boolean') {
-      return awsStackConfig.regionalLogBucket as any
+    if (!awsStackConfig.logBucket) return null
+    if (typeof awsStackConfig.logBucket !== 'boolean') {
+      return awsStackConfig.logBucket as any
     }
-    const RegionalLogBucketComponent =
-      _components?.regionalLogBucket as typeof RegionalLogBucket ||
-      RegionalLogBucket
-    return <RegionalLogBucketComponent />
-  }
-
-  function GlobalLog() {
-    if (!awsStackConfig.globalLogBucket) return null
-    if (typeof awsStackConfig.globalLogBucket !== 'boolean') {
-      return awsStackConfig.globalLogBucket as any
-    }
-    const GlobalLogBucketComponent =
-      _components?.globalLogBucket as typeof GlobalLogBucket ||
-      GlobalLogBucket
-    return <GlobalLogBucketComponent />
+    const LogBucketComponent = _components?.logBucket as typeof LogBucket ||
+      LogBucket
+    return <LogBucketComponent />
   }
 
   function Infrastructure() {
@@ -101,7 +90,6 @@ export function AwsStack(
       <InfrastructureComponent _distributed>
         <Backend />
         <RegionalLog />
-        <GlobalLog />
         {awsStackConfig.infrastructure as any}
       </InfrastructureComponent>
     )

@@ -8,11 +8,10 @@ import {
 import z from 'zod'
 
 import {
-  AwsS3Bucket,
-  AwsS3BucketLogging,
   AwsS3BucketOwnershipControls,
   useAwsS3Bucket,
 } from '@dinghy/tf-aws/serviceS3'
+import { S3Bucket } from '../s3/S3Bucket.tsx'
 
 export const InputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
@@ -47,36 +46,19 @@ export function GlobalLogBucket(
     )
   }
 
-  const BucketLogging = () => {
-    const { s3Bucket } = useAwsS3Bucket()
-    const BucketLoggingComponent =
-      _components?.bucketLogging as typeof AwsS3BucketLogging ||
-      AwsS3BucketLogging
-    return (
-      <BucketLoggingComponent
-        bucket={bucket}
-        target_bucket={bucket}
-        target_prefix={() => `s3-access-log/${deepResolve(bucket)}/`}
-        _id={() => `${deepResolve(s3Bucket._id)}_logging`}
-        region='us-east-1'
-        depends_on={() => [s3Bucket._terraformId]}
-      />
-    )
-  }
-
-  const BucketComponent = _components?.bucket as typeof AwsS3Bucket ||
-    AwsS3Bucket
+  const BucketComponent = _components?.bucket as typeof S3Bucket ||
+    S3Bucket
   return (
     <BucketComponent
       bucket={bucket}
       _title='Global LogBucket'
-      _display='entity'
+      _display='none'
       region='us-east-1'
+      loggingEnabled={false}
       {...(globalLogBucket || {})}
       {...props}
     >
       <OwnershipControls />
-      <BucketLogging />
     </BucketComponent>
   )
 }

@@ -8,8 +8,9 @@ import { z } from 'zod'
 import { InputSchema } from '../../services/s3/AwsS3Bucket.tsx'
 export const S3BucketSchema = InputSchema.extend({
   bucket: ResolvableStringSchema,
+  useData: ResolvableBooleanSchema.default(false),
   versioningEnabled: ResolvableBooleanSchema.default(false),
-  loggingEnabled: ResolvableBooleanSchema.default(false),
+  loggingEnabled: ResolvableBooleanSchema.default(true),
   logBucket: ResolvableStringSchema.optional(),
   logPrefix: ResolvableStringSchema.optional(),
   bucketPolicy: ResolvableStringSchema.optional(),
@@ -26,8 +27,9 @@ export function parseS3Bucket(
   props: any,
 ): S3BucketType {
   const renderOptions = getRenderOptions()
-  const inputProps = deepMerge({}, props.s3Bucket || renderOptions.s3Bucket)
-  deepMerge(inputProps, props)
-  const bucketConfig = S3BucketSchema.loose().parse(inputProps)
-  return bucketConfig
+  const s3Bucket = props.s3Bucket ||
+    (renderOptions.buckets as any)?.[props.bucket] || {}
+  deepMerge(s3Bucket, props)
+
+  return S3BucketSchema.loose().parse(s3Bucket)
 }

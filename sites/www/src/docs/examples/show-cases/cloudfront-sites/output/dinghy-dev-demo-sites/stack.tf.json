@@ -22,7 +22,7 @@
     "backend": {
       "s3": {
         "bucket": "dinghy-dev-demo-sites-backend",
-        "key": "tfstates/dinghy-dev-demo-sites.tfstate.json",
+        "key": "dinghy-dev-demo-sites/dinghy-dev-demo-sites.tfstate.json",
         "region": "eu-west-1"
       }
     }
@@ -217,6 +217,14 @@
           "iac:id": "cloudfrontsitedemodinghydev_site_root_bucket"
         }
       },
+      "awss3bucket_globallogbucket": {
+        "bucket": "dinghy-dev-demo-sites-logs-global",
+        "region": "us-east-1",
+        "tags": {
+          "Name": "Global LogBucket",
+          "iac:id": "awss3bucket_globallogbucket"
+        }
+      },
       "awss3bucket_backend": {
         "bucket": "dinghy-dev-demo-sites-backend",
         "object_lock_enabled": true,
@@ -225,19 +233,11 @@
           "iac:id": "awss3bucket_backend"
         }
       },
-      "awss3bucket_regionallogbucket": {
+      "awss3bucket_logbucket": {
         "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
         "tags": {
-          "Name": "Regional LogBucket",
-          "iac:id": "awss3bucket_regionallogbucket"
-        }
-      },
-      "awss3bucket_globallogbucket": {
-        "bucket": "dinghy-dev-demo-sites-logs-global",
-        "region": "us-east-1",
-        "tags": {
-          "Name": "Global LogBucket",
-          "iac:id": "awss3bucket_globallogbucket"
+          "Name": "LogBucket",
+          "iac:id": "awss3bucket_logbucket"
         }
       }
     },
@@ -257,23 +257,6 @@
         "bucket": "dinghy-dev-demo-sites-backend",
         "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
         "target_prefix": "s3-access-log/dinghy-dev-demo-sites-backend/"
-      },
-      "awss3bucket_regionallogbucket_logging": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_regionallogbucket"
-        ],
-        "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
-        "target_bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
-        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-logs-eu-west-1/"
-      },
-      "awss3bucket_globallogbucket_logging": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_globallogbucket"
-        ],
-        "bucket": "dinghy-dev-demo-sites-logs-global",
-        "target_bucket": "dinghy-dev-demo-sites-logs-global",
-        "target_prefix": "s3-access-log/dinghy-dev-demo-sites-logs-global/",
-        "region": "us-east-1"
       }
     },
     "aws_s3_bucket_policy": {
@@ -284,7 +267,7 @@
         "bucket": "dinghy-dev-demo-sites-origin",
         "policy": "{\"Version\":\"2008-10-17\",\"Id\":\"PolicyForCloudFrontPrivateContent\",\"Statement\":[{\"Sid\":\"AllowCloudFrontServicePrincipal\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-origin/*\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":[\"${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.arn}\"]}}}]}"
       },
-      "awss3bucket_regionallogbucket_policy": {
+      "awss3bucket_logbucket_policy": {
         "bucket": "dinghy-dev-demo-sites-logs-eu-west-1",
         "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-logs-eu-west-1/*\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logging.s3.amazonaws.com\"},\"Action\":\"s3:GetBucketAcl\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-logs-eu-west-1\"},{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::dinghy-dev-demo-sites-logs-eu-west-1/*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"${data.aws_caller_identity.caller_identity.account_id}\"}}}]}"
       }
@@ -376,17 +359,6 @@
         "publish": true
       }
     },
-    "aws_s3_bucket_versioning": {
-      "awss3bucket_backend_versioning": {
-        "depends_on": [
-          "aws_s3_bucket.awss3bucket_backend"
-        ],
-        "bucket": "dinghy-dev-demo-sites-backend",
-        "versioning_configuration": {
-          "status": "Enabled"
-        }
-      }
-    },
     "aws_s3_bucket_ownership_controls": {
       "awss3bucket_globallogbucket_ownership_controls": {
         "depends_on": [
@@ -397,6 +369,17 @@
           "object_ownership": "BucketOwnerPreferred"
         },
         "region": "us-east-1"
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "awss3bucket_backend_versioning": {
+        "depends_on": [
+          "aws_s3_bucket.awss3bucket_backend"
+        ],
+        "bucket": "dinghy-dev-demo-sites-backend",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
       }
     }
   },

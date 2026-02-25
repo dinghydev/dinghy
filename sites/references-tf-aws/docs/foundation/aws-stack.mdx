@@ -9,22 +9,14 @@ A composite component that bundles foundational AWS components together for conv
 1. Top level stack component
 1. [AwsProvider](./aws-provider.mdx)
 1. [S3Backend](./s3-backend.mdx)
-1. [RegionalLogBucket](./log-buckets.mdx#regionallogbucket)
-1. [GlobalLogBucket](./log-buckets.mdx#globallogbucket)
-
+1. [LogBucket](./log-buckets.mdx#logbucket)
 
 ## Usage
 
-* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/AwsStack.tsx)
-
+- [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/foundation/AwsStack.tsx)
 
 ```js
-import { AwsStack } from "@dinghy/tf-aws"
+import { AwsStack } from "@dinghy/tf-aws";
 
-
-export default () => (
-  <AwsStack>
-    ....
-  </AwsStack>
-)
+export default () => <AwsStack>....</AwsStack>;
 ```
