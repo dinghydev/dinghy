@@ -1,0 +1,174 @@
+---
+slug: /show-cases/iam-roles
+sidebar_position: 50
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./my-roles.tsx";
+import DinghyConfigYml from "!!raw-loader!./dinghy.config.yml";
+import TfJson from "!!raw-loader!./output/my-roles/stack.tf.json";
+import PolicyDefaultYml from "!!raw-loader!./config/iam-role-policies/default.yml";
+import PolicyFirstYml from "!!raw-loader!./config/iam-role-policies/first.yml";
+import PolicyMySecondRoleYml from "!!raw-loader!./config/iam-role-policies/my-second-role.yml";
+import PolicyMyYml from "!!raw-loader!./config/iam-role-policies/my.yml";
+
+# IAM Roles With Policies
+
+Easily define IAM roles and policies with minimal configuration.
+
+## Features
+
+- Simplifies the creation of IAM roles and policies on AWS with minimal configuration
+- Uses the high-level [IamRoles](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/iam/IamRoles.tsx) ([IamRole](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/iam/IamRole.tsx)) composite component for easy IAM definition
+- Supports defining `assume_role_service` to auto-generate the assume role policy document
+- Load naming match policy from `config/iam-role-policies` folder
+- Supports attaching named policies
+
+## Source Code
+
+<Tabs>
+  <TabItem value="my-roles.tsx">
+    <CodeBlock language="tsx" showLineNumbers>
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="dinghy.config.yml">
+    <CodeBlock language="yaml" showLineNumbers>
+      {DinghyConfigYml}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+
+### Policies
+
+Policies are resolved from the `config/iam-role-policies` folder. For each IAM role, policies are loaded in this priority order, based on the role's name:
+1. my-first-role
+    1. first.yml
+    1. my.yml
+    1. default.yml
+1. my-second-role
+    1. my-second-role.yml
+    1. my.yml
+    1. default.yml
+
+<Tabs>
+  <TabItem value="default.tsx">
+    <CodeBlock language="yaml" showLineNumbers>
+      {PolicyDefaultYml}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="first.tsx">
+    <CodeBlock language="yaml" showLineNumbers>
+      {PolicyFirstYml}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="my-second-role.yml">
+    <CodeBlock language="yaml" showLineNumbers>
+      {PolicyMySecondRoleYml}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="my.tsx">
+    <CodeBlock language="yaml" showLineNumbers>
+      {PolicyMyYml}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+
+## Outputs
+
+<Tabs>
+  <TabItem value="Overview" default>
+    ![](./output/my-roles.png#drawio-w-70)
+  </TabItem>
+  <TabItem value="Terraform">
+    <CodeBlock language="json" title="stack.tf.json" showLineNumbers>
+      {TfJson}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+### Resource types
+
+List of resource types used by this stack, in approximate order of creation:
+
+1. [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)
+1. [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment)
+1. [aws_iam_role_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy)
+
+## Steps to try
+
+### [Install dinghy-cli](/guides/get-started/installation)
+
+If you haven't already:
+
+```sh
+curl -fsSL https://get.dinghy.dev/install.sh | sh
+```
+
+Sample Screenshot
+![](../../../guides/get-started/screenshot-install.png#drawio-w-100)
+
+### Prepare source code
+
+Create `my-roles.tsx` and `dinghy.config.yml` files with content from [above](#source-code).
+
+```sh
+curl -fsSL --create-dirs -o iam-roles/my-roles.tsx https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/iam-roles/my-roles.tsx
+curl -fsSL --create-dirs -o iam-roles/dinghy.config.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/iam-roles/dinghy.config.yml
+curl -fsSL --create-dirs -o iam-roles/config/iam-role-policies/default.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/iam-roles/config/iam-role-policies/default.yml
+curl -fsSL --create-dirs -o iam-roles/config/iam-role-policies/first.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/iam-roles/config/iam-role-policies/first.yml
+curl -fsSL --create-dirs -o iam-roles/config/iam-role-policies/my-second-role.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/iam-roles/config/iam-role-policies/my-second-role.yml
+curl -fsSL --create-dirs -o iam-roles/config/iam-role-policies/my.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/src/docs/examples/show-cases/iam-roles/config/iam-role-policies/my.yml
+cd iam-roles
+```
+
+### Preview the actions
+
+Run [`dinghy tf diff`](https://dinghy.dev/references/commands/engine/tf/diff) to preview the Terraform actions that will be performed.
+
+:::info
+
+Make sure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#configure-precedence) are configured before interacting with AWS services.
+
+:::
+
+```sh
+dinghy tf diff
+```
+
+Sample Screenshot
+![](./screenshots/tf-diff.png#drawio-w-100)
+
+### Apply the actions
+
+Run [`dinghy tf deploy`](https://dinghy.dev/references/commands/engine/tf/deploy) to apply the changes and provision your resources.
+
+```sh
+dinghy tf deploy
+```
+
+Sample Screenshot
+![](./screenshots/tf-deploy.png#drawio-w-100)
+
+
+### Created Roles
+
+:::info
+The inline policy details are clearly organized by service.
+:::
+
+my-first-role
+![](./screenshots/my-first-role.png#drawio-w-100)
+
+my-second-role
+![](./screenshots/my-second-role.png#drawio-w-100)
+
+
+
+### Destroy resources
+
+After experimenting, run [`dinghy tf destroy`](https://dinghy.dev/references/commands/engine/tf/destroy) to remove all resources created in the previous steps.

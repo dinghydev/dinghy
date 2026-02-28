@@ -2,6 +2,7 @@ import { loadFilesData, NodeProps, Shape } from '@dinghy/base-components'
 import { deepMerge, getRenderOptions } from '@dinghy/base-components'
 import { IamRolePolicyAttachment } from './IamRolePolicyAttachment.tsx'
 import { IamRolePolicy } from './IamRolePolicy.tsx'
+import { RolesPolicySchema } from './types.ts'
 const S3_ACTIONS = {
   admin: [
     's3:*',
@@ -20,7 +21,8 @@ function uniqueServices(actions: string[]) {
   return [...new Set(actions.map((action) => action.split(':')[0]))]
 }
 
-const parsePolicies = (policies: any) => {
+const parsePolicies = (ps: any) => {
+  const policies = RolesPolicySchema.parse(ps)
   const namedPolicies: any[] = []
   const servicePolicies: any = {}
 

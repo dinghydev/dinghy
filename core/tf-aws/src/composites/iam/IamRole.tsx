@@ -16,19 +16,19 @@ function parseIamRole(
   const renderOptions = getRenderOptions()
   const role = props.role || (renderOptions.iamRoles as any)?.[props.name] || {}
   deepMerge(role, props)
-  if (role.assume_role_service && !role.assume_role_policy) {
-    role.assume_role_policy = JSON.stringify({
+  if (!role.assume_role_policy) {
+    role.assume_role_policy = {
       'Version': '2012-10-17',
       'Statement': [
         {
           'Effect': 'Allow',
           'Principal': {
-            'Service': role.assume_role_service,
+            'Service': role.assume_role_service || 'ec2.amazonaws.com',
           },
           'Action': 'sts:AssumeRole',
         },
       ],
-    })
+    }
   }
   if (typeof role.assume_role_policy === 'object') {
     role.assume_role_policy = JSON.stringify(role.assume_role_policy)

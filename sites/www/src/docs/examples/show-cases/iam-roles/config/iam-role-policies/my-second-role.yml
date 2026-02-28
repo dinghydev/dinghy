@@ -1,0 +1,10 @@
+# https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/iam/types.ts#RolePolicySchema
+second-role-only-buckets:
+  - permission: admin
+    buckets:
+      - dinghy-demo-site-for-second-role
+id-override-demo-policy:
+  - id: override-by-id
+    permission: admin
+    buckets:
+      - dinghy-demo-site-overridable

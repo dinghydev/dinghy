@@ -1,0 +1,5 @@
+# https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/iam/types.ts#RolePolicySchema
+buckets-for-both-roles:
+  - permission: readonly
+    buckets:
+      - dinghy-demo-site-for-both-roles

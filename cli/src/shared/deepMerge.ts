@@ -19,7 +19,21 @@ export const deepMerge = (
     if (target === undefined || target === null) {
       return cloneSource
     } else if (Array.isArray(target)) {
-      target.push(...cloneSource)
+      for (const item of cloneSource) {
+        if (item && typeof item === 'object') {
+          const itemId = item.id ?? item._id
+          if (itemId) {
+            const existing = target.find((t: any) =>
+              (t?.id ?? t?._id) === itemId
+            )
+            if (existing) {
+              deepMerge(existing, item)
+              continue
+            }
+          }
+        }
+        target.push(item)
+      }
       return target
     } else {
       console.error('target', target)

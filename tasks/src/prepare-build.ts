@@ -6,7 +6,7 @@ if (import.meta.main) {
     stdout: 'inherit',
     input: `
       set -e
-      cp ../cli/src/shared/* ../core/base-components/src/cli-shared/
+      cp $(ls ../cli/src/shared/* | grep -v '_test.ts$') ../core/base-components/src/cli-shared/
     `,
   })`sh`
   await execa({

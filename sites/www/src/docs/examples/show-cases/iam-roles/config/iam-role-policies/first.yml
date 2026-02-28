@@ -1,0 +1,7 @@
+# https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/composites/iam/types.ts#RolePolicySchema
+managed-policies:
+  - name: AmazonEC2ContainerRegistryPullOnly
+first-role-only-buckets:
+  - permission: admin
+    buckets:
+      - dinghy-demo-site-for-first-role

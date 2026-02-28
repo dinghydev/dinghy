@@ -1,0 +1,17 @@
+{
+  "name": "my-roles",
+  "title": "My Roles",
+  "app": "my-roles.tsx",
+  "sequence": 10,
+  "views": {
+    "overview": {
+      "fileName": "my-roles",
+      "name": "overview",
+      "title": "Overview"
+    }
+  },
+  "mrAutoDiff": true,
+  "mrAutoDeploy": false,
+  "mainAutoDiff": true,
+  "mainAutoDeploy": false
+}

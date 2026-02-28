@@ -1,0 +1,107 @@
+{
+  "provider": {
+    "aws": [
+      {
+        "region": "us-east-1",
+        "default_tags": {
+          "tags": {
+            "iac:stack-title": "My Roles",
+            "iac:stack-name": "my-roles"
+          }
+        }
+      }
+    ]
+  },
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "6.28.0"
+      }
+    },
+    "backend": {
+      "local": {
+        "path": "stack.tfstate.json"
+      }
+    }
+  },
+  "resource": {
+    "aws_iam_role": {
+      "awsiamrole_myfirstrole": {
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "name": "my-first-role",
+        "tags": {
+          "Name": "my-first-role",
+          "iac:id": "awsiamrole_myfirstrole"
+        }
+      },
+      "awsiamrole_mysecondrole": {
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "name": "my-second-role",
+        "tags": {
+          "Name": "my-second-role",
+          "iac:id": "awsiamrole_mysecondrole"
+        }
+      }
+    },
+    "aws_iam_role_policy_attachment": {
+      "awsiamrolepolicyattachment_myfirstroleamazonec2containerregistrypullonly": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_myfirstrole"
+        ],
+        "policy_arn": "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly",
+        "role": "my-first-role"
+      }
+    },
+    "aws_iam_role_policy": {
+      "awsiamrolepolicy_myfirstroleec2": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_myfirstrole"
+        ],
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"ec2:*\"],\"Resource\":[\"arn:aws:ec2:eu-west-2:*:*\"]}]}",
+        "role": "my-first-role",
+        "name": "ec2"
+      },
+      "awsiamrolepolicy_myfirstroleecs": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_myfirstrole"
+        ],
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"ecs:*\"],\"Resource\":[\"arn:aws:ecs:eu-west-2:*:*\"]}]}",
+        "role": "my-first-role",
+        "name": "ecs"
+      },
+      "awsiamrolepolicy_myfirstroles3": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_myfirstrole"
+        ],
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"s3:Get*\"],\"Resource\":[\"arn:aws:s3:::dinghy-demo-site-for-both-roles/*\",\"arn:aws:s3:::dinghy-demo-site-overridable/*\"]},{\"Effect\":\"Allow\",\"Action\":[\"s3:*\"],\"Resource\":[\"arn:aws:s3:::dinghy-demo-site-for-both-roles\",\"arn:aws:s3:::dinghy-demo-site-for-first-role\",\"arn:aws:s3:::dinghy-demo-site-for-first-role/*\",\"arn:aws:s3:::dinghy-demo-site-overridable\"]}]}",
+        "role": "my-first-role",
+        "name": "s3"
+      },
+      "awsiamrolepolicy_mysecondroleec2": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_mysecondrole"
+        ],
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"ec2:*\"],\"Resource\":[\"arn:aws:ec2:eu-west-2:*:*\"]}]}",
+        "role": "my-second-role",
+        "name": "ec2"
+      },
+      "awsiamrolepolicy_mysecondroleecs": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_mysecondrole"
+        ],
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"ecs:*\"],\"Resource\":[\"arn:aws:ecs:eu-west-2:*:*\"]}]}",
+        "role": "my-second-role",
+        "name": "ecs"
+      },
+      "awsiamrolepolicy_mysecondroles3": {
+        "depends_on": [
+          "aws_iam_role.awsiamrole_mysecondrole"
+        ],
+        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"s3:*\"],\"Resource\":[\"arn:aws:s3:::dinghy-demo-site-for-both-roles\",\"arn:aws:s3:::dinghy-demo-site-for-second-role\",\"arn:aws:s3:::dinghy-demo-site-for-second-role/*\",\"arn:aws:s3:::dinghy-demo-site-overridable\",\"arn:aws:s3:::dinghy-demo-site-overridable\",\"arn:aws:s3:::dinghy-demo-site-overridable/*\",\"arn:aws:s3:::dinghy-demo-site-overridable/*\"]},{\"Effect\":\"Allow\",\"Action\":[\"s3:Get*\"],\"Resource\":[\"arn:aws:s3:::dinghy-demo-site-for-both-roles/*\"]}]}",
+        "role": "my-second-role",
+        "name": "s3"
+      }
+    }
+  }
+}

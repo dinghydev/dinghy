@@ -55,10 +55,12 @@ if (import.meta.main) {
       // 'examples',
     ]
   ) {
-    for (const cmd of ['check', 'fmt', 'lint']) {
+    for (const cmd of ['check', 'fmt', 'lint', 'test']) {
       console.log(`::group:: Run: ${cmd} for ${project}`)
       const cwd = `${projectRoot}/${project}`
-      if (cmd === 'check' && project === 'core') {
+      if (cmd === 'test' && !['cli'].includes(project)) {
+        continue
+      } else if (cmd === 'check' && project === 'core') {
         const folders = Deno.readDirSync(cwd)
           .filter((entry) => entry.isDirectory)
           .map((entry) => entry.name)
@@ -76,6 +78,9 @@ if (import.meta.main) {
     }
   }
 
+  console.log('::group::Prepare build')
+  await runDenoCmd('tasks', 'run -A src/prepare-build.ts')
+  console.log('::endgroup::')
   console.log('::group::Generate schema docs')
   await runDenoCmd('engine', 'run -A src/generate-schema-docs.ts')
   console.log('::endgroup::')

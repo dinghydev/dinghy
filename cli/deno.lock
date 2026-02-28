@@ -1,9 +1,11 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/assert@*": "1.0.18",
     "jsr:@std/cli@1.0.14": "1.0.14",
     "jsr:@std/fs@*": "1.0.15",
     "jsr:@std/fs@1.0.15": "1.0.15",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@*": "1.0.8",
     "jsr:@std/path@1.0.8": "1.0.8",
     "jsr:@std/path@^1.0.8": "1.0.8",
@@ -17,6 +19,12 @@
     "npm:zod@4.1.12": "4.1.12"
   },
   "jsr": {
+    "@std/assert@1.0.18": {
+      "integrity": "270245e9c2c13b446286de475131dc688ca9abcd94fc5db41d43a219b34d1c78",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
     "@std/cli@1.0.14": {
       "integrity": "b09ee9921cd476c0e08185ed2bfce682d45ecf4654f26c31b4aa244a2c5c024e"
     },
@@ -25,6 +33,9 @@
       "dependencies": [
         "jsr:@std/path@^1.0.8"
       ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
