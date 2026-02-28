@@ -28,6 +28,7 @@ type Env = Record<string, any>
 const HOME_MOUNTS = [
   '.aws',
   '.ssh',
+  '.gitconfig',
 ]
 
 const DOCKER_EXCLUDED_ENVS = [

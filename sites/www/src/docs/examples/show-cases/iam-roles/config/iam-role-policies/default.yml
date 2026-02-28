@@ -5,9 +5,6 @@ id-override-demo-policy:
     buckets:
       - dinghy-demo-site-overridable
 eu-west-2-activated-services-all-access:
-  - actions:
-      - ec2:*
-      - ecs:*
-    resources:
+  - resources:
       - arn:aws:ec2:eu-west-2:*:*
       - arn:aws:ecs:eu-west-2:*:*

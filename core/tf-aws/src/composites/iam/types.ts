@@ -24,6 +24,12 @@ export const RolePolicySchema = z.union([
     resources: z.string().array().optional(),
   }).loose(),
   z.object({
+    resource: z.string(),
+  }).loose(),
+  z.object({
+    resources: z.string().array(),
+  }).loose(),
+  z.object({
     Action: z.string().array(),
   }).loose(),
 ])

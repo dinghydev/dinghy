@@ -45,8 +45,16 @@ const parsePolicies = (ps: any) => {
     resources: string[] | undefined,
     Effect: 'Allow' | 'Deny' = 'Allow',
   ) => {
-    const actionsArray = actions || [action!]
     const resourcesArray = resources || (resource ? [resource] : ['*'])
+    const servicesActions = () => {
+      const services = new Set<string>()
+      resourcesArray.map((resource) => resource.split(':')[2]).forEach((
+        service,
+      ) => services.add(service))
+      return Array.from(services).map((service) => `${service}:*`)
+    }
+    const actionsArray = actions ||
+      (action ? [action] : servicesActions())
     uniqueServices(actionsArray).map((service) => {
       servicePolicies[service] ??= []
       const Resource = resourcesArray.filter((resource) =>
@@ -121,7 +129,12 @@ const parsePolicies = (ps: any) => {
       } else {
         if ('bucket' in policy || 'buckets' in policy) {
           handleS3BucketPolicy(policy)
-        } else if ('action' in policy || 'actions' in policy) {
+        } else if (
+          'action' in policy ||
+          'actions' in policy ||
+          'resource' in policy ||
+          'resources' in policy
+        ) {
           handleStatementPolicy(policy)
         } else if ('Action' in policy) {
           handleNormalisedPolicy(policy)
