@@ -1559,7 +1559,7 @@
       "npm:zod@4.1.12"
     ],
     "links": {
-      "jsr:@dinghy/base-components@0.0.1": {
+      "jsr:@dinghy/base-components": {
         "dependencies": [
           "jsr:@std/cli@1.0.14",
           "jsr:@std/path@1.0.8",

@@ -1,5 +1,4 @@
 import {
-  appHomeMount,
   configGetEngineImage,
   configGetToolImage,
   devcontainer,
@@ -8,13 +7,11 @@ import {
   getDockerMounts,
   hostAppHome,
   projectVersionRelease,
-  useEnvVar,
 } from '@dinghy/cli'
 
 export const schema = devcontainer.generationSchema
 
 import { existsSync } from '@std/fs/exists'
-import { dirname } from '@std/path'
 import Debug from 'debug'
 import { Args } from '@std/cli/parse-args'
 import chalk from 'chalk'
@@ -37,7 +34,7 @@ export const run = async (args: Args) => {
   const [siteConfig, siteDir] = await loadSiteConfig(args)
 
   const configFile = `${hostAppHome}/.devcontainer.json`
-  const config: any = useEnvVar(['dinghy', 'devcontainer', 'json']) || {}
+  const config: any = dinghyAppConfig.devcontainer?.json || {}
   config.name ??= hostAppHome.split('/').pop()
   config.runArgs ??= ['--name', config.name]
   if (!config.build) {
@@ -50,19 +47,8 @@ export const run = async (args: Args) => {
 
   populateEnvs(config, siteConfig)
   populateMounts(config, siteConfig, siteDir!, args)
-
-  const vscodeConfigCheckFile = `${hostAppHome}/.vscode/launch.json`
-  const vscodeConfigExist = existsSync(vscodeConfigCheckFile) &&
-    Deno.readTextFileSync(vscodeConfigCheckFile).includes('dinghy')
-  if (vscodeConfigExist) {
-    config.mounts.push(
-      `source=${vscodeConfigCheckFile},target=/dinghy/engine/workspace/.vscode/launch.json,type=bind`,
-    )
-  }
-  // config.workspaceFolder ??= args.workspace ||
-  //   (vscodeConfigExist ? appHomeMount : dirname(appHomeMount));
   config.workspaceFolder ??= args.workspace ||
-    (siteConfig ? '/opt/docusaurus' : dirname(appHomeMount))
+    (siteConfig ? '/opt/docusaurus' : '/workspace')
   // config.onCreateCommand ??= "on-devcontainer-create.ts";
 
   config.customizations ??= {
@@ -80,11 +66,8 @@ export const run = async (args: Args) => {
       },
     },
   }
-  let extensions: any = useEnvVar(['dinghy', 'devcontainer', 'extensions'])
+  const extensions: any = dinghyAppConfig.devcontainer?.extensions
   if (extensions) {
-    if (typeof extensions === 'string') {
-      extensions = extensions.split(',')
-    }
     config.customizations.vscode.extensions.push(...extensions)
     debug('extensions added: %O', extensions)
   }
@@ -130,23 +113,8 @@ function populateMounts(
         target: `/opt/docusaurus/${f.name}`,
       })
     }
-  } else {
-    mounts.push({
-      source: 'deno.jsonc',
-      target: '/dinghy/engine/deno.jsonc',
-    })
-    mounts.push({
-      source: 'deno.lock',
-      target: '/dinghy/engine/deno.lock',
-    })
-    const vscodeConfigCheckFile = `${hostAppHome}/.vscode/launch.json`
-    if (existsSync(vscodeConfigCheckFile)) {
-      config.mounts.push(
-        `source=${vscodeConfigCheckFile},target=/dinghy/engine/workspace/.vscode/launch.json,type=bind`,
-      )
-    }
   }
-  config.mounts = getDockerMounts(mounts).map((mount) =>
+  config.mounts = getDockerMounts(mounts, true).map((mount) =>
     `source=${mount.source},target=${mount.target},type=bind`
   )
 }

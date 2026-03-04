@@ -202,6 +202,14 @@ async function populateImageTag(image: DockerImage, args: Args) {
   debug('Docker image tag %s generated', image.tag)
 }
 
+async function runBuildHook(folder: string, name: string) {
+  const script = `${folder}/${name}.sh`
+  if (existsSync(script)) {
+    console.log(`Running ${script} hook...`)
+    await cmdStream(['bash', script], true)
+  }
+}
+
 async function buildImage(image: DockerImage, args: Args) {
   await populateImageTag(image, args)
   args.imageTags.push(image.tag)
@@ -220,25 +228,38 @@ async function buildImage(image: DockerImage, args: Args) {
     `Image ${image.tag} does not exist, building...`,
   )
 
-  if (args['multi-arch']) {
-    for (const arch of args.arch) {
-      await buildImageWithArch(image, args, arch)
-    }
-    if (dockerPushEnabled(args)) {
-      await dockerManifestCreate(
-        image.tag,
-        args.arch.map((arch: string) => `${image.tag}-linux-${arch}`),
-      )
+  await runBuildHook(image.folder, 'prebuild')
+
+  let buildError: Error | undefined
+  try {
+    if (args['multi-arch']) {
+      for (const arch of args.arch) {
+        await buildImageWithArch(image, args, arch)
+      }
+      if (dockerPushEnabled(args)) {
+        await dockerManifestCreate(
+          image.tag,
+          args.arch.map((arch: string) => `${image.tag}-linux-${arch}`),
+        )
+      } else {
+        await dockerTag(
+          `${image.tag}-linux-${
+            Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
+          }`,
+          image.tag,
+        )
+      }
     } else {
-      await dockerTag(
-        `${image.tag}-linux-${
-          Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
-        }`,
-        image.tag,
-      )
+      await buildImageWithArch(image, args)
     }
-  } else {
-    await buildImageWithArch(image, args)
+  } catch (e) {
+    buildError = e as Error
+  } finally {
+    await runBuildHook(image.folder, 'postbuild')
+  }
+
+  if (buildError) {
+    throw buildError
   }
 }
 

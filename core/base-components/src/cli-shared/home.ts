@@ -12,7 +12,7 @@ const resolveHome = () => {
 
 export const isInsideContainer = Deno.env.get('HOST_USER_HOME') !== undefined
 export const hostAppHome = Deno.env.get('HOST_APP_HOME') || resolveHome()
-export const appHomeMount = `/dinghy/engine/workspace/${basename(hostAppHome)}`
+export const appHomeMount = `/workspace/${basename(hostAppHome)}`
 export const containerAppHome = isInsideContainer ? appHomeMount : resolveHome()
 export const dinghyHome = Deno.env.get('DINGHY_HOME') ||
   `${Deno.env.get('HOME')}/.dinghy`

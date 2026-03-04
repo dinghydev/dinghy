@@ -1,5 +1,5 @@
-import { existsSync } from '@std/fs/exists'
-import { dirname, resolve } from 'jsr:@std/path'
+import { existsSync, walkSync } from '@std/fs'
+import { dirname, relative, resolve } from 'jsr:@std/path'
 import { dinghyRc } from './loadConfig.ts'
 import {
   appHomeMount,
@@ -67,6 +67,7 @@ export function getDockerEnvs(appEnvs: Env = {}) {
 
 export function getDockerMounts(
   appMounts: Mount[],
+  isDevContainer = false,
 ): Mount[] {
   const mounts: Mount[] = []
   if (!appMounts.some((m) => m.source === hostAppHome)) {
@@ -117,9 +118,32 @@ export function getDockerMounts(
     target: '/home/runner/work/_temp',
   })
 
-  return mounts.filter((mount) =>
+  const result = mounts.filter((mount) =>
     existsSync(mount.check || mount.source) || existsSync(mount.source)
   )
+
+  const overrideMounts = (folder: string) => {
+    const folderPath = resolve(hostAppHome, folder)
+    if (existsSync(folderPath)) {
+      for (const entry of walkSync(folderPath, { includeDirs: false })) {
+        result.push({
+          source: entry.path,
+          target: resolve(
+            '/workspace',
+            folder,
+            relative(folderPath, entry.path),
+          ),
+        })
+        debug('Mounting override file: %s', entry.path)
+      }
+    }
+  }
+  overrideMounts('.dinghy')
+  if (isDevContainer) {
+    overrideMounts('.vscode')
+  }
+
+  return result
 }
 
 const prepareDockerAuthConfig = () => {
