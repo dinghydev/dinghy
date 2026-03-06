@@ -4,6 +4,7 @@ import { deepMerge } from './deepMerge.ts'
 import { hostAppHome } from './home.ts'
 import { toTitle } from './stringUtils.ts'
 import { basename } from '@std/path/basename'
+import { DinghyError } from './types.ts'
 const debug = Debug('stackUtils')
 
 export const DEFAULT_APPS = ['app', 'iac']
@@ -130,7 +131,7 @@ export const parseStacks = (
     stacks[name].app ??= appFile
   })
   if (stackSpec && !stacks[stackSpec]) {
-    throw new Error(`Stack ${stackSpec} not found`)
+    throw new DinghyError(`Stack ${stackSpec} not found`, 'STACK_NOT_FOUND')
   }
   Object.values(stacks).map((stack: any, i) => {
     stack.sequence ??= (i + 1) * 10

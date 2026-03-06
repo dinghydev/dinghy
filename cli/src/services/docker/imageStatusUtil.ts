@@ -1,5 +1,5 @@
 import { cmdCode, cmdStream } from '../../utils/cmd.ts'
-import { DinghyError } from '../../types.ts'
+import { DinghyError } from '../../shared/types.ts'
 
 export async function imagePull(image: string, required = false) {
   const { success } = await cmdStream(

@@ -1,7 +1,7 @@
 import { execa, execaSync } from 'execa'
 import Debug from 'debug'
 import { containerAppHome } from '../shared/home.ts'
-import { DinghyError } from '../types.ts'
+import { DinghyError } from '../shared/types.ts'
 Debug.formatters.a = (v: any) => {
   return `[${v.join(' ')}]`
 }
@@ -80,7 +80,7 @@ const execCmd = async (
       )
     }
     if (errorOnFailure) {
-      throw new DinghyError()
+      throw new DinghyError(undefined, 'CMD_FAILED')
     }
   }
   const resultObj = {

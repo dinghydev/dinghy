@@ -1,4 +1,4 @@
-import { DinghyError, HANDLED_ERROR_EXIT_CODE } from '../types.ts'
+import { DinghyError, HANDLED_ERROR_EXIT_CODE } from '../shared/types.ts'
 import { updateCheck } from './updateCheck.ts'
 import { loadGlobalConfig } from './loadConfig.ts'
 import Debug from 'debug'
@@ -30,7 +30,11 @@ export const cliRun = async (
   } finally {
     const diff = hrtime(startTime)
     const msTaken = Math.floor((diff[0] * NS_PER_SEC + diff[1]) / 1000000)
-    await reportResult(msTaken, error)
+
+    const isCliCommand = () => commands.postinstall && commands[Deno.args[0]]
+    if (isEngine || isCliCommand()) {
+      await reportResult(msTaken, error)
+    }
 
     if (error) {
       if (error instanceof DinghyError) {

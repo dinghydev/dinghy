@@ -1,4 +1,4 @@
-import { requireStacksConfig } from '@dinghy/cli'
+import { reportStats, requireStacksConfig } from '@dinghy/cli'
 import { attachChangeToMR, isCi, isMr } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import chalk from 'chalk'
@@ -71,6 +71,13 @@ export const createCombinedTfCmd = (
         `tf.stacks.changes.${isApply ? 'applied' : 'detected'}`,
         changedStacks,
       )
+      reportStats(
+        'changes',
+        changedStacks.map((s) => s.plan.changesCount).reduce(
+          (a, b) => a + b,
+          0,
+        ),
+      )
       if (isCi()) {
         await (isMr() ? attachChangeToMR : notifyChanges)(changedStacks)
         await (isApply ? triggerCiChangesApplied : triggerCiChangesDetected)(
@@ -87,6 +94,7 @@ export const createCombinedTfCmd = (
     } else if (allStacks.length > 1) {
       console.log(chalk.green('No changes found in any stack'))
     }
+    reportStats('stacks', allStacks.length)
     await onEvent(`tf.stacks.finish`, args, allStacks)
   }
 

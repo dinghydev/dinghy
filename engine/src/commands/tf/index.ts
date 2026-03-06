@@ -22,20 +22,3 @@ export const stackArgs = {
     },
   ],
 }
-
-// const commands: Commands = {
-//   [OPTIONS_SYMBOL]: options,
-//   [RUN_SYMBOL]: run,
-//   init,
-//   plan,
-//   apply,
-//   // generate,
-//   normalise,
-//   // diff,
-//   // deploy,
-//   // up,
-//   bash,
-//   destroy,
-// }
-
-// export default commands

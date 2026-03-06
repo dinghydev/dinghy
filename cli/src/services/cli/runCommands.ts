@@ -1,5 +1,5 @@
 import { parseArgs } from '@std/cli/parse-args'
-import { DinghyError } from '../../types.ts'
+import { DinghyError } from '../../shared/types.ts'
 import {
   CMD_DEF_SYMBOL,
   CmdDefinition,

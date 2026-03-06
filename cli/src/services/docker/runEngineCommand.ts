@@ -1,4 +1,4 @@
-import { HANDLED_ERROR_EXIT_CODE } from '../../types.ts'
+import { HANDLED_ERROR_EXIT_CODE } from '../../shared/types.ts'
 import Debug from 'debug'
 import { appHomeMount, dinghyHome, hostAppHome } from '../../shared/home.ts'
 import { runDockerCmd } from '../../utils/dockerUtils.ts'

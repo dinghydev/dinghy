@@ -31,6 +31,11 @@ function addSimpleCommands(params: URLSearchParams) {
   }
 }
 
+const statsToReport: Record<string, any> = {}
+export const reportStats = (key: string, value: any) => {
+  statsToReport[key] = value
+}
+
 export async function sendReport(msTaken: number, error?: any) {
   const url = error ? URL_ERROR_REPORT : URL_USAGE_REPORT
   const params = new URLSearchParams()
@@ -43,11 +48,12 @@ export async function sendReport(msTaken: number, error?: any) {
   params.set('os', Deno.build.os)
   params.set('ms', msTaken.toString())
   addSimpleCommands(params)
-  if (error) {
-    params.set('error', error.message)
-    params.set('stack', error.stack)
+  if (typeof error === 'object') {
+    params.set('error', error.code || error.message)
   }
-
+  for (const [key, value] of Object.entries(statsToReport)) {
+    params.set(key, value.toString())
+  }
   const urlWithParams = `${url}?${params.toString()}`.substring(0, 1024)
   try {
     await fetch(urlWithParams)

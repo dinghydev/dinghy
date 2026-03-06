@@ -1,5 +1,9 @@
-import { NodeProps, Shape } from '@dinghy/base-components'
-import { getRenderOptions } from '@dinghy/base-components'
+import {
+  DinghyError,
+  getRenderOptions,
+  NodeProps,
+  Shape,
+} from '@dinghy/base-components'
 import { IamRole } from './IamRole.tsx'
 
 function listRoles(
@@ -16,7 +20,7 @@ function listRoles(
       })
     })
   } else {
-    throw new Error('No IAM roles found')
+    throw new DinghyError('No IAM roles found', 'NO_IAM_ROLES_FOUND')
   }
   return result
 }

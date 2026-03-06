@@ -1,7 +1,6 @@
 export { cliRun } from './utils/cliRun.ts'
 export * from './shared/index.ts'
 export * from './utils/index.ts'
-export * from './types.ts'
 export * as info from './commands/info.ts'
 export * as devcontainer from './commands/devcontainer.ts'
 export { loadCommands } from './services/cli/loadCommands.ts'
@@ -9,6 +8,7 @@ export { runCommands } from './services/cli/runCommands.ts'
 export { showHelp } from './services/cli/showHelp.ts'
 export { configGetToolImage } from './services/config/configGetToolImage.ts'
 export { configGetEngineImage } from './services/config/configGetEngineImage.ts'
+export { reportStats } from './utils/reportResult.ts'
 export {
   CMD_DEF_SYMBOL,
   type CmdDefinition,
