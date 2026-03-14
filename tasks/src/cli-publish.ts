@@ -102,10 +102,10 @@ await $({ stdio: 'inherit' })`gh release create v${projectVersionRelease()} \
 console.log('Uploading release files to github...')
 await $({ stdio: 'inherit' })`gh release upload v${projectVersionRelease()} \
  ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-install.sh \
- ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-x86_64-unknown-linux-gnu.zip \
- ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-aarch64-unknown-linux-gnu.zip \
- ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-x86_64-apple-darwin.zip \
- ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-aarch64-apple-darwin.zip`
+ ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-x86_64-unknown-linux-gnu.zip \
+ ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-aarch64-unknown-linux-gnu.zip \
+ ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-x86_64-apple-darwin.zip \
+ ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-aarch64-apple-darwin.zip`
 
 console.log(
   `https://github.com/dinghydev/dinghy/releases/download/v${projectVersionRelease()}/dinghy-${projectVersionRelease()}-install.sh`,
