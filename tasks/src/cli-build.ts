@@ -11,7 +11,8 @@ const outputFolder = `${cliOutputFolder}/${arch}`
 const releaseFolder = `${cliOutputFolder}/release`
 
 const outputFile = `${outputFolder}/dinghy`
-const zipFile = `${releaseFolder}/dinghy-cli-${projectVersionRelease()}-${arch}.zip`
+const zipFile =
+  `${releaseFolder}/dinghy-cli-${projectVersionRelease()}-${arch}.zip`
 
 await Deno.mkdir(outputFolder, { recursive: true })
 await Deno.mkdir(releaseFolder, { recursive: true })
