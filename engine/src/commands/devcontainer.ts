@@ -120,9 +120,12 @@ function populateMounts(
 }
 
 async function loadSiteConfig(args: Args): Promise<[any, string | undefined]> {
-  if (args['engine'] || (args['site'] === undefined && !dinghyAppConfig.site)) {
-    return [undefined, undefined]
+  if (!args['engine']) {
+    const siteDir = resolveSiteDir(args)
+    const siteConfig = await resolveSiteConfig(siteDir)
+    if (Object.keys(siteConfig).length) {
+      return [siteConfig, siteDir]
+    }
   }
-  const siteDir = resolveSiteDir(args)
-  return [await resolveSiteConfig(siteDir), siteDir]
+  return [undefined, undefined]
 }
