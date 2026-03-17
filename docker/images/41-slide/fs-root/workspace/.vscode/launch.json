@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "slide start",
+      "type": "node",
+      "request": "launch",
+      "cwd": "/workspace/.dinghy/slide",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "start",
+      ],
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "/workspace/.dinghy/slide/**",
+        "**/node_modules/.vite-temp/**"
+      ]
+    },
+    {
+      "name": "slide build",
+      "type": "node",
+      "request": "launch",
+      "cwd": "/workspace/.dinghy/slide",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "build",
+      ],
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "/workspace/.dinghy/slide/**",
+        "**/node_modules/.vite-temp/**"
+      ]
+    },
+    {
+      "name": "slide serve",
+      "type": "node",
+      "request": "launch",
+      "cwd": "/workspace/.dinghy/slide",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "serve",
+      ],
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "/workspace/.dinghy/slide/**",
+        "**/node_modules/.vite-temp/**"
+      ]
+    },
+  ]
+}

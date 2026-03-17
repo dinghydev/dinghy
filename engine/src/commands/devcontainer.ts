@@ -22,6 +22,12 @@ import {
 } from '../services/docusaurus/runDocusaurusImageCmd.ts'
 const debug = Debug('devcontainer')
 
+type ProjectType = {
+  type: 'engine' | 'site' | 'slide'
+  siteConfig?: any
+  siteDir?: string
+}
+
 export const run = async (args: Args) => {
   const configFolder = `${hostAppHome}/.devcontainer`
   if (existsSync(configFolder)) {
@@ -31,24 +37,24 @@ export const run = async (args: Args) => {
     return
   }
 
-  const [siteConfig, siteDir] = await loadSiteConfig(args)
+  const projectType = await detectProjectType(args)
 
   const configFile = `${hostAppHome}/.devcontainer.json`
   const config: any = dinghyAppConfig.devcontainer?.json || {}
   config.name ??= hostAppHome.split('/').pop()
   config.runArgs ??= ['--name', config.name]
   if (!config.build) {
-    if (siteConfig) {
-      config.image = await configGetToolImage('site')
-    } else {
+    if (projectType.type === 'engine') {
       config.image = await configGetEngineImage()
+    } else {
+      config.image = await configGetToolImage(projectType.type)
     }
   }
 
-  populateEnvs(config, siteConfig)
-  populateMounts(config, siteConfig, siteDir!, args)
+  populateEnvs(config, projectType)
+  populateMounts(config, projectType, args)
   config.workspaceFolder ??= args.workspace ||
-    (siteConfig ? '/opt/docusaurus' : '/workspace')
+    (projectType.siteConfig ? '/opt/docusaurus' : '/workspace')
   // config.onCreateCommand ??= "on-devcontainer-create.ts";
 
   config.customizations ??= {
@@ -78,20 +84,17 @@ export const run = async (args: Args) => {
   )
 }
 
-function populateEnvs(config: any, siteConfig: any) {
+function populateEnvs(config: any, projectType: ProjectType) {
   config.containerEnv = getDockerEnvs(config.containerEnv || {})
   config.containerEnv.DINGHY_CLI_VERSION = projectVersionRelease()
-  config.containerEnv.DOCKER_IMAGE = Deno.env.get('DOCKER_IMAGE') ||
-    config.image
-  if (siteConfig) {
-    resolveSiteConfigJson(siteConfig, config.containerEnv)
+  if (projectType.siteConfig) {
+    resolveSiteConfigJson(projectType.siteConfig, config.containerEnv)
   }
 }
 
 function populateMounts(
   config: any,
-  siteConfig: any,
-  siteDir: string,
+  projectType: ProjectType,
   args: Args,
 ) {
   if (config.mounts) {
@@ -106,26 +109,87 @@ function populateMounts(
       })
     )
   }
-  if (siteConfig) {
-    for (const f of Deno.readDirSync(siteDir)) {
+  if (projectType.siteConfig) {
+    for (const f of Deno.readDirSync(projectType.siteDir!)) {
       mounts.push({
-        source: `${siteDir}/${f.name}`,
+        source: `${projectType.siteDir!}/${f.name}`,
         target: `/opt/docusaurus/${f.name}`,
       })
     }
+  }
+  if (projectType.type === 'slide') {
+    mounts.push({
+      source: `${hostAppHome}/slides`,
+      target: `/workspace/.dinghy/slide/slides`,
+    })
+    let outputDir = args.output
+    if (outputDir.startsWith('/')) {
+      outputDir = `${hostAppHome}/${outputDir}`
+    }
+    if (!existsSync(outputDir)) {
+      Deno.mkdirSync(outputDir, { recursive: true })
+    }
+    mounts.push({
+      source: outputDir,
+      target: `/workspace/.dinghy/slide/output`,
+    })
   }
   config.mounts = getDockerMounts(mounts, true).map((mount) =>
     `source=${mount.source},target=${mount.target},type=bind`
   )
 }
 
-async function loadSiteConfig(args: Args): Promise<[any, string | undefined]> {
-  if (!args['engine']) {
-    const siteDir = resolveSiteDir(args)
-    const siteConfig = await resolveSiteConfig(siteDir)
-    if (Object.keys(siteConfig).length) {
-      return [siteConfig, siteDir]
+async function detectProjectType(
+  args: Args,
+): Promise<ProjectType> {
+  if (args['engine']) {
+    return { type: 'engine' }
+  }
+  if (args['site']) {
+    const { siteConfig, siteDir } = await loadSiteConfig(args)
+    return {
+      type: 'site',
+      siteConfig,
+      siteDir,
     }
   }
-  return [undefined, undefined]
+  if (args['slide']) {
+    return { type: 'slide' }
+  }
+
+  if (projectContainsApps()) {
+    return { type: 'engine' }
+  }
+  if (existsSync(`${hostAppHome}/slides`)) {
+    return { type: 'slide' }
+  }
+  const { siteConfig, siteDir } = await loadSiteConfig(args)
+  if (siteConfig) {
+    return {
+      type: 'site',
+      siteConfig,
+      siteDir,
+    }
+  }
+  return { type: 'engine' }
+}
+
+function projectContainsApps(): boolean {
+  for (const dirEntry of Deno.readDirSync(hostAppHome)) {
+    if (dirEntry.name.endsWith('.tsx')) {
+      return true
+    }
+  }
+  return false
+}
+
+async function loadSiteConfig(
+  args: Args,
+): Promise<{ siteConfig: any; siteDir: string | undefined }> {
+  const siteDir = resolveSiteDir(args)
+  const siteConfig = await resolveSiteConfig(siteDir)
+  if (Object.keys(siteConfig).length) {
+    return { siteConfig, siteDir }
+  }
+  return { siteConfig: undefined, siteDir: undefined }
 }

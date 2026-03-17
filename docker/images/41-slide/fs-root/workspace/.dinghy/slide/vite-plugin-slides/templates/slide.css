@@ -1,0 +1,65 @@
+:root {
+  --r-heading-text-transform: none;
+}
+
+.badge {
+  display: inline;
+  background: color-mix(in srgb, var(--r-link-color) 15%, transparent);
+  border: 1px solid var(--r-link-color);
+  color: var(--r-link-color);
+  border-radius: 999px;
+  padding: 0.18em 0.85em;
+  font-size: 0.52em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-bottom: 0.4em;
+}
+/* Zoom and Pan Section */
+.zp-section {
+  padding: 0;
+}
+.zip-container {
+  position: relative;
+  width: 100%;
+}
+.zp-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  transition: opacity 0.3s ease;
+}
+
+img.zp-img {
+  margin: 0;
+}
+.grid {
+  display: grid;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+div.icon {
+  display: inline-flex;
+  align-items: center;
+  height: 120px;
+  gap: 0.4em;
+  margin: 1em 0;
+}
+div.icon img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+div.icon span {
+  font-size: 2em;
+  line-height: 1;
+}

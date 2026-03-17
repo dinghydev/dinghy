@@ -134,6 +134,38 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "slide",
+      "args": [
+        "slide",
+        "start",
+        // "build",
+        // "serve",
+        // "deploy",
+        // "--debug",
+        // "bash",
+        // "-h",
+        // "--debug",
+        "--output",
+        "${workspaceFolder}/../sites/www/output"
+      ],
+      "program": "src/index.ts",
+      "env": {
+        // "DEBUG_DEPTH": "10",
+        // "CI": "true",
+        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+      ],
+      "attachSimplePort": 0,
+      "killBehavior": "polite",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "generate schema docs",
       "args": [],
       "program": "src/generate-schema-docs.ts",

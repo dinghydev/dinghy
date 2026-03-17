@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><!--TITLE--></title>
+    <!--FAVICON-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!--SECTIONS-->
+      </div>
+    </div>
+    <script type="module">
+      import 'reveal.js/dist/reveal.css'
+      import 'reveal.js/dist/theme/<!--THEME-->.css'
+      <!--PLUGIN_CSS-->
+      import Reveal from 'reveal.js'
+      <!--PLUGIN_IMPORTS-->
+      const deck = new Reveal({ ...<!--REVEAL_CONFIG-->, plugins: [<!--PLUGIN_LIST-->] })
+      deck.initialize().then(() => {
+        deck.on('slidechanged', ({ currentSlide }) => {
+          const t = currentSlide.querySelector('.zp-title')
+          if (t) {
+            if (t._zpTimer) clearTimeout(t._zpTimer)
+            t.style.opacity = '1'
+            t._zpTimer = setTimeout(() => { t.style.opacity = '0' }, 2000)
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
