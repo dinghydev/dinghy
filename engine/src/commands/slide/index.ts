@@ -1,4 +1,8 @@
-import type { OptionInput } from '@dinghy/cli'
+import type { CmdInput, OptionInput } from '@dinghy/cli'
+
+export const schema: CmdInput = {
+  description: 'Slide related operations',
+}
 
 export const globalOptions: OptionInput[] = [
   {
@@ -16,10 +20,12 @@ export const globalOptions: OptionInput[] = [
     name: 'slide-output-dev',
     description: 'The directory name for slide dev server in output directory',
     default: 'slides-dev',
+    env: 'DINGHY_SLIDE_OUTPUT_DEV_DIR',
   },
   {
     name: 'slide-output-build',
     description: 'The directory name for slide build in output directory',
     default: 'slides-build',
+    env: 'DINGHY_SLIDE_OUTPUT_BUILD_DIR',
   },
 ]

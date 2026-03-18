@@ -29,6 +29,7 @@ export async function loadGlobalConfig() {
   let loadedConfig = false
   for (const file of [...dinghyConfigFiles].reverse()) {
     if (fs.existsSync(file)) {
+      debug('loading config file %s', file)
       const config = yaml.parse(Deno.readTextFileSync(file))
       if (config) {
         deepMerge(dinghyAppConfig, config)
@@ -111,6 +112,7 @@ async function loadEnvFile(path: string) {
   if (!(await fs.exists(path))) {
     return
   }
+  debug('loading env file %s', path)
 
   for (const line of Deno.readTextFileSync(path).split(/\r?\n/)) {
     const index = line.indexOf('=')

@@ -4,7 +4,6 @@ import { appHomeMount, dinghyHome, hostAppHome } from '../../shared/home.ts'
 import { runDockerCmd } from '../../utils/dockerUtils.ts'
 import { projectVersionRelease } from '../../utils/projectVersions.ts'
 import { ExecaError } from 'execa'
-import { walk } from '@std/fs/walk'
 import { existsSync } from '@std/fs/exists'
 
 import { run as cacheRun } from '../../commands/docker/cache.ts'
@@ -62,20 +61,6 @@ function collectDockerArgs(originalArgs: string[]) {
   return dockerArgs
 }
 
-async function collectDinghyFileOverrideMount() {
-  const dotDinghyFiles: any[] = []
-  const overrideDir = `${hostAppHome}/.dinghy_file_override`
-  if (existsSync(overrideDir)) {
-    for await (const entry of walk(overrideDir, { includeDirs: false })) {
-      const source = entry.path
-      const target = entry.path.replace(overrideDir, '/dinghy')
-      debug('Mounting override file: %s => %s', source, target)
-      dotDinghyFiles.push({ source, target })
-    }
-  }
-  return dotDinghyFiles
-}
-
 export async function runEngineCommand(args: string[]) {
   let workingDir = appHomeMount
   if (args[0] !== 'bash') {
@@ -90,7 +75,7 @@ export async function runEngineCommand(args: string[]) {
     await runDockerCmd(
       workingDir,
       { DINGHY_CLI_VERSION: projectVersionRelease() },
-      await collectDinghyFileOverrideMount(),
+      [],
       args,
       await configGetEngineImage(),
       false,

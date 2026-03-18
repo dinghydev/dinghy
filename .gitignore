@@ -11,6 +11,7 @@
 /build
 /output
 sites/*/output
+docker/builders/*/output
 sites/www/src/docs/examples/show-cases/output
 **/output/site
 **/Dockerfile

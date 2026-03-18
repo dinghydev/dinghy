@@ -30,6 +30,7 @@ export const generationSchema: CmdInput = {
     {
       name: 'slide',
       description: 'Ignore the image detection and use the slide image.',
+      boolean: true,
     },
   ],
 }

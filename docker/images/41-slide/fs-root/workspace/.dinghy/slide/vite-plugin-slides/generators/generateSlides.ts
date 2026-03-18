@@ -57,8 +57,8 @@ function generateSlide(
 
 export function generateSlides(): { inlineAssets: boolean } {
   const { config: globalConfig, slides, trailingSlash } = loadSlidesData();
-  const inlineAssets = process.env.INLINE_ASSETS !== undefined
-    ? process.env.INLINE_ASSETS !== "false"
+  const inlineAssets = process.env.DINGHY_SLIDE_INLINE_ASSETS !== undefined
+    ? process.env.DINGHY_SLIDE_INLINE_ASSETS !== "false"
     : globalConfig.inlineAssets !== false;
 
   if (Object.keys(slides).length === 0) {

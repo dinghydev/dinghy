@@ -117,8 +117,8 @@ export const runSlideImageCmd = async (
     source: outputDir,
     target: `/workspace/.dinghy/slide/output`,
   })
-  dockerEnvs['SLIDE_OUTPUT_DEV_DIR'] = args['slide-output-dev']
-  dockerEnvs['SLIDE_OUTPUT_BUILD_DIR'] = args['slide-output-build']
+  dockerEnvs['DINGHY_SLIDE_OUTPUT_DEV_DIR'] = args['slide-output-dev']
+  dockerEnvs['DINGHY_SLIDE_OUTPUT_BUILD_DIR'] = args['slide-output-build']
   for (
     const vs of [
       ...(volumes || []),

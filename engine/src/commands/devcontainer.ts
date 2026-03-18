@@ -100,15 +100,19 @@ function populateMounts(
   if (config.mounts) {
     return
   }
-  const mounts: any[] = [...(args.volumns || [])]
-  if (args.volumns) {
-    args.volumns?.map((mount: string) =>
-      mounts.push({
-        source: mount.split(':')[0],
-        target: mount.split(':')[1],
-      })
-    )
+  const mounts: any[] = []
+  if (dinghyAppConfig.devcontainer?.volumns) {
+    mounts.push(...dinghyAppConfig.devcontainer?.volumns)
   }
+  const mountsSource: string[] = [
+    ...(args.volumns || []),
+  ]
+  mountsSource.map((mount: string) =>
+    mounts.push({
+      source: mount.split(':')[0],
+      target: mount.split(':')[1],
+    })
+  )
   if (projectType.siteConfig) {
     for (const f of Deno.readDirSync(projectType.siteDir!)) {
       mounts.push({
@@ -142,36 +146,39 @@ function populateMounts(
 async function detectProjectType(
   args: Args,
 ): Promise<ProjectType> {
+  let type: string | undefined = dinghyAppConfig.devcontainer?.type
+  let siteConfig, siteDir
   if (args['engine']) {
-    return { type: 'engine' }
-  }
-  if (args['site']) {
+    type = 'engine'
+  } else if (args['site']) {
+    type = 'site'
     const { siteConfig, siteDir } = await loadSiteConfig(args)
     return {
       type: 'site',
       siteConfig,
       siteDir,
     }
+  } else if (args['slide']) {
+    type = 'slide'
   }
-  if (args['slide']) {
-    return { type: 'slide' }
-  }
-
-  if (projectContainsApps()) {
-    return { type: 'engine' }
-  }
-  if (existsSync(`${hostAppHome}/slides`)) {
-    return { type: 'slide' }
-  }
-  const { siteConfig, siteDir } = await loadSiteConfig(args)
-  if (siteConfig) {
-    return {
-      type: 'site',
-      siteConfig,
-      siteDir,
+  if (!type) {
+    if (projectContainsApps()) {
+      type = 'engine'
+    } else if (existsSync(`${hostAppHome}/slides`)) {
+      type = 'slide'
+    } else {
+      ;({ siteConfig, siteDir } = await loadSiteConfig(args))
+      if (siteConfig) {
+        type = 'site'
+      }
     }
   }
-  return { type: 'engine' }
+  if (!type) {
+    type = 'engine'
+  } else if (type === 'site' && !siteDir) {
+    ;({ siteConfig, siteDir } = await loadSiteConfig(args))
+  }
+  return { type: type as 'engine', siteConfig, siteDir }
 }
 
 function projectContainsApps(): boolean {

@@ -8,7 +8,7 @@ export const SLIDES_DIR = path.join(
 export const SLIDES_YML = path.join(SLIDES_DIR, "slides.yml");
 export const OUTPUT_DEV_DIR = path.resolve(
   "output",
-  process.env.DINGHY_SLIDE_OUTPUT_BUILD_DIR ?? "slides-dev",
+  process.env.DINGHY_SLIDE_OUTPUT_DEV_DIR ?? "slides-dev",
 );
 export const BASE = (process.env.DINGHY_SLIDE_BASE_URL ?? "/").replace(
   /\/?$/,

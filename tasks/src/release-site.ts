@@ -9,6 +9,11 @@ if (import.meta.main) {
       set -e
       cd ../engine/
       deno run -A src/index.ts site build --app-home ./../sites/ --site ${site}
+      ${
+      site === 'www'
+        ? 'DINGHY_SLIDE_INLINE_ASSETS=false DINGHY_SLIDE_BASE_URL=/slides/ DINGHY_SLIDE_TRAILING_SLASH=true deno run -A src/index.ts slide build --app-home ./../sites/www/src/docs/examples/show-cases --output ../../../../output --slide-output-build site/slides'
+        : ''
+    }
       deno run -A src/index.ts site deploy --app-home ./../sites/ --site ${site}
     `,
   })`sh`

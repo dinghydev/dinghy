@@ -5,7 +5,7 @@ import slidesPlugin from "./vite-plugin-slides/index";
 export default defineConfig({
   root: path.resolve(
     "output",
-    process.env.DINGHY_SLIDE_OUTPUT_BUILD_DIR ?? "slides-dev",
+    process.env.DINGHY_SLIDE_OUTPUT_DEV_DIR ?? "slides-dev",
   ),
   base: process.env.DINGHY_SLIDE_BASE_URL ?? "/",
   appType: "mpa",

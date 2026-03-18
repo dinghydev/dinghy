@@ -21,6 +21,7 @@ type Mount = {
   source: string
   target: string
   check?: string
+  skipCheck?: boolean
 }
 
 type Env = Record<string, any>
@@ -119,6 +120,7 @@ export function getDockerMounts(
   })
 
   const result = mounts.filter((mount) =>
+    mount.skipCheck ||
     existsSync(mount.check || mount.source) || existsSync(mount.source)
   )
 
