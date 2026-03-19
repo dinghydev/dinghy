@@ -1,13 +1,13 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import slidesPlugin from "./vite-plugin-slides/index";
+import { createContext } from "./vite-plugin-slides/config/context";
+
+const ctx = createContext();
 
 export default defineConfig({
-  root: path.resolve(
-    "output",
-    process.env.DINGHY_SLIDE_OUTPUT_DEV_DIR ?? "slides-dev",
-  ),
-  base: process.env.DINGHY_SLIDE_BASE_URL ?? "/",
+  root: ctx.outputDevDir,
+  base: ctx.globalConfig.baseUrl,
   appType: "mpa",
   server: {
     port: 3000,
@@ -21,11 +21,11 @@ export default defineConfig({
   build: {
     outDir: path.resolve(
       "output",
-      process.env.DINGHY_SLIDE_OUTPUT_BUILD_DIR ?? "slides-build",
+      ctx.outputBuildDir,
     ),
     emptyOutDir: false,
   },
   plugins: [
-    slidesPlugin(),
+    slidesPlugin(ctx),
   ],
 });

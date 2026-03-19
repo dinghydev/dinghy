@@ -4,15 +4,9 @@ import yaml from "js-yaml";
 import { z } from "zod";
 import { handleSlideError } from "../generators/handleSlideError";
 
-import {
-  RevealGlobalConfig,
-  RevealGlobalConfigSchema,
-  Slide,
-  SlideSchema,
-  SlidesData,
-} from "./schemas";
-import { SLIDES_DIR, SLIDES_YML } from "./constants";
+import { Slide, SlideSchema } from "./schemas";
 import { logger } from "../utils/logger";
+import { Context } from "./context";
 
 function loadFile(
   f: string,
@@ -60,8 +54,8 @@ function loadReferencedFiles(
   }
 }
 
-function loadSlide(name: string): Record<string, unknown> {
-  const dir = path.join(SLIDES_DIR, name);
+function loadSlide(name: string, ctx: Context): Record<string, unknown> {
+  const dir = path.join(ctx.slidesDir, name);
   const slideYml = path.join(dir, "slide.yml");
   const raw: Record<string, unknown> = fs.existsSync(slideYml)
     ? (yaml.load(fs.readFileSync(slideYml, "utf-8")) as Record<
@@ -96,45 +90,25 @@ function loadSlide(name: string): Record<string, unknown> {
   return raw;
 }
 
-export function loadSlidesData(): SlidesData {
-  let globalConfig: RevealGlobalConfig = RevealGlobalConfigSchema.parse({});
-  const rawSlidesMap: Record<string, unknown> = {};
-
-  // load from slides/slides.yml
-  if (fs.existsSync(SLIDES_YML)) {
-    const rawYml = (yaml.load(fs.readFileSync(SLIDES_YML, "utf-8")) as Record<
-      string,
-      unknown
-    >) ?? {};
-    const { slides: rawSlidesRecord, ...rootConfig } = rawYml;
-    const { config: nestedConfig, ...rawSlides } =
-      (rawSlidesRecord as Record<string, unknown> | undefined) ?? {};
-    globalConfig = RevealGlobalConfigSchema.parse({
-      ...rootConfig,
-      ...(nestedConfig as Record<string, unknown> ?? {}),
-    });
-    Object.assign(rawSlidesMap, rawSlides);
-  }
-
-  const trailingSlash = process.env.DINGHY_SLIDE_TRAILING_SLASH !== undefined
-    ? process.env.DINGHY_SLIDE_TRAILING_SLASH === "true"
-    : globalConfig.trailingSlash === true;
-
-  // 3+4: scan slides/ folder; each subfolder with a slide.yml is a slide
-  if (fs.existsSync(SLIDES_DIR)) {
-    for (const entry of fs.readdirSync(SLIDES_DIR, { withFileTypes: true })) {
+export function loadSlidesData(
+  ctx: Context,
+): Record<string, z.infer<typeof SlideSchema>> {
+  if (fs.existsSync(ctx.slidesDir)) {
+    for (
+      const entry of fs.readdirSync(ctx.slidesDir, { withFileTypes: true })
+    ) {
       if (!entry.isDirectory()) continue;
       try {
-        const raw = loadSlide(entry.name);
+        const raw = loadSlide(entry.name, ctx);
         if (raw.sections) {
-          rawSlidesMap[entry.name] = raw;
+          ctx.slides[entry.name] = raw;
         } else {
           logger.warn(`[slides] No sections found in ${entry.name}`);
         }
       } catch (err) {
         handleSlideError(
           { name: entry.name } as unknown as Slide,
-          trailingSlash,
+          ctx,
           err,
         );
       }
@@ -144,14 +118,14 @@ export function loadSlidesData(): SlidesData {
   // Parse slides, using globalConfig as defaults for each slide's config
   const slides: Record<string, z.infer<typeof SlideSchema>> = {};
 
-  for (const [name, rawSlide] of Object.entries(rawSlidesMap)) {
+  for (const [name, rawSlide] of Object.entries(ctx.slides)) {
     try {
       const raw = rawSlide as Record<string, unknown>;
       raw.name ??= name;
       const slide = SlideSchema.parse({
         ...raw,
         config: {
-          ...globalConfig,
+          ...ctx.globalConfig,
           ...(raw.config as Record<string, unknown> ?? {}),
         },
       });
@@ -163,11 +137,11 @@ export function loadSlidesData(): SlidesData {
     } catch (err) {
       handleSlideError(
         rawSlide as unknown as Slide,
-        trailingSlash,
+        ctx,
         err,
       );
     }
   }
 
-  return { config: globalConfig, slides, trailingSlash };
+  return slides;
 }

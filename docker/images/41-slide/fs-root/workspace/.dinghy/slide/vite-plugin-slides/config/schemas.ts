@@ -156,9 +156,10 @@ export const RevealConfigSchema = z.object({
 export type RevealConfig = z.infer<typeof RevealConfigSchema>;
 
 export const RevealGlobalConfigSchema = RevealConfigSchema.extend({
+  baseUrl: z.string().default("/"),
   generateSlidesIndex: z.boolean().default(true),
-  trailingSlash: z.boolean().optional(),
-  inlineAssets: z.boolean().optional(),
+  trailingSlash: z.boolean().default(false),
+  inlineAssets: z.boolean().default(true),
 });
 
 export type RevealGlobalConfig = z.infer<typeof RevealGlobalConfigSchema>;
@@ -173,9 +174,3 @@ export const SlideSchema = z.object({
 
 export type Section = z.infer<typeof SectionSchema>;
 export type Slide = z.infer<typeof SlideSchema>;
-
-export interface SlidesData {
-  config: RevealGlobalConfig;
-  slides: Record<string, z.infer<typeof SlideSchema>>;
-  trailingSlash: boolean;
-}

@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import minifyHtml from "@minify-html/node";
-import { IMG_ATTRIBUTES, OUTPUT_DEV_DIR, ROOT } from "../config/constants";
+import { IMG_ATTRIBUTES, ROOT } from "../config/constants";
+import { Context } from "../config/context";
 
 function hasAttr(tag: string, attr: string, value: string): boolean {
   return new RegExp(`\\b${attr}=["']${value}["']`).test(tag);
@@ -52,30 +53,38 @@ function inlineChunks(scriptPath: string, seen = new Set<string>()): string {
   );
 }
 
-export function handleWriteBundle(outDir: string, inlineAssets: boolean): void {
+export function handleWriteBundle(outDir: string, ctx: Context): void {
   const toDelete = new Set<string>();
 
-  function resolveImg(src: string, imgPath: string, match: string, replaceSrc: (newSrc: string) => string): string {
-    if (isExternalSrc(src)) return match
-    if (inlineAssets) {
-      const dataUri = imgToDataUri(imgPath)
-      if (!dataUri) return match
-      const distPath = path.join(outDir, src)
-      if (fs.existsSync(distPath)) toDelete.add(distPath)
-      return replaceSrc(dataUri)
+  function resolveImg(
+    src: string,
+    imgPath: string,
+    match: string,
+    replaceSrc: (newSrc: string) => string,
+  ): string {
+    if (isExternalSrc(src)) return match;
+    if (ctx.globalConfig.inlineAssets) {
+      const dataUri = imgToDataUri(imgPath);
+      if (!dataUri) return match;
+      const distPath = path.join(outDir, src);
+      if (fs.existsSync(distPath)) toDelete.add(distPath);
+      return replaceSrc(dataUri);
     }
-    if (!fs.existsSync(imgPath)) return match
-    const content = fs.readFileSync(imgPath)
-    const hash = crypto.createHash("md5").update(content).digest("hex").slice(0, 8)
-    const ext = path.extname(src)
-    const base = path.basename(src, ext)
-    const hashedSrc = `/assets/${base}.${hash}${ext}`
-    const destPath = path.join(outDir, hashedSrc)
+    if (!fs.existsSync(imgPath)) return match;
+    const content = fs.readFileSync(imgPath);
+    const hash = crypto.createHash("md5").update(content).digest("hex").slice(
+      0,
+      8,
+    );
+    const ext = path.extname(src);
+    const base = path.basename(src, ext);
+    const hashedSrc = `/assets/${base}.${hash}${ext}`;
+    const destPath = path.join(outDir, hashedSrc);
     if (!fs.existsSync(destPath)) {
-      fs.mkdirSync(path.dirname(destPath), { recursive: true })
-      fs.copyFileSync(imgPath, destPath)
+      fs.mkdirSync(path.dirname(destPath), { recursive: true });
+      fs.copyFileSync(imgPath, destPath);
     }
-    return replaceSrc(hashedSrc)
+    return replaceSrc(hashedSrc);
   }
 
   function processHTML(htmlPath: string): void {
@@ -83,9 +92,9 @@ export function handleWriteBundle(outDir: string, inlineAssets: boolean): void {
     const slideOutputDir = path.dirname(htmlPath);
     // derive source dir from output dir path relative to outDir
     const rel = path.relative(outDir, slideOutputDir);
-    const slideSourceDir = path.join(OUTPUT_DEV_DIR, rel);
+    const slideSourceDir = path.join(ctx.outputDevDir, rel);
 
-    if (inlineAssets) {
+    if (ctx.globalConfig.inlineAssets) {
       // Remove modulepreload links (any attribute order)
       html = html.replace(/<link\b[^>]*>/g, (tag) => {
         if (hasAttr(tag, "rel", "modulepreload")) return "";
@@ -158,8 +167,13 @@ export function handleWriteBundle(outDir: string, inlineAssets: boolean): void {
             (match: string, pre: string, src: string, post: string) => {
               const imgPath = /^\.\.?\//.test(src)
                 ? path.join(slideSourceDir, src)
-                : path.join(OUTPUT_DEV_DIR, src);
-              return resolveImg(src, imgPath, match, (d) => `${pre}${d}${post}`);
+                : path.join(ctx.outputDevDir, src);
+              return resolveImg(
+                src,
+                imgPath,
+                match,
+                (d) => `${pre}${d}${post}`,
+              );
             },
           );
           return open + inlined + close;
@@ -169,17 +183,35 @@ export function handleWriteBundle(outDir: string, inlineAssets: boolean): void {
 
     // Process IMG_ATTRIBUTES: inline as data URI or copy to outDir
     html = html.replace(
-      new RegExp(`(\\b(?:${IMG_ATTRIBUTES.join("|")})=["'])([^"']+)(["'])`, "g"),
-      (match, pre, src, post) => resolveImg(src, path.join(OUTPUT_DEV_DIR, src), match, (d) => `${pre}${d}${post}`),
+      new RegExp(
+        `(\\b(?:${IMG_ATTRIBUTES.join("|")})=["'])([^"']+)(["'])`,
+        "g",
+      ),
+      (match, pre, src, post) =>
+        resolveImg(
+          src,
+          path.join(ctx.outputDevDir, src),
+          match,
+          (d) => `${pre}${d}${post}`,
+        ),
     );
 
     // Process parallaxBackgroundImage in Reveal config: inline as data URI or copy to outDir
     html = html.replace(
       /\bparallaxBackgroundImage"?\s*:\s*"([^"]+)"/g,
-      (match, src) => resolveImg(src, path.join(OUTPUT_DEV_DIR, src), match, (d) => match.replace(`"${src}"`, `"${d}"`)),
+      (match, src) =>
+        resolveImg(
+          src,
+          path.join(ctx.outputDevDir, src),
+          match,
+          (d) => match.replace(`"${src}"`, `"${d}"`),
+        ),
     );
 
-    const minified = minifyHtml.minify(Buffer.from(html), { minify_css: true, minify_js: true });
+    const minified = minifyHtml.minify(Buffer.from(html), {
+      minify_css: true,
+      minify_js: true,
+    });
     fs.writeFileSync(htmlPath, minified);
   }
 
@@ -187,8 +219,13 @@ export function handleWriteBundle(outDir: string, inlineAssets: boolean): void {
     let js = fs.readFileSync(jsPath, "utf-8");
     js = js.replace(
       /\bparallaxBackgroundImage"?\s*:\s*"([^"]+)"/g,
-      (match, src) => resolveImg(src, path.join(OUTPUT_DEV_DIR, src), match,
-        (d) => match.replace(`"${src}"`, `"${d}"`)),
+      (match, src) =>
+        resolveImg(
+          src,
+          path.join(ctx.outputDevDir, src),
+          match,
+          (d) => match.replace(`"${src}"`, `"${d}"`),
+        ),
     );
     fs.writeFileSync(jsPath, js);
   }
@@ -214,7 +251,7 @@ export function handleWriteBundle(outDir: string, inlineAssets: boolean): void {
   }
   removeEmptyDirs(outDir);
 
-  if (!inlineAssets) return;
+  if (!ctx.globalConfig.inlineAssets) return;
 
   // Copy reveal.js plugin HTML assets (e.g. notes.html) next to each slide
   // After inlining, import.meta.url === page URL so plugins look for their

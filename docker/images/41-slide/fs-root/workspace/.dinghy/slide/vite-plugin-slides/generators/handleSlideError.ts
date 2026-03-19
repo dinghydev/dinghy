@@ -1,12 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import { OUTPUT_DEV_DIR } from "../config/constants";
 import { logger } from "../utils/logger";
 import { Slide } from "../config/schemas";
+import { Context } from "../config/context";
 
 export function handleSlideError(
   slide: Slide,
-  trailingSlash: boolean,
+  ctx: Context,
   err: unknown,
 ): void {
   if (process.argv.includes("build")) {
@@ -14,12 +14,12 @@ export function handleSlideError(
   }
   logger.error(`[slides] Failed to generate slide "${slide.name!}"`, err);
   const slug = slide.slug === undefined ? slide.name! : slide.slug!;
-  const errorOutputDir = (slug === "" || trailingSlash)
-    ? path.join(OUTPUT_DEV_DIR, slug)
-    : OUTPUT_DEV_DIR;
-  const errorOutputPath = (slug === "" || trailingSlash)
+  const errorOutputDir = (slug === "" || ctx.globalConfig.trailingSlash)
+    ? path.join(ctx.outputDevDir, slug)
+    : ctx.outputDevDir;
+  const errorOutputPath = (slug === "" || ctx.globalConfig.trailingSlash)
     ? path.join(errorOutputDir, "index.html")
-    : path.join(OUTPUT_DEV_DIR, `${slug}.html`);
+    : path.join(ctx.outputDevDir, `${slug}.html`);
   fs.mkdirSync(errorOutputDir, { recursive: true });
   const message = err instanceof Error ? err.message : String(err);
   fs.writeFileSync(

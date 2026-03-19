@@ -19,13 +19,13 @@ export const globalOptions: OptionInput[] = [
   {
     name: 'slide-output-dev',
     description: 'The directory name for slide dev server in output directory',
-    default: 'slides-dev',
+    default: 'slide-dev',
     env: 'DINGHY_SLIDE_OUTPUT_DEV_DIR',
   },
   {
     name: 'slide-output-build',
     description: 'The directory name for slide build in output directory',
-    default: 'slides-build',
+    default: 'slide-build',
     env: 'DINGHY_SLIDE_OUTPUT_BUILD_DIR',
   },
 ]

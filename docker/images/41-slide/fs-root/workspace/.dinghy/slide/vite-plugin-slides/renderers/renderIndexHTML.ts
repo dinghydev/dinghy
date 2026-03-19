@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { BASE } from "../config/constants";
+import { Context } from "../config/context";
 
 const template = fs.readFileSync(
   path.join(import.meta.dirname, "../templates/index-template.html"),
@@ -9,10 +9,12 @@ const template = fs.readFileSync(
 
 export function renderIndexHTML(
   entries: { slug: string; label: string }[],
-  trailingSlash: boolean,
+  ctx: Context,
 ): string {
   const links = entries.map(({ slug, label }) => {
-    const href = trailingSlash ? `${BASE}${slug}/` : `${BASE}${slug}.html`;
+    const href = ctx.globalConfig.trailingSlash
+      ? `${ctx.globalConfig.baseUrl}${slug}/`
+      : `${ctx.globalConfig.baseUrl}${slug}.html`;
     return `      <li><a href="${href}">${label}</a></li>`;
   }).join("\n");
   return template.replace("<!--LINKS-->", links);

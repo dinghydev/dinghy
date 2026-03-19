@@ -9,7 +9,16 @@
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
         "start",
+        // "--port",
+        // "4000",
       ],
+      "env": {
+        // "DEBUG": "*",
+        // "DINGHY_SLIDE_THEME": "white",
+        // "DINGHY_SLIDE_INLINE_ASSETS": "false",
+        // "DINGHY_SLIDE_TRAILING_SLASH": "true",
+        // "DINGHY_SLIDE_BASE_URL": "/slides/",
+      },
       "console": "integratedTerminal",
       "sourceMaps": true,
       "resolveSourceMapLocations": [
@@ -26,6 +35,14 @@
       "runtimeArgs": [
         "build",
       ],
+      "env": {
+        // "DEBUG": "*",
+        // "DINGHY_SLIDE_OUTPUT_BUILD_DIR": "site/slide",
+        // "DINGHY_SLIDE_THEME": "white",
+        // "DINGHY_SLIDE_INLINE_ASSETS": "false",
+        // "DINGHY_SLIDE_TRAILING_SLASH": "true",
+        // "DINGHY_SLIDE_BASE_URL": "/slides/",
+      },
       "console": "integratedTerminal",
       "sourceMaps": true,
       "resolveSourceMapLocations": [
@@ -41,7 +58,17 @@
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
         "serve",
+        // "--port",
+        // "4000",
       ],
+      "env": {
+        // "DEBUG": "*",
+        // "DINGHY_SLIDE_OUTPUT_BUILD_DIR": "site/slide",
+        // "DINGHY_SLIDE_THEME": "white",
+        // "DINGHY_SLIDE_INLINE_ASSETS": "false",
+        // "DINGHY_SLIDE_TRAILING_SLASH": "true",
+        // "DINGHY_SLIDE_BASE_URL": "/slides/",
+      },
       "console": "integratedTerminal",
       "sourceMaps": true,
       "resolveSourceMapLocations": [

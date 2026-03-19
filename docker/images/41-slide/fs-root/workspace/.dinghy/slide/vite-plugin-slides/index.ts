@@ -1,7 +1,8 @@
 import path from "node:path";
 import type { Plugin } from "vite";
 import type { NormalizedOutputOptions } from "rollup";
-import { ROOT, SLIDES_DIR, SLIDES_YML } from "./config/constants";
+import { ROOT } from "./config/constants";
+import type { Context } from "./config/context";
 import { generateSlides } from "./generators/generateSlides";
 import { collectMPAInputs } from "./build/collectMPAInputs";
 import { handleWriteBundle } from "./build/writeBundle";
@@ -10,36 +11,36 @@ export { generateSlides } from "./generators/generateSlides";
 
 const PLUGIN_CSS = path.join(ROOT, "vite-plugin-slides/templates/slide.css");
 
-export default function slidesPlugin(): Plugin {
-  let inlineAssets = true;
-
+export default function slidesPlugin(ctx: Context): Plugin {
   return {
     name: "vite-plugin-slides",
 
     config(_, { command }) {
       if (command === "build") {
-        ({ inlineAssets } = generateSlides(true));
+        generateSlides(ctx);
         return {
           build: {
-            assetsInlineLimit: inlineAssets ? Infinity : undefined,
-            rollupOptions: { input: collectMPAInputs() },
+            assetsInlineLimit: ctx.globalConfig.inlineAssets
+              ? Infinity
+              : undefined,
+            rollupOptions: { input: collectMPAInputs(ctx) },
           },
         };
       }
     },
 
     configureServer(server) {
-      generateSlides();
-      server.watcher.add(SLIDES_YML);
-      server.watcher.add(SLIDES_DIR);
+      generateSlides(ctx);
+      server.watcher.add(ctx.slidesYmlFile);
+      server.watcher.add(ctx.slidesDir);
       server.watcher.add(PLUGIN_CSS);
       const onChange = (file: string) => {
         if (
-          file === SLIDES_YML ||
+          file === ctx.slidesYmlFile ||
           file === PLUGIN_CSS ||
-          file.startsWith(SLIDES_DIR + path.sep)
+          file.startsWith(ctx.slidesDir + path.sep)
         ) {
-          generateSlides();
+          generateSlides(ctx);
           server.ws.send({ type: "full-reload" });
         }
       };
@@ -48,7 +49,7 @@ export default function slidesPlugin(): Plugin {
     },
 
     writeBundle(options: NormalizedOutputOptions) {
-      handleWriteBundle(options.dir!, inlineAssets);
+      handleWriteBundle(options.dir!, ctx);
     },
   };
 }

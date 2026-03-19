@@ -3,6 +3,7 @@ import { logger } from "../utils/logger";
 import { renderZoomAndPanSection } from "./renderZoomAndPanSection";
 import { sectionTag } from "./sectionTag";
 import { loadFileFragment } from "../config/loadFileFragment";
+import { Context } from "../config/context";
 
 const SKIP = new Set(["type", "file", "sections"]);
 const ATTRIBUTES = new Set([
@@ -22,10 +23,10 @@ const ALIASES: Record<string, string> = {
   notes: "aside.notes",
 };
 
-function renderGrid(values: unknown[], slide: Slide): string {
+function renderGrid(values: unknown[], slide: Slide, ctx: Context): string {
   const children = values.map((value) => {
     if (typeof value === "object") {
-      return renderValue("div", value as Record<string, unknown>, slide);
+      return renderValue("div", value as Record<string, unknown>, slide, ctx);
     } else {
       return `<div>${value}</div>`;
     }
@@ -41,6 +42,7 @@ function renderValue(
   tag: string,
   value: unknown,
   slide: Slide,
+  ctx: Context,
   parentTag?: string,
 ): string {
   if (
@@ -54,7 +56,7 @@ function renderValue(
     return value;
   }
   if (tag === "file" && typeof value === "string") {
-    const fragment = loadFileFragment(value, slide);
+    const fragment = loadFileFragment(value, slide, ctx);
     if (fragment.type === "markdown") {
       return `<div data-markdown>${renderMarkdownText(fragment.content)}</div>`;
     } else if (fragment.type === "html") {
@@ -75,9 +77,9 @@ function renderValue(
   // array value → repeat element per item
   if (Array.isArray(value)) {
     if (tag === "grid") {
-      return renderGrid(value as unknown[], slide);
+      return renderGrid(value as unknown[], slide, ctx);
     }
-    return value.map((v) => renderValue(tag, v, slide)).join("\n");
+    return value.map((v) => renderValue(tag, v, slide, ctx)).join("\n");
   }
   // object value → collect _-keys as attrs, rest as children
   if (value !== null && typeof value === "object") {
@@ -89,7 +91,7 @@ function renderValue(
       }
     }
     const children = childEntries
-      .map(([k, v]) => renderValue(k, v, slide, tag))
+      .map(([k, v]) => renderValue(k, v, slide, ctx, tag))
       .join("\n");
     const { openTag, closeTag } = buildTag(tag, obj);
     if (tag === "img" && children) {
@@ -134,6 +136,7 @@ function renderMarkdownText(raw: string): string {
 function renderStandardBody(
   section: Record<string, unknown>,
   slide: Slide,
+  ctx: Context,
   parentTag?: string,
 ): string {
   const parts: string[] = [];
@@ -149,7 +152,7 @@ function renderStandardBody(
     }
 
     const tagSpec = ALIASES[key] ?? key;
-    parts.push(renderValue(tagSpec, value, slide, parentTag));
+    parts.push(renderValue(tagSpec, value, slide, ctx, parentTag));
   }
   return parts.filter(Boolean).join("\n          ");
 }
@@ -157,6 +160,7 @@ function renderStandardBody(
 export function renderSection(
   section: Section,
   slide: Slide,
+  ctx: Context,
 ): string {
   const s = section as Record<string, unknown>;
   if (section.html) {
@@ -177,7 +181,7 @@ export function renderSection(
     const { markdown: rawMarkdown, ...rest } = s;
     const markdown = renderMarkdownText(rawMarkdown as string);
 
-    const body = renderStandardBody(rest, slide);
+    const body = renderStandardBody(rest, slide, ctx);
     if (body) {
       return `${
         sectionTag(s)
@@ -191,10 +195,10 @@ export function renderSection(
   const subsections = Array.isArray(s.sections)
     ? s.sections as Section[]
     : undefined;
-  const outerBody = renderStandardBody(s, slide);
+  const outerBody = renderStandardBody(s, slide, ctx);
   const outerSlide = outerBody ? `${sectionTag(s)}${outerBody}</section>` : "";
   if (subsections?.length) {
-    let children = subsections.map((cs) => renderSection(cs, slide)).join(
+    let children = subsections.map((cs) => renderSection(cs, slide, ctx)).join(
       "\n",
     );
     return `${outerSlide}${children}`;

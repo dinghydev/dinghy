@@ -9,5 +9,12 @@ export const logger = {
     }
     console.warn(chalk.yellow(msg));
   },
-  error: (msg: string, err?: unknown) => console.error(chalk.red(msg), err),
+  error: (msg: string, err?: unknown) => {
+    if (
+      process.argv.includes("build") && process.env.IGNORE_WARNINGS !== "true"
+    ) {
+      throw new Error(msg, { cause: err });
+    }
+    console.error(chalk.red(msg), err);
+  },
 };

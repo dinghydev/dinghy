@@ -1,6 +1,6 @@
 import { existsSync, walkSync } from '@std/fs'
 import { dirname, relative, resolve } from 'jsr:@std/path'
-import { dinghyRc } from './loadConfig.ts'
+import { dinghyAppConfig, dinghyRc } from './loadConfig.ts'
 import {
   appHomeMount,
   containerAppHome,
@@ -67,6 +67,7 @@ export function getDockerEnvs(appEnvs: Env = {}) {
 }
 
 export function getDockerMounts(
+  imageName: string,
   appMounts: Mount[],
   isDevContainer = false,
 ): Mount[] {
@@ -87,6 +88,9 @@ export function getDockerMounts(
         target: hostAppHome,
       })
     }
+  }
+  if (dinghyAppConfig.docker?.images?.[imageName]?.volumns) {
+    appMounts.push(...dinghyAppConfig.docker?.images?.[imageName]?.volumns)
   }
 
   mounts.push(...appMounts.map((mount) => {
@@ -185,6 +189,7 @@ export const runDockerCmd = async (
     envs.PROMPT_DIRTRIM = '5'
   }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome
+  const imageName = dockerImage.split(':')[1].split('-').pop()!
   return await (captureOutput ? cmdStreamAndCapture : cmdStream)(
     [
       'docker',
@@ -194,7 +199,7 @@ export const runDockerCmd = async (
       ...Object.entries(getDockerEnvs(envs)).flatMap((
         [k, v],
       ) => ['-e', `${k}=${v}`]),
-      ...getDockerMounts(appMounts).flatMap((
+      ...getDockerMounts(imageName, appMounts).flatMap((
         mount,
       ) => ['--volume', `${mount.source}:${mount.target}`]),
       '--workdir',

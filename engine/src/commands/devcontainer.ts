@@ -138,7 +138,7 @@ function populateMounts(
       target: `/workspace/.dinghy/slide/output`,
     })
   }
-  config.mounts = getDockerMounts(mounts, true).map((mount) =>
+  config.mounts = getDockerMounts(projectType.type, mounts, true).map((mount) =>
     `source=${mount.source},target=${mount.target},type=bind`
   )
 }

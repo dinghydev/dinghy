@@ -1,24 +1,26 @@
 import fs from "node:fs";
 import path from "node:path";
-import { OUTPUT_DEV_DIR, SLIDES_DIR } from "../config/constants";
 import { renderSlideHTML } from "../renderers/renderSlideHTML";
 import { renderIndexHTML } from "../renderers/renderIndexHTML";
 import { loadSlidesData } from "../config/loadSlidesData";
 import { processAssets } from "../renderers/processAssets";
 import { assembleRawHtml } from "../renderers/assembleRawHtml";
 import { handleSlideError } from "./handleSlideError";
+import { Context } from "../config/context";
+import { logger } from "../utils/logger";
+import { Slide } from "../config/schemas";
 
 function generateSlide(
   name: string,
-  slide: ReturnType<typeof loadSlidesData>["slides"][string],
-  trailingSlash: boolean,
+  slide: Slide,
+  ctx: Context,
 ): { slug: string; label: string } | null {
   const slug = slide.slug ?? name;
   const title = slide.title!;
-  const slideOutputDir = (slug === "" || trailingSlash)
-    ? path.join(OUTPUT_DEV_DIR, slug)
-    : OUTPUT_DEV_DIR;
-  const slideSourceDir = path.join(SLIDES_DIR, name);
+  const slideOutputDir = (slug === "" || ctx.globalConfig.trailingSlash)
+    ? path.join(ctx.outputDevDir, slug)
+    : ctx.outputDevDir;
+  const slideSourceDir = path.join(ctx.slidesDir, name);
 
   fs.mkdirSync(slideOutputDir, { recursive: true });
 
@@ -42,52 +44,48 @@ function generateSlide(
     `<style>\n${slideCss}\n</style>\n${rawHtml}`,
     faviconTag,
   );
-  const html = processAssets(combinedHtml, slideSourceDir);
+  const html = processAssets(combinedHtml, slideSourceDir, ctx);
 
   if (slug === "") {
-    fs.writeFileSync(path.join(OUTPUT_DEV_DIR, "index.html"), html);
+    fs.writeFileSync(path.join(ctx.outputDevDir, "index.html"), html);
     return null;
-  } else if (trailingSlash) {
+  } else if (ctx.globalConfig.trailingSlash) {
     fs.writeFileSync(path.join(slideOutputDir, "index.html"), html);
   } else {
-    fs.writeFileSync(path.join(OUTPUT_DEV_DIR, `${slug}.html`), html);
+    fs.writeFileSync(path.join(ctx.outputDevDir, `${slug}.html`), html);
   }
   return { slug, label: title };
 }
 
-export function generateSlides(): { inlineAssets: boolean } {
-  const { config: globalConfig, slides, trailingSlash } = loadSlidesData();
-  const inlineAssets = process.env.DINGHY_SLIDE_INLINE_ASSETS !== undefined
-    ? process.env.DINGHY_SLIDE_INLINE_ASSETS !== "false"
-    : globalConfig.inlineAssets !== false;
-
+export function generateSlides(ctx: Context) {
+  const slides = loadSlidesData(ctx);
   if (Object.keys(slides).length === 0) {
-    console.error("No slides found");
-    process.exit(1);
+    logger.error("No slides found");
+    return;
   }
 
-  fs.mkdirSync(OUTPUT_DEV_DIR, { recursive: true });
+  fs.mkdirSync(ctx.outputDevDir, { recursive: true });
 
   const entries: { slug: string; label: string }[] = [];
   let hasRootSlide = false;
 
   for (const [name, slide] of Object.entries(slides)) {
     try {
-      const entry = generateSlide(name, slide, trailingSlash);
+      const entry = generateSlide(name, slide, ctx);
       if (entry === null) {
         hasRootSlide = true;
       } else {
         entries.push(entry);
       }
     } catch (err) {
-      handleSlideError(slide, trailingSlash, err);
+      handleSlideError(slide, ctx, err);
     }
   }
 
-  if (!hasRootSlide && globalConfig.generateSlidesIndex) {
+  if (!hasRootSlide && ctx.globalConfig.generateSlidesIndex) {
     fs.writeFileSync(
-      path.join(OUTPUT_DEV_DIR, "index.html"),
-      renderIndexHTML(entries, trailingSlash),
+      path.join(ctx.outputDevDir, "index.html"),
+      renderIndexHTML(entries, ctx),
     );
   }
 
@@ -96,5 +94,4 @@ export function generateSlides(): { inlineAssets: boolean } {
     ...entries.map((e) => e.slug),
   ];
   console.log(`[slides] Generated: ${slugs.join(", ") || "(none)"}`);
-  return { inlineAssets };
 }

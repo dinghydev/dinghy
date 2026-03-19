@@ -1,21 +1,30 @@
 devcontainer:
   type: slide
   volumns:
-    - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/vite-plugin-slides
-      target: /workspace/.dinghy/slide/vite-plugin-slides
+    - source: ../../images/41-slide/fs-root/workspace/.vscode
+      target: /workspace/.vscode
       skipCheck: true
-    - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/package.json
-      target: /workspace/.dinghy/slide/package.json
-      skipCheck: true
-    - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/tsconfig.json
-      target: /workspace/.dinghy/slide/tsconfig.json
-      skipCheck: true
-    - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/vite.config.ts
-      target: /workspace/.dinghy/slide/vite.config.ts
-      skipCheck: true
-    - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/yarn.lock
-      target: /workspace/.dinghy/slide/yarn.lock
-      skipCheck: true
-    - source: ../../../sites/www/src/docs/examples/show-cases/slides
-      target: /workspace/.dinghy/slide/slides
-      skipCheck: true
+  extensions:
+    - anthropic.claude-code
+docker:
+  images:
+    slide:
+      volumns:
+        - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/vite-plugin-slides
+          target: /workspace/.dinghy/slide/vite-plugin-slides
+          skipCheck: true
+        - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/package.json
+          target: /workspace/.dinghy/slide/package.json
+          skipCheck: true
+        - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/tsconfig.json
+          target: /workspace/.dinghy/slide/tsconfig.json
+          skipCheck: true
+        - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/vite.config.ts
+          target: /workspace/.dinghy/slide/vite.config.ts
+          skipCheck: true
+        - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/yarn.lock
+          target: /workspace/.dinghy/slide/yarn.lock
+          skipCheck: true
+        - source: ../../../sites/www/src/docs/examples/show-cases/slides
+          target: /workspace/.dinghy/slide/slides
+          skipCheck: true
