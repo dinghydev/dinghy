@@ -24,7 +24,7 @@ function generateSlide(
 
   fs.mkdirSync(slideOutputDir, { recursive: true });
 
-  const rawHtml = assembleRawHtml(slide);
+  const rawHtml = assembleRawHtml(slide, ctx);
   const slideCss = fs.readFileSync(
     path.join(import.meta.dirname, "../templates/slide.css"),
     "utf-8",
