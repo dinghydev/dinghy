@@ -15,6 +15,7 @@ export const globalOptions: OptionInput[] = [
     name: 'slide-slides-dir',
     description: 'Path to the slides directory',
     env: 'DINGHY_SLIDE_SLIDES_DIR',
+    default: 'slides',
   },
   {
     name: 'slide-output-dev',

@@ -18,7 +18,7 @@ export type Context = {
 export function createContext(): Context {
   const slidesDir = path.join(
     ROOT,
-    process.env.DINGHY_SLIDE_SLIDES_DIR ?? "slides",
+    "slides",
   );
   const slidesYmlFile = process.env.DINGHY_SLIDE_SLIDES_YML !== undefined
     ? path.resolve(ROOT, process.env.DINGHY_SLIDE_SLIDES_YML)

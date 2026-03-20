@@ -35,7 +35,7 @@ export const deployToS3 = async (
       1,
       deployConfig.baseUrl.length - 1,
     )
-  const resolveFileName = (path: string) => {
+  const resolveHtmlFileName = (path: string) => {
     if (path === 'index.html') {
       return ''
     }
@@ -83,9 +83,9 @@ export const deployToS3 = async (
       targetPath += `/${subPath}`
     }
     if (isHtml) {
-      const fileName = resolveFileName(relativePath)
+      const fileName = resolveHtmlFileName(relativePath)
       const isFolderIndex = !deployConfig.trailingSlash &&
-        (relativePath === 'index.html' ||
+        (relativePath.endsWith('index.html') ||
           existsSync(`${entry.path.substring(0, entry.path.length - 5)}`))
       if (isFolderIndex) {
         let s3Key = s3Prefix
@@ -100,6 +100,9 @@ export const deployToS3 = async (
         s3Key = `${s3Key ? `${s3Key}/` : ''}${fileName}`
         if (!s3Key) {
           s3Key = '/'
+        }
+        if (s3Key.endsWith('/index')) {
+          s3Key = s3Key.substring(0, s3Key.length - 5)
         }
         folderFiles[s3Key] = entry.path
         continue

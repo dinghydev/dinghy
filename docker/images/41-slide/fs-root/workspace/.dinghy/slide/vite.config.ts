@@ -24,6 +24,14 @@ export default defineConfig({
       ctx.outputBuildDir,
     ),
     emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        hashCharacters: "hex",
+        assetFileNames: "assets/[name].[hash:8][extname]",
+        chunkFileNames: "assets/[name].[hash:8].js",
+        entryFileNames: "assets/[name].[hash:8].js",
+      },
+    },
   },
   plugins: [
     slidesPlugin(ctx),

@@ -2,7 +2,6 @@ import {
   configGetToolImage,
   deepMerge,
   dinghyAppConfig,
-  DinghyError,
   hostAppHome,
   runDockerCmd,
 } from '@dinghy/cli'
@@ -12,27 +11,12 @@ import path from 'node:path'
 import Debug from 'debug'
 import { onEvent } from '@dinghy/base-components'
 import { Args } from '@std/cli/parse-args'
-const debug = Debug('runDocusaurusCmd')
+const debug = Debug('runSlideImageCmd')
 
 export const resolveSlideDir = (args: Args) => {
   let slideDir = args['slide-slides-dir']
-  if (!slideDir) {
-    slideDir = `${hostAppHome}/slides`
-    if (!existsSync(slideDir)) {
-      throw new DinghyError(
-        `Slide dir ${slideDir} not exists`,
-        'SLIDE_DIR_NOT_FOUND',
-      )
-    }
-  }
   if (!slideDir.startsWith('/')) {
     slideDir = `${hostAppHome}/${slideDir}`
-  }
-  if (!existsSync(slideDir)) {
-    throw new DinghyError(
-      `Slide dir ${slideDir} not exists`,
-      'SLIDE_DIR_NOT_EXISTS',
-    )
   }
   debug('Resolved slide dir %s', slideDir)
   return slideDir
@@ -109,10 +93,12 @@ export const runSlideImageCmd = async (
   }
 
   const dockerVolumnes = [] as any[]
-  dockerVolumnes.push({
-    source: `${slideDir}`,
-    target: `/workspace/.dinghy/slide/slides`,
-  })
+  if (existsSync(slideDir)) {
+    dockerVolumnes.push({
+      source: `${slideDir}`,
+      target: `/workspace/.dinghy/slide/slides`,
+    })
+  }
   dockerVolumnes.push({
     source: outputDir,
     target: `/workspace/.dinghy/slide/output`,

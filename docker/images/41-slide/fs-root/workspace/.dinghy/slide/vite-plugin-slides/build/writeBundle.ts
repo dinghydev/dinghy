@@ -18,6 +18,13 @@ function isExternalSrc(src: string): boolean {
   return /^(https?:\/\/|data:)/.test(src);
 }
 
+function urlToDistPath(urlPath: string, base: string): string {
+  if (base !== "/" && urlPath.startsWith(base)) {
+    return urlPath.slice(base.length);
+  }
+  return urlPath.startsWith("/") ? urlPath.slice(1) : urlPath;
+}
+
 function imgToDataUri(imgPath: string): string | null {
   if (!fs.existsSync(imgPath)) return null;
   const ext = path.extname(imgPath).slice(1).toLowerCase();
@@ -78,8 +85,9 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
     );
     const ext = path.extname(src);
     const base = path.basename(src, ext);
-    const hashedSrc = `/assets/${base}.${hash}${ext}`;
-    const destPath = path.join(outDir, hashedSrc);
+    const assetRelPath = `assets/${base}.${hash}${ext}`;
+    const hashedSrc = `${ctx.globalConfig.baseUrl}${assetRelPath}`;
+    const destPath = path.join(outDir, assetRelPath);
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(path.dirname(destPath), { recursive: true });
       fs.copyFileSync(imgPath, destPath);
@@ -106,7 +114,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
         if (!hasAttr(tag, "rel", "icon")) return tag;
         const href = getAttr(tag, "href");
         if (!href) return tag;
-        const assetPath = path.join(outDir, href);
+        const assetPath = path.join(outDir, urlToDistPath(href, ctx.globalConfig.baseUrl));
         const dataUri = imgToDataUri(assetPath);
         if (!dataUri) return tag;
         toDelete.add(assetPath);
@@ -118,7 +126,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
         if (!hasAttr(tag, "rel", "stylesheet")) return tag;
         const href = getAttr(tag, "href");
         if (!href) return tag;
-        const assetPath = path.join(outDir, href);
+        const assetPath = path.join(outDir, urlToDistPath(href, ctx.globalConfig.baseUrl));
         if (!fs.existsSync(assetPath)) return tag;
         toDelete.add(assetPath);
         return `<style>${fs.readFileSync(assetPath, "utf-8")}</style>`;
@@ -129,7 +137,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
         if (!hasAttr(tag, "type", "module")) return tag;
         const src = getAttr(tag, "src");
         if (!src) return tag;
-        const assetPath = path.join(outDir, src);
+        const assetPath = path.join(outDir, urlToDistPath(src, ctx.globalConfig.baseUrl));
         if (!fs.existsSync(assetPath)) return tag;
         toDelete.add(assetPath);
         return `<script type="module">${inlineChunks(assetPath)}</script>`;

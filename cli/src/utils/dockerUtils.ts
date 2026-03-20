@@ -189,7 +189,7 @@ export const runDockerCmd = async (
     envs.PROMPT_DIRTRIM = '5'
   }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome
-  const imageName = dockerImage.split(':')[1].split('-').pop()!
+  const imageName = dockerImage.split(':')[1].split('-')[0]!
   return await (captureOutput ? cmdStreamAndCapture : cmdStream)(
     [
       'docker',
