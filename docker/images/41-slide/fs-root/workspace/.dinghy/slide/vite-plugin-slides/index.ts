@@ -2,7 +2,7 @@ import path from "node:path";
 import type { Plugin } from "vite";
 import type { NormalizedOutputOptions } from "rollup";
 import { ROOT } from "./config/constants";
-import type { Context } from "./config/context";
+import { type Context, createContext } from "./config/context";
 import { generateSlides } from "./generators/generateSlides";
 import { collectMPAInputs } from "./build/collectMPAInputs";
 import { handleWriteBundle } from "./build/writeBundle";
@@ -40,6 +40,7 @@ export default function slidesPlugin(ctx: Context): Plugin {
           file === PLUGIN_CSS ||
           file.startsWith(ctx.slidesDir + path.sep)
         ) {
+          ctx = createContext();
           generateSlides(ctx);
           server.ws.send({ type: "full-reload" });
         }

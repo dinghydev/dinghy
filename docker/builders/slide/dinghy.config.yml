@@ -25,6 +25,6 @@ docker:
         - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/yarn.lock
           target: /workspace/.dinghy/slide/yarn.lock
           skipCheck: true
-        - source: ../../../sites/www/src/docs/examples/show-cases/slides
+        - source: ../../../sites/www/slides
           target: /workspace/.dinghy/slide/slides
           skipCheck: true
