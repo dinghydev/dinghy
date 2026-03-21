@@ -106,7 +106,7 @@ sections:
             - text: All dinghy docker images version
               ul:
                 li:
-                  - deno.lock
-                  - yarn.lock
+                  - deno version / deno.lock
+                  - node version / yarn.lock
                   - OpenTofu/Terraform version
                   - TF Providers version

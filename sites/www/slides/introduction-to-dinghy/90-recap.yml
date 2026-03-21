@@ -1,0 +1,6 @@
+sections:
+  - badge: recap
+    img:
+      src: imgs/swiss-arm.svg
+      style: width:300px;
+    h3: simple · reliable · flexible

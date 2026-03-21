@@ -3,7 +3,9 @@
 }
 
 .badge {
-  display: inline;
+  margin: 0px auto;
+  text-align: center;
+  display: table;
   background: color-mix(in srgb, var(--r-link-color) 15%, transparent);
   border: 1px solid var(--r-link-color);
   color: var(--r-link-color);

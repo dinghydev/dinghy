@@ -36,7 +36,7 @@ slides/
   slides.yml          ← global config (theme, plugins, …)
   my-talk/            ← one folder = one presentation
     slide.yml         ← sections and per-slide config
-    *.yml / *.md / *.html / *.css  ← auto-loaded, sorted by filename
+    *.yml / *.md / *.html / *.css / favicon.*  ← auto-loaded, sorted by filename
     imgs/             ← images referenced in slides
 output/
   slides-dist/        ← built output
@@ -86,7 +86,7 @@ By visiting http://localhost:3000
 
 ### Auto-loading
 
-Individual `.yml` (excluding `slide.yml`), `.md`, `.html`, and `.css` files
+Individual `.yml` (excluding `slide.yml`), `.md`, `.html`, `.css`, and `favicon.*` files
 placed in the presentation folder are auto-loaded as sections, sorted
 alphabetically by filename. Use a numeric prefix to control order:
 
@@ -95,6 +95,7 @@ my-talk/
   01-intro.md
   02-demo.yml
   03-conclusion.html
+  favicon.svg
 ```
 
 ### YAML DSL
