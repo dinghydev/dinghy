@@ -1,41 +1,43 @@
 type TwoColumnProps = {
-    title: any;
-    subTitle: any;
-    bodyAlign?: "left" | "right";
-    background?: boolean;
-    children: any;
-};
-import clsx from "clsx";
+  title?: any
+  subTitle: any
+  bodyAlign?: 'left' | 'right'
+  background?: boolean
+  children: any
+}
+import clsx from 'clsx'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
 export default function TwoColumn(
-    { title, subTitle, bodyAlign, background, children }: TwoColumnProps,
+  { title, subTitle, bodyAlign, background, children }: TwoColumnProps,
 ) {
-    return (
-        <div
-            className={clsx(
-                styles.container,
-                background && styles.containerWithBackground,
-            )}
-            id={title.props?.children?.replaceAll(" ", "-").toLowerCase()}
+  return (
+    <div
+      className={clsx(
+        styles.container,
+        background && styles.containerWithBackground,
+      )}
+      id={title?.props?.children?.replaceAll(' ', '-').toLowerCase()}
+    >
+      {title && (
+        <h2
+          className={styles.title}
         >
-            <h2
-                className={styles.title}
-            >
-                {title}
-            </h2>
-            <div
-                className={clsx(
-                    styles.grid,
-                    bodyAlign === "left" && styles.gridReversed,
-                )}
-            >
-                <div className={styles.gridHead}>
-                    {subTitle}
-                </div>
-                <div className={styles.gridContent}>{children}</div>
-            </div>
+          {title}
+        </h2>
+      )}
+      <div
+        className={clsx(
+          styles.grid,
+          bodyAlign === 'left' && styles.gridReversed,
+        )}
+      >
+        <div className={styles.gridHead}>
+          {subTitle}
         </div>
-    );
+        <div className={styles.gridContent}>{children}</div>
+      </div>
+    </div>
+  )
 }

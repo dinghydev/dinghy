@@ -1,7 +1,11 @@
 sections:
-  - badge: 'Slide Builder'
+  - badge: 'Presentation Builder'
     title: 'Slide as Code'
-    img: documentation-as-code/site-app.png
+    img: slide-as-code/show-case.png
+  - badge: 'build slide'
+    img: slide-as-code/screenshot-build.png
+  - badge: 'single html file'
+    img: slide-as-code/single-html.png
   - id: revealjs-features-demo
     a:
       text: RevealJS Features Slide

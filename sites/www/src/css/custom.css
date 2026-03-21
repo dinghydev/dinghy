@@ -26,6 +26,11 @@
   background-color: var(--ifm-navbar-link-hover-color);
 }
 
+body.homepage .navbar__inner {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
 .no-external-icon svg {
   display: none;
 }

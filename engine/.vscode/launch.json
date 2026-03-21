@@ -145,14 +145,14 @@
         // "bash",
         // "-h",
         // "--debug",
-        "--output",
-        "${workspaceFolder}/../sites/www/output"
+        "--port",
+        "3000"
       ],
       "program": "src/index.ts",
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases"
+        "APP_HOME": "${workspaceFolder}/../docker/builders/slide"
       },
       "type": "node",
       "request": "launch",

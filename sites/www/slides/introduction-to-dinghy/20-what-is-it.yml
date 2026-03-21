@@ -24,16 +24,20 @@ sections:
               style: 'font-size:1.5em'
             class: icon
 
-      - title: Documentation as Code
+      - id: as-code
         grid:
-          - img: imgs/docusaurus.png
-            span:
-              span: Docusaurus
-              style: 'font-size:0.8em;color:#3ecc5f;'
-            class: icon
-          - img:
-              src: imgs/revealjs.svg
-              style: 'width:100%;margin-top:-20px'
+          - div:
+              - Documentation as Code
+              - img: imgs/docusaurus.png
+                span:
+                  span: Docusaurus
+                  style: 'font-size:0.8em;color:#3ecc5f;'
+                class: icon
+          - div:
+              - Slide as Code
+              - img:
+                  src: imgs/revealjs.svg
+                  style: 'width:100%;margin-top:-20px'
 
       - title: Powered By
         data-auto-animate: true

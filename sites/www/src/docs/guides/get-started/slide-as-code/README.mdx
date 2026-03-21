@@ -13,6 +13,8 @@ import CodeBlock from "@theme/CodeBlock"; import DemoYml from
 in YAML, Markdown, or HTML — and output self-contained HTML files where all
 assets (images, styles, scripts) are embedded, ready to share or deploy.
 
+See it in action: [Slide Features](/show-cases/slide-features) show case.
+
 :::
 
 ## Simple setup
@@ -71,14 +73,12 @@ dinghy slide start
 
 By visiting http://localhost:3000
 
-## Slide commands
+## [Slide](../../references/commands/engine/slide) commands
 
 - [dinghy slide start](../../references/commands/engine/slide/start) Starts the
   slide dev server with live reload
 - [dinghy slide build](../../references/commands/engine/slide/build) Builds
   slides for production
-- [dinghy slide serve](../../references/commands/engine/slide/serve) Serves the
-  built output locally
 - [dinghy slide bash](../../references/commands/engine/slide/bash) Opens a bash
   shell inside the slide container
 
@@ -275,6 +275,16 @@ slides:
           - title: '1.2 — Details'
 ```
 
+These options are only valid at the global level and are not forwarded to
+RevealJS.
+
+| Key                   | Description                                      | Default |
+| --------------------- | ------------------------------------------------ | ------- |
+| `baseUrl`             | Base URL path the slides are served from         | `"/"`   |
+| `generateSlidesIndex` | Generate an index page listing all presentations | `true`  |
+| `trailingSlash`       | Append a trailing slash to generated URLs        | `false` |
+| `inlineAssets`        | Embed all assets in the output HTML file         | `true`  |
+
 ### Per-presentation config (`slide.yml`)
 
 Override global settings for a single presentation:
@@ -289,27 +299,10 @@ sections:
   - title: My Talk
 ```
 
-### Key RevealJS config options
+### RevealJS config options
 
-| Key           | Description                               | Default |
-| ------------- | ----------------------------------------- | ------- |
-| `theme`       | `black`, `white`, `moon`, `solarized`, …  | `black` |
-| `transition`  | `none`, `fade`, `slide`, `convex`, `zoom` | `slide` |
-| `slideNumber` | e.g. `"c/t"` for current / total          |         |
+These options are valid in both `slides/slides.yml` (global) and `slide.yml`
+(per-presentation under a `config:` key).
 
-For the full list of config options, see the
+For the complete list see the
 [RevealJS config reference](https://revealjs.com/config/).
-
-## RevealJS Features Demo
-
-See all features in action:
-[dinghy.dev/slides/revealjs-features-demo](https://dinghy.dev/slides/revealjs-features-demo)
-
-The demo presentation is authored entirely in YAML
-[slide.yml](https://github.com/dinghydev/dinghy/blob/main/sites/www/slides/revealjs-features-demo/slide.yml):
-
-<div style={{'max-height': '300px','overflow-y': 'auto'}}>
-<CodeBlock language="tsx" title="sites/www/slides/revealjs-features-demo/slide.yml">
-  {DemoYml}
-</CodeBlock>
-</div>

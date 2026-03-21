@@ -1,5 +1,5 @@
 ---
-slug: /show-cases/slide-demo
+slug: /show-cases/slide-features
 sidebar_position: 45
 ---
 
@@ -50,8 +50,9 @@ curl -fsSL https://get.dinghy.dev/install.sh | sh
 ### Prepare source code
 
 ```sh
-mkdir -p slides/revealjs-features-demo
-curl -fsSL -o slides/revealjs-features-demo/slide.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/slides/revealjs-features-demo/slide.yml
+curl -fsSL --create-dirs -o slide-features/slides/revealjs-features-demo/slide.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/slides/revealjs-features-demo/slide.yml
+curl -fsSL --create-dirs -o slide-features/slides/revealjs-features-demo/architecture.png https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/slides/revealjs-features-demo/architecture.png
+cd slide-features
 ```
 
 ### Start the dev server
@@ -65,20 +66,16 @@ dinghy slide start
 
 Open http://localhost:3000 in your browser.
 
+Sample Screenshot ![](./screenshot-start.png#drawio-w-100)
+
 ### Build slides
 
 Run [`dinghy slide build`](/references/commands/engine/slide/build) to produce a
-self-contained HTML file:
+self-contained HTML file where all assets (images, styles, scripts) are embedded
+— ready to open directly in a browser or share as a single file:
 
 ```sh
 dinghy slide build
 ```
 
-### Preview built output
-
-Run [`dinghy slide serve`](/references/commands/engine/slide/serve) to serve the
-built output locally:
-
-```sh
-dinghy slide serve
-```
+Sample Screenshot ![](./screenshot-build.png#drawio-w-100)

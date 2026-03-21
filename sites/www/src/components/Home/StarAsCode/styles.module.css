@@ -1,0 +1,42 @@
+.poweredBy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: large;
+}
+.docusaurus svg {
+  margin: 3.5em 0.5em;
+  height: 3em;
+  width: auto;
+}
+.docusaurus b {
+  font-weight: bold;
+  color: #3ecc5f;
+  font-size: 2em;
+}
+.revealjs svg {
+  height: 10em;
+  width: auto;
+}
+
+.site {
+  font-size: large;
+  margin-top: 5px;
+}
+
+.site b {
+  color: var(--ifm-color-success-light);
+}
+
+.starAsCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.starAsCode a {
+  color: var(--ifm-primary-color);
+}
