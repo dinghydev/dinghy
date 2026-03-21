@@ -1,0 +1,59 @@
+sections:
+  - badge: "Fun facts"
+    id: fun-facts
+    title: "Dinghy Loves"
+    img: 
+      src: imgs/ruby.png
+      style: width:200px;
+      class: fragment
+    sections:
+      - img: imgs/dinghy-proxy.png
+        id: dinghy-proxy-stackoverflow
+        width: 1848
+        height: 558
+        sections:
+          - id: dinghy-proxy-path
+            x1: 564
+            y1: 354
+            x2: 1244
+            y2: 407
+      - id: dinghy-proxy-project
+        img: imgs/dinghy-proxy-project.png
+        width: 1562
+        height: 1398
+        sections:
+          - id: dinghy-proxy-title
+            x1: 71
+            y1: 842
+            x2: 954
+            y2: 1132
+          - id: dinghy-proxy-ruby
+            title: ❤️
+            x1: 1052
+            y1: 119
+            x2: 1550
+            y2: 293
+      - markdown: |
+          <!-- .slide: id="prezi-style-zoom" -->
+          ## For prezi.com fans
+          The zoom-and-pan slide above is declared like this:
+          ```yaml
+          - id: dinghy-proxy-project
+            img: imgs/dinghy-proxy-project.png
+            width: 1562
+            height: 1398
+            sections:
+              - id: dinghy-proxy-title
+                x1: 71
+                y1: 842
+                x2: 954
+                y2: 1132
+              - id: dinghy-proxy-ruby
+                title: ❤️
+                x1: 1052
+                y1: 119
+                x2: 1550
+                y2: 293
+          ```
+      - id: terraferb
+        h2: <div style="font-size:2em;">Terraf<b style="color:red;">ERB</b></div>

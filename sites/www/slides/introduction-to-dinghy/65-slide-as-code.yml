@@ -1,0 +1,9 @@
+sections:
+  - badge: 'Slide Builder'
+    title: 'Slide as Code'
+    img: documentation-as-code/site-app.png
+  - id: revealjs-features-demo
+    a:
+      text: RevealJS Features Slide
+      href: 'https://dinghy.dev/slides/revealjs-features-demo'
+      data-preview-link: true

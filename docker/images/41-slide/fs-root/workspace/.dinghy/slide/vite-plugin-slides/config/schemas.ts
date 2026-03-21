@@ -18,9 +18,7 @@ export const StandardSectionSchema: z.ZodType<{
 export const ZoomRegionSchema = z.object({
   id: z.string().optional(),
   title: z.string().optional(),
-  overlay: z.string().default(
-    "background:rgba(144,238,144,0.2);border:2px solid rgba(144,238,144,0.6);",
-  ),
+  overlay: z.string().optional(),
   x1: z.number().optional(),
   y1: z.number().optional(),
   x2: z.number().optional(),

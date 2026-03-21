@@ -1,0 +1,108 @@
+sections:
+  - badge: What is it
+    title: "An open-source <b style='color: var(--r-link-color)'>toolchain</b><br />for modern engineering"
+    img: imgs/swiss-arm.svg
+    sections:
+      - title: Diagram as Code
+        img:
+          src: imgs/drawio.svg
+          class: icon
+          span:
+            text: draw.io
+            style: 'font-size:3em;color:#F08705;'
+
+      - title: Infrastructure as Code
+        grid:
+          - img: imgs/opentofu.svg
+            span:
+              text: OpenTofu
+              style: 'font-size:1.5em'
+            class: icon
+          - img: imgs/terraform.svg
+            span:
+              text: Terraform
+              style: 'font-size:1.5em'
+            class: icon
+
+      - title: Documentation as Code
+        grid:
+          - img: imgs/docusaurus.png
+            span:
+              span: Docusaurus
+              style: 'font-size:0.8em;color:#3ecc5f;'
+            class: icon
+          - img:
+              src: imgs/revealjs.svg
+              style: 'width:100%;margin-top:-20px'
+
+      - title: Powered By
+        data-auto-animate: true
+        grid:
+          - img:
+              src: imgs/deno.svg
+              style: 'height:130px'
+              data-id: deno
+          - img:
+              src: imgs/docker.png
+              data-id: docker
+              style: 'height:98px'
+      - id: dinghy-cli
+        title: Powered By
+        data-auto-animate: true
+        grid:
+          - img:
+              src: imgs/dinghy-dist.png
+              data-id: deno
+            pre:
+              code: 'curl -fsSL https://get.dinghy.dev/install.sh | sh'
+              style: 'font-size:0.3em'
+              class: language-bash
+          - img:
+              src: imgs/dinghy-docker.png
+              data-id: docker
+              class: fragment
+      - img: imgs/dinghy-docker.png
+        width: 2077
+        height: 2096
+        skip-full-view: true
+        sections:
+          - id: dinghy-engine-render
+            x1: 922
+            y1: 80
+            x2: 1215
+            y2: 1279
+          - id: dinghy-engine-drawio
+            x1: 922
+            y1: 80
+            x2: 1529
+            y2: 1598
+          - id: dinghy-engine-version
+            x1: 167
+            y1: 80
+            x2: 702
+            y2: 452
+      - badge: .dinghyrc
+        title: DINGHY_ENGINE_VERSION=0.1.*
+        h4: '* One line lock rule them all'
+        div: |
+          <style>
+            #dinghyrc .badge {
+              text-transform: none;
+            }
+            #dinghyrc h2 {
+              font-size: 1em;
+            }
+            #dinghyrc h4 {
+              font-size: 0.8em;
+              color: var(--r-link-color);
+            }
+          </style>
+        ul:
+          li:
+            - text: All dinghy docker images version
+              ul:
+                li:
+                  - deno.lock
+                  - yarn.lock
+                  - OpenTofu/Terraform version
+                  - TF Providers version

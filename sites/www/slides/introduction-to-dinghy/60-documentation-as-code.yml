@@ -1,0 +1,8 @@
+sections:
+  - badge: 'Site/App Builder'
+    title: 'Documentation as Code'
+    img: documentation-as-code/site-app.png
+  - id: site-preview
+    img: documentation-as-code/site-preview.png
+  - id: site-custom
+    img: documentation-as-code/site-custom.png

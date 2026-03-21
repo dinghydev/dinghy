@@ -1,0 +1,52 @@
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: "IBM Plex Sans", sans-serif;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+.reveal h1 {
+  font-size: 2.3em;
+  font-weight: 700;
+}
+.reveal h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+.reveal-viewport {
+  background: linear-gradient(150deg, #040d18 0%, #061830 60%, #04141f 100%);
+}
+
+@keyframes sail-in {
+  from {
+    transform: translateX(800%);
+  }
+  to {
+    transform: translateX(-800%);
+  }
+}
+
+.sail-in {
+  color: #f08705;
+  display: inline-block;
+  display: inline-block;
+  animation: sail-in 10s ease-out infinite;
+  animation-play-state: paused;
+}
+.present .sail-in {
+  animation-play-state: running;
+}
+
+.install-command {
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem 2.4rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6em;
+  text-align: left;
+  margin-top: 1.4rem;
+  display: inline-block;
+  min-width: 420px;
+}

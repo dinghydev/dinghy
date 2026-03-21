@@ -1,0 +1,38 @@
+sections:
+  - badge: 'Basic Shape'
+    title: 'Diagram as Code'
+    img: diagram-as-code/basic-shape-page.png
+  - badge: 'Simple'
+    title: 'Basic Shape'
+    file: diagram-as-code/basic-shape.md
+    data-background-image: diagram-as-code/basic-shape.png
+    data-background-opacity: 0.1
+  - badge: 'Readable'
+    title: 'Named Shape'
+    file: diagram-as-code/named-shape.md
+    class: named-shape
+    data-background-image: diagram-as-code/basic-shape.png
+    data-background-opacity: 0.1
+    div: |
+      <style>
+        .named-shape .hljs-ln-line[data-line-number="1"] {
+          text-decoration: line-through;
+          opacity: 0.5;
+        }
+      </style>
+  - badge: 'draw.io'
+    title: 'Styled Shape'
+    class: styled-shape
+    grid:
+      - img: diagram-as-code/styled-shape.png
+      - file: diagram-as-code/styled-shape.md
+        div: |
+          <style>
+            .styled-shape .hljs-ln-line[data-line-number="2"] {
+              text-decoration: line-through;
+              opacity: 0.5;
+            }
+            .styled-shape .grid {
+              grid-template-columns:30% 70% !important;
+            }
+          </style>

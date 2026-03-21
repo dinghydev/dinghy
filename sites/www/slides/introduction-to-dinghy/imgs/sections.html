@@ -1,0 +1,272 @@
+
+    <!-- ═══════════════════════════════════════
+         1. TITLE
+    ════════════════════════════════════════ -->
+    <section data-background-gradient="linear-gradient(150deg, #040d18 0%, #061830 50%, #04141f 100%)" style="top: 34.5px; display: block;" class="past" hidden="" aria-hidden="true">
+      <div class="boat-icon">⛵</div>
+      <h1 style="margin-top:0.2em;">Getting Started<br>with <span class="c-ocean">Dinghy</span></h1>
+      <p class="muted" style="font-size:0.85em; margin-top:0.8em;">Diagram · Infrastructure · Documentation — as Code</p>
+      <p class="muted" style="font-size:0.55em; margin-top:2em;">→ advance &nbsp;|&nbsp; F fullscreen &nbsp;|&nbsp; S speaker notes</p>
+      <aside class="notes">Welcome! This deck walks through the Dinghy "Get Started" guide at dinghy.dev. Dinghy is an open-source toolchain that lets you generate diagrams and Terraform infrastructure from React-style code.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         2. WHAT IS DINGHY
+    ════════════════════════════════════════ -->
+    <section data-auto-animate="pending" data-background-color="#040d18" style="top: 200.5px; display: block;" class="has-dark-background past" hidden="" aria-hidden="true">
+      <div class="badge">What is it?</div>
+      <h2 data-auto-animate-target="">An open-source toolchain<br>for modern engineering teams</h2>
+      <aside class="notes">High level definition before diving in.</aside>
+    </section>
+
+    <section data-auto-animate="running" data-background-color="#040d18" style="top: 0px; display: block;" class="has-dark-background present">
+      <div class="badge" data-auto-animate-target="unmatched">What is it?</div>
+      <h2 data-auto-animate-target="0">An open-source toolchain<br>for modern engineering teams</h2>
+      <div class="three-col" style="margin-top:1.4rem; font-size:0.85em;" data-auto-animate-target="unmatched">
+        <div class="card card-ocean">
+          <div style="font-size:1.8em; margin-bottom:0.3em;">🗺️</div>
+          <strong class="c-ocean">Diagram as Code</strong>
+          <p class="muted" style="font-size:0.75em; margin-top:0.4em;">Generate draw.io diagrams from a React component tree.</p>
+        </div>
+        <div class="card card-ocean">
+          <div style="font-size:1.8em; margin-bottom:0.3em;">🏗️</div>
+          <strong class="c-sea">Infrastructure as Code</strong>
+          <p class="muted" style="font-size:0.75em; margin-top:0.4em;">Render your data model straight to Terraform (OpenTofu / CloudFormation coming).</p>
+        </div>
+        <div class="card card-ocean">
+          <div style="font-size:1.8em; margin-bottom:0.3em;">📖</div>
+          <strong class="c-green">Documentation as Code</strong>
+          <p class="muted" style="font-size:0.75em; margin-top:0.4em;">Keep your docs in sync with your codebase — no copy-paste drift.</p>
+        </div>
+      </div>
+      <aside class="notes" data-auto-animate-target="unmatched">The three pillars of Dinghy: diagrams, infra, and docs — all driven from a single data model expressed as React TSX.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         3. THE SPIRIT
+    ════════════════════════════════════════ -->
+    <section data-background-color="#040d18" style="top: 122px; display: block;" class="has-dark-background future" data-fragment="-1" hidden="" aria-hidden="true">
+      <blockquote style="font-size:1.25em; font-style:italic; border-left:4px solid var(--ocean); padding-left:1.2rem; text-align:left;">
+        "The project embraces the spirit of a dinghy — simple, reliable and fun to sail with."
+      </blockquote>
+      <p style="text-align:right; font-size:0.6em;" class="muted">— dinghy.dev</p>
+      <div class="flow fragment" style="margin-top:2rem;" data-fragment-index="0">
+        <div class="flow-box">React TSX</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">Dinghy CLI</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">draw.io / Terraform</div>
+      </div>
+      <aside class="notes">The philosophy: use React as a templating engine. You write familiar TSX, Dinghy renders it into diagrams or infra config. All via a single Docker-based CLI.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         4. HOW IT WORKS (VERTICAL)
+    ════════════════════════════════════════ -->
+    <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+      <section data-background-gradient="linear-gradient(160deg, #040d18, #061c30)" style="top: 208.5px; display: block;">
+        <div class="badge">Under the Hood</div>
+        <h2>How Dinghy works</h2>
+        <p class="muted" style="font-size:0.8em;">Press ↓ for details</p>
+        <aside class="notes">Let's look at the layers underneath the friendly CLI.</aside>
+      </section>
+
+      <section data-background-color="#061c30" class="future has-dark-background" aria-hidden="true" style="top: 66.5px; display: none;">
+        <h2>Three-layer architecture</h2>
+        <div style="margin-top:1.2rem;">
+          <div class="step fragment" data-fragment-index="0">
+            <div class="step-num">1</div>
+            <div>
+              <strong class="c-ocean">CLI (Docker)</strong>
+              <p class="muted" style="font-size:0.7em; margin:0.2em 0 0;">The stable, versioned entry-point you install once. Drives everything else.</p>
+            </div>
+          </div>
+          <div class="step fragment" data-fragment-index="1">
+            <div class="step-num" style="background:linear-gradient(135deg,var(--sea),var(--green))">2</div>
+            <div>
+              <strong class="c-sea">Engine (Deno runtime)</strong>
+              <p class="muted" style="font-size:0.7em; margin:0.2em 0 0;">Zero language configuration. Performs the critical render operations — fast, reliable, predictable.</p>
+            </div>
+          </div>
+          <div class="step fragment" data-fragment-index="2">
+            <div class="step-num" style="background:linear-gradient(135deg,var(--green),var(--sand))">3</div>
+            <div>
+              <strong class="c-green">React templating</strong>
+              <p class="muted" style="font-size:0.7em; margin:0.2em 0 0;">Your data model lives in TSX components. The engine renders them into the target format.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">Key insight: the CLI is thin — it just calls the versioned Engine. The Engine does the heavy lifting with Deno (no Node, no npm install needed on the host).</aside>
+      </section>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         5. QUICK INSTALL
+    ════════════════════════════════════════ -->
+    <section data-background-color="#040d18" style="top: 90.5px; display: none;" class="has-dark-background future" hidden="" aria-hidden="true">
+      <div class="badge">Step 1</div>
+      <h2>Quick Install</h2>
+      <p class="muted" style="font-size:0.78em; margin-bottom:1.2rem;">One command — that's it.</p>
+      <div class="terminal">
+        <span class="prompt">$</span> <span class="cmd">curl -fsSL https://get.dinghy.dev/install.sh | sh</span>
+      </div>
+      <p class="muted fragment" style="font-size:0.7em; margin-top:1.4rem;" data-fragment-index="0">
+        🐳 Requires <strong style="color:#fff">Docker</strong> on your system.<br>
+        Having trouble? Check the <strong style="color:var(--ocean)">Installation → Prerequisites</strong> section in the docs.
+      </p>
+      <aside class="notes">The install script pulls the Dinghy CLI wrapper onto your system. Docker does the actual heavy lifting so there are no language runtime conflicts.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         6. BASIC EXAMPLE — SOURCE
+    ════════════════════════════════════════ -->
+    <section data-background-color="#040d18" style="top: 350px; display: none;" class="has-dark-background future" hidden="" aria-hidden="true">
+      <div class="badge">Step 2</div>
+      <h2>Write your first diagram</h2>
+      <p class="muted" style="font-size:0.75em; margin-bottom:0.8rem;">Create <code style="color:var(--foam)">my-simple-diagram.tsx</code></p>
+      <pre class="code-wrapper"><code class="language-tsx hljs language-typescript has-highlights" data-trim="" data-noescape="" data-line-numbers="1" data-highlighted="yes"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Shape</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@dinghy/base-components'</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4">  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Shape</span> <span class="hljs-attr">_title</span>=<span class="hljs-string">'Simple diagram as code'</span>&gt;</span></span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    <span class="hljs-tag">&lt;<span class="hljs-name">Shape</span> <span class="hljs-attr">_dependsOn</span>=<span class="hljs-string">'B'</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    <span class="hljs-tag">&lt;<span class="hljs-name">Shape</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">  <span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="8"><div class="hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="8">)</td></tr></tbody></table></code><code class="language-tsx hljs language-typescript fragment has-highlights" data-trim="" data-noescape="" data-line-numbers="3-8" data-highlighted="yes" data-fragment-index="0"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Shape</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@dinghy/base-components'</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4">  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Shape</span> <span class="hljs-attr">_title</span>=<span class="hljs-string">'Simple diagram as code'</span>&gt;</span></span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    <span class="hljs-tag">&lt;<span class="hljs-name">Shape</span> <span class="hljs-attr">_dependsOn</span>=<span class="hljs-string">'B'</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    <span class="hljs-tag">&lt;<span class="hljs-name">Shape</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">  <span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="8"><div class="hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="8">)</td></tr></tbody></table></code><code class="language-tsx hljs language-typescript fragment has-highlights" data-trim="" data-noescape="" data-line-numbers="5" data-highlighted="yes" data-fragment-index="1"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Shape</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@dinghy/base-components'</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4">  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Shape</span> <span class="hljs-attr">_title</span>=<span class="hljs-string">'Simple diagram as code'</span>&gt;</span></span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    <span class="hljs-tag">&lt;<span class="hljs-name">Shape</span> <span class="hljs-attr">_dependsOn</span>=<span class="hljs-string">'B'</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    <span class="hljs-tag">&lt;<span class="hljs-name">Shape</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">  <span class="hljs-tag">&lt;/<span class="hljs-name">Shape</span>&gt;</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="8"><div class="hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="8">)</td></tr></tbody></table></code></pre>
+      <aside class="notes">Three key things: import Shape from the base component library, export a default function component, nest Shapes to describe relationships. _dependsOn declares a dependency edge.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         7. BASIC EXAMPLE — RUN
+    ════════════════════════════════════════ -->
+    <section data-auto-animate="" data-background-color="#040d18" style="top: 350px; display: none;" class="has-dark-background future" hidden="" aria-hidden="true">
+      <div class="badge">Step 3</div>
+      <h2>Render</h2>
+      <p class="muted" style="font-size:0.78em; margin-bottom:1rem;">From the same directory, run:</p>
+      <div class="terminal">
+        <span class="prompt">$</span> <span class="cmd">dinghy render</span>
+      </div>
+      <aside class="notes">One command. Dinghy picks up all TSX files in the directory and renders each one.</aside>
+    </section>
+
+    <section data-auto-animate="" data-background-color="#040d18" style="top: 350px; display: none;" class="has-dark-background future" hidden="" aria-hidden="true">
+      <div class="badge">Step 3</div>
+      <h2>Render</h2>
+      <p class="muted" style="font-size:0.78em; margin-bottom:1rem;">From the same directory, run:</p>
+      <div class="terminal">
+        <span class="prompt">$</span> <span class="cmd">dinghy render</span>
+      </div>
+      <div class="card card-ocean" style="margin-top:1.2rem; text-align:left; font-size:0.8em;">
+        <strong class="c-green">✓ Output</strong> — files written to the <code style="color:var(--foam)">output/</code> folder:
+        <ul class="muted" style="margin-top:0.5em; font-size:0.9em;">
+          <li><code style="color:#e6edf3">my-simple-diagram.png</code> — the rendered image</li>
+          <li><code style="color:#e6edf3">my-simple-diagram.drawio</code> — editable draw.io source</li>
+        </ul>
+      </div>
+      <aside class="notes">Dinghy writes both a PNG (for embedding in docs/tickets) and the raw draw.io XML you can open and edit manually if needed.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         8. THE OUTPUT DIAGRAM (visual)
+    ════════════════════════════════════════ -->
+    <section data-background-color="#040d18" style="top: 350px; display: none;" class="has-dark-background future" hidden="" aria-hidden="true">
+      <div class="badge">Result</div>
+      <h2>What you get</h2>
+      <div class="two-col" style="margin-top:1.2rem; align-items:center;">
+        <div style="text-align:left; font-size:0.8em;">
+          <p class="muted">The simple TSX above produces a <strong style="color:#fff">draw.io diagram</strong> showing Node A depending on Node B:</p>
+          <ul class="muted" style="margin-top:1em; font-size:0.9em; line-height:1.9;">
+            <li class="fragment" data-fragment-index="0">Each <code style="color:var(--foam)">&lt;Shape&gt;</code> becomes a box</li>
+            <li class="fragment" data-fragment-index="1"><code style="color:var(--foam)">_dependsOn</code> draws an arrow</li>
+            <li class="fragment" data-fragment-index="2"><code style="color:var(--foam)">_title</code> labels the diagram</li>
+          </ul>
+        </div>
+        <div style="background:#fff; border-radius:10px; padding:1rem; text-align:center;">
+          <!-- SVG recreation of the simple A→B diagram -->
+          <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;">
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9"></path>
+              </marker>
+            </defs>
+            <!-- Title -->
+            <text x="120" y="16" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="#334155">Simple diagram as code</text>
+            <!-- Box A -->
+            <rect x="20" y="35" width="70" height="50" rx="6" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5"></rect>
+            <text x="55" y="65" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="18" font-weight="600" fill="#0369a1">A</text>
+            <!-- Box B -->
+            <rect x="150" y="35" width="70" height="50" rx="6" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5"></rect>
+            <text x="185" y="65" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="18" font-weight="600" fill="#0369a1">B</text>
+            <!-- Arrow A→B -->
+            <line x1="90" y1="60" x2="148" y2="60" stroke="#0ea5e9" stroke-width="1.8" marker-end="url(#arrow)"></line>
+            <text x="119" y="54" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#64748b">depends on</text>
+          </svg>
+        </div>
+      </div>
+      <aside class="notes">The diagram maps 1-to-1 with the component structure. Real-world diagrams will use more expressive custom components — but the mental model stays the same.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         9. FOUR WORKFLOWS
+    ════════════════════════════════════════ -->
+    <section data-background-gradient="linear-gradient(150deg,#040d18,#06162a)" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+      <div class="badge">What's next</div>
+      <h2>Four guide tracks</h2>
+      <div class="two-col" style="margin-top:1.4rem; font-size:0.82em;">
+        <div class="card fragment fade-up" data-fragment-index="0">
+          <strong class="c-ocean">🛠️ Installation</strong>
+          <p class="muted" style="font-size:0.8em; margin-top:0.4em;">Prerequisites, Docker setup, and troubleshooting.</p>
+        </div>
+        <div class="card fragment fade-up" data-fragment-index="1">
+          <strong class="c-sea">🗺️ Diagram as Code</strong>
+          <p class="muted" style="font-size:0.8em; margin-top:0.4em;">Build expressive architecture diagrams from component trees.</p>
+        </div>
+        <div class="card fragment fade-up" data-fragment-index="2">
+          <strong class="c-green">🏗️ Infrastructure as Code</strong>
+          <p class="muted" style="font-size:0.8em; margin-top:0.4em;">Render the same model to Terraform — one source of truth.</p>
+        </div>
+        <div class="card fragment fade-up" data-fragment-index="3">
+          <strong class="c-sand">📖 Documentation as Code</strong>
+          <p class="muted" style="font-size:0.8em; margin-top:0.4em;">Auto-generate docs that always match your infra.</p>
+        </div>
+      </div>
+      <aside class="notes">The get-started page is just the entry point. Each of these four tracks goes deep on a specific workflow.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         10. KEY CONCEPTS RECAP
+    ════════════════════════════════════════ -->
+    <section data-background-color="#040d18" style="top: 350px; display: none;" class="has-dark-background future" hidden="" aria-hidden="true">
+      <div class="badge">Recap</div>
+      <h2>Key concepts at a glance</h2>
+      <div style="margin-top:1.2rem; font-size:0.82em; text-align:left;">
+        <div class="step fragment" data-fragment-index="0">
+          <div class="step-num">⚛️</div>
+          <div><strong>React as a templating engine</strong>
+            <p class="muted" style="font-size:0.8em; margin:0.2em 0 0;">Familiar TSX syntax — no new language to learn.</p></div>
+        </div>
+        <div class="step fragment" data-fragment-index="1">
+          <div class="step-num">🦕</div>
+          <div><strong>Deno runtime — zero config</strong>
+            <p class="muted" style="font-size:0.8em; margin:0.2em 0 0;">No package.json, no tsconfig. Just run.</p></div>
+        </div>
+        <div class="step fragment" data-fragment-index="2">
+          <div class="step-num">🐳</div>
+          <div><strong>Delivered via Docker CLI</strong>
+            <p class="muted" style="font-size:0.8em; margin:0.2em 0 0;">One install script. Works the same everywhere.</p></div>
+        </div>
+        <div class="step fragment" data-fragment-index="3">
+          <div class="step-num">🔄</div>
+          <div><strong>Multiple render targets</strong>
+            <p class="muted" style="font-size:0.8em; margin:0.2em 0 0;">Same model → draw.io diagram or Terraform config.</p></div>
+        </div>
+      </div>
+      <aside class="notes">These four properties are what make Dinghy different: familiar language, zero runtime config, Docker-isolated CLI, and multi-target rendering.</aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         11. CTA / END
+    ════════════════════════════════════════ -->
+    <section data-background-gradient="linear-gradient(150deg, #040d18 0%, #061830 60%, #04141f 100%)" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+      <div class="boat-icon">⛵</div>
+      <h2 style="margin-top:0.3em;">Ready to set sail?</h2>
+      <div class="terminal" style="margin-top:1.4rem; font-size:0.9em; display:inline-block; min-width:420px;">
+        <span class="prompt">$</span> <span class="cmd">curl -fsSL https://get.dinghy.dev/install.sh | sh</span>
+      </div>
+      <p class="muted" style="font-size:0.7em; margin-top:1.6rem;">
+        Docs &amp; guides → <strong style="color:var(--ocean)">dinghy.dev/guides/get-started</strong>
+      </p>
+      <aside class="notes">That's the whole get-started guide. One install command, one render command, one data model — many targets.</aside>
+    </section>

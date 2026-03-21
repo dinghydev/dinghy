@@ -1,0 +1,84 @@
+---
+slug: /show-cases/slide-demo
+sidebar_position: 45
+---
+
+import CodeBlock from "@theme/CodeBlock"; import SlideYml from
+"!!raw-loader!../../../../../slides/revealjs-features-demo/slide.yml";
+
+# Slide Features
+
+A showcase of RevealJS features authored entirely in YAML using Dinghy's Slide
+as Code engine. All assets are embedded in a single self-contained HTML file.
+
+## Features
+
+- Prezi-style zoom and pan (exclusive to Dinghy)
+- Fragments with multiple animation styles
+- Slide backgrounds — solid colour and CSS gradients
+- Vertical slide stacks
+- Markdown sections
+- Animated code highlighting with auto-animate
+- Slide transitions
+- Layout helpers: `r-stack`, `r-fit-text`, `r-stretch`, `r-frame`
+- Navigation links and lightbox previews
+- Speaker notes
+
+## Live demo
+
+View the published presentation at
+[dinghy.dev/slides/revealjs-features-demo](https://dinghy.dev/slides/revealjs-features-demo)
+
+## Source Code
+
+<div style={{maxHeight: '400px', overflow: 'auto'}}>
+<CodeBlock language="yaml" title="slides/revealjs-features-demo/slide.yml">
+  {SlideYml}
+</CodeBlock>
+</div>
+
+## Steps to try
+
+### [Install dinghy-cli](/guides/get-started/installation)
+
+If you haven't already:
+
+```sh
+curl -fsSL https://get.dinghy.dev/install.sh | sh
+```
+
+### Prepare source code
+
+```sh
+mkdir -p slides/revealjs-features-demo
+curl -fsSL -o slides/revealjs-features-demo/slide.yml https://raw.githubusercontent.com/dinghydev/dinghy/main/sites/www/slides/revealjs-features-demo/slide.yml
+```
+
+### Start the dev server
+
+Run [`dinghy slide start`](/references/commands/engine/slide/start) to preview
+with live reload:
+
+```sh
+dinghy slide start
+```
+
+Open http://localhost:3000 in your browser.
+
+### Build slides
+
+Run [`dinghy slide build`](/references/commands/engine/slide/build) to produce a
+self-contained HTML file:
+
+```sh
+dinghy slide build
+```
+
+### Preview built output
+
+Run [`dinghy slide serve`](/references/commands/engine/slide/serve) to serve the
+built output locally:
+
+```sh
+dinghy slide serve
+```

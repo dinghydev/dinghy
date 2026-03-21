@@ -1,0 +1,12 @@
+sections:
+  - id: thank-you
+    h1:
+      span:
+        text: ⛵
+        class: sail-in
+    title: Ready to set sail?
+    div: 
+      text: '<span style="color:#34d399;">$</span> <span class="cmd">curl -fsSL https://get.dinghy.dev/install.sh | sh</span>'
+      class: install-command
+    p:
+      - "Guides &amp; examples  → <a href='https://dinghy.dev' target='_blank'>https://dinghy.dev</a>"

@@ -5,12 +5,12 @@ sections:
     p: A tour of what RevealJS can do
 
   - title: Prezi style zoom and pan
-    p: 
+    p:
       text: Exlcusive to Dinghy
-      style: "color: var(--r-link-color)"
+      style: 'color: var(--r-link-color)'
     sections:
       - id: dinghy-docker
-        img: dinghy-docker.png
+        img: architecture.png
         width: 2077
         height: 2096
         sections:
@@ -26,12 +26,12 @@ sections:
             y2: 1598
           - id: title-disappear
             title: '<span style="color: red;">title disappear in 2 seconds</span>'
-            overlay: "background:rgba(154,62,62,0.2);border:2px solid red;"
+            overlay: 'background:rgba(154,62,62,0.2);border:2px solid red;'
             x1: 167
             y1: 80
             x2: 702
             y2: 452
-    
+
   - title: Fragments
     ul:
       li:
@@ -44,11 +44,11 @@ sections:
     notes: Press space or arrow to step through each fragment.
 
   - title: Background
-    data-background-color: "green"
+    data-background-color: 'green'
     p: Set via data-background-color
     sections:
       - title: Gradient Background
-        data-background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        data-background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
         p: Set via data-background with a CSS gradient
 
   - title: Vertical Slides
@@ -74,7 +74,7 @@ sections:
     sections:
       - data-auto-animate: true
         pre:
-          data-id: "code-animation"
+          data-id: 'code-animation'
           code:
             data-trim: true
             data-line-numbers: true
@@ -85,7 +85,7 @@ sections:
               ]
       - data-auto-animate: true
         pre:
-          data-id: "code-animation"
+          data-id: 'code-animation'
           code:
             data-trim: true
             data-line-numbers: true
@@ -98,7 +98,7 @@ sections:
               ]
       - data-auto-animate: true
         pre:
-          data-id: "code-animation"
+          data-id: 'code-animation'
           code:
             data-trim: true
             data-line-numbers: true
@@ -138,22 +138,22 @@ sections:
     data-auto-animate: true
     sections:
       - data-auto-animate: true
-        h1: 
+        h1:
           text: Auto-Animate
-          style: "margin-top: 100px; color: red;"
+          style: 'margin-top: 100px; color: red;'
       - data-auto-animate: true
         h1: Auto-Animate
         div:
-          data-id: "box"
-          style: "height: 50px; background: salmon;"
+          data-id: 'box'
+          style: 'height: 50px; background: salmon;'
       - data-auto-animate: true
         div:
-          data-id: "box"
-          style: "height: 200px; background: blue;"
+          data-id: 'box'
+          style: 'height: 200px; background: blue;'
       - data-auto-animate: true
         div:
-          data-id: "box"
-          style: "height: 150px; background: salmon;"
+          data-id: 'box'
+          style: 'height: 150px; background: salmon;'
       - data-auto-animate: true
         ul:
           li:
@@ -177,28 +177,28 @@ sections:
           img:
             - class: fragment
               src: https://picsum.photos/450/300
-              style: "width: 450px; height: 300px;"
+              style: 'width: 450px; height: 300px;'
             - class: fragment
               src: https://picsum.photos/300/450
-              style: "width: 300px; height: 450px;"
+              style: 'width: 300px; height: 450px;'
             - class: fragment
               src: https://picsum.photos/400/400
-              style: "width: 400px; height: 400px;"
+              style: 'width: 400px; height: 400px;'
       - title: r-stack individually
         div:
           class: r-stack
           img:
             - class: fragment fade-out
               src: https://picsum.photos/450/300
-              style: "width: 450px; height: 300px;"
+              style: 'width: 450px; height: 300px;'
               data-fragment-index: 0
             - class: fragment current-visible
               src: https://picsum.photos/300/450
-              style: "width: 300px; height: 450px;"
+              style: 'width: 300px; height: 450px;'
               data-fragment-index: 0
             - class: fragment
               src: https://picsum.photos/400/400
-              style: "width: 400px; height: 400px;"
+              style: 'width: 400px; height: 400px;'
       - title: r-fit-text
         h2:
           class: r-fit-text
@@ -218,41 +218,39 @@ sections:
         div:
           img:
             src: https://picsum.photos/200
-            style: "width: 200px; height: 200px;"
+            style: 'width: 200px; height: 200px;'
           a:
-            href: "#"
+            href: '#'
             img:
               class: r-frame
               src: https://picsum.photos/200
-              style: "width: 200px; height: 200px;"
-
-
+              style: 'width: 200px; height: 200px;'
 
   - title: Links
     ul:
       li:
         - a:
             text: '#/0 Back to the first slide'
-            href: "#/0"
+            href: '#/0'
         - a:
             text: '#/5/1 Go to the fifth slide, second section'
-            href: "#/5/1"
+            href: '#/5/1'
         - a:
             text: '#zoom Go to named slide'
-            href: "#zoom"
+            href: '#zoom'
         - button:
-          - class: navigate-left
-            text: Left
-          - class: navigate-right
-            text: Right
-          - class: navigate-up
-            text: Up
-          - class: navigate-down
-            text: Down
-          - class: navigate-prev
-            text: Prev
-          - class: navigate-next
-            text: Next
+            - class: navigate-left
+              text: Left
+            - class: navigate-right
+              text: Right
+            - class: navigate-up
+              text: Up
+            - class: navigate-down
+              text: Down
+            - class: navigate-prev
+              text: Prev
+            - class: navigate-next
+              text: Next
     sections:
       - title: Lightbox
         ul:
@@ -267,8 +265,6 @@ sections:
             - a:
                 text: Video
                 data-preview-video: https://static.slid.es/site/homepage/v1/homepage-video-editor.mp4
-            
-
 
   - title: Speaker Notes
     p: Open the speaker view with S to see notes.

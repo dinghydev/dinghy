@@ -1,0 +1,29 @@
+<section id="welcome">
+  <div class="badge">Welcome to Dinghy</div>
+  <div>
+    <img src="imgs/dinghy-logo.svg" class="heroLogo" />
+  </div>
+  <p class="muted" style="font-size: 0.85em; margin-top: 0.8em">
+    Diagram · Infrastructure · Documentation — as Code
+  </p>
+</section>
+<style>
+  @keyframes glowing-shadow {
+    from {
+      filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #e60073)
+        drop-shadow(0 0 20px #e60073);
+    }
+    to {
+      filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #e60073)
+        drop-shadow(0 0 40px #e60073);
+    }
+  }
+
+  .heroLogo {
+    animation: glowing-shadow 1.5s ease-in-out infinite alternate;
+    width: 400px;
+    clear: both;
+    padding: 100px;
+    fill: white;
+  }
+</style>

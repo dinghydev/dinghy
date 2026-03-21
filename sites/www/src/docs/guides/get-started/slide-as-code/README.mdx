@@ -1,0 +1,315 @@
+---
+sidebar_position: 70
+---
+
+import CodeBlock from "@theme/CodeBlock"; import DemoYml from
+"!!raw-loader!../../../../../slides/revealjs-features-demo/slide.yml";
+
+# Slide as Code
+
+:::info
+
+`Slide as Code` lets you author [RevealJS](https://revealjs.com/) presentations
+in YAML, Markdown, or HTML — and output self-contained HTML files where all
+assets (images, styles, scripts) are embedded, ready to share or deploy.
+
+:::
+
+## Simple setup
+
+:::tip
+
+One folder equals one presentation. A single `slide.yml` is all you need to get
+started.
+
+:::
+
+Slides are organised under a `slides/` directory. Each sub-folder is one
+presentation, driven by a `slide.yml` file.
+
+### Project layout
+
+```
+slides/
+  slides.yml          ← global config (theme, plugins, …)
+  my-talk/            ← one folder = one presentation
+    slide.yml         ← sections and per-slide config
+    *.yml / *.md / *.html / *.css  ← auto-loaded, sorted by filename
+    imgs/             ← images referenced in slides
+output/
+  slides-dist/        ← built output
+```
+
+### Create a presentation
+
+```sh
+mkdir -p slides/my-talk
+```
+
+```yaml title="slides/my-talk/slide.yml"
+title: My First Presentation
+sections:
+  - badge: Hello
+    title: My First Presentation
+    p: 'Author in YAML — output self-contained RevealJS HTML.'
+
+  - title: What We Will Cover
+    ul:
+      li:
+        - Topic one
+        - Topic two
+        - Topic three
+```
+
+### Serve in development
+
+```sh
+dinghy slide start
+```
+
+### Preview in browser
+
+By visiting http://localhost:3000
+
+## Slide commands
+
+- [dinghy slide start](../../references/commands/engine/slide/start) Starts the
+  slide dev server with live reload
+- [dinghy slide build](../../references/commands/engine/slide/build) Builds
+  slides for production
+- [dinghy slide serve](../../references/commands/engine/slide/serve) Serves the
+  built output locally
+- [dinghy slide bash](../../references/commands/engine/slide/bash) Opens a bash
+  shell inside the slide container
+
+## Authoring
+
+### Auto-loading
+
+Individual `.yml` (excluding `slide.yml`), `.md`, `.html`, and `.css` files
+placed in the presentation folder are auto-loaded as sections, sorted
+alphabetically by filename. Use a numeric prefix to control order:
+
+```
+my-talk/
+  01-intro.md
+  02-demo.yml
+  03-conclusion.html
+```
+
+### YAML DSL
+
+Any YAML key becomes an HTML element. Common keys:
+
+| Key       | Output                           |
+| --------- | -------------------------------- |
+| `title`   | `<h2>…</h2>`                     |
+| `badge`   | `<div class="badge">…</div>`     |
+| `p`       | `<p>…</p>`                       |
+| `h3`      | `<h3>…</h3>`                     |
+| `notes`   | `<aside class="notes">…</aside>` |
+| `ul`/`ol` | unordered or ordered list        |
+| `img`     | single image (r-stretch)         |
+| `grid`    | side-by-side grid of elements    |
+
+Built-in attributes — `id`, `class`, `style`, `src`, `href`, `alt` — map
+directly to HTML attributes. Keys containing `-` (e.g. `data-*`, `aria-*`) are
+always treated as attributes.
+
+```yaml title="slides/my-talk/slide.yml"
+sections:
+  - class: highlight
+    id: intro
+    data-background-color: '#1a1a2e'
+    title: Styled Slide
+```
+
+### Images
+
+```yaml
+# Single image — r-stretch applied automatically
+- img: imgs/photo.jpg
+```
+
+### Grid
+
+Arrange any elements side-by-side in a grid:
+
+```yaml
+- grid:
+    - img: imgs/a.jpg
+    - div: anything
+    - img: imgs/c.jpg
+```
+
+### Markdown sections
+
+Drop a `.md` file into the presentation folder — it is auto-loaded as a section.
+Or inline with `type: markdown`:
+
+```yaml
+- type: markdown
+  markdown: |
+    ## Markdown Slide 1
+
+    - item 1
+    - item 2
+
+    ---
+    ## Markdown Slide 2
+
+    ![alt](image.png)
+```
+
+### Raw HTML & CSS
+
+Drop `.html` or `.css` files into the folder — they are auto-loaded (sorted by
+filename). Or inline:
+
+```yaml
+- html: '<section><p>Custom <strong>HTML</strong></p></section>'
+```
+
+CSS files become `<style>` blocks.
+
+## Zoom and Pan
+
+Dinghy includes a Prezi-style zoom-and-pan feature built on RevealJS
+auto-animate. It lets you zoom into regions of a large image across multiple
+slides, with smooth morphing transitions.
+
+### Basic usage
+
+Declare a section with an `img`, `width`, `height`, and a list of `sections` —
+each describing a rectangular region to zoom into:
+
+```yaml
+- img: architecture.png
+  width: 2077
+  height: 2096
+  sections:
+    - id: dinghy-engine-engine
+      x1: 922
+      y1: 80
+      x2: 1215
+      y2: 1279
+    - id: dinghy-engine-drawio
+      x1: 922
+      y1: 80
+      x2: 1529
+      y2: 1598
+```
+
+Each region becomes its own slide. RevealJS auto-animate handles the transition
+— the image pans and zooms smoothly from one region to the next.
+
+By default the first slide shows the full image before zooming in. Set
+`skip-full-view: true` to go straight to the first region:
+
+```yaml
+- img: architecture.png
+  width: 2077
+  height: 2096
+  skip-full-view: true
+  sections:
+    - x1: 922
+      y1: 80
+      x2: 1215
+      y2: 1279
+```
+
+### Region options
+
+| Key       | Description                                               |
+| --------- | --------------------------------------------------------- |
+| `x1`      | Left edge of the region (pixels in the original image)    |
+| `y1`      | Top edge of the region                                    |
+| `x2`      | Right edge of the region                                  |
+| `y2`      | Bottom edge of the region                                 |
+| `title`   | Optional HTML title shown centered over the region        |
+| `id`      | Optional HTML id for the generated section                |
+| `overlay` | CSS for the highlight box (overrides the section default) |
+
+### Overlay highlight
+
+While the full image is visible, each region is highlighted with a
+semi-transparent overlay box. The default is a green tint. Customise it at the
+section level (applies to all regions) or per region:
+
+```yaml
+- img: architecture.png
+  width: 2077
+  height: 2096
+  overlay: 'background:rgba(154,62,62,0.2);border:2px solid red;'
+  sections:
+    - id: dinghy-engine-drawio
+      x1: 922
+      y1: 80
+      x2: 1529
+      y2: 1598
+    - x1: 167
+      y1: 80
+      x2: 702
+      y2: 452
+      overlay: 'background:rgba(154,62,62,0.2);border:2px solid blue;'
+      title: '<span style="color: red;">Highlighted area</span>'
+```
+
+## Configuration
+
+### Global config (`slides/slides.yml`)
+
+Applies to all presentations in the project:
+
+```yaml title="slides/slides.yml"
+theme: white
+transition: fade
+slides:
+  my-talk2:
+    title: My Talk 2
+    sections:
+      - title: Chapter 1
+        p: 'Navigate down ↓'
+        sections:
+          - title: '1.1 — Introduction'
+          - title: '1.2 — Details'
+```
+
+### Per-presentation config (`slide.yml`)
+
+Override global settings for a single presentation:
+
+```yaml title="slides/my-talk/slide.yml"
+title: My Talk
+config:
+  theme: moon
+  transition: fade
+  slideNumber: 'c/t'
+sections:
+  - title: My Talk
+```
+
+### Key RevealJS config options
+
+| Key           | Description                               | Default |
+| ------------- | ----------------------------------------- | ------- |
+| `theme`       | `black`, `white`, `moon`, `solarized`, …  | `black` |
+| `transition`  | `none`, `fade`, `slide`, `convex`, `zoom` | `slide` |
+| `slideNumber` | e.g. `"c/t"` for current / total          |         |
+
+For the full list of config options, see the
+[RevealJS config reference](https://revealjs.com/config/).
+
+## RevealJS Features Demo
+
+See all features in action:
+[dinghy.dev/slides/revealjs-features-demo](https://dinghy.dev/slides/revealjs-features-demo)
+
+The demo presentation is authored entirely in YAML
+[slide.yml](https://github.com/dinghydev/dinghy/blob/main/sites/www/slides/revealjs-features-demo/slide.yml):
+
+<div style={{'max-height': '300px','overflow-y': 'auto'}}>
+<CodeBlock language="tsx" title="sites/www/slides/revealjs-features-demo/slide.yml">
+  {DemoYml}
+</CodeBlock>
+</div>

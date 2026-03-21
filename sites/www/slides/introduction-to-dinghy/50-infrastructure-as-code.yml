@@ -1,0 +1,41 @@
+sections:
+  - badge: "Source Code"
+    title: "Infrastructure as Code"
+    img: infrastructure-as-code/source-code.png
+  - id: terraform-code
+    img: infrastructure-as-code/terraform.png
+    ul: 
+      li:
+        - "Generated <b style='color: var(--r-link-color)'>248</b> lines of Terraform code"
+        - "From <b style='color: var(--r-link-color)'>8</b> lines of source code"
+  - id: iac-overview
+    img: infrastructure-as-code/overview.png
+  - id: iac-alloverview
+    img: infrastructure-as-code/all-view.png
+  - id: iac-config
+    img: infrastructure-as-code/config.png
+  - id: iac-action
+    img: infrastructure-as-code/action.png
+  - id: iac-connect
+    img: infrastructure-as-code/connect.png
+    width: 2198
+    height: 1408
+    sections:
+      - id: iac-connect-list
+        x1: 575
+        y1: 750
+        x2: 1654
+        y2: 1002
+      - id: iac-connect-magic
+        x1: 1317
+        y1: 1003
+        x2: 1705
+        y2: 1064
+      - id: iac-connected
+        x1: 571
+        y1: 1005
+        x2: 1498
+        y2: 1348
+      - id: iac-connect-view
+  - id: iac-show-cases
+    img: infrastructure-as-code/show-cases.png
