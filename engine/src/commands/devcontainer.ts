@@ -1,6 +1,7 @@
 import {
   configGetEngineImage,
   configGetToolImage,
+  createOutputMount,
   devcontainer,
   dinghyAppConfig,
   getDockerEnvs,
@@ -122,21 +123,7 @@ function populateMounts(
     }
   }
   if (projectType.type === 'slide') {
-    mounts.push({
-      source: `${hostAppHome}/slides`,
-      target: `/workspace/.dinghy/slide/slides`,
-    })
-    let outputDir = args.output
-    if (outputDir.startsWith('/')) {
-      outputDir = `${hostAppHome}/${outputDir}`
-    }
-    if (!existsSync(outputDir)) {
-      Deno.mkdirSync(outputDir, { recursive: true })
-    }
-    mounts.push({
-      source: outputDir,
-      target: `/workspace/.dinghy/slide/output`,
-    })
+    mounts.push(createOutputMount('slide', args['output']))
   }
   config.mounts = getDockerMounts(projectType.type, mounts, true).map((mount) =>
     `source=${mount.source},target=${mount.target},type=bind`

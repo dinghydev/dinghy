@@ -66,6 +66,21 @@ export function getDockerEnvs(appEnvs: Env = {}) {
   }
 }
 
+export const createOutputMount = (imageName: string, output: string): Mount => {
+  let outputDir = output
+  if (!outputDir.startsWith('/')) {
+    outputDir = `${hostAppHome}/${outputDir}`
+  }
+  if (!existsSync(outputDir)) {
+    Deno.mkdirSync(outputDir, { recursive: true })
+  }
+  debug('Resolved slide output dir %s', outputDir)
+  return {
+    source: outputDir,
+    target: `/workspace/.dinghy/${imageName}/output`,
+  }
+}
+
 export function getDockerMounts(
   imageName: string,
   appMounts: Mount[],
@@ -93,6 +108,20 @@ export function getDockerMounts(
     appMounts.push(...dinghyAppConfig.docker?.images?.[imageName]?.volumns)
   }
 
+  if (imageName !== 'engine') {
+    for (const entry of Deno.readDirSync(hostAppHome)) {
+      if (entry.isDirectory) {
+        if (['node_modules'].includes(entry.name)) {
+          continue
+        }
+        mounts.push({
+          source: `${hostAppHome}/${entry.name}`,
+          target: `/workspace/.dinghy/${imageName}/${entry.name}`,
+        })
+      }
+    }
+  }
+
   mounts.push(...appMounts.map((mount) => {
     const source = mount.source.startsWith('/')
       ? mount.source
@@ -106,6 +135,11 @@ export function getDockerMounts(
       target,
     }
   }))
+
+  mounts.push({
+    source: HOST_USER_HOME!,
+    target: '/host_user_home',
+  })
 
   mounts.push(...HOME_MOUNTS.map((file) => ({
     source: `${HOST_USER_HOME}/${file}`,
