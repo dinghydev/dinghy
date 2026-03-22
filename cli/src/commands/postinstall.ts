@@ -6,7 +6,6 @@ import { cleanUpdateCheck } from '../utils/updateCheck.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
-import { run as initRun } from './init.ts'
 const debug = Debug('postinstall')
 
 export const schema: CmdInput = {
@@ -71,14 +70,7 @@ export const run = async (args: Args) => {
     return
   }
 
-  const initProject = Deno.env.get('INIT_PROJECT')
-  if (initProject) {
-    await initRun({ quiet: true } as any)
-  }
-
-  const startCommand = initProject
-    ? [`cd ${initProject}`, 'dinghy devcontainer']
-    : ['dinghy --help']
+  const startCommand = ['dinghy --help']
 
   if (refreshCommand.length > 0) {
     debug(
@@ -97,11 +89,9 @@ export const run = async (args: Args) => {
     ${startCommand.join('\n    ')}
       `)
   } else {
-    if (!initProject) {
-      console.log(
-        `Upgrade to ${chalk.dim(projectVersionRelease())} complete.`,
-      )
-    }
+    console.log(
+      `Upgrade to ${chalk.dim(projectVersionRelease())} complete.`,
+    )
     console.log(`\n\nTo get started, run:
 
     ${startCommand.join('\n    ')}

@@ -1,10 +1,16 @@
 import { existsSync } from '@std/fs/exists'
+import { dirname, fromFileUrl, resolve } from '@std/path'
 import { execa } from 'execa'
 import chalk from 'chalk'
 import Debug from 'debug'
-import { CmdInput } from '../services/cli/types.ts'
+import type { CmdInput } from '@dinghy/cli'
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('init')
+
+const templatesDir = resolve(
+  dirname(fromFileUrl(import.meta.url)),
+  '../../templates/init',
+)
 
 export const schema: CmdInput = {
   description: 'Create a new Dinghy project with recommended files.',
@@ -43,7 +49,7 @@ export const schema: CmdInput = {
   ],
 }
 
-const generateFile = async (
+const generateFile = (
   args: Args,
   projectHome: string,
   fileName: string,
@@ -54,9 +60,9 @@ const generateFile = async (
     Deno.mkdirSync(`${projectHome}/${folder}`, { recursive: true })
   }
   const filePath = folder ? `${folder}/${fileName}` : fileName
-  const templateUrl = `https://get.dinghy.dev/templates/${templateName}`
-  debug('Downloading template from %s', templateUrl)
-  let template = await fetch(templateUrl).then((res) => res.text())
+  const templatePath = `${templatesDir}/${templateName}`
+  debug('Reading template from %s', templatePath)
+  let template = Deno.readTextFileSync(templatePath)
   if (template.includes('PROJECT_NAME_PLACE_HOLDER')) {
     const projectName = projectHome.split('/').pop() as string
     template = template.replace(/PROJECT_NAME_PLACE_HOLDER/g, projectName)
@@ -78,11 +84,11 @@ export const run = async (args: Args) => {
     console.log(chalk.grey(`  created folder ${projectHome}`))
   }
 
-  await generateFile(args, projectHome, 'app.tsx', 'app.txt')
-  await generateFile(args, projectHome, 'README.md', 'readme.txt')
+  generateFile(args, projectHome, 'app.tsx', 'app.txt')
+  generateFile(args, projectHome, 'README.md', 'readme.txt')
 
   if (args.github) {
-    await generateFile(
+    generateFile(
       args,
       projectHome,
       'dinghy.yml',
@@ -92,7 +98,7 @@ export const run = async (args: Args) => {
   }
 
   if (args.gitlab) {
-    await generateFile(
+    generateFile(
       args,
       projectHome,
       '.gitlab-ci.yml',
@@ -102,7 +108,7 @@ export const run = async (args: Args) => {
   }
 
   if (args.git) {
-    await generateFile(
+    generateFile(
       args,
       projectHome,
       '.gitignore',

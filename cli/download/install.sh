@@ -60,9 +60,7 @@ install_dinghy() {
 }
 
 
-if ! command -v dinghy >/dev/null || [ -z "$INIT_PROJECT" ]; then
-	install_dinghy
-fi
+install_dinghy
 
 set +e
 $dinghy_home/bin/dinghy postinstall
