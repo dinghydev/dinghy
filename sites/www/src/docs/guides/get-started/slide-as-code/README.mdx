@@ -53,7 +53,7 @@ title: My First Presentation
 sections:
   - badge: Hello
     title: My First Presentation
-    p: 'Author in YAML — output self-contained RevealJS HTML.'
+    subtitle: Author in YAML — output self-contained RevealJS HTML.
 
   - title: What We Will Cover
     ul:
@@ -102,16 +102,17 @@ my-talk/
 
 Any YAML key becomes an HTML element. Common keys:
 
-| Key       | Output                           |
-| --------- | -------------------------------- |
-| `title`   | `<h2>…</h2>`                     |
-| `badge`   | `<div class="badge">…</div>`     |
-| `p`       | `<p>…</p>`                       |
-| `h3`      | `<h3>…</h3>`                     |
-| `notes`   | `<aside class="notes">…</aside>` |
-| `ul`/`ol` | unordered or ordered list        |
-| `img`     | single image (r-stretch)         |
-| `grid`    | side-by-side grid of elements    |
+| Key        | Output                              |
+| ---------- | ----------------------------------- |
+| `title`    | `<h2>…</h2>`                        |
+| `subtitle` | `<p class="subtitle">…</p>`         |
+| `badge`    | `<div class="badge">…</div>`        |
+| `p`        | `<p>…</p>`                          |
+| `h3`       | `<h3>…</h3>`                        |
+| `notes`    | `<aside class="notes">…</aside>`    |
+| `ul`/`ol`  | unordered or ordered list            |
+| `img`      | single image (r-stretch)             |
+| `grid`     | side-by-side grid of elements        |
 
 Built-in attributes — `id`, `class`, `style`, `src`, `href`, `alt` — map
 directly to HTML attributes. Keys containing `-` (e.g. `data-*`, `aria-*`) are

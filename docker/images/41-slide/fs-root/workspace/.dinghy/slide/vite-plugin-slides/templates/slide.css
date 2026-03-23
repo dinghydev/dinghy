@@ -18,13 +18,22 @@
   vertical-align: middle;
   margin-bottom: 0.4em;
 }
+
+.subtitle {
+  color: var(--r-link-color);
+  font-size: 0.8em;
+}
 /* Zoom and Pan Section */
 .zp-section {
   padding: 0;
 }
-.zip-container {
+.zp-container {
   position: relative;
   width: 100%;
+}
+
+.print-pdf .zp-container {
+  overflow: hidden;
 }
 .zp-title {
   position: absolute;

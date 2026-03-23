@@ -13,7 +13,6 @@ function loadFile(
   dir: string,
   section: Record<string, unknown>,
 ) {
-  console.log("loadFile", f, dir);
   if (f.endsWith(".yml")) {
     const ymlData = yaml.load(
       fs.readFileSync(path.join(dir, f), "utf-8"),
@@ -63,7 +62,6 @@ function loadSlide(name: string, ctx: Context): Record<string, unknown> {
       unknown
     > ?? {})
     : {};
-  const referencedFiles = new Set<string>();
 
   loadReferencedFiles(
     (raw.sections as unknown[] | undefined) ?? [],

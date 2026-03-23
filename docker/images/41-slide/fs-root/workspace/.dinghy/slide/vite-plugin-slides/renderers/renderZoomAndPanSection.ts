@@ -34,7 +34,6 @@ export function renderZoomAndPanSection(
       const overlay = region?.overlay ?? zoomSection.overlay;
       const ovHtml =
         `\n          <div class="zp-overlay" style="position:absolute;box-sizing:border-box;left:${ovX}px;top:${ovY}px;width:${ovW}px;height:${ovH}px;${overlay};"></div>`;
-      console.log("overlay", overlay, zoomSection.img, zoomSection.overlay);
       return { imgStyle, ovHtml };
     } else {
       const scale = Math.min((SLIDE_W * 0.9) / imgW, (SLIDE_H * 0.9) / imgH);

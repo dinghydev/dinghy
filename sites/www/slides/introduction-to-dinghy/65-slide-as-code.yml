@@ -1,10 +1,20 @@
 sections:
   - badge: 'Presentation Builder'
     title: 'Slide as Code'
+    subtitle: author RevealJS presentations in YAML, Markdown, or HTML
+    ul:
+      li:
+        - YAML DSL maps keys to HTML elements
+        - Self-contained HTML output with inline assets
+        - YAML, Markdown and HTML auto-loaded
+        - Live reload development server
+        - Prezi-style zoom and pan (Dinghy exclusive)
+  - badge: 'Show Case'
+    title: 'Slide Features'
     img: slide-as-code/show-case.png
-  - badge: 'build slide'
+  - badge: 'Build Slide'
     img: slide-as-code/screenshot-build.png
-  - badge: 'single html file'
+  - badge: 'Single HTML File'
     img: slide-as-code/single-html.png
   - id: revealjs-features-demo
     a:

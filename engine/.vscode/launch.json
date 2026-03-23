@@ -146,7 +146,7 @@
         // "-h",
         // "--debug",
         "--port",
-        "3000"
+        "4000"
       ],
       "program": "src/index.ts",
       "env": {

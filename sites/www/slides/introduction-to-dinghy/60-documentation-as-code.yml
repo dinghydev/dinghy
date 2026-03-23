@@ -1,8 +1,24 @@
 sections:
-  - badge: 'Site/App Builder'
-    title: 'Documentation as Code'
+  - badge: Minimal Setup
+    title: Documentation as Code
+    markdown: |
+      ```bash
+      mkdir -p src/pages
+      echo "# Welcome" > src/pages/INDEX.mdx
+      dinghy site start
+      ```
+    subtitle: one file, one command, live preview at localhost:3000
+  - badge: 'Show Case'
+    title: 'Web App'
     img: documentation-as-code/site-app.png
   - id: site-preview
     img: documentation-as-code/site-preview.png
   - id: site-custom
     img: documentation-as-code/site-custom.png
+  - title: S3 Deployment
+    subtitle: built-in S3 support with smart defaults
+    ul:
+      li:
+        - Removes .html extensions for clean URLs
+        - Applies gzip compression to text files
+        - Sets optimal cache-control headers

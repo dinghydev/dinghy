@@ -19,7 +19,8 @@ const ATTRIBUTES = new Set([
 // tag aliases: YAML key → HTML tag (and optional class/id)
 const ALIASES: Record<string, string> = {
   badge: "div.badge",
-  title: "h2",
+  title: "h2.title",
+  subtitle: "p.subtitle",
   notes: "aside.notes",
 };
 

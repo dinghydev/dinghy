@@ -1,55 +1,59 @@
 sections:
   - badge: why
     title: React
+    grid:
+      - img:
+          src: imgs/react.svg
+          style: 'width:8em;'
     sections:
       - badge: the problem
         title: Terraform
         h3: "HashiCorp <b style='color: var(--r-link-color)'>Configuration</b> Language"
-      - title: "Copy &amp; Paste"
-        p: "The HCL has no native abstraction"
+      - title: 'Copy &amp; Paste'
+        p: 'The HCL has no native abstraction'
         ul:
           li:
-            - "Two envs → duplicate every resource block"
-            - "Ten envs → ten copies to keep in sync"
-            - "A rename? Find-and-replace across the codebase"
+            - 'Two envs → duplicate every resource block'
+            - 'Ten envs → ten copies to keep in sync'
+            - 'A rename? Find-and-replace across the codebase'
 
       - title: "Modules help… until they don't"
         ul:
           li:
-            - "Modules are heavyweight"
-            - "No types, no IDE autocomplete"
-            - "<code>for_each</code> and <code>count</code> logic gets messy fast"
-            - "Still just config — no real programming model"
+            - 'Modules are heavyweight'
+            - 'No types, no IDE autocomplete'
+            - '<code>for_each</code> and <code>count</code> logic gets messy fast'
+            - 'Still just config — no real programming model'
 
-      - badge: Rescure
+      - badge: Rescue
         title: Programmable IaC
         grid:
           - img:
               src: imgs/terraform.svg
-              span: 
+              span:
                 text: CDKTF
                 data-id: cdktf
               class: icon
           - img:
               src: imgs/pulumi.svg
-              span: 
+              span:
                 text: Pulumi
                 style: 'font-size:1.5em'
               class: icon
 
-      - badge: "Inspired by CDKTF"
+      - badge: 'Inspired by CDKTF'
         h3: Cloud Development Kit for Terraform
-        p: 
-          - "Write infrastructure in <strong>TypeScript</strong>"
-          - "Render as <strong>HCL in JSON</strong> format"
+        p:
+          - 'Write infrastructure in <strong>TypeScript</strong>'
+          - 'Render as <strong>HCL in JSON</strong> format'
         ul:
           li:
-            - "Real language: loops, functions, imports"
-            - "Full IDE support: types, autocomplete, refactoring"
-            - span: "Build an in-memory model, then render to JSON"
+            - 'Real language: loops, functions, imports'
+            - 'Full IDE support: types, autocomplete, refactoring'
+            - span: 'Build an in-memory model, then render to JSON'
               style: 'color: var(--r-link-color)'
 
-      - title: "Build a Model, Then Render"
+      - title: 'Build a Model, Then Render'
         div: |
           <div style="display:flex;flex-direction:column;align-items:center;gap:16px;font-size:0.85em">
             <div style="display:flex;align-items:center;gap:24px">
@@ -62,15 +66,15 @@ sections:
             <p style="margin-top:0.4em;color:#7dcfff">React is Perfect for Rendering</p>
           </div>
 
-      - title: "React Core Insight"
+      - title: 'React Core Insight'
         p: "React separates <strong style='color: var(--r-link-color)'>what</strong> from <strong style='color: var(--r-link-color)'>how</strong> to render it"
         ul:
-          li: 
-            - "Lightweight components - just functions"
-            - "Virtual DOM - a tree of fibers"
-            - "TSX is a natural fit for nested resources"
+          li:
+            - 'Lightweight components - just functions'
+            - 'Virtual DOM - a tree of fibers'
+            - 'TSX is a natural fit for nested resources'
 
-      - title: "React Everywhere"
+      - title: 'React Everywhere'
         div: |
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:0.4em;font-size:0.82em">
             <div style="background:#1e1e2e;border-radius:10px;padding:20px 24px">
@@ -96,11 +100,11 @@ sections:
         ul:
           li:
             - style: 'text-decoration: line-through'
-              span: "<code>useState</code> — local mutable state"
+              span: '<code>useState</code> — local mutable state'
             - style: 'text-decoration: line-through'
-              span: "<code>useEffect</code> — side effects &amp; lifecycle"
+              span: '<code>useEffect</code> — side effects &amp; lifecycle'
             - style: 'text-decoration: line-through'
-              span: "<code>useMemo</code> — memoize expensive computations"
+              span: '<code>useMemo</code> — memoize expensive computations'
         p:
           style: 'color: var(--r-link-color)'
           span: Dinghy only renders once

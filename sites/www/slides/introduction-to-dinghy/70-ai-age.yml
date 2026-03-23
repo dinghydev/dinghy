@@ -5,7 +5,7 @@ sections:
       li:
         - span: People still write code - with AI help
           class: fragment
-        - span: Dinghy provide abstraction to scale code
+        - span: Dinghy provides abstractions to scale code
           class: fragment
           ul:
             li:
@@ -39,8 +39,9 @@ sections:
     title: '/dinghy-slide'
     markdown: |
       ```text
-      create a slide deck about the benefits of dinghy \
-       https://dinghy.dev/guides/get-started
+      create a slide deck about Dinghy, \
+        use https://dinghy.dev/guides/get-started \
+        and its sub pages as source material
       ```
     p:
       text: '<code style="color: var(--r-link-color)">dinghy skill</code> will install the skills for popular AI assistants'
