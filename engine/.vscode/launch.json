@@ -106,7 +106,8 @@
         // "swizzle",
         // "--list"
         // "-h",
-        // "--debug",
+        "--output",
+        "www/output",
         "--site-dir",
         "www",
         // "references-diagrams",

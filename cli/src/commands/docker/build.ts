@@ -293,7 +293,7 @@ export async function run(args: Args) {
 
   for (const image of args.images) {
     if (isCi()) {
-      console.log(`::group::Build docker image ${image.tag}`)
+      console.log(`::group::Build docker image ${image.name}`)
       await buildImage(image, args)
       console.log('::endgroup::')
     } else {
