@@ -107,7 +107,7 @@
         // "--list"
         // "-h",
         // "--debug",
-        "--site",
+        "--site-dir",
         "www",
         // "references-diagrams",
         // "references-tf-aws",

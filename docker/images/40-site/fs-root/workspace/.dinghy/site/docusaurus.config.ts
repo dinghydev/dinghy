@@ -3,11 +3,9 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import * as fs from "fs";
 
-const siteConfigJson = process.env.SITE_CONFIG_JSON
-  ? JSON.parse(process.env.SITE_CONFIG_JSON)
+const siteConfigJson = process.env.DINGHY_SITE_CONFIG_JSON
+  ? JSON.parse(process.env.DINGHY_SITE_CONFIG_JSON)
   : {};
-
-// console.log("siteConfigJson:", JSON.stringify(siteConfigJson, null, 2));
 
 let {
   docs,
@@ -190,7 +188,5 @@ const config: Config = {
   themeConfig,
   ...siteConfig,
 };
-
-// console.log("Docusaurus config:", JSON.stringify(config, null, 2));
 
 export default config;

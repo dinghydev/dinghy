@@ -108,12 +108,12 @@ export function getDockerMounts(
     appMounts.push(...dinghyAppConfig.docker?.images?.[imageName]?.volumns)
   }
 
-  if (imageName !== 'engine') {
+  if (imageName === 'slide') {
     for (const entry of Deno.readDirSync(hostAppHome)) {
-      if (entry.isDirectory) {
-        if (['node_modules'].includes(entry.name)) {
-          continue
-        }
+      if (
+        entry.isDirectory &&
+        !['output', 'node_modules', '.git'].includes(entry.name)
+      ) {
         mounts.push({
           source: `${hostAppHome}/${entry.name}`,
           target: `/workspace/.dinghy/${imageName}/${entry.name}`,
@@ -126,9 +126,10 @@ export function getDockerMounts(
     const source = mount.source.startsWith('/')
       ? mount.source
       : resolve(hostAppHome, mount.source)
-    const target = mount.target.startsWith('/')
-      ? mount.target
-      : resolve(containerAppHome, mount.target)
+    let target = mount.target || mount.source
+    if (!target.startsWith('/')) {
+      target = resolve(containerAppHome, target)
+    }
     return {
       ...mount,
       source,

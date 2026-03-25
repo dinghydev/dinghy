@@ -1,5 +1,6 @@
 import {
   configGetToolImage,
+  createOutputMount,
   deepMerge,
   dinghyAppConfig,
   DinghyError,
@@ -16,31 +17,33 @@ import { Args } from '@std/cli/parse-args'
 const debug = Debug('runDocusaurusCmd')
 
 export const resolveSiteDir = (args: Args) => {
-  let siteDir = args['site-dir'] ||
-    ((args.site !== undefined && args.site !== 'true')
-      ? args.site as string
-      : hostAppHome)
+  let siteDir = args['site-dir']
+  if (!siteDir) {
+    if (existsSync(path.join(hostAppHome, 'site'))) {
+      siteDir = path.join(hostAppHome, 'site')
+    } else {
+      siteDir = hostAppHome
+    }
+  }
   if (!siteDir.startsWith('/')) {
-    siteDir = `${hostAppHome}/${siteDir}`
+    siteDir = path.join(hostAppHome, siteDir)
   }
   if (!existsSync(siteDir)) {
-    throw new DinghyError(`Site dir ${siteDir} not exists`)
+    throw new DinghyError(
+      `Site dir ${siteDir} not exists`,
+      'SITE_DIR_NOT_EXISTS',
+    )
   }
   debug('Resolved site dir %s', siteDir)
   return siteDir
 }
 
-export const resolveOutputDir = (siteDir: string, args: Args) => {
-  let outputDir = args['site-output']
-  if (!outputDir) {
-    outputDir = `${siteDir}/output/site`
-  }
+const resolveOutputDir = (args: Args) => {
+  let outputDir = args['output']
   if (!outputDir.startsWith('/')) {
     outputDir = `${hostAppHome}/${outputDir}`
   }
-  if (!existsSync(outputDir)) {
-    Deno.mkdirSync(outputDir, { recursive: true })
-  }
+  outputDir = `${outputDir}/${args['site-build-dir']}`
   debug('Resolved site output dir %s', outputDir)
   return outputDir
 }
@@ -49,6 +52,7 @@ export const resolveSiteConfig = (siteDir: string): any => {
   const configFiles = [
     `${siteDir}/../docusaurus.config.yml`,
     `${siteDir}/docusaurus.config.yml`,
+    `${siteDir}/site/docusaurus.config.yml`,
     `${siteDir}/config/site/docusaurus.config.yml`,
   ]
   const configs: any[] = []
@@ -74,9 +78,9 @@ export const resolveSiteConfig = (siteDir: string): any => {
 }
 
 export const resolveSiteConfigJson = (siteConfig: any, target: any) => {
-  const { volumes: _volumes, deploy: _deploy, ...restSiteConfig } = siteConfig
+  const { deploy: _deploy, ...restSiteConfig } = siteConfig
   if (Object.keys(restSiteConfig).length > 0) {
-    target['SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
+    target['DINGHY_SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
   }
 }
 
@@ -87,12 +91,12 @@ export const runDocusaurusImageCmd = async (
   const actualCmd = cmd.slice(-1)[0]
   await onEvent(`site.${actualCmd}.start`, args)
   const siteDir = await resolveSiteDir(args)
-  const outputDir = await resolveOutputDir(siteDir, args)
   const siteConfig = await resolveSiteConfig(siteDir)
 
   const dockerEnvs = {} as Record<string, string>
-  const { volumes, deploy } = siteConfig
+  const { deploy } = siteConfig
   if (deploy?.s3Url && actualCmd === 'deploy') {
+    const outputDir = await resolveOutputDir(args)
     return await deployToS3(args, outputDir, siteConfig)
   }
   resolveSiteConfigJson(siteConfig, dockerEnvs)
@@ -109,60 +113,32 @@ export const runDocusaurusImageCmd = async (
   }
 
   const dockerVolumnes = [] as any[]
-  const outputParentDir = path.dirname(outputDir)
-  dockerVolumnes.push({
-    source: outputParentDir,
-    target: `/opt/docusaurus/${path.basename(outputParentDir)}`,
-  })
+  dockerVolumnes.push(createOutputMount('site', args['output']))
   if (actualCmd === 'build') {
     siteOptions.push(
       '--out-dir',
-      `${path.basename(outputParentDir)}/${path.basename(outputDir)}`,
+      `/workspace/.dinghy/site/output/${args['site-build-dir']}`,
     )
   } else if (actualCmd === 'serve') {
     siteOptions.push(
       '--dir',
-      `${path.basename(outputParentDir)}/${path.basename(outputDir)}`,
+      `/workspace/.dinghy/site/output/${args['site-build-dir']}`,
     )
   }
   for await (const f of Deno.readDir(siteDir)) {
     if (
-      !['docusaurus.config.yml', 'output', 'build'].includes(f.name)
+      f.isDirectory &&
+      !['output', 'node_modules'].includes(f.name)
     ) {
       dockerVolumnes.push({
         source: `${siteDir}/${f.name}`,
-        target: `/opt/docusaurus/${f.name}`,
+        target: `/workspace/.dinghy/site/${f.name}`,
       })
     }
   }
-  for (
-    const vs of [
-      ...(volumes || []),
-    ]
-  ) {
-    for (const v of vs.split(',')) {
-      const [source, target] = v.split(':')
-      if (source && target) {
-        const resolvedSource = source.startsWith('/')
-          ? source
-          : path.resolve(`${siteDir}/${source}`) // check source path valid
-        dockerVolumnes.push({
-          source: resolvedSource,
-          target: `/opt/docusaurus/${target}`,
-        })
-      }
-    }
-  }
-
-  if (actualCmd !== 'start') {
-    dockerVolumnes.push({
-      source: `${outputDir}`,
-      target: `/opt/docusaurus/build`,
-    })
-  }
 
   await runDockerCmd(
-    '/opt/docusaurus',
+    '/workspace/.dinghy/site',
     dockerEnvs,
     dockerVolumnes,
     [...cmd, ...siteOptions, ...args.extraOptions],

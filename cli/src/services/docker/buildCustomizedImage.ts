@@ -168,12 +168,12 @@ export async function buildCustomizedImage(
     })
   }
   if (customization.packages) {
-    const isSite = imageName === 'site'
-    const cmdPrefix = isSite
-      ? 'RUN cd /opt/docusaurus && yarn add'
-      : 'RUN cd /dinghy/engine && deno add'
+    const isEngine = imageName === 'engine'
+    const cmdPrefix = isEngine
+      ? 'RUN cd /dinghy/engine && deno add'
+      : `RUN cd /workspace/.dinghy/${imageName} && yarn add`
     customization.packages.forEach((p: string) => {
-      if (!isSite && !p.includes(':')) {
+      if (isEngine && !p.includes(':')) {
         p = `npm:${p}`
       }
       dockerFileContent.push(`${cmdPrefix} ${p}`)

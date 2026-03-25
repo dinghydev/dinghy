@@ -45,7 +45,6 @@
             "asciidoctor.asciidoctor-vscode",
             "esbenp.prettier-vscode",
             "denoland.vscode-deno",
-            "eamodio.gitlens",
             "reduckted.vscode-gitweblinks"
         ]
     }

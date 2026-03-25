@@ -30,16 +30,14 @@ export const globalOptions: OptionInput[] = [
     env: 'DINGHY_SITE_DOCKER_OPTIONS',
   },
   {
-    name: 'site',
-    description: 'Named site if there are multiple sites configured',
-  },
-  {
     name: 'site-dir',
-    description: 'Path to the site base directory',
+    description:
+      'Path to the site base directory, default to site directory in app home if exists, otherwise current directory',
   },
   {
-    name: 'site-output',
-    description: 'The build output directory',
+    name: 'site-build-dir',
+    description: 'The build directory in output directory',
+    default: 'site',
   },
   {
     name: 'port',

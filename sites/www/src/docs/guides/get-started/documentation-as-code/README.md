@@ -132,24 +132,26 @@ Content in `src/docs` and `src/blog` will map to root without prefix which is
 same behaviour as `src/pages`.
 
 Those config are handled by
-[docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/opt/docusaurus/docusaurus.config.ts),
+[docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/workspace/.dinghy/site/docusaurus.config.ts),
 please refer to the source code for details.
 
 ### docusaurus.config.ts
 
 You may provide your own
-[docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/opt/docusaurus/docusaurus.config.ts)
+[docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/workspace/.dinghy/site/docusaurus.config.ts)
 in the root folder of site to override the default for advanced control which
 not possbile by configure `docusaurus.config.yml`.
 
 ### site config sources
 
-The `SITE_CONFIG_JSON` object is merged from the following sources, with later
-sources overriding earlier ones.
+The `DINGHY_SITE_CONFIG_JSON` object is merged from the following sources, with
+later sources overriding earlier ones.
 
 1. `site` from `dinghy.config.yml`
-1. `../docusaurus.config.yml` file if `--site` options was provided
-1. `docusaurus.config.yml` file
+1. `${siteDir}/../docusaurus.config.yml`
+1. `${siteDir}/docusaurus.config.yml`
+1. `${siteDir}/site/docusaurus.config.yml`
+1. `${siteDir}/config/site/docusaurus.config.yml`
 
 ## Pre-installed packages
 

@@ -5,11 +5,13 @@
       "name": "site start",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
+      "cwd": "/workspace/.dinghy/site",
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
         "docusaurus",
         "start",
+        "--host",
+        "0.0.0.0",
       ],
       "console": "integratedTerminal"
     },
@@ -17,13 +19,13 @@
       "name": "site build",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
+      "cwd": "/workspace/.dinghy/site",
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
         "docusaurus",
         "build",
         "--out-dir",
-        "${workspaceFolder}/output/site",
+        "/workspace/.dinghy/site/output/site",
       ],
       "console": "integratedTerminal"
     },
@@ -31,13 +33,15 @@
       "name": "site serve",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
+      "cwd": "/workspace/.dinghy/site",
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
         "docusaurus",
         "serve",
+        "--host",
+        "0.0.0.0",
         "--dir",
-        "${workspaceFolder}/output/site",
+        "/workspace/.dinghy/site/output/site",
       ],
       "console": "integratedTerminal"
     },

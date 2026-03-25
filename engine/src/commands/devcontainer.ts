@@ -54,8 +54,7 @@ export const run = async (args: Args) => {
 
   populateEnvs(config, projectType)
   populateMounts(config, projectType, args)
-  config.workspaceFolder ??= args.workspace ||
-    (projectType.siteConfig ? '/opt/docusaurus' : '/workspace')
+  config.workspaceFolder ??= args.workspace || '/workspace'
   // config.onCreateCommand ??= "on-devcontainer-create.ts";
 
   config.customizations ??= {
@@ -116,14 +115,19 @@ function populateMounts(
   )
   if (projectType.siteConfig) {
     for (const f of Deno.readDirSync(projectType.siteDir!)) {
-      mounts.push({
-        source: `${projectType.siteDir!}/${f.name}`,
-        target: `/opt/docusaurus/${f.name}`,
-      })
+      if (
+        f.isDirectory &&
+        !['output', 'node_modules', '.git'].includes(f.name)
+      ) {
+        mounts.push({
+          source: `${projectType.siteDir}/${f.name}`,
+          target: `/workspace/.dinghy/site/${f.name}`,
+        })
+      }
     }
   }
-  if (projectType.type === 'slide') {
-    mounts.push(createOutputMount('slide', args['output']))
+  if (projectType.type !== 'engine') {
+    mounts.push(createOutputMount(projectType.type, args['output']))
   }
   config.mounts = getDockerMounts(projectType.type, mounts, true).map((mount) =>
     `source=${mount.source},target=${mount.target},type=bind`

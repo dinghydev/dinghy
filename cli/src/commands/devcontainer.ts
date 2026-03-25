@@ -24,8 +24,8 @@ export const generationSchema: CmdInput = {
     },
     {
       name: 'site',
-      description:
-        'Ignore the image detection and use the site image. Could be name if multiple sites are configured. Value is not required if there is only one site configured.',
+      description: 'Ignore the image detection and use the site image',
+      boolean: true,
     },
     {
       name: 'slide',

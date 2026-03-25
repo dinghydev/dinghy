@@ -85,10 +85,8 @@ jobs:
           deno task prepare-build
           echo "::endgroup::"
 
-          echo "::group::Publish docker images"
           deno task docker-build
-          echo "::endgroup::"
-
+          
           echo "::group::Publish cli"
           deno task cli-publish
           echo "::endgroup::"

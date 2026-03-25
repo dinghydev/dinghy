@@ -1,7 +1,6 @@
 ARG BUILD_ARCH=arm64
+FROM golang:<%= VERSION_GOLANG %> AS session-manager-plugin
 
-
-FROM golang:<%= VERSION_GOLANG %> as session-manager-plugin
 RUN apt -y update && apt -y upgrade && apt -y install rpm tar gzip wget zip && apt clean all
 # https://github.com/aws/session-manager-plugin/releases
 RUN curl -sLO https://github.com/aws/session-manager-plugin/archive/refs/tags/<%= VERSION_SSM %>.tar.gz && \
@@ -13,10 +12,12 @@ RUN curl -sLO https://github.com/aws/session-manager-plugin/archive/refs/tags/<%
 
 
 FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+ARG BUILD_ARCH
+
 COPY --from=session-manager-plugin /session-manager-plugin /usr/bin/
 RUN echo 'Install aws cli' \
-   && apt-get update \
-    # && apt list -a awscli \
-    && apt-get -y install awscli=<%= VERSION_AWSCLI %> \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+      && if [ "$BUILD_ARCH" = "arm64" ]; then ARCH="aarch64"; else ARCH="x86_64"; fi \
+      && curl "https://awscli.amazonaws.com/awscli-exe-linux-${ARCH}-<%= VERSION_AWSCLI %>.zip" -o "awscliv2.zip" \
+      && unzip awscliv2.zip \                                                                            
+      && ./aws/install \   
+      && rm -rf awscliv2.zip aws 

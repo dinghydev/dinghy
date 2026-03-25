@@ -25,8 +25,8 @@ Markdown, or HTML — output is a self-contained HTML file.
 
 4. **NEVER generate the `config:` section** in `slide.yml` unless the user
    explicitly requests customization (theme, transition, etc.). The default
-   theme and transitions are already good — adding `config:` without being
-   asked is a common mistake. If in doubt, leave it out.
+   theme and transitions are already good — adding `config:` without being asked
+   is a common mistake. If in doubt, leave it out.
 
 5. **Choose the right format for each section.** Prefer inline YAML in
    `slide.yml` unless:
@@ -169,10 +169,10 @@ treated as attributes.
 
 ### Code Highlighting
 
-Use inline markdown for code blocks. Use `[line-numbers]` after the language
-to highlight specific lines per step (RevealJS syntax):
+Use inline markdown for code blocks. Use `[line-numbers]` after the language to
+highlight specific lines per step (RevealJS syntax):
 
-```yaml
+````yaml
 - title: Code Example
   markdown: |
     ```js [1-2|3-4|5-6]
@@ -183,7 +183,7 @@ to highlight specific lines per step (RevealJS syntax):
     }
     sayHello()
     ```
-```
+````
 
 ### Inline HTML
 
@@ -203,35 +203,35 @@ both `width` and `height` keys (no `type:` needed).
 
 **Section-level keys:**
 
-| Key               | Type    | Required | Description                                    |
-|-------------------|---------|----------|------------------------------------------------|
-| `img`             | string  | yes      | Path to the image file                         |
-| `width`           | number  | yes      | Original image width in pixels                 |
-| `height`          | number  | yes      | Original image height in pixels                |
-| `skip-full-view`  | boolean | no       | Skip the initial full-image overview slide     |
-| `overlay`         | string  | no       | Default CSS for highlight boxes on all regions |
-| `sections`        | array   | yes      | List of zoom regions                           |
+| Key              | Type    | Required | Description                                    |
+| ---------------- | ------- | -------- | ---------------------------------------------- |
+| `img`            | string  | yes      | Path to the image file                         |
+| `width`          | number  | yes      | Original image width in pixels                 |
+| `height`         | number  | yes      | Original image height in pixels                |
+| `skip-full-view` | boolean | no       | Skip the initial full-image overview slide     |
+| `overlay`        | string  | no       | Default CSS for highlight boxes on all regions |
+| `sections`       | array   | yes      | List of zoom regions                           |
 
 **Region keys** (each item in `sections`):
 
-| Key       | Type   | Required | Description                                        |
-|-----------|--------|----------|----------------------------------------------------|
-| `x1`      | number | yes      | Left edge (pixels in original image)               |
-| `y1`      | number | yes      | Top edge                                           |
-| `x2`      | number | yes      | Right edge                                         |
-| `y2`      | number | yes      | Bottom edge                                        |
-| `id`      | string | no       | HTML id for the generated slide                    |
-| `title`   | string | no       | HTML title shown centered over the zoomed region   |
-| `overlay` | string | no       | Per-region CSS override for the highlight box       |
+| Key       | Type   | Required | Description                                      |
+| --------- | ------ | -------- | ------------------------------------------------ |
+| `x1`      | number | yes      | Left edge (pixels in original image)             |
+| `y1`      | number | yes      | Top edge                                         |
+| `x2`      | number | yes      | Right edge                                       |
+| `y2`      | number | yes      | Bottom edge                                      |
+| `id`      | string | no       | HTML id for the generated slide                  |
+| `title`   | string | no       | HTML title shown centered over the zoomed region |
+| `overlay` | string | no       | Per-region CSS override for the highlight box    |
 
-Coordinates `x1,y1,x2,y2` are in **original image pixels**. The renderer
-scales and positions the image to fit each region within the 960x700 RevealJS
-viewport.
+Coordinates `x1,y1,x2,y2` are in **original image pixels**. The renderer scales
+and positions the image to fit each region within the 960x700 RevealJS viewport.
 
 **Slide sequence:** full image first (unless `skip-full-view: true`), then one
 slide per region with smooth pan/zoom transitions.
 
-Default overlay: `background:rgba(144,238,144,0.2);border:2px solid rgba(144,238,144,0.6);`
+Default overlay:
+`background:rgba(144,238,144,0.2);border:2px solid rgba(144,238,144,0.6);`
 
 ```yaml
 - img: architecture.png
