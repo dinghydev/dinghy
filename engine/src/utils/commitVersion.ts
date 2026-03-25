@@ -35,7 +35,7 @@ export const commitVersion = (projectRoot?: string) => {
 
     const commitTime = () =>
       gitInfo('log -1 --format=%cd --date=format:%Y%m%d-%H%M%S')
-    const shortCommit = () => gitInfo('rev-parse --short HEAD')
+    const shortCommit = () => gitInfo('rev-parse --short=8 HEAD')
     const commitDirty = () => {
       try {
         gitInfo('diff --quiet HEAD')
