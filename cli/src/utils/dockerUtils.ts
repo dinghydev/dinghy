@@ -17,6 +17,8 @@ const debug = Debug('dockerUtils')
 const HOST_USER_HOME = Deno.env.get('HOST_USER_HOME') ||
   Deno.env.get('HOME')
 
+export const HOST_USER_HOME_PATH = '/host_user_home'
+
 type Mount = {
   source: string
   target: string
@@ -139,7 +141,7 @@ export function getDockerMounts(
 
   mounts.push({
     source: HOST_USER_HOME!,
-    target: '/host_user_home',
+    target: HOST_USER_HOME_PATH,
   })
 
   mounts.push(...HOME_MOUNTS.map((file) => ({

@@ -6,6 +6,8 @@ import { cleanUpdateCheck } from '../utils/updateCheck.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
+import { resolveDinghySkills } from '../services/config/dinghySkill.ts'
+import { runEngineCommand } from '../services/docker/runEngineCommand.ts'
 const debug = Debug('postinstall')
 
 export const schema: CmdInput = {
@@ -65,6 +67,11 @@ export const run = async (args: Args) => {
   addToPathIfNotAlready('fish', ['.config/fish/config.fish'])
 
   await cleanUpdateCheck()
+
+  const { dinghySkills } = resolveDinghySkills()
+  if (dinghySkills) {
+    await runEngineCommand(['skill'])
+  }
 
   if (args.quiet) {
     return

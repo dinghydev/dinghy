@@ -8,6 +8,7 @@ export { runCommands } from './services/cli/runCommands.ts'
 export { showHelp } from './services/cli/showHelp.ts'
 export { configGetToolImage } from './services/config/configGetToolImage.ts'
 export { configGetEngineImage } from './services/config/configGetEngineImage.ts'
+export { resolveDinghySkills } from './services/config/dinghySkill.ts'
 export { reportStats } from './utils/reportResult.ts'
 export {
   CMD_DEF_SYMBOL,

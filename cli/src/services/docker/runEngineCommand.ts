@@ -11,7 +11,7 @@ import chalk from 'chalk'
 import { parseArgs } from '@std/cli/parse-args'
 import { useEnvVar } from '../../utils/loadConfig.ts'
 import { configGetEngineImage } from '../config/configGetEngineImage.ts'
-import { isCi } from '@dinghy/cli'
+import { isCi } from '../../utils/gitUtils.ts'
 import { ENGINE_DOCKER_OPTIONS } from '../config/engineDockerOptions.ts'
 const debug = Debug('runEngineCommand')
 
