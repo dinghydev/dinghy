@@ -33,7 +33,9 @@ Markdown, or HTML — output is a self-contained HTML file.
    - The section is markdown-heavy (long prose, tables, code blocks) — use a
      separate `.md` file.
    - The section requires custom styling, animations, or complex HTML — use a
-     separate `.html` file.
+     separate `.html` file. This is preferred when advanced custom CSS is
+     needed, since `.html` files can include `<style>` tags scoped to that
+     section.
 
 6. **After generating the slide**, ask the user if they want to run
    `dinghy slide start` to preview it in the browser (http://localhost:3000).
@@ -53,7 +55,7 @@ slides/
     NN-section-name.html  <- optional HTML sections (with <section> tags)
     custom.css            <- optional custom CSS (auto-loaded)
     favicon.svg           <- optional favicon (auto-loaded)
-    imgs/                 <- images referenced in slides
+    imgs/                 <- images referenced in slides (create only when needed)
 ```
 
 Files other than `slide.yml` are auto-loaded and sorted alphabetically by

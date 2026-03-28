@@ -6,31 +6,45 @@ argument-hint: [description]
 
 Create a new Dinghy documentation site. A wrapper around
 [Docusaurus](https://docusaurus.io/) — no project scaffolding, no dependency
-management, no config boilerplate. One file is all you need.
+management, no config boilerplate. Your contant is all your need.
+
+## Site Directory
+
+Before generating files, determine the **site directory**:
+
+- If the current directory contains no pre-existing normal folders (e.g. it is
+  empty or only has hidden files/config files), use the **current directory** as
+  the site directory — place all generated files directly here.
+- If the current directory already contains other folders (source code, configs,
+  etc.), create a **`site/`** subfolder and place all generated files inside it.
+
+All paths in the workflow and layout sections below are relative to the chosen
+site directory.
 
 ## Workflow
 
-1. **Determine the site name.** If the user provided a name, use it
-   (kebab-case). Otherwise generate a short name (max 5 words, kebab-case) from
-   the description — e.g. `api-docs`, `team-handbook`.
+1. **Create the homepage** at `src/pages/INDEX.mdx` or `src/docs/INDEX.mdx`.
+   Either can serve as the homepage. Files named `INDEX.mdx`, `INDEX.md`,
+   `README.mdx`, or `README.md` all render as `index.html` in their
+   directory.
 
-2. **Create the site folder** at `sites/<site-name>/`.
+2. **Add documentation pages** when the user wants a docs section with sidebar
+   navigation. Use MDX format. For a new site, place docs under `src/docs/`.
+   When adding docs to an existing site that has no docs yet, use top-level
+   `docs/` instead (renders with `/docs/` URL prefix).
 
-3. **Create the homepage** at `sites/<site-name>/src/pages/INDEX.mdx`. This is
-   the minimum required file.
+3. **Add a blog** when the user wants a blog section. For a new site, place
+   posts under `src/blog/`. When adding a blog to an existing site that has no
+   blog yet, use top-level `blog/` instead (renders with `/blog/` URL prefix).
 
-4. **Add documentation pages** under `sites/<site-name>/src/docs/` when the user
-   wants a docs section with sidebar navigation. Use MDX format.
-
-5. **Add a blog** under `sites/<site-name>/src/blog/` when the user wants a blog
-   section.
-
-6. **Create `docusaurus.config.yml`** only when the user explicitly requests
+4. **Create `docusaurus.config.yml`** only when the user explicitly requests
    customization (title, navbar, footer, theme, search, etc.). The defaults work
    well out of the box — adding config without being asked is a common mistake.
    If in doubt, leave it out.
 
-7. **After generating the site**, print the follow-up actions:
+5. **After generating the site**, ask the user if they want to start the dev
+   server now (`dinghy site start`). If they confirm, run it. Either way, also
+   print the follow-up actions:
    ```
    Next steps:
    - `dinghy site start`  — start dev server with live reload (http://localhost:3000)
@@ -39,36 +53,41 @@ management, no config boilerplate. One file is all you need.
    - `dinghy devcontainer` — open in VSCode Devcontainer for development
    ```
 
+6. **Restart the dev server** after making configuration changes (e.g. editing
+   `docusaurus.config.yml`, adding new top-level folders like `docs/` or
+   `blog/`). Content changes in existing files are picked up by live reload,
+   but config and structural changes require a restart (`dinghy site start`).
+
 ## Project Layout
 
 ```
-sites/<site-name>/
-  docusaurus.config.yml     <- optional site configuration
-  src/
-    pages/
-      INDEX.mdx             <- required: homepage
-      about.mdx             <- optional extra pages
-    docs/                   <- optional: documentation with sidebar
-      guides/
-        getting-started.mdx
-      references/
-        api.mdx
-    blog/                   <- optional: blog posts
-      2026-01-15-hello.md
-    css/
-      custom.css            <- optional: custom styling
-    components/             <- optional: React/TSX components
-  static/
-    assets/
-      img/                  <- static images
+docusaurus.config.yml     <- optional site configuration
+src/
+  pages/
+    INDEX.mdx             <- required: homepage
+    about.mdx             <- optional extra pages
+  docs/                   <- optional: documentation with sidebar
+    guides/
+      getting-started.mdx
+    references/
+      api.mdx
+  blog/                   <- optional: blog posts
+    2026-01-15-hello.md
+  css/
+    custom.css            <- optional: custom styling
+  components/             <- optional: React/TSX components
+static/
+  assets/
+    img/                  <- static images
 ```
 
-Content in `src/docs` and `src/blog` maps to the site root without a prefix
-(same as `src/pages`).
+`src/docs` and `src/blog` render at the site root without a URL prefix (same
+as `src/pages`). If you use `docs/` or `blog/` in the site root instead, they
+render with `/docs/` or `/blog/` URL prefixes.
 
 ## Homepage
 
-The homepage is the only required file:
+A simple homepage example:
 
 ```mdx title="src/pages/INDEX.mdx"
 # Welcome
@@ -119,14 +138,11 @@ Introduction to the project.
 
 ### Sidebar categories
 
-Directories become sidebar categories. Add a `_category_.json` or
-`_category_.yml` to configure:
+Directories become sidebar categories. Add a `_category_.yml` to configure:
 
-```json title="src/docs/guides/_category_.json"
-{
-  "label": "Guides",
-  "position": 10
-}
+```yaml title="src/docs/guides/_category_.yml"
+label: Guides
+position: 10
 ```
 
 ## Blog
@@ -159,35 +175,52 @@ YAML format. Only create this when customization is needed.
 title: My Project
 tagline: A short tagline
 url: https://my-project.example.com
-favicon: /assets/img/favicon.ico
+favicon: assets/img/favicon.ico
+
+navbar:
+  title: My Project
+  logo: false
+  items:
+    - label: Guides
+      to: /guides/getting-started
+      position: left
+    - label: GitHub
+      href: https://github.com/org/repo
+      position: right
+
+footer:
+  style: dark
+  copyright: 'Copyright © YYYY My Project. Built with Docusaurus.'
 
 docs:
   sidebarCollapsed: false
 
-themeConfig:
-  navbar:
-    title: My Project
-    items:
-      - label: Guides
-        to: /guides/getting-started
-        position: left
-      - label: GitHub
-        href: https://github.com/org/repo
-        position: right
-
-  footer:
-    style: dark
-    copyright: 'Built with Dinghy'
+sidebars:
+  defaultSidebar:
+    - type: autogenerated
+      dirName: .
 ```
 
-Top-level keys intercepted and mapped to correct Docusaurus config locations:
+Top-level keys intercepted and mapped by the config resolver:
 
-| Key           | Maps to                 |
-| ------------- | ----------------------- |
-| `docs`        | `presets.classic.docs`  |
-| `blog`        | `presets.classic.blog`  |
-| `theme`       | `presets.classic.theme` |
-| `themeConfig` | `themeConfig`           |
+| Key           | Behavior                                                  |
+| ------------- | --------------------------------------------------------- |
+| `docs`        | Mapped to `presets.classic.docs`. Auto-enabled when       |
+|               | `src/docs/` exists (with `routeBasePath: /`)              |
+| `blog`        | Mapped to `presets.classic.blog`. Auto-enabled when       |
+|               | `src/blog/` exists (with `routeBasePath: /`)              |
+| `theme`       | Mapped to `presets.classic.theme`. Auto-detects           |
+|               | `src/css/custom.css`                                      |
+| `svgr`        | Mapped to `presets.classic.svgr`. Enabled by default      |
+| `classic`     | Spread into the classic preset options                    |
+| `themeConfig` | Merged with default themeConfig (navbar, footer,          |
+|               | colorMode, prism)                                         |
+| `navbar`      | Merged into `themeConfig.navbar`. Set `logo: false` to    |
+|               | remove the default logo                                   |
+| `footer`      | Merged into `themeConfig.footer`. Set to `false` to       |
+|               | remove footer entirely. `YYYY` in copyright is replaced   |
+|               | with the current year                                     |
+| `sidebars`    | Written to `sidebars.ts` and linked to docs config        |
 
 All other keys pass through to the top-level Docusaurus config.
 
@@ -197,13 +230,10 @@ The `DINGHY_SITE_CONFIG_JSON` object is merged from these sources (later
 overrides earlier):
 
 1. `site` from `dinghy.config.yml`
-2. `../docusaurus.config.yml` (when `--site` option is provided)
-3. `docusaurus.config.yml` in the site root
-
-### docusaurus.config.ts
-
-For advanced control not possible via YAML, provide your own
-`docusaurus.config.ts` in the site root to override the default.
+2. `<site-dir>/../docusaurus.config.yml`
+3. `<site-dir>/docusaurus.config.yml`
+4. `<site-dir>/site/docusaurus.config.yml`
+5. `<site-dir>/config/site/docusaurus.config.yml`
 
 ## Custom CSS
 
@@ -239,7 +269,7 @@ The deploy command automatically:
 
 - Removes `.html` extensions for clean URLs (when `trailingSlash: false`)
 - Uploads root `index.html` as `/`
-- Gzip-compresses text files (js, css, svg, xml, txt, json)
+- Gzip-compresses text files (html, js, css, svg, xml, txt, json)
 - Sets optimal `cache-control` headers (immutable for hashed assets, short TTL
   for mutable files)
 
@@ -280,8 +310,7 @@ Additional packages available:
 ### Minimal site (single page)
 
 ```
-sites/my-docs/
-  src/pages/INDEX.mdx
+src/pages/INDEX.mdx
 ```
 
 ```mdx title="src/pages/INDEX.mdx"
@@ -293,9 +322,8 @@ Welcome to the documentation.
 ### Documentation site with sidebar
 
 ```
-sites/team-handbook/
-  docusaurus.config.yml
-  src/
+docusaurus.config.yml
+src/
     pages/INDEX.mdx
     docs/
       guides/
@@ -312,23 +340,21 @@ sites/team-handbook/
 
 ```yaml title="docusaurus.config.yml"
 title: Team Handbook
-themeConfig:
-  navbar:
-    title: Team Handbook
-    items:
-      - label: Guides
-        to: /guides/getting-started
-        position: left
-      - label: References
-        to: /references/api
-        position: left
+navbar:
+  title: Team Handbook
+  items:
+    - label: Guides
+      to: /guides/getting-started
+      position: left
+    - label: References
+      to: /references/api
+      position: left
 ```
 
 ### Site with blog
 
 ```
-sites/engineering-blog/
-  src/
+src/
     pages/INDEX.mdx
     blog/
       2026-01-15-welcome.md
