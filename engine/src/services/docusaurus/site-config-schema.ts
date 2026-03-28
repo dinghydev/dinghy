@@ -26,5 +26,10 @@ export const SiteConfigSchema = z.object({
     }),
     cleanUpStagingFiles: z.boolean().default(true),
   }).optional(),
-  volumes: z.string().array().optional(),
+  volumes: z.object({
+    source: z.string(),
+    target: z.string().optional(),
+    skipCheck: z.boolean().optional(),
+    check: z.string().optional(),
+  }).array().optional(),
 })

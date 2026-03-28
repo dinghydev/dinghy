@@ -101,19 +101,13 @@ function populateMounts(
     return
   }
   const mounts: any[] = []
-  if (dinghyAppConfig.devcontainer?.volumns) {
-    mounts.push(...dinghyAppConfig.devcontainer?.volumns)
+  if (dinghyAppConfig.devcontainer?.volumes) {
+    mounts.push(...dinghyAppConfig.devcontainer?.volumes)
   }
-  const mountsSource: string[] = [
-    ...(args.volumns || []),
-  ]
-  mountsSource.map((mount: string) =>
-    mounts.push({
-      source: mount.split(':')[0],
-      target: mount.split(':')[1],
-    })
-  )
   if (projectType.siteConfig) {
+    if (projectType.siteConfig?.volumes) {
+      mounts.push(...projectType.siteConfig?.volumes)
+    }
     for (const f of Deno.readDirSync(projectType.siteDir!)) {
       if (
         f.isDirectory &&

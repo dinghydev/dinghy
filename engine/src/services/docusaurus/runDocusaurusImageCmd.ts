@@ -78,7 +78,7 @@ export const resolveSiteConfig = (siteDir: string): any => {
 }
 
 export const resolveSiteConfigJson = (siteConfig: any, target: any) => {
-  const { deploy: _deploy, ...restSiteConfig } = siteConfig
+  const { volumes: _volumes, deploy: _deploy, ...restSiteConfig } = siteConfig
   if (Object.keys(restSiteConfig).length > 0) {
     target['DINGHY_SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
   }
@@ -94,7 +94,7 @@ export const runDocusaurusImageCmd = async (
   const siteConfig = await resolveSiteConfig(siteDir)
 
   const dockerEnvs = {} as Record<string, string>
-  const { deploy } = siteConfig
+  const { volumes, deploy } = siteConfig
   if (deploy?.s3Url && actualCmd === 'deploy') {
     const outputDir = await resolveOutputDir(args)
     return await deployToS3(args, outputDir, siteConfig)
@@ -113,6 +113,9 @@ export const runDocusaurusImageCmd = async (
   }
 
   const dockerVolumnes = [] as any[]
+  if (volumes) {
+    dockerVolumnes.push(...volumes)
+  }
   dockerVolumnes.push(createOutputMount('site', args['output']))
   if (actualCmd === 'build') {
     siteOptions.push(

@@ -1,6 +1,6 @@
 devcontainer:
   type: slide
-  volumns:
+  volumes:
     - source: ../../images/41-slide/fs-root/workspace/.vscode
       target: /workspace/.vscode
       skipCheck: true
@@ -9,7 +9,7 @@ devcontainer:
 docker:
   images:
     slide:
-      volumns:
+      volumes:
         - source: ../../images/41-slide/fs-root/workspace/.dinghy/slide/vite-plugin-slides
           target: /workspace/.dinghy/slide/vite-plugin-slides
           skipCheck: true

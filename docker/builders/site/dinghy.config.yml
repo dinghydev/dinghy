@@ -1,6 +1,6 @@
 devcontainer:
   type: site
-  volumns:
+  volumes:
     - source: ../../images/40-site/fs-root/workspace/.vscode
       target: /workspace/.vscode
       skipCheck: true
@@ -9,10 +9,10 @@ devcontainer:
 docker:
   images:
     engine:
-      volumns:
+      volumes:
         - source: ../../../sites
     site:
-      volumns:
+      volumes:
         - source: ../../../sites/www/static
           target: /workspace/.dinghy/site/static
           skipCheck: true

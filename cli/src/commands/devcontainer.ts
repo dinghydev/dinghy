@@ -12,11 +12,6 @@ export const generationSchema: CmdInput = {
   alias: ['dc'],
   options: [
     {
-      name: 'volumns',
-      description: 'Additional volumns to mount to the devcontainer',
-      multiple: true,
-    },
-    {
       name: 'engine',
       description:
         'Ignore the image detection and use the default engine image',

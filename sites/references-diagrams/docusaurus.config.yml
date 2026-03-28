@@ -1,10 +1,14 @@
 deploy:
   s3Url: s3://dinghy-dev-site-www
 volumes:
-  - ../www/static:static
-  - ../www/src/components:src/components
-  - ../www/src/css:src/css
-  - ../www/src/theme:src/theme
+  - source: www/static
+    target: /workspace/.dinghy/site/static
+  - source: www/src/components
+    target: /workspace/.dinghy/site/src/components
+  - source: www/src/css
+    target: /workspace/.dinghy/site/src/css
+  - source: www/src/theme
+    target: /workspace/.dinghy/site/src/theme
 baseUrl: /references/diagrams/
 docs:
   routeBasePath: /

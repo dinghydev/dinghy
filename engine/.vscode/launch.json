@@ -100,7 +100,6 @@
         // "build",
         // "serve",
         // "deploy",
-        // "--debug",
         // "bash",
         // "--",
         // "swizzle",
@@ -117,6 +116,7 @@
       ],
       "program": "src/index.ts",
       "env": {
+        // "DEBUG": "*,-babe*",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/site"

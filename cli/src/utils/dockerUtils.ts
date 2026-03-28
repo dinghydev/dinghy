@@ -106,8 +106,8 @@ export function getDockerMounts(
       })
     }
   }
-  if (dinghyAppConfig.docker?.images?.[imageName]?.volumns) {
-    appMounts.push(...dinghyAppConfig.docker?.images?.[imageName]?.volumns)
+  if (dinghyAppConfig.docker?.images?.[imageName]?.volumes) {
+    appMounts.push(...dinghyAppConfig.docker?.images?.[imageName]?.volumes)
   }
 
   if (imageName === 'slide') {
