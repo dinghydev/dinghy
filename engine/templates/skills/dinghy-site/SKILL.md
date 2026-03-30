@@ -25,8 +25,7 @@ site directory.
 
 1. **Create the homepage** at `src/pages/INDEX.mdx` or `src/docs/INDEX.mdx`.
    Either can serve as the homepage. Files named `INDEX.mdx`, `INDEX.md`,
-   `README.mdx`, or `README.md` all render as `index.html` in their
-   directory.
+   `README.mdx`, or `README.md` all render as `index.html` in their directory.
 
 2. **Add documentation pages** when the user wants a docs section with sidebar
    navigation. Use MDX format. For a new site, place docs under `src/docs/`.
@@ -55,8 +54,8 @@ site directory.
 
 6. **Restart the dev server** after making configuration changes (e.g. editing
    `docusaurus.config.yml`, adding new top-level folders like `docs/` or
-   `blog/`). Content changes in existing files are picked up by live reload,
-   but config and structural changes require a restart (`dinghy site start`).
+   `blog/`). Content changes in existing files are picked up by live reload, but
+   config and structural changes require a restart (`dinghy site start`).
 
 ## Project Layout
 
@@ -81,8 +80,8 @@ static/
     img/                  <- static images
 ```
 
-`src/docs` and `src/blog` render at the site root without a URL prefix (same
-as `src/pages`). If you use `docs/` or `blog/` in the site root instead, they
+`src/docs` and `src/blog` render at the site root without a URL prefix (same as
+`src/pages`). If you use `docs/` or `blog/` in the site root instead, they
 render with `/docs/` or `/blog/` URL prefixes.
 
 ## Homepage
@@ -203,24 +202,24 @@ sidebars:
 
 Top-level keys intercepted and mapped by the config resolver:
 
-| Key           | Behavior                                                  |
-| ------------- | --------------------------------------------------------- |
-| `docs`        | Mapped to `presets.classic.docs`. Auto-enabled when       |
-|               | `src/docs/` exists (with `routeBasePath: /`)              |
-| `blog`        | Mapped to `presets.classic.blog`. Auto-enabled when       |
-|               | `src/blog/` exists (with `routeBasePath: /`)              |
-| `theme`       | Mapped to `presets.classic.theme`. Auto-detects           |
-|               | `src/css/custom.css`                                      |
-| `svgr`        | Mapped to `presets.classic.svgr`. Enabled by default      |
-| `classic`     | Spread into the classic preset options                    |
-| `themeConfig` | Merged with default themeConfig (navbar, footer,          |
-|               | colorMode, prism)                                         |
-| `navbar`      | Merged into `themeConfig.navbar`. Set `logo: false` to    |
-|               | remove the default logo                                   |
-| `footer`      | Merged into `themeConfig.footer`. Set to `false` to       |
-|               | remove footer entirely. `YYYY` in copyright is replaced   |
-|               | with the current year                                     |
-| `sidebars`    | Written to `sidebars.ts` and linked to docs config        |
+| Key           | Behavior                                                |
+| ------------- | ------------------------------------------------------- |
+| `docs`        | Mapped to `presets.classic.docs`. Auto-enabled when     |
+|               | `src/docs/` exists (with `routeBasePath: /`)            |
+| `blog`        | Mapped to `presets.classic.blog`. Auto-enabled when     |
+|               | `src/blog/` exists (with `routeBasePath: /`)            |
+| `theme`       | Mapped to `presets.classic.theme`. Auto-detects         |
+|               | `src/css/custom.css`                                    |
+| `svgr`        | Mapped to `presets.classic.svgr`. Enabled by default    |
+| `classic`     | Spread into the classic preset options                  |
+| `themeConfig` | Merged with default themeConfig (navbar, footer,        |
+|               | colorMode, prism)                                       |
+| `navbar`      | Merged into `themeConfig.navbar`. Set `logo: false` to  |
+|               | remove the default logo                                 |
+| `footer`      | Merged into `themeConfig.footer`. Set to `false` to     |
+|               | remove footer entirely. `YYYY` in copyright is replaced |
+|               | with the current year                                   |
+| `sidebars`    | Written to `sidebars.ts` and linked to docs config      |
 
 All other keys pass through to the top-level Docusaurus config.
 

@@ -74,6 +74,7 @@ export const run = (args: Args) => {
     )
   }
 
+  const loggedDirs = new Set<string>()
   for (const entry of walkSync(templatesDir, { includeFiles: true })) {
     if (entry.isFile) {
       const relativePath = entry.path.substring(templatesDir.length + 1)
@@ -84,7 +85,11 @@ export const run = (args: Args) => {
       Deno.copyFileSync(entry.path, targetPath)
 
       if (!args.quiet) {
-        console.log(`  copied to ${chalk.grey(showPath(targetPath))}`)
+        const topLevelDir = relativePath.split('/')[0]
+        if (!loggedDirs.has(topLevelDir)) {
+          loggedDirs.add(topLevelDir)
+          console.log(`  copied /${chalk.grey(topLevelDir)} skill`)
+        }
       }
     }
   }

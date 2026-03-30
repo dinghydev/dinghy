@@ -2,6 +2,7 @@ import type { ReactElement } from 'react'
 import {
   camelCaseToWords,
   deepResolve,
+  DinghyError,
   type NodeTree,
   toId,
   toName,
@@ -32,10 +33,19 @@ const defaultTags = (
 }
 
 const firstTag = (node: NodeTree): string => {
-  return (node._props._tags as string[])[node._props._level === 1 ? 1 : 0]
+  const tags = node._props._tags as string[]
+  const startIndex = node._props._level === 1 ? 1 : 0
+  for (let i = startIndex; i < tags.length; i++) {
+    if (tags[i] !== '') return tags[i]
+  }
+  console.error('node without tag', node)
+  throw new DinghyError('No tag detected', 'NO_TAG_DETECTED')
 }
 
 const defaultType = (node: NodeTree) => {
+  if (!firstTag(node)) {
+    console.log('node tag empty?', node)
+  }
   return camelCaseToWords(firstTag(node)).toLowerCase().replaceAll(' ', '_')
 }
 

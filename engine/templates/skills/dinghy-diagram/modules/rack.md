@@ -1,0 +1,284 @@
+# Networking, Rack
+
+## Containers
+
+### containersRackGeneral
+
+`import { ... } from '@dinghy/diagrams/containersRackGeneral'`
+
+Rack — General
+
+NumberedRackCabinet, RackCabinet, Shelf
+
+## Entities
+
+### entitiesRackApc
+
+`import { ... } from '@dinghy/diagrams/entitiesRackApc'`
+
+Rack — Apc
+
+ApcSmartUps10003000Va2u, ApcSmartUps5000Va5u, ApcSmartUps750Va1u
+
+### entitiesRackCisco
+
+`import { ... } from '@dinghy/diagrams/entitiesRackCisco'`
+
+Rack — Cisco
+
+Cisco1905SerialIntegratedServicesRouter, Cisco1921IntegratedServicesRouter,
+Cisco1941SeriesIntegratedServicesRouter, Cisco2901IntegratedServicesRouter,
+Cisco2911IntegratedServicesRouter, Cisco2921IntegratedServicesRouter,
+Cisco2951IntegratedServicesRouter, Cisco3925IntegratedServicesRouter,
+Cisco3945IntegratedServicesRouter, Cisco7603Router, Cisco7604Router,
+Cisco7606Router, Cisco7609Router, Cisco7613Router,
+Cisco8340ApplicationOrientedNetworkingAppliance,
+CiscoAsa5585XAdaptiveSecurityAppliance, CiscoAsr1001Router, CiscoAsr1002Router,
+CiscoAsr1002XRouter, CiscoAsr1004Router, CiscoAsr1006Router, CiscoAsr1013Router,
+CiscoAsr9001, CiscoAsr9006, CiscoAsr9010, CiscoAsr9922, CiscoBladeSwitch3030,
+CiscoCarrierPacketTransport200, CiscoCarrierPacketTransport50,
+CiscoCarrierPacketTransport600, CiscoCatalyst4900mSwitch,
+CiscoCatalyst492810GigabitEthernetSwitch,
+CiscoCatalyst494810GigabitEthernetSwitch, CiscoCatalyst4948Switch,
+CiscoCatalyst6503ESwitch, CiscoCatalyst6504ESwitch, CiscoCatalyst6506ESwitch,
+CiscoCatalyst6509Switch, CiscoCatalyst6513E, CiscoCatalystBladeSwitch3020ForHp,
+CiscoCatalystBladeSwitch3032ForDell, CiscoCatalystBladeSwitch3040ForDell,
+CiscoCatalystBladeSwitch3100ForDell, CiscoCatalystBladeSwitch3120ForHp,
+CiscoCatalystBladeSwitch3130ForDell, CiscoIdentityServicesEngine,
+CiscoIps4500Sensor, CiscoNetworkAccessControl,
+CiscoNexus1010VirtualServicesAppliance, CiscoNexus2148tFabricExtender,
+CiscoNexus2224tpGeFabricExtender, CiscoNexus2232pp10geFabricExtender,
+CiscoNexus2232tm10geFabricExtender, CiscoNexus2248pq10geFabricExtender,
+CiscoNexus2248tpGeFabricExtender, CiscoNexus3016Switch, CiscoNexus3048Switch,
+CiscoNexus3064Switch, CiscoNexus3548Switch, CiscoNexus5548pSwitch,
+CiscoNexus5596t, CiscoNexus5596upSwitch, CiscoNexus6001Switch,
+CiscoNexus6004Switch, CiscoNexus700010SlotSwitchChassis,
+CiscoNexus700018SlotSwitchChassis, CiscoNexus70004SlotSwitchChassis,
+CiscoNexus70009SlotSwitchChassis,
+CiscoOns15305MultiserviceCustomerAccessPlatform,
+CiscoOns15310ClSonetMultiservicePlatform,
+CiscoOns15310MaSdhMultiservicePlatform,
+CiscoOns15454SonetSdhMultiserviceProvisioningPlatform,
+CiscoOns15600MultiserviceSwitchingPlatform, CiscoPhysicalSecurity4uStorage,
+CiscoPhysicalSecurityMultiservicePlatform1u,
+CiscoPhysicalSecurityMultiservicePlatform2u,
+CiscoPhysicalSecurityMultiservicePlatform4u, CiscoUcs5100Chassis,
+CiscoUcs6248upFabricInterconnect, CiscoUcs6296upFabricInterconnect,
+CiscoUcsC22M3Server, CiscoUcsC220M3Server, CiscoUcsC24M3Server,
+CiscoUcsC240M3Server, CiscoUcsC260M3Server, CiscoUcsC420M3Server,
+CiscoUcsC460M2Server, CiscoWae512, CiscoWae612, CiscoWae674, CiscoWae7341,
+CiscoWae7371, CiscoWave294, CiscoWave594, CiscoWave694, CiscoWave7541,
+CiscoWave7571, CiscoWave8541, CiscoWebSecurityApplianceS170,
+CiscoWebSecurityApplianceS370, CiscoWebSecurityApplianceS670
+
+### entitiesRackDell
+
+`import { ... } from '@dinghy/diagrams/entitiesRackDell'`
+
+Rack — Dell
+
+PowerStrip, Poweredge1u, Poweredge2u, Poweredge4u, Poweredge630, PoweredgeC4140,
+PoweredgeM1000eEnclosure, PoweredgeM420, PoweredgeM520, PoweredgeM610x,
+PoweredgeM620, PoweredgeM820, PoweredgeM915, PoweredgeR240, PoweredgeR340,
+PoweredgeR440, PoweredgeR540, PoweredgeR640, PoweredgeR6415, PoweredgeR6515,
+PoweredgeR6525, PoweredgeR730, PoweredgeR730xd, PoweredgeR740, PoweredgeR740xd,
+PoweredgeR740xd2, PoweredgeR7415, PoweredgeR7425, PoweredgeR7515, PoweredgeR840,
+PoweredgeR940, PoweredgeXr2
+
+### entitiesRackF5
+
+`import { ... } from '@dinghy/diagrams/entitiesRackF5'`
+
+Rack — F5
+
+Arx1000, Arx1500, Arx2000, Arx2500, Arx4000, Arx500, Arx5000, Arx6000,
+BigIp10x00, BigIp110x0, BigIp1600, BigIp2x00, BigIp3600, BigIp3900, BigIp4x00,
+BigIp5x00, BigIp6900, BigIp7x00, BigIp89x0, Em4000, Firepass1200, Firepass4100,
+Viprion2400, Viprion4400, Viprion4800
+
+### entitiesRackGeneral
+
+`import { ... } from '@dinghy/diagrams/entitiesRackGeneral'`
+
+Rack — General
+
+CabinetLeg, Cat5eEnhancedPatchPanel48Ports, Cat5eRackMountPatchPanel24Ports,
+Cat5eRackMountPatchPanel96Ports, ChannelBase, CoverPlate, HorizontalCableDuct,
+HorizontalRoutingBank, Hub, NeatPatch, Server, Server1, Server2, Server3,
+Spacing, Switches1, Switches2
+
+### entitiesRackHpeArubaSwitches
+
+`import { ... } from '@dinghy/diagrams/entitiesRackHpeArubaSwitches'`
+
+Rack — Hpe Aruba Switches
+
+Aruba7010MobilityControllerFront, Aruba7010MobilityControllerRear,
+Aruba7024MobilityControllerFront, Aruba7024MobilityControllerRear,
+Aruba7030MobilityControllerFront, Aruba7030MobilityControllerRear,
+Aruba7205MobilityControllerFront, Aruba7205MobilityControllerRear,
+Aruba7210MobilityControllerFront, Aruba7210MobilityControllerRear,
+Aruba7220MobilityControllerFront, Aruba7220MobilityControllerRear,
+Aruba7240MobilityControllerFront, Aruba7240MobilityControllerRear,
+Aruba7280MobilityControllerFront, Aruba7280MobilityControllerRear,
+Aruba90044PortGbeGatewayBack, Aruba90044PortGbeGatewayFront,
+Aruba9004DualRackmount, Aruba901210PortGbeGatewayBack,
+Aruba901210PortGbeGatewayFront, ArubaClearpassC1000Front,
+ArubaClearpassC1000Front2, ArubaClearpassC1000Rear, ArubaClearpassC2000Front,
+ArubaClearpassC2000Rear, ArubaClearpassC3000Front, ArubaClearpassC3000Rear,
+ArubaMobilityMaster10kFront, ArubaMobilityMaster10kRear,
+ArubaMobilityMaster1kFront, ArubaMobilityMaster1kRear,
+ArubaMobilityMaster5kFront, ArubaMobilityMaster5kRear, DirectQsfp, DirectQsfp2,
+DirectSfp, FibreQsfp, Hp6125gEthernetBladeSwitch, HpBladesystemC3000Enclosure,
+HpBladesystemC7000Enclosure, HpBladesystemS6500Enclosure, HpInfinibandFdrSwitch,
+HpProliantBl620cServerBlade, HpProliantBl660cServerBlade,
+HpProliantBl685cServerBlade, HpProliantDl160G8, HpProliantDl320eG8,
+HpProliantDl360eG8, HpProliantDl360pG8, HpProliantDl380eG8, HpProliantDl380pG8,
+HpProliantDl385pG8, HpProliantDl560G8, HpProliantSl230sG8, HpProliantSl250sG8,
+HpVirtualConnectFlex1010d, J9772a253048gPoeSwitch, J9773a253024gPoeSwitch,
+J9774a25308gPoeFront, J9774a25308gPoeplusRear, J9775a253048gSwitch,
+J9776a253024gSwitch, J9777a25308gFront, J9777a25308gRear, J9778a253048PoeFront,
+J9780a25308PoeFront, J9780a25308PoeRear, J9781a253048Front, J9782a253024Front,
+J9821a540rZl2SwitchRear, J9822a5412rZl2Switch, J9822a5412rZl2SwitchRear,
+J9827a5400rManagementModule, J9828a5400r700wPoeZl2PowerSupply,
+J9829a5400r1100wPoeZl2PowerSupply, J9830b5400r2750wPoeZl2PowerSupply,
+J9831a5406rZl2SwitchFanTray, J9832a5412rZl2SwitchFanTray,
+J9840aMsm775zlV2ZlModule, J9850a5406rZl2SwitchRear, J9850a540rZl2Switch,
+J9851a5412rZl2Switch, J9851a5412rZl2SwitchRear, J9853a253048gPoe2sfpSwitch,
+J9854a253024gPoe2sfpSwitch, J9855a253048g2sfpSwitch, J9856a253024g2sfpSwitch,
+J9857aAdvSvcsV2ZlModule, J9858aAdvSvcsV2ZlModule,
+J993a8Port1g10gbeSfpWithMacsecV3Zl2Module, J9986a24pGigtModule,
+J9987a24Port101001000baseTWithMacsecV3Zl2Module,
+J9988a24Port1gbeSfpWithMagsecV3Zl2Module,
+J9989a12Port101001000baseTPoeAnd12Port1gbeSfpWithMacsecV3Zl2Module,
+J9990a20pGigt4pSfpModule,
+J9991a20Port101001000baseTPoeAnd4Port125510gbaseTPoeWithMacsecV3Zl2Module,
+J9992a20Port101001000baseTPoeAnd1Port40gbeQsfpWithMacsecV3Zl2Module,
+J9995a8pSmartRatePoeModule, J9996a2Port40gbeQsfpWithMacsecV3Zl2Module,
+Jl070a25308PoeInternalPsSwitch, Jl071aHpeAruba3810m24PortGt1SlotSwitch,
+Jl071aHpeAruba3810m24PortGt1SlotSwitchRear,
+Jl072aHpeAruba3810m48PortGt1SlotSwitch,
+Jl072aHpeAruba3810m48PortGt1SlotSwitchRear,
+Jl073aHpeAruba3810m24PortGtPoe1SlotSwitchRear,
+Jl073aHpeAruba3810m24PortGtPoeplus1SlotSwitch,
+Jl074aHpeAruba3810m48PortGtPoe1SlotSwitch,
+Jl075aHpeAruba3810m16PortSfp2SlotSwitch,
+Jl075aHpeAruba3810m16PortSfp2SlotSwitchRear,
+Jl076aHpeAruba3810m40PortGtPoe8Port125510gbaseTPoe1SlotSwitch,
+Jl076aHpeAruba3810m40PortGtPoe8Port125510gbaseTPoe1SlotSwitchRear,
+Jl079a3810m2930m2Port40gbeQsfpModule,
+Jl081a3810m2930m4125510GbeHpeSmartRateModule,
+Jl083a3810m2930m4Port10gbeSfpModule, Jl084a3810m2930m4PortStackingModule,
+Jl085aAruba6300mPsuModule, Jl086aAruba6300mPsuModule,
+Jl087a3810m2930m1Port40gbeQsfpModule, Jl087aAruba6300mPsuModule,
+Jl253aAruba2930f24g4sfpSwitch, Jl254aAruba2930f48g4sfpSwitch,
+Jl255aAruba2930f24gPoe4sfpSwitch, Jl256aAruba2930f48gPoe4sfpSwitch,
+Jl258aAruba2930f8gPoe2sfpRear, Jl258aAruba2930f8gPoe2sfpSwitch,
+Jl258aAruba2930f8gPoe2sfpSwitchRear, Jl259aAruba2930f24g4sfpSwitch,
+Jl260aAruba2930f48g4sfpSwitch, Jl261aAruba2930f24gPoe4sfpSwitch,
+Jl262aAruba2930f48gPoe4sfpSwitch, Jl263aAruba2930f24gPoe4sfpTaaSwitch,
+Jl264aAruba2930f48gPoe4sfpTaaSwitch, Jl319aAruba2930m24g1SlotSwitch,
+Jl319aAruba2930m24g1SlotSwitchRear, Jl320aAruba2930m24gPoe1SlotSwitch,
+Jl320aAruba2930m24gPoe1SlotSwitchRear, Jl321aAruba2930m48g1SlotSwitch,
+Jl321aAruba2930m48g1SlotSwitchRear, Jl322aAruba2930m48gPoe1SlotSwitch,
+Jl322aAruba2930m48gPoe1SlotSwitchRear,
+Jl323aAruba2930m40g8SmartRatePoe1SlotSwitch,
+Jl324aAruba2930m24SmartRatePoe1SlotSwitch, Jl325a2930m2PortStackingModule,
+Jl354aAruba254024g4sfpSwitch, Jl355aAruba254048g4sfpSwitch,
+Jl356aAruba254024gPoe4sfpSwitch, Jl357aAruba254048gPoe4sfpSwitch,
+Jl363a32pSfpAdv, Jl365a8pQsfpAdv, Jl366a6pQsfp28Adv, Jl368aAruba8400MgmtMod,
+Jl369aAruba8400X731FanTray, Jl370aAruba8400FanForX731FanTray,
+Jl371aAruba8400FanTrayAnd6FansBundle, Jl375aAruba8400Front,
+Jl375aAruba8400RearEmpty, Jl375aAruba8400Rear, Jl376aAruba8400Front,
+Jl376aAruba8400RearEmpty, Jl376aAruba8400Rear,
+Jl479aAruba832048p10gSfpSfpAnd6p40gQsfp5Fan2PsSwitchBundleRear,
+Jl479aAruba832048p10gSfpSfpAnd6p40gQsfp5Fan2PsSwitchBundle,
+Jl557aAruba2930f48gPoe4sfp740wSwitch, Jl557aAruba2930f48gPoe4sfp740wSwitchRear,
+Jl558aAruba2930f48gPoe4sfp740wSwitch, Jl558aAruba2930f48gPoe4sfp740wSwitchRear,
+Jl559aAruba2930f48gPoe4sfp740wTaaSwitch,
+Jl559aAruba2930f48gPoe4sfp740wTaaSwitchRear,
+Jl579aAruba832032p40gQsfp5Fans2PsSwitchBundle,
+Jl579aAruba832032p40gQsfp5Fans2PsSwitchBundleRear,
+Jl581aAruba832048p1g10gbaseTAnd6p40gQsfp5Fans2PsSwitchBundle,
+Jl581aAruba832048p1g10gbaseTAnd6p40gQsfp5Fans2PsSwitchBundleRear,
+Jl624aAruba832532y8cF2bFront, Jl624aAruba832532y8cF2bRear,
+Jl625aAruba832532y8cB2fFront, Jl625aAruba832532y8cB2fRear,
+Jl626aAruba832532cF2bFront, Jl626aAruba832532cF2bRear,
+Jl627aAruba832532cB2fFront, Jl627aAruba832532cB2fRear,
+Jl658aAruba6300m24PortSfpAnd4PortSfp56Switch,
+Jl658aAruba6300m24PortSfpAnd4PortSfp56SwitchRear,
+Jl659aAruba6300m48PortHpeSmartRate1255gbeClass6PoeAnd4PortSwitch,
+Jl659aAruba6300m48PortHpeSmartRate1255gbeClass6PoeAnd4PortSwitchRear,
+Jl660aAruba6300m24PortHpeSmartRate1255GbeClass6PoeAnd4PortSwitch,
+Jl660aAruba6300m24PortHpeSmartRate1255GbeClass6PoeAnd4PortSwitchRear,
+Jl661aAruba6300m48Port1gbeClass4PoeAnd4PortSfp56Switch,
+Jl661aAruba6300m48Port1gbeClass4PoeAnd4PortSfp56SwitchRear,
+Jl662aAruba6300m24Port1gbeClass4Poe4PortSfp56Switch,
+Jl662aAruba6300m24Port1gbeClass4Poe4PortSfp56SwitchRear,
+Jl663aAruba6300m48Port1gbeAnd4PortSfp56Switch,
+Jl663aAruba6300m48Port1gbeAnd4PortSfp56SwitchRear,
+Jl664aAruba6300m24Port1gbeAnd4PortSfp56Switch,
+Jl664aAruba6300m24Port1gbeAnd4PortSfp56SwitchRear,
+Jl665aAruba6300f48Port1gbeClass4PoeAnd4PortSfp56Switch,
+Jl665aAruba6300f48Port1gbeClass4PoeAnd4PortSfp56SwitchRear,
+Jl666aAruba6300f24Port1gbeClass4PoeAnd4PortSfp56Switch,
+Jl666aAruba6300f24Port1gbeClass4PoeAnd4PortSfp56SwitchRear,
+Jl667aAruba6300f48Port1gbeAnd4PortSfp56Switch,
+Jl667aAruba6300f48Port1gbeAnd4PortSfp56SwitchRear,
+Jl668aAruba6300f24Port1gbeAnd4PortSfp56Rear,
+Jl668aAruba6300f24Port1gbeAnd4PortSfp56Switch, Jl669Aruba6300mFanModule,
+Jl670aAruba6300mPsuModule, Jl687aAruba8400x32y32p11025gSfpSfpSfp28Module,
+Jl693aAruba12gPoe2g2sfpSwitch, Jl693aAruba12gPoe2g2sfpSwitchRear,
+Jl724aAruba6200f24Port1gbeAnd4PortSfpSwitch,
+Jl724aAruba6200f24Port1gbeAnd4PortSfpSwitchRear,
+Jl725aAruba6200f24Port1gbeClass4PoeAnd4PortSfp370wSwitch,
+Jl725aAruba6200f24Port1gbeClass4PoeAnd4PortSfp370wSwitchRear,
+Jl726aAruba6200f48Port1gbeAnd4PortSfpSwitch,
+Jl726aAruba6200f48Port1gbeAnd4PortSfpSwitchRear,
+Jl727aAruba6200f48Port1gbeClass4PoeAnd4PortSfp370wSwitch,
+Jl727aAruba6200f48Port1gbeClass4PoeAnd4PortSfp370wSwitchRear,
+Jl728aAruba6200f48Port1gbeClass4PoeAnd4PortSfp740wSwitch,
+Jl728aAruba6200f48Port1gbeClass4PoeAnd4PortSfp740wSwitchRear,
+Jl9826a5412r92gPoe4sfpZl2Switch, LcSfp, R0x26aArubaCx6400Switch,
+R0x26aArubaCx6405SwitchRear, R0x27aArubaCx6410Switch,
+R0x27aArubaCx6410SwitchRear, R0x31aAruba6400ManagementModule,
+R0x35aAruba64001800wPsWC16, R0x36aAruba64003000wPsWC20,
+R0x38aAruba640048p1gbeCls4PoeModule, R0x39aAruba640048p1gbeCls4Poe4sfp56Module,
+R0x40aAruba640048p1gbeCls6Poe4sfp56Module,
+R0x41aAruba640048pSmartRateCsl6Poe4sfp56Module,
+R0x42aAruba640024p10gt4sfp56Module, R0x43aAruba640024pSfp4sfp56Module,
+R0x44Aruba640048p10g25gSfp28Module, R0x45aAruba640012p40g100gQsfp28Module,
+Rj45Sfp, Rj45SfpAlt, Rom67aAruba2930mPoeClass6SwitchRear,
+Rom67aAruba2930m48pPoeClass6Switch, Rom68aAruba2930m24pPoeClass6Switch,
+Rom68aAruba2930m24pPoeClass6SwitchRear
+
+### entitiesRackIbm
+
+`import { ... } from '@dinghy/diagrams/entitiesRackIbm'`
+
+Rack — Ibm
+
+Ibm11000vaUps, Ibm15002200vaUps, Ibm1754LocalConsoleManager,
+Ibm1uFlatPanelConsoleKit, Ibm3000vaUps, Ibm6000vaUps, IbmDx360, IbmUps10000,
+IbmUps5000Hv, IbmUps7500, IbmX3250M4, IbmX3530M4, IbmX3550M4, IbmX3630M3,
+IbmX3630M4, IbmX3650M4, IbmX3690, IbmX3750, IbmX3755M3, IbmX3850X5, IbmX3950X5
+
+### entitiesRackOracle
+
+`import { ... } from '@dinghy/diagrams/entitiesRackOracle'`
+
+Rack — Oracle
+
+NetraBladeX32bServer, NetraCp3260AtcaBladeServer, NetraCp3270AtcaBladeServer,
+NetraCt900AtcaBladeServer, NetraCt9000Server, NetraServerX32,
+NetraSparcT41Server, NetraSparcT41bServerModule, NetraSparcT42Server,
+NetraX4270Server, NetraX6270ServerModule, SparcEnterpriseM4000Server,
+SparcEnterpriseM5000Server, SparcT41Server, SparcT41bServerModule,
+SparcT42Server, SparcT44Server, SunBlade6000Enclosure,
+SunBlade6000EthernetNetworkExpressModule24p10Gbe,
+SunBlade6000Virtualized40GbeNetworkExpressModule, SunBladeX32bServer,
+SunBladeX6270M2ServerModule, SunDatacenterInfinibandSwitch36,
+SunNetwork10gbeSwitch72p, SunNetworkQdrInfinibandGatewaySwitch, SunServerX24,
+SunServerX28, SunServerX32, SunServerX32l, SunStorage2500M2Array,
+SunZfsStorage7120, SunZfsStorage7320, SunfireT1000, SunfireX2100, SunfireX4100,
+SunfireX4500, SunfireX4600

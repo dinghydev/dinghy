@@ -80,6 +80,9 @@ export const doWithStacks = async (
   stackSpec: string | undefined,
   fn: (stackOptions: any) => Promise<void>,
 ) => {
+  if (stackSpec && stackSpec.endsWith('.tsx')) {
+    stackSpec = stackSpec.slice(0, -4)
+  }
   const stacks = parseStacks(options, stackSpec)
   for (const [spec, stack] of Object.entries(stacks)) {
     if (stackSpec && spec !== stackSpec) {
