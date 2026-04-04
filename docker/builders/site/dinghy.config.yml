@@ -19,6 +19,9 @@ docker:
         - source: ../../images/40-site/fs-root/workspace/.dinghy/site/docusaurus.config.ts
           target: /workspace/.dinghy/site/docusaurus.config.ts
           skipCheck: true
+        - source: ../../images/40-site/fs-root/workspace/.dinghy/site/suppress-warning.js
+          target: /workspace/.dinghy/site/suppress-warning.js
+          skipCheck: true
         - source: ../../images/40-site/fs-root/workspace/.dinghy/site/package.json
           target: /workspace/.dinghy/site/package.json
           skipCheck: true

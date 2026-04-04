@@ -48,4 +48,4 @@ The following skills are included:
 Once installed, you can use slash commands like `/dinghy-slide` or
 `/dinghy-diagram` in Claude Code to generate Dinghy projects with AI assistance.
 
-![Dinghy Skills](./dinghy-skills.png)
+![Dinghy Skills](./dinghy-skills.png#drawio-w-100)

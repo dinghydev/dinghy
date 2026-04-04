@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "docusaurus": "docusaurus",
+    "docusaurus": "NO_UPDATE_NOTIFIER=1 NODE_OPTIONS='--require ./suppress-warning.js' docusaurus",
     "typecheck": "tsc"
   },
   "dependencies": {

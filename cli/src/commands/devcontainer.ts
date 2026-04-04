@@ -27,6 +27,12 @@ export const generationSchema: CmdInput = {
       description: 'Ignore the image detection and use the slide image.',
       boolean: true,
     },
+    {
+      name: 'site-dir',
+      description:
+        'Path to the site base directory, default to site directory in app home if exists, otherwise current directory',
+      hidden: true,
+    },
   ],
 }
 
