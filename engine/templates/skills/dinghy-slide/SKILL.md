@@ -236,7 +236,7 @@ Default overlay:
 `background:rgba(144,238,144,0.2);border:2px solid rgba(144,238,144,0.6);`
 
 ```yaml
-- img: architecture.png
+- img: sequence-diagram.png
   width: 2077
   height: 2096
   skip-full-view: true

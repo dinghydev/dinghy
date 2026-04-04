@@ -54,22 +54,12 @@ jobs:
           rm commit_rev_count_data.json
         env:
           GH_TOKEN: ${{ github.token }}
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: us-east-1
-          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE }}
-      # - name: Login to Amazon ECR
-      #   id: login-ecr
-      #   uses: aws-actions/amazon-ecr-login@v2
-      #   with:
-      #     registry-type: public
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Perform release
+      - name: Docker release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -86,6 +76,23 @@ jobs:
           echo "::endgroup::"
 
           deno task docker-build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE }}
+      # - name: Login to Amazon ECR
+      #   id: login-ecr
+      #   uses: aws-actions/amazon-ecr-login@v2
+      #   with:
+      #     registry-type: public
+      - name: Cli release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
+          # aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7
+          cd tasks
           
           echo "::group::Publish cli"
           deno task cli-publish
