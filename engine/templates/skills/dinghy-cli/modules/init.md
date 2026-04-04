@@ -1,0 +1,25 @@
+# init
+
+Create a new Dinghy project with recommended files.
+
+## Usage
+
+```sh
+$ dinghy init [PROJECT] [options]
+$ dinghy create-project [PROJECT] [options]
+```
+
+## Arguments
+
+| Name      | Description                                                                        |
+| --------- | ---------------------------------------------------------------------------------- |
+| `project` | The target folder of the project, if not provided, the current folder will be used |
+
+## Options
+
+| Name         | Description                       | Default |
+| ------------ | --------------------------------- | ------- |
+| `--[no]-git` | Init git repository if not exists | `true`  |
+| `--gitlab`   | Generate GitLab .gitlab-ci.yml    |         |
+| `--github`   | Generate GitHub Actions           |         |
+| `--quiet`    | Quiet mode                        |         |

@@ -1,0 +1,26 @@
+# check
+
+Run static code analysis, available checks: fmt, lint, type, test, git
+
+## Usage
+
+```sh
+$ dinghy check [CHECK] [options]
+```
+
+## Arguments
+
+| Name    | Description       |
+| ------- | ----------------- |
+| `check` | The checks to run |
+
+## Options
+
+| Name                 | Description                                                                 | Default                  |
+| -------------------- | --------------------------------------------------------------------------- | ------------------------ |
+| `--fmtCmd=<value>`   | The command to run for fmt check                                            | `deno fmt`               |
+| `--lintCmd=<value>`  | The command to run for lint check                                           | `deno lint`              |
+| `--typeCmd=<value>`  | The command to run for type check                                           | `deno check`             |
+| `--testCmd=<value>`  | The command to run for deno test if `__tests__` folder exists               | `deno test --no-check`   |
+| `--gitCmd=<value>`   | The command to run for git diff check if current directory is in a git repo | `git diff`               |
+| `[--checks=<value>]` | The checks to run                                                           | `fmt,lint,type,test,git` |

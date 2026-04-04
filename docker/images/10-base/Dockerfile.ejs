@@ -18,3 +18,5 @@ RUN echo 'Essential dependencies' \
     lsb-release \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+COPY docker/images/10-base/fs-root /

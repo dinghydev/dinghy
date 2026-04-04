@@ -1,0 +1,27 @@
+# render
+
+Render from `tsx` files to target formats
+
+## Usage
+
+```sh
+$ dinghy render [STACK] [options]
+```
+
+## Arguments
+
+| Name    | Description                                                                |
+| ------- | -------------------------------------------------------------------------- |
+| `stack` | Stack name or tsx file name. If not specified, all stacks will be rendered |
+
+## Options
+
+| Name                    | Description                                                                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `[--format=<value>]`    | Formats to render. e.g. `tf`, `diagram` or `json`                                                                            |
+| `[--view=<value>]`      | Views to render. Special view `overview` and `all` are avilable always.                                                      |
+| `--tf-generate-import`  | Generate import statements for tf                                                                                            |
+| `--diagram-create-md`   | Create markdown file for diagram                                                                                             |
+| `--diagram-save-view`   | Save view to stack.info.json                                                                                                 |
+| `--watch`               | Re-render when changes of yaml/ts/tsx files detected                                                                         |
+| `--diagram-png=<value>` | Generate png file for diagram with `true` or `false`. If not specified, png will generated in none CI environment by default |

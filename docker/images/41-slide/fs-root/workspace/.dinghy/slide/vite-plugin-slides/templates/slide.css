@@ -42,7 +42,7 @@
   transform: translateY(-50%);
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: var(--r-link-color) !important;
   font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);

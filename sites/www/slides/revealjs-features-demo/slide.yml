@@ -10,7 +10,7 @@ sections:
       style: 'color: var(--r-link-color)'
     sections:
       - id: dinghy-docker
-        img: architecture.png
+        img: sequence-diagram.png
         width: 2077
         height: 2096
         sections:

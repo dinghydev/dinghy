@@ -1,0 +1,4 @@
+#!/bin/sh
+rm /usr/bin/claude
+curl -fsSL https://claude.ai/install.sh | bash
+~/.local/bin/claude "$@"

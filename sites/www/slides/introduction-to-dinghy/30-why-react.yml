@@ -53,17 +53,17 @@ sections:
             - span: 'Build an in-memory model, then render to JSON'
               style: 'color: var(--r-link-color)'
 
-      - title: 'Build a Model, Then Render'
+      - title: 'React as a Rendering Engine'
         div: |
           <div style="display:flex;flex-direction:column;align-items:center;gap:16px;font-size:0.85em">
             <div style="display:flex;align-items:center;gap:24px">
-              <div style="background:#1e1e2e;border-radius:8px;padding:12px 24px;font-family:monospace">TypeScript / TSX</div>
+              <div style="background:#1e1e2e;border-radius:8px;padding:12px 24px;font-family:monospace">Zod<br/>YAML</div>
               <div style="font-size:1.4em">→</div>
-              <div style="background:#1e1e2e;border-radius:8px;padding:12px 24px;font-family:monospace">In-memory Model</div>
+              <div style="background:#1e1e2e;border-radius:8px;padding:12px 24px;font-family:monospace">React<br/>TSX</div>
               <div style="font-size:1.4em">→</div>
-              <div style="background:#1e1e2e;border-radius:8px;padding:12px 24px;font-family:monospace">Terraform JSON</div>
+              <div style="background:#1e1e2e;border-radius:8px;padding:12px 24px;font-family:monospace">Terraform<br/>JSON</div>
             </div>
-            <p style="margin-top:0.4em;color:#7dcfff">React is Perfect for Rendering</p>
+            <p style="margin-top:0.4em;color:#7dcfff">React's reconciler API<br/>a generic tree-building engine</p>
           </div>
 
       - title: 'React Core Insight'

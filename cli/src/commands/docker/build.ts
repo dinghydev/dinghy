@@ -19,7 +19,10 @@ import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'
 import { cmdStream } from '../../utils/cmd.ts'
-import { imageExistRemotely } from '../../services/docker/imageStatusUtil.ts'
+import {
+  imageExistLocally,
+  imageExistRemotely,
+} from '../../services/docker/imageStatusUtil.ts'
 const debug = Debug('docker:build')
 
 export const schema: CmdInput = {
@@ -39,6 +42,12 @@ export const schema: CmdInput = {
     {
       name: 'push',
       description: 'Push the built images to the repository',
+      boolean: true,
+    },
+    {
+      name: 'skip-local',
+      description:
+        'Skip build if image exists locally, without checking remote registry',
       boolean: true,
     },
     {
@@ -219,8 +228,13 @@ async function buildImage(image: DockerImage, args: Args) {
     return
   }
 
+  if (!args['skip-local'] && await imageExistLocally(image.tag)) {
+    console.log(`Tag ${image.tag} exists locally, skipping build`)
+    return
+  }
+
   if (await imageExistRemotely(image.tag)) {
-    console.log(`Tag ${image.tag} already exists, skipping build`)
+    console.log(`Tag ${image.tag} exists remotely, skipping build`)
     return
   }
   console.log(

@@ -1,8 +1,8 @@
 sections:
-  - badge: "Fun facts"
+  - badge: 'Fun facts'
     id: fun-facts
-    title: "Dinghy Loves"
-    img: 
+    title: 'Dinghy Loves'
+    img:
       src: imgs/ruby.png
       style: width:200px;
       class: fragment
@@ -57,3 +57,4 @@ sections:
           ```
       - id: terraferb
         h2: <div style="font-size:2em;">Terraf<b style="color:red;">ERB</b></div>
+        subtitle: Terraform with ERB templating

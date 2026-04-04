@@ -57,7 +57,6 @@ sections:
           class: language-bash
       - img:
           src: imgs/dinghy-docker.png
-          data-id: docker
           class: fragment
   - img: imgs/dinghy-docker.png
     width: 2077
@@ -74,14 +73,14 @@ sections:
         y1: 80
         x2: 1529
         y2: 1598
-      - id: dinghy-engine-version
+      - title: Single Lock
         x1: 167
         y1: 80
         x2: 702
         y2: 452
   - badge: .dinghyrc
-    title: DINGHY_ENGINE_VERSION=0.1.*
-    h4: '* One line lock rule them all'
+    title: DINGHY_ENGINE_VERSION=0.1...
+    h4: 'one lock, predictable versions'
     div: |
       <style>
         #dinghyrc .badge {

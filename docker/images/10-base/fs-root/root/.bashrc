@@ -1,2 +1,3 @@
 export DENO_NO_UPDATE_CHECK=1
 export DINGHY_UPDATE_CHECK_SKIP=1
+export PATH="$HOME/.local/bin:$PATH"

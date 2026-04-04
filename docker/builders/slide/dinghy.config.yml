@@ -28,3 +28,9 @@ docker:
         - source: ../../../sites/www/slides
           target: /workspace/.dinghy/slide/slides
           skipCheck: true
+        - source: ../../../sites/www/src
+          target: /workspace/.dinghy/slide/src
+          skipCheck: true
+        - source: ../../../sites/www/static
+          target: /workspace/.dinghy/slide/static
+          skipCheck: true

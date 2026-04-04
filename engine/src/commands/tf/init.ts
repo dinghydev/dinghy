@@ -166,5 +166,6 @@ const runTfInit = (
     stackPath,
     args,
     ['tf-init'],
+    false,
   )
 }

@@ -26,6 +26,7 @@ if (import.meta.main) {
       deno task prepare-build
       deno task docker-build-arm64
       deno task cli-build-aarch64-apple-darwin
+      rm -f ~/.dinghy/bin/dinghy
       cp ../build/cli/aarch64-apple-darwin/dinghy ~/.dinghy/bin/
       dinghy -h
     `,

@@ -32,6 +32,8 @@ const HOME_MOUNTS = [
   '.aws',
   '.ssh',
   '.gitconfig',
+  '.claude',
+  '.claude.json',
 ]
 
 const DOCKER_EXCLUDED_ENVS = [

@@ -13,7 +13,7 @@ sections:
     title: 'Slide Features'
     img: slide-as-code/show-case.png
   - badge: 'Build Slide'
-    img: slide-as-code/screenshot-build.png
+    img: /src/docs/examples/show-cases/slide-features/screenshot-build.png
   - badge: 'Single HTML File'
     img: slide-as-code/single-html.png
   - id: revealjs-features-demo

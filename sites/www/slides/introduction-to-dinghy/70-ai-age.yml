@@ -36,6 +36,9 @@ sections:
               - 🤗  Worry free
 
   - badge: 'AI + Dinghy'
+    img: /src/docs/guides/get-started/dinghy-skills.png
+
+  - badge: 'slide skill'
     title: '/dinghy-slide'
     markdown: |
       ```text

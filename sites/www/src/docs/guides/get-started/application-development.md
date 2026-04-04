@@ -26,14 +26,26 @@ autocomplete developer experience.
 The devcontainer is where [Dinghy Engine](/guides/advanced/architecture#engine)
 lives, so you can run engine command directly.
 
-## Jetbrains IDEs
+## Claude Code
 
-Jetbrains IDEs has basic
-[devcontainer](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)
-support, however it requires
-[java](https://www.jetbrains.com/help/idea/prerequisites-for-dev-containers.html#remote_container)
-on the remote container which prevent we support the IDE as add java related
-support will increase the base docker image size significantly.
+Dinghy ships with skills for
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) that teach the AI
+assistant how to work with Dinghy projects.
 
-But feel free to develop with Jetbrains IDEs as it offer superior edit and git
-developer experience. Just run Dinghy Cli when needed to interact with Engine.
+### [dinghy skill](/references/commands/engine/skill)
+
+Run `dinghy skill` to install or update Dinghy skills to your `.claude/skills`
+directory. The command auto-detects the skills folder location from either a
+project-level `.claude/skills` or user-level `~/.claude/skills`.
+
+The following skills are included:
+
+- **dinghy-cli** — Help with Dinghy CLI commands
+- **dinghy-diagram** — Create diagrams as code using React TSX and draw.io
+- **dinghy-slide** — Create RevealJS presentations as code in YAML/Markdown
+- **dinghy-iac** — Infrastructure as Code with Terraform templates
+
+Once installed, you can use slash commands like `/dinghy-slide` or
+`/dinghy-diagram` in Claude Code to generate Dinghy projects with AI assistance.
+
+![Dinghy Skills](./dinghy-skills.png)
