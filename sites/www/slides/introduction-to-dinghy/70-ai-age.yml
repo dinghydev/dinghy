@@ -3,17 +3,14 @@ sections:
     title: Is Dinghy still relevant?
     ul:
       li:
-        - span: People still write code - with AI help
-          class: fragment
+        - People still write code - with AI help
         - span: Dinghy provides abstractions to scale code
-          class: fragment
           ul:
             li:
               - Generation
               - Maintenance
               - Software development lifecycle
-        - span: Dinghy works with AI
-          class: fragment
+        - Dinghy works with AI
 
   - badge: dinghy codebase
     title: 800K lines of code

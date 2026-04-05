@@ -5,7 +5,6 @@ sections:
     img:
       src: imgs/ruby.png
       style: width:200px;
-      class: fragment
     sections:
       - img: imgs/dinghy-proxy.png
         id: dinghy-proxy-stackoverflow
