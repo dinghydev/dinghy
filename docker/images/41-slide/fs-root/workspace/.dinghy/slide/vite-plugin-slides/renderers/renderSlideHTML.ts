@@ -43,7 +43,7 @@ export function renderSlideHTML(
     .map((p) => `import '${PLUGIN_CSS[p.name]}'`)
     .join("\n      ");
   const pluginImports = plugins.map((p) => {
-    const src = p.path ?? `reveal.js/plugin/${p.name}/${p.name}.esm.js`;
+    const src = p.path ?? `reveal.js/plugin/${p.name}`;
     return `import ${pluginVar(p.name)} from '${src}'`;
   }).join("\n      ");
   const pluginList = plugins.map((p) =>
