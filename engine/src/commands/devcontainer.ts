@@ -10,7 +10,10 @@ import {
   projectVersionRelease,
 } from '@dinghy/cli'
 
-export const schema = devcontainer.generationSchema
+export const schema = {
+  ...devcontainer.generationSchema,
+  description: 'Generate .devcontainer.json',
+}
 
 import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'

@@ -28,7 +28,7 @@ const generateRootCommands = async (args: Args, commands: any) => {
     ([name, value]) => {
       const cmdDef = (value as any)[CMD_DEF_SYMBOL]
       if (cmdDef) {
-        if (cmdDef.name[0] === name) {
+        if (cmdDef.name[0] === name && !cmdDef.schema.hidden) {
           rows.push({
             name,
             description: cmdDef.schema.description,

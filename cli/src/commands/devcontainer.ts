@@ -8,7 +8,7 @@ import { runEngineCommand } from '../services/docker/runEngineCommand.ts'
 const debug = Debug('devcontainer')
 
 export const generationSchema: CmdInput = {
-  description: 'Start the project in devcontainer',
+  description: 'Open the project in devcontainer',
   alias: ['dc'],
   options: [
     {
