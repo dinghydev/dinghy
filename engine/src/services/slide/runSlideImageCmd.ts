@@ -14,11 +14,11 @@ import { Args } from '@std/cli/parse-args'
 const debug = Debug('runSlideImageCmd')
 
 export const resolveSlideDir = (args: Args) => {
-  let slideDir = args['slide-slides-dir']
+  let slideDir = args['slides-dir']
   if (!slideDir.startsWith('/')) {
     slideDir = `${hostAppHome}/${slideDir}`
   }
-  debug('Resolved slide dir %s', slideDir)
+  debug('Resolved slides dir %s', slideDir)
   return slideDir
 }
 
@@ -68,7 +68,7 @@ export const runSlideImageCmd = async (
   resolveSlideConfigJson(slideConfig, dockerEnvs)
   const image = await configGetToolImage('slide')
   const slideOptions = []
-  const dockerArgs: string[] = args['slide-docker-options'] || []
+  const dockerArgs: string[] = args['docker-options'] || []
   if (args['port']) {
     dockerArgs.push('-p', `${args['port']}:${args['port']}`)
 
@@ -86,8 +86,11 @@ export const runSlideImageCmd = async (
     })
   }
   dockerVolumnes.push(createOutputMount('slide', args['output']))
-  dockerEnvs['DINGHY_SLIDE_OUTPUT_DEV_DIR'] = args['slide-output-dev']
-  dockerEnvs['DINGHY_SLIDE_OUTPUT_BUILD_DIR'] = args['slide-output-build']
+  dockerEnvs['DINGHY_SLIDE_OUTPUT_DEV_DIR'] = args['output-dev']
+  dockerEnvs['DINGHY_SLIDE_OUTPUT_BUILD_DIR'] = args['output-build']
+  if (args['filter']) {
+    dockerEnvs['DINGHY_SLIDE_FILTER'] = args['filter']
+  }
 
   await runDockerCmd(
     '/workspace/.dinghy/slide',

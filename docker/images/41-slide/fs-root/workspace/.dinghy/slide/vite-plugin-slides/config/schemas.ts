@@ -158,6 +158,7 @@ export const RevealGlobalConfigSchema = RevealConfigSchema.extend({
   generateSlidesIndex: z.boolean().default(true),
   trailingSlash: z.boolean().default(false),
   inlineAssets: z.boolean().default(true),
+  filter: z.string().optional(),
 });
 
 export type RevealGlobalConfig = z.infer<typeof RevealGlobalConfigSchema>;

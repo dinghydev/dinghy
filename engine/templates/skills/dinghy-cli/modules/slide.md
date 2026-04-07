@@ -17,12 +17,12 @@ $ dinghy slide <command>
 
 ## Global Options
 
-| Name                               | Description                                                                               | Default       |
-| ---------------------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| `[--slide-docker-options=<value>]` | Additional options to pass to the docker run command `DINGHY_SLIDE_DOCKER_OPTIONS`        |               |
-| `--slide-slides-dir=<value>`       | Path to the slides directory `DINGHY_SLIDE_SLIDES_DIR`                                    | `slides`      |
-| `--slide-output-dev=<value>`       | The directory name for slide dev server in output directory `DINGHY_SLIDE_OUTPUT_DEV_DIR` | `slide-dev`   |
-| `--slide-output-build=<value>`     | The directory name for slide build in output directory `DINGHY_SLIDE_OUTPUT_BUILD_DIR`    | `slide-build` |
+| Name                         | Description                                                                               | Default       |
+| ---------------------------- | ----------------------------------------------------------------------------------------- | ------------- |
+| `[--docker-options=<value>]` | Additional options to pass to the docker run command `DINGHY_SLIDE_DOCKER_OPTIONS`        |               |
+| `--slides-dir=<value>`       | Path to the slides directory `DINGHY_SLIDE_SLIDES_DIR`                                    | `slides`      |
+| `--output-dev=<value>`       | The directory name for slide dev server in output directory `DINGHY_SLIDE_OUTPUT_DEV_DIR` | `slide-dev`   |
+| `--output-build=<value>`     | The directory name for slide build in output directory `DINGHY_SLIDE_OUTPUT_BUILD_DIR`    | `slide-build` |
 
 ## slide bash
 

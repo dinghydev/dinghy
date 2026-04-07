@@ -70,6 +70,12 @@ export function generateSlides(ctx: Context) {
   let hasRootSlide = false;
 
   for (const [name, slide] of Object.entries(slides)) {
+    if (
+      ctx.globalConfig.filter && !name.includes(ctx.globalConfig.filter) &&
+      !ctx.globalConfig.filter.includes(name)
+    ) {
+      continue;
+    }
     try {
       const entry = generateSlide(name, slide, ctx);
       if (entry === null) {
