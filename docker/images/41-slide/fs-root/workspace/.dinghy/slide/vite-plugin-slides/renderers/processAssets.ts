@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { copyAbsolutePathImage } from "../utils/copyAbsolutePathImage";
-import { IMG_ATTRIBUTES, ROOT } from "../config/constants";
+import { MEDIA_ATTRIBUTES, ROOT } from "../config/constants";
 import { logger } from "../utils/logger";
 import { Context } from "../config/context";
 
@@ -52,7 +52,7 @@ function rewriteHtml(
   return content
     .replace(
       new RegExp(
-        `(\\b(?:${IMG_ATTRIBUTES.join("|")})=["'])([^"']+)(["'])`,
+        `(\\b(?:${MEDIA_ATTRIBUTES.join("|")})=["'])([^"']+)(["'])`,
         "g",
       ),
       (match, pre, src, post) => {

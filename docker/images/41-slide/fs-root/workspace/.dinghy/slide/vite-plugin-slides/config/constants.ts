@@ -2,10 +2,12 @@ import path from "node:path";
 
 export const ROOT = process.cwd();
 
-export const IMG_ATTRIBUTES = [
+export const MEDIA_ATTRIBUTES = [
   "src",
   "data-preview-image",
+  "data-preview-video",
   "data-background-image",
+  "data-background-video",
 ] as const;
 
 // RevealJS default design dimensions — used to compute absolute positions for auto-animate

@@ -154,7 +154,6 @@ export const RevealConfigSchema = z.object({
 export type RevealConfig = z.infer<typeof RevealConfigSchema>;
 
 export const RevealGlobalConfigSchema = RevealConfigSchema.extend({
-  baseUrl: z.string().default("/"),
   generateSlidesIndex: z.boolean().default(true),
   trailingSlash: z.boolean().default(false),
   inlineAssets: z.boolean().default(true),

@@ -12,9 +12,7 @@ export function renderIndexHTML(
   ctx: Context,
 ): string {
   const links = entries.map(({ slug, label }) => {
-    const href = ctx.globalConfig.trailingSlash
-      ? `${ctx.globalConfig.baseUrl}${slug}/`
-      : `${ctx.globalConfig.baseUrl}${slug}`;
+    const href = ctx.globalConfig.trailingSlash ? `${slug}/` : slug;
     return `      <li><a href="${href}">${label}</a></li>`;
   }).join("\n");
   return template.replace("<!--LINKS-->", links);

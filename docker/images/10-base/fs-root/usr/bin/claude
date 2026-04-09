@@ -1,4 +1,5 @@
 #!/bin/sh
-rm /usr/bin/claude
-curl -fsSL https://claude.ai/install.sh | bash
+if [ ! -f ~/.local/bin/claude ]; then
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
 ~/.local/bin/claude "$@"

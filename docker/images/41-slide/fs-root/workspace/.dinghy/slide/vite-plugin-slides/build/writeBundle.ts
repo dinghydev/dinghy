@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import minifyHtml from "@minify-html/node";
-import { IMG_ATTRIBUTES, ROOT } from "../config/constants";
+import { MEDIA_ATTRIBUTES, ROOT } from "../config/constants";
 import { Context } from "../config/context";
 
 function hasAttr(tag: string, attr: string, value: string): boolean {
@@ -18,29 +18,32 @@ function isExternalSrc(src: string): boolean {
   return /^(https?:\/\/|data:)/.test(src);
 }
 
-function urlToDistPath(urlPath: string, base: string): string {
-  if (base !== "/" && urlPath.startsWith(base)) {
-    return urlPath.slice(base.length);
-  }
-  return urlPath.startsWith("/") ? urlPath.slice(1) : urlPath;
+function urlToDistPath(urlPath: string, fileDir: string, outDir: string): string {
+  if (urlPath.startsWith("/")) return urlPath.slice(1);
+  const resolved = path.resolve(fileDir, urlPath);
+  return path.relative(outDir, resolved);
 }
 
-function imgToDataUri(imgPath: string): string | null {
-  if (!fs.existsSync(imgPath)) return null;
-  const ext = path.extname(imgPath).slice(1).toLowerCase();
-  const mime = ext === "jpg" || ext === "jpeg"
-    ? "image/jpeg"
-    : ext === "png"
-    ? "image/png"
-    : ext === "gif"
-    ? "image/gif"
-    : ext === "svg"
-    ? "image/svg+xml"
-    : ext === "webp"
-    ? "image/webp"
-    : null;
+const MIME_TYPES: Record<string, string> = {
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  png: "image/png",
+  gif: "image/gif",
+  svg: "image/svg+xml",
+  webp: "image/webp",
+  // mp4: "video/mp4",
+  // webm: "video/webm",
+  // ogg: "video/ogg",
+  // ogv: "video/ogg",
+  // mov: "video/quicktime",
+};
+
+function urlToDataUri(filePath: string): string | null {
+  if (!fs.existsSync(filePath)) return null;
+  const ext = path.extname(filePath).slice(1).toLowerCase();
+  const mime = MIME_TYPES[ext];
   if (!mime) return null;
-  const data = fs.readFileSync(imgPath).toString("base64");
+  const data = fs.readFileSync(filePath).toString("base64");
   return `data:${mime};base64,${data}`;
 }
 
@@ -68,14 +71,16 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
     imgPath: string,
     match: string,
     replaceSrc: (newSrc: string) => string,
+    currentFileDir: string,
   ): string {
     if (isExternalSrc(src)) return match;
     if (ctx.globalConfig.inlineAssets) {
-      const dataUri = imgToDataUri(imgPath);
-      if (!dataUri) return match;
-      const distPath = path.join(outDir, src);
-      if (fs.existsSync(distPath)) toDelete.add(distPath);
-      return replaceSrc(dataUri);
+      const dataUri = urlToDataUri(imgPath);
+      if (dataUri){
+        const distPath = path.join(outDir, src);
+        if (fs.existsSync(distPath)) toDelete.add(distPath);
+        return replaceSrc(dataUri);
+      }
     }
     if (!fs.existsSync(imgPath)) return match;
     const content = fs.readFileSync(imgPath);
@@ -86,8 +91,8 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
     const ext = path.extname(src);
     const base = path.basename(src, ext);
     const assetRelPath = `assets/${base}.${hash}${ext}`;
-    const hashedSrc = `${ctx.globalConfig.baseUrl}${assetRelPath}`;
     const destPath = path.join(outDir, assetRelPath);
+    const hashedSrc = path.relative(currentFileDir, destPath).split(path.sep).join("/");
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(path.dirname(destPath), { recursive: true });
       fs.copyFileSync(imgPath, destPath);
@@ -114,8 +119,11 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
         if (!hasAttr(tag, "rel", "icon")) return tag;
         const href = getAttr(tag, "href");
         if (!href) return tag;
-        const assetPath = path.join(outDir, urlToDistPath(href, ctx.globalConfig.baseUrl));
-        const dataUri = imgToDataUri(assetPath);
+        const assetPath = path.join(
+          outDir,
+          urlToDistPath(href, slideOutputDir, outDir),
+        );
+        const dataUri = urlToDataUri(assetPath);
         if (!dataUri) return tag;
         toDelete.add(assetPath);
         return `<link rel="icon" href="${dataUri}" />`;
@@ -126,7 +134,10 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
         if (!hasAttr(tag, "rel", "stylesheet")) return tag;
         const href = getAttr(tag, "href");
         if (!href) return tag;
-        const assetPath = path.join(outDir, urlToDistPath(href, ctx.globalConfig.baseUrl));
+        const assetPath = path.join(
+          outDir,
+          urlToDistPath(href, slideOutputDir, outDir),
+        );
         if (!fs.existsSync(assetPath)) return tag;
         toDelete.add(assetPath);
         return `<style>${fs.readFileSync(assetPath, "utf-8")}</style>`;
@@ -137,7 +148,10 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
         if (!hasAttr(tag, "type", "module")) return tag;
         const src = getAttr(tag, "src");
         if (!src) return tag;
-        const assetPath = path.join(outDir, urlToDistPath(src, ctx.globalConfig.baseUrl));
+        const assetPath = path.join(
+          outDir,
+          urlToDistPath(src, slideOutputDir, outDir),
+        );
         if (!fs.existsSync(assetPath)) return tag;
         toDelete.add(assetPath);
         return `<script type="module">${inlineChunks(assetPath)}</script>`;
@@ -181,6 +195,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
                 imgPath,
                 match,
                 (d) => `${pre}${d}${post}`,
+                slideOutputDir,
               );
             },
           );
@@ -189,10 +204,10 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
       );
     }
 
-    // Process IMG_ATTRIBUTES: inline as data URI or copy to outDir
+    // Process MEDIA_ATTRIBUTES: inline as data URI or copy to outDir
     html = html.replace(
       new RegExp(
-        `(\\b(?:${IMG_ATTRIBUTES.join("|")})=["'])([^"']+)(["'])`,
+        `(\\b(?:${MEDIA_ATTRIBUTES.join("|")})=["'])([^"']+)(["'])`,
         "g",
       ),
       (match, pre, src, post) =>
@@ -201,6 +216,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
           path.join(ctx.outputDevDir, src),
           match,
           (d) => `${pre}${d}${post}`,
+          slideOutputDir,
         ),
     );
 
@@ -213,6 +229,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
           path.join(ctx.outputDevDir, src),
           match,
           (d) => match.replace(`"${src}"`, `"${d}"`),
+          slideOutputDir,
         ),
     );
 
@@ -233,6 +250,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
           path.join(ctx.outputDevDir, src),
           match,
           (d) => match.replace(`"${src}"`, `"${d}"`),
+          path.dirname(jsPath),
         ),
     );
     fs.writeFileSync(jsPath, js);

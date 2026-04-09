@@ -7,7 +7,7 @@ const ctx = createContext();
 
 export default defineConfig({
   root: ctx.outputDevDir,
-  base: ctx.globalConfig.baseUrl,
+  base: "./",
   appType: "mpa",
   server: {
     port: 3000,

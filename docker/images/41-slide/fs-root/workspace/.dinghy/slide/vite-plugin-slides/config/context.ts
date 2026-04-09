@@ -65,9 +65,6 @@ export function createContext(): Context {
     globalConfig.trailingSlash =
       process.env.DINGHY_SLIDE_TRAILING_SLASH === "true";
   }
-  if (process.env.DINGHY_SLIDE_BASE_URL) {
-    globalConfig.baseUrl = process.env.DINGHY_SLIDE_BASE_URL;
-  }
   if (process.env.DINGHY_SLIDE_FILTER) {
     globalConfig.filter = process.env.DINGHY_SLIDE_FILTER;
   }
