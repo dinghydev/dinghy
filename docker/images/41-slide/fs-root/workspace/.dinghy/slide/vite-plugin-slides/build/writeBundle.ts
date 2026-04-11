@@ -18,7 +18,11 @@ function isExternalSrc(src: string): boolean {
   return /^(https?:\/\/|data:)/.test(src);
 }
 
-function urlToDistPath(urlPath: string, fileDir: string, outDir: string): string {
+function urlToDistPath(
+  urlPath: string,
+  fileDir: string,
+  outDir: string,
+): string {
   if (urlPath.startsWith("/")) return urlPath.slice(1);
   const resolved = path.resolve(fileDir, urlPath);
   return path.relative(outDir, resolved);
@@ -31,11 +35,11 @@ const MIME_TYPES: Record<string, string> = {
   gif: "image/gif",
   svg: "image/svg+xml",
   webp: "image/webp",
-  // mp4: "video/mp4",
-  // webm: "video/webm",
-  // ogg: "video/ogg",
-  // ogv: "video/ogg",
-  // mov: "video/quicktime",
+  mp4: "video/mp4",
+  webm: "video/webm",
+  ogg: "video/ogg",
+  ogv: "video/ogg",
+  mov: "video/mp4",
 };
 
 function urlToDataUri(filePath: string): string | null {
@@ -76,7 +80,7 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
     if (isExternalSrc(src)) return match;
     if (ctx.globalConfig.inlineAssets) {
       const dataUri = urlToDataUri(imgPath);
-      if (dataUri){
+      if (dataUri) {
         const distPath = path.join(outDir, src);
         if (fs.existsSync(distPath)) toDelete.add(distPath);
         return replaceSrc(dataUri);
@@ -92,7 +96,8 @@ export function handleWriteBundle(outDir: string, ctx: Context): void {
     const base = path.basename(src, ext);
     const assetRelPath = `assets/${base}.${hash}${ext}`;
     const destPath = path.join(outDir, assetRelPath);
-    const hashedSrc = path.relative(currentFileDir, destPath).split(path.sep).join("/");
+    const hashedSrc = path.relative(currentFileDir, destPath).split(path.sep)
+      .join("/");
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(path.dirname(destPath), { recursive: true });
       fs.copyFileSync(imgPath, destPath);

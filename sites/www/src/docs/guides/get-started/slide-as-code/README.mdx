@@ -113,6 +113,7 @@ Any YAML key becomes an HTML element. Common keys:
 | `ul`/`ol`  | unordered or ordered list            |
 | `img`      | single image (r-stretch)             |
 | `grid`     | side-by-side grid of elements        |
+| `video`    | background video (contain, muted)    |
 
 Built-in attributes — `id`, `class`, `style`, `src`, `href`, `alt` — map
 directly to HTML attributes. Keys containing `-` (e.g. `data-*`, `aria-*`) are
@@ -131,6 +132,45 @@ sections:
 ```yaml
 # Single image — r-stretch applied automatically
 - img: imgs/photo.jpg
+```
+
+### Video
+
+When `video` is a string, it sets the section background to a muted, contained
+video. The background video loops silently as a visual backdrop. Click anywhere
+on the slide to open the video in a lightbox where sound is played and playback
+is fully controllable (play, pause, seek, volume).
+
+```yaml
+# Background video — click anywhere to open lightbox with sound
+- video: skill-demo-oss.mov
+
+# With other content overlaid on the background video
+- video: skill-demo-oss.mov
+  title: Demo Time
+```
+
+This is a shorthand for:
+
+```yaml
+- data-background-video: skill-demo-oss.mov
+  data-background-size: contain
+  data-background-video-muted: true
+```
+
+When there are no other content keys, a full-slide clickable overlay is added
+so clicking the slide opens the video in the lightbox with full playback controls.
+When other content keys are present (e.g. `title`, `p`), they render normally
+on top of the background video.
+
+For additional customisation (e.g. looping, autoplay with sound, custom sizing),
+use the standard [RevealJS video attributes](https://revealjs.com/backgrounds/#video-backgrounds)
+directly:
+
+```yaml
+- data-background-video: skill-demo-oss.mov
+  data-background-size: cover
+  data-background-video-loop: true
 ```
 
 ### Grid
@@ -282,7 +322,6 @@ RevealJS.
 
 | Key                   | Description                                      | Default |
 | --------------------- | ------------------------------------------------ | ------- |
-| `baseUrl`             | Base URL path the slides are served from         | `"/"`   |
 | `generateSlidesIndex` | Generate an index page listing all presentations | `true`  |
 | `trailingSlash`       | Append a trailing slash to generated URLs        | `false` |
 | `inlineAssets`        | Embed all assets in the output HTML file         | `true`  |

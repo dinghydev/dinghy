@@ -24,6 +24,18 @@ const ALIASES: Record<string, string> = {
   notes: "aside.notes",
 };
 
+function expandVideoShorthand(
+  s: Record<string, unknown>,
+): string | undefined {
+  if (typeof s.video !== "string") return undefined;
+  const videoUrl = s.video as string;
+  s["data-background-video"] = videoUrl;
+  s["data-background-size"] = "contain";
+  s["data-background-video-muted"] = true;
+  delete s.video;
+  return videoUrl;
+}
+
 function renderGrid(values: unknown[], slide: Slide, ctx: Context): string {
   const children = values.map((value) => {
     if (typeof value === "object") {
@@ -164,6 +176,7 @@ export function renderSection(
   ctx: Context,
 ): string {
   const s = section as Record<string, unknown>;
+  const videoUrl = expandVideoShorthand(s);
   if (section.html) {
     const html = section.html as string;
     if (
@@ -196,7 +209,10 @@ export function renderSection(
   const subsections = Array.isArray(s.sections)
     ? s.sections as Section[]
     : undefined;
-  const outerBody = renderStandardBody(s, slide, ctx);
+  let outerBody = renderStandardBody(s, slide, ctx);
+  if (!outerBody && videoUrl) {
+    outerBody = `<div class="r-stretch" data-preview-video="${videoUrl}" style="cursor:pointer"></div>`;
+  }
   const outerSlide = outerBody ? `${sectionTag(s)}${outerBody}</section>` : "";
   if (subsections?.length) {
     let children = subsections.map((cs) => renderSection(cs, slide, ctx)).join(

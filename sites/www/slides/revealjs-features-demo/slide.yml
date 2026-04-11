@@ -32,6 +32,10 @@ sections:
             x2: 702
             y2: 452
 
+  - title: Full Page Video 
+    sections:
+      - video: homepage-video-editor-short.mp4
+        id: video-background
   - title: Fragments
     ul:
       li:

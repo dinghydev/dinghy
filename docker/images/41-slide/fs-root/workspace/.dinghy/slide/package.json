@@ -6,7 +6,8 @@
     "start": "vite",
     "clean": "rm -rf output/slide-dev output/slide-build",
     "build": "yarn clean && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "postinstall": "node vite-plugin-slides/patch-revealjs.js"
   },
   "dependencies": {
     "chalk": "^5.6.2",
