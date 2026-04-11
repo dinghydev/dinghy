@@ -32,10 +32,16 @@ sections:
             x2: 702
             y2: 452
 
-  - title: Full Page Video
+  - title: Media
     sections:
+      - title: Full Page Video Next
       - video: four-seconds.mp4
         id: video-background
+      - title: count down sound playing
+        audio:
+          data-autoplay: true
+          source:
+            src: count-down.mp3
   - title: Fragments
     ul:
       li:

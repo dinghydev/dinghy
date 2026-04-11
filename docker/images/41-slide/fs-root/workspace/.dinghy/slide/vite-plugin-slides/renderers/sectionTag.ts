@@ -1,7 +1,7 @@
 import { toId } from "../utils/toId";
 import { isAttribute } from "./renderSection";
 
-function attr(k: string, v: unknown): string {
+export function attr(k: string, v: unknown): string {
   const key = k.startsWith("_") ? k.slice(1) : k;
   return v === "" || v === true ? key : `${key}="${v}"`;
 }

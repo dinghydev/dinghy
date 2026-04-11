@@ -1,7 +1,7 @@
 import { Section, Slide } from "../config/schemas";
 import { logger } from "../utils/logger";
 import { renderZoomAndPanSection } from "./renderZoomAndPanSection";
-import { sectionTag } from "./sectionTag";
+import { attr, sectionTag } from "./sectionTag";
 import { loadFileFragment } from "../config/loadFileFragment";
 import { Context } from "../config/context";
 
@@ -126,7 +126,7 @@ function buildTag(
   const classAttr = classParts.length ? ` class="${classParts.join(" ")}"` : "";
   const extras = Object.entries(extraAttrs)
     .filter(([k]) => k !== "tag" && isAttribute(k))
-    .map(([k, v]) => v || v === 0 ? ` ${k}="${v}"` : ` ${k}`)
+    .map(([k, v]) => ` ${attr(k, v)}`)
     .join("");
   return {
     openTag: `<${tagName}${classAttr}${extras}>`,
