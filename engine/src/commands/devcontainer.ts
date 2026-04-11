@@ -104,9 +104,6 @@ function populateMounts(
     return
   }
   const mounts: any[] = []
-  if (dinghyAppConfig.devcontainer?.volumes) {
-    mounts.push(...dinghyAppConfig.devcontainer?.volumes)
-  }
   if (projectType.siteConfig) {
     if (projectType.siteConfig?.volumes) {
       mounts.push(...projectType.siteConfig?.volumes)
@@ -125,6 +122,9 @@ function populateMounts(
   }
   if (projectType.type !== 'engine') {
     mounts.push(createOutputMount(projectType.type, args['output']))
+  }
+  if (dinghyAppConfig.devcontainer?.volumes) {
+    mounts.push(...dinghyAppConfig.devcontainer?.volumes)
   }
   config.mounts = getDockerMounts(projectType.type, mounts, true).map((mount) =>
     `source=${mount.source},target=${mount.target},type=bind`

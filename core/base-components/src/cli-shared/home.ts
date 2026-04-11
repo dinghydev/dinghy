@@ -11,8 +11,19 @@ const resolveHome = () => {
 }
 
 export const isInsideContainer = Deno.env.get('HOST_USER_HOME') !== undefined
+export const hostUserHome = Deno.env.get('HOST_USER_HOME') ||
+  Deno.env.get('HOME')!
 export const hostAppHome = Deno.env.get('HOST_APP_HOME') || resolveHome()
 export const appHomeMount = `/workspace/${basename(hostAppHome)}`
 export const containerAppHome = isInsideContainer ? appHomeMount : resolveHome()
 export const dinghyHome = Deno.env.get('DINGHY_HOME') ||
   `${Deno.env.get('HOME')}/.dinghy`
+
+export const resolveFullPath = (path: string): string => {
+  if (path.startsWith('~')) {
+    path = hostUserHome + path.slice(1)
+  } else if (!path.startsWith('/')) {
+    path = hostAppHome + '/' + path
+  }
+  return resolve(path)
+}

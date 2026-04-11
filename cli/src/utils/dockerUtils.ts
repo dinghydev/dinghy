@@ -5,7 +5,9 @@ import {
   appHomeMount,
   containerAppHome,
   hostAppHome,
+  hostUserHome,
   isInsideContainer,
+  resolveFullPath,
 } from '../shared/home.ts'
 import { cmdStream, cmdStreamAndCapture } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
@@ -13,9 +15,6 @@ import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
 import process from 'node:process'
 const debug = Debug('dockerUtils')
-
-const HOST_USER_HOME = Deno.env.get('HOST_USER_HOME') ||
-  Deno.env.get('HOME')
 
 export const HOST_USER_HOME_PATH = '/host_user_home'
 
@@ -49,9 +48,6 @@ const GLOBALE_MOUNTS = [
   '/var/run/docker.sock',
 ]
 
-export const getDockerHostPath = (path: string) =>
-  path.startsWith('/') ? path : resolve(hostAppHome, path)
-
 export function getDockerEnvs(appEnvs: Env = {}) {
   const envs = deepMerge({}, Deno.env.toObject())
   deepMerge(envs, dinghyRc)
@@ -65,16 +61,13 @@ export function getDockerEnvs(appEnvs: Env = {}) {
     ...whiteListEnvs,
     APP_HOME: appHomeMount,
     HOST_APP_HOME: hostAppHome,
-    HOST_USER_HOME,
+    HOST_USER_HOME: hostUserHome,
     ...appEnvs,
   }
 }
 
 export const createOutputMount = (imageName: string, output: string): Mount => {
-  let outputDir = output
-  if (!outputDir.startsWith('/')) {
-    outputDir = `${hostAppHome}/${outputDir}`
-  }
+  const outputDir = resolveFullPath(output)
   if (!existsSync(outputDir)) {
     Deno.mkdirSync(outputDir, { recursive: true })
   }
@@ -126,30 +119,15 @@ export function getDockerMounts(
     }
   }
 
-  mounts.push(...appMounts.map((mount) => {
-    const source = mount.source.startsWith('/')
-      ? mount.source
-      : resolve(hostAppHome, mount.source)
-    let target = mount.target || mount.source
-    if (!target.startsWith('/')) {
-      target = resolve(containerAppHome, target)
-    }
-    return {
-      ...mount,
-      source,
-      target,
-    }
-  }))
-
   mounts.push({
-    source: HOST_USER_HOME!,
+    source: hostUserHome,
     target: HOST_USER_HOME_PATH,
   })
 
   mounts.push(...HOME_MOUNTS.map((file) => ({
-    source: `${HOST_USER_HOME}/${file}`,
+    source: `${hostUserHome}/${file}`,
     target: `/root/${file}`,
-    check: `${isInsideContainer ? '/root' : HOST_USER_HOME}/${file}`,
+    check: `${isInsideContainer ? '/root' : hostUserHome}/${file}`,
   })))
   mounts.push(...GLOBALE_MOUNTS.map((file) => ({
     source: file,
@@ -162,22 +140,18 @@ export function getDockerMounts(
     target: '/home/runner/work/_temp',
   })
 
-  const result = mounts.filter((mount) =>
-    mount.skipCheck ||
-    existsSync(mount.check || mount.source) || existsSync(mount.source)
-  )
-
   const overrideMounts = (folder: string) => {
     const folderPath = resolve(hostAppHome, folder)
     if (existsSync(folderPath)) {
       for (const entry of walkSync(folderPath, { includeDirs: false })) {
-        result.push({
+        mounts.push({
           source: entry.path,
           target: resolve(
             '/workspace',
             folder,
             relative(folderPath, entry.path),
           ),
+          skipCheck: true,
         })
         debug('Mounting override file: %s', entry.path)
       }
@@ -188,7 +162,34 @@ export function getDockerMounts(
     overrideMounts('.vscode')
   }
 
-  return result
+  const existingTarget = mounts.map((m) => m.target)
+  appMounts.map((mount) => {
+    const source = resolveFullPath(mount.source)
+    let target = mount.target || mount.source
+    if (!target.startsWith('/')) {
+      target = resolve(containerAppHome, target)
+    }
+    if (existingTarget.includes(target)) {
+      const idx = mounts.findIndex((m) => m.target === target)
+      mounts.splice(idx, 1)
+    }
+    mounts.push({
+      ...mount,
+      source,
+      target,
+    })
+  })
+
+  const result = mounts.filter((mount) =>
+    mount.skipCheck ||
+    existsSync(mount.check || mount.source) || existsSync(mount.source)
+  )
+
+  const deduped = new Map<string, typeof result[number]>()
+  for (const mount of result) {
+    deduped.set(mount.target, mount)
+  }
+  return [...deduped.values()]
 }
 
 const prepareDockerAuthConfig = () => {

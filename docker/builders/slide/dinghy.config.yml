@@ -34,3 +34,6 @@ docker:
         - source: ../../../sites/www/static
           target: /workspace/.dinghy/slide/static
           skipCheck: true
+        - source: ../../../sites/www/output
+          target: /workspace/.dinghy/slide/output
+          skipCheck: true

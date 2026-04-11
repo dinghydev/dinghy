@@ -1,6 +1,6 @@
 import { existsSync } from '@std/fs/exists'
 import { isCi } from '../../utils/gitUtils.ts'
-import { hostAppHome } from '../../shared/home.ts'
+import { hostAppHome, resolveFullPath } from '../../shared/home.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
 import chalk from 'chalk'
 import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
@@ -90,9 +90,7 @@ async function init(args: Args) {
     Deno.removeSync(versionsFile)
   }
 
-  args.sourceFolder = args.source.startsWith('/')
-    ? args.source
-    : `${projectRoot}/${args.source}`
+  args.sourceFolder = resolveFullPath(args.source)
   if (!existsSync(args.sourceFolder)) {
     throw new Error(`Source folder ${args.sourceFolder} not exist`)
   }

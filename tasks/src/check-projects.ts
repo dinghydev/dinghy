@@ -8,6 +8,9 @@ if (import.meta.main) {
     console.log(
       `Running [deno ${cmd}] from ${cwd} ...`,
     )
+    if (cmd === 'test') {
+      cmd += ' --allow-env'
+    }
     const result = await execa('deno', cmd.split(' '), {
       stderr: 'inherit',
       stdout: 'inherit',
@@ -56,11 +59,12 @@ if (import.meta.main) {
     ]
   ) {
     for (const cmd of ['check', 'fmt', 'lint', 'test']) {
-      console.log(`::group:: Run: ${cmd} for ${project}`)
-      const cwd = `${projectRoot}/${project}`
       if (cmd === 'test' && !['cli'].includes(project)) {
         continue
-      } else if (cmd === 'check' && project === 'core') {
+      }
+      console.log(`::group:: Run: ${cmd} for ${project}`)
+      const cwd = `${projectRoot}/${project}`
+      if (cmd === 'check' && project === 'core') {
         const folders = Deno.readDirSync(cwd)
           .filter((entry) => entry.isDirectory)
           .map((entry) => entry.name)
@@ -70,7 +74,6 @@ if (import.meta.main) {
           }
           await runDenoCmd(`${project}/${folder}`, cmd)
         }
-        continue
       } else {
         await runDenoCmd(project, cmd)
       }

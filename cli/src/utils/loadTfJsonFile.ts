@@ -1,11 +1,9 @@
 import { existsSync } from '@std/fs/exists'
-import { hostAppHome } from '../shared/home.ts'
+import { resolveFullPath } from '../shared/home.ts'
 
 export function loadTfJsonFile(args: any) {
   const jsonFile = args['json-file']
-  const filePath = jsonFile.startsWith('/')
-    ? jsonFile
-    : `${hostAppHome}/${jsonFile}`
+  const filePath = resolveFullPath(jsonFile)
   if (!existsSync(filePath)) {
     throw new Error(`Tf json file ${filePath} not found`)
   }
