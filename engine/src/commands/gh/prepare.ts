@@ -1,5 +1,5 @@
 import type { CmdInput } from '@dinghy/cli'
-import { hostAppHome, projectVersionRelease } from '@dinghy/cli'
+import { hostUserHome, projectVersionRelease } from '@dinghy/cli'
 import Debug from 'debug'
 import {
   appendToGithubEnv,
@@ -21,7 +21,7 @@ export const run = (_args: Args) => {
 
   appendToGithubFile(
     'GITHUB_PATH',
-    `${hostAppHome}/.dinghy/bin`,
+    `${hostUserHome}/.dinghy/bin`,
   )
   appendToGithubFile(
     'GITHUB_OUTPUT',
