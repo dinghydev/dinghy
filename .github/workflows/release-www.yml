@@ -55,13 +55,11 @@ jobs:
           deno task prepare-build
           echo "::endgroup::"
 
-          cd ../cli
-          echo "::group::Generate Versions File"
-          deno task run docker build --dryrun  --app-home ../
+          echo "::group::Wait For Doc Images"
+          deno task wait-for-doc-images
           echo "::endgroup::"
 
 
-          cd ../tasks
           echo "::group::Release Site WWW"
           deno task release-site www
           echo "::endgroup::"

@@ -3,6 +3,7 @@
     "clean": "rm -rf ../../build",
     // duplicated files to avoid core to depends on cli module
     "prepare-build": "deno run -A ./src/prepare-build.ts",
+    "wait-for-doc-images": "deno run -A ./src/wait-for-doc-images.ts",
     "refresh-engine-lock": "deno run -A ./src/refresh-engine-lock.ts",
     "version-release": "deno run -A ./src/version-release.ts",
     "npm-build": "deno run -A ./src/npm-build.ts",

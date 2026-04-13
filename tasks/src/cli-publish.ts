@@ -99,13 +99,19 @@ await $({ stdio: 'inherit' })`gh release create v${projectVersionRelease()} \
   --notes ${releaseNotes} \
   --title ${releaseTitle}`
 
+Deno.copyFileSync(
+  `${projectRoot}/.versions.json`,
+  `${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-images-version.json`,
+)
+
 console.log('Uploading release files to github...')
 await $({ stdio: 'inherit' })`gh release upload v${projectVersionRelease()} \
  ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-install.sh \
  ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-x86_64-unknown-linux-gnu.zip \
  ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-aarch64-unknown-linux-gnu.zip \
  ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-x86_64-apple-darwin.zip \
- ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-aarch64-apple-darwin.zip`
+ ${cliOutputFolder}/release/dinghy-cli-${projectVersionRelease()}-aarch64-apple-darwin.zip \
+ ${cliOutputFolder}/release/dinghy-${projectVersionRelease()}-images-version.json`
 
 console.log(
   `https://github.com/dinghydev/dinghy/releases/download/v${projectVersionRelease()}/dinghy-${projectVersionRelease()}-install.sh`,
