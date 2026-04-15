@@ -17,6 +17,30 @@ const updateLocalLatestVersion = () => {
   createUpdateCheckFile()
 }
 
+const copySkills = () => {
+  const skillsSource = `${projectRoot}/engine/templates/skills`
+  const skillsTarget = `${Deno.env.get('HOME')}/.claude/skills`
+  for (const entry of Deno.readDirSync(skillsSource)) {
+    if (!entry.isDirectory) continue
+    const srcFile = `${skillsSource}/${entry.name}/SKILL.md`
+    try {
+      Deno.statSync(srcFile)
+    } catch {
+      continue
+    }
+    const targetDir = `${skillsTarget}/${entry.name}`
+    const targetFile = `${targetDir}/SKILL.md`
+    try {
+      Deno.mkdirSync(targetDir, { recursive: true })
+    } catch { /* exists */ }
+    try {
+      Deno.removeSync(targetFile)
+    } catch { /* doesn't exist */ }
+    Deno.copyFileSync(srcFile, targetFile)
+    console.log(`Copied ${srcFile} -> ${targetFile}`)
+  }
+}
+
 if (import.meta.main) {
   await execa({
     stderr: 'inherit',
@@ -32,4 +56,5 @@ if (import.meta.main) {
     `,
   })`sh`
   updateLocalLatestVersion()
+  copySkills()
 }

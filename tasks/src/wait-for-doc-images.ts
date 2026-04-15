@@ -7,7 +7,7 @@ if (import.meta.main) {
   await $({
     stdio: 'inherit',
     cwd: projectRoot,
-  })`deno run -A cli/src/index.ts docker build --dryrun`
+  })`deno run -A cli/src/index.ts docker build --repo dinghydev/dinghy --dryrun`
 
   const versions = JSON.parse(
     Deno.readTextFileSync(`${projectRoot}/.versions.json`),

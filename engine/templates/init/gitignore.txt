@@ -12,6 +12,10 @@ output/lambdas
 # IDE
 .idea
 .devcontainer.json
+tmp*
+
+# Claude
+*.local.*
 
 # OS
 **/.DS_Store

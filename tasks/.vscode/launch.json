@@ -98,6 +98,9 @@
         "--inspect-wait",
         "--allow-all",
       ],
+      "env": {
+        // "DEBUG": "*"
+      },
       "console": "integratedTerminal"
     }
   ]

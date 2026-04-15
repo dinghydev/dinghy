@@ -1,6 +1,6 @@
 sections:
   - badge: What is it
-    title: "An open-source <b style='color: var(--r-link-color)'>toolchain</b><br />for modern engineering"
+    title: "An open-source <b style='color: var(--r-link-color)'>toolchain</b><br />for everyday engineering"
     img: imgs/swiss-arm.svg
   - title: Diagram as Code
     img:
