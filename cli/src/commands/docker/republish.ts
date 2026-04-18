@@ -48,9 +48,9 @@ export async function run(args: Args) {
       return
     }
 
-    if (multiArch) {
+    if (multiArch()) {
       const targetArchTags: string[] = []
-      for (const arch of supportedArchs) {
+      for (const arch of supportedArchs()) {
         const srcArchTag = `${image}-linux-${arch}`
         const targetArchTag = `${targetTag}-linux-${arch}`
         await imagePull(srcArchTag, true)
@@ -96,9 +96,9 @@ export async function run(args: Args) {
       baseImage = configGetOriginalImage('tf-base')
     }
 
-    if (multiArch) {
+    if (multiArch()) {
       const targetArchTags: string[] = []
-      for (const arch of supportedArchs) {
+      for (const arch of supportedArchs()) {
         const targetArchTag = `${targetTag}-linux-${arch}`
         await buildCustomizedImage(
           targetArchTag,

@@ -32,9 +32,9 @@ export function buildOndemandImage(_image: string, _buildArch?: string) {
   throw new Error('Not implemented')
 }
 
-export const supportedArchs =
-  Deno.env.get('DINGHYT_DOCKER_SUPPORTED_ARCHS')?.split(',') ||
+export const supportedArchs = () =>
+  Deno.env.get('DINGHY_DOCKER_SUPPORTED_ARCHS')?.split(',') ||
   ['arm64', 'amd64']
 
-export const multiArch =
-  Deno.env.get('DINGHYT_DOCKER_SUPPORTED_ARCHS') !== 'false'
+export const multiArch = () =>
+  Deno.env.get('DINGHY_DOCKER_SUPPORTED_ARCHS') !== 'false'

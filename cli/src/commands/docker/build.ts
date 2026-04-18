@@ -30,14 +30,14 @@ export const schema: CmdInput = {
   hidden: true, // keep to internal use only for now
   options: [
     {
+      name: 'repo',
+      description: 'Repository to build the images to',
+      required: true,
+    },
+    {
       name: 'source',
       description: 'Source folder to build',
       default: 'docker/images',
-    },
-    {
-      name: 'repo',
-      description: 'Repository to build the images to',
-      default: 'dinghydev/dinghy',
     },
     {
       name: 'push',
@@ -84,7 +84,10 @@ type DockerImage = {
 }
 
 async function init(args: Args) {
-  const versionsFile = `${projectRoot}/.versions.json`
+  const isCompiled = !Deno.execPath().includes('deno')
+  const versionsFile = `${
+    isCompiled ? hostAppHome : projectRoot
+  }/.versions.json`
   debug('versions file: %s', versionsFile)
   if (existsSync(versionsFile)) {
     Deno.removeSync(versionsFile)
@@ -110,11 +113,15 @@ async function init(args: Args) {
     .map(
       (f) => f.name,
     ).toArray().sort().map((folder) => {
-      const name = folder.substring(folder.indexOf('-') + 1)
+      const name = /^\d+-/.test(folder)
+        ? folder.substring(folder.indexOf('-') + 1)
+        : folder
       return { name, folder: `${args.sourceFolder}/${folder}` }
     }) as DockerImage[]
   args.imageTags = []
-  args.versions = { release: args.buildContext.VERSION_RELEASE }
+  args.versions = isCompiled
+    ? {}
+    : { release: args.buildContext.VERSION_RELEASE }
 }
 
 async function parseVersionIntoContext(path: string, buildContext: any) {
@@ -191,8 +198,9 @@ async function populateImageTag(image: DockerImage, args: Args) {
 
   const imageKey = image.name.toUpperCase().split('-').join('_')
   let imageVersion
-  const isEngineImage = image.name === 'engine'
-  if (isEngineImage) {
+  if (image.name === 'release') {
+    imageVersion = args.buildContext.VERSION_RELEASE
+  } else if (image.name === 'engine') {
     imageVersion = `${image.name}-${args.buildContext.VERSION_RELEASE}`
   } else {
     imageVersion = `${image.name}-${imageHash()}`
@@ -282,8 +290,8 @@ async function buildImageWithArch(
 ) {
   const tag = arch ? `${image.tag}-linux-${arch}` : image.tag
   const buildArgs = ['docker', 'buildx', 'build']
+  buildArgs.push('--provenance', 'false')
   if (arch) {
-    buildArgs.push('--provenance', 'false')
     buildArgs.push('--platform', `linux/${arch}`)
     if (
       readFileSync(`${image.folder}/Dockerfile`, 'utf-8').includes(
