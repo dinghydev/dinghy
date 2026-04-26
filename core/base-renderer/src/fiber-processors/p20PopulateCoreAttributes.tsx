@@ -74,7 +74,9 @@ const defaultId = (node: NodeTree, _fiber: any, usedIds: string[]) => {
       return id
     }
     id = `${typeId}_${i}`
-    if ((node._props as any)._category) {
+    if (
+      (node._props as any)._category && !(node._props as any)._consolidatedId
+    ) {
       // Warning only for tf resources
       console.warn(
         `WARNING: unstable id [${id}] generated for [${node._props._title}]`,

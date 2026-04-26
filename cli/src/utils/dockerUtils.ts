@@ -32,7 +32,7 @@ const HOME_MOUNTS = [
   '.ssh',
   '.gitconfig',
   '.claude',
-  '.claude.json',
+  // '.claude.json', don't add as it may get corrupted if write with in container
 ]
 
 const DOCKER_EXCLUDED_ENVS = [

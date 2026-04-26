@@ -240,6 +240,7 @@
     "./serviceXray": "./src/services/xray/index.ts",
     "./cloudfront": "./src/composites/cloudfront/index.ts",
     "./ec2": "./src/composites/ec2/index.ts",
+    "./ecs": "./src/composites/ecs/index.ts",
     "./s3": "./src/composites/s3/index.ts",
     "./vpc": "./src/composites/vpc/index.ts",
     "./lambda": "./src/composites/lambda/index.ts",
