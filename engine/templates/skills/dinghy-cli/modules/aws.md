@@ -50,9 +50,9 @@ $ dinghy aws connect [STACK] [options]
 
 ### Options
 
-| Name                        | Description                                                            | Default |
-| --------------------------- | ---------------------------------------------------------------------- | ------- |
-| `-i, --instance-id=<value>` | The instance id to connect to, could be sequence or actual instance id | `1`     |
+| Name               | Description                                                                         | Default |
+| ------------------ | ----------------------------------------------------------------------------------- | ------- |
+| `-i, --id=<value>` | The id to connect to, could be sequence number, instance id (EC2), or task id (ECS) | `1`     |
 
 ## aws list
 

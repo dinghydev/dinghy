@@ -112,6 +112,7 @@ The active stack has configuration loaded based on stack name. e.g. for stack
 name `foo-bar-baz`, it will has following ordered priority configurable files to
 load from:
 
+1. foo-bar-baz-*.yml (any file starting with the full name plus `-`, sorted alphabetically — highest priority)
 1. foo-bar-baz.yml
 1. bar-baz.yml
 1. foo-bar.yml
@@ -119,6 +120,11 @@ load from:
 1. bar.yml
 1. foo.yml
 1. default.yml
+
+The `foo-bar-baz-*.yml` prefix match lets you split per-stack overrides across
+multiple files (e.g. one file per concern) without touching the base
+`foo-bar-baz.yml`. Files are sorted alphabetically, then deep-merged on top of
+all tag-matched files.
 
 ### Stack override
 

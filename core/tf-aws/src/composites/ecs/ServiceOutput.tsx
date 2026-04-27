@@ -1,6 +1,7 @@
 import { deepResolve } from '@dinghy/base-components'
 import { Output } from '@dinghy/tf-common'
 import { useAwsEcsService } from '../../services/ecs/AwsEcsService.tsx'
+import { useAwsEcsCluster } from '../../services/ecs/AwsEcsCluster.tsx'
 import type { EcsServiceType } from './types.ts'
 
 // Per-service Terraform `output` block. Mirrors EC2's InstanceOutput so
@@ -13,10 +14,12 @@ export function ServiceOutput({ service }: { service: EcsServiceType }) {
   // CamelCase parts — `AwsEcsService` → `ecsService` (matches
   // useAwsEcsCluster → ecsCluster in EcsService.tsx).
   const { ecsService } = useAwsEcsService()
+  const { ecsCluster } = useAwsEcsCluster()
   const title = () => `Output of ${deepResolve(service.name)}`
   const containerNames = Object.keys(service.task.containers)
   const serviceInfo = () => ({
     Name: deepResolve(service.name),
+    Cluster: deepResolve(ecsCluster.name),
     Containers: containerNames,
   })
   return (

@@ -10,41 +10,28 @@ export const schema: CmdInput = {
   description: 'Connect to a specific instance in the stack',
   options: [
     {
-      name: 'instance-id',
+      name: 'id',
       description:
-        'The instance id to connect to, could be sequence or actual instance id',
+        'The id to connect to, could be sequence number, instance id (EC2), or task id (ECS)',
       default: '1',
       alias: 'i',
+    },
+    {
+      name: 'container',
+      description:
+        'For ECS services, the container name to exec into (defaults to the first container)',
+      alias: 'c',
     },
   ],
   ...stackArgs,
 }
 
-export const run = async (args: Args) => {
-  const instances = await listConnectableInstances(args)
-  const instance = instances.find((instance: any, index: number) =>
-    `${index + 1}` === args['instance-id']
-      ? true
-      : instance.InstanceId === args['instance-id']
-      ? true
-      : instance.Name === args['instance-id']
-  )
-  if (!instance) {
-    throw new DinghyError(
-      `Instance id ${args['instance-id']} not found in [${
-        instance.map((resource: any) =>
-          `${resource.Name}: ${resource.InstanceId}`
-        ).join(', ')
-      }]`,
-    )
-  }
-
+const connectToEc2Instance = async (args: Args, instance: any) => {
   console.log(
     `Connecting to ${
       chalk.green(`${instance.Name}: ${instance.InstanceId}`)
     } ...`,
   )
-
   await runAwscliImageCmd(
     args,
     [
@@ -57,4 +44,76 @@ export const run = async (args: Args) => {
       instance.InstanceId as string,
     ],
   )
+}
+
+const connectToTaskContainer = async (args: Args, instance: any) => {
+  const container = (args.container as string | undefined) ??
+    instance.Containers[0]
+  if (!instance.Containers.includes(container)) {
+    throw new DinghyError(
+      `Container ${container} not found in service ${instance.Name} (available: ${
+        instance.Containers.join(', ')
+      })`,
+    )
+  }
+  const taskArn = instance.Task
+  if (!taskArn) {
+    throw new DinghyError(
+      `No running tasks found for service ${instance.Name} in cluster ${instance.Cluster}`,
+    )
+  }
+  console.log(
+    `Connecting to ${chalk.green(`${instance.Name}/${container}`)} ...`,
+  )
+  await runAwscliImageCmd(
+    args,
+    [
+      'aws',
+      'ecs',
+      'execute-command',
+      '--region',
+      instance.Region,
+      '--cluster',
+      instance.Cluster,
+      '--task',
+      taskArn,
+      '--container',
+      container,
+      '--interactive',
+      '--command',
+      '/bin/sh',
+    ],
+  )
+}
+
+export const run = async (args: Args) => {
+  const instances = await listConnectableInstances(args)
+  const id = args.id
+  const instance = instances.find((instance: any, index: number) =>
+    `${index + 1}` === id
+      ? true
+      : instance.InstanceId === id
+      ? true
+      : typeof instance.Task === 'string' && instance.Task.endsWith(`/${id}`)
+      ? true
+      : instance.Name === id
+  )
+  if (!instance) {
+    throw new DinghyError(
+      `Id ${id} not found in [${
+        instances.map((resource: any) =>
+          `${resource.Name}: ${
+            resource.InstanceId ?? resource.Task ??
+              resource.Containers
+          }`
+        ).join(', ')
+      }]`,
+    )
+  }
+
+  if (Array.isArray(instance.Containers)) {
+    await connectToTaskContainer(args, instance)
+  } else {
+    await connectToEc2Instance(args, instance)
+  }
 }

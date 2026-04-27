@@ -65,7 +65,8 @@
     {
       "name": "tf *",
       "args": [
-        "tf",
+        "aws",
+        "list",
         // "bash",
         // "init",
         // "plan",
@@ -80,7 +81,8 @@
       "program": "src/index.ts",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/ec2-servers",
-        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/examples/show-cases/typescript-lambda",
+        "APP_HOME": "/Users/guo/andopen/src/devops/oss-iac",
+        "AWS_PROFILE": "super-admin",
       },
       "type": "node",
       "request": "launch",
