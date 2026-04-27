@@ -14,4 +14,5 @@ $ dinghy aws connect [STACK] [options]
 ## Options
 | Name            | Description           | Default                   |
 | ---------------- | --------------- | ----------------------------- |
-| `-i, --instance-id=<value>` |The instance id to connect to, could be sequence or actual instance id | `1` |
+| `-i, --id=<value>` |The id to connect to, could be sequence number, instance id (EC2), or task id (ECS) | `1` |
+| `-c, --container=<value>` |For ECS services, the container name to exec into (defaults to the first container) |  |

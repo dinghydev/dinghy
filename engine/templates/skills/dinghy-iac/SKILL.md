@@ -148,17 +148,24 @@ Later files override earlier ones. This applies to:
 `config/iam-role-policies/`:
 
 ```
-default.yml        <- shared policies for all roles
-my.yml             <- matches "my" tag
-ec2.yml            <- matches "ec2" tag
-role.yml           <- matches "role" tag
-my-ec2.yml         <- matches "my-ec2" tag
-ec2-role.yml       <- matches "ec2-role" tag
-my-ec2-role.yml    <- matches full name
+default.yml             <- shared policies for all roles
+my.yml                  <- matches "my" tag
+ec2.yml                 <- matches "ec2" tag
+role.yml                <- matches "role" tag
+my-ec2.yml              <- matches "my-ec2" tag
+ec2-role.yml            <- matches "ec2-role" tag
+my-ec2-role.yml         <- matches full name
+my-ec2-role-extra.yml   <- prefix match (loaded last, highest priority)
+my-ec2-role-zzz.yml     <- prefix match, sorted alphabetically
 ```
 
 This lets you share config across related names. For example, `ec2.yml` applies
 to any role with "ec2" in its name, while `default.yml` applies to all roles.
+
+After the tag-based files are merged, any file whose name starts with the full
+name plus `-` (e.g. `my-ec2-role-*.yml`) is also loaded, sorted alphabetically,
+and deep-merged on top. Use this to split per-name overrides across multiple
+files (e.g. one per concern) without touching the base `my-ec2-role.yml`.
 
 ## Configuration Reference
 

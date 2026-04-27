@@ -46,7 +46,7 @@ export function GlobalLogBucket(
     )
   }
 
-  const BucketComponent = _components?.bucket as typeof S3Bucket ||
+  const BucketComponent = _components?.globalLogBucket as typeof S3Bucket ||
     S3Bucket
   return (
     <BucketComponent

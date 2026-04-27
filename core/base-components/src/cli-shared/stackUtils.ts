@@ -214,6 +214,14 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
         debug('loaded file data %s %s/%s.yml', name, path, tag)
       }
     })
+    const prefix = `${name}-`
+    Object.keys(current)
+      .filter((key) => key.endsWith('.yml') && key.startsWith(prefix))
+      .sort()
+      .map((key) => {
+        deepMerge(data, current[key])
+        debug('loaded file data %s %s/%s', name, path, key)
+      })
   } else {
     Object.values(current).map((value) => {
       deepMerge(data, value)
