@@ -245,6 +245,7 @@
     "./vpc": "./src/composites/vpc/index.ts",
     "./lambda": "./src/composites/lambda/index.ts",
     "./iam": "./src/composites/iam/index.ts",
+    "./route53": "./src/composites/route53/index.ts",
     ".": "./src/index.ts"
   }
 }
