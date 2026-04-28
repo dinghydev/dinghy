@@ -13,6 +13,11 @@ install_dinghy() {
 	#if [ "$OS" = "Windows_NT" ]; then
 	#	target="x86_64-pc-windows-msvc"
 	#else
+		if [ -f /lib/ld-musl-x86_64.so.1 ] || [ -f /lib/ld-musl-aarch64.so.1 ] || (command -v ldd >/dev/null 2>&1 && ldd --version 2>&1 | grep -q musl); then
+			echo "Error: musl-based Linux (e.g., Alpine) is not supported — only glibc Linux builds are published." 1>&2
+			echo "Use a glibc-based image (debian, ubuntu, rockylinux, etc.)" 1>&2
+			exit 1
+		fi
 		case $(uname -sm) in
 		"Darwin x86_64") target="x86_64-apple-darwin" ;;
 		"Darwin arm64") target="aarch64-apple-darwin" ;;

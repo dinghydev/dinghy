@@ -26,11 +26,11 @@ export const schema: CmdInput = {
 
 const refreshCommand: string[] = []
 
-const addToPathIfNotAlready = (shell: string, paths: string[]) => {
+const addToPathIfNotAlready = (shell: string, paths: string[]): boolean => {
   const setCommand = shell === 'fish'
     ? `set --export PATH ${dinghyHome}/bin $PATH`
     : `export PATH="$HOME/.dinghy/bin:$PATH"`
-  paths.find((path) => {
+  return Boolean(paths.find((path) => {
     const configFile = `${Deno.env.get('HOME')}/${path}`
     if (existsSync(configFile)) {
       const text = Deno.readTextFileSync(configFile)
@@ -58,13 +58,39 @@ const addToPathIfNotAlready = (shell: string, paths: string[]) => {
       return true
     }
     return false
-  })
+  }))
+}
+
+const symlinkToUsrLocalBin = () => {
+  const linkPath = '/usr/local/bin/dinghy'
+  const target = `${dinghyHome}/bin/dinghy`
+  try {
+    Deno.lstatSync(linkPath)
+    debug('%s already exists, skipping symlink', linkPath)
+    return
+  } catch (e) {
+    if (!(e instanceof Deno.errors.NotFound)) {
+      debug('lstat %s failed: %s', linkPath, e)
+      return
+    }
+  }
+  try {
+    Deno.symlinkSync(target, linkPath)
+    debug('symlinked %s -> %s', linkPath, target)
+  } catch (e) {
+    debug('failed to symlink %s: %s', linkPath, e)
+  }
 }
 
 export const run = async (args: Args) => {
-  addToPathIfNotAlready('bash', ['.bashrc', '.profile'])
-  addToPathIfNotAlready('zsh', ['.zshrc', '.zprofile'])
-  addToPathIfNotAlready('fish', ['.config/fish/config.fish'])
+  const foundShellRc = [
+    addToPathIfNotAlready('bash', ['.bashrc', '.profile']),
+    addToPathIfNotAlready('zsh', ['.zshrc', '.zprofile']),
+    addToPathIfNotAlready('fish', ['.config/fish/config.fish']),
+  ].some(Boolean)
+  if (!foundShellRc) {
+    symlinkToUsrLocalBin()
+  }
 
   await cleanUpdateCheck()
 
