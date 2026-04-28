@@ -218,11 +218,13 @@ will be executed as additional build steps when the image is requested.
 
 ## Runtime architecture
 
-Dinghy supports both `arm64` and `amd64` architectures.
+Dinghy supports `arm64` and `amd64` architectures. Multi-architecture builds
+are opt-in: set the environment variable `DINGHY_DOCKER_SUPPORTED_ARCHS` to a
+comma-separated list (e.g. `arm64,amd64`) to enable multi-arch — images are
+then built per architecture and combined under a Docker manifest.
 
-If you want to disable multi-architecture support, set the environment variable
-`DINGHY_DOCKER_SUPPORTED_ARCHS=false`. With multi-architecture disabled, images
-will be published without the architecture included in the image tag.
+When the variable is unset (or set to `false`), builds are single-arch for the
+host only and images are published without the architecture suffix in the tag.
 
 ## Private Registry
 

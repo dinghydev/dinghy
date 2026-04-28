@@ -37,10 +37,10 @@
     },
     "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
     "docker-build-arm64": {
-      "command": "deno run -A ../cli/src/index.ts docker build --arch arm64 --repo dinghydev/dinghy --app-home ../"
+      "command": "deno run -A ../cli/src/index.ts docker build --multi-arch --arch arm64 --repo dinghydev/dinghy --app-home ../"
     },
     "docker-build": {
-      "command": "deno run -A ../cli/src/index.ts docker build --repo dinghydev/dinghy --app-home ../"
+      "command": "DINGHY_DOCKER_SUPPORTED_ARCHS=arm64,amd64 deno run -A ../cli/src/index.ts docker build --repo dinghydev/dinghy --app-home ../"
     },
     "render-examples": "deno run -A ./src/render-examples.ts",
     "release-site": {

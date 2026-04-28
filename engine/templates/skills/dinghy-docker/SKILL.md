@@ -13,12 +13,13 @@ multi-architecture builds, and ordered dependency chains.
 1. **Configure `.dinghyrc`** for the project if not already done:
    ```
    DINGHY_DOCKER_BUILD_REPO=myorg/myproject
-   DINGHY_DOCKER_SUPPORTED_ARCHS=false
+   DINGHY_DOCKER_SUPPORTED_ARCHS=arm64,amd64
    ```
    - `DINGHY_DOCKER_BUILD_REPO` — target Docker repository (avoids passing
      `--repo` on every build)
-   - `DINGHY_DOCKER_SUPPORTED_ARCHS` — set to `false` to disable multi-arch
-     builds, or a comma-separated list of architectures (default: `arm64,amd64`)
+   - `DINGHY_DOCKER_SUPPORTED_ARCHS` — comma-separated list of architectures to
+     enable multi-arch builds (e.g. `arm64,amd64`). When unset or `false`,
+     builds are single-arch for the host only.
 
 2. **Create the image directory** under the source folder (default:
    `docker/images/`). Use a numeric prefix to control build order if images
@@ -139,11 +140,11 @@ version and any files explicitly included via `Dockerfile.dockerignore`.
 
 ## Multi-Architecture Support
 
-Build for multiple architectures with `--multi-arch` (default when
-`DINGHY_DOCKER_SUPPORTED_ARCHS` is set). Disable with
-`DINGHY_DOCKER_SUPPORTED_ARCHS=false` in `.dinghyrc`.
+Multi-arch is opt-in. Set `DINGHY_DOCKER_SUPPORTED_ARCHS` (e.g. `arm64,amd64`)
+in `.dinghyrc` to enable it — `--multi-arch` then defaults to on and `--arch`
+defaults to that list. When the env var is unset or `false`, builds are
+single-arch for the host only.
 
-- Default architectures: `arm64`, `amd64`
 - Each arch is built separately with `--platform linux/{arch}`
 - If the Dockerfile contains `ARG BUILD_ARCH`, it is passed as a build arg
 - A Docker manifest is created combining all arch variants
@@ -165,15 +166,15 @@ RUN if [ "$BUILD_ARCH" = "arm64" ]; then ARCH="aarch64"; else ARCH="x86_64"; fi 
 dinghy docker build [image] [options]
 ```
 
-| Option         | Default                    | Description                                        |
-| -------------- | -------------------------- | -------------------------------------------------- |
-| `--source`     | `docker/images`            | Source folder containing image subdirectories      |
-| `--repo`       | `DINGHY_DOCKER_BUILD_REPO` | Target Docker repository (set in `.dinghyrc`)      |
-| `--push`       | `false`                    | Push built images to registry (auto-enabled in CI) |
-| `--skip-local` | `false`                    | Skip build if image exists locally                 |
-| `--multi-arch` | env-based                  | Build for multiple architectures                   |
-| `--dryrun`     | `false`                    | Preview builds without executing                   |
-| `--arch`       | `arm64,amd64`              | Architectures to build (multiple values)           |
+| Option         | Default                                               | Description                                        |
+| -------------- | ----------------------------------------------------- | -------------------------------------------------- |
+| `--source`     | `docker/images`                                       | Source folder containing image subdirectories      |
+| `--repo`       | `DINGHY_DOCKER_BUILD_REPO`                            | Target Docker repository (set in `.dinghyrc`)      |
+| `--push`       | `false`                                               | Push built images to registry (auto-enabled in CI) |
+| `--skip-local` | `false`                                               | Skip build if image exists locally                 |
+| `--multi-arch` | `false` (true if `DINGHY_DOCKER_SUPPORTED_ARCHS` set) | Build for multiple architectures                   |
+| `--dryrun`     | `false`                                               | Preview builds without executing                   |
+| `--arch`       | host arch (or `DINGHY_DOCKER_SUPPORTED_ARCHS` if set) | Architectures to build (multiple values)           |
 
 If no `image` argument is given, all images in the source folder are built.
 

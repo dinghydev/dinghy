@@ -32,9 +32,16 @@ export function buildOndemandImage(_image: string, _buildArch?: string) {
   throw new Error('Not implemented')
 }
 
-export const supportedArchs = () =>
-  Deno.env.get('DINGHY_DOCKER_SUPPORTED_ARCHS')?.split(',') ||
-  ['arm64', 'amd64']
+const hostDockerArch = (): string =>
+  Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
 
-export const multiArch = () =>
-  Deno.env.get('DINGHY_DOCKER_SUPPORTED_ARCHS') !== 'false'
+export const supportedArchs = (): string[] => {
+  const raw = Deno.env.get('DINGHY_DOCKER_SUPPORTED_ARCHS')
+  if (!raw || raw === 'false') return [hostDockerArch()]
+  return raw.split(',')
+}
+
+export const multiArch = (): boolean => {
+  const raw = Deno.env.get('DINGHY_DOCKER_SUPPORTED_ARCHS')
+  return Boolean(raw) && raw !== 'false'
+}
