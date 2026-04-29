@@ -1,9 +1,13 @@
-import { getRenderOptions, hostAppHome } from '@dinghy/base-components'
+import {
+  cmdCapture,
+  DinghyError,
+  getRenderOptions,
+  hostAppHome,
+  RenderOptions,
+} from '@dinghy/base-components'
 import { z } from 'zod'
 import { InputSchema as AwsLambdaFunctionInputSchema } from '../../services/lambda/AwsLambdaFunction.tsx'
 import { existsSync } from '@std/fs/exists'
-import { cmdCapture, DinghyError } from '@dinghy/cli'
-import { RenderOptions } from '../../../../base-components/src/contexts/getRenderOptions.tsx'
 
 const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   sourceFile: z.string().optional(),

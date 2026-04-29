@@ -85,8 +85,10 @@ export type EcsServiceNetworkConfigurationType = z.output<
 // workload layer: container list. Anything set here is spread onto the
 // TaskDefinition component verbatim.
 const EcsTaskSchema = AwsEcsTaskDefinitionInputSchema.partial().extend({
-  cpu: z.string().default('512'),
-  memory: z.string().default('1024'),
+  cpu: z.number().default(512).transform((v: number | undefined) => String(v)),
+  memory: z.number().default(1024).transform((v: number | undefined) =>
+    String(v)
+  ),
   network_mode: z.string().default('awsvpc'),
   requires_compatibilities: z.string().array().default(['FARGATE']),
   skip_destroy: z.boolean().default(true),
@@ -261,6 +263,7 @@ const EcsEfsSchema = z.object({
 export type EcsEfsType = z.output<typeof EcsEfsSchema>
 
 const EcsServiceSchema = AwsEcsServiceInputSchema.partial().extend({
+  name: z.string().optional().transform((v: string | undefined) => v as string),
   launch_type: z.string().default('FARGATE'),
   desired_count: z.number().default(1),
   main_container: z.string().default('app'),
@@ -277,7 +280,7 @@ const EcsServiceSchema = AwsEcsServiceInputSchema.partial().extend({
   target_group: EcsTargetGroupSchema.optional(),
   network_configuration: EcsServiceNetworkConfigurationSchema.optional(),
   task: EcsTaskSchema,
-  log: EcsServiceLogSchema.default({}),
+  log: z.preprocess((v) => v ?? {}, EcsServiceLogSchema),
   // Per-service EFS volumes, keyed by logical volume name.
   efs: z.record(z.string(), EcsEfsSchema).default({}),
 }).loose()
@@ -354,6 +357,7 @@ const EcsAlbSchema = AwsLbInputSchema.partial().extend({
 export type EcsAlbType = z.output<typeof EcsAlbSchema>
 
 const EcsClusterSchema = AwsEcsClusterInputSchema.partial().extend({
+  name: z.string().optional().transform((v: string | undefined) => v as string),
   containerInsights: EcsContainerInsightsSchema,
   alb: EcsAlbSchema.optional(),
   services: z.record(z.string(), EcsServiceSchema).default({}),

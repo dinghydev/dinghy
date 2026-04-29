@@ -3,7 +3,7 @@ import { hostAppHome } from '../shared/home.ts'
 import Debug from 'debug'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
-import { cmdCapture } from '../utils/cmd.ts'
+import { cmdCapture } from '../shared/cmd.ts'
 import { runEngineCommand } from '../services/docker/runEngineCommand.ts'
 const debug = Debug('devcontainer')
 

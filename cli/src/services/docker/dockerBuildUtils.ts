@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { cmdStream } from '../../utils/cmd.ts'
+import { cmdStream } from '../../shared/cmd.ts'
 
 export const md5Hash = (str: string) =>
   createHash('md5')

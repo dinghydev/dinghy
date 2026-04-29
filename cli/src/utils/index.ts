@@ -1,4 +1,3 @@
-export * from './cmd.ts'
 export * from './gitUtils.ts'
 export * from './loadConfig.ts'
 export * from './projectVersions.ts'

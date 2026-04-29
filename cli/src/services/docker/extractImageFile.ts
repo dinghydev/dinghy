@@ -1,7 +1,7 @@
 import Debug from 'debug'
 import { execaSync } from 'execa'
 import { dirname } from 'node:path'
-import { cmdStream } from '../../utils/cmd.ts'
+import { cmdStream } from '../../shared/cmd.ts'
 const debug = Debug('extractImageFile')
 
 export async function extractImageFile(

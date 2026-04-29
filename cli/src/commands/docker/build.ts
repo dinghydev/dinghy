@@ -1,5 +1,5 @@
 import { existsSync } from '@std/fs/exists'
-import { isCi } from '../../utils/gitUtils.ts'
+import { isCi, runGitCheck } from '../../utils/gitUtils.ts'
 import { hostAppHome, resolveFullPath } from '../../shared/home.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
 import chalk from 'chalk'
@@ -18,7 +18,7 @@ import { supportedArchs } from '../../services/docker/dockerBuildUtils.ts'
 import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'
-import { cmdStream } from '../../utils/cmd.ts'
+import { cmdStream } from '../../shared/cmd.ts'
 import {
   imageExistLocally,
   imageExistRemotely,
@@ -66,6 +66,14 @@ export const schema: CmdInput = {
       description: 'Architectures to build',
       multiple: true,
       default: supportedArchs,
+    },
+    {
+      name: 'git-check',
+      description:
+        'After build, run `git diff` and fail if the working tree has uncommitted changes (default: enabled in CI only)',
+      boolean: true,
+      negatable: true,
+      default: isCi,
     },
   ],
   args: [
@@ -212,7 +220,7 @@ async function populateImageTag(image: DockerImage, args: Args) {
   args.versions[image.name] = imageVersion
   await Deno.writeTextFile(
     `${hostAppHome}/.versions.json`,
-    JSON.stringify(args.versions, null, 2),
+    JSON.stringify(args.versions, null, 2) + '\n',
   )
   debug('Docker image tag %s generated', image.tag)
 }
@@ -323,4 +331,8 @@ export async function run(args: Args) {
   console.log('Image tags:')
   console.log(chalk.green(args.imageTags.join('\n')))
   console.log('versions file:', `${hostAppHome}/.versions.json`)
+
+  if (args['git-check']) {
+    await runGitCheck(hostAppHome)
+  }
 }

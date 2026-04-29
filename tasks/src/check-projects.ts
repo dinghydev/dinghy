@@ -70,9 +70,11 @@ if (import.meta.main) {
           .map((entry) => entry.name)
         for (const folder of folders) {
           if (['tf-aws'].includes(folder) && cmd === 'check') {
-            continue
+            await runDenoCmd(`${project}/${folder}`, `${cmd} src/foundation`)
+            await runDenoCmd(`${project}/${folder}`, `${cmd} src/composites`)
+          } else {
+            await runDenoCmd(`${project}/${folder}`, cmd)
           }
-          await runDenoCmd(`${project}/${folder}`, cmd)
         }
       } else {
         await runDenoCmd(project, cmd)

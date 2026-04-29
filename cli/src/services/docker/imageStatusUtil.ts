@@ -1,4 +1,4 @@
-import { cmdCode, cmdStream } from '../../utils/cmd.ts'
+import { cmdCode, cmdStream } from '../../shared/cmd.ts'
 import { DinghyError } from '../../shared/types.ts'
 
 export async function imagePull(image: string, required = false) {

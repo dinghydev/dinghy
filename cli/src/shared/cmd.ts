@@ -1,7 +1,7 @@
 import { execa, execaSync } from 'execa'
 import Debug from 'debug'
-import { containerAppHome } from '../shared/home.ts'
-import { DinghyError } from '../shared/types.ts'
+import { containerAppHome } from './home.ts'
+import { DinghyError } from './types.ts'
 Debug.formatters.a = (v: any) => {
   return `[${v.join(' ')}]`
 }

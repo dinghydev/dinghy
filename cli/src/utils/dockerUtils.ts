@@ -9,7 +9,7 @@ import {
   isInsideContainer,
   resolveFullPath,
 } from '../shared/home.ts'
-import { cmdStream, cmdStreamAndCapture } from './cmd.ts'
+import { cmdStream, cmdStreamAndCapture } from '../shared/cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
