@@ -4,6 +4,7 @@ import { updateProjectVersion } from '../utils/updateProjectVersion.ts'
 import Debug from 'debug'
 import { CmdInput } from '../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
+import { configEngineRepoDefault } from '../utils/dockerConfig.ts'
 const debug = Debug('upgrade')
 
 export const schema: CmdInput = {
@@ -34,6 +35,7 @@ export const upgradeToVersion = async (version: string) => {
     input: content,
     env: {
       DINGHY_VERSION: version,
+      DINGHY_ENGINE_REPO: configEngineRepoDefault,
     },
   })`sh`
 }
