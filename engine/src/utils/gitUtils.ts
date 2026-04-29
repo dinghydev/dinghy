@@ -251,8 +251,10 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
   const namesCandidates: string[] = []
   if (!args.stack) {
     namesCandidates.push('tf apply')
+    namesCandidates.push('tf deploy')
     namesCandidates.push('tf up')
     namesCandidates.push('dinghy tf apply')
+    namesCandidates.push('dinghy tf deploy')
     namesCandidates.push('dinghy tf up')
   }
 
@@ -263,9 +265,11 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
       namesCandidates.push(
         `tf diff ${stack.name}`,
         `tf apply ${stack.name}`,
+        `tf deploy ${stack.name}`,
         `tf up ${stack.name}`,
         `dinghy tf diff ${stack.name}`,
         `dinghy tf apply ${stack.name}`,
+        `dinghy tf deploy ${stack.name}`,
         `dinghy tf up ${stack.name}`,
       )
     }
