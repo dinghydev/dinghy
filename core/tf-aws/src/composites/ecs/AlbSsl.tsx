@@ -21,13 +21,14 @@ export function AlbSsl({ cluster }: { cluster: EcsClusterType }) {
   const aliases = alb.alternativeNames ?? []
   if (!aliases.length) return null
 
-  // Expand `<name>-v<N>.<domain>` into `{<name>-v<N>.<domain>, <name>.<domain>}`
-  // so a single cert covers the versioned hostname and its versionless
-  // sibling. Ordering is preserved; dedup via Set.
+  // Expand `<name>-v<N>.<domain>`, `<name>-blue.<domain>`, `<name>-green.<domain>`
+  // into `{<original>, <name>.<domain>}` so a single cert covers the
+  // versioned/blue/green hostname and its bare sibling. Ordering is
+  // preserved; dedup via includes-check.
   const expanded: string[] = []
   for (const name of aliases) {
     if (!expanded.includes(name)) expanded.push(name)
-    const m = name.match(/^([^.]+)-v\d+(\..+)$/)
+    const m = name.match(/^([^.]+)-(?:v\d+|blue|green)(\..+)$/)
     if (m) {
       const sibling = m[1] + m[2]
       if (!expanded.includes(sibling)) expanded.push(sibling)
