@@ -1,7 +1,6 @@
 import Debug from 'debug'
 import { dublinTimeNow } from './timeUtils.ts'
 import { temporaryStorageGetFile, temporaryStorageSaveFile } from './s3.ts'
-import { commitVersion } from './commitVersion.ts'
 import { cmdCode, cmdStreamAndCapture, hostAppHome } from '@dinghy/cli'
 const debug = Debug('gitUtils')
 export const mrId = () => Deno.env.get('CI_MERGE_REQUEST_IID')
@@ -19,6 +18,23 @@ export const hasGitRepo = async () => {
     hostAppHome,
   )
   return result.success
+}
+
+let _commitHash: string | undefined
+export const commitHash = async (): Promise<string> => {
+  if (_commitHash) return _commitHash
+  const envHash = Deno.env.get('GITHUB_SHA') || Deno.env.get('CI_COMMIT_SHA')
+  if (envHash) {
+    _commitHash = envHash
+    return _commitHash
+  }
+  const output = (await cmdStreamAndCapture(
+    ['git', 'rev-parse', 'HEAD'],
+    true,
+    hostAppHome,
+  )).output as string
+  _commitHash = output.trim()
+  return _commitHash
 }
 
 let _projectName: string | undefined
@@ -51,10 +67,10 @@ export const projectName = async (): Promise<string> => {
   return project!
 }
 
-export const projectDeployThread = async (): Promise<string> => {
-  return `projects/${await projectName()}/slack_threads/deploy/${
-    Deno.args[2] || 'auto'
-  }/${commitVersion(hostAppHome)}`
+export const projectDeployThread = async (
+  stackKey: string,
+): Promise<string> => {
+  return `projects/${await projectName()}/slack_threads/deploy/${stackKey}/${await commitHash()}`
 }
 
 const gitlabMrNoteKey = (name: string, iid: string, type: string) => {
@@ -194,36 +210,13 @@ const gitlabPlayJob = async (id: number) => {
   return response
 }
 
-export const attachChangeToMR = async (changes: any[]) => {
-  if (!Deno.env.get('CI_JOB_URL')) {
-    debug('no CI_JOB_URL, skip attach change to MR')
-    return
-  }
-  const lines = [
-    `## [${jobName()}](${
-      Deno.env.get('CI_JOB_URL')
-    }) detected changes in ${changes.length} stack${
-      changes.length > 1 ? 's' : ''
-    }`,
-  ]
-  for (const stackChange of changes) {
-    lines.push(
-      `${stackChange.id}: ${stackChange.plan.summary}`,
-      '```',
-      ...stackChange.plan.changes,
-      '```',
-    )
-  }
-
-  const markDown = lines.join('\n')
-  debug('dinghy tf diff mark down: %s', markDown)
-
+export const upsertMrNote = async (markDown: string, stackKey: string) => {
   const mrIid = mrId()!
-  const projectId = await projectName()
+  const project = await projectName()
   const key = gitlabMrNoteKey(
-    projectId,
+    project,
     mrIid,
-    jobName().split(' ').join('-'),
+    stackKey,
   )
   debug('gitlab mr note key: %s', key)
   const existingNoteId = await temporaryStorageGetFile(key)
@@ -237,7 +230,7 @@ export const attachChangeToMR = async (changes: any[]) => {
     : gitlabMrNoteCreate(mrIid, markDown, key))
 
   debug(
-    `dinghy tf diff result ${
+    `dinghy mr note ${
       existingNoteId ? 'edited' : 'attached'
     } for merge request ${mrIid}`,
   )
@@ -249,7 +242,7 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
   )
 
   const namesCandidates: string[] = []
-  if (!args.stack) {
+  if (!args.stack && Deno.env.get('DINGHY_TF_MAIN_AUTODEPLOY') !== 'false') {
     namesCandidates.push('tf apply')
     namesCandidates.push('tf deploy')
     namesCandidates.push('tf up')

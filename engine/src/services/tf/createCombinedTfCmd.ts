@@ -1,6 +1,6 @@
 import { reportStats, requireStacksConfig } from '@dinghy/cli'
-import { attachChangeToMR, isCi, isMr } from '../../utils/gitUtils.ts'
-import { notifyChanges } from '../../utils/notificationUtils.ts'
+import { isCi } from '../../utils/gitUtils.ts'
+import { tfNotifyChanges } from './tfNotifyChanges.ts'
 import chalk from 'chalk'
 import { collectStackChanges } from './stackInfoUtils.ts'
 import Debug from 'debug'
@@ -79,7 +79,7 @@ export const createCombinedTfCmd = (
         ),
       )
       if (isCi()) {
-        await (isMr() ? attachChangeToMR : notifyChanges)(changedStacks)
+        await tfNotifyChanges(changedStacks, args, isApply)
         await (isApply ? triggerCiChangesApplied : triggerCiChangesDetected)(
           changedStacks,
           args,
