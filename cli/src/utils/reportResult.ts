@@ -1,4 +1,6 @@
 import { projectVersionRelease } from './projectVersions.ts'
+import { hostAppHome, hostUserHome } from '../shared/home.ts'
+import { md5Hash } from '../services/docker/dockerBuildUtils.ts'
 
 const URL_ERROR_REPORT = 'https://error.dinghy.dev/report'
 const URL_USAGE_REPORT = 'https://usage.dinghy.dev/report'
@@ -47,6 +49,8 @@ export async function sendReport(msTaken: number, error?: any) {
   params.set('arch', Deno.build.arch)
   params.set('os', Deno.build.os)
   params.set('ms', msTaken.toString())
+  params.set('pid', md5Hash(hostAppHome))
+  params.set('uid', md5Hash(hostUserHome))
   addSimpleCommands(params)
   if (typeof error === 'object') {
     params.set('error', error.code || error.message)
