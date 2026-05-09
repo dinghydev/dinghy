@@ -31,7 +31,7 @@ export const schema: CmdInput = {
       name: 'testCmd',
       description:
         'The command to run for deno test if `__tests__` folder exists',
-      default: 'deno test --no-check',
+      default: 'deno test -A --no-check --cached-only',
     },
     {
       name: 'gitCmd',
