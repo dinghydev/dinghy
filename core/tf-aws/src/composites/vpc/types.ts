@@ -47,8 +47,13 @@ export function parseVpc(
   deepMerge(inputProps, props)
   const vpcConfig = VpcSchema.loose().parse(inputProps)
 
+  const stackCidrOctet = () =>
+    (Object.values(renderOptions.stacks)
+      .map((s: any) => s.name)
+      .indexOf(renderOptions.stack.name) + 1) * 10
+
   if (!vpcConfig.cidr_block) {
-    vpcConfig.cidr_block = `10.${renderOptions.stack.sequence}.0.0/16`
+    vpcConfig.cidr_block = `10.${stackCidrOctet()}.0.0/16`
   }
   ;['public', 'private'].forEach((subnetType: string) => {
     const subnets = vpcConfig[`${subnetType}Subnets`] as Record<
@@ -85,7 +90,7 @@ export function parseVpc(
           }`) as unknown as string
       }
       if (!subnet.cidr_block) {
-        subnet.cidr_block = `10.${renderOptions.stack.sequence}.${
+        subnet.cidr_block = `10.${stackCidrOctet()}.${
           index * 10 + (subnetType === 'public' ? 200 : 10)
         }.0/24`
       }

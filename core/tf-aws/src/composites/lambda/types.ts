@@ -14,6 +14,11 @@ const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   archiveDir: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
+  // Packages to mark as `--external` when bundling — keeps them out of the
+  // shipped index.mjs because the Lambda runtime already provides them.
+  // Defaults to ['@aws-sdk/*'] for nodejs runtimes (AWS Lambda nodejs18+
+  // ships @aws-sdk/* v3 client packages).
+  external: z.string().array().optional(),
 })
 
 const LambdaFunctionsSchema = z.record(
@@ -84,25 +89,53 @@ function prepareLambdaSource(
   }
   const outputFolder = `${renderOptions.outputFolder}/lambdas/${name}`
   Deno.mkdirSync(outputFolder, { recursive: true })
+  // Apply runtime/handler defaults early so downstream logic (externals,
+  // bundle target) sees them even when YAML omits them.
+  lambda.runtime ??= 'nodejs24.x'
+  lambda.handler ??= 'index.handler'
+  const runtime: string = lambda.runtime
+  const externals: string[] = lambda.external ??
+    (runtime.startsWith('nodejs') ? ['@aws-sdk/*'] : [])
+  // Source uses Deno's `npm:<pkg>@<version>` import form; mark both the bare
+  // and prefixed forms external so esbuild leaves them as runtime imports.
+  const externalFlags = externals.flatMap((e) => [
+    '--external',
+    e,
+    '--external',
+    `npm:${e}`,
+  ])
+  const bundlePath = `${outputFolder}/index.mjs`
   cmdCapture(
     [
       'deno',
       'bundle',
       '--minify',
+      ...externalFlags,
       '--output',
-      `${outputFolder}/index.mjs`,
+      bundlePath,
       sourceFile,
     ],
     true,
     undefined,
     true,
   )
+  // Post-process: rewrite `npm:<pkg>@<version>` literals to bare `<pkg>` so
+  // the resulting ESM resolves against the Lambda runtime's node_modules
+  // (Node.js doesn't understand Deno's `npm:` prefix or pinned versions).
+  if (externals.length > 0) {
+    const bundleContent = Deno.readTextFileSync(bundlePath)
+    const rewritten = bundleContent.replace(
+      /(["'])npm:((?:@[^/"']+\/)?[^@"']+)(?:@[^"']+)?(["'])/g,
+      '$1$2$3',
+    )
+    if (rewritten !== bundleContent) {
+      Deno.writeTextFileSync(bundlePath, rewritten)
+    }
+  }
   if (existsSync(functionFolder)) {
     copyNoneTsFiles(functionFolder, outputFolder)
   }
   lambda.archiveDir = outputFolder
-  lambda.runtime ??= 'nodejs24.x'
-  lambda.handler ??= 'index.handler'
 }
 
 function copyNoneTsFiles(srcDir: string, destDir: string) {

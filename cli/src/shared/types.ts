@@ -30,7 +30,6 @@ export const StackSchema = z.object({
   name: z.string(),
   title: z.string(),
   app: z.string(),
-  sequence: z.number(),
   views: z.record(z.string(), ItemSchema.loose()).optional(),
   override: z.record(z.string(), z.any()).optional(),
   mrAutoDiff: z.boolean().default(true),

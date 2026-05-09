@@ -2318,7 +2318,8 @@
         "@smithy/service-error-classification@4.3.1",
         "@smithy/types@4.14.1",
         "tslib"
-      ]
+      ],
+      "deprecated": true
     },
     "@smithy/util-stream@4.5.25": {
       "integrity": "sha512-/PFpG4k8Ze8Ei+mMKj3oiPICYekthuzePZMgZbCqMiXIHHf4n2aZ4Ps0aSRShycFTGuj/J6XldmC0x0DwednIA==",
@@ -2985,8 +2986,11 @@
       "jsr:@std/media-types@1.1.0",
       "jsr:@std/path@1.0.8",
       "jsr:@std/yaml@1.0.5",
+      "npm:@aws-sdk/client-dynamodb@3.803.0",
       "npm:@aws-sdk/client-ecs@3.803.0",
+      "npm:@aws-sdk/client-lambda@3.803.0",
       "npm:@aws-sdk/client-s3@3.802.0",
+      "npm:@aws-sdk/client-secrets-manager@3.803.0",
       "npm:@aws-sdk/lib-storage@3.802.0",
       "npm:@gitbeaker/rest@43.8.0",
       "npm:@inquirer/confirm@5.1.9",

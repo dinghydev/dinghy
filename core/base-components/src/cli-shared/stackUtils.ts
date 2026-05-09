@@ -136,9 +136,6 @@ export const parseStacks = (
   if (stackSpec && !stacks[stackSpec]) {
     throw new DinghyError(`Stack ${stackSpec} not found`, 'STACK_NOT_FOUND')
   }
-  Object.values(stacks).map((stack: any, i) => {
-    stack.sequence ??= (i + 1) * 10
-  })
 
   return StacksSchema.parse(stacks)
 }

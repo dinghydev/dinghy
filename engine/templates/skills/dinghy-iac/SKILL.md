@@ -60,14 +60,17 @@ The file name (minus `.tsx` extension) becomes the stack name.
 YAML configuration provides the data model. TSX defines the component structure
 that consumes it. Components auto-discover configuration by convention:
 
-| Config key    | Consumed by       | Description                           |
-| ------------- | ----------------- | ------------------------------------- |
-| `servers`     | `Ec2Servers`      | Map of server name → instance config  |
-| `sites`       | `CloudfrontSites` | Map of domain → CloudFront config     |
-| `lambdas`     | `LambdaFunctions` | Map of function name → lambda config  |
-| `roles`       | `IamRoles`        | Map of role name → IAM role config    |
-| `awsProvider` | `AwsStack`        | AWS provider settings (region, etc.)  |
-| `awsStack`    | `AwsStack`        | Stack settings (s3Backend, logBucket) |
+| Config key       | Consumed by       | Description                           |
+| ---------------- | ----------------- | ------------------------------------- |
+| `servers`        | `Ec2Servers`      | Map of server name → instance config  |
+| `sites`          | `CloudfrontSites` | Map of domain → CloudFront config     |
+| `lambdas`        | `LambdaFunctions` | Map of function name → lambda config  |
+| `roles`          | `IamRoles`        | Map of role name → IAM role config    |
+| `dynamodbTables` | `DynamodbTables`  | Map of table name → DynamoDB config   |
+| `secrets`        | `Secrets`         | Map of secret name → Secrets Manager  |
+| `httpApis`       | `HttpApis`        | Map of API name → HTTP API + routes   |
+| `awsProvider`    | `AwsStack`        | AWS provider settings (region, etc.)  |
+| `awsStack`       | `AwsStack`        | Stack settings (s3Backend, logBucket) |
 
 ### AwsStack
 
@@ -85,16 +88,19 @@ export default () => <AwsStack>{/* infrastructure here */}</AwsStack>
 High-level components that create multiple Terraform resources automatically.
 Import from `@dinghy/tf-aws/{service}`:
 
-| Component         | Import                      | Creates                                  |
-| ----------------- | --------------------------- | ---------------------------------------- |
-| `Ec2Servers`      | `@dinghy/tf-aws/ec2`        | EC2 + VPC + IAM + AMI discovery          |
-| `Vpc`             | `@dinghy/tf-aws/vpc`        | VPC + subnets + IGW + routes + SGs       |
-| `S3Bucket`        | `@dinghy/tf-aws/s3`         | S3 + versioning + logging + file uploads |
-| `CloudfrontSites` | `@dinghy/tf-aws/cloudfront` | CloudFront + ACM + Route53 + OAC         |
-| `LambdaFunctions` | `@dinghy/tf-aws/lambda`     | Lambda + IAM + source bundling           |
-| `IamRoles`        | `@dinghy/tf-aws/iam`        | IAM roles + policies + attachments       |
-| `IamRole`         | `@dinghy/tf-aws/iam`        | Single IAM role                          |
-| `IamInstanceRole` | `@dinghy/tf-aws/iam`        | IAM role + instance profile for EC2      |
+| Component         | Import                          | Creates                                                         |
+| ----------------- | ------------------------------- | --------------------------------------------------------------- |
+| `Ec2Servers`      | `@dinghy/tf-aws/ec2`            | EC2 + VPC + IAM + AMI discovery                                 |
+| `Vpc`             | `@dinghy/tf-aws/vpc`            | VPC + subnets + IGW + routes + SGs                              |
+| `S3Bucket`        | `@dinghy/tf-aws/s3`             | S3 + versioning + logging + file uploads                        |
+| `CloudfrontSites` | `@dinghy/tf-aws/cloudfront`     | CloudFront + ACM + Route53 + OAC                                |
+| `LambdaFunctions` | `@dinghy/tf-aws/lambda`         | Lambda + IAM + source bundling                                  |
+| `IamRoles`        | `@dinghy/tf-aws/iam`            | IAM roles + policies + attachments                              |
+| `IamRole`         | `@dinghy/tf-aws/iam`            | Single IAM role                                                 |
+| `IamInstanceRole` | `@dinghy/tf-aws/iam`            | IAM role + instance profile for EC2                             |
+| `DynamodbTables`  | `@dinghy/tf-aws/dynamodb`       | DynamoDB tables (PAY_PER_REQUEST default, TTL)                  |
+| `Secrets`         | `@dinghy/tf-aws/secretsmanager` | Empty Secrets Manager secrets (populate post-deploy)            |
+| `HttpApis`        | `@dinghy/tf-aws/apigatewayv2`   | HTTP API + Stage + per-route Integration/Route/LambdaPermission |
 
 Read `modules/composites.md` for detailed props and hooks.
 
@@ -199,13 +205,43 @@ servers:
 # Lambda functions (consumed by LambdaFunctions)
 lambdas:
   my-handler:
-    runtime: nodejs24.x # default
+    runtime: nodejs24.x # default — `prepareLambdaSource` fills in if omitted
     handler: index.handler # default
     memory_size: 256
     timeout: 60
+    # Bundle externals — packages NOT inlined into index.mjs because the Lambda
+    # runtime provides them. Defaults to ['@aws-sdk/*'] for nodejs runtimes
+    # (Lambda nodejs18+ ships AWS SDK v3). Override per-lambda if needed:
+    #   external: []                         # bundle everything
+    #   external: ['@aws-sdk/*', 'sharp']    # add native deps as external too
+    external: ['@aws-sdk/*']
     environment:
       variables:
         NODE_ENV: production
+
+# DynamoDB tables (consumed by DynamodbTables)
+dynamodbTables:
+  events-dedup:
+    hash_key: pk # `attribute[]` is auto-derived; default type 'S'
+    ttl:
+      attribute_name: expires_at # ttl.enabled defaults to true when set
+# billing_mode defaults to PAY_PER_REQUEST
+
+# Secrets Manager (consumed by Secrets) — empty placeholders, populate post-deploy
+secrets:
+  my-app/credentials:
+    description: Slack credentials JSON
+
+# HTTP API + Lambda integration (consumed by HttpApis)
+# Generates: aws_apigatewayv2_api + aws_apigatewayv2_stage + per-route
+# integration + route + lambda_permission. Stage is `$default` with auto_deploy.
+httpApis:
+  my-app:
+    routes:
+      'POST /webhook':
+        lambda: my-handler # function_name in `lambdas:` above
+      'POST /events':
+        lambda: my-handler
 
 # IAM roles (consumed by IamRoles)
 roles:
@@ -357,6 +393,157 @@ roles:
 
 Policies go in `config/iam-role-policies/{role-name}.yml`.
 
+For named (managed) policies, use the bare policy name when it lives under
+`arn:aws:iam::aws:policy/`, or the **full ARN** when it lives elsewhere (e.g.
+`service-role/`):
+
+```yaml
+basic-execution:
+  - name: arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+ec2-pull:
+  - name: AmazonEC2ContainerRegistryPullOnly # bare name → /policy/<name>
+```
+
+### HTTP API receiver pattern (Lambda + DDB + Secrets + API GW)
+
+A complete event-receiver stack (e.g. Slack webhook) using all the new
+composites:
+
+```tsx title="my-receiver.tsx"
+import { Shape } from '@dinghy/base-components'
+import { AwsStack } from '@dinghy/tf-aws'
+import { LambdaFunctions } from '@dinghy/tf-aws/lambda'
+import { IamRoles } from '@dinghy/tf-aws/iam'
+import { DynamodbTables } from '@dinghy/tf-aws/dynamodb'
+import { Secrets } from '@dinghy/tf-aws/secretsmanager'
+import { HttpApis } from '@dinghy/tf-aws/apigatewayv2'
+
+export default function MyReceiver() {
+  return (
+    <AwsStack>
+      <LambdaFunctions />
+      <Shape _title='Support' _direction='vertical'>
+        <IamRoles />
+        <DynamodbTables />
+        <Secrets />
+        <HttpApis />
+      </Shape>
+    </AwsStack>
+  )
+}
+```
+
+```yaml title="config/stacks/my-receiver.yml"
+roles:
+  my-receiver-role:
+    assume_role_service: lambda.amazonaws.com
+
+lambdas:
+  my-receiver:
+    role: '${aws_iam_role.awsiamrole_myreceiverrole.arn}'
+    architectures: [arm64]
+    environment:
+      variables:
+        DEDUP_TABLE: my-receiver-dedup
+        CONFIG_SECRET_NAME: my-app/credentials
+
+dynamodbTables:
+  my-receiver-dedup:
+    hash_key: pk
+    ttl:
+      attribute_name: expires_at
+
+secrets:
+  my-app/credentials:
+    description: Receiver credentials JSON
+
+httpApis:
+  my-receiver:
+    routes:
+      'POST /webhook':
+        lambda: my-receiver
+```
+
+The receiver source at `src/lambdas/my-receiver/index.ts` should:
+
+- Use **bare** `@aws-sdk/*` imports (no `npm:` prefix); the engine's
+  `deno.jsonc` import map provides the version pins, and dinghy externalizes
+  them so the bundle stays tiny (typically a few KB).
+- Verify Slack/HMAC signatures with `node:crypto` — no need for `@slack/bolt`
+  for a thin receiver.
+
+## Writing your own composite
+
+When a stack needs a resource type Dinghy doesn't already have a composite for
+(SQS, SNS, EventBridge, AppSync, …), build the composite under
+`/path/to/dinghy/core/tf-aws/src/composites/{service}/` rather than dropping raw
+`Aws*` resources into the app TSX. Three files per composite:
+
+```
+composites/{service}/
+  {Composite}.tsx     -- React function: takes NodeProps, calls parse{Composite},
+                         maps each entry to <Aws*> from ../../services/
+  types.ts            -- zod schema (extends underlying service InputSchema)
+                         + parse{Composite}(input?) reading getRenderOptions().{key}
+  index.ts            -- re-export Composite + parse fn + Type
+```
+
+Then add a path entry to `core/tf-aws/deno.jsonc` `exports`:
+`"./{name}": "./src/composites/{name}/index.ts"`.
+
+**Schema extension pattern** (mirror `composites/lambda/types.ts`):
+
+```ts
+import { InputSchema as AwsFooInputSchema } from '../../services/foo/AwsFoo.tsx'
+
+const FooSchema = AwsFooInputSchema.extend({
+  // composite-only ergonomic shortcuts go here
+})
+const FoosSchema = z.record(z.string(), FooSchema.loose().partial())
+```
+
+`.loose().partial()` at the **record** level lets the YAML map use the resource
+name as the key with all fields optional — name is filled in from the key in the
+parse function (`entry.name ??= mapKey`). `.partial()` preserves zod
+`.default()` values, so prefer schema defaults over parse-time `??=` fallbacks.
+
+**Cross-resource references inside composites:**
+
+```tsx
+const { fooBar } = useAwsFooBar(toId(name)) // hook inside React fn body
+return <AwsThing prop={fooBar.id} /> // single-property: bare access
+return <AwsThing prop={() => 'prefix/' + (fooBar.id as any)() + '/x'} />
+// concatenation: thunk + invoke()
+```
+
+The proxy returned by `useAws*()` returns a _function_ per property; bare access
+works because `deepResolve` recurses through functions. String concatenation
+forces stringification of the function source, so call the proxy property as
+`(proxy.attr as any)()` inside the outer thunk to force the actual TF
+interpolation string.
+
+**Override pattern** for testing/customization — every `Aws*` should be
+lookup-able via `_components`:
+
+```tsx
+const FooComponent = props._components?.foo as typeof AwsFoo || AwsFoo
+```
+
+Naming: drop `Aws` prefix, decapitalize the rest (`AwsFooBar` →
+`_components?.fooBar`). Place the lookup at the top of the composite so all
+sub-components (defined as inner closures) inherit it via lexical scope.
+
+**Spread pattern** for passing user data through:
+
+```tsx
+<AwsFoo _id={...} _title={...} {...item} />
+```
+
+Service `InputSchema.parse` strips unknown keys, so composite-specific fields
+(e.g. `lambda` on a route entry) flow through the spread harmlessly. Order
+matters: put composite-hardcoded values **after** `{...item}` if you want them
+to win, **before** if you want users to be able to override them via YAML.
+
 ## Commands
 
 | Command                     | Description                               |
@@ -373,13 +560,29 @@ Policies go in `config/iam-role-policies/{role-name}.yml`.
 
 ## Import Path Reference
 
-| Package    | Import path                    | Purpose                                                               |
-| ---------- | ------------------------------ | --------------------------------------------------------------------- |
-| Foundation | `@dinghy/tf-aws`               | AwsStack, AwsProvider, S3Backend, LogBucket                           |
-| Composites | `@dinghy/tf-aws/{service}`     | Ec2Servers, Vpc, S3Bucket, CloudfrontSites, LambdaFunctions, IamRoles |
-| Services   | `@dinghy/tf-aws/service{Name}` | AwsInstance, AwsDbInstance, DataAwsAmi, etc.                          |
-| Common     | `@dinghy/tf-common`            | Output, Backend, LocalFile, ArchiveFile                               |
-| Base       | `@dinghy/base-components`      | MoveToHere (rarely needed directly)                                   |
+| Package    | Import path                    | Purpose                                                                                                  |
+| ---------- | ------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Foundation | `@dinghy/tf-aws`               | AwsStack, AwsProvider, S3Backend, LogBucket                                                              |
+| Composites | `@dinghy/tf-aws/{service}`     | Ec2Servers, Vpc, S3Bucket, CloudfrontSites, LambdaFunctions, IamRoles, DynamodbTables, Secrets, HttpApis |
+| Services   | `@dinghy/tf-aws/service{Name}` | AwsInstance, AwsDbInstance, DataAwsAmi, etc.                                                             |
+| Common     | `@dinghy/tf-common`            | Output, Backend, LocalFile, ArchiveFile                                                                  |
+| Base       | `@dinghy/base-components`      | Shape (for diagram-only grouping), MoveToHere                                                            |
+
+Concrete composite paths:
+
+| Service        | Path                            |
+| -------------- | ------------------------------- |
+| ec2            | `@dinghy/tf-aws/ec2`            |
+| vpc            | `@dinghy/tf-aws/vpc`            |
+| s3             | `@dinghy/tf-aws/s3`             |
+| cloudfront     | `@dinghy/tf-aws/cloudfront`     |
+| lambda         | `@dinghy/tf-aws/lambda`         |
+| iam            | `@dinghy/tf-aws/iam`            |
+| route53        | `@dinghy/tf-aws/route53`        |
+| ecs            | `@dinghy/tf-aws/ecs`            |
+| apigatewayv2   | `@dinghy/tf-aws/apigatewayv2`   |
+| dynamodb       | `@dinghy/tf-aws/dynamodb`       |
+| secretsmanager | `@dinghy/tf-aws/secretsmanager` |
 
 ## Loading Module Details
 
