@@ -8,6 +8,7 @@
 **/*.tfstate
 **/*.backup
 output/lambdas
+output/coverage
 
 # IDE
 .idea

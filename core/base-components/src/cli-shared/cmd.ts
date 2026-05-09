@@ -1,5 +1,6 @@
 import { execa, execaSync } from 'execa'
 import Debug from 'debug'
+import process from 'node:process'
 import { containerAppHome } from './home.ts'
 import { DinghyError } from './types.ts'
 Debug.formatters.a = (v: any) => {
@@ -12,8 +13,16 @@ export const cmdStreamAndCapture = async (
   errorOnFailure = false,
   cwd?: string,
   sync = false,
+  env?: Record<string, string>,
 ) => {
-  return await execCmd(args, ['pipe', 'inherit'], errorOnFailure, cwd, sync)
+  return await execCmd(
+    args,
+    ['pipe', 'inherit'],
+    errorOnFailure,
+    cwd,
+    sync,
+    env,
+  )
 }
 
 export const cmdStream = async (
@@ -21,8 +30,9 @@ export const cmdStream = async (
   errorOnFailure = false,
   cwd?: string,
   sync = false,
+  env?: Record<string, string>,
 ) => {
-  return await execCmd(args, ['inherit'], errorOnFailure, cwd, sync)
+  return await execCmd(args, ['inherit'], errorOnFailure, cwd, sync, env)
 }
 
 export const cmdCapture = async (
@@ -30,8 +40,9 @@ export const cmdCapture = async (
   errorOnFailure = false,
   cwd?: string,
   sync = false,
+  env?: Record<string, string>,
 ) => {
-  return await execCmd(args, ['pipe'], errorOnFailure, cwd, sync)
+  return await execCmd(args, ['pipe'], errorOnFailure, cwd, sync, env)
 }
 
 export const cmdCode = async (
@@ -39,8 +50,9 @@ export const cmdCode = async (
   errorOnFailure = false,
   cwd?: string,
   sync = false,
+  env?: Record<string, string>,
 ) => {
-  return await execCmd(args, ['ignore'], errorOnFailure, cwd, sync)
+  return await execCmd(args, ['ignore'], errorOnFailure, cwd, sync, env)
 }
 
 const execCmd = async (
@@ -49,6 +61,7 @@ const execCmd = async (
   errorOnFailure: boolean,
   cwd?: string,
   sync?: boolean,
+  env?: Record<string, string>,
 ) => {
   if (typeof args === 'string') {
     args = args.split(' ')
@@ -62,6 +75,7 @@ const execCmd = async (
     all: true,
     cwd: workingDir,
     reject: false,
+    ...(env ? { env: { ...process.env, ...env } } : {}),
   }
   const result = sync
     ? execaSync(args[0], args.slice(1), execOptions)

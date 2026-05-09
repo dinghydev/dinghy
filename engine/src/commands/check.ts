@@ -1,10 +1,14 @@
 import type { CmdInput } from '@dinghy/cli'
-import { cmdStreamAndCapture, DinghyError } from '@dinghy/cli'
-import { hostAppHome } from '@dinghy/cli'
+import {
+  cmdStreamAndCapture,
+  dinghyAppConfig,
+  DinghyError,
+  hostAppHome,
+} from '@dinghy/cli'
 import chalk from 'chalk'
 import { hasGitRepo } from '../utils/gitUtils.ts'
 import { Args } from '@std/cli/parse-args'
-import { existsSync } from '@std/fs/exists'
+import { runTestCheck } from '../services/check/runTest.ts'
 
 const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'test', 'git']
 
@@ -60,19 +64,35 @@ type CheckResult = {
   result: any
 }
 
+const isDisabled = (cmd: unknown): cmd is false | null | undefined | '' =>
+  !cmd || cmd === 'disabled'
+
 export const run = async (args: Args) => {
   const checks = args.check ? [args.check] : args.checks
   const results: CheckResult[] = []
   for (const check of checks) {
-    const command = args[`${check}Cmd`]
-    const isGitCheck = check === 'git'
-    if (isGitCheck && !(await hasGitRepo())) {
-      console.log(
-        chalk.yellow(`No git repo found, skipping git check`),
-      )
+    const cliCmd = args[`${check}Cmd`]
+    const configCmd = dinghyAppConfig.check?.[check]?.cmd
+    // Use config value when explicitly set, even when it's a falsy disable
+    // sentinel (`false` / `''`); only fall through to the cli default when
+    // config has not specified anything.
+    const command: any = configCmd !== undefined ? configCmd : cliCmd
+
+    if (isDisabled(command)) {
+      console.log(chalk.dim(`${check} check disabled, skipping`))
       continue
     }
-    if (check === 'test' && !(hasDenoTest())) {
+
+    const isGitCheck = check === 'git'
+    if (isGitCheck && !(await hasGitRepo())) {
+      console.log(chalk.yellow(`No git repo found, skipping git check`))
+      continue
+    }
+
+    if (check === 'test') {
+      const testResult = await runTestCheck(command)
+      if (testResult === null) continue
+      results.push(testResult)
       continue
     }
 
@@ -83,15 +103,10 @@ export const run = async (args: Args) => {
       isGitCheck ? hostAppHome : undefined,
     )
     if (check === 'git' && result.output) {
-      console.log(
-        chalk.red(`Unexpected changes detected in git repo`),
-      )
+      console.log(chalk.red(`Unexpected changes detected in git repo`))
       result.success = false
     }
-    results.push({
-      check: command,
-      result,
-    })
+    results.push({ check: command, result })
   }
   const failedChecks = results.filter((result) => !result.result.success)
   if (failedChecks.length > 0) {
@@ -101,8 +116,4 @@ export const run = async (args: Args) => {
       }], see error above`,
     )
   }
-}
-
-export const hasDenoTest = () => {
-  return existsSync(`${hostAppHome}/__tests__`)
 }
