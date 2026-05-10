@@ -1,0 +1,281 @@
+---
+sidebar_position: 80
+---
+
+# Docker Image Builder
+
+:::info
+
+While the `Docker Image Builder` is not a core function of dinghy, we use it
+to build the dinghy engine images themselves and want to package this neat
+functionality so developers can build their own image catalogues with a single
+CLI verb — content-hashed, multi-arch, EJS-templated.
+
+:::
+
+## Simple setup
+
+:::tip
+
+A folder with a single `Dockerfile` is all you need to build an image.
+
+:::
+
+The `docker` commands wrap [Docker BuildKit](https://docs.docker.com/build/buildkit/)
+with sensible defaults. Instead of writing per-image build scripts, juggling
+tags by hand, or wiring up CI matrices for multi-arch, you drop a Dockerfile
+into a folder and run one command.
+
+### Image source
+
+```dockerfile title="docker/images/my-image/Dockerfile"
+FROM alpine:3
+RUN apk add --no-cache curl
+```
+
+Helper script to create the file:
+
+```sh
+mkdir -p docker/images/my-image
+cat > docker/images/my-image/Dockerfile <<'EOF'
+FROM alpine:3
+RUN apk add --no-cache curl
+EOF
+```
+
+### Build the image
+
+```sh
+dinghy docker build
+```
+
+You get a content-hashed tag like `myrepo/myproject:my-image-83a999e1...`. The
+hash covers every file in the image folder, so identical sources always
+produce the same tag — perfect for layer reuse and reproducible deploys.
+
+## dinghy docker build
+
+```sh
+dinghy docker build [image] [options]
+```
+
+| Option         | Default                                               | Description                                           |
+| -------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `--source`     | `docker/images`                                       | Source folder containing image subdirectories         |
+| `--repo`       | `DINGHY_DOCKER_BUILD_REPO`                            | Target Docker repository (set in `.dinghyrc`)         |
+| `--push`       | `false`                                               | Push built images to registry (auto-enabled in CI)    |
+| `--skip-local` | `false`                                               | Skip build if the tag already exists locally          |
+| `--multi-arch` | `false` (true if `DINGHY_DOCKER_SUPPORTED_ARCHS` set) | Build for multiple architectures                      |
+| `--arch`       | host arch (or `DINGHY_DOCKER_SUPPORTED_ARCHS`)        | Architectures to build (multiple values)              |
+| `--dryrun`     | `false`                                               | Preview what would be built without executing         |
+
+If no `image` argument is given, all images in the source folder are built in
+order.
+
+## Image directory layout
+
+Only a `Dockerfile` is required. Everything else is optional:
+
+```
+docker/images/
+├── 10-base/
+│   ├── Dockerfile                  # required (or Dockerfile.ejs)
+│   ├── Dockerfile.ejs              # optional: EJS template → renders to Dockerfile
+│   ├── Dockerfile.dockerignore     # optional: restricts the build context
+│   ├── versions.json               # recommended: version pins (VERSION_*)
+│   ├── fs-root/                    # optional: tree copied into container root
+│   ├── prebuild.sh                 # optional: runs before docker build
+│   └── postbuild.sh                # optional: runs after docker build (always)
+├── 20-app/
+│   └── Dockerfile
+└── 30-worker/
+    └── Dockerfile
+```
+
+| File                      | Required        | Purpose                                                         |
+| ------------------------- | --------------- | --------------------------------------------------------------- |
+| `Dockerfile`              | Yes (or `.ejs`) | Docker build definition                                         |
+| `Dockerfile.ejs`          | No              | EJS template — rendered to `Dockerfile` before build            |
+| `Dockerfile.dockerignore` | No              | Restricts the docker build context to the paths you opt in      |
+| `versions.json`           | Recommended     | All version pins — exposed as `VERSION_*` to EJS templates      |
+| `fs-root/`                | No              | Files copied into the image (mirrors the container filesystem)  |
+| `prebuild.sh`             | No              | Shell script executed before `docker buildx build`              |
+| `postbuild.sh`            | No              | Shell script executed after build (runs even on failure)        |
+
+## Naming and build order
+
+Subdirectories are sorted alphabetically and built in that order. Use numeric
+prefixes to control dependency chains — earlier images become available as
+template variables for later ones:
+
+```
+10-base          → image name: base       → tag var: DOCKER_IMAGE_BASE_TAG
+15-yarn-base     → image name: yarn-base  → tag var: DOCKER_IMAGE_YARN_BASE_TAG
+40-site          → image name: site
+```
+
+The image name is the segment after the first dash. Folders without a dash use
+the full folder name.
+
+## EJS templating
+
+Files ending in `.ejs` are rendered with [EJS](https://ejs.co/) before the
+build. The output replaces the `.ejs` extension (`Dockerfile.ejs` →
+`Dockerfile`).
+
+### Available template variables
+
+| Variable                 | Source                                         | Example                       |
+| ------------------------ | ---------------------------------------------- | ----------------------------- |
+| `VERSION_*`              | `versions.json` keys (uppercased)              | `VERSION_DENO` → `2.6.4`      |
+| `DOCKER_IMAGE_*_TAG`     | Tag of a previously built image in this run    | `DOCKER_IMAGE_BASE_TAG`       |
+| `DOCKER_IMAGE_*_VERSION` | Version portion of that tag                    | `DOCKER_IMAGE_BASE_VERSION`   |
+| `VERSION_RELEASE`        | Git-derived release version                    | `0.1.310-20260413-...`        |
+| `VERSION_BASE`           | From `.base-version` file (if present)         |                               |
+| Environment variables    | All `Deno.env` entries                         | `HOME`, `PATH`, etc.          |
+
+The variable key for an image name uppercases it and replaces dashes with
+underscores: `yarn-base` → `DOCKER_IMAGE_YARN_BASE_TAG`.
+
+### Example: chained image with version pinning
+
+```dockerfile title="docker/images/40-site/Dockerfile.ejs"
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_YARN_BASE_TAG %>-linux-$BUILD_ARCH
+
+ENV NODE_VERSION=<%= VERSION_NODEJS %> \
+    YARN_VERSION=<%= VERSION_YARN %>
+
+COPY docker/images/40-site/fs-root /
+RUN cd /workspace/.dinghy/site && yarn install --immutable
+```
+
+```json title="docker/images/40-site/versions.json"
+{
+  "nodejs": "24.14.0",
+  "yarn": "1.22.22"
+}
+```
+
+## Image tagging
+
+Tags are content-hashed for immutability — identical source produces the same
+tag, maximising Docker layer reuse and giving you reproducible deploys.
+
+- **Standard images:** `{repo}:{name}-{md5hash}`
+  - Example: `dinghydev/dinghy:base-83a999e1b7171df882f70c543d8e6f40`
+- **Multi-arch tags:** `{tag}-linux-{arch}` per architecture, plus a manifest
+  combining them under the base tag
+
+The hash covers every non-`.ejs` file in the image directory, the base
+version, and any files explicitly pulled in via `Dockerfile.dockerignore`.
+
+## Multi-architecture builds
+
+Multi-arch is opt-in. Set `DINGHY_DOCKER_SUPPORTED_ARCHS` in `.dinghyrc` to
+enable it — `--multi-arch` then defaults to `true` and `--arch` defaults to
+that list. When the variable is unset or `false`, builds are single-arch for
+the host only.
+
+```sh title=".dinghyrc"
+DINGHY_DOCKER_SUPPORTED_ARCHS=arm64,amd64
+```
+
+Each architecture is built separately with `--platform linux/{arch}` and
+combined under a manifest. If your Dockerfile contains `ARG BUILD_ARCH`, the
+builder passes it as a build arg automatically:
+
+```dockerfile
+ARG BUILD_ARCH=arm64
+FROM my-base-image-linux-$BUILD_ARCH
+ARG BUILD_ARCH
+
+RUN if [ "$BUILD_ARCH" = "arm64" ]; then ARCH="aarch64"; else ARCH="x86_64"; fi \
+    && curl "https://example.com/tool-${ARCH}.tar.gz" -o tool.tar.gz
+```
+
+## Configuration
+
+### .dinghyrc
+
+Most docker-builder configuration lives in `.dinghyrc` so it's shared by every
+contributor and the CI pipeline:
+
+```sh title=".dinghyrc"
+DINGHY_DOCKER_BUILD_REPO=myorg/myproject
+DINGHY_DOCKER_SUPPORTED_ARCHS=arm64,amd64
+```
+
+| Variable                        | Purpose                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `DINGHY_DOCKER_BUILD_REPO`      | Default target repository — avoids passing `--repo` on every build              |
+| `DINGHY_DOCKER_SUPPORTED_ARCHS` | Comma-separated list of arches; presence enables multi-arch by default          |
+
+### Dockerfile.dockerignore
+
+Keep the build context minimal — only the files an image actually needs end up
+in the hash and the build:
+
+```text title="docker/images/10-base/Dockerfile.dockerignore"
+# Ignore everything by default
+**
+
+# Allow only this image's fs-root
+!/docker/images/10-base/fs-root/**
+```
+
+### Build hooks
+
+Pre-/post-build scripts handle path adjustments or external setup that does
+not belong in the Dockerfile itself. `postbuild.sh` runs even when the build
+fails, so it is the right place to undo any temporary edits made by
+`prebuild.sh`.
+
+```bash title="docker/images/10-base/prebuild.sh"
+#!/bin/bash
+# Rewrite local-only paths so the build context is self-contained.
+sed -i 's|../../core|file:///workspace/.dinghy/core|g' deno.jsonc
+```
+
+```bash title="docker/images/10-base/postbuild.sh"
+#!/bin/bash
+# Restore the original paths after the build.
+sed -i 's|file:///workspace/.dinghy/core|../../core|g' deno.jsonc
+```
+
+## Patterns from sample images
+
+Reference: [`docker/images/`](https://github.com/dinghydev/dinghy/tree/main/docker/images)
+in the dinghy monorepo for working examples of every pattern below.
+
+### Minimal image
+
+```dockerfile
+FROM denoland/deno:debian-<%= VERSION_DENO %>
+
+RUN apt-get update && apt-get install -y git curl jq openssh-client
+COPY docker/images/10-base/fs-root /
+```
+
+### Chained image
+
+```dockerfile
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_YARN_BASE_TAG %>-linux-$BUILD_ARCH
+
+COPY docker/images/40-site/fs-root /
+```
+
+### Multi-stage build
+
+```dockerfile
+ARG BUILD_ARCH=arm64
+FROM golang:<%= VERSION_GOLANG %> AS builder
+RUN curl -sLO https://example.com/tool-<%= VERSION_TOOL %>.tar.gz \
+    && tar xzf tool-*.tar.gz && cd tool-* && make release \
+    && cp bin/tool /tool
+
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+ARG BUILD_ARCH
+COPY --from=builder /tool /usr/bin/
+```

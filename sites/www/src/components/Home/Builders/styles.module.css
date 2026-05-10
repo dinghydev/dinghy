@@ -1,0 +1,73 @@
+.container {
+  padding: 55px;
+}
+
+[data-theme='dark'] .container {
+  background-color: black;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.gridContent {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.itemTitle {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+  min-height: 2em;
+  white-space: nowrap;
+}
+.itemTitle a {
+  color: var(--ifm-primary-color);
+}
+
+.poweredBy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7em;
+  margin-bottom: 10px;
+  font-size: large;
+}
+.docusaurus svg {
+  margin: 0 0.5em;
+  height: 3em;
+  width: auto;
+}
+.docusaurus b {
+  font-weight: bold;
+  color: #3ecc5f;
+  font-size: 2em;
+}
+.revealjs svg {
+  height: 4em;
+  width: auto;
+}
+.docker svg {
+  height: 6em;
+  width: auto;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.title a {
+  color: var(--ifm-primary-color);
+}
+
+@media (min-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

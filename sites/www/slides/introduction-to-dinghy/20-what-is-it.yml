@@ -26,14 +26,14 @@ sections:
   - id: as-code
     grid:
       - div:
-          - Documentation as Code
+          - Site Builder
           - img: imgs/docusaurus.png
             span:
               span: Docusaurus
               style: 'font-size:0.8em;color:#3ecc5f;'
             class: icon
       - div:
-          - Slide as Code
+          - Slide Builder
           - img:
               src: imgs/revealjs.svg
               style: 'width:100%;margin-top:-20px'

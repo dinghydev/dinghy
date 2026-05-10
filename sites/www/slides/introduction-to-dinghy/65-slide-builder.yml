@@ -1,6 +1,6 @@
 sections:
   - badge: 'Presentation Builder'
-    title: 'Slide as Code'
+    title: 'Slide Builder'
     subtitle: author RevealJS presentations in YAML, Markdown, or HTML
     ul:
       li:
@@ -11,11 +11,11 @@ sections:
         - Prezi-style zoom and pan (Dinghy exclusive)
   - badge: 'Show Case'
     title: 'Slide Features'
-    img: slide-as-code/show-case.png
+    img: slide-builder/show-case.png
   - badge: 'Build Slide'
     img: /src/docs/examples/show-cases/slide-features/screenshot-build.png
   - badge: 'Single HTML File'
-    img: slide-as-code/single-html.png
+    img: slide-builder/single-html.png
   - id: revealjs-features-demo
     a:
       text: RevealJS Features Slide

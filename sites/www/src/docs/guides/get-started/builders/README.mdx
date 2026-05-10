@@ -1,0 +1,50 @@
+---
+sidebar_position: 80
+---
+
+# Builders
+
+:::info
+
+**Builders** are tooling originally developed to deliver the Dinghy project
+itself, then packaged as reusable building blocks any developer can adopt
+in their own projects.
+
+:::
+
+## What is a builder?
+
+A builder is a Dinghy CLI verb that takes a folder of source files (Markdown,
+YAML, TSX, …) and produces a self-contained deliverable — a website, a slide
+deck, a Docker image, and so on. It wraps a battle-tested upstream tool
+(Docusaurus, RevealJS, Docker, …) with opinionated defaults, so you skip the
+project scaffolding, dependency management, and config plumbing and get
+straight to writing content.
+
+The defining traits of a builder:
+
+- **Zero scaffolding** — drop your sources into a folder, run one CLI verb, get
+  output. No `package.json`, no `node_modules`, no init wizard.
+- **Versioned engine** — every builder runs inside the pinned Dinghy engine
+  Docker image, so the same input produces the same output across machines and
+  CI runs.
+- **Same lifecycle verbs** — `start` (live preview), `build` (production
+  artefact), `deploy` (where applicable). One mental model for every builder.
+- **Escape hatches when needed** — drop a `docusaurus.config.yml` (or
+  equivalent) in the project root and the builder merges it on top of the
+  defaults. You stay in opinionated mode by default; you reach the underlying
+  tool when you need to.
+
+## Available builders
+
+- [Site Builder](./site-builder/README.mdx) — Docusaurus-based docs sites and
+  web apps.
+- [Slide Builder](./slide-builder/README.mdx) — RevealJS presentations in YAML,
+  Markdown, or HTML, with Prezi-style zoom and pan.
+- [Docker Image Builder](./docker-image-builder/README.mdx) — content-hashed,
+  multi-arch Docker images built from a folder of Dockerfiles, with EJS
+  templating and versioned dependency chains.
+
+More builders are added as the team needs them. The pattern is always the
+same: a tool we already use to ship Dinghy, wrapped so any developer can use
+it the same way without reinventing the setup.

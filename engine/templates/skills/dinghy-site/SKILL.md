@@ -1,6 +1,6 @@
 ---
 name: dinghy-site
-description: Create a new Dinghy Site (Docusaurus). Use when the user wants to create a documentation site, web app, or landing page using Dinghy's "Documentation as Code" feature.
+description: Create a new Dinghy Site (Docusaurus). Use when the user wants to create a documentation site, web app, or landing page using Dinghy's "Site Builder" feature.
 argument-hint: [description]
 ---
 

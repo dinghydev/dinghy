@@ -1,6 +1,6 @@
 ---
 name: dinghy-slide
-description: Create a new Dinghy Slide presentation (RevealJS). Use when the user wants to create a slide deck, presentation, or talk using Dinghy's "Slide as Code" feature.
+description: Create a new Dinghy Slide presentation (RevealJS). Use when the user wants to create a slide deck, presentation, or talk using Dinghy's "Slide Builder" feature.
 argument-hint: [description]
 ---
 
