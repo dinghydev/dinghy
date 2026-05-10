@@ -127,6 +127,12 @@ export {
 } from './AwsS3BucketObjectLockConfiguration.tsx'
 
 export {
+  DataAwsS3BucketObjectLockConfiguration,
+  useDataAwsS3BucketObjectLockConfiguration,
+  useDataAwsS3BucketObjectLockConfigurations,
+} from './DataAwsS3BucketObjectLockConfiguration.tsx'
+
+export {
   DataAwsS3BucketObjects,
   useDataAwsS3BucketObjectss,
 } from './DataAwsS3BucketObjects.tsx'
@@ -159,6 +165,12 @@ export {
   useAwsS3BucketReplicationConfiguration,
   useAwsS3BucketReplicationConfigurations,
 } from './AwsS3BucketReplicationConfiguration.tsx'
+
+export {
+  DataAwsS3BucketReplicationConfiguration,
+  useDataAwsS3BucketReplicationConfiguration,
+  useDataAwsS3BucketReplicationConfigurations,
+} from './DataAwsS3BucketReplicationConfiguration.tsx'
 
 export {
   AwsS3BucketRequestPaymentConfiguration,

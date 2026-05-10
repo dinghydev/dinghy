@@ -38,7 +38,7 @@ export const InputSchema = TfMetaSchema.extend({
       lf_tag: z.object({
         catalog_id: z.string().optional(),
         key: z.string(),
-        value: z.string(),
+        values: z.string().array(),
       }).array().optional(),
       lf_tag_expression: z.object({
         catalog_id: z.string().optional(),
@@ -86,7 +86,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lakeformation_opt_in
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lakeformation_opt_in
 
 export function AwsLakeformationOptIn(props: Partial<InputProps>) {
   const _title = (node: any) => {

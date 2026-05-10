@@ -19,6 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   description: z.string().optional(),
   firewall_policy: z.object({
+    enable_tls_session_holding: z.boolean(),
     policy_variables: z.object({
       rule_variables: z.set(z.object({
         ip_set: z.object({
@@ -74,7 +75,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/networkfirewall_firewall_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkfirewall_firewall_policy
 
 export function DataAwsNetworkfirewallFirewallPolicy(
   props: Partial<InputProps>,

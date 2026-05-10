@@ -18,11 +18,13 @@ export const InputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string().optional()),
   engine_version: resolvableValue(z.string().optional()),
   final_snapshot_name: resolvableValue(z.string().optional()),
+  ip_discovery: resolvableValue(z.string().optional()),
   kms_key_arn: resolvableValue(z.string().optional()),
   maintenance_window: resolvableValue(z.string().optional()),
   multi_region_cluster_name: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
+  network_type: resolvableValue(z.string().optional()),
   num_replicas_per_shard: resolvableValue(z.number().optional()),
   num_shards: resolvableValue(z.number().optional()),
   parameter_group_name: resolvableValue(z.string().optional()),
@@ -82,7 +84,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/memorydb_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/memorydb_cluster
 
 export function AwsMemorydbCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -16,6 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
   ca_cert_identifier: resolvableValue(z.string().optional()),
+  certificate_rotation_restart: resolvableValue(z.string().optional()),
   copy_tags_to_snapshot: resolvableValue(z.boolean().optional()),
   enable_performance_insights: resolvableValue(z.boolean().optional()),
   engine: resolvableValue(z.string().optional()),
@@ -60,7 +61,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/docdb_cluster_instance
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_cluster_instance
 
 export function AwsDocdbClusterInstance(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -153,7 +153,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_transformer
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_transformer
 
 export function AwsCloudwatchLogTransformer(props: Partial<InputProps>) {
   const _title = (node: any) => {

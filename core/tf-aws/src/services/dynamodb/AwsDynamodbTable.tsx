@@ -21,13 +21,17 @@ export const InputSchema = TfMetaSchema.extend({
   deletion_protection_enabled: resolvableValue(z.boolean().optional()),
   global_secondary_index: resolvableValue(
     z.object({
-      hash_key: z.string(),
+      hash_key: z.string().optional(),
       name: z.string(),
       non_key_attributes: z.string().array().optional(),
       projection_type: z.string(),
       range_key: z.string().optional(),
       read_capacity: z.number().optional(),
       write_capacity: z.number().optional(),
+      key_schema: z.object({
+        attribute_name: z.string(),
+        key_type: z.string(),
+      }).array().optional(),
       on_demand_throughput: z.object({
         max_read_request_units: z.number().optional(),
         max_write_request_units: z.number().optional(),
@@ -97,6 +101,7 @@ export const InputSchema = TfMetaSchema.extend({
       stream_label: z.string().optional(),
     }).array().optional(),
   ),
+  restore_backup_arn: resolvableValue(z.string().optional()),
   restore_date_time: resolvableValue(z.string().optional()),
   restore_source_name: resolvableValue(z.string().optional()),
   restore_source_table_arn: resolvableValue(z.string().optional()),
@@ -141,8 +146,15 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
+export const ImportSchema = z.object({
+  name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -150,7 +162,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_table
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table
 
 export function AwsDynamodbTable(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -164,6 +176,7 @@ export function AwsDynamodbTable(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

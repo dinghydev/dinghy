@@ -25,6 +25,7 @@ export const OutputSchema = z.object({
   revocation_configuration: z.object({
     crl_configuration: z.object({
       custom_cname: z.string(),
+      custom_path: z.string(),
       enabled: z.boolean(),
       expiration_in_days: z.number(),
       s3_bucket_name: z.string(),
@@ -51,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/acmpca_certificate_authority
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/acmpca_certificate_authority
 
 export function DataAwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   const _title = (node: any) => {

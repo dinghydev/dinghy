@@ -116,7 +116,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
   origin_group: resolvableValue(
     z.object({
-      origin_id: z.string(),
+      id: z.string(),
       failover_criteria: z.object({
         status_codes: z.number().array(),
       }).array().optional(),
@@ -195,7 +195,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_multitenant_distribution
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_multitenant_distribution
 
 export function AwsCloudfrontMultitenantDistribution(
   props: Partial<InputProps>,

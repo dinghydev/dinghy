@@ -19,6 +19,12 @@ export const InputSchema = TfMetaSchema.extend({
       password: z.string(),
       username: z.string(),
     }).optional(),
+    connectivity_parameters: z.object({
+      resource_parameters: z.object({
+        resource_association_arn: z.string().optional(),
+        resource_configuration_arn: z.string(),
+      }),
+    }).optional(),
     invocation_http_parameters: z.object({
       body: z.object({
         is_value_secret: z.boolean().optional(),
@@ -92,7 +98,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_event_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_connection
 
 export function AwsCloudwatchEventConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

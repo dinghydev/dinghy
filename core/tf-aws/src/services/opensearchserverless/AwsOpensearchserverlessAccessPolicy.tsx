@@ -22,8 +22,16 @@ export const OutputSchema = z.object({
   policy_version: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  name: resolvableValue(z.string()),
+  type: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -31,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_access_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_access_policy
 
 export function AwsOpensearchserverlessAccessPolicy(
   props: Partial<InputProps>,
@@ -47,6 +55,7 @@ export function AwsOpensearchserverlessAccessPolicy(
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

@@ -23,16 +23,41 @@ export const InputSchema = TfMetaSchema.extend({
       gateway_iam_role: z.object({}).array().optional(),
       oauth: z.object({
         custom_parameters: z.record(z.string(), z.string()).optional(),
+        default_return_url: z.string().optional(),
+        grant_type: z.string().optional(),
         provider_arn: z.string(),
         scopes: z.string().array(),
       }).array().optional(),
     }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
+  metadata_configuration: resolvableValue(
+    z.object({
+      allowed_query_parameters: z.string().array().optional(),
+      allowed_request_headers: z.string().array().optional(),
+      allowed_response_headers: z.string().array().optional(),
+    }).array().optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   target_configuration: resolvableValue(
     z.object({
       mcp: z.object({
+        api_gateway: z.object({
+          rest_api_id: z.string(),
+          stage: z.string(),
+          api_gateway_tool_configuration: z.object({
+            tool_filter: z.object({
+              filter_path: z.string(),
+              methods: z.string().array(),
+            }).array().optional(),
+            tool_override: z.object({
+              description: z.string().optional(),
+              method: z.string(),
+              name: z.string(),
+              path: z.string(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
         lambda: z.object({
           lambda_arn: z.string(),
           tool_schema: z.object({
@@ -200,7 +225,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_gateway_target
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_gateway_target
 
 export function AwsBedrockagentcoreGatewayTarget(props: Partial<InputProps>) {
   const _title = (node: any) => {

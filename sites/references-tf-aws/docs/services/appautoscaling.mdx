@@ -12,13 +12,28 @@ Provides an Application AutoScaling Policy resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/appautoscaling_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appautoscaling_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/appautoscaling/AwsAppautoscalingPolicy.tsx)
 
 ```js
 import { AwsAppautoscalingPolicy } from "@dinghy/tf-aws/serviceAppautoscaling"
 
 <AwsAppautoscalingPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appautoscaling_policy#import)
+
+```js
+<AwsAppautoscalingPolicy
+   name = {}
+   resource_id = {}
+   scalable_dimension = {}
+   service_namespace = {}
+/>
 ```
 
   </TabItem>
@@ -34,7 +49,7 @@ Provides an Application AutoScaling ScheduledAction resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/appautoscaling_scheduled_action)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appautoscaling_scheduled_action)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/appautoscaling/AwsAppautoscalingScheduledAction.tsx)
 
 ```js
@@ -56,7 +71,7 @@ Provides an Application AutoScaling ScalableTarget resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/appautoscaling_target)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appautoscaling_target)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/appautoscaling/AwsAppautoscalingTarget.tsx)
 
 ```js

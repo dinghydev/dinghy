@@ -23,6 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
+  threat_intel_set_id: z.string().optional(),
 })
 
 export type InputProps =
@@ -34,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/guardduty_threatintelset
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/guardduty_threatintelset
 
 export function AwsGuarddutyThreatintelset(props: Partial<InputProps>) {
   const _title = (node: any) => {

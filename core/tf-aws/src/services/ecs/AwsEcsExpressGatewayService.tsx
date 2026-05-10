@@ -86,7 +86,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecs_express_gateway_service
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_express_gateway_service
 
 export function AwsEcsExpressGatewayService(props: Partial<InputProps>) {
   const _title = (node: any) => {

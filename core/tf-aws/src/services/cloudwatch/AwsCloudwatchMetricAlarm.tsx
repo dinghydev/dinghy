@@ -11,14 +11,24 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   alarm_name: resolvableValue(z.string()),
-  comparison_operator: resolvableValue(z.string()),
-  evaluation_periods: resolvableValue(z.number()),
   actions_enabled: resolvableValue(z.boolean().optional()),
   alarm_actions: resolvableValue(z.string().array().optional()),
   alarm_description: resolvableValue(z.string().optional()),
+  comparison_operator: resolvableValue(z.string().optional()),
   datapoints_to_alarm: resolvableValue(z.number().optional()),
   dimensions: resolvableValue(z.record(z.string(), z.string()).optional()),
   evaluate_low_sample_count_percentiles: resolvableValue(z.string().optional()),
+  evaluation_criteria: resolvableValue(
+    z.object({
+      promql_criteria: z.object({
+        pending_period: z.number().optional(),
+        query: z.string(),
+        recovery_period: z.number().optional(),
+      }),
+    }).optional(),
+  ),
+  evaluation_interval: resolvableValue(z.number().optional()),
+  evaluation_periods: resolvableValue(z.number().optional()),
   extended_statistic: resolvableValue(z.string().optional()),
   insufficient_data_actions: resolvableValue(z.string().array().optional()),
   metric_name: resolvableValue(z.string().optional()),
@@ -74,7 +84,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_metric_alarm
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_metric_alarm
 
 export function AwsCloudwatchMetricAlarm(props: Partial<InputProps>) {
   const _title = (node: any) => {

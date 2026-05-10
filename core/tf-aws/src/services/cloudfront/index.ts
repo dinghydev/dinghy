@@ -1,4 +1,10 @@
 export {
+  AwsCloudfrontAnycastIpList,
+  useAwsCloudfrontAnycastIpList,
+  useAwsCloudfrontAnycastIpLists,
+} from './AwsCloudfrontAnycastIpList.tsx'
+
+export {
   AwsCloudfrontCachePolicy,
   useAwsCloudfrontCachePolicy,
   useAwsCloudfrontCachePolicys,

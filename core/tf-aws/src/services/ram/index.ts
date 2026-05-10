@@ -1,4 +1,10 @@
 export {
+  AwsRamPermission,
+  useAwsRamPermission,
+  useAwsRamPermissions,
+} from './AwsRamPermission.tsx'
+
+export {
   AwsRamPrincipalAssociation,
   useAwsRamPrincipalAssociation,
   useAwsRamPrincipalAssociations,
@@ -27,6 +33,12 @@ export {
   useAwsRamResourceShareAccepter,
   useAwsRamResourceShareAccepters,
 } from './AwsRamResourceShareAccepter.tsx'
+
+export {
+  AwsRamResourceShareAssociationsExclusive,
+  useAwsRamResourceShareAssociationsExclusive,
+  useAwsRamResourceShareAssociationsExclusives,
+} from './AwsRamResourceShareAssociationsExclusive.tsx'
 
 export {
   AwsRamSharingWithOrganization,

@@ -25,43 +25,43 @@ export default function Builders() {
         )}
       >
         <div className={styles.gridContent}>
-          <h3 className={styles.itemTitle}>
-            <a href='/guides/get-started/builders/site-builder'>
-              Site with
-            </a>
-          </h3>
           <a
             href='/guides/get-started/builders/site-builder'
             className={clsx(styles.poweredBy, styles.docusaurus)}
           >
             <DocusaurusSvg /> <b>docusaurus.io</b>
           </a>
-        </div>
-        <div className={styles.gridContent}>
           <h3 className={styles.itemTitle}>
-            <a href='/guides/get-started/builders/slide-builder'>
-              Slide with
+            <a href='/guides/get-started/builders/site-builder'>
+              Site
             </a>
           </h3>
+        </div>
+        <div className={styles.gridContent}>
           <a
             href='/guides/get-started/builders/slide-builder'
             className={clsx(styles.poweredBy, styles.revealjs)}
           >
             <RevealjsSvg />
           </a>
-        </div>
-        <div className={styles.gridContent}>
           <h3 className={styles.itemTitle}>
-            <a href='/guides/get-started/builders/docker-image-builder'>
-              Docker Image with
+            <a href='/guides/get-started/builders/slide-builder'>
+              Slide
             </a>
           </h3>
+        </div>
+        <div className={styles.gridContent}>
           <a
             href='/guides/get-started/builders/docker-image-builder'
             className={clsx(styles.poweredBy, styles.docker)}
           >
             <DockerSvg />
           </a>
+          <h3 className={styles.itemTitle}>
+            <a href='/guides/get-started/builders/docker-image-builder'>
+              Docker Image
+            </a>
+          </h3>
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ export const OutputSchema = z.object({
   description: z.string().optional(),
   endpoint: z.string().optional(),
   grafana_version: z.string().optional(),
+  kms_key_id: z.string().optional(),
   last_updated_date: z.string().optional(),
   name: z.string().optional(),
   notification_destinations: z.string().array().optional(),
@@ -46,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/grafana_workspace
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/grafana_workspace
 
 export function DataAwsGrafanaWorkspace(props: Partial<InputProps>) {
   const _title = (node: any) => {

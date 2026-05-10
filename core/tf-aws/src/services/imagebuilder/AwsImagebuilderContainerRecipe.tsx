@@ -30,7 +30,6 @@ export const InputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   dockerfile_template_data: resolvableValue(z.string().optional()),
   dockerfile_template_uri: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   instance_configuration: resolvableValue(
     z.object({
       image: z.string().optional(),
@@ -62,6 +61,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   date_created: z.string().optional(),
   encrypted: z.boolean().optional(),
+  id: z.string().optional(),
   owner: z.string().optional(),
   platform: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
@@ -81,7 +81,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/imagebuilder_container_recipe
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_container_recipe
 
 export function AwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
   const _title = (node: any) => {

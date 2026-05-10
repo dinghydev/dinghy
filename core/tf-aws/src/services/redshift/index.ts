@@ -97,6 +97,12 @@ export {
 } from './AwsRedshiftLogging.tsx'
 
 export {
+  AwsRedshiftNamespaceRegistration,
+  useAwsRedshiftNamespaceRegistration,
+  useAwsRedshiftNamespaceRegistrations,
+} from './AwsRedshiftNamespaceRegistration.tsx'
+
+export {
   DataAwsRedshiftOrderableCluster,
   useDataAwsRedshiftOrderableCluster,
   useDataAwsRedshiftOrderableClusters,

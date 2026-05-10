@@ -11,6 +11,18 @@ export {
 } from './AwsNotificationsEventRule.tsx'
 
 export {
+  AwsNotificationsManagedNotificationAccountContactAssociation,
+  useAwsNotificationsManagedNotificationAccountContactAssociation,
+  useAwsNotificationsManagedNotificationAccountContactAssociations,
+} from './AwsNotificationsManagedNotificationAccountContactAssociation.tsx'
+
+export {
+  AwsNotificationsManagedNotificationAdditionalChannelAssociation,
+  useAwsNotificationsManagedNotificationAdditionalChannelAssociation,
+  useAwsNotificationsManagedNotificationAdditionalChannelAssociations,
+} from './AwsNotificationsManagedNotificationAdditionalChannelAssociation.tsx'
+
+export {
   AwsNotificationsNotificationConfiguration,
   useAwsNotificationsNotificationConfiguration,
   useAwsNotificationsNotificationConfigurations,
@@ -21,3 +33,14 @@ export {
   useAwsNotificationsNotificationHub,
   useAwsNotificationsNotificationHubs,
 } from './AwsNotificationsNotificationHub.tsx'
+
+export {
+  AwsNotificationsOrganizationalUnitAssociation,
+  useAwsNotificationsOrganizationalUnitAssociation,
+  useAwsNotificationsOrganizationalUnitAssociations,
+} from './AwsNotificationsOrganizationalUnitAssociation.tsx'
+
+export {
+  AwsNotificationsOrganizationsAccess,
+  useAwsNotificationsOrganizationsAccesss,
+} from './AwsNotificationsOrganizationsAccess.tsx'

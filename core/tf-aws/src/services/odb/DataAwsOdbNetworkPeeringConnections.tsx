@@ -13,7 +13,13 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
-  odb_peering_connections: z.object({}).array().optional().optional(),
+  odb_peering_connections: z.object({
+    arn: z.string(),
+    display_name: z.string(),
+    id: z.string(),
+    odb_network_arn: z.string(),
+    peer_network_arn: z.string(),
+  }).array().optional(),
 })
 
 export type InputProps =
@@ -25,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/odb_network_peering_connections
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_network_peering_connections
 
 export function DataAwsOdbNetworkPeeringConnections(
   props: Partial<InputProps>,

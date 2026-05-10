@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrock_model_invocation_logging_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrock_model_invocation_logging_configuration
 
 export function AwsBedrockModelInvocationLoggingConfiguration(
   props: Partial<InputProps>,

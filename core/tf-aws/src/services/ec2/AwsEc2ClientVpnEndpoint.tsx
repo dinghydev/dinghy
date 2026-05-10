@@ -54,6 +54,14 @@ export const InputSchema = TfMetaSchema.extend({
   split_tunnel: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   traffic_ip_address_type: resolvableValue(z.string().optional()),
+  transit_gateway_configuration: resolvableValue(
+    z.object({
+      availability_zone_ids: z.string().array().optional(),
+      availability_zones: z.string().array().optional(),
+      transit_gateway_attachment_id: z.string().optional(),
+      transit_gateway_id: z.string().optional(),
+    }).optional(),
+  ),
   transport_protocol: resolvableValue(z.string().optional()),
   vpc_id: resolvableValue(z.string().optional()),
   vpn_port: resolvableValue(z.number().optional()),
@@ -76,7 +84,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ec2_client_vpn_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_client_vpn_endpoint
 
 export function AwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -55,6 +55,7 @@ export const OutputSchema = z.object({
   cpu_options: z.object({
     amd_sev_snp: z.string(),
     core_count: z.number(),
+    nested_virtualization: z.string(),
     threads_per_core: z.number(),
   }).array().optional(),
   credit_specification: z.object({
@@ -188,6 +189,9 @@ export const OutputSchema = z.object({
     security_groups: z.set(z.string()),
     subnet_id: z.string(),
   }).array().optional(),
+  network_performance_options: z.object({
+    bandwidth_weighting: z.string(),
+  }).array().optional(),
   placement: z.object({
     affinity: z.string(),
     availability_zone: z.string(),
@@ -205,6 +209,15 @@ export const OutputSchema = z.object({
     hostname_type: z.string(),
   }).array().optional(),
   ram_disk_id: z.string().optional(),
+  secondary_interfaces: z.object({
+    delete_on_termination: z.boolean(),
+    device_index: z.number(),
+    interface_type: z.string(),
+    network_card_index: z.number(),
+    private_ip_address_count: z.number(),
+    private_ip_addresses: z.set(z.string()),
+    secondary_subnet_id: z.string(),
+  }).array().optional(),
   security_group_names: z.set(z.string()).optional(),
   tag_specifications: z.object({
     resource_type: z.string(),
@@ -223,7 +236,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/launch_template
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/launch_template
 
 export function DataAwsLaunchTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {

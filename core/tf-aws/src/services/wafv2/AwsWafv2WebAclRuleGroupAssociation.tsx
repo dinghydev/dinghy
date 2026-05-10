@@ -18,6 +18,100 @@ export const InputSchema = TfMetaSchema.extend({
       name: z.string(),
       vendor_name: z.string(),
       version: z.string().optional(),
+      managed_rule_group_configs: z.object({
+        aws_managed_rules_acfp_rule_set: z.object({
+          creation_path: z.string(),
+          enable_regex_in_path: z.boolean().optional(),
+          registration_page_path: z.string(),
+          request_inspection: z.object({
+            payload_type: z.string(),
+            address_fields: z.object({
+              identifiers: z.string().array(),
+            }).array().optional(),
+            email_field: z.object({
+              identifier: z.string(),
+            }).array().optional(),
+            password_field: z.object({
+              identifier: z.string(),
+            }).array().optional(),
+            phone_number_fields: z.object({
+              identifiers: z.string().array(),
+            }).array().optional(),
+            username_field: z.object({
+              identifier: z.string(),
+            }).array().optional(),
+          }).array().optional(),
+          response_inspection: z.object({
+            body_contains: z.object({
+              failure_strings: z.string().array(),
+              success_strings: z.string().array(),
+            }).array().optional(),
+            header: z.object({
+              failure_values: z.string().array(),
+              name: z.string(),
+              success_values: z.string().array(),
+            }).array().optional(),
+            json: z.object({
+              failure_values: z.string().array(),
+              identifier: z.string(),
+              success_values: z.string().array(),
+            }).array().optional(),
+            status_code: z.object({
+              failure_codes: z.number().array(),
+              success_codes: z.number().array(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
+        aws_managed_rules_anti_ddos_rule_set: z.object({
+          sensitivity_to_block: z.string().optional(),
+          client_side_action_config: z.object({
+            challenge: z.object({
+              sensitivity: z.string().optional(),
+              usage_of_action: z.string(),
+              exempt_uri_regular_expression: z.object({
+                regex_string: z.string().optional(),
+              }).array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
+        aws_managed_rules_atp_rule_set: z.object({
+          enable_regex_in_path: z.boolean().optional(),
+          login_path: z.string(),
+          request_inspection: z.object({
+            payload_type: z.string(),
+            password_field: z.object({
+              identifier: z.string(),
+            }).array().optional(),
+            username_field: z.object({
+              identifier: z.string(),
+            }).array().optional(),
+          }).array().optional(),
+          response_inspection: z.object({
+            body_contains: z.object({
+              failure_strings: z.string().array(),
+              success_strings: z.string().array(),
+            }).array().optional(),
+            header: z.object({
+              failure_values: z.string().array(),
+              name: z.string(),
+              success_values: z.string().array(),
+            }).array().optional(),
+            json: z.object({
+              failure_values: z.string().array(),
+              identifier: z.string(),
+              success_values: z.string().array(),
+            }).array().optional(),
+            status_code: z.object({
+              failure_codes: z.number().array(),
+              success_codes: z.number().array(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
+        aws_managed_rules_bot_control_rule_set: z.object({
+          enable_machine_learning: z.boolean().optional(),
+          inspection_level: z.string(),
+        }).array().optional(),
+      }).array().optional(),
       rule_action_override: z.object({
         name: z.string(),
         action_to_use: z.object({
@@ -128,6 +222,13 @@ export const InputSchema = TfMetaSchema.extend({
       update: z.string().optional(),
     }).optional(),
   ),
+  visibility_config: resolvableValue(
+    z.object({
+      cloudwatch_metrics_enabled: z.boolean(),
+      metric_name: z.string(),
+      sampled_requests_enabled: z.boolean(),
+    }).array().optional(),
+  ),
 })
 
 export const OutputSchema = z.object({})
@@ -141,7 +242,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/wafv2_web_acl_rule_group_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafv2_web_acl_rule_group_association
 
 export function AwsWafv2WebAclRuleGroupAssociation(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -37,6 +37,7 @@ export const OutputSchema = z.object({
           requests: z.record(z.string(), z.string()),
         }).array(),
         security_context: z.object({
+          allow_privilege_escalation: z.boolean(),
           privileged: z.boolean(),
           read_only_root_file_system: z.boolean(),
           run_as_group: z.number(),
@@ -69,6 +70,7 @@ export const OutputSchema = z.object({
           requests: z.record(z.string(), z.string()),
         }).array(),
         security_context: z.object({
+          allow_privilege_escalation: z.boolean(),
           privileged: z.boolean(),
           read_only_root_file_system: z.boolean(),
           run_as_group: z.number(),
@@ -221,7 +223,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/batch_job_definition
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/batch_job_definition
 
 export function DataAwsBatchJobDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {

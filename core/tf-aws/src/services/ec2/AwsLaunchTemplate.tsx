@@ -41,6 +41,7 @@ export const InputSchema = TfMetaSchema.extend({
     z.object({
       amd_sev_snp: z.string().optional(),
       core_count: z.number().optional(),
+      nested_virtualization: z.string().optional(),
       threads_per_core: z.number().optional(),
     }).optional(),
   ),
@@ -204,6 +205,11 @@ export const InputSchema = TfMetaSchema.extend({
       }).optional(),
     }).array().optional(),
   ),
+  network_performance_options: resolvableValue(
+    z.object({
+      bandwidth_weighting: z.string().optional(),
+    }).optional(),
+  ),
   placement: resolvableValue(
     z.object({
       affinity: z.string().optional(),
@@ -226,6 +232,17 @@ export const InputSchema = TfMetaSchema.extend({
   ),
   ram_disk_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  secondary_interfaces: resolvableValue(
+    z.object({
+      delete_on_termination: z.boolean().optional(),
+      device_index: z.number().optional(),
+      interface_type: z.string().optional(),
+      network_card_index: z.number().optional(),
+      private_ip_address_count: z.number().optional(),
+      private_ip_addresses: z.string().array().optional(),
+      secondary_subnet_id: z.string().optional(),
+    }).array().optional(),
+  ),
   security_group_names: resolvableValue(z.string().array().optional()),
   tag_specifications: resolvableValue(
     z.object({
@@ -246,8 +263,15 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
+export const ImportSchema = z.object({
+  id: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -255,7 +279,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/launch_template
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/launch_template
 
 export function AwsLaunchTemplate(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -269,6 +293,7 @@ export function AwsLaunchTemplate(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

@@ -94,7 +94,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/fsx_openzfs_file_system
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_openzfs_file_system
 
 export function AwsFsxOpenzfsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {

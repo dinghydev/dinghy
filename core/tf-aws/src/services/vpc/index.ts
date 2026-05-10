@@ -517,6 +517,12 @@ export {
 } from './DataAwsVpcSecurityGroupRules.tsx'
 
 export {
+  AwsVpcSecurityGroupRulesExclusive,
+  useAwsVpcSecurityGroupRulesExclusive,
+  useAwsVpcSecurityGroupRulesExclusives,
+} from './AwsVpcSecurityGroupRulesExclusive.tsx'
+
+export {
   AwsVpcSecurityGroupVpcAssociation,
   useAwsVpcSecurityGroupVpcAssociation,
   useAwsVpcSecurityGroupVpcAssociations,

@@ -76,6 +76,12 @@ export const OutputSchema = z.object({
     }).array(),
     host_path: z.string(),
     name: z.string(),
+    s3files_volume_configuration: z.object({
+      access_point_arn: z.string(),
+      file_system_arn: z.string(),
+      root_directory: z.string(),
+      transit_encryption_port: z.number(),
+    }).array(),
   })).optional(),
 })
 
@@ -88,7 +94,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecs_task_definition
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ecs_task_definition
 
 export function DataAwsEcsTaskDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -22,6 +22,9 @@ export const InputSchema = TfMetaSchema.extend({
             kms_key_arn: z.string().optional(),
             region: z.string().optional(),
           }).array().optional(),
+          log_group_name_configuration: z.object({
+            log_group_name_pattern: z.string(),
+          }).array().optional(),
           logs_encryption_configuration: z.object({
             encryption_conflict_resolution_strategy: z.string().optional(),
             encryption_strategy: z.string(),
@@ -33,8 +36,9 @@ export const InputSchema = TfMetaSchema.extend({
         regions: z.string().array(),
         scope: z.string(),
         source_logs_configuration: z.object({
+          data_source_selection_criteria: z.string().optional(),
           encrypted_log_group_strategy: z.string(),
-          log_group_selection_criteria: z.string(),
+          log_group_selection_criteria: z.string().optional(),
         }).array().optional(),
       }).array().optional(),
     }).array().optional(),
@@ -62,7 +66,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/observabilityadmin_centralization_rule_for_organization
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/observabilityadmin_centralization_rule_for_organization
 
 export function AwsObservabilityadminCentralizationRuleForOrganization(
   props: Partial<InputProps>,

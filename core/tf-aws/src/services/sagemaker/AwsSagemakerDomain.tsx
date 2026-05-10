@@ -292,6 +292,9 @@ export const InputSchema = TfMetaSchema.extend({
           sagemaker_image_version_arn: z.string().optional(),
         }).optional(),
       }).optional(),
+      trusted_identity_propagation_settings: z.object({
+        status: z.string(),
+      }).optional(),
     }).optional(),
   ),
   kms_key_id: resolvableValue(z.string().optional()),
@@ -325,7 +328,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/sagemaker_domain
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_domain
 
 export function AwsSagemakerDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -5,6 +5,12 @@ export {
 } from './AwsSecurityhubAccount.tsx'
 
 export {
+  AwsSecurityhubAccountV2,
+  useAwsSecurityhubAccountV2,
+  useAwsSecurityhubAccountV2s,
+} from './AwsSecurityhubAccountV2.tsx'
+
+export {
   AwsSecurityhubActionTarget,
   useAwsSecurityhubActionTarget,
   useAwsSecurityhubActionTargets,
@@ -27,6 +33,11 @@ export {
   useAwsSecurityhubConfigurationPolicyAssociation,
   useAwsSecurityhubConfigurationPolicyAssociations,
 } from './AwsSecurityhubConfigurationPolicyAssociation.tsx'
+
+export {
+  DataAwsSecurityhubEnabledStandards,
+  useDataAwsSecurityhubEnabledStandardss,
+} from './DataAwsSecurityhubEnabledStandards.tsx'
 
 export {
   AwsSecurityhubFindingAggregator,
@@ -69,6 +80,11 @@ export {
   useAwsSecurityhubProductSubscription,
   useAwsSecurityhubProductSubscriptions,
 } from './AwsSecurityhubProductSubscription.tsx'
+
+export {
+  DataAwsSecurityhubSecurityControls,
+  useDataAwsSecurityhubSecurityControlss,
+} from './DataAwsSecurityhubSecurityControls.tsx'
 
 export {
   AwsSecurityhubStandardsControl,

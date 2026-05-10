@@ -14,6 +14,7 @@ export const InputSchema = TfMetaSchema.extend({
   delivery_s3_bucket: resolvableValue(z.string().optional()),
   delivery_s3_key_prefix: resolvableValue(z.string().optional()),
   excluded_accounts: resolvableValue(z.string().array().optional()),
+  id: resolvableValue(z.string().optional()),
   input_parameter: resolvableValue(
     z.object({
       parameter_name: z.string(),
@@ -34,11 +35,17 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({
   arn: z.string().optional(),
-  id: z.string().optional(),
+})
+
+export const ImportSchema = z.object({
+  name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
 })
 
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -46,7 +53,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/config_organization_conformance_pack
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_organization_conformance_pack
 
 export function AwsConfigOrganizationConformancePack(
   props: Partial<InputProps>,
@@ -62,6 +69,7 @@ export function AwsConfigOrganizationConformancePack(
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

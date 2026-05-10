@@ -20,6 +20,14 @@ export const InputSchema = TfMetaSchema.extend({
     }).array().optional(),
   ),
   description: resolvableValue(z.string().optional()),
+  ena_srd_specification: resolvableValue(
+    z.object({
+      ena_srd_enabled: z.boolean().optional(),
+      ena_srd_udp_specification: z.object({
+        ena_srd_udp_enabled: z.boolean().optional(),
+      }).optional(),
+    }).optional(),
+  ),
   enable_primary_ipv6: resolvableValue(z.boolean().optional()),
   interface_type: resolvableValue(z.string().optional()),
   ipv4_prefix_count: resolvableValue(z.number().optional()),
@@ -60,7 +68,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/network_interface
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/network_interface
 
 export function AwsNetworkInterface(props: Partial<InputProps>) {
   const _title = (node: any) => {

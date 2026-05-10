@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_transit_gateway_route_table_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_transit_gateway_route_table_attachment
 
 export function AwsNetworkmanagerTransitGatewayRouteTableAttachment(
   props: Partial<InputProps>,

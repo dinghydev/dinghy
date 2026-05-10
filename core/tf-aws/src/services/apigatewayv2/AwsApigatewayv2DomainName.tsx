@@ -27,6 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
     }).optional(),
   ),
   region: resolvableValue(z.string().optional()),
+  routing_mode: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -52,7 +53,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/apigatewayv2_domain_name
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_domain_name
 
 export function AwsApigatewayv2DomainName(props: Partial<InputProps>) {
   const _title = (node: any) => {

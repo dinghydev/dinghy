@@ -240,6 +240,12 @@ export {
 } from './DataAwsEc2ManagedPrefixLists.tsx'
 
 export {
+  AwsEc2NetworkInsightsAccessScope,
+  useAwsEc2NetworkInsightsAccessScope,
+  useAwsEc2NetworkInsightsAccessScopes,
+} from './AwsEc2NetworkInsightsAccessScope.tsx'
+
+export {
   AwsEc2NetworkInsightsAnalysis,
   useAwsEc2NetworkInsightsAnalysiss,
 } from './AwsEc2NetworkInsightsAnalysis.tsx'
@@ -273,6 +279,18 @@ export {
 } from './DataAwsEc2PublicIpv4Pools.tsx'
 
 export {
+  AwsEc2SecondaryNetwork,
+  useAwsEc2SecondaryNetwork,
+  useAwsEc2SecondaryNetworks,
+} from './AwsEc2SecondaryNetwork.tsx'
+
+export {
+  AwsEc2SecondarySubnet,
+  useAwsEc2SecondarySubnet,
+  useAwsEc2SecondarySubnets,
+} from './AwsEc2SecondarySubnet.tsx'
+
+export {
   AwsEc2SerialConsoleAccess,
   useAwsEc2SerialConsoleAccesss,
 } from './AwsEc2SerialConsoleAccess.tsx'
@@ -281,6 +299,17 @@ export {
   DataAwsEc2SerialConsoleAccess,
   useDataAwsEc2SerialConsoleAccesss,
 } from './DataAwsEc2SerialConsoleAccess.tsx'
+
+export {
+  DataAwsEc2ServiceLinkVirtualInterface,
+  useDataAwsEc2ServiceLinkVirtualInterface,
+  useDataAwsEc2ServiceLinkVirtualInterfaces,
+} from './DataAwsEc2ServiceLinkVirtualInterface.tsx'
+
+export {
+  DataAwsEc2ServiceLinkVirtualInterfaces,
+  useDataAwsEc2ServiceLinkVirtualInterfacess,
+} from './DataAwsEc2ServiceLinkVirtualInterfaces.tsx'
 
 export {
   DataAwsEc2SpotPrice,
@@ -384,6 +413,18 @@ export {
   useDataAwsEc2TransitGatewayDxGatewayAttachment,
   useDataAwsEc2TransitGatewayDxGatewayAttachments,
 } from './DataAwsEc2TransitGatewayDxGatewayAttachment.tsx'
+
+export {
+  AwsEc2TransitGatewayMeteringPolicy,
+  useAwsEc2TransitGatewayMeteringPolicy,
+  useAwsEc2TransitGatewayMeteringPolicys,
+} from './AwsEc2TransitGatewayMeteringPolicy.tsx'
+
+export {
+  AwsEc2TransitGatewayMeteringPolicyEntry,
+  useAwsEc2TransitGatewayMeteringPolicyEntry,
+  useAwsEc2TransitGatewayMeteringPolicyEntrys,
+} from './AwsEc2TransitGatewayMeteringPolicyEntry.tsx'
 
 export {
   AwsEc2TransitGatewayMulticastDomain,

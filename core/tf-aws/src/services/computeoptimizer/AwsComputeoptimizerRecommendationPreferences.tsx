@@ -57,7 +57,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/computeoptimizer_recommendation_preferences
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/computeoptimizer_recommendation_preferences
 
 export function AwsComputeoptimizerRecommendationPreferences(
   props: Partial<InputProps>,

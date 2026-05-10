@@ -153,8 +153,12 @@ export const InputSchema = TfMetaSchema.extend({
       }).array().optional(),
       parsing_configuration: z.object({
         parsing_strategy: z.string(),
+        bedrock_data_automation_configuration: z.object({
+          parsing_modality: z.string().optional(),
+        }).array().optional(),
         bedrock_foundation_model_configuration: z.object({
           model_arn: z.string(),
+          parsing_modality: z.string().optional(),
           parsing_prompt: z.object({
             parsing_prompt_string: z.string(),
           }).array().optional(),
@@ -178,7 +182,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagent_data_source
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_data_source
 
 export function AwsBedrockagentDataSource(props: Partial<InputProps>) {
   const _title = (node: any) => {

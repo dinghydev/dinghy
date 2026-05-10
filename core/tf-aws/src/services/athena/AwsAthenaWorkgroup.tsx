@@ -56,6 +56,11 @@ export const InputSchema = TfMetaSchema.extend({
           log_location: z.string().optional(),
         }).optional(),
       }).optional(),
+      query_results_s3_access_grants_configuration: z.object({
+        authentication_type: z.string(),
+        create_user_level_prefix: z.boolean().optional(),
+        enable_s3_access_grants: z.boolean(),
+      }).optional(),
       result_configuration: z.object({
         expected_bucket_owner: z.string().optional(),
         output_location: z.string().optional(),
@@ -122,6 +127,11 @@ export const OutputSchema = z.object({
         log_location: z.string().optional(),
       }).optional(),
     }).optional(),
+    query_results_s3_access_grants_configuration: z.object({
+      authentication_type: z.string(),
+      create_user_level_prefix: z.boolean().optional(),
+      enable_s3_access_grants: z.boolean(),
+    }).optional(),
     result_configuration: z.object({
       expected_bucket_owner: z.string().optional(),
       output_location: z.string().optional(),
@@ -147,7 +157,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/athena_workgroup
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/athena_workgroup
 
 export function AwsAthenaWorkgroup(props: Partial<InputProps>) {
   const _title = (node: any) => {

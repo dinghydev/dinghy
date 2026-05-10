@@ -17,6 +17,12 @@ export {
 } from './DataAwsWafv2IpSet.tsx'
 
 export {
+  DataAwsWafv2ManagedRuleGroup,
+  useDataAwsWafv2ManagedRuleGroup,
+  useDataAwsWafv2ManagedRuleGroups,
+} from './DataAwsWafv2ManagedRuleGroup.tsx'
+
+export {
   AwsWafv2RegexPatternSet,
   useAwsWafv2RegexPatternSet,
   useAwsWafv2RegexPatternSets,
@@ -63,6 +69,12 @@ export {
   useAwsWafv2WebAclLoggingConfiguration,
   useAwsWafv2WebAclLoggingConfigurations,
 } from './AwsWafv2WebAclLoggingConfiguration.tsx'
+
+export {
+  AwsWafv2WebAclRule,
+  useAwsWafv2WebAclRule,
+  useAwsWafv2WebAclRules,
+} from './AwsWafv2WebAclRule.tsx'
 
 export {
   AwsWafv2WebAclRuleGroupAssociation,

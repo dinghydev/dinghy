@@ -21,8 +21,16 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  security_control_id: resolvableValue(z.string()),
+  standards_arn: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -30,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_standards_control_association
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_control_association
 
 export function AwsSecurityhubStandardsControlAssociation(
   props: Partial<InputProps>,
@@ -46,6 +54,7 @@ export function AwsSecurityhubStandardsControlAssociation(
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

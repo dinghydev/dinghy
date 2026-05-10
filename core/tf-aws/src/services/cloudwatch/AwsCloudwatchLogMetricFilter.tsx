@@ -29,8 +29,16 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  log_group_name: resolvableValue(z.string()),
+  name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -38,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_metric_filter
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_metric_filter
 
 export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -52,6 +60,7 @@ export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

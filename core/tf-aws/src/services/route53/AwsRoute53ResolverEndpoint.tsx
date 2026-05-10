@@ -52,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/route53_resolver_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_resolver_endpoint
 
 export function AwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

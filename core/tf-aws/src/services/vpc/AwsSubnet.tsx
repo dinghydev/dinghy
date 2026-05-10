@@ -24,8 +24,12 @@ export const InputSchema = TfMetaSchema.extend({
   enable_resource_name_dns_aaaa_record_on_launch: resolvableValue(
     z.boolean().optional(),
   ),
+  ipv4_ipam_pool_id: resolvableValue(z.string().optional()),
+  ipv4_netmask_length: resolvableValue(z.number().optional()),
   ipv6_cidr_block: resolvableValue(z.string().optional()),
+  ipv6_ipam_pool_id: resolvableValue(z.string().optional()),
   ipv6_native: resolvableValue(z.boolean().optional()),
+  ipv6_netmask_length: resolvableValue(z.number().optional()),
   map_customer_owned_ip_on_launch: resolvableValue(z.boolean().optional()),
   map_public_ip_on_launch: resolvableValue(z.boolean().optional()),
   outpost_arn: resolvableValue(z.string().optional()),
@@ -64,7 +68,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/subnet
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/subnet
 
 export function AwsSubnet(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -14,6 +14,7 @@ export const InputSchema = TfMetaSchema.extend({
   administration_role_arn: resolvableValue(z.string().optional()),
   auto_deployment: resolvableValue(
     z.object({
+      depends_on_stack_sets: z.string().array().optional(),
       enabled: z.boolean().optional(),
       retain_stacks_on_account_removal: z.boolean().optional(),
     }).optional(),
@@ -66,7 +67,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudformation_stack_set
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudformation_stack_set
 
 export function AwsCloudformationStackSet(props: Partial<InputProps>) {
   const _title = (node: any) => {

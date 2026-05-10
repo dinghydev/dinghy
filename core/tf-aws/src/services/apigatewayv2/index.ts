@@ -76,6 +76,12 @@ export {
 } from './AwsApigatewayv2RouteResponse.tsx'
 
 export {
+  AwsApigatewayv2RoutingRule,
+  useAwsApigatewayv2RoutingRule,
+  useAwsApigatewayv2RoutingRules,
+} from './AwsApigatewayv2RoutingRule.tsx'
+
+export {
   AwsApigatewayv2Stage,
   useAwsApigatewayv2Stage,
   useAwsApigatewayv2Stages,

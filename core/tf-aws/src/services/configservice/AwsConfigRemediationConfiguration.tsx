@@ -42,8 +42,15 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  config_rule_name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -51,7 +58,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/config_remediation_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_remediation_configuration
 
 export function AwsConfigRemediationConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -65,6 +72,7 @@ export function AwsConfigRemediationConfiguration(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

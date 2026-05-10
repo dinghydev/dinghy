@@ -45,6 +45,12 @@ export const OutputSchema = z.object({
   }).array().optional(),
   availability_zone: z.string().optional(),
   description: z.string().optional(),
+  ena_srd_specification: z.object({
+    ena_srd_enabled: z.boolean(),
+    ena_srd_udp_specification: z.object({
+      ena_srd_udp_enabled: z.boolean(),
+    }).array(),
+  }).array().optional(),
   interface_type: z.string().optional(),
   ipv6_addresses: z.set(z.string()).optional(),
   mac_address: z.string().optional(),
@@ -69,7 +75,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/network_interface
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/network_interface
 
 export function DataAwsNetworkInterface(props: Partial<InputProps>) {
   const _title = (node: any) => {

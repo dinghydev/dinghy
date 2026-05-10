@@ -18,6 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   grafana_version: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
+  kms_key_id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   network_access_control: resolvableValue(
     z.object({
@@ -63,7 +64,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/grafana_workspace
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/grafana_workspace
 
 export function AwsGrafanaWorkspace(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -64,6 +64,12 @@ export const OutputSchema = z.object({
   session_timeout_hours: z.number().optional(),
   split_tunnel: z.boolean().optional(),
   traffic_ip_address_type: z.string().optional(),
+  transit_gateway_configuration: z.object({
+    availability_zone_ids: z.set(z.string()),
+    availability_zones: z.set(z.string()),
+    transit_gateway_attachment_id: z.string(),
+    transit_gateway_id: z.string(),
+  }).array().optional(),
   transport_protocol: z.string().optional(),
   vpc_id: z.string().optional(),
   vpn_port: z.number().optional(),
@@ -78,7 +84,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ec2_client_vpn_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_client_vpn_endpoint
 
 export function DataAwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

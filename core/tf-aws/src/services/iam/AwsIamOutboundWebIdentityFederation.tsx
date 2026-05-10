@@ -23,7 +23,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/iam_outbound_web_identity_federation
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_outbound_web_identity_federation
 
 export function AwsIamOutboundWebIdentityFederation(
   props: Partial<InputProps>,

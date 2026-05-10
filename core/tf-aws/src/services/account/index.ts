@@ -21,3 +21,8 @@ export {
   useAwsAccountRegion,
   useAwsAccountRegions,
 } from './AwsAccountRegion.tsx'
+
+export {
+  DataAwsAccountRegions,
+  useDataAwsAccountRegionss,
+} from './DataAwsAccountRegions.tsx'

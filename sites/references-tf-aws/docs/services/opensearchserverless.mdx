@@ -12,7 +12,7 @@ Terraform resource for managing an AWS OpenSearch Serverless Access Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_access_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_access_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessAccessPolicy.tsx)
 
 ```js
@@ -25,7 +25,7 @@ import { AwsOpensearchserverlessAccessPolicy } from "@dinghy/tf-aws/serviceOpens
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearchserverless_access_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_access_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessAccessPolicy.tsx)
 
 ```js
@@ -36,18 +36,31 @@ import { DataAwsOpensearchserverlessAccessPolicy } from "@dinghy/tf-aws/serviceO
 
   </TabItem>
   
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_access_policy#import)
+
+```js
+<AwsOpensearchserverlessAccessPolicy
+   name = {}
+   type = {}
+/>
+```
+
+  </TabItem>
+  
 </Tabs>
 
 ## AwsOpensearchserverlessCollection
 
-Terraform resource for managing an AWS OpenSearch Collection.
+Terraform resource for managing an AWS OpenSearch Serverless Collection.
 
 
 
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_collection)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_collection)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessCollection.tsx)
 
 ```js
@@ -60,13 +73,94 @@ import { AwsOpensearchserverlessCollection } from "@dinghy/tf-aws/serviceOpensea
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearchserverless_collection)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_collection)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessCollection.tsx)
 
 ```js
 import { DataAwsOpensearchserverlessCollection } from "@dinghy/tf-aws/serviceOpensearchserverless"
 
 <DataAwsOpensearchserverlessCollection/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_collection#import)
+
+```js
+<AwsOpensearchserverlessCollection
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOpensearchserverlessCollectionGroup
+
+Terraform resource for managing an AWS OpenSearch Serverless Collection Group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_collection_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessCollectionGroup.tsx)
+
+```js
+import { AwsOpensearchserverlessCollectionGroup } from "@dinghy/tf-aws/serviceOpensearchserverless"
+
+<AwsOpensearchserverlessCollectionGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_collection_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessCollectionGroup.tsx)
+
+```js
+import { DataAwsOpensearchserverlessCollectionGroup } from "@dinghy/tf-aws/serviceOpensearchserverless"
+
+<DataAwsOpensearchserverlessCollectionGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_collection_group#import)
+
+```js
+<AwsOpensearchserverlessCollectionGroup
+   id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsOpensearchserverlessCollectionGroups
+
+Terraform data source for listing AWS OpenSearch Serverless Collection Groups.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_collection_groups)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessCollectionGroups.tsx)
+
+```js
+import { DataAwsOpensearchserverlessCollectionGroups } from "@dinghy/tf-aws/serviceOpensearchserverless"
+
+<DataAwsOpensearchserverlessCollectionGroups/>
 ```
 
   </TabItem>
@@ -82,7 +176,7 @@ Terraform resource for managing an AWS OpenSearch Serverless Lifecycle Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_lifecycle_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_lifecycle_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessLifecyclePolicy.tsx)
 
 ```js
@@ -95,13 +189,26 @@ import { AwsOpensearchserverlessLifecyclePolicy } from "@dinghy/tf-aws/serviceOp
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearchserverless_lifecycle_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_lifecycle_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessLifecyclePolicy.tsx)
 
 ```js
 import { DataAwsOpensearchserverlessLifecyclePolicy } from "@dinghy/tf-aws/serviceOpensearchserverless"
 
 <DataAwsOpensearchserverlessLifecyclePolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_lifecycle_policy#import)
+
+```js
+<AwsOpensearchserverlessLifecyclePolicy
+   name = {}
+   type = {}
+/>
 ```
 
   </TabItem>
@@ -117,7 +224,7 @@ Terraform resource for managing an AWS OpenSearch Serverless Security Config.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_security_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_security_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessSecurityConfig.tsx)
 
 ```js
@@ -130,13 +237,26 @@ import { AwsOpensearchserverlessSecurityConfig } from "@dinghy/tf-aws/serviceOpe
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearchserverless_security_config)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_security_config)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessSecurityConfig.tsx)
 
 ```js
 import { DataAwsOpensearchserverlessSecurityConfig } from "@dinghy/tf-aws/serviceOpensearchserverless"
 
 <DataAwsOpensearchserverlessSecurityConfig/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_security_config#import)
+
+```js
+<AwsOpensearchserverlessSecurityConfig
+   name = {}
+   type = {}
+/>
 ```
 
   </TabItem>
@@ -152,7 +272,7 @@ Terraform resource for managing an AWS OpenSearch Serverless Security Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_security_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_security_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessSecurityPolicy.tsx)
 
 ```js
@@ -165,13 +285,26 @@ import { AwsOpensearchserverlessSecurityPolicy } from "@dinghy/tf-aws/serviceOpe
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearchserverless_security_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_security_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessSecurityPolicy.tsx)
 
 ```js
 import { DataAwsOpensearchserverlessSecurityPolicy } from "@dinghy/tf-aws/serviceOpensearchserverless"
 
 <DataAwsOpensearchserverlessSecurityPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_security_policy#import)
+
+```js
+<AwsOpensearchserverlessSecurityPolicy
+   name = {}
+   type = {}
+/>
 ```
 
   </TabItem>
@@ -187,7 +320,7 @@ Terraform resource for managing an AWS OpenSearch Serverless VPC Endpoint.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearchserverless_vpc_endpoint)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_vpc_endpoint)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/AwsOpensearchserverlessVpcEndpoint.tsx)
 
 ```js
@@ -200,13 +333,25 @@ import { AwsOpensearchserverlessVpcEndpoint } from "@dinghy/tf-aws/serviceOpense
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearchserverless_vpc_endpoint)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_vpc_endpoint)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/opensearchserverless/DataAwsOpensearchserverlessVpcEndpoint.tsx)
 
 ```js
 import { DataAwsOpensearchserverlessVpcEndpoint } from "@dinghy/tf-aws/serviceOpensearchserverless"
 
 <DataAwsOpensearchserverlessVpcEndpoint/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_vpc_endpoint#import)
+
+```js
+<AwsOpensearchserverlessVpcEndpoint
+   id = {}
+/>
 ```
 
   </TabItem>

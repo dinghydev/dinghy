@@ -24,8 +24,13 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  certificate_arn: resolvableValue(z.string()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -33,7 +38,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/acm_certificate_validation
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acm_certificate_validation
 
 export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,6 +52,7 @@ export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

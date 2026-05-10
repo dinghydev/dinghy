@@ -5,20 +5,54 @@ import TabItem from '@theme/TabItem';
 
 ## AwsSecurityhubAccount
 
-Enables Security Hub for an AWS account.
+Enables Security Hub CSPM for this AWS account.
 
 
 
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_account)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_account)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubAccount.tsx)
 
 ```js
 import { AwsSecurityhubAccount } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubAccount/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSecurityhubAccountV2
+
+Enables Security Hub V2 for this AWS account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_account_v2)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubAccountV2.tsx)
+
+```js
+import { AwsSecurityhubAccountV2 } from "@dinghy/tf-aws/serviceSecurityhub"
+
+<AwsSecurityhubAccountV2/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_account_v2#import)
+
+```js
+<AwsSecurityhubAccountV2
+   arn = {}
+/>
 ```
 
   </TabItem>
@@ -34,13 +68,25 @@ Creates Security Hub custom action.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_action_target)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_action_target)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubActionTarget.tsx)
 
 ```js
 import { AwsSecurityhubActionTarget } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubActionTarget/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_action_target#import)
+
+```js
+<AwsSecurityhubActionTarget
+   arn = {}
+/>
 ```
 
   </TabItem>
@@ -56,7 +102,7 @@ Terraform resource for managing an AWS Security Hub Automation Rule.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_automation_rule)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_automation_rule)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubAutomationRule.tsx)
 
 ```js
@@ -69,7 +115,7 @@ import { AwsSecurityhubAutomationRule } from "@dinghy/tf-aws/serviceSecurityhub"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_automation_rule#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_automation_rule#import)
 
 ```js
 <AwsSecurityhubAutomationRule
@@ -90,13 +136,25 @@ Provides a resource to manage Security Hub configuration policy
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_configuration_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_configuration_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubConfigurationPolicy.tsx)
 
 ```js
 import { AwsSecurityhubConfigurationPolicy } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubConfigurationPolicy/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_configuration_policy#import)
+
+```js
+<AwsSecurityhubConfigurationPolicy
+   id = {}
+/>
 ```
 
   </TabItem>
@@ -112,13 +170,47 @@ Provides a resource to associate Security Hub configuration policy to a target.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_configuration_policy_association)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_configuration_policy_association)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubConfigurationPolicyAssociation.tsx)
 
 ```js
 import { AwsSecurityhubConfigurationPolicyAssociation } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubConfigurationPolicyAssociation/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_configuration_policy_association#import)
+
+```js
+<AwsSecurityhubConfigurationPolicyAssociation
+   target_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSecurityhubEnabledStandards
+
+Lists the standards that are currently enabled.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/securityhub_enabled_standards)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/DataAwsSecurityhubEnabledStandards.tsx)
+
+```js
+import { DataAwsSecurityhubEnabledStandards } from "@dinghy/tf-aws/serviceSecurityhub"
+
+<DataAwsSecurityhubEnabledStandards/>
 ```
 
   </TabItem>
@@ -134,13 +226,25 @@ Manages a Security Hub finding aggregator
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_finding_aggregator)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_finding_aggregator)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubFindingAggregator.tsx)
 
 ```js
 import { AwsSecurityhubFindingAggregator } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubFindingAggregator/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_finding_aggregator#import)
+
+```js
+<AwsSecurityhubFindingAggregator
+   arn = {}
+/>
 ```
 
   </TabItem>
@@ -156,13 +260,25 @@ Provides a Security Hub custom insight resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_insight)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_insight)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubInsight.tsx)
 
 ```js
 import { AwsSecurityhubInsight } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubInsight/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_insight#import)
+
+```js
+<AwsSecurityhubInsight
+   arn = {}
+/>
 ```
 
   </TabItem>
@@ -178,7 +294,7 @@ Accepts a Security Hub invitation.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_invite_accepter)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_invite_accepter)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubInviteAccepter.tsx)
 
 ```js
@@ -200,13 +316,25 @@ Provides a Security Hub member resource.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_member)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_member)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubMember.tsx)
 
 ```js
 import { AwsSecurityhubMember } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubMember/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_member#import)
+
+```js
+<AwsSecurityhubMember
+   member_account_id = {}
+/>
 ```
 
   </TabItem>
@@ -222,13 +350,25 @@ Manages a Security Hub administrator account for an organization.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_organization_admin_account)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_organization_admin_account)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubOrganizationAdminAccount.tsx)
 
 ```js
 import { AwsSecurityhubOrganizationAdminAccount } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubOrganizationAdminAccount/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_organization_admin_account#import)
+
+```js
+<AwsSecurityhubOrganizationAdminAccount
+   admin_account_id = {}
+/>
 ```
 
   </TabItem>
@@ -244,7 +384,7 @@ Manages the Security Hub Organization Configuration
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_organization_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_organization_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubOrganizationConfiguration.tsx)
 
 ```js
@@ -266,13 +406,48 @@ Subscribes to a Security Hub product.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_product_subscription)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_product_subscription)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubProductSubscription.tsx)
 
 ```js
 import { AwsSecurityhubProductSubscription } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubProductSubscription/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_product_subscription#import)
+
+```js
+<AwsSecurityhubProductSubscription
+   arn = {}
+   product_arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSecurityhubSecurityControls
+
+Lists security controls.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/securityhub_security_controls)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/DataAwsSecurityhubSecurityControls.tsx)
+
+```js
+import { DataAwsSecurityhubSecurityControls } from "@dinghy/tf-aws/serviceSecurityhub"
+
+<DataAwsSecurityhubSecurityControls/>
 ```
 
   </TabItem>
@@ -288,13 +463,25 @@ Enable/disable Security Hub standards controls.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_standards_control)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_control)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubStandardsControl.tsx)
 
 ```js
 import { AwsSecurityhubStandardsControl } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubStandardsControl/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_control#import)
+
+```js
+<AwsSecurityhubStandardsControl
+   standards_control_arn = {}
+/>
 ```
 
   </TabItem>
@@ -310,13 +497,26 @@ Terraform resource for managing an AWS Security Hub Standards Control Associatio
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_standards_control_association)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_control_association)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubStandardsControlAssociation.tsx)
 
 ```js
 import { AwsSecurityhubStandardsControlAssociation } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubStandardsControlAssociation/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_control_association#import)
+
+```js
+<AwsSecurityhubStandardsControlAssociation
+   security_control_id = {}
+   standards_arn = {}
+/>
 ```
 
   </TabItem>
@@ -332,7 +532,7 @@ Terraform data source for managing an AWS Security Hub Standards Control Associa
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/securityhub_standards_control_associations)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/securityhub_standards_control_associations)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/DataAwsSecurityhubStandardsControlAssociations.tsx)
 
 ```js
@@ -354,13 +554,25 @@ Subscribes to a Security Hub standard.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_standards_subscription)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_subscription)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/securityhub/AwsSecurityhubStandardsSubscription.tsx)
 
 ```js
 import { AwsSecurityhubStandardsSubscription } from "@dinghy/tf-aws/serviceSecurityhub"
 
 <AwsSecurityhubStandardsSubscription/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_subscription#import)
+
+```js
+<AwsSecurityhubStandardsSubscription
+   arn = {}
+/>
 ```
 
   </TabItem>

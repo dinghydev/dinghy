@@ -1,6 +1,7 @@
 import {
   camelCaseToWords,
   type NodeProps,
+  resolvableValue,
   TfMetaSchema,
   useTypedNode,
   useTypedNodes,
@@ -8,7 +9,9 @@ import {
 import z from 'zod'
 import { AwsOrganizationsOrganization } from './AwsOrganizationsOrganization.tsx'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const InputSchema = TfMetaSchema.extend({
+  return_organization_only: resolvableValue(z.boolean().optional()),
+})
 
 export const OutputSchema = z.object({
   accounts: z.object({
@@ -60,7 +63,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/organizations_organization
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/organizations_organization
 
 export function DataAwsOrganizationsOrganization(props: Partial<InputProps>) {
   const _title = (node: any) => {

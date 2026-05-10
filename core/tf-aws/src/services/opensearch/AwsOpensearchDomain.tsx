@@ -20,6 +20,12 @@ export const InputSchema = TfMetaSchema.extend({
       anonymous_auth_enabled: z.boolean().optional(),
       enabled: z.boolean(),
       internal_user_database_enabled: z.boolean().optional(),
+      jwt_options: z.object({
+        enabled: z.boolean().optional(),
+        public_key: z.string().optional(),
+        roles_key: z.string().optional(),
+        subject_key: z.string().optional(),
+      }).optional(),
       master_user_options: z.object({
         master_user_arn: z.string().optional(),
         master_user_name: z.string().optional(),
@@ -33,6 +39,9 @@ export const InputSchema = TfMetaSchema.extend({
         desired_state: z.string().optional(),
       }).optional(),
       s3_vectors_engine: z.object({
+        enabled: z.boolean().optional(),
+      }).optional(),
+      serverless_vector_acceleration: z.object({
         enabled: z.boolean().optional(),
       }).optional(),
     }).optional(),
@@ -86,6 +95,11 @@ export const InputSchema = TfMetaSchema.extend({
       identity_pool_id: z.string(),
       role_arn: z.string(),
       user_pool_id: z.string(),
+    }).optional(),
+  ),
+  deployment_strategy_options: resolvableValue(
+    z.object({
+      deployment_strategy: z.string(),
     }).optional(),
   ),
   domain_endpoint_options: resolvableValue(
@@ -196,7 +210,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/opensearch_domain
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearch_domain
 
 export function AwsOpensearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {

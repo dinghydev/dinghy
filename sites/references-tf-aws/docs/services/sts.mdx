@@ -13,13 +13,35 @@ connection to AWS.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/caller_identity)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/caller_identity)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sts/DataAwsCallerIdentity.tsx)
 
 ```js
 import { DataAwsCallerIdentity } from "@dinghy/tf-aws/serviceSts"
 
 <DataAwsCallerIdentity/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsStsWebIdentityToken
+
+Terraform ephemeral resource for generating an AWS STS Web Identity Token.
+
+
+
+<Tabs>
+  <TabItem value="Ephemeral">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/sts_web_identity_token)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/sts/EphemeralAwsStsWebIdentityToken.tsx)
+
+```js
+import { EphemeralAwsStsWebIdentityToken } from "@dinghy/tf-aws/serviceSts"
+
+<EphemeralAwsStsWebIdentityToken/>
 ```
 
   </TabItem>

@@ -17,7 +17,6 @@ export const InputSchema = TfMetaSchema.extend({
   distribution_configuration_arn: resolvableValue(z.string().optional()),
   enhanced_image_metadata_enabled: resolvableValue(z.boolean().optional()),
   execution_role: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   image_recipe_arn: resolvableValue(z.string().optional()),
   image_scanning_configuration: resolvableValue(
     z.object({
@@ -69,6 +68,7 @@ export const OutputSchema = z.object({
   date_last_run: z.string().optional(),
   date_next_run: z.string().optional(),
   date_updated: z.string().optional(),
+  id: z.string().optional(),
   platform: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
@@ -87,7 +87,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/imagebuilder_image_pipeline
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_image_pipeline
 
 export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
   const _title = (node: any) => {

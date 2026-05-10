@@ -28,8 +28,18 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  egress: resolvableValue(z.boolean()),
+  network_acl_id: resolvableValue(z.string()),
+  protocol: resolvableValue(z.string()),
+  rule_number: resolvableValue(z.number()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -37,7 +47,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/network_acl_rule
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/network_acl_rule
 
 export function AwsNetworkAclRule(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -51,6 +61,7 @@ export function AwsNetworkAclRule(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

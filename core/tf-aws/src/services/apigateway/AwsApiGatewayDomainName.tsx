@@ -36,6 +36,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   regional_certificate_arn: resolvableValue(z.string().optional()),
   regional_certificate_name: resolvableValue(z.string().optional()),
+  routing_mode: resolvableValue(z.string().optional()),
   security_policy: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -67,7 +68,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/api_gateway_domain_name
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_domain_name
 
 export function AwsApiGatewayDomainName(props: Partial<InputProps>) {
   const _title = (node: any) => {

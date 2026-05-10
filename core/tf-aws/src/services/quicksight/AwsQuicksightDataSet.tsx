@@ -180,6 +180,7 @@ export const InputSchema = TfMetaSchema.extend({
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  use_as: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
@@ -202,7 +203,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/quicksight_data_set
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_data_set
 
 export function AwsQuicksightDataSet(props: Partial<InputProps>) {
   const _title = (node: any) => {

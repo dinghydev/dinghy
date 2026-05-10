@@ -13,6 +13,7 @@ export const InputSchema = TfMetaSchema.extend({
   manifest_json: resolvableValue(z.string()),
   version: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
+  remediation_types: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -42,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/controltower_landing_zone
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/controltower_landing_zone
 
 export function AwsControltowerLandingZone(props: Partial<InputProps>) {
   const _title = (node: any) => {

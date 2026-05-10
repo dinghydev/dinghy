@@ -16,6 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
     instance_type: z.string(),
     security_groups: z.string().array(),
     connectivity_info: z.object({
+      network_type: z.string().optional(),
       public_access: z.object({
         type: z.string().optional(),
       }).optional(),
@@ -138,8 +139,13 @@ export const OutputSchema = z.object({
   zookeeper_connect_string_tls: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  arn: resolvableValue(z.string()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -147,7 +153,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/msk_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_cluster
 
 export function AwsMskCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -161,6 +167,7 @@ export function AwsMskCluster(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

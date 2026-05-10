@@ -11,12 +11,15 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   policy_document: resolvableValue(z.string()),
-  policy_name: resolvableValue(z.string()),
+  policy_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  resource_arn: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   id: z.string().optional(),
+  policy_scope: z.string().optional(),
+  revision_id: z.string().optional(),
 })
 
 export type InputProps =
@@ -28,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudwatch_log_resource_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_resource_policy
 
 export function AwsCloudwatchLogResourcePolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -1,4 +1,10 @@
 export {
+  AwsCloudwatchAlarmMuteRule,
+  useAwsCloudwatchAlarmMuteRule,
+  useAwsCloudwatchAlarmMuteRules,
+} from './AwsCloudwatchAlarmMuteRule.tsx'
+
+export {
   AwsCloudwatchCompositeAlarm,
   useAwsCloudwatchCompositeAlarm,
   useAwsCloudwatchCompositeAlarms,
@@ -226,6 +232,12 @@ export {
   useAwsCloudwatchMetricStream,
   useAwsCloudwatchMetricStreams,
 } from './AwsCloudwatchMetricStream.tsx'
+
+export {
+  AwsCloudwatchOtelEnrichment,
+  useAwsCloudwatchOtelEnrichment,
+  useAwsCloudwatchOtelEnrichments,
+} from './AwsCloudwatchOtelEnrichment.tsx'
 
 export {
   AwsCloudwatchQueryDefinition,

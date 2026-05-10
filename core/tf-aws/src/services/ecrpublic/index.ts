@@ -5,6 +5,12 @@ export {
 } from './DataAwsEcrpublicAuthorizationToken.tsx'
 
 export {
+  EphemeralAwsEcrpublicAuthorizationToken,
+  useEphemeralAwsEcrpublicAuthorizationToken,
+  useEphemeralAwsEcrpublicAuthorizationTokens,
+} from './EphemeralAwsEcrpublicAuthorizationToken.tsx'
+
+export {
   DataAwsEcrpublicImages,
   useDataAwsEcrpublicImagess,
 } from './DataAwsEcrpublicImages.tsx'

@@ -73,6 +73,9 @@ export const OutputSchema = z.object({
   dashboard_endpoint: z.string().optional(),
   dashboard_endpoint_v2: z.string().optional(),
   deleted: z.boolean().optional(),
+  deployment_strategy_options: z.object({
+    deployment_strategy: z.string(),
+  }).array().optional(),
   domain_endpoint_v2_hosted_zone_id: z.string().optional(),
   domain_id: z.string().optional(),
   ebs_options: z.object({
@@ -138,7 +141,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/opensearch_domain
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearch_domain
 
 export function DataAwsOpensearchDomain(props: Partial<InputProps>) {
   const _title = (node: any) => {

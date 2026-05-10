@@ -1,0 +1,62 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Savings Plans
+
+## AwsSavingsplansOfferings
+
+Data source for getting AWS Savings Plans Offerings.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/savingsplans_offerings)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/savingsplans/DataAwsSavingsplansOfferings.tsx)
+
+```js
+import { DataAwsSavingsplansOfferings } from "@dinghy/tf-aws/serviceSavingsplans"
+
+<DataAwsSavingsplansOfferings/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSavingsplansSavingsPlan
+
+Provides an AWS Savings Plan resource.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/savingsplans_savings_plan)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/savingsplans/AwsSavingsplansSavingsPlan.tsx)
+
+```js
+import { AwsSavingsplansSavingsPlan } from "@dinghy/tf-aws/serviceSavingsplans"
+
+<AwsSavingsplansSavingsPlan/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/savingsplans_savings_plan)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/savingsplans/DataAwsSavingsplansSavingsPlan.tsx)
+
+```js
+import { DataAwsSavingsplansSavingsPlan } from "@dinghy/tf-aws/serviceSavingsplans"
+
+<DataAwsSavingsplansSavingsPlan/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

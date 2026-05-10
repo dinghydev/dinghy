@@ -37,6 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
     z.object({
       crl_configuration: z.object({
         custom_cname: z.string().optional(),
+        custom_path: z.string().optional(),
         enabled: z.boolean().optional(),
         expiration_in_days: z.number().optional(),
         s3_bucket_name: z.string().optional(),
@@ -84,7 +85,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/acmpca_certificate_authority
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acmpca_certificate_authority
 
 export function AwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
   const _title = (node: any) => {

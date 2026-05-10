@@ -26,6 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
     z.object({
       amd_sev_snp: z.string().optional(),
       core_count: z.number().optional(),
+      nested_virtualization: z.string().optional(),
       threads_per_core: z.number().optional(),
     }).optional(),
   ),
@@ -135,6 +136,22 @@ export const InputSchema = TfMetaSchema.extend({
       volume_type: z.string().optional(),
     }).optional(),
   ),
+  secondary_network_interface: resolvableValue(
+    z.object({
+      delete_on_termination: z.boolean().optional(),
+      device_index: z.number().optional(),
+      interface_type: z.string().optional(),
+      mac_address: z.string().optional(),
+      network_card_index: z.number(),
+      private_ip_address_count: z.number().optional(),
+      private_ip_addresses: z.string().array().optional(),
+      secondary_interface_id: z.string().optional(),
+      secondary_network_id: z.string().optional(),
+      secondary_subnet_id: z.string(),
+      source_dest_check: z.boolean().optional(),
+      status: z.string().optional(),
+    }).array().optional(),
+  ),
   secondary_private_ips: resolvableValue(z.string().array().optional()),
   security_groups: resolvableValue(z.string().array().optional()),
   source_dest_check: resolvableValue(z.boolean().optional()),
@@ -190,7 +207,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/spot_instance_request
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/spot_instance_request
 
 export function AwsSpotInstanceRequest(props: Partial<InputProps>) {
   const _title = (node: any) => {

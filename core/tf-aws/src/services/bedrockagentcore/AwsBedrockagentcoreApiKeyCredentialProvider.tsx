@@ -15,6 +15,7 @@ export const InputSchema = TfMetaSchema.extend({
   api_key_wo: resolvableValue(z.string().optional()),
   api_key_wo_version: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
 export const OutputSchema = z.object({
@@ -22,6 +23,7 @@ export const OutputSchema = z.object({
     secret_arn: z.string(),
   }).array().optional(),
   credential_provider_arn: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
 })
 
 export type InputProps =
@@ -33,7 +35,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_api_key_credential_provider
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_api_key_credential_provider
 
 export function AwsBedrockagentcoreApiKeyCredentialProvider(
   props: Partial<InputProps>,

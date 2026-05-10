@@ -1,0 +1,49 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# User Experience Customization
+
+## AwsUxcAccountCustomizations
+
+Manages UXC Account Customizations for an AWS Account.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/uxc_account_customizations)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/uxc/AwsUxcAccountCustomizations.tsx)
+
+```js
+import { AwsUxcAccountCustomizations } from "@dinghy/tf-aws/serviceUxc"
+
+<AwsUxcAccountCustomizations/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsUxcServices
+
+Data source for retrieving the list of AWS services available in UXC.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/uxc_services)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/uxc/DataAwsUxcServices.tsx)
+
+```js
+import { DataAwsUxcServices } from "@dinghy/tf-aws/serviceUxc"
+
+<DataAwsUxcServices/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

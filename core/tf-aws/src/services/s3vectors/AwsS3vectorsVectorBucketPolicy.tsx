@@ -31,7 +31,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3vectors_vector_bucket_policy
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3vectors_vector_bucket_policy
 
 export function AwsS3vectorsVectorBucketPolicy(props: Partial<InputProps>) {
   const _title = (node: any) => {

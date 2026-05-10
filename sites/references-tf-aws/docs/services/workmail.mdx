@@ -1,0 +1,178 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# WorkMail
+
+## AwsWorkmailDefaultDomain
+
+Manages the default mail domain for an AWS WorkMail organization.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_default_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/workmail/AwsWorkmailDefaultDomain.tsx)
+
+```js
+import { AwsWorkmailDefaultDomain } from "@dinghy/tf-aws/serviceWorkmail"
+
+<AwsWorkmailDefaultDomain/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_default_domain#import)
+
+```js
+<AwsWorkmailDefaultDomain
+   organization_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsWorkmailDomain
+
+Manages a mail domain registered to an AWS WorkMail organization.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_domain)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/workmail/AwsWorkmailDomain.tsx)
+
+```js
+import { AwsWorkmailDomain } from "@dinghy/tf-aws/serviceWorkmail"
+
+<AwsWorkmailDomain/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_domain#import)
+
+```js
+<AwsWorkmailDomain
+   domain_name = {}
+   organization_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsWorkmailGroup
+
+Manages an AWS WorkMail Group.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_group)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/workmail/AwsWorkmailGroup.tsx)
+
+```js
+import { AwsWorkmailGroup } from "@dinghy/tf-aws/serviceWorkmail"
+
+<AwsWorkmailGroup/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_group#import)
+
+```js
+<AwsWorkmailGroup
+   group_id = {}
+   organization_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsWorkmailOrganization
+
+Manages an AWS WorkMail Organization.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_organization)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/workmail/AwsWorkmailOrganization.tsx)
+
+```js
+import { AwsWorkmailOrganization } from "@dinghy/tf-aws/serviceWorkmail"
+
+<AwsWorkmailOrganization/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_organization#import)
+
+```js
+<AwsWorkmailOrganization
+   organization_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsWorkmailUser
+
+Manages an AWS WorkMail User.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_user)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/workmail/AwsWorkmailUser.tsx)
+
+```js
+import { AwsWorkmailUser } from "@dinghy/tf-aws/serviceWorkmail"
+
+<AwsWorkmailUser/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_user#import)
+
+```js
+<AwsWorkmailUser
+   organization_id = {}
+   user_id = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

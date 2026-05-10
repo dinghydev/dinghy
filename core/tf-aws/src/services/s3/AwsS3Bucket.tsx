@@ -16,6 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
   acceleration_status: resolvableValue(z.string().optional()),
   acl: resolvableValue(z.string().optional()),
   bucket: resolvableValue(z.string().optional()),
+  bucket_namespace: resolvableValue(z.string().optional()),
   bucket_prefix: resolvableValue(z.string().optional()),
   cors_rule: resolvableValue(
     z.object({
@@ -185,7 +186,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket
 
 export function AwsS3Bucket(props: Partial<InputProps>) {
   const _title = (node: any) => {

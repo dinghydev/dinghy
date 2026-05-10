@@ -49,6 +49,11 @@ export const InputSchema = TfMetaSchema.extend({
       studio_enabled: z.boolean().optional(),
     }).optional(),
   ),
+  job_level_cost_allocation_configuration: resolvableValue(
+    z.object({
+      enabled: z.boolean().optional(),
+    }).optional(),
+  ),
   maximum_capacity: resolvableValue(
     z.object({
       cpu: z.string(),
@@ -118,7 +123,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/emrserverless_application
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emrserverless_application
 
 export function AwsEmrserverlessApplication(props: Partial<InputProps>) {
   const _title = (node: any) => {

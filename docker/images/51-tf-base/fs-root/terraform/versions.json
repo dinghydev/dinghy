@@ -1,4 +1,4 @@
 {
-  "terraform": "1.14.3",
-  "opentofu": "1.11.2"
+  "terraform": "1.15.2",
+  "opentofu": "1.11.6"
 }

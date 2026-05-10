@@ -33,6 +33,10 @@ export const InputSchema = TfMetaSchema.extend({
         security_group_ids: z.string().array().optional(),
         subnet_ids: z.string().array(),
       }).array().optional(),
+      vpc: z.object({
+        security_group_ids: z.string().array(),
+        subnet_ids: z.string().array(),
+      }).array().optional(),
     }).array().optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -61,7 +65,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/prometheus_scraper
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/prometheus_scraper
 
 export function AwsPrometheusScraper(props: Partial<InputProps>) {
   const _title = (node: any) => {

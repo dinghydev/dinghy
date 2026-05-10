@@ -23,6 +23,23 @@ export {
 } from './DataAwsOpensearchserverlessCollection.tsx'
 
 export {
+  AwsOpensearchserverlessCollectionGroup,
+  useAwsOpensearchserverlessCollectionGroup,
+  useAwsOpensearchserverlessCollectionGroups,
+} from './AwsOpensearchserverlessCollectionGroup.tsx'
+
+export {
+  DataAwsOpensearchserverlessCollectionGroup,
+  useDataAwsOpensearchserverlessCollectionGroup,
+  useDataAwsOpensearchserverlessCollectionGroups,
+} from './DataAwsOpensearchserverlessCollectionGroup.tsx'
+
+export {
+  DataAwsOpensearchserverlessCollectionGroups,
+  useDataAwsOpensearchserverlessCollectionGroupss,
+} from './DataAwsOpensearchserverlessCollectionGroups.tsx'
+
+export {
   AwsOpensearchserverlessLifecyclePolicy,
   useAwsOpensearchserverlessLifecyclePolicy,
   useAwsOpensearchserverlessLifecyclePolicys,

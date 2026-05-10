@@ -16,9 +16,14 @@ export const InputSchema = TfMetaSchema.extend({
   destination_type: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({})
+export const OutputSchema = z.object({
+  arn: z.string().optional(),
+  destination_id: z.string().optional(),
+  tags_all: z.record(z.string(), z.string()).optional(),
+})
 
 export type InputProps =
   & z.input<typeof InputSchema>
@@ -29,7 +34,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/guardduty_publishing_destination
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/guardduty_publishing_destination
 
 export function AwsGuarddutyPublishingDestination(props: Partial<InputProps>) {
   const _title = (node: any) => {

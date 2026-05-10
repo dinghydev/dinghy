@@ -11,6 +11,11 @@ export {
 } from './DataAwsOrganizationsAccount.tsx'
 
 export {
+  AwsOrganizationsAwsServiceAccess,
+  useAwsOrganizationsAwsServiceAccesss,
+} from './AwsOrganizationsAwsServiceAccess.tsx'
+
+export {
   AwsOrganizationsDelegatedAdministrator,
   useAwsOrganizationsDelegatedAdministrator,
   useAwsOrganizationsDelegatedAdministrators,
@@ -25,6 +30,12 @@ export {
   DataAwsOrganizationsDelegatedServices,
   useDataAwsOrganizationsDelegatedServicess,
 } from './DataAwsOrganizationsDelegatedServices.tsx'
+
+export {
+  DataAwsOrganizationsEntityPath,
+  useDataAwsOrganizationsEntityPath,
+  useDataAwsOrganizationsEntityPaths,
+} from './DataAwsOrganizationsEntityPath.tsx'
 
 export {
   AwsOrganizationsOrganization,

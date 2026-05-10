@@ -3047,6 +3047,44 @@ export const InputSchema = TfMetaSchema.extend({
     }).array().optional(),
   ),
   parent_intent_signature: resolvableValue(z.string().optional()),
+  qna_intent_configuration: resolvableValue(
+    z.object({
+      bedrock_model_configuration: z.object({
+        custom_prompt: z.string().optional(),
+        model_arn: z.string(),
+        trace_status: z.string().optional(),
+        guardrail: z.object({
+          identifier: z.string(),
+          version: z.string(),
+        }).array().optional(),
+      }).array().optional(),
+      data_source_configuration: z.object({
+        bedrock_knowledge_store_configuration: z.object({
+          bedrock_knowledge_base_arn: z.string(),
+          exact_response: z.boolean().optional(),
+          exact_response_fields: z.object({
+            answer_field: z.string().optional(),
+          }).array().optional(),
+        }).array().optional(),
+        kendra_configuration: z.object({
+          exact_response: z.boolean().optional(),
+          kendra_index: z.string(),
+          query_filter_string: z.string().optional(),
+          query_filter_string_enabled: z.boolean().optional(),
+        }).array().optional(),
+        opensearch_configuration: z.object({
+          domain_endpoint: z.string(),
+          exact_response: z.boolean().optional(),
+          include_fields: z.string().array().optional(),
+          index_name: z.string(),
+          exact_response_fields: z.object({
+            answer_field: z.string(),
+            question_field: z.string(),
+          }).array().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    }).array().optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   sample_utterance: resolvableValue(
     z.object({
@@ -3084,7 +3122,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lexv2models_intent
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lexv2models_intent
 
 export function AwsLexv2modelsIntent(props: Partial<InputProps>) {
   const _title = (node: any) => {

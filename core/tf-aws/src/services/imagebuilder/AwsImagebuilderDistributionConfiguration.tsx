@@ -68,7 +68,6 @@ export const InputSchema = TfMetaSchema.extend({
   ),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
@@ -77,6 +76,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   date_created: z.string().optional(),
   date_updated: z.string().optional(),
+  id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -94,7 +94,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/imagebuilder_distribution_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_distribution_configuration
 
 export function AwsImagebuilderDistributionConfiguration(
   props: Partial<InputProps>,

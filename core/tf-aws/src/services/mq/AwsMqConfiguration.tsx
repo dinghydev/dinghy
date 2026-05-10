@@ -17,6 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   authentication_strategy: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  skip_destroy: resolvableValue(z.boolean().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
@@ -36,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/mq_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/mq_configuration
 
 export function AwsMqConfiguration(props: Partial<InputProps>) {
   const _title = (node: any) => {

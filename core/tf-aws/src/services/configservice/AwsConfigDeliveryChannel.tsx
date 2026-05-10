@@ -11,6 +11,7 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   s3_bucket_name: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   s3_key_prefix: resolvableValue(z.string().optional()),
@@ -23,12 +24,17 @@ export const InputSchema = TfMetaSchema.extend({
   sns_topic_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
+export const OutputSchema = z.object({})
+
+export const ImportSchema = z.object({
+  name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
 })
 
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -36,7 +42,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/config_delivery_channel
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_delivery_channel
 
 export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -50,6 +56,7 @@ export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

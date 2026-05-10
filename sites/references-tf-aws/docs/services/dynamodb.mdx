@@ -3,6 +3,28 @@ import TabItem from '@theme/TabItem';
 
 # DynamoDB
 
+## AwsDynamodbBackups
+
+Data source for listing AWS DynamoDB backups.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_backups)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/DataAwsDynamodbBackups.tsx)
+
+```js
+import { DataAwsDynamodbBackups } from "@dinghy/tf-aws/serviceDynamodb"
+
+<DataAwsDynamodbBackups/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
 ## AwsDynamodbContributorInsights
 
 Provides a DynamoDB contributor insights resource
@@ -12,7 +34,7 @@ Provides a DynamoDB contributor insights resource
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_contributor_insights)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_contributor_insights)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbContributorInsights.tsx)
 
 ```js
@@ -34,7 +56,7 @@ Provides a DynamoDB Global Secondary Index resource
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_global_secondary_index)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_global_secondary_index)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbGlobalSecondaryIndex.tsx)
 
 ```js
@@ -47,7 +69,7 @@ import { AwsDynamodbGlobalSecondaryIndex } from "@dinghy/tf-aws/serviceDynamodb"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_global_secondary_index#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_global_secondary_index#import)
 
 ```js
 <AwsDynamodbGlobalSecondaryIndex
@@ -69,7 +91,7 @@ Manages DynamoDB Global Tables V1 (version 2017.11.29)
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_global_table)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_global_table)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbGlobalTable.tsx)
 
 ```js
@@ -91,7 +113,7 @@ Enables a Kinesis streaming destination for a DynamoDB table
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_kinesis_streaming_destination)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_kinesis_streaming_destination)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbKinesisStreamingDestination.tsx)
 
 ```js
@@ -113,7 +135,7 @@ Terraform resource for managing an AWS DynamoDB Resource Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_resource_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_resource_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbResourcePolicy.tsx)
 
 ```js
@@ -126,7 +148,7 @@ import { AwsDynamodbResourcePolicy } from "@dinghy/tf-aws/serviceDynamodb"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_resource_policy#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_resource_policy#import)
 
 ```js
 <AwsDynamodbResourcePolicy
@@ -147,7 +169,7 @@ Provides a DynamoDB table resource
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_table)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbTable.tsx)
 
 ```js
@@ -160,13 +182,25 @@ import { AwsDynamodbTable } from "@dinghy/tf-aws/serviceDynamodb"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dynamodb_table)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_table)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/DataAwsDynamodbTable.tsx)
 
 ```js
 import { DataAwsDynamodbTable } from "@dinghy/tf-aws/serviceDynamodb"
 
 <DataAwsDynamodbTable/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table#import)
+
+```js
+<AwsDynamodbTable
+   name = {}
+/>
 ```
 
   </TabItem>
@@ -182,7 +216,7 @@ Terraform resource for managing an AWS DynamoDB Table Export.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_table_export)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table_export)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbTableExport.tsx)
 
 ```js
@@ -195,7 +229,7 @@ import { AwsDynamodbTableExport } from "@dinghy/tf-aws/serviceDynamodb"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_table_export#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table_export#import)
 
 ```js
 <AwsDynamodbTableExport
@@ -216,7 +250,7 @@ Provides a DynamoDB table item resource
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_table_item)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table_item)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbTableItem.tsx)
 
 ```js
@@ -229,7 +263,7 @@ import { AwsDynamodbTableItem } from "@dinghy/tf-aws/serviceDynamodb"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dynamodb_table_item)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_table_item)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/DataAwsDynamodbTableItem.tsx)
 
 ```js
@@ -251,7 +285,7 @@ Provides a DynamoDB table replica resource
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_table_replica)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table_replica)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbTableReplica.tsx)
 
 ```js
@@ -273,7 +307,7 @@ Provides a list of all AWS DynamoDB Table Names in a Region
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dynamodb_tables)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_tables)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/DataAwsDynamodbTables.tsx)
 
 ```js
@@ -295,7 +329,7 @@ Manages an individual DynamoDB resource tag
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dynamodb_tag)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_tag)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/dynamodb/AwsDynamodbTag.tsx)
 
 ```js

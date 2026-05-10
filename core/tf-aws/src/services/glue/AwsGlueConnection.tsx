@@ -14,6 +14,38 @@ export const InputSchema = TfMetaSchema.extend({
   athena_properties: resolvableValue(
     z.record(z.string(), z.string()).optional(),
   ),
+  authentication_configuration: resolvableValue(
+    z.object({
+      authentication_type: z.string(),
+      custom_authentication_credentials: z.record(z.string(), z.string())
+        .optional(),
+      kms_key_arn: z.string().optional(),
+      secret_arn: z.string().optional(),
+      basic_authentication_credentials: z.object({
+        password: z.string(),
+        username: z.string(),
+      }).optional(),
+      oauth2_properties: z.object({
+        oauth2_grant_type: z.string().optional(),
+        token_url: z.string().optional(),
+        token_url_parameters_map: z.record(z.string(), z.string()).optional(),
+        authorization_code_properties: z.object({
+          authorization_code: z.string(),
+          redirect_uri: z.string(),
+        }).optional(),
+        oauth2_client_application: z.object({
+          aws_managed_client_application_reference: z.string().optional(),
+          user_managed_client_application_client_id: z.string().optional(),
+        }).optional(),
+        oauth2_credentials: z.object({
+          access_token: z.string().optional(),
+          jwt_token: z.string().optional(),
+          refresh_token: z.string().optional(),
+          user_managed_client_application_client_secret: z.string().optional(),
+        }).optional(),
+      }).optional(),
+    }).optional(),
+  ),
   catalog_id: resolvableValue(z.string().optional()),
   connection_properties: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -47,7 +79,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/glue_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_connection
 
 export function AwsGlueConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -267,6 +267,7 @@ export const InputSchema = z.object({
       mediastore: z.string().optional(),
       memorydb: z.string().optional(),
       mgn: z.string().optional(),
+      mpa: z.string().optional(),
       mq: z.string().optional(),
       msk: z.string().optional(),
       mwaa: z.string().optional(),
@@ -329,10 +330,12 @@ export const InputSchema = z.object({
       s3: z.string().optional(),
       s3api: z.string().optional(),
       s3control: z.string().optional(),
+      s3files: z.string().optional(),
       s3outposts: z.string().optional(),
       s3tables: z.string().optional(),
       s3vectors: z.string().optional(),
       sagemaker: z.string().optional(),
+      savingsplans: z.string().optional(),
       scheduler: z.string().optional(),
       schemas: z.string().optional(),
       secretsmanager: z.string().optional(),
@@ -371,6 +374,7 @@ export const InputSchema = z.object({
       transcribe: z.string().optional(),
       transcribeservice: z.string().optional(),
       transfer: z.string().optional(),
+      uxc: z.string().optional(),
       verifiedpermissions: z.string().optional(),
       vpclattice: z.string().optional(),
       waf: z.string().optional(),
@@ -412,7 +416,7 @@ export function AwsProvider(props: Partial<InputProps>) {
         required_providers: {
           aws: {
             source: 'aws',
-            version: '6.28.0',
+            version: '6.44.0',
           },
         },
       }}

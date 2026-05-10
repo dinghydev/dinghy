@@ -14,6 +14,11 @@ export const InputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   addon_version: resolvableValue(z.string().optional()),
   configuration_values: resolvableValue(z.string().optional()),
+  namespace_config: resolvableValue(
+    z.object({
+      namespace: z.string().optional(),
+    }).optional(),
+  ),
   pod_identity_association: resolvableValue(
     z.object({
       role_arn: z.string(),
@@ -43,8 +48,16 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
+export const ImportSchema = z.object({
+  addon_name: resolvableValue(z.string()),
+  cluster_name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -52,7 +65,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/eks_addon
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_addon
 
 export function AwsEksAddon(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -66,6 +79,7 @@ export function AwsEksAddon(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

@@ -24,8 +24,18 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({})
 
+export const ImportSchema = z.object({
+  http_method: resolvableValue(z.string()),
+  resource_id: resolvableValue(z.string()),
+  rest_api_id: resolvableValue(z.string()),
+  status_code: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -33,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/api_gateway_method_response
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_method_response
 
 export function AwsApiGatewayMethodResponse(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -47,6 +57,7 @@ export function AwsApiGatewayMethodResponse(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

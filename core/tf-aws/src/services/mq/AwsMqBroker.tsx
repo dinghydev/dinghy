@@ -14,15 +14,6 @@ export const InputSchema = TfMetaSchema.extend({
   engine_type: resolvableValue(z.string()),
   engine_version: resolvableValue(z.string()),
   host_instance_type: resolvableValue(z.string()),
-  user: resolvableValue(
-    z.object({
-      console_access: z.boolean().optional(),
-      groups: z.string().array().optional(),
-      password: z.string(),
-      replication_user: z.boolean().optional(),
-      username: z.string(),
-    }).array(),
-  ),
   apply_immediately: resolvableValue(z.boolean().optional()),
   authentication_strategy: resolvableValue(z.string().optional()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
@@ -82,6 +73,15 @@ export const InputSchema = TfMetaSchema.extend({
       update: z.string().optional(),
     }).optional(),
   ),
+  user: resolvableValue(
+    z.object({
+      console_access: z.boolean().optional(),
+      groups: z.string().array().optional(),
+      password: z.string(),
+      replication_user: z.boolean().optional(),
+      username: z.string(),
+    }).array().optional(),
+  ),
 })
 
 export const OutputSchema = z.object({
@@ -105,7 +105,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/mq_broker
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/mq_broker
 
 export function AwsMqBroker(props: Partial<InputProps>) {
   const _title = (node: any) => {

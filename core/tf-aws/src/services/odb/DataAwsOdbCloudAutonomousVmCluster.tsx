@@ -21,6 +21,7 @@ export const OutputSchema = z.object({
   available_autonomous_data_storage_size_in_tbs: z.number().optional(),
   available_container_databases: z.number().optional(),
   available_cpus: z.number().optional(),
+  cloud_exadata_infrastructure_arn: z.string().optional(),
   cloud_exadata_infrastructure_id: z.string().optional(),
   compute_model: z.string().optional(),
   cpu_core_count: z.number().optional(),
@@ -57,6 +58,7 @@ export const OutputSchema = z.object({
   oci_resource_anchor_name: z.string().optional(),
   oci_url: z.string().optional(),
   ocid: z.string().optional(),
+  odb_network_arn: z.string().optional(),
   odb_network_id: z.string().optional(),
   odb_node_storage_size_in_gbs: z.number().optional(),
   percent_progress: z.number().optional(),
@@ -86,7 +88,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/odb_cloud_autonomous_vm_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_cloud_autonomous_vm_cluster
 
 export function DataAwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -13,6 +13,7 @@ export const InputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
   checksum_mode: resolvableValue(z.string().optional()),
+  download_body: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   range: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -22,6 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   body: z.string().optional(),
+  body_base64: z.string().optional(),
   bucket_key_enabled: z.boolean().optional(),
   cache_control: z.string().optional(),
   checksum_crc32: z.string().optional(),
@@ -59,7 +61,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/s3_object
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/s3_object
 
 export function DataAwsS3Object(props: Partial<InputProps>) {
   const _title = (node: any) => {

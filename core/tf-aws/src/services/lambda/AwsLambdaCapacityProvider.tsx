@@ -72,7 +72,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_capacity_provider
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_capacity_provider
 
 export function AwsLambdaCapacityProvider(props: Partial<InputProps>) {
   const _title = (node: any) => {

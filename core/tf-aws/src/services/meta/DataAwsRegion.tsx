@@ -11,13 +11,13 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   endpoint: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
 export const OutputSchema = z.object({
   description: z.string().optional(),
+  id: z.string().optional(),
 })
 
 export type InputProps =
@@ -29,7 +29,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/region
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/region
 
 export function DataAwsRegion(props: Partial<InputProps>) {
   const _title = (node: any) => {

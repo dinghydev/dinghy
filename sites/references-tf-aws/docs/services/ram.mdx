@@ -3,6 +3,40 @@ import TabItem from '@theme/TabItem';
 
 # RAM (Resource Access Manager)
 
+## AwsRamPermission
+
+Manages an AWS RAM (Resource Access Manager) Permission.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_permission)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamPermission.tsx)
+
+```js
+import { AwsRamPermission } from "@dinghy/tf-aws/serviceRam"
+
+<AwsRamPermission/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_permission#import)
+
+```js
+<AwsRamPermission
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
 ## AwsRamPrincipalAssociation
 
 Provides a Resource Access Manager (RAM) principal association.
@@ -12,7 +46,7 @@ Provides a Resource Access Manager (RAM) principal association.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_principal_association)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_principal_association)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamPrincipalAssociation.tsx)
 
 ```js
@@ -34,7 +68,7 @@ Manages a Resource Access Manager (RAM) Resource Association.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_resource_association)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_association)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamResourceAssociation.tsx)
 
 ```js
@@ -56,7 +90,7 @@ Manages a Resource Access Manager (RAM) Resource Share.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_resource_share)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamResourceShare.tsx)
 
 ```js
@@ -69,7 +103,7 @@ import { AwsRamResourceShare } from "@dinghy/tf-aws/serviceRam"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ram_resource_share)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ram_resource_share)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/DataAwsRamResourceShare.tsx)
 
 ```js
@@ -91,13 +125,47 @@ Manages accepting a Resource Access Manager (RAM) Resource Share invitation.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_resource_share_accepter)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share_accepter)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamResourceShareAccepter.tsx)
 
 ```js
 import { AwsRamResourceShareAccepter } from "@dinghy/tf-aws/serviceRam"
 
 <AwsRamResourceShareAccepter/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsRamResourceShareAssociationsExclusive
+
+Terraform resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share_associations_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamResourceShareAssociationsExclusive.tsx)
+
+```js
+import { AwsRamResourceShareAssociationsExclusive } from "@dinghy/tf-aws/serviceRam"
+
+<AwsRamResourceShareAssociationsExclusive/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share_associations_exclusive#import)
+
+```js
+<AwsRamResourceShareAssociationsExclusive
+   resource_share_arn = {}
+/>
 ```
 
   </TabItem>
@@ -113,7 +181,7 @@ Manages Resource Access Manager (RAM) Resource Sharing with AWS Organizations.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_sharing_with_organization)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_sharing_with_organization)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ram/AwsRamSharingWithOrganization.tsx)
 
 ```js

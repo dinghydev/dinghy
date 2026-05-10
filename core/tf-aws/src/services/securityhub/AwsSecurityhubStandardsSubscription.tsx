@@ -11,6 +11,7 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   standards_arn: resolvableValue(z.string()),
+  id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -21,11 +22,16 @@ export const InputSchema = TfMetaSchema.extend({
 })
 
 export const OutputSchema = z.object({
-  id: z.string().optional(),
+  arn: z.string().optional(),
+})
+
+export const ImportSchema = z.object({
+  arn: resolvableValue(z.string()),
 })
 
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -33,7 +39,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_standards_subscription
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_subscription
 
 export function AwsSecurityhubStandardsSubscription(
   props: Partial<InputProps>,
@@ -49,6 +55,7 @@ export function AwsSecurityhubStandardsSubscription(
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

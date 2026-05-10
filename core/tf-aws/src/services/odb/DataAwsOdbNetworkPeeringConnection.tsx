@@ -21,6 +21,7 @@ export const OutputSchema = z.object({
   odb_network_arn: z.string().optional(),
   odb_peering_connection_type: z.string().optional(),
   peer_network_arn: z.string().optional(),
+  peer_network_cidrs: z.set(z.string()).optional(),
   percent_progress: z.number().optional(),
   status: z.string().optional(),
   status_reason: z.string().optional(),
@@ -36,7 +37,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/odb_network_peering_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_network_peering_connection
 
 export function DataAwsOdbNetworkPeeringConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

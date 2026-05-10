@@ -58,7 +58,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/db_proxy
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/db_proxy
 
 export function AwsDbProxy(props: Partial<InputProps>) {
   const _title = (node: any) => {

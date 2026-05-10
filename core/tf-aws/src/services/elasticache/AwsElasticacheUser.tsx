@@ -24,6 +24,8 @@ export const InputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   no_password_required: resolvableValue(z.boolean().optional()),
   passwords: resolvableValue(z.string().array().optional()),
+  passwords_wo: resolvableValue(z.string().optional()),
+  passwords_wo_version: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -50,7 +52,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/elasticache_user
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticache_user
 
 export function AwsElasticacheUser(props: Partial<InputProps>) {
   const _title = (node: any) => {

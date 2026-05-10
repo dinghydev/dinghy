@@ -10,10 +10,11 @@ import z from 'zod'
 import { AwsLambdaLayerVersion } from './AwsLambdaLayerVersion.tsx'
 
 export const InputSchema = TfMetaSchema.extend({
-  layer_name: resolvableValue(z.string()),
   compatible_architecture: resolvableValue(z.string().optional()),
   compatible_runtime: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
+  layer_name: resolvableValue(z.string().optional()),
+  layer_version_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.number().optional()),
 })
@@ -31,7 +32,6 @@ export const OutputSchema = z.object({
   signing_profile_version_arn: z.string().optional(),
   source_code_hash: z.string().optional(),
   source_code_size: z.number().optional(),
-  version: z.number().optional(),
 })
 
 export type InputProps =
@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/lambda_layer_version
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lambda_layer_version
 
 export function DataAwsLambdaLayerVersion(props: Partial<InputProps>) {
   const _title = (node: any) => {

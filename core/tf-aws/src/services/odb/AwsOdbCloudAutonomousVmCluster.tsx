@@ -11,15 +11,15 @@ import z from 'zod'
 
 export const InputSchema = TfMetaSchema.extend({
   autonomous_data_storage_size_in_tbs: resolvableValue(z.number()),
-  cloud_exadata_infrastructure_id: resolvableValue(z.string()),
   cpu_core_count_per_node: resolvableValue(z.number()),
   db_servers: resolvableValue(z.string().array()),
   display_name: resolvableValue(z.string()),
   memory_per_oracle_compute_unit_in_gbs: resolvableValue(z.number()),
-  odb_network_id: resolvableValue(z.string()),
   scan_listener_port_non_tls: resolvableValue(z.number()),
   scan_listener_port_tls: resolvableValue(z.number()),
   total_container_databases: resolvableValue(z.number()),
+  cloud_exadata_infrastructure_arn: resolvableValue(z.string().optional()),
+  cloud_exadata_infrastructure_id: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
   is_mtls_enabled_vm_cluster: resolvableValue(z.boolean().optional()),
   license_model: resolvableValue(z.string().optional()),
@@ -37,6 +37,8 @@ export const InputSchema = TfMetaSchema.extend({
       weeks_of_month: z.number().array().optional(),
     }).array().optional(),
   ),
+  odb_network_arn: resolvableValue(z.string().optional()),
+  odb_network_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   time_zone: resolvableValue(z.string().optional()),
@@ -98,7 +100,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/odb_cloud_autonomous_vm_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_cloud_autonomous_vm_cluster
 
 export function AwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

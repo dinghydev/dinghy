@@ -26,6 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   desired_number_of_domain_controllers: resolvableValue(z.number().optional()),
   edition: resolvableValue(z.string().optional()),
+  enable_directory_data_access: resolvableValue(z.boolean().optional()),
   enable_sso: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   short_name: resolvableValue(z.string().optional()),
@@ -65,7 +66,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/directory_service_directory
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_directory
 
 export function AwsDirectoryServiceDirectory(props: Partial<InputProps>) {
   const _title = (node: any) => {

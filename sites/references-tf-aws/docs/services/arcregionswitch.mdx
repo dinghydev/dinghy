@@ -1,0 +1,74 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# ARC (Application Recovery Controller) Region Switch
+
+## AwsArcregionswitchPlan
+
+Terraform resource for managing an Amazon ARC Region Switch Plan.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/arcregionswitch_plan)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/arcregionswitch/AwsArcregionswitchPlan.tsx)
+
+```js
+import { AwsArcregionswitchPlan } from "@dinghy/tf-aws/serviceArcregionswitch"
+
+<AwsArcregionswitchPlan/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/arcregionswitch_plan)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/arcregionswitch/DataAwsArcregionswitchPlan.tsx)
+
+```js
+import { DataAwsArcregionswitchPlan } from "@dinghy/tf-aws/serviceArcregionswitch"
+
+<DataAwsArcregionswitchPlan/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/arcregionswitch_plan#import)
+
+```js
+<AwsArcregionswitchPlan
+   arn = {}
+/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsArcregionswitchRoute53HealthChecks
+
+Terraform data source for managing Amazon ARC Region Switch Route53 Health Checks.
+
+
+
+<Tabs>
+  <TabItem value="Data">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/arcregionswitch_route53_health_checks)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/arcregionswitch/DataAwsArcregionswitchRoute53HealthChecks.tsx)
+
+```js
+import { DataAwsArcregionswitchRoute53HealthChecks } from "@dinghy/tf-aws/serviceArcregionswitch"
+
+<DataAwsArcregionswitchRoute53HealthChecks/>
+```
+
+  </TabItem>
+  
+</Tabs>
+

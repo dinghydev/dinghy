@@ -28,6 +28,7 @@ export const OutputSchema = z.object({
     az_distribution: z.string(),
     client_subnets: z.set(z.string()),
     connectivity_info: z.object({
+      network_type: z.string(),
       public_access: z.object({
         type: z.string(),
       }).array(),
@@ -70,7 +71,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/msk_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/msk_cluster
 
 export function DataAwsMskCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

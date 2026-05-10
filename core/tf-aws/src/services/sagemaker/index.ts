@@ -1,4 +1,10 @@
 export {
+  AwsSagemakerAlgorithm,
+  useAwsSagemakerAlgorithm,
+  useAwsSagemakerAlgorithms,
+} from './AwsSagemakerAlgorithm.tsx'
+
+export {
   AwsSagemakerApp,
   useAwsSagemakerApp,
   useAwsSagemakerApps,
@@ -77,6 +83,12 @@ export {
 } from './AwsSagemakerHumanTaskUi.tsx'
 
 export {
+  AwsSagemakerHyperParameterTuningJob,
+  useAwsSagemakerHyperParameterTuningJob,
+  useAwsSagemakerHyperParameterTuningJobs,
+} from './AwsSagemakerHyperParameterTuningJob.tsx'
+
+export {
   AwsSagemakerImage,
   useAwsSagemakerImage,
   useAwsSagemakerImages,
@@ -89,6 +101,18 @@ export {
 } from './AwsSagemakerImageVersion.tsx'
 
 export {
+  AwsSagemakerLabelingJob,
+  useAwsSagemakerLabelingJob,
+  useAwsSagemakerLabelingJobs,
+} from './AwsSagemakerLabelingJob.tsx'
+
+export {
+  AwsSagemakerMlflowApp,
+  useAwsSagemakerMlflowApp,
+  useAwsSagemakerMlflowApps,
+} from './AwsSagemakerMlflowApp.tsx'
+
+export {
   AwsSagemakerMlflowTrackingServer,
   useAwsSagemakerMlflowTrackingServer,
   useAwsSagemakerMlflowTrackingServers,
@@ -99,6 +123,18 @@ export {
   useAwsSagemakerModel,
   useAwsSagemakerModels,
 } from './AwsSagemakerModel.tsx'
+
+export {
+  AwsSagemakerModelCard,
+  useAwsSagemakerModelCard,
+  useAwsSagemakerModelCards,
+} from './AwsSagemakerModelCard.tsx'
+
+export {
+  AwsSagemakerModelCardExportJob,
+  useAwsSagemakerModelCardExportJob,
+  useAwsSagemakerModelCardExportJobs,
+} from './AwsSagemakerModelCardExportJob.tsx'
 
 export {
   AwsSagemakerModelPackageGroup,
@@ -164,6 +200,12 @@ export {
   useAwsSagemakerStudioLifecycleConfig,
   useAwsSagemakerStudioLifecycleConfigs,
 } from './AwsSagemakerStudioLifecycleConfig.tsx'
+
+export {
+  AwsSagemakerTrainingJob,
+  useAwsSagemakerTrainingJob,
+  useAwsSagemakerTrainingJobs,
+} from './AwsSagemakerTrainingJob.tsx'
 
 export {
   AwsSagemakerUserProfile,

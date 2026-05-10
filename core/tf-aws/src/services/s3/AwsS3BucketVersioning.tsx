@@ -27,7 +27,6 @@ export const OutputSchema = z.object({
 export const ImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
-  expected_bucket_owner: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
@@ -41,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3_bucket_versioning
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_versioning
 
 export function AwsS3BucketVersioning(props: Partial<InputProps>) {
   const _title = (node: any) => {

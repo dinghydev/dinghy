@@ -64,6 +64,7 @@ export const OutputSchema = z.object({
   }).array().optional(),
   id: z.string().optional(),
   user_id: z.string().optional(),
+  user_status: z.string().optional(),
 })
 
 export type InputProps =
@@ -75,7 +76,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/identitystore_user
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/identitystore_user
 
 export function AwsIdentitystoreUser(props: Partial<InputProps>) {
   const _title = (node: any) => {

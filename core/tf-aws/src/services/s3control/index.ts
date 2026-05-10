@@ -29,6 +29,11 @@ export {
 } from './AwsS3controlAccessPointPolicy.tsx'
 
 export {
+  DataAwsS3controlAccessPoints,
+  useDataAwsS3controlAccessPointss,
+} from './DataAwsS3controlAccessPoints.tsx'
+
+export {
   AwsS3controlBucket,
   useAwsS3controlBucket,
   useAwsS3controlBuckets,
@@ -69,6 +74,11 @@ export {
   useAwsS3controlMultiRegionAccessPointPolicy,
   useAwsS3controlMultiRegionAccessPointPolicys,
 } from './AwsS3controlMultiRegionAccessPointPolicy.tsx'
+
+export {
+  DataAwsS3controlMultiRegionAccessPoints,
+  useDataAwsS3controlMultiRegionAccessPointss,
+} from './DataAwsS3controlMultiRegionAccessPoints.tsx'
 
 export {
   AwsS3controlObjectLambdaAccessPoint,

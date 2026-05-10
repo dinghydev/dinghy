@@ -37,6 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
             requests: z.record(z.string(), z.string()).optional(),
           }).optional(),
           security_context: z.object({
+            allow_privilege_escalation: z.boolean().optional(),
             privileged: z.boolean().optional(),
             read_only_root_file_system: z.boolean().optional(),
             run_as_group: z.number().optional(),
@@ -67,6 +68,7 @@ export const InputSchema = TfMetaSchema.extend({
             requests: z.record(z.string(), z.string()).optional(),
           }).optional(),
           security_context: z.object({
+            allow_privilege_escalation: z.boolean().optional(),
             privileged: z.boolean().optional(),
             read_only_root_file_system: z.boolean().optional(),
             run_as_group: z.number().optional(),
@@ -146,7 +148,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/batch_job_definition
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/batch_job_definition
 
 export function AwsBatchJobDefinition(props: Partial<InputProps>) {
   const _title = (node: any) => {

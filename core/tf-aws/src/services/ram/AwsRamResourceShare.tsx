@@ -14,6 +14,11 @@ export const InputSchema = TfMetaSchema.extend({
   allow_external_principals: resolvableValue(z.boolean().optional()),
   permission_arns: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
+  resource_share_configuration: resolvableValue(
+    z.object({
+      retain_sharing_on_account_leave_organization: z.boolean().optional(),
+    }).optional(),
+  ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -38,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ram_resource_share
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share
 
 export function AwsRamResourceShare(props: Partial<InputProps>) {
   const _title = (node: any) => {

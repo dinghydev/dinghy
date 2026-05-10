@@ -13,6 +13,7 @@ export const InputSchema = TfMetaSchema.extend({
   config_id: resolvableValue(z.string()),
   storage_lens_configuration: resolvableValue(z.object({
     enabled: z.boolean(),
+    prefix_delimiter: z.string().optional(),
     account_level: z.object({
       activity_metrics: z.object({
         enabled: z.boolean().optional(),
@@ -23,6 +24,9 @@ export const InputSchema = TfMetaSchema.extend({
       advanced_data_protection_metrics: z.object({
         enabled: z.boolean().optional(),
       }).optional(),
+      advanced_performance_metrics: z.object({
+        enabled: z.boolean().optional(),
+      }).optional(),
       bucket_level: z.object({
         activity_metrics: z.object({
           enabled: z.boolean().optional(),
@@ -31,6 +35,9 @@ export const InputSchema = TfMetaSchema.extend({
           enabled: z.boolean().optional(),
         }).optional(),
         advanced_data_protection_metrics: z.object({
+          enabled: z.boolean().optional(),
+        }).optional(),
+        advanced_performance_metrics: z.object({
           enabled: z.boolean().optional(),
         }).optional(),
         detailed_status_code_metrics: z.object({
@@ -71,10 +78,43 @@ export const InputSchema = TfMetaSchema.extend({
           sse_s3: z.object({}).array().optional(),
         }).optional(),
       }).optional(),
+      storage_lens_table_destination: z.object({
+        enabled: z.boolean(),
+        encryption: z.object({
+          sse_kms: z.object({
+            key_id: z.string(),
+          }).optional(),
+          sse_s3: z.object({}).array().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
     exclude: z.object({
       buckets: z.string().array().optional(),
       regions: z.string().array().optional(),
+    }).optional(),
+    expanded_prefixes_data_export: z.object({
+      s3_bucket_destination: z.object({
+        account_id: z.string(),
+        arn: z.string(),
+        format: z.string(),
+        output_schema_version: z.string(),
+        prefix: z.string().optional(),
+        encryption: z.object({
+          sse_kms: z.object({
+            key_id: z.string(),
+          }).optional(),
+          sse_s3: z.object({}).array().optional(),
+        }).optional(),
+      }).optional(),
+      storage_lens_table_destination: z.object({
+        enabled: z.boolean(),
+        encryption: z.object({
+          sse_kms: z.object({
+            key_id: z.string(),
+          }).optional(),
+          sse_s3: z.object({}).array().optional(),
+        }).optional(),
+      }).optional(),
     }).optional(),
     include: z.object({
       buckets: z.string().array().optional(),
@@ -101,7 +141,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3control_storage_lens_configuration
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_storage_lens_configuration
 
 export function AwsS3controlStorageLensConfiguration(
   props: Partial<InputProps>,

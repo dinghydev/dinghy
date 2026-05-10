@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/route53_zone
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route53_zone
 
 export function DataAwsRoute53Zone(props: Partial<InputProps>) {
   const _title = (node: any) => {

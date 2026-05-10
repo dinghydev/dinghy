@@ -27,6 +27,14 @@ export const InputSchema = TfMetaSchema.extend({
   publicly_advertisable: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
   source_ipam_pool_id: resolvableValue(z.string().optional()),
+  source_resource: resolvableValue(
+    z.object({
+      resource_id: z.string(),
+      resource_owner: z.string(),
+      resource_region: z.string(),
+      resource_type: z.string(),
+    }).optional(),
+  ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -55,7 +63,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_ipam_pool
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_pool
 
 export function AwsVpcIpamPool(props: Partial<InputProps>) {
   const _title = (node: any) => {

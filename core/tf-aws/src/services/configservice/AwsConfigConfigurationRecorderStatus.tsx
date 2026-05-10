@@ -17,8 +17,15 @@ export const InputSchema = TfMetaSchema.extend({
 
 export const OutputSchema = z.object({})
 
+export const ImportSchema = z.object({
+  name: resolvableValue(z.string()),
+  account_id: resolvableValue(z.string().optional()),
+  region: resolvableValue(z.string().optional()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -26,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/config_configuration_recorder_status
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_configuration_recorder_status
 
 export function AwsConfigConfigurationRecorderStatus(
   props: Partial<InputProps>,
@@ -42,6 +49,7 @@ export function AwsConfigConfigurationRecorderStatus(
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

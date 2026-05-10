@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/networkmanager_site_to_site_vpn_attachment
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_site_to_site_vpn_attachment
 
 export function AwsNetworkmanagerSiteToSiteVpnAttachment(
   props: Partial<InputProps>,

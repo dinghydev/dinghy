@@ -1,4 +1,10 @@
 export {
+  AwsOpensearchApplication,
+  useAwsOpensearchApplication,
+  useAwsOpensearchApplications,
+} from './AwsOpensearchApplication.tsx'
+
+export {
   AwsOpensearchAuthorizeVpcEndpointAccess,
   useAwsOpensearchAuthorizeVpcEndpointAccesss,
 } from './AwsOpensearchAuthorizeVpcEndpointAccess.tsx'

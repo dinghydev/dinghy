@@ -50,7 +50,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3vectors_index
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3vectors_index
 
 export function AwsS3vectorsIndex(props: Partial<InputProps>) {
   const _title = (node: any) => {

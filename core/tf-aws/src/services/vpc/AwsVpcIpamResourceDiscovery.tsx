@@ -16,6 +16,11 @@ export const InputSchema = TfMetaSchema.extend({
     }).array(),
   ),
   description: resolvableValue(z.string().optional()),
+  organizational_unit_exclusion: resolvableValue(
+    z.object({
+      organizations_entity_path: z.string(),
+    }).array().optional(),
+  ),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -45,7 +50,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/vpc_ipam_resource_discovery
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_resource_discovery
 
 export function AwsVpcIpamResourceDiscovery(props: Partial<InputProps>) {
   const _title = (node: any) => {

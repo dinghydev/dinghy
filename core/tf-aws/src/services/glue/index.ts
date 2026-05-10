@@ -1,4 +1,16 @@
 export {
+  AwsGlueCatalog,
+  useAwsGlueCatalog,
+  useAwsGlueCatalogs,
+} from './AwsGlueCatalog.tsx'
+
+export {
+  DataAwsGlueCatalog,
+  useDataAwsGlueCatalog,
+  useDataAwsGlueCatalogs,
+} from './DataAwsGlueCatalog.tsx'
+
+export {
   AwsGlueCatalogDatabase,
   useAwsGlueCatalogDatabase,
   useAwsGlueCatalogDatabases,

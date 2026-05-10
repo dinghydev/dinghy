@@ -16,7 +16,6 @@ export const InputSchema = TfMetaSchema.extend({
   change_description: resolvableValue(z.string().optional()),
   data: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
@@ -29,6 +28,7 @@ export const OutputSchema = z.object({
   arn: z.string().optional(),
   date_created: z.string().optional(),
   encrypted: z.boolean().optional(),
+  id: z.string().optional(),
   owner: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/imagebuilder_component
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_component
 
 export function AwsImagebuilderComponent(props: Partial<InputProps>) {
   const _title = (node: any) => {

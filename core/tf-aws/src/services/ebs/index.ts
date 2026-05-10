@@ -75,6 +75,12 @@ export {
 } from './DataAwsEbsVolume.tsx'
 
 export {
+  AwsEbsVolumeCopy,
+  useAwsEbsVolumeCopy,
+  useAwsEbsVolumeCopys,
+} from './AwsEbsVolumeCopy.tsx'
+
+export {
   DataAwsEbsVolumes,
   useDataAwsEbsVolumess,
 } from './DataAwsEbsVolumes.tsx'

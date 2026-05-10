@@ -70,6 +70,7 @@ export const OutputSchema = z.object({
   timezone: z.string().optional(),
   title: z.string().optional(),
   user_name: z.string().optional(),
+  user_status: z.string().optional(),
   user_type: z.string().optional(),
 })
 
@@ -82,7 +83,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/identitystore_user
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/identitystore_user
 
 export function DataAwsIdentitystoreUser(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -12,13 +12,25 @@ Manages an AWS Invoice Unit
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/invoicing_invoice_unit)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/invoicing_invoice_unit)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/invoicing/AwsInvoicingInvoiceUnit.tsx)
 
 ```js
 import { AwsInvoicingInvoiceUnit } from "@dinghy/tf-aws/serviceInvoicing"
 
 <AwsInvoicingInvoiceUnit/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/invoicing_invoice_unit#import)
+
+```js
+<AwsInvoicingInvoiceUnit
+   arn = {}
+/>
 ```
 
   </TabItem>

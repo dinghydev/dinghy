@@ -21,6 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   preferred_backup_window: resolvableValue(z.string().optional()),
   preferred_maintenance_window: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
+  shard_instance_count: resolvableValue(z.number().optional()),
   subnet_ids: resolvableValue(z.string().array().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -54,7 +55,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/docdbelastic_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdbelastic_cluster
 
 export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

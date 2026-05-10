@@ -72,6 +72,7 @@ export const InputSchema = TfMetaSchema.extend({
       docs_to_investigate: z.string().optional(),
       extract_doc_id: z.string().optional(),
       nesting_level: z.string().optional(),
+      use_update_lookup: z.boolean().optional(),
     }).optional(),
   ),
   mysql_settings: resolvableValue(
@@ -90,7 +91,43 @@ export const InputSchema = TfMetaSchema.extend({
   ),
   oracle_settings: resolvableValue(
     z.object({
+      access_alternate_directly: z.boolean().optional(),
+      add_supplemental_logging: z.boolean().optional(),
+      additional_archived_log_dest_id: z.number().optional(),
+      allow_selected_nested_tables: z.boolean().optional(),
+      archived_log_dest_id: z.number().optional(),
+      archived_logs_only: z.boolean().optional(),
+      asm_password: z.string().optional(),
+      asm_server: z.string().optional(),
+      asm_user: z.string().optional(),
       authentication_method: z.string().optional(),
+      char_length_semantics: z.string().optional(),
+      convert_timestamp_with_zone_to_utc: z.boolean().optional(),
+      direct_path_no_log: z.boolean().optional(),
+      direct_path_parallel_load: z.boolean().optional(),
+      enable_homogenous_tablespace: z.boolean().optional(),
+      extra_archived_log_dest_ids: z.number().array().optional(),
+      fail_task_on_lob_truncation: z.boolean().optional(),
+      number_datatype_scale: z.number().optional(),
+      open_transaction_window: z.number().optional(),
+      oracle_path_prefix: z.string().optional(),
+      parallel_asm_read_threads: z.number().optional(),
+      read_ahead_blocks: z.number().optional(),
+      read_table_space_name: z.boolean().optional(),
+      replace_path_prefix: z.boolean().optional(),
+      retry_interval: z.number().optional(),
+      secrets_manager_oracle_asm_access_role_arn: z.string().optional(),
+      secrets_manager_oracle_asm_secret_id: z.string().optional(),
+      security_db_encryption: z.string().optional(),
+      security_db_encryption_name: z.string().optional(),
+      spatial_data_option_to_geo_json_function_name: z.string().optional(),
+      standby_delay_time: z.number().optional(),
+      trim_space_in_char: z.boolean().optional(),
+      use_alternate_folder_for_online: z.boolean().optional(),
+      use_bfile: z.boolean().optional(),
+      use_direct_path_full_load: z.boolean().optional(),
+      use_logminer_reader: z.boolean().optional(),
+      use_path_prefix: z.string().optional(),
     }).optional(),
   ),
   password: resolvableValue(z.string().optional()),
@@ -168,7 +205,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/dms_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dms_endpoint
 
 export function AwsDmsEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

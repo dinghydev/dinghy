@@ -70,6 +70,7 @@ export const OutputSchema = z.object({
     docs_to_investigate: z.string(),
     extract_doc_id: z.string(),
     nesting_level: z.string(),
+    use_update_lookup: z.boolean(),
   }).array().optional(),
   mysql_settings: z.object({
     after_connect_script: z.string(),
@@ -179,7 +180,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dms_endpoint
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dms_endpoint
 
 export function DataAwsDmsEndpoint(props: Partial<InputProps>) {
   const _title = (node: any) => {

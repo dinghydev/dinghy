@@ -1,4 +1,10 @@
 export {
+  AwsServicequotasAutoManagement,
+  useAwsServicequotasAutoManagement,
+  useAwsServicequotasAutoManagements,
+} from './AwsServicequotasAutoManagement.tsx'
+
+export {
   DataAwsServicequotasService,
   useDataAwsServicequotasService,
   useDataAwsServicequotasServices,

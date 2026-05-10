@@ -13,6 +13,7 @@ export const InputSchema = TfMetaSchema.extend({
   aws_service_access_principals: resolvableValue(z.string().array().optional()),
   enabled_policy_types: resolvableValue(z.string().array().optional()),
   feature_set: resolvableValue(z.string().optional()),
+  return_organization_only: resolvableValue(z.boolean().optional()),
 })
 
 export const OutputSchema = z.object({
@@ -68,7 +69,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/organizations_organization
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_organization
 
 export function AwsOrganizationsOrganization(props: Partial<InputProps>) {
   const _title = (node: any) => {

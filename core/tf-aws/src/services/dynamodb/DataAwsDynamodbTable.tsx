@@ -32,6 +32,10 @@ export const OutputSchema = z.object({
   deletion_protection_enabled: z.boolean().optional(),
   global_secondary_index: z.set(z.object({
     hash_key: z.string(),
+    key_schema: z.object({
+      attribute_name: z.string(),
+      key_type: z.string(),
+    }).array(),
     name: z.string(),
     non_key_attributes: z.string().array(),
     on_demand_throughput: z.object({
@@ -93,7 +97,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/dynamodb_table
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_table
 
 export function DataAwsDynamodbTable(props: Partial<InputProps>) {
   const _title = (node: any) => {

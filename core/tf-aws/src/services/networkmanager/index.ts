@@ -5,6 +5,12 @@ export {
 } from './AwsNetworkmanagerAttachmentAccepter.tsx'
 
 export {
+  AwsNetworkmanagerAttachmentRoutingPolicyLabel,
+  useAwsNetworkmanagerAttachmentRoutingPolicyLabel,
+  useAwsNetworkmanagerAttachmentRoutingPolicyLabels,
+} from './AwsNetworkmanagerAttachmentRoutingPolicyLabel.tsx'
+
+export {
   AwsNetworkmanagerConnectAttachment,
   useAwsNetworkmanagerConnectAttachment,
   useAwsNetworkmanagerConnectAttachments,
@@ -38,6 +44,12 @@ export {
   useAwsNetworkmanagerCoreNetwork,
   useAwsNetworkmanagerCoreNetworks,
 } from './AwsNetworkmanagerCoreNetwork.tsx'
+
+export {
+  DataAwsNetworkmanagerCoreNetwork,
+  useDataAwsNetworkmanagerCoreNetwork,
+  useDataAwsNetworkmanagerCoreNetworks,
+} from './DataAwsNetworkmanagerCoreNetwork.tsx'
 
 export {
   AwsNetworkmanagerCoreNetworkPolicyAttachment,
@@ -119,6 +131,12 @@ export {
   DataAwsNetworkmanagerLinks,
   useDataAwsNetworkmanagerLinkss,
 } from './DataAwsNetworkmanagerLinks.tsx'
+
+export {
+  AwsNetworkmanagerPrefixListAssociation,
+  useAwsNetworkmanagerPrefixListAssociation,
+  useAwsNetworkmanagerPrefixListAssociations,
+} from './AwsNetworkmanagerPrefixListAssociation.tsx'
 
 export {
   AwsNetworkmanagerSite,

@@ -46,7 +46,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/lambda_permission
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_permission
 
 export function AwsLambdaPermission(props: Partial<InputProps>) {
   const _title = (node: any) => {

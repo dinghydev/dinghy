@@ -12,13 +12,30 @@ Manages a Single Sign-On (SSO) Account Assignment
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_account_assignment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_account_assignment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminAccountAssignment.tsx)
 
 ```js
 import { AwsSsoadminAccountAssignment } from "@dinghy/tf-aws/serviceSsoadmin"
 
 <AwsSsoadminAccountAssignment/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_account_assignment#import)
+
+```js
+<AwsSsoadminAccountAssignment
+   instance_arn = {}
+   permission_set_arn = {}
+   principal_id = {}
+   principal_type = {}
+   target_id = {}
+   target_type = {}
+/>
 ```
 
   </TabItem>
@@ -34,7 +51,7 @@ Terraform resource for managing an AWS SSO Admin Application.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_application)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminApplication.tsx)
 
 ```js
@@ -47,7 +64,7 @@ import { AwsSsoadminApplication } from "@dinghy/tf-aws/serviceSsoadmin"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_application)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_application)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminApplication.tsx)
 
 ```js
@@ -60,7 +77,7 @@ import { DataAwsSsoadminApplication } from "@dinghy/tf-aws/serviceSsoadmin"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_application#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application#import)
 
 ```js
 <AwsSsoadminApplication
@@ -81,7 +98,7 @@ Terraform resource for managing an AWS SSO Admin Application Access Scope.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_application_access_scope)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application_access_scope)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminApplicationAccessScope.tsx)
 
 ```js
@@ -103,7 +120,7 @@ Terraform resource for managing an AWS SSO Admin Application Assignment.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_application_assignment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application_assignment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminApplicationAssignment.tsx)
 
 ```js
@@ -125,7 +142,7 @@ Terraform resource for managing an AWS SSO Admin Application Assignment Configur
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_application_assignment_configuration)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application_assignment_configuration)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminApplicationAssignmentConfiguration.tsx)
 
 ```js
@@ -138,7 +155,7 @@ import { AwsSsoadminApplicationAssignmentConfiguration } from "@dinghy/tf-aws/se
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_application_assignment_configuration#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application_assignment_configuration#import)
 
 ```js
 <AwsSsoadminApplicationAssignmentConfiguration
@@ -159,7 +176,7 @@ Terraform data source for managing AWS SSO Admin Application Assignments.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_application_assignments)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_application_assignments)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminApplicationAssignments.tsx)
 
 ```js
@@ -181,7 +198,7 @@ Terraform data source for managing AWS SSO Admin Application Providers.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_application_providers)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_application_providers)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminApplicationProviders.tsx)
 
 ```js
@@ -203,13 +220,48 @@ Manages a customer managed policy for a Single Sign-On (SSO) Permission Set
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_customer_managed_policy_attachment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_customer_managed_policy_attachment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminCustomerManagedPolicyAttachment.tsx)
 
 ```js
 import { AwsSsoadminCustomerManagedPolicyAttachment } from "@dinghy/tf-aws/serviceSsoadmin"
 
 <AwsSsoadminCustomerManagedPolicyAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsoadminCustomerManagedPolicyAttachmentsExclusive
+
+Terraform resource for managing exclusive AWS SSO Admin Customer Managed Policy Attachments.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_customer_managed_policy_attachments_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminCustomerManagedPolicyAttachmentsExclusive.tsx)
+
+```js
+import { AwsSsoadminCustomerManagedPolicyAttachmentsExclusive } from "@dinghy/tf-aws/serviceSsoadmin"
+
+<AwsSsoadminCustomerManagedPolicyAttachmentsExclusive/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_customer_managed_policy_attachments_exclusive#import)
+
+```js
+<AwsSsoadminCustomerManagedPolicyAttachmentsExclusive
+   instance_arn = {}
+   permission_set_arn = {}
+/>
 ```
 
   </TabItem>
@@ -225,7 +277,7 @@ Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singl
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_instance_access_control_attributes)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_instance_access_control_attributes)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminInstanceAccessControlAttributes.tsx)
 
 ```js
@@ -247,7 +299,7 @@ Get information on SSO Instances.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_instances)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_instances)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminInstances.tsx)
 
 ```js
@@ -269,13 +321,48 @@ Manages an IAM managed policy for a Single Sign-On (SSO) Permission Set
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_managed_policy_attachment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_managed_policy_attachment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminManagedPolicyAttachment.tsx)
 
 ```js
 import { AwsSsoadminManagedPolicyAttachment } from "@dinghy/tf-aws/serviceSsoadmin"
 
 <AwsSsoadminManagedPolicyAttachment/>
+```
+
+  </TabItem>
+  
+</Tabs>
+
+## AwsSsoadminManagedPolicyAttachmentsExclusive
+
+Terraform resource for managing exclusive AWS SSO Admin Managed Policy Attachments.
+
+
+
+<Tabs>
+  <TabItem value="Resource">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_managed_policy_attachments_exclusive)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminManagedPolicyAttachmentsExclusive.tsx)
+
+```js
+import { AwsSsoadminManagedPolicyAttachmentsExclusive } from "@dinghy/tf-aws/serviceSsoadmin"
+
+<AwsSsoadminManagedPolicyAttachmentsExclusive/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Import">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_managed_policy_attachments_exclusive#import)
+
+```js
+<AwsSsoadminManagedPolicyAttachmentsExclusive
+   instance_arn = {}
+   permission_set_arn = {}
+/>
 ```
 
   </TabItem>
@@ -291,7 +378,7 @@ Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set 
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_permissions_boundary_attachment)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_permissions_boundary_attachment)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminPermissionsBoundaryAttachment.tsx)
 
 ```js
@@ -313,7 +400,7 @@ Manages a Single Sign-On (SSO) Permission Set
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_permission_set)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_permission_set)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminPermissionSet.tsx)
 
 ```js
@@ -326,7 +413,7 @@ import { AwsSsoadminPermissionSet } from "@dinghy/tf-aws/serviceSsoadmin"
   
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_permission_set)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_permission_set)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminPermissionSet.tsx)
 
 ```js
@@ -348,7 +435,7 @@ Manages an IAM inline policy for a Single Sign-On (SSO) Permission Set
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_permission_set_inline_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_permission_set_inline_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminPermissionSetInlinePolicy.tsx)
 
 ```js
@@ -370,7 +457,7 @@ Terraform data source returning the ARN of all AWS SSO Admin Permission Sets.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_permission_sets)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_permission_sets)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminPermissionSets.tsx)
 
 ```js
@@ -392,7 +479,7 @@ Terraform data source for viewing AWS SSO Admin Principal Application Assignment
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ssoadmin_principal_application_assignments)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssoadmin_principal_application_assignments)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/DataAwsSsoadminPrincipalApplicationAssignments.tsx)
 
 ```js
@@ -414,7 +501,7 @@ Terraform resource for managing an AWS SSO Admin Trusted Token Issuer.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_trusted_token_issuer)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_trusted_token_issuer)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ssoadmin/AwsSsoadminTrustedTokenIssuer.tsx)
 
 ```js
@@ -427,7 +514,7 @@ import { AwsSsoadminTrustedTokenIssuer } from "@dinghy/tf-aws/serviceSsoadmin"
   
   <TabItem value="Import">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ssoadmin_trusted_token_issuer#import)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_trusted_token_issuer#import)
 
 ```js
 <AwsSsoadminTrustedTokenIssuer

@@ -49,6 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   schedule: resolvableValue(
     z.object({
       schedule_expression: z.string(),
+      status: z.string().optional(),
     }).optional(),
   ),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -98,7 +99,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/datasync_task
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_task
 
 export function AwsDatasyncTask(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -19,6 +19,42 @@ export const InputSchema = TfMetaSchema.extend({
       iceberg_input: z.object({
         metadata_operation: z.string(),
         version: z.string().optional(),
+        iceberg_table_input: z.object({
+          location: z.string(),
+          properties: z.record(z.string(), z.string()).optional(),
+          partition_spec: z.object({
+            spec_id: z.number().optional(),
+            fields: z.object({
+              field_id: z.number().optional(),
+              name: z.string(),
+              source_id: z.number(),
+              transform: z.string(),
+            }).array(),
+          }).optional(),
+          schema: z.object({
+            identifier_field_ids: z.number().array().optional(),
+            schema_id: z.number().optional(),
+            type: z.string().optional(),
+            fields: z.object({
+              doc: z.string().optional(),
+              id: z.number(),
+              initial_default: z.string().optional(),
+              name: z.string(),
+              required: z.boolean(),
+              type: z.string(),
+              write_default: z.string().optional(),
+            }).array(),
+          }),
+          sort_order: z.object({
+            order_id: z.number(),
+            fields: z.object({
+              direction: z.string(),
+              null_order: z.string(),
+              source_id: z.number(),
+              transform: z.string(),
+            }).array(),
+          }).optional(),
+        }).optional(),
       }),
     }).optional(),
   ),
@@ -93,6 +129,25 @@ export const InputSchema = TfMetaSchema.extend({
       region: z.string().optional(),
     }).optional(),
   ),
+  view_definition: resolvableValue(
+    z.object({
+      definer: z.string().optional(),
+      is_protected: z.boolean().optional(),
+      last_refresh_type: z.string().optional(),
+      refresh_seconds: z.number().optional(),
+      sub_object_version_ids: z.number().array().optional(),
+      sub_objects: z.string().array().optional(),
+      view_version_id: z.number().optional(),
+      view_version_token: z.string().optional(),
+      representations: z.object({
+        dialect: z.string().optional(),
+        dialect_version: z.string().optional(),
+        validation_connection: z.string().optional(),
+        view_expanded_text: z.string().optional(),
+        view_original_text: z.string().optional(),
+      }).array().optional(),
+    }).optional(),
+  ),
   view_expanded_text: resolvableValue(z.string().optional()),
   view_original_text: resolvableValue(z.string().optional()),
 })
@@ -111,7 +166,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/glue_catalog_table
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_catalog_table
 
 export function AwsGlueCatalogTable(props: Partial<InputProps>) {
   const _title = (node: any) => {

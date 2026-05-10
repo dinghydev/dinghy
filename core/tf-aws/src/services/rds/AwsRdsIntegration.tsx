@@ -24,6 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
     z.object({
       create: z.string().optional(),
       delete: z.string().optional(),
+      update: z.string().optional(),
     }).optional(),
   ),
 })
@@ -31,6 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
+  integration_identifier: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
@@ -48,7 +50,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/rds_integration
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_integration
 
 export function AwsRdsIntegration(props: Partial<InputProps>) {
   const _title = (node: any) => {

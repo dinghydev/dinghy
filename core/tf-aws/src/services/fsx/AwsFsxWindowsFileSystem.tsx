@@ -42,11 +42,14 @@ export const InputSchema = TfMetaSchema.extend({
   self_managed_active_directory: resolvableValue(
     z.object({
       dns_ips: z.string().array(),
+      domain_join_service_account_secret: z.string().optional(),
       domain_name: z.string(),
       file_system_administrators_group: z.string().optional(),
       organizational_unit_distinguished_name: z.string().optional(),
-      password: z.string(),
-      username: z.string(),
+      password: z.string().optional(),
+      password_wo: z.string().optional(),
+      password_wo_version: z.number().optional(),
+      username: z.string().optional(),
     }).optional(),
   ),
   skip_final_backup: resolvableValue(z.boolean().optional()),
@@ -84,7 +87,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/fsx_windows_file_system
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_windows_file_system
 
 export function AwsFsxWindowsFileSystem(props: Partial<InputProps>) {
   const _title = (node: any) => {

@@ -17,6 +17,35 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   arn: z.string().optional(),
   athena_properties: z.record(z.string(), z.string()).optional(),
+  authentication_configuration: z.object({
+    authentication_type: z.string(),
+    basic_authentication_credentials: z.object({
+      password: z.string(),
+      username: z.string(),
+    }).array(),
+    custom_authentication_credentials: z.record(z.string(), z.string()),
+    kms_key_arn: z.string(),
+    oauth2_properties: z.object({
+      authorization_code_properties: z.object({
+        authorization_code: z.string(),
+        redirect_uri: z.string(),
+      }).array(),
+      oauth2_client_application: z.object({
+        aws_managed_client_application_reference: z.string(),
+        user_managed_client_application_client_id: z.string(),
+      }).array(),
+      oauth2_credentials: z.object({
+        access_token: z.string(),
+        jwt_token: z.string(),
+        refresh_token: z.string(),
+        user_managed_client_application_client_secret: z.string(),
+      }).array(),
+      oauth2_grant_type: z.string(),
+      token_url: z.string(),
+      token_url_parameters_map: z.record(z.string(), z.string()),
+    }).array(),
+    secret_arn: z.string(),
+  }).array().optional(),
   catalog_id: z.string().optional(),
   connection_properties: z.record(z.string(), z.string()).optional(),
   connection_type: z.string().optional(),
@@ -40,7 +69,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/glue_connection
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/glue_connection
 
 export function DataAwsGlueConnection(props: Partial<InputProps>) {
   const _title = (node: any) => {

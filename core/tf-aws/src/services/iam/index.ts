@@ -104,6 +104,12 @@ export {
 } from './AwsIamOutboundWebIdentityFederation.tsx'
 
 export {
+  DataAwsIamOutboundWebIdentityFederation,
+  useDataAwsIamOutboundWebIdentityFederation,
+  useDataAwsIamOutboundWebIdentityFederations,
+} from './DataAwsIamOutboundWebIdentityFederation.tsx'
+
+export {
   AwsIamPolicy,
   useAwsIamPolicy,
   useAwsIamPolicys,
@@ -142,6 +148,11 @@ export {
 } from './DataAwsIamRole.tsx'
 
 export {
+  DataAwsIamRolePolicies,
+  useDataAwsIamRolePoliciess,
+} from './DataAwsIamRolePolicies.tsx'
+
+export {
   AwsIamRolePoliciesExclusive,
   useAwsIamRolePoliciesExclusive,
   useAwsIamRolePoliciesExclusives,
@@ -158,6 +169,11 @@ export {
   useAwsIamRolePolicyAttachment,
   useAwsIamRolePolicyAttachments,
 } from './AwsIamRolePolicyAttachment.tsx'
+
+export {
+  DataAwsIamRolePolicyAttachments,
+  useDataAwsIamRolePolicyAttachmentss,
+} from './DataAwsIamRolePolicyAttachments.tsx'
 
 export {
   AwsIamRolePolicyAttachmentsExclusive,

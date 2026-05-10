@@ -10,6 +10,12 @@ export {
 } from './DataAwsOutpostsAssets.tsx'
 
 export {
+  AwsOutpostsCapacityTask,
+  useAwsOutpostsCapacityTask,
+  useAwsOutpostsCapacityTasks,
+} from './AwsOutpostsCapacityTask.tsx'
+
+export {
   DataAwsOutpostsOutpost,
   useDataAwsOutpostsOutpost,
   useDataAwsOutpostsOutposts,

@@ -15,7 +15,27 @@ export const InputSchema = TfMetaSchema.extend({
       comparison: z.string(),
       value: z.string(),
     }).array().optional(),
+    aws_account_name: z.object({
+      comparison: z.string(),
+      value: z.string(),
+    }).array().optional(),
     company_name: z.object({
+      comparison: z.string(),
+      value: z.string(),
+    }).array().optional(),
+    compliance_associated_standards_id: z.object({
+      comparison: z.string(),
+      value: z.string(),
+    }).array().optional(),
+    compliance_security_control_id: z.object({
+      comparison: z.string(),
+      value: z.string(),
+    }).array().optional(),
+    compliance_security_control_parameters_name: z.object({
+      comparison: z.string(),
+      value: z.string(),
+    }).array().optional(),
+    compliance_security_control_parameters_value: z.object({
       comparison: z.string(),
       value: z.string(),
     }).array().optional(),
@@ -423,8 +443,13 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
+export const ImportSchema = z.object({
+  arn: resolvableValue(z.string()),
+})
+
 export type InputProps =
   & z.input<typeof InputSchema>
+  & z.input<typeof ImportSchema>
   & NodeProps
 
 export type OutputProps =
@@ -432,7 +457,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/securityhub_insight
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_insight
 
 export function AwsSecurityhubInsight(props: Partial<InputProps>) {
   const _title = (node: any) => {
@@ -446,6 +471,7 @@ export function AwsSecurityhubInsight(props: Partial<InputProps>) {
       _title={_title}
       _inputSchema={InputSchema}
       _outputSchema={OutputSchema}
+      _importSchema={ImportSchema}
       {...props}
     />
   )

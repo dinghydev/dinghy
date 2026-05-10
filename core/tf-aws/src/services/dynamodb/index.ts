@@ -1,4 +1,9 @@
 export {
+  DataAwsDynamodbBackups,
+  useDataAwsDynamodbBackupss,
+} from './DataAwsDynamodbBackups.tsx'
+
+export {
   AwsDynamodbContributorInsights,
   useAwsDynamodbContributorInsightss,
 } from './AwsDynamodbContributorInsights.tsx'

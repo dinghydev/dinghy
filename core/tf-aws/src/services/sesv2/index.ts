@@ -88,3 +88,9 @@ export {
   useAwsSesv2Tenant,
   useAwsSesv2Tenants,
 } from './AwsSesv2Tenant.tsx'
+
+export {
+  AwsSesv2TenantResourceAssociation,
+  useAwsSesv2TenantResourceAssociation,
+  useAwsSesv2TenantResourceAssociations,
+} from './AwsSesv2TenantResourceAssociation.tsx'

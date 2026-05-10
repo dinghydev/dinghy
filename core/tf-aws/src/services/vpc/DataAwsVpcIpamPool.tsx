@@ -42,6 +42,12 @@ export const OutputSchema = z.object({
   pool_depth: z.number().optional(),
   publicly_advertisable: z.boolean().optional(),
   source_ipam_pool_id: z.string().optional(),
+  source_resource: z.object({
+    resource_id: z.string(),
+    resource_owner: z.string(),
+    resource_region: z.string(),
+    resource_type: z.string(),
+  }).array().optional(),
   state: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
 })
@@ -55,7 +61,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/vpc_ipam_pool
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_ipam_pool
 
 export function DataAwsVpcIpamPool(props: Partial<InputProps>) {
   const _title = (node: any) => {

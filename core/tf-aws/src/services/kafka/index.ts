@@ -68,6 +68,14 @@ export {
   useAwsMskSingleScramSecretAssociations,
 } from './AwsMskSingleScramSecretAssociation.tsx'
 
+export { AwsMskTopic, useAwsMskTopic, useAwsMskTopics } from './AwsMskTopic.tsx'
+
+export {
+  DataAwsMskTopic,
+  useDataAwsMskTopic,
+  useDataAwsMskTopics,
+} from './DataAwsMskTopic.tsx'
+
 export {
   AwsMskVpcConnection,
   useAwsMskVpcConnection,

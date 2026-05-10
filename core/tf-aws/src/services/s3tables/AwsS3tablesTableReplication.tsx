@@ -40,7 +40,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/s3tables_table_replication
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3tables_table_replication
 
 export function AwsS3tablesTableReplication(props: Partial<InputProps>) {
   const _title = (node: any) => {

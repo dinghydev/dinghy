@@ -32,7 +32,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/workspaces_image
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/workspaces_image
 
 export function DataAwsWorkspacesImage(props: Partial<InputProps>) {
   const _title = (node: any) => {

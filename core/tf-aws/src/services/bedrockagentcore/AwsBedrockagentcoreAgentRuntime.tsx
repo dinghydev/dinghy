@@ -35,7 +35,19 @@ export const InputSchema = TfMetaSchema.extend({
       custom_jwt_authorizer: z.object({
         allowed_audience: z.string().array().optional(),
         allowed_clients: z.string().array().optional(),
+        allowed_scopes: z.string().array().optional(),
         discovery_url: z.string(),
+        custom_claim: z.object({
+          inbound_token_claim_name: z.string(),
+          inbound_token_claim_value_type: z.string(),
+          authorizing_claim_match_value: z.object({
+            claim_match_operator: z.string(),
+            claim_match_value: z.object({
+              match_value_string: z.string().optional(),
+              match_value_string_list: z.string().array().optional(),
+            }).array().optional(),
+          }).array().optional(),
+        }).array().optional(),
       }).array().optional(),
     }).array().optional(),
   ),
@@ -98,7 +110,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/bedrockagentcore_agent_runtime
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_agent_runtime
 
 export function AwsBedrockagentcoreAgentRuntime(props: Partial<InputProps>) {
   const _title = (node: any) => {

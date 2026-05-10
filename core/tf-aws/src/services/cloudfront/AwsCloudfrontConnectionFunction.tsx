@@ -43,7 +43,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/cloudfront_connection_function
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_connection_function
 
 export function AwsCloudfrontConnectionFunction(props: Partial<InputProps>) {
   const _title = (node: any) => {

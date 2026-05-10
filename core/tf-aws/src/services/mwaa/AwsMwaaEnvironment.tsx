@@ -108,7 +108,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/mwaa_environment
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/mwaa_environment
 
 export function AwsMwaaEnvironment(props: Partial<InputProps>) {
   const _title = (node: any) => {

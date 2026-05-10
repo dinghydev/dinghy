@@ -72,7 +72,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/licensemanager_received_license
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/licensemanager_received_license
 
 export function DataAwsLicensemanagerReceivedLicense(
   props: Partial<InputProps>,

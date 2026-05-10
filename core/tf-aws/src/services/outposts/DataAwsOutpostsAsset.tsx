@@ -19,6 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
 export const OutputSchema = z.object({
   asset_type: z.string().optional(),
   host_id: z.string().optional(),
+  instance_families: z.string().array().optional(),
   rack_elevation: z.number().optional(),
   rack_id: z.string().optional(),
 })
@@ -32,7 +33,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/outposts_asset
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/outposts_asset
 
 export function DataAwsOutpostsAsset(props: Partial<InputProps>) {
   const _title = (node: any) => {

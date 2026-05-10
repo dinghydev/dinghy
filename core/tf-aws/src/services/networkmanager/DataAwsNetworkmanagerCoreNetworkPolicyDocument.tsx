@@ -106,6 +106,7 @@ export const InputSchema = TfMetaSchema.extend({
       destination_cidr_blocks: z.string().array().optional(),
       destinations: z.string().array().optional(),
       mode: z.string().optional(),
+      routing_policy_names: z.string().array().optional(),
       segment: z.string(),
       share_with: z.string().array().optional(),
       share_with_except: z.string().array().optional(),
@@ -143,7 +144,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/networkmanager_core_network_policy_document
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkmanager_core_network_policy_document
 
 export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
   props: Partial<InputProps>,

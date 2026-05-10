@@ -12,13 +12,26 @@ Provides details about a Public ECR Authorization Token
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecrpublic_authorization_token)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ecrpublic_authorization_token)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecrpublic/DataAwsEcrpublicAuthorizationToken.tsx)
 
 ```js
 import { DataAwsEcrpublicAuthorizationToken } from "@dinghy/tf-aws/serviceEcrpublic"
 
 <DataAwsEcrpublicAuthorizationToken/>
+```
+
+  </TabItem>
+  
+  <TabItem value="Ephemeral">
+
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/ecrpublic_authorization_token)
+* [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecrpublic/EphemeralAwsEcrpublicAuthorizationToken.tsx)
+
+```js
+import { EphemeralAwsEcrpublicAuthorizationToken } from "@dinghy/tf-aws/serviceEcrpublic"
+
+<EphemeralAwsEcrpublicAuthorizationToken/>
 ```
 
   </TabItem>
@@ -34,7 +47,7 @@ Provides a list of images for a specified AWS ECR Public Repository.
 <Tabs>
   <TabItem value="Data">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/ecrpublic_images)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ecrpublic_images)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecrpublic/DataAwsEcrpublicImages.tsx)
 
 ```js
@@ -56,7 +69,7 @@ Provides a Public Elastic Container Registry Repository.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecrpublic_repository)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecrpublic_repository)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecrpublic/AwsEcrpublicRepository.tsx)
 
 ```js
@@ -78,7 +91,7 @@ Provides an Elastic Container Registry Public Repository Policy.
 <Tabs>
   <TabItem value="Resource">
 
-* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/ecrpublic_repository_policy)
+* [Terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecrpublic_repository_policy)
 * [Schema source code](https://github.com/dinghydev/dinghy/blob/main/core/tf-aws/src/services/ecrpublic/AwsEcrpublicRepositoryPolicy.tsx)
 
 ```js

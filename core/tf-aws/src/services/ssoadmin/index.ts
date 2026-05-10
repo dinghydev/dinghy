@@ -51,6 +51,12 @@ export {
 } from './AwsSsoadminCustomerManagedPolicyAttachment.tsx'
 
 export {
+  AwsSsoadminCustomerManagedPolicyAttachmentsExclusive,
+  useAwsSsoadminCustomerManagedPolicyAttachmentsExclusive,
+  useAwsSsoadminCustomerManagedPolicyAttachmentsExclusives,
+} from './AwsSsoadminCustomerManagedPolicyAttachmentsExclusive.tsx'
+
+export {
   AwsSsoadminInstanceAccessControlAttributes,
   useAwsSsoadminInstanceAccessControlAttributess,
 } from './AwsSsoadminInstanceAccessControlAttributes.tsx'
@@ -65,6 +71,12 @@ export {
   useAwsSsoadminManagedPolicyAttachment,
   useAwsSsoadminManagedPolicyAttachments,
 } from './AwsSsoadminManagedPolicyAttachment.tsx'
+
+export {
+  AwsSsoadminManagedPolicyAttachmentsExclusive,
+  useAwsSsoadminManagedPolicyAttachmentsExclusive,
+  useAwsSsoadminManagedPolicyAttachmentsExclusives,
+} from './AwsSsoadminManagedPolicyAttachmentsExclusive.tsx'
 
 export {
   AwsSsoadminPermissionsBoundaryAttachment,

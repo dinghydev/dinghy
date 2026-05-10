@@ -29,9 +29,11 @@ export const OutputSchema = z.object({
   engine_version: z.string().optional(),
   final_snapshot_name: z.string().optional(),
   id: z.string().optional(),
+  ip_discovery: z.string().optional(),
   kms_key_arn: z.string().optional(),
   maintenance_window: z.string().optional(),
   name: z.string().optional(),
+  network_type: z.string().optional(),
   node_type: z.string().optional(),
   num_replicas_per_shard: z.number().optional(),
   num_shards: z.number().optional(),
@@ -69,7 +71,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/data-sources/memorydb_cluster
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/memorydb_cluster
 
 export function DataAwsMemorydbCluster(props: Partial<InputProps>) {
   const _title = (node: any) => {

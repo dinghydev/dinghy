@@ -17,11 +17,18 @@ export const InputSchema = TfMetaSchema.extend({
   s3_access: resolvableValue(z.string()),
   zero_etl_access: resolvableValue(z.string()),
   availability_zone: resolvableValue(z.string().optional()),
+  cross_region_s3_restore_sources_access: resolvableValue(
+    z.string().array().optional(),
+  ),
   custom_domain_name: resolvableValue(z.string().optional()),
   default_dns_prefix: resolvableValue(z.string().optional()),
   delete_associated_resources: resolvableValue(z.boolean().optional()),
+  kms_access: resolvableValue(z.string().optional()),
+  kms_policy_document: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   s3_policy_document: resolvableValue(z.string().optional()),
+  sts_access: resolvableValue(z.string().optional()),
+  sts_policy_document: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -37,6 +44,17 @@ export const OutputSchema = z.object({
   created_at: z.string().optional(),
   id: z.string().optional(),
   managed_services: z.object({
+    cross_region_s3_restore_sources_access: z.object({
+      ipv4_addresses: z.set(z.string()),
+      region: z.string(),
+      status: z.string(),
+    }).array(),
+    kms_access: z.object({
+      domain_name: z.string(),
+      ipv4_addresses: z.set(z.string()),
+      kms_policy_document: z.string(),
+      status: z.string(),
+    }).array(),
     managed_s3_backup_access: z.object({
       ipv4_addresses: z.set(z.string()),
       status: z.string(),
@@ -53,6 +71,12 @@ export const OutputSchema = z.object({
     service_network_endpoint: z.object({
       vpc_endpoint_id: z.string(),
       vpc_endpoint_type: z.string(),
+    }).array(),
+    sts_access: z.object({
+      domain_name: z.string(),
+      ipv4_addresses: z.set(z.string()),
+      status: z.string(),
+      sts_policy_document: z.string(),
     }).array(),
     zero_etl_access: z.object({
       cidr: z.string(),
@@ -84,7 +108,7 @@ export type OutputProps =
   & z.output<typeof InputSchema>
   & NodeProps
 
-// https://registry.terraform.io/providers/hashicorp/aws/6.28.0/docs/resources/odb_network
+// https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_network
 
 export function AwsOdbNetwork(props: Partial<InputProps>) {
   const _title = (node: any) => {
