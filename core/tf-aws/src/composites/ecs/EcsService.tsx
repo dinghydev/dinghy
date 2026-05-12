@@ -6,7 +6,7 @@ import { useAwsLbTargetGroup } from '../../services/elbv2/AwsLbTargetGroup.tsx'
 import { resolveSubnets } from '../vpc/resolveSubnets.tsx'
 import { resolveSecurityGroups } from '../vpc/resolveSecurityGroups.tsx'
 import { EcsTask } from './EcsTask.tsx'
-import { LogGroups } from './LogGroups.tsx'
+import { LogGroups } from '../cloudwatch/LogGroups.tsx'
 import { Efs } from './Efs.tsx'
 import { ServiceOutput } from './ServiceOutput.tsx'
 import type { EcsServiceType } from './types.ts'
@@ -39,6 +39,22 @@ export function EcsService(
     security_groups: securityGroupIds(),
   })
 
+  // Build the logGroups map for the generic cloudwatch composite.
+  // `service.log.scope` decides whether we emit one group covering every
+  // container (default) or one group per container. parseEcsClusters has
+  // already populated names + merged container-level inheritance from the
+  // service-level block, so we just project to a {name -> entry} map.
+  const serviceLog = service.log as any
+  const logs: any[] = serviceLog?.scope === 'service'
+    ? [serviceLog]
+    : Object.values(service.task.containers).map((c: any) => c.log)
+  const logGroupsMap = Object.fromEntries(
+    logs.map((l) => {
+      const { scope: _scope, ...rest } = l
+      return [l.name, rest]
+    }),
+  )
+
   // Opt-in ALB wiring: a `target_group` block on the service means
   // "attach me to the cluster's ALB". The TG is rendered by <Alb> under
   // the cluster, so a tree-walk via `useAwsLbTargetGroup` finds it by the
@@ -68,7 +84,7 @@ export function EcsService(
       {...props}
     >
       <EcsTask service={service} />
-      <LogGroups service={service} />
+      <LogGroups logGroups={logGroupsMap} />
       <Subnets />
       <SecurityGroups />
       <Efs service={service} />

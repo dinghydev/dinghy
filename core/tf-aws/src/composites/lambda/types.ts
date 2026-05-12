@@ -19,6 +19,9 @@ const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   // Defaults to ['@aws-sdk/*'] for nodejs runtimes (AWS Lambda nodejs18+
   // ships @aws-sdk/* v3 client packages).
   external: z.string().array().optional(),
+  // AWS default is 3s, too tight for anything calling out to other services.
+  // 30s lets cold-start + a downstream API hop typically fit.
+  timeout: z.number().default(30),
 })
 
 const LambdaFunctionsSchema = z.record(

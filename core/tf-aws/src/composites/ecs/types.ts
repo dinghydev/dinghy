@@ -1,7 +1,6 @@
 import { deepMerge, getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsCloudwatchLogGroupInputSchema } from '../../services/cloudwatch/AwsCloudwatchLogGroup.tsx'
-import { InputSchema as AwsCloudwatchLogSubscriptionFilterInputSchema } from '../../services/cloudwatch/AwsCloudwatchLogSubscriptionFilter.tsx'
+import { LogGroupSchema } from '../cloudwatch/types.ts'
 import { InputSchema as AwsEcsClusterInputSchema } from '../../services/ecs/AwsEcsCluster.tsx'
 import { InputSchema as AwsEcsServiceInputSchema } from '../../services/ecs/AwsEcsService.tsx'
 import { InputSchema as AwsEcsTaskDefinitionInputSchema } from '../../services/ecs/AwsEcsTaskDefinition.tsx'
@@ -9,41 +8,17 @@ import { InputSchema as AwsLbInputSchema } from '../../services/elbv2/AwsLb.tsx'
 import { InputSchema as AwsLbTargetGroupInputSchema } from '../../services/elbv2/AwsLbTargetGroup.tsx'
 
 // ---------------------------------------------------------------------------
-// CloudWatch log-group + subscription-filter config. Shared shape for both
-// service-level and container-level `log` blocks. Service-level adds a
-// `scope` field (see below). All aws_cloudwatch_log_group fields pass
-// through via the partial base schema; `subscription_filters` is our
-// addition and rendered as one aws_cloudwatch_log_subscription_filter per
-// entry.
+// CloudWatch log-group config. The shared `LogGroupSchema` (group fields +
+// subscription_filters[]) lives in composites/cloudwatch/types.ts.
+// Service-level here only adds the `scope` knob: 'service' (default) → one
+// log group covers every container; 'container' → one log group per
+// container with service-level settings inherited as defaults.
 // ---------------------------------------------------------------------------
 
-const EcsLogSubscriptionFilterSchema =
-  AwsCloudwatchLogSubscriptionFilterInputSchema.partial().extend({
-    name: z.string(),
-    destination_arn: z.string(),
-    filter_pattern: z.string().default(''),
-    // Required by CloudWatch Logs when `destination_arn` is a Kinesis
-    // Firehose stream (Logs must assume a role to PutRecord on Firehose).
-    // Trust `logs.<region>.amazonaws.com`; grant `firehose:PutRecord` +
-    // `firehose:PutRecordBatch` on the stream ARN.
-    role_arn: z.string().optional(),
-  }).loose()
-
-const EcsLogSchema = AwsCloudwatchLogGroupInputSchema.partial().extend({
-  subscription_filters: EcsLogSubscriptionFilterSchema.array().default([]),
-}).loose()
-
-const EcsServiceLogSchema = EcsLogSchema.extend({
-  // 'service' — one log group covers every container (default).
-  // 'container' — one log group per container; service-level settings act
-  // as inherited defaults for each container.
+const EcsServiceLogSchema = LogGroupSchema.extend({
   scope: z.enum(['service', 'container']).default('service'),
 })
 
-export type EcsLogSubscriptionFilterType = z.output<
-  typeof EcsLogSubscriptionFilterSchema
->
-export type EcsLogType = z.output<typeof EcsLogSchema>
 export type EcsServiceLogType = z.output<typeof EcsServiceLogSchema>
 
 // ---------------------------------------------------------------------------
@@ -55,7 +30,7 @@ const EcsContainerSchema = z.object({
   name: z.string().optional().transform((v: string | undefined) => v as string),
   image: z.string(),
   essential: z.boolean().optional(),
-  log: EcsLogSchema.optional(),
+  log: LogGroupSchema.optional(),
   // Convenience map → expanded into ECS's `environment: [{name, value}]`
   // array at task-definition render time. Values are stringified so YAML
   // booleans/numbers (`true`, `42`) work without manual quoting. Merges

@@ -38,6 +38,7 @@
         "filename": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
         "handler": "index.handler",
         "runtime": "nodejs24.x",
+        "timeout": 30,
         "depends_on": [
           "aws_iam_role.awsiamrole_mylambdaalbhandlerrole"
         ],
@@ -53,6 +54,7 @@
         "filename": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
         "handler": "index.handler",
         "runtime": "nodejs24.x",
+        "timeout": 30,
         "depends_on": [
           "aws_iam_role.awsiamrole_mylambdaapigatewayhandlerrole"
         ],
