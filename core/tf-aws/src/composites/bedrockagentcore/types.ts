@@ -1,4 +1,4 @@
-import { getRenderOptions } from '@dinghy/base-components'
+import { dockerBuildImage, getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
 import { InputSchema as AwsBedrockagentcoreAgentRuntimeInputSchema } from '../../services/bedrockagentcore/AwsBedrockagentcoreAgentRuntime.tsx'
 
@@ -34,7 +34,9 @@ export function parseBedrockAgents(
     agent.agent_runtime_name ??= name.replace(/-/g, '_')
     if (agent.container_uri && !agent.agent_runtime_artifact) {
       agent.agent_runtime_artifact = [{
-        container_configuration: [{ container_uri: agent.container_uri }],
+        container_configuration: [{
+          container_uri: dockerBuildImage(agent.container_uri),
+        }],
       }]
     }
     delete agent.container_uri

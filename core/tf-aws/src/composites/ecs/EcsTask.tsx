@@ -76,9 +76,7 @@ export function EcsTask(
   }))
   const containerDefinitions = () =>
     Object.values(task.containers).map((container) => {
-      if (!container.image.includes(':')) {
-        container.image = dockerBuildImage(container.image)
-      }
+      container.image = dockerBuildImage(container.image)
       // Strip composite-only fields before spreading. `log` is consumed
       // by EcsService for the log group; `envs` is a map shorthand we
       // translate into ECS's `environment: [{name, value}]` array below.
